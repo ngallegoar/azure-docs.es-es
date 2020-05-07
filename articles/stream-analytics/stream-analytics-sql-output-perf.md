@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443599"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839120"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Salida de Azure Stream Analytics a Azure SQL Database
 
@@ -24,7 +24,7 @@ A continuación se indican algunas configuraciones de cada servicio que pueden a
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-- **Inherit Partitioning** (Heredar la creación de particiones): esta opción de configuración de salida de SQL habilita la herencia del esquema de partición de la entrada o el paso anterior de la consulta. Con esta opción habilitada, al escribir en una tabla basada en disco y tener una topología [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para su trabajo, espere ver un rendimiento superior. Esta creación de particiones se produce automáticamente para muchas otras [salidas](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). El bloqueo de tabla (TABLOCK) también se deshabilita para las inserciones masivas realizadas con esta opción.
+- **Inherit Partitioning** (Heredar la creación de particiones): esta opción de configuración de salida de SQL habilita la herencia del esquema de partición de la entrada o el paso anterior de la consulta. Con esta opción habilitada, al escribir en una tabla basada en disco y tener una topología [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para su trabajo, espere ver un rendimiento superior. Esta creación de particiones se produce automáticamente para muchas otras [salidas](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). El bloqueo de tabla (TABLOCK) también se deshabilita para las inserciones masivas realizadas con esta opción.
 
 > [!NOTE] 
 > Cuando hay más de 8 particiones de entrada, es posible que heredar el esquema de partición de entrada no sea una opción adecuada. Se ha observado este límite superior en una tabla con una columna de identidad única y un índice agrupado. En este caso, considere el uso de [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 en la consulta para especificar explícitamente el número de redactores de salida. Según el esquema y la elección de índices, sus observaciones pueden variar.

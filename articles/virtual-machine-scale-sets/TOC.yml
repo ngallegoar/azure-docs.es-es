@@ -63,6 +63,9 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Azure Resource Manager
@@ -81,6 +84,8 @@
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Administración de dominios de error en conjuntos de escalado
           href: virtual-machine-scale-sets-manage-fault-domains.md
+    - name: Imágenes
+      href: shared-image-galleries.md
     - name: Tamaños y tipos de máquinas virtuales
       href: ../virtual-machines/windows/sizes.md
       maintainContext: true
@@ -184,6 +189,51 @@
           href: virtual-machine-scale-sets-design-overview.md
         - name: Descripción de los identificadores de instancias
           href: virtual-machine-scale-sets-instance-ids.md
+    - name: Uso de imágenes
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Instancias de Shared Image Gallery
+          items:
+            - name: PowerShell
+              items:
+                - name: Creación de una galería
+                  href: ../virtual-machines/shared-images-powershell.md
+                - name: Crear una imagen
+                  items:
+                    - name: Desde una máquina virtual
+                      href: ../virtual-machines/image-version-vm-powershell.md
+                    - name: Migración desde una imagen administrada
+                      href: ../virtual-machines/image-version-managed-image-powershell.md
+                    - name: Copia desde otra galería
+                      href: ../virtual-machines/image-version-another-gallery-powershell.md
+                - name: Creación de un conjunto de escalado
+                  items:
+                    - name: Especializada
+                      href: instance-specialized-image-version-powershell.md
+                    - name: Generalizada
+                      href: instance-generalized-image-version-powershell.md
+                - name: Actualización de recursos de imagen
+                  href: ../virtual-machines/update-image-resources-powershell.md
+            - name: CLI
+              items:
+                - name: Creación de una galería
+                  href: ../virtual-machines/shared-images-cli.md
+                - name: Crear una imagen
+                  items:
+                    - name: Desde una máquina virtual
+                      href: ../virtual-machines/image-version-vm-cli.md
+                    - name: Migración desde una imagen administrada
+                      href: ../virtual-machines/image-version-managed-image-cli.md
+                    - name: Copia desde otra galería
+                      href: ../virtual-machines/image-version-another-gallery-cli.md
+                - name: Creación de un conjunto de escalado
+                  items:
+                    - name: Especializada
+                      href: instance-specialized-image-version-cli.md
+                    - name: Generalizada
+                      href: instance-generalized-image-version-cli.md
+                - name: Actualización de recursos de imagen
+                  href: ../virtual-machines/update-image-resources-cli.md
     - name: Creación de una plantilla
       items:
         - name: Más información acerca de las plantillas de conjunto de escalado

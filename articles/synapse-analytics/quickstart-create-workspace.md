@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676724"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792214"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse Analytics (versión preliminar)
 
@@ -41,7 +41,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
     | Configuración | Valor sugerido | Descripción |
     | :------ | :-------------- | :---------- |
     | **Suscripción** | *Su suscripción* | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-    | **Grupos de recursos** | *Cualquier grupo de recursos* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Grupos de recursos** | *Cualquier grupo de recursos* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Workspace name** (Nombre del área de trabajo) | mysampleworkspace | Especifica el nombre del área de trabajo, que también se utilizará para los puntos de conexión de la conexión.|
     | **Región** | Este de EE. UU. 2 | Especifica la ubicación del área de trabajo.|
     | **Data Lake Storage Gen2** | Cuenta: `storage account name` </br> Sistema de archivos: `root file system to use` | Especifica el nombre de la cuenta de almacenamiento de ADLS Gen2 que se va a usar como almacenamiento principal y el sistema de archivos que se va a usar.|
