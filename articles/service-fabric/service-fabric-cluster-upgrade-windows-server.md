@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598109"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793149"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Actualización de la versión de Service Fabric que se ejecuta en el clúster 
 
@@ -162,7 +162,7 @@ Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShel
 ## <a name="next-steps"></a>Pasos siguientes
 * [Actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md)
 * Personalización de algunas de las opciones de [configuración del clúster de Service Fabric](service-fabric-cluster-fabric-settings.md)
-* [Escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-up-down.md)
+* [Escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-in-out.md)
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
