@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 14c3dde4a86e36a4015a319e608ab8543302932f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416225"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791296"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integración e implementación continuas para el almacenamiento de datos
 
@@ -46,7 +46,7 @@ En este punto, tiene un entorno simple en el que cualquier inserción en la rama
 
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implementación continua con la tarea de implementación de Azure SQL Data Warehouse (o Database)
 
-1. Agregue una nueva tarea mediante la [tarea de implementación de Azure SQL Database](/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y rellene los campos necesarios para conectarse al almacenamiento de datos de destino. Cuando se ejecuta esta tarea, el paquete de aplicación de capa de datos generado a partir del proceso de compilación anterior se implementa en el almacenamiento de datos de destino. También puede usar la [tarea de implementación de Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)
+1. Agregue una nueva tarea mediante la [tarea de implementación de Azure SQL Database](/azure/devops/pipelines/targets/azure-sqldb) y rellene los campos necesarios para conectarse al almacenamiento de datos de destino. Cuando se ejecuta esta tarea, el paquete de aplicación de capa de datos generado a partir del proceso de compilación anterior se implementa en el almacenamiento de datos de destino. También puede usar la [tarea de implementación de Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)
 
       ![Tarea de implementación](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarea de implementación")
 
