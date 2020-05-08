@@ -5,12 +5,13 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136913"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613275"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingesta de datos de telemetría históricos
 
@@ -58,7 +59,7 @@ Siga estos pasos:
 5. Vaya a su directorio principal.
 
     ```azurepowershell-interactive 
-    cd  
+    cd
     ```
 
 6. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
@@ -73,7 +74,7 @@ Siga estos pasos:
 
     ```azurepowershell-interactive 
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
@@ -92,7 +93,7 @@ Siga estos pasos:
 - /**DeviceModel**: DeviceModel se corresponde con los metadatos del dispositivo, como el fabricante o el tipo de dispositivo, que es puerta de enlace o nodo.
 - /**Device**: Device se corresponde con un dispositivo físico presente en la granja.
 - /**SensorModel**: SensorModel se corresponde con los metadatos del sensor, por ejemplo, el fabricante, el tipo de sensor (analógico o digital) o la medida de sensor (como temperatura ambiente y presión).
-- /**Sensor**: El sensor corresponde a un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.  
+- /**Sensor**: El sensor corresponde a un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.
 
 
 |        DeviceModel   |  Sugerencias   |
@@ -108,7 +109,7 @@ Siga estos pasos:
 |   DeviceModelId     |     Identificador del modelo de dispositivo asociado.  |
 |  HardwareId          | Identificador único del dispositivo, como la dirección MAC.
 |  ReportingInterval        |   Intervalo de informes en segundos.
-|  Location            |  Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del dispositivo.   
+|  Location            |  Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del dispositivo.
 |ParentDeviceId       |    Identificador del dispositivo primario al que está conectado este dispositivo. Por ejemplo, un nodo conectado a una puerta de enlace. Un nodo tiene parentDeviceId como puerta de enlace.  |
 |    Nombre            | Nombre para identificar el recurso. Los asociados de dispositivo deben enviar un nombre que sea coherente con el nombre del dispositivo del asociado. Si el nombre del dispositivo del asociado está definido por el usuario, este mismo nombre se debe propagar a FarmBeats.|
 |     Descripción       |      Proporciona una descripción significativa. |
@@ -139,7 +140,7 @@ Para más información sobre los objetos, consulte [Swagger](https://aka.ms/Farm
 
 ### <a name="api-request-to-create-metadata"></a>Solicitud de API para crear metadatos
 
-Para realizar una solicitud de API, se combina el método HTTP (POST), la dirección URL al servicio de API y el URI a un recurso para consultar y enviar datos para crear o eliminar una solicitud. A continuación, se agregan uno o más encabezados de solicitud HTTP. La dirección URL al servicio de API es el punto de conexión de API, es decir, la dirección URL del centro de datos (https://\<sucentrodedatos>.azurewebsites.net).  
+Para realizar una solicitud de API, se combina el método HTTP (POST), la dirección URL al servicio de API y el URI a un recurso para consultar y enviar datos para crear o eliminar una solicitud. A continuación, se agregan uno o más encabezados de solicitud HTTP. La dirección URL al servicio de API es el punto de conexión de API, es decir, la dirección URL del centro de datos (https://\<sucentrodedatos>.azurewebsites.net).
 
 ### <a name="authentication"></a>Authentication
 
@@ -297,10 +298,10 @@ Sensor
 La siguiente solicitud de ejemplo crea un dispositivo. Esta solicitud tiene un código JSON de entrada como carga con el cuerpo de la solicitud.
 
 ```bash
-curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
+curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
-\"reportingInterval\": 900,  \"name\": \"Device123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",
+\"reportingInterval\": 900,  \"name\": \"Device123\",
 \"description\": \"Test Device 123\"}" *
 ```
 
