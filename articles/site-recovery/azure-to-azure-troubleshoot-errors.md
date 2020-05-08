@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390388"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738123"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solución de errores de replicación de máquinas virtuales de Azure en Azure
 
@@ -172,8 +172,6 @@ Como SUSE Linux usa vínculos simbólicos (o symlinks) para mantener una lista d
 ## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>Direcciones URL de salida o intervalos IP (código de error 151037 o 151072)
 
 Para que la replicación de Site Recovery funcione, la VM debe disponer de conectividad saliente a direcciones URL específicas. Si la máquina virtual está detrás de un firewall o usa reglas de grupo de seguridad de red (NSG) para controlar la conectividad saliente, puede encontrarse alguno de estos problemas. Si bien seguimos admitiendo el acceso de salida a través de direcciones URL, ya no se admite el uso de una lista de intervalos IP permitidos.
-
-### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Problema 1: no se pudo registrar la máquina virtual de Azure en Site Recovery (151195)
 
 #### <a name="possible-causes"></a>Causas posibles
 
