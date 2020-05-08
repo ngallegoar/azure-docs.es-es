@@ -1,30 +1,30 @@
 ### YamlMime:Landing
-title: Documentación de las pruebas comparativas de la seguridad de Azure
+title: Documentación de Azure Security Benchmark
 summary: Aprenda a proteger sus soluciones en la nube en Azure con nuestros procedimientos recomendados e instrucciones.
 metadata:
   title: Pruebas comparativas de la seguridad de Azure
-  description: La prueba comparativa de controles de la seguridad de Azure contiene recomendaciones que ayudan a mejorar la seguridad de las aplicaciones y datos en Azure.
+  description: La prueba comparativa de seguridad de Azure contiene recomendaciones que le ayudarán a mejorar la seguridad de las aplicaciones y los datos en Azure.
   services: security
   ms.service: security
   ms.subservice: fundamentals
-  ms.custom: security-baselines
+  ms.custom: security-benchmark
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: c2b36e098314af78ca3d6f28534c3d3e97697363
-  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+  ms.openlocfilehash: 7cebc4fb6e676470b46a52cf1ea62e0990e708e9
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/15/2020
-  ms.locfileid: "81393836"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82607763"
 landingContent:
 - title: Acerca de la prueba comparativa de la seguridad de Azure
   linkLists:
   - linkListType: overview
     links:
-    - text: Introducción a las pruebas comparativas de seguridad de Azure
+    - text: Introducción a Azure Security Benchmark
       url: introduction.md
     - text: Introducción a los controles de seguridad de Azure
       url: overview.md
@@ -32,13 +32,13 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Seguridad de redes
+    - text: Seguridad de las redes
       url: security-control-network-security.md
     - text: Registro y supervisión
       url: security-control-logging-monitoring.md
-    - text: Identidad y Access Control
+    - text: Control de identidades y acceso
       url: security-control-identity-access-control.md
-    - text: Protección de datos
+    - text: Protección de los datos
       url: security-control-data-protection.md
     - text: Administración de vulnerabilidades
       url: security-control-vulnerability-management.md

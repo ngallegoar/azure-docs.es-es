@@ -3,12 +3,13 @@ title: Autenticación de servicios de Azure Batch con Azure Active Directory
 description: Batch admite Azure AD para la autenticación desde el servicio de Batch. Aprenda cómo realizar la autenticación de dos maneras distintas.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116186"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608479"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -35,9 +36,9 @@ Para autenticar con Azure AD, use este punto de conexión junto con el identific
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-> [!NOTE] 
-> El punto de conexión específico del inquilino es necesario al autenticar con una entidad de servicio. 
-> 
+> [!NOTE]
+> El punto de conexión específico del inquilino es necesario al autenticar con una entidad de servicio.
+>
 > El punto de conexión específico del inquilino es opcional, aunque recomendable, al autenticar mediante autenticación integrada. Sin embargo, también puede utilizar el punto de conexión común de Azure AD. El punto de conexión común proporciona una interfaz genérica de recopilación de credenciales cuando no se proporciona un inquilino específico. El punto de conexión común es `https://login.microsoftonline.com/common`.
 >
 >
@@ -126,7 +127,7 @@ Para autenticarse con una entidad de servicio, debe asignar un RBAC a la aplicac
 1. En la sección **Configuración** de la cuenta de Batch, seleccione **Control de acceso (IAM)** .
 1. Seleccione la pestaña **Asignaciones de roles**.
 1. Seleccione **Agregar asignación de roles**.
-1. En el menú desplegable **Rol**, elija el rol *Colaborador* o *Lector* para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).  
+1. En el menú desplegable **Rol**, elija el rol *Colaborador* o *Lector* para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).
 1. Escriba el nombre de la aplicación en el campo **Seleccionar**. Seleccione la aplicación de la lista y seleccione **Guardar**.
 
 La aplicación debe aparecer ahora en la configuración de control de acceso con un rol RBAC asignado.
@@ -209,7 +210,7 @@ El identificador de inquilino identifica al inquilino de Azure AD que proporcion
 Los ejemplos de código de esta sección muestran cómo autenticar con Azure AD mediante la autenticación integrada y con una entidad de servicio. La mayoría de estos ejemplos de código usan .NET, pero los conceptos son similares para otros lenguajes.
 
 > [!NOTE]
-> Un token de autenticación de Azure AD expira después de una hora. Cuando se usa un objeto **BatchClient** de larga duración, se recomienda que recupere un token de ADAL en cada solicitud para asegurarse de que siempre tiene un token válido. 
+> Un token de autenticación de Azure AD expira después de una hora. Cuando se usa un objeto **BatchClient** de larga duración, se recomienda que recupere un token de ADAL en cada solicitud para asegurarse de que siempre tiene un token válido.
 >
 >
 > Para lograr esto en. NET, escriba un método que recupere el token de Azure AD y pase ese método a un objeto **BatchTokenCredentials** como un delegado. El método delegado se llama en cada solicitud al servicio Batch para asegurarse de que se proporciona un token válido. De forma predeterminada ADAL almacena en caché los tokens, por lo que solo se recuperará un nuevo token de Azure AD si es necesario. Para más información acerca de los tokens en Azure AD, consulte [Escenarios de autenticación para Azure AD][aad_auth_scenarios].
@@ -266,9 +267,9 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
-                                                        ClientId, 
-                                                        new Uri(RedirectUri), 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
+                                                        ClientId,
+                                                        new Uri(RedirectUri),
                                                         new PlatformParameters(PromptBehavior.Auto));
 
     return authResult.AccessToken;
@@ -307,7 +308,7 @@ Haga referencia al punto de conexión de Azure AD en el código, incluido el ide
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Haga referencia al punto de conexión del recurso para el servicio de Batch:  
+Haga referencia al punto de conexión del recurso para el servicio de Batch:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -372,7 +373,7 @@ Al usar una entidad de servicio, debe proporcionar el identificador de inquilino
 TENANT_ID = "<tenant-id>"
 ```
 
-Haga referencia al punto de conexión del recurso para el servicio de Batch:  
+Haga referencia al punto de conexión del recurso para el servicio de Batch:
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"
