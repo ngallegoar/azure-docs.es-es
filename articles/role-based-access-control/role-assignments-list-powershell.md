@@ -1,6 +1,6 @@
 ---
-title: Lista de asignaciones de roles con RBAC de Azure y Azure PowerShell
-description: Aprenda a determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y Azure PowerShell.
+title: 'Enumeración de asignaciones de roles de Azure mediante Azure PowerShell: RBAC de Azure'
+description: Obtenga información sobre cómo determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante Azure PowerShell y el control de acceso basado en roles (RBAC) de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bdf703ac29ce11749de70fa0ef5972ee284401b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931148"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735715"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lista de asignaciones de roles con RBAC de Azure y Azure PowerShell
+# <a name="list-azure-role-assignments-using-azure-powershell"></a>Enumeración de asignaciones de roles de Azure mediante Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] En este artículo se describe cómo enumerar las asignaciones de roles mediante Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Si su organización ha externalizado las funciones de administración a un proveedor de servicios que usa la [administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
+> Si su organización ha externalizado funciones de administración a un proveedor de servicios que usa la [administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md), las asignaciones de roles autorizadas por ese proveedor de servicios no se mostrarán aquí.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [PowerShell en Azure Cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell](role-assignments-powershell.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](role-assignments-powershell.md)

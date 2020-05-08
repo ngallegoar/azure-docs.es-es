@@ -11,13 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: beefad41a270233336bb9134268c98341e81a7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380803"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612289"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -93,7 +93,7 @@ Según el **paso 3**, distinguir entre las credenciales de la aplicación y las 
 
    1. Luego el token se puede pasar en el encabezado `Authorization` cuando la aplicación llame a la API de Time Series Insights.
 
-* Como alternativa, los desarrolladores pueden optar por autenticarse con MSAL. Obtenga información sobre cómo [migrar a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) y consulte el artículo [Administración de los datos de referencia de disponibilidad general en un entorno de Azure Time Series Insights con C#](time-series-insights-manage-reference-data-csharp.md) para más información. 
+* Como alternativa, los desarrolladores pueden optar por autenticarse con MSAL. Obtenga información sobre cómo [migrar a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) y consulte el artículo [Administración de los datos de referencia de disponibilidad general en un entorno de Azure Time Series Insights con C#](time-series-insights-manage-reference-data-csharp.md) para más información.
 
 ## <a name="common-headers-and-parameters"></a>Parámetros y encabezados comunes
 
@@ -104,7 +104,7 @@ En esta sección, se describen los encabezados y parámetros comunes de la solic
 
 ### <a name="authentication"></a>Authentication
 
-Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#). 
+Para realizar consultas autenticadas en las [API de REST de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), se debe pasar un token de portador OAuth 2.0 válido en el [Encabezado de autorización](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) mediante un cliente de REST de su elección (Postman, JavaScript, C#).
 
 > [!TIP]
 > Lea la [visualización de muestra del SDK de cliente](https://tsiclientsample.azurewebsites.net/) hospedado de Azure Time Series Insights para aprender a autenticarse con las API de Time Series Insights mediante programación, usando el [SDK de cliente de JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) junto con gráficos.
@@ -115,7 +115,7 @@ A continuación se describen los encabezados de solicitud obligatorios.
 
 | Encabezado de solicitud obligatorio | Descripción |
 | --- | --- |
-| Authorization | Para la autenticación y la autorización con Time Series Insights, es necesario pasar un token de portador de OAuth 2.0 válido en el encabezado de **autorización**. | 
+| Authorization | Para la autenticación y la autorización con Time Series Insights, es necesario pasar un token de portador de OAuth 2.0 válido en el encabezado de **autorización**. |
 
 > [!IMPORTANT]
 > El token se debe emitir exactamente en el recurso `https://api.timeseries.azure.com/` (también conocido como "audiencia" del token).

@@ -3,12 +3,12 @@ title: Actualización de un clúster de Azure Service Fabric independiente
 description: Obtenga información acerca de cómo actualizar la versión o configuración de un clúster de Azure Service Fabric independiente.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451820"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790650"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Actualización de un clúster de Service Fabric independiente
 
@@ -38,7 +38,7 @@ La aplicación de orquestación de revisiones (POA) es una aplicación de Servic
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprender a personalizar la [configuración de Service Fabric para el clúster](service-fabric-cluster-fabric-settings.md)
-* Aprenda cómo [escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-up-down.md)
+* Aprenda cómo [escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-in-out.md)
 * Obtenga información sobre [actualizaciones de aplicaciones](service-fabric-application-upgrade.md)
 
 <!--Image references-->
