@@ -1,23 +1,23 @@
 ---
 title: Supervisión de consultas
 titleSuffix: Azure Cognitive Search
-description: Supervise las métricas de consultas para analizar el rendimiento. Recopile y analice entradas de cadenas de consulta en registros de diagnóstico.
+description: Supervise las métricas de consultas para analizar el rendimiento. Recopile y analice entradas de cadenas de consulta en registros de recursos.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462535"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127694"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Supervisión de solicitudes de consulta en Azure Cognitive Search
 
-En este artículo se explica cómo medir el rendimiento y el volumen de las consultas mediante métricas y el registro de diagnóstico. También se explica cómo recopilar los términos de entrada que se usan en las consultas: información necesaria cuando se necesita evaluar la utilidad y la eficacia de los corpus de búsqueda.
+En este artículo se explica cómo medir el rendimiento y el volumen de las consultas mediante métricas y el registro de recursos. También se explica cómo recopilar los términos de entrada que se usan en las consultas: información necesaria cuando se necesita evaluar la utilidad y la eficacia de los corpus de búsqueda.
 
 Los datos históricos que se incluyen en las métricas se conservan durante 30 días. Para una retención más larga o para informar sobre datos operativos y cadenas de consulta, asegúrese de habilitar una [configuración de diagnóstico](search-monitor-logs.md) que especifique una opción de almacenamiento para conservar los eventos y métricas registrados.
 
@@ -118,7 +118,7 @@ Para un análisis en profundidad, abra el explorador de métricas en el menú **
 
 ## <a name="identify-strings-used-in-queries"></a>Identificación de las cadenas utilizadas en las consultas
 
-Cuando habilita el registro de diagnóstico, el sistema captura las solicitudes de consulta en la tabla **AzureDiagnostics**. Como requisito previo, debe tener habilitado el [registro de diagnóstico](search-monitor-logs.md). Para ello, especifique un área de trabajo de Log Analytics u otra opción de almacenamiento.
+Cuando habilita el registro de recursos, el sistema captura las solicitudes de consulta en la tabla **AzureDiagnostics**. Como requisito previo, debe tener habilitado el [registro de recursos](search-monitor-logs.md). Para ello, especifique un área de trabajo de Log Analytics u otra opción de almacenamiento.
 
 1. En la sección Supervisión, seleccione **Registros** para que se abra una ventana de consulta vacía en Log Analytics.
 

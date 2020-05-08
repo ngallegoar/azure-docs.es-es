@@ -1,23 +1,23 @@
 ---
-title: 'Códigos de error de API REST: Azure Machine Learning Studio (clásico) | Microsoft Docs'
+title: Códigos de error de API REST
+titleSuffix: ML Studio (classic) - Azure
 description: Estos códigos de error podrían ser devueltos por una operación en un servicio web Azure Machine Learning.
 keywords: ''
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a47550771180411277d21f7acf47ad0a28b6fb9e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79217773"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209526"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de error de API REST de Azure Machine Learning Studio (clásico)
 

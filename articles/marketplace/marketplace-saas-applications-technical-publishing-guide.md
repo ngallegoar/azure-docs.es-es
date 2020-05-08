@@ -1,19 +1,19 @@
 ---
-title: Guía de publicación técnica de aplicaciones SaaS de Azure Marketplace
+title: Guía de publicación de aplicaciones SaaS de Azure Marketplace
 description: Guía paso a paso y listas de comprobación de publicación para la publicación de aplicaciones SaaS en Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/23/2020
+ms.author: dsindona
+ms.openlocfilehash: 3a3cbe26b9fa82e236acbfd0c7e8ca3e81a7aa75
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544278"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117240"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
 
@@ -21,12 +21,7 @@ Las aplicaciones de SaaS se pueden publicar en Marketplace con tres llamadas a l
 
 ## <a name="offer-overview"></a>Información general de la oferta  
 
-Las aplicaciones de SaaS están disponibles en los escaparates de Azure. En la tabla siguiente, se describen las opciones disponibles actualmente:
-
-| Opción de escaparate | Listado | Evaluación/transacción |  
-| --- | --- | --- |  
-| AppSource | Sí | Sí |
-| Azure Marketplace | No | Sí |   
+Las aplicaciones SaaS están disponibles en Microsoft AppSource y Azure Marketplace.  Ambos escaparates admiten ofertas de lista, evaluación y transacción.
 
 **Lista:**  la opción de publicación de listado consiste en un tipo de oferta del tipo Ponerse en contacto conmigo y se usa cuando una participación de nivel de evaluación o transacción no es viable. La ventaja de este enfoque es que permite que los anunciantes con una solución en el mercado comiencen a recibir inmediatamente clientes potenciales que pueden convertirse en ventas para hacer crecer su negocio.  
 **Evaluación/Transacción:**  el cliente tiene la opción de comprar directamente o solicitar una versión de evaluación para la solución. Proporcionar una experiencia de Evaluación aumenta el nivel de compromiso que se ofrece a los clientes y permite que exploren la solución antes de comprarla. Con una experiencia de este tipo, tendrá mejores posibilidades de promoción en los escaparates, y deberían generarse más clientes potenciales y más valiosos a partir de la interacción con los clientes. Las versiones de evaluación deben incluir al menos soporte técnico gratuito durante el período de evaluación.  
@@ -110,8 +105,8 @@ Certifique la integración de Azure AD de varias maneras, en función de si la a
 **Para aplicaciones multiinquilino:**  
 
 Si ya admite Azure AD, siga estos pasos:
-1.  Registre la aplicación en Azure Portal
-2.  Habilite la característica de compatibilidad multiinquilino en Azure AD para obtener una experiencia de evaluación con un clic. Se puede encontrar información más específica [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Registre la aplicación en Azure Portal
+2.    Habilite la característica de compatibilidad multiinquilino en Azure AD para obtener una experiencia de evaluación con un clic. Se puede encontrar información más específica [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Si no está familiarizado con el SSO federado de Azure AD, haga lo siguiente: 
 1.  Registre la aplicación en Azure Portal
@@ -144,9 +139,9 @@ Microsoft hospeda la transacción comercial. Microsoft factura al cliente en su 
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho,
 
-- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace.
+* [Obtenga información](https://azuremarketplace.microsoft.com/sell) sobre Marketplace.
 
-Si está registrado y está creando una oferta nueva o trabajando en una existente,
+Para registrarse en el Centro de partner y empezar a crear una nueva oferta o trabajar en una existente, haga lo siguiente:
 
-- [Inicie sesión en Cloud Partner Portal](https://cloudpartner.azure.com) para crear o completar la oferta
-- Consulte [Oferta de aplicación SaaS de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) para más información.
+* [Inicie sesión en el Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear o completar la oferta.
+* Consulte [Creación de una oferta de aplicación SaaS](./partner-center-portal/create-new-saas-offer.md) para más información.
