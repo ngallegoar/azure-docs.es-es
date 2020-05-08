@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 78c8750de7189bad33e9bbc766a3d7543a646f6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/20/2020
+ms.openlocfilehash: a8a5914b51b56fbe8b4b7b7ba331f58ec451f975
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159360"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731890"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
 
@@ -19,7 +19,7 @@ Ahora Azure Database for MySQL le ayuda a ahorrar mediante el pago por adelantad
 
 No es necesario asignar la reserva a servidores concretos de Azure Database for MySQL. Una instancia de Azure Database for MySQL que ya está en ejecución, o las que se han implementado recientemente, obtendrán de forma automática la ventaja de los precios reservados. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuanto se compra una reserva, los costos de proceso de Azure Database for MySQL que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de MySQL. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de Azure Database for MySQL se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Database for MySQL](https://azure.microsoft.com/pricing/details/mysql/). </br>
 
-Puede comprar capacidad reservada de Azure Database for MySQL en [Azure Portal](https://portal.azure.com/). Para comprar capacidad reservada:
+Puede comprar capacidad reservada de Azure Database for MySQL en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar capacidad reservada:
 
 * Debe tener el rol de propietario al menos en una suscripción Enterprise o individual con tarifas de pago por uso.
 * En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
