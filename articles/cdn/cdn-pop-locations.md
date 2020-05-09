@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 227aae23babbcd5d734a10821d9311f91532ea4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32b76687910b2bf028365cc6df2bc8272b393f32
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770980"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837471"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura de Azure CDN según Metro 
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ En este artículo se enumeran instancias de Metro que contienen ubicaciones de p
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | Norteamérica | Toronto, Canadá<br />Vancouver, Canadá<br />Montreal, Canadá<br />Querétaro, México<br />San Juan, Puerto Rico<br />Ashburn, VA, Estados Unidos<br />Atlanta, GA, Estados Unidos<br />Boston, MA, Estados Unidos<br />Cheyenne, WY, Estados Unidos<br />Chicago, IL, Estados Unidos<br /> Dallas, TX, Estados Unidos<br />Denver, CO, Estados Unidos<br />Honolulú, HI, Estados Unidos<br />Houston, TX, Estados Unidos<br />Las Vegas, NV, Estados Unidos<br />Los Ángeles, CA, Estados Unidos<br />Miami, FL, Estados Unidos<br />Nueva York, NY, Estados Unidos<br />Newark, NJ, Estados Unidos<br />Phoenix, AZ, Estados Unidos<br />Portland, OR, Estados Unidos<br />San Antonio, TX, Estados Unidos<br />San José, CA, Estados Unidos<br />Seattle, WA, Estados Unidos | Guadalajara, México<br />Ciudad de México, México<br />Puebla, México<br />Querétaro, México<br />Atlanta, GA, Estados Unidos<br />Boston, MA, Estados Unidos<br />Chicago, IL, Estados Unidos<br />Dallas, TX, Estados Unidos<br />Denver, CO, Estados Unidos<br />Detroit, MI, Estados Unidos<br />Los Ángeles, CA, Estados Unidos<br />Miami, FL, Estados Unidos<br />Nueva York, NY, Estados Unidos<br />Filadelfia, PA, Estados Unidos<br />San José, CA, Estados Unidos<br />Seattle, WA, Estados Unidos<br />Washington, DC, Estados Unidos | Canadá<br />México<br />EE. UU. |
-| Sudamérica | Campinas, Brasil<br />Río de Janeiro, Brasil<br />Sao Paulo, Brasil<br />Santiago, Chile | Buenos Aires, Argentina<br />Río de Janeiro, Brasil<br />San Pablo, Brasil<br />Valparaíso, Chile<br />Bogotá, Colombia<br />Barranquilla, Colombia<br />Medellín, Colombia<br />Quito, Ecuador<br />Lima, Perú | Argentina<br />Brasil<br />Chile<br />Colombia<br />Ecuador<br />Perú<br />Uruguay |
+| Sudamérica | Campinas, Brasil<br />Río de Janeiro, Brasil<br />Sao Paulo, Brasil<br />Santiago, Chile<br />Bogotá, Colombia<br />Buenos Aires, Argentina | Buenos Aires, Argentina<br />Río de Janeiro, Brasil<br />San Pablo, Brasil<br />Valparaíso, Chile<br />Bogotá, Colombia<br />Barranquilla, Colombia<br />Medellín, Colombia<br />Quito, Ecuador<br />Lima, Perú | Argentina<br />Brasil<br />Chile<br />Colombia<br />Ecuador<br />Perú<br />Uruguay |
 | Europa | Viena, Austria<br />Bruselas, Bélgica<br />Sofía, Bulgaria<br />Zagreb, Croacia<br />Praga, República Checa<br />Copenhague, Dinamarca<br /> Helsinki, Finlandia<br /> Oslo, Noruega<br />Marsella, Francia<br />París, Francia<br />Berlín, Alemania<br />Fráncfort, Alemania<br />Atenas, Grecia<br />Budapest, Hungría<br />Dublín, Irlanda<br />Milán, Italia<br />Ámsterdam, Países Bajos<br />Varsovia, Polonia<br />Lisboa, Portugal<br />Bucarest, Rumanía<br />Barcelona, España<br />Madrid, España<br />Estocolmo, Suecia<br />Zurich, Suiza<br />Londres, Reino Unido<br />Manchester, Reino Unido | Viena, Austria<br />Copenhague, Dinamarca<br />Helsinki, Finlandia<br />Marsella, Francia<br />París, Francia<br />Fráncfort, Alemania<br />Milán, Italia<br />Riga, Letonia<br />Ámsterdam, Países Bajos<br />Varsovia, Polonia<br />Madrid, España<br />Estocolmo, Suecia<br />Londres, Reino Unido | Austria<br />Bulgaria<br />Dinamarca<br />Finlandia<br />Francia<br />Alemania<br />Grecia<br />Irlanda<br />Italia<br />Países Bajos<br />Polonia<br />Rusia<br />España<br />Suecia<br />Suiza<br />Reino Unido |
 | África | Ciudad del Cabo, Sudáfrica<br />Johannesburgo (Sudáfrica)<br />Lagos, Nigeria<br />Nairobi, Kenia | Johannesburgo (Sudáfrica) | Sudáfrica |
 | Oriente Medio | Dubái, Emiratos Árabes Unidos<br />Tel Aviv, Israel<br />Estambul, Turquía | Muscat, Omán<br />Fujirah, Emiratos Árabes Unidos | Qatar<br />Emiratos Árabes Unidos |

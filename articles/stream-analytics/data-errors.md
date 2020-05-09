@@ -1,27 +1,27 @@
 ---
-title: Errores de datos de registro de diagnóstico de Azure Stream Analytics
+title: Errores de datos de registro de recursos de Azure Stream Analytics
 description: En este artículo se explican los distintos errores de datos de entrada y salida que pueden producirse al usar Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 5457308d577b95201fa31bfad0a6634a7a79eda3
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 5c5da26935e489a1b9489f63b83af176921c3a5a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398129"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133799"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errores de datos de Azure Stream Analytics
 
-Los errores de datos son errores que se producen al procesar los datos.  Estos errores suelen producirse durante la deserialización de datos, la serialización y las operaciones de escritura.  Cuando se producen errores de datos, Stream Analytics escribe información detallada y eventos de ejemplo en sus registros de diagnóstico.  En algunos casos, también se proporciona un resumen de esta información a través de las notificaciones del portal.
+Los errores de datos son errores que se producen al procesar los datos.  Estos errores suelen producirse durante la deserialización de datos, la serialización y las operaciones de escritura.  Cuando se producen errores de datos, Stream Analytics escribe información detallada y eventos de ejemplo en sus registros de recursos.  En algunos casos, también se proporciona un resumen de esta información a través de las notificaciones del portal.
 
-En este artículo se describen los diferentes tipos de errores, las causas y los detalles de registro de diagnóstico de errores de datos de entrada y salida.
+En este artículo se describen los diferentes tipos de errores, las causas y los detalles de registro de recursos de errores de datos de entrada y salida.
 
-## <a name="diagnostic-log-schema"></a>Esquema de los registros de diagnóstico
+## <a name="resource-logs-schema"></a>Esquema de registros de recursos
 
-Para ver el esquema de los registros de diagnóstico, consulte [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema). El siguiente JSON es un valor de ejemplo para el campo **Propiedades** de un registro de diagnóstico para un error de datos.
+Para ver el esquema de los registros de recursos, consulte [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md#resource-logs-schema). El siguiente código JSON es un valor de ejemplo para el campo **Propiedades** de un registro de recursos para un error de datos.
 
 ```json
 {
@@ -43,7 +43,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: El tipo de compresión de entrada seleccionado no coincide con los datos.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto: Los mensajes con los errores de deserialización, como el tipo de compresión no válido, se eliminan de la entrada.
 * Detalles del registro
    * Identificador de mensaje de entrada. Para el centro de eventos, el identificador es el PartitionId, el desplazamiento y el número de secuencia.
@@ -58,7 +58,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: El encabezado de los datos de entrada no es válido. Por ejemplo, un archivo CSV tiene columnas con nombres duplicados.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto: Los mensajes con los errores de deserialización, como un encabezado no válido, se eliminan de la entrada.
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -74,7 +74,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: Las columnas de entrada definidas con CREATE TABLE o a través de TIMESTAMP BY no existen.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto: Los eventos con las columnas que faltan se eliminan de la entrada.
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -95,7 +95,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: No se puede convertir la entrada al tipo especificado en la instrucción CREATE TABLE.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto: Los eventos con error de conversión de tipo se eliminan de la entrada.
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -115,7 +115,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: Los datos de entrada no tienen el formato correcto. Por ejemplo, la entrada no es un JSON válido.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto: Todos los eventos en el mensaje después de que se haya encontrado un error de datos no válidos se eliminan de la entrada.
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -135,7 +135,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: El valor de la expresión TIMESTAMP BY no se puede convertir a datetime.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto: Los eventos con marca de tiempo de entrada no válida se eliminan de la entrada.
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -152,7 +152,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: El valor de timestampColumn TIMESTAMP BY OVER es NULL.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto: Los eventos con clave de marca de tiempo de entrada no válida se eliminan de la entrada.
 * Detalles del registro
    * La carga útil real hasta algunos kilobytes.
@@ -167,7 +167,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que la ventana de tolerancia de llegada tardía.
 * Notificación del portal proporcionada: No
-* Nivel de registro de diagnóstico: Information
+* Nivel de registro de recursos: Information
 * Impacto:  Los eventos de entrada con retardo se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
@@ -183,7 +183,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que 5 minutos.
 * Notificación del portal proporcionada: No
-* Nivel de registro de diagnóstico: Information
+* Nivel de registro de recursos: Information
 * Impacto:  Los eventos de entrada tempranos se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
@@ -199,7 +199,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: Se considera que el evento está desorganizado según la ventana de tolerancia de desorganización definida.
 * Notificación del portal proporcionada: No
-* Nivel de registro de diagnóstico: Information
+* Nivel de registro de recursos: Information
 * Impacto:  Los eventos de entrada fuera de secuencia se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Carga útil real hasta algunos kilobytes.
@@ -216,7 +216,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: La columna necesaria para la salida no existe. Por ejemplo, no existe ninguna columna definida como Azure Table PartitionKey.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto:  Todos los errores de conversión de datos de salida que incluyen la falta de una columna obligatoria se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Detalles del registro
    * Nombre de la columna y el identificador de registro o parte del registro.
@@ -231,7 +231,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: El valor de la columna no se ajusta a la salida. Por ejemplo, el nombre de la columna no es una columna de tabla de Azure válida.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto:  Todos los errores de conversión de datos de salida que incluyen un nombre de columna no válido se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Detalles del registro
    * Nombre de la columna y el identificador del registro o parte del registro.
@@ -246,7 +246,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: No se puede convertir una columna a un tipo válido en la salida. Por ejemplo, el valor de la columna no es compatible con las restricciones o el tipo definido en la tabla de SQL.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto:  Todos los errores de conversión de datos de salida que incluyen un error de conversión de tipo se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Detalles del registro
    * Nombre de la columna.
@@ -262,7 +262,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: El valor del mensaje es mayor que el tamaño de salida admitido. Por ejemplo, un registro es mayor que 1 MB para la salida de un centro de eventos.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto:  Todos los errores de conversión de datos de salida que incluyen un límite de tamaño de registro superado se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Detalles del registro
    * Identificador del registro o parte del registro.
@@ -277,7 +277,7 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 
 * Causa: Un registro ya contiene una columna con el mismo nombre que una columna del sistema. Por ejemplo, una salida de CosmosDB con un identificador con nombre de columna cuando la columna del identificador es una columna diferente.
 * Notificación del portal proporcionada: Sí
-* Nivel de registro de diagnóstico: Advertencia
+* Nivel de registro de recursos: Advertencia
 * Impacto:  Todos los errores de conversión de datos de salida que incluyen una clave duplicada se controlan según la opción [Directiva de salida de datos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Detalles del registro
    * Nombre de la columna.
