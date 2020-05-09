@@ -92,6 +92,8 @@
       href: create-manage-projects.md
     - name: Adición de una herramienta por primera vez
       href: how-to-add-tool-first-time.md
+    - name: Preparación para trabajar con herramientas de ISV/Movere
+      href: prepare-isv-movere.md
     - name: Incorporación de herramientas de evaluación
       href: how-to-assess.md
     - name: Implementación de una aplicación de Azure Migrate

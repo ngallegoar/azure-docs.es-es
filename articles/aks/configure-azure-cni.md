@@ -4,12 +4,12 @@ description: Aprenda a configurar redes de Azure CNI (avanzadas) en Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 6f194cb97850fcb24e4789ac0ba39b6f03d99e6e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617378"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207503"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ Se asignan direcciones IP para los pods y los nodos del clúster desde la subred
 > El número de direcciones IP necesarias debe incluir consideraciones sobre las operaciones de actualización y escalabilidad. Si establece el intervalo de direcciones IP para que solo se admita un número fijo de nodos, no se podrá actualizar o escalar el clúster.
 >
 > - Al **actualizar** el clúster de AKS, se implementa un nuevo nodo en el clúster. Los servicios y las cargas de trabajo comienzan a ejecutarse en el nuevo nodo y el nodo antiguo se quita del clúster. Para realizar este proceso de actualización gradual es necesario que haya disponible un bloque adicional de direcciones IP. El recuento de nodos es entonces `n + 1`.
->   - Esta consideración es especialmente importante al utilizar grupos de nodos de Windows Server (actualmente en versión preliminar en AKS). Los nodos de Windows Server en AKS no aplican automáticamente las actualizaciones de Windows, en su lugar, se realiza una actualización en el grupo de nodos. Esta actualización implementa los nuevos nodos con las revisiones de seguridad y de la imagen de nodo base de Windows Server 2019 más recientes. Para más información sobre cómo actualizar un grupo de nodos de Windows Server, consulte el artículo de [actualización de un grupo de nodos en AKS][nodepool-upgrade].
+>   - Esta consideración es especialmente importante al utilizar grupos de nodos de Windows Server. Los nodos de Windows Server en AKS no aplican automáticamente las actualizaciones de Windows, en su lugar, se realiza una actualización en el grupo de nodos. Esta actualización implementa los nuevos nodos con las revisiones de seguridad y de la imagen de nodo base de Windows Server 2019 más recientes. Para más información sobre cómo actualizar un grupo de nodos de Windows Server, consulte el artículo de [actualización de un grupo de nodos en AKS][nodepool-upgrade].
 >
 > - Al **escalar** un clúster de AKS, se implementa un nuevo nodo en el clúster. Los servicios y las cargas de trabajo comienzan a ejecutarse en el nuevo nodo. El intervalo de direcciones IP debe tener en cuenta cómo podría escalar verticalmente el número de nodos y los pods que el clúster puede admitir. También se debe incluir un nodo adicional para las operaciones de actualización. El recuento de nodos es entonces `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 

@@ -4,14 +4,14 @@ description: Obtenga información sobre la configuración y cambio de la directi
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292060"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232077"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -97,6 +97,26 @@ Cuando no se especifica, estas propiedades tendrán los valores predeterminados 
 
 Consulte [esta sección](how-to-manage-indexing-policy.md#indexing-policy-examples) para obtener ejemplos de directivas de indexación a fin de incluir y excluir rutas de acceso.
 
+## <a name="includeexclude-precedence"></a>Precedencia de inclusión o exclusión
+
+Si las rutas de acceso incluidas y las rutas de acceso excluidas tienen un conflicto, la ruta de acceso más precisa tiene prioridad.
+
+Este es un ejemplo:
+
+**Ruta de acceso incluida**: `/food/ingredients/nutrition/*`
+
+**Ruta de acceso excluida**: `/food/ingredients/*`
+
+En este caso, la ruta de acceso incluida tiene prioridad sobre la ruta de acceso excluida porque es más precisa. En función de estas rutas de acceso, los datos de la ruta de acceso `food/ingredients` o anidados dentro de ella se excluirán del índice. La excepción serían los datos dentro de la ruta de acceso incluida: `/food/ingredients/nutrition/*`, que se indexaría.
+
+Estas son algunas reglas para la prioridad de las rutas de acceso incluidas y excluidas en Azure Cosmos DB:
+
+- Las rutas de acceso más profundas son más precisas que las rutas más estrechas. Por ejemplo: `/a/b/?` es más preciso que `/a/?`.
+
+- `/?` es más preciso que `/*`. Por ejemplo, `/a/?` es más preciso que `/a/*`, por lo que `/a/?` tiene prioridad.
+
+- La ruta de acceso `/*` debe ser una ruta de acceso incluida o una ruta de acceso excluida.
+
 ## <a name="spatial-indexes"></a>Índices espaciales
 
 Al definir una ruta de acceso espacial en la directiva de indexación, debe definir qué índice ```type``` se debe aplicar a esa ruta de acceso. Los tipos posibles para los índices espaciales son:
@@ -114,6 +134,8 @@ De forma predeterminada, Azure Cosmos DB no creará ningún índice espacial. Si
 ## <a name="composite-indexes"></a>Índices compuestos
 
 Las consultas que tienen una cláusula `ORDER BY` con dos o más propiedades requieren un índice compuesto. También puede definir un índice compuesto para mejorar el rendimiento de muchas consultas de igualdad y de intervalo. De forma predeterminada, no hay índices compuestos definidos, por lo que debe [agregar índices compuestos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) según sea necesario.
+
+A diferencia de las rutas de acceso incluidas o excluidas, no se puede crear una ruta de acceso con el carácter comodín `/*`. Cada ruta de acceso compuesta tiene un carácter `/?` implícito al final de la ruta de acceso que no es necesario especificar. Las rutas de acceso compuestas conducen a un valor escalar y éste es el único valor que se incluye en el índice compuesto.
 
 Al definir un índice compuesto, especifique lo siguiente:
 

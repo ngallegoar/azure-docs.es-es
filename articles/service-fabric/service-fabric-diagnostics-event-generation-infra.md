@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75376943"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791823"
 ---
 # <a name="monitoring-the-cluster"></a>Supervisar el clúster
 
@@ -74,7 +74,7 @@ Si tiene que ponerse en contacto con el soporte técnico de Microsoft para que l
 
 ## <a name="measuring-performance"></a>Medir el rendimiento
 
-La medición del rendimiento del clúster le ayudará a entender cómo controla la carga y toma decisiones sobre el escalado del clúster (obtenga más información sobre el escalado de un clúster [en Azure](service-fabric-cluster-scale-up-down.md) o [localmente](service-fabric-cluster-windows-server-add-remove-nodes.md)). Al analizar los registros en el futuro, los datos de rendimiento también son útiles cuando se comparan con las acciones que usted o las aplicaciones han llevado a cabo. 
+La medición del rendimiento del clúster le ayudará a entender cómo controla la carga y toma decisiones sobre el escalado del clúster (obtenga más información sobre el escalado de un clúster [en Azure](service-fabric-cluster-scale-in-out.md) o [localmente](service-fabric-cluster-windows-server-add-remove-nodes.md)). Al analizar los registros en el futuro, los datos de rendimiento también son útiles cuando se comparan con las acciones que usted o las aplicaciones han llevado a cabo. 
 
 Para obtener una lista de contadores de rendimiento para recopilar datos cuando se usa Service Fabric, vea [Performance Counters in Service Fabric](service-fabric-diagnostics-event-generation-perf.md) (Contadores de rendimiento de Service Fabric).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662083"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738089"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estructura de registros de Azure Monitor
 La capacidad de obtener rápidamente información sobre sus datos mediante una [consulta de registro](log-query-overview.md) es una versátil característica de Azure Monitor. Para crear consultas eficaces y útiles, debe comprender algunos conceptos básicos, como dónde se encuentran los datos que desea y cómo se estructuran. En este artículo se proporcionan los conceptos básicos que necesita para empezar a trabajar.
@@ -54,16 +54,17 @@ A diferencia de un área de trabajo de Log Analytics, una aplicación de Applica
 
 | Tabla | Descripción | 
 |:---|:---|
-| availabilityResults | Datos de resumen de las pruebas de disponibilidad. |
-| browserTimings      | Datos sobre el rendimiento del cliente, como el tiempo que se tardan en procesar los datos entrantes. |
-| customEvents        | Eventos personalizados creados por la aplicación. |
-| customMetrics       | Métricas personalizadas creadas por la aplicación. |
-| dependencies        | Llamadas desde la aplicación a componentes externos. |
-| exceptions          | Excepciones generadas por el entorno de ejecución de la aplicación. |
-| pageViews           | Datos sobre cada vista del sitio web con información del explorador. |
-| performanceCounters | Medidas de rendimiento de los recursos de proceso que respaldan la aplicación. |
-| Solicitudes            | Detalles de cada solicitud de aplicación.  |
-| traces              | Resultados del seguimiento distribuido. |
+| availabilityResults   | Datos de resumen de las pruebas de disponibilidad.
+| browserTimings      |     Datos sobre el rendimiento del cliente, como el tiempo que se tardan en procesar los datos entrantes.
+| customEvents        | Eventos personalizados creados por la aplicación.
+| customMetrics       | Métricas personalizadas creadas por la aplicación.
+| dependencies        | Llamadas desde la aplicación a otros componentes (incluidos componentes externos) registradas a través de TrackDependency(), por ejemplo, llamadas a la API de REST, a una base de datos o a un sistema de archivos. 
+| exceptions            | Excepciones producidas por el tiempo de ejecución de la aplicación, captura las excepciones del lado servidor y cliente (exploradores).
+| pageViews           | Datos sobre cada vista del sitio web con información del explorador.
+| performanceCounters   | Medidas de rendimiento de los recursos de proceso que respaldan la aplicación, por ejemplo, contadores de rendimiento de Windows.
+| Solicitudes            | Solicitudes recibidas por su aplicación. Por ejemplo, se registra un registro de solicitud independiente para cada solicitud HTTP que recibe la aplicación web. 
+| traces                | Registros detallados (seguimientos) emitidos a través de código de aplicación/plataformas de registro, registrados a través de TrackTrace().
+
 
 Puede ver el esquema para cada tabla de la pestaña **Esquema** en Log Analytics para la aplicación.
 

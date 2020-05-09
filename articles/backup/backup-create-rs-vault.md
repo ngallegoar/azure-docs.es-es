@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear almacenes de Recovery Service
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672843"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744942"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -121,7 +121,7 @@ Le recomendamos encarecidamente que revise la configuración predeterminada para
 
 - El **tipo de replicación de almacenamiento** se establece de forma predeterminada en **Redundante geográficamente**. Una vez que configure la copia de seguridad, se deshabilitará la opción para modificar. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar y modificar la configuración.
 
-- La **eliminación temporal** está **habilitada** de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) para revisar y modificar la configuración.
+- La **eliminación temporal** está **habilitada** de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para revisar y modificar la configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

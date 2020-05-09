@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128472"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207251"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -87,13 +87,19 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
     Si la solicitud tiene errores de entrega, su estado será **Undelivered** (Sin enviar) y su subestado, **Entregado parcialmente**.
 
-    Si hay errores de entrega, en el panel de detalles de la solicitud, habrá un recuento de los errores de entrega.
+    Si hay errores de entrega, en el panel de detalles de la solicitud se mostrará un recuento de los errores de entrega.
 
 1. Haga clic en el recuento para ver todos los errores de entrega de la solicitud.
 
 ### <a name="reprocess-a-request"></a>Nuevo procesamiento de una solicitud
 
-Si se produce un error en una solicitud, puede intentar procesarla de nuevo. Solo se pueden volver a procesar las solicitudes que tienen el estado **Error en la entrega** o **Entregado parcialmente** y una fecha de finalización inferior a una semana.
+Si se encuentra un error después de desencadenar una solicitud de reprocesamiento de un paquete de acceso, debe esperar mientras el sistema vuelve a procesar la solicitud. El sistema vuelve a intentar el procesamiento varias veces durante varias horas, por lo que no se puede forzar el reprocesamiento durante este tiempo. 
+
+Solo se pueden volver a procesar las solicitudes que tienen el estado **Error en la entrega** o **Entregado parcialmente** y una fecha de finalización inferior a una semana.
+
+- Si el error se corrige durante la ventana de pruebas, el estado de la solicitud cambiará a **Entrega**. La solicitud se volverá a procesar sin acciones adicionales por parte del usuario.
+
+- Si el error no se corrige durante la ventana de pruebas, el estado de la solicitud puede ser **Error en la entrega** o **Entregado parcialmente**. A continuación, puede usar el botón **Reprocesar**. Tendrá siete días para volver a procesar la solicitud.
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
