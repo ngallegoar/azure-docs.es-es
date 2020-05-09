@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de Fundación CAF, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de una base de Cloud Adoption Framework (CAF) para Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458478"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901300"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azure
 
@@ -31,7 +31,7 @@ Esta implementación incorpora varios servicios de Azure que se usan para propor
   - La región de Azure permitida para recursos y grupos de recursos
   - Las SKU de la cuenta de almacenamiento permitida (se eligen durante la implementación)
   - SKU de máquinas virtuales de Azure permitidas (se eligen durante la implementación)
-  - La implementación de Network Watch requerida 
+  - La implementación de Network Watcher requerida 
   - El cifrado de transferencia segura de la cuenta de almacenamiento de Azure requerido
   - Tipos de recursos denegados (se elige durante la implementación)  
 - Iniciativas
