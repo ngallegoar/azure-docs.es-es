@@ -5,24 +5,18 @@ description: Obtenga información sobre las limitaciones conocidas al ejecutar c
 services: container-service
 ms.topic: article
 ms.date: 12/18/2019
-ms.openlocfilehash: 934acf06a779c1c3b0b13e74b196b174dd944e66
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886677"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208013"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
 En Azure Kubernetes Service (AKS) puede crear un grupo de nodos que ejecuta Windows Server como sistema operativo invitado en los nodos. Estos nodos pueden ejecutar aplicaciones de contenedor nativas de Windows, como las integradas en .NET Framework. Como existen diferencias importantes en la forma en que los sistemas operativos Windows y Linux proporcionan compatibilidad con contenedores, algunas características de Kubernetes comunes y relacionadas con el pod no están actualmente disponibles para grupos de nodos de Windows.
 
-En este artículo se describen algunas de las limitaciones y los conceptos de sistema operativo para los nodos de Windows Server en AKS. Los grupos de nodos para Windows Server actualmente están en versión preliminar.
-
-> [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS][aks-support-policies]
-> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
+En este artículo se describen algunas de las limitaciones y los conceptos de sistema operativo para los nodos de Windows Server en AKS.
 
 ## <a name="which-windows-operating-systems-are-supported"></a>¿Qué sistemas operativos de Windows se admiten?
 
@@ -66,7 +60,7 @@ Los nodos de Windows Server en AKS deben estar *actualizados* para obtener las 
 
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>¿Cómo se realiza la rotación de la entidad de servicio para el grupo de nodos de Windows?
 
-Durante la versión preliminar, los grupos de nodos de Windows no admiten la rotación de la entidad de servicio como limitación de la versión preliminar. Para actualizar la entidad de servicio, cree un nuevo grupo de nodos de Windows y migre los pods del grupo anterior al nuevo. Cuando termine, elimine el grupo de nodos antiguo.
+Los grupos de nodos de Windows no admiten la rotación de la entidad de servicio. Para actualizar la entidad de servicio, cree un nuevo grupo de nodos de Windows y migre los pods del grupo anterior al nuevo. Cuando termine, elimine el grupo de nodos antiguo.
 
 ## <a name="how-many-node-pools-can-i-create"></a>¿Cuántos grupos de nodos puedo crear?
 
@@ -120,6 +114,5 @@ Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de n
 [aks-faq]: faq.md
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
-[preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c1b5b9ac5d7c3f04dd3ae2e843425a5ead0d4c07
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 059e77c063d00ef850a171507ca2e06422ade426
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419809"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82191777"
 ---
 # <a name="azure-synapse-analytics-preview-release-notes"></a>Notas de la versión de Azure Synapse Analytics (versión preliminar)
 
@@ -29,8 +29,9 @@ En este artículo se describen las limitaciones y los problemas con Azure Synaps
 - Problema e impacto en el cliente: Las áreas de trabajo creadas por el SDK no pueden iniciar Synapse Studio.
 
 - Solución alternativa: Complete los pasos siguientes: 
-  1.    Cree el área de trabajo mediante la ejecución de `az synapse workspace create`2.    Extraiga el identificador de identidad administrada mediante la ejecución de `$identity=$(az synapse workspace show --name {workspace name}  --resource-group {resource group name} --query "identity.principalId")`
-  3.    Agregue el área de trabajo como rol a la cuenta de almacenamiento mediante la ejecución de ` az role assignment create --role "Storage Blob Data Contributor" --assignee-object-id {identity } --scope {storage account resource id}`
+  1.    Cree el área de trabajo mediante la ejecución de `az synapse workspace create`.
+  2.    Extraiga el identificador de identidad administrada mediante la ejecución de `$identity=$(az synapse workspace show --name {workspace name}  --resource-group {resource group name} --query "identity.principalId")`.
+  3.    Agregue el área de trabajo como rol a la cuenta de almacenamiento mediante la ejecución de ` az role assignment create --role "Storage Blob Data Contributor" --assignee-object-id {identity } --scope {storage account resource id}`.
   4.    Agregue la regla de firewall mediante la ejecución de ` az synapse firewall-rule create --name allowAll --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255 `.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -39,4 +40,4 @@ En este artículo se describen las limitaciones y los problemas con Azure Synaps
 * [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
 * [Creación de un grupo de SQL](quickstart-create-sql-pool.md)
 * [Uso de SQL a petición](quickstart-sql-on-demand.md)
-* [Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar)](quickstart-create-apache-spark-pool.md)
+* [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool.md)

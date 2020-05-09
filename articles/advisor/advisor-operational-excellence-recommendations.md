@@ -3,12 +3,12 @@ title: Mejora de la excelencia operativa para las suscripciones de Azure con Azu
 description: Uso de Advisor para optimizar y obtener experiencia en la excelencia operativa de sus suscripciones de Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4133fbe40c0fc1bdaf9c3f734bc19f94437c9acb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443072"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187423"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Obtención de la excelencia operacional con Azure Advisor
 
@@ -36,7 +36,7 @@ Azure Policy es un servicio de Azure que se usa para crear, asignar y administra
 1. Administre las etiquetas mediante Azure Policy: Esta directiva agrega o reemplaza la etiqueta y el valor especificados cuando se crea o actualiza cualquier recurso. Los recursos existentes se pueden corregir con una tarea de corrección. Además, no modifica las etiquetas de los grupos de recursos.
 2. Aplique los requisitos de cumplimiento geográfico mediante Azure Policy: La directiva permite restringir las ubicaciones que la organización puede especificar al implementar los recursos. 
 3. Especifique las SKU de máquina virtual permitidas para las implementaciones: Esta directiva permite especificar un conjunto de SKU de máquina virtual que su organización puede implementar.
-4. Aplique "Auditar las máquinas virtuales que no utilizan discos administrados" con Azure Policy.
+4. Aplicación de "Auditar máquinas virtuales que no usan disco administrado" con Azure Policy
 5. Use "Heredar una etiqueta del grupo de recursos" mediante Azure Policy: la directiva agrega o reemplaza la etiqueta y el valor del grupo de recursos primario especificados cuando se crea o actualiza cualquier recurso. Los recursos existentes se pueden corregir con una tarea de corrección.
 
 ## <a name="next-steps"></a>Pasos siguientes

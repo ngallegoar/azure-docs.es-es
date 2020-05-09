@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18~~~~
-ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087251"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838525"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante Azure Portal
 
@@ -78,7 +78,7 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
    [![Elija los tipos de datos en los encabezados de columna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Cambie el nombre de los encabezados de columna si es necesario. El nombre de la columna de clave es necesario para combinarlo con la propiedad correspondiente en el origen del evento. 
+1. Cambie el nombre de los encabezados de columna si es necesario. El nombre de la columna de clave es necesario para combinarlo con la propiedad correspondiente en el origen del evento.
 
    > [!IMPORTANT]
    > Asegúrese de que los nombres de la columna de clave de datos de referencia coincidan exactamente con el nombre del evento en los datos entrantes, incluida la distinción entre mayúsculas y minúsculas. Los nombres de la columna no de clave se usan para aumentar los datos entrantes con los valores de datos de referencia correspondientes.

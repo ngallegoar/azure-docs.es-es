@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/06/2020
-ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.date: 04/28/2020
+ms.openlocfilehash: 5c55c8076e41f2c4ae19bce5f75600b5872722f6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887357"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232009"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de la replicación geográfica activa
 
@@ -25,7 +25,12 @@ La replicación geográfica activa es una característica de Azure SQL Database 
 > [!NOTE]
 > La replicación geográfica activa no es compatible con Instancia administrada. Para la conmutación por error geográfica de las instancias administradas, use [Grupos de conmutación por error automática](sql-database-auto-failover-group.md).
 
-La replicación geográfica activa se ha diseñado como solución de continuidad empresarial que permite que la aplicación realice una rápida recuperación ante desastres de bases de datos individuales en el caso de que se produzca un desastre regional o una interrupción a gran escala. Si la replicación geográfica está habilitada, la aplicación puede iniciar la conmutación por error en una base de datos secundaria de otra región de Azure. Se admiten hasta cuatro bases de datos secundarias en las mismas o en otras regiones, y las secundarias también se pueden usar para las consultas de acceso de solo lectura. La aplicación o el usuario deben iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica mediante la replicación geográfica activa.
+La replicación geográfica activa se ha diseñado como solución de continuidad empresarial que permite que la aplicación realice una rápida recuperación ante desastres de bases de datos individuales en el caso de que se produzca un desastre regional o una interrupción a gran escala. Si la replicación geográfica está habilitada, la aplicación puede iniciar la conmutación por error en una base de datos secundaria de otra región de Azure. Se admiten hasta cuatro bases de datos secundarias en las mismas o en otras regiones, y las secundarias también se pueden usar para las consultas de acceso de solo lectura. La aplicación o el usuario deben iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. 
+
+> [!NOTE]
+> La replicación geográfica activa replica los cambios al transmitir el registro de transacciones de la base de datos. No está relacionada con la [replicación transaccional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication), que replica los cambios mediante la ejecución de comandos DML (INSERT, UPDATE, DELETE).
+
+En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica mediante la replicación geográfica activa.
 
 ![replicación geográfica activa](./media/sql-database-active-geo-replication/geo-replication.png )
 

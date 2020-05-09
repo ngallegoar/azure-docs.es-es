@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: f049dc6d1261a8201cf79d1779e522b30d13c4b0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409437"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133303"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solución de problemas en las consultas de Azure Stream Analytics
 
 En este artículo se describen problemas comunes con el desarrollo de consultas a Stream Analytics y cómo solucionarlos.
 
-En este artículo se describen los problemas comunes relacionados con el desarrollo de consultas de Azure Stream Analytics, cómo solucionar problemas con las consultas y cómo corregir estos problemas. Muchos pasos para solucionar problemas requieren que los registros de diagnóstico estén habilitados para el trabajo de Stream Analytics. Si los registros de diagnóstico están habilitados, vea [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md).
+En este artículo se describen los problemas comunes relacionados con el desarrollo de consultas de Azure Stream Analytics, cómo solucionar problemas con las consultas y cómo corregir estos problemas. Muchos pasos para solucionar problemas requieren que los registros de recursos estén habilitados para el trabajo de Stream Analytics. Si los registros de recursos no están habilitados, vea [Solución de problemas de Azure Stream Analytics mediante registros de recursos](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="query-is-not-producing-expected-output"></a>La consulta no produce el resultado esperado
 
@@ -43,9 +43,9 @@ En este artículo se describen los problemas comunes relacionados con el desarro
 
 5.  Asegúrese de que las directivas de ordenación de eventos están configuradas según lo previsto. Vaya a **Configuración** y seleccione [**Ordenación de eventos**](stream-analytics-out-of-order-and-late-events.md). La directiva *no* se aplica cuando usa el botón **Probar** para probar la consulta. El resultado es una diferencia entre probar en el explorador frente a ejecutar el trabajo de producción. 
 
-6. Depure mediante auditorías y registros de diagnóstico:
-    - Use [Registros de auditoría](../azure-resource-manager/resource-group-audit.md) y filtre para identificar y depurar errores.
-    - Use [registros de diagnóstico de trabajo](stream-analytics-job-diagnostic-logs.md) para identificar y depurar errores.
+6. Use registros de recursos y actividad para la depuración:
+    - Use [Registros de actividad](../azure-resource-manager/resource-group-audit.md) y filtre para identificar y depurar errores.
+    - Use [registros de recursos de trabajo](stream-analytics-job-diagnostic-logs.md) para identificar y depurar errores.
 
 ## <a name="resource-utilization-is-high"></a>El uso de recursos es alto
 

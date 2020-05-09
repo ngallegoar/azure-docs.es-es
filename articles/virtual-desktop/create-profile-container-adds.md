@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81264952"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607289"
 ---
 # <a name="create-an-fslogix-profile-container-with-azure-files"></a>Creación de un contenedor de perfiles de FSLogix con Azure Files
 
@@ -219,7 +219,7 @@ Ahora todo lo que tiene que hacer es asegurarse de que el perfil que creó exist
 
 Para comprobar el perfil:
 
-1. Abra un explorador y vaya al [cliente de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Abra un explorador y vaya al [cliente de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Inicie sesión con la cuenta de usuario asignada al grupo de Escritorio remoto.
 

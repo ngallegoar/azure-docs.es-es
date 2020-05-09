@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886507"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128004"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guía de migración de ADAL a MSAL para Java
 
@@ -42,6 +42,10 @@ Si ya ha trabajado con el punto de conexión de Azure AD para desarrolladores (
 ## <a name="scopes-not-resources"></a>Ámbitos, no recursos
 
 ADAL4J adquiere tokens para los recursos, en tanto que MSAL para Java adquiere tokens para los ámbitos. Muchas clases de MSAL para Java requieren un parámetro de ámbito. Este parámetro es una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Consulte [Ámbitos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) para ver ámbitos de ejemplo.
+
+Puede agregar el sufijo del ámbito `/.default` al recurso para ayudar a migrar las aplicaciones del punto de conexión v1.0 (ADAL) al punto de conexión de la plataforma de identidad de Microsoft (MSAL). Por ejemplo, el valor de recurso de `https://graph.microsoft.com`, tiene como valor de ámbito equivalente `https://graph.microsoft.com/.default`.  Si el recurso no está en el formato de dirección URL, sino en el del identificador de recurso `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, todavía puede usar el valor de ámbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+
+Para más información sobre los diferentes tipos de ámbitos, consulte los artículos [Permisos y consentimiento en la plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) y [Ámbitos para una API web que acepta tokens de la versión 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes).
 
 ## <a name="core-classes"></a>Clases principales
 
@@ -109,7 +113,8 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-`IAuthenticationResult` devuelve un token de acceso y un token de identificador, mientras que el nuevo token de actualización se almacena en la memoria caché. La aplicación también contendrá ahora un elemento IAccount:
+`IAuthenticationResult` devuelve un token de acceso y un token de identificador, mientras que el nuevo token de actualización se almacena en la memoria caché.
+La aplicación también contendrá ahora un elemento IAccount:
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
@@ -118,6 +123,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 Para usar los tokens que se encuentran ahora en la memoria caché, llame a:
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```

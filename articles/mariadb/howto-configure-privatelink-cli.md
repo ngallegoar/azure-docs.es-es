@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: c28c5494c1cff2c198a94ea6b92003ae74ee2c8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371807"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creación y administración de Private Link en Azure Database for MariaDB mediante la CLI
@@ -20,7 +20,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde Azure Database for MariaDB admita los planes de tarifa de uso general y optimizado para memoria.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir esta guía, necesitará:
 
@@ -180,7 +180,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 6. (Opcional) Examine las bases de datos del menú izquierdo y cree o consulte información de la base de datos MariaDB
 
-8. Cierre la conexión de Escritorio remoto a myVm.
+8. Cierre la conexión de escritorio remoto a myVm.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Cuando ya no se necesite, puede utilizar az group delete para quitar el grupo de recursos y todos los recursos que contiene: 
