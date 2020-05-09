@@ -21,7 +21,7 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
@@ -29,6 +29,9 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Bases de datos y servidores
@@ -102,17 +105,17 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-manage-firewall-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -130,31 +133,31 @@
           href: howto-configure-ssl.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
     - name: Denegación del acceso a una red pública
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-deny-public-network-access.md
     - name: Acceso a registros de servidor
       items:
         - name: Registros de consultas lentos
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: howto-configure-server-logs-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-cli.md
         - name: Registros de auditoría
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
             - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
@@ -178,23 +181,23 @@
           href: howto-troubleshoot-query-performance.md
     - name: Protección contra amenazas avanzada
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-manage-vnet-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-cli.md
     - name: Private Link
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-configure-privatelink-portal.md
         - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Reinicio del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
