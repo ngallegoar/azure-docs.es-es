@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436133"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106583"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Preguntas más frecuentes: preguntas generales sobre Azure Security Center
 
