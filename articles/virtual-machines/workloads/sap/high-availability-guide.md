@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9cf3d739054422d219bb6536129c5eb22a2994a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225516"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594889"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure
 
@@ -452,7 +452,7 @@ Para simplificar la implementación y configuración, en este artículo usamos l
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Requisitos previos
 Antes de comenzar, asegúrese de cumplir los requisitos previos que se describen en las secciones siguientes. Además, asegúrese de revisar todos los recursos que aparecen en la sección [Recursos][sap-ha-guide-2].
 
-En este artículo usamos las plantillas de Azure Resource Manager para [SAP NetWeaver de tres niveles](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/). Consulte [Plantillas de Azure Resource Manager para SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/) para ver información general útil sobre las plantillas.
+En este artículo usamos las plantillas de Azure Resource Manager para [SAP NetWeaver de tres niveles](https://github.com/Azure/azure-quickstart-templates/). Consulte [Plantillas de Azure Resource Manager para SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/) para ver información general útil sobre las plantillas.
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Recursos
 Estos artículos también se refieren a las implementaciones de SAP en Azure:
@@ -677,8 +677,8 @@ Las plantillas de 3 niveles de Azure Resource Manager también admiten escenario
 
 Aquí puede obtener las plantillas de Azure Resource Manager para el escenario de ejemplo que se describe en este artículo:
 
-* [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
-* [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
+* [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/)
 
 Para preparar la plantilla 1 de arquitectura, siga estos pasos:
 
@@ -768,8 +768,8 @@ Puede usar estas plantillas de Azure Resource Manager para simplificar la implem
 
 Aquí puede obtener las plantillas de Azure Resource Manager para este escenario de implementación:
 
-* [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
+* [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Preparación de la infraestructura de la plantilla 3 de arquitectura

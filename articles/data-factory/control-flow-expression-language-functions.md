@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1ce6da555bc8777bdb9671df1567f06227b74b6c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417205"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192806"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 
@@ -267,7 +267,7 @@ Estas funciones son útiles en las condiciones y se pueden usar para evaluar cua
 | [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Devuelve el día del componente de mes de una marca de tiempo. |
 | [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Devuelve el día del componente de semana de una marca de tiempo. |
 | [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Devuelve el día del componente de año de una marca de tiempo. |
-| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Devuelve la fecha de una marca de tiempo. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Devuelve la marca de tiempo como cadena en formato opcional. |
 | [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. Consulte también [addToTime](control-flow-expression-language-functions.md#addToTime). |
 | [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. Consulte también [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
 | [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Devuelve el inicio del día de una marca de tiempo. |

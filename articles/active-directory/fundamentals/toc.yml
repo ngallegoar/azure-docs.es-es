@@ -50,7 +50,7 @@
     - name: Guía de implementación
       items:
         - name: 'Implementación de 30, 90 y más'
-      href: active-directory-deployment-checklist-p2.md
+          href: active-directory-deployment-checklist-p2.md
     - name: Almacenamiento de datos
       items:
         - name: Almacenamiento de datos de identidad para Europa

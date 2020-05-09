@@ -655,7 +655,7 @@
             - name: Escala
               items:
                 - name: Escalado horizontal manual
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: Escalado horizontal mediante programación
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Escalado vertical del tipo de nodo principal

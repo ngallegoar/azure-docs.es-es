@@ -1,0 +1,104 @@
+- name: "Versión Fall\_2019 de Windows Virtual Desktop"
+  href: ../index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Windows Virtual Desktop?
+      href: ../overview.md
+    - name: "Documentación de la versión Spring\_2020"
+      href: ../create-host-pools-azure-marketplace.md
+- name: Tutoriales
+  items:
+    - name: 1. Creación de un inquilino
+      href: tenant-setup-azure-active-directory.md
+    - name: 2. Creación de entidades de servicio y asignaciones de roles con PowerShell
+      href: create-service-principal-role-powershell.md
+    - name: 3. Creación de un grupo de hosts con Azure Marketplace
+      href: create-host-pools-azure-marketplace-2019.md
+    - name: 4. Administración de grupos de aplicaciones
+      href: manage-app-groups-2019.md
+    - name: 5. Creación de un grupo host para validar las actualizaciones del servicio
+      href: create-validation-host-pool-2019.md
+    - name: 6. Configuración de alertas de servicio
+      href: set-up-service-alerts-2019.md
+- name: Instrucciones
+  items:
+    - name: Conexión a recursos de Windows Virtual Desktop
+      items:
+        - name: Conexión con el cliente web
+          href: connect-web-2019.md
+        - name: Conexión con el cliente de Android
+          href: connect-android-2019.md
+        - name: Conexión con el cliente macOS
+          href: connect-macos-2019.md
+        - name: Conexión con el cliente iOS
+          href: connect-ios-2019.md
+    - name: Creación de un grupo de hosts y de hosts de sesión
+      items:
+        - name: Plantilla del Administrador de recursos de Azure
+          href: create-host-pools-arm-template.md
+        - name: PowerShell
+          href: create-host-pools-powershell-2019.md
+        - name: "Implementación de una máquina virtual con Windows\_7"
+          href: deploy-windows-7-virtual-machine.md
+        - name: Implementación de un host de sesión basado en GPU
+          href: configure-vm-gpu-2019.md
+        - name: Expansión de un grupo de hosts existente
+          href: expand-existing-host-pool-2019.md
+    - name: Configuración de los valores de un grupo de hosts
+      items:
+        - name: Propiedades de RDP
+          href: customize-rdp-properties-2019.md
+        - name: Tipo de asignación de escritorio personal
+          href: configure-host-pool-personal-desktop-assignment-type-2019.md
+    - name: Escalado automático de hosts de sesiones
+      href: set-up-scaling-script.md
+    - name: Personalización de fuente
+      href: customize-feed-virtual-desktop-users-2019.md
+    - name: Implementación de la herramienta de administración
+      items:
+        - name: Plantilla del Administrador de recursos de Azure
+          href: manage-resources-using-ui.md
+        - name: PowerShell
+          href: manage-resources-using-ui-powershell.md
+    - name: Uso de diagnósticos de servicios
+      items:
+        - name: Implementación de la herramienta de diagnósticos
+          href: deploy-diagnostics.md
+        - name: Uso de diagnósticos con Log Analytics
+          href: diagnostics-log-analytics-2019.md
+    - name: Publicación de aplicaciones integradas
+      href: publish-apps-2019.md
+- name: Conceptos
+  items:
+    - name: Entorno de Windows Virtual Desktop
+      href: environment-setup-2019.md
+    - name: Acceso delegado en Windows Virtual Desktop
+      href: delegated-access-virtual-desktop-2019.md
+    - name: Métodos de equilibrio de carga para un grupo host
+      href: host-pool-load-balancing-2019.md
+    - name: Ubicaciones de datos
+      href: data-locations-2019.md
+- name: Solución de problemas
+  items:
+    - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'
+      href: troubleshoot-set-up-overview-2019.md
+    - name: Identificación y diagnóstico de problemas
+      href: diagnostics-role-service-2019.md
+    - name: Creación de los grupos de inquilinos y de host
+      href: troubleshoot-set-up-issues-2019.md
+    - name: Configuración de máquina virtual de host de sesión
+      href: troubleshoot-vm-configuration-2019.md
+    - name: Solución de problemas de máquinas virtuales de Windows 7
+      href: troubleshoot-windows-7-vm.md
+    - name: Solución de problemas de la herramienta de administración
+      href: troubleshoot-management-tool.md
+    - name: Conexiones de servicios de Escritorio remoto
+      href: troubleshoot-service-connection-2019.md
+    - name: "PowerShell para Windows\_Virtual\_Desktop"
+      href: troubleshoot-powershell-2019.md
+- name: Referencia
+  items:
+    - name: PowerShell
+      href: /powershell/windows-virtual-desktop/overview
+    - name: API DE REST
+      href: /rest/api/virtual-desktop/

@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330363a78aa9b642f4794cee40bbf040d3484b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653712"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611388"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -66,9 +67,9 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 
 A veces, los usuarios pueden recibir mensajes de Multi-Factor Authentication debido a un error de la solicitud de autenticación. No se trata de errores de configuración, sino que advertencias intencionales que explican por qué se denegó una solicitud de autenticación.
 
-| Código de error | Mensaje de error | Pasos recomendados | 
+| Código de error | Mensaje de error | Pasos recomendados |
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Se escribió un código incorrecto\Código OATH incorrecto | El usuario escribió un código incorrecto. Pídale que solicite un código nuevo o que vuelva a iniciar sesión para intentarlo nuevamente. | 
+| **OathCodeIncorrect** | Se escribió un código incorrecto\Código OATH incorrecto | El usuario escribió un código incorrecto. Pídale que solicite un código nuevo o que vuelva a iniciar sesión para intentarlo nuevamente. |
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Se alcanzó el número máximo de reintentos de código | El usuario no pudo completar el desafío de comprobación demasiadas veces. En función de lo que indique la configuración puede que ahora un administrador deba desbloquearlo.  |
 | **SMSAuthFailedWrongCodeEntered** | Se escribió un código incorrecto/OTP de mensaje de texto incorrecto | El usuario escribió un código incorrecto. Pídale que solicite un código nuevo o que vuelva a iniciar sesión para intentarlo nuevamente. |
 
