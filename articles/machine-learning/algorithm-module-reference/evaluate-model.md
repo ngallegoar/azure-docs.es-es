@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/24/2020
-ms.openlocfilehash: c1bcbb6a368c9c80f968c48c1a6e0bc6c95133d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456411"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129843"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -33,36 +33,15 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 > Si no está familiarizado con la evaluación de modelos, le recomendamos la serie de vídeos del Dr. Stephen Elston, como parte del [curso de aprendizaje automático](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) de EdX. 
 
 
-Hay tres formas de usar el módulo **Evaluate Model**:
+## <a name="how-to-use-evaluate-model"></a>Cómo usar Evaluar modelo
+1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) al puerto de entrada izquierdo de **Evaluate Model** (Evaluar modelo). 
 
-+ Generar puntuaciones sobre los datos de entrenamiento y evaluar el modelo según estas puntuaciones.
-+ Generar puntuaciones en el modelo, pero compararlas con las de un conjunto de pruebas reservado.
-+ Comparar las puntuaciones de dos modelos diferentes pero relacionados, usando el mismo conjunto de datos.
+2. (Opcional) Conecte la salida de **Scored dataset** (Conjunto de datos puntuado) de [Score Model](./score-model.md) (Puntuar modelo) para el segundo modelo a la entrada **derecha** de **Evaluate Model** (Evaluar modelo). Puede comparar fácilmente los resultados de dos modelos distintos con los mismos datos. Los dos algoritmos de entrada deben ser del mismo tipo. O bien, puede comparar las puntuaciones de las dos ejecuciones diferentes con los mismos datos con parámetros diferentes.
 
-## <a name="use-the-training-data"></a>Usar datos de aprendizaje
+    > [!NOTE]
+    > El tipo de algoritmo hace referencia a la "clasificación de dos clases", la "clasificación multiclase", la "regresión" y la "agrupación en clústeres" en los "algoritmos de aprendizaje automático". 
 
-Para evaluar un modelo, debe conectar un conjunto de datos que contenga un conjunto de puntuaciones y columnas de entrada.  Si no hay otros datos disponibles, puede usar el conjunto de datos original.
-
-1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) a la entrada de **Evaluate Model**. 
-2. Haga clic en el módulo **Evaluate Model** (Evaluar modelo) y ejecute el experimento para generar las puntuaciones de la evaluación.
-
-## <a name="use-testing-data"></a>Usar datos de prueba
-
-Un escenario común en el aprendizaje automático consiste en separar el conjunto de datos original en conjuntos de datos de entrenamiento y prueba, mediante el módulo [Split](./split-data.md) (Dividir) o el módulo [Partition and Sample](./partition-and-sample.md) (Partición y ejemplo). 
-
-1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](score-model.md) (Puntuar modelo) a la entrada de **Evaluate Model**. 
-2. Conecte la salida del módulo Split Data (Dividir datos) que contenga los datos de prueba con la entrada de la derecha de **Evaluate Model**.
-2. Haga clic en el módulo **Evaluate Model** y luego en **Ejecutar seleccionado** para generar las puntuaciones de la evaluación.
-
-## <a name="compare-scores-from-two-models"></a>Comparar las puntuaciones de dos modelos
-
-También puede conectar un segundo conjunto de puntuaciones a **Evaluate Model**.  Las puntuaciones podrían ser un conjunto de evaluación compartido con resultados conocidos o un conjunto de resultados de un modelo diferente para los mismos datos.
-
-Esta característica es útil porque permite comparar fácilmente los resultados de dos modelos distintos con los mismos datos. O bien, puede comparar las puntuaciones de las dos ejecuciones diferentes con los mismos datos con parámetros diferentes.
-
-1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](score-model.md) (Puntuar modelo) a la entrada de **Evaluate Model**. 
-2. Conecte la salida del módulo Score Model (Puntuar modelo) para el segundo modelo a la entrada derecha de **Evaluate Model**.
-3. Envíe la canalización.
+3. Envíe la canalización para generar las puntuaciones de evaluación.
 
 ## <a name="results"></a>Results
 

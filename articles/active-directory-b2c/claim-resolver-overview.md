@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396078"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229653"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -90,7 +90,14 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {Context:IPAddress} | Dirección IP del usuario. | 11.111.111.11 |
 | {Context:KMSI} | Indica si se ha seleccionado la casilla [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). |  true |
 
-### <a name="non-protocol-parameters"></a>Parámetros sin protocolo
+### <a name="claims"></a>Notificaciones 
+
+| Notificación | Descripción | Ejemplo |
+| ----- | ----------- | --------|
+| {Claim:claim type} | Identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal.  Por ejemplo: `{Claim:displayName}` o `{Claim:objectId}`. | Valor de tipo de notificación.|
+
+
+### <a name="oauth2-key-value-parameters"></a>Parámetros clave-valor de OAuth2
 
 Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth2 se puede asignar a una notificación en el recorrido del usuario. Por ejemplo, la solicitud de la aplicación puede incluir un parámetro de cadena de consulta con el nombre de `app_session`, `loyalty_number` o cualquier cadena de consulta personalizada.
 
@@ -118,6 +125,7 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 | {SAML: AllowCreate} | Valor del atributo `AllowCreate` del elemento `NameIDPolicy` de la solicitud SAML. | True |
 | {SAML:ForceAuthn} | Valor del atributo `ForceAuthN` del elemento `AuthnRequest` de la solicitud SAML. | True |
 | {SAML:ProviderName} | Valor del atributo `ProviderName` del elemento `AuthnRequest` de la solicitud SAML.| Contoso.com |
+| {SAML:RelayState} | El parámetro de cadena de consulta `RelayState`.| 
 
 ## <a name="using-claim-resolvers"></a>Uso de solucionadores de notificaciones
 
@@ -131,7 +139,7 @@ Puede usar solucionadores de notificaciones con los siguientes elementos:
 |Perfil técnico de [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico de [transformación de notificaciones](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico de un [proveedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
-|Perfil técnico [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico de un [proveedor de identidades SAML](saml-identity-provider-technical-profile.md)| `OutputClaim`| 1, 2|
 |Perfil técnico [autoafirmado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |

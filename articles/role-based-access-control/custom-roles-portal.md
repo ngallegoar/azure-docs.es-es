@@ -1,6 +1,6 @@
 ---
-title: 'Creación o actualización de roles personalizados de Azure mediante Azure Portal (versión preliminar): RBAC de Azure'
-description: Aprenda a crear roles personalizados de Azure para el control de acceso basado en roles de Azure (RBAC de Azure) mediante Azure Portal. Esto incluye cómo enumerar, crear, actualizar y eliminar roles personalizados.
+title: 'Creación o actualización de roles personalizados de Azure mediante Azure Portal: RBAC de Azure'
+description: Aprenda a crear roles personalizados de Azure mediante Azure Portal y el control de acceso basado en roles de Azure (RBAC de Azure). Esto incluye cómo enumerar, crear, actualizar y eliminar roles personalizados.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,23 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77674702"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734186"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Creación o actualización de roles personalizados de Azure mediante Azure Portal (versión preliminar)
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creación o actualización de roles personalizados de Azure mediante Azure Portal
 
-> [!IMPORTANT]
-> Los roles personalizados de Azure que usan Azure Portal se encuentran actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Si los [roles integrados de Azure](built-in-roles.md) no satisfacen las necesidades específicas de la organización, puede crear sus propios roles personalizados de Azure. Al igual que en el caso de los roles integrados, puede asignar los roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción y grupo de recursos. Los roles personalizados se almacenan en un directorio de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada directorio puede tener hasta 5000 roles personalizados. Se pueden crear roles personalizados con Azure Portal, Azure PowerShell, la CLI de Azure o la API REST. En este artículo se describe cómo crear roles personalizados mediante Azure Portal (actualmente en versión preliminar).
+Si los [roles integrados de Azure](built-in-roles.md) no satisfacen las necesidades específicas de la organización, puede crear sus propios roles personalizados de Azure. Al igual que en el caso de los roles integrados, puede asignar los roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción y grupo de recursos. Los roles personalizados se almacenan en un directorio de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada directorio puede tener hasta 5000 roles personalizados. Se pueden crear roles personalizados con Azure Portal, Azure PowerShell, la CLI de Azure o la API REST. En este artículo se describe cómo crear roles personalizados mediante Azure Portal.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -77,7 +72,7 @@ Si lo prefiere, puede seguir estos pasos para comenzar un rol personalizado desd
 
 1. En Azure Portal, abra una suscripción o un grupo de recursos donde desee que se pueda asignar el rol personalizado y, a continuación, abra **Control de acceso (IAM)** .
 
-1. Haga clic en **Agregar** y, a continuación, haga clic en **Agregar rol personalizado (versión preliminar)** .
+1. Haga clic en **Agregar** y, a continuación, haga clic en **Agregar rol personalizado**.
 
     ![Menú de incorporación de rol personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -109,7 +104,7 @@ Si lo prefiere, puede especificar la mayoría de los valores del rol personaliza
     }
     ```
 
-1. En el archivo JSON, especifique los valores para las distintas propiedades. A continuación se muestra un ejemplo con algunos valores agregados. Para información sobre las distintas propiedades, consulte [Descripciones de definiciones de roles para los recursos de Azure](role-definitions.md).
+1. En el archivo JSON, especifique los valores para las distintas propiedades. A continuación se muestra un ejemplo con algunos valores agregados. Para obtener información sobre las distintas propiedades, consulte [Descripciones de definiciones de roles para los recursos de Azure](role-definitions.md).
 
     ```json
     {
@@ -141,7 +136,7 @@ Si lo prefiere, puede especificar la mayoría de los valores del rol personaliza
     
 1. En Azure Portal, abra la página**Control de acceso (IAM)** .
 
-1. Haga clic en **Agregar** y, a continuación, haga clic en **Agregar rol personalizado (versión preliminar)** .
+1. Haga clic en **Agregar** y, a continuación, haga clic en **Agregar rol personalizado**.
 
     ![Menú de incorporación de rol personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -260,7 +255,7 @@ Cuando se excluye un permiso, se agrega como un elemento `NotActions` o `NotData
 
 ## <a name="step-5-assignable-scopes"></a>Paso 5: Ámbitos asignables
 
-En la pestaña **Ámbitos asignables** se especifica dónde está disponible el rol personalizado para su asignación, como en una suscripción o un grupo de recursos. En función de cómo haya decidido comenzar, esta pestaña podría mostrar el ámbito en el que abrió la página Control de acceso (IAM). No se admite establecer el ámbito asignable en el ámbito raíz ("/"). En esta versión preliminar, no se puede agregar un grupo de administración como ámbito asignable.
+En la pestaña **Ámbitos asignables** se especifica dónde está disponible el rol personalizado para su asignación, como en una suscripción o un grupo de recursos. En función de cómo haya decidido comenzar, esta pestaña podría mostrar el ámbito en el que abrió la página Control de acceso (IAM). No se admite establecer el ámbito asignable en el ámbito raíz ("/"). Actualmente, no se puede agregar un grupo de administración como ámbito asignable.
 
 1. Haga clic en **Agregar ámbitos asignables** para abrir el panel Agregar ámbitos asignables.
 
@@ -352,6 +347,6 @@ Siga estos pasos para ver los roles personalizados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Creación de un rol personalizado con Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Roles personalizados en Azure](custom-roles.md)
+- [Tutorial: Creación de un rol personalizado de Azure mediante Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Roles personalizados en los recursos de Azure](custom-roles.md)
 - [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md)

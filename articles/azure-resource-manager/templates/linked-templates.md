@@ -3,12 +3,12 @@ title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 3525c89c0db30c2061108b4d185c65552c73af28
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: f71d8cc62daf68b158bed444da1446e016194b56
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583791"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609313"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -367,7 +367,7 @@ Para pasar los valores de parámetro alineados, use la propiedad **parameters**.
 
 No se pueden usar los parámetros alineados ni un vínculo a un archivo de parámetros. La implementación produce un error cuando ambos (`parametersLink` y `parameters`) se especifican.
 
-## `contentVersion`
+## <a name="contentversion"></a>contentVersion
 
 No tiene que proporcionar la propiedad `contentVersion` para la propiedad `templateLink` o `parametersLink`. Si no proporciona un `contentVersion`, se implementará la versión actual de la plantilla. Si proporciona un valor, este debe coincidir con la versión de la plantilla vinculada o, de lo contrario, se producirá un error durante la implementación.
 

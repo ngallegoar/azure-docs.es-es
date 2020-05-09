@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 97acac61d0397a4e13fb64d39a6aba92e4de2afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f01ea47a01c700580e8c3172d1b445a098c164f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80123305"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187501"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -167,4 +167,4 @@ Si su cuenta no está asignada a uno de los roles anteriores, se debe asignar a 
 
 - Aprenda a crear una [topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Crear un emparejamiento de redes virtuales con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md), o bien con [plantillas de Resource Manager](template-samples.md)
-- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales
+- Crear y asignar [definiciones de Azure Policy](policy-samples.md) para redes virtuales

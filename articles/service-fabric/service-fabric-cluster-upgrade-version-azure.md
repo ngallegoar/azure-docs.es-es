@@ -3,12 +3,12 @@ title: Actualización de la versión de Azure Service Fabric de un clúster
 description: Actualice el código de Service Fabric o la configuración que ejecuta un clúster de Service Fabric, incluida la configuración del modo de actualización del clúster, la incorporación de puertos de aplicación, las revisiones del sistema operativo, etc. ¿Qué se puede esperar cuando se realizan actualizaciones?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451819"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789607"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Actualización de la versión de Service Fabric de un clúster
 
@@ -110,7 +110,7 @@ Output:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprender a personalizar la [configuración de Service Fabric para el clúster](service-fabric-cluster-fabric-settings.md)
-* Aprenda cómo [escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-up-down.md)
+* Aprenda cómo [escalar o reducir horizontalmente el clúster](service-fabric-cluster-scale-in-out.md)
 * Obtenga información sobre [actualizaciones de aplicaciones](service-fabric-application-upgrade.md)
 
 <!--Image references-->

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725893"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692255"
 ---
 # <a name="known-issues"></a>Problemas conocidos #
 
@@ -46,9 +46,10 @@ La versión actual tiene los siguientes problemas conocidos.
 
 - En la ventana de DVR del contenido en directo, cuando el contenido finaliza, la escala de tiempo seguirá creciendo hasta que se realice una búsqueda en el área o hasta que llegue al final de la presentación.
 - Las presentaciones en directo en Firefox con MSE habilitado tienen algunos problemas.
-- Los recursos que son de audio o vídeo no se reproducen con la tecnología AzureHtml5JS.
-  - Si desea reproducir recursos sin audio o vídeo, puede hacerlo insertando audio o vídeo en blanco con la [herramienta Explorador de Azure Media Services](https://aka.ms/amse).
-    - [Aquí](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio) encontrará instrucciones sobre cómo insertar audio silencioso
+
+- Los recursos que son de audio no se reproducirán con la tecnología AzureHtml5JS.
+  - Si desea reproducir recursos sin audio, puede hacerlo insertando audio en blanco con la [herramienta Explorador de Azure Media Services](https://aka.ms/amse).
+  - [Aquí](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio) encontrará instrucciones sobre cómo insertar audio silencioso
 
 ## <a name="flash"></a>Intermitente ##
 

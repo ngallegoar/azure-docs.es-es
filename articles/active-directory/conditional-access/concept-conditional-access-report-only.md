@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295279"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690464"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>¿Qué es el modo de solo informe de acceso condicional?
 
@@ -26,7 +26,7 @@ El modo de solo informe es un nuevo estado de la directiva de acceso condicional
 
 - Las directivas de acceso condicional se pueden habilitar en modo de solo informe.
 - Durante el inicio de sesión, las directivas en modo de solo informe se evalúan, pero no se aplican.
-- Los resultados se registran en las pestañas **Acceso condicional** y **Solo informe (versión preliminar)** de los detalles de registro de inicio de sesión.
+- Los resultados se registran en las pestañas **Acceso condicional** y **Solo informe** de los detalles de registro de inicio de sesión.
 - Los clientes con una suscripción de Azure Monitor pueden supervisar el impacto de sus directivas de acceso condicional  mediante el libro Conditional Access Insights.
 
 > [!WARNING]
