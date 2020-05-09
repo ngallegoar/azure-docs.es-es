@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 6f0e7c514835227fafd439803107531fbc62285c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113517"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133844"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -60,7 +60,7 @@ De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de cli
 
 Puede administrar las reglas predeterminadas de acceso a redes para las cuentas de almacenamiento a través de Azure Portal, PowerShell o CLIv2.
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
@@ -144,7 +144,7 @@ La cuenta de almacenamiento y las redes virtuales a las que se concedió acceso 
 
 Puede administrar las reglas de red virtual para las cuentas de almacenamiento a través de Azure Portal, PowerShell o CLIv2.
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
@@ -268,7 +268,7 @@ Si usa [ExpressRoute](/azure/expressroute/expressroute-introduction) desde las i
 
 Puede administrar las reglas de red IP para las cuentas de almacenamiento a través de Azure Portal, PowerShell o CLIv2.
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
@@ -380,7 +380,7 @@ Al habilitar la opción **Allow trusted Microsoft services...** (Permitir servic
 | Azure File Sync          | Microsoft.StorageSync      | Permite transformar el servidor de archivos local en una memoria caché para recursos compartidos de archivos de Azure. Permite la sincronización de varios sitios, la recuperación rápida ante desastres y la copia de seguridad en la nube. [Más información](../files/storage-sync-files-planning.md) |
 | HDInsight de Azure          | Microsoft.HDInsight        | Aprovisione el contenido inicial del sistema de archivos predeterminado para un nuevo clúster de HDInsight. [Más información](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Azure Import/Export      | Microsoft.ImportExport     | Permite la importación de datos en Azure y la exportación de datos desde Azure mediante el servicio de importación y exportación. [Más información](/azure/storage/common/storage-import-export-service).  |
-| Azure Monitor            | Microsoft.Insights         | Permite escribir datos de supervisión en una cuenta de almacenamiento protegida, incluidos los registros de diagnóstico de recursos, los registros de inicio de sesión y de auditoría de Azure Active Directory y los registros de Microsoft Intune. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
+| Azure Monitor            | Microsoft.Insights         | Permite escribir datos de supervisión en una cuenta de almacenamiento protegida, incluidos los registros de recursos, los registros de inicio de sesión y de auditoría de Azure Active Directory y los registros de Microsoft Intune. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Conexión a Azure         | Microsoft.Network          | Almacenamiento y análisis de los registros de tráfico de red. [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite la replicación para la recuperación ante desastres de máquinas virtuales de IaaS de Azure al usar la caché habilitada para firewall, el origen o las cuentas de almacenamiento de destino.  [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
@@ -401,13 +401,13 @@ La opción **Permitir servicios de Microsoft de confianza...** también permite 
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento
 
-En algunos casos, se requiere acceso para leer registros de diagnóstico y métricas desde fuera del límite de red. Al configurar el acceso de los servicios de confianza a la cuenta de almacenamiento, puede permitir el acceso de lectura a los archivos de registro, las tablas de métricas o ambos. [Obtenga más información sobre cómo trabajar con analíticas de almacenamiento](/azure/storage/storage-analytics).
+En algunos casos, se requiere acceso para leer registros recursos y métricas desde fuera del límite de red. Al configurar el acceso de los servicios de confianza a la cuenta de almacenamiento, puede permitir el acceso de lectura a los archivos de registro, las tablas de métricas o ambos. [Obtenga más información sobre cómo trabajar con analíticas de almacenamiento](/azure/storage/storage-analytics).
 
 ### <a name="managing-exceptions"></a>Administración de excepciones
 
 Puede administrar las excepciones de reglas de red a través de Azure Portal, PowerShell o la CLI de Azure v2.
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 

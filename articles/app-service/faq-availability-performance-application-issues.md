@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229744"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159990"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -46,7 +46,7 @@ Puede usar los cmdlets de PowerShell para administrar y mantener App Service Web
 
 Para ver los registros de eventos de la aplicación web:
 
-1. Inicie sesión en su [sitio web de Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Inicie sesión en su **sitio web de Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. En el menú, seleccione **Consola de depuración** > **CMD**.
 3. Abra la carpeta **LogFiles**.
 4. Para ver los registros de eventos, seleccione el icono de lápiz junto a **eventlog.xml**.
@@ -56,7 +56,7 @@ Para ver los registros de eventos de la aplicación web:
 
 Para capturar un volcado de memoria de modo de usuario de la aplicación web:
 
-1. Inicie sesión en su [sitio web de Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Inicie sesión en su **sitio web de Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Seleccione el menú **Explorador de procesos**.
 3. Haga clic con el botón derecho en el proceso **w3wp.exe** o en el proceso de trabajo web.
 4. Seleccione **Download Memory Dump** > **Full Dump** (Descargar volcado de memoria > Volcado de memoria completo).
@@ -69,7 +69,7 @@ Tiene dos opciones para ver la información de nivel de proceso para la aplicaci
     1. Abra el **explorador de procesos** para la aplicación web.
     2. Para ver los detalles, seleccione el proceso **w3wp.exe**.
 *   En la consola de Kudu:
-    1. Inicie sesión en su [sitio web de Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Inicie sesión en su **sitio web de Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
     2. Seleccione el menú **Explorador de procesos**.
     3. En el proceso **w3wp.exe**, seleccione **Propiedades**.
 

@@ -2,15 +2,15 @@
 title: Uso de condiciones en plantillas
 description: Aprenda a implementar recursos de Azure según condiciones. Muestra cómo implementar un recurso nuevo o usar uno existente.
 author: mumian
-ms.date: 05/21/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b73598da2b34847a38485db9952302f7c5b33c98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260665"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185037"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Uso de condiciones en plantillas de Resource Manager
 
@@ -23,7 +23,7 @@ En el tutorial [Establecimiento del orden de implementación de los recursos](./
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
-> * Apertura de una plantilla de inicio rápido
+> * Abra una plantilla de inicio rápido.
 > * Modificación de la plantilla
 > * Implementación de la plantilla
 > * Limpieza de recursos
@@ -134,37 +134,45 @@ Realice dos cambios en la plantilla existente:
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Siga las instrucciones de [Implementación de la plantilla](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir Cloud Shell y cargar la plantilla modificada y, después, ejecute el siguiente script de PowerShell para implementar la plantilla.
+1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
-> [!IMPORTANT]
-> El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. El nombre de la cuenta de almacenamiento es el nombre del proyecto con "store" anexado. Asegúrese de que el nombre del proyecto y el nombre de la cuenta de almacenamiento generada cumplen los requisitos para el nombre de la cuenta de almacenamiento.
+1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
-$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
-$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
-$vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+    ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-$resourceGroupName = "${projectName}rg"
-$storageAccountName = "${projectName}store"
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó en la sección anterior. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin `
-    -adminPassword $vmPassword `
-    -dnsLabelPrefix $dnsLabelPrefix `
-    -storageAccountName $storageAccountName `
-    -newOrExisting $newOrExisting `
-    -TemplateFile "$HOME/azuredeploy.json"
+1. Ejecute el siguiente script de PowerShell para implementar la plantilla.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    > [!IMPORTANT]
+    > El nombre de la cuenta de almacenamiento debe ser único en Azure. El nombre debe tener solo letras minúsculas o números. No debe superar los 24 caracteres. El nombre de la cuenta de almacenamiento es el nombre del proyecto con "store" anexado. Asegúrese de que el nombre del proyecto y el nombre de la cuenta de almacenamiento generada cumplen los requisitos para el nombre de la cuenta de almacenamiento.
 
-> [!NOTE]
-> Se produce un error en la implementación si **newOrExisting** es **new**, pero la cuenta de almacenamiento con el nombre especificado ya existe.
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
+    $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+    $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+    $vmAdmin = Read-Host -Prompt "Enter the admin username"
+    $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+    $resourceGroupName = "${projectName}rg"
+    $storageAccountName = "${projectName}store"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -adminUsername $vmAdmin `
+        -adminPassword $vmPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -storageAccountName $storageAccountName `
+        -newOrExisting $newOrExisting `
+        -TemplateFile "$HOME/azuredeploy.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    > [!NOTE]
+    > Se produce un error en la implementación si **newOrExisting** es **new**, pero la cuenta de almacenamiento con el nombre especificado ya existe.
 
 Pruebe otra implementación con **newOrExisting** establecido en "existing" y especifique una cuenta de almacenamiento existente. Para crear una cuenta de almacenamiento con antelación, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 
