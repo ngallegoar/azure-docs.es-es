@@ -1,6 +1,6 @@
 ---
-title: Ejecución de paquetes SSIS mediante el agente de Instancia administrada de Azure°SQL
-description: Aprenda a ejecutar paquetes SSIS mediante el agente de Instancia administrada de Azure°SQL.
+title: Programación de ejecuciones de paquetes SSIS mediante el agente de Instancia administrada de Azure SQL Database
+description: Obtenga información sobre la programación de ejecuciones de paquetes SSIS mediante el agente de Instancia administrada de Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,92 +9,114 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: b3b7a25149a9d075c81b30307ade2beb71907637
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f230e4d33686b006b20e856d5e8033847e3f3d67
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394062"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628493"
 ---
-# <a name="execute-ssis-packages-by-azure-sql-managed-instance-agent"></a>Ejecución de paquetes SSIS mediante el agente de Instancia administrada de Azure°SQL
-En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) mediante el agente de Instancia administrada de Azure SQL. Esta característica proporciona comportamientos similares a cuando se programan paquetes SSIS mediante el Agente SQL Server en el entorno local.
+# <a name="schedule-ssis-package-executions-by-using-azure-sql-database-managed-instance-agent"></a>Programación de ejecuciones de paquetes SSIS mediante el agente de Instancia administrada de Azure SQL Database
 
-Con esta característica, puede ejecutar paquetes SSIS que se almacenan en SSISDB de Instancia administrada de Azure SQL o un sistema de archivos como Azure Files.
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) mediante el agente de Instancia administrada de Azure SQL Database. Esta característica proporciona comportamientos similares a cuando se programan paquetes SSIS mediante el Agente SQL Server en el entorno local.
+
+Con esta característica, puede ejecutar paquetes SSIS que se almacenan en SSISDB en una instancia administrada de Azure SQL Database o un sistema de archivos como Azure Files.
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Para usar esta característica, descargue e instale la versión más reciente de SSMS, que es la versión 18.5 o posterior. Descárguelo de [este sitio web](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+Para usar esta característica, [descargue](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) e instale la versión más reciente de SQL Server Management Studio (SSMS), que es la versión 18.5.
 
-Además, debe aprovisionar una instancia de Azure-SSIS Integration Runtime en Azure Data Factory, que usa la Instancia administrada de Azure SQL como servidor de punto de conexión. Si todavía no lo aprovisiona, siga estas instrucciones que aparecen en el [tutorial](tutorial-create-azure-ssis-runtime-portal.md) para aprovisionarlo. 
+También tiene que [aprovisionar una instancia de Integration Runtime para la integración de SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md) en Azure Data Factory. Usa una instancia administrada de Azure SQL Database como servidor de punto de conexión. 
 
-## <a name="run-ssis-packages-in-ssisdb-by-azure-sql-managed-instance-agent"></a>Ejecución de paquetes SSIS en SSISDB con el agente de Instancia administrada de Azure SQL
-En este paso, usará el agente de Instancia administrada de Azure SQL para invocar paquetes SSIS que se almacenan en SSISDB en la Instancia administrada de Azure SQL.
-1. En la versión más reciente de SSMS, conéctese a la Instancia administrada de Azure°SQL.
-2. Cree un trabajo del Agente nuevo y un paso de trabajo nuevo.
+## <a name="run-an-ssis-package-in-ssisdb"></a>Ejecución de un paquete SSIS en SSISDB
+En este procedimiento, se usa el agente de Instancia administrada de Azure SQL Database para invocar un paquete SSIS que está almacenado en SSISDB.
 
-![Nuevo trabajo del Agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+1. En la versión más reciente de SSMS, conéctese a una instancia administrada de Azure°SQL Database.
+1. Cree un trabajo del agente nuevo y un paso de trabajo nuevo. En **Agente SQL Server**, haga clic con el botón derecho en la carpeta **Trabajos** y seleccione **Nuevo trabajo**.
 
-3. En la página **Nuevo paso de trabajo**, elija el tipo **Paquete de SQL Server Integration Services**.
+   ![Selecciones para crear un nuevo trabajo del agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
-![Nuevo Paso de trabajo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+1. En la página **Nuevo paso de trabajo**, seleccione el tipo **Paquete de SQL Server Integration Services**.
 
-4. En la pestaña **Paquete**, elija **Catálogo de SSIS** como el tipo de origen del paquete.
-5. Como SSISDB está en la misma Instancia administrada de Azure SQL, no necesita especificar la autenticación.
-6. Especifique un paquete SSIS de su SSISDB.
+   ![Selecciones para crear un nuevo paso de trabajo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
-![Tipo de origen del paquete: catálogo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
+1. En la pestaña **Paquete**, seleccione **Catálogo de SSIS** como el tipo de origen del paquete.
+1. Como SSISDB está en una instancia administrada de Azure SQL Database, no necesita especificar la autenticación.
+1. Especifique un paquete SSIS del SSISDB.
 
-7. En la pestaña **Configuraciones**, puede especificar los valores de **parámetro**, invalidar los valores de **Administradores de conexión**, sustituir **Propiedad** y elegir **Nivel de registro**.
+   ![Pestaña Paquete con selecciones para el tipo de origen del paquete](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
 
-![Tipo de origen del paquete: configuración del catálogo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
+1. En la pestaña **Configuración**, puede:
+  
+   - Especifique los valores de parámetro en **Parámetros**.
+   - Invalidar los valores en **Administradores de conexión**.
+   - Invalidar la propiedad y elegir el nivel de registro en **Avanzado**.
 
-8. Cuando complete toda la configuración anterior, haga clic en **Aceptar** para guardar la configuración del trabajo del Agente.
-9. Inicie el trabajo del Agente para ejecutar el paquete SSIS.
+   ![Pestaña Configuración con selecciones para el tipo de origen del paquete](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
 
-
-## <a name="run-ssis-packages-in-file-system-by-azure-sql-managed-instance-agent"></a>Ejecución de paquetes SSIS en el sistema de archivos con el agente de Instancia administrada de Azure SQL
-En este paso, usará el agente de Instancia administrada de Azure SQL para invocar paquetes SSIS que se almacenan sistemas de archivos para su ejecución.
-1. En la versión más reciente de SSMS, conéctese a la Instancia administrada de Azure°SQL.
-2. Cree un trabajo del Agente nuevo y un paso de trabajo nuevo.
-
-   ![Nuevo trabajo del Agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
-
-3. En la página **Nuevo paso de trabajo**, elija el tipo **Paquete de SQL Server Integration Services**.
-
-   ![Nuevo Paso de trabajo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
-
-4. En la pestaña **Paquete**, elija **Sistema de archivos** como el tipo de origen del paquete.
-
-   ![Tipo de origen del paquete: sistema de archivos](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
-
-   1. Si el paquete se carga a Azure Files, elija **Recurso compartido de archivos de Azure** como el tipo de origen del archivo.
-      - La ruta de acceso al paquete es **\\<storage account name>.file.core.windows.net\<nombre del recurso compartido de archivos>\<nombre del paquete>.dtsx**
-      - Escriba el nombre de la cuenta del archivo de Azure y la clave de cuenta en la **credencial de acceso al archivo del paquete** para acceder al archivo de Azure. El dominio se establece como **Azure**.
-   2. Si el paquete se carga a un recurso compartido de red, elija **Recurso compartido de red** como el tipo de origen del archivo.
-      - La ruta de acceso al paquete es la **ruta de acceso UNC** del archivo del paquete con su extensión dtsx.
-      - Escriba el **dominio**, el **nombre de usuario** y la **contraseña** correspondientes para acceder al archivo de paquete del recurso compartido de red.
-   3. Si el archivo de paquete está cifrado con una contraseña, seleccione **Contraseña de cifrado** y escriba la contraseña.
-
- 5. En la pestaña **Configuraciones**, escriba la **ruta de acceso al archivo de configuración** si necesita un archivo de configuración para ejecutar el paquete SSIS.
- 6. En la pestaña **Opciones de ejecución**, puede elegir si usar la **autenticación de Windows** o **tiempo de ejecución de 32 bits** para ejecutar el paquete SSIS.
- 7. En la pestaña **Registro**, puede elegir la **ruta de acceso al registro** y la credencial de acceso al registro correspondiente para almacenar los archivos de registro. De forma predeterminada, la ruta de acceso al registro será la misma que la ruta de acceso a la carpeta del paquete y la credencial de acceso al registro será igual que la credencial de acceso al paquete.
- 8. En la pestaña **Establecer valores**, puede escribir la **Ruta de acceso de la propiedad** y el **Valor** para invalidar las propiedades del paquete.
- Por ejemplo, para invalidar el valor de la variable de usuario, escriba su ruta de acceso con el formato siguiente: **\Package.Variables[Usuario::<variable name>].Value**.
- 9. Cuando complete toda la configuración anterior, haga clic en **Aceptar** para guardar la configuración del trabajo del Agente.
- 10. Inicie el trabajo del Agente para ejecutar el paquete SSIS.
+1. Seleccione **Aceptar** para guardar la configuración del trabajo del agente.
+1. Inicie el trabajo del Agente para ejecutar el paquete SSIS.
 
 
- ## <a name="cancel-ssis-package-execution"></a>Cancelación de la ejecución de paquetes SSIS
- Para cancelar la ejecución de un paquete desde un trabajo del Agente de Instancia administrada de Azure SQL, debe seguir estos pasos en lugar de detener directamente el trabajo del Agente.
- 1. Busque el valor de **jobId** del Agente de SQL en **msdb.dbo.sysjobs**.
- 2. Busque el valor de **executionId** de SSIS correspondiente en función del identificador del trabajo según la consulta que se muestra a continuación:
-    ```sql
-    select * from ssisdb.internal.execution_parameter_values_noncatalog where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
-    ```
- 3. Seleccione **Operaciones activas** en el catálogo de SSIS.
+## <a name="run-an-ssis-package-in-the-file-system"></a>Ejecución de un paquete SSIS en el sistema de archivos
+En este procedimiento, se usa el agente de Instancia administrada de Azure SQL Database para ejecutar un paquete SSIS que está almacenado en el sistema de archivos.
 
-    ![Tipo de origen del paquete: sistema de archivos](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+1. En la versión más reciente de SSMS, conéctese a una instancia administrada de Azure°SQL Database.
+1. Cree un trabajo del agente nuevo y un paso de trabajo nuevo. En **Agente SQL Server**, haga clic con el botón derecho en la carpeta **Trabajos** y seleccione **Nuevo trabajo**.
 
- 4. Detenga la operación correspondiente según **executionId**.
+   ![Selecciones para crear un nuevo trabajo del agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+
+1. En la página **Nuevo paso de trabajo**, seleccione el tipo **Paquete de SQL Server Integration Services**.
+
+   ![Selecciones para crear un nuevo paso de trabajo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+
+1. En la pestaña **Paquete**:
+
+   1. En **Origen del paquete**, seleccione **Sistema de archivos**.
+   
+   1. En **Tipo de origen del archivo**:   
+
+      - Si el paquete se carga en Azure Files, seleccione **Recurso compartido de archivos de Azure**.
+
+        ![Opciones del tipo de origen del archivo](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
+      
+        La ruta de acceso del paquete es **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** .
+      
+        En **Credencial de acceso al archivo del paquete**, escriba el nombre de la cuenta del archivo de Azure y la clave de cuenta para acceder al archivo de Azure. El dominio se establece como **Azure**.
+
+      - Si el paquete se carga en un recurso compartido de red, seleccione **Recurso compartido de red**.
+      
+        La ruta de acceso al paquete es la ruta de acceso UNC del archivo del paquete con su extensión .dtsx.
+      
+        Escriba el dominio, el nombre de usuario y la contraseña correspondientes para acceder al archivo de paquete del recurso compartido de red.
+   1. Si el archivo de paquete está cifrado con una contraseña, seleccione **Contraseña de cifrado** y escriba la contraseña.
+1. En la pestaña **Configuraciones**, escriba la ruta de acceso al archivo de configuración si necesita un archivo de configuración para ejecutar el paquete SSIS.
+   Si almacena la configuración en Azure Files, su ruta de acceso de configuración será **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`** .
+1. En la pestaña **Opciones de ejecución**, puede elegir si usar la **autenticación de Windows** o **tiempo de ejecución de 32 bits** para ejecutar el paquete SSIS.
+1. En la pestaña **Registro**, puede elegir la ruta de acceso al registro y la credencial de acceso al registro correspondiente para almacenar los archivos de registro. 
+   De forma predeterminada, la ruta de acceso al registro es la misma que la ruta de acceso a la carpeta del paquete y la credencial de acceso al registro es igual que la credencial de acceso al paquete.
+   Si almacena los registros en Azure Files, su ruta de acceso de registro será **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`** .
+1. En la pestaña **Establecer valores**, puede escribir la ruta de acceso a la propiedad y el valor para invalidar las propiedades del paquete.
+ 
+   Por ejemplo, para invalidar el valor de la variable de usuario, escriba su ruta de acceso en el formato **`\Package.Variables[User::<variable name>].Value`** .
+1. Seleccione **Aceptar** para guardar la configuración del trabajo del agente.
+1. Inicie el trabajo del Agente para ejecutar el paquete SSIS.
+
+
+## <a name="cancel-ssis-package-execution"></a>Cancelación de la ejecución de paquetes SSIS
+Para cancelar la ejecución del paquete desde un trabajo del agente de Instancia administrada de Azure SQL Database, siga estos pasos en lugar de detener directamente el trabajo del agente:
+
+1. Busque el valor de **jobId** del Agente de SQL en **msdb.dbo.sysjobs**.
+1. Busque el valor de **executionId** de SSIS correspondiente en función del identificador del trabajo con esta consulta:
+   ```sql
+   select * from ssisdb.internal.execution_parameter_values_noncatalog where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
+   ```
+1. Haga clic con el botón derecho en el catálogo de SSISDB y, a continuación, seleccione **Operaciones activas**.
+
+   !["Operaciones activas" en el menú contextual del catálogo de SSISDB](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+
+1. Detenga la operación correspondiente según **executionId**.
 
 ## <a name="next-steps"></a>Pasos siguientes
- También puede programar los paquetes SSIS con Azure Data Factory. Para instrucciones paso a paso, consulte [Desencadenador de eventos de Azure Data Factory](how-to-create-event-trigger.md). 
+También puede programar los paquetes SSIS con Azure Data Factory. Para instrucciones paso a paso, consulte [Desencadenador de eventos de Azure Data Factory](how-to-create-event-trigger.md). 

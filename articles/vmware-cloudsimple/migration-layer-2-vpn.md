@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f5ff48f4d5a658a1bbb4e6b9fb4b3f0f3fb190f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083215"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81602682"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -108,7 +108,7 @@ Para obtener más información, consulte [Redes privadas virtuales](https://docs
 
 En los pasos siguientes se muestra cómo capturar el identificador del enrutador lógico de la instancia de enrutador lógico de DR de nivel 0 para los servicios IPsec y L2VPN. El identificador del enrutador lógico se necesitará más adelante al implementar L2VPN.
 
-1. Inicie sesión en el administrador de NSX-T (https://*nsx-t-manager-ip-address*) y seleccione **Redes** > **Enrutadores** > **Provider-LR (Proveedor del enrutador lógico)**  > **Información general**. En **Modo de alta disponibilidad**, seleccione **Espera activo**. Esta acción abre una ventana emergente que muestra la VM de Edge en la que el enrutador de nivel 0 está activo actualmente.
+1. Inicie sesión en el administrador de NSX, `https://*nsx-t-manager-ip-address*`, y seleccione **Networking** > **Router** > **Provider-LR**  > **Overview** (Redes > Enrutador > Proveedor de enrutador lógico > Información general). En **Modo de alta disponibilidad**, seleccione **Espera activo**. Esta acción abre una ventana emergente que muestra la VM de Edge en la que el enrutador de nivel 0 está activo actualmente.
 
     ![Selección de espera activo](media/l2vpn-fetch01.png)
 
@@ -180,7 +180,7 @@ Las direcciones IP elegidas para las interfaces de bucle invertido y de túnel p
 ```
 Loopback interface ip : 192.168.254.254/32
 Tunnel interface subnet : 5.5.5.0/29
-Logical-router ID : UUID of Tier0 DR logical router obtained in section “Steps to fetch Logical-Router ID needed for L2VPN”
+Logical-router ID : UUID of Tier0 DR logical router obtained in section "Steps to fetch Logical-Router ID needed for L2VPN"
 Logical-switch ID(Stretch) : UUID of Stretch Logical Switch obtained earlier
 IPSec Service ID :
 IKE profile ID :
@@ -356,7 +356,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 Para el siguiente comando POST, el identificador de servicio de L2VPN es el identificador que acaba de obtener y el identificador de sesión de VPN de IPsec es el identificador obtenido en la sección anterior.
 
-``` 
+```    
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {

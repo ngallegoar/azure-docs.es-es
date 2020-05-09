@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77189100"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734831"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(EN DESUSO) Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
 
@@ -129,7 +129,7 @@ Ahora que Vamp está en funcionamiento, implemente un servicio desde un plano.
 
 En su forma más simple, un [plano de Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) describe los puntos de conexión (puertas de enlace), los clústeres y los servicios que se van a implementar. Vamp usa clústeres para agrupar variantes diferentes del mismo servicio en grupos lógicos para realizar el lanzamiento controlado o realizar pruebas A/B.  
 
-Este escenario usa una aplicación monolítica de ejemplo denominada [**sava**](https://github.com/magneticio/sava), que se encuentra en la versión 1.0. El monolito está empaquetado en un contenedor de Docker, que se encuentra en Docker Hub en magneticio/sava:1.0.0. Normalmente, la aplicación se ejecuta en el puerto 8080, pero desea exponerla en el puerto 9050 en este caso. Implemente la aplicación a través de Vamp con un plano simple.
+Este escenario usa una aplicación monolítica de ejemplo denominada [**sava**](https://github.com/magneticio/sava-product), que se encuentra en la versión 1.0. El monolito está empaquetado en un contenedor de Docker, que se encuentra en Docker Hub en magneticio/sava:1.0.0. Normalmente, la aplicación se ejecuta en el puerto 8080, pero desea exponerla en el puerto 9050 en este caso. Implemente la aplicación a través de Vamp con un plano simple.
 
 1. Vaya a **Deployments** (Implementaciones).
 
