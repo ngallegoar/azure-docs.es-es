@@ -5,12 +5,12 @@ author: nipavlo
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
-ms.openlocfilehash: 23782a86d31251cb1a3474e0395df716a2e832df
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427268"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183130"
 ---
 # <a name="balancing-of-subclustered-metrics"></a>Equilibrio de métricas agrupadas en subclústeres
 
@@ -24,11 +24,11 @@ Si la carga que los servicios notifican en diferentes nodos difiere significativ
 
 Por ejemplo, supongamos que tenemos cuatro servicios y todos ellos notifican una carga para la métrica Metric1:
 
-* Servicio A: tiene una restricción de selección de ubicación "NodeType==Type1" y notifica una carga de 10
-* Servicio B: tiene una restricción de selección de ubicación "NodeType==Type1" y notifica una carga de 10
-* Servicio C: tiene una restricción de selección de ubicación "NodeType==Type2" y notifica una carga de 100
-* Servicio D: tiene una restricción de selección de ubicación "NodeType==Type2" y notifica una carga de 100
-* Y tenemos cuatro nodos. Dos de ellos tienen NodeType establecido en "Type1" (Tipo1) y los otros dos son "Type2" (Tipo2)
+* Servicio A: tiene una restricción de colocación "NodeType==Frontend" y notifica una carga de 10
+* Servicio B: tiene una restricción de colocación "NodeType==Frontend" y notifica una carga de 10
+* Servicio C: tiene una restricción de colocación "NodeType==Backend" y notifica una carga de 100
+* Servicio D: tiene una restricción de colocación "NodeType==Backend" y notifica una carga de 100
+* Y tenemos cuatro nodos. En dos de ellos, NodeType está establecido en "Frontend", mientras que en los otros dos está en "Backend"
 
 Y tenemos la siguiente selección de ubicación:
 
@@ -60,8 +60,8 @@ Esta situación se produce cuando un grupo de nodos permitidos para un servicio 
 Ejemplo:
 
 * Servicio A: no hay ninguna restricción de selección de ubicación
-* Servicio B: restricción de selección de ubicación "NodeType==Type1"
-* Servicio C: restricción de selección de ubicación "NodeType==Type2"
+* Servicio B: restricción de colocación "NodeType==Frontend"
+* Servicio C: restricción de colocación "NodeType==Backend"
 
 Esta configuración crea una relación de subconjunto-supraconjunto entre grupos de nodos de diferentes servicios.
 
@@ -72,7 +72,7 @@ Esta configuración crea una relación de subconjunto-supraconjunto entre grupos
 
 En esta situación, existe la posibilidad de que se produzca un equilibrio no óptimo.
 
-Resource Manager reconocerá esta situación y generará un informe de mantenimiento que le aconseja dividir el servicio A en dos servicios: el servicio A1 que se puede colocar en nodos Type1 y el servicio A2 que se puede colocar en los nodos Type2. Esto nos llevará de nuevo a la situación de la primera categoría que se puede equilibrar de manera óptima.
+Resource Manager reconocerá esta situación y generará un informe de estado en el que se aconseja dividir el servicio A en dos servicios: el servicio A1, que se puede colocar en Frontend, y el servicio A2 que se puede colocar en los nodos Backend. Esto nos llevará de nuevo a la situación de la primera categoría que se puede equilibrar de manera óptima.
 
 ### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Tercera categoría: agrupación en subclústeres con superposición parcial entre conjuntos de nodos
 

@@ -4,6 +4,11 @@
   items:
     - name: ¿Qué es Resource Manager?
       href: overview.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Límites del servicio y la suscripción
@@ -82,7 +87,7 @@
           href: tag-support.md
     - name: Administración de grupos de recursos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI
@@ -93,7 +98,7 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
         - name: Azure CLI

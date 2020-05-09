@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921324"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106226"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 

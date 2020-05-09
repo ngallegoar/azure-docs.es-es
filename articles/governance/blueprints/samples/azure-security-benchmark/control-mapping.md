@@ -3,16 +3,16 @@ title: Controles de ejemplo de plano técnico de Azure Security Benchmark
 description: Asignación de controles de ejemplo de plano técnico de Azure Security Benchmark a Azure Policy.
 ms.date: 04/16/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f80b72f06532adef28bf5e5afd1eb94c2e34ee2d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538667"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691304"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Asignación de controles de ejemplo de plano técnico de Azure Security Benchmark
 
-En el siguiente artículo se detalla cómo el ejemplo de plano técnico de Azure Security Benchmark de Azure Blueprints se asigna a los controles de Azure Security Benchmark. Para más información sobre los controles, consulte [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview).
+En el siguiente artículo se detalla cómo el ejemplo de plano técnico de Azure Security Benchmark de Azure Blueprints se asigna a los controles de Azure Security Benchmark. Para más información sobre los controles, consulte [Azure Security Benchmark](../../../../security/benchmarks/overview.md).
 
 Las siguientes asignaciones son para controles de **Azure Security Benchmark**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: Auditar las recomendaciones de Azure Security Benchmark e implementar extensiones de VM compatibles específicas** (iniciativa de directiva integrada).
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 5c388dd2b3e4f40fbf2ed75cf3f1b8ab31aee394
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9b720470ac406ed0730e6243262dcf33d2df169a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606413"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233435"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
@@ -69,7 +69,9 @@ A diferencia de la unión de combinación en herramientas como SSIS, la transfor
 
 ![Optimización de la transformación de combinación](media/data-flow/joinoptimize.png "Optimización de la combinación")
 
-Si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar aún más el rendimiento si habilita **Difusión** en la pestaña Optimizar. También puede volver a particionar los datos en la operación de combinación para que se adapten mejor a la memoria por nodo de trabajo.
+En las combinaciones, búsquedas y transformaciones Exists, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no un lado. Para elegir manualmente el lado que se va a difundir, seleccione **Fijo**.
+
+No se recomienda deshabilitar la difusión a través de la opción **Desactivado** a menos que las combinaciones experimenten errores de tiempo de espera.
 
 ## <a name="self-join"></a>Autocombinación
 
@@ -90,7 +92,7 @@ Cuando pruebe las transformaciones Combinación con la vista previa de datos en 
     join(
         <conditionalExpression>,
         joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <joinTransformationName>
 ```
 

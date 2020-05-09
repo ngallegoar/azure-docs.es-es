@@ -5,14 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-experimental: false
-experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047134"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690789"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure 
 
@@ -23,7 +21,7 @@ Para empezar a trabajar con Azure App Service, cree una aplicación de Node.js o
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js y npm](https://nodejs.org) Ejecute el comando `node --version` para comprobar que Node.js está instalado.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- La [extensión Azure App Service](vscode:extension/ms-azuretools.vscode-azureappservice) para Visual Studio Code.
+- La [extensión Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) para Visual Studio Code.
 
 ## <a name="clone-and-run-a-local-nodejs-application"></a>Clonación y ejecución de una aplicación de Node.js local
 
@@ -45,7 +43,7 @@ Para empezar a trabajar con Azure App Service, cree una aplicación de Node.js o
     npm start
     ```
     
-1. Abra el explorador web y vaya a [http://localhost:1337](http://localhost:1337). El explorador debe mostrar "¡Hola mundo!".
+1. Abra el explorador web y vaya a `http://localhost:1337`. El explorador debe mostrar "¡Hola mundo!".
 
 1. Presione **Ctrl**+**C** en el terminal para detener el servidor.
 
