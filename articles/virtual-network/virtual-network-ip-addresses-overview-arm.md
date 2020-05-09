@@ -4,21 +4,22 @@ titlesuffix: Azure Virtual Network
 description: Información acerca de direcciones IP públicas y privadas en Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: 9de94dab7000cee90f4448aa6d81196d3865e021
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/27/2020
+ms.author: allensu
+ms.openlocfilehash: a698d0cc4653a7a9f938b8f013352d9b51e2e18c
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474416"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203733"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -58,6 +59,22 @@ Las direcciones IP públicas se crean con una de las SKU siguientes:
 >[!IMPORTANT]
 > En los recursos de IP pública y en el equilibrador de carga se deben usar SKU coincidentes. No puede tener una combinación de recursos de SKU básica y recursos de SKU estándar. No se pueden asociar máquinas virtuales independientes, máquinas virtuales en un recurso de conjunto de disponibilidad o conjuntos de escalado de máquinas virtuales a ambas SKU simultáneamente.  Para los nuevos diseños, deberá considerar usar los recursos de SKU estándar.  Consulte [Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obtener más información.
 
+#### <a name="standard"></a>Estándar
+
+Las direcciones IP públicas de SKU estándar:
+
+- Utilice siempre el método de asignación estática.
+- Tiene un tiempo espera de inactividad del flujo originado de entrada ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos, y el valor predeterminado del tiempo de espera del flujo originado es de 4 minutos.
+- Son seguras de forma predeterminada y se cierran al tráfico de entrada. Debe especificar de forma explícita la lista blanca de que permite el tráfico de entrada con un [grupo de seguridad de red](security-overview.md#network-security-groups).
+- Asignados a interfaces de red, equilibradores de carga estándar públicos o puertas de enlace de aplicaciones. Para más información sobre Azure Standard Load Balancer, consulte [Introducción a Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Puede ser con redundancia de zona o zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad).
+ 
+> [!NOTE]
+> Para evitar que se produzca un error en la comunicación de entrada con el recurso SKU estándar, debe crear un [grupo de seguridad de red](security-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.
+
+> [!NOTE]
+> Cuando se usa el [servicio de metadatos de instancia IMDS](../virtual-machines/windows/instance-metadata-service.md), solo hay direcciones IP públicas con SKU básica disponibles. No se admiten las SKU estándar.
+
 #### <a name="basic"></a>Básica
 
 Todas las direcciones IP públicas creadas antes de la introducción de SKU son direcciones IP públicas de SKU básica. Con la introducción de SKU, tiene la opción de especificar qué SKU le gustaría que fuera la dirección IP pública. Las direcciones de SKU básica:
@@ -67,22 +84,6 @@ Todas las direcciones IP públicas creadas antes de la introducción de SKU son 
 - Están abiertas de forma predeterminada.  Se recomienda el uso de grupos de seguridad de red, pero es opcional para restringir el tráfico de entrada o de salida.
 - Se asignan a cualquier recurso de Azure al que se pueda asignar una dirección IP pública, como interfaces de red, instancias de VPN Gateway, Application Gateway y equilibradores de carga accesibles desde Internet.
 - No se admiten escenarios de zona de disponibilidad.  Deberá usar la dirección IP pública de SKU estándar para los escenarios de zona de disponibilidad. Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad).
-
-#### <a name="standard"></a>Estándar
-
-Las direcciones IP públicas de SKU estándar:
-
-- Utilice siempre el método de asignación estática.
-- Tiene un tiempo espera de inactividad del flujo originado de entrada ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos, y el valor predeterminado del tiempo de espera del flujo originado es de 4 minutos.
-- Son seguras de forma predeterminada y se cierran al tráfico de entrada. Debe especificar de forma explícita la lista blanca de que permite el tráfico de entrada con un [grupo de seguridad de red](security-overview.md#network-security-groups).
-- Asignados a interfaces de red, equilibradores de carga estándar públicos o puertas de enlace de aplicaciones. Para más información sobre Azure Standard Load Balancer, consulte [Introducción a Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Zona redundante de forma predeterminada y, opcionalmente, zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad).
- 
-> [!NOTE]
-> Para evitar que se produzca un error en la comunicación de entrada con el recurso SKU estándar, debe crear un [grupo de seguridad de red](security-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.
-
-> [!NOTE]
-> Cuando se usa el [servicio de metadatos de instancia IMDS](../virtual-machines/windows/instance-metadata-service.md), solo hay direcciones IP públicas con SKU básica disponibles. No se admiten las SKU estándar.
 
 ### <a name="allocation-method"></a>Método de asignación
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f398012edc25ba6a04e230fa8049e7264f857bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294524"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101746"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -94,6 +94,7 @@ En la tabla siguiente se describen los dominios necesarios para la comunicación
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | Todas las llamadas de usuario (como PowerShell) van a esta URL, incluida la llamada de registro inicial del servidor. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Las llamadas de Azure Resource Manager deben realizarlas usuarios autenticados. Para que el proceso se complete correcta, esta URL se utiliza para la autenticación de usuarios. |
 | **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Como parte de la implementación de Azure File Sync, se crea una entidad de servicio en la instancia de Azure Active Directory de la suscripción. Esta URL se utiliza con ese fin. Esta entidad de seguridad se usa para delegar un conjunto mínimo de derechos en el servicio Azure File Sync. El usuario que realiza la configuración inicial de Azure File Sync debe ser un usuario autenticado con privilegios de propietario en la suscripción. |
+| **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Use la dirección URL del punto de conexión público. | La biblioteca de autenticación de Active Directory tiene acceso a esta dirección URL que usa la interfaz de usuario de registro del servidor de Azure File Sync para iniciar sesión en el administrador. |
 | **Almacenamiento de Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Cuando el servidor descarga un archivo, realiza el movimiento de datos de forma más eficaz al comunicarse directamente con el recurso compartido de archivos de Azure en la cuenta de almacenamiento. El servidor tiene una clave SAS que solo se permite el acceso al recurso compartido de archivos de destino. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;. afs.azure.us | Después del registro inicial del servidor, el servidor recibe una URL regional para la instancia de servicio de Azure File Sync en dicha región. El servidor puede utilizar la URL para comunicarse de forma directa y eficaz con la instancia que controla la sincronización. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Una vez instalado el agente Azure File Sync, la dirección URL de PKI se utiliza para descargar los certificados intermedios necesarios para comunicarse con el servicio Azure File Sync y el recurso compartido de archivos de Azure. La dirección URL de OCSP se utiliza para comprobar el estado de un certificado. |
