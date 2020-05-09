@@ -1,39 +1,38 @@
 ---
-title: Registros de diagnóstico de un grupo de seguridad de red
+title: Registro de recursos de diagnóstico de un grupo de seguridad de red
 titlesuffix: Azure Virtual Network
-description: Aprenda a habilitar los registros de diagnóstico del contador de reglas y de eventos de un grupo de seguridad de red de Azure.
+description: Aprenda a habilitar los registros de recursos de diagnóstico del contador de reglas y de eventos de un grupo de seguridad de red de Azure.
 services: virtual-network
-documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cfc1b933abbbc3736145ff3c6a600f48260538d2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75751187"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133823"
 ---
-# <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red
+# <a name="resource-logging-for-a-network-security-group"></a>Registro de recursos de un grupo de seguridad de red
 
-Los grupos de seguridad de red (NSG) incluyen reglas que permiten o deniegan el tráfico a una subred de red virtual, a una interfaz de red, o a ambas. Al habilitar el registro de diagnóstico de un grupo de seguridad de red, puede registrar las siguientes categorías de información:
+Los grupos de seguridad de red (NSG) incluyen reglas que permiten o deniegan el tráfico a una subred de red virtual, a una interfaz de red, o a ambas. 
+
+Al habilitar el registro para un grupo de seguridad de red, puede recopilar los siguientes tipos de información del registro de recursos:
 
 * **Evento:** se registran las entradas en las que se aplican reglas de NSG a máquinas virtuales en función de la dirección MAC.
 * **Contador de regla:** contiene entradas para el número de veces que se aplica cada regla NSG para denegar o permitir el tráfico. El estado de estas reglas se recopila cada 60 segundos.
 
-Los registros de diagnóstico solo están disponibles para los NSG implementados a través del modelo de implementación de Azure Resource Manager. No se puede habilitar el registro de diagnóstico para los NSG implementados a través del modelo de implementación clásica. Para entender mejor los dos modelos, consulte [Descripción de los modelos de implementación de Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Los registros de diagnóstico solo están disponibles para los grupos de seguridad de red implementados con el modelo de implementación de Azure Resource Manager. No se puede habilitar el registro de diagnóstico para los grupos de seguridad de red implementados con el modelo de implementación clásica. Para entender mejor los dos modelos, consulte [Descripción de los modelos de implementación de Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-El registro de diagnóstico se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que interesa son los registros de operaciones o de actividades, consulte el [registro de actividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+El registro de recursos se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que le interesan son los registros de actividades (operaciones), consulte el [registro de actividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
-Para habilitar el registro de diagnóstico se pueden usar [Azure Portal](#azure-portal), [PowerShell](#powershell) o la [CLI de Azure](#azure-cli).
+Para habilitar el registro de recursos se pueden usar [Azure Portal](#azure-portal), [PowerShell](#powershell) o la [CLI de Azure](#azure-cli).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -59,9 +58,9 @@ Para habilitar el registro de diagnóstico se pueden usar [Azure Portal](#azure-
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell versión 1.0.0 o posterior. Ejecute `Get-Module -ListAvailable Az` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Connect-AzAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Para habilitar el registro de diagnóstico se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crearlo con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+Para habilitar el registro de recursos, se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crearlo con [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-Recupere el grupo de seguridad de red para el que desea habilitar el registro de diagnóstico con [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Por ejemplo, para recuperar un grupo de seguridad de red denominado *myNsg* que existe en un grupo de recursos denominado *myResourceGroup*, escriba el siguiente comando:
+Recupere el grupo de seguridad de red para el que desea habilitar el registro de recursos con [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Por ejemplo, para recuperar un grupo de seguridad de red denominado *myNsg* que existe en un grupo de recursos denominado *myResourceGroup*, escriba el siguiente comando:
 
 ```azurepowershell-interactive
 $Nsg=Get-AzNetworkSecurityGroup `
@@ -69,7 +68,7 @@ $Nsg=Get-AzNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Puede escribir registros de diagnóstico para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Recupere un área de trabajo de Log Analytics existente con [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Por ejemplo, para recuperar un área de trabajo denominado *myWorkspace* en un grupo de recursos denominado *myWorkspaces*, escriba el siguiente comando:
+Puede escribir registros de recursos para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Recupere un área de trabajo de Log Analytics existente con [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Por ejemplo, para recuperar un área de trabajo denominado *myWorkspace* en un grupo de recursos denominado *myWorkspaces*, escriba el siguiente comando:
 
 ```azurepowershell-interactive
 $Oms=Get-AzOperationalInsightsWorkspace `
@@ -79,7 +78,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
 
 Si no tiene un área de trabajo, puede crearla con [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Existen dos categorías de registro para las que se pueden habilitar registros. Para más información, consulte [Categorías de registro](#log-categories). Habilite el registro de diagnóstico para el grupo de seguridad de red con [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). En el ejemplo siguiente se registran en el área de trabajo de un grupo de seguridad de red los datos de la categoría tanto del evento como del contador, para lo que se usan los identificadores del grupo de seguridad de red como del área de trabajo que recuperó antes:
+Existen dos categorías de registro para las que se pueden habilitar registros. Para más información, consulte [Categorías de registro](#log-categories). Habilite el registro de recursos para el grupo de seguridad de red con [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). En el ejemplo siguiente se registran en el área de trabajo de un grupo de seguridad de red los datos de la categoría tanto del evento como del contador, para lo que se usan los identificadores del grupo de seguridad de red como del área de trabajo que recuperó antes:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `
@@ -96,9 +95,9 @@ Vea y analice los registros. Para más información, consulte [Visualización y 
 
 Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/bash), o mediante la ejecución de la CLI de Azure en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta la CLI desde el equipo, necesita la versión 2.0.38 o posterior. Ejecute `az --version` en el equipo para encontrar la versión instalada. Si debe actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Si ejecuta la CLI localmente, también debe ejecutar `az login` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
-Para habilitar el registro de diagnóstico se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crear uno con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+Para habilitar el registro de recursos se necesita el identificador de un grupo de seguridad de red existente. Si no tiene ninguno, puede crear uno con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
-Recupere el grupo de seguridad de red para el que desea habilitar el registro de diagnóstico con [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). Por ejemplo, para recuperar un grupo de seguridad de red denominado *myNsg* que existe en un grupo de recursos denominado *myResourceGroup*, escriba el siguiente comando:
+Recupere el grupo de seguridad de red para el que desea habilitar el registro de recursos con [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). Por ejemplo, para recuperar un grupo de seguridad de red denominado *myNsg* que existe en un grupo de recursos denominado *myResourceGroup*, escriba el siguiente comando:
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -108,9 +107,9 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-Puede escribir registros de diagnóstico para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Para más información, consulte [Categorías de registro](#log-categories).
+Puede escribir registros de recursos para tres tipos de destino. Para más información, consulte [Destinos del registro](#log-destinations). En este artículo, los registros se envían al destino *Log Analytics*, pero no es más que un ejemplo. Para más información, consulte [Categorías de registro](#log-categories).
 
-Habilite el registro de diagnóstico para el grupo de seguridad de red con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). En el ejemplo siguiente se registran los datos de categoría de eventos y de contadores en un área de trabajo denominada *myWorkspace*, que se encuentra en un grupo de recursos denominado *myWorkspaces*, y el identificador del grupo de seguridad de red que recuperó anteriormente:
+Habilite el registro de recursos para el grupo de seguridad de red con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). En el ejemplo siguiente se registran los datos de categoría de eventos y de contadores en un área de trabajo denominada *myWorkspace*, que se encuentra en un grupo de recursos denominado *myWorkspaces*, y el identificador del grupo de seguridad de red que recuperó anteriormente:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \
@@ -198,7 +197,7 @@ El contador de reglas contiene información acerca de todas las reglas que se ap
 
 ## <a name="view-and-analyze-logs"></a>Visualización y análisis de los registros
 
-Para aprender a ver los datos del registro de diagnóstico, consulte [Introducción a los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si envía datos de diagnóstico a:
+Para aprender a ver los datos del registro de recursos, consulte [Introducción a los registros de plataforma Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si envía datos de diagnóstico a:
 - **Registros de Azure Monitor**: puede usar la solución de [análisis de grupos de seguridad de red](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) para obtener una información más detallada. La solución ofrece visualizaciones para de las reglas de NSG que permiten o deniegan el tráfico, por dirección MAC, de la interfaz de red de una máquina virtual.
 - **Cuenta de Azure Storage**: los datos se escriben en el archivo PT1H.json. Puede encontrar el:
@@ -207,7 +206,7 @@ Para aprender a ver los datos del registro de diagnóstico, consulte [Introducci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información acerca del [registro de actividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conocido como registros de auditoría o de operaciones. El registro de actividades está habilitado de forma predeterminada para los grupo de seguridad de red creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG del registro de actividad, busque las entradas que contengan los siguientes tipos de recursos:
+- Más información sobre el [registro de actividad](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). El registro de actividades está habilitado de forma predeterminada para los grupo de seguridad de red creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG del registro de actividad, busque las entradas que contengan los siguientes tipos de recursos:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

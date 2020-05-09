@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: b5f93f3a3583900810ca75f925c6a88df9102652
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79372682"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Denegación del acceso a una red pública en Azure Database for MySQL mediante Azure Portal
 
 En este artículo se describe cómo puede configurar un servidor de Azure Database for MySQL para denegar todas las configuraciones públicas y permitir solo las conexiones a través de puntos de conexión privados para mejorar aún más la seguridad de la red.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía, necesita:
 
@@ -37,7 +37,7 @@ Siga estos pasos para establecer la denegación del acceso a una red pública de
 
 1. Haga clic en **Guardar** para guardar los cambios.
 
-1. Se enviará una notificación para confirmar la correcta habilitación de la configuración de seguridad de la conexión.
+1. Se enviara una notificación para confirmar la correcta habilitación de la configuración de seguridad de la conexión.
 
     ![Denegación correcta del acceso de red de Azure Database for MySQL](./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png)
 

@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/02/2020
-ms.openlocfilehash: e9e9b10cc9bae029fe11fb2bd1f8b76cf120744a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/27/2020
+ms.openlocfilehash: c9ac8d7ea465a26d29bf8f8fbc15dcefaf9d7575
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417817"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187286"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
@@ -44,7 +44,7 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Mensaje**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs (Error de tiempo de espera de combinación de difusión, asegúrese de que el flujo de difusión genera datos en un plazo de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos).
 - **Causas**: la difusión tiene un tiempo de espera predeterminado de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos. El flujo elegido para la difusión parece demasiado grande para generar datos dentro de este límite.
-- **Recomendación:** evite la difusión de flujos de datos de gran tamaño cuyo procesamiento pueda tardar más de 60 segundos. En su lugar, elija un flujo más pequeño para la difusión. Las tablas SQL/DW y los archivos de código fuente de gran tamaño suelen ser malos candidatos.
+- **Recomendación:** active la pestaña Optimizar en las transformaciones de flujo de datos para Join, Exists y Lookup. La opción predeterminada para Broadcast (Difusión) es "Auto". Si se establece así o si va a configurar manualmente el lado izquierdo o derecho para difundir en "Fixed" (Fijo), puede establecer una configuración mayor de Azure Integration Runtime o desactivar la difusión. El enfoque recomendado para el mejor rendimiento en los flujos de datos es permitir que Spark realice la difusión mediante "Auto" y use una instancia de Azure IR optimizada para memoria.
 
 ### <a name="error-code-df-executor-conversion"></a>Código de error: DF-Executor-Conversion
 
