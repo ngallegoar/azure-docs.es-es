@@ -7,40 +7,36 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: c2c909d8ef2be982d4dd4a70b5f35d03e8e71418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659975"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770385"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Actualización de Azure Load Balancer interno sin necesidad de conexión de salida
 [Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
-Hay dos fases en una actualización:
-
-1. Migración de la configuración
-2. Incorporación de máquinas virtuales a los grupos de back-end de Standard Load Balancer
-
-Este artículo trata sobre la migración de la configuración. La incorporación de máquinas virtuales a los grupos de back-end puede variar en función de su entorno específico. pero [se proporcionan](#add-vms-to-backend-pools-of-standard-load-balancer) algunas recomendaciones generales de alto nivel.
+En este artículo se presenta un script de PowerShell que crea una instancia de Standard Load Balancer con la misma configuración que la instancia básica de Load Balancer junto con la migración del tráfico desde la instancia básica hasta la estándar.
 
 ## <a name="upgrade-overview"></a>Información general sobre la actualización
 
 Existe un script de Azure PowerShell que hace lo siguiente:
 
 * Crea una instancia de Load Balancer interno de SKU estándar en la ubicación que se especifique. Tenga en cuenta que la instancia de Standard Load Balancer interno no proporciona ninguna [conexión de salida](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
-* Copia perfectamente las configuraciones de Load Balancer de SKU básica en la instancia de Standard Load Balancer recién creada.
+* Copia perfectamente las configuraciones de Load Balancer de la SKU básica en la instancia de Standard Load Balancer recién creada.
+* Mueve sin problemas las direcciones IP privadas de la instancia básica de Load Balancer a la instancia de Standard Load Balancer recién creada.
+* Mueve sin problemas las máquinas virtuales del grupo de back-end de la instancia básica de Load Balancer al grupo de back-end de Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Advertencias y limitaciones
 
 * El script solo admite la actualización de Load Balancer interno si no se requiere ninguna conexión de salida. Si necesita [conexión de salida](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguna de las máquinas virtuales, vea esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obtener instrucciones. 
-* Standard Load Balancer tiene nuevas direcciones públicas. No es posible trasladar las direcciones IP asociadas a las instancias de Basic Load Balancer existentes sin problemas a las instancias de Standard Load Balancer, ya que tienen diferentes SKU.
 * Si se crea la instancia de Standard Load Balancer en una región diferente, no podrá asociar las máquinas virtuales existentes de la región antigua a la instancia de Standard Load Balancer recién creada. Para solucionar esta limitación, asegúrese de crear una nueva máquina virtual en la nueva región.
-* Si Load Balancer no tiene ninguna configuración de IP de front-end ni grupo de back-end, es probable que se produzca un error al ejecutar el script. Asegúrese de que no están vacíos
+* Si Load Balancer no tiene ninguna configuración de IP de front-end ni grupo de back-end, es probable que se produzca un error al ejecutar el script. Asegúrese de que no están vacíos.
 
 ## <a name="download-the-script"></a>Descarga del script
 
-Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0).
+Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
 ## <a name="use-the-script"></a>Uso del script
 
 Dispone de dos opciones en función de sus preferencias y de la configuración del entorno de PowerShell local:
@@ -84,30 +80,6 @@ Para ejecutar el script:
    AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Incorporación de máquinas virtuales a los grupos de back-end de Standard Load Balancer
-
-En primer lugar, asegúrese de que el script ha creado correctamente una nueva instancia de Standard Load Balancer interno con la configuración exacta migrada de la instancia de Basic Load Balancer interno. Puede comprobarlo desde Azure Portal.
-
-Asegúrese de que envía una pequeña cantidad de tráfico mediante Standard Load Balancer como una prueba manual.
-  
-Estos son algunos escenarios que muestran cómo agregar máquinas virtuales a los grupos de back-end de la instancia de Standard Load Balancer interno recién creada, cómo se pueden configurar y las recomendaciones para cada caso:
-
-* **Traslado de máquinas virtuales existentes desde grupos de back-end de la instancia antigua de Basic Load Balancer interno a grupos de back-end de la instancia de Standard Load Balancer interno recién creada**.
-    1. Para realizar las tareas de esta guía de inicio rápido, inicie sesión en [Azure Portal](https://portal.azure.com).
- 
-    1. Seleccione **Todos los recursos** en el menú de la izquierda y, a continuación, seleccione la **instancia recién creada de Standard Load Balancer** de la lista de recursos.
-   
-    1. En **Configuración**, seleccione **Grupos de back-end**.
-   
-    1. Seleccione el grupo de back-end que coincida con el grupo de back-end de Basic Load Balancer y seleccione el valor siguiente: 
-      - **Máquina virtual**: Despliegue y seleccione las máquinas virtuales del grupo de back-end coincidente de la instancia de Basic Load Balancer.
-    1. Seleccione **Guardar**.
-    >[!NOTE]
-    >En el caso de las máquinas virtuales que tienen direcciones IP públicas, deberá crear direcciones IP estándar primero en aquellos casos en los que no se garantice la misma dirección IP. Desasocie las máquinas virtuales de las direcciones IP básicas y asócielas con las direcciones IP estándar recién creadas. A continuación, podrá seguir las instrucciones para agregar máquinas virtuales al grupo de back-end de Standard Load Balancer. 
-
-* **Creación de nuevas máquinas virtuales para agregarlas a los grupos de back-end de la instancia de Standard Load Balancer interno recién creada**.
-    * [Aquí](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines) encontrará más instrucciones sobre cómo crear una máquina virtual y cómo asociarla con Standard Load Balancer.
-
 ## <a name="common-questions"></a>Preguntas frecuentes
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>¿Hay alguna limitación en el script de Azure PowerShell para migrar la configuración de v1 a v2?
@@ -116,7 +88,7 @@ Sí. Consulte [Advertencias y limitaciones](#caveatslimitations).
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>¿Puede el script de Azure PowerShell cambiar el tráfico de la instancia de Basic Load Balancer a la instancia de Standard Load Balancer recién creada?
 
-No. El script de Azure PowerShell solo migra la configuración. Usted es el responsable de realizar y controlar la migración real del tráfico.
+Sí, lo migra. Si quiere migrar el tráfico de forma personal, use [este script](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) que no mueve las máquinas virtuales automáticamente.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Se han producido algunos problemas al usar este script. ¿Cómo puedo obtener ayuda?
   

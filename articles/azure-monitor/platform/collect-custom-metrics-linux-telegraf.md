@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655470"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186448"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf
 
@@ -24,11 +24,17 @@ Mediante Azure Monitor, puede recopilar métricas personalizadas a través de lo
 
  ![Información general del agente de Telegraf](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
+> [!NOTE]  
+> Las métricas personalizadas no se admiten en todas las regiones. Las regiones admitidas se enumeran [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions).
+
 ## <a name="send-custom-metrics"></a>Envío de métricas personalizadas 
 
 En este tutorial, implementamos una máquina virtual Linux que ejecuta el sistema operativo Ubuntu 16.04 LTS. El agente de Telegraf es compatible con la mayoría de los sistemas operativos Linux. En el [portal de descarga de InfluxData](https://portal.influxdata.com/downloads) están disponibles los paquetes Debian y RPM, además de los archivos binarios de Linux sin empaquetar. Consulte esta [guía de instalación de Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para conocer instrucciones y opciones de instalación adicionales. 
 
 Inicie sesión en [Azure Portal](https://portal.azure.com).
+
+> [!NOTE]  
+> Si quiere migrar reglas de alertas clásicas y usar una máquina virtual de Linux existente, asegúrese de que la máquina virtual tenga establecida una identidad asignada por el sistema en **Activado**.
 
 Cree una nueva máquina virtual Linux: 
 

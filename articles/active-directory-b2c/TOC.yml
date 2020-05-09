@@ -226,7 +226,9 @@
         - name: Administración de tokens y sesiones
           items:
             - name: Personalización de tokens
-              href: custom-policy-manage-sso-and-token-config.md
+              href: configure-tokens-custom-policy.md
+            - name: Configuración del comportamiento de la sesión
+              href: session-behavior-custom-policy.md
         - name: Acceso directo al token externo de IdP
           href: idp-pass-through-custom.md
         - name: Experiencia adaptable

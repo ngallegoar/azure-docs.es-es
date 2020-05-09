@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b86429c90f436007116a45c6dbab443d6cc889e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073108"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188559"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en máquinas virtuales Linux
 
-Si desea impedir el uso o la instalación de determinadas extensiones en las máquinas virtuales Windows, puede crear una directiva de Azure mediante PowerShell para restringir las extensiones de las máquinas virtuales dentro de un grupo de recursos. 
+Si desea impedir el uso o la instalación de determinadas extensiones en las máquinas virtuales Windows, puede crear una definición de Azure Policy mediante PowerShell para restringir las extensiones de las máquinas virtuales dentro de un grupo de recursos. 
 
 En este tutorial se usa Azure PowerShell dentro de Cloud Shell, que se actualiza constantemente a la versión más reciente. 
 

@@ -5,20 +5,30 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 29a72eb1fe7b8be18cd2160fc63160e408378585
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: bf4c156d2bf9c205bd7545a96b5314dd43b2d02c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617440"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690775"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Uso de grupos dinámicos con Update Management
 
-Update Management permite tener como destino un grupo dinámico de VM de Azure (o de VM que no sean de Azure) para implementaciones de actualizaciones. Estos grupos, definidos por consultas, se evalúan en tiempo de implementación, por lo que no tiene que editar la implementación para agregar máquinas.
+Update Management permite tener como destino un grupo dinámico de VM de Azure (o de VM que no sean de Azure) para implementaciones de actualizaciones. El uso de un grupo dinámico evita que tenga que editar la implementación para actualizar las máquinas.
 
-## <a name="azure-machines"></a>Máquinas de Azure
+> [!NOTE]
+> Los grupos dinámicos no funcionan con máquinas virtuales clásicas.
 
-Los grupos dinámicos no funcionan con máquinas virtuales clásicas. Al definir la consulta, se pueden usar los siguientes elementos juntos para rellenar un grupo dinámico:
+Puede definir grupos dinámicos para máquinas, sean o no de Azure, desde **Update Management** en Azure Portal. Consulte [Administración de actualizaciones para varias máquinas virtuales de Azure](manage-update-multi.md).
+
+Un grupo dinámico se define mediante una consulta que Azure Automation evalúa en el momento de la implementación. Aunque una consulta de grupo dinámico recupere un gran número de máquinas, Azure Automation solo puede procesar un máximo de 1000 máquinas a la vez. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#update-management). 
+
+> [!NOTE]
+> Si espera actualizar más de 1000 máquinas, es recomendable que divida las actualizaciones entre varias programaciones de actualización. 
+
+## <a name="define-dynamic-groups-for-azure-machines"></a>Definición de grupos dinámicos para máquinas de Azure
+
+Al definir una consulta de grupo dinámico para las máquinas de Azure, puede usar los siguientes elementos para rellenar el grupo dinámico:
 
 * Subscription
 * Grupos de recursos
@@ -27,13 +37,13 @@ Los grupos dinámicos no funcionan con máquinas virtuales clásicas. Al definir
 
 ![Selección de grupos](./media/automation-update-management/select-groups.png)
 
-Para obtener una versión preliminar de los resultados de un grupo dinámico, haga clic en **Versión preliminar**. La versión preliminar muestra la pertenencia al grupo en el momento actual. En el ejemplo, buscamos máquinas que tengan la etiqueta `Role` para el grupo **BackendServer**. Si se ha agregado esta etiqueta a varias máquinas, se agregan a las implementaciones futuras en ese grupo.
+Para obtener una vista previa de los resultados de un grupo dinámico, haga clic en **Vista previa**. La versión preliminar muestra la pertenencia al grupo en el momento actual. En el ejemplo, buscamos máquinas que tengan la etiqueta `Role` para el grupo **BackendServer**. Si se ha agregado esta etiqueta a varias máquinas, se agregan a las implementaciones futuras en ese grupo.
 
 ![vista previa de grupos](./media/automation-update-management/preview-groups.png)
 
-## <a name="non-azure-machines"></a>Máquinas que no son de Azure
+## <a name="define-dynamic-groups-for-non-azure-machines"></a>Definición de grupos dinámicos para máquinas que no son de Azure
 
-En el caso de las máquinas que no son de Azure, las búsquedas guardadas, a las que también se hace referencia como grupos de equipos, se usan para crear el grupo dinámico. Para aprender a crear una búsqueda guardada, consulte [Creación de un grupo de equipos](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Una vez creado el grupo, puede seleccionarlo en la lista de búsquedas guardadas. Haga clic en **Vista previa** para obtener una vista previa de los equipos de la búsqueda guardada en ese momento.
+Un grupo dinámico para máquinas que no son de Azure usa búsquedas guardadas, que también se denominan grupos de equipos. Para aprender a crear una búsqueda guardada, consulte [Creación de un grupo de equipos](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Una vez creada la búsqueda guardada, puede seleccionarla en la lista de búsquedas guardadas en **Update Management** en Azure Portal. Haga clic en **Vista previa** para obtener una vista previa de los equipos de la búsqueda guardada.
 
 ![Selección de grupos](./media/automation-update-management/select-groups-2.png)
 

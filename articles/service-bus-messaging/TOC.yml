@@ -13,7 +13,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -40,7 +40,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Plantilla ARM
               href: service-bus-resource-manager-namespace-topic.md
@@ -72,6 +72,9 @@
   items:
     - name: Ejemplos de Service Bus
       href: service-bus-samples.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Mensajería premium

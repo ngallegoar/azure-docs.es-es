@@ -4,6 +4,11 @@
   items:
     - name: ¿Qué es Azure Arc para servidores?
       href: ./servers/overview.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md
 - name: Guías paso a paso
   items:
     - name: Conexión a Azure Arc

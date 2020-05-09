@@ -53,6 +53,8 @@
           href: api-management-policies.md
     - name: Seguridad
       items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Controles de seguridad integrados
           href: api-management-security-controls.md
     - name: Suscripciones
@@ -101,10 +103,12 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Aprovisionamiento de una puerta de enlace autohospedada
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Implementación de una puerta de enlace autohospedada en Azure Kubernetes Service
+          href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Implementación de una puerta de enlace autohospedada en Kubernetes
-          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+          href: how-to-deploy-self-hosted-gateway-kubernetes.md
         - name: Implementación de una puerta de enlace autohospedada en Docker
-          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+          href: how-to-deploy-self-hosted-gateway-docker.md
         - name: Configuración de un dominio personalizado para la puerta de enlace autohospedada
           href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
@@ -209,12 +213,20 @@
           href: api-management-transformation-policies.md
     - name: Administración en producción
       items:
+        - name: Exportación de API a Power Platform
+          href: export-api-power-platform.md
         - name: Administrar grupos
           href: api-management-howto-create-groups.md
         - name: Recuperación de direcciones IP
           href: api-management-howto-ip-addresses.md
         - name: Registro de eventos en Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
+        - name: Registro de solicitudes con Azure Application Insights
+          href: api-management-howto-app-insights.md
+        - name: Configuración de métrica y registros en la nube en una puerta de enlace autohospedada
+          href: how-to-configure-cloud-metrics-logs.md
+        - name: Configuración de métrica y registros locales en una puerta de enlace autohospedada
+          href: how-to-configure-local-metrics-logs.md
         - name: Registro de solicitudes con Azure Application Insights
           href: api-management-howto-app-insights.md
         - name: Configuración de DR mediante copia de seguridad y restauración
