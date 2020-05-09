@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4270677f8f5f77e1ada0b1d9385163dad762bbda
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b10aea962a31ba600deca866a8d9f7ab3b81ea8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427544"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133673"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Compatibilidad con la intercalación de bases de datos para SQL de Synapse
 
@@ -101,6 +101,7 @@ Además, el grupo de SQL no admite los siguientes tipos de intercalación:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
+*    UTF-8
 
 ## <a name="checking-the-current-collation"></a>Comprobación de la intercalación actual
 Para comprobar la intercalación actual de la base de datos, puede ejecutar el siguiente fragmento de código de T-SQL:
@@ -111,7 +112,7 @@ Cuando se pasa "Collation" como parámetro de propiedad, la función DatabasePro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede encontrar información adicional sobre los procedimientos recomendados para el grupo de SQL y SQL a petición en los siguientes artículos:
+En los siguientes artículos puede encontrar más información sobre los procedimientos recomendados para el grupo de SQL y SQL a petición:
 
 - [Procedimientos recomendados para grupos de SQL](best-practices-sql-pool.md)
 - [Procedimientos recomendados para SQL a petición](best-practices-sql-on-demand.md)

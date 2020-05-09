@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418361"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562209"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 
@@ -326,6 +326,9 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen.
 
 Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador de ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
+
+> [!NOTE]
+> El desencadenador de la ventana de saltos *espera a que se ejecute la canalización desencadenada* para finalizar. Su estado de ejecución refleja el estado de la ejecución de la canalización desencadenada. Por ejemplo, si se cancela una ejecución de canalización desencadenada, la ejecución del desencadenador de la ventana de saltos correspondiente se marca como cancelada. Esto es diferente del comportamiento "desencadenar y olvidar" del desencadenador de programación, que se marca como correcto siempre que se inicie una ejecución de canalización.
 
 ## <a name="event-based-trigger"></a>Desencadenador basado en eventos
 

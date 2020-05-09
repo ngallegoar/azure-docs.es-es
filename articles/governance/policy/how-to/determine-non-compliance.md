@@ -3,12 +3,12 @@ title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
 ms.date: 04/26/2019
 ms.topic: how-to
-ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 395c70309ceca6e38f9f62522d80fb588821b886
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231212"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182589"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -37,11 +37,11 @@ Para ver los detalles de cumplimiento, siga estos pasos:
 
 1. En la pestaña **Compatibilidad de recursos** de **Cumplimiento de directiva**, haga clic con el botón derecho o seleccione los puntos suspensivos de un recurso en un **estado de compatibilidad** que sea _No compatible_. A continuación, seleccione **Ver detalles de cumplimiento**.
 
-   ![Ver opción de detalles de cumplimiento](../media/determine-non-compliance/view-compliance-details.png)
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Ver opción de detalles de cumplimiento" border="false":::
 
 1. La página **Detalles de cumplimiento** muestra información de la última evaluación del recurso en la asignación de directiva actual. En este ejemplo, el campo **Microsoft.Sql/servers/version** tiene que ser _12.0_ y se espera que la definición de política sea _14.0_. Si el recurso no es compatible por varias razones, estas se muestran en este panel.
 
-   ![Panel de detalles de cumplimiento y razones de no compatibilidad](../media/determine-non-compliance/compliance-details-pane.png)
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Panel de detalles de cumplimiento y razones de no compatibilidad" border="false":::
 
    Para una definición de directiva **auditIfNotExists** o **deployIfNotExists**, los detalles incluyen la propiedad **details.type** y cualquier propiedad opcional. Para obtener una lista, consulte [auditIfNotExists propiedades](../concepts/effects.md#auditifnotexists-properties) y [deployIfNotExists propiedades](../concepts/effects.md#deployifnotexists-properties). **Último recurso evaluado** es un recurso relacionado de la sección de **detalles** de la definición.
 
@@ -70,7 +70,7 @@ Para ver los detalles de cumplimiento, siga estos pasos:
    }
    ```
 
-   ![Panel de detalles de cumplimiento: *ifNotExists](../media/determine-non-compliance/compliance-details-pane-existence.png)
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Panel de detalles de cumplimiento: *ifNotExists" border="false":::
 
 > [!NOTE]
 > Para proteger los datos, cuando un valor de propiedad es _secreto_, el valor actual muestra asteriscos.
@@ -111,17 +111,17 @@ Para las directivas _auditIfNotExists_ de la categoría _Configuración de invit
 
 También es posible que no disponga de acceso para iniciar sesión en la VM directamente, pero tiene que informar sobre el motivo por el que la VM _no es compatible_.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Para empezar, siga los mismos pasos de la sección anterior para ver los detalles de cumplimiento de directivas.
 
 En la vista del panel **Detalles de cumplimiento**, haga clic en el vínculo **Último recurso evaluado**.
 
-   ![Ver detalles de la definición de auditIfNotExists](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Ver detalles de la definición de auditIfNotExists" border="false":::
 
 La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina. En la columna **Motivo**, se muestra una frase en la que se describe el motivo por el que la Asignación de invitado _no es compatible_. Por ejemplo, si audita directivas de contraseñas, la columna **Motivo** mostraría un texto que incluye el valor actual de cada configuración.
 
-![Ver detalles de cumplimiento](../media/determine-non-compliance/guestconfig-compliance-details.png)
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Ver detalles de cumplimiento" border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -200,11 +200,11 @@ Como parte de una nueva **versión preliminar pública**, los últimos 14 días 
 
 1. Seleccione la pestaña **Historial de cambios (versión preliminar)** en la página **Compatibilidad de recursos**. Se muestra una lista de cambios detectados, si existe alguna.
 
-   ![Pestaña Historial de cambios de directiva de Azure en la página Compatibilidad de recursos](../media/determine-non-compliance/change-history-tab.png)
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Pestaña Historial de cambios de directiva de Azure en la página Compatibilidad de recursos" border="false":::
 
 1. Seleccione uno de los cambios detectados. Las _diferencias visuales_ para el recurso se presentan en la página **Historial de cambios**.
 
-   ![Diferencias visuales del historial de cambios de directiva de Azure en la página Historial de cambios](../media/determine-non-compliance/change-history-visual-diff.png)
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Diferencias visuales del historial de cambios de directiva de Azure en la página Historial de cambios" border="false":::
 
 Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados pueden no estar relacionados con el estado de compatibilidad actual del recurso.
 

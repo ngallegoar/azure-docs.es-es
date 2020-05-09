@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548285"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735577"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -80,16 +80,25 @@ $ras.Count
 
 ## <a name="access-denied-or-permission-errors"></a>Errores de permiso o acceso denegado
 
-- Si recibe el error de permiso "El cliente con el identificador de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)" al intentar crear un recurso, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol con permiso de escritura en el recurso y en el ámbito seleccionado. Por ejemplo, para administrar las máquinas virtuales de un grupo de recursos, debe tener el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) en el grupo de recursos (o el ámbito primario). Para ver una lista de todos los permisos para cada uno de los roles integrados, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
+- Si recibe el error de permiso "El cliente con el identificador de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)" al intentar crear un recurso, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol con permiso de escritura en el recurso y en el ámbito seleccionado. Por ejemplo, para administrar las máquinas virtuales de un grupo de recursos, debe tener el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) en el grupo de recursos (o el ámbito primario). Para ver una lista de los permisos para cada rol integrado, consulte [Roles integrados de Azure](built-in-roles.md).
 - Si aparece el error de permiso "No tiene permiso para crear una solicitud de soporte técnico" al intentar crear o actualizar una incidencia de soporte técnico, compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Support/supportTickets/write`, como [Colaborador de solicitud de soporte técnico](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-with-unknown-security-principal"></a>Asignaciones de roles con entidad de seguridad desconocida
+## <a name="role-assignments-with-identity-not-found"></a>Asignaciones de roles con identidad no encontrada
 
-Si asigna un rol a una entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) y, posteriormente, elimina esa entidad de seguridad sin quitar la asignación de roles, el tipo de entidad de seguridad para la asignación de roles se mostrará como **Desconocido**. En la captura de pantalla siguiente, se muestra un ejemplo en Azure Portal. El nombre de la entidad de seguridad se muestra como **Identidad eliminada** y **La identidad ya no existe**. 
+En la lista de asignaciones de roles para Azure Portal, es posible que observe que la entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) aparece como **Identidad no encontrada** con un tipo **Desconocido**.
 
 ![Grupo de recursos de aplicación web](./media/troubleshooting/unknown-security-principal.png)
 
-Si enumera esta asignación de roles mediante Azure PowerShell, verá un elemento `DisplayName` vacío y un elemento `ObjectType` definido como Unknown. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la siguiente:
+La identidad podría no encontrarse por dos motivos:
+
+- Ha invitado recientemente a un usuario al crear una asignación de roles.
+- Ha eliminado una entidad de seguridad que tenía una asignación de roles.
+
+Si ha invitado recientemente a un usuario al crear una asignación de roles, esta entidad de seguridad podría seguir en el proceso de replicación entre regiones. De ser así, espere unos instantes y actualice la lista de asignaciones de roles.
+
+Sin embargo, si esta entidad de seguridad no es un usuario invitado recientemente, podría tratarse de una entidad de seguridad eliminada. Si asigna un rol a una entidad de seguridad y, posteriormente, elimina esa entidad de seguridad sin quitar antes la asignación de roles, la entidad de seguridad se mostrará como **Identidad no encontrada** y con un tipo **Desconocido**.
+
+Si enumera esta asignación de roles mediante Azure PowerShell, puede que vea un elemento `DisplayName` vacío y un elemento `ObjectType` definido como **Unknown**. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la salida siguiente:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -103,7 +112,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, verá un elemento `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) devuelve una asignación de roles que es similar a la siguiente:
+Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, podría ver un elemento `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) devuelve una asignación de roles que es similar a la salida siguiente:
 
 ```
 {
@@ -119,9 +128,9 @@ Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, verá 
 }
 ```
 
-No es un problema dejar estas asignaciones de roles, pero puede quitarlas mediante pasos similares a otras. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) o la [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment).
+No es problema dejar estas asignaciones de roles donde se ha eliminado la entidad de seguridad. Si lo desea, puede quitar estas asignaciones de roles siguiendo los pasos similares a otras asignaciones de roles. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) o la [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment).
 
-En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). A continuación se muestra un ejemplo del mensaje de error:
+En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). La salida siguiente muestra un ejemplo del mensaje de error:
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -154,7 +163,7 @@ Si concede a un usuario acceso de solo lectura a una única aplicación web, se 
 * Cambiar opciones, como la configuración general, opciones de escala, opciones de copia de seguridad y opciones de supervisión
 * Acceder a las credenciales de publicación y otros secretos, como opciones de aplicaciones y cadenas de conexión
 * Registros de streaming
-* Configuración de registros de diagnóstico
+* Configuración de registros de recursos
 * Consola (símbolo del sistema)
 * Implementaciones activas y recientes (para implementaciones git continuas locales)
 * Gasto estimado
@@ -217,5 +226,5 @@ Un lector puede hacer clic en la pestaña **Características de la plataforma** 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Solución de problemas de usuarios invitados](role-assignments-external-users.md#troubleshoot)
-- [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
-- [Visualización de registros de actividad de cambios de RBAC en recursos de Azure](change-history-report.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](role-assignments-portal.md)
+- [Visualización de los registros de actividad de los cambios de RBAC de Azure](change-history-report.md)

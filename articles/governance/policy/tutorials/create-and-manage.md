@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
 description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
 ms.date: 03/24/2020
 ms.topic: tutorial
-ms.openlocfilehash: 15a6c3df26938332d42ecbcfff43f958577062c4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239961"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190833"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -126,7 +126,7 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
 
    La propiedad _field_ de la regla de directiva debe ser un valor admitido. Se puede encontrar una lista completa de valores en los [campos de estructura de definición de directiva](../concepts/definition-structure.md#fields). Un ejemplo de un alias podría ser `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   Para ver más ejemplos de directivas de Azure, consulte [Ejemplos de Azure Policy](../samples/index.md).
+   Para ver más ejemplos de Azure Policy, consulte [Ejemplos de Azure Policy](../samples/index.md).
 
 1. Seleccione **Guardar**.
 

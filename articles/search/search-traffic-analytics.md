@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: db8c1781061f038cc90310fcd00c220fa6f5d1a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258216"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128104"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recopilación de datos de telemetría para análisis del tráfico de búsqueda
 
@@ -22,7 +22,7 @@ El análisis del tráfico de búsqueda es un patrón para recopilar datos de tel
 Este patrón depende de [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) (una característica de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/)) para recopilar datos de usuario. Requiere que agregue la instrumentación a su código de cliente, tal como se describe en este artículo. Por último, necesitará una herramienta de informes para analizar los datos. Se recomienda Power BI, pero puede utilizar el panel de la aplicación o cualquier herramienta que se conecte a Application Insights.
 
 > [!NOTE]
-> El patrón que se describe en este artículo es para escenarios avanzados y datos de la secuencia de clics generados por el código que agrega al cliente. Por el contrario, los registros de servicio son fáciles de configurar, proporcionan una gama de métricas y se pueden realizar en el portal sin necesidad de código. Se recomienda habilitar el registro de diagnóstico para todos los escenarios. Para obtener más información, consulte [Recopilación y análisis de datos de registro](search-monitor-logs.md).
+> El patrón que se describe en este artículo es para escenarios avanzados y datos de la secuencia de clics generados por el código que agrega al cliente. Por el contrario, los registros de servicio son fáciles de configurar, proporcionan una gama de métricas y se pueden realizar en el portal sin necesidad de código. Se recomienda habilitar el registro para todos los escenarios. Para obtener más información, consulte [Recopilación y análisis de datos de registro](search-monitor-logs.md).
 
 ## <a name="identify-relevant-search-data"></a>Identificación de los datos de búsqueda pertinentes
 

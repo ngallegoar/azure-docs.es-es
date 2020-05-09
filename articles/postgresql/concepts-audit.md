@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842476"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131240"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
@@ -26,14 +26,14 @@ Si desea obtener registros de nivel de recurso de Azure para operaciones como el
 ## <a name="usage-considerations"></a>Consideraciones de uso
 De forma predeterminada, las instrucciones de registro de pgAudit se emiten junto con las instrucciones de registro normales mediante el uso de la utilidad de registro estándar de Postgres. En Azure Database for PostgreSQL, estos archivos. log se pueden descargar mediante Azure Portal o la CLI. El almacenamiento máximo de la colección de archivos es de 1 GB y cada archivo está disponible durante un máximo de siete días (el valor predeterminado es tres días). Este servicio es una opción de almacenamiento a corto plazo.
 
-Como alternativa, puede configurar todos los registros que se emitirán al servicio de registro de diagnóstico de Azure Monitor. Si habilita el registro de diagnóstico de Azure Monitor, los registros se enviarán automáticamente (en formato JSON) a Azure Storage, Event Hubs o los registros de Azure Monitor, en función de su elección.
+Como alternativa, puede configurar todos los registros para que se envíen al almacén de registros de Azure Monitor a fin de analizarlos posteriormente en Log Analytics. Si habilita el registro de recursos de Azure Monitor, los registros se enviarán automáticamente (en formato JSON) a Azure Storage, Event Hubs o a los registros de Azure Monitor, en función de su elección.
 
-Al habilitar pgAudit, se genera un gran volumen de registro en un servidor, lo que afecta al rendimiento y al almacenamiento de registros. Es recomendable usar el servicio del registro de diagnóstico de Azure, que ofrece opciones de almacenamiento a más largo plazo, así como características de análisis y alertas. Se recomienda desactivar el registro estándar para reducir el impacto sobre el rendimiento del registro adicional:
+Al habilitar pgAudit, se genera un gran volumen de registro en un servidor, lo que afecta al rendimiento y al almacenamiento de registros. Es recomendable usar los registros de Azure Monitor, lo que ofrece opciones de almacenamiento a más largo plazo, así como características de análisis y alertas. Se recomienda desactivar el registro estándar para reducir el impacto sobre el rendimiento del registro adicional:
 
    1. Establezca el parámetro `logging_collector` en OFF. 
    2. Reinicie el servidor para aplicar este cambio.
 
-Para aprender a configurar el registro en Azure Storage, Event hubs o los registros de Azure Monitor, visite la sección de registros de diagnóstico del [artículo de registros de servidor](concepts-server-logs.md).
+Para aprender a configurar el registro en Azure Storage, Event Hubs o los registros de Azure Monitor, consulte la sección de registros de recursos del [artículo de registros de servidor](concepts-server-logs.md).
 
 ## <a name="installing-pgaudit"></a>Instalación de pgAudit
 
@@ -88,7 +88,7 @@ Para empezar a trabajar rápidamente, establezca `pgaudit.log` en `WRITE` y abra
 ## <a name="viewing-audit-logs"></a>Visualización de registros de auditoría
 Si usa archivos .log, los registros de auditoría se incluirán en el mismo archivo que los registros de errores de PostgreSQL. Puede descargar archivos de registro de [Azure Portal](howto-configure-server-logs-in-portal.md) o de la [CLI](howto-configure-server-logs-using-cli.md). 
 
-Si usa el registro de diagnósticos de Azure, la forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Si usa el registro de recursos de Azure, la forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

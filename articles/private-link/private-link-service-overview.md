@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236072"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202220"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
@@ -61,7 +61,7 @@ Un servicio Private Link especifica las siguientes propiedades:
 
 ### <a name="details"></a>Detalles
 
-- Se puede tener acceso al servicio Private Link desde puntos de conexión privados aprobados en la misma región. Se puede alcanzar el punto de conexión privado desde la misma red virtual, redes virtuales emparejadas a nivel regional, global y local mediante conexiones VPN o ExpressRoute privadas. 
+- Se puede acceder al servicio Private Link desde puntos de conexión privados aprobados en cualquier región pública. Se puede alcanzar el punto de conexión privado desde la misma red virtual, redes virtuales emparejadas a nivel regional, global y local mediante conexiones VPN o ExpressRoute privadas. 
  
 - Al crear un servicio Private Link, se crea una interfaz de red para el ciclo de vida del recurso. El cliente no puede administrar esta interfaz.
  

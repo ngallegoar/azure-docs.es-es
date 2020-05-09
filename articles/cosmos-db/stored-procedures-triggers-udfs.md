@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010552"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509676"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -64,6 +64,9 @@ Las transacciones están integradas de forma nativa en el modelo de programació
 ### <a name="data-consistency"></a>Coherencia de datos
 
 Los procedimientos almacenados y los desencadenadores se ejecutan siempre en la réplica principal del contenedor de Azure Cosmos. Esta característica garantiza que las lecturas desde los procedimientos almacenados ofrezcan una [fuerte coherencia](consistency-levels-tradeoffs.md). Las consultas que utilizan funciones definidas por el usuario se pueden ejecutar en el servidor principal o en cualquier réplica secundaria. Los procedimientos almacenados y los desencadenadores están diseñados para admitir escrituras de transacción; sin embargo, la lógica de solo lectura se implementa mejor como lógica del lado de la aplicación y las consultas con los [SDK de la API de SQL de Azure Cosmos DB](sql-api-dotnet-samples.md) le ayudarán a saturar el rendimiento de la base de datos. 
+
+> [!TIP]
+> Es posible que las consultas ejecutadas en un procedimiento almacenado o desencadenador no vean los cambios en los elementos realizados por la misma transacción de script. Esta instrucción se aplica a las consultas SQL, como `getContent().getCollection.queryDocuments()` y a las consultas de lenguaje integradas, como `getContext().getCollection().filter()`.
 
 ## <a name="bounded-execution"></a>Ejecución vinculada
 
