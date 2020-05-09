@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aba444e618a6ee2c6808b7f6d9d706fdf18fe546
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209050"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611966"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -203,7 +203,7 @@ Las siguientes instrucciones le indicarán cómo cargar la imagen maestra en una
 
 Ahora que tiene una imagen, puede crear o actualizar los grupos de hosts. Para obtener más información sobre cómo crear y actualizar grupos de hosts, vea los artículos siguientes:
 
-- [Creación de un grupo host con una plantilla de Azure Resource Manager](create-host-pools-arm-template.md)
+- [Creación de un grupo host con una plantilla de Azure Resource Manager](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creación de un grupo host con PowerShell](create-host-pools-powershell.md)
 - [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md)

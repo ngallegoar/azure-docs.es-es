@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77619f7bc24943b2b7051ff51f92cf96d439775e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064077"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628425"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Creación de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
 
@@ -45,7 +45,7 @@ Si utiliza la verificación en dos pasos con su cuenta profesional o educativa y
 
 ### <a name="to-create-a-new-app-password"></a>Para crear una nueva contraseña de aplicación
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/.
 
     ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
 

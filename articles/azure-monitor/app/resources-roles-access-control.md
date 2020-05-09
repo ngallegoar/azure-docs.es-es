@@ -3,12 +3,12 @@ title: Recursos, roles y control de acceso en Azure Application Insights | Micro
 description: Propietarios, colaboradores y lectores de las perspectivas de su organización.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473139"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628250"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, roles y control de acceso en Application Insights
 
@@ -40,11 +40,6 @@ En primer lugar, vamos a ver algunas definiciones:
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Control de acceso para el grupo de recursos
 
 Es importante comprender que, además del recurso que ha creado para su aplicación, también hay recursos ocultos independientes para las alertas y las pruebas web. Estos están conectados al mismo [grupo de recursos](#resource-group) que el recurso de Application Insights. También podría haber colocado ahí otros servicios de Azure, como sitios web o almacenamiento.
-
-Para controlar el acceso a estos recursos, se recomienda por lo tanto lo siguiente:
-
-* Controlar el acceso en el nivel de **grupo de recursos o suscripción** .
-* Asignar el rol de **colaborador de componentes de Application Insights** a los usuarios. Esto les permite editar pruebas web, alertas y recursos de Application Insights, sin proporcionar acceso a otros servicios en el grupo.
 
 ## <a name="to-provide-access-to-another-user"></a>Para proporcionar acceso a otro usuario, siga estos pasos:
 

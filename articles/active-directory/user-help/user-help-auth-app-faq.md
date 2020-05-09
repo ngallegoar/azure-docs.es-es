@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: c56db99b056d4b1e9b7dd75bc2f21bf582ee2ab7
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d039a7e21ac1ef6415cc363201c9754b47503add
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756840"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627779"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -27,8 +27,9 @@ La aplicación Microsoft Authenticator reemplaza la aplicación Azure Authentica
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-| Pregunta | Solución |
-| -------- | -------- |
+| Pregunta | Respuesta |
+| -------- | ------ |
+| ¿Está registrando un dispositivo y acepta la concesión de acceso a dicho dispositivo para la empresa o el servicio? | El registro de un dispositivo permite que el dispositivo acceda a los servicios de la organización, pero no que la organización acceda al dispositivo. |
 | ¿Puedo tomar capturas de pantalla de mis códigos de OTP en Android Microsoft Authenticator? | A partir de la versión 6.2003.1704 de Microsoft Authenticator para Android, cuando se hace una captura de pantalla de Authenticator, todos los códigos de OTP se ocultan de forma predeterminada para proteger mejor a nuestros usuarios. Si un usuario quiere ver sus códigos de OTP en capturas de pantalla, o permitir que otras aplicaciones hagan una captura de la pantalla de Authenticator, puede hacerlo habilitando la opción "Captura de pantalla" de su aplicación Authenticator y, seguidamente, reiniciando la aplicación. |
 | ¿Qué datos almacena Authenticator en mi nombre y cómo puedo eliminarlo? | La aplicación Microsoft Authenticator recopila tres tipos de información:<ul><li>Información de la cuenta que proporciona al momento de añadirla. Estos datos se pueden quitar mediante la eliminación de la cuenta.</li><li>Datos de registro de diagnóstico que solo están en la aplicación hasta que seleccione la opción **Enviar registros** a Microsoft a través del menú de **Ayuda** de la aplicación. Estos archivos de registro contienen datos personales, como las direcciones de correo electrónico (por ejemplo, alain@contoso.com), las direcciones IP o de servidor y datos del dispositivo (por ejemplo, el nombre del dispositivo y la versión del sistema operativo), con los datos personales limitados a la información necesaria para ayudar a solucionar problemas de la aplicación. Puede ver estos archivos de registro en la aplicación en cualquier momento para ver la información que se recopila. Si envía los archivos de registro, los ingenieros de la aplicación de autenticación pueden utilizarlos para solucionar los problemas notificados por los clientes.</li><li>Datos de uso no personalmente identificables, como "se ha iniciado el flujo de adición de cuenta/la cuenta se ha añadido correctamente" o "notificación aprobada". Estos datos son una parte integral de nuestras decisiones de ingeniería y nos ayudan a determinar qué características son importantes para usted y dónde se deben realizar mejoras en la forma de actualizaciones a las aplicaciones. Usted, como usuario de la aplicación, ve una notificación sobre esta recopilación de datos en el primer inicio de la aplicación y se le informa que se puede desactivar en la página de **Configuración** de la aplicación. Puede habilitar o deshabilitar esta opción en cualquier momento.</li></ul> |
 | ¿Para qué sirven los códigos de la aplicación? | Cuando abra la aplicación Microsoft Authenticator, podrá ver las cuentas que ha agregado como iconos.<li>En un dispositivo iOS, las cuentas profesionales o educativas y las cuentas personales de Microsoft tendrán un número de seis u ocho dígitos visible en la vista de pantalla completa de la cuenta (a la que se accede pulsando el icono de la cuenta).<br><br>![Pantalla de cuentas de la aplicación](./media/user-help-auth-app-faq/auth-app-accounts.png)<li>Para otras cuentas en un dispositivo iOS y todas las cuentas en un dispositivo Android, verá números de seis u ocho dígitos en la página Cuentas de la aplicación. Usará estos códigos como verificación de que usted es quien dice ser. Después de iniciar sesión con su nombre de usuario y contraseña, tendrá que escribir el código de verificación asociado a esa cuenta. Por ejemplo, si es Katy, inicia sesión en su cuenta de Contoso y usa un dispositivo iOS, debe pulsar el icono de la cuenta y, a continuación, usar el código de verificación para verificar su identidad. Si es Katy e inicia sesión en su cuenta de Outlook, debe seguir los mismos pasos.<br><br>![Después de pulsar el icono de la cuenta en la aplicación](./media/user-help-auth-app-faq/katy-signin.png)<br><br>Después de pulsar el icono de la cuenta de Contoso, Katy ve el código de verificación en la vista de pantalla completa y escribe 895823 para finalizar el inicio de sesión.<br><br>![Pantalla del código de verificación en la aplicación](./media/user-help-auth-app-faq/verification-code.png) |
