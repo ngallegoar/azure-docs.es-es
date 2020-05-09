@@ -7,37 +7,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: dc47afe9cb6eca1b10f8caca7b85087023c5eadf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c72c2f606ab653d7e3f1d81f7278571e8e4978
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060133"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136539"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Vista previa: Control de las actualizaciones con el control de mantenimiento y Azure PowerShell
+# <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Control de las actualizaciones con el control de mantenimiento y Azure PowerShell
 
-Administre las actualizaciones de la plataforma, que no requieren un reinicio, mediante el control de mantenimiento. Azure actualiza con frecuencia su infraestructura para mejorar la confiabilidad, el rendimiento y la seguridad o para poner en marcha nuevas características. La mayoría de las actualizaciones son transparentes para los usuarios. Algunas cargas de trabajo especialmente delicadas, como los juegos, el streaming multimedia o las transacciones financieras, no pueden tolerar ni siquiera unos segundos de bloqueo o desconexión por mantenimiento de una máquina virtual. El control de mantenimiento ofrece la opción de poner en espera las actualizaciones de la plataforma y aplicarlas en un período sucesivo de 35 días. 
-
-El control de mantenimiento permite decidir cuándo se aplican las actualizaciones a las máquinas virtuales aisladas.
-
-Con el control de mantenimiento, puede:
-- Aplicar actualizaciones por lotes en un único paquete de actualización.
-- Esperar hasta 35 días para aplicar las actualizaciones. 
-- Automatizar las actualizaciones de la plataforma para la ventana de mantenimiento mediante Azure Functions.
-- Mantener el trabajo de las configuraciones entre suscripciones y grupos de recursos. 
-
-> [!IMPORTANT]
-> El control de mantenimiento actualmente está en su versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
-## <a name="limitations"></a>Limitaciones
-
-- Las máquinas virtuales deben estar en un [host dedicado](./linux/dedicated-hosts.md) o bien crearse con un [tamaño de máquina virtual aislada](./linux/isolation.md).
-- Después de 35 días, se aplicará automáticamente una actualización.
-- El usuario debe tener acceso de **colaborador del recurso**.
-
-
+El control de mantenimiento le permite decidir cuándo se aplican las actualizaciones a las máquinas virtuales aisladas y los hosts dedicados de Azure. En este tema se tratan las opciones de Azure PowerShell para el control de mantenimiento. Para más información sobre las ventajas de usar el control de mantenimiento, sus limitaciones y otras opciones de administración, consulte el artículo sobre la [administración de las actualizaciones de las distintas plataformas con control de mantenimiento](maintenance-control.md).
+ 
 ## <a name="enable-the-powershell-module"></a>Habilitación del módulo de PowerShell
 
 Asegúrese de que `PowerShellGet` está actualizado.
@@ -46,16 +26,9 @@ Asegúrese de que `PowerShellGet` está actualizado.
 Install-Module -Name PowerShellGet -Repository PSGallery -Force
 ```
 
-Los cmdlets de PowerShell Az.Maintenance se encuentran en versión preliminar, por lo que el módulo se debe instalar con el parámetro `AllowPrerelease` en Cloud Shell o en la instalación local de PowerShell.   
-
-```azurepowershell-interactive
-Install-Module -Name Az.Maintenance -AllowPrerelease
-```
-
 Si lo va a instalar localmente, asegúrese de abrir el símbolo del sistema de PowerShell como administrador.
 
 También es posible que se le pida que confirme que desea realizar la instalación desde un *repositorio que no es de confianza*. Escriba `Y` o seleccione **Sí a todo** para instalar el módulo.
-
 
 
 ## <a name="create-a-maintenance-configuration"></a>Creación de una configuración de mantenimiento

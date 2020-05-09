@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 2db7a25f3f463e9210544354395c9d33a75f633c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619369"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231975"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conocidos y soluciones de Azure Machine Learning
 
@@ -40,6 +40,39 @@ Obtenga información sobre la [cuotas de recursos](how-to-manage-quotas.md) que 
 
 ## <a name="installation-and-import"></a>Instalación e importación
 
+* **Instalación de pip: no existe garantía de que las dependencias sean coherentes con la instalación de una sola línea**: 
+
+   Se trata de una limitación conocida de pip, ya que no tiene una resolución de dependencias operativa al realizar la instalación como una sola línea. Solo tiene en cuenta la primera dependencia única. 
+
+   En el siguiente código, `azure-ml-datadrift` y `azureml-train-automl` se instalan mediante una instalación de pip de una sola línea. 
+     ```
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   En este ejemplo, supongamos que `azure-ml-datadrift` requiere una versión posterior a la 1.0 y que `azureml-train-automl` requiere una versión inferior a la 1.2. Si la versión más reciente de `azure-ml-datadrift` es la 1.3, ambos paquetes se actualizarán a la 1.3, independientemente de que el paquete de `azureml-train-automl` requiera una versión anterior. 
+
+   Para asegurarse de que se instalan las versiones adecuadas para los paquetes, instale con varias líneas como en el código siguiente. El orden no importa, ya que pip cambia a una versión anterior explícitamente como parte de la siguiente llamada de línea. De este modo, se aplican las dependencias de versión adecuadas.
+    
+     ```
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+
+* **Errores de Panda: se suelen observar durante un experimento de AutoML:**
+   
+   Al configurar manualmente el entorno con pip, observará errores de atributos (especialmente de Pandas) debido a que se están instalado versiones de paquete incompatibles. Para evitar estos errores, [instale el SDK de AutoML con automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Abra un símbolo del sistema de Anaconda y clone el repositorio de GitHub para un conjunto de cuadernos de ejemplo.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. Cambie con el comando cd a la carpeta how-to-use-azureml/automated-machine-learning donde se extrajeron los cuadernos de ejemplo y, a continuación, ejecute:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Mensaje de error: no se puede desinstalar 'PyYAML'**
 
     SDK de Azure Machine Learning para Python: PyYAML es un proyecto instalado de `distutils`. Por lo tanto, no se puede determinar con precisión qué archivos le pertenecen en caso de una desinstalación parcial. Para continuar con la instalación del SDK sin tener en cuenta este error, use:
@@ -82,7 +115,7 @@ Obtenga información sobre la [cuotas de recursos](how-to-manage-quotas.md) que 
     * Actualice el paquete `azureml-sdk[automl]` a la versión más reciente.
     * Agregue `azureml-dataprep` versión 1.1.8 o superior.
     * Agregue `pyarrow` versión 0.11 o superior.
-
+    
 ## <a name="create-and-manage-workspaces"></a>Crear y administrar áreas de trabajo
 
 > [!WARNING]

@@ -159,7 +159,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -167,7 +167,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md
@@ -206,7 +206,11 @@
         - name: Complemento de IoT Edge para Jenkins
           href: how-to-devops-plugins.md
     - name: Solución de problemas
-      href: troubleshoot.md
+      items:
+        - name: Pasos de diagnóstico estándar
+          href: troubleshoot.md
+        - name: Resoluciones de errores comunes
+          href: troubleshoot-common-errors.md
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico

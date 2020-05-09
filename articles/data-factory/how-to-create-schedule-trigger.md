@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414484"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641495"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,38 +31,46 @@ En las secciones siguientes se proporcionan los pasos necesarios para crear un d
 Puede crear un **programador de desencadenador** para programar la ejecución de una canalización periódicamente (cada hora, diariamente, etc.). 
 
 > [!NOTE]
-> Para obtener un tutorial completo acerca de cómo crear una canalización y un desencadenador de programación, asociar el desencadenador a la canalización, y ejecutar y supervisar la canalización, consulte [Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory](quickstart-create-data-factory-portal.md).
+> Para obtener un tutorial completo acerca de cómo crear una canalización y un desencadenador de programación, que asocia el desencadenador a la canalización y ejecuta y supervisa la canalización, consulte [Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory](quickstart-create-data-factory-portal.md).
 
-1. Cambie a la pestaña **Edit** (Editar). 
+1. Cambie a la pestaña **Edit** (Editar), que se muestra con un símbolo de lápiz. 
 
     ![Cambio a la pestaña Edit (Editar)](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. Haga clic en **Trigger** (Desencadenador) en el menú y haga clic en **New/Edit** (Nuevo/Editar). 
+
+1. Seleccione **Trigger** (Desencadenador) en el menú y, después, seleccione **New/Edit** (Nuevo/Editar). 
 
     ![Menú Nuevo desencadenador](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. En la página **Add Triggers** (Agregar desencadenadores), haga clic en **Choose trigger...** (Elegir desencadenador) y luego en **New** (Nuevo). 
+
+1. En la página **Add Triggers** (Agregar desencadenadores), seleccione **Choose trigger...** (Elegir desencadenador) y, después, seleccione **+New** (+Nuevo). 
 
     ![Add Triggers (Agregar desencadenadores): nuevo desencadenador](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. En la página **Nuevo desencadenador**, lleve a cabo los siguientes pasos: 
+
+1. En la página **New Trigger** (Nuevo desencadenador), lleve a cabo los siguientes pasos: 
 
     1. Asegúrese de que **Programación** está seleccionado para **Tipo**. 
-    2. Especifique la fecha y hora de inicio del desencadenador para **Fecha de inicio (UTC)** . Se establece en la fecha y hora actual de forma predeterminada. 
-    3. Especifique **Periodicidad** para el desencadenador. Seleccione uno de los valores de la lista desplegable (cada minuto, cada hora, diariamente, semanalmente y mensualmente). Introduzca el multiplicador en el cuadro de texto. Por ejemplo, si desea que el desencadenador se ejecute una vez para cada 15 minutos, seleccione **Cada minuto**y escriba **15** en el cuadro de texto. 
-    4. En el campo **Fin**, si no desea especificar una fecha y hora de finalización para el desencadenador, seleccione **Sin fin**. Para especificar una fecha y hora de finalización, seleccione **On Date** (El día), especifique la fecha y hora de finalización, y haga clic en **Aplicar**. Hay un costo asociado a cada ejecución de canalización. Si está realizando pruebas, es posible que quiera asegurarse de que la canalización se desencadena solo un par de veces. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador entra en vigor después de publicar la solución en Data Factory, no cuando se guarda el desencadenador en la interfaz de usuario.
+    1. Especifique la fecha y hora de inicio del desencadenador para **Fecha de inicio (UTC)** . Se establece en la fecha y hora actual de forma predeterminada. 
+    1. Especifique **Periodicidad** para el desencadenador. Seleccione uno de los valores de la lista desplegable (cada minuto, cada hora, diariamente, semanalmente y mensualmente). Introduzca el multiplicador en el cuadro de texto. Por ejemplo, si desea que el desencadenador se ejecute una vez para cada 15 minutos, seleccione **Cada minuto**y escriba **15** en el cuadro de texto. 
+    1. En el campo **Fin**, si no desea especificar una fecha y hora de finalización para el desencadenador, seleccione **Sin fin**. Para especificar una fecha y hora de finalización, seleccione **On Date** (El día), especifique la fecha y hora de finalización, y seleccione **OK** (Aceptar). Hay un costo asociado a cada ejecución de canalización. Si está realizando pruebas, es posible que quiera asegurarse de que la canalización se desencadena solo un par de veces. No obstante, asegúrese de que hay tiempo suficiente para que la canalización se ejecute entre la hora de publicación y la hora de finalización. El desencadenador entra en vigor después de publicar la solución en Data Factory, no cuando se guarda el desencadenador en la interfaz de usuario.
 
         ![Configuración del desencadenador](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. En la ventana **Nuevo desencadenador**, compruebe la opción **Activado** y haga clic en **Siguiente**. Puede utilizar esta casilla para desactivar el desencadenador más adelante. 
+
+1. En la ventana **New Trigger** (Nuevo desencadenador), seleccione **Yes** (Sí) en la opción **Activated** (Activado) y, a continuación, seleccione **OK** (Aceptar). Puede utilizar esta casilla para desactivar el desencadenador más adelante. 
 
     ![Configuración del desencadenador: botón Siguiente](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. En la página **New Trigger** (Nuevo desencadenador), revise el mensaje de advertencia y haga clic en **Finish** (Finalizar).
+
+1. En la página **New Trigger** (Nuevo desencadenador), revise el mensaje de advertencia y seleccione **Finish** (Finalizar).
 
     ![Configuración del desencadenador: botón Finalizar](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Haga clic en **Publish** (Publicar) para publicar los cambios en Data Factory. Hasta que publique cambios en la factoría de datos, el desencadenador no inicia las ejecuciones de la canalización. 
+
+1. Seleccione **Publish all** (Publicar todo) para publicar los cambios en Data Factory. Hasta que publique cambios en la factoría de datos, el desencadenador no inicia las ejecuciones de la canalización. 
 
     ![Botón Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Haga clic en **Refresh** (Actualizar) para actualizar la lista. Verá que el desencadenador programado ejecuta las ejecuciones de la canalización. Observe los valores de la columna **Triggered By** (Desencadenado por). Si usa la opción **Desencadenar ahora**, verá la ejecución del desencadenador manual en la lista. 
+
+1. Cambie a la pestaña **Pipeline runs** (Ejecuciones de canalización) de la izquierda y seleccione **Refresh** (Actualizar) para actualizar la lista. Verá que el desencadenador programado ejecuta las ejecuciones de la canalización. Observe los valores de la columna **Triggered By** (Desencadenado por). Si usa la opción **Trigger Now** (Desencadenar ahora), verá la ejecución del desencadenador manual en la lista. 
 
     ![Supervisión de las ejecuciones desencadenadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. Haga clic en la flecha hacia abajo junto a **Pipeline Runs** (Ejecuciones de la canalización) para cambiar a la vista **Trigger Runs** (Ejecuciones del desencadenador). 
+
+1. Cambie a la vista **Trigger Runs** (Ejecuciones de desencadenador). 
 
     ![Supervisión de las ejecuciones del desencadenador](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -112,31 +120,31 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     - El desencadenador está asociado con la canalización **Adfv2QuickStartPipeline**. Para asociar varias canalizaciones con un desencadenador, agregue más secciones **pipelineReference**.
     - La canalización de la guía de inicio rápido toma dos valores de **parámetros**: **inputPath** y **outputPath**. Por lo tanto, debe pasar valores para esos parámetros desde el desencadenador.
 
-2. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger**:
+1. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger**:
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+1. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**:
+1. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**:
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+1. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Haga que el desencadenador se ejecute en Azure PowerShell mediante el cmdlet **Get-AzDataFactoryV2TriggerRun**. Para obtener información acerca de cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
+1.  Haga que el desencadenador se ejecute en Azure PowerShell mediante el cmdlet **Get-AzDataFactoryV2TriggerRun**. Para obtener información acerca de cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"

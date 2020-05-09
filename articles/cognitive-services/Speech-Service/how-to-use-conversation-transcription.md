@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: e2c9c0aadc8e443f07f60f3ccddb4a1b6dd661b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8b874888d3a46a855c3d76d520d390725c40898
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80520906"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735409"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcripción de conversaciones en tiempo real (versión preliminar)
 
@@ -32,8 +32,8 @@ La API **ConversationTranscriber** del SDK de voz le permite transcribir reunion
 
 El SDK de dispositivos de voz proporciona código de ejemplo en Java para la captura de audio en tiempo real mediante ocho canales.
 
-- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java) (Código de ejemplo de dispositivo ROOBO)
-- [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java) (Código de ejemplo de Azure Kinect Dev Kit)
+- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java) (Código de ejemplo de dispositivo ROOBO)
+- [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java) (Código de ejemplo de Azure Kinect Dev Kit)
 
 ## <a name="prerequisites"></a>Prerequisites
 

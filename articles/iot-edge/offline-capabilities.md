@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 588926a90d9a40c00bca4914dc1d5ed08301ff75
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80236059"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780800"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -108,7 +108,7 @@ En los siguientes artículos se describe de forma detallada una manera de crear 
 
 ## <a name="specify-dns-servers"></a>Especificación de los servidores DNS
 
-Para mejorar la solidez, se recomienda especificar las direcciones del servidor DNS usadas en su entorno. Para configurar su servidor DNS para IoT Edge, consulte la resolución que encontrará en el apartado [El módulo Agente de Edge continuamente notifica "archivo de configuración vacío" y no se inicia ningún módulo en el dispositivo](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) del artículo de solución de problemas.
+Para mejorar la solidez, se recomienda especificar las direcciones del servidor DNS usadas en su entorno. Para configurar su servidor DNS para IoT Edge, consulte la resolución que encontrará en el apartado [El módulo Agente de Edge continuamente notifica "archivo de configuración vacío" y no se inicia ningún módulo en el dispositivo](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device) del artículo de solución de problemas.
 
 ## <a name="optional-offline-settings"></a>Ajustes opcionales del modo sin conexión
 

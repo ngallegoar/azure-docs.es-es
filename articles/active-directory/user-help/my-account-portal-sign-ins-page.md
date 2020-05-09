@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064026"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625415"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visualización y búsqueda de la actividad de inicio de sesión reciente desde la página Mis inicios de sesión (versión preliminar)
 
@@ -30,7 +30,7 @@ Puede ver toda la actividad de inicio de sesión de la cuenta profesional o educ
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visualización de las actividades de inicio de sesión recientes
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/.
 
 2. Seleccione **Mis inicios de sesión (versión preliminar)** en el panel de navegación izquierdo o seleccione el vínculo **Revisar la actividad reciente** en el bloque **Mis inicios de sesión (versión preliminar)** .
 
