@@ -3,12 +3,12 @@ title: Modelo de datos de registros de Azure Monitor
 description: En este artículo, obtendrá información acerca de los detalles del modelo de datos de Log Analytics de Azure Monitor para los datos de Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: d14634c5e317682462e77e0549f064c75059f15c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586383"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183694"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -459,7 +459,12 @@ A continuación se muestran algunos ejemplos que le ayudarán a escribir consult
     | extend Vault= Resource
     | project-away Resource
     ````
-    
+
+## <a name="v1-schema-vs-v2-schema"></a>Esquema v1 frente a esquema V2
+Anteriormente, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de VM de Azure se enviaban a una tabla de Azure Diagnostics en un esquema denominado ***esquema V1***. Posteriormente, se agregaron nuevas columnas para admitir otros escenarios y cargas de trabajo, y los datos de diagnóstico se insertaron en un nuevo esquema denominado ***esquema V2***. 
+
+Por motivos de compatibilidad con versiones anteriores, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de VM de Azure se envían actualmente a la tabla de Azure Diagnostics en el esquema V1 y V2 (con el esquema v1 ahora en una ruta de degradación). Puede identificar qué registros de Log Analytics son del esquema V1 filtrando los registros para SchemaVersion_s=="v1" en las consultas de registro.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Después de revisar el modelo de datos, puede comenzar a [crear consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) en los registros de Azure Monitor para elaborar su propio panel.

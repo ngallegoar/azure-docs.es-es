@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1457549fef3a78356c8b1af6be620fdf30ddab46
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2501f66c42360d3ec1626f5f4ee42e0212f1967b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420629"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792248"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview"></a>Inicio rápido: Creación de un nuevo grupo de Apache Spark (versión preliminar)
 
@@ -25,16 +25,16 @@ En este inicio rápido, va a aprender a usar Azure Portal para crear un trabajo 
 > [!IMPORTANT]
 > La facturación de las instancias de Spark se prorratea por minuto, tanto si se usan como si no. Asegúrese de cerrar la instancia de Spark después de que haya terminado de usarla, o configure un breve tiempo de espera. Para obtener más información, consulte la sección **Limpieza de recursos** de este artículo.
 
-Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https:/azure.microsoft.com/free/).
+Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Una suscripción a Azure: [cree una cuenta gratuita](https:/azure.microsoft.com/free/)
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Área de trabajo de Synapse Analytics](quickstart-create-workspace.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Portal de Azure](https:/portal.azure.com/)
+Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 ## <a name="create-new-apache-spark-pool"></a>Creación de un grupo de Apache Spark
 
@@ -92,5 +92,5 @@ Una vez creado el grupo de SQL, está disponible en el área de trabajo para la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Quickstart: Creación de un grupo de Apache Spark (versión preliminar) en Synapse Analytics mediante herramientas web](spark/apache-spark-notebook-create-spark-use-sql.md).
+- Consulte [Quickstart: Creación de un cuaderno de Apache Spark](quickstart-apache-spark-notebook.md)
 - Consulte [Quickstart: Creación de un grupo de Synapse SQL mediante Azure Portal](quickstart-create-sql-pool.md).

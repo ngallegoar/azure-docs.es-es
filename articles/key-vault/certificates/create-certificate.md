@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427364"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81866251"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
 
@@ -80,10 +80,10 @@ La clave direccionable y el secreto obtienen sus atributos de los del certificad
 ## <a name="partnered-ca-providers"></a>Proveedores de entidades de certificación asociados
 La creación de certificados puede completarse manualmente o con un emisor "Self". Key Vault también se asocia con determinados emisores para simplificar la creación de certificados. De estos emisores asociados se pueden solicitar para Key Vault los siguientes tipos de certificados.  
 
-|Proveedor|Tipo de certificado|  
-|--------------|----------------------|  
-|DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert|
-|GlobalSign|Key Vault ofrece certificados SSL OV o EV con GlobalSign|
+|Proveedor|Tipo de certificado|Configuración  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert| [Guía de integración](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault ofrece certificados SSL OV o EV con GlobalSign| [Guía de integración](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
 

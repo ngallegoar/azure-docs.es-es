@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231748"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582915"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Creación o actualización de un grupo dinámico en Azure Active Directory
 
@@ -46,7 +46,7 @@ Para ver ejemplos de sintaxis, propiedades admitidas, operadores y valores de un
 
 ## <a name="to-create-a-group-membership-rule"></a>Para crear una regla de pertenencia a grupo, siga estos pasos:
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador global, administrador de Intune o administrador de usuarios en el inquilino.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global, administrador de Intune o administrador de usuarios en la organización de Azure AD.
 1. Busque y seleccione **Grupos**.
 1. Seleccione **Todos los grupos** y, luego, **Nuevo grupo**.
 
@@ -66,7 +66,7 @@ Si la regla que escribió no es válida, aparece una explicación de por qué no
 
 ## <a name="to-update-an-existing-rule"></a>Para actualizar una regla existente
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta con el rol de administrador de empresa, administrador de grupo, administrador del servicio Intune o administrador de usuarios en el inquilino.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta con el rol de administrador global, administrador de grupos, administrador de Intune o administrador de usuarios en la organización de Azure AD.
 1. Seleccione **Grupos** > **Todos los grupos**.
 1. Seleccione un grupo para abrir su perfil.
 1. En la página de perfil del grupo, seleccione **Reglas de pertenencia dinámica**. El generador de reglas admite hasta cinco expresiones. Para agregar más de cinco expresiones, debe usar el cuadro de texto.
@@ -102,7 +102,7 @@ Los mensajes de estado siguientes se pueden mostrar para el estado **Última act
 - **En curso**: las actualizaciones están actualmente en curso.
 - **Desconocido**: no se puede recuperar la hora de la última actualización. El grupo podría ser nuevo.
 
-Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos del inquilino durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos**.
+Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos de la organización durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos**.
 
 ![alertas de mensajes de error de procesamiento](./media/groups-create-rule/processing-error.png)
 
