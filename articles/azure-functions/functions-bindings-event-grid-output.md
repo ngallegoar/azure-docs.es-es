@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368929"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627694"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Enlace de salida de Azure Event Grid para Azure Functions
 
-Use el enlace de salida de Event Hubs para escribir eventos en un tema personalizado. Debe tener una [clave de acceso válida para el tema personalizado](../event-grid/security-authentication.md#custom-topic-publishing).
+Use el enlace de salida de Event Hubs para escribir eventos en un tema personalizado. Debe tener una [clave de acceso válida para el tema personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
 
 Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](./functions-bindings-event-grid.md).
 

@@ -675,6 +675,8 @@
           href: how-to-fixed-width.md
         - name: Control de filas de errores
           href: how-to-data-flow-error-rows.md
+        - name: "Azure SQL\_DB a CosmosDB"
+          href: how-to-sqldb-to-cosmosdb.md
     - name: Migración de SSIS desde un entorno local
       items:
         - name: Introducción a la migración de SSIS

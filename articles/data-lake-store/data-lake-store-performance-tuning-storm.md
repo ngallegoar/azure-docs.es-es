@@ -1,23 +1,17 @@
 ---
-title: Directrices para la optimización del rendimiento de Storm en Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Directrices para la optimización del rendimiento de Storm en Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: 'Optimización del rendimiento: Storm con Azure Data Lake Storage Gen1'
+description: Obtenga las directrices de optimización del rendimiento para un clúster de Storm en Azure Data Lake Storage Gen1.
 author: stewu
-manager: amitkul
-editor: stewu
-ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61436484"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691641"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Storm en HDInsight y Azure Data Lake Storage Gen1
 
@@ -42,7 +36,7 @@ Es posible que pueda mejorar el rendimiento si aumenta la simultaneidad de E/S h
 
 Por ejemplo, en un clúster con 4 máquinas virtuales y 4 procesos de trabajo, 32 ejecutores de spout, 32 tareas de spout, 256 ejecutores de bolt y 512 tareas de bolt, tenga en cuenta lo siguiente:
 
-Cada supervisor, que es un nodo de trabajo, tiene un solo proceso de trabajo de máquina virtual Java (JVM). Este proceso de JVM administra 4 subprocesos de spout y 64 subprocesos de bolt. Dentro de cada subproceso, las tareas se ejecutan secuencialmente. Con la configuración anterior, cada subproceso de spout tiene 1 tarea y cada subproceso de bolt tiene 2 tareas.
+Cada supervisor, que es un nodo de trabajo, tiene un solo proceso de trabajo de máquina virtual Java (JVM). Este proceso de JVM administra 4 subprocesos de spout y 64 subprocesos de bolt. Dentro de cada subproceso, las tareas se ejecutan secuencialmente. Con la configuración anterior, cada subproceso de spout tiene una tarea y cada subproceso de bolt tiene dos tareas.
 
 En Storm, estos son los diversos componentes implicados y así es cómo afectan al nivel de paralelismo que tiene:
 * El nodo principal (denominado Nimbus en Storm) se utiliza para enviar y administrar los trabajos. Estos nodos afectan al grado de paralelismo.
@@ -59,9 +53,9 @@ Cuando trabaje con Data Lake Storage Gen1, obtendrá el mejor rendimiento con es
 
 ### <a name="example-topology"></a>Topología de ejemplo
 
-Supongamos que tiene un clúster de 8 nodos de trabajo con una máquina virtual de Azure D13v2. Esta máquina virtual tiene 8 núcleos, así que entre los 8 nodos de trabajo, tiene un total de 64 núcleos.
+Supongamos que tiene un clúster de ocho nodos de trabajo con una VM de Azure D13v2. Esta VM tiene ocho núcleos, así que entre los ocho nodos de trabajo, tiene un total de 64 núcleos.
 
-Digamos que hacemos 8 subprocesos de bolt por núcleo. Como hay 64 núcleos, significa que queremos 512 instancias de ejecutor de bolt (es decir, subprocesos) en total. En este caso, supongamos que empezamos con una JVM por máquina virtual y usamos principalmente la simultaneidad de subprocesos dentro de la JVM para conseguir simultaneidad. Esto significa que necesitamos 8 tareas de trabajo (una por cada VM de Azure) y 512 ejecutores de bolt. Dada esta configuración, Storm intenta distribuir los trabajos uniformemente entre los nodos de trabajo (también conocidos como nodos de supervisor), dando a cada nodo de trabajo 1 JVM. Ahora, dentro de los supervisores, Storm intenta distribuir los ejecutores uniformemente entre los supervisores, dando a cada supervisor (es decir, JVM) 8 subprocesos.
+Digamos que tenemos ocho subprocesos de bolt por núcleo. Como hay 64 núcleos, significa que queremos 512 instancias de ejecutor de bolt (es decir, subprocesos) en total. En este caso, supongamos que empezamos con una JVM por máquina virtual y usamos principalmente la simultaneidad de subprocesos dentro de la JVM para conseguir simultaneidad. Esto significa que necesitamos ocho tareas de trabajo (una por cada VM de Azure) y 512 ejecutores de bolt. Dada esta configuración, Storm intenta distribuir los trabajos uniformemente entre los nodos de trabajo (también conocidos como nodos de supervisor), lo que da a cada nodo de trabajo una JVM. Ahora, dentro de los supervisores, Storm intenta distribuir los ejecutores uniformemente entre los supervisores, lo que da a cada supervisor (es decir, a cada JVM) ocho subprocesos.
 
 ## <a name="tune-additional-parameters"></a>Ajuste de parámetros adicionales
 Una vez que tenga la topología básica, puede valorar si desea modificar alguno de los parámetros:
@@ -76,7 +70,7 @@ Este escenario básico es un buen punto de partida. Pruebe con sus propios datos
 
 Puede modificar los valores de configuración siguientes para optimizar el spout.
 
-- **Tuple timeout (Tiempo de espera de tupla): topology.message.timeout.secs**. Este valor determina la cantidad de tiempo que un mensaje tarda en completarse, y en recibir una confirmación, antes de que se considere erróneo.
+- **Tuple timeout (Tiempo de espera de tupla): topology.message.timeout.secs**. Este valor determina la cantidad de tiempo que un mensaje tarda en completarse y en recibir una confirmación, antes de que se considere erróneo.
 
 - **Max memory per worker process (Memoria máxima por proceso de trabajo): worker.childopts**. Este valor le permite especificar parámetros de línea de comandos adicionales para los trabajos de Java. El ajuste usado más frecuentemente aquí es XmX, que determina la memoria máxima asignada al montón de una JVM.
 
@@ -104,14 +98,14 @@ Si la velocidad de entrada de las tuplas no es alta, por lo que el búfer de 4 
 * Reducir el número de bolts para que haya menos búferes que llenar.
 * Tener una directiva basada en recuento o en tiempo, donde se desencadene un hflush() cada X vaciados o cada y milisegundos y se confirmen las tuplas acumuladas hasta entonces.
 
-Tenga en cuenta que el rendimiento en este caso es menor, pero como la tasa de eventos es lenta, el objetivo principal tampoco es obtener un rendimiento máximo de todos modos. Estas soluciones le ayudan a reducir el tiempo total que tarda una tupla en atravesar el almacén. Esto podría ser importante si quiere una canalización en tiempo real incluso con una tasa baja de eventos. Tenga en cuenta también que si la tasa de tuplas entrantes es baja, debe ajustar el parámetro topology.message.timeout_secs, de modo que el tiempo de espera de las tuplas no se agote mientras se estén almacenando en búfer o procesando.
+Tenga en cuenta que el rendimiento en este caso es menor, aunque con una tasa de eventos lenta, el objetivo principal no es obtener un rendimiento máximo de todos modos. Estas soluciones le ayudan a reducir el tiempo total que tarda una tupla en atravesar el almacén. Esto podría ser importante si quiere una canalización en tiempo real incluso con una tasa baja de eventos. Tenga en cuenta también que si la tasa de tuplas entrantes es baja, debe ajustar el parámetro topology.message.timeout_secs, de modo que el tiempo de espera de las tuplas no se agote mientras se estén almacenando en búfer o procesando.
 
 ## <a name="monitor-your-topology-in-storm"></a>Supervisión de la topología en Storm  
 Mientras se ejecuta la topología, puede supervisarla en la interfaz de usuario de Storm. Estos son los principales parámetros que debe examinar:
 
 * **Total process execution latency (Latencia total de ejecución de procesos).** Es el tiempo medio que una tupla tarda en que la emita el spout, la procese el bolt y se confirme.
 
-* **Total bolt process latency (Latencia total de proceso del bolt).** Es el tiempo medio que está la tupla en el bolt hasta que recibe una confirmación.
+* **Total bolt process latency (Latencia total de proceso del bolt).** Es el tiempo medio que la tupla pasa en el bolt hasta que recibe una confirmación.
 
 * **Total bolt execute latency (Latencia total de ejecución del bolt).** Es el tiempo medio empleado por el bolt en el método de ejecución.
 
