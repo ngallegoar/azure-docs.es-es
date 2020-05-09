@@ -6,13 +6,13 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879435"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204328"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado
 
@@ -25,21 +25,24 @@ Después de que el administrador del proyecto [cree un proyecto de etiquetado](h
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* La dirección URL del portal de etiquetado para un proyecto de etiquetado de datos en ejecución
 * Una [cuenta Microsoft](https://account.microsoft.com/account) o una cuenta de Azure Active Directory para la organización y el proyecto
+* Acceso de nivel de colaborador al área de trabajo que contiene el proyecto de etiquetado.
 
-> [!NOTE]
-> El administrador del proyecto puede encontrar la dirección URL del portal de etiquetado en la pestaña **Detalles** de la página **Detalles del proyecto**.
+## <a name="sign-in-to-the-workspace"></a>Inicio de sesión en el área de trabajo
 
-## <a name="sign-in-to-the-projects-labeling-portal"></a>Inicio de sesión en el portal de etiquetado del proyecto
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
 
-Vaya a la dirección URL del portal de etiquetado que le proporcionó el administrador del proyecto. Inicie sesión con la cuenta de correo electrónico que el administrador usó para agregarle al equipo. Para la mayoría de los usuarios, será su cuenta Microsoft. Si el proyecto de etiquetado usa Azure Active Directory, esa será la forma de iniciar sesión.
+1. Seleccione la suscripción y el área de trabajo que contiene el proyecto de etiquetado.  Obtenga esta información del administrador del proyecto.
+
+1. Seleccione **Data labeling** (Etiquetado de datos) en el lazo izquierdo para buscar el proyecto.  
+
+1. Seleccione el nombre del proyecto de la lista.
 
 ## <a name="understand-the-labeling-task"></a>Descripción de la tarea de etiquetado
 
-Después de iniciar sesión, verá la página de información general del proyecto.
+Cuando haya seleccionado el proyecto, en la parte superior de la página, seleccione **Label data** (Etiquetar datos).
 
-Vaya a **View detailed instructions** (Ver instrucciones detalladas). Estas instrucciones son específicas del proyecto. Explican el tipo de datos a los que se enfrenta, cómo debe tomar sus decisiones y otra información pertinente. Después de leer esta información, vuelva a la página del proyecto y seleccione **Start labeling** (Iniciar etiquetado).
+Verá instrucciones que son específicas del proyecto. Explican el tipo de datos a los que se enfrenta, cómo debe tomar sus decisiones y otra información pertinente. Tras leer esta información, seleccione **Tareas** en la parte superior de la página.  O bien, seleccione **Start labeling** (Iniciar etiquetado) en la parte inferior de la página.
 
 ## <a name="common-features-of-the-labeling-task"></a>Características comunes de la tarea de etiquetado
 

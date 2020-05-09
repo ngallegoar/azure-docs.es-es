@@ -26,6 +26,11 @@
       href: tutorial-custom-role-powershell.md
     - name: 'Creación de un rol personalizado: CLI'
       href: tutorial-custom-role-cli.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Procedimientos recomendados

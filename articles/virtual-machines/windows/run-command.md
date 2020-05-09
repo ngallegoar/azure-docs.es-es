@@ -2,18 +2,18 @@
 title: Ejecución de scripts de PowerShell en una máquina virtual Windows en Azure
 description: Este tema describe cómo ejecutar scripts de PowerShell dentro de una máquina virtual Windows en Azure mediante la función Ejecutar comando
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749223"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143778"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows mediante Ejecutar comando
 
@@ -58,7 +58,7 @@ The entity was not found in this Azure location
 |**EnableAdminAccount**|Comprueba si la cuenta de administrador local está deshabilitada, y si lo está, la habilita.|
 |**IPConfig**| Muestra información detallada de la dirección IP, la máscara de subred y la puerta de enlace predeterminada de cada adaptador enlazado a TCP/IP.|
 |**RDPSettings**|Comprueba la configuración del registro y de la directiva de dominio. Recomienda acciones de directiva si la máquina forma parte de un dominio o modifica la configuración a los valores predeterminados.|
-|**ResetRDPCert**|Quita el certificado SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado.|
+|**ResetRDPCert**|Quita el certificado TLS/SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado.|
 |**SetRDPPort**|Establece el número de puerto especificado por el usuario o predeterminado para las conexiones del Escritorio remoto. Habilita las reglas de firewall para el acceso entrante al puerto.|
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -77,7 +77,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
     --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
 ```
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Navegue hasta una máquina virtual en [Azure Portal](https://portal.azure.com) y seleccione **Ejecutar comando** en **OPERACIONES**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
 

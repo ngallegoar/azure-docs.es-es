@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 8129239f152f6b359b930e56466052da12ef4d42
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/20/2020
+ms.openlocfilehash: 87350bae282d9d0dccef9cb2121000f7a0473762
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437027"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195492"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta de Apache Hive mediante el controlador JDBC en HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Aprenda a usar el controlador JDBC desde una aplicación Java para enviar consultas de Apache Hive a Apache Hadoop en Azure HDInsight. La información de este documento muestra cómo conectarse mediante programación y desde el cliente de SQuirreL SQL.
+Aprenda a usar el controlador JDBC desde una aplicación de Java. Para enviar consultas de Apache Hive a Apache Hadoop en Azure HDInsight. La información de este documento muestra cómo conectarse mediante programación y desde el cliente de SQuirreL SQL.
 
 Para obtener más información sobre la interfaz JDBC de Hive, consulte [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
@@ -31,7 +31,7 @@ Para obtener más información sobre la interfaz JDBC de Hive, consulte [HiveJDB
 
 ## <a name="jdbc-connection-string"></a>Cadena de conexión JDBC
 
-Las conexiones de JDBC a un clúster de HDInsight en Azure se realizan en el puerto 443 y el tráfico se protege mediante TLS/SSL. La puerta de enlace pública tras la que se encuentran los clústeres redirige el tráfico al puerto que HiveServer2 escucha. En la siguiente cadena de conexión puede verse el formato que se va a utilizar en HDInsight:
+Las conexiones de JDBC a un clúster de HDInsight en Azure se realizan a través del puerto 443. El tráfico se protege mediante TLS/SSL. La puerta de enlace pública tras la que se encuentran los clústeres redirige el tráfico al puerto que HiveServer2 escucha. En la siguiente cadena de conexión puede verse el formato que se va a utilizar en HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -43,17 +43,17 @@ También puede obtener la conexión mediante **Ambari UI > Hive > Configs > Adva
 
 ### <a name="host-name-in-connection-string"></a>Nombre de host en la cadena de conexión
 
-El nombre de host "CLUSTERNAME.azurehdinsight.net" de la cadena de conexión es el mismo que el de la dirección URL del clúster. Puede obtenerlo en Azure Portal. 
+El nombre de host "CLUSTERNAME.azurehdinsight.net" de la cadena de conexión es el mismo que el de la dirección URL del clúster. Puede obtenerlo en Azure Portal.
 
 ### <a name="port-in-connection-string"></a>Puerto de la cadena de conexión
 
-Solo puede usar el **puerto 443** para conectarse al clúster desde algunos lugares fuera de la red virtual de Azure. HDInsight es un servicio administrado, lo que significa que todas las conexiones al clúster se administran a través de una puerta de enlace segura. No se puede conectar a HiveServer 2 directamente en los puertos 10001 o 10000 porque estos puertos no se exponen al exterior. 
+Solo puede usar el **puerto 443** para conectarse al clúster desde algunos lugares fuera de la red virtual de Azure. HDInsight es un servicio administrado, lo que significa que todas las conexiones al clúster se administran a través de una puerta de enlace segura. No se puede conectar a HiveServer 2 directamente en los puertos 10001 o 10000. Estos puertos no tienen exposición al exterior.
 
 ## <a name="authentication"></a>Authentication
 
-Al establecer la conexión, tiene que utilizar el nombre y la contraseña de administrador del clúster de HDInsight para autenticar la puerta de enlace del clúster. Cuando se conecta desde los clientes JDBC como SQL SQuirreL, tiene que escribir el nombre de administrador y la contraseña en la configuración de cliente.
+Al establecer la conexión, utilice el nombre y la contraseña de administrador del clúster de HDInsight para realizar la autenticación. En los clientes de JDBC como SQuirreL SQL, escriba el nombre y la contraseña de administrador en la configuración de cliente.
 
-Desde una aplicación de Java, tiene que utilizar el nombre y la contraseña al establecer una conexión. Por ejemplo, el siguiente código Java abre una nueva conexión con la cadena de conexión, el nombre de administrador y la contraseña:
+Desde una aplicación de Java, tiene que utilizar el nombre y la contraseña al establecer una conexión. Por ejemplo, el siguiente código Java abre una nueva conexión:
 
 ```java
 DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
@@ -86,7 +86,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
     |Propiedad | Value |
     |---|---|
     |Nombre|Hive|
-    |Example URL (URL de ejemplo)|jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2|
+    |Example URL (URL de ejemplo)|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
     |Extra Class Path (Ruta de acceso de clase adicional):|use el botón **Add** (Agregar) para agregar todos los archivos .jar que se descargaron anteriormente.|
     |Class Name (Nombre de clase)|org.apache.hive.jdbc.HiveDriver|
 
@@ -96,7 +96,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 6. En el lado izquierdo de la ventana de SQL SQuirreL, seleccione **Aliases**. A continuación, seleccione el icono de **+** para crear un nuevo alias de conexión.
 
-    ![cuadro de diálogo para agregar nuevo alias de SQL SQuirreL](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
+    !["Cuadro de diálogo para agregar nuevo alias de SQuirreL SQL"](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
 7. Use los siguientes valores en el cuadro de diálogo **Add Alias** (Agregar alias).
 
@@ -104,7 +104,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
     |---|---|
     |Nombre|Hive en HDInsight|
     |Controlador|Use la lista desplegable para seleccionar el controlador **Hive**.|
-    |URL|jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.|
+    |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.|
     |Nombre de usuario|nombre de la cuenta de inicio de sesión del clúster de HDInsight. El valor predeterminado es **admin**.|
     |Contraseña|contraseña para la cuenta de inicio de sesión del clúster.|
 
@@ -153,12 +153,11 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 ### <a name="connection-disconnected-by-hdinsight"></a>Conexión desconectada por HDInsight
 
-**Síntomas**: al intentar descargar una gran cantidad de datos (por ejemplo, varios GB) mediante JDBC u ODBC, HDInsight desconecta la conexión de forma inesperada durante la descarga. 
+**Síntomas**: al intentar descargar una gran cantidad de datos (por ejemplo, varios GB) mediante JDBC u ODBC, HDInsight desconecta la conexión de forma inesperada durante la descarga.
 
-**Causa**: este error se debe a la limitación en los nodos de puerta de enlace. Al obtener datos de JDBC u ODBC, todos los datos deben pasar por el nodo de puerta de enlace. Sin embargo, una puerta de enlace no está diseñada para descargar una gran cantidad de datos, por lo que podría cerrar la conexión si no puede gestionar el tráfico.
+**Causa**: este error se debe a la limitación en los nodos de puerta de enlace. Al obtener datos de JDBC u ODBC, todos los datos deben pasar por el nodo de puerta de enlace. Sin embargo, una puerta de enlace no está diseñada para descargar una gran cantidad de datos, por lo que podría cerrar la conexión si no puede administrar el tráfico.
 
 **Solución:** evite el uso del controlador JDBC u ODBC para descargar grandes cantidades de datos. En su lugar, copie los datos directamente del almacenamiento de blobs.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -166,12 +165,8 @@ Ahora que aprendió a usar JDBC para que funcione con Hive, utilice los siguient
 
 * [Visualización de datos de Apache Hive con Microsoft Power BI en Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Conexión de Excel a Hadoop en Azure HDInsight con Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Conexión de Excel a Apache Hadoop con Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
-* [Uso de Herramientas de Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
-* [Carga de datos en HDInsight](../hdinsight-upload-data.md)
 * [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md)
-* [Uso de Apache Pig con HDInsight](hdinsight-use-pig.md)
+* [Uso de Apache Pig con HDInsight](../use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)

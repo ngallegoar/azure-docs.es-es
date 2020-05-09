@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654124"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82113160"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -366,7 +366,7 @@ Este script realiza las acciones siguientes:
 
 Si desea utilizar sus propios certificados, debe asociar la clave pública de su certificado con la entidad de servicio en Azure AD, etc.
 
-Para usar el script, indique a la extensión sus credenciales de administrador de Azure Active Directory y el identificador del inquilino de Azure Active Directory que copió anteriormente. Ejecute el script en cada servidor NPS donde instaló la extensión NPS.
+Para usar el script, indique a la extensión sus credenciales de administrador de Azure Active Directory y el identificador del inquilino de Azure Active Directory que copió anteriormente. La cuenta debe estar en el mismo inquilino de Azure AD para el que desea habilitar la extensión. Ejecute el script en cada servidor NPS donde instaló la extensión NPS.
 
 1. Ejecute Windows PowerShell como administrador.
 
@@ -376,6 +376,8 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
     ![Ejecutar el script de configuración AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
+    Si recibe un error de seguridad debido a TLS, habilite TLS 1.2 con el comando `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` desde el símbolo del sistema de PowerShell.
+    
     Una vez que el script verifica la instalación del módulo de PowerShell, muestra la ventana del módulo de PowerShell de Azure Active Directory.
 
 4. Escriba sus credenciales de administrador de Azure AD y después seleccione **Iniciar sesión**.

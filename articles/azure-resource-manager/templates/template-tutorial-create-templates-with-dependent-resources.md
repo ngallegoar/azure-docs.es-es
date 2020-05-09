@@ -2,15 +2,15 @@
 title: Plantilla con recursos dependientes
 description: Aprenda a crear una plantilla de Azure Resource Manager con varios recursos y a implementarla mediante Azure Portal.
 author: mumian
-ms.date: 03/04/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5db2fb34a6d9330e745a9b4d1f5fed538e96c557
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: cf876d3c7c100f001ba81082d792e81a777c7315
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239316"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82193044"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Resource Manager con recursos dependientes
 
@@ -23,7 +23,7 @@ En este tutorial, creará una cuenta de almacenamiento, una máquina virtual, un
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
-> * Apertura de una plantilla de inicio rápido
+> * Abra una plantilla de inicio rápido.
 > * Exploración de la plantilla
 > * Implementación de la plantilla
 
@@ -39,6 +39,7 @@ Para completar este artículo, necesitará lo siguiente:
     ```console
     openssl rand -base64 32
     ```
+
     Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
@@ -51,6 +52,7 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure R
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Seleccione **Abrir** para abrir el archivo.
 4. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
 
@@ -67,33 +69,43 @@ Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
     ![Plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    La plantilla define cinco recursos:
+    La plantilla define seis recursos:
 
-   * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+     Puede resultar útil revisar la referencia de la plantilla antes de personalizar una plantilla.
 
-2. Expanda el primer recurso. Es una cuenta de almacenamiento. Compare la definición del recurso con la [referencia de la plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+1. Expanda el primer recurso. Es una cuenta de almacenamiento. Compare la definición del recurso con la [referencia de la plantilla](/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Definición de la cuenta de almacenamiento de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expanda el segundo recurso. El tipo de recurso es `Microsoft.Network/publicIPAddresses`. Compare la definición del recurso con la [referencia de la plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+1. Expanda el segundo recurso. El tipo de recurso es `Microsoft.Network/publicIPAddresses`. Compare la definición del recurso con la [referencia de la plantilla](/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definición de dirección IP pública de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expanda el cuarto recurso. El tipo de recurso es `Microsoft.Network/networkInterfaces`:
 
-    ![Elemento dependsOn de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+1. Expanda el tercer recurso. El tipo de recurso es `Microsoft.Network/networkSecurityGroups`. Compare la definición del recurso con la [referencia de la plantilla](/azure/templates/microsoft.network/networksecuritygroups).
 
-    El elemento dependsOn le permite definir un recurso como dependiente de uno o varios recursos. El recurso depende de otros dos recursos:
+    ![Definición del grupo de seguridad de red de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+
+1. Expanda el cuarto recurso. El tipo de recurso es `Microsoft.Network/virtualNetworks`:
+
+    ![Elemento dependsOn de la red virtual de las plantillas de Azure Resource Manager en Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+
+    El elemento dependsOn le permite definir un recurso como dependiente de uno o varios recursos. Este recurso depende de otro recurso:
+
+    * `Microsoft.Network/networkSecurityGroups`
+
+1. Expanda el quinto recurso. El tipo de recurso es `Microsoft.Network/networkInterfaces`. El recurso depende de otros dos recursos:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
 
-5. Expanda el quinto recurso. Este recurso es una máquina virtual. Depende de otros dos recursos:
+1. Expanda el sexto recurso. Este recurso es una máquina virtual. Depende de otros dos recursos:
 
     * `Microsoft.Storage/storageAccounts`
     * `Microsoft.Network/networkInterfaces`
@@ -106,27 +118,41 @@ Mediante la especificación de las dependencias, Resource Manager implementa de 
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
-Existen muchos métodos para la implementación de plantillas.  En este tutorial, va a utilizar Cloud Shell desde Azure Portal.
+1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
 
-1. Inicie sesión en [Cloud Shell](https://shell.azure.com).
-1. Seleccione **PowerShell** en la esquina superior izquierda de Cloud Shell y **Confirmar**.  Va a usar PowerShell en este tutorial.
-1. Seleccione **Cargar archivo** en Cloud Shell:
+    ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-    ![Archivo de carga de Cloud Shell de Azure Portal](./media/template-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-1. Seleccione la plantilla que guardó anteriormente en el tutorial. El nombre predeterminado es **azuredeploy.json**.  Si tiene un archivo con el mismo nombre, el archivo anterior se sobrescribe sin ninguna notificación.
+1. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**. Consulte la captura de pantalla anterior. Seleccione el archivo que guardó anteriormente. Después de cargar el archivo, puede usar el comando **ls** y el comando **cat** para comprobar que la operación de carga se ha realizado correctamente.
 
-    Si lo desea, puede usar los comandos **ls $HOME** y **cat $HOME/azuredeploy.json** para comprobar que los archivos se han cargado correctamente.
+1. Ejecute el siguiente script de PowerShell para implementar la plantilla.
 
-1. En Cloud Shell, ejecute los siguientes comandos de PowerShell. Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Consulte [Requisitos previos](#prerequisites).
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the virtual machine admin username:" &&
+    read adminUsername &&
+    echo "Enter the DNS label prefix:" &&
+    read dnsLabelPrefix &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters adminUsername=$adminUsername dnsLabelPrefix=$dnsLabelPrefix
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $resourceGroupName = "${projectName}rg"
 
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
@@ -135,18 +161,11 @@ Existen muchos métodos para la implementación de plantillas.  En este tutorial
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Ejecute el siguiente comando de PowerShell para que aparezca la máquina virtual recién creada:
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    El nombre de la máquina virtual está codificado de forma rígida como **SimpleWinVM** dentro de la plantilla.
+    ---
 
 1. RDP a la máquina virtual para comprobar que la máquina virtual se ha creado correctamente.
 
@@ -156,7 +175,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
 2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
-3. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
+3. Seleccione el nombre del grupo de recursos. Verá un total de seis recursos en el grupo de recursos.
 4. Seleccione **Eliminar grupo de recursos** del menú superior.
 
 ## <a name="next-steps"></a>Pasos siguientes
