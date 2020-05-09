@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 7f4ce292ad507eb0208633db7743b881508a8e58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582538"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144451"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -40,7 +40,7 @@ Las organizaciones empresariales a menudo se enfrentan a desafíos a la hora de 
 
 Estos problemas se agravan para los usuarios que necesitan acceso desde otra organización, como los usuarios externos que pertenecen a organizaciones de la cadena de suministro u otros asociados comerciales. Por ejemplo:
 
-- Es posible que nadie conozca a todos los individuos en concreto de los directorios de otra organización para poder invitarlos.
+- Es posible que nadie conozca a todas las personas de los directorios de otra organización para poder invitarlos.
 - Incluso si las organizaciones pudieran invitar a estos usuarios, es posible que nadie de esa organización se acuerde de administrar todo el acceso de los usuarios de forma coherente.
 
 La administración de derechos de Azure AD puede ayudar a abordar estos desafíos.  Para más información sobre cómo los clientes han estado usando la administración de derechos de Azure AD, puede leer el [caso de estudio de Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) y el [caso de estudio de Centrica](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Este vídeo proporciona información general sobre la administración de derechos y su valor:

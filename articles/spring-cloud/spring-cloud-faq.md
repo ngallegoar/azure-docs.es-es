@@ -6,16 +6,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 62623bcadb35f21117ddc2601195e34598c2dff5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298772"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176777"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
-En este artículo se responden las preguntas más frecuentes sobre Azure Spring Cloud. 
+En este artículo se responden las preguntas más frecuentes sobre Azure Spring Cloud.
 
 ## <a name="general"></a>General
 
@@ -92,6 +92,10 @@ Actualmente se admiten tres servicios: Azure Cosmos DB, Azure Database for MySQL
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>¿Puedo ver, agregar o mover volúmenes persistentes desde dentro de mis aplicaciones?
 
 Sí.
+
+### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Cuando elimino o traslado una instancia del servicio Azure Spring Cloud, ¿también se eliminarán o trasladarán sus recursos de extensión?
+
+Depende de las lógicas de los proveedores de recursos a los que pertenecen los recursos de extensión. Los recursos de extensión de una instancia de `Microsoft.AppPlatform` no pertenecen al mismo espacio de nombres, por lo que los comportamientos varían en función de los distintos proveedores de recursos. Por ejemplo, la operación de eliminación o traslado no se aplicará en cascada a los recursos de la **configuración de diagnósticos**. Si se aprovisiona una nueva instancia de Azure Spring Cloud con el mismo id. de recurso que la eliminada o si la instancia de Azure Spring Cloud anterior se vuelve a trasladar, los recursos de la **configuración de diagnósticos** anteriores siguen extendiéndola.
 
 ## <a name="deployment"></a>Implementación
 
