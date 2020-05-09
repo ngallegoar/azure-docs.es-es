@@ -37,6 +37,11 @@
       href: tutorial-security-incident.md
     - name: Mejora del cumplimiento normativo
       href: security-center-compliance-dashboard.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Puntuación segura
@@ -107,7 +112,7 @@
           href: custom-security-policies.md
         - name: Administración de directivas con la API REST de Azure Policy
           href: configure-security-policy-azure-policy.md
-    - name: Adición de paquetes de cumplimiento dinámicos
+    - name: Elección de estándares para el panel de cumplimiento
       href: update-regulatory-compliance-packages.md
     - name: Personalización de la directiva de protección de la información
       href: security-center-info-protection-policy.md

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c5d70e5a8784e88d3f2906d500768735dced1ee0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3c474b57533cb6165ce7fe77defccd4cb7042b06
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73828138"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82189929"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>¿Qué es IoT industrial (IIoT)?
 
@@ -23,12 +23,12 @@ IIoT es Internet de las cosas industrial. IIoT aplica IoT al sector de fabricaci
 
 Mejore su productividad y rentabilidad operativas con un acelerador de soluciones de factoría conectada. Conecte y supervise sus equipos y dispositivos industriales en la nube, incluidas sus máquinas que ya funcionan en la planta de producción. Analice sus datos de IoT para obtener conclusiones que le ayuden a aumentar el rendimiento de toda la planta de producción.
 
-Reduzca el laborioso proceso de acceder a las máquinas de la planta de producción con OPC Twin y dedique su tiempo a crear soluciones IIoT. Agilice la administración de certificados y la integración de recursos industriales con OPC Vault y tenga la seguridad de que la conectividad a los recursos está protegida. Estos microservicios proporcionan una API de estilo REST a partir de [componentes de Azure IoT industrial](https://github.com/Azure/azure-iiot-opc-ua). La API de servicio le otorga el control de la funcionalidad del módulo de Edge. 
+Reduzca el laborioso proceso de acceder a las máquinas de la planta de producción con OPC Twin y dedique su tiempo a crear soluciones IIoT. Agilice la administración de certificados y la integración de recursos industriales con OPC Vault y tenga la seguridad de que la conectividad a los recursos está protegida. Estos microservicios proporcionan una API de estilo REST a partir de [componentes de Azure IoT industrial](https://github.com/Azure/Industrial-IoT). La API de servicio le otorga el control de la funcionalidad del módulo de Edge. 
 
 ![Introducción a IoT industrial](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Para más información sobre los servicios de Azure IoT industrial, consulte el [repositorio ](https://github.com/Azure/azure-iiot-services) de GitHub.
+> Para más información sobre los servicios de Azure IoT industrial, consulte el [repositorio ](https://github.com/Azure/Industrial-IoT) y la [documentación](https://azure.github.io/Industrial-IoT/) de GitHub.
 Si no está familiarizado con cómo funcionan los módulos de Azure IoT Edge, comience con los siguientes artículos:
 - [Acerca de Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Módulos de Azure IoT Edge](../iot-edge/iot-edge-modules.md)

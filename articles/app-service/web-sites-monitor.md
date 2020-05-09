@@ -4,15 +4,15 @@ description: Aprenda a supervisar aplicaciones en Azure App Service mediante Azu
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d84340730391abd7dba4d13202503d37941c09b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500422"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738106"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
@@ -49,7 +49,7 @@ Si una aplicación supera las cuotas *CPU (breve)* , *CPU (día)* o *Ancho de ba
 
 ![Mensaje de error 403][http403]
 
-Si se supera la cuota de memoria de la aplicación, se reinicia la aplicación.
+Si se supera la cuota de memoria de la aplicación, esta se detiene temporalmente.
 
 Si se supera la cuota del sistema de archivos, se producirá un error en la operación de escritura. Entre los errores de la operación de escritura se incluyen cualquier escritura en los registros.
 
@@ -131,11 +131,7 @@ Hay dos métricas que reflejan el uso de CPU:
 **Porcentaje de CPU**: es útil para las aplicaciones hospedadas en los planes de tipo Básico, Estándar y Premium, dado que se pueden escalar horizontalmente. Porcentaje de CPU es una buena indicación del uso general en todas las instancias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Directiva de retención y granularidad de métricas
-El servicio registra y agrega las métricas para una aplicación y el plan de App Service con las siguientes directivas de retención y granularidades:
-
-* Las métricas de granularidad de **minuto** se conservan durante 30 horas.
-* Las métricas de granularidad de **hora** se conservan durante 30 días.
-* Las métricas de granularidad de **día** se conservan durante 30 días.
+El servicio registra y agrega las métricas de una aplicación y de un plan del servicio de aplicación, y [estas se conservan según estas reglas](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Supervisión de cuotas y métricas en Azure Portal
 Para consultar el estado de las diversas cuotas y métricas que afectan a una aplicación, vaya a [Azure Portal](https://portal.azure.com).
