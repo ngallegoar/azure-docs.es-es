@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 7a299ce16f6e9c7292cebf198c9c3077f8e05fcb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: c8c4e35fb14d834721a29037c9ac12d8160507d9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417610"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209101"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Apache Hadoop en HDInsight
 
@@ -51,7 +51,7 @@ Para más información, consulte [Hadoop Streaming](https://hadoop.apache.org/do
 
 * Un clúster de Apache Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* El [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Este esquema sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Azure Storage o Data Lake Storage Gen2, el URI sería `wasbs://` o `abfss://`, respectivamente; consulte también [Transferencia segura](../../storage/common/storage-require-secure-transfer.md).
+* El esquema de URI para el almacenamiento principal de clústeres. Este esquema sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Azure Storage o Data Lake Storage Gen2, el URI será `wasbs://` o `abfss://`, respectivamente.
 
 ## <a name="create-the-mapper"></a>Creación del asignador
 
@@ -269,8 +269,6 @@ youth   17
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el uso de MapReduce con HDInsight, consulte [Uso de MapReduce en Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md).
-
-Para obtener información sobre el uso de C# con Hive y Pig, vea [Usar funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop de HDInsight](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
-
-Para obtener información sobre cómo usar C# con Storm en HDInsight, vea [Desarrollo de topologías de C# para Apache Storm en HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+* [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de una función definida por el usuario de C# con Apache Hive y Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Desarrollo de programas Java MapReduce](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
