@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b1fd34824bec9641edc94ce278fa21a1b57b2c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74107665"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202747"
 ---
 # <a name="import-soap-api"></a>Importación de una API de SOAP
 
-Este artículo explica cómo importar una representación XML estándar de una API de SOAP. El artículo también muestra cómo probar la API de APIM.
+Este artículo explica cómo importar una representación XML estándar de una API de SOAP. En el artículo también se muestra cómo probar la API de API Management.
 
 En este artículo aprenderá a:
 
@@ -30,15 +30,15 @@ En este artículo aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Pruebe la API en el Portal para desarrolladores
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importación y publicación de una API de back-end
 
-1. Seleccione **API** en **API MANAGEMENT**.
+1. Vaya al servicio API Management en Azure Portal y seleccione **API** en el menú.
 2. Seleccione **WSDL** en la lista **Add a new API** (Agregar una nueva API).
 
     ![API de SOAP](./media/import-soap-api/wsdl-api.png)
@@ -49,16 +49,17 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 5. Presione Tab.
 
     Los siguientes campos se rellenan con la información de la API de SOAP: Nombre para mostrar, Nombre y Descripción.
-6. Agregue un sufijo URL de API. El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.
-9. Publique la API asociándola a un producto. En este caso, se usa el producto "*Unlimited*".  Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.
+6. Agregue un sufijo URL de API. El sufijo es un nombre que identifica esta API específica en esta instancia de API Management. Tiene que ser único en esta instancia de API Management.
+7. Publique la API asociándola a un producto. En este caso, se usa el producto "*Unlimited*".  Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.
 
-    Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.
+    Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de API Management, ya es un administrador, así que de forma predeterminada está suscrito a todos los productos.
 
     De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo:
 
     * **Starter**
     * **Sin límite**   
-10. Seleccione **Crear**.
+8. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+9. Seleccione **Crear**.
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Prueba de la nueva API en el portal de administración
 
@@ -68,7 +69,7 @@ Se puede llamar a las operaciones directamente desde el portal administrativo pa
 2. Presione la pestaña **Prueba**.
 3. Seleccione alguna operación.
 
-    La página muestra los campos de parámetros de consulta y los campos para los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia APIM, ya es administrador, por lo que la clave se rellena automáticamente. 
+    La página muestra los campos de parámetros de consulta y los campos para los encabezados. Uno de los encabezados es "Ocp-Apim-Suscripción-Key", para la clave de suscripción del producto que está asociado a esta API. Si ha creado la instancia de API Management, significa que ya es administrador, por lo que la clave se rellena automáticamente. 
 1. Presione **Enviar**.
 
     Back-end responde con **200 Aceptar** y algunos datos.

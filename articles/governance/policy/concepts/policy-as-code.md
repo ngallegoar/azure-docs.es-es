@@ -3,12 +3,12 @@ title: Diseño de flujos de trabajo de directiva como código
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74267279"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187739"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
 
@@ -25,7 +25,7 @@ El paso de validación también debe ser un componente de otros flujos de trabaj
 
 El flujo de trabajo general recomendado de la directiva como código es similar al de este diagrama:
 
-![Información general del flujo de trabajo de directiva como código](../media/policy-as-code/policy-as-code-workflow.png)
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Información general del flujo de trabajo de directiva como código" border="false":::
 
 ### <a name="create-and-update-policy-definitions"></a>Crear y actualizar definiciones de directivas
 
@@ -92,7 +92,7 @@ La asignación debe utilizar [enforcementMode](./assignment-structure.md#enforce
 > [!NOTE]
 > Aunque el modo de cumplimiento es útil, no es un sustituto para probar exhaustivamente la definición de una directiva en varias condiciones. La definición de la directiva se debe probar con las llamadas API de REST `PUT` y `PATCH`, recursos compatibles y no compatibles, y casos extremos, como una propiedad que falte en el recurso.
 
-Una vez implementada la asignación, use el SDK de directivas para [obtener los datos de cumplimiento](../how-to/get-compliance-data.md) para la nueva asignación. El entorno que se usa para probar las directivas y asignaciones debe tener recursos compatibles y no compatibles. Al igual que una buena prueba unitaria del código, desea probar que los recursos son los esperados y que tampoco tiene falsos positivos ni falsos negativos. Si prueba y valida solo lo que espera, puede haber un impacto inesperado y no identificado de la directiva. Para obtener más información, consulte [Evaluación del impacto de una nueva directiva de Azure](./evaluate-impact.md).
+Una vez implementada la asignación, use el SDK de directivas para [obtener los datos de cumplimiento](../how-to/get-compliance-data.md) para la nueva asignación. El entorno que se usa para probar las directivas y asignaciones debe tener recursos compatibles y no compatibles. Al igual que una buena prueba unitaria del código, desea probar que los recursos son los esperados y que tampoco tiene falsos positivos ni falsos negativos. Si prueba y valida solo lo que espera, puede haber un impacto inesperado y no identificado de la directiva. Para obtener más información, consulte [Evaluación del efecto de una nueva definición de Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Habilitación de tareas de corrección
 

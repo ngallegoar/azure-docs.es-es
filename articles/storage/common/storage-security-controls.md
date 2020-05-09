@@ -1,23 +1,24 @@
 ---
-title: Controles de seguridad para los servicios de Azure Storage
-description: Lista de comprobación de controles de seguridad para evaluar Azure Storage
+title: Controles de seguridad
+titleSuffix: Azure Storage
+description: Lista de comprobación de controles de seguridad para evaluar Azure Storage.
 services: storage
 author: msmbaldwin
+ms.author: mbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/11/2020
+ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061126"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128035"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controles de seguridad para los servicios de Azure Storage
 
-En este artículo, se explican los controles de seguridad integrados en Azure Storage. 
+En este artículo, se explican los controles de seguridad integrados en Azure Storage.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -36,6 +37,7 @@ En este artículo, se explican los controles de seguridad integrados en Azure St
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad con punto de conexión de servicio| Sí |  |
+| Compatibilidad con etiquetas de servicio| Sí | Para más información sobre las etiquetas de servicio compatibles con Azure Storage, consulte [Introducción a las etiquetas de servicio de Azure](../../virtual-network/service-tags-overview.md). |
 | Compatibilidad con la inserción de redes virtuales| N/D |  |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | |
 | Compatibilidad con la tunelización forzada| N/D |  |
@@ -45,8 +47,8 @@ En este artículo, se explican los controles de seguridad integrados en Azure St
 | Control de seguridad | Sí/No | Notas|
 |---|---|--|
 | Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Métricas de Azure Monitor|
-| Registro y auditoría del plano de administración y de control | Sí | Registro de actividad de Azure Resource Manager |
-| Registro y auditoría del plano de datos| Sí | Registros de diagnóstico de servicio.|
+| Registro y auditoría del plano de administración y de control | Sí | Azure Activity Log |
+| Registro y auditoría del plano de datos| Sí | Registros de recursos de Azure Monitor |
 
 ## <a name="identity"></a>Identidad
 

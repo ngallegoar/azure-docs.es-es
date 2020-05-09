@@ -44,6 +44,11 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: 'Administración de bases de datos de SAP HANA con copia de seguridad: CLI'
           href: tutorial-sap-hana-manage-cli.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Matrices de compatibilidad
@@ -342,10 +347,18 @@
           href: security-overview.md
         - name: Control de acceso basado en roles
           href: backup-rbac-rs-vault.md
-        - name: Seguridad para cargas de trabajo en la nube
-          href: backup-azure-security-feature-cloud.md
+        - name: Eliminación temporal
+          items:
+            - name: Información general
+              href: backup-azure-security-feature-cloud.md
+            - name: Para máquinas virtuales
+              href: soft-delete-virtual-machines.md
+            - name: Para SQL Server y SAP HANA en máquinas virtuales de Azure
+              href: soft-delete-sql-saphana-in-azure-vm.md
         - name: Seguridad para copias de seguridad híbridas
           href: backup-azure-security-feature.md
+        - name: Cifrado
+          href: backup-encryption.md
         - name: Controles de seguridad integrados
           href: backup-security-controls.md
         - name: Línea de base de seguridad

@@ -6,20 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: e13390067f8767e8c07b9c189264444e6d999a7a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/24/2020
+ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411297"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188164"
 ---
 # <a name="configure-apache-spark-settings"></a>Configuración de opciones de Apache Spark
 
-Un clúster de HDInsight Spark incluye una instalación de la biblioteca de [Apache Spark](https://spark.apache.org/).  Cada clúster de HDInsight incluye parámetros de configuración predeterminados para todos sus servicios instalados, incluido Spark.  Un aspecto clave de la administración de un clúster de HDInsight Apache Hadoop es la supervisión de la carga de trabajo, lo que incluye los trabajos de Spark. Para ejecutar mejor los trabajos de Spark, considere la configuración física del clúster al determinar la configuración lógica del clúster.
+Un clúster de HDInsight Spark incluye una instalación de la biblioteca de Apache Spark.  Cada clúster de HDInsight incluye parámetros de configuración predeterminados para todos sus servicios instalados, incluido Spark.  Un aspecto clave de la administración de un clúster de HDInsight Apache Hadoop es la supervisión de la carga de trabajo, lo que incluye los trabajos de Spark. Para ejecutar mejor los trabajos de Spark, considere la configuración física del clúster al determinar la configuración lógica del clúster.
 
-El clúster de HDInsight Apache Spark predeterminado incluye los siguientes nodos: tres nodos de [Apache ZooKeeper](https://zookeeper.apache.org/), dos nodos principales y uno o más nodos de trabajo:
+El clúster de HDInsight Apache Spark predeterminado incluye los siguientes nodos: tres nodos de Apache ZooKeeper, dos nodos principales y uno o más nodos de trabajo:
 
 ![Arquitectura de HDInsight Spark](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
@@ -102,7 +102,7 @@ En función de la carga de trabajo de Spark, puede determinar que una configurac
 |---|---|
 |--num-executors|Establece el número de ejecutores.|
 |--executor-cores|Establece el número de núcleos para cada ejecutor. Le recomendamos usar ejecutores de tamaño medio, ya que otros procesos consumen también parte de la memoria disponible.|
-|--executor-memory|Controla el tamaño de la memoria (tamaño del montón) de cada ejecutor en [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Deberá dejar algo de memoria para la sobrecarga de ejecución.|
+|--executor-memory|Controla el tamaño de la memoria (tamaño del montón) de cada ejecutor en Apache Hadoop YARN. Deberá dejar algo de memoria para la sobrecarga de ejecución.|
 
 Este es un ejemplo de dos nodos de trabajo con diferentes valores de configuración:
 
@@ -129,8 +129,8 @@ Los clústeres de Spark en HDInsight incluyen un número de componentes de forma
 |---|---|
 |Spark Core|Spark Core, Spark SQL, API de Spark Streaming, GraphX y Apache Spark MLlib.|
 |Anaconda|Un administrador de paquetes de Python.|
-|[Apache Livy](https://livy.incubator.apache.org/)|API REST de Apache Spark que se usa para enviar trabajos remotos a un clúster Spark de HDInsight.|
-|Cuadernos de [Jupyter](https://jupyter.org/) y [Apache Zeppelin](https://zeppelin.apache.org/)|Interfaz de usuario interactiva basada en explorador para interactuar con el clúster de Spark.|
+|Apache Livy|API REST de Apache Spark que se usa para enviar trabajos remotos a un clúster Spark de HDInsight.|
+|Cuadernos de Jupyter y Apache Zeppelin|Interfaz de usuario interactiva basada en explorador para interactuar con el clúster de Spark.|
 |Controlador ODBC|Conecta clústeres de Spark en HDInsight con herramientas de inteligencia empresarial (BI), como Microsoft Power BI y Tableau.|
 
 Para las aplicaciones que se ejecutan en un cuaderno de Jupyter Notebook, puede utilizar el comando `%%configure` para realizar los cambios de configuración dentro del mismo cuaderno. Estos cambios de configuración se aplicarán a la ejecución de trabajos de Spark desde la instancia del cuaderno. Realice estos cambios al comienzo de la aplicación, antes de ejecutar la primera celda de código. La configuración modificada se aplica a la sesión de Livy cuando esta se cree.
@@ -153,6 +153,5 @@ Supervise valores de configuración básicos para garantizar que los trabajos de
 
 * [¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?](../hdinsight-component-versioning.md)
 * [Administración de recursos de un clúster Apache Spark en Azure HDInsight](apache-spark-resource-manager.md)
-* [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Configuración de Apache Spark](https://spark.apache.org/docs/latest/configuration.html)
 * [Ejecución de Apache Spark en Apache Hadoop YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

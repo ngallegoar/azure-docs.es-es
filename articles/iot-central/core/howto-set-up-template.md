@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157677"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81756649"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
+
+*Este artículo se aplica a generadores de soluciones y desarrolladores de dispositivos.*
 
 Una plantilla de dispositivo es un plano técnico que define las características y los comportamientos de un tipo de dispositivo que se conecta a una aplicación de Azure IoT Central.
 
@@ -253,18 +255,6 @@ Para publicar una plantilla de dispositivo, vaya a su plantilla de dispositivo y
 
 Después de publicar una plantilla de dispositivo, el operador puede ir a la página **Dispositivos** y agregar dispositivos reales o simulados que usan la plantilla de dispositivo. Puede seguir modificando y guardando la plantilla de dispositivo mientras realiza los cambios. Si desea enviar estos cambios al operador para que los vea en la página **Dispositivos**, debe seleccionar **Publicar** cada vez.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
-
-* Crear una plantilla de dispositivo IoT
-* Crear propiedades de la nube
-* Crear personalizaciones
-* Definir una visualización para la telemetría del dispositivo
-* Publicar la plantilla de dispositivo
-
-A continuación, puede realizar:
-
-> [!div class="nextstepaction"]
-> [Conexión de un dispositivo](howto-connect-devkit.md)
+Si es desarrollador de dispositivos, el siguiente paso sugerido es leer información sobre el [control de versiones de las plantillas de dispositivo](./howto-version-device-template.md).

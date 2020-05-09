@@ -2,23 +2,20 @@
 title: Supervisión de las API publicadas en Azure API Management | Microsoft Docs
 description: Siga los pasos de este tutorial para aprender a supervisar su API en Azure API Management.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79221932"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128837"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -28,7 +25,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Visualización de registros de actividad
-> * Visualización de los registros de diagnóstico
+> * Visualización de registros de recursos
 > * Visualización de las métricas de las API 
 > * Configurar una regla de alerta cuando la API recibe llamadas no autorizadas
 
@@ -36,11 +33,11 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -120,20 +117,20 @@ Para ver los registros de actividad:
 
 3. Seleccione el ámbito de filtrado que desee y haga clic en **Aplicar**.
 
-## <a name="diagnostic-logs"></a>Registros de diagnóstico
+## <a name="resource-logs"></a>Registros de recurso
 
-Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad. Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan información detallada acerca de las operaciones que el recurso ha realizado.
+Los registros de recurso proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de recurso son diferentes de los registros de actividad. Los registros de actividad proporcionan información detallada sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de recurso proporcionan información detallada sobre las operaciones que realiza el recurso.
 
-Para configurar registros de diagnóstico:
+Para configurar los registros de recurso:
 
 1. Seleccione la instancia del servicio APIM.
 2. Haga clic en **Configuración de diagnóstico**.
 
-    ![registros de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![registros de recurso](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Haga clic en **Activar diagnóstico**. Los registros de diagnóstico se pueden archivar junto con las métricas en una cuenta de almacenamiento, transmitirlos en secuencias a un centro de eventos o enviarlos a los registros de Azure Monitor. 
+3. Haga clic en **Activar diagnóstico**. Los registros de recurso se pueden archivar junto con las métricas en una cuenta de almacenamiento, transmitirlos en secuencias a un centro de eventos o enviarlos a los registros de Azure Monitor. 
 
-Actualmente, API Management proporciona registros de diagnóstico (de los que se crean lotes cada hora) de una solicitud de API individual con cada entrada que tenga el esquema siguiente:
+Actualmente, API Management proporciona registros de recurso (de los que se crean lotes cada hora) de una solicitud de API individual con cada entrada con el esquema siguiente:
 
 ```json
 {  
@@ -190,7 +187,7 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | callerIpAddress | string | Dirección IP del llamador inmediato de la puerta de enlace (puede ser un intermediario) |
 | correlationId | string | Identificador único de la solicitud HTTP asignado por API Management |
 | ubicación | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
-| httpStatusCodeCategory | string | Categoría del código de estado de la respuesta http: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
+| httpStatusCodeCategory | string | Categoría del código de estado de respuesta HTTP: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
 | resourceId | string | Identificador del recurso de API Management /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Propiedades de la solicitud actual |
 | method | string | Método HTTP de la solicitud entrante |
@@ -227,7 +224,7 @@ En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Visualización de registros de actividad
-> * Visualización de los registros de diagnóstico
+> * Visualización de registros de recursos
 > * Visualización de las métricas de las API
 > * Configurar una regla de alerta cuando la API recibe llamadas no autorizadas
 
