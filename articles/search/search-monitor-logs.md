@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462379"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127826"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recopilación y análisis de datos de registro para Azure Cognitive Search
 
@@ -66,7 +66,7 @@ En el caso de Blob Storage, transcurre una hora antes de que los contenedores ap
 
 ## <a name="query-log-information"></a>Consulta de la información de registro
 
-En los registros de diagnóstico, dos tablas contienen registros y métricas de Azure Cognitive Search: **AzureDiagnostics** y **AzureMetrics**.
+Dos tablas contienen registros y métricas de Azure Cognitive Search: **AzureDiagnostics** y **AzureMetrics**.
 
 1. En **Supervisión**, seleccione **Registros**.
 
@@ -97,12 +97,12 @@ Las estructuras de datos que contienen datos de registro de Azure Cognitive Sear
 
 En el caso de Blob Storage, cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro. Cada blob contiene registros de todas las operaciones que tuvieron lugar durante la misma hora.
 
-La tabla siguiente es una lista parcial de campos comunes al registro de diagnóstico.
+La siguiente tabla es una lista parcial de campos comunes al registro de recursos.
 
 | Nombre | Tipo | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | timeGenerated |datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
 | operationName |string |"Query.Search" |El nombre de la operación |
 | operationVersion |string |"2019-05-06" |La versión de la API usada |
 | category |string |"OperationLogs" |constant |
@@ -128,7 +128,7 @@ Las métricas se capturan para las solicitudes de consulta y se miden en interva
 
 | Nombre | Tipo | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
 | average |int |64 |El valor medio de las muestras sin procesar en el intervalo de tiempo de la métrica, unidades en segundos o porcentaje, según la métrica. |

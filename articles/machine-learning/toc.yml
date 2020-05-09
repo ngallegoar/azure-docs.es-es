@@ -86,7 +86,7 @@
     - name: Ejemplos de MLOps de un extremo a otro
       href: 'https://github.com/microsoft/MLOps'
     - name: Open Datasets (público)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Conceptos
   items:
     - name: Planificación y administración de costos
@@ -172,8 +172,6 @@
           href: how-to-setup-authentication.md
         - name: Supervisión de Azure Machine Learning
           href: monitor-azure-machine-learning.md
-    - name: Integración con Event Grid
-      href: concept-event-grid-integration.md
 - name: Guías paso a paso
   items:
     - name: Creación y administración de áreas de trabajo
@@ -343,7 +341,7 @@
               displayName: functions app
               href: how-to-deploy-functions.md
             - name: Dispositivos de Azure IoT Edge
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
             - name: Inferencia de FPGA
               href: how-to-deploy-fpga-web-service.md
             - name: Imágenes de Docker personalizadas
@@ -384,7 +382,7 @@
           href: how-to-debug-pipelines-application-insights.md
         - name: Canalizaciones de Azure para CI/CD
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
         - name: Transformación de datos en Designer
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -456,7 +454,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Comparación entre nuestros productos de aprendizaje automático
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
     - name: ¿Qué le ha ocurrido a Workbench?
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md

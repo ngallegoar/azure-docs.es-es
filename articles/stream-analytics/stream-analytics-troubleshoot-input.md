@@ -6,18 +6,18 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3d88123b3dd79e5707c5c19cbbae13c30cbdeb84
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 920755e128f10a79a056d47813b1b65d8633c937
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409412"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628749"
 ---
 # <a name="troubleshoot-input-connections"></a>Solución de problemas de conexiones de entrada
 
-En este artículo se describen los problemas comunes relacionados con las conexiones de entrada de Azure Stream Analytics, cómo solucionar problemas de entrada y cómo corregir los problemas. Muchos pasos para solucionar problemas requieren que los registros de diagnóstico estén habilitados para el trabajo de Stream Analytics. Si los registros de diagnóstico están habilitados, vea [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md).
+En este artículo se describen los problemas comunes relacionados con las conexiones de entrada de Azure Stream Analytics, cómo solucionar problemas de entrada y cómo corregir los problemas. Muchos pasos de solución de problemas requieren que los registros de recursos estén habilitados para el trabajo de Stream Analytics. Si los registros de recursos no están habilitados, consulte [Solución de problemas de Azure Stream Analytics mediante registros de recursos](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="input-events-not-received-by-job"></a>El trabajo no recibe los eventos de entrada 
 
@@ -41,7 +41,7 @@ Cuando un trabajo de Stream Analytics recibe un mensaje con formato incorrecto d
 
 ![Icono de entradas en Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Habilite los registros de diagnóstico para ver los detalles del error y el mensaje (carga) que causó el error. Hay varios motivos por los que se pueden producir errores de deserialización. Para más información sobre errores de deserialización específicos, vea [Errores de los datos de entrada](data-errors.md#input-data-errors). Si los registros de diagnóstico no están habilitados, habrá una breve notificación disponible en Azure Portal.
+Habilite los registros de recursos para ver los detalles del error y el mensaje (carga) que provocó el error. Hay varios motivos por los que se pueden producir errores de deserialización. Para más información sobre errores de deserialización específicos, vea [Errores de los datos de entrada](data-errors.md#input-data-errors). Si los registros de recursos no están habilitados, habrá una breve notificación disponible en Azure Portal.
 
 ![Notificación de advertencia de detalles de entrada](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
@@ -51,9 +51,18 @@ En los casos en los que la carga del mensaje es mayor que 32 KB o está en form
 
 Un procedimiento recomendado para el uso de Event Hubs es usar varios grupos de consumidores para la escalabilidad del trabajo. El número de lectores en el trabajo de Stream Analytics para una entrada específica afecta a la cantidad de lectores en un grupo de consumidores único. El número exacto de destinatarios se basa en los detalles de implementación interna para la lógica de la topología de escalado horizontal y no está expuesto de forma externa. El número de lectores puede cambiar cuando inicia un trabajo o durante las actualizaciones del mismo.
 
-El error que se muestra cuando el número de receptores supera el máximo:
+Los mensajes de error siguientes se muestran cuando el número de receptores supera el máximo. El mensaje de error incluye una lista de las conexiones existentes realizadas al centro de eventos en un grupo de consumidores. La etiqueta `AzureStreamAnalytics` indica que las conexiones sea realizan desde servicio de streaming de Azure.
 
-`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+```
+The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.
+
+The following information may be helpful in identifying the connected receivers: Exceeded the maximum number of allowed receivers per partition in a consumer group which is 5. List of connected receivers – 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
+```
 
 > [!NOTE]
 > Cuando el número de lectores cambia durante una actualización de trabajo, se escriben advertencias transitorias en registros de auditoría. Los trabajos de Stream Analytics se recuperan automáticamente de estos problemas transitorios.

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73888806"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187218"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementación local del acelerador de soluciones de supervisión remota: IntelliJ
 
@@ -190,10 +190,10 @@ Cada servicio web abre una ventana del explorador web y del símbolo del sistema
 
 Para acceder al estado de los servicios, vaya a las siguientes direcciones URL:
 
-* Administrador de IoT-Hub: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetría del dispositivo: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* config: [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* storage-adapter: [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* Administrador de IoT-Hub: `http://localhost:9002/v1/status`
+* Telemetría del dispositivo: `http://localhost:9004/v1/status`
+* config: `http://localhost:9005/v1/status`
+* storage-adapter: `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Inicio del trabajo de Stream Analytics
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-Cuando el comando **start** se haya completado, se abrirá una página del explorador con la dirección [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Los errores de esta página son de esperar. Para ver la aplicación sin errores, siga estos pasos.
+Cuando el comando **start** se haya completado, se abrirá una página del explorador con la dirección `http://localhost:3000/dashboard`. Los errores de esta página son de esperar. Para ver la aplicación sin errores, siga estos pasos.
 
 ### <a name="configure-and-run-nginx"></a>Configuración y ejecución de Nginx
 
@@ -226,7 +226,7 @@ Para más información acerca de cómo ejecutar Nginx, consulte [nginx para Wind
 
 ### <a name="connect-to-the-dashboard"></a>Conexión al panel
 
-Para acceder al panel de la solución de Supervisión remota, vaya a http://localhost:9000 en el explorador.
+Para acceder al panel de la solución de Supervisión remota, vaya a `http://localhost:9000` en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
 
