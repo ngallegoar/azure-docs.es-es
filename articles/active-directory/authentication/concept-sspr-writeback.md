@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787c15c11c995c7eb30662131302658175c7f877
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 89431c2bf1838d3264b03c8a5f2ce62cd6df3631
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393021"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127841"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -130,6 +130,7 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
    * Cualquier operación obligatoria de autoservicio de cambio de contraseña del administrador (por ejemplo, la expiración de la contraseña).
    * Cualquier operación de autoservicio de restablecimiento de contraseña del administrador que se origina en el [portal de restablecimiento de contraseñas](https://passwordreset.microsoftonline.com).
    * Cualquier operación de restablecimiento de contraseña del usuario final iniciada por el administrador desde [Azure Portal](https://portal.azure.com).
+   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde la [versión beta de Microsoft Graph API](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
 
 ## <a name="unsupported-writeback-operations"></a>Operaciones de reescritura no admitidas
 
@@ -138,7 +139,7 @@ Las contraseñas no se vuelven a escribir en ninguna de las situaciones siguient
 * **Operaciones de usuario final no admitidas**
    * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell versión 1, versión 2 o Microsoft Graph API.
 * **Operaciones de administrador no admitidas**
-   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o Microsoft Graph API.
+   * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell versión 1, versión 2 o Microsoft Graph API (se admite la [versión beta de Microsoft Graph API](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http)).
    * Cualquier operación de restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
 > [!WARNING]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270900"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607391"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
 
@@ -23,7 +23,7 @@ Puede crear contenedores de perfiles de FSLogix mediante [Azure NetApp Files](ht
 
 En esta guía se le mostrará cómo configurar una cuenta de Azure NetApp Files y crear contenedores de perfiles de FSLogix en Windows Virtual Desktop.
 
-En este artículo se supone que ya tiene [grupos host](create-host-pools-azure-marketplace.md) configurados y agrupados en uno o varios inquilinos en el entorno de Windows Virtual Desktop. Para obtener información sobre cómo configurar los inquilinos, consulte [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md) y la [entrada de blog en Tech Community](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+En este artículo se supone que ya tiene [grupos host](create-host-pools-azure-marketplace.md) configurados y agrupados en uno o varios inquilinos en el entorno de Windows Virtual Desktop. Para obtener información sobre cómo configurar los inquilinos, consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) y la [entrada de blog en Tech Community](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
 Las instrucciones de esta guía son específicas para los usuarios de Windows Virtual Desktop. Si busca instrucciones más generales sobre cómo configurar Azure NetApp Files y crear contenedores de perfiles de FSLogix fuera de Windows Virtual Desktop, consulte la guía de inicio rápido [Configuración de Azure NetApp Files y creación de un volumen de NFS](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -210,7 +210,7 @@ Esta sección está basada en [Creación de un contenedor de perfiles para un gr
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Asegúrese de que los usuarios puedan tener acceso al recurso compartido de Azure NetApp Files.
 
-1. Abra el explorador de Internet y vaya a <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. Abra el explorador de Internet y vaya a <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 2. Inicie sesión con las credenciales de un usuario asignado al grupo de Escritorio remoto.
 

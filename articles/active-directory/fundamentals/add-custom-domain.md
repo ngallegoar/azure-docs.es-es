@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230448"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734746"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory
 
@@ -37,7 +37,7 @@ Cree el nuevo directorio siguiendo los pasos descritos en [Creación de un nuevo
 >[!IMPORTANT]
 >La persona que crea el inquilino es automáticamente el administrador global de ese inquilino. El administrador global puede agregar administradores adicionales al inquilino.
 
-Para más información sobre los roles de suscripción, consulte [Roles RBAC de Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+Para más información sobre los roles de suscripción, consulte [Roles de Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
 >[!TIP]
 > Si tiene previsto federar la instancia local de Windows Server AD en Azure AD, tiene que seleccionar la opción **Voy a configurar este dominio para el inicio de sesión único con mi Active Directory local** cuando ejecute la herramienta Azure AD Connect para sincronizar los directorios.
