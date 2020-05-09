@@ -3,15 +3,15 @@ title: Acceso a redes virtuales de Azure
 description: Introducción sobre la forma en que los entornos de servicio de integración (ISE) facilitan el acceso de las aplicaciones lógicas a las redes virtuales (VNET) de Azure.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127252"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734930"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -111,16 +111,18 @@ Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://az
 
 ## <a name="ise-endpoint-access"></a>Acceso al punto de conexión del ISE
 
-Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o externos. La selección determina si los desencadenadores de solicitudes o de webhooks de las aplicaciones lógicas del ISE pueden recibir llamadas desde fuera de la red virtual o no.
-
-Estos puntos de conexión también afectan a la manera en que puede acceder a las entradas y salidas en el historial de ejecución de las aplicaciones lógicas.
-
-* **Internas**: puntos de conexión privados que permiten llamadas a aplicaciones lógicas del ISE donde puede ver las entradas y salidas de las aplicaciones lógicas del historial de ejecuciones, así como acceder a dichas entradas y salidas, *solo desde dentro de la red virtual*.
-
-* **Externas**: puntos de conexión públicos que permiten llamadas a aplicaciones lógicas del ISE donde puede ver las entradas y salidas de las aplicaciones lógicas del historial de ejecuciones, así como acceder a dichas entradas y salidas, *desde fuera de la red virtual*. Si usa grupos de seguridad de red (NSG), asegúrese de que están configurados con reglas de entrada para permitir el acceso a las entradas y salidas del historial de ejecución. Para más información, consulte [Habilitar el acceso para el ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o externos. La selección determina si los desencadenadores de solicitudes o de webhooks de las aplicaciones lógicas del ISE pueden recibir llamadas desde fuera de la red virtual o no. Estos puntos de conexión también afectan a la manera en que puede acceder a las entradas y salidas en el historial de ejecución de las aplicaciones lógicas.
 
 > [!IMPORTANT]
-> La opción del punto de conexión de acceso solo está disponible durante la creación del ISE y no se puede cambiar más adelante.
+> Puede seleccionar el punto de conexión de acceso solo durante la creación del ISE y no puede cambiar esta opción más adelante.
+
+* **Internas**: Los puntos de conexión privados permiten las llamadas a aplicaciones lógicas del ISE, donde puede ver las entradas y salidas del historial de ejecuciones de las aplicaciones lógicas, así como acceder a dichas entradas y salidas, *solo desde dentro de la red virtual*. Asegúrese de tener conectividad de red entre los puntos de conexión privados y el equipo desde el que desea acceder al historial de ejecuciones. Por ejemplo, el equipo cliente puede existir dentro de la red virtual del ISE o en una red virtual que esté conectada a la red virtual del ISE, por ejemplo, a través de emparejamiento o de una red privada virtual.
+
+* **Externas**: Los puntos de conexión públicos permiten las llamadas a aplicaciones lógicas del ISE, donde puede ver las entradas y salidas del historial de ejecuciones de las aplicaciones lógicas, así como acceder a dichas entradas y salidas, *desde fuera de la red virtual*. Si usa grupos de seguridad de red (NSG), asegúrese de que están configurados con reglas de entrada para permitir el acceso a las entradas y salidas del historial de ejecución. Para más información, consulte [Habilitar el acceso para el ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+Para determinar si el ISE usa un punto de conexión de acceso interno o externo, en el menú del ISE, en **Configuración**, seleccione **Propiedades** y busque la propiedad **Punto de conexión de acceso**:
+
+![Búsqueda del punto de conexión de acceso del ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228012"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612459"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicación de la licencia de Windows a máquinas virtuales de host de sesión
 
@@ -23,7 +23,7 @@ Las licencias de Windows Virtual Desktop permiten aplicar una licencia a cualqui
 
 Hay varias maneras de usar la licencia de Windows Virtual Desktop:
 - Puede crear un grupo de hosts y sus máquinas virtuales de host de sesión mediante la [oferta de Azure Marketplace](./create-host-pools-azure-marketplace.md). Las máquinas virtuales creadas de esta manera tienen la licencia aplicada automáticamente.
-- Puede crear un grupo de hosts y sus máquinas virtuales de host de sesión mediante la [plantilla de Azure Resource Manager de GitHub](./create-host-pools-arm-template.md). Las máquinas virtuales creadas de esta manera tienen la licencia aplicada automáticamente.
+- Puede crear un grupo de hosts y sus máquinas virtuales de host de sesión mediante la [plantilla de Azure Resource Manager de GitHub](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). Las máquinas virtuales creadas de esta manera tienen la licencia aplicada automáticamente.
 - Puede aplicar una licencia a una máquina virtual de host de sesión existente. Para ello, siga primero las instrucciones indicadas en [Creación de un grupo host con PowerShell](./create-host-pools-powershell.md) para crear un grupo de hosts y las máquinas virtuales asociadas. Después, vuelva a este artículo para obtener información sobre cómo aplicar la licencia.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Aplicación de una licencia de Windows a una máquina virtual de host de sesión
