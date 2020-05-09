@@ -1,27 +1,22 @@
 ---
 title: 'Tutorial: Copia de seguridad de máquinas virtuales Windows en Azure Portal'
 description: En este tutorial, aprenderá a usar Azure Portal para proteger las máquinas virtuales Windows con Azure Backup.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1fa85dc63bc23760888192f2118158e73320a86
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456114"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100437"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Realización de copias de seguridad y restauración de archivos en máquinas virtuales Windows en Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Windows en Azure
 
 Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda la máquina virtual o determinados archivos. En este artículo se explica cómo restaurar un único archivo en una máquina virtual que ejecuta Windows Server e IIS. Si aún no tiene una máquina virtual que pueda usar, puede crear una mediante la guía de [inicio rápido de Windows](quick-create-portal.md). En este tutorial, aprenderá a:
 
@@ -77,14 +72,14 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 1. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
 1. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
 1. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
-1. En el **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Descargar ejecutable**. Copie la contraseña del archivo y guárdela en algún lugar seguro.
+1. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Copie la contraseña del archivo y guárdela en algún lugar seguro.
 1. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo lleva delante el nombre de su máquina virtual. 
 1. En la máquina virtual (mediante la conexión RDP), pegue el archivo .exe en el escritorio de la máquina virtual. 
 1. Vaya al escritorio de la máquina virtual y haga doble clic en el archivo .exe. Se iniciará un símbolo del sistema. El programa monta el punto de recuperación como un recurso compartido de archivos al que se puede acceder. Cuando se termine de crear el recurso compartido, escriba **q** para cerrar el símbolo del sistema.
 1. En la máquina virtual, abra el **Explorador de archivos** y vaya a la letra de unidad que se usó para el recurso compartido de archivos.
 1. Vaya a \inetpub\wwwroot, copie **iisstart.png** del recurso compartido de archivos y péguelo en \inetpub\wwwroot. Por ejemplo, copie F:\inetpub\wwwroot\iisstart.png y péguelo en c:\inetpub\wwwroot para recuperar el archivo.
 1. En el equipo local, abra la pestaña del explorador en el que está conectado a la dirección IP de la máquina virtual que muestra la página predeterminada de IIS. Presione CTRL + F5 para actualizar la página del explorador. Ahora debería ver que la imagen se ha restaurado.
-1. En el equipo local, vuelva a la pestaña del explorador de Azure Portal y, en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un punto de montaje.
+1. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un punto de montaje.
 
 
 

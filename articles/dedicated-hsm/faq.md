@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0cb7957008308425d91abb3e0f828cc40301736
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064924"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81683323"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -40,7 +40,7 @@ Microsoft ha colaborado con Gemalto para proporcionar el servicio Azure Dedicate
 
 ### <a name="q-what-is-an-hsm-used-for"></a>P: ¿Para qué se utiliza un módulo HSM?
 
-Los módulos HSM se utilizan para almacenar claves que se utilizan para funcionalidad criptográfica como SSL (Capa de sockets seguros), cifrado de datos, PKI (infraestructura de clave pública), DRM (administración de derechos digitales) y firma de documentos.
+Los módulos HSM se utilizan para almacenar claves que se utilizan para funcionalidad criptográfica como TLS (seguridad de la capa de transporte), cifrado de datos, PKI (infraestructura de clave pública), DRM (administración de derechos digitales) y firma de documentos.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>P: ¿Cómo funciona Dedicated HSM?
 
@@ -69,6 +69,7 @@ Desde finales de marzo de 2019, Dedicated HSM está disponible en las 14 region
 * Este de EE. UU.
 * Este de EE. UU. 2
 * Oeste de EE. UU.
+* Oeste de EE. UU. 2
 * Centro-sur de EE. UU.
 * Sudeste de Asia
 * Este de Asia
@@ -84,6 +85,10 @@ Desde finales de marzo de 2019, Dedicated HSM está disponible en las 14 region
 * Este de Canadá
 * Este de Australia
 * Sudeste de Australia
+* Norte de Suiza
+* Oeste de Suiza
+* US Gov - Virginia
+* US Gov Texas
 
 ## <a name="interoperability"></a>Interoperabilidad
 
@@ -132,13 +137,13 @@ Sí. Consulte la guía de migración de Gemalto.
 
 ### <a name="q-how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm"></a>P: ¿Cómo decido si usar Azure Key Vault o Azure Dedicated HSM?
 
-Azure Dedicated HSM es la opción adecuada para las empresas que migran a Azure aplicaciones locales que usan módulos HSM. Los módulos HSM dedicados son una opción para migrar una aplicación con cambios mínimos. Si las operaciones criptográficas se realizan en el código de la aplicación que se ejecuta en una máquina virtual de Azure o una aplicación web, pueden usar Azure Dedicated HSM. En general, el software empaquetado que se ejecuta en modelos de IaaS (infraestructura como servicio) y que admite los módulos HSM como un almacén de claves puede usar HSM dedicado, como una puerta de enlace de aplicación o un administrador de tráfico para SSL sin clave, ADCS (servicios de certificados de Active Directory) o herramientas similares de PKI, herramientas o aplicaciones utilizadas para la firma de documentos, firma de código o un servidor SQL Server (IaaS) configurado con TDE (cifrado de base de datos transparente) con la clave maestra en un módulo HSM mediante un proveedor de EKM (administración extensible de claves). Azure Key Vault es adecuado para aplicaciones "nacidas en la nube" o para el cifrado en escenarios en reposo en los que el software PaaS (plataforma como servicio) procesa los datos del cliente, o escenarios SaaS (software como servicio) como la clave de cliente de Office 365, Azure Information Protection, Azure Disk Encryption, el cifrado de Azure Data Lake Store con clave administrada por el cliente, el cifrado de Azure Storage con clave administrada por el cliente y Azure SQL con clave administrada por el cliente.
+Azure Dedicated HSM es la opción adecuada para las empresas que migran a Azure aplicaciones locales que usan módulos HSM. Los módulos HSM dedicados son una opción para migrar una aplicación con cambios mínimos. Si las operaciones criptográficas se realizan en el código de la aplicación que se ejecuta en una máquina virtual de Azure o una aplicación web, pueden usar Azure Dedicated HSM. En general, el software empaquetado que se ejecuta en modelos de IaaS (infraestructura como servicio) y que admite los módulos HSM como un almacén de claves puede usar HSM dedicado, como una puerta de enlace de aplicación o un administrador de tráfico para TLS sin clave, ADCS (servicios de certificados de Active Directory) o herramientas similares de PKI, herramientas o aplicaciones utilizadas para la firma de documentos, firma de código o un servidor SQL Server (IaaS) configurado con TDE (cifrado de base de datos transparente) con la clave maestra en un módulo HSM mediante un proveedor de EKM (administración extensible de claves). Azure Key Vault es adecuado para aplicaciones "nacidas en la nube" o para el cifrado en escenarios en reposo en los que el software PaaS (plataforma como servicio) procesa los datos del cliente, o escenarios SaaS (software como servicio) como la clave de cliente de Office 365, Azure Information Protection, Azure Disk Encryption, el cifrado de Azure Data Lake Store con clave administrada por el cliente, el cifrado de Azure Storage con clave administrada por el cliente y Azure SQL con clave administrada por el cliente.
 
 ### <a name="q-what-usage-scenarios-best-suit-azure-dedicated-hsm"></a>P: ¿Qué escenarios de uso se adaptan mejor a Azure Dedicated HSM?
 
 Azure Dedicated HSM es más adecuado para escenarios de migración. Por ejemplo, si va a migrar a Azure aplicaciones locales que ya usan módulos HSM. Esto proporciona una opción de baja fricción para la migración a Azure con cambios mínimos en la aplicación. Si las operaciones criptográficas se realizan en el código de la aplicación que se ejecuta en una máquina virtual de Azure o una aplicación web, se puede usar Dedicated HSM. En general, el software empaquetado que se ejecuta en modelos de IaaS (infraestructura como servicio) y que admite los módulos HSM como un almacén de claves puede usar HSM dedicado, por ejemplo:
 
-* Puerta de enlace de aplicación o administrador de tráfico para SSL sin claves
+* Puerta de enlace de aplicación o administrador de tráfico para TLS sin claves
 * ADCS (servicios de certificados de Active Directory)
 * Herramientas similares de PKI
 * Herramientas y aplicaciones usadas para firmar documentos

@@ -4,12 +4,12 @@ description: Este artículo contiene respuestas a las preguntas más frecuentes 
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 59d9b1f21e1936b7d03293ec3d338677380a7c99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81530273"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82101117"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -152,7 +152,7 @@ Consulte [Securing the endpoint](luis-concept-keys.md#securing-the-endpoint) (Pr
 ## <a name="working-within-luis-limits"></a>Trabajo dentro de los límites de LUIS
 
 ### <a name="what-is-the-maximum-number-of-intents-and-entities-that-a-luis-app-can-support"></a>¿Cuál es el número máximo de intenciones y entidades que puede admitir una aplicación de LUIS?
-Consulte la referencia sobre [límites](luis-boundaries.md).
+Consulte la referencia sobre [límites](luis-limits.md).
 
 ### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>Quiero compilar una aplicación de LUIS con un número de intenciones superior al máximo. ¿Cuál debo hacer?
 
@@ -163,10 +163,10 @@ Consulte los [Procedimientos recomendados para intenciones](luis-concept-intent.
 Consulte los [Procedimientos recomendados para entidades](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
 
 ### <a name="what-are-the-limits-on-the-number-and-size-of-phrase-lists"></a>¿Cuáles son los límites de número y tamaño de las listas de frases?
-Para saber más sobre la longitud máxima de una [lista de frases](./luis-concept-feature.md), consulte la referencia sobre [límites](luis-boundaries.md).
+Para saber más sobre la longitud máxima de una [lista de frases](./luis-concept-feature.md), consulte la referencia sobre [límites](luis-limits.md).
 
 ### <a name="what-are-the-limits-on-example-utterances"></a>¿Cuáles son los límites de las expresiones de ejemplo?
-Consulte la referencia sobre [límites](luis-boundaries.md).
+Consulte la referencia sobre [límites](luis-limits.md).
 
 ## <a name="testing-and-training"></a>Prueba y entrenamiento
 

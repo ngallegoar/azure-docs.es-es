@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 04/24/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3578cb1326ebd701c3f00618c19a501a1476372
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332139"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143759"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -57,7 +57,7 @@ Para trabajar correctamente con la escritura diferida del autoservicio de restab
    * El objeto raíz de *cada dominio* de ese bosque.
    * Las unidades organizativas (OU) de usuario que quiera que estén en el ámbito de SSPR.
 
-Si no asigna estos permisos, la escritura diferida parece estar configurada correctamente, pero los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube.
+Si no asigna estos permisos, la escritura diferida parece estar configurada correctamente, pero los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube. Para que aparezca "contraseña sin expiración", los permisos deben aplicarse a **Este objeto y todos los descendientes**.  
 
 Para configurar los permisos adecuados para que se realice la escritura diferida de contraseñas, complete los pasos siguientes:
 
@@ -67,7 +67,7 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 1. En la pestaña **Permisos**, haga clic en **Agregar**.
 1. En **Entidad de seguridad**, seleccione la cuenta a la que se deben aplicar los permisos (la cuenta que usa Azure AD Connect).
 1. En la lista desplegable **Se aplica a**, seleccione **Descendent User objects** (Objetos del usuario descendientes).
-1. En *Permisos*, active las casillas para las siguientes opciones:
+1. En *Permisos*, active la casilla para la siguiente opción:
     * **Restablecimiento de contraseñas**
 1. En *Propiedades*, active las casillas de las siguientes opciones: Debe desplazarse por la lista para encontrar estas opciones, que ya se pueden establecer de forma predeterminada:
     * **Escribir lockoutTime**
@@ -79,7 +79,7 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 
 Cuando actualiza los permisos, pueden tardar una hora (o más) en replicarse en todos los objetos del directorio.
 
-Las directivas de contraseñas en el entorno de AD DS local pueden impedir que se procesen correctamente los restablecimientos de contraseña. Para que la escritura diferida de contraseñas funcione de forma más eficaz, la directiva de grupo para la *Vigencia mínima de la contraseña* debe establecerse en 0. Esta configuración se puede encontrar en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta** en `gpedit.msc`. 
+Las directivas de contraseñas en el entorno de AD DS local pueden impedir que se procesen correctamente los restablecimientos de contraseña. Para que la escritura diferida de contraseñas funcione de forma más eficaz, la directiva de grupo para la *Vigencia mínima de la contraseña* debe establecerse en 0. Esta configuración se puede encontrar en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta** en `gpedit.msc`.
 
 Si actualiza la directiva de grupo, espere a que la directiva actualizada se replique o use el comando `gpupdate /force`.
 

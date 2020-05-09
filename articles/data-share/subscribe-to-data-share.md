@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77083106"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82145150"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -72,9 +72,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Apertura de una invitación
 
-1. Compruebe si en la bandeja de entrada hay alguna invitación de su proveedor de datos. La invitación es de Microsoft Azure y su título es **Azure Data Share invitation from <yourdataprovider@domain.com>** (Invitación para Azure Data Share de yourdataprovider@domain.com). Anote el nombre del recurso compartido para asegurarse de que acepta el recurso compartido correcto, en caso de que haya varias invitaciones. 
+1. Puede abrir la invitación desde el correo electrónico o directamente en Azure Portal. 
 
-1. Selecciónelo en **Ver invitación** para ver su invitación en Azure. Pasará a la vista de recursos compartidos recibidos.
+   Para abrir la invitación desde el correo electrónico, compruebe la bandeja de entrada para ver si hay una invitación de su proveedor de datos. La invitación es de Microsoft Azure y su título es **Azure Data Share invitation from <yourdataprovider@domain.com>** (Invitación para Azure Data Share de yourdataprovider@domain.com). Haga clic en **Ver invitación** para ver su invitación en Azure. 
+
+   Para abrir la invitación desde Azure Portal directamente, busque **Invitaciones de recurso compartido de datos** en Azure Portal. Este paso le lleva a la lista de invitaciones de Data Share.
 
    ![Invitaciones](./media/invitations.png "Lista de invitaciones") 
 

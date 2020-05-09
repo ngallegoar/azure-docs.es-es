@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7f927d230efba580cff163d31c6f572a10d0b4aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e225d4d37f6bdb3d50b32f6464456e4f7fa0036
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80991150"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853959"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Inicio rápido: Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET
 En este inicio rápido, utilizará un código de ejemplo para aprender cómo una aplicación web ASP.NET puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD).  (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
@@ -43,7 +43,7 @@ En este inicio rápido, utilizará un código de ejemplo para aprender cómo una
 > 1. Seleccione **Nuevo registro**.
 > 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 >      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `ASPNET-Quickstart`.
->      - Agregue `http://localhost:44368/` en **URI de redirección**y haga clic en **Registrar**.
+>      - Agregue `https://localhost:44368/` en **URI de redirección**y haga clic en **Registrar**.
 >      - En el panel de navegación izquierdo, en la sección Administrar, seleccione **Autenticación**
 >          - En la subsección **Concesión implícita** , seleccione **Tokens de id**.
 >          - Y, después, seleccione **Guardar**.

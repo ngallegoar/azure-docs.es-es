@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 09/30/2019
+ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6b0a81a2f3af10a1e5ad60c6c33357a6e906ee47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6de9e31c3e79f6d704ef8b4749d41329dcc0bddb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75895242"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190694"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solución de problemas de HDFS de Apache Hadoop con Azure HDInsight
 
-Obtenga información sobre los principales problemas y sus soluciones al trabajar con cargas útiles del Sistema de archivos distribuido de Hadoop (HDFS) en Apache Ambari. Para una lista completa de comandos, consulte la [guía de comandos de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) y la [guía de comandos shell del sistema de archivos](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html).
+Obtenga información sobre los principales problemas y las soluciones al trabajar con el Sistema de archivos distribuido (HDFS) de Hadoop. Para una lista completa de comandos, consulte la [guía de comandos de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) y la [guía de comandos shell del sistema de archivos](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html).
 
 ## <a name="how-do-i-access-the-local-hdfs-from-inside-a-cluster"></a><a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>¿Cómo se accede a la instancia de HDFS local desde un clúster?
 
@@ -72,9 +72,60 @@ Acceda a la HDFS local desde la línea de comandos y el código de aplicación, 
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
     ```
 
+## <a name="storage-exception-for-write-on-blob"></a>Excepción de almacenamiento para escritura en blob
+
+### <a name="issue"></a>Problema
+
+al usar los comandos `hadoop` o `hdfs dfs` para escribir archivos de aproximadamente 12 GB o mayores en un clúster de HBase, puede encontrar el siguiente error:
+
+```error
+ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
+copyFromLocal: java.io.IOException
+        at com.microsoft.azure.storage.core.Utility.initIOException(Utility.java:661)
+        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:366)
+        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:350)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
+        at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
+        at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
+        at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
+        at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlockInternal(CloudBlockBlob.java:816)
+        at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlock(CloudBlockBlob.java:788)
+        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
+        ... 7 more
+```
+
+### <a name="cause"></a>Causa
+
+HBase en clústeres de HDInsight toma como valor predeterminado un tamaño de bloque de 256 KB al escribir en Azure Storage. Si bien esto funciona para API de HBase o API de REST, se produce un error al usar las utilidades de línea de comandos `hadoop` o `hdfs dfs`.
+
+### <a name="resolution"></a>Solución
+
+use `fs.azure.write.request.size` para especificar un tamaño de bloque mayor. Puede realizar esta modificación en función de cada uso mediante el parámetro `-D`. El siguiente comando es un ejemplo de uso de este parámetro con el comando `hadoop`:
+
+```bash
+hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
+```
+
+También puede aumentar el valor de `fs.azure.write.request.size` globalmente mediante Apache Ambari. Los siguientes pasos se pueden usar para cambiar el valor en la IU web de Ambari:
+
+1. En el explorador, vaya a la IU web de Ambari para el clúster. La dirección URL es `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster. Cuando se le solicite, escriba el nombre de usuario y la contraseña de administrador para el clúster.
+2. En el lado izquierdo de la pantalla, seleccione **HDFS** y luego seleccione la pestaña **Configs** (Configuraciones).
+3. En el campo **Filter...** (Filtro...), escriba `fs.azure.write.request.size`.
+4. Cambie el valor de 262144 (256 KB) al nuevo valor. Por ejemplo, 4194304 (4 MB).
+
+    ![Imagen de cambiar el valor en la IU web de Ambari](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
+
+Para más información acerca del uso de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="du"></a>du
 
-El comando [-du](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) muestra el tamaño de los archivos y los directorios que contiene el directorio especificado o la longitud de un archivo (si es solo uno).
+El comando [`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) muestra el tamaño de los archivos y los directorios que contiene el directorio especificado o la longitud de un archivo, si solo fuera uno.
 
 La opción `-s` genera un resumen agregado de las longitudes de los archivos que se muestran.  
 La opción `-h` da formato al tamaño de los archivos.
