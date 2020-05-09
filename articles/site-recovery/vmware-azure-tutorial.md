@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222642"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610690"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -65,11 +65,11 @@ En el entorno de origen, es necesaria una máquina local individual de alta disp
 - **Servidor de destino principal**: El servidor de destino maestro controla los datos de replicación durante la conmutación por recuperación desde Azure.
 
 
-Todos estos componentes se instalan conjuntamente en la máquina local individual que se conoce como *servidor de configuración*. De manera predeterminada, para la recuperación ante desastres de VMware, el servidor de configuración se configura como una máquina virtual de VMware de alta disponibilidad. Para ello, es preciso descargar una plantilla de Open Virtualization Application (OVA) preparada e importarla en VMware para crear la máquina virtual. 
+Todos estos componentes se instalan conjuntamente en la máquina local individual que se conoce como *servidor de configuración*. De manera predeterminada, para la recuperación ante desastres de VMware, el servidor de configuración se configura como una máquina virtual de VMware de alta disponibilidad. Para ello, es preciso descargar una plantilla de Open Virtualization Application (OVA) preparada e importarla en VMware para crear la máquina virtual.
 
 - La versión más reciente del servidor de configuración está disponible en el portal. También se puede descargar directamente del [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
 - Si por cualquier motivo no puede se puede usar una plantilla de OVA para configurar una máquina virtual, siga [estas instrucciones](physical-manage-configuration-server.md) para establecer los valores del servidor de configuración manualmente.
-- La licencia que se proporciona con la plantilla de OVF es una licencia de evaluación válida durante 180 días. Windows debe ejecutarse en la máquina virtual de forma activa con la licencia requerida. 
+- La licencia que se proporciona con la plantilla de OVF es una licencia de evaluación válida durante 180 días. Windows debe ejecutarse en la máquina virtual de forma activa con la licencia requerida.
 
 
 ### <a name="download-the-vm-template"></a>Descarga de la plantilla de máquina virtual
@@ -77,7 +77,7 @@ Todos estos componentes se instalan conjuntamente en la máquina local individua
 1. En el almacén, vaya a **Preparar infraestructura** > **Origen**.
 2. En **Preparar origen**, seleccione **+Servidor de configuración**.
 3. En **Agregar servidor**, compruebe que aparezca **Servidor de configuración para VMware** en **Tipo de servidor**.
-4. Descargue la plantilla OVF para el servidor de configuración.
+4. Descargue la plantilla OVA para el servidor de configuración.
 
 
 
@@ -85,7 +85,7 @@ Todos estos componentes se instalan conjuntamente en la máquina local individua
 
 
 1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMWare vSphere.
-2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el **Asistente para implementar plantillas OVF**. 
+2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el **Asistente para implementar plantillas OVF**.
 
      ![Plantilla de OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -105,11 +105,11 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 1. En el inventario de cliente de vSphere, haga clic con el botón derecho en la máquina virtual y seleccione **Editar configuración**.
 2. En **Hardware**, seleccione **Agregar** > **Adaptador Ethernet**. Luego, seleccione **Siguiente**.
-3. Seleccione el tipo de adaptador y la red. 
+3. Seleccione el tipo de adaptador y la red.
 4. Para conectar la NIC virtual al encender la máquina virtual, seleccione **Connect at power on** (Conectar al encender). Seleccione **Siguiente** > **Finalizar**. Después, seleccione **Aceptar**.
 
 
-## <a name="register-the-configuration-server"></a>Registro del servidor de configuración 
+## <a name="register-the-configuration-server"></a>Registro del servidor de configuración
 
 Una vez configurado dicho servidor, se registra en el almacén.
 
@@ -179,7 +179,7 @@ Habilite la replicación para máquinas virtuales como sigue:
 3. En **Tipo de máquina**, seleccione **Máquinas virtuales**.
 4. En **vCenter/vSphere Hypervisor**, seleccione el host de vSphere o servidor vCenter que administra el host.
 5. Seleccione el servidor de proceso (que se instala de forma predeterminada en la máquina virtual del servidor de configuración). Después, seleccione **Aceptar**. El estado de mantenimiento de cada servidor de procesos se indica según los límites recomendados y otros parámetros. Elija un servidor de procesos correcto. No se puede elegir un servidor de procesos [crítico](vmware-physical-azure-monitor-process-server.md#process-server-alerts). Puede [localizar y solucionar](vmware-physical-azure-troubleshoot-process-server.md) los errores **o** configurar un [servidor de procesos de escalabilidad horizontal](vmware-azure-set-up-process-server-scale.md).
-6. En **Destino**, seleccione la suscripción y el grupo de recursos donde desee crear las máquinas virtuales conmutadas por error. Usamos el modelo de implementación de Resource Manager. 
+6. En **Destino**, seleccione la suscripción y el grupo de recursos donde desee crear las máquinas virtuales conmutadas por error. Usamos el modelo de implementación de Resource Manager.
 7. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error.
 8. Seleccione **Configurar ahora para las máquinas seleccionadas** para aplicar la configuración de red a todas las máquinas habilitadas para replicación. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina.
 9. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina que desea replicar. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. Después, seleccione **Aceptar**. Si no puede ver o seleccionar alguna máquina virtual en concreto, [aquí encontrará más información](https://aka.ms/doc-plugin-VM-not-showing) para resolver el problema.

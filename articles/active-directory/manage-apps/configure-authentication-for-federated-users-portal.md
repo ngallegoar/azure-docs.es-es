@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78943438"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690505"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -168,7 +168,7 @@ En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar direct
 
 Si no se devuelve nada, significa que no tiene directivas creadas en el inquilino.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Ejemplo: Configuración de la directiva HRD para una aplicación 
+### <a name="example-set-an-hrd-policy-for-an-application"></a>Ejemplo: Establecimiento de una directiva de HRD para una aplicación 
 
 En este ejemplo, puede crear una directiva que, cuando se asigne a una aplicación: 
 - Acelere automáticamente a los usuarios hacia una pantalla de inicio de sesión de AD FS cuando estos inicien sesión en una aplicación y cuando haya un solo dominio en su inquilino. 
@@ -251,7 +251,7 @@ Apunte el valor de **ObjectID** de la directiva de la cual quiere enumerar las a
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Ejemplo: Supresión de una directiva de HRD para una aplicación
+### <a name="example-remove-an-hrd-policy-from-an-application"></a>Ejemplo: Supresión de una directiva de HRD de una aplicación
 #### <a name="step-1-get-the-objectid"></a>Paso 1: Obtención del valor de ObjectID
 Use el ejemplo anterior para obtener el valor de **ObjectID** de la directiva y el de la entidad de servicio de aplicación de la que quiere eliminarlo. 
 

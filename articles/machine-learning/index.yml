@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de Azure Machine Learning
-summary: Aprenda a entrenar, implementar y administrar modelos de Machine Learning, experimentos de AutoML y canalizaciones a escala con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
+summary: Aprenda a entrenar, implementar y administrar modelos de Machine Learning, experimentos de Machine Learning automatizado y canalizaciones a escala con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
 metadata:
   title: Documentación de Azure Machine Learning
   description: Aprenda a entrenar, implementar y administrar modelos de Machine Learning, experimentos de Machine Learning automatizado y canalizaciones a escala con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/22/2020
-  ms.openlocfilehash: 174c5b1164505900345e35ff58d2970bf119cc82
-  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+  ms.date: 04/30/2020
+  ms.openlocfilehash: b1df2d4420e25027a545b8a708cda31cf0ff152f
+  ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/23/2020
-  ms.locfileid: "82084216"
+  ms.lasthandoff: 05/01/2020
+  ms.locfileid: "82690946"
 landingContent:
 - title: Introducción al aprendizaje automático
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
       url: concept-designer.md
     - text: Descripción del aprendizaje automático
       url: concept-automated-ml.md
+    - text: Elección de un algoritmo
+      url: how-to-select-algorithms.md
   - linkListType: tutorial
     links:
     - text: 'AML: creación de un modelo de clasificación'
@@ -65,6 +67,8 @@ landingContent:
     links:
     - text: Configurar el entorno
       url: how-to-configure-environment.md
+    - text: Aprendizaje profundo frente a Machine Learning
+      url: concept-deep-learning-vs-machine-learning.md
     - text: Entrenamiento con Scikit-Learn
       url: how-to-train-scikit-learn.md
     - text: Entrenamiento con TensorFlow
