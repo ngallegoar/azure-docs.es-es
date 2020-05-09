@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 01a6d796a9a8306da5bb707111b07786136a66cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414782"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629039"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copia diferencial desde una base de datos con una tabla de control
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 En este artículo se describe una plantilla que está disponible para cargar filas nuevas o actualizadas de forma incremental desde una tabla de base de datos en Azure mediante una tabla de control externa que almacena un valor de límite máximo.
 

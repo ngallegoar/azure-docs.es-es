@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 959e473cb52e23c9d04586f0b24da34537f4e660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115608"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594736"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
 La extensión de script personalizado versión 2 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -116,7 +116,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | int |
-| fileUris (p. ej.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (p. ej.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
 | commandToExecute (p. ej.) | python MyPythonScript.py \<mi-parámetro1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (p. ej.) | false | boolean |

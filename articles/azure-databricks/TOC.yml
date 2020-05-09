@@ -1027,7 +1027,7 @@
               href: /azure/databricks/security/access-control/pool-acl
               maintainContext: true
             - name: Control de acceso a trabajos
-              href: /azure/databricks/security/access-control/job-acl
+              href: /azure/databricks/security/access-control/jobs-acl
               maintainContext: true
             - name: Control de acceso a tabla
               items:
@@ -1666,7 +1666,7 @@
                 - name: API de SCIM (users)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-users
                 - name: API de SCIM (groups)
-                  href: /azure/databricks/dev-tools/api/latest/scim/scim-group
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-groups
               maintainContext: true
             - name: Secretos
               href: /azure/databricks/dev-tools/api/latest/secrets

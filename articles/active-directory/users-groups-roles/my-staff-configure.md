@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 05/01/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7c12612dbe37de6b08cb05a64af460296ade93
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: b88f4aad650d77fea12677e61d3f249a77367e6f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393906"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690688"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Administración de los usuarios con Mi personal (versión preliminar)
 
@@ -26,9 +26,28 @@ Mi personal permite delegar en una figura de autoridad, como un administrador de
 
 Antes de configurar Mi personal para su organización, recomendamos que revise esta documentación, así como la [documentación de usuario](../user-help/my-staff-team-manager.md), para asegurarse de que comprende la funcionalidad y el impacto de esta característica en los usuarios. Puede aprovechar la documentación de usuario para entrenar y preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio.
 
+La autenticación basada en SMS para los usuarios es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="how-my-staff-works"></a>Cómo funciona Mi personal
 
 Mi personal se basa en unidades administrativas (UA), que son un contenedor de recursos que se pueden utilizar para restringir el ámbito del control administrativo de una asignación de roles. En Mi personal, las UA se usan para definir un subconjunto de los usuarios de una organización, como un almacén o un departamento. Después, por ejemplo, se podría asignar un administrador de equipo a un rol cuyo ámbito sea una o varias UA. En el ejemplo siguiente, se ha concedido al usuario el rol administrativo de autenticación y las tres UA son el ámbito del rol. Para obtener más información sobre las unidades administrativas, consulte [Administración de unidades administrativas en Azure Active Directory](directory-administrative-units.md).
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+Para completar este artículo, necesitará los siguientes recursos y privilegios:
+
+* Una suscripción de Azure activa.
+
+  * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un inquilino de Azure Active Directory asociado a la suscripción.
+
+  * Si es necesario, [cree un inquilino de Azure Active Directory](../fundamentals/sign-up-organization.md) o [asocie una suscripción a Azure con su cuenta](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+* Necesita privilegios de *Administrador global* en el inquilino de Azure AD para permitir la autenticación basada en SMS.
+* Cada usuario que esté habilitado en la directiva de métodos de autenticación de mensaje de texto debe tener licencia, aunque no la usen. Cada usuario habilitado debe tener una de las siguientes licencias de Azure AD o Microsoft 365:
+
+  * [Azure AD Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Microsoft 365 (M365) F1 o F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Enterprise Mobility + Security (EMS) E3 o E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) o [Microsoft 365 (M365) E3 o E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>Cómo habilitar Mi personal
 
@@ -41,16 +60,27 @@ Una vez que haya configurado las UA, puede aplicar este ámbito a los usuarios c
 > [!Note]
 > Solo los usuarios a los que se ha asignado un rol administrativo pueden tener acceso a Mi personal. Si habilita Mi personal para un usuario que no tiene asignado un rol administrativo, no podrá tener acceso a Mi personal.
 
+## <a name="conditional-access"></a>Acceso condicional
+
+Puede proteger el portal Mi personal mediante una directiva de acceso condicional de Azure AD. Úselo para tareas como requerir la autenticación multifactor antes de tener acceso a Mi personal.
+
+Se recomienda que proteja Mi personal mediante [directivas de acceso condicional de Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Para aplicar una directiva de acceso condicional a Mi personal, debe crear manualmente la entidad de servicio de Mi personal mediante PowerShell.
+
+### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Aplicación de una directiva de acceso condicional a Mi personal
+
+1. Instale los [cmdlets de PowerShell de Microsoft Graph Beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
+1. Ejecute los comandos siguientes:
+
+        Connect-Graph -Scopes "Directory.AccessAsUser.All"
+        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+
+1. Cree una directiva de acceso condicional que se aplique a la aplicación en la nube Mi personal.
+
+    ![Creación de una directiva de acceso condicional para la aplicación Mi personal](media/my-staff-configure/conditional-access.png)
+
 ## <a name="using-my-staff"></a>Uso de Mi personal
 
 Cuando un usuario va a Mi personal, se le muestran los nombres de las [unidades administrativas](directory-administrative-units.md) sobre las que tienen permisos administrativos. En la [documentación de usuario de Mi personal](../user-help/my-staff-team-manager.md), usamos el término "ubicación" para hacer referencia a las unidades administrativas. Si los permisos de un administrador no tienen un ámbito de UA, estos se aplicarán en toda la organización. Una vez que se ha habilitado Mi personal, los usuarios que están habilitados y a los que se ha asignado un rol administrativo pueden tener acceso al mismo a través de [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Pueden seleccionar una UA para ver los usuarios de esa UA y seleccionar un usuario para abrir su perfil.
-
-## <a name="licenses"></a>Licencias
-
-Cada usuario que está habilitado en Mi personal debe tener licencia, incluso si no usa el portal de Mi personal. Cada usuario habilitado debe tener una de las licencias de Azure AD o Microsoft 365 siguientes:
-
-- Azure AD Premium (P1 o P2)
-- Microsoft 365 F1 o F3
 
 ## <a name="reset-a-users-password"></a>Restablecimiento de la contraseña del usuario
 

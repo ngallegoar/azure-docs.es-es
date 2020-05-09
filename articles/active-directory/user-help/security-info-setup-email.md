@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 9488b96dda15b0ffb794f83826dc299a5f397b77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c3dd3e7e0bc899b87a16f66dc4d049a2876dbb4
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064009"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628374"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configuración de una dirección de correo electrónico como método de comprobación
 
@@ -49,7 +49,7 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
 ### <a name="to-set-up-your-email-address"></a>Para configurar su dirección de correo electrónico
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/.
 
     ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
 

@@ -2,7 +2,7 @@
 title: Flujo de credenciales de cliente de OAuth 2.0 en la plataforma de identidad de Microsoft | Azure
 description: Compile aplicaciones web mediante la implementación de la Plataforma de identidad de Microsoft del protocolo de autenticación OAuth 2.0.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 36a5fdf990432e3a41cf8fc578fa20b4910250b2
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: e25af1f629ea6fa7db14ce89dfffaa340486a989
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868451"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82689781"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 

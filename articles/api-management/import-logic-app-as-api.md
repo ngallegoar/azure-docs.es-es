@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108396"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202781"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importación de una aplicación lógica como API
 
@@ -31,16 +31,16 @@ En este artículo aprenderá a:
 > -   Prueba de la API en Azure Portal
 > -   Pruebe la API en el Portal para desarrolladores
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
--   Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+-   Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 -   Asegúrese de que hay alguna aplicación lógica en su suscripción que expone un punto de conexión HTTP. Para más información, consulte el artículo acerca del [desencadenamiento de flujos de trabajo con puntos de conexión HTTP](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importación y publicación de una API de back-end
 
-1. Seleccione **API** en **API MANAGEMENT**.
+1. Vaya al servicio API Management en Azure Portal y seleccione **API** en el menú.
 2. Seleccione **Aplicación lógica** en la lista **Add a new API** (Agregar una nueva API).
 
     ![Aplicación lógica](./media/import-logic-app-as-api/logic-app-api.png)
@@ -57,7 +57,8 @@ En este artículo aprenderá a:
     - **Starter**
     - **Sin límite**
 
-7. Seleccione **Crear**.
+7. Escriba otros valores de la API. Puede establecer los valores durante la creación o luego accediendo a la pestaña **Ajustes**. Los valores de configuración se explican en el tutorial [Importación y publicación de la primera API](import-and-publish.md#-import-and-publish-a-backend-api).
+8. Seleccione **Crear**.
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Prueba de la API en Azure Portal
 

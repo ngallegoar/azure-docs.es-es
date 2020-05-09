@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654352"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610656"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introducción a la autenticación basada en certificados de Azure Active Directory
 
@@ -45,7 +46,7 @@ Para configurar la autenticación basada en certificados, deben cumplirse las si
 - Se debe haber emitido al cliente un certificado de cliente para la autenticación de cliente.
 
 >[!IMPORTANT]
->El tamaño máximo de una lista de revocación de certificados que se puede descargar y almacenar en caché mediante Azure Active Directory es de 20 MB y el tiempo necesario de descarga no debe superar los 10 segundos.  Si Azure Active Directory no puede descargar la lista de revocación de certificados, se producirá un error en las autenticaciones basadas en certificados que usen certificados emitidos por la entidad de certificación correspondiente. Los procedimientos recomendados para garantizar que los archivos de las listas de revocación de certificados cumplen las restricciones de tamaño son mantener la vigencia de los certificados dentro de los límites razonables y limpiar los certificados expirados. 
+>El tamaño máximo de una lista de revocación de certificados que se puede descargar y almacenar en caché mediante Azure Active Directory es de 20 MB y el tiempo necesario de descarga no debe superar los 10 segundos.  Si Azure Active Directory no puede descargar la lista de revocación de certificados, se producirá un error en las autenticaciones basadas en certificados que usen certificados emitidos por la entidad de certificación correspondiente. Los procedimientos recomendados para garantizar que los archivos de las listas de revocación de certificados cumplen las restricciones de tamaño son mantener la vigencia de los certificados dentro de los límites razonables y limpiar los certificados expirados.
 
 ## <a name="step-1-select-your-device-platform"></a>Paso 1: Selección de la plataforma de dispositivos
 

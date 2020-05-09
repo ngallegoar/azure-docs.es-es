@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617708"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search

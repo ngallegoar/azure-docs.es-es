@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234328"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739371"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -89,11 +89,11 @@ En la tabla siguiente se enumera los objetos y contadores que pueden especificar
 | Disco lógico | % de espacio libre |
 | Disco lógico | % de Inodes usados |
 | Disco lógico | % espacio usado |
-| Disco lógico | Bytes de lectura de disco/s |
-| Disco lógico | Lecturas de disco/s |
+| Disco lógico | Bytes de lectura de disco/s  |
+| Disco lógico | Lecturas de disco/s  |
 | Disco lógico | Transferencias de disco/s |
-| Disco lógico | Bytes de escritura en disco/s |
-| Disco lógico | Escrituras en disco/s |
+| Disco lógico |   Bytes de escritura en disco/s |
+| Disco lógico |  Escrituras en disco/s |
 | Disco lógico | Megabytes libres |
 | Disco lógico | Bytes de disco lógico/s |
 | Memoria | % de memoria disponible |
@@ -175,7 +175,7 @@ Esta es la configuración predeterminada de las métricas de rendimiento.
     </source>
 
 ## <a name="data-collection"></a>datos, recopilación
-Azure Monitor recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de consulta de registro durante el tiempo especificado por la suscripción.
+Azure Monitor recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de consulta de registro durante el tiempo especificado por el área de trabajo del análisis de registros.
 
 ## <a name="performance-record-properties"></a>Propiedades de registros de rendimiento
 Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las que aparecen en la tabla siguiente.
@@ -188,7 +188,7 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 | CounterValue |Valor numérico del contador. |
 | InstanceName |Nombre de la instancia del evento.  Vacío si no hay instancias. |
 | ObjectName |Nombre del objeto de rendimiento |
-| SourceSystem |Tipo de agente del que se recopilaron los datos. <br><br>OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br> Linux: todos los agentes de Linux.  <br> AzureStorage: Diagnósticos de Azure |
+| SourceSystem |Tipo de agente del que se recopilaron los datos. <br><br>OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br>  Linux: todos los agentes de Linux.  <br>  AzureStorage: Diagnósticos de Azure |
 | TimeGenerated |Fecha y hora en que se toma la muestra de datos. |
 
 ## <a name="sizing-estimates"></a>Estimaciones de tamaño

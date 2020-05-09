@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4a94b0b84290bbf796e951dfee8b3f35b80036ce
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261167"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183167"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Línea de base de seguridad de Azure para un único servidor de Azure Database for PostgreSQL
 
@@ -130,7 +130,7 @@ Descripción del uso de etiquetas de servicio para Azure Database for PostgreSQL
 
 - Se debe habilitar DDoS Protection estándar
 
-- La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos PostgreSQL
+- La aplicación de la conexión TLS debe estar habilitada para los servidores de base de datos PostgreSQL
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -146,7 +146,7 @@ Creación de un plano técnico de Azure: https://docs.microsoft.com/azure/govern
 
 **Guía**: Use etiquetas para los recursos relacionados con la seguridad de red y el flujo de tráfico de las instancias de Azure Database for PostgreSQL a fin de proporcionar metadatos y una organización lógica.
 
-Use cualquiera de las definiciones de directiva de Azure integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se crean con etiquetas y para recibir notificaciones de los recursos no etiquetados existentes.
+Use cualquiera de las definiciones de Azure Policy integradas relacionadas con el etiquetado, como "Requerir etiqueta y su valor", para asegurarse de que todos los recursos se creen con etiquetas y para notificarle los recursos no etiquetados existentes.
 
 Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas.
 
@@ -197,7 +197,7 @@ Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/qui
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Habilitación del registro de auditoría para recursos de Azure
 
-**Guía**: Habilite Configuración de diagnóstico en las instancias de Azure Database for PostgreSQL para poder acceder a los registros de auditoría, seguridad y diagnóstico. Asegúrese de habilitar específicamente el registro de auditoría de PostgreSQL. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. También puede habilitar la configuración de diagnóstico del registro de actividad de Azure y enviar los registros a la misma área de trabajo de Log Analytics o cuenta de almacenamiento.
+**Guía**: Habilite Configuración de diagnóstico en las instancias de Azure Database for PostgreSQL para acceder a los registros de auditoría, seguridad y recursos. Asegúrese de habilitar específicamente el registro de auditoría de PostgreSQL. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. También puede habilitar la configuración de diagnóstico del registro de actividad de Azure y enviar los registros a la misma área de trabajo de Log Analytics o cuenta de almacenamiento.
 
 Configuración de los registros de servidor de Azure Database for PostgreSQL y acceso a estos: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
@@ -525,7 +525,7 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Cifrado de toda la información confidencial en tránsito
 
-**Guía**: Azure Database for PostgreSQL permite conectar el servidor de PostgreSQL a las aplicaciones cliente con la Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. En Azure Portal, asegúrese de que está habilitada la opción "Aplicar conexión SSL" para todas las instancias de Azure Database for PostgreSQL de forma predeterminada.
+**Guía**: Azure Database for PostgreSQL admite la conexión de un servidor de PostgreSQL a las aplicaciones cliente mediante Seguridad de la capa de transporte (TLS), que anteriormente se denominaba Capa de sockets seguros (SSL). La aplicación de conexiones TLS entre el servidor de bases de datos y las aplicaciones cliente ayuda a proteger contra los ataques del tipo "Man in the middle", ya que cifra el flujo de datos entre el servidor y la aplicación. En Azure Portal, asegúrese de que está habilitada la opción "Aplicar conexión SSL" para todas las instancias de Azure Database for PostgreSQL de forma predeterminada.
 
 Actualmente, la versión de TLS admitida para Azure Database for PostgreSQL es TLS 1.0, TLS 1.1, TLS 1.2.
 
@@ -652,7 +652,7 @@ Cobertura de características para los servicios de PaaS de Azure en Azure Secur
 
 **Guía**: use Azure Resource Graph para consultar y detectar todos los recursos (incluidas las instancias de Azure Database for PostgreSQL) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
-Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -696,7 +696,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -738,7 +738,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -794,7 +794,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 **Guía**: defina e implemente configuraciones de seguridad estándar para las instancias de Azure Database for PostgreSQL con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforPostgreSQL" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las instancias de Azure Database for PostgreSQL. También puede usar las definiciones de directiva integradas relacionadas con las instancias de Azure Database for PostgreSQL, como:
 
-- La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos PostgreSQL
+- La aplicación de la conexión TLS debe estar habilitada para los servidores de base de datos PostgreSQL
 
 - Las conexiones del registro deben estar habilitadas para los servidores de bases de datos de PostgreSQL.
 
@@ -816,7 +816,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
+**Guía**: Utilice las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -836,7 +836,7 @@ Descripción de los efectos de Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
-**Guía**: Si usa definiciones de directivas personalizadas de Azure para las instancias de Azure Database for PostgreSQL y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
+**Guía**: Si usa definiciones de Azure Policy personalizadas para las instancias de Azure Database for PostgreSQL y los recursos relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
 Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -874,7 +874,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implemente la supervisión de configuración automatizada para servicios de Azure
 
-**Guía**: use alias de Azure Policy en el espacio de nombres "Microsoft.DBforPostgreSQL" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use la directiva de Azure [auditar], [denegar] e [implementar si no existe] para aplicar automáticamente las configuraciones de las instancias de Azure Database for PostgreSQL y los recursos relacionados.
+**Guía**: use alias de Azure Policy en el espacio de nombres "Microsoft.DBforPostgreSQL" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use Azure Policy [audit], [deny] y [deploy if not exist] para aplicar automáticamente las configuraciones de las instancias de Azure Database for PostgreSQL y los recursos relacionados.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

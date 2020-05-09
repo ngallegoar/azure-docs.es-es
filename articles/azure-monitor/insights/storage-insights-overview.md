@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662526"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691108"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage (versión preliminar)
 
@@ -67,7 +67,7 @@ El icono de contador bajo las listas desplegables acumula el número total de cu
 Al seleccionar un valor en las columnas **Availability** (Disponibilidad), **E2E Latency** (Latencia de E2E), **Server Latency** (Latencia del servidor) y **transaction error type/Errors** (tipo de error de transacción/errores), se le dirige a un informe adaptado al tipo específico de métrica de almacenamiento que coincide con la columna seleccionada para esa cuenta de almacenamiento. Para más información sobre los libros de cada categoría, consulte a continuación la sección [Libros de almacenamiento detallados](#detailed-storage-workbooks). 
 
 >[!NOTE]
->Para más información sobre los errores que se pueden mostrar en el informe, consulte [Esquema de tipo de respuesta](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) y busque tipos de respuesta, como **ServerOtherError**, **ClientOtherError** y **ClientThrottlingError**. En función de las cuentas de almacenamiento seleccionadas, si se notifican más de tres tipos de errores, todos los demás errores se representan en la categoría **Other** (Otros).
+>Para más información sobre los errores que se pueden mostrar en el informe, consulte [Esquema de tipo de respuesta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) y busque tipos de respuesta, como **ServerOtherError**, **ClientOtherError** y **ClientThrottlingError**. En función de las cuentas de almacenamiento seleccionadas, si se notifican más de tres tipos de errores, todos los demás errores se representan en la categoría **Other** (Otros).
 
 El umbral predeterminado de **Availability** (Disponibilidad) es:
 

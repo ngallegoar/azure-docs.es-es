@@ -56,6 +56,11 @@
       href: sql-database-single-database-quickstart-guide.md
     - name: Instancias administradas de SQL
       href: sql-database-managed-instance-quickstart-guide.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Comparación de características
@@ -159,7 +164,7 @@
               href: 'https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
             - name: SSMS
               href: sql-database-connect-query-ssms.md
-            - name: Portal de Azure
+            - name: Azure Portal
               href: sql-database-connect-query-portal.md
             - name: Código de VS
               href: sql-database-connect-query-vscode.md
@@ -189,7 +194,7 @@
               href: /sql/connect/sql-server-drivers
               items:
                 - name: ADO.NET
-                  href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+                  href: /sql/connect/ado-net/microsoft-ado-net-sql-server
                 - name: JDBC
                   href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
                 - name: Node.js
