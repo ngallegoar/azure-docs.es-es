@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878041"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160092"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
 En este tutorial se muestra cómo habilitar el protocolo HTTPS en un dominio personalizado asociado a un entorno de Front Door en la sección de hosts de front-end. Mediante el protocolo HTTPS en el dominio personalizado (por ejemplo, https:\//www.contoso.com), se garantiza que los datos confidenciales se entregan de manera segura a través del cifrado TLS/SSL cuando se envían por Internet. Cuando el explorador web se conecta a un sitio web a través de HTTPS, valida el certificado de seguridad del sitio web y comprueba que lo ha emitido una entidad de certificación legítima. Este proceso aporta seguridad y protege las aplicaciones web de posibles ataques.
 
-De forma predeterminada, Azure Front Door admite HTTPS en el nombre de host predeterminado de una instancia de Front Door. Por ejemplo, si crea una instancia de Front Door (p.ej., https:\//contoso.azurefd.net), HTTPS se habilita de manera automática para las solicitudes que se realicen a https://contoso.azurefd.net. Sin embargo, una vez incorporado el dominio personalizado "www.contoso.com", deberá habilitar además HTTPS para este host de front-end.   
+De forma predeterminada, Azure Front Door admite HTTPS en el nombre de host predeterminado de una instancia de Front Door. Por ejemplo, si crea una instancia de Front Door (como `https://contoso.azurefd.net`), HTTPS se habilita automáticamente para las solicitudes realizadas a `https://contoso.azurefd.net`. Sin embargo, una vez incorporado el dominio personalizado "www.contoso.com", deberá habilitar además HTTPS para este host de front-end.   
 
 Algunos de los atributos clave de la característica de HTTPS personalizado son:
 

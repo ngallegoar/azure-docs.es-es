@@ -4,14 +4,14 @@ description: Recomendaciones para evitar y corregir errores de configuración y 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: c88ffb9e87bc0688cc87b816efaa8e101e23407c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651958"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186624"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Solución de problemas de configuración de NAS y destinos de almacenamiento NFS
 
@@ -50,7 +50,7 @@ rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+t
 
 Asegúrese de que todos los puertos devueltos por la consulta ``rpcinfo`` permitan tráfico sin restricciones desde la subred de Azure HPC Cache.
 
-Compruebe estos valores tanto en el propio NAS como en cualquier firewall entre el sistema de almacenamiento y la subred de caché.
+Compruebe estos valores en el propio NAS y en cualquier firewall entre el sistema de almacenamiento y la subred de caché.
 
 ## <a name="check-root-access"></a>Comprobación de acceso raíz
 
@@ -62,6 +62,9 @@ Los distintos sistemas de almacenamiento usan métodos diferentes para habilitar
 * Los sistemas NetApp y EMC normalmente controlan el acceso con reglas de exportación vinculadas a redes o direcciones IP específicas.
 
 Si usa reglas de exportación, recuerde que la caché puede usar varias direcciones IP diferentes de la subred de caché. Permita el acceso desde el rango completo de posibles direcciones IP de la subred.
+
+> [!NOTE]
+> De forma predeterminada, Azure HPC Cache aplica squash al acceso a la raíz. Para obtener más información, lea [Configuración de los valores de caché adicionales](configuration.md#configure-root-squash).
 
 Trabaje con el proveedor de almacenamiento de NAS para habilitar el nivel adecuado de acceso para la caché.
 
@@ -100,7 +103,7 @@ Si es posible, use un cliente Linux de la misma red virtual que la caché.
 Si ese comando no muestra las exportaciones, la caché va a tener problemas para conectarse al sistema de almacenamiento. Trabaje con el proveedor de NAS para habilitar las listas de exportaciones.
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>Ajuste de restricciones de tamaño de paquete de VPN
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 Si tiene una VPN entre la caché y el dispositivo NAS, la VPN podría bloquear los paquetes de Ethernet de 1500 bytes de tamaño completo. Podría tener este problema si no se completan los intercambios grandes entre NAS y la instancia de Azure HPC Cache, pero las actualizaciones más pequeñas funcionan según lo previsto.
 
@@ -128,7 +131,11 @@ No hay una manera sencilla de saber si el sistema tiene este problema o no, a me
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  Si se produce un error de ping con 1472 bytes, es posible que tenga que configurar el bloqueo de MSS en la VPN para que el sistema remoto detecte correctamente el tamaño máximo del marco. Lea la [documentación de parámetros de IPsec/IKE de VPN Gateway](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) para obtener más información.
+  Si se produce un error de ping con 1472 bytes, es probable que se trate de un problema de tamaño del paquete.
+
+Para corregir el problema, es posible que tenga que configurar el bloqueo de MSS en la VPN para que el sistema remoto detecte correctamente el tamaño máximo del marco. Lea la [documentación de parámetros de IPsec/IKE de VPN Gateway](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) para obtener más información.
+
+En algunos casos, puede resultar útil cambiar la configuración de MTU para Azure HPC Cache a 1400. Sin embargo, si restringe la MTU en la memoria caché, también debe restringir la configuración de MTU para los clientes y sistemas de almacenamiento de back-end que interactúan con la memoria caché. Para obtener más información, lea [Configuración de valores adicionales de Azure HPC Cache](configuration.md#adjust-mtu-value).
 
 ## <a name="check-for-acl-security-style"></a>Comprobación del estilo de seguridad de ACL
 

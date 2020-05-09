@@ -1,35 +1,32 @@
 ---
 title: 'Autenticación basada en certificados en iOS: Azure Active Directory'
-description: Obtenga información acerca de los escenarios admitidos y los requisitos para configurar la autenticación basada en certificados en las soluciones con dispositivos iOS
+description: Obtenga información acerca de los escenarios admitidos y los requisitos para configurar la autenticación basada en certificados para Azure Active Directory en las soluciones con dispositivos iOS.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 04/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a042897ecbe35935c1832a53f523eb0597ebafc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654239"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144065"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticación basada en certificados de Azure Active Directory en iOS
 
-Los dispositivos iOS pueden usar la autenticación basada en certificados (CBA) para autenticarse en Azure Active Directory mediante el uso de un certificado de cliente en el dispositivo cuando se conecten a:
+Para mejorar la seguridad, los dispositivos iOS pueden usar la autenticación basada en certificados (CBA) para autenticarse en Azure Active Directory (Azure AD) mediante el uso de un certificado de cliente en el dispositivo cuando se conecten a los servicios o aplicaciones siguientes:
 
 * aplicaciones móviles de Office como Microsoft Outlook y Microsoft Word,
 * clientes de Exchange ActiveSync (EAS).
 
-Al configurar esta función, no tendrá que escribir una combinación de nombre de usuario y contraseña en determinadas aplicaciones de correo electrónico y Microsoft Office de su dispositivo móvil.
+Al usar certificados, no tendrá que escribir una combinación de nombre de usuario y contraseña en determinadas aplicaciones de correo electrónico y Microsoft Office del dispositivo móvil.
 
-En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo iOS (Android) para usuarios de inquilinos de planes de Office 365 Enterprise, Empresa, Educación, US Government, China y Alemania.
-
-Esta característica se encuentra disponible como versión preliminar en los planes Office 365 US Government Defense y US Government Federal.
+En este artículo se detallan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo iOS. CBA para iOS está disponible en las nubes públicas de Azure, Microsoft Government Cloud, Microsoft Cloud Alemania y Microsoft Azure China 21Vianet.
 
 ## <a name="microsoft-mobile-applications-support"></a>Compatibilidad con aplicaciones móviles de Microsoft
 
@@ -38,6 +35,7 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 | Aplicación Azure Information Protection |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
 | Portal de empresa de Intune |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
 | Equipos de Microsoft |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Office (móvil) |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
 | OneNote |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
 | OneDrive |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
 | Outlook |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
@@ -48,38 +46,48 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 
 ## <a name="requirements"></a>Requisitos
 
-La versión del sistema operativo del dispositivo debe ser iOS 9 y posterior.
+Para usar CBA con iOS, se aplican los siguientes requisitos y consideraciones:
 
-Se debe configurar un servidor de federación.
+* La versión del sistema operativo del dispositivo debe ser iOS 9 o posterior.
+* Se requiere Microsoft Authenticator para las aplicaciones de Office en iOS.
+* Se debe crear una preferencia de identidad en la cadena de claves de macOS que incluya la dirección URL de autenticación del servidor de ADFS. Para obtener más información, vea [Crear una preferencia de identidad en Acceso a Llaveros en el Mac](https://support.apple.com/guide/keychain-access/create-an-identity-preference-kyca6343b6c9/mac).
 
-Se requiere Microsoft Authenticator para las aplicaciones de Office en iOS.
+Se aplican los siguientes requisitos y consideraciones de Servicios de federación de Active Directory (AD FS):
 
-Para que Azure Active Directory revoque un certificado de cliente, el token de ADFS debe tener las siguientes notificaciones:
+* El servidor de ADFS debe estar habilitado para la autenticación de certificados y usar la autenticación federada.
+* El certificado debe utilizar el uso mejorado de clave (EKU) y contener el UPN del usuario en el *nombre alternativo del firmante (nombre principal de NT)* .
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (el número de serie del certificado de cliente)
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (la cadena del emisor del certificado de cliente)
+## <a name="configure-adfs"></a>Configuración de AD FS
 
-Azure Active Directory agrega estas notificaciones para el token de actualización, en caso de que estén disponibles en el token de ADFS (o en cualquier otro token SAML). Cuando hay que validar el token de actualización, esta información se utiliza para comprobar la revocación.
+Para que Azure AD revoque un certificado de cliente, el token de ADFS debe tener las siguientes notificaciones. Azure AD agrega estas notificaciones para el token de actualización, en caso de que estén disponibles en el token de ADFS (o en cualquier otro token SAML). Cuando hay que validar el token de actualización, esta información se utiliza para comprobar la revocación:
 
-Se recomienda actualizar las páginas de error de ADFS de su organización con la información siguiente:
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`: agregue el número de serie del certificado de cliente.
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`: agregue la cadena del emisor del certificado de cliente.
 
-* El requisito de instalar Microsoft Authenticator en iOS
+Se recomienda actualizar también las páginas de error de ADFS de la organización con la información siguiente:
+
+* El requisito de instalar Microsoft Authenticator en iOS.
 * Instrucciones sobre cómo obtener un certificado de usuario
 
-Para más información, consulte el artículo sobre la [personalización de las páginas de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Para más información, consulte el artículo sobre la [personalización de la página de inicio de sesión de AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
-Algunas aplicaciones de Office (con la autenticación moderna habilitada) envían "*prompt=login*" a Azure AD en su solicitud. De manera predeterminada, Azure AD traduce "*prompt=login*" en la solicitud para ADFS a "*wauth=usernamepassworduri*" (pide a ADFS que realice la autenticación de U y P) y "*wfresh=0*" (pide a ADFS que ignore el estado de SSO y realice una autenticación nueva). Si desea habilitar la autenticación basada en certificados para estas aplicaciones, es preciso que modifique el comportamiento predeterminado de Azure AD. Basta con establecer "*PromptLoginBehavior*" en la configuración del dominio federado como "*Disabled*".
-Para realizar esta tarea, puede usar el cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0):
+## <a name="use-modern-authentication-with-office-apps"></a>Uso de la autenticación moderna con las aplicaciones de Office
 
-`Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
+Algunas aplicaciones de Office con la autenticación moderna habilitada envían `prompt=login` a Azure AD en su solicitud. De manera predeterminada, Azure AD traduce `prompt=login` en la solicitud para ADFS como `wauth=usernamepassworduri` (pide a ADFS que realice la autenticación de U y P) y `wfresh=0` (pide a ADFS que ignore el estado de SSO y realice una autenticación nueva). Si quiere habilitar la autenticación basada en certificados para estas aplicaciones, modifique el comportamiento predeterminado de Azure AD.
 
-## <a name="exchange-activesync-clients-support"></a>Compatibilidad con clientes de Exchange ActiveSync
+Para actualizar el comportamiento predeterminado, establezca "*PromptLoginBehavior*" en la configuración del dominio federado como "*Disabled*". Para realizar esta tarea, puede usar el cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) tal como se muestra en el ejemplo siguiente:
 
-En iOS 9 o posterior, se admite el cliente de correo de iOS nativo. Para todas las demás aplicaciones de Exchange ActiveSync, para determinar si se admite esta característica, póngase en contacto con el desarrollador de la aplicación.
+```powershell
+Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled
+```
+
+## <a name="support-for-exchange-activesync-clients"></a>Compatibilidad con clientes de Exchange ActiveSync
+
+En iOS 9 o posterior, se admite el cliente de correo de iOS nativo. Para determinar si esta característica se admite en todas las demás aplicaciones de Exchange ActiveSync, póngase en contacto con el desarrollador de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si quiere configurar la autenticación basada en certificados en su entorno, consulte las instrucciones de [Introducción a la autenticación basada en certificados en Android](../authentication/active-directory-certificate-based-authentication-get-started.md).
+Para configurar la autenticación basada en certificados en su entorno, consulte las instrucciones de [Introducción a la autenticación basada en certificados](active-directory-certificate-based-authentication-get-started.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png

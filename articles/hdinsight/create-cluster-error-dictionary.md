@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618904"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186641"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Errores de creación de clúster
 
@@ -244,7 +244,7 @@ Normalmente, las siguientes directivas afectan a la creación del clúster:
 
 ### <a name="resolution"></a>Solución
 
-Elimine o deshabilite la directiva de Azure basada en suscripciones al crear el clúster de HDInsight.
+Elimine o deshabilite la asignación de Azure Policy basada en suscripciones al crear el clúster de HDInsight.
 
 ---
 
