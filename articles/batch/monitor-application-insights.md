@@ -1,22 +1,14 @@
 ---
-title: Supervisión de Batch con Azure Application Insights | Microsoft Docs
+title: Supervisión de Batch con Azure Application Insights
 description: Aprenda a instrumentar una aplicación .NET de Azure Batch con la biblioteca de Azure Application Insights.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
-ms.devlang: .NET
 ms.topic: article
-ms.workload: na
 ms.date: 04/05/2018
-ms.author: labrenne
-ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022467"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115472"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Supervisión y depuración de una aplicación .NET de Azure Batch con Application Insights
 
@@ -30,14 +22,14 @@ Hay una solución de C# de ejemplo con código que acompaña este artículo disp
 > Como alternativa, configure la solución de Batch para mostrar datos de Application Insights, como los contadores de rendimiento de máquina virtual en Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar aplicaciones de Azure Batch. Descargue un [paquete de instalación](https://azure.github.io/BatchExplorer/) para Mac, Linux o Windows. Consulte el [repositorio batch-insights](https://github.com/Azure/batch-insights) para ver los pasos rápidos para habilitar los datos de Application Insights en Batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 * [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/vs)
 
 * [Una cuenta de Batch y una cuenta de Storage vinculada](batch-account-create-portal.md)
 
 * [Recurso de Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Cree un nuevo *recurso* de Application Insights mediante Azure Portal. Seleccione el *Tipo de aplicación* **General**.
+   * Cree un nuevo *recurso* de Application Insights mediante Azure Portal. Seleccione el **Tipo de aplicación** *General*.
 
    * Copie la [clave de instrumentación](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) del portal. Se necesita más adelante en este artículo.
   

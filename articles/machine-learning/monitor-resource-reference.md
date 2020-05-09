@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/06/2020
-ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927559"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187603"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Machine Learning
 
@@ -163,6 +163,22 @@ A continuación se indican las dimensiones que se pueden usar para filtrar las m
 | Cluster Name | Todas las métricas de cuota | Nombre de la instancia de proceso. |
 | Nombre de familia de VM | Porcentaje de uso de la cuota | El nombre de la familia de máquinas virtuales que usa el clúster. |
 | Prioridad de VM | Porcentaje de uso de la cuota | La prioridad de la VM.
+
+**Recurso**
+
+| Métrica | Unidad | Descripción |
+| ----- | ----- | ----- |
+| CpuUtilization | Percent | Porcentaje de la CPU utilizado para un nodo concreto durante una ejecución o trabajo. Esta métrica solo se publica cuando se ejecuta un trabajo en un nodo. Un trabajo puede usar uno o varios nodos. Esta métrica se publica por nodo. |
+| GpuUtilization | Percent | Porcentaje de la GPU utilizado para un nodo concreto durante una ejecución o trabajo. Un nodo puede tener una o varias GPU. Esta métrica se publica por GPU por nodo. |
+
+A continuación se indican las dimensiones que se pueden usar para filtrar las métricas de recursos:
+
+| Dimensión | Descripción |
+| ----- | ----- |
+| CreatedTime | |
+| deviceId | Identificador del dispositivo (GPU). Solo está disponible para GpuUtilization. |
+| NodeId | Identificador del nodo creado en el que se está ejecutando el trabajo |
+| RunId | Identificador de la ejecución o el trabajo. |
 
 **Ejecutar**
 

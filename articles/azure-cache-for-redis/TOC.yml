@@ -27,10 +27,13 @@
   items:
     - name: Ejemplos de Azure Cache for Redis
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Seguridad
@@ -63,7 +66,7 @@
           href: cache-migrate-to-redis.md
     - name: Automatizar
       items:
-        - name: Implementación y administración con Azure PowerShell
+        - name: Implementación y administración mediante Azure PowerShell
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Implementar y administrar con la CLI de Azure
           href: cli-samples.md
@@ -130,7 +133,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
     - name: Java
-      href: /java/api/com.microsoft.azure.management.redis._redis_cache
+      href: /java/api/com.microsoft.azure.management.redis.rediscache
     - name: Clientes de Redis
       href: 'https://redis.io/clients'
     - name: Comandos de Redis

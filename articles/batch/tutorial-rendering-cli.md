@@ -1,20 +1,15 @@
 ---
-title: 'Representación de una escena en la nube: Azure Batch'
+title: Representación de una escena en la nube
 description: 'Tutorial: Representación de una escena de Autodesk 3DS Max con Arnold mediante el servicio de representación de Batch y la interfaz de la línea de comandos de Azure'
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78672975"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117138"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 

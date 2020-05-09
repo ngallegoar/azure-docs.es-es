@@ -60,8 +60,6 @@
           href: search-semi-structured-data.md
         - name: Indexación de varios orígenes de datos de Azure
           href: tutorial-multiple-data-sources.md
-    - name: Indexación de cualquier dato
-      href: tutorial-optimize-indexing-push-api.md
     - name: Uso de inteligencia artificial para crear contenido
       items:
         - name: 'C#'

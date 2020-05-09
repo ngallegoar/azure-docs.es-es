@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 112413720f969474369555a74bc89846666e2ef9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef5e5f0b81eb1cff81d66eef356ba3bbeda5f9d7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663460"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732026"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integración de System Center Operations Manager con la característica Map de Azure Monitor para VM
 
@@ -109,7 +109,7 @@ La carpeta de Service Map tiene cuatro nodos:
 Puede editar o eliminar el área de trabajo configurada desde el panel de **información general de Mapa de servicio** (panel **Administración** > **Operations Management Suite** > **Mapa de servicio**).
 
 >[!NOTE]
->[Operations Management Suite era una colección de servicios](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) que incluía Log Analytics, que ahora forma parte de [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+>[Operations Management Suite era una colección de servicios](https://docs.microsoft.com/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand) que incluía Log Analytics, que ahora forma parte de [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/overview.md).
 
 Por ahora solo se puede configurar un área de trabajo de Log Analytics en esta versión actual.
 
