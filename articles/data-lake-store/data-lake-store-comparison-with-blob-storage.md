@@ -1,23 +1,17 @@
 ---
-title: Comparación de Azure Data Lake Storage Gen1 con Azure Storage Blob | Microsoft Docs
-description: Comparación de Azure Data Lake Storage Gen1 con Azure Storage Blob
-services: data-lake-store
-documentationcenter: ''
+title: Comparación de Azure Data Lake Storage Gen1 con Blob Storage
+description: Proporciona un resumen de las diferencias entre Azure Data Lake Storage Gen1 y Azure Blob Storage.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 7c958c3ed4d6ddaabd87f053005fcfc1eba8c842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438718"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691724"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparación de Azure Data Lake Storage Gen1 y Azure Blob Storage
 
@@ -40,9 +34,9 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Storage 
 | Operaciones de datos: auditoría |Disponible. Más información [aquí](data-lake-store-diagnostic-logs.md) . |Disponible |
 | Cifrado de datos en reposo |<ul><li>Transparente, en el servidor</li> <ul><li>Con claves administradas por servicios</li><li>Con claves administradas por clientes en Azure KeyVault</li></ul></ul> |<ul><li>Transparente, en el servidor</li> <ul><li>Con claves administradas por servicios</li><li>Con claves administradas por clientes en Azure KeyVault (versión preliminar)</li></ul><li>Cifrado de cliente</li></ul> |
 | Operaciones de administración (por ejemplo, creación de cuentas) |[Control de acceso basado en rol](../role-based-access-control/overview.md) (RBAC) proporcionado por Azure para la administración de cuentas |[Control de acceso basado en rol](../role-based-access-control/overview.md) (RBAC) proporcionado por Azure para la administración de cuentas |
-| SDK para desarrolladores |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
+| SDK para desarrolladores |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Rendimiento de la carga de trabajo de análisis |Rendimiento optimizado para cargas de trabajo de análisis paralelas. Gran capacidad de procesamiento e IOPS |Rendimiento optimizado para cargas de trabajo de análisis paralelas. |
-| Límites de tamaño |Sin límites para el tamaño de cuenta, de archivo o el número de archivos |Para los límites específicos, consulte [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../storage/common/scalability-targets-standard-account.md) y [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/blobs/scalability-targets.md). Hay disponibles límites de cuenta más amplios; para conocerlos, póngase en contacto con el [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/) |
+| Límites de tamaño |Sin límites para el tamaño de cuenta, el tamaño de archivo o el número de archivos |Para los límites específicos, consulte [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../storage/common/scalability-targets-standard-account.md) y [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/blobs/scalability-targets.md). Hay disponibles límites de cuenta más amplios; para conocerlos, póngase en contacto con el [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/) |
 | Redundancia geográfica |Con redundancia local (varias copias de datos en una región de Azure) |Con redundancia local (LRS), de zona (ZRS), global (GRS) y global de acceso de lectura (RA-GRS). Más información [aquí](../storage/common/storage-redundancy.md) |
 | Estado de servicio |Disponibilidad general |Disponibilidad general |
 | Disponibilidad regional |Consulte [aquí](https://azure.microsoft.com/regions/#services) |Disponibilidad en todas las regiones de Azure |
