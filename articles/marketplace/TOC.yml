@@ -26,11 +26,11 @@
         - name: Guías de publicación por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
-            - name: Virtual Machines
+            - name: Máquinas virtuales
               href: ./marketplace-virtual-machines.md
-            - name: 'Aplicaciones de Azure: plantillas de solución'
+            - name: Plantillas de solución de aplicaciones de Azure
               href: ./marketplace-solution-templates.md
-            - name: 'Aplicaciones de Azure: aplicaciones administradas'
+            - name: Aplicaciones administradas de aplicaciones de Azure
               href: ./marketplace-managed-apps.md
             - name: Aplicaciones SaaS
               href: ./marketplace-saas-applications-technical-publishing-guide.md
@@ -42,7 +42,7 @@
               href: ./consulting-services.md
             - name: 'Office 365, Dynamics 365 y Power BI'
               href: ./appsource-offer-publishing-guide.md
-            - name: Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
+            - name: Habilitación de la autenticación de ofertas con Azure AD
               href: ./enable-appsource-marketplace-using-azure-ad.md
             - name: Soluciones integradas
               href: ./integrated-solutions-for-publishers.md
@@ -51,7 +51,7 @@
           items:
             - name: Procedimientos recomendados para la publicación de ofertas
               href: ./gtm-offer-listing-best-practices.md
-            - name: Cómo destacar
+            - name: Obtención de destacados
               href: ./gtm-how-to-get-featured.md
             - name: Validación de contenido de Marketplace
               href: ./marketplace-criteria-content-validation.md
@@ -69,7 +69,7 @@
         - name: Compatibilidad con Marketplace comercial
           href: ./support-azure-marketplace.md
           items:
-            - name: Preguntas frecuentes sobre Marketplace
+            - name: Preguntas frecuentes de Marketplace comercial
               href: ./marketplace-faq-publisher-guide.md
             - name: Disponibilidad geográfica y moneda
               href: ./marketplace-geo-availability-currencies.md
@@ -289,49 +289,9 @@
             - name: Wiki de ayuda
               href: ./cloud-partner-portal-orig/help-wiki.md
         - name: Oferta de módulo de IoT Edge
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-          items:
-            - name: Prerrequisitos
-              href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-            - name: Creación de una oferta del módulo de IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-              items:
-                - name: Pestaña Configuración de la oferta
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-                - name: Pestaña SKU
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-                - name: Pestaña Marketplace
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-                - name: Pestaña Soporte técnico
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-            - name: Creación de recursos técnicos del módulo de IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-            - name: Publicar una oferta de módulo IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-            - name: Actualización de oferta existente
-              href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+          href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
         - name: Oferta de la aplicación Power BI
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-          items:
-            - name: Prerrequisitos
-              href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-            - name: Creación de oferta de la aplicación Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-              items:
-                - name: Pestaña Configuración de la oferta
-                  href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-                - name: Pestaña Información técnica
-                  href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-                - name: Pestaña Detalles del escaparate electrónico
-                  href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-                - name: Pestaña Contactos
-                  href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-            - name: Creación de los recursos técnicos de la aplicación Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-            - name: Publicación de una oferta de aplicación de Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-            - name: Actualización de oferta existente
-              href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: Oferta de aplicación de Saas
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Oferta de máquina virtual
@@ -495,10 +455,10 @@
               href: ./partner-center-portal/create-new-business-central-offer.md
         - name: Ofertas del módulo de IoT Edge
           items:
-            - name: Preparación de recursos técnicos del módulo de IoT Edge
-              href: ./partner-center-portal/create-iot-edge-module-asset.md
             - name: Creación de una oferta de módulo de IoT Edge
               href: ./partner-center-portal/azure-iot-edge-module-creation.md
+            - name: Preparación de recursos técnicos del módulo de IoT Edge
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
         - name: Ofertas de servicio administrado
           items:
             - name: Creación de una oferta de servicio administrado

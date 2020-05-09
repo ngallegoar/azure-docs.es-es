@@ -6,18 +6,18 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273566"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690700"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
-Utilice el desencadenador de Service Bus para responder a mensajes de una cola o tema de Service Bus.
+Utilice el desencadenador de Service Bus para responder a mensajes de una cola o tema de Service Bus. A partir de la versión 3.1.0 de la extensión, puede desencadenar en una cola o un tema habilitados para la sesión.
 
-Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](functions-bindings-service-bus-output.md).
+Para obtener información sobre los detalles de instalación y configuración, vea la [información general](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Ejemplo
 
@@ -222,7 +222,7 @@ Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utili
   }
   ```
 
-  Puede establecer la propiedad `Connection` para especificar el nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se va a usar, tal como se muestra en el ejemplo siguiente:
+  Dado que la propiedad `Connection` no está definida, Functions busca una configuración de la aplicación denominada `AzureWebJobsServiceBus`, que es el nombre predeterminado de la cadena de conexión de Service Bus. También puede establecer la propiedad `Connection` para especificar el nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se va a usar, tal como se muestra en el ejemplo siguiente:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -256,7 +256,7 @@ Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utili
 
 La cuenta de Service Bus que se debe usar se determina en el orden siguiente:
 
-* La propiedad `ServiceBusTrigger` del atributo `Connection`.
+* La propiedad `Connection` del atributo `ServiceBusTrigger`.
 * El atributo `ServiceBusAccount` aplicado al mismo parámetro que el atributo `ServiceBusTrigger`.
 * El atributo `ServiceBusAccount` aplicado a la función.
 * El atributo `ServiceBusAccount` aplicado a la clase.
@@ -354,24 +354,27 @@ El `maxAutoRenewDuration` se puede configurar en *host.json*, que se asigna a [O
 
 ## <a name="message-metadata"></a>Metadatos del mensaje
 
-El desencadenador de Service Bus proporciona varias [propiedades de metadatos](./functions-bindings-expressions-patterns.md#trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estas propiedades forman parte de la clase [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+El desencadenador de Service Bus proporciona varias [propiedades de metadatos](./functions-bindings-expressions-patterns.md#trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estas propiedades forman parte de la clase [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet).
 
 |Propiedad|Tipo|Descripción|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|Número total de entregas.|
-|`DeadLetterSource`|`string`|Origen de los mensajes fallidos.|
-|`ExpiresAtUtc`|`DateTime`|Hora de expiración en UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|Hora de puesta en la cola en UTC.|
-|`MessageId`|`string`|Se trata de un valor definido por el usuario que Service Bus puede utilizar para identificar mensajes duplicados, si está habilitado.|
 |`ContentType`|`string`|Un identificador de tipo de contenido que usa el remitente y el receptor para la lógica específica de la aplicación.|
-|`ReplyTo`|`string`|La respuesta a la dirección de cola.|
-|`SequenceNumber`|`Int64`|El número único que Service Bus asigna a un mensaje.|
-|`To`|`string`|Dirección de envío.|
-|`Label`|`string`|Etiqueta específica de la aplicación.|
 |`CorrelationId`|`string`|Identificador de correlación.|
+|`DeadLetterSource`|`string`|Origen de los mensajes fallidos.|
+|`DeliveryCount`|`Int32`|Número total de entregas.|
+|`EnqueuedTimeUtc`|`DateTime`|Hora de puesta en la cola en UTC.|
+|`ExpiresAtUtc`|`DateTime`|Hora de expiración en UTC.|
+|`Label`|`string`|Etiqueta específica de la aplicación.|
+|`MessageId`|`string`|Se trata de un valor definido por el usuario que Service Bus puede utilizar para identificar mensajes duplicados, si está habilitado.|
+|`MessageReceiver`|`MessageReceiver`|Receptor de mensajes de Service Bus. Se puede usar para abandonar o completar el mensaje, o bien para colocarlo en la cola mensajes fallidos.|
+|`MessageSession`|`MessageSession`|Receptor de mensajes específico para las colas y los temas habilitados para la sesión.|
+|`ReplyTo`|`string`|La respuesta a la dirección de cola.|
+|`SequenceNumber`|`long`|El número único que Service Bus asigna a un mensaje.|
+|`To`|`string`|Dirección de envío.|
+|`UserProperties`|`IDictionary<string, object>`|Propiedades establecidas por el remitente.|
 
 Consulte los [ejemplos de código](#example) que utilizan estas propiedades más arriba en este artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Envío de mensajes de Azure Service Bus desde Azure Functions (Enlace de salida)](./functions-bindings-service-bus-output.md)
+- [Envío de mensajes de Azure Service Bus desde Azure Functions (enlace de salida)](./functions-bindings-service-bus-output.md)
