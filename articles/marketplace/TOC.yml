@@ -199,19 +199,7 @@
             - name: Actualización de oferta existente
               href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
         - name: Servicios de consultoría
-          href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
-          items:
-            - name: Prerrequisitos
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
-            - name: Creación de una oferta de servicios de consultoría
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
-              items:
-                - name: Pestaña Configuración de la oferta
-                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
-                - name: Pestaña Detalles del escaparate electrónico
-                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
-            - name: Publicación de una oferta de servicios de consultoría
-              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+          href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
         - name: Oferta de Containers
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:

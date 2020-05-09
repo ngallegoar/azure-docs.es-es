@@ -654,11 +654,6 @@
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
         - name: Inserción de datos en tablas de Databricks Delta mediante Event Grid
           href: data-lake-storage-events.md
-    - name: Ejemplos
-      items:
-        - name: Elementos integrados de Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conceptos
       items:
         - name: Procesamiento de macrodatos
