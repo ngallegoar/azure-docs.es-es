@@ -1,22 +1,20 @@
-- name: Windows Virtual Desktop
+- name: "Versión Spring\_2020 de Windows Virtual Desktop"
   href: index.yml
 - name: Información general
   items:
     - name: ¿Qué es Windows Virtual Desktop?
       href: overview.md
+    - name: "Documentación de la versión Fall\_2019"
+      href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriales
   items:
-    - name: 1. Creación de un inquilino en Windows Virtual Desktop
-      href: tenant-setup-azure-active-directory.md
-    - name: 2. Creación de entidades de servicio y asignaciones de roles con PowerShell
-      href: create-service-principal-role-powershell.md
-    - name: 3. Creación de un grupo host con Azure Marketplace
+    - name: 1. Creación de un grupo de hosts con Azure Portal
       href: create-host-pools-azure-marketplace.md
-    - name: 4. Administración de grupos de aplicaciones
+    - name: 2. Administración de grupos de aplicaciones
       href: manage-app-groups.md
-    - name: 5. Creación de un grupo host para validar las actualizaciones del servicio
+    - name: 3. Creación de un grupo host para validar las actualizaciones del servicio
       href: create-validation-host-pool.md
-    - name: 6. Configuración de alertas de servicio
+    - name: 4. Configuración de alertas de servicio
       href: set-up-service-alerts.md
 - name: Instrucciones
   items:
@@ -32,18 +30,18 @@
           href: connect-macos.md
         - name: Conexión con el cliente iOS
           href: connect-ios.md
+    - name: Configuración del módulo de PowerShell
+      href: powershell-module.md
     - name: Creación de un grupo de hosts y de hosts de sesión
       items:
-        - name: Plantilla del Administrador de recursos de Azure
-          href: create-host-pools-arm-template.md
         - name: PowerShell
           href: create-host-pools-powershell.md
-        - name: "Implementación de una máquina virtual con Windows\_7"
-          href: deploy-windows-7-virtual-machine.md
         - name: Implementación de un host de sesión basado en GPU
           href: configure-vm-gpu.md
         - name: Expansión de un grupo de hosts existente
           href: expand-existing-host-pool.md
+        - name: Administración de grupos de aplicaciones con PowerShell
+          href: manage-app-groups-powershell.md
     - name: Creación de un contenedor de perfiles
       items:
         - name: Uso de un recurso compartido de archivos basado en máquina virtual
@@ -68,20 +66,10 @@
           href: set-up-customize-master-image.md
         - name: Instalación de Office en la imagen de un disco duro virtual principal
           href: install-office-on-wvd-master-image.md
-    - name: Escalado automático de hosts de sesiones
-      href: set-up-scaling-script.md
     - name: Personalización de fuente
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Implementación de la herramienta de administración
-      items:
-        - name: Plantilla del Administrador de recursos de Azure
-          href: manage-resources-using-ui.md
-        - name: PowerShell
-          href: manage-resources-using-ui-powershell.md
     - name: Uso de diagnósticos de servicios
       items:
-        - name: Implementación de la herramienta de diagnósticos
-          href: deploy-diagnostics.md
         - name: Uso de diagnósticos con Log Analytics
           href: diagnostics-log-analytics.md
     - name: Publicación de aplicaciones integradas
@@ -124,10 +112,6 @@
       href: troubleshoot-set-up-issues.md
     - name: Configuración de máquina virtual de host de sesión
       href: troubleshoot-vm-configuration.md
-    - name: Solución de problemas de máquinas virtuales Windows 7 en Windows Virtual Desktop
-      href: troubleshoot-windows-7-vm.md
-    - name: Solución de problemas de la herramienta Windows Virtual Desktop
-      href: troubleshoot-management-tool.md
     - name: Conexiones de servicios de Escritorio remoto
       href: troubleshoot-service-connection.md
     - name: Problemas de los clientes de Escritorio remoto
@@ -140,10 +124,6 @@
   items:
     - name: Compatibilidad de Linux
       href: linux-overview.md
-    - name: PowerShell
-      href: /powershell/windows-virtual-desktop/overview
-    - name: API DE REST
-      href: /rest/api/virtual-desktop/
     - name: Configuración de un archivo RDP compatible
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
     - name: Guía de red

@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74849197"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562073"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -185,7 +185,7 @@ El objeto requestOverrides define los cambios realizados en la solicitud cuando 
 
 * **backend.request.method**: método HTTP que se usa para llamar al back-end.
 * **backend.request.querystring.\<nombreDeParámetro\>** : parámetro de cadena de consulta que se puede establecer para llamar al back-end. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea establecer. Tenga en cuenta que si se proporciona una cadena vacía, el parámetro se sigue incluyendo en la solicitud de back-end.
-* **backend.request.headers.\<nombreDeEncabezado\>** : encabezado que se puede establecer para llamar al back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Si se proporciona una cadena vacía, el encabezado no se incluye en la solicitud de back-end.
+* **backend.request.headers.\<nombreDeEncabezado\>** : encabezado que se puede establecer para llamar al back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Tenga en cuenta que si se proporciona una cadena vacía, el parámetro se sigue incluyendo en la solicitud de back-end.
 
 Los valores pueden hacer referencia a la configuración de la aplicación y a los parámetros de la solicitud de cliente original.
 
