@@ -5,12 +5,12 @@ description: Procedimientos recomendados con los recursos de red virtual y la co
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392711"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208064"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ Al usar redes de Azure CNI, el recurso de red virtual se encuentra en un grupo d
 
 Para obtener más información sobre la delegación en entidad de servicio de AKS, consulte [Delegación del acceso a otros recursos de Azure][sp-delegation]. En lugar de una entidad de servicio, también puede usar la identidad administrada asignada por el sistema para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
-Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado horizontal o las actualizaciones de clúster, también es necesario que haya otras direcciones IP disponibles para utilizarlas en la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server (actualmente en versión preliminar de AKS), como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para obtener más información sobre los nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
+Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos de direcciones para las subredes de AKS. La subred debe ser lo suficientemente grande como para proporcionar direcciones IP para cada nodo, pod y recurso de red que implemente. Cada clúster de AKS se debe colocar en su propia subred. Para permitir la conectividad con redes locales o emparejadas en Azure, no use intervalos de direcciones IP que se superpongan con recursos de red existentes. El número de pods que cada nodo ejecuta con las redes de kubenet y de Azure CNI tiene un límite predeterminado. Para controlar los eventos de escalado horizontal o las actualizaciones de clúster, también es necesario que haya otras direcciones IP disponibles para utilizarlas en la subred asignada. Este espacio de direcciones adicional es especialmente importante si usa contenedores de Windows Server, como aquellos grupos de nodos que requieren una actualización para aplicar las revisiones de seguridad más recientes. Para obtener más información sobre los nodos de Windows Server, consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
 Para calcular la dirección IP necesaria, consulte [Configuración de redes de Azure CNI en AKS][advanced-networking].
 
@@ -99,7 +99,7 @@ spec:
 
 Un controlador de entrada es un demonio que se ejecuta en un nodo de AKS y supervisa las solicitudes entrantes. A continuación, el tráfico se distribuye según las reglas definidas en el recurso de entrada. El controlador de entrada más común se basa en [NGINX]. AKS no restringe al usuario a un controlador específico, por lo que puede usar otros, como [Contour][contour], [HAProxy][haproxy] o [Traefik][traefik].
 
-El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server (actualmente en versión preliminar en AKS) no deben ejecutar el controlador de entrada. Use un selector de nodo en el manifiesto YAML o implementación de gráfico de Helm para indicar que el recurso debe ejecutarse en un nodo basado en Linux. Para obtener más información, consulte [Uso de selectores de nodo para controlar dónde se programan los pods en AKS][concepts-node-selectors].
+El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server no deben ejecutar el controlador de entrada. Use un selector de nodo en el manifiesto YAML o implementación de gráfico de Helm para indicar que el recurso debe ejecutarse en un nodo basado en Linux. Para obtener más información, consulte [Uso de selectores de nodo para controlar dónde se programan los pods en AKS][concepts-node-selectors].
 
 Hay muchos escenarios de entrada, incluidas las siguientes guías paso a paso:
 
@@ -110,7 +110,7 @@ Hay muchos escenarios de entrada, incluidas las siguientes guías paso a paso:
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Protección del tráfico con un firewall de aplicaciones web (WAF)
 
-**Guía de procedimientos recomendados**: para analizar el tráfico entrante en busca de posibles ataques, use un firewall de aplicaciones web (WAF) como [Barracuda WAF para Azure][barracuda-waf] o Azure Application Gateway. Estos recursos de red más avanzados también pueden enrutar el tráfico más allá de las conexiones HTTP y HTTPS sencillas o la terminación SSL básica.
+**Guía de procedimientos recomendados**: para analizar el tráfico entrante en busca de posibles ataques, use un firewall de aplicaciones web (WAF) como [Barracuda WAF para Azure][barracuda-waf] o Azure Application Gateway. Estos recursos de red más avanzados también pueden enrutar el tráfico más allá de las conexiones HTTP y HTTPS sencillas o la terminación TLS básica.
 
 Un controlador de entrada que distribuye el tráfico a servicios y aplicaciones suele ser un recurso de Kubernetes en el clúster de AKS. El controlador se ejecuta como demonio en un nodo de AKS y consume algunos de los recursos del nodo, como la CPU, la memoria y el ancho de banda de red. En entornos mayores, con frecuencia se prefiere descargar algo de tráfico mediante el enrutamiento o la terminación TLS a un recurso de red externo al clúster de AKS. También puede analizar el tráfico entrante en busca de posibles ataques.
 

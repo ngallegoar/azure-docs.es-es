@@ -4,12 +4,12 @@ description: Reciba notificaciones por SMS, webhook y correo electrónico, entre
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669020"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137712"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad
 
@@ -41,7 +41,7 @@ Las alertas del registro de actividad tienen algunas opciones en común:
 - **Grupo de recursos**: de forma predeterminada, la regla de alertas se guarda en el grupo de recursos que tiene el destino definido en el ámbito. El usuario también puede definir el grupo de recursos donde se debe almacenar la regla de alertas.
 - **Tipo de recurso**: Resource Manager ha definido el espacio de nombres para el destino de la alerta.
 - **Nombre de la operación**: Nombre de la [operación de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado por el control de acceso basado en rol. No se pueden usar operaciones no registradas con Azure Resource Manager en una regla de alerta de registro de actividad.
-- **Nivel**: el nivel de gravedad del evento (Detallado, Informativo, Advertencia, Error o Crítico).
+- **Nivel**: el nivel de gravedad del evento (informativo, advertencia, error o crítico).
 - **Estado**: el estado del evento, normalmente Iniciado, Error o Correcto.
 - **Evento iniciado por**: También se denomina "llamador". La dirección de correo electrónico o el identificador de Azure Active Directory del usuario que realizó la operación.
 

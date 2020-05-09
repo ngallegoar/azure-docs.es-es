@@ -1,25 +1,16 @@
 ---
-title: Escalado automático de nodos de proceso en un grupo de Azure Batch | Microsoft Docs
+title: Escalar automáticamente los nodos de proceso en un grupo de Azure Batch
 description: Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054007"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82113568"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -284,7 +275,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 Dado que puede haber un retraso en la disponibilidad de muestras, es importante especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Las muestras tardan aproximadamente un minuto en propagarse por el sistema, por lo que puede que las muestras del rango `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no estén disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
 
 > [!IMPORTANT]
-> Es **muy recomendable** que **evite confiar *solo* en**  en las fórmulas de escalado automático`GetSample(1)`. Esto se debe a que `GetSample(1)` dice básicamente al servicio Batch "dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+> Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto se debe a que `GetSample(1)` dice básicamente al servicio Batch "dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
 >
 >
 
@@ -654,7 +645,7 @@ Error:
 
 Echemos un vistazo a algunas fórmulas que muestran distintas formas de ajustar la cantidad de recursos de proceso de un grupo.
 
-### <a name="example-1-time-based-adjustment"></a>Ejemplo 1: Ajuste basado en tiempo
+### <a name="example-1-time-based-adjustment"></a>Ejemplo 1: Ajuste basado en la fecha y hora
 
 Imagínese que quiere ajustar el tamaño del grupo en función de la hora y el día de la semana. En este ejemplo se muestra cómo aumentar o disminuir en consecuencia el número de nodos del grupo.
 

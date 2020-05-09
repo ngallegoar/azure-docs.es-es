@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1a33e20ec540a05885eb13a3828d28ffc9923fff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025000"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187484"
 ---
 # <a name="cloudsimple-security-overview"></a>Introducción a la seguridad de CloudSimple
 
@@ -49,7 +49,7 @@ Para los datos en reposo en el entorno de nube privada, puede usar el cifrado de
 
 ### <a name="data-protection-for-data-that-is-required-to-move-through-public-networks"></a>Protección de los datos que se deben desplazar por redes públicas
 
-Para proteger los datos que se desplazan a través de redes públicas, puede crear túneles VPN IPsec y SSL para las nubes privadas. Se admiten los métodos de cifrado comunes, incluidos AES de 128 y 256 bytes. Los datos en tránsito (incluidos los de autenticación, acceso administrativo y de cliente) se cifran con mecanismos de cifrado estándar (SSH, TLS 1.2 y RDP segura). La comunicación que transporta información confidencial usa los mecanismos de cifrado estándar.
+Para proteger los datos que se desplazan por redes públicas, puede crear túneles VPN IPsec y TLS para las nubes privadas. Se admiten los métodos de cifrado comunes, incluidos AES de 128 y 256 bytes. Los datos en tránsito (incluidos los de autenticación, acceso administrativo y de cliente) se cifran con mecanismos de cifrado estándar (SSH, TLS 1.2 y RDP segura). La comunicación que transporta información confidencial usa los mecanismos de cifrado estándar.
 
 ### <a name="secure-disposal"></a>Eliminación segura
 
