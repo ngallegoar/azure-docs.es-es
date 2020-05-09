@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528735"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792044"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 
@@ -81,7 +81,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar el protector de TDE
 
-- El protector de TDE solo puede ser una clave asimétrica, RSA 2048 o RSA HSM 2048.
+- El protector de TDE solo puede ser una clave asimétrica, RSA o RSA HSM. Las longitudes de clave admitidas son 2048 y 3072 bytes.
 
 - La fecha de activación de la clave (si se establece) debe ser una fecha y hora del pasado. La fecha de expiración (si se establece) debe ser una fecha y hora del futuro.
 
@@ -93,7 +93,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 ### <a name="recommendations-when-configuring-akv"></a>Recomendaciones para la configuración de AKV
 
-- Asocie como máximo un total de 500 bases de datos de uso general o 200 bases de datos críticas para la empresa mediante un almacén de claves y en una sola suscripción; de este modo, garantizará una alta disponibilidad cuando el servidor acceda al protector de TDE en el almacén de claves. Estas cifras se basan en la experiencia y están documentadas en los [límites de servicio para Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). El objetivo es evitar problemas después de la conmutación por error del servidor, ya que desencadenará tantas operaciones de clave en el almacén como bases de datos haya en ese servidor.
+- Asocie como máximo un total de 500 bases de datos de uso general o 200 bases de datos críticas para la empresa mediante un almacén de claves y en una sola suscripción; de este modo, garantizará una alta disponibilidad cuando el servidor acceda al protector de TDE en el almacén de claves. Estas cifras se basan en la experiencia y están documentadas en los [límites de servicio para Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/service-limits). El objetivo es evitar problemas después de la conmutación por error del servidor, ya que desencadenará tantas operaciones de clave en el almacén como bases de datos haya en ese servidor.
 
 - Configure un bloqueo de recursos en el almacén de claves para controlar quién puede eliminar este recurso crítico y para evitar la eliminación accidental o no autorizada. Obtenga más información acerca de los [bloqueos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 

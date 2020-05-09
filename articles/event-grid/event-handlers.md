@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 0ee97e2a2b788d515cad5ebd75bc50c69307acad
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393439"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626282"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Controladores de eventos de Azure Event Grid
 
@@ -32,7 +32,7 @@ Use Azure Automation para procesar los eventos con runbooks automatizados.
 
 Use Azure Functions para responder sin servidor a los eventos.
 
-Cuando use Azure Functions como controlador, utilice el desencadenador de Event Grid en lugar de los desencadenadores HTTP genéricos. Event Grid valida automáticamente los desencadenadores Function de Event Grid. Con desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](security-authentication.md#webhook-event-delivery).
+Cuando use Azure Functions como controlador, utilice el desencadenador de Event Grid en lugar de los desencadenadores HTTP genéricos. Event Grid valida automáticamente los desencadenadores Function de Event Grid. Con desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](webhook-event-delivery.md).
 
 |Título  |Descripción  |
 |---------|---------|

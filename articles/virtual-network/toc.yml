@@ -35,8 +35,9 @@
       href: powershell-samples.md
     - name: Plantillas de Resource Manager
       href: template-samples.md
-    - name: Plantillas de Azure Policy
-      href: policy-samples.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Continuidad empresarial
@@ -390,7 +391,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network
     - name: .NET
-      href: /api/overview/azure/virtual-network
+      href: /dotnet/api/overview/azure/virtual-network
     - name: Java
       href: /java/api/
     - name: Node.js
