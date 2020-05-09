@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a97b79f7927c56a737723060cd9cb3218b12bf55
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062445"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625500"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visualizar cómo se usan los datos relacionados con la privacidad en la organización
 
@@ -24,7 +24,7 @@ Puede ver cómo la organización usa los datos desde la página **Privacidad** d
 
 ## <a name="view-your-privacy-related-info"></a>Visualizar la información relacionada con la privacidad
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/.
 
 2. Seleccione **Privacidad** en el panel de navegación izquierdo o seleccione el vínculo **Revisar privacidad** en el bloque **Privacidad**.
 

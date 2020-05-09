@@ -1,32 +1,34 @@
 ---
-title: 'Azure Event Grid: Habilitación de los registros de diagnóstico de un tema'
+title: 'Azure Event Grid: Habilitación de los registros de diagnóstico de temas o dominios'
 description: En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar los registros de diagnóstico para un tema de Azure Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 04/27/2020
 ms.author: spelluru
-ms.openlocfilehash: a32d26629bb9efed4a4f1f49eee2f0534e1873a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13a2168c854475b841b0ebc52bb678c7ca22a1bb
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76960205"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626469"
 ---
-#  <a name="diagnostic-logs-for-an-azure-event-grid-topic"></a>Registros de diagnóstico de un tema de Azure Event Grid
-La configuración de diagnóstico permite a los usuarios de Event Grid capturar y ver los registros de error de publicación y entrega en una de las siguientes ubicaciones: una cuenta de almacenamiento de Azure, un centro de eventos o un área de trabajo de Log Analytics. En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar los registros de diagnóstico para un tema de Event Grid.
+#  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Habilitación de registros de diagnóstico para los temas o dominios de Azure Event Grid
+La configuración de diagnóstico permite a los usuarios de Event Grid capturar y ver los registros de **error de publicación y entrega** en una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics. En este artículo se proporcionan instrucciones paso a paso sobre cómo habilitar estas opciones en un tema de Event Grid.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un tema de Event Grid aprovisionado.
-- Un destino aprovisionado para capturar registros de diagnóstico. Puede ser uno de los siguientes destinos:
+- Un destino aprovisionado para capturar registros de diagnóstico. Puede tener uno de los siguientes destinos en la misma ubicación que el tema de Event Grid:
     - Cuenta de almacenamiento de Azure
     - Centro de eventos
     - Área de trabajo de Log Analytics
 
-
 ## <a name="steps-for-enabling-diagnostic-logs-for-a-topic"></a>Pasos para habilitar los registros de diagnóstico para un tema
+
+> [!NOTE]
+> El siguiente procedimiento proporciona instrucciones paso a paso para habilitar los registros de diagnóstico para un tema. Los pasos para habilitar los registros de diagnóstico para un dominio son muy similares. En el paso 2, vaya al **dominio** de Event Grid en Azure Portal.  
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya al tema de Event Grid para el que desee habilitar la configuración del registro de diagnóstico. 
@@ -35,8 +37,8 @@ La configuración de diagnóstico permite a los usuarios de Event Grid capturar 
     
     ![Botón Agregar configuración de diagnóstico](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Especifique un **nombre** para la configuración de diagnóstico. 
-
-    ![Configuración de diagnóstico: nombre](./media/enable-diagnostic-logs-topic/diagnostic-settings-name.png)     
+7. Seleccione las opciones **DeliveryFailures** y **PublishFailures** en la sección **Registro**. 
+    ![Seleccione los errores](./media/enable-diagnostic-logs-topic/log-failures.png)
 6. Habilite uno o varios destinos de captura para los registros y, a continuación, configúrelos; para ello, seleccione un recurso de captura creado anteriormente. 
     - Si selecciona **Archive to a storage account** (Archivar en una cuenta de almacenamiento), seleccione **Cuenta de almacenamiento: configurar** y, a continuación, seleccione la cuenta de almacenamiento en la suscripción de Azure. 
 
@@ -45,13 +47,32 @@ La configuración de diagnóstico permite a los usuarios de Event Grid capturar 
         ![Transmisión a un centro de eventos](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Si selecciona **Send to Log Analytics** (Enviar a Log Analytics), seleccione un área de trabajo de Log Analytics.
         ![Enviar a Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
-7. Seleccione las opciones **DeliveryFailures** y **PublishFailures** en la sección **Registro**. 
-    ![Seleccione los errores](./media/enable-diagnostic-logs-topic/log-failures.png)
-8. Seleccione **Guardar**. Seleccione **X** en la esquina derecha para cerrar la página. 
+8. Seleccione **Guardar**. Después, Seleccione **X** en la esquina derecha para cerrar la página. 
 9. Ahora, vuelva a la página **Configuración de diagnóstico**, confirme que ve una nueva entrada en la tabla **Configuración de diagnóstico**. 
     ![Configuración de diagnóstico en la lista](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      También puede habilitar la recopilación de todas las métricas del tema. 
 
+## <a name="view-diagnostic-logs-in-azure-storage"></a>Visualización de registros de diagnóstico en Azure Storage 
+
+1. Una vez que habilite una cuenta de almacenamiento como destino de captura y Event Grid comience a emitir registros de diagnóstico, debería ver nuevos contenedores denominados **insights-logs-deliveryfailures** e **insights-logs-publishfailures** en la cuenta de almacenamiento. 
+
+    ![Almacenamiento: contenedores para registros de diagnóstico](./media/enable-diagnostic-logs-topic/storage-containers.png)
+2. A medida que se desplace con uno de los contenedores, terminará en un blob en formato JSON. El archivo contiene entradas de registro para un error de entrega o un error de publicación. La ruta de navegación representa el **ResourceId** del tema de Event Grid y la marca de tiempo (nivel de minuto) como cuando se emitieron las entradas de registro. El archivo blob/JSON, que se puede descargar, al final se adhiere al esquema descrito en la sección siguiente. 
+
+    [ ![Archivo JSON en el almacenamiento](./media/enable-diagnostic-logs-topic/select-json.png) ](./media/enable-diagnostic-logs-topic/select-json.png)
+3. Debería ver el contenido en el archivo JSON similar al ejemplo siguiente: 
+
+    ```json
+    {
+        "time": "2019-11-01T00:17:13.4389048Z",
+        "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCTIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
+        "eventSubscriptionName": "SAMPLEDESTINATION",
+        "category": "DeliveryFailures",
+        "operationName": "Deliver",
+        "message": "Message:outcome=NotFound, latencyInMs=2635, systemId=17284f7c-0044-46fb-84b7-59fda5776017, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
+    }
+    ```
+
 ## <a name="next-steps"></a>Pasos siguientes
-Si necesita más ayuda, publique su problema en el [foro de Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) o abra una [incidencia de soporte técnico](https://azure.microsoft.com/support/options/). 
+Para obtener el esquema de registro y otra información conceptual sobre los registros de diagnóstico de temas o dominios, consulte [Registros de diagnóstico](diagnostic-logs.md).

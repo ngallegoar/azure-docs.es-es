@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 04/20/2020
 ms.author: curtand
-ms.openlocfilehash: 4c9d421fd9ac8305c27dfa798f2869e59a04f9fb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fd22f3b9d365bfee543712f680d504bb134f24d7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062462"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625704"
 ---
 # <a name="what-is-the-my-account-portal"></a>¿Qué es el portal Mi cuenta?
 
 El portal **Mi cuenta** le ayuda administrar su cuenta profesional o educativa, ya que le permite configurar y administrar la información de seguridad, administrar las organizaciones y dispositivos conectados y ver cómo usa sus datos la organización.
 
-Se puede acceder al portal **Mi cuenta** (https://myprofile.microsoft.com) desde la versión actual de cualquiera de los siguientes exploradores:
+Se puede acceder al portal **Mi cuenta** (https://myaccount.microsoft.com) desde la versión actual de cualquiera de los siguientes exploradores:
 
 - Chrome
 - Microsoft Edge
