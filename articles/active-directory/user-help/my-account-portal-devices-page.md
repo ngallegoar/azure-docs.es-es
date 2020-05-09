@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d43b2bd5912375c3bb2010f0f2ae75a119512f03
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062496"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625840"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Administración de los dispositivos conectados desde la página Dispositivos
 
@@ -31,7 +31,7 @@ La página **Dispositivos** del portal **Mi cuenta** le ayuda a administrar los 
 
 ## <a name="view-your-connected-devices"></a>Visualización de los dispositivos conectados
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página **Mi cuenta** (https://myprofile.microsoft.com/) ).
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página **Mi cuenta** (https://myaccount.microsoft.com/) ).
 
 2. Seleccione **Dispositivos** en el panel de navegación izquierdo o seleccione el vínculo **Administrar dispositivos** en el bloque **Dispositivos**.
 

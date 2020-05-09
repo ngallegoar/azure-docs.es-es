@@ -1,123 +1,156 @@
 ---
-title: Recursos de conexión en Azure Automation
+title: Administración de conexiones en Azure Automation
 description: Los activos de conexión en Azure Automation contienen la información necesaria para conectarse a una aplicación o a un servicio externo desde un runbook o una configuración de DSC. En este artículo se explican los detalles de las conexiones y cómo trabajar con ellas en la creación de texto y de gráficos.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6276153921feb0e6f27194d36d1c32c1d0ffb3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: has-adal-ref
+ms.openlocfilehash: b00dd226306ed639757666cc4f826b0d7a0e5711
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75940826"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651820"
 ---
-# <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Azure Automation
+# <a name="manage-connections-in-azure-automation"></a>Administración de conexiones en Azure Automation
 
-Un recurso de conexión de Automation contiene la información necesaria para conectarse a una aplicación o a un servicio externos desde un runbook o una configuración de DSC. Esto puede incluir información solicitada para la autenticación, como un nombre de usuario y una contraseña, además de información de conexión, como una dirección URL o un puerto. El valor de una conexión es mantener todas las propiedades para conectarse a una aplicación determinada en un recurso, a diferencia de crear distintas variables. El usuario puede editar los valores de una conexión en un lugar y es posible pasar el nombre de una conexión a un runbook o una configuración de DSC en un solo parámetro. Es posible tener acceso a las propiedades de una conexión en el runbook o la configuración de DSC con la actividad **Get-AutomationConnection** .
+Un recurso de conexión de Azure Automation contiene la información que se muestra a continuación. Esta información es necesaria para conectarse a aplicaciones o servicios externos desde un runbook o la configuración de DSC. 
 
-Cuando crea una conexión, debe especificar un *tipo de conexión*. El tipo de conexión es una plantilla que define un conjunto de propiedades. La conexión define valores para cada propiedad definida en su tipo de conexión. Los tipos de conexión se agregan a Azure Automation en módulos de integración o se crean con la [API de Azure Automation](/previous-versions/azure/reference/mt163818(v=azure.100)) si el módulo de integración incluye un tipo de conexión y se importa en su cuenta de Automation. En caso contrario, debe crear un archivo de metadatos para especificar un tipo de conexión de Automation. Para obtener más información sobre esto, consulte [Módulos de integración](automation-integration-modules.md).
+* Información necesaria para la autenticación, como el nombre de usuario y la contraseña
+* Información de conexión, como la dirección URL o el puerto
+
+El recurso de conexión mantiene juntas todas las propiedades para conectarse a una aplicación determinada, por lo que no es necesario crear varias variables. Puede editar los valores de una conexión en un lugar y pasar el nombre de una conexión a un runbook o una configuración de DSC en un solo parámetro. El runbook o la configuración acceden a las propiedades de una conexión mediante el cmdlet `Get-AutomationConnection` interno.
+
+Cuando crea una conexión, debe especificar un tipo de conexión. El tipo de conexión es una plantilla que define un conjunto de propiedades. Puede agregar un tipo de conexión a Azure Automation mediante un módulo de integración con un archivo de metadatos. Se puede crear un tipo de conexión mediante la [API de Azure Automation](/previous-versions/azure/reference/mt163818(v=azure.100)) si el módulo de integración incluye un tipo de conexión y se importa en su cuenta de Automation. 
 
 >[!NOTE]
->Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en una instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso. Este proceso se administra mediante Azure Automation.
+>Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Azure Automation almacena la clave en la instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, Azure Automation carga la clave desde Key Vault y después la usa para cifrar el recurso. 
+
+>[!NOTE]
+>Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="connection-types"></a>Tipos de conexión
 
-Hay tres tipos de conexiones integradas disponibles en Azure Automation:
+Azure Automation pone a disposición de los usuarios los siguientes tipos de conexión integrados:
 
-* **Azure**: esta conexión puede usarse para administrar recursos clásicos.
-* **AzureClassicCertificate**: esta conexión la usa la cuenta **AzureClassicRunAs**.
-* **AzureServicePrincipal**: esta conexión la usa la cuenta **AzureRunAs**.
+* `Azure`: representa una conexión que se usa para administrar recursos clásicos.
+* `AzureServicePrincipal`: representa una conexión que se usa en la cuenta de ejecución de Azure.
+* `AzureClassicCertificate`: representa una conexión que se usa en la cuenta de ejecución de Azure clásico.
 
-En la mayoría de los casos no es necesario crear un recurso de conexión, ya que se crea con la creación de una [cuenta RunAs](manage-runas-account.md).
+En la mayoría de los casos no es necesario crear un recurso de conexión, ya que se crea con la creación de una [cuenta de ejecución](manage-runas-account.md).
 
-## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
+## <a name="powershell-cmdlets-to-access-connections"></a>Cmdlets de PowerShell para acceder a las conexiones
 
-Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview) que está disponible para su uso en los runbooks de Automation y las configuraciones de DSC.
+Los cmdlets de la tabla siguiente permiten crear y administrar conexiones de Automation con PowerShell. Se suministran como un componente de los [módulos Az](shared-resources/modules.md#az-modules).
 
 |Cmdlet|Descripción|
-|:---|:---|
-|[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera una conexión. Incluye una tabla hash con los valores de los campos de la conexión.|
-|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crea una conexión nueva.|
-|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Quita una conexión existente.|
-|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Establece el valor de un campo determinado para una conexión existente.|
-
-## <a name="activities"></a>Actividades
-
-Las actividades de la siguiente tabla se usan para tener acceso a las conexiones de un runbook o de una configuración de DSC.
-
-|Actividades|Descripción|
 |---|---|
-|Get-AutomationConnection | Obtiene una conexión para usar. Devuelve una tabla hash con las propiedades de la conexión.|
+|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Recupera información acerca de una conexión.|
+|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Crea una conexión nueva.|
+|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Quita una conexión existente.|
+|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Establece el valor de un campo determinado para una conexión existente.|
+
+## <a name="internal-cmdlets-to-access-connections"></a>Cmdlets internos para acceder a las conexiones
+
+El cmdlet interno de la tabla siguiente se usa para acceder a las conexiones de los runbooks y las configuraciones de DSC. Este cmdlet se incluye en el módulo global `Orchestrator.AssetManagement.Cmdlets`. Para obtener más información, consulte [Cmdlets internos](shared-resources/modules.md#internal-cmdlets).
+
+|Cmdlet interno|Descripción|
+|---|---|
+|`Get-AutomationConnection` | Recupera los valores de los distintos campos de la conexión y los devuelve como una [tabla hash](https://go.microsoft.com/fwlink/?LinkID=324844). Esta tabla hash se puede usar después con los comandos adecuados en el runbook o la configuración de DSC.|
 
 >[!NOTE]
->Debe evitar el uso de variables con el parámetro –Name de **Get-AutomationConnection**, debido a que esto podría complicar la detección de dependencias entre runbooks o configuraciones de DSC y activos de conexión en tiempo de diseño.
+>Evite el uso de variables con el parámetro `Name` de `Get-AutomationConnection`. El uso de variables en este caso puede complicar la detección de dependencias entre runbooks o configuraciones de DSC y los recursos de conexión durante el tiempo de diseño.
 
+## <a name="python-2-functions-to-access-connections"></a>Funciones de Python 2 para acceder a las conexiones
 
-## <a name="python2-functions"></a>Funciones de Python2
-
-La función de la tabla siguiente se usa para obtener acceso a las conexiones de un runbook de Python2.
+La función de la tabla siguiente se usa para obtener acceso a las conexiones de un runbook de Python 2.
 
 | Función | Descripción |
 |:---|:---|
-| automationassets.get_automation_connection | Recupera una conexión. Devuelve un diccionario con las propiedades de la conexión. |
+| `automationassets.get_automation_connection` | Recupera una conexión. Devuelve un diccionario con las propiedades de la conexión. |
 
 > [!NOTE]
-> Debe importar el módulo "automationassets" en la parte superior del runbook de Python para poder tener acceso a las funciones del recurso.
+> Para acceder a las funciones del activo, debe importar el módulo `automationassets` en la parte superior del runbook de Python.
 
-## <a name="creating-a-new-connection"></a>Creación de una conexión nueva
+## <a name="create-a-new-connection"></a>Crear una conexión
 
-### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Para crear una conexión nueva con el Portal de Azure
+### <a name="create-a-new-connection-with-the-azure-portal"></a>Creación de una conexión con Azure Portal
 
-1. En la cuenta de automatización, haga clic en la parte **Recursos** para abrir la hoja **Recursos**.
-2. Haga clic en la parte **Conexiones** para abrir la hoja **Conexiones**.
-3. Haga clic en **Agregar una conexión** en la parte superior de la hoja.
-4. En el menú desplegable **Tipo** , seleccione el tipo de conexión que desea crear. El formulario presentará las propiedades de ese tipo determinado.
-5. Complete el formulario y haga clic en **Crear** para guardar la conexión nueva.
+Para crear una conexión nueva en Azure Portal:
 
-### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para crear una conexión nueva con Windows PowerShell
+1. En la cuenta de Automation, haga clic en **Conexiones** en **Recursos compartidos**.
+2. En la página Conexiones, haga clic en **+ Agregar una conexión**.
+4. En el campo **Tipo** del panel Nueva conexión, seleccione el tipo de conexión que desea crear. Las opciones son `Azure`, `AzureServicePrincipal` y `AzureClassicCertificate`. 
+5. El formulario presenta las propiedades del tipo de conexión que ha elegido. Complete el formulario y haga clic en **Crear** para guardar la conexión nueva.
 
-Cree una conexión nueva con Windows PowerShell con el cmdlet [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection). Este cmdlet tiene un parámetro denominado **ConnectionFieldValues** que espera una [tabla hash](https://technet.microsoft.com/library/hh847780.aspx) que define los valores de cada una de las propiedades definidas por el tipo de conexión.
+### <a name="create-a-new-connection-with-windows-powershell"></a>Creación de una conexión con Windows PowerShell
 
-Si está familiarizado con la [cuenta de ejecución](automation-sec-configure-azure-runas-account.md) de Automation para autenticar runbooks con la entidad de servicio, el script de PowerShell, que se ofrece como alternativa a la creación de la cuenta de ejecución desde el portal, crea un nuevo recurso de conexión mediante los siguientes comandos de ejemplo.
+Cree una conexión con Windows PowerShell mediante el cmdlet `New-AzAutomationConnection`. Este cmdlet tiene un parámetro `ConnectionFieldValues`que espera una tabla hash que defina los valores de cada una de las propiedades definidas por el tipo de conexión.
+
+Puede usar los siguientes comandos de ejemplo como alternativa a la creación de la cuenta de ejecución desde el portal para crear un recurso de conexión.
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
+New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Puede usar el script para crear el recurso de conexión porque, cuando se crea la cuenta de Automation, incluye automáticamente varios módulos globales predeterminados junto con el tipo de conexión **AzureServicePrincipal** para crear el recurso de conexión **AzureRunAsConnection**. Es importante tener esto cuenta, porque si intenta crear un nuevo recurso de conexión para conectarse a un servicio o aplicación con un método de autenticación diferente, se producirá un error porque el tipo de conexión no se ha definido todavía en su cuenta de Automation. Para obtener más información sobre cómo crear su propio tipo de conexión para su módulo o instancia personalizada desde la [Galería de PowerShell](https://www.powershellgallery.com), consulte [Módulos de integración](automation-integration-modules.md)
+Al crear la cuenta de Automation, se incluyen varios módulos globales de forma predeterminada, junto con el tipo de conexión `AzureServicePrincipal` para crear el recurso de conexión `AzureRunAsConnection`. Si intenta crear un recurso de conexión para conectarse a un servicio o a una aplicación con un método de autenticación diferente, la operación generará un error porque el tipo de conexión no se ha definido todavía en la cuenta de Automation. Para más información sobre cómo crear su propio tipo de conexión para un módulo personalizado, consulte [Agregar un tipo de conexión](#add-a-connection-type).
 
-## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Uso de una conexión en un runbook o una configuración de DSC
+## <a name="add-a-connection-type"></a>Agregar un tipo de conexión
 
-Puede recuperar una conexión de un runbook o una configuración de DSC con el cmdlet **Get-AutomationConnection** . No se puede utilizar la actividad [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection). Esta actividad recupera los valores de los distintos campos en la conexión y los devuelve como una [tabla hash](https://go.microsoft.com/fwlink/?LinkID=324844) que luego se puede usar con los comandos adecuados en el runbook o la configuración de DSC.
+Si el runbook o la configuración de DSC se conectan a un servicio externo, debe definir un tipo de conexión en un [módulo personalizado](shared-resources/modules.md#custom-modules) denominado "módulo de integración". Este módulo incluye un archivo de metadatos que especifica las propiedades del tipo de conexión, se denomina **&lt;ModuleName&gt;-Automation.json** y se encuentra en la carpeta del módulo del archivo **.zip** comprimido. Este archivo contiene los campos de una conexión que se necesitan para conectarse al sistema o servicio que representa el módulo. Con este archivo, puede establecer los nombres de campo, los tipos de datos, el estado de cifrado y el estado opcional del tipo de conexión. 
 
-### <a name="textual-runbook-sample"></a>Ejemplo de runbook de texto
+El ejemplo siguiente es una plantilla en el formato de archivo **.json** que define propiedades de nombre de usuario y contraseña de un tipo de conexión predeterminado denominado `MyModuleConnection`:
 
-Los siguientes comandos de ejemplo muestran cómo utilizar la cuenta de ejecución mencionada anteriormente para autenticar con recursos de Azure Resource Manager en su runbook. Esta utiliza el recurso de conexión que representa la cuenta de ejecución, que hace referencia a la entidad de servicio basada en certificados, no a las credenciales.
+```json
+{
+   "ConnectionFields": [
+   {
+      "IsEncrypted":  false,
+      "IsOptional":  true,
+      "Name":  "Username",
+      "TypeName":  "System.String"
+   },
+   {
+      "IsEncrypted":  true,
+      "IsOptional":  false,
+      "Name":  "Password",
+      "TypeName":  "System.String"
+   }
+   ],
+   "ConnectionTypeName":  "MyModuleConnection",
+   "IntegrationModuleName":  "MyModule"
+}
+```
+
+## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Obtención de una conexión en un runbook o una configuración de DSC
+
+Recupere una conexión de un runbook o una configuración de DSC con el cmdlet `Get-AutomationConnection` interno. Este cmdlet es preferible al cmdlet `Get-AzAutomationConnection`, ya que recupera los valores de conexión en lugar de la información sobre la conexión. 
+
+### <a name="textual-runbook-example"></a>Ejemplo de un runbook textual
+
+El ejemplo siguiente muestra cómo utilizar la cuenta de ejecución para la autenticación con recursos de Azure Resource Manager en su runbook. Utiliza el recurso de conexión que representa la cuenta de ejecución, que hace referencia a la entidad de servicio basada en certificado.
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
-> [!IMPORTANT]
-> **Add-AzureRmAccount** es ahora un alias de **Connect-AzureRMAccount**. Al buscar elementos de biblioteca, si no ve **Connect-AzureRMAccount**, puede usar **Add-AzureRmAccount** o actualizar los módulos en su cuenta de Automation.
+### <a name="graphical-runbook-examples"></a>Ejemplos de runbook gráfico
 
-### <a name="graphical-runbook-samples"></a>Ejemplos de runbook gráfico
-
-Para agregar una actividad **Get-AutomationConnection** a un runbook gráfico, haga clic con el botón derecho en la conexión en el panel **Biblioteca** del editor gráfico y, después, seleccione **Agregar al lienzo**.
+Puede agregar una actividad para el cmdlet `Get-AutomationConnection` interno a un runbook gráfico. Haga clic con el botón derecho en la conexión en el panel Biblioteca del editor gráfico y seleccione **Agregar al lienzo**.
 
 ![agregar a lienzo](media/automation-connections/connection-add-canvas.png)
 
-La imagen siguiente muestra un ejemplo de cómo usar una conexión en un runbook gráfico. Este es el mismo ejemplo expuesto anteriormente para autenticar con la cuenta de ejecución con un runbook textual. Este ejemplo utiliza el conjunto de datos **Valor constante** para la actividad **Get RunAs Connection** que usa un objeto de conexión para la autenticación. Aquí se usa un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow) , debido a que el conjunto de parámetros ServicePrincipalCertificate espera un solo objeto.
+La imagen siguiente muestra un ejemplo de cómo usar un objeto de conexión en un runbook gráfico. Este ejemplo utiliza el conjunto de datos `Constant value` para la actividad `Get RunAs Connection`, que usa un objeto de conexión para la autenticación. Aquí se usa un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow), debido a que el parámetro `ServicePrincipalCertificate` establecido espera un solo objeto.
 
 ![obtener conexiones](media/automation-connections/automation-get-connection-object.png)
 
-### <a name="python2-runbook-sample"></a>Ejemplo de runbook de Python2
+### <a name="python-2-runbook-example"></a>Ejemplo de runbook de Python 2
 
-En el ejemplo siguiente se muestra cómo autenticarse con la conexión de ejecución en un runbook de Python2.
+En el ejemplo siguiente se muestra cómo autenticarse con la conexión de ejecución en un runbook de Python 2.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """
@@ -162,6 +195,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise la sección [Vínculos de Creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) para aprender a dirigir y controlar el flujo de la lógica de sus runbooks.
-
-- Para obtener más información sobre el uso de Azure Automation de los módulos y los procedimientos recomendados de PowerShell para crear sus propios módulos de PowerShell a fin de que funcionen como módulos de integración en Azure Automation, consulte [Módulos de integración](automation-integration-modules.md).
+* Para obtener más información sobre los cmdlets que se usan para acceder a las conexiones, consulte [Administración de módulos en Azure Automation](shared-resources/modules.md).
+* Para obtener información general sobre los runbooks, consulte [Ejecución de un runbook en Azure Automation](automation-runbook-execution.md).
+* Para más información sobre las configuraciones de DSC, consulte [Introducción a State Configuration](automation-dsc-overview.md).

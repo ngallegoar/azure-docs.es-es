@@ -9,9 +9,9 @@
 - name: Tutorial
   items:
     - name: Regresión con aprendizaje automático automatizado
-      href: /azure/machine-learning/service/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: /azure/machine-learning/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
     - name: Enriquecimiento de un modelo de clasificación de imágenes
-      href: /azure/machine-learning/service/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: /azure/machine-learning/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
 - name: Guías paso a paso
   items:
     - name: Conjuntos de datos en Azure Machine Learning
@@ -38,7 +38,7 @@
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/open-datasets/'
     - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=open-datasets&regions=non-regional'
     - name: Foro de usuarios
       href: 'https://aka.ms/open-datasets-forum'
     - name: Stack Overflow
