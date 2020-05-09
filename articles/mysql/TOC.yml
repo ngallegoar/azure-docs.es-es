@@ -9,12 +9,19 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Creación de la base de datos: Azure Portal'
-      href: quickstart-create-mysql-server-database-using-azure-portal.md
-    - name: 'Creación de la base de datos: CLI de Azure'
-      href: quickstart-create-mysql-server-database-using-azure-cli.md
-    - name: 'Creación de base de datos: Comando up de la CLI de Azure'
-      href: quickstart-create-server-up-azure-cli.md
+    - name: Creación de una base de datos
+      items:
+        - name: 'Creación de la base de datos: Azure Portal'
+          href: quickstart-create-mysql-server-database-using-azure-portal.md
+        - name: 'Creación de la base de datos: CLI de Azure'
+          href: quickstart-create-mysql-server-database-using-azure-cli.md
+        - name: 'Creación de base de datos: Comando up de la CLI de Azure'
+          href: quickstart-create-server-up-azure-cli.md
+        - name: 'Creación de una base de datos: Azure PowerShell'
+          href: quickstart-create-mysql-server-database-using-azure-powershell.md
+        - name: 'Creación de una base de datos: plantilla de Resource Manager'
+          href: quickstart-create-mysql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
     - name: Conexión y consulta
       items:
         - name: PHP
@@ -39,10 +46,12 @@
   items:
     - name: 1 - Diseño de una base de datos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
         - name: Plantilla del Administrador de recursos de Azure
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
     - name: 2 - Creación de una aplicación web
@@ -59,6 +68,9 @@
       href: sample-scripts-azure-cli.md
     - name: Agrupación de conexiones de Java
       href: sample-scripts-java-connection-pooling.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Bases de datos y servidores
@@ -146,20 +158,22 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: Migración de bases de datos
       items:
         - name: Volcado de memoria y restauración
@@ -182,27 +196,31 @@
           href: howto-redirection.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: Acceso a registros de servidor
       items:
         - name: Registros de consultas lentos
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-in-cli.md
         - name: Registros de auditoría
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
             - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
@@ -218,6 +236,8 @@
           href: howto-read-replicas-portal.md
         - name: Creación de réplicas de lectura en la CLI de Azure o API REST
           href: howto-read-replicas-cli.md
+        - name: 'Creación de réplicas de lectura, Azure PowerShell'
+          href: howto-read-replicas-powershell.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de conexión
@@ -230,40 +250,44 @@
           href: howto-data-encryption-troubleshoot.md
     - name: Protección contra amenazas avanzada
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-manage-vnet-using-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-using-cli.md
     - name: Private Link
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-configure-privatelink-portal.md
         - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Cifrado de datos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-data-encryption-portal.md
         - name: Azure CLI
           href: howto-data-encryption-cli.md
+        - name: Validación del cifrado de datos
+          href: howto-data-encryption-validation.md
     - name: "Integración de Azure\_AD"
       items:
         - name: "Configuración de la integración de Azure\_AD"
           href: howto-configure-sign-in-azure-ad-authentication.md
     - name: Denegación del acceso a una red pública
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-deny-public-network-access.md
     - name: Reinicio del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: Referencia
   items:
     - name: Azure CLI

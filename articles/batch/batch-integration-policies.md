@@ -1,25 +1,15 @@
 ---
-title: 'Integración con directivas de Azure: Azure Batch | Microsoft Docs'
-description: ''
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
+title: Integración con Azure Policy
+description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar directivas que aplican reglas a los recursos.
 ms.topic: article
 ms.date: 02/24/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 9a306457f838fc79d12be3217d96cc8fb25c9c1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a160de1277afea026a16f470c8f76cdc2ec1733f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77617868"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184272"
 ---
 # <a name="integration-with-azure-policy"></a>Integración con Azure Policy
 
@@ -36,7 +26,7 @@ Las definiciones de directiva describen las condiciones que se deben cumplir. Un
 
 Los recursos que Batch requiere incluyen: cuenta, nodo de proceso, grupo, trabajo y tarea. Por lo tanto, se usarían alias de propiedad para acceder a propiedades específicas de estos recursos. Más información sobre [alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases).
 
-Para asegurarse de que conoce los alias actuales y revise los recursos y las directivas, use la extensión de Azure Policy para Visual Studio Code. Se puede instalar en todas las plataformas compatibles con Visual Studio Code. Esta compatibilidad incluye Windows, Linux y macOS. Consulte la [guía de instalación](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
+Para asegurarse de que conoce los alias actuales y de revisar los recursos y las directivas, use la extensión de Azure Policy para Visual Studio Code. Se puede instalar en todas las plataformas compatibles con Visual Studio Code. Esta compatibilidad incluye Windows, Linux y macOS. Consulte la [guía de instalación](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
 
 
 
