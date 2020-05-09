@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 52a887d2d934aa2f7e13f0c2fdb4332066aee0e7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604829"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Escenario de Azure Automation: aprovisionamiento de una máquina virtual de AWS
@@ -18,7 +18,7 @@ En este artículo aprenderá cómo se puede aprovechar Azure Automation para apr
 ## <a name="prerequisites"></a>Prerrequisitos
 Debe tener una cuenta de Azure Automation y una suscripción de Amazon Web Services (AWS). Para más información sobre cómo configurar una cuenta de Azure Automation con sus credenciales de la suscripción de AWS, consulte [Configuración de la autenticación con Amazon Web Services](automation-config-aws-account.md). Antes de continuar, debe crear o actualizar esta cuenta con las credenciales de suscripción de AWS, ya que en las secciones siguientes haremos referencia a esta cuenta.
 
-## <a name="deploy-amazon-web-services-powershell-module"></a>Implementar un módulo Amazon Web Services de PowerShell
+## <a name="deploy-amazon-web-services-powershell-module"></a>Implementar un módulo Amazon Web Services de PowerShell 
 El runbook de aprovisionamiento de la VM usa el módulo AWS de PowerShell para realizar su trabajo. Utilice los pasos siguientes para agregar el módulo a la cuenta de Automation que esté configurada con sus credenciales de suscripción de AWS.  
 
 1. Abra el explorador web, navegue a la [Galería de PowerShell](https://www.powershellgallery.com/packages/AWSPowerShell/) y haga clic en el **botón Deploy to Azure Automation** (Implementar en Azure Automation).<br><br> ![Importación del módulo AWS de PS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)

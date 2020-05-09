@@ -3,15 +3,15 @@ title: Programación de tareas y flujos de trabajo periódicos en Azure Logic Ap
 description: Información general sobre la programación de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 20f27ebc7b9712d440dc1c67c46cb0385a3f874a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233036"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234101"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
@@ -138,13 +138,13 @@ A continuación, se incluyen varias periodicidades de ejemplo que puede configur
 | Periodicidad | Ejecutar cada 15 minutos en las marcas de minuto especificadas (sin fecha ni hora de inicio) | 1 | Día | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta programación no se inicia hasta la siguiente marca especificada de 15 minutos. |
 | Periodicidad | Ejecutar diariamente a las 8:00 a.m. *más* la marca de minuto de cuando guarde la aplicación lógica | 1 | Día | {none} | {unavailable} | 8 | {none} | Sin una fecha y hora de inicio, esta programación se ejecuta en función de la hora a la que se guarda la aplicación lógica (operación PUT). |
 | Periodicidad | Ejecutar diariamente a las 8:00 a.m. (con fecha y hora de inicio) | 1 | Día | *startDate*T08:00:00Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas. Las repeticiones futuras se ejecutan diariamente a las 8:00 a.m. | 
-| Periodicidad | Ejecutar diariamente a las 8:30 a.m. (sin fecha ni hora de inicio) | 1 | Día | {none} | {unavailable} | 8 | 30 | Esta programación se ejecuta todos los días a las 8:30 a.m. |
-| Periodicidad | Ejecutar diariamente a las 8:30 a.m. y a las 4:30 p.m. | 1 | Día | {none} | {unavailable} | 8, 16 | 30 | |
+| Periodicidad | Ejecutar diariamente a las 8:00 a. m. (sin fecha ni hora de inicio) | 1 | Día | {none} | {unavailable} | 8 | 00 | Esta programación se ejecuta todos los días a las 8:00 a. m. |
+| Periodicidad | Ejecutar diariamente a las 8:00 a. m. y a las 4:00 p. m. | 1 | Día | {none} | {unavailable} | 8, 16 | 0 | |
 | Periodicidad | Ejecutar diariamente a las 8:30 a.m., 8:45 a.m., 4:30 p.m. y 4:45 p.m. | 1 | Día | {none} | {unavailable} | 8, 16 | 30, 45 | |
-| Periodicidad | Ejecutar cada sábado a las 5 p. m. (ninguna fecha y hora de inicio) | 1 | Semana | {none} | "Saturday" | 17 | 00 | Esta programación se ejecuta cada sábado a las 5:00 p. m. |
-| Periodicidad | Ejecutar cada sábado a las 5 p. m. (con fecha y hora de inicio) | 1 | Semana | *startDate*T17:00:00Z | "Saturday" | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas; en este caso, el 9 de septiembre de 2017 a las 5:00 p. m. Las futuras periodicidades se ejecutan todos los sábados a las 5:00 p. m. |
+| Periodicidad | Ejecutar cada sábado a las 5:00 p. m. (ninguna fecha y hora de inicio) | 1 | Semana | {none} | "Saturday" | 17 | 0 | Esta programación se ejecuta cada sábado a las 5:00 p. m. |
+| Periodicidad | Ejecutar cada sábado a las 5:00 p. m. (con fecha y hora de inicio) | 1 | Semana | *startDate*T17:00:00Z | "Saturday" | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas; en este caso, el 9 de septiembre de 2017 a las 5:00 p. m. Las futuras periodicidades se ejecutan todos los sábados a las 5:00 p. m. |
 | Periodicidad | Ejecutar todos los martes y jueves a las 5:00 p.m. *más* la marca de minuto de cuando guarde la aplicación lógica| 1 | Semana | {none} | "Tuesday", "Thursday" | 17 | {none} | |
-| Periodicidad | Ejecutar cada hora durante el horario laboral | 1 | Semana | {none} | Seleccione todos los días excepto el sábado y el domingo. | Seleccione las horas del día que desee. | Seleccione los minutos de la hora que desee. | Por ejemplo, si su horario laboral es de 8:00 a. m. a las 5:00 p. m., entonces, seleccione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como las horas del día. <p>Si su horario laboral es de 8:30 a. m. a las 5:30 p. m., seleccione las horas del día más "30" como los minutos de la hora. |
+| Periodicidad | Ejecutar cada hora durante el horario laboral | 1 | Semana | {none} | Seleccione todos los días excepto el sábado y el domingo. | Seleccione las horas del día que desee. | Seleccione los minutos de la hora que desee. | Por ejemplo, si su horario laboral es de las 8:00 a. m. a las 5:00 p. m., entonces, seleccione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como las horas del día *más* "0" como los minutos de la hora. |
 | Periodicidad | Ejecutar una vez al día los fines de semana | 1 | Semana | {none} | "Saturday", "Sunday" | Seleccione las horas del día que desee. | Seleccione los minutos de la hora que correspondan. | Esta programación se ejecuta todos los sábados y domingos según la programación especificada. |
 | Periodicidad | Ejecutar cada 15 minutos quincenalmente y solo los lunes | 2 | Semana | {none} | "Monday" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Esta programación se ejecuta cada dos lunes en cada marca de 15 minutos. |
 | Periodicidad | Ejecutar cada mes | 1 | Month | *startDate*T*startTime*Z | {unavailable} | {unavailable} | {unavailable} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y calcula las futuras periodicidades en función de la fecha y hora de inicio. Si no se especifica una fecha y hora de inicio, esta programación usa la fecha y hora de creación. |
