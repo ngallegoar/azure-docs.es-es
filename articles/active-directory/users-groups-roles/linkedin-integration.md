@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755119"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582647"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integración de conexiones de cuentas de LinkedIn en Azure Active Directory
 
@@ -30,8 +30,8 @@ Puede permitir que los usuarios de la organización accedan a sus conexiones de 
 > Excepciones:
 >
 > * La opción no está disponible para los clientes que usan Microsoft Cloud for US Government, Microsoft Cloud Germany, o bien Azure y Office 365 operado por 21Vianet en China.
-> * La opción está desactivada de forma predeterminada para los inquilinos que se aprovisionan en Alemania. Tenga en cuenta que la opción no está disponible para los clientes que usan Microsoft Cloud Germany.
-> * La opción está desactivada de forma predeterminada para los inquilinos que se aprovisionan en Francia.
+> * La opción está desactivada de forma predeterminada para las organizaciones de Azure AD aprovisionadas en Alemania. Tenga en cuenta que la opción no está disponible para los clientes que usan Microsoft Cloud Germany.
+> * La opción está desactivada de forma predeterminada para las organizaciones aprovisionadas en Francia.
 >
 > Una vez que se hayan habilitado las conexiones de cuentas de LinkedIn para la organización, las conexiones de cuentas funcionarán después de que los usuarios den su consentimiento para que las aplicaciones accedan a datos de la empresa en su nombre. Para obtener información sobre la configuración de consentimientos del usuario, vea [Cómo quitar el acceso de un usuario a una aplicación](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
