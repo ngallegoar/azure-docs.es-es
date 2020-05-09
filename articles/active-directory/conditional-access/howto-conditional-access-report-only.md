@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295112"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690364"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configuración de una directiva de acceso condicional en modo de solo informe (versión preliminar)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configuración de una directiva de acceso condicional en modo de solo informe
 
 Para configurar una directiva de acceso condicional en modo de solo informe:
 
@@ -42,7 +42,7 @@ Para ver el resultado de una directiva de solo informe para un inicio de sesión
 1. Inicie sesión en **Azure Portal** como lector de informes, lector de seguridad, administrador de seguridad o administrador global.
 1. Vaya a **Azure Active Directory** > **Inicios de sesión**.
 1. Seleccione un inicio de sesión o agregue filtros para restringir los resultados.
-1. En el cajón **Detalles**, seleccione la pestaña **Solo informe (versión preliminar)** para ver las directivas evaluadas durante el inicio de sesión.
+1. En el cajón **Detalles**, seleccione la pestaña **Solo informe** para ver las directivas evaluadas durante el inicio de sesión.
 
 > [!NOTE]
 > Al descargar los registros de inicios de sesión, seleccione formato JSON para incluir datos de resultados de solo informe de acceso condicional.
@@ -62,7 +62,7 @@ Una vez que haya integrado sus registros de Azure AD con Azure Monitor, podrá s
 
 1. Inicie sesión en **Azure Portal** como administrador de seguridad o administrador global.
 1. Vaya a **Azure Active Directory** > **Workbooks**.
-1. Seleccione **Conditional Access Insights (versión preliminar)** .
+1. Seleccione **Conditional Access Insights**.
 1. Seleccione una o varias directivas en el menú desplegable **Directiva de acceso condicional**. Todas las directivas habilitadas están seleccionadas de forma predeterminada.
 1. Seleccione un intervalo de tiempo (si el intervalo de tiempo supera el conjunto de datos disponible, el informe mostrará todos los datos disponibles). Una vez que haya establecido los parámetros **Directiva de acceso condicional** e **Intervalo de tiempo**, se cargará el informe.
    1. Opcionalmente, busque **usuarios** o **aplicaciones** para restringir el ámbito del informe.

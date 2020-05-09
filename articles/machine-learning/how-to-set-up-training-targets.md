@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 4db00fd43095c44a88cc0aae40778ab5b4b751b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616820"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137406"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,26 +99,11 @@ Proceso Azure Machine Learning Compute para distribuir el proceso de entrenamien
 
 Proceso de Azure Machine Learning tiene límites predeterminados, como el número de núcleos que se pueden asignar. Para más información, consulte [Administración y solicitud de cuotas para recursos de Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
+> [!TIP]
+> Por lo general, los clústeres pueden escalar hasta 100 nodos, siempre y cuando tenga la cuota suficiente para el número de núcleos necesarios. De forma predeterminada, los clústeres se configuran con la comunicación entre nodos del clúster habilitada para, por ejemplo, permitir trabajos de MPI. No obstante, puede escalar los clústeres a miles de nodos simplemente [generando una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y solicitando la inclusión en la lista blanca de su suscripción, área de trabajo o un clúster específico para deshabilitar la comunicación entre nodos. 
+>
 
-Puede crear un entorno de Proceso de Azure Machine Learning a petición al programar una ejecución, o bien como un recurso persistente.
-
-#### <a name="run-based-creation"></a>Creación basada en ejecución
-
-Puede crear una instancia de Proceso de Azure Machine Learning como un destino de proceso en tiempo de ejecución. El proceso se crea automáticamente para la ejecución. El proceso se elimina automáticamente una vez completada la ejecución. 
-
-> [!IMPORTANT]
-> La creación basada en ejecución de una instancia de Proceso de Azure Machine Learning está actualmente en versión preliminar. No use la creación basada en la ejecución si usa el ajuste de hiperparámetros o el aprendizaje automático automatizado. Para utilizar la optimización de hiperparámetros o el aprendizaje automático automatizado, cree en su lugar un [destino de proceso persistente](#persistent).
-
-1.  **Crear, adjuntar y configurar**: la creación basada en la ejecución realiza todos los pasos necesarios para crear, adjuntar y configurar el destino de proceso con la configuración de ejecución.  
-
-  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
-
-
-Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](#submit).
-
-#### <a name="persistent-compute"></a><a id="persistent"></a>Proceso persistente
-
-Se puede reutilizar una instancia de Proceso de Azure Machine Learning persistente en varios trabajos. El proceso se puede compartir con otros usuarios del área de trabajo y se conserva entre un trabajo y otro.
+Se puede reutilizar una instancia de Proceso de Azure Machine Learning entre trabajos. El proceso puede compartirse con otros usuarios del área de trabajo y se conserva entre ejecuciones, escalando o reduciendo automáticamente los nodos verticalmente según el número de ejecuciones enviadas y el valor de max_nodes establecido en el clúster.
 
 1. **Crear y adjuntar**: para crear un recurso de Proceso de Azure Machine Learning persistente en Python, especifique las propiedades **vm_size** y **max_nodes**. Azure Machine Learning usará valores predeterminados inteligentes para las demás propiedades. El proceso se reduce verticalmente a cero nodos cuando no se utiliza.   Se crean máquinas virtuales dedicadas para ejecutar los trabajos según sea necesario.
     

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 016a09432499c5fd2be8fd488c7ef7a644c00bca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062343"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628340"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configuración de una clave de seguridad como su método de comprobación
 
@@ -63,7 +63,7 @@ Antes de poder registrar la clave de seguridad, debe cumplirse lo siguiente:
 
 Debe crear la clave de seguridad y asignarle un PIN único para poder iniciar sesión en su cuenta profesional o educativa con la clave. Puede tener hasta 10 claves registradas en su cuenta. 
 
-1. Vaya a la página **Mi perfil** en https://myprofile.microsoft.com e inicie sesión si todavía no lo ha hecho.
+1. Vaya a la página **Mi perfil** en https://myaccount.microsoft.com e inicie sesión si todavía no lo ha hecho.
 
 2. Seleccione **Información de seguridad**, **Agregar método** y, a continuación, **Clave de seguridad** en la lista desplegable **Agregar un método**.
 

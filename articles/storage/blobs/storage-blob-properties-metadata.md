@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79137669"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692463"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de blobs con .NET
 
@@ -24,6 +24,11 @@ Además de los datos que contienen, los blobs admiten propiedades del sistema y 
 - **Propiedades del sistema**: en cada recurso de almacenamiento de blobs existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar. La biblioteca cliente de Azure Storage para .NET mantiene estas propiedades automáticamente.
 
 - **Metadatos definidos por el usuario**: los metadatos definidos por el usuario se componen de uno o más pares nombre-valor que especifica para un recurso de almacenamiento de blobs. Puede usar metadatos para almacenar valores adicionales con el recurso. Los valores de metadatos se proporcionan para uso personal y no afectan a cómo se comporta el recurso.
+
+> [!NOTE]
+> Las etiquetas del Índice de blobs ofrecen la capacidad de almacenar atributos arbitrarios de clave-valor definidas por el usuario junto con un recurso de almacenamiento de blobs. De manera similar a los metadatos, solo las etiquetas del Índice de blobs se indexan automáticamente y se pueden consultar mediante el Blob service nativo. Los metadatos no se pueden indexar ni consultar de forma nativa, a menos que se use un servicio independiente, como Azure Search.
+>
+> Para obtener más información sobre esta característica, vea [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento de blobs consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando al método `FetchAttributes` o `FetchAttributesAsync`. La excepción a esta regla es que los métodos `Exists` y `ExistsAsync` llaman al método `FetchAttributes` adecuado en segundo plano. Cuando se llama a uno de estos métodos, no es necesario llamar también a `FetchAttributes`.
 
