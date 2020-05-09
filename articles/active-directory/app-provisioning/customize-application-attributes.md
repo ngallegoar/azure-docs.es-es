@@ -2,24 +2,20 @@
 title: Personalización de asignaciones de atributos de Azure AD | Microsoft Docs
 description: Conozca cuáles son las asignaciones de atributos para aplicaciones SaaS en Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4abfdd94c57064c86e533234d78f774c45ba8e4a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231044"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593869"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -73,7 +69,7 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
 - **Atributo de destino**: especifica el atributo de usuario del sistema de destino (por ejemplo, ServiceNow).
 - **Valor predeterminado si es nulo (opcional)** : valor que se enviará al sistema de destino si el atributo de origen es NULL. Este valor solo se aprovisionará cuando se cree un usuario. El "valor predeterminado si es nulo" no se aprovisionará al actualizar un usuario existente. Si, por ejemplo, quiere aprovisionar todos los usuarios existentes en el sistema de destino con un puesto determinado (cuando es NULL en el sistema de origen), puede usar la siguiente [expresión](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Asegúrese de reemplazar el "valor predeterminado" con lo que le gustaría aprovisionar cuando sea NULL en el sistema de origen. 
 - **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre los sistemas de origen y de destino. Normalmente esto se establece en el atributo userPrincipalName o mail en Azure AD, que se suele asignar a un campo de nombre de usuario en una aplicación de destino.
-- **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
+- **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes. Aunque puede establecer tantos atributos coincidentes como desee, considere si los atributos que usa como atributos coincidentes son realmente únicos y deben ser atributos coincidentes. Normalmente, los clientes tienen 1 o 2 atributos coincidentes en su configuración. 
 - **Aplicar esta asignación**
   - **Siempre**: esta asignación se aplica a las acciones de creación y actualización de usuarios.
   - **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios.
@@ -143,7 +139,10 @@ El RFC de SCIM define un esquema principal de grupo y usuario, a la vez que perm
    4. Seleccione **Editar lista de atributos para AppName**.
    5. En la parte inferior de la lista de atributos, escriba la información sobre el atributo personalizado en los campos proporcionados. Después, seleccione **Agregar atributo**.
 
-En el caso de las aplicaciones de SCIM, el nombre del atributo debe seguir el patrón que se muestra en el ejemplo siguiente. "CustomExtensionName" y "CustomAttribute" se pueden personalizar según los requisitos de la aplicación, por ejemplo, urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute o urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
+En el caso de las aplicaciones de SCIM, el nombre del atributo debe seguir el patrón que se muestra en el ejemplo siguiente. "CustomExtensionName" y "CustomAttribute" pueden personalizarse según los requisitos de la aplicación. Por ejemplo:  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+ * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
 
 Estas instrucciones solo se aplican a las aplicaciones habilitadas para SCIM. Las aplicaciones como ServiceNow y Salesforce no se integran con Azure AD mediante SCIM y, por lo tanto, no requieren este espacio de nombres específico al agregar un atributo personalizado.
 
@@ -313,8 +312,10 @@ Al seleccionar esta opción se fuerza la resincronización de todos los usuarios
 - Actualizar las asignaciones de atributos repercute en el rendimiento de un ciclo de sincronización. Una actualización de la configuración de la asignación de atributos requiere que se vuelvan a evaluar todos los objetos administrados.
 - Es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
 - Actualmente no se puede agregar un atributo de foto para su aprovisionamiento en una aplicación, ya que no se permite especificar el formato para sincronizar la foto. Puede solicitar la característica en [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
-- El atributo IsSoftDeleted suele formar parte de las asignaciones predeterminadas para una aplicación. IsSoftdeleted puede ser true en uno de los cuatro escenarios siguientes: el usuario está fuera del ámbito debido a que se ha desasignado de la aplicación; el usuario está fuera del ámbito debido a que no cumple un filtro de ámbito; el usuario se ha eliminado temporalmente en Azure AD; o la propiedad AccountEnabled está establecida en false en el usuario. 
+- El atributo IsSoftDeleted suele formar parte de las asignaciones predeterminadas para una aplicación. IsSoftdeleted puede ser true en uno de los cuatro escenarios siguientes: el usuario está fuera del ámbito debido a que se ha desasignado de la aplicación; el usuario está fuera del ámbito debido a que no cumple un filtro de ámbito; el usuario se ha eliminado temporalmente en Azure AD; o la propiedad AccountEnabled está establecida en false en el usuario. No se recomienda eliminar el atributo IsSoftDeleted de las asignaciones de atributos.
 - El servicio de aprovisionamiento de Azure AD no admite el aprovisionamiento de valores NULL.
+- La clave principal, normalmente "ID", no se debe incluir como atributo de destino en las asignaciones de atributos. 
+- Normalmente, el atributo de rol se debe asignar mediante una expresión, en lugar de una asignación directa. Consulte la sección anterior para más información sobre la asignación de roles. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
