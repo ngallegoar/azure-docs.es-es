@@ -4,12 +4,12 @@ description: Explicación detallada para restaurar el estado de sistema de Windo
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602456"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610792"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -124,7 +124,7 @@ Una vez que haya recuperado el estado del sistema como archivos con el agente de
 
 2. Después del reinicio, abra el complemento Copias de seguridad de Windows Server. Si no conoce la ubicación donde se instaló el complemento, busque **Copias de seguridad de Windows Server** en el equipo o servidor.
 
-    La aplicación de escritorio aparece en los resultados de la búsqueda.
+    La aplicación de escritorio aparece en los resultados de la búsqueda. Si no aparece, o si se producen errores al abrir la aplicación, debe instalar las **características de Copias de seguridad de Windows Server** y los componentes dependientes que se encuentran debajo de él, que están disponibles en el **Asistente para agregar características** y en **Administrador del servidor**.
 
 3. En el complemento, seleccione **Copia de seguridad local**.
 

@@ -4,14 +4,12 @@ description: Para empezar a trabajar con aplicaciones de Linux en Azure App Serv
 ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
-experimental: true
-experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 7f8d21cbccc1a6eec7f62ab5d129f3f0637b8d13
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 5b055c3ed93d5f093295b52c7a28a73e242bfe75
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085134"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690877"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
@@ -104,6 +102,11 @@ En la carpeta *python-docs-hello-world* que contiene el código de ejemplo, ejec
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
+> [!CAUTION]
+> Si utiliza la **versión 2.5.0 de la CLI de Azure** hay una regresión en `az webapp up` en la que se producirán errores en ciertos escenarios si no se incluye el parámetro `-l <location-name>`. El seguimiento del problema se[realiza aquí](https://github.com/Azure/azure-cli/issues/13257).  
+> 
+>Puede comprobar qué versión de la CLI de Azure usa con el comando `az --version`.
+>
 
 El argumento `--sku F1` crea la aplicación web en el plan de tarifa Gratuito. Puede omitir este argumento para usar en su lugar un nivel Premium, lo que supondrá un costo por hora.
 

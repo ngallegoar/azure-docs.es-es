@@ -1,17 +1,17 @@
 ---
+title: Información sobre impuestos de marketplace comercial de Microsoft
 Description: Para comprender las consideraciones fiscales que debe tener en cuenta para la selección de precios, las implicaciones en el pago y la responsabilidad fiscal, consulte los países o regiones de distribución en las tablas siguientes.
-title: Información sobre impuestos | Azure Marketplace
-ms.date: 2/13/2020
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/04/2020
+ms.openlocfilehash: 0276a859fb82f7775aca498d73d1cbf780aaf5fc
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285170"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793030"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Información sobre impuestos para los publicadores de Marketplace comercial
 
@@ -23,10 +23,6 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 > [!IMPORTANT]
 > La responsabilidad fiscal de los países y regiones del revendedor y las circunstancias (como se describe [a continuación](#reseller-countriesregions)) se tratan en el anexo A del [Acuerdo de publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560), sin prejuicio de la información de la tabla siguiente.
 > Tenga en cuenta que la columna **Implicación en el pago** solo se aplica a los publicadores. Las tasas de impuestos que se indican en esta columna están sujetas a cambios en cualquier momento, y Microsoft no puede garantizar que las tasas de las tablas siguientes siempre sean precisas.
-
-
-
- 
 
 | País/región                   | Consideración fiscal para la selección de precios                                                                                                             | Implicación en el pago                    | Responsabilidad fiscal |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
@@ -262,19 +258,18 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Zambia                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Zimbabue                         | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 
-Lo siguiente se aplica solo a los publicadores de Azure Marketplace, con independencia de cualquier disposición en sentido contrario: 
+Lo siguiente se aplica solo a los publicadores de Azure Marketplace, con independencia de cualquier disposición en sentido contrario:
 
-| País/región                   | Consideración fiscal para la selección de precios                                                                                                             | Administración fiscal                    | 
+| País/región                   | Consideración fiscal para la selección de precios                                                                                                             | Administración fiscal                    |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Australia (para las compras realizadas a través de todos los escenarios de compra de clientes, excepto Contrato Enterprise) | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Microsoft |
 | Australia (solo para las compras realizadas a través del escenario de compra del cliente de Contrato Enterprise) | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Publicador |
-| Brasil | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Publicador **(consulte los países o regiones del distribuidor)** |
-| México | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Publicador **(consulte los países o regiones del distribuidor)** |
+| Brasil | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Publicador **(consulte Países y regiones de revendedor)** |
+| México | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. | Publicador **(consulte Países y regiones de revendedor)** |
 
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>Países o regiones de remesas mixtas para publicadores
 
-
-Algunos partners de facturación de Microsoft pueden recolectar y remitir los impuestos de ventas, uso, bienes y servicios, al valor añadido u otros similares, si los hubiera, aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store en los países o regiones que se enumeran a continuación. En los [informes](payout-summary.md#transaction-history-download-export) que Microsoft pone a su disposición, se identificarán las transacciones para las que un partner de facturación haya recolectados los impuestos de ventas, uso, bienes y servicios, valor añadido u otros similares aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store. A excepción de las transacciones descritas en estos informes, ni Microsoft ni sus proveedores de servicios de facturación remitirán ningún impuesto de ventas, uso, bienes y servicios, valor añadido u otro similar en relación con la adquisición por parte de los clientes de sus aplicaciones o productos en la aplicación en estos países. Usted es responsable de revisar los informes que se le proporcionan, así como de determinar y cumplir sus obligaciones, en caso de haberlas, de registro, recolección y remisión de impuestos en relación con las transacciones que impliquen a sus aplicaciones o los productos en la aplicación.
+Algunos partners de facturación de Microsoft pueden recolectar y remitir los impuestos de ventas, uso, bienes y servicios, al valor añadido u otros similares, si los hubiera, aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store en los países o regiones que se enumeran a continuación. En los [informes](payout-summary-overview.md#transaction-history-download-export) que Microsoft pone a su disposición, se identificarán las transacciones para las que un partner de facturación haya recolectados los impuestos de ventas, uso, bienes y servicios, valor añadido u otros similares aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store. A excepción de las transacciones descritas en estos informes, ni Microsoft ni sus proveedores de servicios de facturación remitirán ningún impuesto de ventas, uso, bienes y servicios, valor añadido u otro similar en relación con la adquisición por parte de los clientes de sus aplicaciones o productos en la aplicación en estos países. Usted es responsable de revisar los informes que se le proporcionan, así como de determinar y cumplir sus obligaciones, en caso de haberlas, de registro, recolección y remisión de impuestos en relación con las transacciones que impliquen a sus aplicaciones o los productos en la aplicación.
 
 | Países o regiones de remesas mixtas |
 |------------------------------------|
@@ -285,16 +280,13 @@ Algunos partners de facturación de Microsoft pueden recolectar y remitir los im
 
 En determinados países o regiones, Microsoft actúa como su revendedor (en lugar de su agente) para que sus aplicaciones y productos en la aplicación estén disponibles en Store. Para obtener más información acerca de los términos y condiciones de los países o regiones de revendedor, consulte el [Acuerdo del publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-Lo siguiente se aplica solo a los publicadores de Azure Marketplace: 
+Lo siguiente se aplica solo a los publicadores de Azure Marketplace:
 
 |                    Países y regiones de revendedor                                                                          |
 |------------------------------------------------------------------------------------------------------------------------|
 | Brasil (para las compras realizadas a través de todos los escenarios de compra de clientes, excepto CSP) |
 | México (solo para las compras realizadas a través del escenario de compra del cliente de Contrato Enterprise) |
 
+## <a name="next-steps"></a>Pasos siguientes
 
- 
-
-
-
-
+[Configuración de la cuenta de pago y los formularios de impuestos](set-up-your-payout-account-tax-forms.md)

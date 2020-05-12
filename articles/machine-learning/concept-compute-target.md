@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
-ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398178"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780120"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning? 
 
@@ -50,7 +50,7 @@ Azure Machine Learning crea y administra un recurso de proceso administrado. Dic
 
 Puede crear instancias de procesos (versión preliminar) o clústeres de procesos de Azure Machine Learning a partir de lo siguiente:
 * Azure Machine Learning Studio
-* Portal de Azure
+* Azure Portal
 * SDK de Python [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) y clases de [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
 * [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
 * Plantilla de Resource Manager
@@ -64,11 +64,37 @@ Cuando se crean, estos recursos de proceso forman parte automáticamente del ár
 Puede usar clústeres de procesos de Azure Machine Learning para el entrenamiento y para inferencia de lotes (versión preliminar).  Con este recurso de proceso, debe:
 
 * Clúster de uno o varios nodos
-* Se escala automáticamente cada vez que se envía una ejecución 
+* Escalar automáticamente cada vez que se envía una ejecución 
 * Administración del clúster automático y programación de trabajos 
 * Es compatible con recursos de CPU y GPU
 
+### <a name="supported-vm-series-and-sizes"></a>Series y tamaños de maquina virtual compatibles
 
+Al seleccionar un tamaño de nodo para un recurso de proceso administrado en Azure Machine Learning, puede elegir entre varios tamaños de máquina virtual disponibles en Azure. Azure ofrece una variedad de tamaños para Windows y Linux para diferentes cargas de trabajo. Consulte aquí para obtener más información sobre los distintos [tamaños y tipos de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+
+Hay algunas excepciones y limitaciones a la hora de elegir un tamaño de máquina virtual:
+* Algunas series de máquinas virtuales no se admiten en Azure Machine Learning.
+* Algunas series de máquinas virtuales están restringidas. Para usar una serie restringida, póngase en contacto con el soporte técnico y solicite un aumento de la cuota para la serie. Para información sobre cómo ponerse en contacto con el soporte técnico, consulte [Opciones de soporte técnico de Azure](https://azure.microsoft.com/support/options/).
+
+Consulte la tabla siguiente para más información sobre las series admitidas y las restricciones. 
+
+| **Series de maquinas virtuales compatibles**  | **Restricciones** |
+|------------|------------|
+| D | None |
+| Dv2 | None |  
+| DSv2 | None |  
+| FSv2 | None |  
+| M | Requiere aprobación |
+| NC | None |    
+| NCsv2 | Requiere aprobación |
+| NCsv3 | Requiere aprobación |  
+| NDs | Requiere aprobación |
+| NDv2 | Requiere aprobación |
+| NV | None |
+| NVv3 | Requiere aprobación | 
+
+
+Aunque Azure Machine Learning admite estas series de máquinas virtuales, puede que no estén disponibles en todas las regiones de Azure. Puede consultar la serie de máquinas virtuales disponibles aquí: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## <a name="unmanaged-compute"></a>Proceso no administrado
 

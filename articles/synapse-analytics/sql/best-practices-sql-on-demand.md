@@ -2,20 +2,20 @@
 title: Procedimientos recomendados de SQL a petición (versión preliminar) en Azure Synapse Analytics
 description: Recomendaciones y procedimientos recomendados que debe saber para trabajar con SQL a petición (versión preliminar).
 services: synapse-analytics
-author: mlee3gsd
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: martinle
-ms.reviewer: igorstan
-ms.openlocfilehash: 1d4203141973c10fe7673f6ab9dedbc3bfdc8999
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/01/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426784"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692158"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Procedimientos recomendados de SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ SQL a petición permite consultar archivos de las cuentas de almacenamiento de A
 
 ## <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Colocación de una cuenta de Azure Storage y SQL a petición
 
-Para minimizar la latencia, colocalice su cuenta de Azure Storage y el punto de conexión de SQL a petición. Las cuentas de almacenamiento y los puntos de conexión aprovisionados durante la creación del área de trabajo se encuentran en la misma región.
+Para minimizar la latencia, coloque su cuenta de Azure Storage y el punto de conexión de SQL a petición. Las cuentas de almacenamiento y los puntos de conexión aprovisionados durante la creación del área de trabajo se encuentran en la misma región.
 
 Para obtener un rendimiento óptimo, si tiene acceso a otras cuentas de almacenamiento con SQL a petición, asegúrese de que se encuentran en la misma región. Si no están en la misma región, aumentará la latencia de la transferencia de red de los datos entre la región remota y la del punto de conexión.
 
@@ -50,11 +50,73 @@ Si es posible, puede preparar los archivos para mejorar el rendimiento:
 - Es mejor tener archivos de igual tamaño para una sola ruta de acceso OPENROWSET o una ubicación de tabla externa.
 - Particione los datos al almacenar las particiones en diferentes carpetas o con nombres de archivo distintos: consulte [Uso de las funciones filename y filepath para seleccionar particiones específicas](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
+## <a name="push-wildcards-to-lower-levels-in-path"></a>Inserción de caracteres comodín en los niveles inferiores de la ruta de acceso
+
+Puede usar caracteres comodín en la ruta de acceso para [consultar varios archivos y carpetas](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL a petición muestra los archivos de la cuenta de almacenamiento a partir del primer "*" mediante la API de almacenamiento y elimina los archivos que no coinciden con la ruta de acceso especificada. Al reducir la lista inicial de archivos, puede mejorar el rendimiento si hay muchos archivos que coincidan con la ruta de acceso especificada hasta el primer carácter comodín.
+
+## <a name="use-appropriate-data-types"></a>Uso del tipo de datos adecuado
+
+Los tipos de datos que se usan en la consulta afectan al rendimiento. Puede obtener un mejor rendimiento si: 
+
+- Usa el tamaño de datos más pequeño que se adapte al mayor valor posible.
+  - Si la longitud máxima de caracteres es de 30 caracteres, utilice el tipo de datos de caracteres de longitud 30.
+  - Si todos los valores de columnas de caracteres tienen un tamaño fijo, use char o nchar. De lo contrario, use varchar o nvarchar.
+  - Si el valor máximo de la columna de enteros es 500, use smallint, ya que es el tipo de datos más pequeño que puede contener este valor. Puede encontrar intervalos de tipos de datos enteros [aquí](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
+- Si es posible, use varchar y char en lugar de nvarchar y nchar.
+- Utilice tipos de datos basados en enteros si es posible. Las operaciones de ordenación, combinación y agrupación se realizan más rápidamente en números enteros que en datos de caracteres.
+- Si usa la inferencia de esquemas, [compruebe el tipo de datos inferido](#check-inferred-data-types).
+
+## <a name="check-inferred-data-types"></a>Comprobación de los tipos de datos inferidos
+
+La [inferencia de esquemas](query-parquet-files.md#automatic-schema-inference) ayuda a escribir consultas rápidamente y a explorar los datos sin conocer el esquema de archivo. Como contrapartida, los tipos de datos deducidos resultan ser más grandes de lo que realmente son. Esto sucede cuando no hay suficiente información en los archivos de código fuente para asegurarse de que se utiliza el tipo de datos adecuado. Por ejemplo, los archivos de Parquet no contienen metadatos sobre la longitud máxima de la columna de caracteres y SQL a petición los deduce como varchar(8000). 
+
+Puede comprobar los tipos de datos resultantes de la consulta mediante [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
+
+En el ejemplo siguiente se muestra cómo se pueden optimizar los tipos de datos inferidos. El procedimiento se usa para mostrar tipos de datos inferidos. 
+```sql  
+EXEC sp_describe_first_result_set N'
+    SELECT
+        vendor_id, pickup_datetime, passenger_count
+    FROM 
+        OPENROWSET(
+            BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
+            FORMAT=''PARQUET''
+        ) AS nyc';
+```
+
+El conjunto de resultados es el siguiente:
+
+|is_hidden|column_ordinal|name|system_type_name|max_length|
+|----------------|---------------------|----------|--------------------|-------------------||
+|0|1|vendor_id|varchar(8000)|8000|
+|0|2|pickup_datetime|datetime2(7)|8|
+|0|3|passenger_count|int|4|
+
+Una vez que se conocen los tipos de datos inferidos para la consulta se pueden especificar los tipos de datos adecuados:
+
+```sql  
+SELECT
+    vendor_id, pickup_datetime, passenger_count
+FROM 
+    OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        FORMAT='PARQUET'
+    ) 
+    WITH (
+        vendor_id varchar(4), -- we used length of 4 instead of inferred 8000
+        pickup_datetime datetime2,
+        passenger_count int
+    ) AS nyc;
+```
+
 ## <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Uso de las funciones fileinfo y filepath para seleccionar particiones específicas
 
 A menudo, los datos se organizan en particiones. Puede indicar a SQL a petición que consulte archivos y carpetas concretos. Esta función reduce el número de archivos y la cantidad de datos que la consulta necesita leer y procesar. Como ventaja adicional, logrará un mejor rendimiento.
 
 Para obtener más información, consulte las funciones [filename](develop-storage-files-overview.md#filename-function) y [filepath](develop-storage-files-overview.md#filepath-function), así como ejemplos sobre cómo [consultar archivos específicos](query-specific-files.md).
+
+> [!TIP]
+> Convierta siempre el resultado de las funciones filepath y fileinfo al tipo de datos adecuado. Si usa tipos de datos de caracteres, asegúrese de que se usa la longitud apropiada.
 
 Si los datos almacenados no tienen particiones, considere la posibilidad de crear particiones para usar estas funciones en la optimización de las consultas que están dirigidas a esos archivos. Cuando [consulte las tablas de Spark con particiones](develop-storage-files-spark-tables.md) de SQL a petición, la consulta tendrá como destino automático solo los archivos necesarios.
 

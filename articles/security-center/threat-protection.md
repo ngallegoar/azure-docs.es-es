@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263461"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606898"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protección contra amenazas en Azure Security Center
 
@@ -31,6 +31,12 @@ La protección contra amenazas de Azure Security Center proporciona defensas com
 
 Tanto si Security Center genera una alerta, como si la recibe de un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Azure Sentinel (o a un SIEM de terceros) o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md). 
 
+> [!TIP]
+> Para habilitar las funcionalidades de protección contra amenazas de Security Center, debe aplicar el plan de tarifa estándar a la suscripción que contiene las cargas de trabajo aplicables.
+>
+> Puede habilitar la protección contra amenazas para **cuentas de Azure Storage** en el nivel de suscripción o de recursos.
+> Puede habilitar la protección contra amenazas para **servidores SQL de Azure SQL Database** en el nivel de suscripción o de recursos.
+> Puede habilitar la protección contra amenazas para **Azure Database for MariaDB/MySQL/PostgreSQL** solo en el nivel de recursos.
 
 
 

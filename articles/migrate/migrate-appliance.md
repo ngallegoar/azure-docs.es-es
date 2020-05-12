@@ -2,13 +2,13 @@
 title: Dispositivo con Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 05/04/2020
+ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437587"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780341"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -25,12 +25,24 @@ El dispositivo Azure Migrate se usa en los escenarios siguientes.
 **Valoración de máquinas virtuales de Hyper-V** | Server Assessment de Azure Migrate | Detectar máquinas virtuales de Hyper-V<br/><br/> Recopilar metadatos de máquinas y metadatos de rendimiento para las evaluaciones
 **Valoración de máquina física** |  Server Assessment de Azure Migrate |  Descubra servidores físicos (o máquinas virtuales que se tratan como servidores físicos).<br/><br/> Recopilar metadatos de máquinas y metadatos de rendimiento para las evaluaciones
 
+## <a name="deployment-methods"></a>Métodos de implementación
+
+Para implementar el dispositivo se pueden usar un par de métodos:
+
+- El dispositivo se puede implementar mediante una plantilla para máquinas virtuales de VMware y máquinas virtuales de Hyper-V (plantilla OVA en el caso de VMware o VHD en el de Hyper-V).
+- Si no desea usar una plantilla, puede implementar el dispositivo para VMware o Hyper-V mediante un script de PowerShell.
+- En Azure Government, el dispositivo se debe implementar mediante un script.
+- En el caso de los servidores físicos, el dispositivo siempre se implementa mediante un script.
+- Los vínculos de descarga están disponibles en las tablas siguientes.
+
+
 ## <a name="appliance---vmware"></a>Dispositivo: VMware 
 
 En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate para VMware.
 
 **Requisito** | **VMware** 
 --- | ---
+**Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
 **Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente de valoración**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).<br/>- **Agente de recuperación de datos (DRA)** : organiza la replicación de VM y coordina la comunicación entre las máquinas replicadas y Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.<br/>- **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
 **Implementación admitida** | Impleméntelo como máquina virtual de VMware mediante la plantilla de OVA.<br/><br/> Impleméntelo como máquina física o máquina virtual de VMware mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
@@ -50,6 +62,7 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 
 **Requisito** | **Hyper-V** 
 --- | ---
+**Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
 **Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/>- **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente de valoración**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
 **Implementación admitida** | Impleméntelo como máquina virtual de Hyper-V mediante una plantilla de VHD.<br/><br/> Impleméntelo como máquina física o máquina virtual de Hyper-V mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
@@ -66,20 +79,24 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 
 **Requisito** | **Físico** 
 --- | ---
+**Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
 **Componentes del dispositivo** | El dispositivo tiene los componentes siguientes: <br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente de valoración**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
-**Implementación admitida** | Impleméntelo como una máquina física dedicada o una máquina virtual mediante el script de instalación de PowerShell.
+**Implementación admitida** | Impleméntelo como una máquina física dedicada o una máquina virtual mediante el script de instalación de PowerShell. El script está disponible para su descarga desde el portal.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 250 servidores físicos.
 **Script de PowerShell** | Descargue el script (AzureMigrateInstaller.ps1) del portal en una carpeta comprimida. [Más información](tutorial-assess-physical.md#set-up-the-appliance). Como alternativa, [descárguelo directamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> El tamaño de la descarga es de 59.7 MB.
-**Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware. 
+**Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 32 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/> No se admite la ejecución del dispositivo en una máquina con Windows Server 2019.
 **Valor del código hash** | [Compruebe](deploy-appliance-script.md#verify-file-security) los valores hash del script de PowerShell.
 
 ## <a name="url-access"></a>acceso URL
 
 El dispositivo de Azure Migrate necesita conectividad a Internet.
 
-- Al implementar el dispositivo, Azure Migrate hace una comprobación de conectividad con las direcciones URL que se resumen en la tabla siguiente.
-- Si usa un proxy basado en URL para conectarse a Internet, tiene que permitir el acceso a estas direcciones URL y asegurarse de que el proxy resuelve los registros CNAME recibidos al buscar estas direcciones.
+- Al implementar el dispositivo, Azure Migrate realiza una comprobación de conectividad con las direcciones URL necesarias.
+- Debe permitir el acceso a todas las direcciones URL de la lista. Si solo está realizando la evaluación, solo puede omitir las direcciones URL marcadas como necesarias para la migración sin agente de VMware.
+-  Si usa un proxy basado en URL para conectarse a Internet, asegúrese de que el proxy resuelve los registros CNAME recibidos al buscar estas direcciones.
+
+### <a name="public-cloud-urls"></a>Direcciones URL de la nube pública
 
 **URL** | **Detalles**  
 --- | --- |
@@ -87,7 +104,7 @@ El dispositivo de Azure Migrate necesita conectividad a Internet.
 \* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inicie sesión en la suscripción de Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
 management.azure.com | Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Migrate.
-dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
+*.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
 *.vault.azure.net | Administre secretos en Azure Key Vault.
 aka.ms/* | Permiso de acceso a vínculos aka. Se usa para las actualizaciones del dispositivo de Azure Migrate.
 download.microsoft.com/download | Permita descargas de Microsoft.
@@ -95,6 +112,25 @@ download.microsoft.com/download | Permita descargas de Microsoft.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Conéctese a las direcciones URL del servicio Azure Migrate.
 *.hypervrecoverymanager.windowsazure.com | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
 *.blob.core.windows.net |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
+
+### <a name="government-cloud-urls"></a>Direcciones URL de la nube del gobierno
+
+**URL** | **Detalles**  
+--- | --- |
+*.portal.azure.us  | Acceda a Azure Portal.
+graph.windows.net | Inicie sesión en la suscripción de Azure.
+login.microsoftonline.us  | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
+management.usgovcloudapi.net | Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Migrate.
+dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
+*.vault.usgovcloudapi.net | Administre secretos en Azure Key Vault.
+aka.ms/* | Permiso de acceso a vínculos aka. Se usa para las actualizaciones del dispositivo de Azure Migrate.
+download.microsoft.com/download | Permita descargas de Microsoft.
+*.servicebus.usgovcloudapi.net  | Comunicación entre el dispositivo y el servicio Azure Migrate.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Conéctese a las direcciones URL del servicio Azure Migrate.
+*.hypervrecoverymanager.windowsazure.us | **Se usa para la migración sin agentes de VMware.**<br/><br/> Conéctese a las direcciones URL del servicio Azure Migrate.
+*.blob.core.usgovcloudapi.net  |  **Se usa para la migración sin agentes de VMware.**<br/><br/>Cargue los datos al almacenamiento para la migración.
+*.applicationinsights.us | Cargue los registros de aplicaciones que se usan para la supervisión interna.
+
 
 
 
@@ -225,7 +261,7 @@ Los metadatos que descubre el dispositivo de Azure Migrate ayudan a averiguar si
 
 Esta es la lista completa de metadatos de VM de Hyper-V que el dispositivo recopila y envía a Azure.
 
-**DATOS* | **CLASE WMI** | **PROPIEDAD DE CLASE WMI**
+**DATOS** | **CLASE WMI** | **PROPIEDAD DE CLASE WMI**
 --- | --- | ---
 **Detalles de la máquina** | 
 Número de serie de BIOS _ Msvm_BIOSElement | BIOSSerialNumber
@@ -267,14 +303,158 @@ Adaptador de red virtual de Hyper-V | Bytes enviados/segundo | Cálculo del tama
 - El uso de memoria es (presión actual * memoria física visible del invitado)/100.
 - Los valores de uso de disco y red se recopilan de los contadores de rendimiento de Hyper-V enumerados.
 
+
+## <a name="collected-data---physical"></a>Datos recopilados: físicos
+
+El dispositivo recopila metadatos, datos de rendimiento y datos de análisis de dependencias (si se usa [análisis de dependencias](concepts-dependency-visualization.md) sin agente).
+
+### <a name="windows-metadata"></a>Metadatos de Windows
+
+Los metadatos que descubre el dispositivo de Azure Migrate ayudan a averiguar si las máquinas y las aplicaciones están listas para la migración a Azure, el tamaño correcto de las máquinas y las aplicaciones, los planes de costos y el análisis de las dependencias de la aplicación. Microsoft no usa estos datos en ninguna auditoría de cumplimiento de licencias.
+
+Esta es la lista completa de metadatos de Windows Server que el dispositivo recopila y envía a Azure.
+
+**DATOS** | **CLASE WMI** | **PROPIEDAD DE CLASE WMI**
+--- | --- | ---
+FQDN | Win32_ComputerSystem | Dominio, nombre, PartOfDomain
+Número de núcleos del procesador | Win32_PRocessor | NumberOfCores
+Memoria asignada | Win32_ComputerSystem | TotalPhysicalMemory
+Número de serie del BIOS | Win32_ComputerSystemProduct | IdentifyingNumber
+GUID del BIOS | Win32_ComputerSystemProduct | UUID
+Tipo de arranque | Win32_DiskPartition | Busque la partición con el tipo = **GPT:System** para EFI/BIOS
+Nombre del SO | Win32_OperatingSystem | Caption
+Versión del SO |Win32_OperatingSystem | Versión
+Arquitectura del SO | Win32_OperatingSystem | OSArchitecture
+Número de discos | Win32_DiskDrive | Modelo, tamaño, DeviceID, MediaType, nombre
+Tamaño del disco | Win32_DiskDrive | Size
+Lista de NIC | Win32_NetworkAdapterConfiguration | Descripción, índice
+Dirección IP de NIC | Win32_NetworkAdapterConfiguration | IPAddress
+Dirección MAC de NIC | Win32_NetworkAdapterConfiguration | MACAddress
+
+### <a name="linux-metadata"></a>Metadatos de Linux
+
+Esta es la lista completa de metadatos del servidor de Linux que el dispositivo recopila y envía a Azure.
+
+**DATOS** | **LINUX** 
+--- | --- 
+FQDN | cat /proc/sys/kernel/hostname, hostname -f
+Número de núcleos del procesador |  /proc/cpuinfo \| awk "/^processor/{print $3}" \| wc -l
+Memoria asignada | cat /proc/meminfo \| grep MemTotal \| awk "{printf "%.0f", $2/1024}"
+Número de serie del BIOS | lshw \| grep "serial:" \| head -n1 \| awk "{print $2}" <br/> /usr/sbin/dmidecode -t 1 \| grep "Serial" \| awk "{ $1="" ; $2=""; print}"
+GUID del BIOS | cat /sys/class/dmi/id/product_uuid
+Tipo de arranque | [ -d /sys/firmware/efi ] && echo EFI \|\| echo BIOS
+Versión o nombre del SO | Obtenemos acceso a estos archivos para el nombre y la versión del SO:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
+Arquitectura del SO | Uname -m
+Número de discos | fdisk -l \| egrep "Disk.*bytes" \| awk "{print $2}" \| cut -f1 -d ":"
+Disco de arranque | df /boot \| sed -n 2p \| awk "{print $1}"
+Tamaño del disco | fdisk -l \| egrep "Disk.*bytes" \| egrep $disk: \| awk "{print $5}"
+Lista de NIC | ip -o -4 addr show \| awk "{print $2}"
+Dirección IP de NIC | ip addr show $nic \| grep inet \| awk "{print $2}" \| cut -f1 -d "/" 
+Dirección MAC de NIC | ip addr show $nic \| grep ether  \| awk "{print $2}"
+
+### <a name="windows-performance-data"></a>Datos de rendimiento de Windows
+
+Estos son los datos de rendimiento de Windows Sever que el dispositivo recopila y envía a Azure.
+
+**Data** | **Clase WMI** | **Propiedad de clase WMI**
+--- | --- | ---
+Uso de CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Uso de la memoria | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+NIC (recuento) | Win32_PerfFormattedData_Tcpip_NetworkInterface | Obtiene el número de dispositivos de red.
+Datos recibidos por NIC | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
+Datos transmitidos por NIC | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
+Número de discos | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | Número de discos
+Detalles del disco | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, DiskWriteBytesPerSec, DiskReadsPerSec, DiskReadBytesPerSec.
+
+### <a name="linux-performance-data"></a>Datos de rendimiento de Linux
+
+Estos son los datos de rendimiento de Linux que el dispositivo recopila y envía a Azure.
+
+**Data** | **Linux** 
+--- | --- 
+Uso de CPU | cat /proc/stat/| grep "cpu" /proc/stat
+Uso de la memoria | free \| grep Mem \| awk "{print $3/$2 * 100.0}"
+NIC (recuento) | lshw -class network \| eth[0-60] \| wc -l
+Datos recibidos por NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes
+Datos transmitidos por NIC | cat /sys/class/net/eth$nic/statistics/tx_bytes
+Número de discos | fdisk -l \| egrep "Disk.*bytes" \| awk "{print $2}" \| cut -f1 -d ":"
+Detalles del disco | cat /proc/diskstats
+
+
 ## <a name="appliance-upgrades"></a>Actualizaciones del dispositivo
 
-El dispositivo se actualiza a medida que se actualizan los agentes de Azure Migrate que se ejecutan en el dispositivo. Esto sucede automáticamente porque la actualización automática está habilitada en el dispositivo de forma predeterminada. Puede cambiar esta configuración predeterminada para actualizar los agentes manualmente.
+El dispositivo se actualiza a medida que se actualizan los agentes de Azure Migrate que se ejecutan en el dispositivo. Esto sucede automáticamente porque la actualización automática está habilitada en el dispositivo de forma predeterminada. Puede cambiar esta configuración predeterminada para actualizar los servicios de dispositivo manualmente.
 
-- **Desactivación de la actualización automática**: para desactivar la actualización automática en el registro, establezca la clave "AutoUpdate" que se encuentra en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance en 0 (DWORD). Si se opta por usar las actualizaciones manuales, es importante actualizar todos los agentes del dispositivo al mismo tiempo, usando el botón **Actualizar** para cada agente no actualizado en el dispositivo.
-- **Actualización manual**: en el caso de las actualizaciones manuales, asegúrese de actualizar todos los agentes del dispositivo al mismo tiempo mediante el botón **Actualizar** para cada agente no actualizado en el dispositivo. Puede volver a cambiar la configuración de actualización a actualizaciones automáticas en cualquier momento.
+### <a name="turn-off-auto-update"></a>Desactivación de la actualización automática
 
-![Actualización automática del dispositivo](./media/migrate-appliance/autoupdate.png)
+1. En la máquina que ejecuta el dispositivo, abra el Editor del Registro.
+2. Vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Para desactivar la actualización automática, cree una clave **AutoUpdate** de clave del Registro con un valor de DWORD de 0.
+
+    ![Definición de clave del Registro](./media/migrate-appliance/registry-key.png)
+
+
+### <a name="turn-on-auto-update"></a>Activación de la actualización automática
+
+Puede activar la actualización automática mediante cualquiera de estos métodos:
+
+- Eliminando la clave del Registro de AutoUpdate de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- Una vez finalizada la detección, en Appliance Configuration Manager.
+
+Para eliminar la clave del Registro:
+
+1. En la máquina que ejecuta el dispositivo, abra el Editor del Registro.
+2. Vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Elimine la clave del registro **AutoUpdate** que se creó anteriormente para desactivar la actualización automática.
+
+Para realizar la activación desde Appliance Configuration Manager, una vez completada la detección:
+
+1. En la máquina del dispositivo, abra Appliance Configuration Manager.
+2. En **Servicios del dispositivo** > **La actualización automática de los componentes de Azure Migrate está desactivada**, haga clic para activar la actualización automática.
+
+    ![Activar las actualizaciones automáticas](./media/migrate-appliance/turn-on.png)
+
+### <a name="check-the-appliance-services-version"></a>Comprobación de la versión de servicios del dispositivo
+
+Puede comprobar la versión de los servicios del dispositivo con cualquiera de estos métodos:
+
+- En Appliance Configuration Manager, una vez completada la detección.
+- En la máquina del dispositivo, en el **Panel de control** > **Programas y características**.
+
+Para consultarla en Appliance Configuration Manager:
+
+1. Una vez finalizada la detección, abra Appliance Configuration Manager (en la aplicación web del dispositivo).
+2. En **Servicios del dispositivo**, compruebe las versiones de los servicios del dispositivo.
+
+    ![Comprobación de la versión](./media/migrate-appliance/version.png)
+
+Para consultarlo en el Panel de control.
+
+1. En el dispositivo, haga clic en **Inicio** > **Panel de control** > **Programas y características**
+2. Compruebe las versiones de los servicios de dispositivo en la lista.
+
+    ![Comprobación de la versión en el Panel de control](./media/migrate-appliance/programs-features.png)
+
+### <a name="manually-update-an-older-version"></a>Actualización manual de una versión anterior
+
+Si está ejecutando una versión anterior para cualquiera de los componentes, debe desinstalar el servicio y actualizar manualmente a la versión más reciente.
+
+1. Para buscar las versiones de servicio de dispositivo más recientes, [descargue](https://aka.ms/latestapplianceservices) el archivo LatestComponents.json.
+2.  Después de la descarga, abra el archivo LatestComponents.json en el Bloc de notas.
+3. Busque la última versión del servicio en el archivo y el vínculo de descarga correspondiente. Por ejemplo:
+
+    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+
+4.  Descargue la versión más reciente de un servicio obsoleto mediante el vínculo de descarga del archivo.
+5. Después de la descarga, ejecute el siguiente comando en una ventana de comandos de administrador para comprobar la integridad del MSI descargado.
+
+    Por ejemplo: ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```  C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+
+5. Compruebe que la salida del comando coincide con la entrada de valor hash del servicio en el archivo (por ejemplo, el valor hash MD5 anterior).
+6. Ahora, ejecute el archivo MSI para instalar el servicio. Se trata de una instalación silenciosa y la ventana de instalación se cierra una vez finalizada.
+7. Una vez finalizada la instalación, compruebe la versión del servicio en **Panel de control** > **Programas y características**. Ahora, la versión del servicio debe actualizarse a la última que se muestra en el archivo json.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

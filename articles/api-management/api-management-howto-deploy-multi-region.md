@@ -11,56 +11,43 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442664"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790486"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 
 Azure API Management admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio Azure API Management en el número de regiones de Azure admitidas. La característica multirregional ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente, y mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
 
-Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Se pueden agregar regiones adicionales a las regiones primaria o secundarias. Un componente de puerta de enlace de API Management se implementa en cada región primaria y secundaria seleccionada. Las solicitudes de la API entrantes se dirigen automáticamente a la región más cercana. Si una región se queda sin conexión, las solicitudes de la API se enrutarán automáticamente para evitar la región con errores hacia la siguiente puerta de enlace más cercana.
+Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Se pueden agregar unidades adicionales a las regiones primaria o secundarias. Un componente de puerta de enlace de API Management se implementa en cada región primaria y secundaria seleccionada. Las solicitudes de la API entrantes se dirigen automáticamente a la región más cercana. Si una región se queda sin conexión, las solicitudes de la API se enrutarán automáticamente para evitar la región con errores hacia la siguiente puerta de enlace más cercana.
 
 > [!NOTE]
 > Solo el componente de puerta de enlace de API Management se implementa en todas las regiones. El componente de administración de servicios y el portal para desarrolladores se hospedan en la región primaria únicamente. Por lo tanto, en caso de interrupción de la región primaria, el acceso al portal para desarrolladores y la capacidad de cambiar la configuración (por ejemplo, agregar API y aplicar directivas) se verán impedidos hasta que la región primaria vuelva a estar en línea. Mientras la región principal esté sin conexión, las regiones secundarias seguirán atendiendo al tráfico de las API con la configuración más reciente disponible.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-an-api-management-service-instance-to-a-new-region"></a><a name="add-region"> </a>Implementación de una instancia del servicio Administración de API en una nueva región
+## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Implementación del servicio API Management en una nueva región
 
 > [!NOTE]
 > Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][create an api management service instance].
 
-En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management.
+1. En Azure Portal, vaya al servicio API Management y haga clic en la entrada **Ubicaciones** del menú.
+2. Haga clic en **+ Agregar** en la barra superior.
+3. Seleccione la ubicación en la lista desplegable y establezca el número de unidades con el control deslizante.
+4. Haga clic en el botón **Agregar** para confirmar.
+5. Repita este proceso hasta que configure todas las ubicaciones.
+6. Haga clic en **Guardar** en la barra superior para iniciar el proceso de implementación.
 
-![Pestaña Escala][api-management-scale-service]
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Eliminación de una ubicación del servicio API Management
 
-Para implementar en una nueva región, haga clic en **+ Agregar región** desde la barra de herramientas.
-
-![Agregar región][api-management-add-region]
-
-Seleccione la ubicación en la lista desplegable y establezca el número de unidades para el control deslizante.
-
-![Especificar unidades][api-management-select-location-units]
-
-Haga clic en **Agregar** para colocar la selección en la tabla de ubicaciones.
-
-Repita este proceso hasta que haya configurado todas las ubicaciones y haga clic en **Guardar** en la barra de herramientas para iniciar el proceso de implementación.
-
-## <a name="delete-an-api-management-service-instance-from-a-location"></a><a name="remove-region"> </a>Eliminación de una instancia de servicio de API Management de una ubicación
-
-En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management.
-
-![Pestaña Escala][api-management-scale-service]
-
-Para la ubicación que desee eliminar, abra el menú contextual mediante el botón **...** situado a la derecha de la tabla. Haga clic en la opción **Eliminar**.
-
-Confirme la eliminación y haga clic en **Guardar** para aplicar los cambios.
+1. En Azure Portal, vaya al servicio API Management y haga clic en la entrada **Ubicaciones** del menú.
+2. Para la ubicación que desee eliminar, abra el menú contextual mediante el botón **...** situado a la derecha de la tabla. Haga clic en la opción **Eliminar**.
+3. Confirme la eliminación y haga clic en **Guardar** para aplicar los cambios.
 
 ## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Enrutamiento de las llamadas API a servicios regionales back-end
 
@@ -119,11 +106,6 @@ API Management enruta las solicitudes a una _puerta de enlace_ regional en func
 1. [Configure los puntos de conexión de estado regional de API Management en Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Los puntos de conexión de estado regional siguen el patrón de dirección URL de `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, por ejemplo `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Especifique [el método de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md) de Traffic Manager.
 
-[api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-[api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
-[api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
-[api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md
 [deploy an api management service instance to a new region]: #add-region

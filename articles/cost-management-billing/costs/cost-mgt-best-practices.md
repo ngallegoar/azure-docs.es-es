@@ -3,17 +3,17 @@ title: Optimización de la inversión en la nube con Azure Cost Management
 description: Este artículo le ayuda a obtener el máximo partido de las inversiones en la nube, reducir los costos y evaluar dónde se invierte su dinero.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874592"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791619"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -104,6 +104,12 @@ Para más información sobre las distintas opciones, consulte las [Instrucciones
 
 - Opciones para compromisos monetarios por adelantado
 - Acceso a la reducción de precios de Azure
+
+#### <a name="azure-in-csp"></a>[Azure en CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- Los asociados de CSP son el primer punto de contacto para las necesidades de sus clientes y el centro de la relación con los clientes
+- Los asociados de CSP aprovisionan nuevos clientes, ordenan suscripciones, administran suscripciones y realizan tareas de administración en nombre de sus clientes
+- Los asociados de CSP agrupan servicios con soluciones únicas o revenden Azure mientras controlan los precios, los términos y la facturación
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Estimación del costo de la solución
 

@@ -4,14 +4,14 @@ description: Aprenda a administrar recursos de Azure Cosmos DB mediante Azure Po
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225904"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745022"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 
@@ -29,11 +29,11 @@ Consulte [Creación de una cuenta de Azure Cosmos DB mediante la CLI de Azure](
 
 ### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell.
 
-Consulte [Creación de una cuenta de Azure Cosmos DB mediante PowerShell](manage-with-powershell.md#create-account).
+Consulte [Creación de una cuenta de Azure Cosmos DB mediante PowerShell](manage-with-powershell.md#create-account).
 
 ### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Plantilla de Azure Resource Manager
 
-Esta plantilla de Azure Resource Manager creará una cuenta de Azure Cosmos para la API SQL configurada con dos regiones y opciones para seleccionar el nivel de coherencia, la conmutación automática por error y la arquitectura multimaestro. Para implementar esta plantilla, haga clic en Implementar en Azure en la página Léame, [Creación de una cuenta de Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
+Consulte [Creación y administración de Azure Cosmos DB con plantillas de Azure Resource Manager](manage-sql-with-resource-manager.md).
 
 ## <a name="addremove-regions-from-your-database-account"></a>Incorporación o eliminación de regiones de una cuenta de base de datos
 

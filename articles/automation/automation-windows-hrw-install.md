@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53dfe07ebd4925c96290db140b6e613c38eef564
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 163650a05bf47e6cb8a8832bb85477740d88b0cd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617334"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787382"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -51,15 +51,15 @@ Estos son los requisitos mínimos de Hybrid Runbook Worker en Windows:
 
 Para obtener más requisitos de redes adicionales para Hybrid Runbook Worker, consulte el apartado sobre [configuración de la red](automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="server-onboarding-for-management-with-automation-dsc"></a>Incorporación de servidores para su administración con DSC de Automatización
+### <a name="server-onboarding-for-management-with-state-configuration-dsc"></a>Incorporación de servidores para su administración con State Configuration (DSC)
 
-Para obtener información sobre la incorporación de servidores para la administración con DSC, consulte [Incorporación de máquinas para administrarlas con DSC de Azure Automation](automation-dsc-onboarding.md).
+Para obtener información sobre la incorporación de servidores para la administración con State Configuration (DSC), consulte [Incorporación de máquinas para administrarlas con State Configuration (DSC)](automation-dsc-onboarding.md).
 
-Al habilitar la [solución Update Management](../operations-management-suite/oms-solution-update-management.md), los equipos Windows conectados al área de trabajo de Log Analytics se configuran automáticamente como una instancia de Hybrid Runbook Worker para admitir los runbooks que se incluyen en la solución. Sin embargo, este trabajo no se registra en ningún grupo de Hybrid Worker ya definido en la cuenta de Automation.
+Al habilitar [Update Management](automation-update-management.md), los equipos Windows conectados al área de trabajo de Log Analytics se configuran automáticamente como una instancia de Hybrid Runbook Worker para admitir actualizaciones del runbook. Sin embargo, este trabajo no se registra en ningún grupo de Hybrid Worker ya definido en la cuenta de Automation.
 
 ### <a name="addition-of-the-computer-to-a-hybrid-runbook-worker-group"></a>Incorporación del equipo a un grupo de Hybrid Runbook Worker
 
-Puede agregar el equipo de trabajo a un grupo de Hybrid Runbook Worker en su cuenta de Automation. Tenga en cuenta que debe ser compatible con los runbooks de Automation mientras use la misma cuenta para la solución y la pertenencia a grupos de Hybrid Runbook Worker. Esta funcionalidad se agregó a la versión 7.2.12024.0 de Hybrid Runbook Worker.
+Puede agregar el equipo de trabajo a un grupo de Hybrid Runbook Worker en su cuenta de Automation. Tenga en cuenta que debe ser compatible con los runbooks de Automation mientras use la misma cuenta para la característica de Azure Automation y la pertenencia a grupos de Hybrid Runbook Worker. Esta funcionalidad se agregó a la versión 7.2.12024.0 de Hybrid Runbook Worker.
 
 ## <a name="automated-deployment"></a>Implementación automatizada
 
@@ -81,7 +81,7 @@ Descargue el script **New-OnPremiseHybridWorker.ps1** de la [Galería de PowerSh
 | `WorkspaceName` | Opcional | Nombre del área de trabajo de Log Analytics. Si no tiene un área de trabajo de Log Analytics, el script creará y configurará una. |
 
 > [!NOTE]
-> Al habilitar las soluciones, Azure Automation solo admite determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
+> Al habilitar las características, Azure Automation solo admite determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Paso 2: Apertura del shell de la línea de comandos de Windows PowerShell
 
@@ -115,9 +115,9 @@ En el equipo de destino, realice los dos primeros pasos una vez para el entorno 
 
 Si aún no tiene ningún área de trabajo de Log Analytics, revise la [guía de diseño de registros de Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) antes de crear el área de trabajo.
 
-### <a name="step-2---add-the-automation-solution-to-the-log-analytics-workspace"></a>Paso 2: Incorporación de la solución de Automation al área de trabajo de Log Analytics
+### <a name="step-2---add-an-azure-automation-feature-to-the-log-analytics-workspace"></a>Paso 2: Incorporación de una característica de Azure Automation al área de trabajo de Log Analytics
 
-La solución de Automation agrega funcionalidad a Azure Automation, incluida la compatibilidad con la instancia de Hybrid Runbook Worker. Cuando se agrega la solución al área de trabajo de Log Analytics, se insertan automáticamente los componentes de trabajo al equipo del agente que instale como se describe en el paso siguiente.
+Una característica de Automation agrega funcionalidad a Azure Automation, incluida la compatibilidad con la instancia de Hybrid Runbook Worker. Cuando se agrega una solución al área de trabajo de Log Analytics, se insertan automáticamente los componentes de trabajo al equipo del agente que instale como se describe en el paso siguiente.
 
 Para agregar la solución Automation al área de trabajo, ejecute el cmdlet de PowerShell siguiente.
 
@@ -177,13 +177,38 @@ Puede obtener la información necesaria para este cmdlet en la página Administr
 
 Los runbooks pueden usar cualquiera de las actividades y los cmdlets definidos en los módulos instalados en el entorno de Azure Automation. Dado que estos módulos no se implementan automáticamente en los equipos locales, debe instalarlos de forma manual. La excepción es el módulo de Azure. Este módulo se instala de manera predeterminada y ofrece acceso a los cmdlets para todos los servicios y actividades de Azure para Azure Automation.
 
-Como el propósito principal de la característica Hybrid Runbook Worker es administrar recursos locales, es muy probable que deba instalar los módulos que admiten estos recursos, específicamente el módulo `PowerShellGet`. Para más información sobre cómo instalar módulos de Windows PowerShell, consulte [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Como el propósito principal de la instancia de Hybrid Runbook Worker es administrar recursos locales, es muy probable que deba instalar los módulos que admiten estos recursos, específicamente el módulo `PowerShellGet`. Para más información sobre cómo instalar módulos de Windows PowerShell, consulte [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
 
 Los módulos instalados deben estar en una ubicación a la que haga referencia la variable de entorno `PSModulePath` para que Hybrid Worker los importe automáticamente. Para más información, consulte [Instalación de módulos en PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+
+## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-computer"></a><a name="remove-windows-hybrid-runbook-worker"></a>Eliminación de la instancia de Hybrid Runbook Worker de un equipo de Windows local
+
+1. En Azure Portal, abra su cuenta de Automation.
+2. En **Configuración de la cuenta**, seleccione **Claves** y anote los valores de **URL** y **Clave de acceso primaria**.
+
+3. Abra una sesión de PowerShell en modo de administrador y ejecute el siguiente comando con los valores de la dirección URL y la clave de acceso principal. Utilice el parámetro `Verbose` para ver un registro detallado del proceso de eliminación. Para eliminar máquinas obsoletas del grupo Hybrid Worker, use el parámetro `machineName` opcional.
+
+```powershell-interactive
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+```
+
+## <a name="remove-a-hybrid-worker-group"></a>Eliminación de un grupo de Hybrid Worker
+
+Para quitar un grupo de Hybrid Runbook Worker, primero debe quitar la instancia de Hybrid Runbook Worker de todos los equipos que sean miembros del grupo. Después, siga estos pasos para quitar el grupo:
+
+1. Abra la cuenta de Automation en Azure Portal.
+2. Seleccione **Grupos de Hybrid Worker** en **Automatización de procesos**. Seleccione el grupo que quiere eliminar. Aparece la página de propiedades de ese grupo.
+
+   ![Página de propiedades](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
+
+3. En la página de propiedades del grupo seleccionado, seleccione **Eliminar**. Un mensaje le solicita que confirme esta acción. Seleccione **Sí** si está seguro de que quiere continuar.
+
+   ![Mensaje de confirmación](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
+
+   Este proceso puede tardar varios segundos en finalizar. Puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Ejecución de runbooks en Hybrid Runbook Worker](automation-hrw-run-runbooks.md) para más información sobre cómo configurar los runbooks para automatizar los procesos del centro de datos local o de otros entornos de nube.
-* Para ver instrucciones para quitar instancias de Hybrid Runbook Worker, consulte [Eliminación de instancias de Hybrid Runbook Worker de Azure Automation](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-* Para obtener más información sobre cómo solucionar problemas de las instancias de Hybrid Runbook Worker, consulte [Solución de problemas de Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#windows).
-* Para ver los pasos adicionales para solucionar las incidencias de Update Management, consulte [Update Management: solución de problemas](troubleshoot/update-management.md).
+* Para obtener más información sobre cómo solucionar problemas de las instancias de Hybrid Runbook Worker, consulte [Solución de problemas de instancias de Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#windows).
+

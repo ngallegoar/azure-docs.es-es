@@ -3,12 +3,12 @@ title: Creación de un clúster de Service Fabric en Azure Portal
 description: Obtenga información sobre cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458324"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792486"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 2. El **tamaño** mínimo de máquinas virtuales para el tipo de nodo principal depende del nivel de **durabilidad** que elija para el clúster. El valor predeterminado del nivel de durabilidad es Bronze. Para obtener más información sobre la durabilidad, vea [Elección de los niveles de durabilidad del clúster de Service Fabric][service-fabric-cluster-durability].
 3. Seleccione el **tamaño de la máquina virtual**. Las máquinas virtuales de la serie D tienen unidades SSD y son muy recomendables para aplicaciones con estado. No use cualquier SKU de VM que tenga núcleos parciales o menos de 10 GB de capacidad de disco disponible. Consulte el documento [Consideraciones de planeación de capacidad del clúster de Service Fabric][service-fabric-cluster-capacity] para obtener ayuda con la selección del tamaño de la máquina virtual.
 4.  Los **clúster de un solo nodo y clústeres de tres nodos** están diseñados únicamente con fines de prueba. Estos clústeres no se admiten para la ejecución de cargas de trabajo de producción.
-5. Elija la **capacidad inicial del conjunto de escalado de la máquina virtual** para el tipo de nodo. Puede escalar o reducir verticalmente el número de VM en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo necesario para cargas de trabajo de producción es de cinco máquinas. Otros tipos de nodo pueden tener una máquina virtual como mínimo. El **número** mínimo de máquinas virtuales para el tipo de nodo principal afecta al nivel de **confiabilidad** que elija.  
+5. Elija la **capacidad inicial del conjunto de escalado de la máquina virtual** para el tipo de nodo. Puede escalar o reducir horizontalmente el número de VM en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo necesario para cargas de trabajo de producción es de cinco máquinas. Otros tipos de nodo pueden tener una máquina virtual como mínimo. El **número** mínimo de máquinas virtuales para el tipo de nodo principal afecta al nivel de **confiabilidad** que elija.  
 6. Configure los **puntos de conexión personalizados**. Este campo le permite especificar una lista de puertos separados por coma que quiere exponer mediante Azure Load Balancer a la Internet pública para sus aplicaciones. Por ejemplo, si planea implementar una aplicación web en el clúster, escriba aquí "80" para permitir el paso del tráfico del puerto 80 al clúster. Para más información sobre los puntos de conexión, vea la [comunicación con las aplicaciones][service-fabric-connect-and-communicate-with-services].
 7. **Habilitación del proxy inverso**.  El [proxy inverso de Service Fabric](service-fabric-reverseproxy.md) ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con dichos servicios.
 8. En la hoja **Configuración del clúster**, en **+Mostrar configuración opcional**, configure el **diagnóstico** del clúster. De forma predeterminada, los diagnósticos se habilitan en el clúster para ayudar a solucionar los problemas. Si quiere deshabilitar los diagnósticos, cambie el botón de alternancia **Estado** a **Desactivado**. **No** se recomienda desactivar los diagnósticos. Si ya creó el proyecto de Application Insights, proporcione su clave para que los rastros de la aplicación se enruten hacia ella.

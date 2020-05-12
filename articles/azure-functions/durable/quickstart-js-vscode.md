@@ -3,20 +3,18 @@ title: Creación de la primera función durable en Azure con JavaScript
 description: Cree y publique una instancia de Azure Durable Functions con Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80257655"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889663"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
 
 *Durable Functions* es una extensión de [Azure Functions](../functions-overview.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 En este artículo, aprenderá a usar la extensión de Azure Functions para Visual Studio Code con el fin de crear y probar localmente una función durable "Hola mundo".  Esta función organizará y encadenará llamadas a otras funciones. Luego, publicará el código de función en Azure.
 
@@ -61,7 +59,7 @@ Visual Studio Code instala Azure Functions Core Tools, en caso de que sea neces
 
 También se crea un archivo package.json en la carpeta raíz.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Habilitación del modo de compatibilidad de Azure Functions V2
+### <a name="enable-compatibility-mode"></a>Habilitación del modo de compatibilidad
 
 Actualmente, JavaScript Durable Functions requiere que esté habilitado el modo de compatibilidad de Azure Functions V2.
 
@@ -204,7 +202,7 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Habilitación del modo de compatibilidad de Azure Functions V2
+### <a name="enable-compatibility-mode"></a>Habilitación del modo de compatibilidad
 
 La misma compatibilidad con Azure Functions V2 que se ha habilitado localmente debe estar habilitada en la aplicación de Azure.
 
