@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390294"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791500"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Azure Hive en Azure HDInsight
 
@@ -198,5 +198,6 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para más información, vea los siguientes artículos:
 
 * [Uso de Apache Hive en HDInsight](hadoop/hdinsight-use-hive.md)
+* [Optimización de Apache Hive](./optimize-hive-ambari.md)
 * [Análisis de datos de retraso de vuelos con Interactive Query en HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Análisis de datos de Twitter con Apache Hive en HDInsight](hdinsight-analyze-twitter-data-linux.md)

@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870214"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611405"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -45,11 +45,13 @@ Cree y capture una imagen de máquina virtual y, a continuación, úsela como or
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Si reduzco la capacidad de mi conjunto de escalado de 20 a 15, ¿qué máquinas virtuales se quitan?
 
-Las máquinas virtuales se quitan uniformemente del conjunto de escalado tanto en los dominios de actualización como en los dominios de error para maximizar su disponibilidad. Primero se quitan las máquinas virtuales que tengan los identificadores más altos.
+De forma predeterminada, las máquinas virtuales se quitan del conjunto de escalado uniformemente entre zonas de disponibilidad (si el conjunto de escalado está implementado con una configuración por zonas) y los dominios de error para maximizar la disponibilidad. Primero se quitan las máquinas virtuales que tengan los identificadores más altos.
+
+Para cambiar el orden de eliminación de máquinas virtuales, especifique una [directiva de reducción horizontal](virtual-machine-scale-sets-scale-in-policy.md) para el conjunto de escalado.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>¿Y si después se aumenta la capacidad de 15 a 18?
 
-Si aumenta la capacidad a 18, se crearán 3 máquinas virtuales. Cada vez, el identificador de la instancia de máquina virtual se aumenta a partir del mayor valor anterior (por ejemplo, 20, 21 y 22). Las máquinas virtuales están equilibradas entre los dominios de error y los dominios de actualización.
+Si aumenta la capacidad a 18, se crearán 3 máquinas virtuales. Cada vez, el identificador de la instancia de máquina virtual se aumenta a partir del mayor valor anterior (por ejemplo, 20, 21 y 22). Las VM se equilibran entre dominios de error.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Si se usan varias extensiones en un conjunto de escalado, ¿se puede exigir una secuencia de ejecución?
 
@@ -335,13 +337,13 @@ Para más información, consulte el [Centro de confianza de Microsoft](https://w
 
 Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de inicio rápido de Azure para  [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) y [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Eliminando 
+## <a name="deleting"></a>Eliminando
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>¿Se respetarán los bloqueos que establezca en las instancias del conjunto de escalado de máquinas virtuales al eliminar las instancias?
 
-En Azure Portal, puede eliminar una instancia individual o realizar una eliminación masiva mediante la selección de varias instancias. Si intenta eliminar una única instancia que tiene un bloqueo, se respeta el bloqueo y la instancia no se puede eliminar. Sin embargo, si selecciona de forma masiva varias instancias y cualquiera de esas instancias tiene un bloqueo, no se respetarán los bloqueos y se eliminarán todas las instancias seleccionadas. 
- 
-En la CLI de Azure, solo puede eliminar una instancia individual. Si intenta eliminar una única instancia que tiene un bloqueo, se respeta el bloqueo y la instancia no se puede eliminar. 
+En Azure Portal, puede eliminar una instancia individual o realizar una eliminación masiva mediante la selección de varias instancias. Si intenta eliminar una única instancia que tiene un bloqueo, se respeta el bloqueo y la instancia no se puede eliminar. Sin embargo, si selecciona de forma masiva varias instancias y cualquiera de esas instancias tiene un bloqueo, no se respetarán los bloqueos y se eliminarán todas las instancias seleccionadas.
+
+En la CLI de Azure, solo puede eliminar una instancia individual. Si intenta eliminar una única instancia que tiene un bloqueo, se respeta el bloqueo y la instancia no se puede eliminar.
 
 ## <a name="extensions"></a>Extensiones
 

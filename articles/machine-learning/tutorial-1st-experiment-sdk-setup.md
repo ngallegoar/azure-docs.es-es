@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273008"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779026"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Puede crear un área de trabajo mediante Azure Portal, una consola basada en web
 
 En este tutorial se usa el servidor de cuadernos en la nube del área de trabajo para obtener una experiencia sin instalación y configurada previamente. Si prefiere tener control sobre su entorno, los paquetes y las dependencias, use [su propio entorno](how-to-configure-environment.md#local).
 
-Siga este vídeo o use los pasos detallados que se indican a continuación para clonar y ejecutar el tutorial desde el área de trabajo. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Use los pasos detallados que se indican a continuación para clonar y ejecutar el tutorial desde el área de trabajo. 
 
 ### <a name="clone-a-notebook-folder"></a>Clonación de la carpeta de un cuaderno
 
@@ -63,7 +59,7 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
 
 1. Seleccione **Notebooks** en la parte izquierda.
 
-1. Abra la carpeta **Samples** (Muestras).
+1. Seleccione la pestaña **Ejemplos** en la parte superior.
 
 1. Abra la carpeta **Python**.
 
@@ -71,26 +67,33 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
 
 1. Seleccione **"..."** a la derecha de la carpeta **tutorials** (tutoriales) y seleccione **Clone** (Clonar).
 
-    ![Carpeta clonada](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Clonación de la carpeta tutorials":::
 
 1. Aparece una lista de las carpetas que muestran los usuarios con acceso al área de trabajo.  Seleccione la carpeta donde se va a clonar la carpeta **tutorials**.
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Apertura del cuaderno clonado
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>Apertura del cuaderno clonado
 
-1. En **User files** (Archivos de usuario), abra su carpeta y, después, la carpeta clonada **tutorials** (tutoriales).
-
-    ![Apertura de la carpeta tutorials (tutoriales)](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Abra la carpeta **tutorials** que se acaba de cerrar en la sección **Archivos de usuario**.
 
     > [!IMPORTANT]
     > Puede ver los cuadernos en la carpeta **samples** (ejemplos), pero no puede ejecutar un cuaderno desde aquí.  Para ejecutar un cuaderno, asegúrese de que abre la versión clonada del cuaderno en la sección **User Files** (Archivos de usuario).
     
 1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials/create-first-ml-experiment**.
 
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Apertura de la carpeta tutorials":::
+
+
 1. En la barra superior, seleccione una instancia de proceso para usarla para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con [todo lo necesario para ejecutar Azure Machine Learning](concept-compute-instance.md#contents). 
 
 1. Si no encuentra ninguna máquina virtual, seleccione **+ Add** (+ Agregar) para crear la máquina virtual de instancia de proceso. 
 
-    1. Al crear una máquina virtual, proporciónele un nombre;  este debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el guion (-), y también deben ser únicos en toda la suscripción de Azure.
+    1. Al crear una máquina virtual, siga estas reglas:  
+        + El nombre es obligatorio y no puede estar vacío.
+        + Debe ser único (no distingue mayúsculas de minúsculas) en todas las instancias de proceso existentes en la región de Azure del área de trabajo o la instancia de proceso. En caso contrario, recibirá una alerta.
+        + Caracteres válidos son letras mayúsculas y minúsculas, números (del 0 al 9) y guiones (-).
+        + Debe contener entre 3 y 24 caracteres.
+        + Debe empezar por una letra (no un número ni un guion).
+        + Si se usa el guion, debe ir seguido al menos de una letra. Ejemplo: Test-, test-0, test-01 no son válidos, mientras que test-a0 y test-0a son ejemplos válidos.
 
     1.  Seleccione el tamaño de la máquina virtual de entre las opciones disponibles.
 

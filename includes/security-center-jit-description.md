@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: c77849b2285283a34e6adf84dc3845a4076407af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597954"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82616097"
 ---
 ## <a name="attack-scenario"></a>Escenario de ataque
 
@@ -29,9 +29,16 @@ Cuando un usuario solicita acceso a una máquina virtual, Security Center compru
  > Si se aprueba una solicitud de acceso JIT para una VM detrás de una instancia de Azure Firewall, Security Center cambia automáticamente las reglas de directiva de NSG y el firewall. Para la cantidad de tiempo que se especificó, las reglas permiten tráfico entrante a los puertos seleccionados y las direcciones o rangos IP de origen solicitados. Una vez transcurrido el tiempo, Security Center restaura las reglas del firewall y NSG a su estado anterior.
 
 
+## <a name="roles-that-can-read-jit-policies"></a>Roles que pueden leer directivas JIT
+
+Los roles **Lector** y **Lector de seguridad** pueden leer directivas.
+
 ## <a name="permissions-needed-to-configure-and-use-jit"></a>Permisos necesarios para configurar y usar JIT
+
+Si quiere crear roles personalizados que puedan funcionar con JIT, necesita los siguientes detalles:
 
 | Para permitir a los usuarios: | Permisos que se deben establecer|
 | --- | --- |
 | Configurar o editar una directiva JIT para una VM | *Asigne estas acciones al rol.*  <ul><li>En el ámbito de una suscripción o un grupo de recursos asociados a la máquina virtual:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> En el ámbito de una suscripción o grupo de recursos de una máquina virtual: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Solicitud de acceso Just-In-Time a una máquina virtual | *Asigne estas acciones al usuario.*  <ul><li>En el ámbito de una suscripción o un grupo de recursos asociados a la máquina virtual:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>En el ámbito de una suscripción o un grupo de recursos asociados a la máquina virtual:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  En el ámbito de una suscripción, un grupo de recursos o una máquina virtual:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  En el ámbito de una suscripción, un grupo de recursos o una máquina virtual:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
+|Leer directivas JIT| *Asigne estas acciones al usuario.*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|

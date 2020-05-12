@@ -37,8 +37,10 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Conceptos
       items:
-        - name: Componentes de Apache Hadoop en HDInsight
+        - name: Componentes de Apache en HDInsight
           href: ./hdinsight-component-versioning.md
+        - name: Enterprise Security Package
+          href: ./enterprise-security-package.md
         - name: Notas de la versión de Hortonworks
           href: ./hortonworks-release-notes.md
         - name: Componentes de alta disponibilidad

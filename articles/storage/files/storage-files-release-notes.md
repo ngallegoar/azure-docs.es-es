@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4cb5a3d471aa3131d3233841cd6450f0a968dfe7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460671"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800981"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -25,7 +25,7 @@ Las siguientes versiones son compatibles con Azure File Sync:
 
 | Hito | Número de versión del agente | Fecha de la versión | Status |
 |----|----------------------|--------------|------------------|
-| Versión V10: [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | 9 de abril de 2020 | Piloto |
+| Versión V10: [4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 de abril de 2020 | Piloto |
 | Paquete acumulativo de las actualizaciones de diciembre de 2019: [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 de diciembre de 2019 | Compatible |
 | Versión V9 - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de diciembre de 2019 | Compatible |
 | Versión V8 - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de octubre de 2019 | Compatible |

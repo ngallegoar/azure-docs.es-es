@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461470"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838763"
 ---
 # <a name="expressroute-encryption"></a>Cifrado de ExpressRoute
  
@@ -31,7 +31,7 @@ No. Si MACsec se configura y se produce una discrepancia en la clave, se pierde 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>¿Al habilitarse MACsec en ExpressRoute Direct se degradará el rendimiento de la red?
 El cifrado y el descifrado de MACsec se produce en el hardware de los enrutadores que usamos. No hay ningún efecto en el rendimiento por nuestra parte. Sin embargo, debe consultar al proveedor de la red los dispositivos que usa y comprobar si MACsec tiene alguna implicación en su rendimiento.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>¿Qué conjuntos de cifrado se admiten para el cifrado?
-Se admiten AES128 y AES256.
+Solo se admite la versión de [números de paquetes extendidos](https://1.ieee802.org/security/802-1aebw/) de AES128 y AES256. Además, deshabilite el [identificador de canal seguro (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) en la configuración MACsec del dispositivo. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Preguntas frecuentes sobre el cifrado de un extremo a otro de IPsec
 IPsec es un [estándar de IETF](https://tools.ietf.org/html/rfc6071). Cifra los datos en el nivel Protocolo de Internet (IP) o Capa 3 de red. Puede usar IPsec para cifrar una conexión de un extremo a otro entre la red local y la red virtual (VNET) en Azure. Vea otras preguntas frecuentes a continuación.

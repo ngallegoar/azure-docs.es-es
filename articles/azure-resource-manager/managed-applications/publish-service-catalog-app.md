@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391505"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609364"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Inicio rápido: Creación y publicación de una definición de aplicación administrada
 
@@ -290,7 +290,7 @@ Algunos de los parámetros usados en el ejemplo anterior son:
 
 * **grupo de recursos**: El nombre del grupo de recursos donde se creó la definición de aplicación administrada.
 * **nivel de bloqueo**: El tipo de bloqueo aplicado al grupo de recursos administrado. Impide que el cliente realice operaciones no deseadas en este grupo de recursos. Actualmente, ReadOnly es el único nivel de bloqueo admitido. Cuando se especifica ReadOnly, el cliente solo puede leer los recursos presentes en el grupo de recursos administrado. Las identidades del publicador a las que se concede acceso al grupo de recursos administrados están exentas del bloqueo.
-* **authorizations**: Describe el identificador de entidad de seguridad y el identificador de definición de rol que se usan para conceder el permiso al grupo de recursos administrado. Se especifica en el formato `<principalId>:<roleDefinitionId>`. Si se necesita más de un valor, especifíquelos en el formulario `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Los valores van separados por un espacio.
+* **authorizations**: Describe el identificador de entidad de seguridad y el identificador de definición de rol que se usan para conceder el permiso al grupo de recursos administrado. Se especifica en el formato `<principalId>:<roleDefinitionId>`. Si se necesita más de un valor, especifíquelos en el formulario `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Los valores van separados por una coma.
 * **URI del archivo de paquete**: La ubicación de un paquete .zip que contiene los archivos necesarios.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traiga su propio almacenamiento para la definición de aplicación administrada

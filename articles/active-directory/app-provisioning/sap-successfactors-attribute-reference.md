@@ -1,33 +1,37 @@
 ---
-title: Referencia de atributos de SAP SuccessFactors | Microsoft Docs
+title: Referencia de atributos de SuccessFactors de SAP
 description: Obtenga información sobre qué atributos de SuccessFactors se admiten con el aprovisionamiento controlado por RR. HH. de SuccessFactors.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: celested
+ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77522363"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593191"
 ---
-# <a name="sap-successfactors-attribute-reference"></a>Referencia de atributos de SAP SuccessFactors
+# <a name="sap-successfactors-attribute-reference"></a>Referencia de atributos de SuccessFactors de SAP
 
-## <a name="supported-successfactors-entities-and-attributes"></a>Entidades y atributos de SuccessFactors compatibles
+En este artículo se ofrece información sobre:
 
-En la tabla siguiente se incluye la lista de atributos de SuccessFactors compatibles con las dos aplicaciones de aprovisionamiento siguientes: 
-* [Aprovisionamiento de usuarios de SuccessFactors a Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-* [Aprovisionamiento de usuarios de SuccessFactors a Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
+- [Entidades y atributos admitidos de SuccessFactors](#supported-successfactors-entities-and-attributes)
+- [Asignación predeterminada de atributos](#default-attribute-mapping)
+
+## <a name="supported-successfactors-entities-and-attributes"></a>Entidades y atributos admitidos de SuccessFactors
+
+En la tabla siguiente se incluye la lista de atributos de SuccessFactors compatibles con las dos aplicaciones de aprovisionamiento siguientes:
+
+- [Aprovisionamiento de usuarios de SuccessFactors a Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [Aprovisionamiento de usuarios de SuccessFactors a Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+
 
 | \# | Entidad de SuccessFactors                  | Atributo de SuccessFactors     | Tipo de operación |
 |----|----------------------------------------|------------------------------|----------------|
@@ -111,7 +115,6 @@ En la tabla siguiente se incluye la lista de atributos de SuccessFactors compati
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Lectura           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Lectura           |
 
-
 ## <a name="default-attribute-mapping"></a>Asignación predeterminada de atributos
 
 En la siguiente tabla se indica la asignación predeterminada de atributos entre los atributos de SuccessFactors enumerados anteriormente y los atributos de AD/Azure AD. En la hoja "Asignación" de la aplicación de aprovisionamiento de Azure AD, puede modificar esta asignación predeterminada para incluir atributos de la lista anterior. 
@@ -138,4 +141,3 @@ En la siguiente tabla se indica la asignación predeterminada de atributos entre
 | 18 | EmpJob\.Location                       | officeLocationAddress    | streetAddress                           | N/D                                                                                           |
 | 19 | EmpJob\.Location                       | officeLocationZipCode    | postalCode                              | N/D                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | Si activeEmploymentsCount = 0, deshabilita la cuenta.                                           |
-

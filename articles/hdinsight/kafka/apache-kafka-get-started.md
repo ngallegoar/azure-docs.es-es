@@ -7,23 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/24/2020
-ms.openlocfilehash: 90f7010970f70379c8adecc4214c44d896a1beaf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/29/2020
+ms.openlocfilehash: 0f6e1a7b8ac4dce0504fca5f03090588a75ae1ef
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80130254"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732448"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal
 
 [Apache Kafka](./apache-kafka-introduction.md) es una plataforma de streaming distribuida y de código abierto. A menudo se usa como agente de mensajes, ya que proporciona una funcionalidad similar a una cola de mensajes de publicación o suscripción.
 
-En este inicio rápido aprenderá a crear un clúster de Apache Kafka con Azure Portal. También aprenderá a usar las utilidades incluidas para enviar y recibir mensajes con Apache Kafka. Para una explicación detallada de las configuraciones disponibles, consulte el artículo sobre la [configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información sobre el uso del portal para crear clústeres, consulte el artículo sobre la [creación de clústeres en el portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
+En este inicio rápido aprenderá a crear un clúster de Apache Kafka mediante Azure Portal. También aprenderá a usar las utilidades incluidas para enviar y recibir mensajes con Apache Kafka. Para una explicación detallada de las configuraciones disponibles, consulte el artículo sobre la [configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para más información sobre el uso del portal para crear clústeres, consulte el artículo sobre la [creación de clústeres en el portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de Apache Kafka. En esta guía de inicio rápido, tendrá acceso al clúster directamente mediante SSH. Para conectar otros servicios, redes o máquinas virtuales con Apache Kafka, primero debe crear una red virtual y, a continuación, crear los recursos dentro de la red. Para más información, consulte el documento [Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md).
+Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de Apache Kafka. En este inicio rápido, accederá al clúster directamente mediante SSH. Para conectar otros servicios, redes o máquinas virtuales con Apache Kafka, primero debe crear una red virtual y, a continuación, crear los recursos dentro de la red. Para más información, consulte el documento [Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md). Para más información general sobre la planificación de redes virtuales para HDInsight, consulte [Planificación de una red virtual para Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -78,7 +78,7 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
 
     Seleccione la pestaña **Seguridad y redes**.
 
-1. En esta guía de inicio rápido, deje la configuración predeterminada de seguridad. Para más información acerca de Enterprise Security Package, visite [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para aprender a usar su propia clave para el Cifrado de disco de Apache Kafka, visite [Cifrado de disco mediante claves administradas por el cliente](../disk-encryption.md).
+1. En este inicio rápido, deje la configuración de seguridad predeterminada. Para más información acerca de Enterprise Security Package, visite [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para aprender a usar su propia clave para el Cifrado de disco de Apache Kafka, visite [Cifrado de disco mediante claves administradas por el cliente](../disk-encryption.md).
 
    Si desea conectar su clúster a una red virtual, seleccione una red virtual desde la lista desplegable **Red virtual**.
 
@@ -167,7 +167,7 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
     ```
 
     > [!Note]  
-    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde una máquina que pueda acceder a Ambari. 
+    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde una máquina que pueda acceder a Ambari.
 
 1. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
@@ -186,7 +186,7 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
     ```
 
     > [!Note]  
-    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde una máquina que pueda acceder a Ambari. 
+    > Este comando requiere acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute este comando desde una máquina que pueda acceder a Ambari.
 
 1. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
@@ -214,21 +214,21 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
 
     * Cada partición se replica en tres nodos de trabajo del clúster.
 
-        Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
+        * Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
         
-        En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
+        * En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
         
-        Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        * Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        Apache Kafka no es compatible con dominios de error de Azure. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad.
+        * Apache Kafka no es compatible con dominios de error de Azure. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad.
 
-        Para garantizar la alta disponibilidad, use la [herramienta de reequilibrado de particiones de Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta herramienta se debe ejecutar desde una conexión SSH en el nodo principal del clúster de Apache Kafka.
+        * Para garantizar la alta disponibilidad, use la [herramienta de reequilibrado de particiones de Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta herramienta se debe ejecutar desde una conexión SSH en el nodo principal del clúster de Apache Kafka.
 
-        Para obtener la máxima disponibilidad de los datos de Apache Kafka, debe reequilibrar las réplicas de las particiones del tema cuando:
+        * Para obtener la máxima disponibilidad de los datos de Apache Kafka, debe reequilibrar las réplicas de las particiones del tema cuando:
 
-        * Cree un nuevo tema o una partición
+            * Cree un nuevo tema o una partición
 
-        * Escale verticalmente un clúster
+            * Escale verticalmente un clúster
 
 * **Para mostrar temas**, use el comando siguiente:
 

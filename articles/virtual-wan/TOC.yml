@@ -10,6 +10,8 @@
           href: migrate-from-hub-spoke-topology.md
         - name: Arquitectura de red de tránsito global
           href: virtual-wan-global-transit-network-architecture.md
+        - name: Arquitectura de conectividad SD-WAN
+          href: sd-wan-connectivity-architecture.md
         - name: Interconexión con China
           href: interconnect-china.md
 - name: Tutoriales
@@ -86,7 +88,7 @@
       items:
         - name: Enrutamiento del tráfico desde una central virtual a NVA
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: virtual-wan-route-table-portal.md
             - name: Azure PowerShell
               href: virtual-wan-route-table.md

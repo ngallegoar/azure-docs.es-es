@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 4e7e9ea61d74eb38f3c225d66a39906bc18fe6d2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200527"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791160"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
@@ -50,6 +50,7 @@ Para transferir cualquier otra suscripción de un partner de CSP a cualquier otr
 
 1. Cree las suscripciones a Azure de destino.
 1. Asegúrese de que las suscripciones de origen y destino están en el mismo inquilino de Azure Active Directory (Azure AD). Para obtener más información sobre el cambio de un inquilino de Azure AD, consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Tenga en cuenta que el directorio de cambios no es la suscripción de CSP. Por ejemplo, pasa de un CSP a una suscripción de pago por uso y necesita cambiar el directorio de la suscripción de pago por uso para que coincida con el directorio.
 
     > [!IMPORTANT]
     >  - Al asociar una suscripción a un directorio diferente, los usuarios que tengan roles asignados mediante [RBAC](../../role-based-access-control/role-assignments-portal.md) pierden el acceso. Los administradores de suscripciones clásicas, incluidos el administrador y los coadministradores del servicio, también pierden el acceso.

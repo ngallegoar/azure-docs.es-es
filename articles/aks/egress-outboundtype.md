@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo definir una ruta de salida persona
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676504"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733505"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalización de la salida de un clúster con una ruta definida por el usuario (versión preliminar)
 
@@ -73,7 +73,7 @@ A continuación se muestra una topología de red implementada en clústeres de A
 
 Si se establece `userDefinedRouting`, AKS no configurará automáticamente las rutas de salida. Se espera que **el usuario** haga lo siguiente.
 
-El clúster debe implementarse en una red virtual existente con una subred que se haya configurado. Debe existir una ruta definida por el usuario (UDR) válida en la subred con conectividad de salida.
+El clúster de AKS debe implementarse en una red virtual existente con una subred que se haya configurado. Al usar la arquitectura de Standard Load Balancer (SLB), debe establecer salidas explícitas. Para ello, es necesario el envío de solicitudes de salida a un dispositivo como, por ejemplo, un firewall o una puerta de enlace en el entorno local, o permitir que una dirección IP pública asignada a Standard Load Balancer o a un nodo determinado realice la salida.
 
 El proveedor de recursos de AKS implementará un equilibrador de carga estándar (SLB). El equilibrador de carga no está configurado con ninguna regla y [no incurre en ningún cargo hasta que se coloca una regla](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **no** aprovisiona automáticamente una dirección IP pública para el servidor front-end del equilibrador de carga estándar. AKS **no** configura automáticamente el grupo de back-end del equilibrador de carga.
 

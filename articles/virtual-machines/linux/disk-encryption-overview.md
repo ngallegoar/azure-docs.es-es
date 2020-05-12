@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548432"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838865"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -28,7 +28,7 @@ Si utiliza [Azure Security Center](../../security-center/index.yml), se le alert
 > - Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones. Para crear recursos en Azure en las regiones admitidas, debe tener una suscripción válida de Azure activa.
 > - Actualmente, las máquinas virtuales de generación 2 no admiten Azure Disk Encryption. Vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) para obtener más información.
 
-Para obtener información sobre los aspectos básicos de Azure Disk Encryption para Linux en unos minutos, consulte [Inicio rápido: Creación y cifrado de una VM Linux con la CLI de Azure](disk-encryption-cli-quickstart.md) o [Inicio rápido: Creación y cifrado de una VM Linux con Azure Powershell](disk-encryption-powershell-quickstart.md).
+Para obtener información sobre los aspectos básicos de Azure Disk Encryption para Linux en unos minutos, consulte [Inicio rápido: Creación y cifrado de una VM Linux con la CLI de Azure](disk-encryption-cli-quickstart.md) o [Inicio rápido: Creación y cifrado de una VM Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
 ## <a name="supported-vms-and-operating-systems"></a>VM y sistemas operativos compatibles
 
@@ -46,7 +46,7 @@ Una vez completado el proceso de cifrado de disco del sistema operativo en las m
 
 Azure Disk Encryption también está disponible para las VM con almacenamiento Premium.
 
-Azure Disk Encryption no está disponible en [máquinas virtuales de segunda generación](generation-2.md#generation-1-vs-generation-2-capabilities) y [máquinas virtuales de la serie Lsc2](../lsv2-series.md). Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-linux.md#unsupported-scenarios).
+Azure Disk Encryption no está disponible en [máquinas virtuales de segunda generación](generation-2.md#generation-1-vs-generation-2-capabilities) ni en las [máquinas virtuales de la serie Lsv2](../lsv2-series.md). Para ver más excepciones, consulte [Azure Disk Encryption: escenarios no admitidos](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -56,29 +56,36 @@ Azure Disk Encryption se admite en un subconjunto de las [distribuciones de Linu
 
 Las distribuciones de servidores Linux que no están aprobadas por Azure no admiten Azure Disk Encryption; de las que están aprobadas, solo las siguientes distribuciones y versiones admiten Azure Disk Encryption:
 
-| Distribución de Linux | Versión | Tipo de volumen admitido para el cifrado|
-| --- | --- |--- |
-| Ubuntu | 18,04| Sistema operativo y disco de datos |
-| Ubuntu | 16.04| Sistema operativo y disco de datos |
-| Ubuntu | 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | Sistema operativo y disco de datos |
-| RHEL | 7,7 | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RHEL | 7.6 | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RHEL | 7.5 | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RHEL | 7.4 | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RHEL | 7.3 | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RHEL | 7.2 | Sistema operativo y disco de datos (véase la nota siguiente) |
-| RHEL | 6,8 | Disco de datos (véase la nota siguiente) |
-| RHEL | 6.7 | Disco de datos (véase la nota siguiente) |
-| CentOS | 7,7 | Sistema operativo y disco de datos |
-| CentOS | 7.6 | Sistema operativo y disco de datos |
-| CentOS | 7.5 | Sistema operativo y disco de datos |
-| CentOS | 7.4 | Sistema operativo y disco de datos |
-| CentOS | 7.3 | Sistema operativo y disco de datos |
-| CentOS | 7.2n | Sistema operativo y disco de datos |
-| CentOS | 6,8 | Disco de datos |
-| openSUSE | 42.3 | Disco de datos |
-| SLES | 12-SP4 | Disco de datos |
-| SLES | 12-SP3 | Disco de datos |
+| Publicador | Oferta | SKU | URN | Tipo de volumen admitido para el cifrado |
+| --- | --- |--- | --- |
+| Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | Sistema operativo y disco de datos |
+| Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | Sistema operativo y disco de datos |
+| Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | Sistema operativo y disco de datos |
+| Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Sistema operativo y disco de datos |
+| Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Sistema operativo y disco de datos |
+| RedHat | RHEL 7.7 | 7,7 | RedHat:RHEL:7.7:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 7.3 | 7.3 | RedHat:RHEL:7.3:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 6.8 | 6,8 | RedHat:RHEL:6.8:latest | Disco de datos (véase la nota siguiente) |
+| RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disco de datos (véase la nota siguiente) |
+| OpenLogic | CentOS 7.7 | 7,7 | OpenLogic:CentOS:7.7:latest | Sistema operativo y disco de datos |
+| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | Sistema operativo y disco de datos |
+| OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Sistema operativo y disco de datos |
+| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | Sistema operativo y disco de datos |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | Sistema operativo y disco de datos |
+| OpenLogic | CentOS 7.3 | 7.3 | OpenLogic:CentOS:7.3:latest | Sistema operativo y disco de datos |
+| OpenLogic | CentOS 7.2n | 7.2n | OpenLogic:CentOS:7.2n:latest | Sistema operativo y disco de datos |
+| OpenLogic | CentOS 7.1 | 7.1 | OpenLogic:CentOS:7.1:latest | Solo el disco de datos |
+| OpenLogic | CentOS 7.0 | 7.0 | OpenLogic:CentOS:7.0:latest | Solo el disco de datos |
+| OpenLogic | CentOS 6.8 | 6,8 | OpenLogic:CentOS:6.8:latest | Solo el disco de datos |
+| SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Solo el disco de datos |
+| SUSE | SLES 12-SP4 | 12-SP4 | SUSE:SLES:12-SP4:latest | Solo el disco de datos |
+| SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Solo el disco de datos |
 
 > [!NOTE]
 > La nueva implementación de Azure Disk Encryption se admite para el sistema operativo RHEL y el disco de datos para las imágenes de Pago por uso de RHEL7.  
@@ -105,7 +112,7 @@ Para habilitar la característica Azure Disk Encryption, las VM Linux deben cump
   - Para que un token se conecte al almacén de claves, la VM Linux debe poder conectarse a un punto de conexión de Azure Active Directory, \[login.microsoftonline.com\].
   - Para escribir las claves de cifrado en el almacén de claves, la VM Linux debe poder conectarse al punto de conexión del almacén de claves.
   - La VM Linux debe poder conectarse al punto de conexión de Azure Storage que hospeda el repositorio de extensiones de Azure y la cuenta de Azure Storage que hospeda los archivos VHD.
-  -  Si su directiva de seguridad limita el acceso desde máquinas virtuales de Azure a Internet, puede resolver el URI anterior y configurar una regla concreta para permitir la conectividad de salida para las direcciones IP. Para más información, consulte [Azure Key Vault detrás de un firewall](../../key-vault/key-vault-access-behind-firewall.md).  
+  -  Si su directiva de seguridad limita el acceso desde máquinas virtuales de Azure a Internet, puede resolver el URI anterior y configurar una regla concreta para permitir la conectividad de salida para las direcciones IP. Para más información, consulte [Azure Key Vault detrás de un firewall](../../key-vault/general/access-behind-firewall.md).  
 
 ## <a name="encryption-key-storage-requirements"></a>Requisitos de almacenamiento de la clave de cifrado  
 

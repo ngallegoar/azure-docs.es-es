@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529880"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691337"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -37,7 +37,7 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo. Siga estos pasos para configurar el contenedor de Docker. Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> OCR Form Labeling Tool también está disponible como proyecto de código abierto en GitHub. La herramienta es una aplicación web compilada mediante React + Redux y está escrita en TypeScript. Para más información o para contribuir, consulte [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> OCR Form Labeling Tool también está disponible como proyecto de código abierto en GitHub. La herramienta es una aplicación web en TypeScript compilada mediante React + Redux. Para más información o para realizar una contribución, consulte el repositorio [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application). Para probar la herramienta en línea, vaya al [sitio web de FOTT](https://fott.azurewebsites.net/).   
 
 1. En primer lugar, instale Docker en un equipo host. En esta guía se muestra cómo usar el equipo local como un host. Si desea usar un servicio de hospedaje de Docker en Azure, consulte la guía paso a paso [Implementación de la herramienta de etiquetado de ejemplo](../deploy-label-tool.md). 
 
@@ -61,7 +61,7 @@ Usará el motor de Docker para ejecutar la herramienta de etiquetado de ejemplo.
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Este comando hará que la herramienta de etiquetado de ejemplo esté disponible mediante un explorador web. Vaya a [http://localhost:3000](http://localhost:3000).
+   Este comando hará que la herramienta de etiquetado de ejemplo esté disponible mediante un explorador web. Ir a `http://localhost:3000`.
 
 > [!NOTE]
 > También puede etiquetar documentos y entrenar modelos mediante la API REST de Form Recognizer. Para entrenar y analizar con la API REST, consulte [Entrenamiento con etiquetas mediante la API REST y Python](./python-labeled-data.md).

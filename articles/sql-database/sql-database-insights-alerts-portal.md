@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/04/2020
+ms.openlocfilehash: 37eabd4b2f61a82388b1c8d0aaf4aef2320f008e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79209479"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801814"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Creación de alertas para bases de datos de Azure SQL Database y Azure Synapse Analytics mediante Azure Portal
 
@@ -24,8 +24,8 @@ ms.locfileid: "79209479"
 
 En este artículo se muestra cómo configurar las alertas de bases de datos de almacenamiento de datos, agrupadas y únicas en Azure SQL Database y Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) desde Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral. En este artículo también se indican procedimientos recomendados para establecer periodos de alerta.
 
-> [!IMPORTANT]
-> Esta característica todavía no está disponible en la Instancia administrada. Como alternativa, puede utilizar el agente de SQL para enviar alertas por correo electrónico para algunas métricas basadas en [vistas de administración dinámica](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> [!NOTE]
+> Para obtener instrucciones específicas para la instancia administrada de SQL, consulte [Creación de alertas para Instancia administrada de Azure SQL Database](sql-database-managed-instance-alerts.md).
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 

@@ -3,13 +3,12 @@ title: Supervisar el rendimiento de Azure App Services | Microsoft Docs
 description: Supervisión del rendimiento de aplicaciones de Azure App Services. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729804"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733471"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -71,7 +70,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
     * Por ejemplo, para cambiar el porcentaje de muestreo inicial, puede crear una configuración de la aplicación de `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` y un valor de `100`.
 
-    * Para obtener la lista de valores de configuración de procesador de telemetría de muestreo adaptable compatibles, puede consultar el [código](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) y la [documentación asociada](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Para obtener la lista de valores de configuración de procesador de telemetría de muestreo adaptable compatibles, puede consultar el [código](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) y la [documentación asociada](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -399,7 +398,11 @@ Para obtener la información más reciente sobre la extensión o el agente de Ap
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP y WordPress no se admiten
 
-Los sitios de PHP y WordPress no se admiten. Actualmente, no hay ningún SDK/agente compatible oficialmente para la supervisión del lado servidor de estas cargas de trabajo. Sin embargo, la instrumentación manual de transacciones del lado cliente en un sitio de PHP o WordPress agregando el JavaScript del lado cliente a las páginas web puede realizarse mediante el [SDK de JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+Los sitios de PHP y WordPress no se admiten. Actualmente, no hay ningún SDK/agente compatible oficialmente para la supervisión del lado servidor de estas cargas de trabajo. Sin embargo, la instrumentación manual de transacciones del lado cliente en un sitio de PHP o WordPress agregando el JavaScript del lado cliente a las páginas web puede realizarse mediante el [SDK de JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### <a name="connection-string-and-instrumentation-key"></a>Cadena de conexión y clave de instrumentación
+
+Al utilizar la supervisión sin código, solo se requiere la cadena de conexión. Sin embargo, todavía se recomienda establecer la clave de instrumentación para mantener la compatibilidad con versiones anteriores de SDK cuando se realiza la instrumentación manual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejecute el generador de perfiles en la aplicación activa](../app/profiler.md).

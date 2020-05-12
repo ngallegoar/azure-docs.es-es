@@ -3,12 +3,12 @@ title: Uso de PowerShell para hacer una copia de seguridad de Windows Server en 
 description: En este artículo aprenderá  usar PowerShell para configurar Azure Backup en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673188"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597984"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 
@@ -78,7 +78,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="installing-the-azure-backup-agent"></a>Instalación del agente de Azure Backup
 
-Antes de instalar el agente de Azure Backup, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft](https://aka.ms/azurebackup_agent) o en la página Panel del almacén de Recovery Services. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\Downloads\*.
+Antes de instalar el agente de Azure Backup, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft](https://aka.ms/azurebackup_agent) o en la página Panel del almacén de Recovery Services. Guarde el instalador en una ubicación que tenga fácil acceso, como `C:\Downloads\*`.
 
 Como alternativa, use PowerShell para obtener la aplicación de descarga:
 
@@ -209,7 +209,12 @@ Server properties updated successfully.
 
 Los datos de copia de seguridad enviados a Azure Backup se cifran para proteger la confidencialidad de los datos. La frase de contraseña de cifrado es la "contraseña" que permite descifrar los datos en el momento de la restauración.
 
-Debe generar un PIN de seguridad seleccionando **Generar** en **Configuración** > **Propiedades** > **PIN de seguridad** en la sección **Almacén de Recovery Services**. A continuación, úselo como el `generatedPIN` en el comando:
+Debe generar un PIN de seguridad seleccionando **Generar** en **Configuración** > **Propiedades** > **PIN de seguridad** en la sección **Almacén de Recovery Services**. 
+
+>[!NOTE]
+> El PIN de seguridad solo se puede generar desde Azure Portal.
+
+A continuación, úselo como el `generatedPIN` en el comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force

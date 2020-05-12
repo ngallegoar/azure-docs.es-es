@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure'
-description: Introducción a la creación de un rol personalizado para los recursos de Azure con la CLI de Azure.
+title: 'Tutorial: Creación de un rol personalizado de Azure con la CLI de Azure: Azure RBAC'
+description: En este tutorial aprenderá a crear un rol personalizado de Azure mediante la CLI de Azure y el control de acceso basado en rol de Azure (Azure RBAC).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3efe9670d03a754cc90689c4b66d0843de4e275f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224072"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735511"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure
+# <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Creación de un rol personalizado de Azure con la CLI de Azure
 
-Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo lo relativo a la administración de una suscripción y también abrir incidencias de soporte técnico.
+Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los suyos propios. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo lo relativo a la administración de una suscripción y también abrir incidencias de soporte técnico.
 
 En este tutorial, aprenderá a:
 
@@ -61,7 +61,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida una pl
 
 1. Abra ReaderSupportRole.json en un editor y agregue el siguiente código JSON.
 
-    Para obtener información sobre las distintas propiedades, consulte [Roles personalizados para recursos de Azure](custom-roles.md).
+    Para información sobre las distintas propiedades, consulte [Roles personalizados de Azure](custom-roles.md).
 
     ```json
     {
@@ -269,4 +269,4 @@ Para actualizar el rol personalizado, actualice el archivo JSON y, a continuaci�
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de roles personalizados para los recursos de Azure con la CLI de Azure](custom-roles-cli.md)
+> [Creación o actualización de roles personalizados de Azure con la CLI de Azure](custom-roles-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure'
-description: En este inicio rápido, aprenderá a ver el acceso de un usuario u otra entidad de seguridad a los recursos de Azure mediante el control de acceso basado en rol (RBAC) y Azure Portal.
+title: 'Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure (Azure RBAC)'
+description: En este inicio rápido, aprenderá a ver el acceso que un usuario u otra entidad de seguridad tienen a los recursos de Azure mediante Azure Portal y el control de acceso basado en rol (RBAC).
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74419605"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734168"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure
 
-Puede usar la hoja de **control de acceso (IAM)** en el [control de acceso basado en rol (RBAC)](overview.md) para ver el acceso de un usuario u otra entidad de seguridad a los recursos de Azure. Sin embargo, a veces basta ver rápidamente el acceso de un único usuario o de otra entidad de seguridad. La manera más fácil de hacerlo es usar la característica **Comprobar acceso** en Azure Portal.
+Puede usar la hoja **Control de acceso (IAM)** en [Control de acceso basado en rol (RBAC)](overview.md) para ver el acceso que un usuario u otra entidad de seguridad tienen a los recursos de Azure. Sin embargo, a veces basta ver rápidamente el acceso de un único usuario o de otra entidad de seguridad. La manera más fácil de hacerlo es usar la característica **Comprobar acceso** en Azure Portal.
 
 ## <a name="view-role-assignments"></a>Visualización de asignaciones de roles
 
@@ -54,4 +54,4 @@ Puede usar la hoja de **control de acceso (IAM)** en el [control de acceso basad
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
+> [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante Azure Portal](quickstart-assign-role-user-portal.md)

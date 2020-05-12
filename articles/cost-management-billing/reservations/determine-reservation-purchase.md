@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 1b639da3494c0527141347ca61e77980d29a59ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: feee7475dcadc6d06693d9e60020097f8dc9149c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135562"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628612"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Determinación de qué reserva comprar
 
 Todas las reservas, excepto Azure Databricks, se aplican por hora. Las reservas se deben comprar en función del uso base constante. Hay varias maneras de determinar qué reservas comprar y este artículo le va a ayudar a ello.
 
-La compra de una capacidad superior al uso histórico da lugar a una reserva infrautilizada. Siempre que sea posible, debe evitarlo. La capacidad reservada no utilizada no se acumula de una hora a la siguiente.  El uso por encima de la cantidad reservada se cobra con las tarifas de pago por uso más costosas.
+La compra de una capacidad superior al uso histórico da lugar a una reserva infrautilizada. Siempre que sea posible, debe evitarlo. La capacidad reservada no utilizada no se acumula de una hora a la siguiente. El uso por encima de la cantidad reservada se cobra con las tarifas de pago por uso más costosas.
 
 ## <a name="analyze-usage-data"></a>Análisis de los datos de uso
 
@@ -40,11 +40,11 @@ Omita los recursos que tengan menos de 24 horas de uso en un día.
 
 Si quiere basar el análisis en el nivel de la familia de tamaños de instancia, puede obtener los valores de flexibilidad de tamaño de instancia en [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine los valores con los datos para realizar el análisis. Para más información sobre la flexibilidad de tamaño de instancia, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-### <a name="analyze-usage-for-a-sql-database-reserved-instance-purchase"></a>Análisis de uso para una compra de instancias reservadas de SQL Database
+### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Análisis del uso de la compra de una instancia reservada de Azure Synapse Analytics
 
-La capacidad reservada se aplica al precio de proceso de núcleos virtuales de las instancias de SQL Database. No se aplica a los precios basados en DTU, ni al costo de las licencias de SQL ni a ningún otro costo que no sea proceso.
+La capacidad reservada se aplica a los precios de DWU de Azure Synapse Analytics. No se aplica al costo de la licencia de Azure Synapse Analytics ni a ningún otro costo que no sea un proceso.
 
-Para ceñirse al uso de SQL válido para el análisis, aplique los filtros siguientes en los datos de uso:
+Para ceñirse al uso válido, aplique los filtros siguientes a los datos de uso:
 
 
 - Filtre **MeterCategory** por **SQL Database**.
@@ -60,22 +60,22 @@ Los datos le informan sobre el uso constante de:
 - Generación. Por ejemplo, Gen 5.
 - Ubicación del recurso
 
-### <a name="analysis-for-sql-data-warehouse"></a>Análisis para SQL Data Warehouse
+### <a name="analysis-for-azure-synapse-analytics"></a>Análisis de Azure Synapse Analytics
 
-La capacidad reservada se aplica al uso de DWU de SQL Data Warehouse y se compra en incrementos de 100 DWU. Para ceñirse al uso de SQL válido para el análisis, aplique los filtros siguientes en los datos de uso:
+La capacidad reservada se aplica al uso de DWU de Azure Synapse Analytics y se compra en incrementos de 100 DWU. Para ceñirse al uso válido, aplique los filtros siguientes a los datos de uso:
 
 - Filtre **MeterName** por **100 DWU**.
 - Filtre **Subcategoría de medición** por **Compute Optimized Gen2** (Optimizado para proceso Gen 2).
 
-Use el campo **Ubicación de recursos** para determinar el uso de SQL DW en una región.
+Use el campo **Ubicación de recursos** para determinar el uso de Azure Synapse Analytics en una región.
 
-El uso de SQL Data Warehouse se puede escalar o reducir verticalmente a lo largo del día. Hable con el equipo que administró la instancia de SQL Data Warehouse para conocer el uso base.
+El uso de Azure Synapse Analytics se puede escalar o reducir verticalmente a lo largo del día. Hable con el equipo que administró la instancia de Azure Synapse Analytics para conocer el uso base.
 
-Vaya a Reservas en Azure Portal y compre capacidad reservada de SQL Data Warehouse en múltiplos de 100 DWU.
+Vaya a Reservas en Azure Portal y compre la capacidad reservada de Azure Synapse Analytics en múltiplos de 100 DWU.
 
 ## <a name="reservation-purchase-recommendations"></a>Recomendaciones de compra de reservas
 
-Las recomendaciones de compra de reservas se calculan mediante el análisis de los datos de uso por hora en los últimos 7, 30 y 60 días. Azure calcula cuáles hubieran sido los costos si tuviera una reserva y los compara con los costos de pago por uso reales en los que se incurre a lo largo del tiempo. El cálculo se realiza para cada cantidad que se ha usado durante el período de tiempo. Se recomienda la cantidad que maximice el ahorro. 
+Las recomendaciones de compra de reservas se calculan mediante el análisis de los datos de uso por hora en los últimos 7, 30 y 60 días. Azure calcula cuáles hubieran sido los costos si tuviera una reserva y los compara con los costos de pago por uso reales en los que se incurre a lo largo del tiempo. El cálculo se realiza para cada cantidad que se ha usado durante el período de tiempo. Se recomienda la cantidad que maximice el ahorro.
 
 Por ejemplo, puede que la mayoría de las veces use 500 máquinas virtuales, pero que en ocasiones el uso ascienda a 700 máquinas virtuales. En este ejemplo, Azure calcula el ahorro para las cantidades de 500 y 700 máquinas virtuales. Dado que el uso de 700 máquinas virtuales es esporádico, el cálculo de la recomendación determina que el ahorro se maximiza para una compra de reserva de 500 máquinas virtuales y se proporciona la recomendación para la cantidad de 500.
 

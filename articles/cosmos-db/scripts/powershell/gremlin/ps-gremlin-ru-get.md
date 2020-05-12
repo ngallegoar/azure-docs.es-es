@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: fa376aff9c127d5792da9e0489079ca3a1c67cf2
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 0b260bbc92a5c9505f7b28e876668444882ddcc4
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366040"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653054"
 ---
 # <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Obtener procesamiento (RU/s) para una base de datos o un grafo para Gremlin API en Azure Cosmos DB
 
@@ -39,8 +39,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Get-Help | Notas |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Obtiene el valor de la capacidad de proceso de la base de datos de Gremlin API especificada. |
-| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Obtiene el valor de la capacidad de proceso del grafo de Gremlin API especificado. |
+| [Get-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Obtiene el valor de la capacidad de proceso de la base de datos de Gremlin API. |
+| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Obtiene el valor de la capacidad de proceso del grafo de Gremlin API. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

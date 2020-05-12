@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 21c4b7de0324abd2755644265bec61de5e16724f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6d91b455501e2deec4f5ea36e48fafd17144b2c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199422"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628153"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Ahorro de costos en el impuesto sobre el timbre de Azure App Service aislado con capacidad reservada
 
@@ -41,7 +41,7 @@ Compre reservas de timbres de Windows si tiene uno o más trabajos de Windows en
 Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague la reserva [por adelantado o mensualmente](monthly-payments-reservations.md). Para comprar la capacidad reservada, debe tener el rol de propietario al menos en una suscripción Enterprise o individual con precios de pago por uso.
 
 - En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador del Contrato Enterprise.
-- En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de SQL Data Warehouse son los agentes de administración o de ventas.
+- En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de Azure Synapse Analytics son los agentes de administración o de ventas.
 
 **Para comprar:**
 

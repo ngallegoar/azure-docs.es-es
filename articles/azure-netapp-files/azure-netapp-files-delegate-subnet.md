@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/04/2020
 ms.author: b-juche
-ms.openlocfilehash: b83f530549ffa43789963fd0c95b4982f5289356
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f36e40091ada27f411adc2ffa78b6d4a58f8cca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054463"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791415"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegación de una subred en Azure NetApp Files 
 
@@ -28,7 +28,8 @@ Debe delegar una subred en Azure NetApp Files.   Cuando se crea un volumen, debe
 ## <a name="considerations"></a>Consideraciones
 * El asistente para crear una nueva subred se establece de manera predeterminada en una máscara de red /24, que ofrece 251 direcciones IP disponibles. Con una máscara de red /28, que ofrece 16 direcciones IP utilizables, es suficiente para el servicio.
 * En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.   
-   Azure permite crear varias subredes delegadas en una red virtual.  Sin embargo, si usa más de una subred delegada, todos los intentos de crear un nuevo volumen darán error.
+   Azure permite crear varias subredes delegadas en una red virtual.  Sin embargo, si usa más de una subred delegada, todos los intentos de crear un nuevo volumen darán error.  
+   Solo puede tener una única subred delegada en una red virtual. Una cuenta de NetApp puede implementar volúmenes en varias redes virtuales, cada una de las cuales tiene su propia subred delegada.  
 * No se puede designar un grupo de seguridad de red o punto de conexión de servicio en la subred delegada. Si lo hace, se producirá un error en la delegación de subred.
 * Actualmente no se admite el acceso a un volumen desde una red virtual emparejada de forma global.
 * No se admite la creación de [rutas personalizadas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) en subredes de máquina virtual con un prefijo de dirección (destino) dirigido a una subred delegada a Azure NetApp Files. Si las crea, se verá afectada la conectividad de la máquina virtual.

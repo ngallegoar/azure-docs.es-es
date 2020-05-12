@@ -6,16 +6,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: ed8574133eafe751699e90ea8cae832ee649fb00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: legacy
+ms.openlocfilehash: 406eda6902ae451c7fdf79e1bd1215c035a66750
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969597"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792231"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Creación de una copia de una máquina virtual Linux mediante la CLI de Azure y Managed Disks
 
-En este artículo se muestra cómo crear una copia de una máquina virtual de Azure con Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure. 
+En este artículo se muestra cómo crear una copia de su máquina virtual (VM) de Azure con Linux mediante la CLI de Azure. Para copiar, crear, almacenar y compartir imágenes de VM a escala, consulte [Shared Image Gallery](shared-images.md).
 
 También puede [cargar y crear una máquina virtual a partir de un VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

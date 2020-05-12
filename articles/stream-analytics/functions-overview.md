@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: b29d66e8bb213fbbb162c3249f022e0783f9f62f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115670"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598375"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Funciones definidas por el usuario de Azure Stream Analytics
 
@@ -43,10 +43,13 @@ Las funciones definidas por el usuario no tienen estado y el valor devuelto solo
 
 Azure Stream Analytics no mantiene un registro de todas las invocaciones de funciones y los resultados devueltos. Para garantizar la repetibilidad (por ejemplo, si se vuelve a ejecutar un trabajo desde una marca de tiempo anterior, se obtienen los mismos resultados) no use funciones como `Date.GetData()` o `Math.random()`, ya que estas funciones no devuelven el mismo resultado cada vez que se invocan.  
 
-## <a name="diagnostic-logs"></a>Registros de diagnóstico
+## <a name="resource-logs"></a>Registros del recurso
 
-Los errores del runtime se consideran graves y se presentan en los registros de actividad y de diagnóstico. Se recomienda que la función controle todas las excepciones y los errores, y que devuelva un resultado válido a la consulta. De esta forma se evita que el trabajo pase al [estado de error](job-states.md).  
+Los errores del runtime se consideran graves y se presentan en los registros de actividad y de recursos. Se recomienda que la función controle todas las excepciones y los errores, y que devuelva un resultado válido a la consulta. De esta forma se evita que el trabajo pase al [estado de error](job-states.md).  
 
+## <a name="exception-handling"></a>Control de excepciones
+
+Cualquier excepción durante el procesamiento de datos se considera un error catastrófico al consumir datos en Azure Stream Analytics. Las funciones definidas por el usuario tienen mayor potencial para devolver excepciones y hacer que se detenga el procesamiento. Para evitar este problema, use un bloque *try-catch* en JavaScript o C# para capturar excepciones durante la ejecución del código. Las excepciones que se detectan se pueden registrar y tratar sin provocar un error del sistema. Se recomienda encapsular siempre el código personalizado en un bloque *try-catch* para evitar que se devuelvan excepciones inesperadas en el motor de procesamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -54,4 +57,3 @@ Los errores del runtime se consideran graves y se presentan en los registros de 
 * [Agregados definidos por el usuario en JavaScript para Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
 * [Desarrollo de funciones definidas por el usuario de .NET Standard para trabajos de Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
 * [Integración de Azure Stream Analytics con Azure Machine Learning](machine-learning-udf.md)
-

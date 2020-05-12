@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845265"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612068"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lectura de entradas en cualquier formato mediante deserializadores personalizados
 
@@ -65,11 +65,11 @@ El parámetro `stream` es la secuencia que contiene el objeto serializado. `Dese
 
 `StreamingDiagnostics` es el diagnóstico de los operadores definidos por el usuario, incluidos el serializador, el deserializador y las funciones definidas por el usuario.
 
-`WriteError` escribe un mensaje de error en los registros de diagnóstico y envía el error a los diagnósticos.
+`WriteError` escribe un mensaje de error en los registros de recursos y envía el error al diagnóstico.
 
 `briefMessage` es un breve mensaje de error. Este mensaje se muestra en los diagnósticos y el equipo del producto lo usa para la depuración. No incluya información confidencial y mantenga el mensaje menor de 200 caracteres.
 
-`detailedMessage` es un mensaje de error detallado que solo se agrega a los registros de diagnóstico en el almacenamiento. El mensaje debe tener menos de 2000 caracteres.
+`detailedMessage` es un mensaje de error detallado que solo se agrega a los registros de recursos en el almacenamiento. El mensaje debe tener menos de 2000 caracteres.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -247,6 +247,10 @@ No se admite esta funcionalidad. Si necesita esta funcionalidad, puede votar por
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>¿Puedo compartir mi implementación de deserializador con la comunidad para que otros puedan beneficiarse?
 
 Una vez que haya implementado el deserializador, puede ayudar a otros usuarios compartiéndolo en la comunidad. Envíe el código al [repositorio de GitHub de Azure Stream Analytics](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+
+### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>¿Cuáles son las otras limitaciones de usar deserializadores personalizados en Stream Analytics?
+
+Si la entrada tiene el formato Protobuf con un esquema que contiene el tipo MapField, no podrá implementar un deserializador personalizado. Estamos trabajando para admitir este tipo en el futuro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

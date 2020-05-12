@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: b71890323f6aca92fb9f847252feed57d8db234f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382756"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594957"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Regiones de Azure en las que existe Video Indexer
 
@@ -23,7 +23,7 @@ Las API de Video Indexer incluyen un parámetro **location** que se debe estable
 
 ## <a name="locations"></a>Ubicaciones
 
-El parámetro **location** debe tener como valor el nombre en código de la región de Azure. Si usa la versión preliminar de Video Indexer, debe poner *"trial"* como valor. Si no, para obtener el nombre en código de la versión de Azure en la que está su cuenta y a la que se debe enrutar la llamada, puede ejecutar la siguiente línea en la [CLI de Azure](/cli/azure):
+El parámetro `location` debe tener como valor el nombre en código de la región de Azure. Si usa la versión preliminar de Video Indexer, debe poner `"trial"` como valor. `trial` es el valor predeterminado para el parámetro `location`. Si no, para obtener el nombre en código de la versión de Azure en la que está su cuenta y a la que se debe enrutar la llamada, puede ejecutar la siguiente línea en la [CLI de Azure](/cli/azure):
 
 ```azurecli-interactive
 az account list-locations

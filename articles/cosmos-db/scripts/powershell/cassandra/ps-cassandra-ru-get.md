@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: f1cae958fce1de000ee4349a2fe8229d69f1a0ae
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: c5e177aca446d9a81db1a339cb8d81f0486a91e5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366166"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653059"
 ---
 # <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Obtener procesamiento (RU/s) para una tabla en Azure Cosmos DB: Cassandra API
 
@@ -39,8 +39,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Get-Help | Notas |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBCassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Obtiene el valor de la capacidad de proceso del espacio de claves de Cassandra API especificado. |
-| [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Obtiene el valor de la capacidad de proceso de la tabla de Cassandra API especificada. |
+| [Get-AzCosmosDBCassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Obtiene el valor de la capacidad de proceso del espacio de claves de Cassandra API. |
+| [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Obtiene el valor de la capacidad de proceso de la tabla de Cassandra API. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

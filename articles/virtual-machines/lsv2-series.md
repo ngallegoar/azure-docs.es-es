@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdb9e346b8deea71ef2af9f9f271ffa446be624e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164039"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594345"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -27,6 +27,8 @@ La serie Lsv2 proporciona un alto rendimiento, baja latencia, almacenamiento NVM
 
 ACU: 150-175
 
+Expansión: Compatible
+
 Premium Storage: Compatible
 
 Almacenamiento en caché de Premium Storage: No compatible
@@ -35,14 +37,14 @@ Migración en vivo: No compatible
 
 Actualizaciones con conservación de memoria: No compatible
 
-| Size | vCPU | Memoria (GiB) | Disco temporal <sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Rendimiento de disco NVMe<sup>3</sup> (IOPS de lectura/Mbps) | Rendimiento máx. de disco de datos no en caché (E/S por segundo/MBps)<sup>4</sup> | Nº máx. de discos de datos | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1 de 1,92 TB  | 400000/2000  | 8000/160   | 16 | 2/3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2 de 1,92 TB  | 800000/4000  | 16 000/320  | 32 | 4/6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4 de 1,92 TB  | 1,5 mill./8000    | 32 000/640  | 32 | 8/12 800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2,2 mill./14000   | 48000/960  | 32 | 8/más de 16 000 |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8 de 1,92 TB  | 2,9 mill./16000   | 64 000/1280 | 32 | 8/más de 16 000 |
-| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10 de 1,92 TB | 3,8 mill./20000 | 80 000/1400 | 32 | 8/más de 16 000 |
+| Size | vCPU | Memoria (GiB) | Disco temporal <sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Rendimiento de disco NVMe<sup>3</sup> (IOPS de lectura/Mbps) | Rendimiento de disco de datos sin caché (IOPS/MBps)<sup>4</sup> | Rendimiento máx. de disco de datos de expansión sin caché (IOPS/MBps)<sup>5</sup>| Nº máx. de discos de datos | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1 de 1,92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2/3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 de 1,92 TB  | 800000/4000  | 16 000/320  | 16000/1280 | 32 | 4/6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 de 1,92 TB  | 1,5 mill./8000    | 32 000/640  | 32000/1280 | 32 | 8/12 800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2,2 mill./14000   | 48000/960  | 48000/2000 | 32 | 8/más de 16 000 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8 de 1,92 TB  | 2,9 mill./16000   | 64 000/1280 | 64000/2000 | 32 | 8/más de 16 000 |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10 de 1,92 TB | 3,8 mill./20000 | 80 000/1400 | 80000/2000 | 32 | 8/más de 16 000 |
 
 <sup>1</sup> Las máquinas virtuales de la serie Lsv2 tienen un disco de recursos temporal basado en el estándar SCSI para paginación o el archivo de intercambio del sistema operativo (D: en Windows, /dev/sdb en Linux). Dicho disco proporciona 80 GiB de almacenamiento, 4000 IOPS y una velocidad de transferencia de 80 MBps por cada 8 vCPU (p. ej., el tamaño Standard_L80s_v2 proporciona 800 GiB a 40 000 IOPS y 800 MBps). Esto garantiza que las unidades de NVMe se puedan dedicar completamente al uso de aplicaciones. Este disco es efímero y se perderán todos los datos al detenerlo o desasignarlo.
 
@@ -52,7 +54,9 @@ Actualizaciones con conservación de memoria: No compatible
 
 <sup>4</sup> Las VM de la serie Lsv2 no proporcionan almacenamiento caché de host para el disco de datos, ya que las cargas de trabajo de Lsv2 no se ven beneficiadas.  Sin embargo, las máquinas virtuales Lsv2 pueden admitir la opción de disco de sistema operativo efímero de máquina virtual de Azure (hasta 30 GiB).
 
-<sup>5</sup> las máquinas virtuales con más de 64 vCPU requieren uno de estos sistemas operativos invitados compatibles:
+<sup>5</sup> Las VM de la serie Lsv2 pueden [expandir](linux/disk-bursting.md) su rendimiento de disco durante 30 minutos cada vez. 
+
+<sup>6</sup> Las VM con más de 64 vCPU requieren uno de estos sistemas operativos invitados compatibles:
 
 - Windows Server 2016 o posterior
 - Ubuntu 16.04 LTS o posterior, con kernel ajustado para Azure (kernel 4.15 o posterior)

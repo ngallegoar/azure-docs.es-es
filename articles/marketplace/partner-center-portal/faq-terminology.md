@@ -1,26 +1,24 @@
 ---
-title: Preguntas más frecuentes y terminología del análisis de marketplace comercial en el Centro de partners
-description: Obtenga información sobre cómo abordar las preguntas más frecuentes sobre el análisis de marketplace comercial. Incluye un diccionario de datos para la terminología de análisis.
+title: 'Terminología y preguntas más frecuentes de los análisis de marketplace comercial: Centro de partners'
+description: Obtenga respuestas a las preguntas más frecuentes sobre el análisis de marketplace comercial en el Centro de partners. En este artículo se incluye un diccionario de datos para la terminología de análisis.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251833"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791483"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Preguntas más frecuentes y terminología del análisis de marketplace comercial
+# <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Preguntas comunes y terminología de análisis de marketplace comercial
 
 En este artículo se abordan las preguntas más frecuentes sobre los mensajes de análisis en el Centro de partners y también se proporciona un diccionario de terminología de análisis.
 
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-En esta sección se proporcionan respuestas a las preguntas más frecuentes sobre los mensajes de **No Analytics Available Yet** (Sin análisis disponibles aún) del Centro de partners.
+## <a name="common-questions"></a>Preguntas frecuentes
 
 **No puedo ver mis datos de análisis en el Centro de partners. Cuando accedo a estas páginas, veo el mensaje siguiente. ¿Por qué ocurre esto?**
 
@@ -97,7 +95,7 @@ Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](./analytics.md).
-- Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
+- Para ver los gráficos, las tendencias y los valores de datos agregados que resuman la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
 - Para información detallada sobre los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).

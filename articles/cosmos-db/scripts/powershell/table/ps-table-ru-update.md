@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 101e9e5591198b84bb9bba886249b0784cc6b43e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 6d67812274fce72fd0a4bb4ff8338ac90f5df9d3
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365952"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652887"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Actualizar RU/s para una tabla de Table API de Azure Cosmos DB
 
@@ -39,7 +39,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Get-Help | Notas |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Crea o actualiza una tabla de Table API en Cosmos DB. |
+| [Get-AzCosmosDBTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Obtiene el valor de la capacidad de proceso de la tabla de Table API. |
+| [Update-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqldatabasethroughput) | Actualiza el valor de la capacidad de proceso de la tabla de Table API. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

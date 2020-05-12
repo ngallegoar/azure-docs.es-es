@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac3ee8d44d68f5c7929c2f93f1a1182c7f6083b
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: ca54c60d424722d31d195d10eb15751a2ec6c0eb
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891261"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612918"
 ---
 # <a name="connect-with-the-macos-client"></a>Conexión con el cliente macOS
 
 > Se aplica a: macOS 10.12, o cualquier versión posterior
+
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión Windows Virtual Desktop Fall 2019 sin objetos de Azure Resource Manager, vea [este artículo](./virtual-desktop-fall-2019/connect-macos-2019.md).
+>
+> La actualización Spring 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Puede acceder a los recursos de Windows Virtual Desktop desde sus dispositivos macOS con nuestro cliente, que se puede descargar. En esta guía se le indicará cómo configurar el cliente.
 
@@ -33,7 +39,7 @@ Para suscribirse a una fuente:
 
 1. Seleccione **Agregar área de trabajo** en la página principal para conectarse al servicio y recuperar los recursos.
 2. Escriba la dirección URL de la fuente. Puede ser una dirección URL o una dirección de correo electrónico:
-   - Si usa una dirección URL, use la que le proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com>.
+   - Si usa una dirección URL, use la que le proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - Para usar el correo electrónico, escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
 3. Seleccione **Agregar**.
 4. Inicie sesión con su cuenta de usuario cuando se le solicite.

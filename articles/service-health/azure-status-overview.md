@@ -3,12 +3,12 @@ title: Introducción al estado de Azure | Microsoft Docs
 description: Una visión global del estado de los servicios de Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898339"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732557"
 ---
 # <a name="azure-status-overview"></a>Información general del estado de Azure
 
@@ -24,9 +24,7 @@ La página de estado de Azure se actualiza en tiempo real cuando cambia el estad
 
 ## <a name="azure-status-history"></a>Historial de estado de Azure
 
-Aunque la página de estado de Azure siempre muestra la información de estado más reciente, puede ver los eventos más antiguos desde la [página Historial de estado de Azure](https://status.azure.com/status/history/).
-
-A partir de los eventos que se publicaron en noviembre de 2019, la página del historial de estado muestra aquellos eventos que hayan tenido lugar hasta 365 días antes, e incluye una causa raíz preliminar, la mitigación y los pasos siguientes de Azure.
+Aunque la página de estado de Azure siempre muestra la información de estado más reciente, puede ver los eventos más antiguos desde la [página Historial de estado de Azure](https://status.azure.com/status/history/). La página del historial contiene todos los RCA de los incidentes que produjeron el 20 de noviembre de 2019, o posteriormente, y proporcionarán (desde ese momento) un historial de RCA de cinco años. Los RCA anteriores al 20 de noviembre de 2019 no están disponibles.
 
 ## <a name="rss-feed"></a>Fuente RSS
 

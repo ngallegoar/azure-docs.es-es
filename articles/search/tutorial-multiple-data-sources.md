@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de C#: Indexación de varios orígenes de datos'
+title: Tutorial de C# sobre la indexación de varios orígenes de datos de Azure
 titleSuffix: Azure Cognitive Search
 description: Aprenda a importar datos desde varios orígenes en un único índice de Azure Cognitive Search mediante indexadores. Este tutorial y el código de ejemplo están en C#.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78271474"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780528"
 ---
-# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Tutorial: Indexación de datos de varios orígenes de datos en C#
+# <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Indexación de varios orígenes de datos mediante el SDK de .NET
 
 Azure Cognitive Search puede importar, analizar e indexar datos desde varios orígenes de datos en un único índice de búsqueda consolidado. Esto es compatible con situaciones donde se agregan datos estructurados con datos menos estructurados o datos de texto sin formato, o incluso de otros orígenes, como documentos de texto, HTML o JSON.
 
