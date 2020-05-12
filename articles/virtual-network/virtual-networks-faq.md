@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225112"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791993"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -49,7 +49,7 @@ Sí. A través de Azure Marketplace es posible implementar una [aplicación virt
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>¿Qué herramientas debo usar para crear una red virtual?
 Para crear o configurar una red virtual se pueden usar las siguientes herramientas:
 
-* Portal de Azure
+* Azure Portal
 * PowerShell
 * Azure CLI
 * Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte el artículo [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
@@ -88,7 +88,7 @@ Sí. Puede crear una tabla de rutas y asociarla a una subred. Para más informac
 No. No se admite difusión ni multidifusión.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>¿Qué protocolos puedo usar en las redes virtuales?
-En las redes virtuales se pueden usar los protocolos TCP, UDP e ICMP TCP/IP. La unidifusión se admite dentro de las redes virtuales, a excepción del Protocolo de configuración dinámica de host (DCHP) a través de unidifusión (puerto de origen UDP/68 / puerto de destino UDP/67). La multidifusión, la difusión, los paquetes encapsulados IP en IP y los paquetes de encapsulación de enrutamiento genérico (GRE) se bloquean en las subredes. 
+En las redes virtuales se pueden usar los protocolos TCP, UDP e ICMP TCP/IP. La unidifusión se admite dentro de las redes virtuales, a excepción del Protocolo de configuración dinámica de host (DCHP) a través de unidifusión (puerto de origen UDP/68 / puerto de destino UDP/67) y el puerto de origen UDP 65330, que se reserva para el anfitrión. La multidifusión, la difusión, los paquetes encapsulados IP en IP y los paquetes de encapsulación de enrutamiento genérico (GRE) se bloquean en las subredes. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>¿Puedo hacer ping a mis enrutadores predeterminados dentro de una red virtual?
 No.

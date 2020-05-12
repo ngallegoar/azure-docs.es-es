@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75431648"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611898"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Descripción de la supervisión del trabajo de Stream Analytics y cómo supervisar consultas
 
@@ -37,7 +37,7 @@ Se mostrará la siguiente ventana:
 | Solicitudes de función      | Número de llamadas a la función Azure Machine Learning (si corresponde). |
 | Errores de deserialización de entrada       | Número de eventos de entrada que no se pudieron deserializar.  |
 | Bytes del evento de entrada      | Cantidad de datos recibidos por el trabajo de Stream Analytics, en bytes. Puede usarse para validar que los eventos que se envían al origen de entrada. |
-| Eventos de entrada           | Número de registros deserializados de los eventos de entrada. Este recuento no incluye los eventos de entrada que producen errores de deserialización. |
+| Eventos de entrada           | Número de registros deserializados de los eventos de entrada. Este recuento no incluye los eventos de entrada que producen errores de deserialización. Los mismos eventos los puede ingerir Stream Analytics varias veces en escenarios como recuperaciones internas y autocombinaciones. Por lo tanto, se recomienda no esperar que las métricas de los eventos de entrada y los eventos de salida coincidan si el trabajo tiene una consulta de "paso a través" simple. |
 | Orígenes de entrada recibidos       | Número de mensajes recibidos por el trabajo. Para el centro de eventos, un mensaje es un único EventData. Para un blob, un mensaje es un único blob. Tenga en cuenta que se cuentan los orígenes de entrada antes de la deserialización. Si hay errores de deserialización, los orígenes de entrada pueden ser mayores que los eventos de entrada. En caso contrario, puede ser menor o igual que los eventos de entrada dado que cada mensaje puede contener varios eventos. |
 | Eventos de entrada retrasada      | Eventos que llegaron más tarde que el período de tolerancia de llegada tardía configurado. Más información sobre los [puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md). |
 | Eventos que no funcionan    | Número de eventos recibidos fuera de orden que se eliminan o se les asigna una marca de tiempo ajustada, según la Directiva de ordenación de eventos. Puede verse afectado por la configuración del ajuste de Período de tolerancia de fuera de servicio. |

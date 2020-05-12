@@ -1,6 +1,6 @@
 ---
-title: Creación o actualización de roles personalizados para los recursos de Azure con la API REST
-description: Obtenga información sobre cómo mostrar, crear, actualizar o eliminar roles personalizados con el control de acceso basado en rol (RBAC) para recursos de Azure con la API REST.
+title: 'Creación o actualización de roles personalizados de Azure con la API REST: RBAC de Azure'
+description: Aprenda a enumerar, crear, actualizar o eliminar roles personalizados de Azure mediante la API REST y el control de acceso basado en roles de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bc96dc9a8e541cfd827ba5f5abe35c13f2d2462
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062186"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734100"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Creación o actualización de roles personalizados para los recursos de Azure con la API REST
+# <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Creación o actualización de roles personalizados para los recursos de Azure con la API REST
 
 > [!IMPORTANT]
 > La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo mostrar, crear, actualizar o eliminar roles personalizados con la API REST.
+Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los suyos propios. En este artículo se describe cómo mostrar, crear, actualizar o eliminar roles personalizados con la API REST.
 
 ## <a name="list-custom-roles"></a>Lista de roles personalizados
 
@@ -189,7 +189,7 @@ Para crear un rol personalizado, use la API de REST [Role Definitions - Create O
 
 1. En la propiedad `notActions`, agregue las operaciones excluidas de las `actions` permitidas.
 
-1. En las propiedades `roleName` y `description`, especifique un nombre de rol exclusivo y una descripción. Para obtener información sobre las propiedades, consulte [Roles personalizados](custom-roles.md).
+1. En las propiedades `roleName` y `description`, especifique un nombre de rol exclusivo y una descripción. Para más información sobre las propiedades, consulte [Roles personalizados de Azure](custom-roles.md).
 
     A continuación se muestra un ejemplo de cuerpo de la solicitud:
 
@@ -341,5 +341,5 @@ Para eliminar un rol personalizado, use la API de REST [Role Definitions - Delet
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Roles personalizados en los recursos de Azure](custom-roles.md)
-- [Administración del acceso a recursos de Azure mediante RBAC y la API de REST](role-assignments-rest.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/) (Referencia de API de REST en Azure)

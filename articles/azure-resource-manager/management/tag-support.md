@@ -3,12 +3,12 @@ title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6c035f4f9ce6b7c842caeab3b705394417d15ba0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255034"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609296"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -1551,6 +1551,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | virtualHubs | Sí | Sí |
 > | virtualNetworkGateways | Sí | Sí |
 > | virtualNetworks | Sí | Sí |
+> | virtualNetworks / subnets | No | No |
 > | virtualNetworkTaps | Sí | Sí |
 > | virtualWans | Sí | No |
 > | vpnGateways | Sí | Sí |

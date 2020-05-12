@@ -3,17 +3,17 @@ title: Administración del ciclo de vida de Azure Storage
 description: Aprenda a crear reglas de directiva de ciclo de vida para realizar la transición de datos antiguos del nivel de almacenamiento de acceso frecuente al nivel de almacenamiento de acceso esporádico y al nivel de almacenamiento de archivo.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598313"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692141"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -24,7 +24,7 @@ La directiva de administración del ciclo de vida le permite:
 - Realizar la transición de los blobs a un nivel de almacenamiento de acceso esporádico (frecuente a esporádico, frecuente a archivo o esporádico a archivo) para optimizar el rendimiento y el costo
 - Eliminar los blobs al final de sus ciclos de vida
 - Definir reglas que se ejecutarán una vez al día en el nivel de cuenta de almacenamiento
-- Aplicar reglas a contenedores o a un subconjunto de blobs (mediante prefijos como filtros)
+- Aplicar reglas a contenedores o a un subconjunto de blobs (mediante prefijos de nombre o [etiquetas de índice de blobs](storage-manage-find-blobs.md) como filtros)
 
 Considere un escenario donde los datos tienen acceso frecuente durante las primeras fases del ciclo de vida, pero solo ocasionalmente al cabo de dos semanas. Transcurrido el primer mes, rara vez se accede al conjunto de datos. En este escenario, es mejor el almacenamiento de acceso frecuente durante las primeras etapas. El almacenamiento de acceso esporádico es más adecuado para un acceso ocasional. El almacenamiento de archivo es la mejor opción de nivel una vez que los datos tengan un mes. Con el ajuste de los niveles de almacenamiento en relación con la antigüedad de los datos, puede designar las opciones de almacenamiento menos caras para satisfacer sus necesidades. Para conseguir esta transición, las reglas de directivas de administración del ciclo de vida se encuentran disponibles para mover los datos antiguos a niveles de almacenamiento de acceso más esporádico.
 
@@ -293,6 +293,10 @@ Entre los filtros están los siguientes:
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión actual admite `blockBlob`. | Sí |
 | prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de `https://myaccount.blob.core.windows.net/container1/foo/...` coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento.  | No |
+| blobIndexMatch | Una matriz de valores de diccionario que se compone de las condiciones de clave y valor de la etiqueta de índice de blobs con las que debe haber coincidencias. Cada regla puede definir hasta 10 condiciones de etiqueta de índice de blobs. Por ejemplo, si quiere que todos los blobs coincidan con `Project = Contoso` en `https://myaccount.blob.core.windows.net/` en relación a una regla, el valor de blobIndexMatch es `{"name": "Project","op": "==","value": "Contoso"}`. | Si no define blobIndexMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento. | No |
+
+> [!NOTE]
+> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -405,6 +409,42 @@ Se espera que algunos datos expiren días o meses después de la creación. Pued
 }
 ```
 
+### <a name="delete-data-with-blob-index-tags"></a>Eliminación de datos con etiquetas de índice de blobs
+Algunos datos solo deben expirar si se marcan explícitamente para su eliminación. Puede configurar una directiva de administración del ciclo de vida para que expiren los datos etiquetados con los atributos de clave/valor del índice de blobs. En el ejemplo siguiente se muestra una directiva que elimina todos los blobs en bloques con `Project = Contoso`. Para más información sobre el índice de blobs, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+
+```json
+{
+    "rules": [
+        {
+            "enabled": true,
+            "name": "DeleteContosoData",
+            "type": "Lifecycle",
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "delete": {
+                            "daysAfterModificationGreaterThan": 0
+                        }
+                    }
+                },
+                "filters": {
+                    "blobIndexMatch": [
+                        {
+                            "name": "Project",
+                            "op": "==",
+                            "value": "Contoso"
+                        }
+                    ],
+                    "blobTypes": [
+                        "blockBlob"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 ### <a name="delete-old-snapshots"></a>Eliminación de instantáneas antiguas
 
 En el caso de los datos que se modifican y a los que se accede con regularidad a lo largo de su ciclo de vida, las instantáneas suelen utilizarse para realizar un seguimiento de las versiones anteriores de los datos. Puede crear una directiva que elimine las instantáneas anteriores en función de la antigüedad de la instantánea. La antigüedad de la instantánea se determina mediante la evaluación de la hora de creación de la instantánea. Esta regla de directiva elimina las instantáneas de blobs en bloques en el contenedor `activedata` con una antigüedad de 90 días o más a contar desde el momento de la creación de la instantánea.
@@ -448,3 +488,7 @@ Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modi
 Obtenga información sobre cómo recuperar datos tras la eliminación accidental:
 
 - [Eliminación temporal de blobs de Azure Storage](../blobs/storage-blob-soft-delete.md)
+
+Aprenda a administrar y buscar datos con el índice de blobs:
+
+- [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs](storage-manage-find-blobs.md)

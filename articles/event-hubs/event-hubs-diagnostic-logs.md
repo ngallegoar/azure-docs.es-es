@@ -14,76 +14,77 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162317"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691853"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
 Puede ver dos tipos de registros para Event Hubs de Azure:
 
-* **[Registros de actividad](../azure-monitor/platform/platform-logs-overview.md)** : estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
-* **[Registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : puede configurar registros de diagnóstico para obtener una vista más completa de todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
+* **[Registros de actividad](../azure-monitor/platform/platform-logs-overview.md)** : Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados. Puede ver las entradas del registro de actividad si selecciona **Registro de actividad** en el panel izquierdo del espacio de nombres del centro de eventos en Azure Portal. Por ejemplo: "Crear o actualizar el espacio de nombres", "Crear o actualizar el centro de eventos".
+
+    ![Registro de actividad de un espacio de nombres de Event Hubs](./media/event-hubs-diagnostic-logs/activity-log.png)
+* **[Registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : los registros de diagnóstico proporcionan información más completa sobre las operaciones y acciones realizadas en el espacio de nombres mediante la API o mediante clientes de administración en el SDK de lenguaje. 
+    
+    En la sección siguiente se muestra cómo habilitar los registros de diagnóstico para un espacio de nombres de Event Hubs.
 
 ## <a name="enable-diagnostic-logs"></a>Habilitar registros de diagnóstico
-
 Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitarlos, siga estos pasos:
 
-1.  En [Azure Portal](https://portal.azure.com), en **Supervisión y administración**, haga clic en **Registros de diagnóstico**.
+1.  En [Azure Portal](https://portal.azure.com), vaya al espacio de nombres de Event Hubs. 
+2. Seleccione **Configuración de diagnóstico** en **Supervisión** en el panel izquierdo y, luego, elija **+ Agregar configuración de diagnóstico**. 
 
-    ![Navegación por el panel a los registros de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Página Configuración de diagnóstico: Agregar configuración de diagnóstico](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
+4. En la sección **Detalles de la categoría**, seleccione los **tipos de registros de diagnóstico** que quiere habilitar. Más adelante en este artículo encontrará información sobre estas categorías. 
+5. En la sección **Detalles de destino**, establezca el destino de archivo que prefiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics.
 
-2.  Haga clic en el recurso que quiere supervisar.
+    ![Agregar página de configuración de diagnóstico](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
+6.  Seleccione **Guardar** en la barra de herramientas para guardar la configuración de diagnóstico.
 
-3.  Haga clic en **Activar diagnóstico**.
+    La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
 
-    ![Activación de los registros de diagnósticos](./media/event-hubs-diagnostic-logs/image2.png)
-
-4.  En **Estado**, haga clic en **Activado**.
-
-    ![Cambio del estado de registros de diagnósticos](./media/event-hubs-diagnostic-logs/image3.png)
-
-5.  Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o registros de Azure Monitor.
-
-6.  Guarde la nueva configuración de diagnóstico.
-
-La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
-
-Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorías de registros de diagnósticos
 
-Event Hubs captura registros de diagnósticos de dos categorías:
+Event Hubs captura los registros de diagnóstico de las siguientes categorías:
 
-* **Registros de archivo**: registros relacionados con archivos de Event Hubs, en concreto, registros relacionados con errores de archivo.
-* **Registros operativos**: información sobre lo que sucede durante el funcionamiento de Event Hubs, en concreto, el tipo de operación, como la creación de centro de eventos, los recursos usados y el estado de la operación.
+| Category | Descripción | 
+| -------- | ----------- | 
+| Registros de archivo | Capturan información sobre las operaciones de [Event Hubs Capture](event-hubs-capture-overview.md), en concreto, registros relacionados con errores de captura. |
+| Registros operativos | Capturan todas las operaciones de administración que se realizan en el espacio de nombres de Azure Event Hubs. Las operaciones de datos no se capturan debido al elevado volumen de este tipo de operaciones que se realizan en Azure Event Hubs. |
+| Registros de escalabilidad automática | Capturan las operaciones de inflado automático realizadas en un espacio de nombres de Event Hubs. |
+| Registros de coordinador de Kafka | Capturan las operaciones del coordinador de Kafka relacionadas con Event Hubs. |
+| Registros de errores de usuario de Kafka | Capturan información sobre las API de Kafka llamadas en Event Hubs. |
+| Evento de conexión de red virtual de Event Hubs | Captura información sobre las direcciones IP y las redes virtuales que envían tráfico a Event Hubs. |
+| Registros de usuario de claves administradas por el cliente | Capturan las operaciones relacionadas con las claves administradas por el cliente. |
 
-## <a name="diagnostic-logs-schema"></a>Esquema de registros de diagnósticos
 
 Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que usan el formato descrito en las secciones siguientes.
 
-### <a name="archive-logs-schema"></a>Esquema de registros de archivo
+## <a name="archive-logs-schema"></a>Esquema de registros de archivo
 
 Las cadenas JSON de registros de archivo incluyen elementos enumerados en la tabla siguiente:
 
 Nombre | Descripción
 ------- | -------
-TaskName | La descripción de la tarea que generó el error.
-ActivityId | El identificador interno, usado con fines de seguimiento.
-trackingId | El identificador interno, usado con fines de seguimiento.
-resourceId | Identificador de recursos de Azure Resource Manager.
-eventHub | Nombre completo del centro de eventos (incluye el nombre del espacio de nombres).
+TaskName | La descripción de la tarea que produjo error
+ActivityId | El identificador interno, usado con fines de seguimiento
+trackingId | El identificador interno, usado con fines de seguimiento
+resourceId | El identificador de recursos de Azure Resource Manager
+eventHub | Nombre completo del centro de eventos (incluye el nombre del espacio de nombres)
 partitionId | La partición del centro de eventos en la que se escribe.
-archiveStep | ArchiveFlushWriter
-startTime | Hora de inicio del error.
+archiveStep | Valores posibles: ArchiveFlushWriter, DestinationInit
+startTime | Hora de inicio del error
 errores | Número de veces que se ha producido el error.
-durationInSeconds | La duración del error.
-message | Mensaje de error.
+durationInSeconds | La duración del error
+message | Mensaje de error
 category | ArchiveLogs
 
 El código siguiente es un ejemplo de una cadena JSON de registro de archivo:
@@ -91,10 +92,10 @@ El código siguiente es un ejemplo de una cadena JSON de registro de archivo:
 ```json
 {
    "TaskName": "EventHubArchiveUserError",
-   "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
-   "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
-   "resourceId": "/SUBSCRIPTIONS/854D368F-1828-428F-8F3C-F2AFFA9B2F7D/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "eventHub": "fbettati-opera-eventhub:eventhub:eh123~32766",
+   "ActivityId": "000000000-0000-0000-0000-0000000000000",
+   "trackingId": "0000000-0000-0000-0000-00000000000000000",
+   "resourceId": "/SUBSCRIPTIONS/000000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs Namespace Name>",
+   "eventHub": "<Event Hub full name>",
    "partitionId": "1",
    "archiveStep": "ArchiveFlushWriter",
    "startTime": "9/22/2016 5:11:21 AM",
@@ -105,38 +106,134 @@ El código siguiente es un ejemplo de una cadena JSON de registro de archivo:
 }
 ```
 
-### <a name="operational-logs-schema"></a>Esquema de registros operativos
+## <a name="operational-logs-schema"></a>Esquema de registros operativos
 
 Las cadenas JSON de registros operativos incluyen elementos enumerados en la tabla siguiente:
 
 Nombre | Descripción
 ------- | -------
-ActivityId | Identificador interno, usado con fines de seguimiento.
-EventName | Nombre de la operación.  
-resourceId | Identificador de recursos de Azure Resource Manager.
-SubscriptionId | Id. de suscripción.
-EventTimeString | Hora de la operación.
-EventProperties | Propiedades de la operación.
-Status | Estado de la operación.
-Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client).
-category | OperationalLogs
+ActivityId | Identificador interno, usado con fines de seguimiento. |
+EventName | Nombre de la operación |
+resourceId | El identificador de recursos de Azure Resource Manager |
+SubscriptionId | Id. de suscripción |
+EventTimeString | Hora de la operación |
+EventProperties | Propiedades de la operación |
+Status | Estado de la operación |
+Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client) |
+Category | OperationalLogs |
 
 El código siguiente es un ejemplo de una cadena JSON de registro operativo:
 
 ```json
 Example:
 {
-   "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+   "ActivityId": "00000000-0000-0000-0000-00000000000000",
    "EventName": "Create EventHub",
-   "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/SHOEBOXEHNS-CY4001",
-   "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+   "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace name>",
+   "SubscriptionId": "000000000-0000-0000-0000-000000000000",
    "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-   "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-000000000000\",\"Namespace\":\"<Namespace Name>\",\"Via\":\"https://<Namespace Name>.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
    "Status": "Succeeded",
    "Caller": "ServiceBus Client",
    "category": "OperationalLogs"
 }
 ```
+
+## <a name="autoscale-logs-schema"></a>Esquema de registros de escalabilidad automática
+Las cadenas JSON del registro de escalabilidad automática incluyen los elementos enumerados en la tabla siguiente:
+
+| Nombre | Descripción |
+| ---- | ----------- | 
+| TrackingId | Identificador interno, que se usa con fines de seguimiento. |
+| ResourceId | Identificador de recursos de Azure Resource Manager. |
+| Message | Mensaje informativo, que proporciona detalles sobre la acción de inflado automático. El mensaje contiene el valor anterior y actual de la unidad de procesamiento de un espacio de nombres determinado y lo que desencadenó el inflado de la unidad de rendimiento. |
+
+## <a name="kafka-coordinator-logs-schema"></a>Esquema de registros de coordinador de Kafka
+Las cadenas JSON del registro de coordinador de Kafka incluyen los elementos enumerados en la tabla siguiente:
+
+| Nombre | Descripción |
+| ---- | ----------- | 
+| RequestId | Identificador de solicitud, que se usa con fines de seguimiento. |
+| ResourceId | El identificador de recursos de Azure Resource Manager |
+| Operación | Nombre de la operación que se realiza durante la coordinación de grupos. |
+| ClientId | Id. de cliente |
+| NamespaceName | Nombre del espacio de nombres | 
+| SubscriptionId | Identificador de suscripción de Azure |
+| Message | Mensaje informativo o de advertencia, que proporciona detalles sobre las acciones realizadas durante la coordinación de grupos. |
+
+### <a name="example"></a>Ejemplo
+
+```json
+{
+    "RequestId": "FE01001A89E30B020000000304620E2A_KafkaExampleConsumer#0",
+    "Operation": "Join.Start",
+    "ClientId": "KafkaExampleConsumer#0",
+    "Message": "Start join group for new member namespace-name:c:$default:I:KafkaExampleConsumer#0-cc40856f7f3c4607915a571efe994e82, current group size: 0, API version: 2, session timeout: 10000ms, rebalance timeout: 300000ms.",
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "KafkaCoordinatorLogs"
+}
+```
+
+## <a name="kafka-user-error-logs-schema"></a>Esquema de registros de error de usuario de Kafka
+Las cadenas JSON del registro de errores de Kafka incluyen los elementos enumerados en la tabla siguiente:
+
+| Nombre | Descripción |
+| ---- | ----------- |
+| TrackingId | Identificador de seguimiento, que se usa con fines de seguimiento. |
+| NamespaceName | Nombre del espacio de nombres |
+| Eventhub | Nombre del centro de eventos |
+| PartitionId | Id. de partición |
+| GroupId | Identificador de grupo |
+| ClientId | Id. de cliente |
+| ResourceId | Identificador de recursos de Azure Resource Manager. |
+| Message | Mensaje informativo, que proporciona detalles sobre un error. |
+
+## <a name="event-hubs-virtual-network-connection-event-schema"></a>Esquema de eventos de conexión de red virtual de Event Hubs
+
+Las cadenas JSON del evento de conexión de red virtual (VNet) de Event Hubs contienen los elementos enumerados en la tabla siguiente:
+
+| Nombre | Descripción |
+| ---  | ----------- | 
+| SubscriptionId | Identificador de suscripción de Azure |
+| NamespaceName | Nombre del espacio de nombres |
+| IPAddress | Dirección IP de un cliente que se conecta al servicio de Event Hubs. |
+| Acción | Acción realizada por el servicio Event Hubs al evaluar las solicitudes de conexión. Las acciones admitidas son **Accept Connection** (Aceptar conexión) y **Deny Connection** (Denegar conexión). |
+| Motivo | Proporciona el motivo de que se haya realizado la acción. |
+| Count | Número de repeticiones de una acción dada. |
+| ResourceId | Identificador de recursos de Azure Resource Manager. |
+
+### <a name="example"></a>Ejemplo
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
+
+## <a name="customer-managed-key-user-logs"></a>Registros de usuario de claves administradas por el cliente
+Las cadenas JSON del registro de usuario de claves administradas por el cliente incluyen los elementos enumerados en la tabla siguiente:
+
+| Nombre | Descripción |
+| ---- | ----------- | 
+| Category | Tipo de categoría de un mensaje. Corresponde a uno de los siguientes valores: **error** e **info** |
+| ResourceId | Identificador de recurso interno, que incluye el identificador de suscripción y el nombre del espacio de nombres de Azure. |
+| KeyVault | Nombre del recurso de Key Vault. |
+| Clave | Nombre de la clave de Key Vault. |
+| Versión | Versión de la clave de Key Vault. |
+| Operación | El nombre de una operación realizada para atender solicitudes. |
+| Código | status code |
+| Message | Mensaje, que proporciona detalles sobre un error o un mensaje informativo. |
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md)

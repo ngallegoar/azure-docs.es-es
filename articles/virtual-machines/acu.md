@@ -13,22 +13,28 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: e344d09497a30dec546dfaedd3d78f30c7d214d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535704"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629106"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidad de proceso de Azure (ACU)
 
 El concepto de unidad de proceso de Azure (ACU) ofrece una forma de comparar el rendimiento de los procesos (CPU) en todas las SKU de Azure. Esto le ayudará a identificar fácilmente el SKU que tiene más probabilidades de satisfacer sus necesidades de rendimiento. Actualmente, una ACU está estandarizada en una máquina virtual pequeña (Standard_A1) como 100 y todas las demás SKU representan, aproximadamente, qué tanto más rápido esa SKU puede ejecutar una prueba comparativa estándar.
 
+*Las ACU usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento.  El volumen de mejora del rendimiento puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
+
+**Las ACU usan la tecnología AMD® Boost para incrementar la frecuencia de CPU y brindar una mejora del rendimiento.  El volumen de mejora del rendimiento puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
+
+***Con Hyper-Threading y capaz de ejecutar la virtualización anidada
+
 > [!IMPORTANT]
 > La ACU es solo una referencia. Los resultados de la carga de trabajo pueden variar.
 <br>
 
-| Familia de SKU | ACU \ vCPU | vCPU: núcleo |
+| Familia de SKU | ACU \ vCPU | vCPU: Core |
 | --- | --- |---|
 | [A0](sizes-previous-gen.md) |50 | 1:1 |
 | [A1 - A4](sizes-previous-gen.md) |100 | 1:1 |
@@ -55,10 +61,6 @@ El concepto de unidad de proceso de Azure (ACU) ofrece una forma de comparar el 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
-
-*Las ACU usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento.  El volumen de mejora del rendimiento puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
-**Las ACU usan la tecnología AMD® Boost para incrementar la frecuencia de CPU y brindar una mejora del rendimiento.  El volumen de mejora del rendimiento puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
-***Con Hyper-Threading y capaz de ejecutar la virtualización anidada
 
 Estos son algunos vínculos con información sobre los distintos tamaños:
 

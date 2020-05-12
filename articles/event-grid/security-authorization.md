@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78899006"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629514"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorización de acceso a recursos de Event Grid
 Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en rol (RBAC) de Azure.
+
 
 ## <a name="operation-types"></a>Tipos de operación
 
@@ -111,7 +112,7 @@ Si tiene que especificar permisos distintos a los de los roles integrados, puede
 
 Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a los usuarios realizar distintas acciones. Estos roles personalizados son diferentes de los roles integrados, ya que conceden acceso más amplio que las suscripciones a eventos.
 
-**EventGridReadOnlyRole.json**: Permitir únicamente operaciones de solo lectura.
+**EventGridReadOnlyRole.json**: Únicamente se permiten operaciones de solo lectura.
 
 ```json
 {
@@ -130,7 +131,7 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Permitir acciones de publicación restringidas pero denegar acciones de eliminación.
+**EventGridNoDeleteListKeysRole.json**: permitir acciones de publicación restringidas pero denegar acciones de eliminación.
 
 ```json
 {
@@ -182,6 +183,23 @@ Puede crear roles personalizados con [PowerShell](../role-based-access-control/c
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
 Todos los eventos o datos escritos en el disco por el servicio Event Grid se cifran mediante una clave administrada por Microsoft, lo que garantiza que se cifran en reposo. Además, el período máximo que se conservan los eventos o los datos es de 24 horas, conforme a la [directiva de reintentos de Event Grid](delivery-and-retry.md). Event Grid elimina automáticamente todos los eventos o datos tras 24 horas, o el período de vida del evento, lo que sea menor.
+
+## <a name="permissions-for-event-subscriptions"></a>Permisos para suscripciones a eventos
+Si usa un controlador de eventos que no sea un WebHook (como un almacenamiento de cola o un centro de eventos), necesita acceso de escritura a ese recurso. Esta comprobación de permisos impide que un usuario no autorizado envíe eventos al recurso.
+
+Debe tener el permiso **Microsoft.EventGrid/EventSubscriptions/Write** en el recurso que constituya el origen del evento. Necesita este permiso porque está escribiendo una nueva suscripción en el ámbito del recurso. El recurso requerido difiere en función de si se suscribe a un tema del sistema o a un tema personalizado. Ambos tipos se describen en esta sección.
+
+### <a name="system-topics-azure-service-publishers"></a>Temas del sistema (editores del servicio de Azure)
+Para temas del sistema, necesita permiso para escribir una nueva suscripción a eventos en el ámbito del recurso que publica el evento. El formato del recurso es: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+
+Por ejemplo, para suscribirse a un evento en una cuenta de almacenamiento denominada **myacct**, necesita el permiso Microsoft.EventGrid/EventSubscriptions/Write en:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+
+### <a name="custom-topics"></a>Temas personalizados
+Para temas personalizados, necesita permiso para escribir una nueva suscripción a eventos en el ámbito del tema de Event Grid. El formato del recurso es: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+
+Por ejemplo, para suscribirse a un tema personalizado denominado **mytopic**, necesita el permiso Microsoft.EventGrid/EventSubscriptions/Write en: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

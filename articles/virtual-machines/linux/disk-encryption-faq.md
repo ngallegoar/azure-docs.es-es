@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 7c49467451963ceb52f114430343fafb955ec4f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985412"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786995"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Linux
 
@@ -21,7 +21,7 @@ En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Az
 
 ## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>¿Qué es Azure Disk Encryption para VM Linux?
 
-Azure Disk Encryption para VM Linux usa la característica dm-crypt de Linux para proporcionar el cifrado de disco completo del disco del sistema operativo* y los discos de datos. Además, proporciona cifrado del disco de recursos efímeros cuando se usa la [característica EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Los flujos de contenido se cifran desde la VM hasta el back-end de almacenamiento. Por lo tanto, se proporciona el cifrado de un extremo a otro con una clave administrada por el cliente.
+Azure Disk Encryption para VM Linux usa la característica dm-crypt de Linux para proporcionar el cifrado de disco completo del disco del sistema operativo* y los discos de datos. Además, proporciona cifrado del disco temporal cuando se usa la característica [EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Los flujos de contenido se cifran desde la VM hasta el back-end de almacenamiento. Por lo tanto, se proporciona el cifrado de un extremo a otro con una clave administrada por el cliente.
  
 Consulte [VM y sistemas operativos compatibles](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
@@ -61,7 +61,7 @@ El cifrado del lado servidor de almacenamiento cifra Azure Managed Disks en Azur
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>¿Cuál es diferencia entre Azure Disk Encryption y el cifrado del lado servidor de almacenamiento con la clave administrada por el cliente y cuándo debo usar cada solución?
 
-Azure Disk Encryption proporciona cifrado de un extremo a otro para el disco del sistema operativo, los discos de datos y el disco de recursos efímeros con una clave administrada por el cliente.
+Azure Disk Encryption proporciona cifrado de un extremo a otro para el disco del sistema operativo, los discos de datos y el disco temporal mediante una clave administrada por el cliente.
 - Si los requisitos incluyen el cifrado de todos los elementos anteriores y el cifrado de un extremo a otro, use Azure Disk Encryption. 
 - Si los requisitos incluyen el cifrado solo de datos en reposo con la clave administrada por el cliente, use el [cifrado del lado servidor con las claves administradas por el cliente](disk-encryption.md). No se puede cifrar un disco con Azure Disk Encryption y el cifrado del lado servidor de almacenamiento con claves administradas por el cliente. 
 - Si su distribución de Linux no se incluye en los [sistemas operativos compatibles con Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems) o usa un escenario que se ha mencionado en los [escenarios no compatibles con Windows](disk-encryption-linux.md#unsupported-scenarios), considere la posibilidad de usar el [cifrado del lado servidor con las claves administradas por el cliente](disk-encryption.md).
@@ -148,7 +148,9 @@ Azure Disk Encryption usa el valor de descifrado predeterminado de aes-xts-plain
 No, no se borran datos de las unidades de datos que ya estén cifradas mediante Azure Disk Encryption. Igual que EncryptFormatAll no volvía a cifrar la unidad del SO, no volverá a cifrar la unidad de datos ya cifrada. Para obtener más información, consulte [Criterios de EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## <a name="is-xfs-filesystem-supported"></a>¿Se admite el sistema de archivos XFS?
-Los volúmenes XFS se admiten para el cifrado de disco de datos solo con el EncryptFormatAll. Esto volverá a formatear el volumen, por lo que se borrarán todos los datos que contenga. Para obtener más información, consulte [Criterios de EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Se admite el cifrado de discos de sistema operativo de XFS.
+
+Solo se admite el cifrado de discos de datos XFS cuando se usa el parámetro EncryptFormatAll. Esto volverá a formatear el volumen, por lo que se borrarán todos los datos que contenga. Para obtener más información, consulte [Criterios de EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>¿Puedo hacer una copia de seguridad de una VM cifrada y restaurarla? 
 

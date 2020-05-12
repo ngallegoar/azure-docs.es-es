@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f6384c1e9e14e38b4c44c5ac79a674839b43b4ca
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436168"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612833"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Preguntas frecuentes para clientes que ya usan registros de Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -42,7 +42,7 @@ Cuando Security Center identifica que una VM ya está conectada a un área de tr
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Ya tengo áreas de trabajo en mi entorno, ¿puedo utilizarlas para recopilar datos de seguridad?
 Si una VM ya tiene el agente de Log Analytics instalado como una extensión de Azure, Security Center usa el área de trabajo conectada existente. Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes mediante la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
-Cuando Security Center instala el agente de Log Analytics en las VM, usa los espacios de trabajo predeterminados creados por Security Center.
+Cuando Security Center instala el agente de Log Analytics en las máquinas virtuales, usa los espacios de trabajo predeterminados creados por Security Center si este no apunta a un área de trabajo ya existente.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Ya tengo una solución de seguridad en mis áreas de trabajo. ¿Qué implica desde el punto de vista de la facturación?
 La solución Seguridad y auditoría se utiliza para habilitar las características de nivel estándar de Security Center para máquinas virtuales de Azure. Si la solución Seguridad y auditoría ya está instalada en un área de trabajo, Security Center utiliza la solución existente. No hay ningún cambio en la facturación.

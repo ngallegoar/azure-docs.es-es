@@ -3,15 +3,15 @@ title: Administración de entornos del servicio de integración en Azure Logic A
 description: Compruebe el estado de la red y administre las aplicaciones lógicas, las conexiones, los conectores personalizados y las cuentas de integración en el entorno del servicio de integración (ISE) para Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237232"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598426"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Administración del entorno del servicio de integración (ISE) en Azure Logic Apps
 
@@ -54,6 +54,10 @@ Puede ver y administrar las aplicaciones lógicas que se encuentran en el ISE.
    ![Ver aplicaciones lógicas](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
 1. Para eliminar aplicaciones lógicas del ISE cuando ya no las necesite, selecciónelas y, a continuación, seleccione **Eliminar**. Seleccione **Sí** para confirmar que desea eliminarlas.
+
+> [!NOTE]
+> Si elimina una aplicación lógica secundaria y vuelve a crearla, debe guardar de nuevo la aplicación lógica principal. La aplicación secundaria que ha vuelto a crear tendrá metadatos diferentes.
+> Si no se reguarda la aplicación lógica principal después de volver a crear su elemento secundario, las llamadas a la aplicación lógica secundaria producirán un error de que no hay autorización. Este comportamiento se aplica a las aplicaciones lógicas de elementos primarios y secundarios, por ejemplo, las que usan artefactos en las cuentas de integración o llaman a funciones de Azure.
 
 <a name="find-api-connections"></a>
 

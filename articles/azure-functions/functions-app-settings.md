@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: e2d168d8828d17e13f875e3b2555c7db0d4ba32d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6f42c411263575040d4392b85542920e8f2463d4
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656801"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690757"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -37,6 +37,10 @@ Cadena de conexión para Application Insights. Use `APPLICATIONINSIGHTS_CONNECTI
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
 En la versión 2.x y posteriores del entorno en tiempo de ejecución de Functions, se configura el comportamiento de la aplicación en función del entorno en tiempo de ejecución. Este valor se [lee durante la inicialización](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Puede establecer `AZURE_FUNCTIONS_ENVIRONMENT` en cualquier valor, pero se admiten [tres valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname): [desarrollo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [almacenamiento provisional](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) y [producción](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Cuando no se ha establecido `AZURE_FUNCTIONS_ENVIRONMENT`, el valor predeterminado es `Development` en un entorno local, y `Production` en Azure. Esta configuración debe usarse en lugar de `ASPNETCORE_ENVIRONMENT` para establecer el entorno de ejecución. 
+
+## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
+
+En la versión 2.x y versiones posteriores del entorno de ejecución de Functions, la configuración de aplicación puede invalidar la configuración de [host.json](functions-host-json.md) en el entorno actual. Estas invalidaciones se expresan como valores de configuración de la aplicación denominados `AzureFunctionsJobHost__path__to__setting`. Para más información, consulte [Invalidación de valores de host.json](functions-host-json.md#override-hostjson-values).
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 

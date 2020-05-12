@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
-ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/29/2020
+ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415976"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598171"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Administración de aplicaciones lógicas en Azure Portal
 
@@ -145,6 +145,10 @@ La eliminación de la aplicación lógica afecta a las instancias de flujo de tr
 * Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen. En función del número de ejecuciones, este proceso puede tardar algún tiempo.
 
 * El motor de Logic Apps no creará ni ejecutará nuevas instancias de flujo de trabajo.
+
+> [!NOTE]
+> Si elimina una aplicación lógica secundaria y vuelve a crearla, debe guardar de nuevo la aplicación lógica principal. La aplicación secundaria que ha vuelto a crear tendrá metadatos diferentes.
+> Si no se reguarda la aplicación lógica principal después de volver a crear su elemento secundario, las llamadas a la aplicación lógica secundaria producirán un error de que no hay autorización. Este comportamiento se aplica a las aplicaciones lógicas de elementos primarios y secundarios, por ejemplo, las que usan artefactos en las cuentas de integración o llaman a funciones de Azure.
 
 <a name="delete-single-logic-app"></a>
 

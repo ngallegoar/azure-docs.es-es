@@ -7,13 +7,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
-ms.custom: security-baselines
-ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: security-benchmark
+ms.openlocfilehash: f2cdaafddb14d8b69fd708e4c89a578b60e53317
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587539"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606881"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Información general sobre la prueba comparativa de seguridad de Azure
 
@@ -23,7 +23,7 @@ Esta prueba comparativa se enfoca en las áreas de control centradas en la nube.
 
 Los siguientes controles se usan en la prueba comparativa de seguridad de Azure: 
 
-- [Seguridad de redes](security-control-network-security.md)
+- [Seguridad de las redes](security-control-network-security.md)
 - [Registro y supervisión](security-control-logging-monitoring.md)
 - [Identidad y control de acceso](security-control-identity-access-control.md)
 - [Protección de datos](security-control-data-protection.md)
@@ -46,10 +46,10 @@ Cada recomendación incluye la siguiente información:
 - **Responsabilidad**: Si el cliente o el proveedor de servicios (o ambos) es (son) el responsable de implementar esta recomendación. Las responsabilidades de seguridad se comparten en la nube pública. Algunos controles de seguridad solo están disponibles para el proveedor de servicios en la nube y, por tanto, el proveedor es responsable de dirigirlos. Estas son las observaciones generales: para algunos servicios individuales, la responsabilidad será distinta de la que se muestra en la prueba comparativa de seguridad de Azure. Estas diferencias se describen en las recomendaciones de línea de base para el servicio individual. 
 - **Detalles**: La lógica de la recomendación y vínculos a instrucciones sobre cómo implementarla. Si la recomendación es compatible con Azure Security Center, esta información también se mostrará.
 
-Le agradecemos sus comentarios detallados y su participación activa en el trabajo de pruebas comparativas de seguridad de Azure. Si desea proporcionar la entrada directa del equipo de pruebas comparativas, rellene el formulario en [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
+Le agradecemos sus comentarios detallados y su participación activa en el trabajo de pruebas comparativas de seguridad de Azure. Si desea proporcionar la entrada directa del equipo de pruebas comparativas de Azure Security, rellene el formulario en [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea el primer control de seguridad: [Seguridad de redes](security-control-network-security.md)
+- Consulte el primer control de seguridad: [seguridad de redes](security-control-network-security.md).
 - Lea [Introducción a las pruebas comparativas de seguridad de Azure](introduction.md)
 - Descargar la [hoja de cálculo de Excel de pruebas comparativas de seguridad de Azure v1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

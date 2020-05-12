@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681855"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792622"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -98,6 +98,10 @@ Si estos dos pasos no ayudan, debe averiguar si el cliente recibe fotogramas de 
 
 ### <a name="common-client-side-issues"></a>Problemas comunes del lado cliente
 
+**El modelo supera los límites de la VM seleccionada, específicamente el número máximo de polígonos:**
+
+Consulte las [limitaciones específicas del tamaño de la máquina virtual ](../reference/limits.md#overall-number-of-polygons).
+
 **El modelo no está dentro del tronco de la vista:**
 
 En muchos casos, el modelo se muestra correctamente pero se encuentra fuera del tronco de la cámara. Un motivo habitual es que el modelo se ha exportado con una dinamización muy descentrada y el plano de recorte lejano de la cámara lo ha recortado. Ayuda a consultar el cuadro de límite del modelo mediante programación y a visualizar el cuadro con Unity como un cuadro de línea o imprimir sus valores en el registro de depuración.
@@ -139,8 +143,20 @@ Azure Remote Rendering se enlaza a la canalización de representación de Unit
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>El código de Unity que usa la API de Remote Rendering no se compila
 
+### <a name="use-debug-when-compiling-for-unity-editor"></a>Uso de Depurar al compilar para el Editor de Unity
+
 Cambie el *tipo de compilación* de la solución Unity a **Depuración**. Al probar ARR en el editor de Unity, el objeto `UNITY_EDITOR` de definición solo está disponible en las compilaciones de tipo "Depuración". Tenga en cuenta que esto no está relacionado con el tipo de compilación usado para las [aplicaciones implementadas](../quickstarts/deploy-to-hololens.md), donde debe preferirá las compilaciones de tipo "Versión".
 
+### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Errores de compilación al compilar ejemplos de Unity para HoloLens 2
+
+Detectamos errores falsos al intentar compilar los ejemplos de Unity (quickstart, ShowCaseApp, …) para HoloLens 2. Visual Studio notifica que no puede copiar algunos archivos, aunque están ahí. Si ve este problema:
+* Quite todos los archivos temporales de Unity del proyecto y vuelva a intentarlo.
+* Asegúrese de que los proyectos se encuentran en un directorio en el disco con una ruta de acceso razonablemente corta, ya que el paso de copia a veces parece tener problemas con nombres de archivo largos.
+* Si eso no ayuda, podría deberse a que MS Sense interfiere con el paso de copia. Para configurar una excepción, ejecute este comando del Registro desde la línea de comandos (requiere derechos de administrador):
+    ```cmd
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    ```
+    
 ## <a name="unstable-holograms"></a>Hologramas inestables
 
 En caso de que parezca que los objetos representados se mueven con movimientos de cabeza, es posible que experimente problemas de *reproyección de fases con demora* (LSR). Consulte la sección sobre la [reproyección de fases con demora](../overview/features/late-stage-reprojection.md) para obtener instrucciones sobre cómo enfocar esta situación.

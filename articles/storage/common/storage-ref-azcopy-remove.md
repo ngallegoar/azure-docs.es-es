@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033996"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780732"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -89,11 +89,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opciones
 
-**--exclude-path string**      Excluye estas rutas de acceso al quitar. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa. Por ejemplo: myFolder;myFolder/subDirName/file.pdf.
+**--delete-snapshots string** De forma predeterminada, se producirá un error en la operación de eliminación si un blob tiene instantáneas. Especifique "include" para quitar el blob raíz y todas sus instantáneas; también puede especificar "only" para quitar solo las instantáneas pero conservar el blob raíz.
+
+**--exclude-path string** Excluye estas rutas de acceso al quitar. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa. Por ejemplo: myFolder;myFolder/subDirName/file.pdf.
 
 **--exclude-pattern** string   Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *.jpg;* .pdf; exactName.
 
-**-h, --help**                     Ayuda de remove.
+**--force-if-read-only** Al eliminar un archivo o una carpeta de Azure Files, fuerce la eliminación para que funcione incluso si el objeto existente tiene establecido el atributo de solo lectura.
+
+**-h, --help** Ayuda para la eliminación
 
 **--include-path** string      Incluye solo estas rutas de acceso al quitar. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa. Por ejemplo: myFolder;myFolder/subDirName/file.pdf.
 
@@ -111,6 +115,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--cap-mbps uint32|Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.|
 |--output-type string|Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text".|
+|--trusted-microsoft-suffixes string   | Especifica sufijos de dominio adicionales en los que se pueden enviar tokens de inicio de sesión de Azure Active Directory.  El valor predeterminado es " *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net". Los valores que se muestran aquí se agregan al valor predeterminado. Por seguridad, solo debe poner aquí dominios de Microsoft Azure. Separe las entradas con punto y coma.|
 
 ## <a name="see-also"></a>Consulte también
 

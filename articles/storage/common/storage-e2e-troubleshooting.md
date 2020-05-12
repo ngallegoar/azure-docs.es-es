@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314766"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610979"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 
@@ -161,7 +161,7 @@ El analizador de mensajes incluye herramientas del servicio Azure Storage que ha
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Descargar e instalar el analizador de mensajes y las herramientas de Azure Storage
 
-1. Descargue el [analizador de mensajes](https://www.microsoft.com/download/details.aspx?id=44226) del Centro de descarga de Microsoft y ejecute el programa de instalación.
+1. Descargue el [analizador de mensajes](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer).
 2. Inicie el analizador de mensajes.
 3. En el menú **Herramientas**, seleccione **Administrador de activos**. En el cuadro de diálogo **Administrador de activos**, seleccione **Descargas** y filtre por **Azure Storage**. Verá las herramientas de Azure Storage como se muestra en la imagen de abajo.
 4. Haga clic en **Sync All Displayed Items** (Sincronizar todos los elementos que se muestran) para instalar las herramientas de Azure Storage. Tiene disponibles los siguientes recursos:

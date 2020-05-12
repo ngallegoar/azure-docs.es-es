@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641619"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801780"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
 
@@ -92,9 +92,15 @@ Otra opción es usar un [perfil de puntuación personalizado](index-add-scoring-
 
 ## <a name="hit-highlighting"></a>Resaltado de referencias
 
-El resaltado de referencias hace referencia al formato del texto (por ejemplo, negrita o resaltados en amarillo) que se aplica al término coincidente en un resultado, lo que facilita la ubicación de las coincidencias. Se proporcionan instrucciones de resaltado de referencias en la [solicitud de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). El motor de búsqueda incluye el término coincidente en etiquetas, `highlightPreTag` y `highlightPostTag`, y el código controla la respuesta (por ejemplo, al aplicar una fuente en negrita).
+El resaltado de referencias hace referencia al formato del texto (por ejemplo, negrita o resaltados en amarillo) que se aplica a los términos coincidentes en un resultado, lo que facilita la ubicación de las coincidencias. Se proporcionan instrucciones de resaltado de referencias en la [solicitud de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-El formato se aplica a las consultas de términos completos. En el ejemplo siguiente, los términos "sandy", "sand", "beaches", "beach" que se encuentran en el campo de descripción están etiquetados para el resaltado. Las consultas que desencadenan la expansión de consultas en el motor, como las búsquedas aproximadas y las de caracteres comodín, tienen una compatibilidad limitada con el resaltado de referencias.
+Para habilitar el resaltado de referencias, agregue `highlight=[comma-delimited list of string fields]` para especificar los campos que usarán el resaltado. Este resulta útil para los campos de contenido más largos, como un campo de descripción, en el que la coincidencia no es evidente de inmediato. Solo las definiciones de campo atribuidas como **searchable** (que permiten búsquedas) califican para el resaltado de referencias.
+
+De forma predeterminada, Azure Cognitive Search devuelve hasta cinco elementos resaltados por campo. Puede ajustar este número al anexar al campo un guión seguido de un entero. Por ejemplo, `highlight=Description-10` devuelve hasta 10 elementos resaltados sobre el contenido coincidente en el campo Description.
+
+El formato se aplica a las consultas de términos completos. El tipo de formato lo determinan las etiquetas (`highlightPreTag` y `highlightPostTag`), y el código controla la respuesta (por ejemplo, la aplicación de una fuente en negrita o un fondo amarillo).
+
+En el ejemplo siguiente, los términos "sandy", "sand", "beaches", "beach" que se encuentran en el campo de descripción están etiquetados para el resaltado. Las consultas que desencadenan la expansión de consultas en el motor, como las búsquedas aproximadas y las de caracteres comodín, tienen una compatibilidad limitada con el resaltado de referencias.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

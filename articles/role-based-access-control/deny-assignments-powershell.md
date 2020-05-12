@@ -1,6 +1,6 @@
 ---
-title: Enumeración de las asignaciones de denegación para recursos de Azure con Azure PowerShell
-description: Obtenga información sobre cómo enumerar los usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas de recursos de Azure en ámbitos determinados mediante Azure PowerShell.
+title: 'Enumeración de asignaciones de denegación de Azure mediante Azure PowerShell: RBAC de Azure'
+description: Aprenda a enumerar los usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas en recursos de Azure en un ámbito determinado mediante Azure PowerShell y el control de acceso basado en roles de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd852d19b284f97995855fe06c97ea0ea69be293
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137396"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733969"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure PowerShell
+# <a name="list-azure-deny-assignments-using-azure-powershell"></a>Enumeración de asignaciones de denegación de Azure mediante Azure PowerShell
 
-Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo enumerar las asignaciones de denegación mediante Azure PowerShell.
+Las [asignaciones de denegación de Azure](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo enumerar las asignaciones de denegación mediante Azure PowerShell.
 
 > [!NOTE]
-> No se pueden crear directamente asignaciones de denegación propias. Para obtener información sobre cómo se crean las asignaciones de denegación, vea [Asignaciones de denegación](deny-assignments.md).
+> No se pueden crear directamente asignaciones de denegación propias. Para más información sobre cómo se crean las asignaciones de denegación, consulte [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 
-- El permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de [roles integrados para los recursos de Azure](built-in-roles.md).
+- El permiso `Microsoft.Authorization/denyAssignments/read`, que está incluido en la mayoría de los [roles integrados de Azure](built-in-roles.md).
 - [PowerShell en Azure Cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="list-deny-assignments"></a>Enumeración de asignaciones de denegación
@@ -126,5 +126,5 @@ PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-11111
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md)
-- [Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure Portal](deny-assignments-portal.md)
-- [Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST](deny-assignments-rest.md)
+- [Enumeración de asignaciones de denegación de Azure mediante Azure Portal](deny-assignments-portal.md)
+- [Enumeración de asignaciones de denegación de Azure mediante la API REST](deny-assignments-rest.md)

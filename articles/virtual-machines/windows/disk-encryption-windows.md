@@ -8,16 +8,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: deb2860c8d027a0a258c4a962fe33d6f516e10dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085650"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790905"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
-Azure Disk Encryption para máquinas virtuales (VM) Windows usa la característica de Bitlocker de Windows para proporcionar el cifrado de disco completo del disco del OS y los discos de datos. Además, proporciona cifrado del disco de recursos efímeros cuando el parámetro VolumeType es Todo.
+Azure Disk Encryption para máquinas virtuales Windows usa la característica BitLocker de Windows para proporcionar el cifrado de disco completo del disco de sistema operativo y los discos de datos. Además, proporciona cifrado del disco temporal cuando el parámetro VolumeType es All.
 
 Azure Disk Encryption [se integra con Azure Key Vault](disk-encryption-key-vault.md) para ayudarle a controlar y administrar las claves y los secreto de cifrado de discos. Para obtener información general del servicio, consulte [Azure Disk Encryption para máquinas virtuales Windows](disk-encryption-overview.md).
 
@@ -161,7 +161,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 También puede [agregar un nuevo disco a una máquina virtual Windows con PowerShell](attach-disk-ps.md) o [mediante Azure Portal](attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Habilitación del cifrado en un disco recién agregado con Azure PowerShell
- Al usar PowerShell para cifrar un nuevo disco para máquinas virtuales Windows, se debe especificar una nueva versión de secuencia. La versión de secuencia debe ser única. El siguiente script genera un GUID para la versión de secuencia. En algunos casos, un disco de datos recién agregado se podría cifrar automáticamente mediante la extensión Azure Disk Encryption. El cifrado automático suele producirse cuando se reinicia la máquina virtual después de que el nuevo disco se pone en línea. Esto se suele producir porque se especificó "All" para el tipo de volumen cuando el cifrado de disco se ejecutó anteriormente en la máquina virtual. Si el cifrado automático se produce en un disco de datos recién agregado, se recomienda volver a ejecutar el cmdlet Set-AzVmDiskEncryptionExtension con la nueva versión de secuencia. Si el nuevo disco de datos es de cifrado automático y no desea cifrarlo, descifre todas las unidades en primer lugar y, a continuación, vuelva a cifrarlas con una nueva versión de secuencia que especifique el sistema operativo para el tipo de volumen. 
+ Si se usa PowerShell para cifrar un nuevo disco para máquinas virtuales Windows, se debe especificar una nueva versión de la secuencia. La versión de secuencia debe ser única. El siguiente script genera un GUID para la versión de secuencia. En algunos casos, un disco de datos recién agregado se podría cifrar automáticamente mediante la extensión Azure Disk Encryption. El cifrado automático suele producirse cuando se reinicia la máquina virtual después de que el nuevo disco se pone en línea. Esto se suele producir porque se especificó "All" para el tipo de volumen cuando el cifrado de disco se ejecutó anteriormente en la máquina virtual. Si el cifrado automático se produce en un disco de datos recién agregado, se recomienda volver a ejecutar el cmdlet Set-AzVmDiskEncryptionExtension con la nueva versión de secuencia. Si el nuevo disco de datos es de cifrado automático y no desea cifrarlo, descifre todas las unidades en primer lugar y, a continuación, vuelva a cifrarlas con una nueva versión de secuencia que especifique el sistema operativo para el tipo de volumen. 
   
  
 
@@ -201,7 +201,7 @@ También puede [agregar un nuevo disco a una máquina virtual Windows con PowerS
     > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Habilitación del cifrado en un disco recién agregado con la CLI de Azure
- El comando de la CLI de Azure proporciona automáticamente una nueva versión de secuencia al ejecutarlo para habilitar el cifrado. El ejemplo usa "All" para el parámetro VolumeType. Es posible que deba cambiar el parámetro VolumeType para el sistema operativo si solo está cifrando el disco del sistema operativo. A diferencia de la sintaxis de PowerShell, la CLI no requiere que el usuario proporcione ninguna versión de secuencia única cuando se habilita el cifrado. La CLI genera y usa su propio valor de versión de secuencia único automáticamente.   
+ El comando de la CLI de Azure proporciona automáticamente una nueva versión de secuencia al ejecutarlo para habilitar el cifrado. El ejemplo usa "All" para el parámetro VolumeType. Es posible que deba cambiar el parámetro VolumeType para el sistema operativo si solo está cifrando el disco del sistema operativo. A diferencia de la sintaxis de PowerShell, la CLI no requiere que el usuario especifique ninguna versión de secuencia única cuando se habilita el cifrado. La CLI genera y usa su propio valor de versión de secuencia único automáticamente.   
 
 -  **Cifrado de una máquina virtual en ejecución:**
 
@@ -249,8 +249,8 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Discos de sistema operativo efímero.
 - Cifrado de sistemas de archivos compartidos o distribuidos como DFS, GFS, DRDB, and CephFS (sin limitarse solo a estos).
 - Traslado de máquinas virtuales cifradas a otra suscripción.
-- VM de Gen2 (consulte: [Compatibilidad para VM de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- VM de serie Lsv2 (consulte: [Serie Lsv2](../lsv2-series.md))
+- VM de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Máquinas virtuales de serie Lsv2 (consulte: [serie Lsv2](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Pasos siguientes
 

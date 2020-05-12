@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ff2267c2d03076d3abc44d0bd1dddc64577cc7f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237128"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611422"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guía de referencia del esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -178,7 +178,7 @@ Con JSON, puede tener valores literales que existen en tiempo de diseño, por ej
 "rainbowColorsCount": 7
 ```
 
-También puede tener valores que no existen hasta el momento de ejecución. Para representar estos valores, puede usar *expresiones*, que se evalúan en tiempo de ejecución. Una expresión es una secuencia que puede contener una o varias [funciones](#functions), [operadores](#operators), variables, valores explícitos o constantes. En la definición de flujo de trabajo, se puede usar una expresión en cualquier lugar de un valor de cadena JSON agregando delante de la expresión el prefijo de signo de arroba (\@). Al evaluar una expresión que representa un valor JSON, se extrae el cuerpo de la expresión quitando el carácter \@ y siempre da como resultado otro valor JSON.
+También puede tener valores que no existen hasta el momento de ejecución. Para representar estos valores, puede usar *expresiones*, que se evalúan en tiempo de ejecución. Una expresión es una secuencia que puede contener una o varias [funciones](#functions), [operadores](#operators), [variables](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), valores explícitos o constantes. En la definición de flujo de trabajo, se puede usar una expresión en cualquier lugar de un valor de cadena JSON agregando delante de la expresión el prefijo de signo de arroba (\@). Al evaluar una expresión que representa un valor JSON, se extrae el cuerpo de la expresión quitando el carácter \@ y siempre da como resultado otro valor JSON.
 
 Por ejemplo, en el caso de la propiedad `customerName` anteriormente definida, puede obtener su valor mediante la función [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) en una expresión y asignar ese valor a la propiedad `accountName`:
 

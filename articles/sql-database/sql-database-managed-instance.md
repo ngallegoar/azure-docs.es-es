@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879078"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598545"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -167,19 +167,31 @@ En la tabla siguiente se resumen las operaciones y las duraciones generales típ
 
 \*\*\* 12 horas es la configuración actual, pero eso podría cambiar en el futuro, por lo que no debe depender fuertemente de ella. Si necesita eliminar un clúster virtual anterior (por ejemplo, para liberar la subred), consulte [Eliminación de una subred después de eliminar una instancia administrada de Azure SQL Database](sql-database-managed-instance-delete-virtual-cluster.md).
 
-### <a name="instance-availability-during-management"></a>Disponibilidad de una instancia durante la administración
+### <a name="instance-availability-during-management-operations"></a>Disponibilidad de una instancia durante las operaciones de administración
 
-Las instancias administradas no están disponibles para las aplicaciones cliente durante las operaciones de implementación y eliminación.
+La instancia administrada no está disponible para las aplicaciones cliente durante las operaciones de implementación y eliminación.
 
-Las instancias administradas están disponibles durante las operaciones de actualización, pero existe un tiempo de inactividad breve provocado por la conmutación por error que se produce al final de las actualizaciones que, por lo general, dura hasta 10 segundos. La excepción a esto es la actualización del espacio de almacenamiento reservado en el nivel de servicio De uso general que no incurre en la conmutación por error ni afecta la disponibilidad de la instancia.
-
-> [!IMPORTANT]
-> La duración de una conmutación por error puede variar considerablemente en caso de transacciones de larga duración que se producen en las bases de datos debido a un [tiempo de recuperación prolongado](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Por lo tanto, no se recomienda escalar el proceso ni el almacenamiento de una instancia administrada de Azure SQL Database ni cambiar el nivel de servicio al mismo tiempo con las transacciones de larga duración (importación de datos, trabajos de procesamiento de datos, recompilación del índice, etc.). La conmutación por error de la base de datos que se realizará al final de la operación cancelará las transacciones en curso y generará un tiempo de recuperación prolongado.
+La instancia administrada está disponible durante las operaciones de actualización excepto durante un tiempo de inactividad breve provocado por la conmutación por error que se produce al final de la actualización. Normalmente tarda 10 segundos como máximo, incluso en el caso de transacciones de larga duración interrumpidas, gracias a la [recuperación acelerada de bases de datos](sql-database-accelerated-database-recovery.md).
 
 > [!TIP]
 > La actualización del espacio de almacenamiento reservado en el nivel de servicio De uso general no incurre en la conmutación por error ni afecta la disponibilidad de la instancia.
 
-La [recuperación de base de datos acelerada](sql-database-accelerated-database-recovery.md) no está disponible actualmente para las instancias administradas de Azure SQL Database. Una vez habilitada, esta característica reducirá considerablemente la variabilidad del tiempo de conmutación por error, incluso en caso de transacciones de larga duración.
+> [!IMPORTANT]
+> No se recomienda escalar el proceso ni el almacenamiento de una instancia administrada de Azure SQL Database ni cambiar el nivel de servicio al mismo tiempo con las transacciones de larga duración (importación de datos, trabajos de procesamiento de datos, recompilación del índice, etc.). La conmutación por error de la base de datos que se realizará al final de la operación cancelará todas las transacciones en curso.
+
+
+### <a name="management-operations-cross-impact"></a>Impacto de las operaciones de administración
+
+Las operaciones de administración de la instancia administrada pueden afectar a otras operaciones de administración de las instancias colocadas en el mismo clúster virtual. Esto incluye lo siguiente:
+
+- Las **operaciones de restauración de larga ejecución** de un clúster virtual pondrán en espera otras operaciones de creación de instancias o de escalado en la misma subred.<br/>**Ejemplo:** si hay una operación de restauración de larga ejecución y hay una solicitud de creación o escalado en la misma subred, esta solicitud tardará más tiempo en completarse, ya que esperará a que se complete la operación de restauración antes de continuar.
+    
+- La operación de creación o escalado de instancia que inició el cambio de tamaño del clúster virtual pondrá en espera la operación de **creación o escalado de la instancia posterior**.<br/>**Ejemplo:** si hay varias solicitudes de creación o escalado en la misma subred del mismo clúster virtual y una de ellas inicia el cambio de tamaño de este, todas las solicitudes que se enviaron más de cinco minutos después de la que requería el cambio de tamaño del clúster virtual tardarán más de lo esperado, ya que estas solicitudes tendrán que esperar a que el cambio de tamaño se complete antes de reanudarse.
+
+- **Las operaciones de creación y escalado enviadas en un período de 5 minutos** se procesarán por lotes y se ejecutarán en paralelo.<br/>**Ejemplo**: Solo se realizará un cambio de tamaño del clúster virtual para todas las operaciones enviadas en el período de 5 minutos (medido a partir del momento de la ejecución de la primera solicitud de operación). En caso de que otra solicitud se envíe más de 5 minutos después de enviar la primera, esta tendrá que esperar a que el cambio de tamaño del clúster virtual se complete antes de iniciar la ejecución.
+
+> [!IMPORTANT]
+> Las operaciones de administración que se ponen en espera debido a otra operación en curso se reanudarán automáticamente una vez que se cumplan las condiciones para continuar. No se necesita ninguna acción del usuario para reanudar temporalmente la operación de administración en pausa.
 
 ### <a name="canceling-management-operations"></a>Cancelación de operaciones de administración
 

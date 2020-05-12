@@ -1,18 +1,18 @@
 ---
 title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80677412"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864511"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
-Del mismo modo que un plano técnico permite a un ingeniero o a un arquitecto bosquejar los parámetros de diseño de un proyecto, Azure Blueprint permite a los grupos de arquitectos de la nube y de TI central definir un conjunto repetible de recursos de Azure que implementa y cumple los estándares de la organización, sus requisitos y sus patrones. Azure Blueprint permite a los equipos de desarrollo aprovisionar y crear rápidamente nuevos entornos sabiendo que se crean cumpliendo los estándares organizativos y que contienen un conjunto de componentes integrados, como las redes, para acelerar el desarrollo y la entrega.
+Del mismo modo que un plano técnico permite a un ingeniero o a un arquitecto bosquejar los parámetros de diseño de un proyecto, Azure Blueprint permite a los grupos de arquitectos de la nube y de TI central definir un conjunto repetible de recursos de Azure que implementa y cumple los estándares de la organización, sus requisitos y sus patrones. Azure Blueprints permite a los equipos de desarrollo aprovisionar y crear rápidamente nuevos entornos sabiendo que se crean cumpliendo los estándares organizativos y que contienen un conjunto de componentes integrados, como las redes, para acelerar el desarrollo y la entrega.
 
 Los planos técnicos son una manera declarativa de organizar la implementación de varias plantillas de recursos y de otros artefactos, como son:
 
@@ -21,12 +21,11 @@ Los planos técnicos son una manera declarativa de organizar la implementación 
 - Plantillas del Administrador de recursos de Azure
 - Grupos de recursos
 
-El servicio Azure Blueprints está respaldado por la distribución global [Azure Cosmos DB](../../cosmos-db/introduction.md).
-Los objetos de plano técnico se replican en varias regiones de Azure. Esta replicación proporciona baja latencia, alta disponibilidad y acceso coherente a los objetos de plano técnico, con independencia de la región en la que Azure Blueprints implemente el recurso.
+El servicio Azure Blueprints está respaldado por la distribución global [Azure Cosmos DB](../../cosmos-db/introduction.md). Los objetos de plano técnico se replican en varias regiones de Azure. Esta replicación proporciona baja latencia, alta disponibilidad y acceso coherente a los objetos de plano técnico, con independencia de la región en la que Azure Blueprints implemente el recurso.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>En qué difiere de las plantillas de Resource Manager
 
-El servicio está diseñado para ayudar con la _configuración del entorno_. A menudo, esta configuración consta de un conjunto de grupos de recursos, directivas, asignaciones de roles e implementaciones de plantillas de Resource Manager. Un plano es un paquete para reunir cada uno de estos tipos de _artefacto_ y permite componer y crear la versión de ese paquete, incluso mediante una canalización CI/CD. En última instancia, cada uno se asigna a una suscripción en una única operación que se puede auditar y seguir.
+El servicio está diseñado para ayudar con la _configuración del entorno_. A menudo, esta configuración consta de un conjunto de grupos de recursos, directivas, asignaciones de roles e implementaciones de plantillas de Resource Manager. Un plano técnico es un paquete para reunir cada uno de estos tipos de _artefacto_ y permite componer y crear la versión de ese paquete, incluso mediante una canalización CI/CD. En última instancia, cada uno se asigna a una suscripción en una única operación que se puede auditar y seguir.
 
 Casi todo lo que se puede querer incluir para la implementación en Azure Blueprints se puede conseguir con una plantilla de Resource Manager. Sin embargo, una plantilla de Resource Manager es un documento que no existe de forma nativa en Azure, cada una se almacena localmente o en el control de código fuente. La plantilla se usa para las implementaciones de uno o varios recursos de Azure pero, una vez implementados los recursos, no hay conexión activa ni relación con la plantilla.
 

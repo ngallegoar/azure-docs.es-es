@@ -2,13 +2,13 @@
 title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.date: 04/28/2020
+ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758838"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690901"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -24,6 +24,8 @@ El archivo de metadatos *host.json* contiene las opciones de configuración glob
 Otras opciones de configuración de la aplicación de funciones se administran en la [configuración de la aplicación](functions-app-settings.md) (para aplicaciones implementadas) o en el archivo [local.settings.json](functions-run-local.md#local-settings-file) (para desarrollo local).
 
 Las configuraciones de host.json relacionadas con los enlaces se aplican por igual a cada función de la aplicación de funciones. 
+
+También puede [invalidar o aplicar la configuración por entorno](#override-hostjson-values) mediante la configuración de la aplicación.
 
 ## <a name="sample-hostjson-file"></a>Archivo host.json de ejemplo
 
@@ -386,6 +388,23 @@ Conjunto de [directorios de código compartido](functions-reference-csharp.md#wa
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="override-hostjson-values"></a>Invalidación de valores de host.json
+
+Puede haber instancias en las que quiera configurar o modificar valores específicos en un archivo host.json para un entorno específico, sin cambiar el propio archivo host.json.  Puede invalidar valores específicos de host.json para crear un valor equivalente como una configuración de aplicación. Cuando el entorno de ejecución encuentra una configuración de aplicación en el formato `AzureFunctionsJobHost__path__to__setting`, invalida la configuración de host.json equivalente que se encuentra en `path.to.setting` en el archivo JSON. Cuando se expresa como una configuración de aplicación, el punto (`.`), que se utilizaba para indicar la jerarquía JSON, se reemplaza por un carácter de subrayado doble (`__`). 
+
+Por ejemplo, suponga que desea deshabilitar el muestreo de Application Insights cuando se ejecuta localmente. Si ha cambiado el archivo host.json local para deshabilitar Application Insights, este cambio podría insertarse en la aplicación de producción durante la implementación. La manera más segura de hacerlo es crear una configuración de aplicación como `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` en el archivo `local.settings.json`. Puede verlo en el siguiente archivo `local.settings.json`, que no se publica:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

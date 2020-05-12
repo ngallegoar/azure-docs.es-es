@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 10d81de48c0d8f56c7c3fd26e3fd82a8c3df84c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474686"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791262"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Escalado elástico de una cuenta de Cassandra API de Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Si necesita reducir la latencia, existe un espectro de opciones para administrar
 * [Manualmente mediante Azure Portal](#use-azure-portal)
 * [Mediante programación con las características del plano de control](#use-control-plane)
 * [Mediante programación con comandos de CQL con un SDK específico](#use-cql-queries)
-* [Dinámicamente mediante Autopilot](#use-autopilot)
+* [Dinámicamente con escalabilidad automática](#use-autoscale)
 
 En las siguientes secciones se explican las ventajas y desventajas de cada enfoque. Luego, puede decidir cuál es la mejor estrategia para equilibrar las necesidades de escalado del sistema, el costo general y las necesidades de eficiencia de la solución.
 
@@ -48,21 +48,21 @@ La ventaja de este método es que es una forma sencilla de administrar la capaci
 
 La API de Azure Cosmos DB para Cassandra ofrece la posibilidad de ajustar el rendimiento mediante programación con nuestras diversas características de plano de control. Puede encontrar instrucciones y ejemplos en los artículos sobre [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md) y la [CLI de Azure](cli-samples-cassandra.md).
 
-La ventaja de este método es que se puede automatizar el escalado o la reducción vertical de los recursos en función de un temporizador para tener en cuenta la actividad máxima o los períodos de baja actividad. Eche un vistazo a nuestro ejemplo [aquí](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) sobre cómo hacerlo mediante Azure Functions y PowerShell.
+La ventaja de este método es que se puede automatizar el escalado o la reducción vertical de los recursos en función de un temporizador para tener en cuenta la actividad máxima o los períodos de baja actividad. Consulte [aquí](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) un ejemplo sobre cómo hacerlo con Azure Functions y PowerShell.
 
-Uno de los inconvenientes de este enfoque podría ser que no puede responder a las necesidades cambiantes e imprevisibles de escalado en tiempo real. En su lugar, puede que necesite aprovechar el contexto de la aplicación en el sistema, en el nivel de cliente o SDK, o bien mediante [Autopilot](provision-throughput-autopilot.md).
+Uno de los inconvenientes de este enfoque podría ser que no puede responder a las necesidades cambiantes e imprevisibles de escalado en tiempo real. En su lugar, es posible que tenga que recurrir al contexto de la aplicación dentro del sistema o en el nivel de cliente o SDK, o bien utilizar [Escalabilidad automática](provision-throughput-autoscale.md).
 
 ## <a name="use-cql-queries-with-a-specific-sdk"></a><a id="use-cql-queries"></a>Uso de consultas de CQL con un SDK específico
 
 Puede escalar el sistema de forma dinámica con código mediante la ejecución de los [comandos CQL ALTER](cassandra-support.md#keyspace-and-table-options) para la base de datos o el contenedor dados.
 
-La ventaja de este enfoque es que permite responder a las necesidades de escalado de forma dinámica y de una manera personalizada que se adapte a su aplicación. Con este enfoque, todavía puede aprovechar los cargos y tarifas estándar de RU/s. Si las necesidades de escalado del sistema son mayormente predecibles (alrededor del 70 % o más), el uso del SDK con CQL puede ser un método más rentable de escalado automático que Autopilot. El inconveniente de este enfoque es que puede ser bastante complejo implementar los reintentos, al tiempo que la limitación de frecuencia puede aumentar la latencia.
+La ventaja de este enfoque es que permite responder a las necesidades de escalado de forma dinámica y de una manera personalizada que se adapte a su aplicación. Con este enfoque, todavía puede aprovechar los cargos y tarifas estándar de RU/s. Si las necesidades de escalado del sistema son en su mayoría predecibles (alrededor del 70 % o más), el uso del SDK con CQL puede ser un método más rentable de escalado automático que utilizar la escalabilidad automática. El inconveniente de este enfoque es que puede ser bastante complejo implementar los reintentos, al tiempo que la limitación de frecuencia puede aumentar la latencia.
 
-## <a name="use-autopilot"></a><a id="use-autopilot"></a>Uso de Autopilot
+## <a name="use-autoscale-provisioned-throughput"></a><a id="use-autoscale"></a>Uso del rendimiento aprovisionado de escalabilidad automática
 
-Además de la forma manual o mediante programación de aprovisionar el rendimiento, también puede configurar contenedores de Azure Cosmos en modo Autopilot. El modo Autopilot se escalará automáticamente y al instante hasta sus necesidades de consumo dentro de los intervalos de RU especificados sin poner en peligro los Acuerdos de Nivel de Servicio. Para más información, consulte el artículo [Creación de contenedores y bases de datos de Azure Cosmos en modo Autopilot](provision-throughput-autopilot.md).
+Además de aprovisionar el rendimiento de forma estándar (manual) o mediante programación, puede configurar contenedores de Azure Cosmos en el rendimiento aprovisionado de escalabilidad automática. La escalabilidad automática escalará el sistema de forma automática e instantánea en función de las necesidades de consumo dentro de los intervalos de RU especificados sin poner en peligro los Acuerdos de Nivel de Servicio. Para más información, consulte este artículo sobre la [creación de contenedores y bases de datos de Azure Cosmos en escalabilidad automática](provision-throughput-autoscale.md).
 
-La ventaja de este enfoque es que es la forma más fácil de administrar las necesidades de escalado del sistema. Garantiza que no se aplica limitación de frecuencia **dentro de los intervalos de RU configurados**. El inconveniente es que, si las necesidades de escalado en el sistema son predecibles, Autopilot puede ser una manera menos rentable de administrar las necesidades de escalado que el uso del plano de control o el nivel de SDK mencionados anteriormente.
+La ventaja de este enfoque es que es la forma más fácil de administrar las necesidades de escalado del sistema. Garantiza que no se aplica limitación de frecuencia **dentro de los intervalos de RU configurados**. El inconveniente es que, si las necesidades de escalado del sistema son predecibles, la escalabilidad automática puede resultar menos rentable a la hora de administrar las necesidades de escalado que el uso del plano de control o el nivel de SDK mencionados anteriormente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

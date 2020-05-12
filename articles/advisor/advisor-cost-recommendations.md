@@ -3,12 +3,12 @@ title: Reducción de los costos de servicio con Azure Advisor
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13e7b1d7c6b0fe342020c40e1bb4abeba97d18bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229692"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788100"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -49,6 +49,9 @@ Para ahorrar el 60 % del costo, se recomienda almacenar las instantáneas en Sta
 
 ## <a name="utilize-lifecycle-management"></a>Uso de la administración del ciclo de vida
 Azure Advisor utilizará la inteligencia relacionada con el recuento de objetos de Azure Blob Storage, el tamaño total y las transacciones para detectar si una o varias de sus cuentas de almacenamiento serían más adecuadas para habilitar la administración del ciclo de vida en los datos de niveles. Se le pedirá que cree reglas de administración del ciclo de vida para organizar automáticamente los datos en un nivel de acceso esporádico o el de archivo para optimizar los costos de almacenamiento, al tiempo que conserva los datos en Azure Blob Storage para que sean compatibles con las aplicaciones.
+
+## <a name="create-an-ephemeral-os-disk-recommendation"></a>Creación de una recomendación de disco del sistema operativo efímero
+Con el [disco del sistema operativo efímero](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks), los clientes obtienen estas ventajas: Ahorran en el costo de almacenamiento para el disco del sistema operativo. Reducen la latencia de lectura y escritura en el disco del sistema operativo. Una operación de restablecimiento de la imagen inicial de la máquina virtual más rápida mediante el restablecimiento del sistema operativo (y del disco temporal) a su estado original. Es preferible usar el disco del sistema operativo efímero para máquinas virtuales IaaS de corta duración o máquinas virtuales con cargas de trabajo sin estado. Advisor tiene recomendaciones para los recursos que pueden beneficiarse del disco del sistema operativo efímero. 
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 

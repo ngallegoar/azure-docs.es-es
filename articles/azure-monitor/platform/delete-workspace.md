@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/14/2020
-ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/30/2020
+ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80395786"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731907"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminación y recuperación de un área de trabajo de Azure Log Analytics
 
@@ -43,7 +43,7 @@ La operación de eliminación del área de trabajo quita el recurso de Resource 
 
 Las áreas de trabajo se pueden eliminar un mediante [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) o en [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 1. Para iniciar sesión, vaya a [Azure Portal](https://portal.azure.com). 
 2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
@@ -59,14 +59,13 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
-Debe tener permisos de "Colaborador de Log Analytics" para eliminar el área de trabajo de Log Analytics.<br>
-Si recibe el mensaje de error "*El nombre de esta área de trabajo ya existe*" al crear un área de trabajo, puede deberse a:
+Debe tener al menos permisos de *Colaborador de Log Analytics* para eliminar un área de trabajo.<br>
+Si recibe el mensaje de error *El nombre del área de trabajo ya está en uso* o se produce un *conflicto* al crear un área de trabajo, puede deberse a:
 * el nombre del área de trabajo no está disponible y lo está usando alguien de su organización u otro cliente.
-* El área de trabajo se ha eliminado en los últimos 14 días y su nombre se mantiene reservado durante el período de eliminación temporal. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una nueva área de trabajo con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:<br>
+* El área de trabajo se ha eliminado en los últimos 14 días y su nombre se mantiene reservado durante el período de eliminación temporal. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:<br>
    1. [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) el área de trabajo.
    2. [Eliminar permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) el área de trabajo.
    3. Crear una nueva área de trabajo con el mismo nombre.
-
 
 ## <a name="permanent-workspace-delete"></a>Eliminación permanente del área de trabajo
 Es posible que el método de eliminación temporal no encaje en algunos escenarios como el desarrollo y las pruebas, donde es necesario repetir una implementación con la misma configuración y el mismo nombre de área de trabajo. En tales casos, puede eliminar el área de trabajo de forma permanente e "invalidar" el período de eliminación temporal. La operación de eliminación permanente del área de trabajo libera el nombre del área de trabajo y puede crear una nueva área de trabajo con el mismo nombre.
@@ -96,12 +95,7 @@ Donde "eyJ0eXAiOiJKV1Qi…" representa el token de autorización completo.
 
 Si tiene permisos de colaborador en la suscripción y en el grupo de recursos a los que estaba asociada el área de trabajo antes de la operación de eliminación temporal, puede recuperarla durante el periodo de dicha eliminación, incluidos sus datos, configuración y agentes conectados. Después del período de eliminación temporal, el área de trabajo no podrá recuperarse y se pondrá en cola para su eliminación permanente. Los nombres de las áreas de trabajo eliminadas se conservan durante el periodo de eliminación temporal y no se pueden usar al intentar crear un área de trabajo nueva.  
 
-Para recuperar un área de trabajo, puede volver a crearla con los siguientes métodos de creación de áreas de trabajo: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate), siempre que se rellenen las siguientes propiedades con los detalles del área de trabajo eliminada:
-
-* Id. de suscripción
-* Nombre del grupo de recursos
-* Nombre del área de trabajo
-* Region
+Puede recuperar el área de trabajo mediante la creación de un área de trabajo con los detalles del área de trabajo eliminada, como los valores de *Id. de suscripción*, *Nombre del grupo de recursos*, *Nombre del área de trabajo* y *Región*. Si el grupo de recursos también se eliminó y no existe, cree un grupo de recursos con el mismo nombre que el que se usó antes de la eliminación y, luego, cree un área de trabajo con cualquiera de estos métodos: [Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o la [API de REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

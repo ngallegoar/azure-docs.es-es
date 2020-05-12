@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: edb34b1456efae4d06465cfa2e64e546f621c6da
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681136"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737902"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure
 
@@ -31,7 +31,13 @@ Cada recurso de Azure necesita su propia configuración de diagnóstico, que est
 Cada configuración de diagnóstico puede definir un único destino. Si desea enviar datos a más de un tipo de destino determinado (por ejemplo, dos áreas de trabajo de Log Analytics diferentes), cree varias configuraciones. Cada recurso puede tener hasta 5 configuraciones de diagnóstico.
 
 > [!NOTE]
-> Las [métricas de plataforma](metrics-supported.md) se recopilan automáticamente en las [métricas de Azure Monitor](data-platform-metrics.md). Las configuraciones de diagnóstico se pueden usar para recopilar métricas para determinados servicios de Azure en los registros de Azure Monitor para analizarlas con otros datos de supervisión mediante [consultas de registro](../log-query/log-query-overview.md).
+> Las [métricas de plataforma](metrics-supported.md) se recopilan automáticamente en las [métricas de Azure Monitor](data-platform-metrics.md). Las configuraciones de diagnóstico se pueden usar para recopilar métricas de determinados servicios de Azure en los registros de Azure Monitor a fin de analizarlas con otros datos de supervisión mediante [consultas de registro](../log-query/log-query-overview.md) con algunas limitaciones. 
+>  
+>  
+> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión. *Por ejemplo*: La métrica 'IOReadBytes' de una cadena de bloques puede consultarse y representarse individualmente en cada nodo. Sin embargo, cuando se exporta utilizando la configuración de diagnóstico, la métrica exportada representa los bytes de lectura de todos los nodos. Además, debido a limitaciones internas, no todas las métricas se exportan a los registros de Azure Monitor o Log Analytics. Para más información, consulte la [lista de métricas exportables](metrics-supported-export-diagnostic-settings.md). 
+>  
+>  
+> Para solucionar estas limitaciones de métricas específicas, se recomienda extraerlas manualmente mediante la [API REST de métricas](https://docs.microsoft.com/rest/api/monitor/metrics/list) e importarlas a los registros de Azure Monitor con [Data Collector API de Azure Monitor](data-collector-api.md).  
 
 ## <a name="destinations"></a>Destinations
 
@@ -78,9 +84,8 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
      - **AllMetrics** enruta las métricas de plataforma de un recurso al almacén de registros de Azure, pero en forma de registro. Normalmente, estas métricas solo se envían a la base de datos de series temporales de métricas de Azure Monitor. Si se envían al almacén de registros de Azure Monitor (que se puede buscar mediante Log Analytics), tendrá que integrarlas en consultas que realicen búsquedas en otros registros. Es posible que esta opción no esté disponible en todos los tipos de recursos. Cuando sí está disponible, en las [métricas compatibles con Azure Monitor](metrics-supported.md), se indica qué métricas se recopilan para cada tipo de recurso.
 
        > [!NOTE]
-       > Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
-       >
-       > *Por ejemplo*: La métrica 'IOReadBytes' de una cadena de bloques puede consultarse y representarse individualmente en cada nodo. Sin embargo, cuando se exporta utilizando la configuración de diagnóstico, la métrica exportada representa los bytes de lectura de todos los nodos.
+       > Consulte las limitaciones para enrutar métricas a los registros de Azure Monitor anteriormente en este artículo.  
+
 
      - En **Registros**, se muestran las distintas categorías disponibles en función del tipo de recurso. Seleccione las categorías que desee enrutar a un destino.
 

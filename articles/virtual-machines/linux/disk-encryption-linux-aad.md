@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970617"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792605"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitación de Azure Disk Encryption con Azure AD en máquinas virtuales Linux (versión anterior)
 
@@ -158,7 +158,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Uso de la característica EncryptFormatAll para discos de datos en máquinas virtuales IaaS de Linux
 El parámetro EncryptFormatAll reduce el tiempo que se tarda en cifrar los discos de datos de Linux. Las particiones que cumplen determinados criterios se formatean (con su actual sistema de archivos). Luego, se vuelven a montar donde estaban antes de la ejecución del comando. Si quiere excluir un disco de datos que cumple los criterios, puede desmontarlo antes de ejecutar el comando.
 
- Después de ejecutar este comando, se formatean las unidades que se han montado anteriormente. Luego se inicia la capa de cifrado sobre la unidad ahora vacía. Cuando se selecciona esta opción, también se cifra el disco de recursos efímero asociado a la máquina virtual. Si la unidad efímera se restablece, la solución Azure Disk Encryption la vuelve a formatear y a cifrar para la máquina virtual en la próxima oportunidad.
+ Después de ejecutar este comando, se formatean las unidades que se han montado anteriormente. Luego se inicia la capa de cifrado sobre la unidad ahora vacía. Cuando se selecciona esta opción, también se cifra el disco temporal asociado a la máquina virtual. Si la unidad efímera se restablece, la solución Azure Disk Encryption la vuelve a formatear y a cifrar para la máquina virtual en la próxima oportunidad.
 
 >[!WARNING]
 > EncryptFormatAll no debe usarse cuando hay datos necesarios en los volúmenes de datos de una máquina virtual. Para excluir discos del cifrado, puede desmontarlos. Pruebe primero el parámetro EncryptFormatAll en una VM de prueba para entender el parámetro de característica y su implicación antes de probarlo en la VM de producción. La opción EncryptFormatAll formatea el disco de datos, por lo que todos los datos que contiene se pierden. Antes de continuar, compruebe que los discos que quiere excluir estén desmontados correctamente. </br></br>

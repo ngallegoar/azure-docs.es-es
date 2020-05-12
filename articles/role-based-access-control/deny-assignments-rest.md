@@ -1,6 +1,6 @@
 ---
-title: Enumeración de las asignaciones de denegación para recursos de Azure con la API de REST
-description: Aprenda a enumerar las asignaciones de denegación para usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) para recursos de Azure y la API REST.
+title: 'Enumeración de asignaciones de denegación de Azure mediante la API REST: RBAC de Azure'
+description: Aprenda a enumerar las asignaciones de denegación para usuarios, grupos y aplicaciones mediante la API REST y el control de acceso basado en roles de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,25 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0f648405a3d71bf27c64dacbb3fd78f3e9801137
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dae0352566e6cb4f8ed1384ca12213e2aaa07f9d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063031"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733877"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST
+# <a name="list-azure-deny-assignments-using-the-rest-api"></a>Enumeración de asignaciones de denegación de Azure mediante la API REST
 
-Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo enumerar las asignaciones de denegación mediante la API REST.
+Las [asignaciones de denegación de Azure](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo enumerar las asignaciones de denegación mediante la API REST.
 
 > [!NOTE]
-> No se pueden crear directamente asignaciones de denegación propias. Para obtener información sobre cómo se crean las asignaciones de denegación, vea [Asignaciones de denegación](deny-assignments.md).
+> No se pueden crear directamente asignaciones de denegación propias. Para más información sobre cómo se crean las asignaciones de denegación, consulte [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 
-- El permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de [roles integrados para los recursos de Azure](built-in-roles.md).
+- El permiso `Microsoft.Authorization/denyAssignments/read`, que está incluido en la mayoría de los [roles integrados de Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lista de una sola asignación de denegación
 
@@ -91,7 +91,7 @@ Para obtener información sobre una asignación de denegación, debe tener lo si
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>Enumeración de las asignaciones de denegación en el ámbito raíz (/)
 
-1. Eleve el privilegio de acceso como se describe en [Elevación de los privilegios de acceso de un administrador global en Azure Active Directory](elevate-access-global-admin.md).
+1. Eleve el acceso como se describe en [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](elevate-access-global-admin.md).
 
 1. Use la siguiente solicitud:
 
@@ -112,5 +112,5 @@ Para obtener información sobre una asignación de denegación, debe tener lo si
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md)
-- [Elevación de los privilegios de acceso de un administrador global en Azure Active Directory](elevate-access-global-admin.md)
+- [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](elevate-access-global-admin.md)
 - [Azure REST API Reference](/rest/api/azure/) (Referencia de API de REST en Azure)

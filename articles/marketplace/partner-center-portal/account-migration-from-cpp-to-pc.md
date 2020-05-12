@@ -1,20 +1,20 @@
 ---
-title: 'Migración de cuentas de Cloud Partner Portal al centro de partners: Marketplace comercial para Azure'
-description: Cómo migrar su cuenta de CPP al centro de partners. - Marketplace comercial para Azure
+title: Migración de cuentas de Cloud Partner Portal a Marketplace comercial de Microsoft
+description: Aprenda a migrar su cuenta de Cloud Partner Portal al Centro de partners en Marketplace comercial de Microsoft para Azure.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 4aa336183d25a524246a2036fb95e0a7657b84f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 033b603630fc219fc378556a2ccbaef4eae524e4
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279817"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743525"
 ---
-# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migración de cuentas de Cloud Partner Portal al centro de partners
+# <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Cómo migrar su cuenta del Cloud Partner Portal al Centro de partners
 
 Si tiene una cuenta de Cloud Partner Portal (CPP) existente, la configuración de la cuenta debe migrarse al Centro de partners.
 
@@ -43,11 +43,21 @@ Haga clic en el banner para iniciar el proceso de migración de la cuenta. Deber
 
     En caso de que la cuenta de CPP no tenga un identificador de Microsoft Partner Network o si lo tiene, pero no es válido, debe registrarse en el programa Microsoft Partner Network como parte del proceso de activación.
 
+## <a name="publishers-moving-from-cpp"></a>Publicadores que se trasladan desde CPP
+
+Si su cuenta se ha migrado desde [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), no es necesario que cree una nueva cuenta del Centro de partners. Debe haber recibido un vínculo personalizado a su nueva cuenta del Centro de partners en el correo electrónico y en una notificación de banner tras iniciar sesión en su cuenta de CPP existente.
+
+Una vez haya habilitado la nueva cuenta de Centro de partners con la visita a este vínculo personalizado, puede volver a su cuenta mediante el [panel de información de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) en Centro de partners.
+
+El contrato de publicación y la información de perfil de empresa se migrarán a la nueva cuenta de Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario configurados previamente, así como ofertas activas asociadas con su cuenta de CPP.
+
+Una vez que la información de la cuenta se haya migrado de CPP al Centro de partners, ya no usará CPP para hacer actualizaciones de cuentas o administrar usuarios, permisos y facturación. Durante un tiempo limitado, las actualizaciones de cuenta que haga en el Centro de partners se actualizarán automáticamente con su cuenta CPP de solo lectura hasta que el portal CPP entre finalmente en desuso.
+
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>Registro en el programa Microsoft Partner Network
 
 Las empresas que deseen asociarse a Microsoft deben unirse a Microsoft Partner Network (MPN) y obtener un identificador de MPN. Si ya es miembro de Microsoft Partner Network y tiene un identificador de MPN, tenga a mano la información, ya que va a necesitarla durante el proceso de activación de la cuenta.  
 
-Si no es miembro de Microsoft Partner Network, puede [unirse aquí](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) para obtener un identificador de MPN. Anote el identificador de MPN, ya que debe escribirlo durante el proceso de activación de la cuenta.
+Si no es miembro de Microsoft Partner Network, puede [unirse aquí](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) para obtener un identificador de MPN. Anote el identificador de MPN, ya que debe escribirlo durante el proceso de activación de la cuenta.
 
 Para obtener más información sobre Microsoft Partner Network, consulte [Únase a Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) en el sitio web del asociado. Para obtener más información sobre las ventajas de ISV en Microsoft Partner Network, consulte el [centro de recursos de ISV](https://partner.microsoft.com/isv-resource-hub).  
 
@@ -61,7 +71,7 @@ Para obtener información sobre lo que debe hacerse antes del **15 de octubre de
 > Esto no se aplica a las ofertas de Dynamics 365 Business Central.  
 
 1. Si la cuenta de pertenencia de MPN se creó originalmente en Partner Membership Center (PMC), inicie sesión en el [Centro de partners](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) para confirmar que la cuenta se ha migrado. Si ve una pantalla de perfil con el identificador de MPN, significa que ya está listo para continuar. Si no es así, debe iniciar la migración de la cuenta siguiendo las indicaciones de [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Consulte [Soporte técnico](https://partner.microsoft.com/support?issueid=100-0077) si necesita ayuda.
-2. Vaya a [Introducción al portal de Marketplace comercial en el Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Si ve "Marketplace comercial" en el panel de navegación izquierdo, significa que está inscrito y debe continuar con el paso siguiente. Si no es así, [inscríbase ahora en el Marketplace comercial](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
+2. Vaya a [Introducción al portal de Marketplace comercial en el Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Si ve "Marketplace comercial" en el panel de navegación izquierdo, significa que está inscrito y debe continuar con el paso siguiente. Si no es así, [inscríbase ahora en el Marketplace comercial](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 3. Confirme que sus ofertas están en AppSource. Para ello, [busque sus ofertas](https://appsource.microsoft.com/). Si las ofertas ya están en AppSource, continúe con el paso siguiente. En el caso de las ofertas que no estén en AppSource, cree una [nueva oferta de Dynamics 365 Customer Engagement](create-new-customer-engagement-offer.md) o una [nueva oferta de Dynamics 365 Operations](create-new-operations-offer.md).
 4. En la [página de acuerdos](https://partner.microsoft.com/dashboard/account/agreements) del Centro de partners, asegúrese de haber revisado y aceptado el **anexo de ISV de Business Applications**.
 5. En la [configuración de cuenta](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) del Centro de partners, asegúrese de que su información de facturación está completa.
@@ -73,10 +83,10 @@ Para obtener información sobre lo que debe hacerse antes del **15 de octubre de
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-Únase a la [llamada de la comunidad de ISV de Dynamics](https://aka.ms/DynamicsISV-CommunityCall) para obtener soporte técnico y actualizaciones.
+Obtenga ayuda de expertos y compañeros en los foros y descubra blogs, seminarios web, vídeos, eventos, etc. en [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-Si necesita ayuda para publicar, certificar o administrar sus ofertas de Marketplace, [envíe una incidencia de soporte técnico](https://aka.ms/MarketplacePublisherSupport).
+Si necesita ayuda para publicar, certificar o administrar sus ofertas de Marketplace, [envíe una incidencia de soporte técnico](https://partner.microsoft.com/support/v2/?stage=1).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-step"></a>Paso siguiente
 
 - [Administración de la cuenta de Marketplace comercial en el Centro de partners](./manage-account.md)

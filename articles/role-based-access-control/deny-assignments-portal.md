@@ -1,6 +1,6 @@
 ---
-title: Enumeración de las asignaciones de denegación para recursos de Azure con Azure Portal
-description: Aprenda cómo enumerar los usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas en recursos de Azure en un ámbito determinado mediante Azure Portal.
+title: 'Enumeración de asignaciones de denegación de Azure mediante Azure Portal: RBAC de Azure'
+description: Aprenda a enumerar los usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas en recursos de Azure en un ámbito determinado mediante Azure Portal y el control de acceso basado en roles de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137423"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734117"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure Portal
+# <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Enumeración de asignaciones de denegación de Azure mediante Azure Portal
 
-Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo enumerar las asignaciones de denegación mediante Azure Portal.
+Las [asignaciones de denegación de Azure](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo enumerar las asignaciones de denegación mediante Azure Portal.
 
 > [!NOTE]
-> No se pueden crear directamente asignaciones de denegación propias. Para obtener información sobre cómo se crean las asignaciones de denegación, vea [Asignaciones de denegación](deny-assignments.md).
+> No se pueden crear directamente asignaciones de denegación propias. Para más información sobre cómo se crean las asignaciones de denegación, consulte [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para obtener información sobre una asignación de denegación, debe tener lo siguiente:
 
-- El permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de [roles integrados para los recursos de Azure](built-in-roles.md).
+- El permiso `Microsoft.Authorization/denyAssignments/read`, que está incluido en la mayoría de los [roles integrados de Azure](built-in-roles.md).
 
 ## <a name="list-deny-assignments"></a>Enumeración de asignaciones de denegación
 
@@ -42,7 +42,7 @@ Siga estos pasos para enumerar las asignaciones de denegación en el ámbito de 
 
 1. Haga clic en el grupo de administración o suscripción que quiera enumerar.
 
-1. Haga clic en **Control de acceso (IAM)** .
+1. Haga clic en **Control de acceso (IAM).**
 
 1. Haga clic en la pestaña **Asignaciones de denegación** (o haga clic en el botón **Ver** en el icono Ver asignaciones de denegación).
 
@@ -110,4 +110,4 @@ Siga estos pasos para enumerar detalles adicionales sobre una asignación de den
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md)
-* [Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure PowerShell](deny-assignments-powershell.md)
+* [Enumeración de asignaciones de denegación de Azure mediante Azure PowerShell](deny-assignments-powershell.md)

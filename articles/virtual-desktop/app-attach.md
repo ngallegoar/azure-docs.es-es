@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128322"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612476"
 ---
 # <a name="set-up-msix-app-attach"></a>Configuración de la asociación de aplicaciones en formato .MSIX
 
 > [!IMPORTANT]
 > La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tema lo guiará a través de la configuración de la asociación de aplicaciones en formato MSIX en un entorno de Windows Virtual Desktop.
 
@@ -28,7 +28,7 @@ Este tema lo guiará a través de la configuración de la asociación de aplicac
 Antes de empezar, esto es lo que necesita para configurar la asociación de aplicaciones en formato MSIX:
 
 - Acceso al portal de Windows Insider para obtener la versión de Windows 10 con compatibilidad con las API de asociación de aplicaciones con formato MSIX.
-- Una implementación de Windows Virtual Desktop en funcionamiento. Para más información, consulte [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Una implementación de Windows Virtual Desktop en funcionamiento. Para más información, consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - La herramienta de empaquetado MSIX.
 - Un recurso compartido de red en la implementación de Windows Virtual Desktop donde se almacenará el paquete MSIX.
 
