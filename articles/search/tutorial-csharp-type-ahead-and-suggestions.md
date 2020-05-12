@@ -1,21 +1,21 @@
 ---
-title: Autocompletar y sugerencias
+title: Tutorial de C# sobre la función Autocompletar y las sugerencias
 titleSuffix: Azure Cognitive Search
-description: En este tutorial se muestran las funciones Autocompletar y las sugerencias como una manera de recopilar la entrada de términos de búsqueda de los usuarios mediante una lista desplegable. Se basa en un proyecto de hoteles existente.
+description: Agregue la función Autocompletar y sugerencias para recopilar entradas de términos de búsqueda de los usuarios mediante la lista desplegable. Este tutorial se basa en un proyecto de hoteles existente.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641070"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780562"
 ---
-# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Tutorial de C#: Incorporación de la función Autocompletar y las sugerencias: Azure Cognitive Search
+# <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Incorporación de la función Autocompletar y sugerencias mediante el SDK de .NET
 
 Obtenga información sobre cómo implementar la función Autocompletar (escritura anticipada de consultas y documentos sugeridos) cuando un usuario empieza a escribir en el cuadro de búsqueda. En este tutorial, se mostrarán las consultas autocompletadas y los resultados de sugerencias por separado y luego juntos. Un usuario puede que solo tenga que escribir dos o tres caracteres para buscar todos los resultados disponibles.
 

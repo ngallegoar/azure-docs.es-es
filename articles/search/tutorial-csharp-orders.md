@@ -1,21 +1,21 @@
 ---
 title: Tutorial de C# sobre la ordenación de los resultados
 titleSuffix: Azure Cognitive Search
-description: En este tutorial se muestra cómo ordenar los resultados de la búsqueda. Se basa en un proyecto de hoteles anterior, que se ordena por propiedad principal y propiedad secundaria, y que incluye un perfil de puntuación para agregar criterios de mejora.
+description: En este tutorial de C# se muestra cómo ordenar los resultados de la búsqueda. Se basa en un proyecto de hoteles anterior, que se ordena por propiedad principal y propiedad secundaria, y que incluye un perfil de puntuación para agregar criterios de mejora.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121553"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780613"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Tutorial de C#: Ordenación de los resultados: Azure Cognitive Search
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Ordenación de los resultados de búsqueda mediante el SDK de .NET
 
 Hasta este punto en nuestra serie de tutoriales, los resultados se devuelven y se muestran en un orden predeterminado. Esto puede ser el orden en que se encuentran los datos, o posiblemente se ha definido un _perfil de puntuación_ predeterminado, que se usará cuando no se especifique ningún parámetro de ordenamiento. En este tutorial, describiremos cómo ordenar los resultados según una propiedad principal y luego, para los resultados con la misma propiedad principal, cómo ordenar esa selección según una propiedad secundaria. Como alternativa al ordenamiento basado en valores numéricos, en el último ejemplo se muestra cómo ordenar según un perfil de puntuación personalizado. También describiremos un poco más la visualización de _tipos complejos_.
 

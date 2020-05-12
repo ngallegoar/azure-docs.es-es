@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 5c5b2a0c6e27f83e94b8f6a0ba3bb09ed1831680
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5f9e50f0d4969e10d3c01496ea29652712a407c5
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73471583"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592404"
 ---
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -19,4 +19,4 @@ En el menú de Azure Portal o en la página de **inicio**, seleccione **Grupos d
 
 En la página **myResourceGroup**, asegúrese de que los recursos enumerados sean los que desea eliminar.
 
-Seleccione **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y seleccione **Eliminar**.
+Seleccione **Eliminar grupo de recursos**, escriba **myResourceGroup** en el cuadro de texto para confirmar y, después, seleccione **Eliminar**.

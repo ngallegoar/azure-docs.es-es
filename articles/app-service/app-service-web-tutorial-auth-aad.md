@@ -1,23 +1,21 @@
 ---
-title: 'Tutorial: Autenticación y autorización de un extremo a otro'
-description: Aprenda a usar la autenticación y autorización de App Service para proteger sus aplicaciones de App Service, como el acceso a las API remotas.
+title: 'Tutorial: Autenticación de usuarios E2E'
+description: Aprenda a usar la autenticación y autorización de App Service para proteger sus aplicaciones de App Service de un extremo a otro, incluido el acceso a las API remotas.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 46750383c1436a2d053d6db7fed858c7c0f8a9fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b95d5d6eb52806e5b43a495b875d30846297c465
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78226302"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592441"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
-[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Además, App Service incluye compatibilidad integrada con la [autenticación y autorización de usuarios](overview-authentication-authorization.md). En este tutorial se muestra cómo proteger las aplicaciones con la autenticación y autorización de App Service. Se usa una aplicación de ASP.NET Core con un front-end Angular.js, pero solo como ejemplo. La autenticación y autorización de App Service admiten entornos de ejecución de todos los lenguajes; en este tutorial, aprenderá a aplicarlas a su lenguaje preferido.
-
-En este tutorial se usa la aplicación de ejemplo para mostrarle cómo proteger una aplicación independiente (en [Habilitación de la autenticación y autorización en una aplicación de back-end](#enable-authentication-and-authorization-for-back-end-app)).
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Además, App Service incluye compatibilidad integrada con la [autenticación y autorización de usuarios](overview-authentication-authorization.md). En este tutorial se muestra cómo proteger las aplicaciones con la autenticación y autorización de App Service. Usa una aplicación ASP.NET Core con un front-end Angular.js como ejemplo. La autenticación y autorización de App Service admiten entornos de ejecución de todos los lenguajes; en este tutorial, aprenderá a aplicarlas a su lenguaje preferido.
 
 ![Autenticación y autorización simples](./media/app-service-web-tutorial-auth-aad/simple-auth.png)
 
@@ -46,8 +44,8 @@ También puede seguir los pasos de este tutorial en macOS, Linux, Windows.
 
 Para completar este tutorial:
 
-* [Instale Git](https://git-scm.com/).
-* [Instale .NET Core](https://www.microsoft.com/net/core/).
+* <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Instalación del SDK más reciente de .NET Core 3.1</a>
 
 ## <a name="create-local-net-core-app"></a>Creación de una aplicación .NET Core local
 
@@ -91,7 +89,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 ```
 
 > [!NOTE]
-> Guarde las direcciones URL de los repositorios Git remotos de las aplicaciones de front-end y de back-end, que se muestran en la salida de `az webapp create`.
+> Guarde las direcciones URL de los repositorios Git remotos de su aplicación de front-end y de back-end, que se muestran en la salida de `az webapp create`.
 >
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
@@ -139,47 +137,47 @@ private static readonly HttpClient _client = new HttpClient();
 private static readonly string _remoteUrl = "https://<back-end-app-name>.azurewebsites.net";
 ```
 
-Busque el método `GetAll()` y reemplace el código entre llaves por:
+Busque el método decorado con `[HttpGet]` y reemplace el código entre llaves por:
 
 ```cs
-var data = _client.GetStringAsync($"{_remoteUrl}/api/Todo").Result;
+var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo");
 return JsonConvert.DeserializeObject<List<TodoItem>>(data);
 ```
 
 La primera línea realiza una llamada `GET /api/Todo` a la aplicación de API de back-end.
 
-A continuación, busque el método `GetById(long id)` y reemplace el código entre llaves por:
+Después, busque el método decorado con `[HttpGet("{id}")]` y reemplace el código entre llaves por:
 
 ```cs
-var data = _client.GetStringAsync($"{_remoteUrl}/api/Todo/{id}").Result;
+var data = await _client.GetStringAsync($"{_remoteUrl}/api/Todo/{id}");
 return Content(data, "application/json");
 ```
 
 La primera línea realiza una llamada `GET /api/Todo/{id}` a la aplicación de API de back-end.
 
-A continuación, busque el método `Create([FromBody] TodoItem item)` y reemplace el código entre llaves por:
+Después, busque el método decorado con `[HttpPost]` y reemplace el código entre llaves por:
 
 ```cs
-var response = _client.PostAsJsonAsync($"{_remoteUrl}/api/Todo", item).Result;
-var data = response.Content.ReadAsStringAsync().Result;
+var response = await _client.PostAsJsonAsync($"{_remoteUrl}/api/Todo", todoItem);
+var data = await response.Content.ReadAsStringAsync();
 return Content(data, "application/json");
 ```
 
 La primera línea realiza una llamada `POST /api/Todo` a la aplicación de API de back-end.
 
-A continuación, busque el método `Update(long id, [FromBody] TodoItem item)` y reemplace el código entre llaves por:
+Después, busque el método decorado con `[HttpPut("{id}")]` y reemplace el código entre llaves por:
 
 ```cs
-var res = _client.PutAsJsonAsync($"{_remoteUrl}/api/Todo/{id}", item).Result;
+var res = await _client.PutAsJsonAsync($"{_remoteUrl}/api/Todo/{id}", todoItem);
 return new NoContentResult();
 ```
 
 La primera línea realiza una llamada `PUT /api/Todo/{id}` a la aplicación de API de back-end.
 
-A continuación, busque el método `Delete(long id)` y reemplace el código entre llaves por:
+Después, busque el método decorado con `[HttpDelete("{id}")]` y reemplace el código entre llaves por:
 
 ```cs
-var res = _client.DeleteAsync($"{_remoteUrl}/api/Todo/{id}").Result;
+var res = await _client.DeleteAsync($"{_remoteUrl}/api/Todo/{id}");
 return new NoContentResult();
 ```
 
@@ -209,37 +207,39 @@ Usará Azure Active Directory como proveedor de identidades. Para más informaci
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitación de la autenticación y autorización en una aplicación de back-end
 
-1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página.
+En el menú de [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página.
 
-1. En **Grupos de recursos**, busque y seleccione el grupo de recursos. En **Información general**, seleccione la página de administración de la aplicación de back-end.
+En **Grupos de recursos**, busque y seleccione el grupo de recursos. En **Información general**, seleccione la página de administración de la aplicación de back-end.
 
-   ![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
+![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
-1. En el menú de la izquierda de la aplicación de back-end, seleccione **Autenticación/autorización** y luego seleccione **Activado** para habilitar la autenticación de App Service.
+En el menú de la izquierda de la aplicación de back-end, seleccione **Autenticación/autorización** y luego seleccione **Activado** para habilitar la autenticación de App Service.
 
-1. En **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada), seleccione **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory).
+En **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada), seleccione **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory).
 
-1. En **Proveedores de autenticación**, seleccione **Azure Active Directory**. 
+En **Proveedores de autenticación,** seleccione **Azure Active Directory**.
 
-   ![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
+![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
 
-1. Seleccione **Rápido**, acepte la configuración predeterminada para crear una nueva aplicación de AD y seleccione **Aceptar**.
+Seleccione **Rápido**, acepte la configuración predeterminada para crear una nueva aplicación de AD y seleccione **Aceptar**.
 
-1. En la página **Autenticación/autorización**, seleccione **Guardar**.
+En la página **Autenticación/autorización**, seleccione **Guardar**.
 
-   Cuando vea la notificación con el mensaje `Successfully saved the Auth Settings for <back-end-app-name> App`, actualice la página.
+Cuando vea la notificación con el mensaje `Successfully saved the Auth Settings for <back-end-app-name> App`, actualice la página del portal.
 
-1. Vuelva a seleccionar **Azure Active Directory** y, después, seleccione la **aplicación de Azure AD**.
+Vuelva a seleccionar **Azure Active Directory** y, después, seleccione la **aplicación de Azure AD**.
 
-1. Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en un bloc de notas. Este valor lo necesitará más adelante.
+Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en un bloc de notas. Este valor lo necesitará más adelante.
 
-   ![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+
+Si se detiene aquí, tiene una aplicación independiente que ya está protegida por la autenticación y la autorización de App Service. En las secciones restantes se muestra cómo proteger una solución de varias aplicaciones al "fluir" el usuario autenticado desde el front-end hasta el back-end. 
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Habilitación de la autenticación y autorización en una aplicación de front-end
 
-Siga los mismos pasos para la aplicación de back-end, pero omita el último paso. No es necesario el identificador de cliente para la aplicación de front-end.
+Siga los mismos pasos para la aplicación de front-end, pero omita el último paso. No es necesario el identificador de cliente para la aplicación de front-end.
 
-Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería dirigirle ahora a una página de inicio de sesión segura. Después de iniciar la sesión, seguirá sin poder acceder a los datos desde la aplicación de back-end. El motivo es que aún es necesario hacer tres cosas:
+Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería dirigirle ahora a una página de inicio de sesión segura. Después de iniciar sesión, *todavía no puede tener acceso a los datos desde la aplicación de back-end*, porque la aplicación de back-end requiere ahora un inicio de sesión de Azure Active Directory desde la aplicación de front-end. Tiene que realizar tres acciones:
 
 - Conceder al front-end acceso al back-end
 - Configurar App Service para devolver un token que se pueda usar
@@ -252,27 +252,29 @@ Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería diri
 
 Ahora que ha habilitado la autenticación y autorización en las dos aplicaciones, cada una de ellas está respaldada por una aplicación de AD. En este paso, concederá a la aplicación de front-end permisos para acceder al back-end en nombre del usuario. (Técnicamente, asignará a la _aplicación de AD_ del front-end permisos para acceder a la _aplicación de AD_ del back-end en nombre del usuario).
 
-1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione *Azure Active Directory* desde cualquier página.
+En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione *Azure Active Directory* desde cualquier página.
 
-1. Seleccione **Registros de aplicaciones** > **Aplicaciones propias**. Seleccione el nombre de la aplicación de front-end y, después, seleccione **Permisos de API**.
+Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación de front-end y, después, seleccione **Permisos de API**.
 
-   ![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
+![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-1. Seleccione **Agregar un permiso** y, después, seleccione **Mis API** >  **\<nombreDeAplicaciónDeBack-end>** .
+Seleccione **Agregar un permiso** y, a continuación, **API usadas en mi organización** >  **\<> el nombre de la aplicación de back-end**.
 
-1. En la página **Solicitud de permisos de API** de la aplicación de back-end, seleccione **Permisos delegados** y **user_impersonation** y, después, seleccione **Agregar permisos**.
+En la página **Solicitud de permisos de API** de la aplicación de back-end, seleccione **Permisos delegados** y **user_impersonation** y, después, seleccione **Agregar permisos**.
 
-   ![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
+![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configuración de App Service para devolver un token de acceso que se pueda usar
 
 La aplicación de front-end ya tiene los permisos necesarios para acceder a la aplicación de back-end como usuario con sesión iniciada. En este paso, configurará la autenticación y autorización de App Service para proporcionarle un token de acceso que se pueda usar para acceder al back end. Para este paso necesitará el identificador de cliente del back-end, que copió en [Habilitación de la autenticación y autorización en una aplicación de back-end](#enable-authentication-and-authorization-for-back-end-app).
 
-Inicie sesión en [Azure Resource Explorer](https://resources.azure.com). En la parte superior de la página, haga clic en **Read/Write** (Lectura/escritura) para permitir la edición de los recursos de Azure.
+En el menú de la izquierda de la aplicación front-end, seleccione **Explorador de recursos** en **Herramientas de desarrollo** y, a continuación, seleccione **Ir**.
+
+Se abre ahora [Azure Resource Explorer](https://resources.azure.com) con la aplicación de front-end seleccionada en el árbol de recursos. En la parte superior de la página, haga clic en **Read/Write** (Lectura/escritura) para permitir la edición de los recursos de Azure.
 
 ![API de ASP.NET Core que se ejecuta en Azure App Service](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-En el explorador de la izquierda, haga clic en **subscriptions** (suscripciones) >  **_\<suSuscripción>_**  > **resourceGroups** (Grupos de recursos) > **myAuthResourceGroup** > **providers** (proveedores) > **Microsoft.Web** > **sites** (sitios) >  **_\<front-end-app-name>_ (nombreDeAplicaciónDeFront-End)**  > **config** > **authsettings**.
+En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings**.
 
 En la vista **authsettings**, haga clic en **Edit** (Editar). Establezca `additionalLoginParams` en la siguiente cadena JSON, utilizando el identificador de cliente que copió. 
 
@@ -310,7 +312,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 }
 ```
 
-Este código agrega el encabezado HTTP estándar `Authorization: Bearer <access-token>` a todas las llamadas de API remotas. En la canalización de ejecución de solicitudes de MVC de ASP.NET Core, `OnActionExecuting` se ejecuta justo antes del método de acción correspondiente (como `GetAll()`), de modo que cada una de las llamadas API salientes presenta ahora el token de acceso.
+Este código agrega el encabezado HTTP estándar `Authorization: Bearer <access-token>` a todas las llamadas de API remotas. En la canalización de ejecución de solicitudes de MVC de ASP.NET Core, `OnActionExecuting` se ejecuta justo antes de la acción correspondiente, de modo que cada una de las llamadas API salientes presenta ahora el token de acceso.
 
 Guarde todos los cambios. En la ventana de terminal local, implemente los cambios en la aplicación de front-end con los siguientes comandos de Git:
 
@@ -333,15 +335,15 @@ En este paso, vinculará la aplicación de front-end de Angular.js a la API de b
 Mientras que el código de servidor tiene acceso a los encabezados de solicitud, el código de cliente puede acceder a `GET /.auth/me` para obtener los mismos tokens de acceso (consulte [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) [Recuperación de tokens en el código de aplicación]).
 
 > [!TIP]
-> En esta sección se usan los métodos HTTP estándar para mostrar las llamadas HTTP seguras. Sin embargo, puede usar [Active Directory Authentication Library (ADAL) para JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js) para ayudar a simplificar el patrón de aplicación de Angular.js.
+> En esta sección se usan los métodos HTTP estándar para mostrar las llamadas HTTP seguras. De todas formas, puede usar [Microsoft Authentication Library para JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) para ayudar a simplificar el patrón de aplicación de Angular.js.
 >
 
 ### <a name="configure-cors"></a>Configuración de CORS
 
-En Cloud Shell, habilite CORS en la dirección URL del cliente mediante el comando [`az resource update`](/cli/azure/resource#az-resource-update). Reemplace los marcadores de posición _\<nombreDeAplicaciónDeBack-End>_ y _\<nombreDeAplicaciónDeBack-End>_ .
+En Cloud Shell, habilite CORS en la dirección URL del cliente mediante el comando [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add). Reemplace los marcadores de posición _\<nombreDeAplicaciónDeBack-End>_ y _\<nombreDeAplicaciónDeBack-End>_ .
 
 ```azurecli-interactive
-az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
+az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'
 ```
 
 Este paso no está relacionado con la autenticación y autorización. Sin embargo, son necesarios para que el explorador permita las llamadas API entre dominios desde la aplicación Angular.js. Para más información, consulte [Adición de funcionalidad CORS](app-service-web-tutorial-rest-api.md#add-cors-functionality).
@@ -350,7 +352,7 @@ Este paso no está relacionado con la autenticación y autorización. Sin embarg
 
 En el repositorio local, abra _wwwroot/index.html_.
 
-En la línea 51, establezca la variable `apiEndpoint` en la dirección URL de la aplicación de back-end (`https://<back-end-app-name>.azurewebsites.net`). Reemplace _\<nombreDeAplicaciónDeBack-End>_ por el nombre de su aplicación en App Service.
+En la línea 51, establezca la variable `apiEndpoint` en la dirección URL HTTPS de la aplicación de back-end (`https://<back-end-app-name>.azurewebsites.net`). Reemplace _\<nombreDeAplicaciónDeBack-End>_ por el nombre de su aplicación en App Service.
 
 En el repositorio local, abra _wwwroot/app/scripts/todoListSvc.js_ y observe que `apiEndpoint` está anexado a todas las llamadas API. La aplicación Angular.js ahora está llamando a las API de back-end. 
 

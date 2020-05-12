@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457389"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692170"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Inicio rápido: Uso de SQL a petición
 
-Synapse SQL a petición (versión preliminar) es un servicio de consulta sin servidor que permite ejecutar consultas SQL en los archivos colocados en Azure Storage. En este inicio rápido, obtendrá información sobre cómo consultar varios tipos de archivos mediante SQL a petición.
+Synapse SQL a petición (versión preliminar) es un servicio de consulta sin servidor que permite ejecutar consultas SQL en archivos colocados en Azure Storage. En este inicio rápido, aprenderá a consultar varios tipos de archivos mediante SQL a petición.
 
 Se admiten los tipos de archivo siguientes: JSON, CSV, Apache Parquet
 
@@ -26,7 +26,7 @@ Se admiten los tipos de archivo siguientes: JSON, CSV, Apache Parquet
 
 Elija un cliente SQL para emitir consultas:
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) es una herramienta web que puede usar para examinar archivos en el almacenamiento y crear consultas SQL.
+- [Azure Synapse Studio](quickstart-synapse-studio.md) es una herramienta web que se puede usar para examinar archivos en el almacenamiento y crear consultas SQL.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) es una herramienta de cliente que permite ejecutar consultas SQL y cuadernos en la base de datos a petición.
 - [SQL Server Management Studio](sql/get-started-ssms.md) es una herramienta de cliente que permite ejecutar consultas SQL en la base de datos a petición.
 
@@ -41,19 +41,18 @@ Parámetros de inicio rápido:
 
 ## <a name="first-time-setup"></a>Primera configuración
 
-Antes de usar los ejemplos hay que hacer lo siguiente:
+Antes de usar los ejemplos:
 
 - Crear una base de datos para las vistas (en caso de que quiera usar vistas).
 - Crear las credenciales que va a usar SQL a petición para acceder a los archivos en el almacenamiento.
 
 ### <a name="create-database"></a>Crear base de datos
 
-Cree su propia base de datos para fines de demostración. Esta es la base de datos en la que se crean las vistas. Use esta base de datos en las consultas de ejemplo de este artículo.
+Cree su propia base de datos para fines de demostración. Usará esta base de datos para crear sus vistas y para las consultas de ejemplo de este artículo.
 
 > [!NOTE]
 > Las bases de datos se usan solo para los metadatos de la vista, no para los datos reales.
->
-> Anote el nombre de la base de datos que usa para usarlo más adelante en el artículo de inicio rápido.
+>Anote el nombre de la base de datos que usa para usarlo más adelante en el artículo de inicio rápido.
 
 Use la siguiente consulta, cambiando `mydbname` por un nombre de su elección:
 
@@ -66,9 +65,15 @@ CREATE DATABASE mydbname
 Para ejecutar consultas con SQL a petición, cree credenciales para SQL a petición a fin de usarlas para tener acceso a los archivos del almacenamiento.
 
 > [!NOTE]
-> Tenga en cuenta que debe crear credenciales para el acceso a la cuenta de almacenamiento. Aunque SQL a petición puede acceder a los almacenamientos desde distintas regiones, tener el almacenamiento y el área de trabajo de Azure Synapse en la misma región proporcionará una mejor experiencia de rendimiento.
+> Para ejecutar correctamente los ejemplos de esta sección, es preciso usar un token de SAS.
+>
+> Para empezar a usar tokens de SAS, debe quitar UserIdentity, lo que se explica en el siguiente [artículo](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+>
+> De manera predeterminada SQL a petición siempre usa el paso a través de AAD.
 
-Modifique el siguiente fragmento de código para crear credenciales para los contenedores CSV, JSON y Parquet:
+Para más información sobre cómo administrar el control de acceso al almacenamiento, consulte el artículo [Control del acceso a la cuenta de almacenamiento para SQL a petición](sql/develop-storage-files-storage-access-control.md).
+
+Ejecute el siguiente fragmento de código para crear las credenciales que se usan en los ejemplos de esta sección:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -90,7 +95,7 @@ La imagen siguiente es una vista previa del archivo que se va a consultar:
 
 ![Primeras 10 filas del archivo CSV sin encabezado, nueva línea al estilo de Windows.](./sql/media/query-single-csv-file/population.png)
 
-La consulta siguiente muestra cómo leer un archivo CSV que no contiene una fila de encabezado, con una nueva línea al estilo de Windows y columnas delimitadas por comas.
+La consulta siguiente muestra cómo leer un archivo CSV que no contiene una fila de encabezado, con una nueva línea al estilo de Windows y columnas delimitadas por comas:
 
 ```sql
 SELECT TOP 10 *
@@ -118,7 +123,7 @@ Para obtener más ejemplos, consulte el artículo sobre cómo [consultar un arch
 En el ejemplo siguiente se muestran las funcionalidades de inferencia automática del esquema para los archivos Parquet. Devuelve el número de filas de septiembre de 2017 sin especificar un esquema.
 
 > [!NOTE]
-> No es necesario especificar columnas en la cláusula `OPENROWSET WITH` al leer los archivos Parquet. En este caso, SQL a petición utilizará los metadatos del archivo de Parquet y enlazará las columnas por nombre.
+> No es necesario especificar columnas en la cláusula `OPENROWSET WITH` al leer los archivos Parquet. En este caso, SQL a petición utiliza los metadatos del archivo de Parquet y enlaza las columnas por nombre.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -129,7 +134,7 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Obtenga más información sobre cómo [consultar archivos Parquet](sql/query-parquet-files.md)].
+Obtenga más información sobre cómo [consultar archivos Parquet](sql/query-parquet-files.md).
 
 ## <a name="querying-json-files"></a>Consulta de archivos JSON
 
@@ -177,13 +182,13 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Estamos leyendo todo el archivo JSON como una sola fila o columna, por lo que FIELDTERMINATOR, FIELDQUOTE y ROWTERMINATOR se establecen en 0x0B porque no esperamos encontrarlo en el archivo.
+> Estamos leyendo todo el archivo JSON como una única fila o columna. Por consiguiente, FIELDTERMINATOR, FIELDQUOTE y ROWTERMINATOR se establecen en 0x0b porque no esperamos encontrarlo en el archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya está listo para empezar con los siguientes artículos de inicio rápido:
+Ya está preparado para continuar con los siguientes artículos:
 
-- [Consulta de archivos CSV](sql/query-single-csv-file.md)
+- [Consulta de archivos .csv](sql/query-single-csv-file.md)
 - [Consulta de carpetas y varios archivos .csv](sql/query-folders-multiple-csv-files.md)
 - [Consulta de archivos específicos](sql/query-specific-files.md)
 - [Consulta de archivos Parquet](sql/query-parquet-files.md)
@@ -192,7 +197,4 @@ Ya está listo para empezar con los siguientes artículos de inicio rápido:
 - [Creación y uso de vistas en SQL a petición (versión preliminar) en Azure Synapse Analytics](sql/create-use-views.md)
 - [Creación y uso de tablas externas en SQL a petición (versión preliminar) en Azure Synapse Analytics](sql/create-use-external-tables.md)
 - [Almacenamiento de resultados de búsqueda en el almacenamiento mediante SQL a petición (versión preliminar) en Azure Synapse Analytics](sql/create-external-table-as-select.md)
-
-Pase al siguiente artículo para obtener más información sobre cómo consultar un único archivo CSV.
-> [!div class="nextstepaction"]
-> [Consulta de archivos CSV](sql/query-single-csv-file.md)
+- [Consulta de archivos .csv](sql/query-single-csv-file.md)

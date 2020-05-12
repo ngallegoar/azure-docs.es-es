@@ -1,6 +1,6 @@
 ---
-title: Descripción de las asignaciones de denegación para recursos de Azure
-description: Obtenga información sobre las asignaciones de denegación en el control de acceso basado en rol (RBAC) para los recursos de Azure.
+title: 'Descripción de las asignaciones de denegación de Azure: RBAC de Azure'
+description: Aprenda sobre as asignaciones de denegación en el control de acceso basado en rol (RBAC de Azure)
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372484"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733781"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
+# <a name="understand-azure-deny-assignments"></a>Descripción de las asignaciones de denegación de Azure
 
 De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de denegar el acceso. Las asignaciones de denegación impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso.
 
@@ -90,4 +90,4 @@ Todas las entidades se puede combinar con `ExcludePrincipals` para denegar todas
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md)
-* [Enumeración de las asignaciones de denegación para recursos de Azure mediante Azure Portal](deny-assignments-portal.md)
+* [Enumeración de las asignaciones de denegación de Azure mediante Azure Portal](deny-assignments-portal.md)

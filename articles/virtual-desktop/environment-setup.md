@@ -5,23 +5,25 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127906"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612375"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Entorno de Windows Virtual Desktop
 
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización Spring 2020 con objetos de Azure Resource Manager para Windows Virtual Desktop. Si usa la versión Fall 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>
+> La actualización Spring 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Windows Virtual Desktop es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y a RemoteApps. Este tema le proporcionará más información sobre la estructura general del entorno de Windows Virtual Desktop.
-
-## <a name="tenants"></a>Inquilinos
-
-El inquilino de Windows Virtual Desktop es la interfaz principal para administrar su entorno de Windows Virtual Desktop. Cada inquilino de Windows Virtual Desktop debe estar asociado con la instancia de Azure Active Directory que contiene los usuarios que iniciarán sesión en el entorno. Desde el inquilino de Windows Virtual Desktop, puede comenzar a crear grupos de hosts para ejecutar las cargas de trabajo de sus usuarios.
 
 ## <a name="host-pools"></a>Grupos de host
 
@@ -45,12 +47,12 @@ De forma predeterminada, un grupo de aplicaciones de escritorio (denominado "Gru
 
 Para publicar recursos para los usuarios, debe asignarlos a grupos de aplicaciones. Cuando asigne usuarios a los grupos de aplicaciones, tenga en cuenta lo siguiente:
 
-- No se puede asignar un usuario a un grupo de aplicaciones de escritorio y a un grupo de aplicaciones de RemoteApp en el mismo grupo de hosts.
+- No se puede asignar un usuario a un grupo de aplicaciones de escritorio y a un grupo de aplicaciones de RemoteApp en el mismo grupo de hosts. Sin embargo, los usuarios solo pueden iniciar un tipo de grupo de aplicaciones por sesión. Los usuarios no pueden iniciar ambos tipos de grupos de aplicaciones al mismo tiempo en una sola sesión.
 - Se puede asignar un usuario a varios grupos de aplicaciones dentro del mismo grupo de hosts, y su fuente será una acumulación de ambos grupos de aplicaciones.
 
-## <a name="tenant-groups"></a>Grupos de inquilinos
+## <a name="workspaces"></a>Áreas de trabajo
 
-En Windows Virtual Desktop, el inquilino de Windows Virtual Desktop es donde ocurre la mayor parte de la configuración e instalación. El inquilino de Windows Virtual Desktop contiene los grupos de hosts, los grupos de aplicaciones y las asignaciones de usuarios del grupo de aplicaciones. Sin embargo, puede haber ciertas situaciones en las que necesite administrar varios inquilinos de Windows Virtual Desktop a la vez, especialmente si es un proveedor de servicios en la nube (CSP) o un asociado de hospedaje. En estas situaciones, puede usar un grupo personalizado de inquilinos de Windows Virtual Desktop para ubicar a cada uno de los inquilinos de Windows Virtual Desktop de los clientes y administrar el acceso de forma centralizada. Sin embargo, si solo está administrando un único inquilino de Windows Virtual Desktop, el concepto de grupo de inquilinos no se aplica y puede continuar supervisando y administrando el inquilino que existe en el grupo de inquilinos predeterminado.
+Un área de trabajo es una agrupación lógica de grupos de aplicaciones de Windows Virtual Desktop. Cada grupo de aplicaciones de Windows Virtual Desktop debe estar asociado a un área de trabajo para que los usuarios vean las aplicaciones remotas y los escritorio publicados en ellos.  
 
 ## <a name="end-users"></a>Usuarios finales
 
@@ -60,9 +62,12 @@ Después de asignar usuarios a sus grupos de aplicaciones, pueden conectarse a u
 
 Obtenga más información sobre el acceso delegado y cómo asignar roles a los usuarios en [Acceso delegado en Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Para información sobre cómo configurar el inquilino de Windows Virtual Desktop, consulte [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+Para información sobre cómo configurar el grupo de hosts de Windows Virtual Desktop, consulte [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md).
 
 Para obtener información sobre cómo conectarse a Windows Virtual Desktop, consulte uno de los siguientes artículos:
 
-- [Conexión desde Windows 10 o Windows 7](connect-windows-7-and-10.md)
-- [Conexión desde un explorador web](connect-web.md)
+- [Conexión con Windows 10 o Windows 7](connect-windows-7-and-10.md)
+- [Conexión con un explorador web](connect-web.md)
+- [Conexión con el cliente de Android](connect-android.md)
+- [Conexión con el cliente macOS](connect-macos.md)
+- [Conexión con el cliente iOS](connect-ios.md)

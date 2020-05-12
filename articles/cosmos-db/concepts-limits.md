@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415704"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791772"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -138,9 +138,9 @@ Cosmos DB utiliza HMAC para la autorización. Puede usar una clave maestra o [to
 
 Cosmos DB admite la ejecución de desencadenadores durante las escrituras. El servicio admite un máximo de un desencadenador previo y un desencadenador posterior por operación de escritura. 
 
-## <a name="autopilot-mode-limits"></a>Límites del modo Autopilot
+## <a name="limits-for-autoscale-provisioned-throughput"></a>Límites del rendimiento aprovisionado de escalabilidad automática
 
-Consulte el artículo [Autopilot](provision-throughput-autopilot.md#autopilot-limits) para obtener información sobre los límites de almacenamiento y rendimiento en el modo Autopilot.
+Consulte este artículo sobre [escalabilidad automática](provision-throughput-autoscale.md#autoscale-limits) para obtener información sobre los límites de almacenamiento y rendimiento con escalabilidad automática.
 
 ## <a name="sql-query-limits"></a>Límites de la consulta SQL
 
