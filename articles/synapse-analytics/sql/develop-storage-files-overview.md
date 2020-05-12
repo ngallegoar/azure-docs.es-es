@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676685"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691872"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consulta de archivos de almacenamiento mediante recursos de SQL a petición (versión preliminar) en Synapse SQL
 
@@ -123,11 +123,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Asegúrese de que se usan [tipos de datos inferidos adecuados](best-practices-sql-on-demand.md#check-inferred-data-types) para obtener un rendimiento óptimo. 
+
 ### <a name="filename-function"></a>Función Filename
 
-Esta función devuelve el nombre de archivo del que se origina la fila.
+Esta función devuelve el nombre de archivo del que se origina la fila. 
 
 Para consultar archivos concretos, lea la sección Filename del artículo en el que se indica cómo [consultar archivos específicos](query-specific-files.md#filename).
+
+El tipo de datos devuelto es nvarchar (1024). Para obtener un rendimiento óptimo, convierta siempre el resultado de la función filename al tipo de datos adecuado. Si usa un tipo de datos de caracteres, asegúrese de que se usa la longitud apropiada.
 
 ### <a name="filepath-function"></a>Función Filepath
 
@@ -137,6 +141,8 @@ Esta función devuelve una ruta de acceso completa o una parte de una ruta de ac
 - Cuando se llama sin parámetro, devuelve la parte de la ruta de acceso que coincide con el carácter comodín en la posición especificada del parámetro. Por ejemplo, el valor 1 del parámetro devolverá la parte de la ruta de acceso que coincide con el primer carácter comodín.
 
 Para más información, lea la sección Filepath del artículo en el que se indica cómo [consultar archivos específicos](query-specific-files.md#filepath).
+
+El tipo de datos devuelto es nvarchar (1024). Para obtener un rendimiento óptimo, convierta siempre el resultado de la función filepath al tipo de datos adecuado. Si usa un tipo de datos de caracteres, asegúrese de que se usa la longitud apropiada.
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Uso con tipos complejos y estructuras de datos anidadas o repetidas
 

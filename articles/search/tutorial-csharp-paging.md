@@ -1,21 +1,21 @@
 ---
 title: Tutorial de C# sobre la paginación de los resultados de la búsqueda
 titleSuffix: Azure Cognitive Search
-description: En este tutorial se muestra la paginación de los resultados de la búsqueda. Se basa en un proyecto de hoteles existente, con paginación mediante los botones primera, siguiente, anterior, última y con número. Un segundo sistema de paginación usa el desplazamiento infinito, desencadenado al mover una barra de desplazamiento vertical en el límite inferior.
+description: Agregue botones de navegación y paginación a los resultados de la búsqueda, y realice la compilación sobre un proyecto de hoteles existente para agregar los botones primero, siguiente, anterior, último y numerados. Un segundo sistema de paginación usa el desplazamiento infinito, desencadenado al mover una barra de desplazamiento vertical en el límite inferior.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121522"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780579"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutorial de C#: Paginación de los resultados de Azure Cognitive Search
+# <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Incorporación de la paginación a los resultados de búsqueda mediante el SDK de .NET
 
 Aprenda a implementar dos sistemas de paginación distintos, el primero basado en los números de página y el segundo en el desplazamiento infinito. Ambos sistemas de paginación se utilizan ampliamente y seleccionar el correcto depende de la experiencia de usuario que desee con los resultados. Este tutorial se basa en los sistemas de paginación del proyecto que se creó en el [Tutorial de C#: Creación de la primera aplicación: Azure Cognitive Search](tutorial-csharp-create-first-app.md).
 

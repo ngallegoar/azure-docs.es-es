@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: 08a246b07effb8d5f3e2473a4d7959882cf43235
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 52466bac083f78002a8208ba52ca7d1b951c4064
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687948"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801491"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Creación de una aplicación de Node.js en Azure
 
@@ -23,7 +23,7 @@ Si no tiene una cuenta de Azure, [regístrese hoy mismo](https://azure.microsoft
 
 Necesita tener instalado [Visual Studio Code](https://code.visualstudio.com/), además de [Node.js y npm](https://nodejs.org/en/download), el administrador de paquetes de Node.js.
 
-También tendrá que instalar la [extensión Azure App Service](vscode:extension/ms-azuretools.vscode-azureappservice), que puede usar para crear, administrar e implementar Azure App Service en Linux en la plataforma como servicio de Azure (PaaS).
+También tendrá que instalar la [extensión Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), que puede usar para crear, administrar e implementar Azure App Service en Linux en la plataforma como servicio de Azure (PaaS).
 
 ### <a name="sign-in"></a>Iniciar sesión
 
@@ -83,7 +83,7 @@ A continuación, asegúrese de que se ejecute la aplicación. Desde el terminal,
 npm start
 ```
 
-Ahora, abra el explorador y vaya a [http://localhost:3000](http://localhost:3000), donde verá algo similar a esto:
+Ahora, abra el explorador y vaya a `http://localhost:3000`, donde verá algo similar a esto:
 
 ![Ejecución de una aplicación de Express](./media/quickstart-nodejs/express.png)
 
@@ -151,7 +151,7 @@ En esta sección aprenderá a ver (o "copiar") los registros desde la aplicació
 
 Busque la aplicación en el explorador de **AZURE APP SERVICE**, haga clic con el botón derecho en la aplicación y seleccione **Ver registros de streaming**.
 
-Cuando se le pida, seleccione la opción para habilitar el registro y reinicie la aplicación. Después de reiniciar la aplicación, se abrirá la ventana de salida de VS Code con una conexión al streaming de registros.
+La ventana de salida de VS Code se abre con una conexión a la transmisión de registros.
 
 ![Visualización de los registros de streaming](./media/quickstart-nodejs/view-logs.png)
 

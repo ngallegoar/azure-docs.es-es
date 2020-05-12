@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: df22c857571e51bb886ff1d25db185a306999540
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 409fe69d111e2c5aebe0ad0bd38ced10604b5f1b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420866"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839069"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
 
@@ -39,7 +39,7 @@ Las máquinas virtuales de la [serie H](h-series.md) están optimizadas para apl
 
 ## <a name="rdma-capable-instances"></a>Instancias compatibles con RDMA
 
-La mayoría de los tamaños de VM para HPC (HBv2, HB, HC, H16r, H16mr, A8 y A9) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Los tamaños seleccionados de la [serie N] (https://docs.microsoft.com/azure/virtual-machines/nc-series) designados con la letra "r", como las configuraciones de NC24rs (NC24rs_v3, NC24rs_v2 y NC24r) también son compatibles con RDMA. Esta interfaz se agrega a la interfaz de red estándar de Azure disponible en los otros tamaños de máquina virtual.
+La mayoría de los tamaños de VM para HPC (HBv2, HB, HC, H16r, H16mr, A8 y A9) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Los tamaños seleccionados de la [serie N](https://docs.microsoft.com/azure/virtual-machines/nc-series) designados con la letra "r", como las configuraciones de NC24rs (NC24rs_v3, NC24rs_v2 y NC24r) también son compatibles con RDMA. Esta interfaz se agrega a la interfaz de red estándar de Azure disponible en los otros tamaños de máquina virtual.
 
 Esta interfaz permite que las instancias compatibles con RDMA se comuniquen través de una red InfiniBand (IB), que funciona a velocidades HDR en la serie HBv2, a velocidades EDR en las series HB y HC, a velocidades FDR en máquinas virtuales H16r, H16mr y de la serie N compatibles con RDMA, y a velocidades QDR en máquinas virtuales A8 y A9. Estas funcionalidades RDMA pueden mejorar la escalabilidad y el rendimiento de determinadas aplicaciones de la Interfaz de paso de mensajes (MPI). Para más información acerca de la velocidad, consulte los detalles en las tablas de esta página.
 
@@ -92,7 +92,7 @@ Azure ofrece varias opciones para crear clústeres de máquinas virtuales de HPC
 
 - **Máquinas virtuales**: implemente las máquinas virtuales de HPC compatibles con RDMA en el mismo conjunto de escalado o de disponibilidad (cuando use el modelo de implementación de Azure Resource Manager). Si usa el modelo de implementación clásica, implemente las máquinas virtuales en el mismo servicio en la nube.
 
-- **Conjuntos de escalado de máquinas virtuales**: en un conjunto de escalado de máquinas virtuales (VMSS), asegúrese de limitar la implementación a un único grupo de selección de ubicación. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad `singlePlacementGroup` en `true`. Tenga en cuenta que el tamaño de VMSS máximo que se puede usar con la propiedad `singlePlacementGroup` en `true` está limitado a 100 máquinas virtuales de forma predeterminada. Si los requisitos de escalado de su trabajo de HPC son superiores a 100 máquinas virtuales en un único inquilino de VMSS, puede solicitar un aumento. Para ello, [realice una solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
+- **Conjuntos de escalado de máquinas virtuales**: en un conjunto de escalado de máquinas virtuales (VMSS), asegúrese de limitar la implementación a un único grupo de selección de ubicación para la comunicación InfiniBand dentro del VMSS. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad `singlePlacementGroup` en `true`. Tenga en cuenta que el tamaño de VMSS máximo que se puede usar con la propiedad `singlePlacementGroup` en `true` está limitado a 100 máquinas virtuales de forma predeterminada. Si los requisitos de escalado de su trabajo de HPC son superiores a 100 máquinas virtuales en un único inquilino de VMSS, puede solicitar un aumento. Para ello, [realice una solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno. El número máximo de máquinas virtuales en un único VMSS se puede aumentar hasta 300. Tenga en cuenta que al implementar máquinas virtuales con conjuntos de disponibilidad, el límite máximo es de 200 máquinas virtuales por conjunto de disponibilidad.
 
 - **MPI entre las máquinas virtuales**: si la característica de RDMA (por ejemplo, para usar la comunicación de MPI) es necesaria entre las máquinas virtuales (VM), asegúrese de que las VM estén en el mismo conjunto de escalado de máquinas virtuales o conjunto de disponibilidad.
 
@@ -129,6 +129,6 @@ Azure ofrece varias opciones para crear clústeres de máquinas virtuales de HPC
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre cómo optimizar la aplicación de HPC para Azure y algunos ejemplos en [Cargas de trabajo de HPC] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
+- Obtenga más información sobre cómo optimizar la aplicación de HPC para Azure y algunos ejemplos en [Cargas de trabajo de HPC](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview). 
 
 - Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.

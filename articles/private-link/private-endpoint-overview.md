@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: d10b6c52310da3d799a7fe78c83284960318f82e
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115242"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744406"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -35,7 +35,7 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 Estos son algunos detalles importantes acerca de los puntos de conexión privados: 
 - El punto de conexión privado permite la conectividad entre los consumidores de la misma red virtual, las redes virtuales emparejadas de forma regional, las redes virtuales emparejadas de forma global y las instalaciones locales que usan [VPN](https://azure.microsoft.com/services/vpn-gateway/) o [Express Route](https://azure.microsoft.com/services/expressroute/) y servicios con la tecnología Private Link.
  
-- Al crear un punto de conexión privado, también se crea una interfaz de red para el ciclo de vida del recurso. A la interfaz se le asigna una dirección IP privada de la subred que se asigna al servicio Private Link.
+- Al crear un punto de conexión privado, también se crea una interfaz de red de solo lectura para el ciclo de vida del recurso. A la interfaz se le asigna una dirección IP privada de la subred que se asigna al recurso de Private Link.
  
 - El punto de conexión privado debe implementarse en la misma región que la red virtual. 
  
@@ -57,23 +57,23 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
 |**Almacenamiento de Azure**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabla (table, table_secondary)<BR> Cola (queue, queue_secondary)<BR> Archivo (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Sistema de archivos Data Lake Gen2 (dfs, dfs_secondary)       |
-|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
-|**Azure Database for PostgreSQL: servidor único** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts    | Sql, MongoDB, Cassandra, Gremlin, Table|
+|**Azure Database for PostgreSQL: servidor único** | Microsoft.DBforPostgreSQL/servers    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | almacén |
-|**Azure Kubernetes Service: API de Kubernetes** | Microsoft.ContainerService/managedClusters | managedCluster |
+|**Azure Kubernetes Service: API de Kubernetes** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
-|**Azure Container Registry** | Microsoft.ContainerRegistry/registries  | Registro |
-|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores   | configurationStore |
-|**Azure Backup** | Microsoft.RecoveryServices/vaults   | almacén |
+|**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | Registro |
+|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStore |
+|**Azure Backup** | Microsoft.RecoveryServices/vaults    | almacén |
 |**Centro de eventos de Azure** | Microsoft.EventHub/namespaces    | espacio de nombres |
 |**Azure Service Bus** | Microsoft.ServiceBus/namespaces | espacio de nombres |
 |**Azure Relay** | Microsoft.Relay/namespaces | espacio de nombres |
-|**Azure Event Grid** | Microsoft.EventGrid/topics  | topic |
-|**Azure Event Grid** | Microsoft.EventGrid/domains | dominio |
+|**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
+|**Azure Event Grid** | Microsoft.EventGrid/domains    | dominio |
 |**Azure WebApps** | Microsoft.Web/sites    | site |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces  | área de trabajo |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | área de trabajo |
   
  
 ## <a name="network-security-of-private-endpoints"></a>Seguridad de red de los puntos de conexión privados 
@@ -104,52 +104,11 @@ El alias es un moniker único que se genera cuando el propietario del servicio c
 Al conectarse a un recurso de vínculo privado mediante un nombre de dominio completo (FQDN) como parte de la cadena de conexión, es importante establecer correctamente la configuración de DNS para que se resuelva en la dirección IP privada asignada. Es posible que los servicios de Azure existentes ya tengan una configuración de DNS que usar al conectarse a través de un punto de conexión público. Este se debe invalidar para conectarse con el punto de conexión privado. 
  
 La interfaz de red asociada con el punto de conexión privado contiene el conjunto completo de información necesaria para configurar el DNS, incluidos el FQDN y las direcciones IP privadas asignadas a un recurso de vínculo privado determinado. 
- 
-Puede usar las siguientes opciones para establecer la configuración de DNS para los puntos de conexión privados: 
-- **Use el archivo de host (solo se recomienda para pruebas)** . Puede usar el archivo de host en una máquina virtual para invalidar el DNS.  
-- **Use una zona DNS privada**. Puede usar zonas DNS privadas para invalidar la resolución DNS de un punto de conexión privado determinado. Una zona DNS privada se puede vincular a la red virtual para resolver dominios específicos.
-- **Use el servidor DNS personalizado**. Puede usar su propio servidor DNS para invalidar la resolución DNS para un recurso de vínculo privado determinado. Si el [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) se hospeda en una red virtual, puede crear una regla de reenvío de DNS para usar una zona DNS privada con el fin de simplificar la configuración de todos los recursos de vínculo privado.
- 
-> [!IMPORTANT]
-> No se recomienda invalidar una zona que esté en uso activamente para resolver puntos de conexión públicos. Las conexiones a los recursos no podrán resolverse correctamente sin el reenvío de DNS al DNS público. Para evitar problemas, cree un nombre de dominio diferente o siga el nombre sugerido para cada servicio que aparece a continuación. 
- 
-En el caso de los servicios de Azure, use los nombres de zona tal y como se describe en la tabla siguiente:
 
-|Nombre del recurso de Private Link   |Subrecurso  |Nombre de zona  |
-|---------|---------|---------|
-|SQL DB (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
-|Azure Synapse Analytics (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        | privatelink.database.windows.net |
-|Cuenta de almacenamiento (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)        |    privatelink.blob.core.windows.net      |
-|Cuenta de almacenamiento (Microsoft.Storage/storageAccounts)    |    Tabla (table, table_secondary)      |   privatelink.table.core.windows.net       |
-|Cuenta de almacenamiento (Microsoft.Storage/storageAccounts)    |    Cola (queue, queue_secondary)     |   privatelink.queue.core.windows.net       |
-|Cuenta de almacenamiento (Microsoft.Storage/storageAccounts)   |    Archivo (file, file_secondary)      |    privatelink.file.core.windows.net      |
-|Cuenta de almacenamiento (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
-|Sistema de archivos Data Lake Gen2 (Microsoft.Storage/storageAccounts)  |  Sistema de archivos Data Lake Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Tabla|privatelink.table.cosmos.azure.com|
-|Azure Database for PostgreSQL: servidor único (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
-|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
-|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
-|Azure Key Vault (Microsoft.KeyVault/vaults)|almacén|privatelink.vaultcore.azure.net|
-|Azure Kubernetes Service: API de Kubernetes (Microsoft.ContainerService/managedClusters) | managedCluster | {guid}.privatelink.<region>.azmk8s.io|
-|Azure Search (Microsoft.Search/searchServices)|searchService|privatelink.search.windows.net|   
-|Azure Container Registry (Microsoft.ContainerRegistry/registries) | Registro | privatelink.azurecr.io |
-|Azure App Configuration (Microsoft.Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|
-|Azure Backup (Microsoft.RecoveryServices/vaults)| almacén |privatelink.{region}.backup.windowsazure.com|
-|Centro de eventos de Azure (Microsoft.EventHub/namespaces)| espacio de nombres |privatelink.servicebus.windows.net|
-|Azure Service Bus (Microsoft.ServiceBus/namespaces) | espacio de nombres |privatelink.servicebus.windows.net|
-|Azure Relay (Microsoft.Relay/namespaces) | espacio de nombres |privatelink.servicebus.windows.net|
-|Azure Event Grid (Microsoft.EventGrid/topics)   | topic | topic.{region}.privatelink.eventgrid.azure.net|
-|Azure Event Grid (Microsoft.EventGrid/domains) | dominio | domain.{region}.privatelink.eventgrid.azure.net |
-|Azure Web Apps (Microsoft.Web/sites)    | site | privatelink.azurewebsites.net |
-|Azure Machine Learning (Microsoft.MachineLearningServices/workspaces)   | área de trabajo | privatelink.api.azureml.ms |
- 
-Azure creará un registro DNS de nombre canónico (CNAME) en el DNS público para redirigir la resolución a los nombres de dominio sugeridos. Podrá invalidar la resolución con la dirección IP privada de los puntos de conexión privados. 
- 
-No es necesario que las aplicaciones cambien la dirección URL de conexión. Al intentar resolver mediante un DNS público, el servidor DNS se resolverá ahora en los puntos de conexión privados. El proceso no afecta a las aplicaciones. 
+Para obtener información detallada y completa acerca de los procedimientos recomendados y las recomendaciones para configurar DNS para puntos de conexión privados, consulte el [artículo sobre la configuración de DNS en puntos de conexión privados](private-endpoint-dns.md).
+
+
+
  
 ## <a name="limitations"></a>Limitaciones
  

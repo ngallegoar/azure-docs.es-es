@@ -6,14 +6,14 @@ ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: a9e1d838e7d3322ddf218c5cbec40b652709b5d7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 633ca5cd16b8e730225900c30c575e74a0956ada
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586376"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791687"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
 
@@ -273,7 +273,7 @@ Después, configurará **Postman** para crear un presupuesto mediante una llamad
 1. Establezca el **Valor** en el token que se creó mediante ArmClient al final de la última sección.
 1. Seleccione la pestaña **Cuerpo** dentro de Postman.
 1. Seleccione el botón de opción **raw**.
-1. En el cuadro de texto, pegue la definición del presupuesto de ejemplo siguiente; sin embargo, debe reemplazar los parámetros **subscriptionID**, **budgetname** y **actiongroupname** con el identificación de suscripción, un nombre único para su presupuesto y el nombre del grupo de acciones que creó tanto en la dirección URL como en el cuerpo de la solicitud:
+1. En el cuadro de texto, pegue la definición del presupuesto de ejemplo siguiente; sin embargo, debe reemplazar los parámetros `subscriptionID`, `resourcegroupname` y `actiongroupname` por el identificación de la suscripción, un nombre único para su grupo de recursos y el nombre del grupo de acciones que creó tanto en la dirección URL como en el cuerpo de la solicitud:
 
     ```
         {
