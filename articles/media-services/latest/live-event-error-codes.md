@@ -1,7 +1,7 @@
 ---
 title: Códigos de error de eventos en directo de Azure Media Services | Microsoft Docs
 description: En este artículo se enumeran los códigos de error de eventos en directo.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: f9067562f67190b8bc04392f33078d4d3262f986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/4/2020
+ms.author: inhenkel
+ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654586"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791058"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de error de eventos en directo de Media Services
 
@@ -40,6 +40,7 @@ Al suscribirse a los eventos de [Event Grid](https://docs.microsoft.com/azure/ev
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | La marca de tiempo de vídeo o audio FLVTag no es válida en el codificador de RTMP. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | Las transmisiones recibidas del codificador entrante con velocidades de fotogramas superaron el máximo permitido de 30 fps para codificar canales o eventos en directo.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | Las transmisiones recibidas del codificador entrante superaron las siguientes resoluciones permitidas: 1920 x 1088 para la codificación de canales o eventos en directo y 4096 x 2160 para canales o eventos en directo de paso a través.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | El evento en directo ha recibido una gran cantidad de datos de audio a la vez, o una gran cantidad de datos de vídeo sin ningún fotograma clave. Hemos desconectado el codificador para darle la oportunidad de volver a intentarlo con los datos correctos. |
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 

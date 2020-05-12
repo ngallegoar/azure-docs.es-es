@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo escalar horizontal y verticalm
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229384"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793183"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Escalado de clústeres de Azure Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -29,13 +29,13 @@ Al cambiar la escala de un clúster de Azure, tenga en cuenta las directrices si
 - Los tipos de nodo no principal que ejecutan cargas de trabajo de producción con estado siempre deben tener cinco o más nodos.
 - Los tipos de nodo no principal que ejecutan cargas de trabajo de producción sin estado siempre deben tener dos o más nodos.
 - Cualquier tipo de nodo del [nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Gold o Silver siempre debe tener cinco o más nodos.
-- No elimine nodos o instancias de máquina virtual aleatorias de un tipo de nodo, use siempre la característica de reducción vertical del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias puede afectar negativamente a la capacidad de los sistemas para equilibrar la carga correctamente.
+- No elimine nodos o instancias de máquina virtual aleatorias de un tipo de nodo, use siempre la característica de reducción horizontal del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias puede afectar negativamente a la capacidad de los sistemas para equilibrar la carga correctamente.
 - Si usa reglas de escalado automático, establezca dichas reglas para que la reducción horizontal (eliminar instancias de máquina virtual) se realice en un nodo cada vez. No es seguro reducir verticalmente más de una instancia a la vez.
 
-Dado que los tipos de nodo de Service Fabric del clúster están formados por conjuntos de escalado de máquinas virtuales en el back-end, puede [configurar reglas de escalado automático o manual](service-fabric-cluster-scale-up-down.md) para cada tipo de nodo o conjunto de escalado de máquinas virtuales.
+Dado que los tipos de nodo de Service Fabric del clúster están formados por conjuntos de escalado de máquinas virtuales en el back-end, puede [configurar reglas de escalado automático o manual](service-fabric-cluster-scale-in-out.md) para cada tipo de nodo o conjunto de escalado de máquinas virtuales.
 
 ### <a name="programmatic-scaling"></a>Escalado mediante programación
-En muchos escenarios, el [escalado de un clúster de forma manual o mediante reglas de escalado automático](service-fabric-cluster-scale-up-down.md) son buenas soluciones. En escenarios más avanzados, pueden no ser la mejor opción. Entre las desventajas potenciales de estos métodos se incluyen:
+En muchos escenarios, el [escalado de un clúster de forma manual o mediante reglas de escalado automático](service-fabric-cluster-scale-in-out.md) son buenas soluciones. En escenarios más avanzados, pueden no ser la mejor opción. Entre las desventajas potenciales de estos métodos se incluyen:
 
 - El escalado manual requiere que inicie sesión y solicite de forma explícita las operaciones de escalado. Si las operaciones de escalado se requieren con frecuencia o en momentos imprevisibles, este enfoque puede no ser una buena solución.
 - Cuando las reglas de escalado automático quitan una instancia de un conjunto de escalado de máquinas virtuales, no quitan automáticamente el conocimiento de ese nodo desde el clúster de Service Fabric asociado, a menos que el tipo de nodo tenga un nivel de durabilidad Silver o Gold. Dado que las reglas de escalado automático funcionan a nivel de conjunto de escalado (en lugar de al nivel de Service Fabric), las reglas de escalado automático pueden quitar nodos de Service Fabric sin cerrarlos correctamente. Esta eliminación forzada de un nodo dejará un estado de nodo de Service Fabric "fantasma" después de operaciones de escalado. Es necesario que una persona (o un servicio) limpie periódicamente el estado de los nodos eliminados en el clúster de Service Fabric.

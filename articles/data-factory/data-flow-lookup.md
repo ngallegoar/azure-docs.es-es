@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 24fe11610d2a91fcdb0f09b8e45ea6ff4b81bd70
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606378"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594328"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformación de búsqueda en el flujo de datos de asignación
 
@@ -33,7 +33,7 @@ Una transformación búsqueda es similar a una combinación externa izquierda. T
 
 **Coincidencia con varias filas:** Si está habilitada, una fila con varias coincidencias en el flujo principal devolverá varias filas. De lo contrario, solo se devolverá una sola fila en función de la condición de coincidencia.
 
-**Coincidencia en:** Solo es visible si está habilitada la opción 'coincidencia con varias filas '. Elija si desea buscar coincidencias en cualquier fila, la primera coincidencia o la última coincidencia. Se recomienda cualquier fila a medida que se ejecuta la más rápida. Si se selecciona la primera o la última fila, se le pedirá que especifique las condiciones de organización.
+**Coincidencia en:** solo es visible si no está habilitada la opción "Coincidencia con varias filas". Elija si desea buscar coincidencias en cualquier fila, la primera coincidencia o la última coincidencia. Se recomienda cualquier fila a medida que se ejecuta la más rápida. Si se selecciona la primera o la última fila, se le pedirá que especifique las condiciones de organización.
 
 **Condiciones de búsqueda:** Elija las columnas en las que desea buscar coincidencias. Si se cumple la condición de igualdad, las filas se considerarán una coincidencia. Mantenga el puntero y seleccione 'columna calculada' para extraer un valor mediante el [lenguaje de expresiones de flujo de datos](data-flow-expression-functions.md).
 
@@ -55,11 +55,11 @@ Cuando pruebe la transformación de búsqueda con la vista previa de datos en mo
 
 ## <a name="broadcast-optimization"></a>Optimización de difusión
 
-En Azure Data Factory, el flujo de datos de asignación se ejecuta en entornos Spark de escalabilidad horizontal. Si el conjunto de datos puede caber en el espacio de memoria de un nodo de trabajo, el rendimiento de la búsqueda se puede optimizar habilitando la difusión.
-
 ![Combinación de difusión](media/data-flow/broadcast.png "Combinación de difusión")
 
-La habilitación de la transmisión envía todo el conjunto de datos a la memoria. En el caso de conjuntos de datos más pequeños que contienen solo unas cuantas filas, la difusión puede mejorar considerablemente el rendimiento de la búsqueda. En el caso de grandes conjuntos de datos, esta opción puede conducir a una excepción de memoria insuficiente.
+En las combinaciones, búsquedas y transformaciones Existe, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no una parte. Para elegir manualmente la parte que se va a difundir, seleccione **Fijo**.
+
+No se recomienda deshabilitar la difusión a través de la opción **Desactivado** a menos que las combinaciones experimenten errores de tiempo de espera.
 
 ## <a name="data-flow-script"></a>Script de flujo de datos
 
@@ -72,7 +72,7 @@ La habilitación de la transmisión envía todo el conjunto de datos a la memori
         multiple: { true | false },
         pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
         { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <lookupTransformationName>
 ```
 ### <a name="example"></a>Ejemplo
@@ -86,7 +86,7 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     multiple: false,
     pickup: 'first',
     asc(ProductKey, true),
-    broadcast: 'none')~> LookupKeys
+    broadcast: 'auto')~> LookupKeys
 ```
 ## 
 Pasos siguientes

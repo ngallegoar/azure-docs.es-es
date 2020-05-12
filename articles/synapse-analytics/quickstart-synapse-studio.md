@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a29fd66cf264b09cc5e0db7ac1a329be3f297bb8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096340"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692422"
 ---
 # <a name="quickstart-using-synapse-studio-preview"></a>Inicio rápido: Uso de Synapse Studio (versión preliminar)
 
@@ -56,7 +56,7 @@ Puede crear nuevas carpetas y cargar archivos mediante los vínculos de la barra
 
    ![Consulta de archivos en el almacenamiento](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-3. Ejecute la consulta o cuaderno generados para ver el contenido del archivo:
+3. Ejecute la consulta o cuaderno generados para ver el contenido del archivo.
 
    ![Visualización del contenido del archivo](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
@@ -64,7 +64,7 @@ Puede crear nuevas carpetas y cargar archivos mediante los vínculos de la barra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Habilite a los usuarios de Azure AD consultar archivos [mediante la asignación de los permisos de RBAC **Lector de datos de Storage Blob** o **Colaborador de datos de Storage Blob** en Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
+- Permita a los usuarios de Azure AD consultar archivos mediante la asignación de los permisos de RBAC [**Lector de datos de Storage Blob** o **Colaborador de datos de Storage Blob** en Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Consulta de archivos en Azure Storage mediante SQL a petición (versión preliminar)](sql/on-demand-workspace-overview.md)
-- [Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) en Synapse Analytics con herramientas web](quickstart-create-apache-spark-pool.md)
+- [Creación de un grupo de Apache Spark mediante Azure Portal](quickstart-create-apache-spark-pool.md)
 - [Tutorial: Conexión de SQL a petición (versión preliminar) con Power BI Desktop y creación de informes](sql/tutorial-connect-power-bi-desktop.md)

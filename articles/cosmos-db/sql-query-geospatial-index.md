@@ -4,14 +4,14 @@ description: Indexación de datos espaciales con Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79137910"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839219"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexación de datos geoespaciales con Azure Cosmos DB
 
@@ -28,11 +28,17 @@ Si especifica una directiva de indexación que incluye el índice espacial de /*
 
 ## <a name="modifying-geospatial-data-type"></a>Modificación del tipo de datos geoespaciales
 
-En el contenedor, la clase `geospatialConfig` especifica cómo se indexarán los datos geoespaciales. Debe especificar una clase `geospatialConfig` por contenedor: geography o geometry. Si no se especifica, la clase `geospatialConfig` tomará como valor predeterminado el tipo de datos geography. Si modificas la clase `geospatialConfig`, se volverán a indexar todos los datos geoespaciales existentes en el contenedor.
+En el contenedor, la **Configuración geoespacial** especifica cómo se indexarán los datos geoespaciales. Especifique una **Configuración geoespacial** por contenedor: geografía o geometría.
 
-> [!NOTE]
-> Actualmente, Azure Cosmos DB solo admite modificaciones de la clase geospatialConfig en el SDK de .NET, versiones 3.6 y posteriores.
->
+Puede alternar entre el tipo espacial **geografía** y **geometría** en Azure Portal. Es importante crear una [directiva de indexación de geometría espacial válida con un cuadro de límite](#geometry-data-indexing-examples) antes de cambiar al tipo espacial de geometría.
+
+Aquí se muestra cómo establecer la **Configuración geoespacial** en el **Explorador de datos** en Azure Portal:
+
+![Establecimiento de la configuración geoespacial](./media/sql-query-geospatial-index/geospatial-configuration.png)
+
+También puede configurar `geospatialConfig` en el SDK de .NET para ajustar la **Configuración geoespacial**:
+
+Si no se especifica, la clase `geospatialConfig` tomará como valor predeterminado el tipo de datos geography. Si modificas la clase `geospatialConfig`, se volverán a indexar todos los datos geoespaciales existentes en el contenedor.
 
 A continuación se muestra un ejemplo de modificación del tipo de datos geoespaciales a `geometry`, mediante la definición de la propiedad `geospatialConfig` y la adición de un objeto **boundingBox**:
 
@@ -112,7 +118,7 @@ El cuadro de límite está formato por las propiedades siguientes:
 
 Se requiere un cuadro de límite porque los datos geométricos ocupan un plano que puede ser infinito. Sin embargo, los índices espaciales requieren un espacio finito. En el caso del tipo de datos **geography**, la Tierra es el límite y no es necesario establecer un cuadro de límite.
 
-Debe crear un cuadro de límite que contenga todos los datos (o la mayoría). Solo las operaciones calculadas en los objetos que estén completamente dentro del cuadro de límite podrán utilizar el índice espacial. El cuadro de límite no debe ser mucho más grande de lo necesario, ya que esto afectará negativamente al rendimiento de las consultas.
+Cree un cuadro de límite que contenga todos los datos (o la mayoría). Solo las operaciones calculadas en los objetos que estén completamente dentro del cuadro de límite podrán utilizar el índice espacial. Si el cuadro de límite es más grande de lo necesario, afectará de manera negativa el rendimiento de la consulta.
 
 A continuación se incluye una directiva de indexación de ejemplo que indexa datos de tipo **geometry** con **geospatialConfig** establecido en `geometry`:
 

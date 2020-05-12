@@ -1,5 +1,5 @@
 ---
-title: Opciones de ingesta de datos
+title: Automatización e ingesta de datos
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre las opciones de ingesta de datos para entrenar los modelos de aprendizaje automático.
 services: machine-learning
@@ -10,25 +10,27 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086884"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789868"
 ---
-# <a name="data-ingestion-in-azure-machine-learning"></a>Ingesta de datos en Azure Machine Learning
+# <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opciones de ingesta de datos para flujos de trabajo de Azure Machine Learning
 
-En este artículo, obtendrá información sobre las ventajas y desventajas de las siguientes opciones de ingesta de datos disponibles con Azure Machine Learning. 
+En este artículo, obtendrá información sobre las ventajas y desventajas de las opciones de ingesta de datos disponibles con Azure Machine Learning. 
 
-1. Canalizaciones de [Azure Data Factory](#use-azure-data-factory)
-2. [SDK de Python de Azure Machine Learning](#use-the-python-sdk)
+Elija entre las siguientes opciones:
++ [Azure Data Factory](#azure-data-factory) canalizaciones, creadas específicamente para extraer, cargar y transformar datos.
+
++ [SDK de Python de Azure Machine Learning](#azure-machine-learning-python-sdk), proporciona una solución de código personalizada para las tareas básicas de ingesta de datos.
+
++ Una combinación de ambas opciones.
 
 La ingesta de datos es el proceso en el que los datos no estructurados se extraen de uno o varios orígenes y, a continuación, se preparan para entrenar modelos de Machine Learning. También requiere mucho tiempo, especialmente si se realiza manualmente, y si tiene grandes cantidades de datos de varios orígenes. La automatización de este esfuerzo libera recursos y garantiza que los modelos utilicen los datos más recientes y aplicables.
 
-Azure Data Factory (ADF) se ha creado específicamente para extraer, cargar y transformar datos; sin embargo, el SDK de Python permite desarrollar una solución de código personalizada para las tareas básicas de ingesta de datos. Si tampoco son suficientes para sus necesidades, también puede usar ADF y el SDK de Python juntos para crear un flujo de trabajo de ingesta de datos general que satisfaga sus necesidades. 
-
-## <a name="use-azure-data-factory"></a>Usar Azure Data Factory
+## <a name="azure-data-factory"></a>Azure Data Factory
 
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) ofrece compatibilidad nativa para la supervisión de orígenes de datos y desencadenadores para las canalizaciones de ingesta de datos.  
 
@@ -55,7 +57,7 @@ Estos pasos y el siguiente diagrama sirven para ilustrar el flujo de trabajo de 
     
 Aprenda a crear una canalización de ingesta de datos para Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## <a name="use-the-python-sdk"></a>Uso del SDK de Python 
+## <a name="azure-machine-learning-python-sdk"></a>SDK de Python de Azure Machine Learning 
 
 Con el [SDK de Python](https://docs.microsoft.com/python/api/overview/azure/ml), puede incorporar las tareas de ingesta de datos en un paso de [canalización de Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
@@ -73,5 +75,7 @@ En el siguiente diagrama, la canalización de Azure Machine Learning consta de d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo crear una canalización de ingesta de datos para Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md)
-* Aprenda a automatizar y administrar los ciclos de vida de desarrollo de las canalizaciones de ingesta de datos con [Azure Pipelines](how-to-cicd-data-ingestion.md).
+Siga estos artículos de procedimientos:
+* [Creación de una canalización de ingesta de datos con Azure Data Factory](how-to-data-ingest-adf.md)
+
+* [Automatización y administración de canalizaciones de ingesta de datos con Azure Pipelines](how-to-cicd-data-ingestion.md).

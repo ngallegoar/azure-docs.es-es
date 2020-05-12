@@ -1,28 +1,24 @@
 ---
-title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azure AD | Microsoft Docs
+title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azure AD
 description: Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: mimart
-ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e828fd9c2561007c332db67bfd0b20dda9b845f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 1e72d885858b543999090a4a0521845d556802fd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454540"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593121"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones con Azure Active Directory
+# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones con Azure AD
 
 En Azure Active Directory (Azure AD), el término **aprovisionamiento de aplicaciones** hace referencia a la creación automática de identidades y roles de usuario en las aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a las que los usuarios necesitan acceso. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Algunos escenarios comunes son el aprovisionamiento de un usuario de Azure AD en aplicaciones como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md) y [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), entre otras.
 

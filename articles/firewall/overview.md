@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/08/2020
+ms.date: 05/06/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 9d5fc95c5845b9a75666860ce8900676972a16bc
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381910"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864103"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -40,12 +40,12 @@ También puede asociar Azure Firewall a una zona específica solo por motivos de
 
 No hay ningún costo adicional por el firewall implementado en una zona de disponibilidad. Sin embargo, hay costos adicionales para las transferencias de datos entrantes y salientes asociadas con Availability Zones. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Availability Zones de Azure Firewall está disponible en las regiones que lo admiten. Para más información, consulte [¿Qué son las zonas de disponibilidad en Azure?](../availability-zones/az-overview.md#services-support-by-region)
+Availability Zones de Azure Firewall está disponible en las regiones que lo admiten. Para más información, consulte [Regiones que admiten Availability Zones en Azure](../availability-zones/az-region.md).
 
 > [!NOTE]
 > Availability Zones solo se puede configurar durante la implementación. No se puede configurar un firewall existente para incluirlo.
 
-Para más información sobre Availability Zones, consulte [¿Qué son las zonas de disponibilidad en Azure?](../availability-zones/az-overview.md)
+Para más información sobre Availability Zones, consulte [Regiones y Availability Zones en Azure](../availability-zones/az-overview.md)
 
 ## <a name="unrestricted-cloud-scalability"></a>Escalabilidad a la nube sin restricciones
 
@@ -83,12 +83,12 @@ El tráfico entrante de Internet a la dirección IP pública de firewall se trad
 
 ## <a name="multiple-public-ip-addresses"></a>Varias direcciones IP públicas
 
-Puede asociar varias direcciones IP públicas (hasta 100) con el firewall.
+Puede asociar varias direcciones IP públicas (hasta 250) con el firewall.
 
 Esto admite los siguientes escenarios:
 
 - **DNAT**: puede traducir varias instancias de puerto estándar para los servidores back-end. Por ejemplo, si tiene dos direcciones IP públicas, puede traducir el puerto TCP 3389 (RDP) para ambas direcciones IP.
-- **SNAT**: hay disponibles puertos adicionales para las conexiones SNAT salientes, lo que reduce la posibilidad de que se agoten los puertos SNAT. En este momento, Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se usará para una conexión. Si dispone de algún filtro de nivel inferior de la red, deberá permitir todas las direcciones IP públicas asociadas con el firewall.
+- **SNAT**: hay disponibles puertos adicionales para las conexiones SNAT salientes, lo que reduce la posibilidad de que se agoten los puertos SNAT. En este momento, Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se usará para una conexión. Si dispone de algún filtro de nivel inferior de la red, deberá permitir todas las direcciones IP públicas asociadas con el firewall. Considere la posibilidad de usar un [prefijo de dirección IP pública](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuración.
 
 ## <a name="azure-monitor-logging"></a>Registro de Azure Monitor
 
@@ -111,7 +111,7 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|La compatibilidad con esta funcionalidad está en nuestro mapa de ruta. Para mover un firewall a otro un grupo de recursos o suscripción, debe eliminar la instancia actual y volver a crearla en el nuevo grupo de recursos o suscripción.|
 |Las alertas de inteligencia sobre amenazas pueden estar enmascaradas|Reglas de red con destino 80/443 para las alertas de inteligencia sobre amenazas de las máscaras de filtrado de salida cuando la configuración está establecida en el modo de solo alerta.|Cree filtrado de salida para 80/443 mediante reglas de aplicaciones. También puede cambiar el modo de inteligencia sobre amenazas a **Alertar y denegar**.|
 |Azure Firewall usa Azure DNS para la resolución de nombres|Azure Firewall resuelve los FQDN solo mediante Azure DNS. No se admite un servidor DNS personalizado. No hay ningún efecto sobre la resolución de DNS en otras subredes.|Estamos trabajando para reducir esta limitación.|
-|SNAT/DNAT de Firewall de Azure no funciona para destinos de IP privadas|La compatibilidad con SNAT/DNAT de Azure Firewall se limita a la entrada/salida de Internet. SNAT/DNAT no funciona actualmente con destinos de IP privada. Por ejemplo, radio a radio.|Se trata de una limitación actual.|
+|DNAT de Azure Firewall no funciona para destinos de IP privadas|La compatibilidad con DNAT de Azure Firewall se limita a la entrada/salida de Internet. DNAT no funciona actualmente con destinos de IP privada. Por ejemplo, radio a radio.|Se trata de una limitación actual.|
 |No se puede eliminar la primera configuración de IP pública|Cada IP pública de Azure Firewall se asigna a una *configuración de IP*.  La primera configuración de IP se asigna durante la implementación del firewall y, normalmente, también contiene una referencia a la subred del firewall (a menos que se configure explícitamente de forma diferente mediante una implementación de plantilla). No se puede eliminar esta configuración de IP porque podría anular la asignación del firewall. Aún podrá cambiar o eliminar la dirección IP pública asociada con esta configuración de IP si el firewall tiene al menos otra dirección IP pública disponible para su uso.|es así por diseño.|
 |Availability Zones solo se puede configurar durante la implementación.|Availability Zones solo se puede configurar durante la implementación. No se puede configurar una vez implementado un firewall.|es así por diseño.|
 |SNAT en conexiones entrantes|Además de DNAT, en las conexiones mediante la dirección IP pública del firewall (entrante) se aplica SNAT en una de las direcciones IP privadas del firewall. Este requisito hoy en día (también para aplicaciones virtuales de red activa/activa) es para garantizar el enrutamiento simétrico.|Para conservar el código fuente original para HTTP/S, considere el uso de encabezados [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Por ejemplo, use un servicio como [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) o [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) delante del firewall. También puede agregar WAF como parte de Azure Front Door Service y la cadena al firewall.
@@ -122,6 +122,7 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |DNAT no es compatible con la tunelización forzada habilitada|Los firewalls implementados con la tunelización forzada habilitada no admiten el acceso entrante desde Internet debido al enrutamiento asimétrico.|Esto es así por diseño. La ruta de acceso de retorno de las conexiones entrantes pasa por el firewall local, que no ha visto la conexión establecida.
 |FTP pasivo saliente no funciona en el caso de los firewalls con varias direcciones IP públicas.|FTP pasivo establece distintas conexiones para los canales de control y datos. Cuando un firewall con varias direcciones IP públicas envía datos de salida, selecciona de manera aleatoria una de sus direcciones IP públicas como dirección IP de origen. FTP produce un error cuando los canales de control y datos usan direcciones IP de origen diferentes.|Está previsto una configuración de SNAT explícita. Mientras tanto, considere la posibilidad de usar una única dirección IP en esta situación.|
 |Falta una dimensión de protocolo en la métrica NetworkRuleHit|La métrica ApplicationRuleHit permite el filtrado basado en el protocolo, pero esta funcionalidad falta en la métrica NetworkRuleHit correspondiente.|Se está investigando una solución.|
+|No se admiten las reglas NAT con puertos entre el 64000 y el 65535|Azure Firewall permite cualquier puerto en el rango 1-65535 en reglas de red y de aplicación; sin embargo, las reglas NAT solo admiten los puertos del rango 1-63999.|Se trata de una limitación actual.
 |Las actualizaciones de configuración pueden tardar cinco minutos por término medio.|Una actualización de la configuración de Azure Firewall puede tardar entre tres y cinco minutos por término medio, y no se admiten actualizaciones en paralelo.|Se está investigando una solución.
 
 ## <a name="next-steps"></a>Pasos siguientes

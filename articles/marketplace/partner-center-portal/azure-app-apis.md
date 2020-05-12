@@ -1,20 +1,20 @@
 ---
-title: API de incorporación para aplicaciones de Azure en Marketplace comercial
-description: Requisitos previos de la API para aplicaciones de Azure en Marketplace comercial en el Centro de partners de Microsoft.
+title: API de envío del Centro de partners para incorporar aplicaciones de Azure en marketplace comercial de Microsoft
+description: Conozca los requisitos previos para usar la API de envío del Centro de partners para aplicaciones de Azure en marketplace comercial en el Centro de partners de Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279766"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744889"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API para la incorporación de aplicaciones de Azure en el Centro de partners
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de envío del Centro de partners para incorporar aplicaciones de Azure en el centro de Partners
 
 Use la *API de envío del Centro de partners* para consultar, crear envíos y publicar ofertas de Azure mediante programación.  Esta API es útil si su cuenta administra muchas ofertas y desea automatizar y optimizar el proceso de envío de estas ofertas.
 
@@ -70,3 +70,8 @@ Para el valor *tenant_id* en el `POST URI` y los parámetros *client_id* y *clie
 Una vez que tenga un token de acceso de Azure AD, puede llamar a los métodos en la API de envío del Centro de partners. Para crear o actualizar envíos, normalmente se llama a varios métodos en la API de envío del Centro de partners en un orden específico. Para información acerca de cada escenario y la sintaxis de cada método, consulte el swagger de la API de ingesta.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Obtenga información sobre la [Creación de un activo técnico de VM de Azure](create-azure-container-technical-assets.md).
+* Aprenda a crear una [oferta de Azure Container](create-azure-container-offer.md).

@@ -1,5 +1,5 @@
 ---
-title: Panel Descargas de los análisis de marketplace comercial del Centro de partners
+title: Panel Descargas de los análisis del marketplace comercial de Microsoft en el Centro de partners
 description: Obtenga información sobre cómo acceder a las solicitudes de descarga de sus ofertas de Marketplace.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: f81b8ae927df6c95bbc34be7ad9916c88aeba03b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251680"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732725"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Panel Descargas de los análisis de marketplace comercial
 
@@ -32,7 +32,7 @@ Recibirá una notificación emergente y un correo con un vínculo al panel **Des
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](./analytics.md).
-- Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
+- Para ver los gráficos, las tendencias y los valores de datos agregados que resuman la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
 - Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313583"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792384"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
@@ -68,7 +68,7 @@ Si ha implementado la solución de www.azureiotsolutions.com, no puede iniciar s
 1. Es el nombre de usuario que se va a utilizar es: `docker`.
 1. La contraseña que se utilice depende de la versión que se usó en la implementación:
     * Para las soluciones implementadas con el script build.ps1 antes del 1 de junio de 2017, la contraseña es: `Passw0rd`.
-    * Para las soluciones implementadas con el script build.ps1 después del 1 de junio de 2017, la contraseña es: `<name of your deployment>.config.user`. La contraseña se almacena en el valor **VmAdminPassword**. La contraseña se genera aleatoriamente durante la implementación a menos que la especifique con el parámetro `build.ps1` del script `-VmAdminPassword`.
+    * Para las soluciones implementadas con el script build.ps1 después del 1 de junio de 2017, la contraseña es: `<name of your deployment>.config.user`. La contraseña se almacena en el valor **VmAdminPassword**. La contraseña se genera aleatoriamente durante la implementación a menos que la especifique con el parámetro `-VmAdminPassword` del script `build.ps1`.
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>¿Cómo se puede detener e iniciar todos los procesos de docker en la máquina virtual de simulación?
 
@@ -111,7 +111,7 @@ La misma simulación registra los siguientes dispositivos:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Mediante la herramienta [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [la extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension), puede comprobar qué dispositivos están registrados con la instancia de IoT Hub que la solución usa. Para usar el explorador de dispositivos, necesita la cadena de conexión para la instancia de IoT Hub en la implementación. Para usar la extensión de IoT para la CLI de Azure, necesita el nombre de la instancia de IoT Hub.
+Mediante la herramienta [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) o [la extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension), puede comprobar qué dispositivos están registrados con la instancia de IoT Hub que la solución usa. Para usar el explorador de dispositivos, necesita la cadena de conexión para la instancia de IoT Hub en la implementación. Para usar la extensión de IoT para la CLI de Azure, necesita el nombre de la instancia de IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>¿Cómo se pueden obtener datos de registro de los componentes de simulación?
 
@@ -125,7 +125,7 @@ También puede iniciar sesión en la máquina virtual a través de SSH e inspecc
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>¿Cómo puedo comprobar si la simulación envía datos a la nube?
 
-Con [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o con el comando [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), puede inspeccionar los datos enviados a IoT Hub desde determinados dispositivos. Para usar estas herramientas, tiene que saber la cadena de conexión para la instancia de IoT Hub de la implementación. Consulte [¿Cómo se puede averiguar la cadena de conexión de IoT Hub utilizada por la solución?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Con [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) o con el comando [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), puede inspeccionar los datos enviados a IoT Hub desde determinados dispositivos. Para usar estas herramientas, tiene que saber la cadena de conexión para la instancia de IoT Hub de la implementación. Consulte [¿Cómo se puede averiguar la cadena de conexión de IoT Hub utilizada por la solución?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspeccione los datos enviados por uno de los dispositivos del editor:
 

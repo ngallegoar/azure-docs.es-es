@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales 
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 86141532e0db80f75c6e79277b36060ecb939a53
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389297"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801440"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -158,7 +158,7 @@ Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de se
 
 **Componente** | **Soporte técnico**
 --- | ---
-Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos.<BR> Para suscribirse a la versión preliminar privada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com
+Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos.<BR> Para suscribirse a la versión preliminar limitada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com
 Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 32 TB y se admite un máximo de 256 TB si se combinan todos los discos de una máquina virtual.
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.

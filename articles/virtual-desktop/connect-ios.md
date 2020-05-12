@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bf9ea6c68e4cbbe721705639e6c6416c0e93c9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4239f5271e4df282cf667b4bf1eff5f55f6f6323
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128254"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611711"
 ---
 # <a name="connect-with-the-ios-client"></a>Conexión con el cliente iOS
 
 > Se aplica a: iOS 13.0 una versión posterior. Compatible con iPhone, iPad y iPod touch.
+
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión Fall 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/connect-ios-2019.md).
+>
+> La actualización Spring 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Puede acceder a los recursos de Windows Virtual Desktop desde su dispositivo iOS con nuestro cliente, que se puede descargar. En esta guía se le indicará cómo configurar el cliente iOS.
 
@@ -33,7 +39,7 @@ Para suscribirse a una fuente:
 
 1. En el centro de conexiones, pulse **+** y, después, pulse **Add Workspace** (Agregar área de trabajo).
 2. Escriba la dirección URL de la fuente en el campo **Feed URL** (Dirección URL de la fuente). La dirección URL de la fuente puede ser una dirección URL o una dirección de correo electrónico.
-   - Si usa una dirección URL, use la que le proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com>.
+   - Si usa una dirección URL, use la que le proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - Para usar el correo electrónico, escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
 3. Pulse **Next** (Siguiente).
 4. Escriba sus credenciales cuando se le solicite.

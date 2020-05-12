@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: c0dba303a82fb39036b04198f835e4a1e71b6a1d
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: cde83572c87ef3eba5d68cf619c3bee0f353d023
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365860"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652974"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Actualizar RU/s para una base de datos o una colección para MongoDB API en Azure Cosmos DB
 
@@ -39,8 +39,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Get-Help | Notas |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Set-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbdatabase) | Crea o actualiza una base de datos de MongoDB API en Cosmos DB existente. |
-| [Set-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbcollection) | Crea o actualiza una colección SQL de Cosmos DB existente. |
+| [Get-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Obtiene el valor de la capacidad de proceso de la colección de MongoDB API. |
+| [Update-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollectionthroughput) | Actualiza el valor de la capacidad de proceso de la colección de MongoDB API. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

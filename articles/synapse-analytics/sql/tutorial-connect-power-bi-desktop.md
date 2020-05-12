@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769480"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692405"
 ---
-# <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Tutorial: Conexión de SQL a petición (versión preliminar) a Power BI Desktop y creación de un informe
+# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Uso de SQL a petición (versión preliminar) con Power BI Desktop y creación de un informe
 
 En este tutorial, aprenderá a:
 
@@ -24,7 +24,7 @@ En este tutorial, aprenderá a:
 >
 > - Crear una base de datos de demostración
 > - Crear una vista usada para el informe
-> - Conectar con Power BI Desktop
+> - Conectar Power BI Desktop a SQL a petición
 > - Crear un informe basado en el conjunto de datos
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -130,11 +130,11 @@ Cree el informe para Power BI Desktop mediante los pasos siguientes:
 
     - Ejemplo de AAD 
   
-    ![Haga clic en Iniciar sesión.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Haga clic en Iniciar sesión.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Ejemplo de inicio de sesión de SQL: escriba su nombre de usuario y contraseña.
 
-    ![Use el inicio de sesión de SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![Use el inicio de sesión de SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Seleccione la vista `usPopulationView` y, a continuación, seleccione **Cargar**. 

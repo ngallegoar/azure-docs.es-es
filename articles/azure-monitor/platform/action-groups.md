@@ -3,15 +3,15 @@ title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 2/18/2020
+ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9bc191bb27ebb0bac631ef5cfa8ddc34bbd8214e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520890"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801015"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -196,14 +196,25 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>sms
-Consulte también la [información sobre las limitaciones](./../../azure-monitor/platform/alerts-rate-limiting.md) y el [comportamiento de las alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para información adicional.
+Consulte también la [información sobre las limitaciones](./../../azure-monitor/platform/alerts-rate-limiting.md) y el [comportamiento de las alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para información adicional. 
 
-En un grupo de acciones puede tener un número limitado de acciones de SMS.  
+En un grupo de acciones puede tener un número limitado de acciones de SMS.
+
+> [!NOTE]
+> Si la interfaz de usuario del grupo de acciones de Azure Portal no le permite seleccionar el código de país, significa que no se admite SMS en su país.  Si el código de país no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país se agregue. Mientras tanto, como solución alternativa, haga que el grupo de acciones llame al webhook de un proveedor de SMS de terceros con soporte técnico en su país.  
+
+Los precios de los países admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+  
 
 ### <a name="voice"></a>Voz
-Consulte el artículo de [información sobre las limitaciones](./../../azure-monitor/platform/alerts-rate-limiting.md).
+Consulte el artículo [Información sobre las limitaciones](./../../azure-monitor/platform/alerts-rate-limiting.md) para comportamientos importantes adicionales.
 
 En un grupo de acciones puede tener un número limitado de acciones de voz.
+
+> [!NOTE]
+> Si la interfaz de usuario del grupo de acciones de Azure Portal no le permite seleccionar el código de país, significa que no se admiten llamadas de voz en su país. Si el código de país no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país se agregue.  Mientras tanto, como solución alternativa, haga que el grupo de acciones llame al webhook de un proveedor de llamadas de voz de terceros con soporte técnico en su país.  
+
+Los precios de los países admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
 Los webhooks se reintentan utilizando las siguientes reglas. La llamada de webhook se vuelve a intentar un máximo de 2 veces cuando se devuelven los siguientes códigos de estado HTTP: 408, 429, 503, 504 o el punto de conexión HTTP no responda. El primer reintento se produce transcurridos 10 segundos. El segundo reintento se produce transcurridos 100 segundos. Después de dos errores, ningún grupo de acciones llamará al punto de conexión durante 30 minutos. 

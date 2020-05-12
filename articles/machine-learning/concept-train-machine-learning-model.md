@@ -1,5 +1,5 @@
 ---
-title: Métodos de entrenamiento de modelos
+title: Creación y entrenamiento de modelos
 titleSuffix: Azure Machine Learning
 description: Conozca los distintos métodos que puede usar para entrenar modelos con Azure Machine Learning. Los estimadores proporcionan una manera sencilla de trabajar con marcos populares como Scikit-learn, TensorFlow, Keras, PyTorch y Chainer. Las canalizaciones de Machine Learning facilitan la programación de ejecuciones desatendidas, el uso de entornos de proceso heterogéneos y la reutilización de partes del flujo de trabajo. Además, las configuraciones de ejecución proporcionan un control granular sobre los destinos de proceso en los que se ejecuta el proceso de entrenamiento.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c75c41012928b7bffb61a00a73f314e4c372b154
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79129777"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792350"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 

@@ -2,15 +2,15 @@
 title: Creación y ejecución de pruebas de disponibilidad personalizadas mediante Azure Functions
 description: En este documento se explica cómo crear una función de Azure con TrackAvailability() que se ejecutará periódicamente según la configuración especificada en la función TimerTrigger. Los resultados de esta prueba se enviarán al recurso de Application Insights, donde podrá consultar los datos de los resultados de disponibilidad y generar alertas sobre ellos. Las pruebas personalizadas le permitirán escribir pruebas de disponibilidad más complejas de las que puede crear con la interfaz de usuario del portal, supervisar una aplicación dentro de la red virtual de Azure, cambiar la dirección del punto de conexión o crear una prueba de disponibilidad si no hay ninguna disponible en su región.
 ms.topic: conceptual
-author: morgangrobin
-ms.author: mogrobin
-ms.date: 11/22/2019
-ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/04/2020
+ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665806"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791123"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creación y ejecución de pruebas de disponibilidad personalizadas mediante Azure Functions
 
@@ -160,12 +160,10 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Para asegurarse de que todo funciona, puede examinar el gráfico de la pestaña Disponibilidad del recurso de Application Insights.
 
 > [!NOTE]
-> Si ha implementado su propia lógica de negocios en runAvailabilityTest.csx, verá resultados correctos como en las capturas de pantallas siguientes; si no lo hizo, verá resultados con errores.
+> Si ha implementado su propia lógica de negocios en runAvailabilityTest.csx, verá resultados correctos como en las capturas de pantallas siguientes; si no lo hizo, verá resultados con errores. Las pruebas creadas con `TrackAvailability()` aparecerán con **CUSTOM** junto al nombre de la prueba.
 
 >[!div class="mx-imgBorder"]
->![Pestaña Disponibilidad con resultados correctos](media/availability-azure-functions/availtab.png)
-
-Al configurar la prueba con Azure Functions observará que, a diferencia de lo que sucede con **Agregar prueba** en la pestaña Disponibilidad, el nombre de la prueba no aparecerá y no podrá interactuar con él. Los resultados se visualizan, pero se obtiene una vista de resumen en lugar de la misma vista detallada que se obtiene al crear una prueba de disponibilidad a través del portal.
+>![Pestaña Disponibilidad con resultados correctos](media/availability-azure-functions/availability-custom.png)
 
 Para ver los detalles de la transacción completa, seleccione **Correcto** o **Erróneo** en Aumentar detalle y, a continuación, seleccione un ejemplo. También puede obtener los detalles de la transacción de un extremo a otro seleccionando un punto de datos en el gráfico.
 

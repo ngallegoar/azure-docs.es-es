@@ -4,12 +4,12 @@ description: Seguimiento de las operaciones personalizadas con el SDK de .NET de
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234740"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690862"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -38,7 +38,7 @@ Ahora vamos a ver cómo se puede realizar un seguimiento de tales operaciones.
 Generalmente, la tarea consiste en crear `RequestTelemetry` y establecer propiedades conocidas. Una vez finalizada la operación, se realiza el seguimiento de la telemetría. En el siguiente ejemplo se muestra esta tarea.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Solicitud HTTP en una aplicación autohospedada de Owin
-En este ejemplo, el contexto de seguimiento se propaga según el [protocolo HTTP para la correlación](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Debe esperar recibir los encabezados que se describen ahí.
+En este ejemplo, el contexto de seguimiento se propaga según el [protocolo HTTP para la correlación](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Debe esperar recibir los encabezados que se describen ahí.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -117,7 +117,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 El Protocolo HTTP para la correlación también declara el encabezado `Correlation-Context`. Pero aquí se omite para simplificar.
 
 ## <a name="queue-instrumentation"></a>Instrumentación de colas
-Aunque existen el [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/) y el [protocolo HTTP para la correlación](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) para pasar los detalles de la correlación con la solicitud HTTP, todos los protocolos de cola tienen que definir cómo se transmiten los mismos detalles junto con el mensaje de cola. Algunos protocolos de cola (por ejemplo, AMQP) permiten pasar metadatos adicionales, y otros (como una cola de Azure Storage) requieren que el contexto se codifique en la carga del mensaje.
+Aunque existen el [contexto de seguimiento de W3C](https://www.w3.org/TR/trace-context/) y el [protocolo HTTP para la correlación](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) para pasar los detalles de la correlación con la solicitud HTTP, todos los protocolos de cola tienen que definir cómo se transmiten los mismos detalles junto con el mensaje de cola. Algunos protocolos de cola (por ejemplo, AMQP) permiten pasar metadatos adicionales, y otros (como una cola de Azure Storage) requieren que el contexto se codifique en la carga del mensaje.
 
 > [!NOTE]
 > * **Todavía no se admite el seguimiento entre componentes para las colas** con HTTP, si el productor y el consumidor envían telemetría a distintos recursos de Application Insights, la experiencia de diagnósticos de transacción y el mapa de aplicación muestran transacciones y asignaciones de un extremo a otro. En el caso de las colas, todavía no se admite. 
@@ -215,8 +215,8 @@ Como las colas de Storage admiten la API de HTTP, Application Insights realiza e
 
 En este ejemplo se muestra cómo realizar un seguimiento de la operación `Enqueue`. Puede:
 
- - **Poner en correlación los reintentos (si existen)** : Todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
- - **Poner en correlación los registros de Azure Storage (si es necesario y cuando sea necesario)** : Se hace con la telemetría de Application Insights.
+ - **Poner en correlación los reintentos (si existen)** : todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
+ - **Poner en correlación los registros de almacenamiento (si es necesario y cuando sea necesario)** : se correlacionan con la telemetría de Application Insights.
 
 La operación `Enqueue` es el elemento secundario de una operación principal (por ejemplo, una solicitud HTTP de entrada). La llamada de dependencia HTTP es el elemento secundario de la operación `Enqueue` y el descendiente de la solicitud de entrada:
 
@@ -482,4 +482,4 @@ Cada operación de Application Insights (solicitud o dependencia) implica `Activ
 - Vea el [modelo de datos](../../azure-monitor/app/data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Notifique [eventos y métricas](../../azure-monitor/app/api-custom-events-metrics.md) personalizados a Application Insights.
 - Compruebe la [configuración](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la recopilación de propiedades de contexto.
-- Consulte el [manual del usuario de System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver cómo se correlaciona la telemetría.
+- Consulte el [manual del usuario de System.Diagnostics.Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver cómo se correlaciona la telemetría.

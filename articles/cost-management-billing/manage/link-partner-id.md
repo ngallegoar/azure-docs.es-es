@@ -4,15 +4,15 @@ description: Controle las interacciones con clientes de Azure vinculando un Id. 
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204807"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778828"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -159,4 +159,5 @@ Sí, puede vincular su identificador de asociado para Azure Stack.
 
 **¿Cómo se vincula el identificador de asociado si la empresa usa [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para acceder a los recursos del cliente?**
 
-Si incorpora clientes a la administración de recursos delegados de Azure mediante la [publicación de una oferta de servicios administrados en Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), el identificador de MPN se asociará automáticamente. Si [incorpora clientes mediante la implementación de plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), deberá asociar el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario que tenga acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que esto lo deberá realizar en el inquilino del proveedor de servicios. Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino que esté asociada a su identificador de MPN y concederle acceso de lectura a todos los clientes que incorpore.
+Si incorpora clientes a la administración de recursos delegados de Azure mediante la [publicación de una oferta de servicios administrados en Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), el identificador de MPN se asociará automáticamente. Si [incorpora clientes mediante la implementación de plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), deberá asociar el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario que tenga acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que esto lo deberá realizar en el inquilino del proveedor de servicios. Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino que esté asociada a su identificador de MPN y concederle acceso de lectura a todos los clientes que incorpore. En este ejemplo, se usa el rol Lector de RBAC y es uno de los roles que no es válido para créditos ganados por el asociado. Para más información sobre los roles, consulte el documento acerca de los [roles y permisos de los créditos obtenidos por el asociado](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+

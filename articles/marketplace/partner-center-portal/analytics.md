@@ -1,20 +1,20 @@
 ---
-title: Análisis del marketplace comercial en el Centro de partners
-description: Información general sobre el acceso a los informes de análisis para supervisar las ventas, evaluar el rendimiento y optimizar sus ofertas de Marketplace.
+title: Análisis de marketplace comercial de Microsoft en el Centro de partners
+description: Obtenga información sobre cómo obtener acceso a los informes de análisis para supervisar las ventas, evaluar el rendimiento y optimizar las ofertas de marketplace en el Centro de partners de Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 41b9c5244ce9d468d9bf0fb7bafa719b4e6f55ac
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262288"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744909"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análisis del marketplace comercial en el Centro de partners
+# <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Acceso a los informes de análisis de marketplace comercial en el Centro de partners
 
 Obtenga información sobre cómo obtener acceso a los informes de análisis del Centro de partners de Microsoft para supervisar las ventas, evaluar el rendimiento y optimizar sus ofertas de Marketplace. En tanto que partner, puede supervisar los anuncios de sus ofertas mediante la visualización de datos y los gráficos de información compatibles con el Centro de partners,así como buscar formas de maximizar las ventas. Las herramientas de análisis mejorado le permiten actuar en los resultados del rendimiento y mantener mejores relaciones con sus clientes y distribuidores.
 

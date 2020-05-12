@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67454663"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691314"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Consideraciones sobre el rendimiento de Azure NetApp Files
 
@@ -34,8 +34,6 @@ Las consideraciones típicas de rendimiento del almacenamiento, incluyendo la me
 El rendimiento empírico máximo que se ha observado en las pruebas es de 4500 MiB/s.  En la capa de almacenamiento Premium, una cuota de volumen de 70,31 TiB aprovisionará un límite de rendimiento que sea lo suficientemente alto para alcanzar ese nivel de rendimiento.  
 
 Si quiere asignar cantidades de cuota de volumen más allá de los 70,31 TiB, puede asignar una cuota adicional a un volumen para almacenar datos adicionales. Sin embargo, la cuota adicional no dará como resultado un aumento adicional en el rendimiento real.  
-
-Consulte [Performance benchmarks for Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) (Pruebas de rendimiento para los archivos de Azure NetApp) para obtener información adicional.
 
 ## <a name="overprovisioning-the-volume-quota"></a>Aprovisionamiento excesivo de la cuota de volumen
 
@@ -64,4 +62,4 @@ Si sus requisitos de rendimiento son temporales o si ha aumentado las necesidade
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Banco de pruebas de rendimiento para Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Bancos de pruebas de rendimiento para Linux](performance-benchmarks-linux.md)

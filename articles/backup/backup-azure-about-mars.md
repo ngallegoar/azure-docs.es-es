@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo el agente de MARS admite los escen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673286"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611490"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Acerca del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -39,19 +39,21 @@ El agente de MARS admite los siguientes escenarios de restauración:
 
 ## <a name="backup-process"></a>Proceso de copia de seguridad
 
-1. En Azure Portal, cree un [almacén de Recovery Services](install-mars-agent.md#create-a-recovery-services-vault) y elija los archivos, las carpetas y el estado del sistema de entre los objetivos de copia de seguridad.
+1. En Azure Portal, cree un [almacén de Recovery Services](install-mars-agent.md#create-a-recovery-services-vault) y elija los archivos, las carpetas y el estado del sistema de entre los **objetivos de copia de seguridad**.
 2. [Descargue las credenciales del almacén de Recovery Services y el instalador del agente](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) en una máquina local.
 
-    Para proteger la máquina local con la opción de copia de seguridad, seleccione los archivos, carpetas y estado del sistema y, después, descargue el agente de MARS.
-
-3. Preparación de la infraestructura:
-
-    a. Ejecute el instalador para [instalar el agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent).
-
-    b. Use las credenciales del almacén que descargó para registrar la máquina en el almacén de Recovery Services.
-4. En la consola de agente del cliente, [configure la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy). Especifique la directiva de retención de los datos de la copia de seguridad para iniciar la protección.
+3. [Instale el agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) y use las credenciales del almacén que descargó para registrar la máquina en el almacén de Recovery Services.
+4. Desde la consola del agente en el cliente, [configure la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) para especificar de qué se hará una copia de seguridad, cuándo se hará (programación), cuánto tiempo se conservará en Azure (directiva de retención) e inicie la protección.
 
 ![Diagrama del agente de Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
+### <a name="additional-information"></a>Información adicional
+
+- La **copia de seguridad inicial** (primera copia de seguridad) se ejecuta de acuerdo con la configuración de la copia de seguridad.  El agente de MARS usa VSS para tomar una instantánea de un momento dado de los volúmenes seleccionados para la copia de seguridad. El agente solo usa la operación de escritor del sistema de Windows para capturar la instantánea. No usa instancias de VSS Writer de aplicaciones y no captura instantáneas coherentes con la aplicación. Después de tomar la instantánea con VSS, el agente de MARS crea un disco duro virtual en la carpeta de caché que especificó al configurar la copia de seguridad. El agente también almacena las sumas de comprobación para cada bloque de datos.
+
+- Se ejecutan **copias de seguridad incrementales (subsiguientes)** según la programación que especifique. Durante las copias de seguridad incrementales, se identifican los archivos modificados y se crea un disco duro virtual. Este disco se comprime y cifra, y se envía al almacén. Una vez finalizada la copia de seguridad incremental, el nuevo disco duro virtual se combina con el disco duro virtual creado después de la replicación inicial. Este disco duro virtual combinado proporciona el estado más reciente que se usará para la comparación de la copia de seguridad en curso.
+
+- El agente de MARS puede ejecutar el trabajo de copia de seguridad en **modo optimizado** con el diario de cambios USN (número de secuencia actualizada) o **modo no optimizado** al comprobar los cambios en los directorios o archivos examinando todo el volumen. El modo no optimizado es más lento porque el agente tiene que examinar cada uno de los archivos del volumen y compararlo con los metadatos para establecer qué archivos se han modificado.  La **copia de seguridad inicial** siempre se ejecutará en modo no optimizado. Si se produce un error en el trabajo de copia de seguridad anterior, el siguiente trabajo de copia de seguridad programado se ejecutará en modo no optimizado.
 
 ### <a name="additional-scenarios"></a>Otros escenarios
 

@@ -3,12 +3,12 @@ title: Introducción a los almacenes de Recovery Services
 description: Información general y comparación entre los almacenes de Recovery Services y los de Azure Backup.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436958"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597964"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -79,6 +79,14 @@ Las secciones siguientes contienen vínculos a artículos que explican cómo usa
 ### <a name="secure-the-vault"></a>Seguridad del almacén
 
 - [Seguridad de los datos de copia de seguridad en la nube en los almacenes de Recovery Services](backup-azure-security-feature.md)
+
+## <a name="azure-advisor"></a>Azure Advisor
+
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) es un consultor de nube personalizado que ayuda a optimizar el uso de Azure. Analiza el uso de Azure y proporciona recomendaciones oportunas para ayudar a optimizar y proteger las implementaciones. Proporciona recomendaciones en cuatro categorías: Alta disponibilidad, Seguridad, Rendimiento y Costo.
+
+Azure Advisor proporciona [recomendaciones](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) por hora para las máquinas virtuales de las que no se ha realizado una copia de seguridad, por lo que nunca se pierde la copia de seguridad de máquinas virtuales importantes. También puede controlar las recomendaciones al posponerlas.  Puede hacer clic en la recomendación y habilitar la copia de seguridad en las máquinas virtuales en línea especificando el almacén (en el que se almacenarán las copias de seguridad) y la directiva de copia de seguridad (programación de copias de seguridad y retención de copias de seguridad).
+
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

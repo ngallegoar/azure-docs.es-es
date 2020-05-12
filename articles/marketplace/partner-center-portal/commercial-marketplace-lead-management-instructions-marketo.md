@@ -1,78 +1,93 @@
 ---
-title: Configuración de la administración de clientes potenciales en Marketo | Azure Marketplace
-description: Configure la administración de clientes potenciales en Marketo para clientes de Azure Marketplace.
+title: 'Administración de clientes potenciales en Marketo: marketplace comercial de Microsoft'
+description: Aprenda a usar un sistema CRM de Marketo para administrar clientes potenciales de Microsoft AppSource y Azure Marketplace.
 author: qianw211
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: dsindona
-ms.openlocfilehash: 35d57d117f6308863965ffd789c0e28bedd0f301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281517"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789885"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Configuración de la administración de clientes potenciales en Marketo
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Uso de Marketo para administrar clientes potenciales de marketplace comercial
 
-En este artículo se describe cómo configurar el sistema CRM de Marketo para procesar clientes potenciales de la oferta de Marketplace.
+En este artículo se describe cómo configurar el sistema CRM de Marketo para procesar clientes potenciales de las ofertas en Microsoft AppSource and Azure Marketplace.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Configuración del sistema CRM de Marketo
 
 1. Inicie sesión en Marketo.
-2. Seleccione **Design Studio**.
+
+1. Seleccione **Design Studio**.
+
     ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
-3.  Seleccione **Nuevo formulario**.
+1.  Seleccione **Nuevo formulario**.
+
     ![Nuevo formulario de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
-4.  Rellene los campos obligatorios en el nuevo formulario y seleccione **Crear**.
+1.  Rellene los campos obligatorios del cuadro de diálogo **New Form** (Nuevo formulario) y, luego, seleccione **Create** (Crear).
+
     ![Crear nuevo formulario de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
-5.  En Detalles de campo, seleccione **Finalizar**.
+1.  En la página **Field Details** (Detalles de campo), seleccione **Finish** (Finalizar).
+
     ![Finalizar formulario de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
-6.  Confirme y cierre.
+1.  Apruébelo y ciérrelo.
 
-7. En la pestaña *MarketplaceLeadBacked*, seleccione **Código para insertar**. 
+1. En la pestaña **MarketplaceLeadBackend**, seleccione **Embed Code** (Insertar código). 
 
-    ![Código para insertar](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
+    ![Inserción de código de Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
-8. Código para insertar de Marketo muestra un código similar al ejemplo siguiente.
+1. Código para insertar de Marketo muestra un código similar al ejemplo siguiente.
 
-    ```
+    ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-9. Copie los valores de los campos siguientes que se muestran en el formulario Código para insertar. Usará estos valores para configurar la oferta con el fin de recibir clientes potenciales en el siguiente paso. Use el ejemplo siguiente como guía para obtener los identificadores que necesita desde el ejemplo de código para insertar de Marketo.
+1. Copie los valores de los campos siguientes que se muestran en el formulario para insertar código. Usará estos valores para configurar la oferta con el fin de recibir clientes potenciales en el siguiente paso. Use el ejemplo siguiente como guía para obtener los identificadores que necesita del ejemplo de inserción de código de Marketo.
 
     - Id. de servidor: **ys12**
     - Id. de Munchkin: **123-PQR-789**
     - Id. de formulario: **1179**
 
-    **Otra forma de averiguar estos valores**
+    Otra forma de calcular estos valores:
 
-    - El id. de servidor se encuentra en la dirección URL de la instancia de Marketo, por ejemplo, "`serverID.marketo.com`".
-    - Para obtener el id. de Munching de la suscripción, vaya al menú Administración > Munchkin del campo "Id. de cuenta de Munchkin" o desde la primera parte del subdominio del host de la API REST de Marketo: `https://{Munchkin ID}.mktorest.com`.
-    - El id. de formulario es el identificador del formulario Código para insertar que ha creado en el paso 7 para enrutar los clientes potenciales desde Marketplace.
+    - El identificador de servidor se encuentra en la instancia de Marketo, por ejemplo, `serverID.marketo.com`.
+    - Para obtener el identificador de Munchkin de la suscripción, vaya al menú **Admin** (Administración)  > **Munchkin** en el campo **Munchkin Account ID** (Id. de cuenta de Munchkin); también, lo puede obtener de la primera parte del subdominio del host de la API REST de Marketo: `https://{Munchkin ID}.mktorest.com`.
+    - El identificador de formulario es el identificador del formulario de inserción de código que creó en el paso 7 para enrutar los clientes potenciales desde Marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configuración de la oferta para enviar clientes potenciales al Marketo
 
 Cuando esté listo para configurar la información de administración de clientes potenciales de la oferta en el portal de publicación, siga estos pasos: 
 
-1. Vaya a la página **Configuración de la oferta** de su oferta.
-1. Seleccione **Conectar** en la sección Administración de clientes potenciales. 
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 
-    ![Administración de clientes potenciales: Conectar](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+1. Seleccione la oferta y vaya a la pestaña **Configuración de la oferta**.
 
-1. En la ventana emergente Detalles de conexión, seleccione **Marketo** como destino del cliente potencial.
+1. En la sección **Administración de clientes potenciales**, seleccione **Conectar**. 
+
+    ![Botón Conectar de la sección Administración de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+
+1. En la ventana emergente **Detalles de la conexión**, seleccione **Marketo** como **destino de clientes potenciales**.
 
     ![Elección de un destino de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-4. Proporcione el **id. de servidor**, el **id. de cuenta de Munching** y el **id. de formulario**.
+1. Proporcione los valores de **Id. de servidor**, **Munchkin account ID** (Id. de cuenta de Munchkin) e **Id. de formulario**.
 
-    >[!Note]
-    >Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta. 
+    > [!NOTE]
+    > Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta. 
 
+1. En **Correo electrónico de contacto**, escriba las direcciones de correo electrónico de las personas de su empresa que deban recibir notificaciones por correo electrónico cuando se reciba un nuevo cliente potencial. Puede proporcionar varias direcciones de correo electrónico separadas con punto y coma.
+
+1. Seleccione **Aceptar**.
+
+   Para asegurarse de que se ha conectado correctamente a un destino de clientes potenciales, seleccione **Validar**. Si la validación es correcta, tendrá un cliente potencial de prueba en el destino de clientes potenciales.
+
+   ![Ventana emergente Detalles de la conexión](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

@@ -15,7 +15,7 @@
           href: quick-setup-auto-provision-cli.md
         - name: Plantilla de Azure Resource Manager
           href: quick-setup-auto-provision-rm.md
-    - name: Aprovisionamiento de un único dispositivo simulado
+    - name: Aprovisionamiento de un dispositivo único
       items:
         - name: Atestación de clave simétrica
           items:

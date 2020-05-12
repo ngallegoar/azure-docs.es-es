@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdc011a39c5526e6a2577ab1b21567bbe64ffcc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672297"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788882"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -176,7 +176,7 @@ Para más información sobre los distintos tipos, consulte la [introducción a l
 
 Se deniega cualquier autenticación donde se use un dispositivo para autenticarse en Azure AD. Los ejemplos comunes son:
 
-- **Dispositivo unido a Azure AD híbrido**: los usuarios podrían usar el dispositivo para iniciar sesión en su dominio local. Sin embargo, no pueden acceder a los recursos de Azure AD, como Office 365.
+- **Dispositivo unido a Azure AD híbrido**: los usuarios podrían usar el dispositivo para iniciar sesión en su dominio local. Sin embargo, no pueden acceder a los recursos de Azure AD, como Office 365.
 - **Dispositivo unido a Azure AD**: los usuarios no pueden usar el dispositivo para iniciar sesión. 
 - **Dispositivos móviles**: el usuario no puede acceder a recursos de Azure AD, como Office 365. 
 

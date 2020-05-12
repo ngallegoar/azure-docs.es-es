@@ -1,5 +1,6 @@
 ---
-title: 'Introducción al almacenamiento de blobs (objeto): Azure Storage'
+title: Introducción al almacenamiento de blobs (objeto)
+titleSuffix: Azure Storage
 description: Azure Blob Storage almacena grandes cantidades de datos de objetos no estructurados, como datos de texto o binarios. Azure Blob Storage ofrece alta escalabilidad y disponibilidad. Los clientes pueden acceder a objetos de Blob Storage desde PowerShell o la CLI de Azure, mediante programación con las bibliotecas cliente de Azure Storage o mediante REST.
 services: storage
 author: tamram
@@ -8,12 +9,12 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f7d1967c8a9585fbf5131da986595761030f0e5f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f28b660a2afc97cf9faf0f601e247a97e99098cd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631988"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853366"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introducción a Azure Blob Storage
 
@@ -64,7 +65,7 @@ Para más información sobre los distintos tipos de blobs, consulte [Understandi
 
 Existen varias soluciones para migrar datos existentes a Blob Storage:
 
-- **AzCopy** es una herramienta de línea de comandos fácil de usar para Windows y Linux que realiza operaciones de copia con Blob Storage en ambas direcciones, entre contenedores o entre cuentas de almacenamiento. Para más información sobre AzCopy, consulte [Transferencia de datos con AzCopy v10 (versión preliminar)](../common/storage-use-azcopy-v10.md).
+- **AzCopy** es una herramienta de línea de comandos fácil de usar para Windows y Linux que realiza operaciones de copia con Blob Storage en ambas direcciones, entre contenedores o entre cuentas de almacenamiento. Para más información sobre AzCopy, consulte [Introducción a AzCopy](../common/storage-use-azcopy-v10.md).
 - La **Biblioteca de movimiento de datos de Azure Storage** es una biblioteca de .NET para mover datos entre los servicios de Azure Storage. La utilidad AzCopy está creada con la Biblioteca de movimiento de datos. Para más información, consulte la [documentación de referencia](/dotnet/api/microsoft.azure.storage.datamovement) de la Biblioteca de movimiento de datos.
 - **Azure Data Factory** admite operaciones de copia de datos con Blob Storage en ambas direcciones mediante el uso de una clave de cuenta, una firma de acceso compartido, una entidad de servicio o identidades administradas paras los recursos de Azure. Para más información, consulte [Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 - **Blobfuse** es un controlador de sistema de archivos virtual para Azure Blob Storage. Puede usar blobfuse para acceder a los datos de blob de bloque existentes en la cuenta de Storage a través del sistema de archivos de Linux. Para más información, consulte [Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md).

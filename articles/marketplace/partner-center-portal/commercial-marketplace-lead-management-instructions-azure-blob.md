@@ -1,32 +1,36 @@
 ---
-title: Tabla de Azure en el programa Marketplace comercial | Azure Marketplace
-description: Configuración de la administración de clientes potenciales para blob de Azure
+title: 'Administración de clientes potenciales con Azure Blob Storage: Marketplace comercial de Microsoft'
+description: Aprenda a usar Azure Blob para configurar clientes potenciales de Microsoft AppSource y Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285255"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792724"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Instrucciones de administración de clientes potenciales para blob de Azure
+# <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Blob Storage para administrar clientes potenciales de Marketplace comercial
 
 >[!Caution]
->La opción Blob de Azure para procesar clientes potenciales a partir de una oferta de Marketplace está en desuso. Si actualmente tiene una oferta publicada con la configuración de administración de clientes potenciales de Blob de Azure, ya no recibirá clientes potenciales. Actualice la configuración de administración de clientes potenciales a cualquiera de las otras opciones de administración de clientes potenciales. Obtenga información sobre las demás opciones en la [página de aterrizaje de administración de clientes potenciales](./commercial-marketplace-get-customer-leads.md).
+>La compatibilidad de Marketplace comercial con Azure Blob Storage ha quedado en desuso y ya no es una opción para procesar a los clientes potenciales de la oferta. Si actualmente dispone de una oferta de Marketplace comercial con la administración de clientes potenciales configurada para Azure Blob, ya no recibirá clientes potenciales. Actualice la configuración de administración de clientes potenciales a cualquiera de las otras opciones de administración de clientes potenciales. Obtenga información sobre las demás opciones en la [página de aterrizaje de administración de clientes potenciales](./commercial-marketplace-get-customer-leads.md).
 
-Si el sistema de administración de las relaciones con el cliente (CRM) no se admite explícitamente en el Centro de partners para recibir clientes potenciales de Azure Marketplace y AppSource, puede usar un blob de Azure para controlar estos clientes potenciales. Después, puede exportar los datos e importarlos en el sistema CRM. Las instrucciones de este artículo le guiarán por el proceso de creación de una cuenta de Azure Storage y un blob de Azure en esa cuenta. Además, puede crear un nuevo flujo mediante Microsoft Flow para enviar una notificación por correo electrónico cuando su oferta reciba un cliente potencial.
+ Si el sistema de administración de las relaciones con clientes (CRM) no se admite explícitamente en el Centro de partners para recibir clientes potenciales de Microsoft AppSource y Azure Marketplace, puede usar Azure Blob Storage. Después, puede exportar los datos e importarlos en el sistema CRM. Las instrucciones de este artículo le guiarán por el proceso de creación de una cuenta de Azure Storage y un blob en esa cuenta. Además, puede crear un flujo mediante Power Automate para enviar una notificación por correo electrónico cuando su oferta reciba un cliente potencial.
 
+>[!NOTE]
+>El conector de Power Automate usado en estas instrucciones requiere una suscripción de pago de Power Automate. Tenga esto en cuenta antes de seguir las instrucciones de este artículo.
 
-## <a name="how-to-configure-azure-blob"></a>Cómo configurar un blob de Azure
+## <a name="configure-azure-blob-storage"></a>Configuración de Azure Blob Storage
 
 1. Si no tiene una cuenta de Azure, puede [crear una cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-1. Cuando la cuenta de Azure esté activa, inicie sesión en [Azure Portal](https://portal.azure.com).
-1. En Azure Portal, cree una cuenta de almacenamiento mediante el siguiente procedimiento.  
+
+2. Cuando la cuenta de Azure esté activa, inicie sesión en [Azure Portal](https://portal.azure.com).
+
+3. En Azure Portal, cree una cuenta de almacenamiento mediante el siguiente procedimiento.  
     1. En la barra de menús de la izquierda, seleccione **+ Crear un recurso**.  El panel **Nuevo** (hoja) se mostrará a la derecha.
     2. Seleccione **Almacenamiento** en el panel **Nuevo**.  En la derecha se mostrará una lista de **Destacados**.
     3. Seleccione **Cuenta de almacenamiento** para iniciar la creación de la cuenta.  Siga las instrucciones que aparecen en el artículo [Crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
@@ -65,7 +69,7 @@ Si el sistema de administración de las relaciones con el cliente (CRM) no se ad
 
     ![Nuevo contenedor](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Configuración de la oferta para enviar clientes potenciales al blob de Azure
+## <a name="configure-your-offer-to-send-leads-to-azure-blob-storage"></a>Configuración de la oferta para enviar clientes potenciales Azure Blob Storage
 
 Cuando esté listo para configurar la información de administración de clientes potenciales de la oferta en el portal de publicación, siga estos pasos:
 

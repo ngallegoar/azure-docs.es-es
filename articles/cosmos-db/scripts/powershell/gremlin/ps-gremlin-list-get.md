@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: bd764dce0bc55582125bdb4e6ffd86dec924390b
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: fb78be672566ef281a1323ca893d7fc2f194a6b0
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366051"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651941"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Enumeración y obtención de bases de datos y gráficos de Gremlin API en Azure Cosmos DB
 
@@ -40,8 +40,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Enumera cuentas de Cosmos DB u obtiene una cuenta de Cosmos DB especificada. |
-| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Enumera las bases datos de Gremlin API de Cosmos DB de una cuenta u obtiene una base de datos de Gremlin API de Cosmos DB especificada en una cuenta. |
-| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Enumera los grafos en una base de datos de Gremlin API de Cosmos DB de una cuenta u obtiene una tabla especificada de una Gremlin API de Cosmos DB especificada. |
+| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Enumera las bases datos de Gremlin API de una cuenta u obtiene una base de datos de Gremlin API especificada en una cuenta. |
+| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Enumera los grafos en una base de datos de Gremlin API de una cuenta u obtiene una tabla especificada de una Gremlin API especificada. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

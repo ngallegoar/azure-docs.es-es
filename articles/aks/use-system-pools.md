@@ -3,13 +3,13 @@ title: Uso de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 description: Aprenda a crear y administrar grupos de nodos del sistema en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
-ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/28/2020
+ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259075"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790565"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
@@ -29,6 +29,8 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 * Consulte [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * El clúster de AKS se debe crear con conjuntos de escalado de máquinas virtuales como tipo de máquina virtual.
 * El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. En el caso de los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
+* Se debe usar una versión de API de 2020-03-01 o superior para establecer un modo de grupo de nodos.
+* El modo de un grupo de nodos es una propiedad obligatoria y se debe establecer explícitamente cuando se usan plantillas de Resource Manager o llamadas API directas.
 
 ## <a name="system-and-user-node-pools"></a>Grupos de nodos del sistema y del usuario
 
@@ -175,4 +177,4 @@ En este artículo ha aprendido a crear y administrar grupos de nodos del sistema
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

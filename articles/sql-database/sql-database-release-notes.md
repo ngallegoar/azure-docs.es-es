@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: 7d922aa0727ad28054d050a29039951d3f04985f
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383366"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838491"
 ---
 # <a name="sql-database-release-notes"></a>Notas de la versión de SQL Database
 
@@ -49,7 +49,7 @@ En este artículo se enumeran las características de SQL Database que se encuen
 | <a href="https://aka.ms/managed-instance-aadlogins">Entidades de seguridad (inicios de sesión) del servidor de Azure AD con SSMS</a> | Cree inicios de sesión de nivel de servidor con <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |
 | [Replicación transaccional](sql-database-managed-instance-transactional-replication.md) | Replique los cambios de las tablas en otras bases de datos colocadas en instancias administradas, bases de datos únicas o instancias de SQL Server, o bien actualice las tablas cuando se cambien algunas filas en otras instancias administradas o en otras instancias de SQL Server. Para más información, consulte [Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database](replication-with-sql-database-managed-instance.md). |
 | Detección de amenazas |Para más información, consulte [Configuración de la detección de amenazas en Instancia administrada de Azure SQL Database](sql-database-managed-instance-threat-detection.md).|
-| Retención de copia de seguridad a largo plazo | Para más información, consulte [Configuración de la retención de copia de seguridad a largo plazo en Instancia administrada de Azure SQL Database](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
+| Retención de copia de seguridad a largo plazo | Para más información, vea [Configuración de la retención de copia de seguridad a largo plazo en Instancia administrada de Azure SQL Database](sql-database-managed-instance-long-term-backup-retention-configure.md), que actualmente se encuentra en versión preliminar pública limitada. | 
 
 ---
 
@@ -69,7 +69,7 @@ Las características siguientes están habilitadas en el modelo de implementaci�
   - Compatibilidad con <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 y SharePoint 2019 </a> y <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Creación de instancias con la <a href="https://aka.ms/managed-instance-collation">intercalación de nivel de servidor</a> y la <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">zona horaria</a> que elija.
   - Las instancias administradas están protegidas por el <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall integrado</a>.
-  - Configuración de las instancias para que usen [puntos de conexión públicos](sql-database-managed-instance-public-endpoint-configure.md), la conexión de [invalidación de proxy](sql-database-connectivity-architecture.md#connection-policy) para obtener un mejor rendimiento de red, <a href="https://aka.ms/four-cores-sql-mi-update"> cuatro núcleos virtuales en la generación de hardware de gen5</a> y <a href="https://aka.ms/managed-instance-configurable-backup-retention">configuración de la retención de copia de seguridad hasta 35 días</a> para la restauración a un momento dado. La retención de copias de seguridad a largo plazo (hasta 10 años) aún no está habilitada, por lo que se pueden usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">copias de seguridad de solo copia</a> como alternativa.
+  - Configuración de las instancias para que usen [puntos de conexión públicos](sql-database-managed-instance-public-endpoint-configure.md), la conexión de [invalidación de proxy](sql-database-connectivity-architecture.md#connection-policy) para obtener un mejor rendimiento de red, <a href="https://aka.ms/four-cores-sql-mi-update"> cuatro núcleos virtuales en la generación de hardware de gen5</a> y <a href="https://aka.ms/managed-instance-configurable-backup-retention">configuración de la retención de copia de seguridad hasta 35 días</a> para la restauración a un momento dado. La [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md#managed-instance-support) (hasta 10 años) se encuentra actualmente en versión preliminar pública limitada.  
   - Las nuevas funcionalidades permiten <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar geográficamente la base de datos en otro centro de datos mediante PowerShell</a>, [cambiar el nombre de la base de datos](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) y [eliminar un clúster virtual](sql-database-managed-instance-delete-virtual-cluster.md).
   - El nuevo [rol de colaborador de instancia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) integrado permite el cumplimiento de la separación de los derechos (SoD) con los principios de seguridad y el cumplimiento de los estándares de la empresa.
   - La instancia administrada está disponible en las siguientes regiones de Azure Government de disponibilidad general (US Gov Texas, US Gov Arizona), así como en Norte de China 2 y Este de China 2. También está disponible en las siguientes regiones públicas: Centro de Australia, Centro de Australia 2, Sur de Brasil, Sur de Francia, Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica, Oeste de Sudáfrica.
@@ -78,30 +78,35 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 |Problema  |Fecha de detección  |Status  |Fecha de resolución  |
 |---------|---------|---------|---------|
-|[Permisos en el grupo de recursos no aplicados a Instancia administrada](#permissions-on-resource-group-not-applied-to-managed-instance)|Febrero de 2020|Tiene solución alternativa||
-|[Limitación de la conmutación por error manual a través del portal para grupos de conmutación por error](#limitation-of-manual-failover-via-portal-for-failover-groups)|Enero de 2020|Tiene solución alternativa||
-|[Los roles del Agente SQL necesitan permisos de ejecución (EXECUTE) explícitos para los inicios de sesión que no sean sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Diciembre de 2019|Tiene solución alternativa||
-|[Los trabajos del Agente SQL pueden ser interrumpidos por el reinicio del proceso del agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Diciembre de 2019|No hay solución alternativa|Marzo de 2020|
-|[No se admiten inicios de sesión y usuarios de AAD en SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Noviembre de 2019|No hay solución alternativa||
-|[No se aplican los límites de memoria de OLTP en memoria](#in-memory-oltp-memory-limits-are-not-applied)|Octubre de 2019|Tiene solución alternativa||
-|[Se mostró un error al intentar quitar un archivo que no está vacío](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Octubre de 2019|Tiene solución alternativa||
-|[Las operaciones de cambio de nivel de servicio y creación de instancia se bloquean con la restauración en curso de la base de datos](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Septiembre de 2019|Tiene solución alternativa||
-|[Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Septiembre de 2019|Tiene solución alternativa||
-|[Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Agosto de 2019|Tiene solución alternativa||
-|[No se admite la suplantación de tipos de inicio de sesión de Azure AD](#impersonification-of-azure-ad-login-types-is-not-supported)|Julio de 2019|No hay solución alternativa||
-|[No se admite el parámetro @query en sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abril de 2019|No hay solución alternativa||
-|[La replicación transaccional debe volver a configurarse después de la conmutación por error geográfica](#transactional-replication-must-be-reconfigured-after-geo-failover)|Marzo de 2019|No hay solución alternativa||
-|[La base de datos temporal se usa durante la operación RESTORE](#temporary-database-is-used-during-restore-operation)||Tiene solución alternativa||
-|[Se vuelve a crear la estructura y el contenido de TEMPDB](#tempdb-structure-and-content-is-re-created)||No hay solución alternativa||
-|[Exceder el espacio de almacenamiento con archivos de base de datos pequeños](#exceeding-storage-space-with-small-database-files)||Tiene solución alternativa||
-|[Se muestran valores de GUID en lugar de nombres de base de datos](#guid-values-shown-instead-of-database-names)||Tiene solución alternativa||
-|[Los registros de errores no se conservan](#error-logs-arent-persisted)||No hay solución alternativa||
-|[No se admite el ámbito de transacción en dos bases de datos de la misma instancia](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tiene solución alternativa||
-|[Los módulos de CLR y los servidores vinculados en algún momento no pueden hacer referencia a una dirección IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Tiene solución alternativa||
-|No se verifica la coherencia de la base de datos mediante DBCC CHECKDB después de restaurar la base de datos de Azure Blob Storage.||Resuelto|Noviembre de 2019|
-|La restauración de una base de datos a un momento dado del nivel de servicio Crítico para la empresa al De uso general no se completará correctamente si la base de datos de origen contiene objetos OLTP en memoria.||Resuelto|Octubre de 2019|
-|Característica Correo electrónico de base de datos con servidores de correo externos (que no son de Azure) mediante una conexión segura||Resuelto|Octubre de 2019|
-|Las bases de datos independientes no se admiten en una instancia administrada.||Resuelto|Agosto de 2019|
+|[El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mayo de 2020|Mitigado automáticamente| |
+|[Permisos en el grupo de recursos no aplicados a Instancia administrada](#permissions-on-resource-group-not-applied-to-managed-instance)|Febrero de 2020|Tiene solución alternativa| |
+|[Limitación de la conmutación por error manual a través del portal para grupos de conmutación por error](#limitation-of-manual-failover-via-portal-for-failover-groups)|Enero de 2020|Tiene solución alternativa| |
+|[Los roles del Agente SQL necesitan permisos de ejecución (EXECUTE) explícitos para los inicios de sesión que no sean sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Diciembre de 2019|Tiene solución alternativa| |
+|[Los trabajos del Agente SQL pueden ser interrumpidos por el reinicio del proceso del agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Diciembre de 2019|Resuelto|Marzo de 2020|
+|[No se admiten inicios de sesión y usuarios de AAD en SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Noviembre de 2019|No hay solución alternativa| |
+|[No se aplican los límites de memoria de OLTP en memoria](#in-memory-oltp-memory-limits-are-not-applied)|Octubre de 2019|Tiene solución alternativa| |
+|[Se mostró un error al intentar quitar un archivo que no está vacío](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Octubre de 2019|Tiene solución alternativa| |
+|[Las operaciones de cambio de nivel de servicio y creación de instancia se bloquean con la restauración en curso de la base de datos](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Septiembre de 2019|Tiene solución alternativa| |
+|[Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Septiembre de 2019|Tiene solución alternativa| |
+|[Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Agosto de 2019|Tiene solución alternativa| |
+|[No se admite la suplantación de tipos de inicio de sesión de Azure AD](#impersonification-of-azure-ad-login-types-is-not-supported)|Julio de 2019|No hay solución alternativa| |
+|[No se admite el parámetro @query en sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abril de 2019|No hay solución alternativa| |
+|[La replicación transaccional debe volver a configurarse después de la conmutación por error geográfica](#transactional-replication-must-be-reconfigured-after-geo-failover)|Marzo de 2019|No hay solución alternativa| |
+|[La base de datos temporal se usa durante la operación RESTORE](#temporary-database-is-used-during-restore-operation)||Tiene solución alternativa| |
+|[Se vuelve a crear la estructura y el contenido de TEMPDB](#tempdb-structure-and-content-is-re-created)| |No hay solución alternativa| |
+|[Exceder el espacio de almacenamiento con archivos de base de datos pequeños](#exceeding-storage-space-with-small-database-files)| |Tiene solución alternativa| |
+|[Se muestran valores de GUID en lugar de nombres de base de datos](#guid-values-shown-instead-of-database-names) ||Tiene solución alternativa| |
+|[Los registros de errores no se conservan](#error-logs-arent-persisted)||No hay solución alternativa| |
+|[Los módulos de CLR y los servidores vinculados en algún momento no pueden hacer referencia a una dirección IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |Tiene solución alternativa| |
+|[No se admite el ámbito de transacción en dos bases de datos de la misma instancia](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |Resuelto|Marzo de 2020|
+|No se verifica la coherencia de la base de datos mediante DBCC CHECKDB después de restaurar la base de datos de Azure Blob Storage.| |Resuelto|Noviembre de 2019|
+|La restauración de una base de datos a un momento dado del nivel de servicio Crítico para la empresa al De uso general no se completará correctamente si la base de datos de origen contiene objetos OLTP en memoria.| |Resuelto|Octubre de 2019|
+|Característica Correo electrónico de base de datos con servidores de correo externos (que no son de Azure) mediante una conexión segura| |Resuelto|Octubre de 2019|
+|Las bases de datos independientes no se admiten en una instancia administrada.| |Resuelto|Agosto de 2019|
+
+### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes
+
+En determinadas circunstancias, la modificación de un trabajo existente o su deshabilitación o habilitación puede hacer que el agente deje de responder. El problema se mitiga automáticamente tras la detección, lo que da como resultado el reinicio del proceso del agente.
 
 ### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Permisos en el grupo de recursos no aplicados a Instancia administrada
 
@@ -133,7 +138,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Los trabajos del Agente SQL pueden ser interrumpidos por el reinicio del proceso del agente
 
-El Agente SQL crea una sesión cada vez que se inicia el trabajo, lo que aumenta gradualmente el consumo de memoria. Para evitar alcanzar el límite de memoria interna que bloquearía la ejecución de los trabajos programados, el proceso del agente se reiniciará una vez que el consumo de memoria alcance el umbral. Puede provocar interrumpir la ejecución de los trabajos que se ejecutan en el momento del reinicio.
+**(Se resuelve en marzo de 2020)** El Agente SQL crea una sesión cada vez que se inicia el trabajo, lo que aumenta gradualmente el consumo de memoria. Para evitar alcanzar el límite de memoria interna que bloquearía la ejecución de los trabajos programados, el proceso del agente se reiniciará una vez que el consumo de memoria alcance el umbral. Puede provocar interrumpir la ejecución de los trabajos que se ejecutan en el momento del reinicio.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>No se aplican los límites de memoria de OLTP en memoria
 
@@ -228,7 +233,7 @@ Los registros de errores que están disponibles en la instancia administrada no 
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>No se admite el ámbito de transacción en dos bases de datos de la misma instancia
 
-La clase `TransactionScope` de .NET no funciona si dos consultas se envían a dos bases de datos de la misma instancia en el mismo ámbito de transacción:
+**(Se resuelve en marzo de 2020)** La clase `TransactionScope` de .NET no funciona si dos consultas se envían a dos bases de datos de la misma instancia en el mismo ámbito de transacción:
 
 ```csharp
 using (var scope = new TransactionScope())
@@ -253,9 +258,7 @@ using (var scope = new TransactionScope())
 
 ```
 
-Aunque este código funciona con datos en la misma instancia, requería el coordinador de transacciones distribuidas.
-
-**Solución alternativa:** use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar otra base de datos en un contexto de conexión en lugar de usar dos conexiones.
+**Solución alternativa (no es necesaria desde marzo de 2020):** use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar otra base de datos en un contexto de conexión en lugar de usar dos conexiones.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Los módulos de CLR y los servidores vinculados en algún momento no pueden hacer referencia a una dirección IP local.
 

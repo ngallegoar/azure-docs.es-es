@@ -3,21 +3,21 @@ title: Obtención de información acerca de los últimos lanzamientos de SO invi
 description: Noticias sobre los lanzamientos más recientes y compatibilidad con el SO invitado de Azure Cloud Services.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/2/2020
-ms.author: raiye
-ms.openlocfilehash: 95c27cd906717d52a232b5ed85eba2b93bc6569d
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 5/4/2020
+ms.author: yohaddad
+ms.openlocfilehash: 19a442126fe2f090851236eb41cb6995df857c77
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618290"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791551"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -41,6 +41,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No está seguro de cómo actualizar el SO invitado? Vea [esto][cloud updates].
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+
+###### <a name="may-4-2020"></a>**4 de mayo de 2020**
+Se ha publicado el sistema operativo invitado de abril. 
 
 ###### <a name="april-2-2020"></a>**2 de abril de 2020**
 Se ha publicado el sistema operativo invitado de marzo. 
@@ -125,8 +128,9 @@ Versión de .NET Framework instalada: 3.5, 4.7.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.18_202004-01  |  4 de mayo de 2020  |  Post 6.20  |  
 |  WA-GUEST-OS-6.17_202003-01  |  2 de abril de 2020  |  Post 6.19  |  
-|  WA-GUEST-OS-6.16_202002-01  |  5 de marzo de 2020  |  Post 6.18  |  
+|~~WA-GUEST-OS-6.16_202002-01~~|  5 de marzo de 2020  |  4 de mayo de 2020  |  
 |~~WA-GUEST-OS-6.15_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
 |~~WA-GUEST-OS-6.14_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-6.13_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
@@ -146,7 +150,7 @@ Versión de .NET Framework instalada: 3.5, 4.7.2
 ## <a name="family-5-releases"></a>Lanzamientos de la familia 5
 **Windows Server 2016**
 
-Versión de .NET Framework instalada: 3.5, 4.6
+Versión de .NET Framework instalada: 3.5, 4.6.2
 
 > [!NOTE]
 > La contraseña de RDP de la familia 5 del SO debe tener 10 caracteres como mínimo.
@@ -155,8 +159,9 @@ Versión de .NET Framework instalada: 3.5, 4.6
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.42_202004-01  |  4 de mayo de 2020  |  Post 5.44  |  
 |  WA-GUEST-OS-5.41_202003-01  |  2 de abril de 2020  |  Post 5.43  |  
-|  WA-GUEST-OS-5.40_202002-01  |  5 de marzo de 2020  |  Post 5.42  |  
+|~~WA-GUEST-OS-5.40_202002-01~~|  5 de marzo de 2020  |  4 de mayo de 2020  |  
 |~~WA-GUEST-OS-5.39_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
 |~~WA-GUEST-OS-5.38_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-5.37_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
@@ -182,8 +187,9 @@ Versión de .NET Framework instalada: 3.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.77_202004-01  |  4 de mayo de 2020  |  Post 4.79  |  
 |  WA-GUEST-OS-4.76_202003-01  |  2 de abril de 2020  |  Post 4.78  |  
-|  WA-GUEST-OS-4.75_202002-01  |  5 de marzo de 2020  |  Post 4.77  |  
+|~~WA-GUEST-OS-4.75_202002-01~~|  5 de marzo de 2020  |  4 de mayo de 2020  |  
 |~~WA-GUEST-OS-4.74_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
 |~~WA-GUEST-OS-4.73_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-4.72_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
@@ -209,8 +215,9 @@ Versión de .NET Framework instalada: 3.5, 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.84_202004-01  |  4 de mayo de 2020  |  Post 3.86  |  
 |  WA-GUEST-OS-3.83_202003-01  |  2 de abril de 2020  |  Post 3.85  |  
-|  WA-GUEST-OS-3.82_202002-01  |  5 de marzo de 2020  |  Post 3.84  |  
+|~~WA-GUEST-OS-3.82_202002-01~~|  5 de marzo de 2020  |  4 de mayo de 2020  |  
 |~~WA-GUEST-OS-3.81_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
 |~~WA-GUEST-OS-3.80_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-3.79_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
@@ -236,8 +243,9 @@ Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0), 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.97_202004-01  |  4 de mayo de 2020  |  Post 2.99  |  
 |  WA-GUEST-OS-2.96_202003-01  |  2 de abril de 2020  |  Post 2.98  |  
-|  WA-GUEST-OS-2.95_202002-01  |  5 de marzo de 2020  |  Post 2.97  |  
+|~~WA-GUEST-OS-2.95_202002-01~~|  5 de marzo de 2020  |  4 de mayo de 2020  |  
 |~~WA-GUEST-OS-2.94_202001-01~~|  24 de enero de 2020  |  2 de abril de 2020  |  
 |~~WA-GUEST-OS-2.93_201912-01~~| 8 de enero de 2020 | 5 de marzo de 2020 |  
 |~~WA-GUEST-OS-2.92_201911-01~~| 5 de diciembre de 2019 | 24 de enero de 2020 |  
@@ -282,13 +290,13 @@ Una vez que pase la fecha de **expiración**, cualquier servicio en la nube que 
 Las familias del SO invitado se basan en versiones lanzadas de Microsoft Windows Server. El SO invitado es el sistema operativo subyacente en el que se ejecuta Azure Cloud Services. Cada SO invitado tiene un número de familia, versión y lanzamiento.
 
 * **Guest OS family**  
-  Versión del sistema operativo Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
+   Versión del sistema operativo Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
 * **Versión del SO invitado**  
   Corresponde a la imagen de la familia del SO invitado, más las revisiones pertinentes del [Centro de respuestas de seguridad de Microsoft (MSRC)][msrc] disponibles en la fecha en que se genera la nueva versión del SO invitado. Es posible que no se incluyan todas las revisiones.
 
     Los números empiezan por 0 y se incrementan en 1 cada vez que se agrega un nuevo conjunto de actualizaciones. Solo se muestran los ceros finales si es importante. Es decir, la versión 2.10 es una versión mucho más posterior y diferente que la versión 2.1.
 * **Lanzamiento del SO invitado**  
-  Relanzamiento de una versión de SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. Azure Portal solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
+   Relanzamiento de una versión de SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. Azure Portal solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
 
 En el ejemplo siguiente, 2 es la familia, 12 es la versión y "rel2" es el lanzamiento.
 

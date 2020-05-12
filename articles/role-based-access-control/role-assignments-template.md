@@ -1,6 +1,6 @@
 ---
-title: Adición de asignaciones de roles mediante RBAC y plantillas de Azure Resource Manager
-description: Aprenda a conceder acceso a recursos de Azure para usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y plantillas de Azure Resource Manager.
+title: 'Incorporación de asignaciones de roles de Azure mediante plantillas de Azure Resource Manager: RBAC de Azure'
+description: Aprenda a conceder acceso a recursos de Azure para usuarios, grupos, entidades de servicio e identidades administradas mediante plantillas de Azure Resource Manager y el control de acceso basado en roles (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138297"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735630"
 ---
-# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adición de asignaciones de roles mediante RBAC de Azure y plantillas de Azure Resource Manager
+# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Además de usar Azure PowerShell o la CLI de Azure, puede asignar roles mediante [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo asignar roles mediante plantillas.
 
@@ -66,7 +66,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 ## <a name="add-a-role-assignment"></a>Adición de una asignación de roles
 
-En RBAC, para conceder acceso es preciso agregar una asignación de roles.
+En Azure RBAC, para conceder acceso es preciso agregar una asignación de roles.
 
 ### <a name="resource-group-without-parameters"></a>Grupo de recursos (sin parámetros)
 
@@ -361,7 +361,7 @@ A continuación se muestra un ejemplo de la asignación del rol de colaborador a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 - [Creación de grupos de recursos y otros recursos en el nivel de suscripción](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d36ba05d2138a06ebb2ef4e49aadb6032b62b92
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77913589"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627048"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizadas para GPU
 
-Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales especializadas con GPU de NVIDIA. Estos tamaños están diseñados para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización. En este artículo se proporciona información sobre el número y el tipo de GPU, vCPU, discos de datos y NIC. El ancho de banda de red y el rendimiento del almacenamiento también se incluyen para cada tamaño de esta agrupación.
+Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales especializadas con GPU individuales, múltiples o fraccionarias. Estos tamaños están diseñados para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización. En este artículo se proporciona información sobre el número y el tipo de GPU, vCPU, discos de datos y NIC. El ancho de banda de red y el rendimiento del almacenamiento también se incluyen para cada tamaño de esta agrupación.
 
 - Los tamaños de las series [NC](nc-series.md), [NCv2](ncv2-series.md) y [NCv3](ncv3-series.md) están optimizados para aplicaciones y algoritmos de proceso intensivo y que usan mucho la red. Algunos ejemplos son las simulaciones y las aplicaciones basadas en CUDA y en OpenCL, la inteligencia artificial y el aprendizaje profundo. La serie NCv3 se centra en las cargas de trabajo de informática de alto rendimiento e incorpora la GPU NVIDIA Tesla V100. La serie NC utiliza el procesador Intel Xeon E5-2690 v3 a 2,60 GHz v3 (Haswell), y las series NCv2 y NCv3 utilizan el procesador Intel Xeon E5-2690 v4 (Broadwell).
 
@@ -35,11 +35,13 @@ Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales esp
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos y controladores compatibles
 
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, deben instalarse controladores de GPU de NVIDIA.
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, deben instalarse controladores de GPU de AMD o NVIDIA.
 
-La [extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala los controladores CUDA de NVIDIA o GRID adecuados en una máquina virtual de la serie N. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](/azure/virtual-machines/extensions/overview).
+- Para las máquinas virtuales en las que las GPU de NVIDIA realizan la copia de seguridad, la [extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala los controladores CUDA de NVIDIA o GRID adecuados. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](/azure/virtual-machines/extensions/overview).
 
-Si decide instalar manualmente los controladores de GPU de NVIDIA, consulte el artículo sobre la [instalación de controladores de GPU de la serie N para Windows](/azure/virtual-machines/windows/n-series-driver-setup) o el artículo sobre la [instalación de controladores de GPU de la serie N para Linux](/azure/virtual-machines/linux/n-series-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de verificación.
+   Como alternativa, puede instalar controladores de GPU de NVIDIA manualmente. Consulte [Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows](/azure/virtual-machines/windows/n-series-driver-setup) o [Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux](/azure/virtual-machines/linux/n-series-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
+
+- Para las máquinas virtuales en las que las GPU de AMD realizan la copia de seguridad, consulte [Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 

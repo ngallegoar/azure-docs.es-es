@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 489f241453436190213b99cb4e7be0688a8b6237
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d818957daa53efc856a345a4886e814fdaab6f3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214943"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858143"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Inicio rápido: Creación de una aplicación Java para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -81,6 +81,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
 Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Ejecutar la aplicación](#run-the-app). 
 
+
+# <a name="sync-api"></a>[API de sincronización](#tab/sync)
+
 ### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Administración de recursos de base de datos mediante la API sincrónica (sincronización)
 
 * Inicialización de `CosmosClient`. `CosmosClient` proporciona una representación lógica del cliente para el servicio de base de datos de Azure Cosmos. Este cliente se usa para configurar y ejecutar solicitudes en el servicio.
@@ -106,6 +109,8 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 * Las consultas SQL a través de JSON se realizan con el método `queryItems`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
+
+# <a name="async-api"></a>[API asincrónica](#tab/async)
 
 ### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>Administración de recursos de base de datos mediante la API asincrónica (asincronización)
 
@@ -134,6 +139,8 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 * Al igual que con la API sincrónica, las consultas SQL a través de JSON se realizan mediante el método `queryItems`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
+
+---
 
 ## <a name="run-the-app"></a>Ejecución la aplicación
 

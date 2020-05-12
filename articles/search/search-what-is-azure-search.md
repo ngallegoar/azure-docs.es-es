@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77580658"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891552"
 ---
 # <a name="what-is-azure-cognitive-search"></a>¿Qué es Azure Cognitive Search?
 
@@ -154,11 +154,6 @@ Opcionalmente, puede [activar las ventajas de suscriptores de MSDN](https://azur
 
 Los motores de búsqueda son los controladores habituales de recuperación de información en las aplicaciones móviles, en la web y en almacenes de datos corporativos. Azure Cognitive Search le proporciona herramientas para crear una experiencia de búsqueda similar a la de los grandes sitios web comerciales.
 
-En este vídeo de 9 minutos del administrador de programas Liam Cavanagh, aprenda cómo puede beneficiar a su aplicación la integración de un motor de búsqueda. Unas breves demostraciones presentan las características clave de Azure Cognitive Search y el aspecto típico que tiene un flujo de trabajo. 
+En este vídeo de 15 minutos, el administrador de programas Luis Cabrera presenta Azure Cognitive Search. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ Los minutos 0 a 3 describen las características y los casos de uso.
-+ Los minutos 3 y 4 explican el aprovisionamiento del servicio. 
-+ Los minutos 4 a 6 describen el Asistente para la importación de datos utilizado para crear un índice con el conjunto de datos integrados de propiedades inmobiliarias.
-+ Los minutos 6 a 9 muestran el Explorador de búsqueda y varias consultas.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

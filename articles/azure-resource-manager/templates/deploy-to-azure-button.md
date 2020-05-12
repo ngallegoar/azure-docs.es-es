@@ -2,17 +2,17 @@
 title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 88436eac970b252d7b0bc7bccee4131e06e9e0cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/04/2020
+ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109046"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744084"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
-En este artículo se describe cómo usar el botón **Implementar en Azure** para implementar plantillas desde un repositorio de GitHub. Puede agregar el botón directamente al archivo README.md en el repositorio de GitHub o a una página web que haga referencia al repositorio.
+En este artículo se describe cómo usar el botón **Implementar en Azure** para implementar plantillas desde un repositorio de GitHub. Puede agregar el botón directamente al archivo README.md en el repositorio de GitHub o a una página web que haga referencia al repositorio. Este método solo admite la implementación de nivel de grupo de recursos.
 
 ## <a name="use-common-image"></a>Uso de una imagen común
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670124"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591659"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en [registros de Azure Monitor](../platform/data-platform-logs.md). Un lenguaje de consulta eficaz permite combinar datos de varias tablas, agregar grandes conjuntos de datos y realizar operaciones complejas con una mínima cantidad de código. Se puede responder casi cualquier pregunta y realizar cualquier análisis, siempre y cuando se hayan recopilado los datos de respaldo y comprenda cómo construir la consulta adecuada.
@@ -81,7 +81,7 @@ Log Analytics es la herramienta principal en Azure Portal para escribir consulta
 Log Analytics se puede iniciar desde varios lugares en Azure Portal. El ámbito de los datos disponibles para Log Analytics se determina según el modo en que se inicia. Consulte [Ámbito de la consulta](scope.md) para obtener más detalles.
 
 - Seleccione **Registros** desde el menú **Azure Monitor** o el menú **Áreas de trabajo de Log Analytics**.
-- Seleccione **Analytics** en la página **Introducción** de una aplicación de Application Insights.
+- Seleccione **Registros** en la página **Introducción** de una aplicación de Application Insights.
 - Seleccione **Registros** en el menú de un recurso de Azure.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)

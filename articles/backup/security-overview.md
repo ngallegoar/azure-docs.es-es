@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585828"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743658"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -16,9 +16,9 @@ Una de las medidas más importantes que puede adoptar para proteger los datos es
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Administración y control de identidades y del acceso de usuarios
 
-Azure Backup permite realizar una administración detallada del acceso con el [control de acceso basado en roles (RBAC) de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+Las cuentas de almacenamiento usadas por los almacenes de Recovery Services están aisladas y son inaccesibles para usuarios con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Azure Backup le permite controlar las operaciones administradas mediante acceso específico con [control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
-Azure Backup proporciona tres roles integrados para controlar las operaciones de administración de copia de seguridad:
+Azure Backup proporciona tres [roles integrados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para controlar las operaciones de administración de copia de seguridad:
 
 * Colaborador de copia de seguridad: crea y administra las copias de seguridad, excepto para eliminar el almacén de Recovery Services y facilitar acceso a otros usuarios.
 * Operador de copia de seguridad: hace todo lo que puede hacer un colaborador, excepto quitar copias de seguridad y administrar directivas de copia de seguridad.
@@ -47,13 +47,13 @@ Ahora puede usar [puntos de conexión privados](https://docs.microsoft.com/azure
 
 Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromisos de cumplimiento y seguridad de la organización. Dentro de Azure, los datos en tránsito entre Azure Storage y el almacén se protegen mediante HTTPS. Estos datos permanecen en la red troncal de Azure.
 
-* Los datos de copia de seguridad se cifran automáticamente mediante claves administradas por Microsoft. También puede cifrar las máquinas virtuales de disco administrado de las que se ha realizado una copia de seguridad en el almacén de Recovery Services con [claves administradas por el cliente](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) almacenadas en Azure Key Vault. No es necesario realizar ninguna acción explícita para habilitar este cifrado. Se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
+* Los datos de copia de seguridad se cifran automáticamente mediante claves administradas por Microsoft. También puede cifrar las máquinas virtuales de disco administrado de las que se ha realizado una copia de seguridad en el almacén de Recovery Services con [claves administradas por el cliente](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) almacenadas en Azure Key Vault. No es necesario realizar ninguna acción explícita para habilitar este cifrado. Se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
 
 * Azure Backup admite la copia de seguridad y la restauración de máquinas virtuales de Azure que tengan cifrados sus discos del sistema operativo o de datos con Azure Disk Encryption (ADE). [Más información sobre máquinas virtuales de Azure cifradas y Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Protección de los datos de copia de seguridad ante eliminaciones accidentales
 
-Azure Backup proporciona características de seguridad que ayudan a proteger los datos de copia de seguridad incluso después de su eliminación. Con la eliminación temporal, si un usuario elimina la copia de seguridad de una máquina virtual, los datos de copia de seguridad se conservan durante 14 días más, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado de "eliminación temporal" no supone ningún costo para el cliente. [Más información sobre la eliminación temporal](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
+Azure Backup proporciona características de seguridad que ayudan a proteger los datos de copia de seguridad incluso después de su eliminación. Con la eliminación temporal, si un usuario elimina la copia de seguridad de una máquina virtual, los datos de copia de seguridad se conservan durante 14 días más, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado de "eliminación temporal" no supone ningún costo para el cliente. [Más información sobre la eliminación temporal](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Supervisión y alertas por actividad sospechosa
 

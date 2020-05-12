@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659499"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731719"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -29,16 +29,17 @@ Las suscripciones de origen y destino del área de trabajo deben existir dentro 
 ```
 
 ## <a name="workspace-move-considerations"></a>Consideraciones sobre el movimiento del área de trabajo
-Las soluciones administradas que se instalan en el área de trabajo se moverán con la operación de traslado de área de trabajo de Log Analytics. Los agentes conectados permanecerán conectados y conservarán los datos en el área de trabajo después de la migración. Dado que debe eliminar el vínculo del área de trabajo a cualquier cuenta de automatización, las soluciones que dependen de ese vínculo deben quitarse.
+Las soluciones administradas que se instalan en el área de trabajo se moverán con la operación de traslado de área de trabajo de Log Analytics. Los agentes conectados permanecerán conectados y conservarán los datos en el área de trabajo después de la migración. Dado que la operación de movimiento requiere que no haya ningún servicio vinculado del área de trabajo, las soluciones que se basan en dicho vínculo deben quitarse para permitir que el área de trabajo se mueva.
 
 Soluciones que deben quitarse para poder desvincular la cuenta de Automation:
 
 - Administración de actualizaciones
 - Seguimiento de cambios
 - Inicio y detención de máquinas virtuales durante las horas de trabajo
+- Azure Security Center
 
 
-### <a name="delete-in-azure-portal"></a>Eliminación en Azure Portal
+### <a name="delete-solutions-in-azure-portal"></a>Eliminación de soluciones en Azure Portal
 Use el siguiente procedimiento para eliminar las soluciones con Azure Portal:
 
 1. Abra el menú del grupo de recursos en el que están instaladas las soluciones.
@@ -57,8 +58,8 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-### <a name="remove-alert-rules"></a>Quitar reglas de alerta
-Para la solución **Start/Stop VMs**, también debe quitar las reglas de alerta creadas por la solución. Use el siguiente procedimiento en Azure Portal para eliminar estas reglas.
+### <a name="remove-alert-rules-for-startstop-vms-solution"></a>Eliminación de reglas de alerta de la solución Start/Stop VMs
+Para quitar la solución **Start/Stop VMs**, también debe quitar las reglas de alerta creadas por la solución. Use el siguiente procedimiento en Azure Portal para eliminar estas reglas.
 
 1. Abra el menú **Supervisar** y luego seleccione **Alertas**.
 2. Haga clic en **Administrar regla de alertas**.
@@ -81,7 +82,7 @@ Use el siguiente procedimiento para desvincular la cuenta de Automation del áre
 
 ## <a name="move-your-workspace"></a>Trasladar su área de trabajo
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 Use el siguiente procedimiento para trasladar su área de trabajo con Azure Portal:
 
 1. Abra el menú **Áreas de trabajo de Log Analytics** y luego seleccione su área de trabajo.
@@ -98,8 +99,6 @@ Para trasladar el área de trabajo con PowerShell, use [Move-AzResource](/powers
 ``` PowerShell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
-
-
 
 > [!IMPORTANT]
 > Después de la operación de traslado, las soluciones eliminadas y el vínculo de la cuenta de Automation deben reconfigurarse para que el área de trabajo vuelva a su estado anterior.

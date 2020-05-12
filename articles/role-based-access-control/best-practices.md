@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc86dd488ff9e8649ae80f4768941791dd37fce6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725757"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735341"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedimientos recomendados para Azure RBAC
 
@@ -28,11 +28,11 @@ En este artículo se describen algunos procedimientos recomendados para usar el 
 
 Con Azure RBAC, puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones en un ámbito concreto.
 
-Al planear la estrategia de control de acceso, es recomendable conceder a los usuarios el privilegio mínimo para que realicen su trabajo. El siguiente diagrama muestra un patrón sugerido para la asignación de RBAC.
+Al planear la estrategia de control de acceso, es recomendable conceder a los usuarios el privilegio mínimo para que realicen su trabajo. El siguiente diagrama muestra un patrón sugerido para la asignación de RBAC de Azure.
 
-![RBAC y privilegios mínimos](./media/best-practices/rbac-least-privilege.png)
+![RBAC de Azure y privilegios mínimos](./media/best-practices/rbac-least-privilege.png)
 
-Para obtener información sobre cómo agregar asignaciones de roles, vea [Incorporación o eliminación de asignaciones de roles](role-assignments-portal.md).
+Para más información sobre cómo agregar asignaciones de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Limitación del número de propietarios de suscripciones
 

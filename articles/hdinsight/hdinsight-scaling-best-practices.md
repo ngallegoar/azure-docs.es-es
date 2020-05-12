@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189371"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592067"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -74,27 +74,38 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 
 * Apache Storm
 
-    Puede agregar o quitar sin problemas nodos de datos mientras se ejecuta Storm. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
-
-    Esto se puede realizar de dos formas:
+    Puede agregar o quitar sin problemas nodos de datos mientras se ejecuta Storm. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología. El reequilibrado permite que la topología vuelva a ajustar la [configuración de paralelismo](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) en función del nuevo número de nodos del clúster. Para volver a equilibrar las topologías en ejecución, usa una de las siguientes opciones:
 
   * La interfaz de usuario web de Storm
+
+    siga estos pasos para volver a equilibrar una topología desde la interfaz de usuario de Storm.
+
+    1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` en el explorador web, donde `CLUSTERNAME` es el nombre del clúster de Storm. Si se le solicite, escriba el nombre de administrador (admin) del clúster de HDInsight y la contraseña que especificó al crear el clúster.
+
+    1. Seleccione la topología que quiere equilibrar y, después, seleccione el botón **Reequilibrar**. Especifique el retraso antes de realizar la operación de reequilibrio.
+
+        ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * La herramienta de la interfaz de línea de comandos (CLI)
 
-    Para más información, consulte la [documentación de Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    conéctese al servidor y use el siguiente comando para volver a equilibrar una topología:
 
-    La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    También puedes especificar parámetros para reemplazar las sugerencias de paralelismo que proporcionó originalmente la topología. Por ejemplo, el código siguiente vuelve a configurar la topología `mytopology` en cinco procesos de trabajo, tres ejecutores para el componente blue-spout y diez ejecutores para el componente yellow-bolt.
 
-    El siguiente es un comando de la CLI de ejemplo para volver a equilibrar la topología de Storm:
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    debe volver a equilibrar réplicas de la partición después de las operaciones de escalado. Para más información, consulte el documento [Alta disponibilidad de los datos con Apache Kafka en HDInsight](./kafka/apache-kafka-high-availability.md).
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Reducción vertical segura de clústeres
 
@@ -252,3 +263,8 @@ Los servidores regionales se equilibran automáticamente en pocos minutos tras c
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Escalado automático de clústeres de Azure HDInsight](hdinsight-autoscale-clusters.md)
+
+Para obtener información específica sobre cómo ampliar tu clúster de HDInsight, consulta:
+
+* [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Administración de clústeres de Apache Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md#scale-clusters)

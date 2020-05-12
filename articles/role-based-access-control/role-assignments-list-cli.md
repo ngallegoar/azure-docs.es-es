@@ -1,6 +1,6 @@
 ---
-title: Lista de asignaciones de roles con RBAC de Azure y la CLI de Azure
-description: Aprenda a determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y la CLI de Azure.
+title: 'Enumeración de asignaciones de roles de Azure mediante la CLI de Azure: RBAC de Azure'
+description: Aprenda a determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante la CLI de Azure y el control de acceso basado en roles de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: f4b635d6867c36b8b0f385320e3720bea41b54d1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385068"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735749"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista de asignaciones de roles con RBAC de Azure y la CLI de Azure
+# <a name="list-azure-role-assignments-using-azure-cli"></a>Enumeración de asignaciones de roles de Azure mediante la CLI de Azure
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] En este artículo se describe cómo enumerar las asignaciones de roles mediante la CLI de Azure.
 
@@ -144,4 +144,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure](role-assignments-cli.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](role-assignments-cli.md)

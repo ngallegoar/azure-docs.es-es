@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 04/30/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf1daca79f3ed20d9b7a89af20d74ff5f3148b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337294"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610533"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Resolución de problemas de inicio de sesión con el acceso condicional
 
@@ -55,8 +55,11 @@ Para averiguar qué directiva o directivas de acceso condicional se han aplicado
    1. La información de la pestaña **Solución de problemas y soporte técnico** puede proporcionar un motivo claro de la causa del error de inicio de sesión, como, por ejemplo, un dispositivo que no cumple los requisitos de cumplimiento.
    1. Para seguir investigando, explore en profundidad la configuración de las directivas haciendo clic en el **nombre de la directiva**. Al hacer clic en el **nombre de la directiva** se mostrará la interfaz de usuario de configuración de la directiva seleccionada para revisarla y editarla.
    1. El **usuario de cliente** y los **detalles del dispositivo** usados para la evaluación de la directiva de acceso condicional también están disponibles en las pestañas **Información básica**, **Ubicación**, **Información del dispositivo**, **Detalles de autenticación** y **Detalles adicionales** del evento de inicio de sesión.
+   1. Al seleccionar los puntos suspensivos situados a la derecha de la directiva, se muestran los detalles de la directiva. Esto ofrece a los administradores información adicional sobre si una directiva se aplicó correctamente o no.
 
    ![Pestaña Acceso condicional de un evento de inicio de sesión](./media/troubleshoot-conditional-access/image5.png)
+
+   ![Detalles de directiva (versión preliminar)](./media/troubleshoot-conditional-access/policy-details.png)
 
 Si la información del evento no es suficiente para comprender los resultados de inicio de sesión o para ajustar la directiva a fin de obtener los resultados deseados, se puede abrir un incidente de soporte técnico. Vaya a la pestaña **Solución de problemas y soporte técnico** de ese evento de inicio de sesión y seleccione **Crear una solicitud de soporte técnico**.
 

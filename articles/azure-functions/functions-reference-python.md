@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de Python para Azure Functions
 description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea128fc7c68b49fc14d796e9a3b91a9dbddd9b26
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234920"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780052"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -22,7 +22,7 @@ Azure Functions espera que una función sea un método sin estado de un script d
 
 Los datos de los desencadenadores y enlaces se enlazan a la función a través de los atributos del método con la propiedad `name` definida en el archivo *function.json*. Por ejemplo, en el archivo _function.json_ siguiente se describe una función simple desencadenada por una solicitud HTTP denominada `req`:
 
-:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
 Según esta definición, el archivo `__init__.py` que contiene el código de la función puede ser similar al siguiente ejemplo:
 
@@ -77,6 +77,7 @@ La estructura de carpetas recomendada para un proyecto de Python en Azure Functi
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 La carpeta de proyecto principal (\_\_app\_\_) puede contener los siguientes archivos:
@@ -86,6 +87,7 @@ La carpeta de proyecto principal (\_\_app\_\_) puede contener los siguientes arc
 * *host.json*: contiene las opciones de configuración global que afectan a todas las funciones de una aplicación de funciones. Este archivo se publica en Azure. No todas las opciones se admiten cuando se ejecuta localmente. Para más información, consulte [host.json](functions-host-json.md).
 * *.funcignore*: (opcional) declara los archivos que no deben publicarse en Azure.
 * *.gitignore*: (opcional) declara los archivos que se excluyen de un repositorio de Git, como local.settings.json.
+* *Dockerfile*: (Opcional) se usa al publicar el proyecto en un [contenedor personalizado](functions-create-function-linux-custom-image.md).
 
 Cada función tiene su propio archivo de código y archivo de configuración de enlace (function.json). 
 
@@ -629,42 +631,15 @@ from os import listdir
 
 Se recomienda mantener las pruebas en una carpeta independiente de la carpeta del proyecto. Esto evita que se implemente código de prueba con la aplicación. 
 
+## <a name="cross-origin-resource-sharing"></a>Uso compartido de recursos entre orígenes
+
+Azure Functions admite el uso compartido de recursos entre orígenes (CORS). CORS se configura [en el portal](functions-how-to-use-azure-function-app-settings.md#cors) y mediante la [CLI de Azure](/cli/azure/functionapp/cors). La lista de orígenes permitidos de CORS se aplica en el nivel de la aplicación de función. Con CORS habilitado, las respuestas incluyen el encabezado `Access-Control-Allow-Origin`. Para obtener más información, consulte [Uso compartido de recursos entre orígenes](functions-how-to-use-azure-function-app-settings.md#cors). 
+
+CORS es totalmente compatible con las aplicaciones de funciones de Python.
+
 ## <a name="known-issues-and-faq"></a>Problemas conocidos y preguntas más frecuentes
 
 Todos los problemas conocidos y las solicitudes de características se siguen mediante la lista de[problemas de GitHub](https://github.com/Azure/azure-functions-python-worker/issues). Si le surge algún problema y no lo encuentra en GitHub, abra un nuevo problema e incluya una descripción detallada del mismo.
-
-### <a name="cross-origin-resource-sharing"></a>Uso compartido de recursos entre orígenes
-
-Azure Functions admite el uso compartido de recursos entre orígenes (CORS). CORS se configura [en el portal](functions-how-to-use-azure-function-app-settings.md#cors) y mediante la [CLI de Azure](/cli/azure/functionapp/cors). La lista de orígenes permitidos de CORS se aplica en el nivel de la aplicación de función. Con CORS habilitado, las respuestas incluyen el encabezado `Access-Control-Allow-Origin`. Para obtener más información, consulte [Uso compartido de recursos entre orígenes](functions-how-to-use-azure-function-app-settings.md#cors).
-
-La lista de orígenes permitidos [no se admite actualmente](https://github.com/Azure/azure-functions-python-worker/issues/444) para las aplicaciones de función de Python. Debido a esta limitación, debe establecer expresamente el encabezado `Access-Control-Allow-Origin` en las funciones HTTP, tal y como se muestra en el ejemplo siguiente:
-
-```python
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    # Define the allow origin headers.
-    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
-
-    # Set the headers in the response.
-    return func.HttpResponse(
-            f"Allowed origin '{headers}'.",
-            headers=headers, status_code=200
-    )
-``` 
-
-Asegúrese de actualizar también el archivo function.json para admitir el método HTTP OPTIONS:
-
-```json
-    ...
-      "methods": [
-        "get",
-        "post",
-        "options"
-      ]
-    ...
-```
-
-Los exploradores web usan este método HTTP para negociar la lista de orígenes permitidos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

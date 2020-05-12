@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257225"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594662"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Depuración y solución de problemas del diseñador de Azure Machine Learning (versión preliminar)
 
-En esta sección se proporciona información general sobre cómo solucionar problemas de las canalizaciones en el diseñador.
-En el caso de las canalizaciones creadas en el diseñador, puede encontrar los **archivos de registro** en la página de creación o en la página de detalles de ejecución de canalización.
+En esta sección se proporciona información general sobre cómo solucionar problemas de las canalizaciones en el diseñador. En el caso de las canalizaciones creadas en el diseñador, puede encontrar el archivo **70_driver_log** en la página de creación o en la página de detalles de ejecución de la canalización.
 
-### <a name="access-logs-from-the-authoring-page"></a>Acceso a los registros desde la página de creación
+### <a name="get-logs-from-the-authoring-page"></a>Obtención de los registros desde la página de creación
 
-Cuando envía una ejecución de canalización y permanece en la página de creación, puede encontrar los archivos de registro generados para cada módulo.
+Cuando envía una ejecución de canalización y permanece en la página de creación, puede encontrar los archivos de registro generados para cada módulo a medida que cada módulo finaliza su ejecución.
 
-1. Seleccione cualquier módulo en el lienzo de creación.
+1. Seleccione un módulo que haya terminado de ejecutarse en el lienzo de creación.
 1. En el panel derecho del módulo, vaya a la pestaña **Resultados y registros**.
-1. Seleccione el archivo de registro `70_driver_log.txt`.
+1. Expanda el panel derecho y seleccione el archivo **70_driver_log. txt** para verlo en el explorador. También puede descargar registros localmente.
 
-    ![Creación de registros del módulo de páginas](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Panel de salida expandido en el diseñador](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>Acceso a registros desde las ejecuciones de canalización
+### <a name="get-logs-from-pipeline-runs"></a>Obtención de registros desde las ejecuciones de canalización
 
-También puede buscar los archivos de registro de ejecuciones específicas en la página de detalles de ejecución de canalización en las secciones **Canalizaciones** o **Experimentos**.
+También puede buscar los archivos de registro de ejecuciones específicas en la página de detalles de ejecución de canalización en las secciones **Canalizaciones** o **Experimentos** de Studio.
 
 1. Seleccione una ejecución de canalización creada en el diseñador.
-    ![Página de ejecución de la canalización](./media/how-to-debug-pipelines/pipelinerun-04.png)
-1. Seleccione cualquier módulo en el panel de versión preliminar previa.
+
+    ![Página de ejecución de la canalización](./media/how-to-debug-pipelines/designer-pipelines.png)
+
+1. Seleccione un módulo en el panel de vista previa.
 1. En el panel derecho del módulo, vaya a la pestaña **Resultados y registros**.
-1. Seleccione el archivo de registro `70_driver_log.txt`.
+1. Expanda el panel derecho para ver el archivo **70_driver_log. txt** en el explorador, o seleccione el archivo para descargar los registros de forma local.
+
+> [!IMPORTANT]
+> Para actualizar una canalización desde la página de detalles de ejecución de la canalización, tiene que **clonar** la ejecución de la canalización en un nuevo borrador de canalización. Una ejecución de canalización es una instantánea de la canalización. Es similar a un archivo de registro y no se puede modificar. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuración y solución de problemas en Application Insights
 Para obtener más información sobre el uso de la biblioteca de Python para OpenCensus de esta manera, consulte esta guía: [Depuración y solución de problemas de canalizaciones de aprendizaje automático en Application Insights](how-to-debug-pipelines-application-insights.md)

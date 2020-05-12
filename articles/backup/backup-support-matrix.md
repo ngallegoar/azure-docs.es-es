@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537328"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801270"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -33,7 +33,7 @@ En esta tabla se describen las características de los almacenes de Recovery Ser
 **Vaults in subscription** (Almacenes en la suscripción) | Hasta 500 almacenes de Recovery Services en una suscripción única.
 **Machines in a vault** (Máquinas en un almacén) | Hasta 1000 máquinas virtuales de Azure en un solo almacén.<br/><br/> Se pueden registrar hasta 50 servidores MABS en un único almacén.
 **Orígenes de datos** | El tamaño máximo de un [origen de datos](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) individual es de 54 400 KB. Este límite no se aplica a las copias de seguridad de máquinas virtuales de Azure. No se aplica ningún límite a la cantidad total de datos de los que se puede hacer copia de seguridad en el almacén.
-**Backups to vault** (Copias de seguridad en el almacén) | **Máquinas virtuales de Azure:** una vez al día.<br/><br/>**Máquinas protegidas por DPM/MABS:** dos veces al día.<br/><br/>  **Máquinas con copia de seguridad realizada directamente con el agente de MARS:** tres veces al día.
+**Backups to vault** (Copias de seguridad en el almacén) | **Máquinas virtuales de Azure:** una vez al día.<br/><br/>**Máquinas protegidas por DPM/MABS:** dos veces al día.<br/><br/> **Máquinas con copia de seguridad realizada directamente con el agente de MARS:** tres veces al día.
 **Backups between vaults** (Copias de seguridad entre almacenes) | Las copias de seguridad se realizan dentro de una región.<br/><br/> Necesita un almacén en cada región de Azure que contenga máquinas virtuales de las que desee realizar copias de seguridad. No se pueden realizar copias de seguridad en una región diferente.
 **Move vaults** (Mover almacenes) | Puede [mover almacenes](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre suscripciones o entre grupos de recursos de la misma suscripción. Sin embargo, no se admite el traslado de almacenes entre regiones.
 **Move data between vaults** (Movimiento de datos entre almacenes) | No se admite el movimiento de datos con copia de seguridad realizada entre almacenes.
@@ -56,7 +56,7 @@ Esto es lo que se admite si quiere hacer copias de seguridad de equipos locales:
 
 **Límite** | **Detalles**
 --- | ---
-**Discos de datos de máquinas virtuales de Azure** | Límite de 16. <br> Para suscribirse a la versión preliminar privada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com
+**Discos de datos de máquinas virtuales de Azure** | Límite de 16. <br> Para suscribirse a la versión preliminar limitada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com
 **Tamaño del disco de datos de la máquina virtual de Azure** | El tamaño de disco individual puede ser de hasta 32 TB y se admite un máximo de 256 TB si se combinan todos los discos de una máquina virtual.
 
 ### <a name="azure-vm-backup-options"></a>Opciones de copia de seguridad de máquinas virtuales de Azure

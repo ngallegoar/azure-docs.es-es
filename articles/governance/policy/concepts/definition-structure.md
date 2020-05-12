@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 11/26/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587131"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613309"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -73,23 +73,23 @@ El **modo** se configura en función de si la directiva tiene como destino una p
 
 El **modo** determina qué tipos de recurso se evaluarán para una directiva. Los modos admitidos son:
 
-- `all`: evalúe los grupos de recursos y todos los tipos de recurso
+- `all`: evalúe los grupos de recursos, las suscripciones y todos los tipos de recurso
 - `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
 
 Por ejemplo, en un recurso, `Microsoft.Network/routeTables` admite etiquetas y ubicación, y se evalúa en ambos modos. Sin embargo, `Microsoft.Network/routeTables/routes` no se puede etiquetar y no se evalúa en el modo `Indexed`.
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
-`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
+`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos** y las **suscripciones**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos o suscripción deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups` o `Microsoft.Resources/subscriptions`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos del proveedor de recursos (versión preliminar)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos del proveedor de recursos (versión preliminar)
 
 Actualmente se admiten los siguientes modos del proveedor de recursos durante la versión preliminar:
 
 - `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy).
 - `Microsoft.Kubernetes.Data` para administrar clústeres de Kubernetes del motor de AKS autoadministrados en Azure.
   Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
-- `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+- `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Los modos del proveedor de recursos solo admiten definiciones de directivas integradas y no admiten iniciativas durante la versión preliminar.
@@ -159,19 +159,19 @@ En este ejemplo se hace referencia al parámetro **allowedLocations** que se mos
 
 ### <a name="strongtype"></a>strongType
 
-Dentro de la propiedad `metadata`, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal. Los valores permitidos para **strongType** actualmente incluyen:
+Dentro de la propiedad `metadata`, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal. **strongType** puede ser un _tipo de recurso_ compatible o un valor permitido. Para determinar si un _tipo de recurso_ es válido para **strongType**, use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+
+Se admiten algunos _tipos de recursos_ no devueltos por **Get-AzResourceProvider**. Estos son:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+Los valores admitidos para **strongType** que no son _tipo de recurso_ son:
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## <a name="definition-location"></a>Ubicación de definición
 
@@ -252,11 +252,13 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+Para **less**, **lessOrEquals**, **greater** y **greaterOrEquals**, si el tipo de propiedad no coincide con el tipo de condición, se produce un error. La comparación de cadenas se realiza con `InvariantCultureIgnoreCase`.
 
 Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
@@ -361,7 +363,7 @@ En este ejemplo de regla de directiva se utiliza **value** para comprobar si el 
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -410,7 +412,7 @@ Con la regla de directivas revisada, `if()` comprueba la longitud del **nombre**
 
 ### <a name="count"></a>Count
 
-Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz de [\[\*\] alias](#understanding-the--alias) de una condición de expresión y suma los resultados con el valor _true_, que luego se compara con el operador de expresión.
+Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz de [\[\*\] alias](#understanding-the--alias) de una condición de expresión y suma los resultados con el valor _true_, que luego se compara con el operador de expresión. Las expresiones **Count** se pueden agregar hasta tres veces a una única definición de **policyRule**.
 
 La estructura de la expresión **count** es:
 
@@ -578,25 +580,27 @@ Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../a
 - resourceId()
 - variables()
 
-Las siguientes funciones están disponibles para su uso en una regla de directivas, pero difieren del uso en una plantilla de Azure Resource Manager:
+> [!NOTE]
+> Estas funciones siguen estando disponibles en la parte `details.deployment.properties.template` de la implementación de la plantilla en una definición de directiva **deployIfNotExists**.
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime** (fecha y hora): [Obligatorio] cadena: cadena con el formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
-  - **numberOfDaysToAdd** (número de días para agregar): [Obligatorio] entero: número de días que se desea agregar
+La siguiente función está disponible para su uso en una regla de directivas, pero difieren del uso en una plantilla de Azure Resource Manager:
+
 - `utcNow()`: a diferencia de una plantilla de Resource Manager, se puede usar con otro valor distinto del predeterminado.
   - Devuelve una cadena que se establece en la fecha y hora actuales en formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
 
 Las siguientes funciones solo están disponibles en las reglas de directiva:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **dateTime** (fecha y hora): [Obligatorio] cadena: cadena con el formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
+  - **numberOfDaysToAdd** (número de días para agregar): [Obligatorio] entero: número de días que se desea agregar
 - `field(fieldName)`
   - **fieldName**: [obligatorio] cadena. Es el nombre del [campo](#fields) que se va a recuperar.
   - Devuelve el valor de ese campo del recurso que se evalúa con la condición If.
   - `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`). Esta será la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
+  - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`).
+    Esta será la versión de API que se usó en la solicitud PUT/PATCH para las evaluaciones de la creación o actualización de recursos. La versión más reciente de la API siempre se usa durante la evaluación del cumplimiento de los recursos existentes.
   
-
-
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 
 Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener la propiedad **nombre**, combinada con la matriz `concat` y la función de objeto para compilar una condición `like` que exige que el nombre del recurso empiece con el nombre del grupo de recursos.
@@ -625,7 +629,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 
   Use la [extensión de Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md) a fin de ver y detectar alias para las propiedades de recursos.
 
-  ![Extensión de Azure Policy para Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Extensión de Azure Policy para Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 
@@ -708,13 +712,14 @@ Esta regla de ejemplo busca las coincidencias de **ipRules\[\*\].value** con **1
 }
 ```
 
-
-
 Para más información, consulte [Evaluación del alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniciativas
 
 Las iniciativas le permiten agrupan varias definiciones de directivas relacionadas para simplificar las asignaciones y la administración, porque se trabaja con un grupo como un elemento único. Por ejemplo, puede agrupar las definiciones de directivas de etiquetado relacionadas en una sola iniciativa. En lugar de asignar individualmente cada directiva, la aplica.
+
+> [!NOTE]
+> Una vez que se asigna una iniciativa, no se pueden modificar los parámetros de nivel de iniciativa. Por eso, se recomienda establecer un **defaultValue** al definir el parámetro.
 
 En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos etiquetas: `costCenter` y `productName`. Usa dos directivas integradas para aplicar el valor de etiqueta predeterminado.
 
@@ -729,13 +734,15 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{

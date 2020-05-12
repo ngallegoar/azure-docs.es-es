@@ -4,12 +4,12 @@ description: Información general sobre por qué la creación de aplicaciones de
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750621"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792875"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
 
@@ -35,7 +35,7 @@ En la época de cliente-servidor, tendíamos a centrarnos en la creación de apl
 
 Un enfoque de diseño monolítico tiene varias ventajas. A menudo las aplicaciones monolíticas son más fáciles de diseñar y las llamadas entre los componentes son más rápidas, ya que generalmente se realizan a través de comunicación entre procesos (IPC). Además, todo el mundo prueba un único producto, lo que tiende a ser un uso más eficaz de los recursos humanos. La desventaja es que se produce un acoplamiento estrecho entre las capas en niveles y no se pueden escalar los componentes individuales. Si necesita realizar actualizaciones o correcciones, tendrá que esperar hasta que otros usuarios finalicen sus pruebas. Es más difícil ser ágiles.
 
-Los microservicios solucionan estas desventajas y se adaptan mejor a los anteriores requisitos empresariales. Pero también tienen ventajas y desventajas. Las ventajas de los microservicios son que cada uno suele encapsular funcionalidades empresariales más simples, las cuales se pueden escalar o reducir verticalmente, probar, implementar y administrar de forma independiente. Una ventaja importante del enfoque de microservicios es que los equipos están más condicionados por los escenarios empresariales que por la tecnología. Los equipos más pequeños desarrollan un microservicio en función de un escenario del cliente y usan las tecnologías que quieren usar.
+Los microservicios solucionan estas desventajas y se adaptan mejor a los anteriores requisitos empresariales. Pero también tienen ventajas y desventajas. Las ventajas de los microservicios son que cada uno suele encapsular funcionalidades empresariales más simples, las cuales se pueden escalar o reducir horizontalmente, probar, implementar y administrar de forma independiente. Una ventaja importante del enfoque de microservicios es que los equipos están más condicionados por los escenarios empresariales que por la tecnología. Los equipos más pequeños desarrollan un microservicio en función de un escenario del cliente y usan las tecnologías que quieren usar.
 
 Es decir, no es necesario que la organización normalice su tecnología para mantener aplicaciones de microservicio. Los equipos individuales con servicios propios pueden hacer lo más lógico en función de sus conocimientos o de lo que sea más adecuado para resolver el problema. En la práctica, es preferible tener un conjunto de tecnologías recomendadas, como un almacén NoSQL o una plataforma de aplicaciones web concretas.
 

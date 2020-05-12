@@ -4,16 +4,19 @@ description: Obtenga más información sobre cómo llevar su solución Azure IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/09/2019
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5320c9d7f1ea5ae882c67ee631f5bbafbf97b039
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530876"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780749"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -104,7 +107,7 @@ El centro de IoT Edge está optimizado para el rendimiento de manera predetermin
 
 Cuando **OptimizeForPerformance** se establece en **true**, el encabezado del protocolo MQTT usa PooledByteBufferAllocator, que tiene un mejor rendimiento, pero asigna más memoria. El asignador no funciona bien en sistemas operativos de 32 bits o en dispositivos con poca memoria. Además, cuando se optimiza para el rendimiento, RocksDb asigna más memoria para su rol como proveedor de almacenamiento local.
 
-Para más información, consulte [Problemas de estabilidad en dispositivos con recursos limitados](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+Para más información, consulte [Problemas de estabilidad en dispositivos más pequeños](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### <a name="disable-unused-protocols"></a>Deshabilitar los protocolos no utilizados
 
@@ -133,12 +136,31 @@ Al pasar de escenarios de prueba a escenarios de producción, recuerde quitar la
 * **Importante**
   * Administrar el acceso al registro de contenedor
   * Usar etiquetas para administrar versiones
+* **Útil**
+  * Almacenar los contenedores del entorno de ejecución en el registro privado
 
 ### <a name="manage-access-to-your-container-registry"></a>Administrar el acceso al registro de contenedor
 
 Antes de implementar módulos en dispositivos de producción IoT Edge, asegúrese de controlar el acceso al registro de contenedor para que las personas ajenas no puedan acceder a las imágenes de contenedor o realizar cambios en ellas. Utilice un registro de contenedores privado, no público, para administrar las imágenes de contenedor.
 
-En los tutoriales y otra documentación, le indicamos que utilice las mismas credenciales de registro de contenedor en el dispositivo IoT Edge que en la máquina de desarrollo. Estas instrucciones solo pretenden ayudarle a configurar entornos de pruebas y desarrollo con mayor facilidad, y no deben seguirse en un escenario de producción. Azure Container Registry recomienda [autenticar con los entidades de servicio](../container-registry/container-registry-auth-service-principal.md) cuando las aplicaciones o servicios extraen imágenes de contenedor de forma automatizada o desatendida, como lo hacen los dispositivos IoT Edge. Cree una entidad de servicio con acceso de solo lectura al registro de contenedor y proporcione ese nombre de usuario y contraseña en el manifiesto de implementación.
+En los tutoriales y otra documentación, le indicamos que utilice las mismas credenciales de registro de contenedor en el dispositivo IoT Edge que en la máquina de desarrollo. Estas instrucciones solo pretenden ayudarle a configurar entornos de pruebas y desarrollo con mayor facilidad, y no deben seguirse en un escenario de producción.
+
+Para obtener un acceso más seguro al registro, tiene una selección de [opciones de autenticación](../container-registry/container-registry-authentication.md). Un método de autenticación conocido y recomendado consiste en usar una entidad de servicio de Active Directory que sea adecuada para que las aplicaciones o los servicios extraigan imágenes de contenedor de forma automática o cualquier otra forma desatendida (sin supervisión directa), como lo hacen los dispositivos IoT Edge.
+
+Para crear una entidad de servicio, ejecute los dos scripts como se describe en [Creación de una entidad de servicio](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Estos scripts realizan las siguientes tareas:
+
+* El primer script crea la entidad de servicio. Devuelve el id. de entidad de servicio y la contraseña de la entidad de servicio. Almacene estos valores de forma segura en los registros.
+
+* El segundo script crea asignaciones de roles para concederlos a la entidad de servicio, que se puede ejecutar posteriormente si es necesario. Se recomienda aplicar el rol de usuario **acrPull** para el parámetro `role`. Para obtener una lista de roles, consulte [Roles y permisos de Azure Container Registry](../container-registry/container-registry-roles.md).
+
+Para autenticarse con una entidad de servicio, proporcione el id y la contraseña de la entidad de servicio que obtuvo del primer script. Especifique estas credenciales en el manifiesto de implementación.
+
+* Como nombre de usuario o id. de cliente, especifique el identificador de la entidad de servicio.
+
+* Como contraseña o secreto de cliente, especifique la contraseña de la entidad de servicio.
+
+> [!NOTE]
+> Después de implementar una autenticación de seguridad mejorada, deshabilite el valor **Usuario administrador** para que el acceso de nombre de usuario y contraseña predeterminados deje de estar disponible. En el registro de contenedor en Azure Portal, seleccione del menú del panel izquierdo, dentro de **Configuración**, la opción **Claves de acceso**.
 
 ### <a name="use-tags-to-manage-versions"></a>Usar etiquetas para administrar versiones
 
@@ -147,6 +169,27 @@ Una etiqueta es un concepto de Docker que puede utilizar para distinguir entre v
 Las etiquetas también le ayudan a aplicar las actualizaciones en sus dispositivos IoT Edge. Cuando inserte una versión actualizada de un módulo en el registro de contenedor, aumente la etiqueta. A continuación, inserte una nueva implementación a sus dispositivos con la etiqueta incrementada. El motor de contenedor reconocerá la etiqueta de incremento como una nueva versión y extraerá la versión más reciente del módulo en el dispositivo.
 
 Para ver un ejemplo de una convención de etiquetas, consulte [Actualización del entorno de ejecución de Azure IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) para aprender cómo IoT Edge utiliza etiquetas rodantes y etiquetas específicas para realizar el seguimiento de las versiones.
+
+### <a name="store-runtime-containers-in-your-private-registry"></a>Almacenar los contenedores del entorno de ejecución en el registro privado
+
+Sabe cómo almacenar las imágenes de contenedor para los módulos de código personalizados en el registro privado de Azure, aunque también puede usarlo para almacenar imágenes de contenedor públicas, por ejemplo, para los módulos de entorno de ejecución de edgeAgent y edgeHub. Esto puede ser necesario si tiene restricciones de firewall muy estrictas, ya que estos contenedores del entorno de ejecución se almacenan en Microsoft Container Registry (MCR).
+
+Obtenga las imágenes con el comando docker pull para colocarlas en el registro privado. Tenga en cuenta que tendrá que actualizar las imágenes con cada nueva versión del entorno de ejecución de Azure IoT Edge.
+
+| Contenedor del entorno de ejecución de Azure IoT Edge | Comando docker pull |
+| --- | --- |
+| [Agente de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
+| [Centro de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Después, asegúrese de actualizar las referencias de imagen en el archivo deployment.template.json para los módulos del sistema edgeAgent y edgeHub. Reemplace `mcr.microsoft.com` por el nombre del registro y el servidor de ambos módulos.
+
+* edgeAgent:
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* edgeHub:
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## <a name="networking"></a>Redes
 
@@ -157,7 +200,7 @@ Para ver un ejemplo de una convención de etiquetas, consulte [Actualización de
 
 ### <a name="review-outboundinbound-configuration"></a>Revisar configuración de entrada y salida
 
-Los canales de comunicación entre Azure IoT Hub e IoT Edge siempre están configurados para que sean la salida. Para la mayoría de los escenarios de IoT Edge, solo se necesitan tres conexiones. El motor de contenedor necesita conectarse con el registro (o registros) de contenedor que contiene las imágenes del módulo. El entorno de ejecución de Azure IoT Edge necesita conectarse con IoT Hub para recuperar la información de configuración del dispositivo y para enviar mensajes y telemetría. Y si utiliza el aprovisionamiento automático, el demonio de IoT Edge necesita conectarse al servicio de aprovisionamiento de dispositivos. Para más información, consulte [Reglas de configuración de puertos y firewall](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+Los canales de comunicación entre Azure IoT Hub e IoT Edge siempre están configurados para que sean la salida. Para la mayoría de los escenarios de IoT Edge, solo se necesitan tres conexiones. El motor de contenedor necesita conectarse con el registro (o registros) de contenedor que contiene las imágenes del módulo. El entorno de ejecución de Azure IoT Edge necesita conectarse con IoT Hub para recuperar la información de configuración del dispositivo y para enviar mensajes y telemetría. Y si utiliza el aprovisionamiento automático, el demonio de IoT Edge necesita conectarse al servicio de aprovisionamiento de dispositivos. Para más información, consulte [Reglas de configuración de puertos y firewall](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Permitir conexiones desde dispositivos IoT Edge
 
@@ -183,6 +226,8 @@ Esta lista de comprobación es un punto de partida para las reglas de firewall:
    | \*.docker.io  | 443 | Acceso a Docker Hub (opcional) |
 
 Algunas de estas reglas de firewall se heredan de Azure Container Registry. Para más información, consulte [Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+Si no quiere configurar el firewall para permitir el acceso a los registros de contenedores públicos, puede almacenar las imágenes en el registro de contenedor privado, como se describe en [Almacenar los contenedores del entorno de ejecución en el registro privado](#store-runtime-containers-in-your-private-registry).
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurar la comunicación a través un servidor proxy
 

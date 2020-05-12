@@ -1,10 +1,10 @@
 ---
 title: Controles de acceso a la red
-description: Información general sobre los controles de acceso a la red para Azure SQL Database y Data Warehouse para administrar el acceso y configurar una base de datos única o agrupada.
+description: Información general sobre los controles de acceso a la red para Azure SQL Database y Azure Synapse Analytics para administrar el acceso y configurar una base de datos única o agrupada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fdeb8ee3fbb01ea007205e02eb247925fb3baea1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414412"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629582"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acceso a la red para Azure SQL Database y Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acceso a la red de Azure SQL Database y Azure Synapse Analytics
 
 > [!NOTE]
-> Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
+> Este artículo se aplica al servidor de Azure SQL y a las bases de datos de SQL Database y Azure Synapse Analytics que se crean en el servidor de Azure SQL. Para simplificar, se usa SQL Database cuando se hace referencia tanto a SQL Database como a Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Este artículo *no* es válido para las **instancias administradas de Azure SQL Database**. Para más información sobre la configuración de red, consulte el artículo de [conexión a una instancia administrada](sql-database-managed-instance-connect-app.md).
@@ -65,7 +65,7 @@ El servicio de importación y exportación no funciona cuando **Permitir el acce
 Para usar la característica de sincronización de datos con **Permitir el acceso a servicios de Azure** establecido en **DESACTIVADO**, debe crear entradas de reglas de firewall individuales para [agregar direcciones IP](sql-database-server-level-firewall-rule.md) de la **etiqueta de servicio SQL** para la región que hospeda la base de datos **central**.
 Agregue estas reglas de firewall de nivel de servidor a los servidores lógicos que hospedan las bases de datos **central** y **miembro** (que pueden estar en regiones diferentes).
 
-Use el siguiente script de PowerShell para generar las direcciones IP correspondientes a la etiqueta de servicio de SQL para la región Oeste de EE. UU.
+Use el siguiente script de PowerShell para generar las direcciones IP correspondientes a la etiqueta de servicio de SQL para la región Oeste de EE. UU.
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }

@@ -9,12 +9,12 @@ ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2aed3a66f70864b3445418a51b0e79280e6884bd
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75780756"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629208"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Cómo migrar una base de datos de SQLite a Azure SQL Database sin servidor
 Para muchas personas, SQLite ha sido su primera experiencia con las bases de datos y la programación en SQL. Su inclusión en muchos sistemas operativos y aplicaciones populares hace que SQLite sea uno de los motores de base de datos más implementados y usados de todo el mundo. Y dado que probablemente es el primer motor de base de datos que usan muchos usuarios, a menudo es una parte central de los proyectos o las aplicaciones. En casos en los que el proyecto o la aplicación sobrepasan la implementación inicial de SQLite, es posible que los desarrolladores tengan que migrar sus datos a un almacén de datos centralizado y confiable.

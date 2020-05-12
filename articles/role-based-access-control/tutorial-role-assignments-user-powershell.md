@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso de grupo a los recursos de Azure mediante RBAC y Azure PowerShell'
-description: En este tutorial aprenderá a conceder acceso de usuario a recursos de Azure con el control de acceso basado en rol (RBAC) y Azure PowerShell.
+title: 'Tutorial: Concesión de acceso de usuario a recursos de Azure mediante Azure PowerShell: Azure RBAC'
+description: En este tutorial aprenderá a conceder acceso de usuario a recursos de Azure mediante Azure PowerShell y el control de acceso basado en rol (Azure RBAC).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9c35c08889892e877ecfac20910607ddf85b2282
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138224"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735494"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-azure-powershell"></a>Tutorial: Concesión de acceso de usuario a recursos de Azure mediante Azure PowerShell
 
 El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este tutorial se concede a un usuario acceso para ver todos los elementos de una suscripción y administrar todo el contenido de un grupo de recursos mediante Azure PowerShell.
 
@@ -44,7 +44,7 @@ Para realizar este tutorial, necesita:
 
 ## <a name="role-assignments"></a>Asignaciones de roles
 
-En RBAC, para conceder acceso es preciso crear una asignación de roles. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito. Estas son las dos asignaciones de roles que llevará a cabo en este tutorial:
+En Azure RBAC, para conceder acceso es preciso crear una asignación de roles. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito. Estas son las dos asignaciones de roles que llevará a cabo en este tutorial:
 
 | Entidad de seguridad | Definición de roles | Ámbito |
 | --- | --- | --- |
@@ -279,4 +279,4 @@ Para limpiar los recursos creados por este tutorial puede eliminar tanto el usua
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell](role-assignments-powershell.md)
+> [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](role-assignments-powershell.md)

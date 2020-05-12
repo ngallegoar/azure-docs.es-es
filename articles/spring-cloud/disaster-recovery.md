@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76279153"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792333"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperación ante desastres de Azure Spring Cloud
 
@@ -31,4 +31,33 @@ Para garantizar la alta disponibilidad y la protección ante desastres, tiene qu
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) ofrece un equilibrio de carga de tráfico basado en DNS y puede distribuir el tráfico de red entre varias regiones.  Use Azure Traffic Manager para dirigir a los clientes a la instancia del servicio Azure Spring Cloud más cercana.  Para conseguir los máximos niveles de rendimiento y redundancia, dirija todo el tráfico de aplicaciones a través de Azure Traffic Manager antes de enviarlo al servicio Azure Spring Cloud.
 
-Si tiene aplicaciones de Azure Spring Cloud en varias regiones, use Azure Traffic Manager para controlar el flujo de tráfico a las aplicaciones en cada una de las regiones.  Defina un punto de conexión de Azure Traffic Manager para cada servicio con la dirección IP del servicio. Los clientes deben conectarse a un nombre DNS de Azure Traffic Manager que apunte al servicio Azure Spring Cloud.  Azure Traffic Manager equilibra el tráfico a través de los puntos de conexión definidos.  Si se produce un desastre en un centro de datos, Azure Traffic Manager dirigirá el tráfico de esa región a su par, lo que garantiza la continuidad del servicio.
+Si tiene aplicaciones de Azure Spring Cloud en varias regiones, use Azure Traffic Manager para controlar el flujo de tráfico a las aplicaciones en cada región.  Defina un punto de conexión de Azure Traffic Manager para cada servicio con la dirección IP del servicio. Los clientes deben conectarse a un nombre DNS de Azure Traffic Manager que apunte al servicio Azure Spring Cloud.  Azure Traffic Manager equilibra el tráfico a través de los puntos de conexión definidos.  Si se produce un desastre en un centro de datos, Azure Traffic Manager dirigirá el tráfico de esa región a su par, lo que garantiza la continuidad del servicio.
+
+## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Creación de Azure Traffic Manager para Azure Spring Cloud
+
+1. Cree Azure Spring Cloud en dos regiones diferentes.
+Necesitará dos instancias de servicio de Azure Spring Cloud implementadas en dos regiones diferentes (Este de EE. UU. y Oeste de Europa). Inicie una aplicación de Azure Spring Cloud existente con Azure Portal para crear dos instancias de servicio. Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic. 
+
+**Información de las dos instancias de servicio:**
+
+| Nombre de servicio | Location | Application |
+|--|--|--|
+| service-sample-a | Este de EE. UU. | gateway / auth-service / account-service |
+| service-sample-b | Oeste de Europa | gateway / auth-service / account-service |
+
+2. Configure el dominio personalizado para el servicio siguiendo lo indicado en el [documento de dominio personalizado](spring-cloud-tutorial-custom-domain.md) para configurar el dominio personalizado de estas dos instancias de servicio existentes. Después de que la configuración se complete correctamente, ambas instancias estarán enlazadas al dominio personalizado: bcdr-test.contoso.com
+
+3. Cree un administrador de tráfico y dos puntos de conexión: [Creación de un perfil de Traffic Manager mediante Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+
+Este es el perfil de Traffic Manager:
+* Nombre DNS de Traffic Manager: http://asc-bcdr.trafficmanager.net
+* Perfiles de punto de conexión: 
+
+| Perfil | Tipo | Destino | Priority | Configuración del encabezado personalizado |
+|--|--|--|--|--|
+| Perfil de punto de conexión A | Punto de conexión externo | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
+| Perfil de extremo B | Punto de conexión externo | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
+
+4. Cree un registro CNAME en la zona DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+
+5. El entorno ahora está completamente configurado. Los clientes deben poder acceder a la aplicación a través de: bcdr-test.contoso.com

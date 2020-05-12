@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 09b02d043e970c68cdff0e3dc4f97328c9d74c84
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383778"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789851"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Administración de clientes potenciales de Marketplace comercial
 
-
 Los clientes son el centro de cualquier negocio bien llevado. En la transformación de las adquisiciones de producto de hoy en día, los vendedores tienen que centrarse en conectar directamente con los clientes y generar una relación. Este es el motivo por el que generar clientes potenciales de alta calidad es una herramienta esencial para su ciclo de ventas. Tras publicar su oferta en [Cloud Partner Portal](https://partner.microsoft.com/), hay herramientas que le permiten recibir la información de contacto de clientes mediante programación inmediatamente después de que un cliente exprese interés o implemente el producto en Marketplace. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>¿Qué son los clientes potenciales en Marketplace?
 
 Los clientes potenciales son los clientes que están interesados en sus productos de Marketplace o que están implementándolos desde allí. Sin importar si el producto está publicado en Azure Marketplace o en AppSource, podrá recibir clientes potenciales de los clientes una vez que la función esté configurada correctamente desde su CRM en las publicaciones de Centro de partners. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Conexión del sistema de CRM con Centro de partners
 
@@ -48,7 +44,7 @@ Una vez que haya configurado correctamente el destino de clientes potenciales y 
 
 Una vez que esté implementada la configuración técnica, debería incorporar estos clientes potenciales a la estrategia actual de ventas y marketing y los procesos operativos. Estamos interesados en recibir una mejor perspectiva sobre el proceso de ventas global, y deseamos trabajar en estrecha colaboración con usted para conseguir clientes potenciales de alta calidad y una cantidad suficiente de datos que le permitan tener éxito. Agradecemos sus comentarios acerca de cómo podemos optimizar y mejorar los clientes potenciales que le enviamos con datos adicionales para obtener los mejores resultados de estos clientes. Díganos si está interesado en ofrecer comentarios y sugerencias para ayudar a que su equipo de ventas tenga mayor éxito con los clientes potenciales de Marketplace.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Errores comunes de configuración de clientes potenciales durante la publicación en Centro de partners
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Errores comunes de configuración de clientes potenciales durante la publicación en Centro de partners
 
 **No se pudo guardar el cliente potencial en Dynamics CRM. Compruebe la configuración de la cuenta de Dynamics CRM. LastCRMError: no se puede iniciar sesión en Dynamics CRM; LastCRMException:** 
 
@@ -90,7 +86,7 @@ Los clientes potenciales son los clientes que están implementando sus productos
 
 **¿Dónde puedo obtener ayuda para la configuración de mi destino de clientes potenciales?** 
 
-Puede encontrar documentación aquí: [Obtención de clientes potenciales](./partner-center-portal/commercial-marketplace-get-customer-leads.md), o envíe una incidencia de soporte técnico mediante aka.ms/marketplacepublishersupport, donde debe seleccionar el tipo de oferta y la administración de clientes potenciales. 
+Puede encontrar documentación en [Obtención de clientes potenciales](./partner-center-portal/commercial-marketplace-get-customer-leads.md) o enviar una incidencia de soporte técnico desde [Ayuda y soporte técnico](https://partner.microsoft.com/support/v2/?stage=1). Seleccione el tipo de oferta y la administración de clientes potenciales. 
 
 **¿Debo configurar un destino de clientes potenciales para poder publicar una oferta en Marketplace?**
 
@@ -187,7 +183,7 @@ El cliente potencial se escribe solo cuando se selecciona el almacenamiento de b
 
 **He recibido un correo electrónico desde Marketplace, ¿por qué no puedo encontrar al cliente potencial en mi instancia de CRM?**  
 
-Es posible que el dominio de correo electrónico del usuario final sea .edu. Por motivos de privacidad, no se pasan los datos de información de identificación personal provenientes del dominio .edu. Envíe una [incidencia de soporte técnico](https://aka.ms/marketplacepublishersupport).
+Es posible que el dominio de correo electrónico del usuario final sea .edu. Por motivos de privacidad, no se pasan los datos de información de identificación personal provenientes del dominio .edu. Envíe una incidencia de soporte técnico desde [Ayuda y soporte técnico](https://partner.microsoft.com/support/v2/?stage=1).
 
 **He configurado la tabla o el blob de Azure como destino de cliente potencial, ¿cómo puedo ver a los clientes potenciales?** 
 

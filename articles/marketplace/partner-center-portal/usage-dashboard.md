@@ -1,31 +1,31 @@
 ---
-title: Panel Uso de los análisis de marketplace comercial del Centro de partners
-description: Obtenga información sobre cómo acceder a todas las métricas de uso y facturación medida de las ofertas de máquina virtual.
+title: Panel Uso de los análisis de Marketplace comercial de Microsoft
+description: Obtenga información sobre cómo acceder a todas las métricas de uso y facturación medida de las ofertas de máquina virtual. Vaya al panel Uso del Centro de Partners en Marketplace comercial.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262186"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793013"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel Uso de los análisis de marketplace comercial
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Panel Uso de los análisis de Marketplace comercial de Microsoft
 
 En este artículo se proporciona información sobre el panel de uso del Centro de partners. En este panel se muestran todas las métricas de uso y facturación medida de las ofertas de máquina virtual en dos pestañas independientes: Uso de máquinas virtuales y Uso de facturación medido.
 
-Para acceder al panel de uso, abra el panel **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** en Marketplace comercial.
+Para acceder al panel de uso, abra el panel **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** en **Marketplace comercial**.
 
 >[!NOTE]
 > Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Panel de uso
 
-En el panel de uso se representan las métricas de uso y uso de facturación medido de todas las ofertas de máquina virtual (VM). Se encuentran en dos pestañas independientes: Uso de máquinas virtuales y Uso de facturación medido.
+En el panel de uso se representan las métricas de uso y uso de facturación medido de todas las ofertas de máquina virtual. Estas métricas se encuentran en dos pestañas distintas: Uso de máquinas virtuales y Uso de facturación medido.
 
 En la pestaña Uso de máquinas virtuales se incluyen representaciones gráficas de los elementos siguientes:
 
@@ -58,13 +58,13 @@ En el mapa térmico de **uso normalizado por geografía** se muestran las horas 
 
 ### <a name="usage-by-offers"></a>Uso por ofertas
 
-- En el gráfico circular de **uso normalizado por ofertas** se muestra un desglose de las horas de uso normalizado por ofertas según el intervalo de fechas seleccionado. En el gráfico se muestran las 5 ofertas principales y el resto se agrupan en la categoría "Todo el resto".
+- En el gráfico circular de **uso normalizado por ofertas** se muestra un desglose de las horas de uso normalizado por ofertas según el intervalo de fechas seleccionado. En el gráfico se muestran las cinco ofertas principales y el resto se agrupan en la categoría **todo el resto**.
 - En el gráfico de barras se muestra una tendencia de crecimiento mensual para el intervalo de fechas seleccionado. Las columnas de mes representan las horas de uso de las ofertas, con las horas de mayor uso para el mes correspondiente. En el gráfico de líneas se muestra la tendencia del porcentaje de crecimiento trazada en el eje Y secundario.
 - Use el control deslizante de la parte superior del gráfico para desplazarse hacia la derecha y la izquierda a lo largo del eje X o centrarse en puntos de datos específicos.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Tendencia de uso por ofertas y SKU
 
-En este gráfico se muestra la tendencia del uso normalizado de las SKU seleccionadas de una oferta. En la tabla de clasificación de la oferta se muestran las 50 ofertas principales con el uso más alto y se ordenan por horas de uso. En la tabla de clasificación de SKU se muestran las 50 SKU principales con el uso más alto de la oferta seleccionada.
+En este gráfico se muestra la tendencia del uso normalizado de las SKU seleccionadas de una oferta. En la tabla de clasificación de las ofertas se muestran las 50 ofertas principales con el uso más alto, ordenadas por horas de uso. En la tabla de clasificación de SKU se muestran las 50 SKU principales con el uso más alto de la oferta seleccionada.
 
 ### <a name="usage-by-offer-type"></a>Uso por tipo de oferta
 
@@ -97,11 +97,11 @@ En la **tabla de detalles de uso** se muestra una lista numerada de los 1000 re
 > [!NOTE]
 > Seleccione **Tipo de uso** en el filtro de página para ver los gráficos de la página en "Vista normalizada" o "Vista sin formato". Para estos gráficos, "Vista normalizada" es la vista predeterminada.
 
-Los **Filtros de página de uso** se aplican en el nivel de página. Puede seleccionar varios filtros para representar el gráfico para los criterios que quiera ver, así como los datos que quiera que se muestren en la cuadrícula o exportación de "datos de uso detallados". Los filtros se aplican a los datos extraídos para el rango de datos que ha seleccionado en la esquina superior derecha de la página de pedidos.
+Los **Filtros de página de uso** se aplican en el nivel de página. Puede seleccionar varios filtros para representar el gráfico para los criterios que quiera ver, así como los datos que quiera que se muestren en la cuadrícula o exportación de "datos de uso detallados". Los filtros se aplican a los datos extraídos del intervalo de datos que ha seleccionado en la esquina superior derecha de la página de pedidos.
 
 - **Tipos de oferta** y **Nombres de oferta** solo se muestran para las ofertas que ha comprado durante el intervalo de fechas seleccionado. Los nombres de oferta de la lista se muestran para los tipos de oferta seleccionados en la lista.
 - La selección predeterminada es "Todo" para cada una de las opciones de filtros, menos para **Tipo de uso**. La selección predeterminada para **Tipo de uso** es el uso normalizado. Para mostrar el uso sin procesar en los gráficos, seleccione "Uso sin procesar".
-- Los filtros aplicados muestran las selecciones de recuento de las selecciones de filtro que se hayan realizado. Los filtros aplicados no se mostrarán para las selecciones predeterminadas.
+- Los filtros aplicados muestran la selección del recuento de las selecciones de filtro que se hayan realizado. Los filtros aplicados no se mostrarán para las selecciones predeterminadas.
 
 > [!NOTE]
 > En la sección Diccionario de datos del artículo [Preguntas más frecuentes y terminología](link needed) se ofrecen una definición detallada de cada uno de los campos de la cuadrícula "datos de pedido detallados", los filtros de página y todas las selecciones posibles.
@@ -119,9 +119,9 @@ En la pestaña **Uso de facturación medido** se muestra información de uso de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los informes de análisis disponibles en el marketplace comercial del Centro de partners, consulte [Análisis del marketplace comercial en el Centro de partners](./analytics.md).
-- Para ver los gráficos, las tendencias y los valores de datos agregados que resumen la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
+- Para ver los gráficos, las tendencias y los valores de datos agregados que resuman la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
 - Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).
 - Para ver una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./downloads-dashboard.md).
-- Para tener una vista consolidada de comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de marketplace comercial](./ratings-reviews.md).
+- Para tener una vista consolidada de comentarios de los clientes sobre las ofertas en Microsoft AppSource y Azure Marketplace, consulte [Panel Calificaciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).
 - Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).

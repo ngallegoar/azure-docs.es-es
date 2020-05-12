@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.date: 5/4/2020
+ms.openlocfilehash: 6b738fc96a51893d8c0a0e75c5551007da60bdd2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024632"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793200"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
 
@@ -146,6 +146,8 @@ Los siguientes parámetros de servidor están bloqueados tanto en el servidor ma
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 El parámetro [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) está bloqueado en los servidores de réplica.
+
+Para actualizar uno de los parámetros anteriores en el servidor maestro, elimine los servidores de réplica, actualice el valor del parámetro en el maestro y vuelva a crear las réplicas.
 
 ### <a name="other"></a>Otros
 

@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368584"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790922"
 ---
 # <a name="service-fabric-guardrails"></a>Protecciones de Service Fabric 
 Al implementar un clúster de Service Fabric, se colocan protecciones, lo que producirá un error en una implementación de Azure Resource Manager en el caso de que haya una configuración de clúster no válida. En las secciones siguientes se proporciona información general sobre los problemas comunes de configuración de clústeres y los pasos necesarios para mitigarlos. 
@@ -79,7 +79,7 @@ Se ha detectado una operación de eliminación del nodo de inicialización y se 
 Asegúrese de que el tipo de nodo principal tenga suficientes máquinas virtuales para la confiabilidad especificada en el clúster. No podrá quitar una máquina virtual si esto hace que el conjunto de escalado de máquinas virtuales quede por debajo del número mínimo de nodos para el nivel de confiabilidad establecido.
 * Si el nivel de confiabilidad se especifica correctamente, asegúrese de tener nodos suficientes en el tipo de nodo principal según sea necesario para el nivel de confiabilidad. 
 * Si el nivel de confiabilidad es incorrecto, inicie un cambio en el recurso de Service Fabric para reducir primero el nivel de confiabilidad antes de iniciar las operaciones con el conjunto de escalado de máquinas virtuales, y espere a que se complete.
-* Si el nivel de confiabilidad es bronce, siga estos [pasos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reducir verticalmente el clúster correctamente.
+* Si el nivel de confiabilidad es bronce, siga estos [pasos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reducir horizontalmente el clúster correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows Server: [Creación de un clúster independiente con Windows Server](service-fabric-cluster-creation-for-windows-server.md)

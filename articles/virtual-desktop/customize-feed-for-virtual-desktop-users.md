@@ -8,22 +8,26 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 24a295d220cfaa7efe2fdc0d4eee53bb5c409708
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 961fadfff0147d8c5258fa5acf31d8b0649ea12a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128086"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612901"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalización de fuente para usuarios de Windows Virtual Desktop
 
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Puede personalizar la fuente para que RemoteApp y los recursos de escritorio remoto se muestren de manera reconocible para los usuarios.
 
-En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell. Después, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+## <a name="prerequisites"></a>Prerrequisitos
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Windows Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
 
 ## <a name="customize-the-display-name-for-a-remoteapp"></a>Personalizar el nombre para mostrar de RemoteApp
 
@@ -32,16 +36,55 @@ Para cambiar el nombre para mostrar de una instancia de RemoteApp publicada, def
 Para recuperar una lista de instancias de RemoteApp publicadas para un grupo de aplicaciones, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
-Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
+Get-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Get-RDSRemoteApp con el nombre y el nombre descriptivo resaltado.](media/get-rdsremoteapp.png)
 
-Para asignar un nombre descriptivo a RemoteApp, ejecute el siguiente cmdlet de PowerShell:
+Para asignar un nombre descriptivo a RemoteApp, ejecute el siguiente cmdlet con los parámetros necesarios:
 
 ```powershell
-Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
+Update-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Set-RDSRemoteApp con el nombre y el nuevo nombre descriptivo resaltado.](media/set-rdsremoteapp.png)
+
+Por ejemplo, supongamos que ha recuperado las aplicaciones actuales con el siguiente cmdlet de ejemplo:
+
+```powershell
+Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list
+```
+
+La salida debe ser similar a la siguiente:
+
+```powershell
+CommandLineArgument : 
+CommandLineSetting  : DoNotAllow 
+Description         : 
+FilePath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
+FriendlyName        : Microsoft Word 
+IconContent         : {0, 0, 1, 0…} 
+IconHash            : --iom0PS6XLu-EMMlHWVW3F7LLsNt63Zz2K10RE0_64 
+IconIndex           : 0 
+IconPath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
+Id                  : /subscriptions/<subid>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/applications/Microsoft Word 
+Name                : 0301RAG/Microsoft Word 
+ShowInPortal        : False 
+Type                : Microsoft.DesktopVirtualization/applicationgroups/applications 
+```
+Para actualizar el nombre descriptivo, ejecute este cmdlet:
+
+```powershell
+Update-AzWvdApplication -GroupName 0301RAG -Name "Microsoft Word" -FriendlyName "WordUpdate" -ResourceGroupName 0301RG -IconIndex 0 -IconPath "C:\Program Files\Windows NT\Accessories\wordpad.exe" -ShowInPortal:$true -CommandLineSetting DoNotallow -FilePath "C:\Program Files\Windows NT\Accessories\wordpad.exe" 
+```
+
+Para confirmar que ha actualizado correctamente el nombre descriptivo, ejecute este cmdlet:
+
+```powershell
+Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list FriendlyName 
+```
+
+El cmdlet debe proporcionar la siguiente salida:
+
+```powershell
+FriendlyName        : WordUpdate
+```
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalizar el nombre para mostrar de Escritorio remoto
 
@@ -50,20 +93,39 @@ Para cambiar el nombre para mostrar de un escritorio remoto publicado, defina un
 Para recuperar el recurso de escritorio remoto, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
-Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
+Get-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Get-RDSRemoteApp con el nombre y el nombre descriptivo resaltado.](media/get-rdsremotedesktop.png)
 
 Para asignar un nombre descriptivo al recurso de escritorio remoto, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
-Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
+Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Set-RDSRemoteApp con el nombre y el nuevo nombre descriptivo resaltado.](media/set-rdsremotedesktop.png)
+
+## <a name="customize-a-display-name-in-azure-portal"></a>Personalización de un nombre para mostrar en Azure Portal
+
+Para cambiar el nombre para mostrar de un escritorio remoto publicado, establezca un nombre descriptivo mediante Azure Portal. 
+
+1. Inicie sesión en Azure Portal en <https://portal.azure.com>. 
+
+2. Busque **Windows Virtual Desktop**.
+
+3. En Servicios, seleccione **Windows Virtual Desktop**. 
+
+4. En la página Windows Virtual Desktop, seleccione **Grupos de aplicaciones** en el lado izquierdo de la pantalla y, a continuación, seleccione el nombre del grupo de aplicaciones que desea editar. 
+
+5. Seleccione **Aplicaciones** en el menú del lado izquierdo de la pantalla.
+
+6. Seleccione la aplicación que desea actualizar y, a continuación, escriba un nuevo **nombre para mostrar**. 
+
+7. Seleccione **Guardar**. La aplicación que ha editado debe aparecer ahora con el nombre actualizado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha personalizado la fuente para los usuarios, puede iniciar sesión en un cliente de Windows Virtual Desktop para probarlo. Para ello, continúe para conectarse a los procedimientos para conectarse a Windows Virtual Desktop:
     
- * [Conexión desde Windows 10 o Windows 7](connect-windows-7-and-10.md)
- * [Conexión desde un explorador web](connect-web.md) 
+ * [Conexión con Windows 10 o Windows 7](connect-windows-7-and-10.md)
+ * [Conexión con el cliente web](connect-web.md) 
+ * [Conexión con el cliente de Android](connect-android.md)
+ * [Conexión con el cliente iOS](connect-ios.md)
+ * [Conexión con el cliente macOS](connect-macos.md)

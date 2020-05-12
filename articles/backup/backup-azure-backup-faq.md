@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee6df940dd36a325d3638c3ad29ebfd8dec713d8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156062"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801712"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -107,7 +107,7 @@ Windows 8 o posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o superior | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | 16 discos de datos<br/> Para suscribirse a la versión preliminar privada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com <br><br> Disco de datos de hasta 32 TB
+Azure VM | 16 discos de datos<br/> Para suscribirse a la versión preliminar limitada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com <br><br> Disco de datos de hasta 32 TB
 
 ### <a name="how-is-the-data-source-size-determined"></a>¿Cómo se determina el tamaño del origen de datos?
 

@@ -1,50 +1,54 @@
 ---
-title: Exportación de la configuración de aprovisionamiento y reversión a un estado correcto conocido en la recuperación ante desastres | Microsoft Docs
+title: Exportación de la configuración de aprovisionamiento y reversión a un estado correcto conocido en la recuperación ante desastres
 description: Aprenda a exportar la configuración de aprovisionamiento y a revertir a un estado correcto conocido en la recuperación ante desastres.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.subservice: app-provisioning
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acc14cf9fc544a15dfb9ac4ffd74e5ed0ac56108
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051313"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593767"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Exportación de la configuración de aprovisionamiento y reversión a un estado correcto conocido
+# <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procedimiento: Exportación de la configuración de aprovisionamiento y reversión a un estado correcto conocido
+
+En este artículo, aprenderá a:
+
+- Exportación e importación de la configuración de aprovisionamiento desde Azure Portal
+- Exportación e importación de la configuración de aprovisionamiento mediante Microsoft Graph API
 
 ## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Exportación e importación de la configuración de aprovisionamiento desde Azure Portal
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>¿Cómo puedo exportar la configuración de aprovisionamiento?
+### <a name="export-your-provisioning-configuration"></a>Exportación de la configuración de aprovisionamiento
+
 Para exportar la configuración:
+
 1. En [Azure Portal](https://portal.azure.com/), en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
-2. En el panel de **Azure Active Directory**, seleccione **Aplicaciones empresariales** y elija su aplicación.
-3. En el panel de navegación izquierdo, seleccione **aprovisionamiento**. En la página de configuración de aprovisionamiento, haga clic en **Asignaciones de atributos**, en **Mostrar opciones avanzadas** y, por último, en **Revise el esquema**. Esto le llevará al editor de esquemas. 
-5. Para descargar el esquema, haga clic en el botón de descarga de la barra de comandos situada en la parte superior de la página.
+1. En el panel de **Azure Active Directory**, seleccione **Aplicaciones empresariales** y elija su aplicación.
+1. En el panel de navegación izquierdo, seleccione **aprovisionamiento**. En la página de configuración de aprovisionamiento, haga clic en **Asignaciones de atributos**, en **Mostrar opciones avanzadas** y, por último, en **Revise el esquema**. Esto le llevará al editor de esquemas.
+1. Para descargar el esquema, haga clic en el botón de descarga de la barra de comandos situada en la parte superior de la página.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Recuperación ante desastres: reversión a un estado correcto conocido
-Si exporta y guarda la configuración, podrá volver a una versión anterior de la configuración. Se recomienda exportar la configuración de aprovisionamiento y guardarla para más adelante siempre que realice un cambio en las asignaciones de atributos o en los filtros de ámbito. Lo único que debe hacer es abrir el archivo JSON que descargó en los pasos anteriores, copiar todo el contenido del archivo JSON, reemplazar todo el contenido de la carga útil de JSON en el editor de esquemas y, después, guardarlo. Si hay un ciclo de aprovisionamiento activo, se completará y, en el ciclo siguiente, se usará el esquema actualizado. El ciclo siguiente también será un ciclo inicial en el que se volverá a evaluar cada usuario y grupo con arreglo a la nueva configuración. Al revertir a una configuración anterior, tenga en cuenta lo siguiente:
-* Los usuarios se evaluarán de nuevo para determinar si deben estar en el ámbito. Si los filtros de ámbito han cambiado, los usuarios que ya no estén en el ámbito se deshabilitarán. Aunque este es el comportamiento deseado en la mayoría de los casos, hay ocasiones en las que tal vez quiera evitarlo, por lo que puede usar la funcionalidad [omisión de las eliminaciones de ámbito](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions). 
-* Si cambia la configuración de aprovisionamiento, se reiniciará el servicio y se desencadenará un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
+Si exporta y guarda la configuración, podrá volver a una versión anterior de la configuración. Se recomienda exportar la configuración de aprovisionamiento y guardarla para más adelante siempre que realice un cambio en las asignaciones de atributos o en los filtros de ámbito. Lo único que debe hacer es abrir el archivo JSON que descargó en los pasos anteriores, copiar todo el contenido del archivo JSON, reemplazar todo el contenido de la carga útil de JSON en el editor de esquemas y, después, guardarlo. Si hay un ciclo de aprovisionamiento activo, se completará y, en el ciclo siguiente, se usará el esquema actualizado. El ciclo siguiente también será un ciclo inicial en el que se volverá a evaluar cada usuario y grupo con arreglo a la nueva configuración. Al revertir a una configuración anterior, tenga en cuenta lo siguiente:
+
+- Los usuarios se evaluarán de nuevo para determinar si deben estar en el ámbito. Si los filtros de ámbito han cambiado, los usuarios que ya no estén en el ámbito se deshabilitarán. Aunque este es el comportamiento deseado en la mayoría de los casos, hay ocasiones en las que tal vez quiera evitarlo, por lo que puede usar la funcionalidad [omisión de las eliminaciones de ámbito](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions). 
+- Si cambia la configuración de aprovisionamiento, se reiniciará el servicio y se desencadenará un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportación e importación de la configuración de aprovisionamiento mediante Microsoft Graph API
-Puede usar Microsoft Graph API y el Probador de Microsoft Graph para exportar el esquema y las asignaciones de atributos de aprovisionamiento de usuarios en un archivo JSON e importarlos de nuevo a Azure AD. También puede usar los pasos que se indican aquí para crear una copia de seguridad de la configuración de aprovisionamiento. 
+
+Puede usar Microsoft Graph API y el Probador de Microsoft Graph para exportar el esquema y las asignaciones de atributos de aprovisionamiento de usuarios en un archivo JSON e importarlos de nuevo a Azure AD. También puede usar los pasos que se indican aquí para crear una copia de seguridad de la configuración de aprovisionamiento.
 
 ### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Paso 1: Recuperar el identificador de la entidad de servicio de la aplicación de aprovisionamiento (identificador de objeto)
 
-1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento. Por ejemplo, si desea exportar la asignación de la *aplicación de aprovisionamiento de usuarios de Workday a AD*, vaya a la sección Propiedades de esa aplicación. 
+1. Inicie [Azure Portal](https://portal.azure.com) y vaya a la sección Propiedades de la aplicación de aprovisionamiento. Por ejemplo, si desea exportar la asignación de la *aplicación de aprovisionamiento de usuarios de Workday a AD*, vaya a la sección Propiedades de esa aplicación.
 1. En la sección Propiedades de la aplicación de aprovisionamiento, copie el valor GUID asociado con el campo *Id. de objeto*. Este valor también se conoce como el elemento **ServicePrincipalId** de la aplicación y se usará en las operaciones del Probador de Microsoft Graph.
 
    ![Identificador de la entidad de servicio de la aplicación de Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -99,4 +103,4 @@ En la pestaña "Encabezados de solicitud", agregue el atributo de encabezado Con
 
    [![Encabezados de solicitud](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Haga clic en el botón "Ejecutar consulta" para importar el nuevo esquema.
+Seleccione **Ejecutar consulta** para importar el nuevo esquema.

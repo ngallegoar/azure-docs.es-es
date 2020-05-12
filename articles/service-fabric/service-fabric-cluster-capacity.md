@@ -4,12 +4,12 @@ description: Consideraciones de planeación de capacidad del clúster de Service
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f011dee94e135ba40f8d3c87240e905e4a2739ec
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229452"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793064"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -104,7 +104,7 @@ Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospeda
 
 - Mantenga un mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales que tengan habilitados los niveles de durabilidad Gold o Silver.
 - Cada conjunto de escalado de máquinas virtuales con el nivel de durabilidad Silver o Gold tiene que asignarse a su propio tipo de nodo en el clúster de Service Fabric. La asignación de varios conjuntos de escalado de máquinas virtuales a un único tipo de nodo impedirá que la coordinación entre el clúster de Service Fabric y la infraestructura de Azure funcione correctamente.
-- No elimine instancias de máquina virtual aleatorias, use siempre la característica de reducción vertical del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias tiene el potencial de crear desequilibrios en la instancia de máquina virtual repartidos entre UD y FD. Este desequilibrio puede afectar negativamente a la capacidad de los sistemas para realizar un correcto equilibrio de la carga entre las instancias del servicio o réplicas del servicio.
+- No elimine instancias de máquina virtual aleatorias, use siempre la característica de reducción horizontal del conjunto de escalado de máquinas virtuales. La eliminación de instancias de máquina virtual aleatorias tiene el potencial de crear desequilibrios en la instancia de máquina virtual repartidos entre UD y FD. Este desequilibrio puede afectar negativamente a la capacidad de los sistemas para realizar un correcto equilibrio de la carga entre las instancias del servicio o réplicas del servicio.
 - Si se usa el escalado automático, establezca las reglas de forma que la reducción horizontal (eliminación de instancias de máquina virtual) no se realiza en varios nodos simultáneamente. No es seguro reducir verticalmente más de una instancia a la vez.
 - Si va a eliminar o cancelar la asignación de máquinas virtuales en el tipo de nodo principal, no reduzca nunca el número de máquinas virtuales asignadas por debajo de lo que requiere el nivel de confiabilidad. Estas operaciones se bloquearán indefinidamente en un conjunto de escalado con un nivel de durabilidad Silver o Gold.
 

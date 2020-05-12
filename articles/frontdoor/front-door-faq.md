@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313767"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594141"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Preguntas más frecuentes sobre Azure Front Door
 
@@ -91,7 +91,7 @@ Para que la aplicación solo acepte tráfico procedente su instancia específica
 
 - Configure la creación de listas de control de acceso de IP de los back-end para que acepten tráfico únicamente del espacio de direcciones IP de back-end de Azure Front Door y de los servicios de infraestructura de Azure. Consulte los detalles de IP siguientes para la creación de listas de control de acceso en el back-end:
  
-    - Consulte la sección *AzureFrontDoor.Backend* de [Etiquetas de servicio e intervalos IP de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para el intervalo IP del back-end IPv4 de Front Door. También puede usar la etiqueta de servicio *AzureFrontDoor.Backend* de los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o con [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags).
+    - Consulte la sección *AzureFrontDoor.Backend* en [Etiquetas de servicio e intervalos de direcciones IP de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para el intervalo de direcciones IP del back-end IPv4 de Front Door. También puede usar la etiqueta de servicio *AzureFrontDoor.Backend* en sus[grupos de seguridad en red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
     - El espacio IP de back-end **IPv6** de Front Door, si está cubierto en la etiqueta de servicio, no se incluye en el archivo JSON de intervalos IP de Azure. Si busca un intervalo de direcciones IPv6 explícito, actualmente, está limitado a `2a01:111:2050::/44`
     - [Servicios de infraestructura básica](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) de Azure través de direcciones IP de host virtualizado: `168.63.129.16` y `169.254.169.254`
 

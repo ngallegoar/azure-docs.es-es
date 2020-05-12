@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461691"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731709"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -266,9 +266,9 @@ Traffic Manager proporciona una serie de métodos de enrutamiento del tráfico p
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) proporciona una alta disponibilidad y un elevado rendimiento de red a las aplicaciones. Se trata de un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye el tráfico entrante entre las instancias de servicio correctas de los servicios que se definen en un conjunto de carga equilibrada. Azure Load Balancer puede configurarse para lo siguiente:
 
--   Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. Esta configuración se conoce como " [equilibrio de carga con conexión a Internet](../../load-balancer/concepts-limitations.md#publicloadbalancer)".
+-   Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. Esta configuración se conoce como [equilibrio de carga público](../../load-balancer/components.md#frontend-ip-configurations).
 
--   Equilibrar la carga del tráfico entre máquinas virtuales de una red virtual, entre máquinas virtuales de servicios en la nube o entre equipos locales y máquinas virtuales de una red virtual entre entornos locales. Esta configuración se conoce como " [equilibrio de carga interno](../../load-balancer/concepts-limitations.md#internalloadbalancer)".
+-   Equilibrar la carga del tráfico entre máquinas virtuales de una red virtual, entre máquinas virtuales de servicios en la nube o entre equipos locales y máquinas virtuales de una red virtual entre entornos locales. Esta configuración se conoce como " [equilibrio de carga interno](../../load-balancer/components.md#frontend-ip-configurations)".
 
 - Reenvío de tráfico externo a una máquina virtual determinada
 

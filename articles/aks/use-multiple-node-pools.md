@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259092"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610928"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -722,22 +722,65 @@ az group deployment create \
 
 Puede que tarde unos minutos en actualizarse el clúster de AKS según la configuración del grupo de nodos y las operaciones que defina en la plantilla de Resource Manager.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Asignación de una IP pública por nodo para un grupo de nodos (versión preliminar)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Asignación de una IP pública por nodo para un grupo de nodos (versión preliminar)
 
 > [!WARNING]
-> Durante la vista previa de la asignación de una IP pública por nodo, no se puede usar con la *SKU de Standard Load Balancer en AKS* debido a posibles reglas de equilibrador de carga en conflicto con el aprovisionamiento de la máquina virtual. Como consecuencia de esta limitación, los grupos de agentes de Windows no se admiten con esta característica en vista previa. Durante la versión preliminar, debe usar la *SKU básica de Load Balancer* si necesita asignar una dirección IP pública por nodo.
+> Debe instalar la extensión de la versión preliminar de la CLI 0.4.43 o posterior para usar la característica de IP pública por nodo.
 
 Los nodos de AKS no necesitan sus propias direcciones IP públicas para la comunicación. Sin embargo, los escenarios pueden requerir que los nodos de un grupo de nodos reciban sus propias direcciones IP públicas dedicadas. Un escenario común es para las cargas de trabajo de juegos, en las que se necesita una consola para tener una conexión directa a una máquina virtual en la nube para minimizar los saltos. Este escenario se puede lograr en AKS si se registra para una característica en vista preliminar, IP pública de nodo (versión preliminar).
 
-Regístrese para la característica de IP pública de nodo mediante la emisión del siguiente comando de la CLI de Azure.
+Para instalar o actualizar la extensión aks-preview, use los siguientes comandos de la CLI de Azure:
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+Regístrese para la característica de IP pública de nodo ejecutando el siguiente comando de la CLI de Azure:
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+La característica puede tardar varios minutos en registrarse.  Puede comprobar el estado con el siguiente comando:
 
-Después de realizar el registro correctamente, implemente una plantilla de Azure Resource Manager siguiendo las mismas instrucciones que se detallaron [antes](#manage-node-pools-using-a-resource-manager-template) y agregue la propiedad de booleano `enableNodePublicIP` en agentPoolProfiles. Establezca el valor en `true` ya que, de forma predeterminada, se establece en `false` si no se especifica. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-Esta es una propiedad de tiempo de creación y requiere una versión mínima de API de 2019-06-01. Esto se puede aplicar a los grupos de nodos de Linux y Windows.
+Después del registro correcto, cree un grupo de recursos.
+
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+Cree un clúster de AKS y conecte una dirección IP pública para los nodos. Cada uno de los nodos del grupo de nodos recibe una dirección IP pública única. Puede comprobarlo si examina las instancias del conjunto de escalado de máquinas virtuales.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+En el caso de los clústeres de AKS que ya existan, también puede agregar un nuevo grupo de nodos y asociar una dirección IP pública para los nodos.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> Durante la versión preliminar, Azure Instance Metadata Service no admite actualmente la recuperación de direcciones IP públicas para la SKU de máquina virtual de nivel estándar. Debido a esta limitación, no puede usar comandos de kubectl para mostrar las direcciones IP públicas asignadas a los nodos. Sin embargo, las direcciones IP se asignan y funcionan según lo previsto. Las direcciones IP públicas de los nodos se conectan a las instancias del conjunto de escalado de máquinas virtuales.
+
+Puede buscar las direcciones IP públicas de los nodos de varias maneras:
+
+* Use el comando de la CLI de Azure [az vmss list-instance-public-ips][az-list-ips].
+* Use [comandos de PowerShell o Bash][vmss-commands]. 
+* También puede ver las direcciones IP públicas en Azure Portal visualizando las instancias del conjunto de escalado de máquinas virtuales.
+
+> [!Important]
+> El [grupo de recursos de nodo][node-resource-group] contiene los nodos y sus direcciones IP públicas. Use el grupo de recursos de nodo al ejecutar comandos para buscar las direcciones IP públicas de los nodos.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -753,6 +796,12 @@ Para eliminar el clúster propiamente dicho, use el comando [az group delete][az
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+También puede eliminar el clúster adicional que creó para el escenario de IP pública de los grupos de nodos.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -795,3 +844,7 @@ Para crear y usar grupos de nodos de contenedores de Windows Server, consulte [C
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips

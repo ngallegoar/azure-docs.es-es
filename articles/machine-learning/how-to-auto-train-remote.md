@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080418"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612323"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube
 
@@ -30,7 +30,9 @@ En este artículo, aprenderá a crear un modelo mediante ML automatizado con Aml
 
 ## <a name="how-does-remote-differ-from-local"></a>¿En qué se diferencia el modo remoto del local?
 
-El tutorial "[Uso del aprendizaje automático para crear un modelo de regresión](tutorial-auto-train-models.md)" le enseña a usar un equipo local para entrenar un modelo con ML automatizado. El flujo de trabajo del entrenamiento local también se aplica a los destinos remotos. Sin embargo, con un proceso remoto, las iteraciones del experimento de ML automatizado se ejecutan de forma asincrónica. Esta funcionalidad le permite cancelar una iteración determinada, ver el estado de la ejecución y continuar trabajando en otras celdas del cuaderno de Jupyter. Para entrenar de forma remota, en primer lugar cree un destino de proceso remoto, como AmlCompute. A continuación, configure el recurso remoto y envíe el código allí.
+Hay más características disponibles si usa un destino de proceso remoto.  Para obtener más información, consulte los [destinos de proceso locales y remotos](concept-automated-ml.md#local-remote).
+
+El tutorial "[Uso del aprendizaje automático para crear un modelo de regresión](tutorial-auto-train-models.md)" le enseña a usar un equipo local para entrenar un modelo con ML automatizado. El flujo de trabajo del entrenamiento local también se aplica a los destinos remotos. Para entrenar de forma remota, en primer lugar cree un destino de proceso remoto, como AmlCompute. A continuación, configure el recurso remoto y envíe el código allí.
 
 En este artículo se muestran los pasos adicionales necesarios para ejecutar un experimento de ML automatizado en un destino AmlCompute remoto. Aquí se usa, en todo el código, el objeto del área de trabajo, `ws` del tutorial.
 

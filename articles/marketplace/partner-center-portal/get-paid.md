@@ -1,19 +1,20 @@
 ---
-title: Recepción de pagos en Marketplace comercial | Azure Marketplace
-description: Obtenga información acerca de cómo recibir los pagos de sus ganancias en el Marketplace comercial.
+title: Recepción de pagos en el marketplace comercial de Microsoft
+description: Obtenga información acerca de cómo recibir los pagos de sus ganancias en el marketplace comercial de Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275839"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780504"
 ---
-# <a name="getting-paid"></a>Recepción del pago
+# <a name="getting-paid-in-commercial-marketplace"></a>Recepción de pagos en el marketplace comercial
+
 Esta es información importante sobre cómo recibir el pago por las ofertas, los complementos y los ingresos publicitarios.
 
 > [!IMPORTANT]
@@ -40,35 +41,25 @@ Cada franja de precio tiene un valor correspondiente en cada una de las monedas 
 
 También tiene la opción de especificar el precio que quiera de forma libre en la moneda local de un mercado específico. Al hacerlo, el precio no se ajustará (incluso si cambian las tasas de conversión) a menos que envíe una actualización con un precio nuevo. 
 
-Tenga en cuenta que el precio que seleccione puede incluir impuestos de ventas o al valor añadido que los clientes deben pagar. Consulte los [detalles sobre los impuestos de las ofertas de pago](tax-details-paid-transactions.md) para obtener más información.
+Tenga en cuenta que el precio que seleccione puede incluir impuestos de ventas o al valor añadido que los clientes deben pagar. Para más información, consulte [Información sobre impuestos para los publicadores de Marketplace comercial](tax-details-paid-transactions.md).
 
 
 ## <a name="payout-reporting"></a>Informes de pago
 
-Puede obtener acceso a los detalles sobre la información de pago y descargar informes en el **Resumen de pago** del [Centro de partners](https://partner.microsoft.com/dashboard). Para obtener más información sobre lo que se muestra aquí y cómo clasificamos el dinero que gana, consulte el [Resumen de pago](payout-summary.md).
+Puede obtener acceso a los detalles sobre la información de pago y descargar informes en el **Resumen de pago** del [Centro de partners](https://partner.microsoft.com/dashboard). Para más información sobre lo que se muestra aquí y cómo clasificamos el dinero que gana, consulte [Introducción al resumen de pagos](payout-summary-overview.md).
 
 
-## <a name="payout-timeframe"></a>Plazo de pago
+## <a name="payout-time-frame"></a>Plazo de tiempo para el pago
 
-Los pagos se realizan mensualmente (siempre que se cumpla el umbral de pago aplicable y no haya retenido el pago tal y como se describe a continuación). Normalmente enviaremos todos los pagos cuyo vencimiento sea en un mes específico antes del día 15 de ese mes. Tenga en cuenta que los pagos suelen tardar entre 3 y 10 días laborables adicionales para llegar a su cuenta de pago. Para obtener más información, consulte [Umbrales de pago, métodos e intervalos de tiempo](payment-thresholds-methods-timeframes.md).
-
+Los pagos se realizan mensualmente (siempre que se cumpla el umbral de pago aplicable y no haya retenido el pago tal y como se describe a continuación). Normalmente enviaremos todos los pagos cuyo vencimiento sea en un mes específico antes del día 15 de ese mes. Tenga en cuenta que los pagos suelen tardar entre 3 y 10 días laborables adicionales para llegar a su cuenta de pago. Para conocer los detalles, consulte [Umbrales de pago, métodos e intervalos de tiempo](payment-thresholds-methods-timeframes.md).
 
 ##  <a name="payout-hold-status"></a>Estado de retención de pagos
 
-De forma predeterminada, enviaremos pagos mensualmente, como se describió anteriormente. No obstante, tiene la opción de retener los pagos de un programa, lo que nos impediría enviar pagos a su cuenta. Si decide retener los pagos, se siguen registrando los ingresos que genera y se le proporcionan los detalles en el **Resumen de pagos**. Sin embargo, no enviaremos ningún pago a la cuenta hasta que quite la suspensión.
+De forma predeterminada, enviaremos pagos mensualmente, como se describió anteriormente. No obstante, tiene la opción de retener los pagos de un programa, lo que nos impediría enviar pagos a su cuenta. Si decide retener los pagos, se siguen registrando los ingresos que genera y se le proporcionan los detalles en el **Resumen de pagos**. Pero no se le envía ningún pago a la cuenta hasta que quite la retención.
 
 Para retener los pagos, vaya a la **Configuración del desarrollador**. En **Pago e impuestos**, en la sección **Asignación de perfiles fiscales y de pago**, busque el programa para el que quiere suspender los pagos. Haga clic en la casilla **Retener mi pago** para retener los pagos de este programa. Puede cambiar el estado de retención de pagos en cualquier momento, pero tenga en cuenta que su decisión afectará a su próximo pago mensual. Por ejemplo, si quiere retener los pagos de abril, asegúrese de establecer el estado de retención de pagos en **Activado** antes del final de marzo.
 
-Una vez que haya establecido el estado de la retención de pagos en **Activado**, todos los pagos de este programa se pondrán en espera hasta que desplace el control deslizante de nuevo a **Desactivado**. Cuando lo haya hecho, se le incluirá en el siguiente ciclo de pago mensual (siempre que se hayan cumplido los umbrales de pago aplicables). Por ejemplo, si ha retenido los pagos pero quiere que se genere un pago en junio, asegúrese de alternar el estado de retención de pagos a **Desactivado** antes de finales de mayo.
+Una vez que haya establecido el estado de la retención de pagos en **Activado**, todos los pagos de este programa se pondrán en espera hasta que desplace el control deslizante de nuevo a **Desactivado**. Una vez hecho esto, se le incluye en el siguiente ciclo de pago mensual (siempre que se hayan cumplido los umbrales de pago aplicables). Por ejemplo, si ha retenido los pagos pero quiere que se genere un pago en junio, asegúrese de alternar el estado de retención de pagos a **Desactivado** antes de finales de mayo.
 
 > [!NOTE]
 > El **Estado de retención del pago** se aplica individualmente a cada programa (Microsoft Store, publicidad, Azure Marketplace, etc.). Si quiere retener los pagos de todos los programas, debe retenerlos en cada programa de forma individual.
-
-
- 
-
- 
-
-
-
-

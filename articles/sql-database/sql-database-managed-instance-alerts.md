@@ -10,62 +10,143 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 04/02/2020
-ms.openlocfilehash: a332627d149a36ba5d5beb2626023e58a221f0d6
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.date: 05/04/2020
+ms.openlocfilehash: 0e7c4cde684f393fd98ada46393948c5a62efa2f
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639187"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800864"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creación de alertas para Instancia administrada de Azure SQL mediante Azure Portal
 
 ## <a name="overview"></a>Información general
 
-En este artículo se muestra cómo configurar alertas para bases de datos en Instancia administrada de Azure SQL Database mediante Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño del almacenamiento de la instancia o el uso de la CPU) alcanza el umbral. En este artículo también se indican procedimientos recomendados para establecer periodos de alerta.
+En este artículo se muestra cómo configurar alertas para bases de datos en Instancia administrada de Azure SQL Database mediante Azure Portal. Alertas puede enviarle un correo electrónico, llamar a un webhook, ejecutar una función de Azure, un runbook, llamar a un sistema externo de vales compatible con ITSM, llamarle al teléfono o enviarle un mensaje de texto si una métrica como, por ejemplo, el tamaño de almacenamiento de la instancia o el uso de la CPU, alcanza un umbral predefinido. En este artículo también se indican procedimientos recomendados para establecer periodos de alerta.
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
 * **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.
-* **Eventos de registro de actividades** : una alerta puede desencadenarse en *cada* evento o solo cuando se produce una serie de eventos.
 
 Puede configurar una alerta para hacer lo siguiente cuando se desencadena:
 
-* Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio.
+* Enviar notificaciones por correo electrónico al administrador del servicio y a los coadministradores.
 * Enviar un correo electrónico a direcciones de correo electrónico adicionales que especifique.
+* Llamar a un número de teléfono con un mensaje de voz
+* Enviar un mensaje de texto a un número de teléfono
 * Llamar a un webhook
+* Llamar a una función de Azure
+* Llamar a un runbook de Azure
+* Llamar a un sistema externo de vales compatible con ITSM
 
-Puede obtener información sobre las reglas de alerta y configurarlas mediante:
+Puede obtener información sobre las reglas de alerta y configurarlas mediante las siguientes interfaces:
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfaz de la línea de comandos (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
+## <a name="alerting-metrics-available-for-managed-instance"></a>Métricas de alertas disponibles para la instancia administrada
+
+> [!IMPORTANT]
+> Las métricas de alertas están disponibles solo para la instancia administrada. Las métricas de alertas para bases de datos individuales de la instancia administrada no están disponibles. Por otra parte, la telemetría de diagnóstico de la base de datos está disponible en forma de [registros de diagnóstico](sql-database-metrics-diag-logging.md#diagnostic-telemetry-for-export-for-azure-sql-database). Las alertas de los registros de diagnóstico se pueden configurar desde el producto [SQL Analytics](../azure-monitor/insights/azure-sql.md) mediante [scripts de alertas de registro](../azure-monitor/insights/azure-sql.md#creating-alerts-for-managed-instances) para la instancia administrada.
+
+Las siguientes métricas de la instancia administrada están disponibles para la configuración de alertas:
+
+| Métrica | Descripción | Unidad de medida \ valores posibles |
+| :--------- | --------------------- | ----------- |
+| Porcentaje de CPU medio | Porcentaje medio de uso de la CPU en el período de tiempo seleccionado. | 0-100 (porcentaje) |
+| Bytes de E/S leídos | Bytes de E/S leídos en el período de tiempo seleccionado. | Bytes |
+| Bytes de E/S escritos | Bytes de E/S escritos en el período de tiempo seleccionado. | Bytes |
+| Recuento de solicitudes de E/S | Recuento de solicitudes de E/S en el período de tiempo seleccionado. | Numérico |
+| Espacio de almacenamiento reservado | Espacio máximo de almacenamiento reservado actual para la instancia administrada. Cambios con la operación de escalado de recursos. | MB (megabytes) |
+| Espacio de almacenamiento usado | Espacio de almacenamiento usado en el período seleccionado. Cambios con el consumo de almacenamiento de las bases de datos y la instancia. | MB (megabytes) |
+| Recuento de núcleos virtuales | Núcleos virtuales aprovisionados para la instancia administrada. Cambios con la operación de escalado de recursos. | 4-80 (núcleos virtuales) |
+
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creación de una regla de alerta de una métrica con Azure Portal
 
-1. En el [portal](https://portal.azure.com/), busque el recurso que desea supervisar y selecciónelo.
-2. Seleccione **Alertas** en la sección Supervisión. El texto y el icono pueden variar ligeramente en los distintos recursos.  
+1. En [Azure Portal](https://portal.azure.com/), busque la instancia administrada de SQL que desea supervisar y selecciónela.
 
-   ![Supervisión](media/sql-database-insights-alerts-portal/Alerts.png)
+2. Seleccione el elemento de menú **Métricas** en la sección Supervisión.
+
+   ![Supervisión](media/sql-database-managed-instance-alerts/mi-alerting-menu-annotated.png)
   
-3. Seleccione el botón **New alert rule** (Nueva regla de alertas) para abrir la página **Create rule** (Crear regla).
-   ![Creación de una regla](media/sql-database-insights-alerts-portal/create-rule.png)
+3. En el menú desplegable, seleccione una de las métricas en las que quiere configurar la alerta (el espacio de almacenamiento usado es la que se utiliza en el ejemplo).
 
-4. En la sección **Condition** (Condición), haga clic en **Add** (Agregar).
-   ![Definir condición](media/sql-database-insights-alerts-portal/create-rule.png)
-5. En la página **Configurar lógica de señal**, seleccione una señal.
-   ![Selección de una señal](media/sql-database-insights-alerts-portal/select-signal.png)
-6. Después de seleccionar una señal, como **Porcentaje de CPU**, aparece la página **Configurar lógica de señal**.
-   ![Configurar lógica de señal](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
-7. En esta página, configure el tipo de umbral, operador, tipo de agregación, valor de umbral, granularidad de agregación y frecuencia de evaluación. A continuación, haga clic en **Hecho**.
-8. En **Create rule** (Crear regla), seleccione un **grupo de acciones** existente o créelo. Un grupo de acciones le permite definir la acción que se va a realizar cuando se produce una condición de alerta.
-  ![Definir un grupo de acciones](media/sql-database-insights-alerts-portal/action-group.png)
+4. Seleccione el período de agregación: promedio, mínimo o máximo alcanzado en el período de tiempo especificado (Promedio, Mínimo o Máximo). 
 
-9. Defina un nombre para la regla, especifique una descripción opcional, elija el nivel de gravedad de la regla, elija si desea habilitar la regla tras su creación y haga clic en **Create rule alert** (Crear alerta de regla) para crear la alerta de regla de la métrica.
+5. Seleccione **Nueva regla de alertas**.
 
-En 10 minutos, la alerta se activa y se desencadena como se ha descrito anteriormente.
+6. En el panel Crear regla de alertas, haga clic en **Nombre de la condición** (en el ejemplo se utiliza el espacio de almacenamiento usado)
+
+   ![Definir condición](media/sql-database-managed-instance-alerts/mi-create-metrics-alert-smaller-annotated.png)
+
+7. En el panel Configurar lógica de señal, defina el operador, el tipo de agregación y el valor de umbral.
+
+   * Las opciones del tipo de operador son: mayor que, igual que y menor que (el valor de umbral).
+   * Las opciones del tipo de agregación son mínimo, máximo o promedio (en el período de granularidad de la agregación)
+   * El valor de umbral es el valor de la alerta que se evaluará en función de los criterios del operador y la agregación.
+   
+   ![Configure_signal_logic](media/sql-database-managed-instance-alerts/mi-configure-signal-logic-annotated.png)
+   
+   En el ejemplo que se muestra en la captura de pantalla, se usa el valor 1 840 876 MB que representa un valor de umbral de 1,8 TB. Como el operador del ejemplo se ha establecido en "mayor que", se creará la alerta si el consumo de espacio de almacenamiento en la instancia administrada supera los 1,8 TB. Tenga en cuenta que el valor de umbral para las métricas de espacio de almacenamiento debe expresarse en MB.
+
+8. Establezca el período de evaluación o granularidad de la agregación en minutos y la frecuencia de evaluación. La frecuencia de evaluación indica el tiempo que el sistema de alertas comprobará periódicamente si se ha cumplido la condición de umbral.
+
+9. Seleccione el grupo de acciones. Este aparecerá y podrá seleccionar una acción existente o crear una nueva. Esta acción define qué ocurrirá cuando se desencadene una alerta (por ejemplo, enviar un correo electrónico, llamar a un teléfono, ejecutar un webhook, una función de Azure o un runbook).
+
+   ![Select_action_group](media/sql-database-managed-instance-alerts/mi-select-action-group-smaller-annotated.png)
+
+   * Para crear un nuevo grupo de acciones, seleccione **+Crear grupo de acciones**.
+
+      ![Create_action_group_alerts](media/sql-database-managed-instance-alerts/mi-create-alert-action-group-smaller-annotated.png)
+   
+   * Defina cómo desea recibir las alertas: Especifique el nombre del grupo de acciones, un nombre corto, el nombre de la acción y seleccione el tipo de acción. El tipo de acción define si se le notificará por correo electrónico, mensaje de texto, llamada de voz o, tal vez, se ejecutará un webhook, una función de Azure, un runbook o se creará el vale de ITSM en el sistema compatible.
+
+      ![Define_how_to_be_alerted](media/sql-database-managed-instance-alerts/mi-add-alerts-action-group-annotated.png)
+
+10. Rellene los detalles de la regla de alertas para los registros y seleccione el tipo de gravedad.
+
+      ![Rule_description](media/sql-database-managed-instance-alerts/mi-rule-details-complete-smaller-annotated.png)
+
+   * Para completar la creación de la regla de alertas, haga clic en el botón **Crear regla de alertas**.
+
+La nueva regla de alertas se activará en unos minutos y se desencadenará según lo estipulado en la configuración.
+
+## <a name="verifying-alerts"></a>Comprobación de las alertas
+
+> [!NOTE]
+> Para suprimir alertas falsas, consulte [Supresión de alertas mediante reglas de acción](../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
+
+Después de configurar una regla de alertas, compruebe que está satisfecho con el desencadenador de alertas y su frecuencia. En el ejemplo que aparece en esta página de configuración de una alerta en el espacio de almacenamiento usado, si la opción de alerta es correo electrónico, es posible que reciba un correo electrónico como el que se muestra a continuación.
+
+   ![alert_example](media/sql-database-managed-instance-alerts/mi-email-alert-example-smaller-annotated.png)
+
+El correo electrónico muestra el nombre de la alerta, los detalles del umbral y el motivo por el que se desencadenó la alerta, lo que le ayudará a comprobar y solucionar los problemas de la alerta. Puede usar el botón **Ver en Azure Portal** para ver la alerta recibida por correo electrónico en Azure Portal. 
+
+## <a name="view-suspend-activate-modify-and-delete-existing-alert-rules"></a>Visualización, suspensión, activación, modificación y eliminación de las reglas de alertas existentes
+
+> [!NOTE]
+> Las alertas existentes se deben administrar desde el menú Alertas del panel de Azure Portal. Las alertas existentes no se pueden modificar desde la hoja de recursos Instancia administrada.
+
+Para ver, suspender, activar, modificar y eliminar las reglas de alertas existentes:
+
+1. Busque Alertas mediante la función de búsqueda de Azure Portal. Haga clic en Alertas.
+
+   ![find_alerts](media/sql-database-managed-instance-alerts/mi-manage-alerts-browse-smaller-annotated.png)
+
+   O bien, también puede hacer clic en Alertas en la barra de navegación de Azure, si la tiene configurada.
+
+2. En el panel Alertas, seleccione Administrar reglas de alerta.
+
+   ![modify_alerts](media/sql-database-managed-instance-alerts/mi-manage-alert-rules-smaller-annotated.png)
+
+   Aparecerá la lista de alertas existentes. Seleccione una regla de alertas individual existente para administrarla. Las reglas activas existentes se pueden modificar y ajustar a sus preferencias. Las reglas activas también se pueden suspender sin necesidad de eliminarse. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/platform/alerts-webhooks.md).
+* Obtenga información sobre el sistema de alertas de Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/platform/alerts-overview.md).
+* Para más información acerca de las alertas de métrica, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md).
+* Para más información sobre cómo configurar un webhook en alertas, consulte [Llamada a un webhook con una alerta de métrica clásica](../azure-monitor/platform/alerts-webhooks.md).
+* Para más información sobre la configuración y administración de alertas con PowerShell, consulte las [Reglas de acción](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2).
+* Para más información sobre la configuración y administración de alertas mediante la API, consulte la [referencia de la API REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/). 

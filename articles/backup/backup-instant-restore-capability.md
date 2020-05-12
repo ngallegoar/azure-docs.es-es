@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7cf437c6b20ea6b688e8e93e401cf71ef0260888
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705435"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597661"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -24,7 +24,7 @@ El nuevo modelo de restauración instantánea proporciona las siguientes mejoras
 * Admite tamaños de disco de hasta 32 TB. No se recomienda cambiar el tamaño de los discos en Azure Backup.
 * Admite discos SSD estándar junto con discos HDD estándar y SSD Premium.
 * Capacidad de usar cuentas de almacenamiento originales de una VM no administrada (por disco) al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
-* Para la copia de seguridad de VM que usan almacenamiento Premium, con restauración instantánea, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
+* En el caso de la copia de seguridad de máquinas virtuales que usan discos Premium sin administrar, con restauración instantánea, se recomienda asignar el *50 %* de espacio libre del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
 
 ## <a name="whats-new-in-this-feature"></a>Novedades de esta característica
 

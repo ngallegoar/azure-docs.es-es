@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4c2fa8488490561e8f11746e8e737718ee9f37
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c2a6b5c22e2988ed33e6dc15a4729e7bfe938c5f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76261269"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786924"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>¿Qué es la autenticación de Azure Active Directory?
 
@@ -86,14 +86,14 @@ Azure AD ofrece formas de autenticación nativa sin contraseña con el fin de s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar, consulte el [inicio de sesión sobre el autoservicio de restablecimiento de contraseña][quickstart-sspr] y el [tutorial de Azure Multi-Factor Authentication][tutorial-mfa-applications].
+Para comenzar, consulte el [tutorial del autoservicio de restablecimiento de contraseña][tutorial-sspr] y [Azure Multi-Factor Authentication][tutorial-azure-mfa].
 
 Para más información sobre los conceptos del autoservicio de restablecimiento de contraseña, consulte [Funcionamiento del autoservicio de restablecimiento de contraseña de Azure AD][concept-sspr].
 
 Para más información sobre los conceptos de autenticación multifactor, consulte [Funcionamiento de Azure Multi-Factor Authentication][concept-mfa].
 
 <!-- INTERNAL LINKS -->
-[quickstart-sspr]: quickstart-sspr.md
-[tutorial-mfa-applications]: tutorial-mfa-applications.md
+[tutorial-sspr]: tutorial-enable-sspr.md
+[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [concept-sspr]: concept-sspr-howitworks.md
 [concept-mfa]: concept-mfa-howitworks.md

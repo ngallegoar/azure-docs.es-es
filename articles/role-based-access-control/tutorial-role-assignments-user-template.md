@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y una plantilla de Resource Manager'
-description: Aprenda a conceder a un usuario acceso a los recursos de Azure con el control de acceso basado en rol (RBAC) y una plantilla de Azure Resource Manager.
+title: 'Tutorial: Concesión de acceso de usuario a recursos de Azure mediante una plantilla de Azure Resource Manager: Azure RBAC'
+description: En este tutorial aprenderá a conceder acceso de usuario a recursos de Azure mediante una plantilla de Azure Resource Manager y el control de acceso basado en rol (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f98b1e9c57cf9f624c5af3e59c8afd56d073dd28
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138214"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735477"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y una plantilla de Resource Manager
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-an-azure-resource-manager-template"></a>Tutorial: Concesión de acceso de usuario a recursos de Azure mediante una plantilla de Azure Resource Manager
 
 El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este tutorial, se crea un grupo de recursos y se concede acceso a un usuario para crear y administrar máquinas virtuales en el grupo de recursos. Este tutorial se centra en el proceso de implementación de una plantilla de Resource Manager para conceder el acceso. Para más información sobre el desarrollo de plantillas de Resource Manager, consulte la [documentación de Resource Manager](/azure/azure-resource-manager/) y la [referencia de plantilla](/azure/templates/microsoft.authorization/allversions
 ).
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Concesión de acceso de usuario a recursos de Azure mediante Azure PowerShell](tutorial-role-assignments-user-powershell.md)

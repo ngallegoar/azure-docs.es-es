@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 166b9c2d6b20fbd6a71ba5df17e049838038617d
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: eaab34dbf91256f0e06465d97b91543237310f97
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365906"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652913"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Enumerar y obtener tablas de Table API de Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Enumera cuentas de Cosmos DB u obtiene una cuenta de Cosmos DB especificada. |
-| [Get-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Enumera las tablas de Table API en Cosmos DB u obtiene una tabla de Table API en Cosmos DB especificada en una cuenta. |
+| [Get-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Enumera las tablas de Table API de una cuenta u obtiene una tabla de Table API especificada en una cuenta. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

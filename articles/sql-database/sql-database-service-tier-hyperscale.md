@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 074a28af8c80c109dbe97306900e8f00618e435a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a5512aa1a2538d3336bbcc4f65cad671d52b711a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411697"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610673"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -209,7 +209,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Si una base de datos tiene uno o más archivos de datos de más de 1 TB, se produce un error en la migración | En algunos casos, es posible que se pueda solucionar este problema si se reducen los archivos de gran tamaño para que tengan menos de 1 TB. Si va a migrar una base de datos que se utiliza durante el proceso de migración, asegúrese de que ningún archivo tenga un tamaño superior a 1 TB. Utilice la siguiente consulta para determinar el tamaño de los archivos de base de datos. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | de SQL DB | Instancia administrada de Azure SQL Database no es compatible actualmente con las bases de datos Hiperescala. |
 | Grupos elásticos |  Los grupos elásticos no admiten actualmente con SQL Database Hiperescala.|
-| La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo BACPAC u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.)|
+| La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo bacpac u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.) No se admite la exportación o importación de bacpac desde Azure Portal, desde PowerShell mediante [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), desde la CLI de Azure con [az sql db export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) y [az sql db import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import) ni desde la [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export). Se admite la importación y exportación de bases de datos de Hiperescala (200 GB como máximo) mediante SSMS y [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versión 18.4 y posteriores. En el caso de las bases de datos de mayor tamaño, la importación y exportación de bacpac puede tardar mucho tiempo y producir errores por diversos motivos.|
 | Migración de bases de datos con objetos en memoria persistentes | Hiperescala solo admite objetos en memoria no persistentes (tipos de tabla, SP nativos y funciones).  Las tablas en memoria persistentes y otros objetos deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescala.|
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala. |
 | Copia de base de datos | Todavía no puede usar la copia de base de datos para crear una base de datos nueva en Hiperescala de Azure SQL. |

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229476"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791874"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 
@@ -68,13 +68,13 @@ Una vez declaradas las restricciones de ubicación y las propiedades de nodo, re
 1. En PowerShell, ejecute `Disable-ServiceFabricNode` con la intención `RemoveNode` para deshabilitar el nodo que se va a quitar. Quite el tipo de nodo que tiene el número más alto. Por ejemplo, si tiene un clúster de seis nodos, quite la instancia de máquina virtual "MyNodeType_5".
 2. Ejecute `Get-ServiceFabricNode` para asegurarse de que el nodo ya está como deshabilitado. Si no es así, espere hasta que se deshabilite. Esta operación puede tardar un par de horas por cada nodo. No continúe hasta que el nodo esté como deshabilitado.
 3. Disminuya en uno el número de máquinas virtuales de ese tipo de nodo. Se quitará la instancia de máquina virtual más alta.
-4. repita los pasos del 1 al 3 según vea necesario, pero nunca apague las instancias del nodo principal ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. Consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obtener una lista de instancias recomendadas.
+4. Repita los pasos del 1 al 3 según sea necesario, pero nunca reduzca horizontalmente las instancias de los tipos de nodo principal a un número inferior al que garantiza el nivel de confiabilidad. Consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obtener una lista de instancias recomendadas.
 5. Una vez que todas las máquinas virtuales hayan desaparecido (representadas como "Fuera de servicio"), fabric:/System/InfrastructureService/[nombre de nodo] mostrará un estado de Error. Luego, puede actualizar el recurso de clúster para quitar el tipo de nodo. Puede usar la implementación de plantilla de Resource Manager o editar el recurso de clúster a través de [Azure Resource Manager](https://resources.azure.com). Esta acción iniciará una actualización de clúster que quitará al servicio fabric:/System/InfrastructureService/[tipo de nodo] que se encuentra en estado de error.
  6. Después de eliminar, si quiere, VMScaleSet, seguirá viendo los nodos como "Fuera de servicio" en la vista de Service Fabric Explorer. El último paso sería limpiarlos con el comando `Remove-ServiceFabricNodeState`.
 
 ## <a name="horizontal-scaling"></a>Escalado horizontal
 
-Puede realizar el escalado horizontal [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) o [mediante programación](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+Puede realizar el escalado horizontal [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) o [mediante programación](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
 > Si va a escalar un tipo de nodo con una durabilidad de nivel Silver o Gold, el escalado será lento.
@@ -103,7 +103,7 @@ Para escalar horizontalmente de forma manual, actualice la capacidad de la propi
 
 La reducción horizontal requiere más atención que el escalado horizontal. Por ejemplo:
 
-* Los servicios del sistema de Service Fabric se ejecutan en el tipo de nodo principal del clúster. Nunca apague las instancias de esos tipos de nodo ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. 
+* Los servicios del sistema de Service Fabric se ejecutan en el tipo de nodo principal del clúster. Nunca apague las instancias de esos tipos de nodo ni las reduzca horizontalmente a un número inferior al que garantiza el nivel de confiabilidad. 
 * Para un servicio con estado, necesita que un determinado número de nodos siempre esté activo para mantener la disponibilidad y preservar el estado del servicio. Como mínimo, necesita que el número de nodos sea igual al recuento de conjuntos de réplicas de destino de la partición o el servicio.
 
 Para reducir horizontalmente de forma manual, siga estos pasos:
@@ -111,7 +111,7 @@ Para reducir horizontalmente de forma manual, siga estos pasos:
 1. En PowerShell, ejecute `Disable-ServiceFabricNode` con la intención `RemoveNode` para deshabilitar el nodo que se va a quitar. Quite el tipo de nodo que tiene el número más alto. Por ejemplo, si tiene un clúster de seis nodos, quite la instancia de máquina virtual "MyNodeType_5".
 2. Ejecute `Get-ServiceFabricNode` para asegurarse de que el nodo ya está como deshabilitado. Si no es así, espere hasta que se deshabilite. Esta operación puede tardar un par de horas por cada nodo. No continúe hasta que el nodo esté como deshabilitado.
 3. Disminuya en uno el número de máquinas virtuales de ese tipo de nodo. Se quitará la instancia de máquina virtual más alta.
-4. Repita los pasos del 1 al 3, según sea necesario, hasta que aprovisione la capacidad que quiera. Nunca reduzca las instancias del nodo principal a un número inferior al que garantiza el nivel de confiabilidad. Consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obtener una lista de instancias recomendadas.
+4. Repita los pasos del 1 al 3, según sea necesario, hasta que aprovisione la capacidad que quiera. Nunca reduzca horizontalmente las instancias de los tipos de nodo principal a un número inferior al que garantiza el nivel de confiabilidad. Consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obtener una lista de instancias recomendadas.
 
 Para reducir horizontalmente de forma manual, actualice la capacidad de la propiedad SKU del recurso de [conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) de su elección.
 
@@ -166,7 +166,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Al reducir verticalmente un clúster, verá la instancia quitada del nodo o la máquina virtual mostrada en un estado incorrecto en Service Fabric Explorer. Para obtener una explicación de este comportamiento, consulte [Comportamientos que se pueden observar en Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Puede:
+> Al reducir horizontalmente un clúster, verá la instancia quitada del nodo o la máquina virtual mostrada en un estado incorrecto en Service Fabric Explorer. Para obtener una explicación de este comportamiento, consulte [Comportamientos que se pueden observar en Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). Puede:
 > * Llamar al [comando Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con el nombre de nodo adecuado.
 > * Implementar la [aplicación auxiliar de escalabilidad automática de Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) en el clúster. Esta aplicación garantiza que los nodos que se han reducido verticalmente se borran de Service Fabric Explorer.
 

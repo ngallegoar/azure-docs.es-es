@@ -10,16 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80371616"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780919"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de la versión: SDK de dispositivos de voz
 
 En las siguientes secciones se indican los cambios en las versiones más recientes.
+
+## <a name="speech-devices-sdk-1110"></a>SDK de dispositivos de voz 1.11.0:
+
+- Compatibilidad con [geometrías de matriz de micrófonos arbitrarias](how-to-devices-microphone-array-configuration.md) y establecimiento del ángulo de trabajo a través de un [archivo de configuración](https://aka.ms/sdsdk-micarray-json).
+- Compatibilidad con [Urbetter DDK](http://www.urbetter.com/products_56/278.html).
+- Se han publicado los binarios para [GGEC Speaker](https://aka.ms/sdsdk-download-speaker) usados en nuestro [ejemplo del Asistente de voz](https://aka.ms/sdsdk-speaker).
+- Se han publicado los binarios para [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) y [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) para Raspberry Pi y dispositivos similares.
+- Se ha actualizado el componente [SDK de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) a la versión 1.11.0. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-190"></a>SDK de dispositivos de voz 1.9.0:
 

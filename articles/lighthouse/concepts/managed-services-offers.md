@@ -1,24 +1,24 @@
 ---
-title: Ofertas de servicio administrado en Azure Marketplace
+title: Ofertas de servicios administrados en Azure Marketplace
 description: Las ofertas de servicio administrado permiten a los proveedores de servicios vender ofertas de administración de recursos a los clientes de Azure Marketplace.
-ms.date: 03/30/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: a0670bd74971132dcf243736bdf882a00154a942
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672424"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792299"
 ---
-# <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicio administrado en Azure Marketplace
+# <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 
-En este artículo se describe el tipo de oferta **Servicio administrado** de [Azure Marketplace](https://azuremarketplace.microsoft.com). Las ofertas de servicio administrado le permiten ofrecer servicios de administración de recursos a los clientes mediante el uso de la [administración de recursos delegados de Azure](azure-delegated-resource-management.md). Puede hacer que estas ofertas estén disponibles para todos los clientes potenciales o solo para uno o varios clientes más específicos. Dado que los clientes facturan directamente los costos relacionados con estos servicios administrados, Microsoft no aplica ningún cargo.
+En este artículo se describe el tipo de oferta **Servicio administrado** de [Azure Marketplace](https://azuremarketplace.microsoft.com). Las ofertas de servicio administrado le permiten ofrecer servicios de administración de recursos a los clientes mediante la [administración de recursos delegados de Azure](azure-delegated-resource-management.md). Puede hacer que estas ofertas estén disponibles para todos los clientes potenciales o solo para uno o varios clientes más específicos. Dado que los clientes facturan directamente los costos relacionados con estos servicios administrados, Microsoft no aplica ningún cargo.
 
-## <a name="understand-managed-service-offers"></a>Descripción de las ofertas de servicio administrado
+## <a name="understand-managed-service-offers"></a>Información sobre las ofertas de servicio administrado
 
 Las ofertas de servicio administrado simplifican el proceso de incorporación de clientes para la administración de recursos delegados de Azure. Cuando un cliente compre una oferta en Azure Marketplace, podrá especificar los suscripciones o grupos de recursos que deben incorporarse.
 
-Después, los usuarios de la organización podrán trabajar con esos recursos desde dentro del inquilino de la organización en función del acceso que se haya definido al crear la oferta en [Cloud Partner Portal](https://cloudpartner.azure.com/). Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure AD que tendrán acceso a los recursos del cliente mediante la administración de recursos delegados de Azure, junto con los roles que definen su nivel de acceso. Al asignar permisos a un grupo de Azure AD, en lugar de una serie de cuentas de usuario o de aplicación individuales, puede agregar o quitar usuarios individuales cuando cambien sus requisitos de acceso.
+Después, los usuarios de la organización podrán trabajar con esos recursos desde dentro del inquilino de la organización en función del acceso que se haya definido al crear la oferta. Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure Active Directory (Azure AD) que tendrán acceso a los recursos del cliente, junto con los roles que definen su nivel de acceso. Al asignar permisos a un grupo de Azure AD, en lugar de una serie de cuentas de usuario o de aplicación individuales, puede agregar o quitar usuarios individuales cuando cambien sus requisitos de acceso.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas y privadas
 
@@ -31,13 +31,13 @@ Los planes públicos permiten promover los servicios para nuevos clientes. Suele
 Si es necesario, puede incluir planes públicos y privados en la misma oferta.
 
 > [!IMPORTANT]
-> Una vez publicado un plan como público, no puede cambiarlo a privado. Para controlar qué clientes pueden aceptar su oferta y delegar recursos, use un plan privado. Con un plan público, no puede restringir la disponibilidad a determinados clientes ni a un determinado número de clientes, aunque puede dejar de vender el plan por completo si decide hacerlo. Puede [quitar el acceso a una delegación](../how-to/onboard-customer.md#remove-access-to-a-delegation) después de que un cliente acepte una oferta solo si incluyó una **autorización** con la **definición de rol** establecida en [Rol para eliminar la asignación de registros de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al publicar la oferta. También puede ponerse en contacto con el cliente y solicitarle [que quite el acceso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Una vez publicado un plan como público, no puede cambiarlo a privado. Para controlar qué clientes pueden aceptar su oferta y delegar recursos, use un plan privado. Con un plan público, no puede restringir la disponibilidad a determinados clientes ni a un determinado número de clientes, aunque puede dejar de vender el plan por completo si decide hacerlo. Puede [quitar el acceso a una delegación](../how-to/remove-delegation.md) después de que un cliente acepte una oferta solo si incluyó una **autorización** con la **definición de rol** establecida en [Rol para eliminar la asignación de registros de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al publicar la oferta. También puede ponerse en contacto con el cliente y solicitarle [que quite el acceso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
-## <a name="publish-managed-service-offers"></a>Publicar ofertas de servicio administrado
+## <a name="publish-managed-service-offers"></a>Publicación de ofertas de servicio administrado
 
-Para obtener información sobre cómo publicar una oferta de servicios administrados, consulte [Publish a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md) (Publicación de una oferta de servicios administrados en Azure Marketplace). Para obtener información general sobre la publicación en Azure Marketplace mediante Cloud Partner Portal, consulte [Guía de publicación de Azure Marketplace y AppSource](../../marketplace/marketplace-publishers-guide.md).
+Aprenda a publicar una oferta de servicios administrados, consulte [Publicación de una oferta de servicio administrado en Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información acerca de la [administración de recursos delegados de Azure](azure-delegated-resource-management.md) y las [experiencias de administración entre inquilinos](cross-tenant-management-experience.md).
-- [Publicar ofertas de servicios administrados](../how-to/publish-managed-services-offers.md) en Azure Marketplace.
+- [Publicación de una oferta de servicio administrado](../how-to/publish-managed-services-offers.md) en Azure Marketplace.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/17/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 346795b79a78589d949b035a803a67a9e5a2e8e5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b6dd1aab4c0ce6c656600d7cc7c71233d256aa0b
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77470741"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780545"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Inicio rápido: Análisis de datos con Databricks
 
@@ -78,7 +78,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
 Para obtener más información sobre la creación de clústeres, consulte [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creación de un clúster de Spark en Azure Databricks).
 
-## <a name="create-storage-account-container"></a>Creación del contenedor de cuenta de almacenamiento
+## <a name="create-notebook"></a>Creación de un cuaderno
 
 En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks y, a continuación, ejecutará fragmentos de código para configurar la cuenta de almacenamiento.
 

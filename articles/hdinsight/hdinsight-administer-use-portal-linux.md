@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/12/2020
-ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233704"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598505"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -200,9 +200,9 @@ En la [página principal del clúster](#homePage):
 
 La contraseña se cambia en todos los nodos del clúster.
 
-### <a name="change-the-ssh-user-password"></a>Cambio de la contraseña de usuario de SSH
+### <a name="change-the-ssh-user-password-or-public-key"></a>Cambio de la contraseña de usuario o la clave pública de SSH
 
-1. Con un editor de texto, guarde el texto siguiente como un archivo llamado **changepassword.sh**.
+1. Con un editor de texto, guarde el texto siguiente como un archivo llamado **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > Debe utilizar un editor que use LF como final de líneas. Si el editor utiliza CRLF, el script no funcionará.
@@ -219,16 +219,22 @@ La contraseña se cambia en todos los nodos del clúster.
 4. En la página **Acciones de script**, seleccione **Enviar nuevo**.
 5. En la página **Enviar acción de script**, escriba la siguiente información:
 
+> [!NOTE]
+> Las contraseñas SSH no pueden contener los siguientes caracteres:
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
    | Campo | Value |
    | --- | --- |
    | Tipo de script | Seleccione **- Personalizado** en la lista desplegable.|
-   | Nombre |"Cambio de contraseña de SSH" |
-   | URI de script de Bash |El identificador URI del archivo changepassword.sh |
+   | Nombre |"Change ssh credentials" |
+   | URI de script de Bash |El URI para el archivo changecredentials.sh |
    | Tipos de nodo: (principal, de trabajo, nimbus, supervisor, zookeeper, etc.) |✓ para todos los tipos de nodo indicados |
    | Parámetros |Escriba el nombre de usuario de SSH y la contraseña nueva. Debe haber un espacio entre el nombre de usuario y la contraseña. |
    | Conservar esta acción de script... |Deje este campo en sin activar. |
 
-6. Seleccione **Crear** para aplicar el script. Una vez que finalice el script, puede conectarse al clúster mediante SSH con la nueva contraseña.
+6. Seleccione **Crear** para aplicar el script. Una vez que finalice el script, puede conectarse al clúster mediante SSH con las nuevas credenciales.
 
 ## <a name="find-the-subscription-id"></a>Búsqueda del identificador de la suscripción
 

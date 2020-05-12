@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 4baa06ad0011b06da50fd7a83aaa3e87db62c6ac
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae94a5c8d7e9ff93098e85535aea3699206b9e03
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417529"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626964"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -90,7 +90,7 @@ Para más información, consulte [Autoservicio de intercambios y reembolsos de r
 - **Capacidad reservada de Azure Storage**: una reserva cubre la capacidad de almacenamiento de las cuentas de almacenamiento estándar para el almacenamiento de blobs o el almacenamiento de Azure Data Lake Gen2. La reserva no cubre las tasas de ancho de banda o de transacción.
 - **Capacidad reservada de Azure Cosmos DB**: una reserva abarca el rendimiento aprovisionado de los recursos. No cubre los cargos de almacenamiento y redes.
 - **Núcleo virtual reservado de SQL Database**: solo se incluyen con una reserva los costos de proceso. La licencia de SQL se factura por separado.
-- **SQL Data Warehouse**: una reserva cubre el uso de cDWU. No cubre los cargos de almacenamiento o de red asociados con el uso de SQL Data Warehouse.
+- **Azure Synapse Analytics**: las reservas cubren el uso de unidades de almacenamiento de datos de proceso. Sin embargo, no cubren los cargos de almacenamiento o de red asociados con el uso de Azure Synapse Analytics.
 - **Azure Databricks**: una reserva solo cubre el uso de DBU. Otros cargos, tales como proceso, almacenamiento y redes, se aplican por separado.
 - **Impuesto sobre el timbre de App Service**: una reserva cubre el uso del timbre. No se aplica a los trabajos, por lo que los demás recursos asociados con el timbre se cobran por separado.
 - **Azure Database for MySQL**: solo se incluyen con una reserva los costos de proceso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de MySQL.

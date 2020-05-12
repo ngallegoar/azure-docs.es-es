@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: ef10dd7566d74a112a849f500da1831bc8ccb682
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: e3a2e1f277d0824089ef5288f8966f9cd4b21efc
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365686"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651991"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Actualización de RU/s para una tabla o un espacio de claves de Cassandra API en Azure Cosmos DB
 
@@ -39,11 +39,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Get-Help | Notas |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Set-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandrakeyspace) | Crea o actualiza un espacio de claves de Cassandra API en Cosmos DB. |
-| [New-AzCosmosDBCassandraClusterKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | Crea una nueva clave de clúster de Cassandra en CosmosDB. |
-| [New-AzCosmosDBCassandraColumn](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Crea una nueva clave de columna de Cassandra en CosmosDB. |
-| [New-AzCosmosDBCassandraSchema](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | Crea un nuevo esquema de Cassandra en CosmosDB. |
-| [Set-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbcassandratable) | Crea o actualiza una tabla de Cassandra API en Cosmos DB. |
+| [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Obtiene el valor de la capacidad de proceso de la tabla de Cassandra API. |
+| [Update-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbcassandratablethroughput) | Actualiza el valor de la capacidad de proceso de la tabla de Cassandra API. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

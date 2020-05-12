@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 022c6360b97c7c27887ff5d2f6460f69cb8126c6
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457304"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778471"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -71,7 +71,7 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 
 Office 365 proporciona servicios de colaboración y productividad basados en la nube, como Exchange, SharePoint y Microsoft Teams. Los servicios en la nube de Office 365 están profundamente integrados para garantizar experiencias de colaboración fluidas. Esta integración puede producir confusión a la hora de crear directivas, ya que algunas aplicaciones, como Microsoft Teams, dependen de otras, como SharePoint o Exchange.
 
-La aplicación Office 365 (versión preliminar) permite la segmentación de todos estos servicios a la vez. Se recomienda usar la nueva aplicación Office 365 (versión preliminar), en lugar de orientarse a aplicaciones en la nube individuales. Trabajar con este grupo de aplicaciones ayuda a evitar problemas que pueden surgir debido a directivas y dependencias incoherentes.
+La aplicación Office 365 (versión preliminar) permite la segmentación de todos estos servicios a la vez. Se recomienda usar la nueva aplicación Office 365 (versión preliminar) en lugar de aplicaciones en la nube individuales para evitar problemas con las [dependencias de servicio](service-dependencies.md). Trabajar con este grupo de aplicaciones ayuda a evitar problemas que pueden surgir debido a directivas y dependencias incoherentes.
 
 Los administradores pueden optar por excluir aplicaciones específicas de la directiva si lo desean, incluyendo la aplicación Office 365 (versión preliminar) y excluyendo las aplicaciones específicas que decidan.
 
@@ -98,7 +98,7 @@ Aplicaciones clave que se incluyen en la aplicación cliente Office 365 (versió
 
 La aplicación de administración de Microsoft Azure incluye varios servicios subyacentes. 
 
-   - Portal de Azure
+   - Azure Portal
    - Proveedor de Azure Resource Manager
    - API del modelo de implementación clásica
    - Azure PowerShell

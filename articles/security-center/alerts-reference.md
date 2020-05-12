@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: ef715ed7df1cc203e66bb33cd1493a7f7a713327
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 9b96547b841c26f12aff2db781ce55c49ef9cde4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82081615"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790633"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -294,7 +294,7 @@ Debajo de las tablas de alertas hay una tabla que describe la cadena de eliminac
 |**Acceso desde un nodo de salida de Tor a una cuenta de almacenamiento**|Indica que se accedió a esta cuenta correctamente desde una dirección IP conocida como nodo de salida activo de Tor (proxy anónimo). La gravedad de esta alerta considera el tipo de autenticación usado (si existe) y si es la primera vez que se produce tal acceso. Las causas posibles pueden ser un atacante que haya tenido acceso a su cuenta de almacenamiento mediante Tor o un usuario legítimo que haya tenido acceso a su cuenta de almacenamiento mediante Tor.|Sondeo/Explotación|Alto|
 |**Acceso desde una ubicación inusual a una cuenta de almacenamiento**|Indica que se ha producido un cambio en el patrón de acceso a una cuenta de Azure Storage. Alguien accedió a esta cuenta desde una dirección IP que se considera desconocida en comparación con la actividad reciente. Un atacante obtuvo acceso a la cuenta o un usuario legítimo se conectó desde una ubicación geográfica nueva o inusual. Un ejemplo de esto último es el mantenimiento remoto desde una nueva aplicación o desarrollador.|Explotación|Bajo|
 |**Acceso anónimo a una cuenta de almacenamiento**|Indica que se ha producido un cambio en el patrón de acceso a una cuenta de almacenamiento. Por ejemplo, se ha accedido de forma anónima a la cuenta (sin autenticación), algo que resulta inesperado si se tiene en cuenta el patrón de acceso reciente en la cuenta. Una causa posible es que un atacante se haya aprovechado del acceso de lectura público a un contenedor que incluye almacenamiento en blobs.|Explotación|Alto|
-|**Posible malware cargado en una cuenta de almacenamiento**|Indica que un blob que contiene malware potencial se ha cargado en una cuenta de almacenamiento. Entre las posibles causas de ello, se pueden incluir una carga intencional del malware por parte de un atacante o una carga involuntaria de un blob potencialmente malintencionado por parte de un usuario legítimo.|LateralMovement|Alto|
+|**Posible malware cargado en una cuenta de almacenamiento**|Indica que un blob que contiene malware potencial se ha cargado en una cuenta de almacenamiento. Esta alerta se basa en el análisis de reputación de hash que aprovecha la eficacia de la inteligencia sobre amenazas de Microsoft, que incluye los valores hash de virus, troyanos, spyware y ransomware. Entre las posibles causas de ello, se pueden incluir una carga intencional del malware por parte de un atacante o una carga involuntaria de un blob potencialmente malintencionado por parte de un usuario legítimo. Obtenga más información sobre las funcionalidades de inteligencia sobre amenazas de Microsoft aquí: https://go.microsoft.com/fwlink/?linkid=2128684 |LateralMovement|Alto|
 |**Inspección de acceso inusual en una cuenta de almacenamiento**|Indica que los permisos de acceso de una cuenta de almacenamiento se han inspeccionado de un modo no habitual, en comparación con la actividad reciente de esta cuenta. Una posible causa es que un atacante ha realizado un reconocimiento para un ataque futuro.|Colección|Media|
 |**Cantidad inusual de datos extraídos de una cuenta de almacenamiento**|Indica que se ha extraído una cantidad de datos inusualmente grande en comparación con la actividad reciente en este contenedor de almacenamiento. Una causa posible es que un atacante haya extraído una gran cantidad de datos de un contenedor que incluye almacenamiento en blobs.|Exfiltración|Media|
 |**Acceso de una aplicación inusual a una cuenta de almacenamiento**|Indica que una aplicación inusual ha accedido a esta cuenta de almacenamiento. Una posible causa es que un atacante ha accedido a la cuenta de almacenamiento mediante el uso de una aplicación nueva.|Explotación|Media|

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78271807"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778267"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
@@ -82,7 +82,7 @@ Permita el tráfico desde las direcciones IP enumeradas en los servicios de mant
 
 Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Inteligencia y análisis de Azure Government).
 
-Para más información, vea la sección [Control del tráfico de red](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+Para más información, consulte [Control del tráfico de red](./control-network-traffic.md).
 
 Si está usando rutas definidas por el usuario (UDR), debe especificar una ruta y permitir el tráfico saliente desde la red virtual a las IP anteriores, con el próximo salto configurado en "Internet".
 

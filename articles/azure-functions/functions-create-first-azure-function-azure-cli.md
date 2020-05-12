@@ -4,24 +4,42 @@ description: Aprenda a crear una función desde la línea de comandos y, luego, 
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 547acb42be6a0c89dbc315031c46192b5c9a4a0d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732807"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626265"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Inicio rápido: Creación de una función en Azure que responda a solicitudes HTTP
 
-En este artículo se usan herramientas de línea de comandos para crear una función que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. Este inicio rápido supone un pequeño costo en su cuenta de Azure.
+::: zone pivot="programming-language-csharp"  
+En este artículo se usan herramientas de línea de comandos para crear una función basada en biblioteca de clases de C# que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+En este artículo se usan herramientas de línea de comandos para crear una función de JavaScript que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. 
+::: zone-end
+::: zone pivot="programming-language-typescript"
+En este artículo se usan herramientas de línea de comandos para crear una función de TypeScript que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. 
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+En este artículo se usan herramientas de línea de comandos para crear una función de PowerShell que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-python" 
+En este artículo se usan herramientas de línea de comandos para crear una función de Python que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+En este artículo se usan herramientas de línea de comandos para crear una función de Java que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions. 
+::: zone-end
+
+Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 También hay una [versión basada en Visual Studio Code](functions-create-first-function-vs-code.md) de este artículo.
 ::: zone-end  
-
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Si Maven no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) y [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Si Maven no es la herramienta de desarrollo elegida, consulte nuestros tutoriales análogos para desarrolladores de Java con [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) y [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -381,9 +399,16 @@ Si continúa con el paso siguiente, [Adición de un enlace de salida de la cola 
 
 De lo contrario, use el siguiente comando para eliminar el grupo de recursos y todos los recursos que contiene para evitar incurrir en costos adicionales.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
 ```
+::: zone-end
+::: zone pivot="programming-language-java"
+```azurecli
+az group delete --name java-functions-group
+```
+::: zone-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 

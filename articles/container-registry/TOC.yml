@@ -32,6 +32,11 @@
               href: container-registry-tutorial-deploy-app.md
             - name: 3 - Actualización de la aplicación web
               href: container-registry-tutorial-deploy-update.md
+    - name: Ejemplos
+      items:
+        - name: Elementos integrados de Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-samples.md
     - name: Conceptos
       expanded: false
       items:
@@ -39,7 +44,7 @@
           items:
             - name: Línea de base de seguridad
               href: security-baseline.md
-        - name: SKU de Container Registry y límites
+        - name: Niveles y límites de Container Registry
           href: container-registry-skus.md
         - name: 'Registros, repositorios e imágenes'
           href: container-registry-concepts.md
@@ -68,6 +73,8 @@
               href: container-registry-repositories.md
             - name: Importación de imágenes de contenedor
               href: container-registry-import-images.md
+            - name: Transferencia de artefactos (versión preliminar)
+              href: container-registry-transfer-images.md
             - name: Bloqueo de imágenes de contenedor
               href: container-registry-image-lock.md
             - name: Eliminación de imágenes de contenedor
@@ -82,10 +89,14 @@
               href: container-registry-webhook.md
         - name: Seguridad y autenticación
           items:
-            - name: Limitación de acceso con red virtual (versión preliminar)
-              href: container-registry-vnet.md
-            - name: Integración con Azure Private Link (versión preliminar)
+            - name: Restricción del acceso mediante puntos de conexión privados
               href: container-registry-private-link.md
+            - name: Configuración de las reglas de firewall del servicio
+              href: container-registry-access-selected-networks.md
+            - name: Restricción del acceso mediante puntos de conexión de servicio (versión preliminar)
+              href: container-registry-vnet.md
+            - name: Cifrado con una clave administrada por el cliente
+              href: container-registry-customer-managed-keys.md
             - name: Acceso detrás de un firewall
               href: container-registry-firewall-access-rules.md
             - name: Authentication
@@ -102,16 +113,14 @@
                   href: container-registry-auth-kubernetes.md
                 - name: Autenticación desde Azure Kubernetes Service (AKS)
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+                - name: Autenticación con un token cuyo ámbito es el repositorio (versión preliminar)
+                  href: container-registry-repository-scoped-permissions.md
             - name: Control de acceso basado en rol
               href: container-registry-roles.md
-            - name: Permisos cuyo ámbito son los repositorios (versión preliminar)
-              href: container-registry-repository-scoped-permissions.md
             - name: Confianza de contenido
               href: container-registry-content-trust.md
             - name: Digitalización de imágenes con Security Center
               href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-            - name: Cifrado de datos del registro (versión preliminar)
-              href: container-registry-customer-managed-keys.md
         - name: Registros y otros servicios de Azure
           expanded: false
           items:

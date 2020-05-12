@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641367"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733673"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -47,7 +47,7 @@ Debe quitar este acceso con privilegios elevados una vez que haya hecho los camb
 
 ![Elevación de los privilegios de acceso](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Elevación de los privilegios de acceso de un administrador global
 
@@ -84,7 +84,7 @@ Siga estos pasos para elevar los privilegios de acceso de un administrador globa
 
 1. Haga los cambios que tenga que hacer con privilegios de acceso elevados.
 
-    Para obtener información acerca de cómo asignar roles, consulte [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md). Si usa Azure AD Privileged Identity Management (PIM), consulte [Detección de recursos de Azure que se administran en PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) o [Asignación de roles de recursos de Azure en PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](role-assignments-portal.md). Si usa Azure AD Privileged Identity Management (PIM), consulte [Detección de recursos de Azure que se administran en PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) o [Asignación de roles de recursos de Azure en PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados
 
@@ -321,5 +321,5 @@ Cuando llama a `elevateAccess`, se crea una asignación de roles para usted, por
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Descripción de los distintos roles en Azure](rbac-and-directory-admin-roles.md)
-- [Administración del acceso a recursos de Azure mediante RBAC y la API de REST](role-assignments-rest.md)
+- [Descripción de los distintos roles](rbac-and-directory-admin-roles.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md)

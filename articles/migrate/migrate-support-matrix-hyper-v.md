@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación de Hyper-V en Azure Migrate
 description: Obtenga información sobre la compatibilidad con la evaluación de Hyper-V con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538178"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744598"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de compatibilidad para la evaluación de Hyper-V
 
@@ -54,7 +54,7 @@ Azure Migrate usa el [dispositivo de Azure Migrate](migrate-appliance.md) para l
 
 - Obtenga información sobre los [requisitos del dispositivo](migrate-appliance.md#appliance---hyper-v) para Hyper-V.
 - Obtenga información sobre las direcciones URL a las que el dispositivo necesita acceder en nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
-- En Azure Government, debe implementar el dispositivo mediante el script.
+- En Azure Government, debe implementar el dispositivo [mediante el script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Acceso a puertos
 

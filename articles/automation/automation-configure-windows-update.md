@@ -3,14 +3,14 @@ title: Configuración de Windows Update para trabajar con Azure Update Manageme
 description: En este artículo se describen los parámetros de Windows Update que se configuran para trabajar con Azure Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235640"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779457"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configuración de los parámetros de Windows Update para Update Management
 
@@ -22,6 +22,8 @@ Azure Update Management se basa en el [cliente de Windows Update](https://docs.m
 - Edición directa del Registro
 
 Update Management respeta muchas de las configuraciones especificadas para controlar el cliente de Windows Update. Si usa la configuración para habilitar las actualizaciones que no son de Windows, Update Management también administrará dichas actualizaciones. Si quiere habilitar la descarga de actualizaciones antes de que se lleve a cabo una implementación de actualizaciones, las implementaciones de actualizaciones pueden ejecutarse de manera más rápida y eficaz, con menos probabilidades de exceder la ventana de mantenimiento.
+
+Para encontrar recomendaciones adicionales sobre cómo configurar WSUS en la suscripción de Azure y mantener actualizadas las máquinas virtuales de Windows de forma segura, revise [Planeamiento de la implementación para actualizar máquinas virtuales Windows en Azure con WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Actualizaciones previas a la descarga
 

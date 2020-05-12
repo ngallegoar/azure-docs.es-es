@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d97fbe6ac515a2559340474105d73b7c9b9c6ee4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537022"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731924"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -129,7 +129,7 @@ Al incorporar varias máquinas, puede haber algunas que se muestren como `Cannot
 
 **Causa:** la solución no se admite en todas las distribuciones de Linux o todas las versiones de Windows.
 
-**Solución:** consulte la [lista de clientes admitidos](automation-update-management.md#clients) para la solución.
+**Solución:** Consulte la [lista de clientes admitidos](automation-update-management.md#supported-client-types).
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Las máquinas virtuales clásicas no se puede habilitar
 

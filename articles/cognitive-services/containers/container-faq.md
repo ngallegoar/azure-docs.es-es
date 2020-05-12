@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876513"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690819"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de los contenedores de Azure Cognitive Services
 
@@ -76,7 +76,11 @@ Desafortunadamente, los contenedores de Cognitive Services *no* se admiten de fo
 
 **P: ¿Cómo debo ejecutar los contenedores de Cognitive Services en dispositivos IoT?**
 
-Tanto si no dispone de una conexión a Internet confiable o desea ahorrar en el ancho de banda, como si tiene requisitos de latencia baja o está tratando con datos confidenciales que se deban analizar en el sitio, [Azure IoT Edge con los contenedores Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) le proporciona coherencia con la nube.
+**R:** Tanto si no dispone de una conexión a Internet confiable o desea ahorrar en el ancho de banda, como si tiene requisitos de latencia baja o está tratando con datos confidenciales que se deban analizar en el sitio, [Azure IoT Edge con los contenedores Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) le proporciona coherencia con la nube.
+
+**P: ¿Son compatibles estos contenedores con OpenShift?** 
+
+No se prueban los contenedores con OpenShift, pero, por lo general, los contenedores de Cognitive Services se ejecutarán en cualquier plataforma que admita imágenes de Docker. Si usa OpenShift, se recomienda ejecutar los contenedores como `root-user`.
 
 **P: ¿Cómo proporcionar comentarios sobre el producto y recomendaciones de características?**
 

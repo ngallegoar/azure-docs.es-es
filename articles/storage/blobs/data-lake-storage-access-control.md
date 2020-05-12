@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992222"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793132"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
