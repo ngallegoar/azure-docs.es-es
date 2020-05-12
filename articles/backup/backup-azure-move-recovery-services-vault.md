@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 93c3f2db6500023755796d50e71d44a427a2ce82
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804425"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598001"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -37,7 +37,7 @@ Centro de Francia, Sur de Francia, Nordeste de Alemania, Centro de Alemania, US 
 - Para mover una máquina virtual con discos administrados, consulte este [artículo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Las directivas de copia de seguridad definidas para el almacén se conservan después de que el almacén se mueva entre suscripciones o a un nuevo grupo de recursos.
-- No se admite el traslado de los almacenes que contienen Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS entre suscripciones y grupos de recursos.
+- Solo puede trasladar un almacén si las máquinas virtuales de Azure son los únicos elementos de copia de seguridad del almacén.
 - Si traslada un almacén con datos de copia de seguridad de VM entre suscripciones, deberá trasladar sus VM a la misma suscripción y usar el mismo nombre de grupo de recursos de VM de destino (tal como estaba en la suscripción anterior) para continuar con las copias de seguridad.
 
 > [!NOTE]
