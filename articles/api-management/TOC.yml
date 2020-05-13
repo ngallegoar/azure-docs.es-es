@@ -227,8 +227,6 @@
           href: how-to-configure-cloud-metrics-logs.md
         - name: Configuración de métrica y registros locales en una puerta de enlace autohospedada
           href: how-to-configure-local-metrics-logs.md
-        - name: Registro de solicitudes con Azure Application Insights
-          href: api-management-howto-app-insights.md
         - name: Configuración de DR mediante copia de seguridad y restauración
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Administrar cuentas de usuario

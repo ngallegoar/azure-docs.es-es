@@ -392,6 +392,101 @@
           href: migration-classic-resource-manager-community-tools.md
         - name: Preguntas más frecuentes
           href: migration-classic-resource-manager-faq.md
+    - name: Uso de imágenes
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Creación y uso compartido de imágenes
+          items:
+            - name: PowerShell
+              items:
+                - name: Creación de una galería
+                  href: ../shared-images-powershell.md
+                - name: Crear una imagen
+                  items:
+                    - name: Desde una máquina virtual
+                      href: ../image-version-vm-powershell.md
+                    - name: Migración desde una imagen administrada
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Copia desde otra galería
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Crear una VM
+                  items:
+                    - name: Generalizada
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Especializada
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Actualización de recursos de imagen
+                  href: ../update-image-resources-powershell.md
+            - name: CLI
+              items:
+                - name: Creación de una galería
+                  href: ../linux/shared-images.md
+                - name: Crear una imagen
+                  items:
+                    - name: Desde una máquina virtual
+                      href: ../image-version-vm-cli.md
+                    - name: Migración desde una imagen administrada
+                      href: ../image-version-managed-image-cli.md
+                    - name: Copia desde otra galería
+                      href: ../image-version-another-gallery-cli.md
+                    - name: Copia desde otra galería
+                      href: ../image-version-another-gallery-cli.md
+                - name: Crear una VM
+                  items:
+                    - name: Generalizada
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Actualización de recursos de imagen
+                  href: ../update-image-resources-cli.md
+            - name: Portal
+              items:
+                - name: 'Creación de una galería, una imagen y una máquina virtual'
+                  href: shared-images-portal.md
+            - name: Plantillas de Resource Manager
+              items:
+                - name: Creación de una instancia de Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Creación de una definición de imagen en una instancia de Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Creación de una versión de imagen en una instancia de Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Creación de una máquina virtual a partir de la versión de la imagen
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+            - name: Solución de problemas de imágenes compartidas
+              href: troubleshooting-shared-images.md
+            - name: Usando claves administradas por el cliente
+              displayName: 'SSE, CMK, encrypt'
+              href: ../image-version-encryption.md
+        - name: Generador de imágenes (versión preliminar)
+          items:
+            - name: Información general
+              href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Uso de CLI de Azure
+              href: image-builder.md
+            - name: Compilación para galerías de imágenes
+              href: image-builder-gallery.md
+            - name: Actualización de una imagen existente
+              href: image-builder-gallery-update-image-version.md
+            - name: Almacenamiento de scripts
+              href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Referencia de plantilla de Resource Manager
+              displayName: Azure Resource Manager
+              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Solución de problemas
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+        - name: Búsqueda y uso de imágenes
+          href: cli-ps-findimage.md
+        - name: Preparación de la máquina virtual para la carga
+          href: prepare-for-upload-vhd-image.md
+        - name: Captura de una máquina virtual en una imagen
+          href: capture-image-resource.md
+        - name: Uso de una imagen generalizada
+          href: create-vm-generalized-managed.md
+        - name: Creación de una imagen con Packer
+          href: build-image-with-packer.md
+        - name: Uso de imágenes de cliente de Windows
+          href: client-images.md
+        - name: Descarga de disco existente
+          href: download-vhd.md
     - name: Seguridad de máquinas virtuales
       items:
         - name: Recomendaciones
@@ -528,98 +623,6 @@
           href: ../../azure-monitor/platform/alerts-log.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Obtención de métricas de uso con REST
           href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Uso de imágenes
-      displayName: 'SIG, AMI, image'
-      items:
-        - name: Creación y uso compartido de imágenes
-          items:
-            - name: PowerShell
-              items:
-                - name: Creación de una galería
-                  href: ../shared-images-powershell.md
-                - name: Crear una imagen
-                  items:
-                    - name: Desde una máquina virtual
-                      href: ../image-version-vm-powershell.md
-                    - name: Migración desde una imagen administrada
-                      href: ../image-version-managed-image-powershell.md
-                    - name: Copia desde otra galería
-                      href: ../image-version-another-gallery-powershell.md
-                - name: Crear una VM
-                  items:
-                    - name: Generalizada
-                      href: ../vm-generalized-image-version-powershell.md
-                    - name: Especializada
-                      href: ../vm-specialized-image-version-powershell.md
-                - name: Actualización de recursos de imagen
-                  href: ../update-image-resources-powershell.md
-            - name: CLI
-              items:
-                - name: Creación de una galería
-                  href: ../linux/shared-images.md
-                - name: Crear una imagen
-                  items:
-                    - name: Desde una máquina virtual
-                      href: ../image-version-vm-cli.md
-                    - name: Migración desde una imagen administrada
-                      href: ../image-version-managed-image-cli.md
-                    - name: Copia desde otra galería
-                      href: ../image-version-another-gallery-cli.md
-                    - name: Copia desde otra galería
-                      href: ../image-version-another-gallery-cli.md
-                - name: Crear una VM
-                  items:
-                    - name: Generalizada
-                      href: ../vm-generalized-image-version-cli.md
-                - name: Actualización de recursos de imagen
-                  href: ../update-image-resources-cli.md
-            - name: Portal
-              items:
-                - name: 'Creación de una galería, una imagen y una máquina virtual'
-                  href: shared-images-portal.md
-            - name: Plantillas de Resource Manager
-              items:
-                - name: Creación de una instancia de Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
-                - name: Creación de una definición de imagen en una instancia de Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
-                - name: Creación de una versión de imagen en una instancia de Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
-                - name: Creación de una máquina virtual a partir de la versión de la imagen
-                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
-            - name: Solución de problemas de imágenes compartidas
-              href: troubleshooting-shared-images.md
-        - name: Generador de imágenes (versión preliminar)
-          items:
-            - name: Información general
-              href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Uso de CLI de Azure
-              href: image-builder.md
-            - name: Compilación para galerías de imágenes
-              href: image-builder-gallery.md
-            - name: Actualización de una imagen existente
-              href: image-builder-gallery-update-image-version.md
-            - name: Almacenamiento de scripts
-              href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Referencia de plantilla de Resource Manager
-              displayName: Azure Resource Manager
-              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Solución de problemas
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
-        - name: Búsqueda y uso de imágenes
-          href: cli-ps-findimage.md
-        - name: Preparación de la máquina virtual para la carga
-          href: prepare-for-upload-vhd-image.md
-        - name: Captura de una máquina virtual en una imagen
-          href: capture-image-resource.md
-        - name: Uso de una imagen generalizada
-          href: create-vm-generalized-managed.md
-        - name: Creación de una imagen con Packer
-          href: build-image-with-packer.md
-        - name: Uso de imágenes de cliente de Windows
-          href: client-images.md
-        - name: Descarga de disco existente
-          href: download-vhd.md
     - name: Disponibilidad y escala
       items:
         - name: Virtual Machine Scale Sets

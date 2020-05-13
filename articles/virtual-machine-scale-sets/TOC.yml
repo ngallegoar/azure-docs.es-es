@@ -234,6 +234,11 @@
                       href: instance-generalized-image-version-cli.md
                 - name: Actualización de recursos de imagen
                   href: ../virtual-machines/update-image-resources-cli.md
+            - name: Solución de problemas de imágenes compartidas
+              href: ../virtual-machines/troubleshooting-shared-images.md
+            - name: Usando claves administradas por el cliente
+              displayName: 'SSE, CMK, encrypt'
+              href: ../virtual-machines/image-version-encryption.md
     - name: Creación de una plantilla
       items:
         - name: Más información acerca de las plantillas de conjunto de escalado
