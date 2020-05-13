@@ -1018,7 +1018,7 @@
           href: how-to-use-change-feed-estimator.md
         - name: Migración desde la biblioteca de procesadores de fuente de cambios
           href: how-to-migrate-from-change-feed-library.md
-        - name: Creación de una aplicación SQL de Java con fuente de cambios
+        - name: 'Fuente de cambios: ejemplo de Async Java'
           href: create-sql-api-java-changefeed.md
     - name: Análisis integrado con Apache Spark
       items:
@@ -1080,6 +1080,8 @@
               href: monitor-server-side-latency.md
             - name: Supervisión del uso de la unidad de solicitud
               href: monitor-request-unit-usage.md
+            - name: Supervisión del uso de unidades de solicitud normalizadas
+              href: monitor-normalized-request-units.md
         - name: Uso de registros de Azure Monitor
           items:
             - name: Supervisión con registros de diagnóstico

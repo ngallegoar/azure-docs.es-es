@@ -60,6 +60,8 @@
           href: search-semi-structured-data.md
         - name: Indexación de varios orígenes de datos de Azure
           href: tutorial-multiple-data-sources.md
+    - name: Indexación de cualquier dato
+      href: tutorial-optimize-indexing-push-api.md
     - name: Uso de inteligencia artificial para crear contenido
       items:
         - name: 'C#'
@@ -313,6 +315,8 @@
           href: search-security-overview.md
         - name: Creación de un punto de conexión privado
           href: service-create-private-endpoint.md
+        - name: "Configuración de un firewall de\_IP"
+          href: service-configure-firewall.md
         - name: Administración de claves de servicios
           href: search-security-api-keys.md
         - name: Acceso de administrador basado en rol

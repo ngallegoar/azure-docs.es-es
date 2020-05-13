@@ -12,6 +12,8 @@
           href: security-center-services.md
         - name: Cobertura de características para los recursos de PaaS de Azure
           href: features-paas.md
+    - name: Novedades de Security Center
+      href: release-notes.md
     - name: Recomendaciones de seguridad
       href: recommendations-reference.md
     - name: Alertas de seguridad y la cadena de terminación de intenciones
@@ -188,7 +190,9 @@
           href: faq-vms.md
         - name: Usuarios de Azure Log Analytics existentes
           href: faq-azure-monitor-logs.md
-    - name: Notas de la versión
+    - name: Archivo de novedades de Security Center
+      href: release-notes-archive.md
+    - name: Blog de Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Características y retirada de API (julio de 2019)
       href: security-center-features-retirement-july2019.md

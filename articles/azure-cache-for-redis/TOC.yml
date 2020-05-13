@@ -7,18 +7,26 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Aplicación ASP.NET
-      href: cache-web-app-howto.md
-    - name: Aplicación .NET Core
-      href: cache-dotnet-core-quickstart.md
-    - name: Aplicación .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Aplicación Java
-      href: cache-java-get-started.md
-    - name: Aplicación Node.js
-      href: cache-nodejs-get-started.md
-    - name: Aplicación Python
-      href: cache-python-get-started.md
+    - name: Creación de una caché
+      items:
+        - name: 'Niveles Básico, Estándar y Premium'
+          href: quickstart-create-redis.md
+        - name: Niveles de Enterprise
+          href: quickstart-create-redis-enterprise.md
+    - name: Uso de una caché
+      items:
+        - name: Aplicación ASP.NET
+          href: cache-web-app-howto.md
+        - name: Aplicación .NET Core
+          href: cache-dotnet-core-quickstart.md
+        - name: Aplicación .NET
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: Aplicación Java
+          href: cache-java-get-started.md
+        - name: Aplicación Node.js
+          href: cache-nodejs-get-started.md
+        - name: Aplicación Python
+          href: cache-python-get-started.md
 - name: Tutoriales
   items:
     - name: Uso de almacenamiento en caché con tablas de clasificación

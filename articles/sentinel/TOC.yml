@@ -94,11 +94,11 @@
                   items:
                     - name: Punto de comprobación
                       href: connect-checkpoint.md
-                    - name: Cisco
+                    - name: Cisco ASA
                       href: connect-cisco.md
                     - name: ExtraHop Reveal(x)
                       href: connect-extrahop.md
-                    - name: F5
+                    - name: F5 ASM
                       href: connect-f5.md
                     - name: Productos de Forcepoint
                       href: connect-forcepoint-casb-ngfw.md
@@ -118,8 +118,10 @@
           href: connect-threat-intelligence.md
         - name: Conexión a máquinas virtuales de Azure Stack
           href: connect-azure-stack.md
-    - name: Varios inquilinos (MSSP)
+    - name: Trabajo con varios inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
+    - name: Trabajo con incidentes en varias áreas de trabajo
+      href: multiple-workspace-view.md
     - name: Configuración de claves administradas por el cliente (CMK)
       href: customer-managed-keys.md
     - name: Creación de incidentes a partir de alertas
@@ -145,3 +147,5 @@
       href: 'https://blogs.msdn.com/b/azuresecurity/'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/'

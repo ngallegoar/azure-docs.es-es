@@ -200,6 +200,8 @@
           href: web-sites-monitor.md
         - name: Habilitamiento de registros
           href: troubleshoot-diagnostic-logs.md
+        - name: Obtención de eventos de recursos
+          href: get-resource-events.md
     - name: Administración de aplicaciones
       items:
         - name: Administración del plan de hospedaje

@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: 'Creación de una factoría de datos: Plantilla de Resource Manager'
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: 'Seguridad: Habilitación de cifrado con claves administradas por el cliente'
+      href: quickstart-enable-customer-managed-key.md
     - name: Creación de un flujo de datos
       href: data-flow-create.md
 - name: Tutoriales
