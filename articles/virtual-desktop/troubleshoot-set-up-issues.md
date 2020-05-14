@@ -1,6 +1,6 @@
 ---
-title: 'Creación de grupos de inquilinos y de host de Windows Virtual Desktop: Azure'
-description: Cómo solucionar problemas de grupos de inquilinos y de host durante la instalación de un entorno de inquilinos de Windows Virtual Desktop.
+title: 'Creación de entornos y grupos de hosts de Windows Virtual Desktop: Azure'
+description: Cómo solucionar problemas de grupos de inquilinos y de hosts durante la instalación de un entorno de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,20 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371603"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612614"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
+# <a name="host-pool-creation"></a>Creación de grupos de hosts
+
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se tratan problemas que se producen durante la instalación inicial del inquilino de Windows Virtual Desktop y la infraestructura del grupo de host de la sesión relacionada.
 
@@ -25,92 +31,27 @@ Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Adquisición de la imagen de sesión múltiple de Windows 10 Enterprise
 
-Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure Marketplace, seleccione **Comenzar** > **Microsoft Windows 10** > y [Windows 10 Enterprise para escritorios virtuales, versión 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure Marketplace, seleccione **Comenzar** > **Microsoft Windows 10** > y [Sesión múltiple de Windows 10 Enterprise, versión 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Captura de pantalla de selección de Windows 10 Enterprise para escritorios virtuales, versión 1809.](media/AzureMarketPlace.png)
+## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemas con el uso de Azure Portal para crear grupos de hosts
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Crear un inquilino de Windows Virtual Desktop
+### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Error: El mensaje "Crear una cuenta gratuita" aparece al acceder al servicio
 
-En esta sección se tratan los posibles problemas al crear el inquilino de Windows Virtual Desktop.
+![Imagen que muestra Azure Portal con el mensaje "Crear una cuenta gratuita"](media/create-new-account.png)
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: El usuario no está autorizado para consultar el servicio de administración
+**Causa**: No existen suscripciones activas en la cuenta con la que inició sesión en Azure, o bien la cuenta no tiene permisos para ver las suscripciones. 
 
-![Captura de pantalla de una ventana de PowerShell en que un usuario no está autorizado para consultar el servicio de administración.](media/UserNotAuthorizedNewTenant.png)
+**Corrección**: Inicie sesión en la suscripción donde va a implementar las máquinas virtuales del host de sesión con una cuenta que tenga al menos acceso de nivel de colaborador.
 
-Ejemplo de error no procesado:
+### <a name="error-exceeding-quota-limit"></a>Error: "Se está excediendo el límite de cuota"
 
-```Error
-   New-RdsTenant : User isn't authorized to query the management service.
-   ActivityId: ad604c3a-85c6-4b41-9b81-5138162e5559
-   Powershell commands to diagnose the failure:
-   Get-RdsDiagnosticActivities -ActivityId ad604c3a-85c6-4b41-9b81-5138162e5559
-   At line:1 char:1
-   + New-RdsTenant -Name "testDesktopTenant" -AadTenantId "01234567-89ab-c ...
-   + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-       + CategoryInfo          : FromStdErr: (Microsoft.RDInf...nt.NewRdsTenant:NewRdsTenant) [New-RdsTenant], RdsPowerSh
-      ellException
-       + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.RDInfra.RDPowershell.Tenant.NewRdsTenant
-```
+Si la operación supera el límite de cuota, puede realizar una de las siguientes acciones: 
 
-**Causa:** No han asignado al usuario que ha iniciado sesión el rol TenantCreator en su Azure Active Directory.
+- Crear un nuevo grupo de hosts con los mismos parámetros pero menos máquinas virtuales y núcleos de máquinas virtuales.
 
-**Solución:** Siga las instrucciones de [Asignar el rol de aplicación TenantCreator a un usuario en el inquilino de Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Después de seguir las instrucciones, tendrá un usuario asignado al rol TenantCreator.
+- Abrir el vínculo que aparece en el campo statusMessage en un explorador para enviar una solicitud a fin de aumentar la cuota de su suscripción a Azure para la SKU de la máquina virtual especificada.
 
-![Captura de pantalla del rol TenantCreator asignado.](media/TenantCreatorRoleAssigned.png)
-
-## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Creación de máquinas virtuales de host de sesión de Windows Virtual Desktop
-
-Las máquinas virtuales de host de sesión se pueden crear de varias maneras, pero el equipo de Windows Virtual Desktop solo admite problemas de aprovisionamiento de máquinas virtuales relacionados con la oferta de [Azure Marketplace](https://azuremarketplace.microsoft.com/). Para más información, vea [Problemas con Windows Virtual Desktop: aprovisionar una oferta de Azure Marketplace de grupo de host](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
-
-## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemas con Windows Virtual Desktop: aprovisionar una oferta de Azure Marketplace de grupo de host
-
-Windows Virtual Desktop: en Azure Marketplace está disponible una plantilla de grupo de host.
-
-### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Error: El mensaje "Crear una cuenta gratuita" se muestra al utilizar el vínculo de GitHub
-
-![Captura de pantalla para crear una cuenta gratuita.](media/be615904ace9832754f0669de28abd94.png)
-
-**Causa 1:** No existen suscripciones activas en la cuenta utilizada para iniciar sesión en Azure, o bien la cuenta utilizada no tiene permisos para ver las suscripciones.
-
-**Corrección 1:** Inicie sesión con una cuenta que tenga acceso de colaborador (como mínimo) en la suscripción en que se van a implementar las máquinas virtuales del host de sesión.
-
-**Causa 2:** La suscripción que se utiliza es parte de un inquilino del proveedor de servicios en la nube (CSP) de Microsoft.
-
-**Corrección 2:** Vaya a la ubicación de GitHub, consulte **Creación y aprovisionamiento de un grupo de host nuevo de Windows Virtual Desktop** y siga estas instrucciones:
-
-1. Haga clic con el botón derecho en **Implementar en Azure** y seleccione **Copiar dirección de vínculo**.
-2. Abra el **Bloc de notas** y pegue el vínculo.
-3. Antes del carácter #, inserte el nombre del inquilino del cliente final del CSP.
-4. Abra el vínculo nuevo en un explorador y la plantilla se cargará en el portal de Azure.
-
-    ```Example
-    Example: https://portal.azure.com/<CSP end customer tenant name>
-    #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
-    2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
-    ```
-
-### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Error: recibe el error "la implementación de la plantilla no es válida"
-
-![Captura de pantalla del error "la implementación de la plantilla no es válida"](media/troubleshooting-marketplace-validation-error-generic.png)
-
-Antes de realizar una acción específica, deberá comprobar el registro de actividad para ver el error detallado de la validación de la implementación con errores.
-
-Para ver el error en el registro de actividad:
-
-1. Salga de la oferta de implementación de Azure Marketplace actual.
-2. En la barra de búsqueda superior, busque y seleccione **Registro de actividad**.
-3. Busque una actividad denominada **Validar implementación** que tenga el estado **Erróneo** y seleccione la actividad.
-   ![Captura de pantalla de la actividad individual **Validar implementación** con un estado *Erróneo*](media/troubleshooting-marketplace-validation-error-activity-summary.png)
-
-4. Seleccione JSON y, a continuación, desplácese hacia abajo hasta la parte inferior de la pantalla hasta que vea el campo "statusMessage".
-   ![Captura de pantalla de la actividad con errores, con un cuadro rojo alrededor de la propiedad statusMessage del texto JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
-
-Si la plantilla de la operación supera el límite de cuota, puede realizar una de las siguientes acciones para solucionarlo:
-
- - Ejecute Azure Marketplace con los parámetros que usó la primera vez, pero esta vez use menos máquinas virtuales y núcleos de máquina virtual.
- - Abra el vínculo que aparece en el campo **statusMessage** en un explorador para enviar una solicitud a fin de aumentar la cuota de su suscripción a Azure para la SKU de la máquina virtual especificada.
-
-## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Errores de la plantilla de Azure Resource Manager y de la Configuración de estado deseado (DSC) de PowerShell
+## <a name="azure-resource-manager-template-errors"></a>Errores de plantilla de Azure Resource Manager
 
 Siga estas instrucciones para solucionar problemas de implementaciones incorrectas de DSC de PowerShell y plantillas de Azure Resource Manager.
 
@@ -121,7 +62,7 @@ Siga estas instrucciones para solucionar problemas de implementaciones incorrect
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Error al realizar la implementación...\<hostname>/joindomain
 
-![Captura de pantalla de error de implementación.](media/e72df4d5c05d390620e07f0d7328d50f.png)
+![Captura de pantalla de error de implementación.](media/failure-joindomain.png)
 
 Ejemplo de error no procesado:
 
@@ -162,7 +103,7 @@ Para corregirlo, siga estos pasos:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Error: VMExtensionProvisioningError
 
-![Captura de pantalla de error de implementación con error de estado de aprovisionamiento terminal.](media/7aaf15615309c18a984673be73ac969a.png)
+![Captura de pantalla de error de implementación con error de estado de aprovisionamiento terminal.](media/failure-vmextensionprovisioning.png)
 
 **Causa 1:** Error transitorio del entorno de Windows Virtual Desktop.
 
@@ -172,17 +113,15 @@ Para corregirlo, siga estos pasos:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Error: El nombre de usuario de administrador especificado no está permitido
 
-![Captura de pantalla de error de implementación en que un administrador especificado no está permitido.](media/f2b3d3700e9517463ef88fa41875bac9.png)
+![Captura de pantalla de error de implementación en que un administrador especificado no está permitido.](media/failure-username.png)
 
 Ejemplo de error no procesado:
 
 ```Error
- { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostDesktop/providers/Microsoft.
-  Resources/deployments/vmCreation-linkedTemplate/operations/EXAMPLE", "operationId": "EXAMPLE", "properties": { "provisioningOperation":
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
- "The Admin Username specified is not allowed.", "target": "adminUsername" } }, "targetResource": { "id": "/subscriptions/EXAMPLE
- /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demo", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demo" } }}
+ { …{ "provisioningOperation": 
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
 **Causa:** La contraseña proporcionada contiene subcadenas prohibidas (admin, administrador, raíz).
@@ -191,24 +130,17 @@ Ejemplo de error no procesado:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Error: La máquina virtual ha indicado un error al procesar la extensión
 
-![Captura de pantalla de la operación de recursos completa con un estado de aprovisionamiento terminal de Error de implementación.](media/49c4a1836a55d91cd65125cf227f411f.png)
+![Captura de pantalla de la operación de recursos completa con un estado de aprovisionamiento terminal de Error de implementación.](media/failure-processing.png)
 
 Ejemplo de error no procesado:
 
 ```Error
-{ "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
- rds.wvd-provision-host-pool-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
- { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
- "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
- "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
+{ … "code": "ResourceDeploymentFailure", "message":
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
- One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource":
- { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.
- Compute/virtualMachines/desktop-1/extensions/dscextension",
- "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
 **Causa:** La extensión DSC de PowerShell no ha podido obtener acceso de administrador a la máquina virtual.
@@ -217,7 +149,7 @@ Ejemplo de error no procesado:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Error: DeploymentFailed: la configuración de DSC de PowerShell "FirstSessionHost" se ha completado con errores
 
-![Captura de pantalla de error de implementación con la configuración de DSC de PowerShell "FirstSessionHost" completada con errores.](media/64870370bcbe1286906f34cf0a8646ab.png)
+![Captura de pantalla de error de implementación con la configuración de DSC de PowerShell "FirstSessionHost" completada con errores.](media/failure-dsc.png)
 
 Ejemplo de error no procesado:
 
@@ -319,58 +251,6 @@ the VM.\\\"
 **Causa:** Este error se debe a que una ruta estática, una regla de firewall o un NSG bloquean la descarga del archivo zip vinculado a la plantilla de Azure Resource Manager.
 
 **Solución:** Suprima la ruta estática de bloqueo, la regla de firewall o el NSG. De manera opcional, abra el archivo json de plantilla de Azure Resource Manager en un editor de texto, comprima el vínculo en un archivo zip y descargue el recurso en una ubicación permitida.
-
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: El usuario no está autorizado para consultar el servicio de administración
-
-Ejemplo de error no procesado:
-
-```Error
-"response": { "content": { "startTime": "2019-04-01T17:45:33.3454563+00:00", "endTime": "2019-04-01T17:48:52.4392099+00:00",
-"status": "Failed", "error": { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing
-extension 'dscextension'. Error message: \"DSC Configuration 'FirstSessionHost' completed with error(s).
-Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource
- functionality with error message: User is not authorized to query the management service.
-\nActivityId: 1b4f2b37-59e9-411e-9d95-4f7ccd481233\nPowershell commands to diagnose the failure:
-\nGet-RdsDiagnosticActivities -ActivityId 1b4f2b37-59e9-411e-9d95-4f7ccd481233\n
-The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
-```
-
-**Causa:** El administrador de inquilinos de Windows Virtual Desktop especificado no tiene una asignación de roles válida.
-
-**Solución:** El usuario que ha creado el inquilino de Windows Virtual Desktop debe iniciar sesión en PowerShell para Windows Virtual Desktop y asignar un rol al usuario que lo ha intentado. Si está ejecutando los parámetros de la plantilla de GitHub Azure Resource Manager, siga estas instrucciones mediante los comandos de PowerShell:
-
-```PowerShell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
-```
-
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Error: El usuario requiere autenticación multifactor (MFA) de Azure
-
-![Captura de pantalla de error de implementación debido a la falta de autenticación multifactor (MFA)](media/MFARequiredError.png)
-
-Ejemplo de error no procesado:
-
-```Error
-"message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
-```
-
-**Causa:** El administrador de inquilinos de Windows Virtual Desktop especificado requiere autenticación multifactor (MFA) de Azure para iniciar sesión.
-
-**Solución:** Cree una entidad de servicio y asígnele un rol para el inquilino de Windows Virtual Desktop mediante los pasos descritos en [Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell](create-service-principal-role-powershell.md). Después de comprobar que puede iniciar sesión en Windows Virtual Desktop con la entidad de servicio, vuelva a ejecutar la oferta de Azure Marketplace o la plantilla de GitHub Azure Resource Manager, según el método que utilice. Siga las instrucciones siguientes para introducir los parámetros correctos para el método.
-
-Si está ejecutando la oferta de Azure Marketplace, proporcione valores para los parámetros siguientes a fin de autenticarse correctamente en Windows Virtual Desktop:
-
-- Propietario de RDS del inquilino de Windows Virtual Desktop: Entidad de servicio
-- Identificador de aplicación: La identificación de la aplicación de la nueva entidad de servicio que ha creado
-- Contraseña/Confirmar contraseña: El secreto de contraseña generado para la entidad de servicio
-- Identificador de inquilino de Azure AD: El identificador de inquilino de Azure AD de la entidad de servicio que ha creado
-
-Si está ejecutando la plantilla de GitHub Azure Resource Manager, proporcione valores para los parámetros siguientes a fin de autenticarse correctamente en Windows Virtual Desktop:
-
-- Nombre principal de usuario de administrador de inquilinos (UPN) o identificador de aplicación: La identificación de la aplicación de la nueva entidad de servicio que ha creado
-- Contraseña del administrador de inquilinos: El secreto de contraseña generado para la entidad de servicio
-- IsServicePrincipal: **true**
-- AadTenantId: El identificador de inquilino de Azure AD de la entidad de servicio que ha creado
 
 ## <a name="next-steps"></a>Pasos siguientes
 

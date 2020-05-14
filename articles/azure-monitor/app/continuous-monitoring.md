@@ -2,13 +2,13 @@
 title: Supervisión continua de la canalización de versión de DevOps con Azure Pipelines y Azure Application Insights | Microsoft Docs
 description: Proporciona instrucciones para configurar rápidamente la supervisión continua con Application Insights
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655402"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652767"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Incorporación de supervisión continua a la canalización de versión
 
@@ -51,17 +51,19 @@ La plantilla **Implementación de Azure App Service con supervisión continua** 
 
 Para modificar la configuración de las reglas de alertas:
 
-1. En el panel izquierdo de la página canalización de versión, seleccione **Configure Application Insights Alerts** (Configurar alertas de Application Insights).
+En el panel izquierdo de la página canalización de versión, seleccione **Configure Application Insights Alerts** (Configurar alertas de Application Insights).
 
-1. En el panel **Alertas de Azure Monitor**, seleccione el botón de puntos suspensivos **...** junto a **Reglas de alerta**.
-   
-1. En el cuadro de diálogo **Reglas de alerta**, seleccione el símbolo de lista desplegable situado junto a una regla de alerta, como **Disponibilidad**. 
-   
-1. Modifique el **Umbral** y otras opciones para que se ajusten a sus necesidades.
-   
-   ![Modificación de alerta](media/continuous-monitoring/003.png)
-   
-1. Seleccione **Aceptar** y **Guardar** en la esquina superior derecha de la ventana de Azure DevOps. Escriba un comentario descriptivo y seleccione **Aceptar**.
+Las cuatro reglas de alerta predeterminadas se crean mediante un script en línea:
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+Puede modificar el script y agregar reglas de alerta adicionales, modificar las condiciones de alerta o quitar reglas de alerta que no tengan sentido para los fines de su implementación.
 
 ## <a name="add-deployment-conditions"></a>Incorporación de condiciones de implementación
 

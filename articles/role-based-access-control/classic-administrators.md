@@ -1,5 +1,5 @@
 ---
-title: Administradores de la suscripción clásica de Azure | Microsoft Docs
+title: Administradores de la suscripción clásica de Azure
 description: Se describe cómo agregar o cambiar los roles de coadministrador y de administrador de servicios, y cómo ver el de administrador de cuenta.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224704"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734865"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
-Microsoft recomienda que administre el acceso a los recursos de Azure mediante el control de acceso basado en rol (RBAC). Sin embargo, si aún utiliza el modelo de implementación clásico, deberá usar un rol de administrador de suscripciones clásicas: Administrador de servicios y coadministrador. Para más información, consulte [Implementación de Azure Resource Manager frente a la implementación clásica](../azure-resource-manager/management/deployment-models.md).
+Microsoft recomienda que administre el acceso a los recursos de Azure mediante el control de acceso basado en rol (RBAC) de Azure. Sin embargo, si aún utiliza el modelo de implementación clásico, deberá usar un rol de administrador de suscripciones clásicas: Administrador de servicios y coadministrador. Para más información, consulte [Implementación de Azure Resource Manager frente a la implementación clásica](../azure-resource-manager/management/deployment-models.md).
 
 En este artículo se describe cómo agregar o cambiar los roles de coadministrador y de administrador de servicios de Azure, y cómo ver el de administrador de cuenta.
 
@@ -71,9 +71,9 @@ Es posible que los usuarios invitados a los que se haya asignado el rol de coadm
 
 Sería de esperar que el usuario B pudiera administrarlo todo. Esta diferencia se debe a que la cuenta de Microsoft se agrega a la suscripción como usuario invitado y no como usuario miembro. En comparación con los usuarios miembros, los usuarios invitados tienen distintos permisos predeterminados en Azure AD. Por ejemplo, los usuarios miembros pueden leer otros usuarios en Azure AD y los usuarios invitados no. Los usuarios miembros pueden registrar a nuevas entidades de servicio en Azure AD y los usuarios invitados no.
 
-Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de administrador de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md) Para más información sobre cómo conceder acceso a los usuarios invitados, consulte [Administración del acceso a los recursos de Azure de usuarios invitados externos mediante RBAC](role-assignments-external-users.md).
+Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md) Para más información sobre cómo conceder acceso a los usuarios invitados, consulte [Incorporación o eliminación de asignaciones de roles de Azure para usuarios externos invitados mediante Azure Portal](role-assignments-external-users.md).
 
-Tenga en cuenta que los [roles integrados en los recursos de Azure](../role-based-access-control/built-in-roles.md) son diferentes de los [roles de administrador de Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Los roles integrados no conceden acceso a Azure AD. Para más información, vea [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Tenga en cuenta que los [roles integrados de Azure](../role-based-access-control/built-in-roles.md) son diferentes de los [roles de Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Los roles integrados no conceden acceso a Azure AD. Para más información, vea [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Para información donde se comparan los usuarios miembros y los usuarios invitados, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md)
 
@@ -150,6 +150,6 @@ Siga estos pasos para ver el administrador de cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Descripción de los distintos roles en Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md)
 * [Adición o cambio de los administradores de la suscripción de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

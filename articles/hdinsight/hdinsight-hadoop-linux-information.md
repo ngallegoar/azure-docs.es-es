@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: e9f8fe17fa28cc5fcc4543bfb5e194bd3e7b837d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233620"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594104"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
@@ -95,21 +95,21 @@ Se pueden encontrar datos de ejemplo y archivos JAR en el sistema de archivos di
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage y Data Lake Storage
 
-En la mayoría de las distribuciones de Hadoop, los datos se almacenan en HDFS, del que se crean copias de seguridad en el almacenamiento local de las máquinas del clúster. El uso del almacenamiento local puede ser costoso para una solución basada en la nube en la que se le cobra por hora o por minuto por los recursos de proceso.
+En la mayoría de las distribuciones de Hadoop, los datos se almacenan en HDFS. Se crean copias de seguridad de HDFS en el almacenamiento local de las máquinas del clúster. El uso del almacenamiento local puede ser costoso para una solución basada en la nube en la que se le cobra por hora o por minuto por los recursos de proceso.
 
-Al usar HDInsight, los archivos de datos se almacenan de una forma escalable y resistente en la nube mediante Azure Blob Storage y, opcionalmente, Azure Data Lake Storage. Estos servicios ofrecen las siguientes ventajas:
+Al usar HDInsight, los archivos de datos se almacenan de una forma adaptable y resistente en la nube mediante Azure Blob Storage y, opcionalmente, Azure Data Lake Storage. Estos servicios ofrecen las siguientes ventajas:
 
 * Almacenamiento a largo plazo económico.
 * Accesibilidad desde servicios externos, como sitios web, utilidades para la carga y descarga de archivos, SDK en varios idiomas y exploradores web.
-* Capacidad para archivos de gran tamaño y gran almacenamiento escalable
+* Capacidad para archivos de gran tamaño y gran almacenamiento adaptable.
 
 Para más información, consulte [Introducción a los blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) y [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-Cuando se usa Azure Storage o Data Lake Storage, no tiene que hacer nada especial desde HDInsight para acceder a los datos. Por ejemplo, el comando siguiente enumera los archivos existentes en la carpeta `/example/data` sin importar si está almacenada en Azure Storage o en Data Lake Storage:
+Cuando se usa Azure Storage o Data Lake Storage, no tiene que hacer nada especial desde HDInsight para acceder a los datos. Por ejemplo, el comando siguiente enumera los archivos existentes en la carpeta `/example/data` tanto si está almacenada en Azure Storage como en Data Lake Storage:
 
     hdfs dfs -ls /example/data
 
-En HDInsight, los recursos de almacenamiento de datos (Azure Blob Storage y Azure Data Lake Storage) se desacoplan de los recursos de proceso. Por lo tanto, puede crear clústeres de HDInsight para realizar cálculos según lo necesite y luego eliminar el clúster cuando el trabajo haya finalizado, manteniendo mientras tanto sus archivos de datos persistentes de forma segura en un almacenamiento en la nube durante todo el tiempo que lo necesite.
+En HDInsight, los recursos de almacenamiento de datos (Azure Blob Storage y Azure Data Lake Storage) se desacoplan de los recursos de proceso. Puede crear clústeres de HDInsight para realizar cálculos según sea necesario y, posteriormente, eliminar el clúster cuando finalice el trabajo. Mientras tanto, los archivos de datos se conservan de forma segura en el almacenamiento en la nube durante el tiempo que sea necesario.
 
 ### <a name="uri-and-scheme"></a><a name="URI-and-scheme"></a>Identificador URI y esquema
 
@@ -210,46 +210,11 @@ Si usa __Azure Data Lake Storage__, consulte los siguientes vínculos para ver l
 
 ## <a name="scaling-your-cluster"></a><a name="scaling"></a>Escalar el clúster
 
-La característica de escalado de clúster permite cambiar de forma dinámica la cantidad de nodos de datos que usa un clúster. Puedes realizar operaciones de escala mientras se están ejecutando otros trabajos o procesos en un clúster.  Consulte también [Escalabilidad de clústeres de HDInsight](./hdinsight-scaling-best-practices.md).
-
-Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
-
-* **Hadoop**: al reducir verticalmente el número de nodos de un clúster, se reinician algunos de los servicios del mismo. Las operaciones de escalado pueden provocar errores en los trabajos pendientes o en ejecución al completarse la operación de escalado. Sin embargo, puedes volver a enviar los trabajos una vez finalizada la operación.
-* **HBase**: los servidores regionales se equilibran automáticamente en pocos minutos una vez completada la operación de escalado. Para equilibrar manualmente servidores regionales, siga estos pasos:
-
-    1. Conéctate al clúster de HDInsight con SSH: Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-    2. Usa lo siguiente para iniciar el shell de HBase:
-
-            hbase shell
-
-    3. Una vez que se haya cargado el shell de HBase, usa lo siguiente para equilibrar manualmente los servidores regionales:
-
-            balancer
-
-* **Storm**: debe volver a equilibrar todas las topologías Storm en ejecución después de cualquier operación de escalado. El reequilibrado permite que la topología vuelva a ajustar la configuración de paralelismo en función del nuevo número de nodos del clúster. Para volver a equilibrar las topologías en ejecución, usa una de las siguientes opciones:
-
-    * **SSH**: conéctese al servidor y use el siguiente comando para volver a equilibrar una topología:
-
-            storm rebalance TOPOLOGYNAME
-
-        También puedes especificar parámetros para reemplazar las sugerencias de paralelismo que proporcionó originalmente la topología. Por ejemplo, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` vuelve a configurar la topología en 5 procesos de trabajo, 3 ejecutores para el componente blue-spout y 10 ejecutores para el componente yellow-bolt.
-
-    * **Interfaz de usuario de Storm**: siga estos pasos para volver a equilibrar una topología desde la interfaz de usuario de Storm.
-
-        1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` en el explorador web, donde `CLUSTERNAME` es el nombre del clúster de Storm. Si se le solicite, escriba el nombre de administrador (admin) del clúster de HDInsight y la contraseña que especificó al crear el clúster.
-        2. Seleccione la topología que quiere equilibrar y, después, seleccione el botón **Reequilibrar**. Especifica el retraso antes de realizar la operación de reequilibrio.
-
-* **Kafka**: debe volver a equilibrar réplicas de la partición después de las operaciones de escalado. Para más información, consulte el documento [Alta disponibilidad de los datos con Apache Kafka en HDInsight](./kafka/apache-kafka-high-availability.md).
-
-Para obtener información específica sobre cómo ampliar tu clúster de HDInsight, consulta:
-
-* [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Administración de clústeres de Apache Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md#scale-clusters)
+La característica de escalado de clúster permite cambiar de forma dinámica la cantidad de nodos de datos que usa un clúster. Puede realizar operaciones de escalado mientras se están ejecutando otros trabajos o procesos en un clúster.  Consulte [Escalamiento de clústeres de HDInsight](./hdinsight-scaling-best-practices.md)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>¿Cómo puedo instalar Hue (u otro componente de Hadoop)?
 
-HDInsight es un servicio administrado. Si Azure detecta un problema con el clúster, podría eliminar el nodo que ha dado error y crear un nodo para sustituirlo. Si instala manualmente elementos en el clúster, no se conservan cuando se produce esta operación. En su lugar, use [acciones de script de HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Una acción de script se puede usar para realizar los siguientes cambios:
+HDInsight es un servicio administrado. Si Azure detecta un problema con el clúster, podría eliminar el nodo que ha dado error y crear un nodo para sustituirlo. Al instalar manualmente elementos en el clúster, no se conservan cuando se produce esta operación. En su lugar, use [acciones de script de HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Una acción de script se puede usar para realizar los siguientes cambios:
 
 * Instalar y configurar un servicio o un sitio web.
 * Instalar y configurar un componente que requiera cambios de configuración en varios nodos del clúster.
@@ -258,7 +223,7 @@ Las acciones de script son scripts de Bash. Los scripts se ejecutan durante la c
 
 ### <a name="jar-files"></a>Archivos JAR
 
-Algunas tecnologías de Hadoop se proporcionan en archivos jar independientes con funciones que se usan como parte de un trabajo de MapReduce o desde dentro de Pig o Hive. No suelen requerir ninguna configuración y, además, se pueden cargar en el clúster después de su creación y usarlas directamente. Si desea asegurarse de que el componente sobreviva a la creación de una nueva imagen del clúster, puede almacenar el archivo jar en el almacenamiento predeterminado del clúster (WASB o ADL).
+Algunas tecnologías de Hadoop proporcionan archivos jar independientes. Estos archivos contienen funciones que se usan como parte de un trabajo de MapReduce o desde dentro de Pig o Hive. No suelen requerir ninguna configuración y, además, se pueden cargar en el clúster después de su creación y usarlas directamente. Si desea asegurarse de que el componente sobreviva a la creación de una nueva imagen del clúster, almacene el archivo jar en el almacenamiento predeterminado del clúster.
 
 Por ejemplo, si desea usar la versión más reciente de [Apache DataFu](https://datafu.incubator.apache.org/), puede descargar un archivo jar que contiene el proyecto y cargarlo en el clúster de HDInsight. A continuación, siga las instrucciones que aparecen en la documentación de DataFu sobre el uso con Pig o Hive.
 

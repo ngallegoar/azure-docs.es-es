@@ -2,19 +2,19 @@
 title: Azure Application Insights para aplicaciones de ASP.NET Core | Microsoft Docs
 description: Supervise la disponibilidad, el rendimiento y el uso de las aplicaciones web de ASP.NET Core.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: e8ace92c39ed6b7bdcca0bae14cc0ae95aced2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 9c7c2e22d2befb503a388df1fa8a42c3d6eb07c5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145253"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652772"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
 En este artículo se describe cómo habilitar Application Insights para una aplicación de [ASP.NET Core](https://docs.microsoft.com/aspnet/core). Al completar las instrucciones de este artículo, Application Insights recopilará solicitudes, dependencias, excepciones, contadores de rendimiento, latidos y registros de la aplicación de ASP.NET Core.
 
-El ejemplo que vamos a usar aquí es una [aplicación de MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) que tiene como destino `netcoreapp2.2`. Estas instrucciones se pueden aplicar a todas las aplicaciones de ASP.NET Core.
+El ejemplo que vamos a usar aquí es una [aplicación de MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) que tiene como destino `netcoreapp3.0`. Estas instrucciones se pueden aplicar a todas las aplicaciones de ASP.NET Core.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -28,7 +28,7 @@ El [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Mi
 * **IDE**: Visual Studio, VS Code o línea de comandos.
 
 > [!NOTE]
-> Si usa ASP.NET Core 3.X junto con Application Insights, utilice la versión [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o una posterior. Esta es la única versión que admite ASP.NET Core 3.X.
+> ASP.NET Core 3.X requiere [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o posterior.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -109,7 +109,9 @@ El [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Mi
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    Por lo general, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica la clave de instrumentación para las aplicaciones implementadas en Azure Web Apps.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` se utiliza normalmente en [Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net), pero también se puede usar en todos los lugares donde se admita este SDK. (Si va a realizar la supervisión de aplicaciones web sin código, este formato es necesario si no está usando cadenas de conexión).
+
+    En lugar de establecer las claves de instrumentación, ahora también puede utilizar [Cadenas de conexión](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net).
 
     > [!NOTE]
     > Una clave de instrumentación especificada en el código prevalece frente a la variable del entorno `APPINSIGHTS_INSTRUMENTATIONKEY`, que prevalece sobre otras opciones.
@@ -209,7 +211,7 @@ Lista completa de valores de `ApplicationInsightsServiceOptions`
 |EnableAzureInstanceMetadataTelemetryModule   |  Habilitar o deshabilitar `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Habilitar o deshabilitar la característica LiveMetrics | true
 |EnableAdaptiveSampling | Habilitar o deshabilitar el muestreo adaptable | true
-|EnableHeartbeat | Habilitar o deshabilitar la característica de latidos, que periódicamente (cada 15 minutos de forma predeterminada) envía una métrica personalizada denominada "HeartBeatState" con información sobre el entorno de ejecución, por ejemplo, la versión de .NET, información del entorno de Azure, si procede, etc. | true
+|EnableHeartbeat | Habilitar o deshabilitar la característica de latidos, que envía periódicamente (cada 15 minutos de forma predeterminada) una métrica personalizada denominada "HeartBeatState" con información sobre el entorno de ejecución; por ejemplo, la versión de .NET, información del entorno de Azure, si procede, etc. | true
 |AddAutoCollectedMetricExtractor | Habilitar o deshabilitar el extractor de AutoCollectedMetrics, que es un elemento TelemetryProcessor que envía métricas previamente agregadas sobre las solicitudes o dependencias antes de que tenga lugar el muestreo. | true
 |RequestCollectionOptions.TrackExceptions | Habilitar o deshabilitar los informes de seguimiento de excepciones no controladas por el módulo de recopilación de solicitudes. | false en NETSTANDARD2.0 (porque se realiza un seguimiento de las excepciones con ApplicationInsightsLoggerProvider); en caso contrario, true.
 
