@@ -10,35 +10,40 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/09/2019
-ms.openlocfilehash: 3007865c15ceb03b104282c29179ec59a8196b38
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/30/2020
+ms.openlocfilehash: f327844be57d7f8e177f3bf72b1e3b56c5147e00
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604598"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629344"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-La experiencia de la interfaz de usuario (UX) de Azure Data Factory tiene dos modos disponibles para la creación visual:
+De forma predeterminada, la creación en la experiencia de la interfaz de usuario de Azure Data Factory tiene lugar directamente con los datos de factoría de datos. Esta experiencia tiene las siguientes limitaciones:
 
-- Creación directa con el servicio Data Factory
-- Creación con la integración de Git o GitHub de Azure Repos
+- El servicio Data Factory no incluye un repositorio que permita almacenar las entidades JSON para los cambios. La única manera de guardar los cambios es mediante el botón **Publicar todo** y todos los cambios se publican directamente en el servicio Data Factory.
+- El servicio Data Factory no está optimizado para la colaboración ni el control de versiones.
+
+Para proporcionar una mejor experiencia de creación, Azure Data Factory le permite configurar un repositorio de Git con Azure Repos o GitHub. Git es un sistema de control de versiones que facilita la colaboración y el seguimiento de cambios. En este tutorial se describe cómo configurar y trabajar en un repositorio de Git junto con los procedimientos recomendados de resaltado y una guía de solución de problemas.
 
 > [!NOTE]
-> Solo se admite la creación directa con el servicio Data Factory en la nube de Azure Government.
+> La integración de Git de Azure Data Factory no está disponible en la nube de Azure Government.
 
-## <a name="author-directly-with-the-data-factory-service"></a>Creación directa con el servicio Data Factory
+## <a name="advantages-of-git-integration"></a>Ventajas de la integración de Git
 
-Al crear directamente con el servicio Data Factory, la única manera de guardar los cambios es mediante el botón **Publish All** (Publicar todo). Luego, los cambios que realice se publicarán directamente en el servicio Data Factory. 
+La siguiente es una lista de algunas de las ventajas que ofrece la integración de Git a la experiencia de creación:
 
-![Modo Publicar](media/author-visually/data-factory-publish.png)
-
-La creación directa con el servicio Data Factory tiene las siguientes limitaciones:
-
-- El servicio Data Factory no incluye un repositorio que permita almacenar las entidades JSON para los cambios.
-- El servicio Data Factory no está optimizado para la colaboración ni el control de versiones.
+-   **Control de código fuente:** A medida que las cargas de trabajo de la factoría de datos se vuelven cruciales, le convendría integrar la factoría con Git para aprovechar varias ventajas de control de código fuente como las siguientes:
+    -   Capacidad para realizar el seguimiento y la auditoría de los cambios.
+    -   Capacidad para revertir los cambios que presentaron errores.
+-   **Operaciones de guardado parcial:** al crear en el servicio Data Factory, no se pueden guardar los cambios como borrador y todas las publicaciones deben superar la validación de Data Factory. Tanto si las canalizaciones no están terminadas como si simplemente no desea perder los cambios en caso de que se bloquee el equipo, la integración de Git permite cambios incrementales de los recursos de Data Factory, con independencia del estado en el que se encuentren. La configuración de un repositorio de Git le permite guardar los cambios, de forma que solo realiza una publicación cuando ha probado los cambios y está satisfecho con ellos.
+-   **Colaboración y control:** si varios miembros del equipo colaboran en la misma factoría, puede que le convenga permitir que sus compañeros de equipo colaboren entre sí mediante un proceso de revisión de código. También puede configurar la factoría de modo que no todos los colaboradores tengan los mismos permisos. Es posible que algunos miembros del equipo solo puedan hacer cambios a través de Git, pero que solo algunas personas del equipo puedan publicar los cambios en la factoría.
+-   **Mejor proceso de CI/CD:**  si va a realizar implementaciones en varios entornos con un [proceso de entrega continua](continuous-integration-deployment.md), la integración de Git facilita ciertas acciones. Algunas de estas acciones incluyen:
+    -   Configurar la canalización de versión para que se desencadene automáticamente en cuanto se realicen cambios en la factoría de desarrollo.
+    -   Personalizar las propiedades de la factoría que están disponibles como parámetros en la plantilla de Resource Manager. Puede ser útil mantener solo el conjunto requerido de propiedades como parámetros, y tener todo lo demás codificado.
+-   **Mejor rendimiento:** por término medio, una factoría con la integración de Git realiza cargas 10 veces más rápido que una creación en el servicio Data Factory. Esta mejora del rendimiento se debe a que los recursos se descargan mediante Git.
 
 > [!NOTE]
 > La creación directa con el servicio Data Factory está deshabilitada en la experiencia de usuario de Azure Data Factory cuando se configura un repositorio de Git. Se pueden realizar cambios directamente en el servicio mediante PowerShell o un SDK.
@@ -88,7 +93,7 @@ El panel de configuración muestra la siguiente configuración del repositorio d
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Uso de un inquilino de Azure Active Directory distinto
 
-Puede crear un repositorio Git de Azure Repos en un inquilino de Azure Active Directory distinto. Para especificar otro inquilino de Azure AD, deberá tener permisos de administrador para la suscripción de Azure que utilice.
+El repositorio Git de Azure Repos puede estar en un inquilino de Azure Active Directory distinto. Para especificar otro inquilino de Azure AD, deberá tener permisos de administrador para la suscripción de Azure que utilice.
 
 ### <a name="use-your-personal-microsoft-account"></a>Uso de la cuenta de Microsoft personal
 
@@ -142,7 +147,7 @@ En el panel configuración se muestra la siguiente configuración del repositori
 |:--- |:--- |:--- |
 | **Tipo de repositorio** | Tipo de repositorio de código de Azure Repos. | GitHub |
 | **Use GitHub Enterprise** (Usar GitHub Enterprise) | Casilla para seleccionar GitHub Enterprise | no seleccionado (valor predeterminado) |
-| **GitHub Enterprise URL** (URL de GitHub Enterprise) | La dirección URL de GitHub Enterprise (debe ser HTTPS para el servidor local de GitHub Enterprise). Por ejemplo: https://github.mydomain.com. Solo es necesario si se selecciona **Use GitHub Enterprise** (Usar GitHub Enterprise). | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise URL** (URL de GitHub Enterprise) | La dirección URL de GitHub Enterprise (debe ser HTTPS para el servidor local de GitHub Enterprise). Por ejemplo: `https://github.mydomain.com`. Solo es necesario si se selecciona **Use GitHub Enterprise** (Usar GitHub Enterprise). | `<your GitHub enterprise url>` |                                                           
 | **Cuenta de GitHub** | El nombre de la cuenta de GitHub. Este nombre se puede encontrar en https:\//github.com/{nombre de cuenta}/{nombre de repositorio}. Para ir a esta página se le pide que introduzca credenciales de OAuth de GitHub en la cuenta de GitHub. | `<your GitHub account name>` |
 | **Nombre del repositorio**  | El nombre del repositorio de código de GitHub. Las cuentas de GitHub contienen repositorios de Git para administrar el código fuente. Puede crear un repositorio o usar uno existente que ya se encuentre en su cuenta. | `<your repository name>` |
 | **Rama de colaboración** | La rama de colaboración de GitHub que se usa para la publicación. De forma predeterminada, es master. Cámbiela en caso de que desee publicar recursos de otra rama. | `<your collaboration branch>` |
@@ -160,18 +165,6 @@ En el panel configuración se muestra la siguiente configuración del repositori
 
 - Se puede capturar un máximo de 1 000 entidades por tipo de recurso (por ejemplo, canalizaciones y conjuntos de valores) desde una sola rama de GitHub. Si se alcanza este límite, se recomienda dividir los recursos en factorías independientes. GIT de Azure DevOps no presenta esta limitación.
 
-## <a name="switch-to-a-different-git-repo"></a>Cambie a otro repositorio de Git diferente
-
-Para cambiar a otro repositorio de Git, haga clic en el icono de **configuración del repositorio de Git** situado en la esquina superior derecha de la página de información general de Data Factory. Si no ve el icono, borre la caché del explorador local. Seleccione el icono para quitar la asociación con el repositorio actual.
-
-![Icono de Git](media/author-visually/remove-repo.png)
-
-Cuando aparezca el panel de configuración del repositorio, seleccione **Remove Git** (Quitar Git). Escriba el nombre de la factoría de datos y haga clic en **Confirm** (Confirmar) para quitar el repositorio de Git asociado a la factoría de datos.
-
-![Elimine la asociación con el repositorio de Git actual.](media/author-visually/remove-repo2.png)
-
-Después de quitar la asociación con el repositorio actual, puede configurar las opciones de Git para usar un repositorio diferente y, luego, importar los recursos existentes de Data Factory en el nuevo repositorio. 
-
 ## <a name="version-control"></a>Control de versiones
 
 Los sistemas de control de versiones, conocidos también como _de control de código fuente_, permiten a los desarrolladores colaborar en el código y llevar a cabo el seguimiento de los cambios realizados en la base de código. El control del código fuente es una herramienta esencial para proyectos de varios desarrolladores.
@@ -188,7 +181,7 @@ Cuando esté listo para combinar los cambios de su rama de características con 
 
 ### <a name="configure-publishing-settings"></a>Configurar los valores de publicación
 
-Para configurar la rama de publicación, es decir, la rama donde se guardan las plantillas de Resource Manager, agregue un archivo `publish_config.json` a la carpeta raíz de la rama de colaboración. Data Factory lee este archivo, busca el campo `publishBranch` y crea una nueva rama (si aún no existe) con el valor proporcionado. Después guarda todas las plantillas de Resource Manager en la ubicación especificada. Por ejemplo:
+De forma predeterminada, Data Factory genera las plantillas de Resource Manager de la factoría publicada y las guarda en una rama llamada `adf_public`. Para configurar una rama de publicación personalizada, agregue un archivo `publish_config.json` a la carpeta raíz de la rama de colaboración. Durante la publicación, ADF lee este archivo, busca el campo `publishBranch` y guarda todas las plantillas de Resource Manager en la ubicación especificada. Si no existe la rama, Data Factory la crea automáticamente. A continuación, se muestra un ejemplo de cuál es el aspecto de este archivo:
 
 ```json
 {
@@ -196,7 +189,7 @@ Para configurar la rama de publicación, es decir, la rama donde se guardan las 
 }
 ```
 
-Al especificar una nueva rama de publicación, Data Factory no elimina la rama de publicación anterior. Si quiere quitar la rama de publicación anterior, tiene que hacerlo manualmente.
+Azure Data Factory solo puede tener una rama de publicación cada vez. Al especificar una nueva rama de publicación, Data Factory no elimina la rama de publicación anterior. Si quiere quitar la rama de publicación anterior, tiene que hacerlo manualmente.
 
 > [!NOTE]
 > Data Factory solo lee el archivo `publish_config.json` cuando se carga la factoría. Si ya tiene la factoría cargada en el portal, actualice el explorador para que los cambios surtan efecto.
@@ -214,17 +207,6 @@ Se abrirá un panel lateral en el que se confirma que la rama de publicación y 
 > [!IMPORTANT]
 > La rama principal no es representativa de lo que se implementa en el servicio Data Factory. La rama principal se *debe* publicar manualmente en el servicio Data Factory.
 
-## <a name="advantages-of-git-integration"></a>Ventajas de la integración de Git
-
--   **Control de código fuente**. A medida que las cargas de trabajo de la factoría de datos se vuelven cruciales, le convendría integrar la factoría con Git para aprovechar varias ventajas de control de código fuente como las siguientes:
-    -   Capacidad para realizar el seguimiento y la auditoría de los cambios.
-    -   Capacidad para revertir los cambios que presentaron errores.
--   **Operaciones de guardado parcial**. Al realizar muchos cambios en la factoría, se dará cuenta de que, en el modo real normal, no puede guardar los cambios como borrador, porque no está preparado o porque no quiere perder los cambios en caso de que su equipo se bloquee. Con la integración de Git, puede continuar guardando los cambios de forma incremental y publicarlos en la factoría solo cuando esté listo. Git actúa como un espacio de almacenamiento provisional para el trabajo, hasta que haya probado los cambios y estén a su gusto.
--   **Colaboración y control**. Si varios miembros del equipo participan en la misma factoría, puede que le convenga permitir que sus compañeros de equipo colaboren entre sí mediante un proceso de revisión de código. También puede configurar la factoría de manera que no todos sus colaboradores tengan permiso para implementar en ella. Es posible que los miembros del equipo solo puedan hacer cambios a través de Git, pero solo algunas personas del equipo puedan "Publicar" los cambios en la factoría.
--   **Muestra de las diferencias**. En el modo de Git, puede ver una clara diferencia de la carga útil que está a punto de publicar en la factoría. Esta diferencia muestra todos los recursos y entidades que se han modificado, agregado y eliminado desde la última vez que se publicó en la factoría. Según esta diferencia, puede continuar con la publicación o volver y comprobar los cambios, así como volver más tarde.
--   **Mejor proceso de CI/CD**. Si utiliza el modo de Git, puede configurar la canalización de versión para que se desencadene automáticamente en cuanto haya algún cambio en la factoría en desarrollo. También podrá personalizar las propiedades de la factoría que estén disponibles como parámetros en la plantilla de Resource Manager. Puede ser útil mantener solo el conjunto requerido de propiedades como parámetros, y tener todo lo demás codificado.
--   **Mejor rendimiento**. Una factoría media carga 10 veces más rápido en el modo de Git que en el modo real normal, porque los recursos se descargan a través de Git.
-
 ## <a name="best-practices-for-git-integration"></a>Procedimientos recomendados para la integración de Git
 
 ### <a name="permissions"></a>Permisos
@@ -238,9 +220,9 @@ Se recomienda no permitir inserciones directas en el repositorio en la rama de c
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Uso de contraseñas de Azure Key Vault
 
-Se recomienda usar Azure Key Vault para almacenar las cadenas de conexión o las contraseñas de los servicios vinculados de Data Factory. Por motivos de seguridad, no almacenamos ninguna información de secretos en Git, así que los cambios en los servicios vinculados se publican inmediatamente en el servicio Azure Data Factory.
+Se recomienda usar Azure Key Vault para almacenar las cadenas de conexión o las contraseñas para la autenticación de identidad administrada en los servicios vinculados de Data Factory. Por motivos de seguridad, Data Factory no almacena secretos en Git. Los cambios en los servicios vinculados que contienen secretos, como contraseñas, se publican inmediatamente en el servicio Azure Data Factory.
 
-El uso de Key Vault también facilita la integración y la implementación continuas, ya que no tendrá que proporcionar estos secretos durante la implementación de la plantilla de Resource Manager.
+El uso de Key Vault o de la autenticación MSI también facilita la integración y la implementación continuas, ya que no tendrá que proporcionar estos secretos durante la implementación de plantillas de Resource Manager.
 
 ## <a name="troubleshooting-git-integration"></a>Solución de problemas de la integración de Git
 
@@ -253,15 +235,25 @@ Si la rama de publicación no está sincronizada con la rama principal y contien
 1. Cree una solicitud de incorporación de cambios para combinar los cambios con la rama de colaboración. 
 
 A continuación, se muestran algunos ejemplos de situaciones que pueden provocar una rama de publicación obsoleta:
-- Un usuario tiene varias ramas. En una rama de características, eliminó un servicio vinculado que no está asociado a AKV (los servicios vinculados que no son AKV se publican inmediatamente, independientemente de si están en GIT o no) y nunca combinó la rama de características con la rama de colaboración.
+- Un usuario tiene varias ramas. En una rama de características, este eliminó un servicio vinculado que no está asociado a AKV (los servicios vinculados que no son AKV se publican inmediatamente, independientemente de si están en GIT o no) y nunca combinó la rama de características con la rama de colaboración.
 - Un usuario modificó la factoría de datos mediante el SDK o PowerShell.
 - Un usuario desplazó todos los recursos a una nueva rama e intentó publicarlos por primera vez. Los servicios vinculados se deben crear manualmente al importar los recursos.
 - Un usuario carga un servicio vinculado que no es AKV o un archivo JSON de Integration Runtime manualmente. Hace referencia a ese recurso desde otro recurso, como un conjunto de datos, un servicio vinculado o una canalización. Un servicio vinculado que no es AKV creado través de la experiencia de usuario se publica inmediatamente porque se deben cifrar las credenciales. Si carga un conjunto de datos que haga referencia a ese servicio vinculado e intenta publicarlo, la experiencia de usuario lo permitirá porque existe en el entorno de GIT. Sin embargo, se rechazará en el momento de la publicación, ya que no existe en el servicio de la factoría de datos.
 
-## <a name="provide-feedback"></a>Envío de comentarios
-Seleccione **Comentarios** para comentar sobre las características o para notificar a Microsoft sobre los problemas con la herramienta:
+## <a name="switch-to-a-different-git-repository"></a>Cambio a un repositorio de Git diferente
 
-![Comentarios](media/author-visually/provide-feedback.png)
+Para cambiar a un repositorio de Git, haga clic en el icono de **configuración del repositorio de Git** situado en la esquina superior derecha de la página de información general de Data Factory. Si no ve el icono, borre la caché del explorador local. Seleccione el icono para quitar la asociación con el repositorio actual.
+
+![Icono de Git](media/author-visually/remove-repo.png)
+
+Cuando aparezca el panel de configuración del repositorio, seleccione **Remove Git** (Quitar Git). Escriba el nombre de la factoría de datos y haga clic en **Confirm** (Confirmar) para quitar el repositorio de Git asociado a la factoría de datos.
+
+![Elimine la asociación con el repositorio de Git actual.](media/author-visually/remove-repo2.png)
+
+Después de quitar la asociación con el repositorio actual, puede configurar las opciones de Git para usar un repositorio diferente y, luego, importar los recursos existentes de Data Factory en el nuevo repositorio.
+
+> [!IMPORTANT]
+> La eliminación de la configuración de Git de una factoría de datos no elimina nada del repositorio. La factoría contendrá todos los recursos publicados. Puede seguir editando la factoría directamente en el servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

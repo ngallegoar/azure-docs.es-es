@@ -3,12 +3,12 @@ title: Detección de aplicaciones, roles y características en servidores locale
 description: Obtenga información sobre cómo detectar aplicaciones, roles y características en servidores locales con Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9f5489b513cd1405e6b093d7537e4cbcead041
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79453589"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744624"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
 
@@ -30,17 +30,47 @@ Detección de aplicaciones mediante Azure Migrate: Server Assessment es una herr
 5. Compruebe los [requisitos ](migrate-appliance.md) para implementar el dispositivo de Azure Migrate.
 6. [Compruebe la compatibilidad y los requisitos](migrate-support-matrix-vmware.md#application-discovery) para la detección de aplicaciones.
 
-## <a name="prepare-for-app-discovery"></a>Preparación para la detección de aplicaciones
 
-1. [Prepárese para la implementación del dispositivo](tutorial-prepare-vmware.md). La preparación incluye la comprobación de la configuración del dispositivo y la configuración de una cuenta que el dispositivo utilizará para acceder a vCenter Server.
-2. Asegúrese de que tiene una cuenta de usuario (una para servidores Windows y otra para servidores Linux) con permisos de administrador para las máquinas en las que quiere detectar aplicaciones, roles y características.
-3. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla de OVA en VMware para crear el dispositivo como una VM de VMware. Configure el dispositivo y, a continuación, regístrelo con Azure Migrate.
-2. Mientras implementa el dispositivo, especifique lo siguiente para iniciar la detección continua:
+
+## <a name="deploy-the-azure-migrate-appliance"></a>Implementación del dispositivo de Azure Migrate
+
+1. [Revise](migrate-appliance.md#appliance---vmware) los requisitos para implementar el dispositivo de Azure Migrate.
+2. Revise las direcciones URL de Azure a las que el dispositivo necesitará acceder en las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
+3. [Revise los datos](migrate-appliance.md#collected-data---vmware) que la aplicación recopila durante la detección y valoración.
+4. [Tenga en cuenta](migrate-support-matrix-vmware.md#port-access) los requisitos de acceso a puertos del dispositivo.
+5. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla de OVA en VMware para crear el dispositivo como una VM de VMware. Configure el dispositivo y, a continuación, regístrelo con Azure Migrate.
+6. Mientras implementa el dispositivo, especifique lo siguiente para iniciar la detección continua:
     - El nombre de la instancia de vCenter Server que quiere conectar.
     - Las credenciales que ha creado para que el dispositivo se conecte a vCenter Server.
     - Las credenciales de la cuenta que ha creado para que el dispositivo se conecte a las VM de Windows o Linux.
 
 Después de implementar el dispositivo y proporcionar las credenciales, el dispositivo inicia la detección continua de los metadatos de la VM y los datos de rendimiento, junto con la detección de aplicaciones, características y roles.  La duración de la detección de aplicaciones depende del número de VM que tenga. Normalmente, la detección de aplicaciones tarda una hora para 500 VM.
+
+## <a name="prepare-a-user-account"></a>Preparación de una cuenta de usuario
+
+Cree una cuenta para usarla en la detección y agréguela al dispositivo.
+
+### <a name="create-a-user-account-for-discovery"></a>Creación de una cuenta de usuario para la detección
+
+Configure una cuenta de usuario para que Server Assessment pueda acceder a la VM para la detección. [Aprenda](migrate-support-matrix-vmware.md#application-discovery) sobre los requisitos de la cuenta.
+
+
+### <a name="add-the-user-account-to-the-appliance"></a>Adición de la cuenta de usuario al dispositivo
+
+Agregue la cuenta de usuario al dispositivo.
+
+1. Abra la aplicación de administración del dispositivo. 
+2. Navegue hasta el panel **Provide vCenter details** (Proporcionar detalles de vCenter).
+3. En **Detectar aplicaciones y dependencias en VM**, haga clic en **Agregar credenciales**.
+3. Elija el **Sistema operativo**, proporcione un nombre descriptivo para la cuenta y especifique los valores de **Nombre de usuario**/**Contraseña**.
+6. Haga clic en **Save**(Guardar).
+7. Haga clic en **Guardar e iniciar la detección**.
+
+    ![Adición de una cuenta de usuario de VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+
+
+
+
 
 ## <a name="review-and-export-the-inventory"></a>Revisión y exportación del inventario
 

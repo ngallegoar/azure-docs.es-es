@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7feb6282f3a3551e08d1bb8db2cf6ad2fcd754a8
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461402"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626163"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database ofrece un servicio de base de datos relacional para
 
 ### <a name="ip-firewall-rules"></a>Reglas de firewall de IP
 
-Las reglas de firewall de IP otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Reglas de firewall de Azure SQL Database y SQL Data Warehouse](sql-database-firewall-configure.md).
+Las reglas de firewall de IP otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Introducción a las reglas de firewall de Azure SQL Database y Azure Synapse Analytics](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
 
@@ -56,7 +56,7 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 - **Autenticación de Azure Active Directory**:
 
-    La autenticación de Azure Active Directory es un mecanismo de conexión a [Azure SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (AD). La autenticación de Azure AD permite a los administradores administrar centralmente las identidades y los permisos de los usuarios de la base de datos, junto con otros servicios de Microsoft, en una ubicación central. Esto incluye la minimización de almacenamiento de contraseñas y permite directivas centralizadas de rotación de contraseñas.
+    La autenticación de Azure Active Directory es un mecanismo de conexión a [Azure SQL Database](sql-database-technical-overview.md) y [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (Azure AD). La autenticación de Azure AD permite a los administradores administrar centralmente las identidades y los permisos de los usuarios de la base de datos, junto con otros servicios de Microsoft, en una ubicación central. Esto incluye la minimización de almacenamiento de contraseñas y permite directivas centralizadas de rotación de contraseñas.
 
      Debe crearse un administrador del servidor denominado **Administrador de Active Directory** para usar la autenticación de Azure AD con SQL Database. Para más información, consulte [Usar la autenticación de Azure Active Directory para autenticación con SQL](sql-database-aad-authentication.md). La autenticación de Azure AD admite cuentas tanto administradas como federadas. Las cuentas federadas admiten usuarios y grupos de Windows para un dominio de cliente federado con Azure AD.
 
@@ -97,7 +97,7 @@ La protección contra amenazas avanzada es el análisis de registros de SQL Serv
 
 SQL Database protege los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Server aplica el cifrado (SSL/TLS) en todo momento para todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y el servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
+SQL Server aplica el cifrado (TLS) en todo momento a todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y el servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
 
 Como procedimiento recomendado, le sugerimos que en la cadena de conexión de la aplicación especifique una conexión cifrada y _**no**_ confíe en el certificado de servidor. Esto obliga a la aplicación a comprobar el certificado de servidor y, por tanto, impide que la aplicación sea vulnerable a ataques de tipo "Man in the middle".
 

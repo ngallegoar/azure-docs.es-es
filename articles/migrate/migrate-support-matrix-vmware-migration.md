@@ -3,12 +3,12 @@ title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538144"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743664"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -69,7 +69,7 @@ La migración sin agentes utiliza el [dispositivo de Azure Migrate](migrate-appl
 
 - Obtenga más información sobre los [requisitos del dispositivo](migrate-appliance.md#appliance---vmware) para VMware.
 - Obtenga información sobre las direcciones URL a las que el dispositivo necesita acceder en nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
-- En Azure Government, debe implementar el dispositivo mediante el script.
+- En Azure Government, debe implementar el dispositivo [mediante el script](deploy-appliance-script-government.md).
 
 ## <a name="agentless-ports"></a>Puertos sin agente
 

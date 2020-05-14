@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060192"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791143"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: Configuración de un grupo de disponibilidad en Azure SQL Server VM manualmente
 
@@ -348,7 +348,7 @@ En este punto, tiene un grupo de disponibilidad con réplicas en dos instancias 
 
 En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un equilibrador de carga. El equilibrador de carga almacena las direcciones IP de los agentes de escucha del grupo de disponibilidad y del Clúster de conmutación por error de Windows Server. En esta sección se resume cómo crear el equilibrador de carga en Azure Portal.
 
-Una instancia de Azure Load Balancer puede ser Standard Load Balancer o Basic Load Balancer. Standard Load Balancer tiene más características que Basic Load Balancer. Para un grupo de disponibilidad, se requiere Standard Load Balancer si usa una zona de disponibilidad (en lugar de un conjunto de disponibilidad). Para obtener más información sobre la diferencia entre los tipos de equilibrador de carga, consulte [Comparación de las SKU de equilibrador de carga](../../../load-balancer/concepts-limitations.md#skus).
+Una instancia de Azure Load Balancer puede ser Standard Load Balancer o Basic Load Balancer. Standard Load Balancer tiene más características que Basic Load Balancer. Para un grupo de disponibilidad, se requiere Standard Load Balancer si usa una zona de disponibilidad (en lugar de un conjunto de disponibilidad). Para más información sobre la diferencia entre las SKU de Load Balancer, consulte el artículo sobre la [comparación de las SKU de Load Balancer](../../../load-balancer/skus.md).
 
 1. En Azure Portal, vaya al grupo de recursos donde están los servidores SQL Server y haga clic en **+Agregar**.
 1. Busque **Load Balancer**. Elija el equilibrador de carga publicado por Microsoft.

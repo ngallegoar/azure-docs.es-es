@@ -1,6 +1,6 @@
 ---
-title: Incorporación o eliminación de asignaciones de roles con RBAC y Azure Portal
-description: Aprenda a conceder acceso a recursos de Azure para usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y Azure Portal.
+title: 'Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal: RBAC de Azure'
+description: Aprenda a conceder acceso a recursos de Azure para usuarios, grupos, entidades de servicio e identidades administradas mediante Azure Portal y el control de acceso basado en roles de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225588"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735698"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal
+# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] En este artículo se describe cómo asignar roles con Azure Portal.
 
@@ -143,7 +143,7 @@ En RBAC de Azure, para quitar el acceso de un recurso de Azure, se quita una asi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Lista de asignaciones de roles con RBAC de Azure y Azure Portal](role-assignments-list-portal.md)
+- [Enumeración de asignaciones de roles de Azure mediante Azure Portal](role-assignments-list-portal.md)
 - [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
-- [Solución de problemas del control de acceso basado en rol para recursos de Azure](troubleshooting.md)
+- [Solución de problemas de Azure RBAC](troubleshooting.md)
 - [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md)

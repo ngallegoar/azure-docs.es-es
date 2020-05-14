@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
-ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668001"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625561"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -222,6 +222,23 @@ Esta opción está configurada en **Conexiones de Active Directory** debajo de *
     El volumen que creó aparece en la hoja Volúmenes. 
  
     Un volumen hereda los atributos de ubicación, la suscripción y el grupo de recursos de su grupo de capacidad. Para supervisar el estado de la implementación del volumen, puede usar la pestaña Notificaciones.
+
+## <a name="control-access-to-an-smb-volume"></a>Control del acceso a un volumen SMB  
+
+El acceso a un volumen SMB se administra mediante permisos.  
+
+### <a name="share-permissions"></a>Permisos de recursos compartidos  
+
+De forma predeterminada, un nuevo volumen tiene los permisos de recursos compartidos **Todos/Control total**. Los miembros del grupo Admins. del dominio pueden cambiar los permisos de recursos compartido mediante Administración de equipos en la cuenta de equipo que se usa para el volumen de Azure NetApp Files.
+
+![Ruta de montaje de SMB](../media/azure-netapp-files/smb-mount-path.png) 
+![Establecer permisos de recurso compartido](../media/azure-netapp-files/set-share-permissions.png) 
+
+### <a name="ntfs-file-and-folder-permissions"></a>Permisos de carpetas y archivos NTFS  
+
+Puede establecer permisos para un archivo o carpeta con la pestaña **Seguridad** de las propiedades del objeto en el cliente SMB de Windows.
+ 
+![Establecimiento de permisos de carpetas y archivos](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

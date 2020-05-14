@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8322c12669e41fc7c9aa88e99f95cf1b26ea87d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944124"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610248"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configuración de un nombre de dominio personalizado en Azure App Service con la integración de Traffic Manager
 
@@ -66,12 +66,18 @@ Una vez que la aplicación App Service se encuentre en un plan de tarifa admitid
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Aunque los detalles de cada proveedor de dominio varían, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**) *al* nombre de dominio de Traffic Manager (**contoso.trafficmanager.net**) que se integra con la aplicación.
+Aunque los detalles de cada proveedor de dominio varían, en general se asigna *desde* un [nombre de dominio personalizado no raíz](#what-about-root-domains) (como **www.contoso.com**) *al* nombre de dominio de Traffic Manager (**contoso.trafficmanager.net**) que se integra con la aplicación. 
 
 > [!NOTE]
 > Si un registro ya se está usando y necesita enlazar de forma preventiva sus aplicaciones a él, puede crear otro registro CNAME. Por ejemplo, para enlazar de forma preferente **www\.contoso.com** a su aplicación, cree un registro CNAME de **awverify.www** a **contoso.trafficmanager.net**. Después, puede agregar "www\.contoso.com" a la aplicación web sin tener que cambiar el registro CNAME de "www". Para más información, consulte [Migración de un nombre de DNS activo a Azure App Service](manage-custom-dns-migrate-domain.md).
 
 Una vez que haya terminado de agregar o modificar registros DNS en su proveedor de dominio, guarde los cambios.
+
+### <a name="what-about-root-domains"></a>¿Qué ocurre con los dominios raíz?
+
+Como Traffic Manager solo admite la asignación de dominios personalizados con registros CNAME, y dado que los estándares DNS no admiten registros CNAME para asignar dominios raíz (por ejemplo, **contoso.com**), Traffic Manager no admite la asignación a dominios raíz. Para solucionar este problema, use una dirección URL redirigida desde el nivel de la aplicación. En ASP.NET Core, por ejemplo, puede usar [Reescritura de direcciones URL](/aspnet/core/fundamentals/url-rewriting). A continuación, use Traffic Manager para equilibrar la carga del subdominio (**www.contoso.com**).
+
+En escenarios de alta disponibilidad, puede implementar una configuración de DNS tolerante a errores sin Traffic Manager creando varios *registros A* que apunten del dominio raíz a cada dirección IP de la copia de la aplicación. A continuación, [asigne el mismo dominio raíz a todas las copias de la aplicación](app-service-web-tutorial-custom-domain.md#map-an-a-record). Dado que el mismo nombre de dominio no se puede asignar a dos aplicaciones diferentes en la misma región, este programa de instalación solo funciona cuando las copias de la aplicación se encuentran en regiones diferentes.
 
 ## <a name="enable-custom-domain"></a>Habilitación del dominio personalizado
 Una vez que se hayan propagado los registros de su nombre de dominio, use el explorador para comprobar que el nombre de dominio personalizado se resuelve en la aplicación App Service.

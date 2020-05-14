@@ -1,59 +1,57 @@
 ---
-title: Creación de una oferta de aplicación de Power BI | Azure Marketplace
+title: Creación de una oferta de aplicación de Power BI en Marketplace comercial de Microsoft
 description: Obtenga información sobre cómo crear y publicar una oferta de aplicación de Power BI para Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.date: 05/01/2020
+ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867594"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839154"
 ---
-# <a name="create-a-power-bi-app"></a>Creación de una aplicación de Power BI
+# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Creación de una aplicación de Power BI para Microsoft AppSource
 
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de aplicaciones de Power BI de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Creación de una oferta de aplicación de Power BI](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) para Cloud Partner Portal para administrar las ofertas.
+En este artículo se describe cómo crear y publicar una oferta de aplicación de Power BI para Microsoft[AppSource](https://appsource.microsoft.com/).
 
-En este artículo se describe cómo crear y publicar una oferta de aplicación de Power BI para [Microsoft AppSource](https://appsource.microsoft.com/).
-
-Para poder crear una oferta de aplicación de Power BI, debe tener una cuenta de Marketplace comercial en el Centro de partners. Si todavía no ha creado ninguna, vea [Creación de una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
-2. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
+2. En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Información general**.
+3. En la página de información general, seleccione **+ Nueva oferta** > **Aplicación de servicio Power BI**.
 
-    :::image type="content" source="media/power-bi-menu-overview.png" alt-text="Información general del menú Marketplace comercial" border="false":::
+   ![Muestra el menú de navegación izquierdo.](./media/new-offer-pbi-app.png)
 
-3. Seleccione **+ Nueva oferta** > **Aplicación de Power BI**. Aparece el cuadro de diálogo **Nueva oferta**.
+> [!NOTE]
+> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 > [!IMPORTANT]
-> Si no se muestra la opción **Aplicación de Power BI** o no está habilitada, la cuenta no tiene permiso para crear este tipo de oferta. Compruebe que cumple todos los [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluido el registro para una cuenta de desarrollador.
+> Si no se muestra ni está habilitada la opción **Aplicación de servicio Power BI Service App**, la cuenta no tiene permiso para crear este tipo de oferta. Compruebe que cumple todos los [requisitos](create-power-bi-app-overview.md) para este tipo de oferta, incluido el registro para una cuenta de desarrollador.
 
-### <a name="offer-id-and-alias"></a>Identificador y alias de la oferta
+## <a name="new-offer"></a>Nueva oferta
 
 Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
 - Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-
 - El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
-Escriba un **Alias de la oferta**. Este es el nombre que se usa para hacer referencia a la oferta en el Centro de partners.
+Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
 
 - Este nombre no se usa en Marketplace y es diferente del nombre de la oferta y de otros valores que se muestran a los clientes.
-- No se puede cambiar después de seleccionar **Crear**.
+- El alias de la oferta no se puede cambiar después de seleccionar **Crear**.
 
-Después de escribir estos dos valores, seleccione **Crear** para continuar en la página Información general de la oferta.
+Seleccione **Crear** para generar la oferta y continuar.
 
 ## <a name="offer-overview"></a>Información general de la oferta
 
-En la página **Información general de la oferta** se muestra una representación visual de los pasos necesarios para publicar esta oferta (tanto completados como siguientes), así como el tiempo necesario que debe tardar cada uno en completarse.
+Esta página se muestra una representación visual de los pasos necesarios para publicar esta oferta (tanto completados como siguientes), así como el tiempo necesario que debe tardar cada uno en completarse.
 
 Se incluyen vínculos para realizar operaciones en esta oferta en función de la selección que realice. Por ejemplo:
 
@@ -63,8 +61,6 @@ Se incluyen vínculos para realizar operaciones en esta oferta en función de la
 - Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
-
-Siga estos pasos para configurar la oferta.
 
 ### <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
 
@@ -90,7 +86,7 @@ Estos son algunos recursos adicionales de administración de clientes potenciale
 - [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) en formato PDF (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
-Seleccione **Guardar borrador** antes de continuar con la siguiente sección, Propiedades.
+Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="properties"></a>Propiedades
 
@@ -147,7 +143,7 @@ Seleccione el idioma en el que se mostrará la oferta. La única opción disponi
 Tendrá que definir los detalles de Marketplace (como nombre de la oferta, descripción e imágenes) para cada idioma y mercado. Seleccione el nombre de idioma o mercado para proporcionar esta información.
 
 > [!NOTE]
-> No es necesario que los detalles de la oferta estén en inglés si la descripción de la oferta comienza con la frase &quot;Esta aplicación solo está disponible en [idioma distinto del inglés]&quot;. También es adecuado proporcionar un vínculo para ofrecer el contenido en un idioma distinto al utilizado en la descripción de la oferta.
+> No es necesario que los detalles de la oferta estén en inglés si la descripción de la oferta comienza con la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]." También es puede proporcionar un vínculo al contenido de la oferta en un idioma distinto al utilizado en la descripción de la oferta.
 
 ### <a name="name"></a>Nombre
 
@@ -184,9 +180,13 @@ Estas son algunas sugerencias para escribir la descripción:
 - No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona la oferta.
 - Intente usar un vocabulario específico del sector o palabras relacionadas con las ventajas.
 
-Para que la **descripción** de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato. El editor de texto enriquecido le permite agregar números, viñetas, negritas, cursivas y sangrías para que la descripción sea más legible.
+Para que la descripción de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato.
 
-:::image type="content" source="media/power-bi-rich-text-editor.png" alt-text="Muestra el editor de texto enriquecido" border="false":::.
+![Uso del editor de texto enriquecido](./media/rich-text-editor.png)
+
+| <center>Cambiar el formato de texto | <center>Agregar viñetas o numeración | <center>Agregar o quitar sangría del texto |
+| --- | --- | --- |
+| <center>![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png) |  <center>![Uso del editor de texto enriquecido para agregar listas](./media/text-editor4.png) |  <center>![Uso del editor de texto enriquecido para aplicar sangría](./media/text-editor5.png) |
 
 ### <a name="search-keywords"></a>Palabras clave de búsqueda
 
@@ -222,12 +222,14 @@ Proporcione al menos uno y hasta tres documentos de marketing relacionados en fo
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato .PNG. Las imágenes borrosas se rechazarán.
 
->[!Note]
+>[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione los archivos .png del logotipo de la oferta en dos tamaños: **pequeño** (48 x 48 píxeles) y **grande** (216 x 216 píxeles).
+Proporcione los archivos .png del logotipo de la oferta en dos tamaños de píxeles:
+- **Pequeño (48 x 48)**
+- **Grande (216 x 216)**
 
 Los dos logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
 
@@ -237,7 +239,7 @@ Agregue al menos una y hasta cinco capturas de pantalla que muestren el funciona
 
 #### <a name="videos-optional"></a>Vídeos (opcional)
 
-Agregue hasta cinco vídeos que muestren la oferta. Escriba el nombre del vídeo, su dirección web y una imagen en miniatura en formato .png del vídeo con un tamaño de 1280 x 720 píxeles.
+Agregue hasta cinco vídeos que muestren la oferta. Escriba el nombre del vídeo, su dirección web y una imagen en miniatura en formato .png del vídeo con un tamaño de 1280 x 720 píxeles.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionales de la descripción de Marketplace
 

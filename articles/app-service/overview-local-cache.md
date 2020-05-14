@@ -1,17 +1,17 @@
 ---
 title: Caché local
-description: Obtenga información sobre cómo funciona la memoria caché local en Azure App Service y cómo habilitar, cambiar de tamaño y consultar el estado de la caché local de la aplicación.
+description: Obtenga información sobre cómo funciona la memoria caché local en Azure App Service y cómo habilitar, cambiar de tamaño y consultar el estado de la memoria caché local de la aplicación.
 tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78227876"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628800"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local de Azure App Service
 
@@ -36,7 +36,7 @@ La característica de caché local de Azure App Service proporciona una vista de
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Cómo la memoria caché local cambia el comportamiento de App Service
 * _D:\home_ apunta a la memoria caché local, que se crea en la instancia de la VM cuando se inicia la aplicación. _D:\local_ sigue apuntando al almacenamiento específico de la VM temporal.
-* La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_, respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de la memoria caché local para cada aplicación se limita a 300 MB de forma predeterminada, pero se puede aumentar a hasta 2 GB. Si los archivos copiados superan el tamaño de la memoria caché local, App Service omite silenciosamente la memoria caché local y se leen desde el recurso compartido de archivos remoto.
+* La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_, respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de las dos carpetas para cada aplicación se limita a 1 GB de forma predeterminada, pero se puede aumentar hasta 2 GB. Tenga en cuenta que, a medida que aumente el tamaño de la memoria caché, se tardará más tiempo en cargarla. Si los archivos copiados superan el tamaño de la memoria caché local, App Service omite silenciosamente la memoria caché local y se leen desde el recurso compartido de archivos remoto.
 * La caché local es de lectura y escritura. Sin embargo, se descartará cualquier modificación cuando la aplicación mueva máquinas virtuales o se reinicie. No use la memoria caché local para las aplicaciones que almacenan datos críticos en el almacén de contenido.
 * _D:\home\LogFiles_ y _D:\home\Data_ contienen archivos de registro y datos de la aplicación. Las dos subcarpetas se almacenan localmente en la instancia de la VM y se copian periódicamente en el almacén de contenido compartido. Las aplicaciones pueden conservar los archivos de registro y los datos al escribirlos en estas carpetas. Sin embargo, la copia en el almacén de contenido compartido es de mejor esfuerzo, por lo que es posible que los archivos de registro y datos se pierdan debido a un bloqueo repentino de una instancia de la VM.
 * Las [secuencias de registro](troubleshoot-diagnostic-logs.md#stream-logs) se ve afectada por la copia de mejor esfuerzo. Esto podría provocar un retraso de hasta un minuto en los registros en secuencia.
@@ -75,7 +75,7 @@ Use esta configuración de aplicación para habilitar la caché local en funció
 
     "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
-        "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
+        "WEBSITE_LOCAL_CACHE_SIZEINMB": "1000"
     }
 }
 
@@ -83,7 +83,7 @@ Use esta configuración de aplicación para habilitar la caché local en funció
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Cambio de la configuración de tamaño en la caché local
-El tamaño predeterminado de la caché local es **300 MB**. Esto incluye las carpetas /site y /siteextensions que se copian desde el almacén de contenido así como en cualquier registro y carpeta de datos creados localmente. Para aumentar este límites, use la configuración de aplicación `WEBSITE_LOCAL_CACHE_SIZEINMB`. Puede aumentar el tamaño hasta **2 GB** (2000 MB) por aplicación.
+El tamaño predeterminado de la caché local es **1 GB**. Esto incluye las carpetas /site y /siteextensions que se copian desde el almacén de contenido así como en cualquier registro y carpeta de datos creados localmente. Para aumentar este límites, use la configuración de aplicación `WEBSITE_LOCAL_CACHE_SIZEINMB`. Puede aumentar el tamaño hasta **2 GB** (2000 MB) por aplicación. Tenga en cuenta que se tardará más tiempo en cargar la memoria caché local a medida que aumente el tamaño.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Prácticas recomendadas para usar la caché local de App Service
 Se recomienda que use la caché local conjuntamente con la característica [Entornos de ensayo](../app-service/deploy-staging-slots.md) .

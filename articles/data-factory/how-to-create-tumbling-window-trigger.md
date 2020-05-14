@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414429"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592093"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -109,6 +109,9 @@ En la tabla siguiente se muestra una descripción general de los elementos JSON 
 | **dependsOn: type** | Tipo de TumblingWindowTriggerReference. Obligatorio si se establece una dependencia. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
 | **dependsOn: size** | Tamaño de la ventana de saltos de tamaño constante de la dependencia. | TimeSpan<br/>(hh:mm:ss)  | Un valor de intervalo de tiempo positivo en el que el valor predeterminado es el tamaño de la ventana del desencadenador secundario.  | No |
 | **dependsOn: offset** | Desplazamiento del desencadenador de la dependencia. | TimeSpan<br/>(hh:mm:ss) |  Un valor de intervalo de tiempo que debe ser negativo en una autodependencia. Si no se especifica ningún valor, la ventana es igual al desencadenador. | Autodependencia: Sí<br/>Otros: No  |
+
+> [!NOTE]
+> Después de publicar un desencadenador de ventana de saltos de tamaño constante, no es posible editar el **intervalo** y la **frecuencia**.
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variables del sistema WindowStart y WindowEnd
 

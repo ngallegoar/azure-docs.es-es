@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6817ac4ebc272747776eab8b11dba62f318e4ed
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582250"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690719"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Enlace de salida de Azure Service Bus para Azure Functions
 
@@ -287,7 +287,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**queueName**|**QueueName**|Nombre de la cola.  Se establece únicamente si se envían mensajes de cola, no de tema.
 |**topicName**|**TopicName**|Nombre del tema. Se establece únicamente si se envían mensajes de tema, no de cola.|
 |**connection**|**Connection**|Nombre de una configuración de aplicación que contiene la cadena de conexión de Service Bus que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre. Por ejemplo, si establece `connection` en "MyServiceBus", el entorno de ejecución de Functions busca una configuración de aplicación llamada "AzureWebJobsMyServiceBus". Si deja el valor de `connection` vacío, el entorno de ejecución de Functions usa la cadena de conexión de Service Bus predeterminada en la configuración de aplicación que se denomina "AzureWebJobsServiceBus".<br><br>Para obtener la cadena de conexión, siga los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos.|
-|**accessRights**|**Acceder**|Derechos de acceso para la cadena de conexión. Los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en "listen". De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo. En la versión 2.x y posteriores de Azure Functions, esta propiedad no está disponible porque la versión más reciente del SDK de Service Bus no admite operaciones de administración.|
+|**accessRights** (solo v1)|**Acceder**|Derechos de acceso para la cadena de conexión. Los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en "listen". De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo. En la versión 2.x y posteriores de Azure Functions, esta propiedad no está disponible porque la versión más reciente del SDK de Service Bus no admite operaciones de administración.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -366,9 +366,9 @@ En esta sección se describen las opciones de configuración globales disponible
         "serviceBus": {
             "prefetchCount": 100,
             "messageHandlerOptions": {
-                "autoComplete": false,
+                "autoComplete": true,
                 "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:55:00"
+                "maxAutoRenewDuration": "00:05:00"
             },
             "sessionHandlerOptions": {
                 "autoComplete": false,
@@ -380,13 +380,15 @@ En esta sección se describen las opciones de configuración globales disponible
     }
 }
 ```
+Si `isSessionsEnabled` se ha establecido en `true`, se respetará `sessionHandlerOptions`.  Si `isSessionsEnabled` se ha establecido en `false`, se respetará `messageHandlerOptions`.
 
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |prefetchCount|0|Obtiene o establece el número de mensajes que el destinatario del mensaje puede solicitar simultáneamente.|
 |maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
-|autoComplete|true|Si el desencadenador debe marcar inmediatamente el mensaje como completado (autocompletar) o esperar a que la función se cierre correctamente para la finalización.|
-|maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes. Para indicar al entorno de ejecución que procese solo los mensajes de una única cola o tema, establezca `maxConcurrentCalls` en 1. |
+|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.|
+|maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar por instancia con escala. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes.|
+|maxConcurrentSessions|2000|Número máximo de sesiones que se puede administrar simultáneamente por instancia con escala.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

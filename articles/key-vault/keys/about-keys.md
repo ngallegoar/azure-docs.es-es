@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d89275e1418035fed8aad3ffddd8def2c1d59ce
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: f96ec80b529c594a383be8d668fd28b77372cd80
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686054"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900933"
 ---
 # <a name="about-azure-key-vault-keys"></a>Acerca de Azure Key Vault
 
@@ -103,9 +103,9 @@ Para más información, consulte las [operaciones clave en la referencia de la A
 
 Una vez creada una clave en Key Vault, se pueden realizar las siguientes operaciones criptográficas con la clave:  
 
--   **Firmar y verificar**: estrictamente, esta operación es "firmar un hash" o "verificar un hash", ya que Key Vault no admite la creación de un hash del contenido como parte de la creación de la firma. Las aplicaciones deben crear el hash de los datos que se van a firmar de modo local y, a continuación, solicitar que Key Vault firme el hash. La verificación de valores hash firmados se admite como una operación conveniente para aplicaciones que no pueden acceder a material de clave [público]. Para obtener el mejor rendimiento de la aplicación, verifique que las operaciones se realizan localmente.  
+-   **Firmar y verificar**: estrictamente, esta operación es "firmar un hash" o "verificar un hash", ya que Key Vault no admite la creación de un hash del contenido como parte de la creación de la firma. Las aplicaciones deben crear el hash de los datos que se van a firmar de modo local y, a continuación, solicitar que Key Vault firme el hash. La verificación de valores hash firmados se admite como una operación conveniente para aplicaciones que no pueden acceder a material de clave [público]. Para obtener el mejor rendimiento de la aplicación, las operaciones VERIFY deben realizarse localmente.  
 -   **Cifrado/Encapsulado de clave**: una clave almacenada en Key Vault se puede utilizar para proteger otra clave, normalmente una clave de cifrado de contenido (CEK) simétrica. Cuando la clave en Key Vault es asimétrica, se usa el cifrado de claves. Por ejemplo, RSA-OAEP y las operaciones WRAPKEY/UNWRAPKEY son equivalentes a ENCRYPT/DECRYPT. Cuando la clave en Key Vault es simétrica, se usa el encapsulado de clave. Por ejemplo, AES-KW. La operación WRAPKEY se admite como una operación conveniente para aplicaciones que no pueden acceder a material de clave [público]. Para obtener el mejor rendimiento de la aplicación, las operaciones WRAPKEY deben realizarse localmente.  
--   **Cifrar y descifrar**: una clave almacenada en Key Vault puede utilizarse para cifrar o descifrar un único bloque de datos. El tamaño del bloque se determina en función del tipo de clave y del algoritmo de cifrado seleccionado. La operación de cifrado se proporciona por comodidad, para las aplicaciones que no pueden acceder a material de clave [público]. Para obtener el mejor rendimiento de la aplicación, las operaciones de cifrado se deben realizar localmente.  
+-   **Cifrar y descifrar**: una clave almacenada en Key Vault puede utilizarse para cifrar o descifrar un único bloque de datos. El tamaño del bloque se determina en función del tipo de clave y del algoritmo de cifrado seleccionado. La operación de cifrado se proporciona por comodidad, para las aplicaciones que no pueden acceder a material de clave [público]. Para obtener el mejor rendimiento de la aplicación, las operaciones ENCRYPT se deben realizar localmente.  
 
 Mientras que WRAPKEY/UNWRAPKEY con claves asimétricas puede parecer superfluo (porque la operación es equivalente a ENCRYPT/DECRYPT), es importante el uso de operaciones distintas. La distinción proporciona separación semántica y de autorización de estas operaciones, así como coherencia cuando otros tipos de claves son compatibles con el servicio.  
 

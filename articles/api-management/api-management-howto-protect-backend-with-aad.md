@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b212316970b77d325552956cfacded2dc570234f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804374"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778981"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -79,7 +79,7 @@ Todas las aplicaciones cliente que llamen a la API deben registrarse también co
     - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, *client-app*. 
     - En la sección **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino)** . 
 
-1. En la sección **URI de redirección**, seleccione `Web` e introduzca la dirección URL `https://contoso5.portal.azure-api.net/signin`.
+1. En la sección **URI de redirección**, seleccione `Web` y deje el campo de dirección URL vacío por ahora.
 
 1. Seleccione **Registrar** para crear la aplicación. 
 
@@ -149,9 +149,9 @@ En este ejemplo, la consola del desarrollador es la aplicación cliente. En los 
 
 1. Seleccione **Crear**.
 
-1. Vuelva a la aplicación cliente y seleccione **Autenticación**.
+1. Vuelva al registro de la aplicación de cliente en Azure Active Directory y seleccione **Autenticación**.
 
-1. En **URI de redirección**, seleccione el tipo como **Web**, pegue el valor de **redirect_url** en **URI de redirección** y, a continuación, guarde.
+1. En **Configuraciones de plataforma** haga clic en **Agregar una plataforma** y seleccione el tipo **Web**, pegue el valor de **redirect_url** en **URI de redirección** y, luego, haga clic en el botón **Configurar** para guardar los cambios.
 
 Ahora que ha configurado un servidor de autorización de OAuth 2.0, la consola del desarrollador puede obtener tokens de acceso de Azure AD. 
 

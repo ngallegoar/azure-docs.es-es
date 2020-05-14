@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364167"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598518"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL Database
 
@@ -94,7 +94,13 @@ La conmutación en línea automatizada entre dos generaciones de hardware es pos
 
 Se trata de una operación de larga duración, ya que la nueva instancia administrada se aprovisionará en segundo plano y en las bases de datos transferidas automáticamente entre la instancia antigua y la nueva, con una conmutación por error rápida al final del proceso. 
 
+**¿Qué ocurre si ambas generaciones de hardware no se admiten en la misma región?**
+
 Si las dos generaciones de hardware no se admiten en la misma región, es posible cambiar una de ellas, pero se debe hacer manualmente. Esto requiere que se aprovisione una nueva instancia en la región en que esté disponible la generación de hardware que se quiera llevar a cabo, y que se realice una copia de seguridad manual y una restauración de los datos entre las instancias antigua y nueva.
+
+**¿Qué ocurre si no hay suficientes direcciones IP para realizar la operación de actualización?**
+
+En caso de que no haya suficientes direcciones IP en la subred en la que se aprovisiona la instancia administrada, tendrá que crear una nueva subred y una nueva instancia administrada dentro de ella. También se recomienda crear una nueva subred con más direcciones IP asignadas para que las operaciones de actualización futuras eviten una situación similar (para conocer el tamaño de subred adecuado, consulte [cómo determinar el tamaño de la subred de la red virtual](sql-database-managed-instance-determine-size-vnet-subnet.md). Una vez aprovisionada la nueva instancia, puede realizar manualmente una copia de seguridad de los datos y restaurarlos entre la instancia antigua y la nueva, o bien realizar una [restauración a un momento dado](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## <a name="tune-performance"></a>Ajustar rendimiento

@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014375"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690629"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -42,7 +42,7 @@ Quiere:
 
 - Obtenga información más detallada sobre las consultas del registro de inicio de sesión, el libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
 
-- Para ayudarle a resolver estas cuestiones, Active Directory proporciona los libros para la supervisión. Los [libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
+- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
 
 
 
@@ -58,7 +58,7 @@ Este artículo:
 
 Para utilizar los libros de Monitor, necesita:
 
-- Un inquilino de Active Directory con una licencia premium (P1 o P2). Aprenda cómo [obtener una licencia prémium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un inquilino de Azure Active Directory con una licencia Premium (P1 o P2). Aprenda cómo [obtener una licencia prémium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - Un [área de trabajo de Log Analytics.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 

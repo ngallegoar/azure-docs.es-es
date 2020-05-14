@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 description: Utilice Advisor para optimizar el rendimiento de las implementaciones de Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443053"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787947"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -28,6 +28,10 @@ Advisor proporciona una vista coherente y consolidada de recomendaciones para to
 > Para obtener recomendaciones, es preciso que una base de datos lleve usándose aproximadamente una semana y que, dentro de esa semana, muestre alguna actividad coherente. SQL Database Advisor puede optimizar los patrones de consultas coherentes con más facilidad que en el caso de ráfagas aleatorias de actividad.
 
 Para más información acerca de SQL Database Advisor, consulte [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Actualice la biblioteca de cliente de Azure Storage a la versión más reciente para mejorar la confiabilidad y el rendimiento.
+
+La versión más reciente de la biblioteca de cliente de Azure Storage o el SDK contiene correcciones para los problemas notificados por los clientes y que se identifican en nuestro proceso de control de calidad. La versión más reciente también incluye la optimización del rendimiento y la confiabilidad, además de nuevas características que pueden mejorar la experiencia global con Azure Storage. Advisor proporciona recomendaciones y pasos para actualizar a la versión más reciente del SDK si está en una versión obsoleta. Las recomendaciones son para los lenguajes admitidos, C++ y .Net.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Mejora de la confiabilidad y el rendimiento de App Service
 
@@ -73,6 +77,26 @@ Migre el modelo de implementación de la cuenta de almacenamiento a Azure Resour
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Diseño de las cuentas de almacenamiento para evitar alcanzar el límite máximo de la suscripción
 
 Una región de Azure puede admitir un máximo de 250 cuentas de almacenamiento por suscripción. Una vez alcanzado el límite, no podrá crear más cuentas de almacenamiento en esa combinación de región y suscripción. Advisor comprobará las suscripciones y recomendaciones de superficie para que pueda diseñar menos cuentas de almacenamiento para cualquiera que esté a punto de alcanzar el límite máximo.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Considerar la posibilidad de aumentar el tamaño de la SKU de la puerta de enlace de la red virtual para abordar el uso elevado de conexiones de punto a sitio
+
+Cada SKU de puerta de enlace solo puede admitir un número especificado de conexiones P2S simultáneas. Si el número de conexiones está cerca del límite de la puerta de enlace, pueden producirse errores en los intentos de conexión adicionales. El aumento del tamaño de la puerta de enlace le permitirá admitir más usuarios de P2S simultáneos. Advisor proporciona recomendaciones y los pasos que se deben seguir para ello.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Considerar la posibilidad de aumentar el tamaño de la SKU de la puerta de enlace de la red virtual para abordar el uso elevado de CPU
+
+En casos de carga de tráfico alta, VPN Gateway puede eliminar paquetes debido a un elevado uso de CPU. Debe considerar la posibilidad de actualizar la SKU de VPN Gateway, ya que la VPN se ha estado ejecutando en ella de forma coherente. El aumento del tamaño de VPN Gateway garantizará que las conexiones no se eliminen debido a un uso elevado de CPU. Advisor proporciona recomendaciones para solucionar este problema de forma proactiva. 
+
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Aumentar el tamaño del lote al cargar para maximizar el rendimiento de carga, la compresión de datos y el rendimiento de consultas
+
+Advisor puede detectar que puede aumentar el rendimiento de carga aumentando el tamaño del lote al cargar en la base de datos. Podría considerar la posibilidad de usar la instrucción COPY. Si no puede usar la instrucción COPY, considere la posibilidad de aumentar el tamaño del lote al usar utilidades de carga como la API de SQLBulkCopy o BCP (una buena recomendación es un tamaño de lote entre 100 000 y 1 millón de filas). Esto aumentará el rendimiento de carga, la compresión de datos y el rendimiento de consultas.
+
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Ubicación de la cuenta de almacenamiento en la misma región para minimizar la latencia en la carga
+
+Advisor puede detectar que está realizando las cargas desde una región diferente a la del grupo de SQL. Debe considerar la posibilidad de cargar desde una cuenta de almacenamiento que esté en la misma región que el grupo de SQL para minimizar la latencia al cargar los datos. Esto ayudará a minimizar la latencia y a aumentar el rendimiento de carga.
+
+## <a name="unsupported-kubernetes-version-is-detected"></a>Se detectó una versión de Kubernetes no admitida.
+
+Advisor puede detectar si se detecta una versión de Kubernetes no admitida. La recomendación ayudará a asegurarse de que el clúster de Kubernetes se ejecute con una versión admitida.
 
 ## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimización del rendimiento de los servidores Azure MySQL, Azure PostgreSQL y Azure MariaDB 
 

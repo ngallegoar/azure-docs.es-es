@@ -1,6 +1,6 @@
 ---
-title: Incorporación o eliminación de asignaciones de roles para usuarios externos con RBAC y Azure Portal
-description: Aprenda a conceder acceso a recursos de Azure para los usuarios externos a una organización mediante el control de acceso basado en rol (RBAC) de Azure.
+title: 'Incorporación o eliminación de asignaciones de roles de Azure para usuarios externos mediante Azure Portal: RBAC de Azure'
+description: Aprenda a conceder acceso a recursos de Azure para los usuarios externos a una organización mediante Azure Portal y el control de acceso basado en rol (RBAC) de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225368"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735766"
 ---
-# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles para usuarios invitados externos con RBAC de Azure y Azure Portal
+# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles de Azure para usuarios externos invitados mediante Azure Portal
 
 El [control de acceso basado en rol (RBAC) de Azure](overview.md) permite una mejor administración de la seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. Puede usar las funcionalidades de [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar con usuarios invitados externos y puede usar RBAC para conceder solo los permisos que los usuarios invitados necesitan en su entorno.
 
