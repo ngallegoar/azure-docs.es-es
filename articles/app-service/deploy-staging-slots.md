@@ -3,14 +3,14 @@ title: Configuración de entornos de ensayo
 description: Aprenda a implementar aplicaciones en una ranura que no sea de producción y realice intercambios automáticos en producción. Aumente la confiabilidad y elimine el tiempo de inactividad de las aplicaciones en las implementaciones.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300878"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597930"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -25,7 +25,7 @@ La implementación de la aplicación en un espacio que no sea de producción ofr
 
 Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. El uso de las ranuras de implementación no tiene costo adicional. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
-Para escalar la aplicación a un nivel diferente, asegúrese de que el nivel de destino admite el número de ranuras que la aplicación ya usa. Por ejemplo, si la aplicación tiene más de cinco, no se puede reducir verticalmente al nivel **Estándar**, ya que este nivel solo admite cinco ranuras de implementación. 
+Para escalar la aplicación a un nivel diferente, asegúrese de que el nivel de destino admite el número de ranuras que la aplicación ya usa. Por ejemplo, si la aplicación tiene más de cinco, no se puede reducir verticalmente al nivel **Estándar**, ya que este **nivel** solo admite cinco ranuras de implementación. 
 
 <a name="Add"></a>
 
@@ -58,11 +58,11 @@ Para poder habilitar varias espacios de implementación, la aplicación debe eje
    
     ![Título de la ranura de implementación](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    Como las restantes aplicaciones de App Service, el espacio de ensayo tiene una página de administración. La configuración del espacio se puede cambiar. El nombre del espacio se muestra en la parte superior de la página para recordarle que está viendo el espacio de implementación.
+    Como las restantes aplicaciones de App Service, el espacio de ensayo tiene una página de administración. La configuración del espacio se puede cambiar. Para recordarle que está viendo la ranura de implementación, el nombre de la aplicación se muestra como **\<app-name>/\<slot-name>** y el tipo de aplicación es **App Service (ranura)** . También puede ver la ranura como una aplicación independiente en el grupo de recursos, con las mismas designaciones.
 
 6. Seleccione la dirección URL de la aplicación en la página de recursos de la ranura. La ranura de implementación tiene su propio nombre de host y es también una aplicación activa. Para limitar el acceso público a la ranura de implementación, consulte el artículo sobre [Restricciones de IP de Azure App Service](app-service-ip-restrictions.md).
 
-El nuevo espacio de implementación no tiene contenido, aunque se clone la configuración de otro espacio. Por ejemplo, puede [publicar en esta ranura mediante Git](app-service-deploy-local-git.md). La implementación en el espacio se puede realizar desde otra rama del repositorio o desde otro repositorio. 
+El nuevo espacio de implementación no tiene contenido, aunque se clone la configuración de otro espacio. Por ejemplo, puede [publicar en esta ranura mediante Git](app-service-deploy-local-git.md). La implementación en el espacio se puede realizar desde otra rama del repositorio o desde otro repositorio.
 
 <a name="AboutConfiguration"></a>
 
@@ -272,7 +272,7 @@ De forma predeterminada, las ranuras nuevas tienen una regla de enrutamiento del
 
 ## <a name="delete-a-slot"></a>Eliminación de una ranura
 
-Busque y seleccione la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura para eliminar>*  > **Información general**. En la barra de comandos, seleccione **Eliminar**.  
+Busque y seleccione la aplicación. Seleccione **Ranuras de implementación** >  *\<ranura para eliminar>*  > **Información general**. El tipo de aplicación se muestra como **App Service (ranura)** para recordarle que está viendo una ranura de implementación. En la barra de comandos, seleccione **Eliminar**.  
 
 ![Eliminación de una ranura de implementación](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

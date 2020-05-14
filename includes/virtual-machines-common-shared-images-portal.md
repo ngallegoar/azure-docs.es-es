@@ -8,37 +8,31 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73903666"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789013"
 ---
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
-
-Inicie sesión en Azure Portal en https://portal.azure.com.
-
-> [!NOTE]
-> Si se ha registrado para usar galerías de imágenes compartidas durante la versión preliminar, puede que deba volver a registrar el proveedor `Microsoft.Compute`. Abra [Cloud Shell](https://shell.azure.com/bash) y escriba: `az provider register -n Microsoft.Compute`.
-
 ## <a name="create-an-image-gallery"></a>Creación de una galería de imágenes
 
 Una galería de imágenes es el recurso principal que se usa para habilitar el uso compartido de imágenes. Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede contener guiones.  Los nombres de las galerías deben ser únicos dentro de su suscripción. 
 
 En el ejemplo siguiente se crea una galería denominada *myGallery* en el grupo de recursos *myGalleryRG*.
 
-1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. Use el tipo **Galería de imágenes compartidas** en el cuadro de búsqueda y seleccione **Galería de imágenes compartidas** en los resultados.
-1. En la página **Galería de imágenes compartidas**, haga clic en **Crear**.
-1. Seleccione la suscripción correcta.
+1. En la página **Galería de imágenes compartidas**, haga clic en **Agregar**.
+1. En la página **Create shared image gallery** (Crear galería de imágenes compartidas), seleccione la suscripción correcta.
 1. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba *myGalleryRG* como nombre.
 1. En **Nombre**, escriba *myGallery* como nombre de la galería.
 1. En **Región**, deje el valor predeterminado.
 1. Puede escribir una descripción corta de la galería, como *Mi galería de imágenes para prueba.* Después, haga clic en **Revisar y crear**.
 1. Una vez pasada la validación, seleccione **Crear**.
 1. Cuando la implementación finalice, seleccione **Ir al recurso**.
-   
+
+
 ## <a name="create-an-image-definition"></a>Creación de la definición de una imagen 
 
 Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se usan para administrar la información sobre las versiones de la imagen que se crean dentro de ellas. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
@@ -46,8 +40,9 @@ Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se 
 Cree la definición de imagen de la galería dentro de la galería. En este ejemplo, la imagen de la galería se denomina *myImageDefinition*.
 
 1. En la página de la nueva galería de imágenes, seleccione **Add a new image definition** (Agregar una nueva definición de imagen) en la parte superior de la página. 
+1. En **Agregar nueva definición de imagen a la galería de imágenes compartidas**, en **Región**, seleccione *Este de EE. UU.* .
 1. En **Nombre de definición de la imagen**, escriba *myImageDefinition*.
-1. En **Sistema operativo**, seleccione la opción correcta en función de la VM de origen.
+1. En **Sistema operativo**, seleccione la opción correcta en función de la VM de origen.  
 1. En **Generación de VM**, seleccione la opción en función de la VM de origen. En la mayoría de los casos, será *Gen 1*. Para obtener más información, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 1. En **Estado del sistema operativo**, seleccione la opción en función de la VM de origen. Para más información, consulte [Generalizada o Especializada](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. En **Publicador**, escriba *myPublisher*. 
@@ -70,7 +65,7 @@ Los pasos para crear una versión de la imagen son ligeramente diferentes, en fu
 
 1. En la página de la definición de imagen, seleccione **Agregar versión** en la parte superior de la página.
 1. En **Región**, seleccione la región donde se almacena la imagen administrada. Las versiones de imagen deben crearse en la misma región que la imagen administrada a partir de la que se crean.
-1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*. *secundaria*.*revisión* con números enteros. 
+1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*.* secundaria*.*revisión* con números enteros. 
 1. En **Imagen de origen**, seleccione la imagen administrada de origen en la lista desplegable.
 1. En **Excluir de las últimas**, deje el valor predeterminado de *No*.
 1. En **End of life date** (Fecha del final de la duración), seleccione una fecha del calendario que sea un par de meses en el futuro.
@@ -85,7 +80,7 @@ La imagen puede tardar un rato en replicarse en todas las regiones de destino.
 
 1. En la página de la definición de imagen, seleccione **Agregar versión** en la parte superior de la página.
 1. En **Región**, seleccione la región en la que se almacenará la instantánea. Las versiones de imagen deben crearse en la misma región que el origen a partir del que se crean.
-1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*. *secundaria*.*revisión* con números enteros. 
+1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*.* secundaria*.*revisión* con números enteros. 
 1. En **Instantánea del disco del sistema operativo**, seleccione la instantánea de la VM de origen en la lista desplegable. Si la VM de origen tenía un disco de datos que quiere incluir, seleccione el número de **LUN**correcto de la lista desplegable y luego seleccione la instantánea del disco de datos en **Instantánea del disco de datos**. 
 1. En **Excluir de las últimas**, deje el valor predeterminado de *No*.
 1. En **End of life date** (Fecha del final de la duración), seleccione una fecha del calendario que sea un par de meses en el futuro.
