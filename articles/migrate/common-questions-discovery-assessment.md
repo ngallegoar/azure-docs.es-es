@@ -3,12 +3,12 @@ title: Preguntas sobre la detección, la valoración y el análisis de dependenc
 description: Obtenga respuestas a preguntas comunes sobre detección, valoración y análisis de dependencias en Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 9374330044bcd0c0c5f2be44688c2b35760d4418
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681912"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996755"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -108,6 +108,11 @@ data | Nombre de aplicación, proceso y nombre del servidor de la máquina de or
 Visualización | El mapa de dependencias de un solo servidor se puede ver durante un plazo de entre una hora y 30 días. | Mapa de dependencia de un solo servidor.<br/><br/> El mapa puede verse solo durante una hora.<br/><br/> Mapa de dependencias de un grupo de servidores.<br/><br/> Agregue y quite servidores de un grupo desde la vista de mapa.
 Exportación de datos | Actualmente no se puede descargar en formato tabular. | Los datos se pueden consultar con Log Analytics.
 
+
+## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>¿Es necesario implementar el dispositivo para el análisis de dependencia sin agente?
+
+Sí, se debe implementar el [dispositivo de Azure Migrate](migrate-appliance.md).
+
 ## <a name="do-i-pay-for-dependency-visualization"></a>¿Tengo que pagar por la visualización de dependencias?
 
 No. Más información sobre los [precios de Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/).
@@ -136,7 +141,7 @@ Para la visualización de dependencias basada en agente:
 
 - Use un [script para instalar el agente de dependencias](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
 - En el caso de MMA, [use la línea de comandos o la automatización](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration), o bien use un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- Además de los scripts, puede usar herramientas de implementación como Microsoft Endpoint Configuration Manager e [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implementar los agentes.
+- Además de los scripts, puede usar herramientas de implementación como Microsoft Endpoint Configuration Manager e [Intigua](https://www.intigua.com/intigua-for-azure-migration) para implementar los agentes.
 
 ## <a name="what-operating-systems-does-mma-support"></a>¿Qué sistemas operativos admite MMA?
 

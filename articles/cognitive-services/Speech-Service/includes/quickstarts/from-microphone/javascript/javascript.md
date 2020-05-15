@@ -1,0 +1,85 @@
+---
+author: IEvangelist
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 04/03/2020
+ms.author: dapine
+ms.openlocfilehash: 1a1207b056a0cd86d1855d990a8857ef8d9752e4
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82979617"
+---
+## <a name="prerequisites"></a>Prerrequisitos
+
+Antes de comenzar:
+
+> [!div class="checklist"]
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creación de un recurso de voz de Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md)
+> * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
+
+## <a name="create-a-new-website-folder"></a>Creación de una nueva carpeta Website
+
+Cree una nueva carpeta vacía. En caso de que desee hospedar el ejemplo en un servidor web, asegúrese de que este puede acceder a la carpeta.
+
+## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Desempaquete el SDK de Voz para JavaScript en esa carpeta
+
+Descargue el SDK de Voz en forma de [paquete .zip](https://aka.ms/csspeech/jsbrowserpackage) y desempaquételo en la carpeta recién creada. Como resultado se desempaquetan dos archivos, `microsoft.cognitiveservices.speech.sdk.bundle.js` y `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+El último archivo es opcional y es útil para la depuración en el código del SDK.
+
+## <a name="create-an-indexhtml-page"></a>Creación de una página index.html
+
+Cree un nuevo archivo llamado `index.html` en la carpeta y ábralo con un editor de texto.
+
+1. Cree el siguiente esqueleto HTML:
+
+ [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index-from-mic.html)]
+
+## <a name="create-the-token-source-optional"></a>Creación del origen del token (opcional)
+
+En caso de que desea hospedar la página web en un servidor web, opcionalmente puede proporcionar un origen del token para la aplicación de demostración.
+De esa forma, la clave de la suscripción nunca saldrá el servidor, lo que permitirá a los usuarios utilizar las funcionalidades de voz sin escribir ningún código de autorización.
+
+Cree un nuevo archivo llamado `token.php`. En este ejemplo se supone que el servidor web admite el lenguaje de scripting PHP. Escriba el siguiente código:
+
+```php
+<?php
+header('Access-Control-Allow-Origin: ' . $_SERVER['SERVER_NAME']);
+
+// Replace with your own subscription key and service region (e.g., "westus").
+$subscriptionKey = 'YourSubscriptionKey';
+$region = 'YourServiceRegion';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://' . $region . '.api.cognitive.microsoft.com/sts/v1.0/issueToken');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, '{}');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Ocp-Apim-Subscription-Key: ' . $subscriptionKey));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+echo curl_exec($ch);
+?>
+```
+
+> [!NOTE]
+> Los tokens de autorización tienen una vigencia limitada.
+> Este ejemplo simplificado no muestra cómo actualizar automáticamente tokens de autorización. Como usuario, puede volver a cargar la página manualmente o presione la tecla F5 para actualizarla.
+
+## <a name="build-and-run-the-sample-locally"></a>Compilación y ejecución local del ejemplo
+
+Para iniciar la aplicación, haga doble clic en el archivo index.html o ábralo con el explorador web que prefiera. Presentará una interfaz gráfica de usuario simple que le permitirá escribir su clave de suscripción y [región](../../../../regions.md), y desencadenará un reconocimiento mediante el micrófono.
+
+> [!NOTE]
+> Este método no funciona en el explorador Safari.
+> En Safari, la página web de ejemplo debe estar hospedada en un servidor web; Safari no permite la carga de sitios web desde un archivo local para usar el micrófono.
+
+## <a name="build-and-run-the-sample-via-a-web-server"></a>Compilación y ejecución del ejemplo mediante un servidor web
+
+Para iniciar la aplicación, abra el explorador web que prefiera y apunte a la dirección URL pública en la que hospeda la carpeta, escriba su [región](../../../../regions.md)y desencadene un reconocimiento mediante el micrófono. Si lo ha configurado, adquirirá un token del origen del token.
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

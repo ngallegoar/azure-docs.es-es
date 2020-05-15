@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: cb065f10664f46578f84e59501d75d510ccb3c6a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383069"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201579"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -129,7 +129,7 @@ Azure Firewall no aplica SNAT cuando la dirección IP de destino es un interval
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>¿Se admite la tunelización o encadenamiento forzados a una aplicación virtual de red?
 
-La tunelización forzada no se admite. Para obtener más información, vea [Tunelización forzada de Azure Firewall (versión preliminar)](forced-tunneling.md). 
+La tunelización forzada no se admite. Para más información, consulte [Tunelización forzada de Azure Firewall](forced-tunneling.md). 
 
 Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet.
 

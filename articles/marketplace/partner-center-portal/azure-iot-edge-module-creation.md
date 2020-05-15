@@ -1,36 +1,30 @@
 ---
-title: 'Crear una oferta de módulo Azure IoT Edge con el Centro de partners: Azure Marketplace'
-description: Aprenda a crear una oferta de módulo IoT Edge en Azure Marketplace mediante el Centro de partners
+title: Creación de una oferta de módulo Azure IoT Edge con el Centro de partners en Azure Marketplace
+description: Aprenda a crear, configurar y publicar una oferta de módulo IoT Edge en Azure Marketplace mediante el Centro de partners.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869143"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857653"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Creación, configuración y publicación de una oferta de módulo IoT Edge en Azure Marketplace
 
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de módulo IoT Edge de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Introducción a la publicación de ofertas de módulos IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) para Cloud Partner Portal para administrar las ofertas.
-
-En este artículo se explica cómo crear y publicar una entrada de oferta de módulo IoT Edge para Azure Marketplace.
-
-Para poder crear una oferta de módulo IoT Edge, debe tener una cuenta de Marketplace comercial en el Centro de partners. Si todavía no ha creado ninguna, consulte [Creación de una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+En este artículo se explica cómo crear y publicar una entrada de oferta de módulo IoT Edge para Azure Marketplace. Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
-1. Inicie sesión en el Centro de partners.
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 2. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
+3. En la página Información general, seleccione **+ Nueva oferta** > **Módulo IoT Edge**.
 
-    ![Muestra el menú de navegación izquierdo.](./media/cs-menu-overview.png)
-
-3. Seleccione **+ Nueva oferta** > **Módulo IoT Edge**. Aparece el cuadro de diálogo **Nueva oferta**.
+    ![Muestra el menú de navegación izquierdo.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
@@ -41,14 +35,14 @@ Escriba un **Identificador de oferta**. Se trata de un identificador único para
 
 - Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
 - Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- El identificador de oferta no se puede cambiar después de seleccionar Crear.
+- El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
-Escriba un **Alias de la oferta**. Este es el nombre que se usa para hacer referencia a la oferta en el Centro de partners.
+Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
 
 - Este nombre no se usa en Marketplace y es diferente del nombre de la oferta y de otros valores que se muestran a los clientes.
 - No se puede cambiar después de seleccionar **Crear**.
 
-Después de escribir estos dos valores, seleccione **Crear** antes de pasar a la página siguiente, Información general de la oferta.
+Seleccione **Crear** para generar la oferta y continuar.
 
 ## <a name="offer-overview"></a>Información general de la oferta
 
@@ -86,10 +80,10 @@ Estos son algunos recursos adicionales de administración de clientes potenciale
 
 - [Introducción a la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Preguntas frecuentes de la administración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Errores comunes de la configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Introducción a la administración de clientes potenciales](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) en formato PDF (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
-Seleccione **Guardar borrador** antes de continuar con la siguiente sección, Propiedades.
+Seleccione **Guardar borrador** antes de continuar.
 
 ### <a name="properties"></a>Propiedades
 

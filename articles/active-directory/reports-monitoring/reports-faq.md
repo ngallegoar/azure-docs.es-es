@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231788"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199377"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -71,13 +71,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Cuál es la retención de datos de los registros de actividad (auditoría e inicios de sesión) en Azure Portal?** 
 
-**R:** En la tabla siguiente se muestra el período de retención de datos de los registros de actividad. Para más información, consulte las [directivas de retención de datos para informes de Azure AD](reference-reports-data-retention.md).
-
-| Informe                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Registros de auditoría             | 7 días        | 30 días             | 30 días             |
-| Inicios de sesión               | N/D           | 30 días             | 30 días             |
-| Uso de Azure MFA        | 30 días       | 30 días             | 30 días             |
+**R:** Para más información, consulte las [directivas de retención de datos para informes de Azure AD](reference-reports-data-retention.md).
 
 ---
 

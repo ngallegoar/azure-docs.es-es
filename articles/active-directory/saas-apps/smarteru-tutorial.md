@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9e44aecc5015986079afb3190101cdaabc4a6874
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76549298"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981976"
 ---
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integración de Azure Active Directory con SmarterU
+
 > [!NOTE]
 > El proceso de integración de SmarterU con Azure Active Directory también está documentado y se mantiene en el [sistema de ayuda de SmarterU](https://help.smarteru.com/ID2053086).
-
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: integración de Azure Active Directory con SmarterU
 
 En este tutorial, aprenderá a integrar SmarterU con Azure Active Directory (Azure AD).
 La integración de SmarterU con Azure AD le proporciona las siguientes ventajas:
@@ -37,7 +37,7 @@ La integración de SmarterU con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con SmarterU, necesita los siguientes elementos:
 
@@ -217,7 +217,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SmarterU, tienen q
 
     a. Haga clic en **+Usuario**.
 
-    b. Escriba los valores de atributos relacionados de la cuenta de usuario de Azure AD en los siguientes cuadros de texto: **Correo electrónico principal**, **Id. de empleado**, **Contraseña**, **Comprobar contraseña**, **Nombre de pila**, **Apellidos**.
+    b. Escriba los valores de atributo relacionados de la cuenta de usuario de Azure AD en los siguientes cuadros de texto: **Primary Email** (Correo electrónico principal), **Employee ID** (Id. de empleado), **Password** (Contraseña), **Verify Password** (Comprobar contraseña), **Given Name** (Nombre propio) y **Surname** (Apellidos).
 
     c. Haga clic en **Activo**.
 

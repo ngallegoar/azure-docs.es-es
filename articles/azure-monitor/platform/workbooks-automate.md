@@ -7,18 +7,18 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658411"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982146"
 ---
 # <a name="programmatically-manage-workbooks"></a>Administración de libros mediante programación
 
-Los propietarios de recursos tienen la opción de crear y administrar sus libros mediante programación a través de plantillas de Resource Manager. 
+Los propietarios de recursos tienen la opción de crear y administrar sus libros mediante programación a través de plantillas de Resource Manager.
 
 Esto puede ser útil en escenarios como:
 * Implementación de informes de análisis específicos de la organización o del dominio junto con las implementaciones de recursos. Por ejemplo, puede implementar libros de error y rendimiento específicos de la organización para las nuevas aplicaciones o máquinas virtuales.
@@ -26,7 +26,98 @@ Esto puede ser útil en escenarios como:
 
 El libro se creará en el grupo o subgrupo de recursos deseado y con el contenido especificado en las plantillas de Resource Manager.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Plantilla de Azure Resource Manager para implementar libros
+Hay dos tipos de recursos de libro que se pueden administrar mediante programación:
+* [Plantillas de libro](#azure-resource-manager-template-for-deploying-a-workbook-template)
+* [Instancias de libro](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-template"></a>Plantilla de Azure Resource Manager para implementar una plantilla de libro
+
+1. Abra un libro que quiera implementar mediante programación.
+2. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas _Editar_.
+3. Abra el _Editor avanzado_ con el botón _</>_ de la barra de herramientas.
+4. Asegúrese de que se encuentre en la pestaña _Plantilla de la galería_.
+
+    ![Pestaña Plantilla de la galería](./media/workbooks-automate/gallery-template.png)
+1. Copie el archivo JSON de la plantilla de la galería en el portapapeles.
+2. A continuación, se muestra una plantilla de Azure Resource Manager de ejemplo que implementa una plantilla de libro en la galería de libros de Azure Monitor. Pegue el código JSON que copió en lugar de `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. Se puede encontrar una plantilla de Azure Resource Manager de referencia que crea una plantilla de libro [aquí](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+
+    ```json
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "resourceName": {
+                "type": "string",
+                "defaultValue": "my-workbook-template",
+                "metadata": {
+                    "description": "The unique name for this workbook template instance"
+                }
+            }
+        },
+        "resources": [
+            {
+                "name": "[parameters('resourceName')]",
+                "type": "microsoft.insights/workbooktemplates",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2019-10-17-preview",
+                "dependsOn": [],
+                "properties": {
+                    "galleries": [
+                        {
+                            "name": "A Workbook Template",
+                            "category": "Deployed Templates",
+                            "order": 100,
+                            "type": "workbook",
+                            "resourceType": "Azure Monitor"
+                        }
+                    ],
+                    "templateData": <PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>
+                }
+            }
+        ]
+    }
+    ```
+1. En el objeto `galleries`, rellene las claves `name` y `category` con sus valores. Más información sobre los [parámetros](#parameters) en la sección siguiente.
+2. Implemente esta plantilla de Azure Resource Manager mediante [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), la [interfaz de la línea de comandos](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), etc.
+3. Abra Azure Portal y vaya a la galería de libros elegida en la plantilla de Azure Resource Manager. En la plantilla de ejemplo, vaya a la galería de libros de Azure Monitor:
+    1. Abra Azure Portal y vaya a Azure Monitor.
+    2. Abra `Workbooks` desde la tabla de contenido
+    3. Busque la plantilla en la galería en la categoría `Deployed Templates` (será uno de los elementos púrpura).
+
+### <a name="parameters"></a>Parámetros
+
+|Parámetros                |Explicación                                                                                             |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------|
+| `name`                   | Nombre del recurso de plantilla de libro en Azure Resource Manager.                                  |
+|`type`                    | Siempre microsoft.insights/workbooktemplates                                                            |
+| `location`               | Ubicación de Azure donde se creará el libro.                                               |
+| `apiVersion`             | 2019-10-17 preview                                                                                     |
+| `type`                   | Siempre microsoft.insights/workbooktemplates                                                            |
+| `galleries`              | Conjunto de galerías en las que se va a mostrar esta plantilla de libro.                                                |
+| `gallery.name`           | Nombre descriptivo de la plantilla de libro en la galería.                                             |
+| `gallery.category`       | Grupo de la galería en el que se va a colocar la plantilla.                                                     |
+| `gallery.order`          | Número que decide el orden en que se muestra la plantilla en una categoría de la galería. A menor orden mayor prioridad. |
+| `gallery.resourceType`   | Tipo de recurso correspondiente a la galería. Normalmente, se trata de la cadena de tipo de recurso correspondiente al recurso (por ejemplo, microsoft.operationalinsights/workspaces). |
+|`gallery.type`            | Conocido como tipo de libro, se trata de una clave única que diferencia la galería dentro de un tipo de recurso. Application Insights, por ejemplo, tiene los tipos `workbook` y `tsg` correspondientes a diferentes galerías de libros. |
+
+### <a name="galleries"></a>Galerías
+
+| Galería                                        | Tipo de recurso                                      | Tipo de libro |
+| :--------------------------------------------- |:---------------------------------------------------|:--------------|
+| Libros en Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
+| VM Insights en Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
+| Libros en el área de trabajo de Log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
+| Libros en Application Insights              | `microsoft.insights/component`                     | `workbook`    |
+| Guías de solución de problemas de Application Insights | `microsoft.insights/component`                     | `tsg`         |
+| Uso en Application Insights                  | `microsoft.insights/component`                     | `usage`       |
+| Libros en el servicio Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
+| Libros en grupos de recursos                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
+| Libros en Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
+| VM Insights en máquinas virtuales                | `microsoft.compute/virtualmachines`                | `insights`    |
+| VM Insights en conjuntos de escalado de máquinas virtuales      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Plantilla de Azure Resource Manager para implementar una instancia de libro
+
 1. Abra un libro que desee implementar mediante programación.
 2. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas _Editar_.
 3. Abra el _Editor avanzado_ con el botón _</>_ de la barra de herramientas.
@@ -124,4 +215,3 @@ Por motivos técnicos, este mecanismo no se puede usar para crear instancias de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Explore cómo se usan los libros para potenciar la nueva [experiencia de Azure Monitor para Storage](../insights/storage-insights-overview.md).
-

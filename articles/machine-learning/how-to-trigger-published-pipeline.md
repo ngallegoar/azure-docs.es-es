@@ -1,5 +1,5 @@
 ---
-title: Desencadenamiento de la ejecución de una canalización de aprendizaje automático desde una aplicación lógica
+title: Desencadenamiento de la canalización de ML para datos nuevos
 titleSuffix: Azure Machine Learning
 description: Aprenda a desencadenar la ejecución de una canalización de aprendizaje automático mediante Azure Logic Apps.
 services: machine-learning
@@ -10,18 +10,19 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 6bb976b8b310fb3eb4d0247a8d745599f688d7b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: contperfq4
+ms.openlocfilehash: 32b3e153a98ca7de91e0dd05258414780b39dec4
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77122644"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857963"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Desencadenamiento de una ejecución de una canalización de Machine Learning desde una aplicación lógica
 
 Desencadene la ejecución de la canalización de Azure Machine Learning cuando aparezcan nuevos datos. Por ejemplo, podría desencadenar la canalización para entrenar un nuevo modelo cuando aparezcan nuevos datos en la cuenta de almacenamiento de blobs. Configure el desencadenador con [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 

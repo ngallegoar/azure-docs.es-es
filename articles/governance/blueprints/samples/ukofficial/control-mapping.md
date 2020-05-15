@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de UK OFFICIAL y UK NHS
 description: Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851373"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005611"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
 
@@ -27,9 +27,6 @@ El plano técnico ayuda a garantizar que la transferencia de información con lo
 - Se debe habilitar la transferencia segura a las cuentas de almacenamiento
 - Mostrar los resultados de las auditorías de los servidores web de Windows que no estén usando los protocolos de comunicación segura
 - Implementación de los requisitos previos para auditar los servidores web de Windows que no estén usando los protocolos de comunicación segura
-- La versión más reciente de TLS debe usarse en la aplicación de API.
-- La versión más reciente de TLS debe usarse en la aplicación web.
-- La versión más reciente de TLS debe usarse en la aplicación de funciones.
 
 ## <a name="23-data-at-rest-protection"></a>2.3. Protección de los datos en reposo
 
@@ -129,8 +126,8 @@ Este plano técnico también ayuda a controlar el acceso a los recursos de Azure
 
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
 - \[Versión preliminar\]: implementación de los requisitos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: auditoría de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
 - Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager
 - Auditar las máquinas virtuales que no utilizan discos administrados
@@ -141,12 +138,10 @@ Además de usar más de 25 directivas para garantizar una administración segur
 
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 - Deben habilitarse los controles de aplicaciones adaptables en las máquinas virtuales
-- Se deben proteger las reglas de NSG para las aplicaciones web en IaaS
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
-- Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet
+- Las recomendaciones de protección de red adaptable se deben aplicar en las máquinas virtuales accesibles desde Internet
 - La solución de protección del punto de conexión debe instalarse en las máquinas virtuales
 - El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales.
-- Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 - Recomendación de desactivación de la depuración remota para Function App
 - Recomendación de desactivación de la depuración remota para aplicaciones web
 - Se debe desactivar la depuración remota para aplicaciones de API
@@ -179,13 +174,13 @@ Este plano técnico también asigna definiciones de Azure Policy para auditar la
 
 Este plano técnico también asigna una definición de Azure Policy que audita los permisos de los archivos con contraseña de máquina virtual Linux y alerta si la configuración es incorrecta. Este diseño permite tomar medidas correctivas para garantizar que los autenticadores no están en riesgo.
 
-- \[Versión preliminar\]: Auditoría de que los permisos del archivo/etc/passwd de la máquina virtual Linux se establecen en 0644
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
 
 ## <a name="13-audit-information-for-users"></a>13. Información de auditoría para los usuarios
 
 Este plano técnico ayuda a garantizar que los eventos del sistema se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure. Una directiva asignada también audita si las máquinas virtuales no envían registros a un área de trabajo específica de Log Analytics.
 
-- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
+- La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Auditar la configuración de diagnóstico
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows

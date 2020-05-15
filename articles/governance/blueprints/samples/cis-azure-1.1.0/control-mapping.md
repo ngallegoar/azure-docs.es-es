@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark, controles
 description: Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark para Azure Policy.
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656959"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863967"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
 
@@ -37,9 +37,9 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán con la supervisión de las cuentas de invitado que quizá deban eliminarse.
 
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de lectura deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción
+- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Asegúrese de que no existe ningún rol de propietario de suscripción personalizado
 
@@ -51,7 +51,7 @@ Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overvi
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que le ayudará con la supervisión de las redes y las máquinas virtuales en las que no se haya habilitado el plan de tarifa estándar de Security Center.
 
- - Es necesario seleccionar el plan de tarifa estándar de Security Center.
+- Es necesario seleccionar el plan de tarifa estándar de Security Center.
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Asegúrese de que "Aprovisionamiento automático del agente de supervisión" esté establecido en "Activado"
 
@@ -87,20 +87,14 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a proteger las máquinas virtuales de cara a Internet.
 
-- Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar el firewall de aplicaciones web" no sea "Deshabilitada".
-
-Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a proteger las máquinas virtuales que ejecuten aplicaciones web.
-
-- Se deben proteger las reglas de NSG para las aplicaciones web en IaaS
+- Las recomendaciones de protección de red adaptable se deben aplicar en las máquinas virtuales accesibles desde Internet
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Asegúrese de que la configuración de la directiva predeterminada de ASC "Habilitar la supervisión de firewalls de última generación (NGFW)" no sea "Deshabilitado"
 
 Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán a proteger las subredes y las máquinas virtuales de amenazas al restringir el acceso. La directiva de Security Center a la que se hace referencia en esta recomendación de CIS Microsoft Azure Foundations Benchmark se ha reemplazado por dos recomendaciones nuevas. Las directivas a las que se hace referencia a continuación abordan las nuevas recomendaciones.
 
 - Las subredes deben estar asociadas con un grupo de seguridad de red.
-- Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red
+- Las máquinas virtuales accesibles desde Internet deben estar protegidas con grupos de seguridad de red
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar la evaluación de vulnerabilidades" no sea "Deshabilitada".
 
@@ -128,7 +122,7 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayudará a garantizar que la auditoría de SQL Server esté habilitada.
 
-- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
+- La auditoría de SQL Server debe estar habilitada
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar el cifrado SQL" no sea "Deshabilitada".
 
@@ -182,7 +176,7 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayudará a garantizar que la auditoría de SQL Server esté habilitada. 
 
-- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
+- La auditoría de SQL Server debe estar habilitada
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Asegúrese de que la opción "AuditActionGroups" de la directiva de auditoría para un servidor SQL Server esté configurada correctamente
 
@@ -200,8 +194,8 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que la seguridad de los datos avanzada esté habilitada en los servidores SQL Server y las instancias administradas de SQL.
 
-- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
+- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Asegúrese de que "Tipos de detección de amenazas" esté establecido en "Todo"
 
@@ -214,15 +208,15 @@ Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overvi
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que se habilitan correctamente las notificaciones de seguridad de datos avanzada.
 
-- La configuración de seguridad de datos avanzada para una instancia administrada SQL debe contener una dirección de correo electrónico para recibir alertas de seguridad
 - La configuración de seguridad de datos avanzada para SQL Server debe contener una dirección de correo electrónico para recibir alertas de seguridad
+- La configuración de seguridad de datos avanzada para una instancia administrada SQL debe contener una dirección de correo electrónico para recibir alertas de seguridad
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Asegúrese de que la configuración de "Servicio de correo electrónico y coadministradores" sea "Habilitado"
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que se habilitan correctamente las notificaciones de seguridad de datos avanzada.
 
-- Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL
 - Las notificaciones por correo electrónico para administradores y propietarios de suscripciones deben estar habilitadas en la configuración de seguridad avanzada de datos de SQL Server
+- Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Asegúrese de que el administrador de Azure Active Directory esté configurado
 
@@ -240,8 +234,8 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán a garantizar que el protector cifrado de datos transparente para los servidores SQL Server y las instancias administradas de SQL estén cifrados con su propia clave.
 
-- El protector de TDE de la instancia administrada SQL debe estar cifrado con su propia clave
 - El protector de TDE de SQL Server debe estar cifrado con su propia clave
+- El protector de TDE de la instancia administrada SQL debe estar cifrado con su propia clave
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Asegúrese de que "Aplicar conexión SSL" esté establecido en "HABILITADO" para el servidor de bases de datos MySQL
 
@@ -315,11 +309,83 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 - Azure Monitor debe recopilar los registros de actividad de todas las regiones
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 Asegúrese de que la cuenta de almacenamiento que contiene el contenedor con los registros de actividad está cifrada con BYOK (use su propia clave)
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que las cuentas de almacenamiento que contengan registros de actividad se cifren con BYOK.
+
+- La cuenta de almacenamiento que contiene el contenedor con los registros de actividad tiene que estar cifrada con BYOK.
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Asegúrese de que el registro de Azure KeyVault esté habilitado.
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayudará a garantizar que los registros de diagnóstico estén habilitados para los almacenes de claves.
 
 - Los registros de diagnóstico en Key Vault deben estar habilitados
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 Asegúrese de que existe una alerta de registro de actividad para la creación de una asignación de directiva
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para las operaciones de directiva específicas
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2 Asegúrese de que existe una alerta de registro de actividad para crear o actualizar el grupo de seguridad de red
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones administrativas específicas.
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 Asegúrese de que existe una alerta de registro de actividad para eliminar el grupo de seguridad de red
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones administrativas específicas.
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>5.2.4 Asegúrese de que existe una alerta de registro de actividad para la regla Crear o actualizar grupo de seguridad de red
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones administrativas específicas.
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 Asegúrese de que existe una alerta de registro de actividad para la regla Eliminar grupo de seguridad de red
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones administrativas específicas.
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 Asegúrese de que existe una alerta de registro de actividad para la solución de seguridad de creación o actualización
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones de seguridad específicas
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 Asegúrese de que existe una alerta de registro de actividad para la solución de seguridad de eliminación
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones de seguridad específicas
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 Asegúrese de que existe una alerta de registro de actividad para la regla de firewall Crear, actualizar o eliminar SQL Server
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones administrativas específicas.
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 Asegúrese de que existe una alerta de registro de actividad para la actualización de la directiva de seguridad
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que existan alertas de registro de actividad específicas.
+
+- Debe existir una alerta de registro de actividad para operaciones de seguridad específicas
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6.1 Asegúrese de que el acceso RDP está restringido desde Internet
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que el acceso RDP está restringido.
+
+- El acceso RDP desde Internet debe estar bloqueado.
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6.2 Asegúrese de que el acceso SSH está restringido desde Internet
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que ayuda a garantizar que el acceso SSH está restringido.
+
+- El acceso SSH desde Internet debe estar bloqueado.
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Asegúrese de que Network Watcher está "Habilitado"
 
@@ -349,7 +415,7 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que solo se hayan instalado las extensiones de máquina virtual aprobadas. Esta directiva requiere una matriz de parámetros que especifique todas las extensiones de máquina virtual aprobadas. Esta definición de iniciativa de directiva contiene valores predeterminados sugeridos que los clientes deben validar. 
 
- - Solo deben instalarse las extensiones de máquina virtual aprobadas
+- Solo deben instalarse las extensiones de máquina virtual aprobadas
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Asegúrese de que se aplican las revisiones del sistema operativo más recientes para todas las máquinas virtuales
 
@@ -373,7 +439,15 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que se usa el control de acceso basado en rol para los permisos administrados en los clústeres de servicio de Kubernetes
 
-- \[Versión preliminar\]: En Kubernetes Services se debe usar el control de acceso basado en rol (RBAC)
+- En Kubernetes Services se debe usar el control de acceso basado en rol (RBAC)
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9.1 Asegúrese de que la autenticación de App Service está establecida en Azure App Service
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que las solicitudes a las aplicaciones de App Service se autentican.
+
+- La autenticación debe estar habilitada en la aplicación de la API.
+- La autenticación debe estar habilitada en la aplicación de funciones
+- La autenticación debe estar habilitada en la aplicación web
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Asegúrese de que la aplicación web redirige todo el tráfico HTTP a HTTPS en Azure App Service
 
@@ -444,7 +518,6 @@ Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overvi
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de API.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de funciones.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

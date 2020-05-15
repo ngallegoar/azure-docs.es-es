@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79078422"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872066"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Para resolver este error, almacene los archivos del experimento en un almacén d
 Experimento &nbsp; descripción|Solución de límite de almacenamiento
 ---|---
 Menos de 2000 archivos y no se puede usar un almacén de datos| Invalide el límite de tamaño de instantánea con <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Puede tardar varios minutos según el número y el tamaño de los archivos.
-Debe usar el directorio de script específico| Cree un archivo `.amlignore` para excluir los archivos de la instantánea del experimento que no forman parte del código fuente. Agregue los nombres de archivo al archivo `.amlignore` y colóquelo en el mismo directorio que el script de entrenamiento. El archivo `.amlignore` usa los mismos [sintaxis y patrones](https://git-scm.com/docs/gitignore) que un archivo `.gitignore`.
+Debe usar el directorio de script específico| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Canalización|Use un subdirectorio diferente en cada paso
 Jupyter Notebook| Cree un archivo `.amlignore` o mueva el Bloc de notas a un subdirectorio nuevo y vacío, y vuelva a ejecutar el código.
 

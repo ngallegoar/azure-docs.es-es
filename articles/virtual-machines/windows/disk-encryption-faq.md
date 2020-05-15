@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082601"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901283"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Windows
 
@@ -21,7 +21,7 @@ En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Az
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>¿Qué es Azure Disk Encryption para VM Windows?
 
-Azure Disk Encryption para VM Windows usa la característica de Bitlocker de Windows para proporcionar el cifrado de disco completo del disco del sistema operativo y los discos de datos. Además, proporciona cifrado del disco de recursos efímeros cuando el [parámetro VolumeType es Todo](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Los flujos de contenido se cifran desde la VM hasta el back-end de almacenamiento. Por lo tanto, se proporciona el cifrado de un extremo a otro con una clave administrada por el cliente.
+Azure Disk Encryption para máquinas virtuales Windows usa la característica BitLocker de Windows para proporcionar el cifrado de disco completo tanto del disco del sistema operativo como de los discos de datos. Además, proporciona cifrado del disco temporal cuando el parámetro [VolumeType es All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Los flujos de contenido se cifran desde la VM hasta el back-end de almacenamiento. Por lo tanto, se proporciona el cifrado de un extremo a otro con una clave administrada por el cliente.
  
 Consulte [VM y sistemas operativos compatibles](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -61,7 +61,7 @@ El cifrado del lado servidor de almacenamiento cifra Azure Managed Disks en Azur
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>¿Cuál es diferencia entre Azure Disk Encryption y el cifrado del lado servidor de almacenamiento con la clave administrada por el cliente y cuándo debo usar cada solución?
 
-Azure Disk Encryption proporciona cifrado de un extremo a otro para el disco del sistema operativo, los discos de datos y el disco de recursos efímeros con una clave administrada por el cliente.
+Azure Disk Encryption proporciona cifrado de un extremo a otro para el disco del sistema operativo, los discos de datos y el disco temporal con una clave administrada por el cliente.
 
 - Si los requisitos incluyen el cifrado de todos los elementos anteriores y el cifrado de un extremo a otro, use Azure Disk Encryption. 
 - Si los requisitos incluyen el cifrado solo de datos en reposo con la clave administrada por el cliente, use el [cifrado del lado servidor con las claves administradas por el cliente](disk-encryption.md). No se puede cifrar un disco con Azure Disk Encryption y el cifrado del lado servidor de almacenamiento con claves administradas por el cliente.
@@ -129,9 +129,6 @@ Azure Disk Encryption selecciona el método de cifrado de BitLocker en función 
 \* AES de 256 bits con difusor no se admite en Windows 2012 y versiones posteriores.
 
 Para determinar la versión del sistema operativo Windows, ejecute la herramienta "winver" en la máquina virtual.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>¿Si uso EncryptFormatAll y especifico todos los tipos de volumen se borrarán los datos en las unidades de datos que ya hemos cifrado?
-No, no se borran datos de las unidades de datos que ya estén cifradas mediante Azure Disk Encryption. Igual que EncryptFormatAll no volvía a cifrar la unidad del SO, no volverá a cifrar la unidad de datos ya cifrada. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>¿Puedo hacer una copia de seguridad de una VM cifrada y restaurarla? 
 

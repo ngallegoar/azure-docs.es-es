@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408409"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854153"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar notificaciones de grupo para aplicaciones con Azure Active Directory (versión preliminar pública)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configuración de notificaciones de grupo para aplicaciones con Azure Active Directory
 
 Azure Active Directory puede proporcionar información de suscripción a un grupo de usuarios en tokens que se pueden usar en las aplicaciones.  Se admiten dos patrones principales:
 
-- Grupos que se identifican por su atributo de identificador de objetos (OID) de Azure Active Directory (disponible con carácter general)
-- Grupos que se identifican por los atributos sAMAccountName o GroupSID para grupos y usuarios sincronizados de Active Directory (AD) (versión preliminar pública)
+- Grupos que se identifican por su atributo de identificador de objeto (OID) de Azure Active Directory
+- Grupos que se identifican por los atributos sAMAccountName o GroupSID para grupos y usuarios sincronizados de Active Directory (AD)
 
 > [!IMPORTANT]
-> Hay una serie de advertencias a tener en cuenta para esta funcionalidad de la versión preliminar:
+> Hay una serie de advertencias a tener en cuenta para esta funcionalidad:
 >
 >- La compatibilidad con el uso de los atributos del identificador de seguridad (SID) y de sAMAccountName sincronizados de forma local, está diseñada para permitir el traslado de aplicaciones existentes desde AD FS y otros proveedores de identidad. Los grupos administrados en Azure AD no contienen los atributos necesarios para emitir estas notificaciones.
 >- En organizaciones más grandes, la cantidad de grupos de los que un usuario es miembro puede exceder el límite que Azure Active Directory agregará a un token. 150 grupos para un token de SAML y 200 para uno de JWT. Esto puede llevar a resultados impredecibles. Si los usuarios tienen un gran número de pertenencias a grupos, se recomienda usar la opción para restringir los grupos emitidos en las notificaciones a los grupos pertinentes de la aplicación.  

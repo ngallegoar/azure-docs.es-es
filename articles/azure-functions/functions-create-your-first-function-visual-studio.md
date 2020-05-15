@@ -1,22 +1,22 @@
 ---
 title: 'Inicio rápido: Creación de la primera función de Azure mediante Visual Studio'
-description: En este inicio rápido, aprenderá a crear y publicar una función de Azure desencadenada por HTTP mediante Visual Studio.
+description: En este inicio rápido, aprenderá a crear y publicar una función de Azure de desencadenador HTTP mediante Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: e58414fa94a4ef54eb2f288b2cd636c10611460d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308929"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122755"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Inicio rápido: Creación de la primera función de Azure mediante Visual Studio
 
 Azure Functions permite ejecutar el código en un entorno sin servidor y sin necesidad de crear una máquina virtual ni publicar una aplicación web.
 
-En este inicio rápido aprenderá a usar Visual Studio 2019 para crear y probar localmente una aplicación de funciones en C# desencadenada por HTTP "Hola mundo", que después publicará en Azure. 
+En este inicio rápido, aprenderá a usar Visual Studio 2019 para crear y probar localmente una aplicación de funciones en C# desencadenada por HTTP "hello world", que después publicará en Azure. 
 
 ![Respuesta de localhost de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -38,7 +38,7 @@ Visual Studio crea un proyecto y una clase que contiene código reutilizable pa
 
 Amplíe las funcionalidades de la función con enlaces de entrada y salida, mediante la aplicación de los atributos adecuados al método. Para más información, consulte la sección [Desencadenadores y enlaces](functions-dotnet-class-library.md#triggers-and-bindings) de la [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
-Ahora que ha creado un proyecto de función y una función desencadenada por HTTP, puede probarla en el equipo local.
+Ahora que ha creado un proyecto de función y una función de desencadenador HTTP, puede probarla en el equipo local.
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
@@ -58,7 +58,7 @@ Para poder publicar el proyecto, debe tener una aplicación de funciones en la s
 
 1. Copie la URL base de la aplicación de funciones de la página de perfil **Publicar**. Reemplace la parte `localhost:port` de la dirección URL que usó al probar la función localmente por la nueva URL base. Agregue la cadena de consulta `?name=<YOUR_NAME>` a esta dirección URL y ejecute la solicitud.
 
-    La dirección URL que llama a la función desencadenada por HTTP tiene el formato siguiente:
+    La dirección URL que llama a la función de desencadenador HTTP tiene el formato siguiente:
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 
@@ -72,7 +72,7 @@ Para poder publicar el proyecto, debe tener una aplicación de funciones en la s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha usado Visual Studio para crear y publicar una aplicación de funciones en C# en Azure con una función simple desencadenada por HTTP. 
+En este inicio rápido, ha usado Visual Studio para crear y publicar una aplicación de funciones en C# en Azure con una función de desencadenador HTTP sencilla. 
 
 Prosiga en el siguiente artículo para aprender a agregar un enlace de cola de Azure Storage a la función:
 > [!div class="nextstepaction"]

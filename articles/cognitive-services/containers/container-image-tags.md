@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 786fde90e1bcf47e08857c26235a27862c5b3d75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 850d7b9732ad547d502b042e7eaad5d3b471030e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878772"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926007"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Etiquetas de imágenes de contenedor de Azure Cognitive Services
 
@@ -106,6 +106,7 @@ Esta imagen de contenedor tiene disponibles las siguientes etiquetas:
 | Etiquetas de imagen            | Notas |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
 | `2.0.2-amd64-preview` |       |
@@ -131,6 +132,46 @@ Esta imagen de contenedor tiene disponibles las siguientes etiquetas:
 | Etiquetas de imagen                  | Notas                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Imagen de contenedor con la configuración regional `en-US`. |
+| `2.2.0-amd64-ar-ae-preview` | Imagen de contenedor con la configuración regional `ar-AE`. |
+| `2.2.0-amd64-ar-eg-preview` | Imagen de contenedor con la configuración regional `ar-EG`. |
+| `2.2.0-amd64-ar-kw-preview` | Imagen de contenedor con la configuración regional `ar-KW`. |
+| `2.2.0-amd64-ar-qa-preview` | Imagen de contenedor con la configuración regional `ar-QA`. |
+| `2.2.0-amd64-ar-sa-preview` | Imagen de contenedor con la configuración regional `ar-SA`. |
+| `2.2.0-amd64-ca-es-preview` | Imagen de contenedor con la configuración regional `ca-ES`. |
+| `2.2.0-amd64-da-dk-preview` | Imagen de contenedor con la configuración regional `da-DK`. |
+| `2.2.0-amd64-de-de-preview` | Imagen de contenedor con la configuración regional `de-DE`. |
+| `2.2.0-amd64-en-au-preview` | Imagen de contenedor con la configuración regional `en-AU`. |
+| `2.2.0-amd64-en-ca-preview` | Imagen de contenedor con la configuración regional `en-CA`. |
+| `2.2.0-amd64-en-gb-preview` | Imagen de contenedor con la configuración regional `en-GB`. |
+| `2.2.0-amd64-en-in-preview` | Imagen de contenedor con la configuración regional `en-IN`. |
+| `2.2.0-amd64-en-nz-preview` | Imagen de contenedor con la configuración regional `en-NZ`. |
+| `2.2.0-amd64-en-us-preview` | Imagen de contenedor con la configuración regional `en-US`. |
+| `2.2.0-amd64-es-es-preview` | Imagen de contenedor con la configuración regional `es-ES`. |
+| `2.2.0-amd64-es-mx-preview` | Imagen de contenedor con la configuración regional `es-MX`. |
+| `2.2.0-amd64-fi-fi-preview` | Imagen de contenedor con la configuración regional `fi-FI`. |
+| `2.2.0-amd64-fr-ca-preview` | Imagen de contenedor con la configuración regional `fr-CA`. |
+| `2.2.0-amd64-fr-fr-preview` | Imagen de contenedor con la configuración regional `fr-FR`. |
+| `2.2.0-amd64-gu-in-preview` | Imagen de contenedor con la configuración regional `gu-IN`. |
+| `2.2.0-amd64-hi-in-preview` | Imagen de contenedor con la configuración regional `hi-IN`. |
+| `2.2.0-amd64-it-it-preview` | Imagen de contenedor con la configuración regional `it-IT`. |
+| `2.2.0-amd64-ja-jp-preview` | Imagen de contenedor con la configuración regional `ja-JP`. |
+| `2.2.0-amd64-ko-kr-preview` | Imagen de contenedor con la configuración regional `ko-KR`. |
+| `2.2.0-amd64-mr-in-preview` | Imagen de contenedor con la configuración regional `mr-IN`. |
+| `2.2.0-amd64-nb-no-preview` | Imagen de contenedor con la configuración regional `nb-NO`. |
+| `2.2.0-amd64-nl-nl-preview` | Imagen de contenedor con la configuración regional `nl-NL`. |
+| `2.2.0-amd64-pl-pl-preview` | Imagen de contenedor con la configuración regional `pl-PL`. |
+| `2.2.0-amd64-pt-br-preview` | Imagen de contenedor con la configuración regional `pt-BR`. |
+| `2.2.0-amd64-pt-pt-preview` | Imagen de contenedor con la configuración regional `pt-PT`. |
+| `2.2.0-amd64-ru-ru-preview` | Imagen de contenedor con la configuración regional `ru-RU`. |
+| `2.2.0-amd64-sv-se-preview` | Imagen de contenedor con la configuración regional `sv-SE`. |
+| `2.2.0-amd64-ta-in-preview` | Imagen de contenedor con la configuración regional `ta-IN`. |
+| `2.2.0-amd64-te-in-preview` | Imagen de contenedor con la configuración regional `te-IN`. |
+| `2.2.0-amd64-th-th-preview` | Imagen de contenedor con la configuración regional `th-TH`. |
+| `2.2.0-amd64-tr-tr-preview` | Imagen de contenedor con la configuración regional `tr-TR`. |
+| `2.2.0-amd64-zh-cn-preview` | Imagen de contenedor con la configuración regional `zh-CN`. |
+| `2.2.0-amd64-zh-hk-preview` | Imagen de contenedor con la configuración regional `zh-HK`. |
+| `2.2.0-amd64-zh-tw-preview` | Imagen de contenedor con la configuración regional `zh-TW`. |
+| `2.1.1-amd64-en-us-preview` | Imagen de contenedor con la configuración regional `en-US`. |
 | `2.1.1-amd64-ar-ae-preview` | Imagen de contenedor con la configuración regional `ar-AE`. |
 | `2.1.1-amd64-ar-eg-preview` | Imagen de contenedor con la configuración regional `ar-EG`. |
 | `2.1.1-amd64-ar-kw-preview` | Imagen de contenedor con la configuración regional `ar-KW`. |

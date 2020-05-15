@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: fb0122833dabe4030232efb3ca07557ce1826aff
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810351"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981908"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,19 +32,13 @@ En este artículo aprenderá a:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Un área de trabajo de Azure Machine Learning con un SKU de Enterprise.
-* Un conjunto de datos accesible al diseñador. Puede ser uno de los siguientes:
-   * Un conjunto datos registrado de Azure Machine Learning
-    
-     **o**
-   * Un archivo de datos almacenado en un almacén de datos de Azure Machine Learning.
-   
-Para obtener información sobre el acceso a los datos mediante el diseñador, consulte [Cómo importar datos en el diseñador](how-to-designer-import-data.md).
+* Complete la parte 1 de esta serie de procedimientos, [Transformación de datos en el diseñador](how-to-designer-transform-data.md).
 
 En este artículo se da por hecho que tiene conocimientos básicos sobre la creación de canalizaciones en el diseñador. Para una introducción guiada, complete el [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Canalización de ejemplo
 
-La canalización usada en este artículo es una versión modificada de [Ejemplo 3: Predicción de ingresos](samples-designer.md#classification-samples). La canalización usa el módulo [Import Data](algorithm-module-reference/import-data.md) (Importación de datos) en lugar del conjunto de datos de ejemplo para mostrarle cómo entrenar un modelo con sus propios datos.
+La canalización usada en este artículo es una versión modificada de [Ejemplo 3: Predicción de ingresos](samples-designer.md#classification). La canalización usa el módulo [Import Data](algorithm-module-reference/import-data.md) (Importación de datos) en lugar del conjunto de datos de ejemplo para mostrarle cómo entrenar un modelo con sus propios datos.
 
 ![Captura de pantalla que muestra la canalización de ejemplo modificada con un cuadro que resalta el módulo Importación de datos](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509829"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980905"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -137,9 +137,6 @@ Después de configurar los gráficos, se asigna automáticamente a las líneas d
 Para cambiar el color de una línea del gráfico, haga clic en la barra coloreada de la leyenda correspondiente al gráfico. Se abrirá el cuadro de diálogo Selector de colores. Use el selector de colores para configurar el color de la línea.
 
 Una vez configurados los colores del gráfico, permanecerán de este modo al anclar el gráfico a un panel. En la sección siguiente se muestra cómo anclar un gráfico.
-
-> [!NOTE]
-> Debido a las restricciones de nuestra programación de versiones y publicación, el cambio de los colores de las líneas del gráfico requiere temporalmente el paso de un parámetro especial **?feature.colorpicker=true** al iniciar Azure Portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). Esta limitación se quitará próximamente. 
 
 ![imagen de métrica](./media/metrics-charts/018.png)
 

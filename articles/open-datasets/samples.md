@@ -6,13 +6,13 @@ ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
-ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: a25f0ddeb35aaf880682780fd61bcbc3cedbad08
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73606140"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930325"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Los cuadernos de Jupyter de ejemplo muestran cómo enriquecer los datos con Open Datasets 
 Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo cargar conjuntos de datos abiertos y usarlos para enriquecer los datos de demostración. Las técnicas incluyen el uso de Apache Spark y Pandas para procesar los datos.
@@ -40,6 +40,6 @@ Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Regression modeling with automated machine learning and an open dataset](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context) (Tutorial: Modelado de regresión con aprendizaje automático automatizado y un conjunto de datos abierto)
+* [Tutorial: Regression modeling with automated machine learning and an open dataset](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context) (Tutorial: Modelado de regresión con aprendizaje automático automatizado y un conjunto de datos abierto)
 * [SDK de Python para Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Catálogo de Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)

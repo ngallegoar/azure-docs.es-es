@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: efca7eceae74416945c568268edfe0b13a21861a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879038"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856417"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
 
 Los contenedores le permiten ejecutar algunas de las API del servicio de voz en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Voz.
 
-Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para las sólidas funcionalidades de la nube y la localidad del perímetro. Hay cuatro contenedores distintos disponibles. Los dos contenedores estándar son **conversión de voz a texto** y **conversión de texto a voz**. Los dos contenedores personalizados son **conversión de voz a texto personalizada** y **conversión de texto a voz personalizada**.
+Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para las sólidas funcionalidades de la nube y la localidad del perímetro. Hay cuatro contenedores distintos disponibles. Los dos contenedores estándar son **conversión de voz a texto** y **conversión de texto a voz**. Los dos contenedores personalizados son **conversión de voz a texto personalizada** y **conversión de texto a voz personalizada**. Los contenedores de Voz tienen el mismo [precio](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que los servicios de Voz de Azure basados en la nube.
 
 > [!IMPORTANT]
 > Actualmente, todos los contenedores de voz se ofrecen como parte de una [versión preliminar pública "validada"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Se hará un anuncio cuando los contenedores de voz pasen a la disponibilidad general (GA).
 
 | Función | Características | Más reciente |
 |--|--|--|
-| Voz a texto | Transcribe registros continuos de voz en tiempo real o de audio por lotes a texto con resultados intermedios. | 2.1.1 |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.1.1 |
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.2.0 |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.2.0 |
 | Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
 | Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
 
@@ -164,7 +164,7 @@ Todas las etiquetas, a excepción de `latest` tienen el formato siguiente y dist
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-2.1.1-amd64-en-us-preview
+2.2.0-amd64-en-us-preview
 ```
 
 Para ver todas las configuraciones regionales admitidas del contenedor de **conversión de voz a texto**, consulte las [etiquetas de imágenes de la conversión de voz a texto](../containers/container-image-tags.md#speech-to-text).
@@ -258,6 +258,33 @@ Este comando:
 * Asigna 4 núcleos de CPU y 4 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
+
+
+#### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Análisis de la opinión sobre la salida de voz a texto 
+
+A partir de la versión 2.2.0 del contenedor de voz a texto, puede llamar a la [API de análisis de opiniones v3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md). Para llamar al análisis de opiniones, necesitará un punto de conexión de recurso de Text Analytics API. Por ejemplo: 
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
+* `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
+
+Si tiene acceso a un punto de conexión de análisis de texto en la nube, necesitará una clave. Si ejecuta Text Analytics localmente, es posible que no tenga que proporcionarla.
+
+La clave y el punto de conexión se pasan al contenedor de Voz en forma de argumentos, como en el ejemplo siguiente.
+
+```bash
+docker run -it --rm -p 5000:5000 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+CloudAI:SentimentAnalysisSettings:TextAnalyticsHost={TEXT_ANALYTICS_HOST} \
+CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
+```
+
+Este comando:
+
+* Realiza los mismos pasos que el comando anterior.
+* Almacena un punto de conexión y una clave de Text Analytics API para el envío de solicitudes de análisis de opiniones. 
+
 
 # <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
@@ -380,6 +407,9 @@ Este comando:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta del punto de conexión de predicción del contenedor
 
+> [!NOTE]
+> Use un número de puerto único si ejecuta varios contenedores.
+
 | Contenedores | Dirección URL del host del SDK | Protocolo |
 |--|--|--|
 | Conversión de voz en texto y conversión de voz en texto personalizada | `ws://localhost:5000` | WS |
@@ -388,6 +418,121 @@ Este comando:
 Para más información sobre cómo usar los protocolos WSS y HTTPS, consulte la [seguridad del contenedor](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
+
+#### <a name="analyze-sentiment"></a>Análisis de opinión
+
+Si proporcionó sus credenciales de Text Analytics API [al contenedor](#analyze-sentiment-on-the-speech-to-text-output), puede usar el SDK de Voz para enviar solicitudes de reconocimiento de voz con análisis de opiniones. Puede configurar las respuestas de la API para usar un formato *simple* o *detallado*.
+
+# <a name="simple-format"></a>[Formato simple](#tab/simple-format)
+
+Para configurar el cliente de Voz de forma que use un formato simple, agregue `"Sentiment"` como valor para `Simple.Extensions`. Si quiere elegir una versión específica del modelo de Text Analytics, reemplace `'latest'` en la configuración de la propiedad `speechcontext-phraseDetection.sentimentAnalysis.modelversion`.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Simple.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Simple.Extensions` devolverá el resultado de la opinión en la capa raíz de la respuesta.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6098574b79434bd4849fee7e0a50f22e",
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+# <a name="detailed-format"></a>[Formato detallado](#tab/detailed-format)
+
+Para configurar el cliente de Voz de forma que use un formato detallado, agregue `"Sentiment"` como valor para `Detailed.Extensions`, `Detailed.Options` o ambos. Si quiere elegir una versión específica del modelo de Text Analytics, reemplace `'latest'` en la configuración de la propiedad `speechcontext-phraseDetection.sentimentAnalysis.modelversion`.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Options',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Detailed.Extensions` proporciona el resultado de la opinión en la capa raíz de la respuesta. `Detailed.Options` proporciona el resultado en la capa `NBest` de la respuesta. Se pueden usar por separado o juntos.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6a2aac009b9743d8a47794f3e81f7963",
+   "NBest":[
+      {
+         "Confidence":0.973695,
+         "Display":"What's the weather like?",
+         "ITN":"what's the weather like",
+         "Lexical":"what's the weather like",
+         "MaskedITN":"What's the weather like",
+         "Sentiment":{
+            "Negative":0.03,
+            "Neutral":0.79,
+            "Positive":0.18
+         }
+      },
+      {
+         "Confidence":0.9164971,
+         "Display":"What is the weather like?",
+         "ITN":"what is the weather like",
+         "Lexical":"what is the weather like",
+         "MaskedITN":"What is the weather like",
+         "Sentiment":{
+            "Negative":0.02,
+            "Neutral":0.88,
+            "Positive":0.1
+         }
+      }
+   ],
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+---
+
+Si quiere deshabilitar por completo el análisis de opiniones, agregue un valor `false` a `sentimentanalysis.enabled`.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentanalysis.enabled',
+    value='false',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
 
 ### <a name="text-to-speech-or-custom-text-to-speech"></a>Conversión de texto a voz o conversión de texto a voz personalizada
 

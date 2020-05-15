@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60803751"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116975"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recepción de eventos en un punto de conexión de HTTP
 
-En este artículo se describe cómo [validar un punto de conexión de HTTP](security-authentication.md#webhook-event-delivery) para recibir eventos de una suscripción a eventos y, a continuación, recibir y deserializar los eventos. En este artículo se utiliza una función de Azure para fines de demostración; sin embargo, se aplican los mismos conceptos con independencia de dónde se hospede la aplicación.
+En este artículo se describe cómo [validar un punto de conexión de HTTP](webhook-event-delivery.md) para recibir eventos de una suscripción a eventos y, a continuación, recibir y deserializar los eventos. En este artículo se utiliza una función de Azure para fines de demostración; sin embargo, se aplican los mismos conceptos con independencia de dónde se hospede la aplicación.
 
 > [!NOTE]
 > Se recomienda **encarecidamente** que use un [desencadenador de la cuadrícula de eventos](../azure-functions/functions-bindings-event-grid.md) al desencadenar una función de Azure con Event Grid. Aquí se usa un desencadenador de Webhook genérico con fines ilustrativos.
@@ -28,7 +28,7 @@ Necesita una aplicación de función con una función desencadenada por HTTP.
 
 ## <a name="add-dependencies"></a>Adición de dependencias
 
-Si está desarrollando en .NET, [agregue una dependencia](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) a la función para el paquete `Microsoft.Azure.EventGrid` [ de NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Los ejemplos de este artículo requieren la versión 1.4.0 o posterior.
+Si está desarrollando en .NET, [agregue una dependencia](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) a la función para el `Microsoft.Azure.EventGrid` [paquete de NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Los ejemplos de este artículo requieren la versión 1.4.0 o posterior.
 
 Hay SDK para otros lenguajes disponibles a través de la referencia [SDK de publicación](./sdk-overview.md#data-plane-sdks). Estos paquetes contienen los modelos para los tipos de evento nativos, como `EventGridEvent`, `StorageBlobCreatedEventData` y `EventHubCaptureFileCreatedEventData`.
 
@@ -50,7 +50,7 @@ Haga clic en el vínculo "Ver archivos" de la función de Azure (panel más a la
 
 ## <a name="endpoint-validation"></a>Validación de punto de conexión
 
-Lo primero que querrá hacer es controlar eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Cada vez que alguien se suscribe a un evento, Event Grid envía un evento de validación al punto de conexión con `validationCode` en la carga de datos. El punto de conexión debe reproducirlo en el cuerpo de la respuesta [para demostrar que el punto de conexión es válido y le pertenece](security-authentication.md#webhook-event-delivery). Si usa un [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid.md) en lugar de una función desencadenada por WebHook, la validación del punto de conexión se completa de manera automática. Si usa un servicio de API de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de reflejar el código de validación mediante programación. Con esos servicios, puede validar manualmente la suscripción mediante una dirección URL de validación que se envía en el evento de validación de la suscripción. Copie esa dirección URL en la propiedad `validationUrl` y envíe una solicitud GET mediante un cliente de REST o el explorador web.
+Lo primero que querrá hacer es controlar eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Cada vez que alguien se suscribe a un evento, Event Grid envía un evento de validación al punto de conexión con `validationCode` en la carga de datos. El punto de conexión debe reproducirlo en el cuerpo de la respuesta [para demostrar que el punto de conexión es válido y le pertenece](webhook-event-delivery.md). Si usa un [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid.md) en lugar de una función desencadenada por WebHook, la validación del punto de conexión se completa de manera automática. Si usa un servicio de API de terceros (como [Zapier](https://zapier.com/home) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de reflejar el código de validación mediante programación. Con esos servicios, puede validar manualmente la suscripción mediante una dirección URL de validación que se envía en el evento de validación de la suscripción. Copie esa dirección URL en la propiedad `validationUrl` y envíe una solicitud GET mediante un cliente de REST o el explorador web.
 
 En C#, la función `DeserializeEventGridEvents()` deserializa los eventos de Event Grid. Deserializa los datos del evento en el tipo adecuado, como StorageBlobCreatedEventData. Use la clase `Microsoft.Azure.EventGrid.EventTypes` para obtener los nombres y tipos de eventos compatibles.
 

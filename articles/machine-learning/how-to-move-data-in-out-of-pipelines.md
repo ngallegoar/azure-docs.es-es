@@ -1,7 +1,7 @@
 ---
-title: Entrada y salida de datos desde canalizaciones de ML
+title: Movimiento de datos en canalizaciones de Machine Learning
 titleSuffix: Azure Machine Learning
-description: Preparación, consumo y generación de datos en canalizaciones de Azure Machine Learning
+description: Obtenga información sobre la entrada y salida de datos en las canalizaciones Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 3dd1a82bf7fad1f201f5c0f52af944ef44a3fdf9
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.custom: contperfq4
+ms.openlocfilehash: 233361fb238342cde3c692174e85fb57f69979b1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879665"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858456"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Los datos son fundamentales para las canalizaciones de aprendizaje automático. En este artículo se proporciona código para importar, transformar y mover datos entre los pasos de una canalización de Azure Machine Learning. Para obtener información general sobre cómo funcionan los datos en Azure Machine Learning, consulte [Acceso a los datos en los servicios de Azure Storage](how-to-access-data.md). Para obtener información sobre las ventajas y la estructura de las canalizaciones de Azure Machine Learning, consulte [¿Qué son las canalizaciones de Azure Machine Learning?](concept-ml-pipelines.md).
+En este artículo se proporciona código para importar, transformar y mover datos entre los pasos de una canalización de Azure Machine Learning. Para obtener información general sobre cómo funcionan los datos en Azure Machine Learning, consulte [Acceso a los datos en los servicios de Azure Storage](how-to-access-data.md). Para obtener información sobre las ventajas y la estructura de las canalizaciones de Azure Machine Learning, consulte [¿Qué son las canalizaciones de Azure Machine Learning?](concept-ml-pipelines.md).
 
 Este artículo le mostrará cómo realizar los siguientes procedimientos:
 

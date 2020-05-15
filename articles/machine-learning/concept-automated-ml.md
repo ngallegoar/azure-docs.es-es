@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f592a7f5a4af38988bcf433f0adc89d9be7579cb
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082016"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983472"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -130,11 +130,72 @@ También están disponibles operaciones de preprocesamiento o caracterización a
 
 + SDK de Python: Especifique `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para la [clase `AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
+
+
+## <a name="ensemble-models"></a><a name="ensemble"></a> Modelos de conjunto
+
+El aprendizaje automático automatizado admite modelos de conjunto, que están habilitados de forma predeterminada. El aprendizaje de conjunto mejora los resultados del aprendizaje automático y su rendimiento predictivo mediante la combinación de varios modelos en lugar de usar modelos únicos. Las iteraciones de conjunto aparecen como las iteraciones finales de la ejecución. El aprendizaje automático automatizado usa los métodos de conjunto de votaciones y apilamiento para combinar modelos:
+
+* **Votación**: realiza la predicción en función de la media ponderada de las probabilidades de clase predichas (para tareas de clasificación) o de los destinos de regresión predichos (para tareas de regresión).
+* **Apilamiento**: el apilamiento combina modelos heterogéneos y entrena un metamodelo basado en la salida de los modelos individuales. Los metamodelos predeterminados actuales son LogisticRegression para las tareas de clasificación y ElasticNet para las tareas de regresión y previsión.
+
+El [algoritmo de selección de conjunto de Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inicialización de conjunto ordenado se utiliza para decidir qué modelos se van a utilizar en el conjunto. En un nivel alto, este algoritmo inicializa el conjunto con hasta cinco modelos con las mejores puntuaciones individuales y comprueba que estos modelos se encuentran en un umbral del 5 % de la mejor puntuación para evitar un conjunto inicial deficiente. A continuación, para cada iteración de conjunto, se agrega un nuevo modelo al conjunto existente y se calcula la puntuación resultante. Si un nuevo modelo ha mejorado la puntuación de conjunto existente, el conjunto se actualiza para incluir el nuevo modelo.
+
+Consulte el [procedimiento](how-to-configure-auto-train.md#ensemble) para cambiar la configuración del conjunto predeterminado en el aprendizaje automático automatizado.
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>Guía sobre los destinos de proceso de ML administrados de forma local o remota
+
+La interfaz web siempre usa para el aprendizaje automático automatizado un [destino de proceso](concept-compute-target.md) remoto.  Pero cuando use el SDK de Python, elegirá un destino de proceso o bien local o remoto para el entrenamiento de ML automatizado.
+
+* **Proceso local**: el entrenamiento se produce en el proceso del equipo portátil o máquina virtual local. 
+* **Proceso remoto**: el entrenamiento se produce en los clústeres de proceso de Machine Learning.  
+
+### <a name="choose-compute-target"></a>Selección del destino de proceso
+Tenga en cuenta estos factores al elegir el destino de proceso:
+
+ * **Elija un proceso local**: si su escenario es de exploraciones iniciales o demostraciones con datos reducidos y entrenamientos cortos (es decir, segundos o un par de minutos por cada ejecución secundaria), el entrenamiento en el equipo local puede ser la mejor opción.  No hay tiempo de instalación y los recursos de infraestructura (su equipo o máquina virtual) están disponibles directamente.
+ * **Elija un clúster de proceso de ML remoto**: si va a realizar un entrenamiento con conjuntos de datos de mayor tamaño, como en los entrenamientos de producción con la creación de modelos que necesiten entrenamientos más largos, el proceso remoto proporciona un rendimiento de tiempo de extremo a extremo mucho mejor, ya que `AutoML` pondrá en paralelo los entrenamientos en los nodos del clúster. En un proceso remoto, el tiempo de inicio para la infraestructura interna agregará alrededor de 1,5 minutos por ejecución secundaria, además de minutos adicionales para la infraestructura de clústeres si las máquinas virtuales no están todavía en funcionamiento.
+
+### <a name="pros-and-cons"></a>Ventajas y desventajas
+Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
+
+|  | Ventajas (a favor)  |Desventajas (en contra)  |
+|---------|---------|---------|---------|
+|**Destino de proceso local** |  <li> No hay tiempo de inicio del entorno   | <li>  Subconjunto de características<li>  No se pueden realizar ejecuciones en paralelo <li> Peor para datos de gran tamaño <li>Sin streaming de datos durante el entrenamiento <li>  No hay características basadas en DNN <li> Solo SDK de Python |
+|**Clústeres de proceso de ML remotos**|  <li> Conjunto completo de características <li> Realización de ejecuciones secundarias en paralelo <li>   Compatibilidad con datos de gran tamaño<li>  Características basadas en DNN <li>  Escalabilidad dinámica del clúster de proceso a petición <li> Sin experiencia de código (interfaz de usuario web) también disponible  |  <li> Tiempo de inicio de los nodos de clúster <li> Tiempo de inicio para cada ejecución secundaria    |
+
+### <a name="feature-availability"></a>Disponibilidad de características 
+
+ Hay más características disponibles cuando se usa el proceso remoto, tal como se muestra en la tabla siguiente. Algunas de estas características solo están disponibles en las áreas de trabajo Enterprise.
+
+| Característica                                                    | Remote | Local | Requiere <br>Área de trabajo Enterprise |
+|------------------------------------------------------------|--------|-------|-------------------------------|
+| Streaming de datos (compatibilidad con datos de gran tamaño, hasta 100 GB)          | ✓      |       | ✓                             |
+| Características de texto y entrenamiento basados en DNN-BERT             | ✓      |       | ✓                             |
+| Compatibilidad de GPU integrada (entrenamiento e inferencia)        | ✓      |       | ✓                             |
+| Compatibilidad con la clasificación y etiquetado de imágenes                  | ✓      |       | ✓                             |
+| Modelos Auto-ARIMA, Prophet y ForecastTCN para la previsión | ✓      |       | ✓                             |
+| Varias ejecuciones/iteraciones en paralelo                       | ✓      |       | ✓                             |
+| Creación de modelos con la funcionalidad de interpretación en la interfaz de usuario de la experiencia web de AutoML Studio      | ✓      |       | ✓                             |
+| Personalización de ingeniería de características en la interfaz de usuario de la experiencia web de Studio                        | ✓      |       | ✓                              |
+| Ajuste de hiperparámetros de Azure ML                             | ✓      |       |                               |
+| Compatibilidad con el flujo de trabajo de canalización de Azure ML                         | ✓      |       |                               |
+| Continuación de una ejecución                                             | ✓      |       |                               |
+| Previsión                                                | ✓      | ✓     | ✓                             |
+| Creación y ejecución de experimentos en cuadernos                    | ✓      | ✓     |                               |
+| Registro y visualización de la información y las métricas del experimento en la interfaz de usuario | ✓      | ✓     |                               |
+| Límites de protección de datos                                            | ✓      | ✓     |                               |
+
+
+## <a name="automated-ml-in-azure-machine-learning"></a>Aprendizaje automático automatizado en Azure Machine Learning
+
+Azure Machine Learning ofrece dos experiencias para trabajar con aprendizaje automático automatizado
+
+* Para clientes con experiencia en código, [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* Para clientes con poca experiencia en código o ninguna, Azure Machine Learning Studio en [https://ml.azure.com](https://ml.azure.com/)  
+
 <a name="parity"></a>
-
-## <a name="the-studio-vs-sdk"></a>Studio frente al SDK
-
-Aprenda sobre la paridad y las diferencias entre las capacidades de ML automatizado de alto nivel disponibles a través del SDK de Python y Azure Machine Learning Studio. 
 
 ### <a name="experiment-settings"></a>Configuración del experimento 
 
@@ -181,17 +242,6 @@ Estos valores le permiten revisar y controlar las ejecuciones de los experimento
 |Obtiene límites de protección| ✓|✓|
 |Pausar y reanudar ejecuciones| ✓| |
 
-## <a name="ensemble-models"></a><a name="ensemble"></a> Modelos de conjunto
-
-El aprendizaje automático automatizado admite modelos de conjunto, que están habilitados de forma predeterminada. El aprendizaje de conjunto mejora los resultados del aprendizaje automático y su rendimiento predictivo mediante la combinación de varios modelos en lugar de usar modelos únicos. Las iteraciones de conjunto aparecen como las iteraciones finales de la ejecución. El aprendizaje automático automatizado usa los métodos de conjunto de votaciones y apilamiento para combinar modelos:
-
-* **Votación**: realiza la predicción en función de la media ponderada de las probabilidades de clase predichas (para tareas de clasificación) o de los destinos de regresión predichos (para tareas de regresión).
-* **Apilamiento**: el apilamiento combina modelos heterogéneos y entrena un metamodelo basado en la salida de los modelos individuales. Los metamodelos predeterminados actuales son LogisticRegression para las tareas de clasificación y ElasticNet para las tareas de regresión y previsión.
-
-El [algoritmo de selección de conjunto de Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inicialización de conjunto ordenado se utiliza para decidir qué modelos se van a utilizar en el conjunto. En un nivel alto, este algoritmo inicializa el conjunto con hasta cinco modelos con las mejores puntuaciones individuales y comprueba que estos modelos se encuentran en un umbral del 5 % de la mejor puntuación para evitar un conjunto inicial deficiente. A continuación, para cada iteración de conjunto, se agrega un nuevo modelo al conjunto existente y se calcula la puntuación resultante. Si un nuevo modelo ha mejorado la puntuación de conjunto existente, el conjunto se actualiza para incluir el nuevo modelo.
-
-Consulte el [procedimiento](how-to-configure-auto-train.md#ensemble) para cambiar la configuración del conjunto predeterminado en el aprendizaje automático automatizado.
-
 <a name="use-with-onnx"></a>
 
 ## <a name="automl--onnx"></a>AutoML y ONNX
@@ -202,20 +252,19 @@ Consulte cómo convertir al formato ONNX [en este ejemplo de Jupyter Notebook](h
 
 El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más información sobre la [inferencia de los modelos ONNX con la API de C# en el entorno de ejecución de ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea ejemplos y aprenda cómo generar modelos mediante aprendizaje automático automatizado:
-
-+ Lea el [Tutorial: entrenamiento automático de un modelo de regresión con Azure Machine Learning](tutorial-auto-train-models.md).
 
 + Configure el experimento de entrenamiento automático:
   + En Azure Machine Learning Studio, [use estos pasos](how-to-use-automated-ml-for-ml-models.md).
   + Con el SDK de Python, [siga estos pasos](how-to-configure-auto-train.md).
 
++ Aprenda a usar un [destino de proceso remoto](how-to-auto-train-remote.md).
+
++ Lea el [Tutorial: entrenamiento automático de un modelo de regresión con Azure Machine Learning](tutorial-auto-train-models.md). 
+
 + Obtenga información sobre cómo realizar entrenamientos automáticos con datos de series temporales [con estos pasos](how-to-auto-train-forecast.md).
 
 + Pruebe los [ejemplos de Jupyter Notebook para aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
-
 * El aprendizaje automático automatizado también está disponible en otras soluciones de Microsoft como [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) y [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

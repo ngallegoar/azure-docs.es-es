@@ -1,27 +1,20 @@
 ---
 title: 'Tutorial: Creación de un conjunto de escalado de máquinas virtuales Linux'
 description: Aprenda a usar la CLI de Azure para crear e implementar una aplicación de alta disponibilidad en máquinas virtuales Linux mediante un conjunto de escalado de máquinas virtuales.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: linux
 ms.date: 06/01/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 7a256fc5268c10dd05a2cf58747107cb26c3ced9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: e97611cdfdca28b2c2b22f21d3aedcc79c4ee6d0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222252"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198099"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux con la CLI de Azure
 

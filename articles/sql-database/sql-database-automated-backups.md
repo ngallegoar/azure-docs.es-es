@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061758"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198572"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -61,6 +61,8 @@ Puede probar algunas de estas operaciones con los ejemplos siguientes:
 SQL Database admite el autoservicio de restauración a un momento dado (PITR) mediante la creación automática de copias de seguridad completas, copias de seguridad diferenciales y copias de seguridad de registro de transacciones. Las copias de seguridad de bases de datos completas se crean semanalmente, mientras que las copias de seguridad diferenciales se suelen crear cada 12 horas. Las copias de seguridad del registro de transacciones se crean por lo general cada 5 o 10 minutos. La frecuencia de las copias de seguridad del registro de transacciones se basa en el tamaño de proceso y en la cantidad de actividad de la base de datos. 
 
 La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente, esta copia de seguridad se completa en 30 minutos, pero puede tardar más si la base de datos es grande. Por ejemplo, la copia de seguridad inicial puede tardar más en una base de datos restaurada o una copia de la base de datos. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El servicio SQL Database determina el momento exacto en el que se producen todas las copias de seguridad de la base de datos a medida que equilibra la carga de trabajo global del sistema. Los trabajos de copia de seguridad no se pueden cambiar ni deshabilitar.
+
+### <a name="default-backup-retention-period"></a>Período de retención predeterminado de la copia de seguridad
 
 Las copias de seguridad PITR están protegidas con almacenamiento con redundancia geográfica. Para obtener más información, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md).
 

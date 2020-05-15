@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cebe5564767ee345c1aea96b6ac54b9398c3e9a3
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 1e42096e7ab950e5d8046ec6140c01b24643cb87
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733027"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891471"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Windows para Azure App Service
 
@@ -24,7 +24,7 @@ Esta guía incluye conceptos clave e instrucciones para los desarrolladores de J
 
 ## <a name="deploying-your-app"></a>Implementación de la aplicación
 
-Puede usar el [complemento de Azure Web App para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar los archivos .war. La implementación con entornos de desarrollo integrado populares también se admite con [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) o [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Puede usar el [complemento de Azure Web App para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar los archivos .war. La implementación con entornos de desarrollo integrado populares también se admite con [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 De lo contrario, el método de implementación dependerá del tipo de archivo:
 

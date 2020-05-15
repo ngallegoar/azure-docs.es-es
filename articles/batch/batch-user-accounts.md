@@ -4,20 +4,20 @@ description: Resulta útil poder configurar la cuenta de usuario en que desea qu
 ms.topic: article
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111749"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980293"
 ---
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
+
 > [!NOTE] 
 > Las cuentas de usuario descritas en este artículo son distintas a las que se usan con el Protocolo de escritorio remoto (RDP) o Secure Shell (SSH) por motivos seguridad. 
 >
 > Para conectarse a un nodo que ejecuta la configuración de máquina virtual Linux mediante SSH, consulte [Uso del escritorio remoto a una máquina virtual Linux en Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para conectarse a nodos que ejecutan Windows a través de RDP, consulte [Conexión a una máquina virtual de Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para conectarse a un nodo que ejecuta la configuración del servicio en la nube a través de RDP, consulte [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
-
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
 En Azure Batch, las tareas siempre se ejecutan en una cuenta de usuario. De forma predeterminada, las tareas se ejecutan en cuentas de usuario estándar, sin permisos de administrador. Esta configuración de cuenta de usuario predeterminada es normalmente suficiente. Sin embargo, para determinados escenarios, resulta útil poder configurar la cuenta de usuario en que desea que se ejecute una tarea. En este artículo se describen los tipos de cuentas de usuario y cómo puede configurarlos para su escenario.
 

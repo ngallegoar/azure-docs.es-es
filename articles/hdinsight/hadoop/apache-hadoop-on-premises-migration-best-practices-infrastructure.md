@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8407aafdb9b9dadcbc8e220ac42e5d7856116959
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74951520"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996775"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Procedimientos recomendados de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -76,7 +76,7 @@ Las aplicaciones o componentes que estaban disponibles en clústeres locales per
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-Para más información, vea el artículo [Componentes de Apache Hadoop disponibles con las distintas versiones de HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+Para más información, vea el artículo [Componentes de Apache Hadoop disponibles con las distintas versiones de HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalización de clústeres de HDInsight mediante acciones de scripts
 
@@ -167,7 +167,7 @@ El uso de una instancia de Azure Virtual Network con HDInsight hace posibles los
 - Conectar HDInsight a almacenes de datos en una instancia de Azure Virtual Network.
 - Obtener acceso directo a los servicios de Hadoop que no están disponibles públicamente en Internet. Por ejemplo, las API de Kafka o la API de Java de HBase.
 
-HDInsight puede agregarse a una instancia nueva o existente de Azure Virtual Network. Si se agrega HDInsight a una red virtual existente, será necesario actualizar los grupos de seguridad de red y las rutas definidas por el usuario ya establecidos para permitir el acceso sin restricciones a [varias direcciones IP](../hdinsight-management-ip-addresses.md) en el centro de datos de Azure. Además, asegúrese de que no se bloquea el tráfico a los [puertos](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports) que se usan en los servicios de HDInsight.
+HDInsight puede agregarse a una instancia nueva o existente de Azure Virtual Network. Si se agrega HDInsight a una red virtual existente, será necesario actualizar los grupos de seguridad de red y las rutas definidas por el usuario ya establecidos para permitir el acceso sin restricciones a [varias direcciones IP](../hdinsight-management-ip-addresses.md) en el centro de datos de Azure. Además, asegúrese de que no se bloquea el tráfico a los [puertos](../control-network-traffic.md#required-ports) que se usan en los servicios de HDInsight.
 
 > [!Note]  
 > HDInsight no es compatible actualmente con la tunelización forzada. La tunelización forzada es una configuración de subred que fuerza el tráfico de salida de Internet a un dispositivo para la inspección y el registro. Quite la tunelización forzada antes de instalar HDInsight en una subred, o bien cree una nueva subred para HDInsight. HDInsight no admite tampoco la restricción de la conectividad de red saliente.

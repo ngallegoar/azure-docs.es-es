@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 2c0cd47acbd4639ff5eff2af78dcebdfc26270a7
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: fc35602b55e79f3351da0def800d2a2b2698e250
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730695"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856733"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar los recursos técnicos del módulo IoT Edge
-
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de módulo IoT Edge de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Preparar los recursos técnicos del módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets) para Cloud Partner Portal para administrar las ofertas.
 
 En este artículo se describen los requisitos que deben cumplir los recursos técnicos del módulo IoT (Internet de las cosas) Edge para que se pueda publicar en Azure Marketplace.
 

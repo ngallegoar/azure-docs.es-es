@@ -1,14 +1,14 @@
 ---
 title: Administración de asignaciones con PowerShell
 description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677424"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863984"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>Ejemplo 2: Uso de un archivo de definición de asignación JSON
 
-En el ejemplo siguiente se crea prácticamente la misma asignación que en el [ejemplo 1](#example-1-provide-parameters).
-En lugar de pasar parámetros al cmdlet, en el ejemplo se muestra el uso de un archivo de definición de asignación JSON y el parámetro **AssignmentFile**. Además, la propiedad **excludedPrincipals** está configurada como parte de **locks**. No hay un parámetro de PowerShell para **excludedPrincipals** y la propiedad solo se puede configurar mediante el archivo de definición de asignación JSON.
+En el ejemplo siguiente se crea prácticamente la misma asignación que en el [ejemplo 1](#example-1-provide-parameters). En lugar de pasar parámetros al cmdlet, en el ejemplo se muestra el uso de un archivo de definición de asignación JSON y el parámetro **AssignmentFile**. Además, la propiedad **excludedPrincipals** está configurada como parte de **locks**. No hay un parámetro de PowerShell para **excludedPrincipals** y la propiedad solo se puede configurar mediante el archivo de definición de asignación JSON.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Ejemplo de código de un extremo a otro
+## <a name="code-example"></a>Ejemplo de código
 
 Reuniendo todos estos pasos, en el ejemplo siguiente se obtiene la definición del plano técnico y, continuación, se crea, actualiza y quita una asignación de plano técnico de la suscripción específica que se representa como `{subId}`:
 

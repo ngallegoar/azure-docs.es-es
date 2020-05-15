@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: d2fe231dce26311268e578a495fb2ba7076651e0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 2cf1ab2b9ec7e1094a0afa34973db3441c22ee5b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608037"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982775"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Uso de datos con el Explorador de Azure Storage
 
@@ -273,7 +273,7 @@ Si no puede quitar una cuenta, o si el vínculo para volver a autenticar no hace
 
 ### <a name="httphttps-proxy-issue"></a>Problema de proxy de HTTP/HTTPS
 
-No puede mostrar los nodos de Azure Cosmos DB en el árbol de la izquierda al configurar el proxy de http/https en ASE. Es un problema conocido y se corregirá en la siguiente versión. En este momento puede usar el Explorador de datos de Azure Cosmos DB en Azure Portal como solución alternativa.
+No puede mostrar los nodos de Azure Cosmos DB en el árbol de la izquierda al configurar el proxy de http/https en ASE. En este momento puede usar el Explorador de datos de Azure Cosmos DB en Azure Portal como solución alternativa.
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>Problema de nodo "Development" (Desarrollo) en nodo "Local and Attached" (Locales y conectados)
 
