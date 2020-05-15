@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371229"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202070"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -55,7 +55,7 @@ La compatibilidad de la red virtual con los servicios de Cognitive Services que 
 
 La compatibilidad de la red virtual con los servicios de Cognitive Services que se enumeran a continuación se limita a las siguientes regiones de Azure: *EUAP de centro de EE. UU.* , *Centro-sur de EE. UU.* , *Este de EE. UU.* , *Oeste de EE. UU. 2*, *Global* y *US Gov Virginia*.
 > [!div class="checklist"]
-> * [Translator Text](./translator/index.yml)
+> * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Etiquetas de servicio
 Además de admitir los puntos de conexión de servicio de red virtual para los servicios anteriores, Cognitive Services también admite una etiqueta de servicio para la configuración de reglas de red de salida. Los servicios siguientes se incluyen en la etiqueta de servicio CognitiveServicesManagement.

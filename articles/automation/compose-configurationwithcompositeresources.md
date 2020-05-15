@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e7625ae95d5355ae1122a16ea4828eed5f78c73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682922"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993772"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>Creación de configuraciones de DSC en Azure Automation State Configuration mediante recursos compuestos
 
@@ -34,9 +34,9 @@ Para poder asignar una configuración realizada desde recursos compuestos en Azu
 1. En el paso **Parámetros**, el parámetro de cada recurso compuesto se expone para que puedan proporcionarse valores. Si un parámetro tiene una descripción, se muestra junto al campo de parámetro. Si un parámetro es de tipo `PSCredential`, el menú desplegable proporciona una lista de objetos **Credential** en la cuenta de Automation actual. También hay disponible una opción **+ Agregar una credencial**. Una vez que se hayan proporcionado todos los parámetros necesarios, haga clic en **Guardar y compilar**.
    ![Captura de pantalla del paso de parámetros de la página Configuración de Compose](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-Una vez que se guarde la nueva configuración, se envía para la compilación. El estado del trabajo de compilación puede verse como cualquier configuración importada. Para más información, consulte [Visualización de un trabajo de compilación](automation-dsc-getting-started.md#viewing-a-compilation-job).
+Una vez que se guarde la nueva configuración, se envía para la compilación. El estado del trabajo de compilación puede verse como cualquier configuración importada. Para más información, consulte [Visualización de un trabajo de compilación](automation-dsc-getting-started.md#view-a-compilation-job).
 
-Una vez que la compilación finalice correctamente, la nueva configuración aparece en la pestaña **Configuraciones compiladas**. A continuación, puede asignar la configuración a un nodo administrado, siguiendo los pasos descritos en [Reasignación de un nodo a una configuración de nodo diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Una vez que la compilación finalice correctamente, la nueva configuración aparece en la pestaña **Configuraciones compiladas**. A continuación, puede asignar la configuración a un nodo administrado, siguiendo los pasos descritos en [Reasignación de un nodo a una configuración de nodo diferente](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

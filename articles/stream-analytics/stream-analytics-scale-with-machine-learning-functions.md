@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 5b08625d055063b3804a35a3344ff01c7edb79de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4e2c99274df90d232754c862f3174b5767392cec
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067006"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929050"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
 
@@ -58,7 +58,7 @@ En general, si ***B*** es el tamaño de lote y ***L*** es la latencia del servic
 
 También puede configurar las "llamadas simultáneas máximas" en el servicio web Machine Learning. Se recomienda establecer este parámetro en el valor máximo (actualmente 200).
 
-Para más información sobre esta configuración, consulte el artículo de [Escalado para servicio web Machine Learning](../machine-learning/studio/scaling-webservice.md).
+Para más información sobre esta configuración, consulte el artículo de [Escalado para servicio web Machine Learning](../machine-learning/studio/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Ejemplo: Análisis de opiniones
 En el ejemplo siguiente se incluye un trabajo de Análisis de transmisiones con la función de Machine Learning de análisis de opiniones, como se describe en el [tutorial de integración de Machine Learning de Análisis de transmisiones](stream-analytics-machine-learning-integration-tutorial.md).

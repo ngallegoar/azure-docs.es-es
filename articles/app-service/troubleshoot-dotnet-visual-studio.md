@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235956"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926857"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -614,7 +614,7 @@ Ha visto cómo Visual Studio facilita la visualización de registros creados por
 Para obtener más información sobre cómo solucionar problemas de aplicaciones en Azure App Service, vea los siguientes recursos:
 
 * [Control de Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
-* [Investigating Memory Leaks in Azure App Service with Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) (Investigación de fugas de memoria en Azure App Service con Visual Studio 2013). Artículo del blog ALM de Microsoft sobre las características de Visual Studio para el análisis de problemas de memoria administrada.
+* [Investigating Memory Leaks in Azure App Service with Visual Studio 2013](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/) (Investigación de fugas de memoria en Azure App Service con Visual Studio 2013). Artículo del blog ALM de Microsoft sobre las características de Visual Studio para el análisis de problemas de memoria administrada.
 * [Azure App Service online tools you should know about](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) (Herramientas en línea de Azure App Service que debe conocer). Publicación en el blog de Amit Apple.
 
 Si desea obtener ayuda para una pregunta específica sobre la solución de problemas, comience una conversación en alguno de los siguientes foros:
@@ -634,7 +634,7 @@ Para obtener más información sobre la depuración remota para aplicaciones de 
 * [Introduction to Remote Debugging on Azure App Service part 3 - Multi-Instance environment and GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/) (Introducción a la depuración remota en Azure App Service, Parte 3: entorno de varias instancias y GIT)
 * [Depuración de WebJobs](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Si su aplicación utiliza una API web de Azure o el back-end de Mobile Services y necesita depurarlo, vea [Debugging .NET Backend in Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx) (Depuración de back-end de .NET en Visual Studio).
+Si su aplicación utiliza una API web de Azure o el back-end de Mobile Services y necesita depurarlo, vea [Debugging .NET Backend in Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio) (Depuración de back-end de .NET en Visual Studio).
 
 ### <a name="tracing-in-aspnet-applications"></a>Seguimiento en aplicaciones de ASP.NET
 No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET disponibles en Internet. Lo mejor que puede hacer es comenzar con materiales de introducción antiguos escritos para Web Forms, porque MVC todavía no existía, y complementarlos con las publicaciones más recientes en blogs que se centran en temas específicos. Algunos buenos sitios para comenzar son los siguientes recursos:
@@ -647,7 +647,7 @@ No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET dispon
   Brinda información acerca de los agentes de escucha de seguimiento, pero no menciona [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Tutorial: Integración del seguimiento de ASP.NET con el seguimiento de System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Este artículo también es antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
-* [Seguimiento en vistas Razor de ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [Seguimiento en vistas Razor de ASP.NET MVC](https://devblogs.microsoft.com/aspnet/tracing-in-asp-net-mvc-razor-views/)<br/>
   Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](/previous-versions/bb397417(v=vs.140)) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
 
     ```csharp
@@ -678,7 +678,7 @@ Para obtener más información acerca del análisis de registros de servidor web
   Una herramienta para visualizar datos en registros de servidor web (archivos *.log* ).
 * [Solución de problemas de rendimiento de IIS o errores de aplicación al usar LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.
-* [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [El código de estado HTTP en IIS 7.0, IIS 7.5 y IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Análisis de registros de seguimiento de solicitudes con error

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 00cde5255f9c9a2baa7c7042ae2a8f73448da0ae
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: f55ebb3270fdd97a1fdbbf5a56f9703c08933f9f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81679983"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855325"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Administración de scripts previos y posteriores
 
@@ -21,7 +21,7 @@ Los scripts previos y posteriores son runbooks para ejecutar en la cuenta de Azu
 
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de scripts previos y posteriores
 
-Para que un runbook se utilice como script previo o posterior, debe importarlo en su cuenta de Automation y [publicarlo](manage-runbooks.md#publishing-a-runbook).
+Para que un runbook se utilice como script previo o posterior, debe importarlo en su cuenta de Automation y [publicarlo](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parámetros de scripts previos y posteriores
 

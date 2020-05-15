@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 1e55e6aa0250e488b901b1ac592cbefe0d071040
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 054f1449d6f06225633bf0647cac93ca42f2b59b
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82568633"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929016"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge
 
@@ -35,7 +35,7 @@ Se incluye una matriz de puertas programables (FPGA) en cada dispositivo de Azur
 
 | Especificación           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+| FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
 
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de la fuente de alimentación

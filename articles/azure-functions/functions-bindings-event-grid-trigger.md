@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235240"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891275"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
 
@@ -570,4 +570,4 @@ La función de desencadenador de Event Grid ejecuta y muestra registros similare
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Envío de un evento de Event Grid](./functions-bindings-event-grid-trigger.md)
+* [Envío de un evento de Event Grid](./functions-bindings-event-grid-output.md)

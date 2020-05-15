@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725861"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857410"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Escritura de complementos para Azure Media Player #
 
@@ -87,7 +87,7 @@ Para obtener inspiración y más ejemplos sobre cómo crear un complemento, eche
 
 ### <a name="plugin-gallery"></a>Galería de complementos ###
 
-La [galería de complementos](http//:aka.ms/ampplugins) tiene varios complementos con los que la comunidad ya ha contribuido para características como marcadores de escala de tiempo, zoom, análisis, etc. La página proporciona acceso a los complementos e instrucciones sobre cómo configurarlos, así como una demostración que muestra el complemento en acción. Si crea un complemento de acceso esporádico que cree que debe incluirse en nuestra galería, no dude en enviarlo para que podamos comprobarlo.
+La [galería de complementos](https://aka.ms/ampplugins) tiene varios complementos con los que la comunidad ya ha contribuido para características como marcadores de escala de tiempo, zoom, análisis, etc. La página proporciona acceso a los complementos e instrucciones sobre cómo configurarlos, así como una demostración que muestra el complemento en acción. Si crea un complemento de acceso esporádico que cree que debe incluirse en nuestra galería, no dude en enviarlo para que podamos comprobarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes ##
 

@@ -1,14 +1,14 @@
 ---
 title: Orden de la secuencia de implementación
 description: Obtenga más detalles sobre el orden predeterminado en el que se implementan los artefactos de plano técnico durante una asignación de plano técnico y aprenda a personalizar el orden de implementación.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677559"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864528"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -47,8 +47,7 @@ Cuando crea definiciones de planos técnicos de gran tamaño, puede ser necesari
 La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición de plano técnico (para grupos de recursos) y los objetos de artefacto admiten esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
 
 > [!NOTE]
-> Al crear objetos de plano técnico, cada recurso de artefacto obtiene su nombre del nombre de archivo, si usa [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), o del punto de conexión de la dirección URL, si usa la [API REST](/rest/api/blueprints/artifacts/createorupdate).
-> Las referencias _resourceGroup_ de los artefactos deben coincidir con los definidos en la definición de plano técnico.
+> Al crear objetos de plano técnico, cada recurso de artefacto obtiene su nombre del nombre de archivo, si usa [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), o del punto de conexión de la dirección URL, si usa la [API REST](/rest/api/blueprints/artifacts/createorupdate). Las referencias _resourceGroup_ de los artefactos deben coincidir con los definidos en la definición de plano técnico.
 
 ### <a name="example---ordered-resource-group"></a>Ejemplo: grupo de recursos ordenado
 
@@ -137,7 +136,8 @@ El artefacto de plantilla de nivel de suscripción que depende del grupo de recu
 
 Durante el proceso de creación, se usa una ordenación topológica para crear el grafo de dependencias de los artefactos del plano técnico. La comprobación garantiza que se admita cada nivel de dependencia entre los grupos de recursos y los artefactos.
 
-Si se declara una dependencia de artefacto que no alteraría el orden predeterminado, no se realiza ningún cambio. Un ejemplo es un grupo de recursos que depende de una directiva de nivel de suscripción. Otro ejemplo es una asignación de una directiva secundaria "standard-rg" de un grupo de recursos que dependa de la asignación de roles secundarios de un grupo de recursos "standard-rg". En ambos casos, el `dependsOn` no habría alterado el orden de secuenciación predeterminado y no se habría realizado ningún cambio.
+Si se declara una dependencia de artefacto que no alteraría el orden predeterminado, no se realiza ningún cambio.
+Un ejemplo es un grupo de recursos que depende de una directiva de nivel de suscripción. Otro ejemplo es una asignación de una directiva secundaria "standard-rg" de un grupo de recursos que dependa de la asignación de roles secundarios de un grupo de recursos "standard-rg". En ambos casos, el `dependsOn` no habría alterado el orden de secuenciación predeterminado y no se habría realizado ningún cambio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

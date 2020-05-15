@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80292481"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871497"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -170,8 +170,8 @@ Si la máquina virtual de origen tiene habilitado Azure Disk Encryption (ADE), r
    1. **Almacenes de claves de cifrado de claves**: De forma predeterminada, Site Recovery crea un nuevo almacén de claves en la región de destino. El nombre tiene un sufijo `asr` y se basa en las claves de cifrado de claves de la máquina virtual de origen. Si el almacén de claves que ha creado Site Recovery ya existe, se vuelve a usar.
 1. Seleccione **Personalizar** para seleccionar los almacenes de claves personalizados.
 
-> [!NOTE]
-> Actualmente, Azure Site Recovery solo admite máquinas virtuales Azure con sistemas operativos Windows y que estén [habilitadas para el cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app).
+>[!NOTE]
+> Actualmente, Site Recovery admite ADE con y sin Azure Active Directory (AAD) para VM que ejecutan los sistemas operativos Windows. En el caso de los sistemas operativos Linux, solo se admite ADE sin AAD. Además, en el caso de las máquinas que ejecutan ADE 1.1 (sin AAD), las VM deben usar discos administrados. No se admiten las máquinas virtuales con discos no administrados. Si cambia de ADE 0.1 (con AAD) a 1.1, debe deshabilitar la replicación y volver a habilitarla para una máquina virtual después de habilitar la versión 1.1.
 
 ### <a name="track-replication-status"></a>Seguimiento del estado de replicación
 

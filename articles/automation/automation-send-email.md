@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: d4b35458c76da82b33dfcb530cfdc71ee3da3bb6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 4d825dee469497cbb56a91c913ff3ac51963058b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604783"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855692"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Tutorial: Envío de un correo electrónico desde un runbook de Azure Automation
 
@@ -150,7 +150,7 @@ Use este ejemplo para crear un runbook llamado **Send-GridMailMessage**. Puede m
 
 7. Seleccione **Publicar** para guardar y publicar el runbook.
 
-Para comprobar que el runbook se ejecuta correctamente, puede seguir los pasos descritos en [Prueba de un runbook](manage-runbooks.md#testing-a-runbook) o de [Inicio de un runbook](start-runbooks.md).
+Para comprobar que el runbook se ejecuta correctamente, puede seguir los pasos descritos en [Prueba de un runbook](manage-runbooks.md#test-a-runbook) o de [Inicio de un runbook](start-runbooks.md).
 Si no ve inicialmente el correo electrónico de prueba, compruebe las carpetas de **correo no deseado** y de **spam**.
 
 ## <a name="clean-up"></a>Limpieza

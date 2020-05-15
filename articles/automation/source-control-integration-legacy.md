@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dcadfcb4c2f8e6bc371b0a70b917c8c1e218fba9
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81679513"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855349"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integración del control de código fuente en Azure Automation (heredado)
 
@@ -102,7 +102,7 @@ La inserción de runbooks en el repositorio permite insertar los cambios realiza
    > [!NOTE]
    > Los runbooks de control de código fuente son runbooks de Automation especiales que no se pueden ver ni editar. Aunque no se muestran en la lista de runbooks, verá que se muestran los trabajos de sincronización en la lista de trabajos.
 
-5. El nombre del runbook modificado se envía como parámetro de entrada al runbook de inserción en el repositorio. También puede [ver los detalles del trabajo](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) si expande el runbook en la página Sincronización de repositorios.  
+5. El nombre del runbook modificado se envía como parámetro de entrada al runbook de inserción en el repositorio. También puede [ver los detalles del trabajo](automation-runbook-execution.md#job-statuses) si expande el runbook en la página Sincronización de repositorios.  
 
     ![Una ventana que muestra la entrada de un trabajo de sincronización](media/source-control-integration-legacy/automation-CheckinInput.png)
 6. Actualice el repositorio de GitHub cuando finalice el trabajo para ver los cambios.  Debe haber una confirmación en el repositorio con un mensaje de confirmación: ***Nombre de runbook* actualizado en Azure Automation**.  

@@ -3,16 +3,16 @@ title: Actualización de un grupo de contenedores
 description: Aprenda a actualizar contenedores en ejecución en los grupos de contenedores de Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160109"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928727"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Actualización de contenedores en Azure Container Instances
 
-Durante el funcionamiento normal de las instancias de contenedor, puede que sea necesario actualizar los contenedores en ejecución de un [grupo de contenedores](container-instances-container-groups.md). Por ejemplo, podría querer actualizar una propiedad, como la versión de la imagen, un nombre DNS o una variable de entorno o actualizar una propiedad de un contenedor cuya aplicación se ha bloqueado.
+Durante el funcionamiento normal de las instancias de contenedor, puede que sea necesario actualizar los contenedores en ejecución de un [grupo de contenedores](./container-instances-container-groups.md). Por ejemplo, podría querer actualizar una propiedad, como la versión de la imagen, un nombre DNS o una variable de entorno o actualizar una propiedad de un contenedor cuya aplicación se ha bloqueado.
 
 Para actualizar los contenedores de un grupo de contenedores en ejecución, vuelva a implementar un grupo existente con al menos una propiedad modificada. Al actualizar un grupo de contenedores, todos los contenedores en ejecución en el grupo se reinician en contexto, por lo general en el mismo host de contenedor subyacente.
 
@@ -28,7 +28,7 @@ Para actualizar un grupo de contenedores existente:
 * Establezca otras propiedades con los valores que proporcionó anteriormente. Si no establece un valor para una propiedad, se revierte a su valor predeterminado.
 
 > [!TIP]
-> Un [archivo YAML](/container-instances-container-groups.md#deployment) ayuda a mantener una configuración de implementación de un grupo de contenedores y proporciona un punto inicial para implementar un grupo actualizado. Si ha utilizado un método diferente para crear el grupo, puede exportar la configuración a YAML mediante [az container export][az-container-export]. 
+> Un [archivo YAML](./container-instances-container-groups.md#deployment) ayuda a mantener una configuración de implementación de un grupo de contenedores y proporciona un punto inicial para implementar un grupo actualizado. Si ha utilizado un método diferente para crear el grupo, puede exportar la configuración a YAML mediante [az container export][az-container-export]. 
 
 ### <a name="example"></a>Ejemplo
 
@@ -80,7 +80,7 @@ Al eliminar un grupo de contenedores y volver a crearlo, no se reimplementa sino
 
 Se ha mencionado varias veces en este artículo el **grupo de contenedores**. Cada contenedor de Azure Container Instances se implementa en un grupo de contenedores y los grupos de contenedores pueden contener más de un contenedor.
 
-[Grupos de contenedores en Azure Container Instances](container-instances-container-groups.md)
+[Grupos de contenedores en Azure Container Instances](./container-instances-container-groups.md)
 
 [Implementación de grupos de varios contenedores](container-instances-multi-container-group.md)
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 7ff4647682f5f4d688f3b581b96715e01976a387
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528210"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891167"
 ---
 # <a name="in-memory-sample"></a>Ejemplo en memoria
 
@@ -182,7 +182,7 @@ En la VM, o en cualquier host que elija, instale las utilidades de Replay Markup
 Para más información, consulte:
 - La explicación de ostress.exe en [Base de datos de ejemplo para OLTP en memoria](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Base de datos de ejemplo para OLTP en memoria](https://msdn.microsoft.com/library/mt465764.aspx).
-- El [blog para instalar ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- El [blog para instalar ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 
 

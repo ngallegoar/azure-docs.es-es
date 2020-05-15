@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733267"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125781"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 
@@ -252,7 +252,7 @@ Para implementar la plantilla de Resource Manager, se usa Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Recuerde usar una región de Azure que esté habilitada para las métricas personalizadas. Recuerde usar una [región de Azure que esté habilitada para las métricas personalizadas](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
+   > Recuerde usar una región de Azure que esté habilitada para las métricas personalizadas. Recuerde usar una [región de Azure que esté habilitada para las métricas personalizadas](./metrics-custom-overview.md#supported-regions).
  
 1. Ejecute los siguientes comandos para implementar la máquina virtual:  
 
