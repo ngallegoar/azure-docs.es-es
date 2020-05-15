@@ -1,20 +1,20 @@
 ---
 title: Presentación de información sobre una coordenada en un mapa | Microsoft Azure Maps
 description: Aprenda a mostrar información sobre una dirección del mapa cuando un usuario selecciona una coordenada.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 174bdc496e52a6ac8f2a2d631db92e0f21a819be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 274d1102649dade1b3295bd02feba03f64a26ad5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371435"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123996"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtención de información de una coordenada
 

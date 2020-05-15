@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68adfb8b4cfb7c665a8e8b162b4698a095bb671e
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232077"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869944"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -27,7 +27,7 @@ En algunas situaciones, puede que quiera invalidar este comportamiento automáti
 Azure Cosmos DB admite dos modos de indexación:
 
 - **Coherente**: El índice se actualiza de forma sincrónica al crear, actualizar o eliminar elementos. Esto significa que la coherencia de las consultas de lectura será la [coherencia configurada para la cuenta](consistency-levels.md).
-- **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) hasta que se complete.
+- **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
 
 > [!NOTE]
 > Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida.

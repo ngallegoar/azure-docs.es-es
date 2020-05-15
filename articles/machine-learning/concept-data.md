@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
-ms.openlocfilehash: 614cc866529cd4ead8a6ea798526d59aff13d4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e41d00a31a0065e2923259cbb0bb36986cbb2ec8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144484"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995063"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
@@ -73,7 +73,7 @@ Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones
 Se admiten dos tipos de conjuntos de datos: 
 + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Puede cargar un objeto TabularDataset en un DataFrame de Pandas o Spark para manipularlo o limpiarlo mejor. Para obtener una lista completa de formatos de datos a partir de los cuales se pueden crear objetos TabularDataset, consulte la [clase TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-+ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Puede [descargar o montar archivos](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) a los que FileDatasets hace referencia en el destino de proceso.
++ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Puede [descargar o montar archivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a los que FileDatasets hace referencia en el destino de proceso.
 
 En la siguiente documentación se pueden encontrar funcionalidades adicionales de los conjuntos de datos:
 

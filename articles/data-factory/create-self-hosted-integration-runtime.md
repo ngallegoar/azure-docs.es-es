@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416637"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857699"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -67,7 +67,7 @@ Use los pasos siguientes para crear un IR autohospedado mediante la interfaz de 
 1. En la página **Configuración de Integration Runtime**, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, seleccione **Continuar**. 
 
 1. En la página siguiente, seleccione **Self-Hosted** (Autohospedado) para crear un IR autohospedado y, luego, seleccione **Continuar**.
-   ![Creación de un IR autohospedado](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Creación de un IR autohospedado](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Escriba un nombre para el entorno de ejecución de integración y seleccione **Create** (Crear).
 

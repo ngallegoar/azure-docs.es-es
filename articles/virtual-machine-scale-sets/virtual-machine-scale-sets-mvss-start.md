@@ -2,18 +2,19 @@
 title: Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
 description: Aprenda a crear una plantilla de conjunto de escalado básico para conjuntos de escalado de máquinas virtuales de Azure mediante varios pasos sencillos.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 04/26/2019
 ms.author: mimckitt
-ms.openlocfilehash: 9c6a30a5f08b33adfa515973962236516f34fbf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: template
+ms.date: 04/26/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: af2f000b9f9a7bf64898c46b3126cf180802b445
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273399"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198120"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
 Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado básico y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss).

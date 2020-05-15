@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/05/2020
+ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942992"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858801"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introducción a los almacenes de conocimiento de Azure Cognitive Search
 
@@ -25,6 +25,10 @@ El almacén de conocimiento es una característica de Azure Cognitive Search que
 Si ha usado aptitudes cognitivas anteriormente, ya sabe que los *conjuntos de aptitudes* se usan para mover un documento por una secuencia de enriquecimientos. El resultado puede ser un índice de búsqueda o (una novedad de esta versión preliminar) proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento, son productos de la misma canalización. Aunque se obtienen de las mismas entradas, se genera una salida estructurada y almacenada, que se emplea de maneras muy distintas.
 
 Físicamente, un almacén de conocimiento es como [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), ya sea Azure Table Storage, Azure Blob Storage o ambos. Cualquier herramienta o proceso que pueda conectarse a Azure Storage puede consumir el contenido de un almacén de conocimiento.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
+
 
 ![Almacén de conocimiento en un diagrama de canalización](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Almacén de conocimiento en un diagrama de canalización")
 
@@ -46,6 +50,10 @@ Entre las ventajas de Knowledge Store, se incluyen las siguientes:
 > ¿No tiene experiencia en las aptitudes cognitivas y en el enriquecimiento de inteligencia artificial? Azure Cognitive Search se integra en las características Vision y Language de Cognitive Services para extraer y enriquecer los datos de origen mediante el reconocimiento óptico de caracteres (OCR) en archivos de imágenes, el reconocimiento de entidades y la extracción de frases clave de archivos de texto, etc. Para más información, consulte [Enriquecimiento con inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md).
 
 ## <a name="physical-storage"></a>Almacenamiento físico
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=455&end=542]
+
 
 La expresión física de un almacén de conocimiento se articula a través del elemento `projections` de una definición de `knowledgeStore` en un conjunto de aptitudes. La proyección define una estructura de la salida para que coincida con el uso previsto.
 

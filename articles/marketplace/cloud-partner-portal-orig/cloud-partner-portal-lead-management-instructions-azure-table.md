@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
-ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e65f2041cdb2e25341bfd63783c70ec09c1216b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280361"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124710"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instrucciones de administración de clientes potenciales con Table Storage
 
@@ -98,7 +98,7 @@ En el siguiente conjunto de pasos, se conectará a Table Storage y configurará 
 
    - **Consulta de filtro**: Al seleccionar este campo, el icono de **Obtener la hora pasada** se mostrará en una ventana emergente. Seleccione **Hora pasada** para usar este valor como marca de tiempo para filtrar la consulta. O bien, puede pegar la función siguiente en el campo:
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Configuración de la función de consulta de filtro](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7b268f3efa64c2f1ae78794056fdfda2b27434e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c917912e50c864f49abd5afcd28df4633702f0f
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186936"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993712"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ En el caso de las ejecuciones remotas, los datos de aprendizaje deben ser accesi
 * transferir datos fácilmente de archivos estáticos u orígenes de dirección URL a su área de trabajo
 * poner sus datos a disposición de los scripts de entrenamiento al ejecutarse en recursos de proceso en la nube
 
-Consulte el [procedimiento](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) para ver un ejemplo del uso de la clase `Dataset` para montar datos en su destino de proceso.
+Consulte el [procedimiento](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) para ver un ejemplo del uso de la clase `Dataset` para montar datos en su destino de proceso.
 
 ## <a name="train-and-validation-data"></a>Datos de entrenamiento y validación
 

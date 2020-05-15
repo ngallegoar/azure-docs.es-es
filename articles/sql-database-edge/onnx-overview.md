@@ -4,17 +4,17 @@ description: El aprendizaje automático en la versión preliminar de Azure SQL D
 keywords: Implementación de SQL Database Edge
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 03/26/2020
-ms.openlocfilehash: 7813a08b6b18e517b81e8c4bfac660d198eba7f7
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 53e884c6ef0b03b3bbc1a0c9729f497e40290416
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366263"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994298"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Aprendizaje automático e inteligencia artificial con ONNX en la versión preliminar de SQL Database Edge
 

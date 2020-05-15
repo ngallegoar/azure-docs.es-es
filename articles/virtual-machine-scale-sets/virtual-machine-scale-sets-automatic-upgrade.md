@@ -1,18 +1,20 @@
 ---
 title: Actualizaciones automáticas de imágenes del SO con conjuntos de escalado de máquinas virtuales de Azure
 description: Aprenda a actualizar automáticamente la imagen del sistema operativo en instancias de máquina virtual de un conjunto de escalado
-author: mimckitt
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: avirishuv
+ms.author: avverma
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 04/14/2020
-ms.author: mimckitt
-ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: c06ad5ab2688bd62fdf898950a8f64cd655a9fcc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458988"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124982"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 

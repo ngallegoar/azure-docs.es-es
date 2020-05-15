@@ -1,19 +1,19 @@
 ---
 title: Niveles de zoom y cuadrícula de mosaico | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre los niveles de zoom y la cuadrícula de mosaico en Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530298"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123911"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 

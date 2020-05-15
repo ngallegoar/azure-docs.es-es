@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 27989687934719be5f1d18b85d3ead92f28b3f60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767009"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123860"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Clasificación y detección de datos para Azure SQL Database y Azure Synapse Analytics
 
@@ -152,18 +152,6 @@ Para obtener información sobre el uso de T-SQL para las clasificaciones, vea la
 - Para quitar la clasificación de una o varias columnas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql) (Eliminar clasificación de la confidencialidad)
 - Para ver todas las clasificaciones de la base de datos: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="use-the-rest-api"></a>Uso de la API de REST
-
-Puede usar las API REST para administrar las clasificaciones y recomendaciones mediante programación. Las API de REST publicadas admiten las siguientes operaciones:
-
-- [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de la columna especificada.
-- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de la columna especificada.
-- [Deshabilitar la recomendación](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): deshabilita las recomendaciones de confidencialidad en la columna especificada.
-- [Habilitar la recomendación](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): habilita las recomendaciones de confidencialidad en la columna especificada. (Las recomendaciones están habilitadas de forma predeterminada en todas las columnas).
-- [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de la columna especificada.
-- [Enumerar las actuales por base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): obtiene las etiquetas de confidencialidad actuales de la base de datos especificada.
-- [Enumerar las recomendadas por base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): obtiene las etiquetas de confidencialidad recomendadas de la base de datos especificada.
-
 ### <a name="use-powershell-cmdlets"></a>Uso de cmdlets de PowerShell
 Puede usar PowerShell para administrar las clasificaciones y las recomendaciones para Azure SQL Database e instancias administradas.
 
@@ -185,6 +173,17 @@ Puede usar PowerShell para administrar las clasificaciones y las recomendaciones
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### <a name="use-the-rest-api"></a>Uso de la API de REST
+
+Puede usar las API REST para administrar las clasificaciones y recomendaciones mediante programación. Las API de REST publicadas admiten las siguientes operaciones:
+
+- [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de la columna especificada.
+- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de la columna especificada.
+- [Deshabilitar la recomendación](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): deshabilita las recomendaciones de confidencialidad en la columna especificada.
+- [Habilitar la recomendación](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): habilita las recomendaciones de confidencialidad en la columna especificada. (Las recomendaciones están habilitadas de forma predeterminada en todas las columnas).
+- [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de la columna especificada.
+- [Enumerar las actuales por base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): obtiene las etiquetas de confidencialidad actuales de la base de datos especificada.
+- [Enumerar las recomendadas por base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): obtiene las etiquetas de confidencialidad recomendadas de la base de datos especificada.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Pasos siguientes
 

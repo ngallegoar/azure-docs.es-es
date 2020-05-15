@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264651"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891195"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Notification Hubs mediante PowerShell
 
@@ -149,8 +149,8 @@ else
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+- [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Además, puede descargar algunos scripts listos para usar:
 

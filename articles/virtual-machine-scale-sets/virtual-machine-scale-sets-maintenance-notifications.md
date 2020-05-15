@@ -1,19 +1,20 @@
 ---
 title: Notificaciones de mantenimiento de conjuntos de escalado de máquinas virtuales de Azure
 description: Vea las notificaciones de mantenimiento e inicie el mantenimiento de autoservicio de los conjuntos de escalado de máquinas virtuales de Azure.
-author: shants123
-tags: azure-service-management,azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 08/20/2019
-ms.author: shants
-ms.openlocfilehash: 53ebb7c4710c5455ef90701dc7e94f1b846a874a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062700"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200101"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 

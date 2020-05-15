@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399688"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929254"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solución de problemas con la implementación de Azure Machine Learning, Azure Kubernetes Service y Azure Container Instances
 
@@ -24,12 +24,12 @@ Obtenga información sobre cómo abordar, solucionar y resolver los errores comu
 
 Al implementar un modelo en Azure Machine Learning, el sistema realiza una serie de tareas.
 
-El enfoque recomendado y más actualizado para la implementación de modelo se realiza a través de la API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) mediante un objeto [Entorno](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como parámetro de entrada. En este caso, nuestro servicio creará una imagen de Docker base automáticamente durante la fase de implementación y montará los modelos necesarios en una llamada. Las tareas de implementación básicas son:
+El enfoque recomendado y más actualizado para la implementación de modelo se realiza a través de la API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) mediante un objeto [Entorno](how-to-use-environments.md) como parámetro de entrada. En este caso, nuestro servicio creará una imagen de Docker base automáticamente durante la fase de implementación y montará los modelos necesarios en una llamada. Las tareas de implementación básicas son:
 
 1. Registrar el modelo en el registro de modelos del área de trabajo.
 
 2. Defina la configuración de inferencia:
-    1. Cree un objeto [Entorno](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) basado en las dependencias que especifique en el archivo yaml de entorno o use uno de nuestros entornos adquiridos.
+    1. Cree un objeto [Entorno](how-to-use-environments.md) basado en las dependencias que especifique en el archivo yaml de entorno o use uno de nuestros entornos adquiridos.
     2. Cree una configuración de inferencia (objeto InferenceConfig) basada en el entorno y el script de puntuación.
 
 3. Implemente el modelo en el servicio de instancia de contenedor de Azure (ACI) o Azure Kubernetes Service (AKS).
@@ -50,7 +50,7 @@ Más información sobre este proceso en la introducción a la [administración d
 
 Si tiene algún problema, lo primero es dividir la tarea de implementación (descrita anteriormente) en pasos individuales para aislar el problema.
 
-Suponiendo que esté usando el método de implementación nuevo o recomendado a través de la API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un objeto [Entorno](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como parámetro de entrada, su código puede dividirse en tres importantes pasos:
+Suponiendo que esté usando el método de implementación nuevo o recomendado a través de la API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un objeto [Entorno](how-to-use-environments.md) como parámetro de entrada, su código puede dividirse en tres importantes pasos:
 
 1. Registre el modelo. Este es un código de ejemplo:
 

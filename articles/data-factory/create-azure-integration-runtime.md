@@ -10,12 +10,12 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414074"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858007"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Cómo crear y configurar una instancia de Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,10 +59,10 @@ Use los pasos siguientes para crear una instancia de Azure IR mediante la interf
 1. En la página **Configuración de Integration Runtime**, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, seleccione **Continuar**. 
 
 1. En la página siguiente, seleccione **Azure** para crear una instancia de Azure IR y, luego, seleccione **Continuar**.
-   ![Creación de un entorno de ejecución de integración](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Creación de un entorno de ejecución de integración](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Escriba un nombre para la instancia de Azure IR y seleccione **Crear**.
-   ![Creación de una instancia de Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Creación de una instancia de Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Verá una notificación emergente cuando se complete la creación. En la página **Entornos de ejecución de integración**, asegúrese de que ve el entorno de ejecución de integración recién creado en la lista.
 

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73494592"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857418"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar)
 
-En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las herramientas de HDInsight de [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) para ejecutar aplicaciones de **depuración de errores de Spark**.
+En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las herramientas de HDInsight de [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) para ejecutar aplicaciones de **depuración de errores de Spark**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -26,7 +26,7 @@ En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las
   
 * IntelliJ IDEA. En este artículo se usa [IntelliJ IDEA Community 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* Azure Toolkit for IntelliJ. Consulte [Instalación de Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ. Consulte [Instalación de Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * Conéctese al clúster de HDInsight. Vea [Conexión al clúster de HDInsight](apache-spark-intellij-tool-plugin.md).
 

@@ -1,20 +1,20 @@
 ---
 title: Control de eventos de mapa | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo crear un mapa de SDK de web interactivo con eventos de mapa mediante el SDK web de Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b97371d1b63ad4abfe1635e426df1449ab5f3f14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534905"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124013"
 ---
 # <a name="interact-with-the-map"></a>Interacción con el mapa
 

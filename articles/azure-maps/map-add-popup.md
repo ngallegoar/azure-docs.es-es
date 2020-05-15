@@ -1,20 +1,20 @@
 ---
 title: Adición de un elemento emergente a un punto de un mapa | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo agregar un elemento emergente a un punto mediante el SDK web de Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cf6424d2a6cbcfb7c5052201b5a9190c81fddaff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7ca2f07e4568257baf72f2f298631b86f776c2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055946"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119269"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adición de un elemento emergente al mapa
 

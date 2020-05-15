@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de polígono a un mapa | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo representar un polígono y un multipolígono en un mapa del SDK web de Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9191f054ca3c7374bcbc7bec46573289a512612c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d6ed24c85d08c4b3358204980498d64e1b36ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535059"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124047"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adición de una capa de polígono al mapa
 

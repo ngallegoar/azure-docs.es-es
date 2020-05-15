@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: d36bf2db05113656a77e76ff900d95910f313c73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6a7ee8ed497c87c08f13e09a0022b0835c952cc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477262"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82975063"
 ---
 Para actualizar un servicio web, utilice el método `update`. Puede actualizar el servicio web para que use un nuevo modelo, un nuevo script de entrada o nuevas dependencias que se pueden especificar en una configuración de inferencia. Para más información, consulte la documentación de [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
@@ -63,6 +63,6 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 > [!TIP]
 > En este ejemplo, se usa un documento JSON para pasar la información del modelo del comando de registro al comando de actualización.
 >
-> Para actualizar el servicio de modo que use un nuevo entorno o script de entrada, cree un [archivo de configuración de inferencia](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) y especifíquelo con el parámetro `ic`.
+> Para actualizar el servicio de modo que use un nuevo entorno o script de entrada, cree un [archivo de configuración de inferencia](/azure/machine-learning/reference-azure-machine-learning-cli#inference-configuration-schema) y especifíquelo con el parámetro `ic`.
 
 Para más información, consulte la documentación de [az ml service update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update).

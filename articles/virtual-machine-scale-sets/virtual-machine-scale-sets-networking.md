@@ -1,19 +1,20 @@
 ---
 title: Redes para conjuntos de escalado de máquinas virtuales de Azure
 description: Cómo configurar algunas de las propiedades de redes más avanzadas para conjuntos de escalado de máquinas virtuales de Azure.
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: networking
 ms.date: 07/17/2017
-ms.author: mimckitt
-ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461365"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125203"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 

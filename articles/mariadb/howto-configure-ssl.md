@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/21/2020
-ms.openlocfilehash: 0af94d04f4e50fd039f01c5746b3a5d47a3698b3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 5/7/2020
+ms.openlocfilehash: 9c5f4b1602182b3f9dca45c11d572e1fec2ff07c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769944"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925973"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MariaDB
 Azure Database for MariaDB permite conectar el servidor de Azure Database for MariaDB con aplicaciones cliente mediante Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
@@ -92,7 +92,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        password='yourpassword',
                        database='quickstartdb',
                        host='mydemoserver.mariadb.database.azure.com',
-                       ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+                       ssl={'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'})
 ```
 
 ### <a name="ruby"></a>Ruby

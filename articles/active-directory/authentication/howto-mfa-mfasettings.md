@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9002447df44a1f0c87ec9de03e316d7d12d8a626
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfde52db9cbe5bc14be7b30c1063215472bff699
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105665"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116295"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ Algunas de estas opciones se aplican al Servidor MFA, Azure MFA o ambos.
 | [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se usa para impedir que usuarios específicos puedan recibir solicitudes de Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
 | [Alerta de fraude](#fraud-alert) | Configure valores relacionados con la capacidad de los usuarios para notificar solicitudes de comprobación fraudulentas. |
 | [Notificaciones](#notifications) | Permite notificaciones de eventos desde el Servidor MFA. |
-| [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
+| [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
 | [Configuración de las llamadas telefónicas](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
 | Proveedores | Se mostrarán los proveedores de autenticación existentes que pueden haberse asociado con su cuenta. A partir del 1 de septiembre de 2018 no se pueden crear nuevos proveedores de autenticación. |
 

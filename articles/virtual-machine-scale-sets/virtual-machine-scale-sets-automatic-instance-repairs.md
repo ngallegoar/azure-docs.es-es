@@ -2,20 +2,19 @@
 title: Reparaciones automáticas de instancias con conjuntos de escalado de máquinas virtuales de Azure
 description: Aprenda a configurar la directiva de reparaciones automáticas para instancias de máquinas virtuales en un conjunto de escalado.
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603676"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197036"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparaciones automáticas de instancias para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -154,7 +153,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 En el ejemplo anterior se usa un equilibrador de carga y un sondeo de mantenimiento existentes para supervisar el estado de mantenimiento de las aplicaciones en las instancias. Si, en su lugar, prefiere usar una extensión de estado de aplicación para la supervisión, puede crear un conjunto de escalado, configurar la extensión de estado de aplicación y, a continuación, habilitar la directiva de reparaciones automáticas de instancias mediante *az vmss update*, como se explica en la sección siguiente.
@@ -217,7 +216,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Visualización y actualización del estado de servicio de la directiva de reparaciones automáticas de instancias

@@ -1,18 +1,20 @@
 ---
 title: Administración de dominios de error en conjuntos de escalado de máquinas virtuales de Azure
 description: Obtenga información sobre cómo elegir el número correcto de dominios de error al crear un conjunto de escalado de máquinas virtuales.
-author: rajsqr
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 12/18/2018
-ms.author: drewm
-ms.openlocfilehash: 297837354cea4bb5ccdcc03261810dcffd144243
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 1f5b253dbc2161892bcc2aee07c8cd3788fa5fb5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275723"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200029"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Elección del número correcto de dominios de error para el conjunto de escalado de máquinas virtuales
 Los conjuntos de escalado de máquinas virtuales se crean con cinco dominios de error de forma predeterminada en las regiones de Azure sin zonas. Para las regiones que admiten la implementación con zonas de conjuntos de escalado de máquinas virtuales y con esta opción seleccionada, el valor predeterminado del número de dominios de error es 1 para cada una de las zonas. FD=1 en este caso implica que las instancias de VM que pertenecen al conjunto de escalado se distribuirán entre varios bastidores en función del mejor esfuerzo.

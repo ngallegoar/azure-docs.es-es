@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461725"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857161"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -222,11 +222,11 @@ El concepto de [privilegios mínimos ](https://en.wikipedia.org/wiki/Principle_o
 Asegúrese de que la aplicación aplica [privilegios mínimos](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) a lo largo de sus patrones de acceso.
 
 > [!NOTE]
->  Las reglas de privilegios mínimos han de aplicarse al software y a las personas que lo crean. Los desarrolladores de software pueden suponer un gran riesgo para la seguridad de TI si se les da demasiado acceso. Las consecuencias pueden ser graves si un desarrollador tiene intenciones maliciosas o si se le concede demasiado acceso. Se recomienda aplicar las reglas de privilegios mínimos a los desarrolladores a lo largo del ciclo de vida de desarrollo.
+> Las reglas de privilegios mínimos han de aplicarse al software y a las personas que lo crean. Los desarrolladores de software pueden suponer un gran riesgo para la seguridad de TI si se les da demasiado acceso. Las consecuencias pueden ser graves si un desarrollador tiene intenciones maliciosas o si se le concede demasiado acceso. Se recomienda aplicar las reglas de privilegios mínimos a los desarrolladores a lo largo del ciclo de vida de desarrollo.
 
 #### <a name="implement-just-in-time-access"></a>Implementación de acceso Just-In-Time
 
-Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de exposición de los privilegios. Utilice [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) para:
+Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de exposición de los privilegios. Utilice [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) para:
 
 - Conceder a los usuarios los permisos que requieren solo cuando sean necesarios.
 - Asignar roles para una duración reducida con confianza de que los privilegios se revocan automáticamente.

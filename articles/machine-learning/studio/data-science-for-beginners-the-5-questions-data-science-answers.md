@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204450"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930155"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
@@ -136,4 +136,4 @@ Eso es todo: las cinco preguntas a las que puede responder la ciencia de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio (clásico)](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Introducción a Machine Learning en Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

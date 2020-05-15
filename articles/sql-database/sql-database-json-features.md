@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
-ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 968da0154f5a2587531e7594956a069f11c110d2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687758"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890953"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introducción a las características de JSON en Azure SQL Database
 Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/), y exportar los datos relacionales como texto JSON. Los escenarios JSON siguientes están disponibles en Azure SQL Database:
@@ -192,5 +192,5 @@ Para aprender a integrar JSON en la aplicación, consulte estos recursos:
 * [Documentación de MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Vídeo de Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Para más información sobre diversos escenarios para integrar JSON en su aplicación, vea las demostraciones en este [vídeo de Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) o busque un escenario que coincida con su caso de uso en las [publicaciones del blog sobre JSON](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Para más información sobre diversos escenarios para integrar JSON en su aplicación, vea las demostraciones en este [vídeo de Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) o busque un escenario que coincida con su caso de uso en las [publicaciones del blog sobre JSON](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).
 

@@ -1,17 +1,17 @@
 ---
 title: Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en los SDK de Azure Cosmos DB
 description: Aprenda a registrar y llamar a procedimientos almacenados, desencadenadores y funciones definidas por el usuario con los SDK de Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/24/2020
-ms.author: mjbrown
-ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 2e870e6cbc16fd98d8fccb5bbe3ac5d8be634cf2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582507"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982316"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: ba268e623a2858c2863ffc86eacfe25284a1e37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82710235"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118165"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Storage
 
@@ -142,7 +142,7 @@ En la tabla siguiente se indican las propiedades de los registros de recursos de
 |**correlationId** | Identificador que se usa para poner en correlación registros entre recursos. Por ejemplo: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**ubicación** | Ubicación de la cuenta de almacenamiento. Por ejemplo: `North Europe`. |
 |**protocolo**|Protocolo que se usa en la operación. Por ejemplo: `HTTP`, `HTTPS`, `SMB` o `NFS`|
-| **uri** | Identificador uniforme de recursos que se solicita. Por ejemplo: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+| **uri** | Identificador uniforme de recursos que se solicita. Por ejemplo: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Campos que describen cómo se ha autenticado la operación
 

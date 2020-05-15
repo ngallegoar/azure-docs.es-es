@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
-ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 7a6060448175530ada5ba95ceda470056a7be002
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114162"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872147"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flujos de cambios en la API de Azure Cosmos DB para MongoDB
 
@@ -45,7 +45,7 @@ Se admiten los siguientes mensajes y códigos de error cuando se utilizan flujos
 
 En el ejemplo siguiente se muestra cómo obtener flujos de cambios en todos los elementos de la colección. En este ejemplo se crea un cursor para inspeccionar los elementos cuando se insertan, actualizan o reemplazan. La fase `$match`, la fase `$project` y la opción `fullDocument` son necesarias para obtener los flujos de cambios. Actualmente no se admite la inspección de las operaciones de eliminación mediante flujos de cambios. Como solución alternativa, puede agregar un marcador flexible en los elementos que se van a eliminar. Por ejemplo, puede agregar un atributo en el elemento denominado "deleted". Si quiere eliminar el elemento, puede establecer "deleted" en `true` y establecer un TTL en el elemento. Ya que el cambio del elemento "deleted" a `true` es una actualización, este cambio será visible en el flujo de cambios.
 
-### <a name="javascript"></a>JavaScript:
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 var cursor = db.coll.watch(
@@ -61,8 +61,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
-
-### <a name="c"></a>C#:
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()

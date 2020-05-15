@@ -1,18 +1,20 @@
 ---
 title: Obtenga más información sobre los modos de orquestación para los conjuntos de escalado de máquinas virtuales en Azure
 description: Obtenga más información sobre los modos de orquestación para los conjuntos de escalado de máquinas virtuales en Azure.
-author: shandilvarun
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 10/23/2019
-ms.author: vashan
-ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76279058"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198403"
 ---
 # <a name="orchestration-mode-preview"></a>Modo de orquestación (versión preliminar)
 

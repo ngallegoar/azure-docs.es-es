@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7da8905adfbddd7241aff84e4b55917ddbdb6d1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822039"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888948"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: protección de datos confidenciales y almacenamiento de claves de cifrado en el almacén de certificados de Windows
 
@@ -543,4 +543,4 @@ Después de crear una base de datos que usa Always Encrypted, es posible que qui
 * [Cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Cifrado de SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Blog de Always Encrypted](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Blog de Always Encrypted](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

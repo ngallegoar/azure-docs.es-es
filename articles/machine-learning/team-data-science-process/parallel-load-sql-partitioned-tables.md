@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae03a655347d7be7372bae93eb0c3aaf75a8ea29
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721343"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891682"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Creación y optimización de tablas para importación en paralelo rápida de datos en SQL Server en una VM de Azure
 
@@ -99,7 +99,7 @@ Para obtener más información, consulte [Crear tablas e índices con particione
 * [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK_LOGGED y así minimizar la sobrecarga de registros; por ejemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de macrodatos en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de macrodatos en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
 
 El siguiente script de PowerShell es un ejemplo de carga paralela de datos mediante BCP.
 

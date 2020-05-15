@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/19/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6345d210e26747f921595039a2a3c8e11be11fda
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 4f26fa00f78b8564e08b6352d4da31640b13f47f
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387638"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402678"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escritura de auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall
 
@@ -54,7 +54,7 @@ Conéctese a [Azure Portal](https://portal.azure.com) con su suscripción. Vaya 
   > [!NOTE]
   > Si la cuenta de Azure Storage seleccionada está detrás de una red virtual, verá el mensaje siguiente:
   >
-  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
+  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage requires to enable 'Allow trusted Microsoft services to access this storage account' on the storage account and creates a server managed identity with 'storage blob data contributor' RBAC.`
   >
   >Si no ve este mensaje, la cuenta de almacenamiento no está detrás de una red virtual.
 

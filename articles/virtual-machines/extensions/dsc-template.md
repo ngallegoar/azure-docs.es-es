@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 89bae60c30cfe82d38c61f385dbaef574b4152d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547794"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891661"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -185,8 +185,8 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 | settings.configuration.function |string |Especifica el nombre de la configuración de DSC. La configuración con nombre se debe incluir en el script que **settings.configuration.script** define. Esta propiedad es necesaria si se definen **settings.configuration.url** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llama al script de configuración predeterminada para establecer los metadatos de LCM, y deben proporcionarse los argumentos. |
 | settings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
 | settings.configurationData.url |string |Especifica la dirección URL desde la que descargar el archivo de datos de configuración (.psd1) que se usará como entrada para la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationDataUrlSasToken** en el valor de su token de SAS. |
-| settings.privacy.dataCollection |string |Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son **Enable**, **Disable**, **''** o **$null**. Si se deja esta propiedad en blanco o como null, se habilita la telemetría. El valor predeterminado es **''** . Para más información, consulte [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure). |
-| settings.advancedOptions.downloadMappings |Colección |Define las ubicaciones alternativas desde las que descargar WMF. Para más información, consulte el artículo sobre la [extensión DSC 2.8 de Azure y cómo asignar las descargas de las dependencias de la extensión a su propia ubicación](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.privacy.dataCollection |string |Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son **Enable**, **Disable**, **''** o **$null**. Si se deja esta propiedad en blanco o como null, se habilita la telemetría. El valor predeterminado es **''** . Para más información, consulte [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure). |
+| settings.advancedOptions.downloadMappings |Colección |Define las ubicaciones alternativas desde las que descargar WMF. Para más información, consulte el artículo sobre la [extensión DSC 2.8 de Azure y cómo asignar las descargas de las dependencias de la extensión a su propia ubicación](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/). |
 | protectedSettings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
 | protectedSettings.configurationUrlSasToken |string |Especifica el token de SAS que se usa para acceder a la dirección URL que **settings.configuration.url** define. Esta propiedad no está cifrada. |
 | protectedSettings.configurationDataUrlSasToken |string |Especifica el token de SAS que se usa para acceder a la dirección URL que **settings.configurationData.url** define. Esta propiedad no está cifrada. |

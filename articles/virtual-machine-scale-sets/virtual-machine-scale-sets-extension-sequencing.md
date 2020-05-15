@@ -1,18 +1,20 @@
 ---
 title: Uso de la secuenciación de extensiones con conjuntos de escalado de máquinas virtuales de Azure
 description: Aprenda a secuenciar el aprovisionamiento de extensiones al implementar varias extensiones en conjuntos de escalado de máquinas virtuales.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: mimckitt
-ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273756"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121038"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Secuenciación del aprovisionamiento de extensiones en conjuntos de escalado de máquinas virtuales
 Las extensiones de máquina virtual de Azure proporcionan funcionalidades como configuración y administración posteriores a la implementación, supervisión, seguridad y mucho más. Para lograr los resultados deseados, las implementaciones en producción suelen usar una combinación de varias extensiones configuradas para las instancias de máquina virtual.

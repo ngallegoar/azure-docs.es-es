@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411198"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891369"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configuración de Azure Private Link para un área de trabajo de Azure Machine Learning (versión preliminar)
 
@@ -118,7 +118,7 @@ Para obtener información sobre cómo colocar la cuenta de almacenamiento en la 
 
 Para proteger la instancia de Azure Key Vault que usa el área de trabajo, puede colocarla dentro de la red virtual o habilitar Private Link para ella.
 
-Para obtener información sobre cómo colocar la instancia de Key Vault en la red virtual, consulte [Uso de una instancia de Key Vault con el área de trabajo](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+Para obtener información sobre cómo colocar la instancia de Key Vault en la red virtual, consulte [Uso de una instancia de Key Vault con el área de trabajo](how-to-enable-virtual-network.md#key-vault-instance).
 
 Para obtener información sobre cómo habilitar Private Link para el almacén de claves, consulte [Integración de Key Vault con Azure Private Link](/azure/key-vault/private-link-service).
 
@@ -131,7 +131,7 @@ Para proteger la instancia de Azure Kubernetes Service usada por el área de tra
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 
-Para obtener información sobre cómo proteger Azure Container Registry dentro de la red virtual, consulte [Uso de Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+Para obtener información sobre cómo proteger Azure Container Registry dentro de la red virtual, consulte [Uso de Azure Container Registry](how-to-enable-virtual-network.md#azure-container-registry).
 
 > [!IMPORTANT]
 > Si usa Private Link para el área de trabajo de Azure Machine Learning y coloca la instancia de Azure Container Registry del área de trabajo en una red virtual, también debe aplicar la siguiente plantilla de Azure Resource Manager. Esta plantilla permite que el área de trabajo se comunique con ACR mediante Private Link.

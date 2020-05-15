@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209492"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856901"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -84,7 +84,7 @@ En general, las características de Azure Files y la interoperabilidad con otros
     - Los recursos compartidos de archivos prémium se facturan con un modelo de facturación aprovisionado, lo que significa que se paga por la cantidad de almacenamiento que se aprovisiona en lugar de la cantidad de almacenamiento que se solicita realmente. 
     - Los recursos compartidos de archivos estándar se facturan con un modelo de pago por uso, que incluye un costo básico de almacenamiento para la cantidad de almacenamiento que realmente se consume y, a continuación, un costo de transacción adicional basado en el uso del recurso compartido. Con los recursos compartidos de archivos estándar, su factura aumentará si usa (lee, escribe o monta) más el recurso compartido de archivos de Azure.
 - **Opciones de redundancia**
-    - Los recursos compartidos de archivos prémium solo están disponibles para el almacenamiento con redundancia local (LRS) y redundancia de zona (ZRS). 
+    - Los recursos compartidos de archivos prémium solo están disponibles para el almacenamiento con redundancia local (LRS) y redundancia de zona (ZRS).
     - Los recursos compartidos de archivos estándar están disponibles para el almacenamiento con redundancia local, redundancia de zona, redundancia geográfica (GRS) y redundancia de zona geográfica (GZRS).
 - **Tamaño máximo de un recurso compartido de archivos**
     - Los recursos compartidos de archivos prémium se pueden aprovisionar hasta 100 TiB sin ningún trabajo adicional.

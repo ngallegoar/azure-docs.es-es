@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 54501e7e00ba8a28dd7cb421232b9a9587604338
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653133"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195128"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configuración del módulo de PowerShell para Windows Virtual Desktop
 
@@ -63,7 +63,7 @@ De este modo, iniciará sesión directamente en la suscripción predeterminada d
 Si desea cambiar la suscripción predeterminada después de iniciar sesión, ejecute el siguiente cmdlet:
 
 ```powershell
-Select-AzureSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
 ```
 
 Si selecciona una nueva suscripción, no es necesario que especifique el identificador de la suscripción en los cmdlets que ejecute posteriormente. Por ejemplo, el siguiente cmdlet recupera un host de sesión concreto, sin necesidad de especificar el identificador de suscripción:

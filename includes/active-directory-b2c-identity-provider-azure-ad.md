@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
-ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678034"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82925456"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrar una aplicación de Azure AD
 
@@ -36,7 +36,7 @@ Para habilitar el inicio de sesión para los usuarios de una organización espec
 
 ### <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 
-Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, puede configurar notificaciones opcionales para la aplicación en la interfaz de usuario de Azure Portal o el manifiesto de aplicación. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD](/active-directory/develop/active-directory-optional-claims.md).
+Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, puede configurar notificaciones opcionales para la aplicación en la interfaz de usuario de Azure Portal o el manifiesto de aplicación. Para obtener más información, consulte [Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD](/azure/active-directory/develop/active-directory-optional-claims).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione **Azure Active Directory**.
 1. En la sección **Administrar**, seleccione **Registros de aplicaciones**.

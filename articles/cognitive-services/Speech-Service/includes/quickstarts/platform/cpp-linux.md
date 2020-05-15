@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 4f211e4b90dcc8bffa2fbba6fa4783caf846f50c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 973a50833d92fd9b68aae084fc6b4cbb3afe7160
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78383845"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980193"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Linux.
 
@@ -58,42 +58,7 @@ Para realizar este inicio rápido, necesita lo siguiente:
 > [!NOTE]
 > En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-## <a name="install-speech-sdk"></a>Instalación del SDK de Voz
-
-El SDK de Voz para Linux se puede usar para crear aplicaciones de 64 bits y 32 bits. Las bibliotecas y los archivos de encabezado necesarios se pueden descargar como un archivo tar desde https://aka.ms/csspeech/linuxbinary.
-
-Descargue e instale el SDK de la forma siguiente:
-
-1. Seleccione el directorio al que desea extraer los archivos del SDK de Voz y configure la variable de entorno `SPEECHSDK_ROOT` para que apunte a ese directorio. Esta variable facilita la referencia al directorio en futuros comandos. Por ejemplo, si desea usar el directorio `speechsdk` en el directorio principal, use un comando similar al siguiente:
-
-   ```sh
-   export SPEECHSDK_ROOT="$HOME/speechsdk"
-   ```
-
-1. Cree el directorio si aún no existe.
-
-   ```sh
-   mkdir -p "$SPEECHSDK_ROOT"
-   ```
-
-1. Descargue y extraiga el archivo `.tar.gz` que contienen los archivos binarios del SDK de Voz:
-
-   ```sh
-   wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
-   tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
-   ```
-
-1. Valide el contenido del directorio de nivel superior del paquete extraído:
-
-   ```sh
-   ls -l "$SPEECHSDK_ROOT"
-   ```
-
-   La lista de directorios debe contener los archivos de avisos y licencias de terceros, así como un directorio `include` que contenga archivos de encabezado (`.h`) y un directorio `lib` que contenga bibliotecas.
-
-   [!INCLUDE [Linux Binary Archive Content](~/includes/cognitive-services-speech-service-linuxbinary-content.md)]
-
-Ahora puede continuar con la sección [Pasos siguientes](#next-steps).
+[!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

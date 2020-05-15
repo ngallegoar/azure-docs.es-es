@@ -2,18 +2,19 @@
 title: 'Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales Linux con una plantilla de Azure Resource Manager'
 description: Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure Resource Manager que implementa una aplicación de ejemplo y configura reglas de escalado automático.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: quickstart
-ms.custom: mvc,subject-armqs
-ms.date: 03/27/2020
 ms.author: jushiman
-ms.openlocfilehash: 4c0bac943be996c02436824334bd79a270f9a2e2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: linux
+ms.date: 03/27/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: f51bfa012c62e7acdd0aa2cd16279ec68702a72c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010467"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117339"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales Linux con una plantilla de Azure Resource Manager
 

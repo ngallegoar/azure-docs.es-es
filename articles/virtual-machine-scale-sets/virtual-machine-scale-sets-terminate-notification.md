@@ -2,17 +2,19 @@
 title: Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
 description: Aprenda a habilitar la notificación de finalización para las instancias de conjunto de escalado de máquinas virtuales de Azure.
 author: avirishuv
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 02/26/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226940"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125186"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
 Las instancias de conjunto de escalado pueden optar por recibir notificaciones de finalización de instancias y establecer un tiempo de espera de retraso predefinido para la operación de finalización. La notificación de finalización se envía mediante Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que proporciona notificaciones y retrasa las operaciones importantes, como reinicios o reimplementaciones. La solución agrega otro evento, Terminate, a la lista de Scheduled Events, y el retraso asociado de este evento dependerá del límite del retraso especificado por los usuarios en su configuración del modelo del conjunto de escalado.

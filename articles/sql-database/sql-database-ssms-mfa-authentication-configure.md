@@ -4,19 +4,19 @@ description: Aprenda a usar Multi-Factor Authentication con SSMS para SQL Databa
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 38d8eba5dd451c8e8709ce4d43aba107e5346bfc
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e551ac54414cb3114a7d0905b1b2e59b0d16580a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627371"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198542"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD
 

@@ -1,18 +1,18 @@
 ---
 title: Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure
 description: Garantía de la resistencia de las aplicaciones mediante el emparejamiento regional de Azure
-author: jpconnock
-manager: angrobe
+author: barbkess
+manager: barbkess
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: jeconnoc
-ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: barbkess
+ms.openlocfilehash: be6d2fb590dfefb170b3f23378c507b4d6b2295d
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226172"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980055"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 

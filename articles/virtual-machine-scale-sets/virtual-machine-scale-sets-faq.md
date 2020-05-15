@@ -2,18 +2,19 @@
 title: Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 description: Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales en Azure.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: faq
+ms.date: 05/24/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611405"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200161"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
