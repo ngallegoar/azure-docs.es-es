@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258441"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590543"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opciones de soporte técnico y comentarios de Azure Cognitive Services
 
@@ -132,7 +132,7 @@ Para solicitar nuevas características, publíquelo en UserVoice. Comparta sus i
 | Speech Services               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Habla personalizada                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
 | Text Analytics                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Translator Text               | https://cognitive.uservoice.com/forums/558796-translator |
+| Traductor               | https://cognitive.uservoice.com/forums/558796-translator |
 | Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>Notificación de errores

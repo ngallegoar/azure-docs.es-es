@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: e5a878c8108706c4a3a175c920708beeeaa4aa12
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 148a8bf7626d8b8ee687658990fdaf2fce9f7de7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801757"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590101"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=027fa865-2329-23de-3740-cfbe35359302" target='_blank'>Iniciar</a></span><span class="has-padding-small">Solucione el problema rápidamente con el agente virtual para ejecutar <b>diagnósticos automáticos.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Declaración de privacidad</sub></div></a></span></p>
+
 A partir del 15 de noviembre de 2017, los mensajes de correo electrónico salientes que se envían directamente a dominios externos (como outlook.com y gmail.com) desde una máquina virtual (VM) solo están disponibles a ciertos tipos de suscripción de Microsoft Azure. Las conexiones SMTP salientes que usan el puerto TCP 25 se bloquearon. (El puerto 25 se usa principalmente para la entrega de correo electrónico sin autenticación).
 
 Este cambio de comportamiento solo se aplica a suscripciones e implementaciones nuevas desde el 15 de noviembre de 2017.
