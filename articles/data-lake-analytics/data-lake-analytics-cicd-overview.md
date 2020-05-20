@@ -424,7 +424,7 @@ Siga estos pasos para configurar una tarea de implementación de la base de dato
     copy USQLSDK\build\runtime\*.* $DBDeploymentTool
     ```
 
-2. Llame a **para agregar una**tarea de línea de comandos`PackageDeploymentTool.exe` en una canalización de versión o de compilación, y rellenar el script. `PackageDeploymentTool.exe` se encuentra bajo la carpeta **$DBDeploymentTool** definida. Este es el script de ejemplo: 
+2. Llame a `PackageDeploymentTool.exe` para agregar una **tarea de línea de comandos** en una canalización de versión o de compilación, y rellenar el script. `PackageDeploymentTool.exe` se encuentra bajo la carpeta **$DBDeploymentTool** definida. Este es el script de ejemplo: 
 
     * Implementación local de una base de datos U-SQL:
 

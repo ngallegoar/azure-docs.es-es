@@ -54,7 +54,7 @@ Ahora que tiene un lugar donde mostrar los datos de telemetría, puede configura
 Solo es necesaria una imagen de Application Insights por cada host de Docker. Si la aplicación se implementa en varios hosts de Docker, repita el comando en todos los hosts.
 
 ## <a name="update-your-app"></a>Actualización de la aplicación
-Si la aplicación se instrumenta con el [SDK de Application Insights para Java](../../azure-monitor/app/java-get-started.md), agregue la siguiente línea en el archivo ApplicationInsights.xml del proyecto, en el elemento `<TelemetryInitializers>`:
+Si la aplicación se instrumenta con el [SDK de Application Insights para Java`<TelemetryInitializers>`, agregue la siguiente línea en el archivo ApplicationInsights.xml del proyecto, en el elemento ](../../azure-monitor/app/java-get-started.md):
 
 ```xml
 

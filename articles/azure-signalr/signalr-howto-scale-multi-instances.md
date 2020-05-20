@@ -219,7 +219,7 @@ El objeto `ServiceEndpoint` tiene una propiedad `EndpointType` con valor `primar
 
 Los puntos de conexión `primary` son los preferidos para recibir el tráfico de cliente y se considera que tienen conexiones de red más confiables; los puntos de conexión `secondary` se considera que tienen menos conexiones de red confiables y solo se usan para llevar el tráfico del servidor al cliente, por ejemplo, difundir mensajes, pero no del cliente al servidor.
 
-En los casos entre regiones, la red puede ser inestable. Para un servidor de aplicaciones ubicado en *Este de EE. UU.* , el punto de conexión de SignalR Service ubicado en esta misma región puede configurarse como `primary` y los puntos de conexión de otras regiones marcarse como `secondary`. En esta configuración, los puntos de conexión de servicio de otras regiones pueden **recibir** mensajes de este servidor de aplicaciones de *Este de EE. UU.* , pero no habrá ningún cliente **entre regiones** enrutado a este servidor de aplicaciones. La arquitectura se muestra en el diagrama siguiente:
+En los casos entre regiones, la red puede ser inestable. Para un servidor de aplicaciones ubicado en *Este de EE. UU.*, el punto de conexión de SignalR Service ubicado en esta misma región puede configurarse como `primary` y los puntos de conexión de otras regiones marcarse como `secondary`. En esta configuración, los puntos de conexión de servicio de otras regiones pueden **recibir** mensajes de este servidor de aplicaciones de *Este de EE. UU.* , pero no habrá ningún cliente **entre regiones** enrutado a este servidor de aplicaciones. La arquitectura se muestra en el diagrama siguiente:
 
 ![Infraestructura entre regiones geográficas](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 

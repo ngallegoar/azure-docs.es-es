@@ -34,7 +34,7 @@ Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado 
 >
 
 ## <a name="explore-the-dcos-ui"></a>Exploración de la interfaz de usuario de DC/OS
-Acceda a http:[/localhost/ con un túnel de Secure Shell (SSH) ](../container-service-connect.md)establecido\/. Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
+Acceda a http:\//localhost/ con un túnel de Secure Shell (SSH) [establecido](../container-service-connect.md). Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
 
 ![Interfaz de usuario de DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 

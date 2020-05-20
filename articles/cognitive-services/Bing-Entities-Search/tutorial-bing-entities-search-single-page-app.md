@@ -71,7 +71,7 @@ Al igual que cualquier aplicación web de una sola página, la aplicación del t
 
 Este tutorial no profundiza en la mayor parte de HTML o CSS, ya que es sencillo.
 
-El código HTML contiene el formulario de búsqueda en que el usuario escribe una consulta y elige las opciones de búsqueda. El formulario está conectado al código JavaScript que realmente realiza la búsqueda mediante el atributo `<form>` de la etiqueta `onsubmit`:
+El código HTML contiene el formulario de búsqueda en que el usuario escribe una consulta y elige las opciones de búsqueda. El formulario está conectado al código JavaScript que realmente realiza la búsqueda mediante el atributo `onsubmit` de la etiqueta `<form>`:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

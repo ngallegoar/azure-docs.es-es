@@ -31,7 +31,7 @@ A continuación se muestran algunas reglas acerca de los identificadores de inst
 
 * Deben tener entre 1 y 256 caracteres.
 * No deben comenzar por `@`.
-* No deben contener caracteres `/`, `\`, `#` ni `?`.
+* No deben contener caracteres `/`, `\`, `?` ni `#`.
 * No deben contener caracteres de control.
 
 > [!NOTE]

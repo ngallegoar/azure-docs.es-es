@@ -77,7 +77,7 @@ Actualmente, la versión preliminar está limitada a 100 trabajos simultáneos.
 
 Para asegurarse de que los recursos no están sobrecargados al ejecutar trabajos en las bases de datos de un grupo elástico de SQL, los trabajos se pueden configurar para limitar el número de bases de datos en las que puede ejecutarse un trabajo al mismo tiempo.
 
-Establezca el número de bases de datos simultáneas que ejecuta un trabajo estableciendo el parámetro `sp_add_jobstep` del procedimiento almacenado `@max_parallelism` en T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` en PowerShell.
+Establezca el número de bases de datos simultáneas que ejecuta un trabajo estableciendo el parámetro `@max_parallelism` del procedimiento almacenado `sp_add_jobstep` en T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` en PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Procedimientos recomendados para crear trabajos
 

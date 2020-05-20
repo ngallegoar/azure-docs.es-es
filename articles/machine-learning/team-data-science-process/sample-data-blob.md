@@ -53,7 +53,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Muestreo de los datos mediante `numpy` de `random.choice` como se indica a continuación:
+3. Muestreo de los datos mediante `random.choice` de `numpy` como se indica a continuación:
    
         # A 1 percent sample
         sample_ratio = 0.01 

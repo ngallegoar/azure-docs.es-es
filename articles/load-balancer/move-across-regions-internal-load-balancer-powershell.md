@@ -315,7 +315,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
     ```
 12. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
     
-    * **SKU**: puede cambiar la SKU del equilibrador de carga interno en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo **\<nombre-del-grupo-de-recursos>.json**:
+    * **SKU**: puede cambiar la SKU del equilibrador de carga interno en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo \<**nombre-del-grupo-de-recursos>.json**:
 
         ```json
         "resources": [
