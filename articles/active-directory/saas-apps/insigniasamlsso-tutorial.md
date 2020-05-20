@@ -89,7 +89,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Insignia SAML SSO, siga estos pasos:
 
-1. En la página de integración de la aplicación [Insignia SAML SSO](https://portal.azure.com/) de **Azure Portal**, seleccione **Inicio de sesión único**.
+1. En la página de integración de la aplicación **Insignia SAML SSO** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 

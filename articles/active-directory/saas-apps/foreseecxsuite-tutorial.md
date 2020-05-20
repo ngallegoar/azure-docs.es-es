@@ -91,7 +91,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con ForeSee CX Suite, siga los pasos que se indican a continuación:
 
-1. En la página de integración de la aplicación [ForeSee CX Suite](https://portal.azure.com/) de **Azure Portal**, seleccione **Inicio de sesión único**.
+1. En la página de integración de la aplicación **ForeSee CX Suite** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 

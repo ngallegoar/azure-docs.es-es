@@ -91,7 +91,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, realice los pasos siguientes.
 
-1. En la página de integración de aplicaciones de [Zscaler Beta](https://portal.azure.com/) de **Azure Portal**, seleccione **Inicio de sesión único**.
+1. En la página de integración de aplicaciones de **Zscaler Beta** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
