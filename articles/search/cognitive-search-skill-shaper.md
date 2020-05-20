@@ -109,7 +109,7 @@ Un documento JSON entrante que proporcionara una entrada útil para esta aptitud
 
 ### <a name="skill-output"></a>Salida de aptitud
 
-La aptitud **Conformador** genera un nuevo elemento llamado *analyzedText* con los elementos combinados de *text* y *sentiment*. Esta salida se ajusta al esquema de índice. Se importará e indexará en un índice de Azure Cognitive Search.
+La aptitud *Conformador* genera un nuevo elemento llamado **analyzedText** con los elementos combinados de *text* y *sentiment*. Esta salida se ajusta al esquema de índice. Se importará e indexará en un índice de Azure Cognitive Search.
 
 ```json
 {

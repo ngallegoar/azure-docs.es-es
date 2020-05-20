@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: 852a01416b52c6a7b98c3b4883210749bf3cc509
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80132444"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83589268"
 landingContent:
 - title: Acerca de Azure Maps
   linkLists:
@@ -56,6 +56,36 @@ landingContent:
       url: how-to-manage-pricing-tier.md
     - text: Visualización de las métricas de uso de la API de Azure Maps
       url: how-to-view-api-usage.md
+- title: Desarrollo con Creator
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceptos de plano interior
+      url: creator-indoor-maps.md
+  - linkListType: tutorial
+    links:
+    - text: Uso de Creator para crear datos de planos de interiores
+      url: tutorial-creator-indoor-maps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Administración de planos interiores de Creator
+      url: how-to-manage-creator.md
+    - text: Implementación de un estilo dinámico para planos interiores
+      url: indoor-map-dynamic-styling.md
+    - text: Uso del visualizador de errores de dibujo de Azure Maps
+      url: drawing-error-visualizer.md
+    - text: Uso del módulo de planos interiores
+      url: how-to-use-indoor-module.md
+  - linkListType: reference
+    links:
+    - text: Servicio de conversión
+      url: https://docs.microsoft.com/rest/api/maps/conversion
+    - text: Servicio de conjunto de datos
+      url: https://docs.microsoft.com/rest/api/maps/dataset
+    - text: Servicio de conjunto de mosaicos
+      url: https://docs.microsoft.com/rest/api/maps/tileset
+    - text: Servicio de conjunto de estados de características
+      url: https://docs.microsoft.com/rest/api/maps/featurestate
 - title: Desarrollo con el SDK web
   linkLists:
   - linkListType: concept

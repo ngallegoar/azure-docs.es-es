@@ -36,6 +36,8 @@
           href: quickstart-load-studio-sql-pool.md
     - name: Uso de SQL a petición
       href: quickstart-sql-on-demand.md
+    - name: "Conexión a Synapse Link para Cosmos\_DB"
+      href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutoriales
   items:
     - name: Ejecución de aplicaciones Apache Spark para grupos de Spark
@@ -324,6 +326,10 @@
               href: ./sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Clases de recursos
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Synapse Link
+      items:
+        - name: Características que admite Synapse Link
+          href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
     - name: 'Integración de herramientas (IA, ETL, BI)'
       items:
         - name: Solución de problemas de Azure Synapse Analytics Studio
@@ -406,6 +412,12 @@
               href: data-integration/data-integration-data-lake.md
     - name: Transformación y análisis de datos
       items:
+        - name: Synapse Link
+          items:
+            - name: "Conexión a Azure Synapse Link para Cosmos\_DB"
+              href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+            - name: Consulta de un almacén analítico de Azure Cosmos DB con Apache Spark para Azure Synapse Analytics
+              href: ./synapse-link/how-to-query-analytical-store-spark.md
         - name: SQL de Synapse
           items:
             - name: Consulta de los datos en el almacenamiento

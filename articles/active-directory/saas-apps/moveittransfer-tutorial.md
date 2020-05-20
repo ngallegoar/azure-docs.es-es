@@ -89,7 +89,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con MOVEit Transfer - Azure AD integration, siga estos pasos:
 
-1. En la página de integración de la aplicación [MOVEit Transfer - Azure AD integration](https://portal.azure.com/) de **Azure Portal**, haga clic en **Inicio de sesión único**.
+1. En la página de integración de la aplicación **MOVEit Transfer - Azure AD integration** de [Azure Portal](https://portal.azure.com/), haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 

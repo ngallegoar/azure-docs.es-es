@@ -466,7 +466,7 @@ Llamamos a la API desde una aplicación lógica mediante la sintaxis siguiente:
  }
 ```
 
-La expresión del ejemplo de código anterior buscará el estado *Error* para **Create_NewPatientRecord**.
+La expresión del ejemplo de código anterior buscará el estado **Error** para *Create_NewPatientRecord*.
 
 ## <a name="summary"></a>Resumen
 

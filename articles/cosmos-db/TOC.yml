@@ -119,8 +119,6 @@
           href: global-dist-under-the-hood.md
         - name: Presencia regional
           href: regional-presence.md
-        - name: Almacenamiento transaccional y analítico
-          href: globally-distributed-transactional-analytical-storage.md
     - name: Creación de particiones
       items:
         - name: Introducción a la creación de particiones
@@ -494,14 +492,16 @@
           href: change-feed-functions.md
         - name: Modelo de extracción de fuente de cambios
           href: change-feed-pull-model.md
-    - name: Análisis distribuido globalmente e inteligencia artificial
+    - name: Análisis con Synapse Link
       items:
-        - name: Casos de uso de Analytics
-          href: analytics-usecases.md
-        - name: 'Analytics : arquitecturas de soluciones'
-          href: analytics-solution-architectures.md
-        - name: Arquitectura lambda
-          href: lambda-architecture.md
+        - name: "Synapse Link para Azure Cosmos\_DB"
+          href: synapse-link.md
+        - name: 'Almacén analítico: Introducción'
+          href: analytical-store-introduction.md
+        - name: Preguntas frecuentes sobre Synapse Link
+          href: synapse-link-frequently-asked-questions.md
+        - name: Casos de uso de Synapse Link
+          href: synapse-link-use-cases.md
     - name: Cuadernos de Jupyter Notebook integrados
       items:
         - name: Introducción a los cuadernos de Jupyter Notebook
@@ -1020,6 +1020,10 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: 'Fuente de cambios: ejemplo de Async Java'
           href: create-sql-api-java-changefeed.md
+    - name: Análisis con Synapse Link
+      items:
+        - name: Configuración de Synapse Link
+          href: configure-synapse-link.md
     - name: Análisis integrado con Apache Spark
       items:
         - name: Conector de Spark para Azure Databricks

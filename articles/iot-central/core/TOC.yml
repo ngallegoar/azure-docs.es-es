@@ -63,6 +63,8 @@
           href: howto-set-up-template.md
         - name: Preparación y conexión de una instancia de MXChip IoT DevKit
           href: howto-connect-devkit.md
+        - name: Preparación y conexión de un kit de desarrollo de Azure Sphere
+          href: howto-connect-sphere.md
         - name: Preparación y conexión de un dispositivo RuuviTag
           href: howto-connect-ruuvi.md
         - name: Preparación y conexión a Rigado Cascade 500
