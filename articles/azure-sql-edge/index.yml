@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentación sobre Azure SQL Edge (versión preliminar)
+summary: Azure SQL Edge es un motor de base de datos relacional optimizado orientado a implementaciones de IoT y Edge.
+metadata:
+  title: Documentación sobre Azure SQL Edge (versión preliminar)
+  meta.description: Learn how to use Azure SQL Edge (Preview).
+  services: sql-database-edge
+  ms.service: sql-database-edge
+  ms.topic: landing-page
+  author: stevestein
+  ms.author: sstein
+  ms.date: 05/19/2020
+  ms.openlocfilehash: a2e26d4bfbec3a139987e2a7a0fe21c429c740a5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593144"
+landingContent:
+- title: SQL Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es SQL Edge?
+      url: overview.md
+  - linkListType: deploy
+    links:
+    - text: Implementación de SQL Edge
+      url: deploy-portal.md
+- title: Sincronización de datos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Sincronización de datos de SQL Edge con Azure Data Factory
+      url: tutorial-sync-data-factory.md
+    - text: Sincronización de datos de SQL Edge con SQL Database
+      url: tutorial-sync-data-sync.md
+- title: Streaming de datos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Streaming de datos
+      url: stream-data.md
+    - text: Streaming de vistas de catálogo
+      url: streaming-catalog-views.md
+- title: Machine Learning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Aprendizaje automático e inteligencia artificial
+      url: onnx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Implementación de ONNX en SQL Edge
+      url: deploy-onnx.md

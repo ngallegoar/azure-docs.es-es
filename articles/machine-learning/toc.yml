@@ -138,9 +138,6 @@
       href: concept-model-management-and-deployment.md
     - name: Portabilidad de modelos (ONNX)
       href: concept-onnx.md
-    - name: Interoperabilidad del modelo
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
     - name: Canalizaciones de Machine Learning
       href: concept-ml-pipelines.md
     - name: Preparación y seguridad para empresas
@@ -172,6 +169,20 @@
           href: how-to-setup-authentication.md
         - name: Supervisión de Azure Machine Learning
           href: monitor-azure-machine-learning.md
+    - name: Aprendizaje automático responsable
+      items:
+        - name: Introducción al aprendizaje automático responsable
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: Interoperabilidad del modelo
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Imparcialidad en el aprendizaje automático
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Privacidad diferencial
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
 - name: Guías paso a paso
   items:
     - name: Creación y administración de áreas de trabajo
@@ -273,6 +284,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Aprendizaje de refuerzo
+          href: how-to-use-reinforcement-learning.md
     - name: Interpretación y explicación de modelos
       displayName: interpretability
       items:

@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Documentación de Translator Text
-summary: Translator Text es un servicio de traducción automática basado en la nube que puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. La API usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Custom Translator es una extensión de Translator Text API que permite compilar sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Translator Text API o con Microsoft Speech Services.
+title: Documentación sobre Traductor
+summary: Traductor es un servicio de traducción automática basado en la nube que se puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. El servicio usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Traductor personalizado es una extensión de Traductor que permite crear sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Traductor o con Microsoft Speech Services.
 metadata:
-  title: 'Documentación de Translator Text: inicios rápidos, tutoriales, referencia de API'
+  title: 'Documentación sobre Traductor: inicios rápidos, tutoriales, referencia de API'
   titleSuffix: Azure Cognitive Services
-  description: Translator Text es un servicio de traducción automática basado en la nube que puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. La API usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Custom Translator es una extensión de Translator Text API que permite compilar sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Translator Text API o con Microsoft Speech Services.
+  description: Traductor es un servicio de traducción automática basado en la nube que se puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. El servicio usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Traductor personalizado es una extensión de Traductor que permite crear sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Traductor o con Microsoft Speech Services.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -13,18 +13,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529811"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83592753"
 landingContent:
 - title: Traductor
   linkLists:
   - linkListType: overview
     links:
-    - text: Translator Text API
+    - text: Traductor
       url: translator-info-overview.md
     - text: Custom Translator
       url: translator-info-overview.md
@@ -36,7 +36,7 @@ landingContent:
       url: translator-text-how-to-signup.md
     - text: Preguntas más frecuentes
       url: https://www.microsoft.com/translator/faq.aspx
-- title: Translator Text API
+- title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
@@ -60,7 +60,7 @@ landingContent:
       url: tutorial-build-flask-app-translation-synthesis.md
   - linkListType: reference
     links:
-    - text: Referencia de Translator Text API (v3)
+    - text: Referencia sobre Traductor (v3)
       url: reference/v3-0-reference.md
     - text: Límites de solicitud
       url: request-limits.md

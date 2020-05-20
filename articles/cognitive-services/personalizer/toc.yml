@@ -39,6 +39,8 @@
         - name: Directiva de aprendizaje
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Modo de aprendiz
+          href: concept-apprentice-mode.md
         - name: Eventos activos e inactivos
           href: concept-active-inactive-events.md
         - name: Recompensas
@@ -62,9 +64,11 @@
   items:
     - name: Creación de un recurso de Personalizer
       href: how-to-create-resource.md
-    - name: Configuración de un bucle de aprendizaje
+    - name: Configuración de Personalizer
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: Uso del modo de aprendiz
+      href: how-to-learning-behavior.md
     - name: Administración de la configuración de modelos y del aprendizaje
       href: how-to-manage-model.md
     - name: Análisis con una evaluación sin conexión

@@ -28,6 +28,24 @@
       items:
         - name: Uso de laboratorios para impartir clases
           href: classroom-labs-scenarios.md
+        - name: 'Laboratorios educativos: tipos de clase'
+          items:
+            - name: Información general sobre tipos de clase
+              href: class-types.md
+            - name: Aprendizaje profundo en el procesamiento del lenguaje natural
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Generación de scripts en shell en Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Piratería ética
+              href: class-type-ethical-hacking.md
+            - name: Administración de bases de datos
+              href: class-type-database-management.md
+            - name: Cuadernos de Python y Jupyter Notebook
+              href: class-type-jupyter-notebook.md
+            - name: Desarrollo de aplicaciones móviles con Android Studio
+              href: class-type-mobile-dev-android-studio.md
+            - name: Análisis de macrodatos
+              href: class-type-big-data-analytics.md
 - name: Guías paso a paso
   items:
     - name: Guía del administrador
@@ -36,29 +54,13 @@
       href: account-setup-guide.md
     - name: Guía de configuración acelerada de laboratorios
       href: setup-guide.md
-    - name: 'Laboratorios educativos: tipos de clase'
-      items:
-        - name: Información general sobre tipos de clase
-          href: class-types.md
-        - name: Aprendizaje profundo en el procesamiento del lenguaje natural
-          href: class-type-deep-learning-natural-language-processing.md
-        - name: Generación de scripts en shell en Linux
-          href: class-type-shell-scripting-linux.md
-        - name: Piratería ética
-          href: class-type-ethical-hacking.md
-        - name: Administración de bases de datos
-          href: class-type-database-management.md
-        - name: Cuadernos de Python y Jupyter Notebook
-          href: class-type-jupyter-notebook.md
-        - name: Desarrollo de aplicaciones móviles con Android Studio
-          href: class-type-mobile-dev-android-studio.md
-        - name: Análisis de macrodatos
-          href: class-type-big-data-analytics.md
     - name: Creación y configuración de cuentas de laboratorio (propietario de la cuenta de laboratorio)
       items:
         - name: Creación y administración de cuentas de laboratorio
           href: how-to-manage-lab-accounts.md
-        - name: Configuración de cuentas de laboratorio
+        - name: Administración de laboratorios en una cuenta de laboratorio
+          href: manage-labs.md
+        - name: Configuración del apagado automático de las máquinas virtuales
           href: how-to-configure-lab-accounts.md
         - name: Incorporación de un creador de laboratorio
           href: add-lab-creator.md
@@ -76,7 +78,7 @@
           href: specify-marketplace-images.md
         - name: Especificación de información de soporte técnico (propietario de cuenta de laboratorio)
           href: lab-account-owner-support-information.md
-    - name: Creación y configuración de laboratorios educativos (instructor)
+    - name: Creación y configuración de laboratorios educativos (formador)
       items:
         - name: Creación y administración de laboratorios educativos
           href: how-to-manage-classroom-labs.md
@@ -108,9 +110,9 @@
           href: how-to-prepare-windows-template.md
         - name: Control del comportamiento de apagado de Windows
           href: how-to-windows-shutdown.md
-        - name: Visualización de información de soporte técnico (instructor)
+        - name: Visualización de información de soporte técnico (formador)
           href: lab-creator-support-information.md
-        - name: Acceso a las máquinas virtuales de los alumnos desde la vista del instructor
+        - name: Acceso a las máquinas virtuales de los alumnos desde la vista del formador
           href: instructor-access-virtual-machines.md
     - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
       items:

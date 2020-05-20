@@ -1,0 +1,61 @@
+- name: Documentación de Azure Static Web Apps
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Static Web Apps
+      href: overview.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Creación de la primera aplicación web estática
+      href: getting-started.md
+- name: Conceptos
+  items:
+    - name: Compatibilidad de API con Azure Functions
+      href: apis.md
+    - name: Rutas
+      href: routes.md
+    - name: Autenticación y autorización
+      href: authentication-authorization.md
+    - name: Acceso a la información del usuario
+      href: user-information.md
+    - name: Revisión de las solicitudes de incorporación de cambios en entornos de pre-producción
+      href: review-publish-pull-requests.md
+    - name: Dominio personalizado
+      href: custom-domain.md
+    - name: Creación y configuración de flujos de trabajo
+      href: github-actions-workflow.md
+- name: Guías paso a paso
+  items:
+    - name: Configuración del desarrollo local
+      href: local-development.md
+    - name: Incorporación de una API
+      href: add-api.md
+    - name: Configuración de aplicaciones
+      href: application-settings.md
+- name: Tutoriales
+  items:
+    - name: Publicación desde un generador de sitios estáticos
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+    - name: Implementación desde una plataforma
+      items:
+        - name: Next.js
+          href: deploy-nextjs.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+- name: Recursos
+  items:
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      items:
+        - name: 'Publicación de una aplicación y una API de JavaScript con Angular, React, Svelte o Vue'
+          href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Creación y publicación de una aplicación web estática con Gatsby
+          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - name: Cuotas
+      href: quotas.md
