@@ -30,6 +30,8 @@
   items:
     - name: Recursos de Azure
       href: Concepts/azure-resources.md
+    - name: Colaboración con otros usuarios
+      href: Concepts/role-based-access-control.md
     - name: Diseño de una base de conocimiento
       items:
         - name: Para lenguajes
@@ -107,10 +109,6 @@
     - name: Consulta de la base de conocimiento
       href: How-To/metadata-generateanswer-usage.md
       displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
-    - name: Uso con una aplicación cliente
-      items:
-        - name: LUIS y QnA Maker
-          href: Tutorials/integrate-qnamaker-luis.md
     - name: Análisis y telemetría
       href: How-To/get-analytics-knowledge-base.md
     - name: Uso de las API REST
@@ -155,6 +153,8 @@
       href: Overview/language-support.md
     - name: límites
       href: limits.md
+    - name: Control de acceso basado en roles (RBAC)
+      href: reference-role-based-access-control.md
     - name: Solución de problemas
       href: troubleshooting.md
     - name: Configuración del servicio

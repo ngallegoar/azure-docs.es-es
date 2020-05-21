@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentación de QnA Maker
   description: QnA Maker es un servicio de API basado en la nube que crea una capa de conversación, preguntas y respuestas mediante los datos. QnA Maker le permite alimentar un servicio de preguntas y respuestas con su contenido semiestructurado, como documentos de preguntas frecuentes, direcciones URL y manuales de productos. El servicio QnA Maker responde a preguntas en el lenguaje natural de los usuarios, para lo que las hace coincidir con la mejor respuesta posible de los QnA de su base de conocimiento.
-  ms.openlocfilehash: e566fdb18bdabe80447de9b2882cf7d57209d15e
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 189782ca4e8d9c6a098f6080a62be4da0f2be853
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "76844116"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83651158"
 landingContent:
 - title: Acerca de QnA Maker
   linkLists:
@@ -96,8 +96,6 @@ landingContent:
     links:
     - text: 'Portal: Crear un bot de QnA'
       url: tutorials/create-qna-bot.md
-    - text: '.Net: Creación de un bot con QnA Maker y Language Understanding'
-      url: tutorials/integrate-qnamaker-luis.md
     - text: Otros ejemplos de bot
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: Referencia
