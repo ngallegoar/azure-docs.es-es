@@ -91,7 +91,7 @@
           items:
             - name: Restricción del acceso mediante puntos de conexión privados
               href: container-registry-private-link.md
-            - name: Configuración de las reglas de firewall del servicio
+            - name: Configuración del acceso a un registro público
               href: container-registry-access-selected-networks.md
             - name: Restricción del acceso mediante puntos de conexión de servicio (versión preliminar)
               href: container-registry-vnet.md

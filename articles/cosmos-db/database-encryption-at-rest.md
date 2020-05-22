@@ -5,20 +5,20 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: db20388b5277e000ffe7055e9840742d6af7788e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541c6f4a6c728844524af794f5e2063f4e352cce
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062599"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592141"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Cifrado de datos de Azure Cosmos DB 
 
 El cifrado en reposo es una frase que se refiere normalmente al cifrado de datos en dispositivos de almacenamiento permanente, como unidades de estado sólido (SSD) y discos duros (HDD). Cosmos DB almacena sus bases de datos principales en unidades SSD. Sus elementos multimedia adjuntos y las copias de seguridad se almacenan en Azure Blob Storage, cuyos archivos de copia de seguridad suelen encontrarse en unidades HDD. Con el lanzamiento del cifrado en reposo para Cosmos DB, todas las bases de datos, los elementos multimedia adjuntos y las copias de seguridad están cifrados. Ahora, los datos están cifrados en tránsito (por la red) y en reposo (almacenamiento permanente), lo que le proporciona cifrado de un extremo a otro.
 
-Como servicio de PaaS que es, Cosmos DB es muy sencillo de usar. Dato que todos los datos de usuario almacenados en Cosmos DB están cifrados en reposo y en tránsito, no es necesario hacer nada. Otra forma de decirlo es que el cifrado en reposo está "activado" de forma predeterminada. No hay ningún mando para activarlo o desactivarlo. Azure Cosmos DB usa el cifrado de AES-256 en todas las regiones donde se ejecuta la cuenta. Ofrecemos esta característica a la vez que continuamos cumpliendo con nuestros [Acuerdos de Nivel de Servicio con respecto a disponibilidad y rendimiento](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+Como servicio de PaaS, Azure Cosmos DB es muy sencillo de usar. Dato que todos los datos de usuario almacenados en Azure Cosmos DB se cifran en reposo y en tránsito, no es necesario hacer nada. Otra forma de decirlo es que el cifrado en reposo está "activado" de forma predeterminada. No hay ningún mando para activarlo o desactivarlo. Azure Cosmos DB usa el cifrado de AES-256 en todas las regiones donde se ejecuta la cuenta. Ofrecemos esta característica a la vez que continuamos cumpliendo con nuestros [Acuerdos de Nivel de Servicio con respecto a disponibilidad y rendimiento](https://azure.microsoft.com/support/legal/sla/cosmos-db). Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas con claves administradas por Microsoft (claves administradas por el servicio). Como opción, puede elegir agregar una segunda capa de cifrado con sus propias claves, tal como se describe en el artículo de [claves administradas por el cliente](how-to-setup-cmk.md).
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementación de cifrado en reposo para Azure Cosmos DB
 
@@ -59,5 +59,6 @@ A. El emulador es una herramienta de desarrollo o prueba independiente y no empl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información general sobre la seguridad y las últimas mejoras de Cosmos DB, consulte [Seguridad de base de datos de Azure Cosmos](database-security.md).
-Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).
+* Puede elegir agregar una segunda capa de cifrado con sus propias claves; para obtener más información, consulte el artículo de [claves administradas por el cliente](how-to-setup-cmk.md).
+* Para información general sobre la seguridad y las últimas mejoras de Cosmos DB, consulte [Seguridad de base de datos de Azure Cosmos](database-security.md).
+* Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).

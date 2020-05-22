@@ -2,13 +2,13 @@
 title: 'Tutorial: Patrones: LUIS'
 description: Use patrones para aumentar la predicción de intenciones y entidades, a la vez que se proporcionan menos expresiones de ejemplo, con este tutorial. El patrón se proporciona como un ejemplo de plantilla de expresión, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380782"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592923"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón para mejorar las predicciones
 
@@ -41,7 +41,8 @@ Siga estos pasos:
 
 1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. En el [portal de LUIS (versión preliminar)](https://preview.luis.ai), importe el archivo JSON en una nueva aplicación. En la página **Mis aplicaciones**, seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) y, después, seleccione **Import as JSON** (Importar como JSON). Seleccione el archivo que descargó en el paso anterior.
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Importe el archivo JSON a una nueva aplicación en el [portal de LUIS](https://www.luis.ai). En la página **Mis aplicaciones**, seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) y, después, seleccione **Import as JSON** (Importar como JSON). Seleccione el archivo que descargó en el paso anterior.
 
 1. En la sección **Administrar**, en la pestaña **Versiones**, seleccione la versión activa y, luego, seleccione **Clonar**. Asigne un nombre a la versión clonada `patterns`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
@@ -468,33 +469,7 @@ La sintaxis del patrón proporciona la sintaxis de delimitador de inicio y final
 
 ## <a name="using-patternany-entity"></a>Uso de la entidad Pattern.any
 
-La entidad Pattern.any permite buscar datos de forma libre en los que la redacción de la entidad dificulte determinar el final de la entidad del resto de la expresión.
-
-Esta aplicación de recursos humanos ayuda a que los empleados encuentren formularios de la empresa.
-
-|Expresión|
-|--|
-|¿Dónde está el formulario **HRF-123456**?|
-|¿Quién creó el formulario **HRF-123234**?|
-|¿El formulario **HRF-456098** se publicó en francés?|
-
-Sin embargo, cada formulario tiene un nombre con formato, el que se usa en la tabla anterior, además de un nombre descriptivo, como `Request relocation from employee new to the company 2018 version 5`.
-
-Las expresiones con el nombre de formato descriptivo tienen el aspecto siguiente:
-
-|Expresión|
-|--|
-|¿Dónde está el formulario "**Request relocation from employee new to the company 2018 version 5**"?|
-|¿Quién creó el formulario **"Request relocation from employee new to the company 2018 version 5"** ?|
-|¿El formulario **Request relocation from employee new to the company 2018 version 5** se publicó en francés?|
-
-La diferencia de longitud incluye palabras que pueden confundir a LUIS con respecto a dónde finaliza la entidad. Si usa una entidad Pattern.any en un patrón, puede especificar el principio y el final del nombre del formulario para que LUIS extraiga correctamente el nombre del formulario.
-
-|Ejemplo de expresión de plantilla|
-|--|
-|¿Dónde está {NombreDelFormulario}[?]|
-|¿Quién ha creado {NombreDelFormulario}[?]|
-|¿{NombreDelFormulario} se ha publicado en francés[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Incorporación de expresiones de ejemplo con Pattern.any
 

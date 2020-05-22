@@ -118,10 +118,12 @@
       items:
         - name: Acceso a laboratorios educativos
           href: how-to-use-classroom-lab.md
-        - name: Uso de la conexión de escritorio remoto para máquinas virtuales Linux
+        - name: Conexión a máquinas virtuales Linux
           href: how-to-use-remote-desktop-linux-student.md
         - name: Conexión a una máquina virtual desde un equipo Mac mediante RDP
-          href: connect-virtual-machine-mac-rdp.md
+          href: connect-virtual-machine-mac-remote-desktop.md
+        - name: Conexión a una máquina virtual desde Chromebook mediante RDP
+          href: connect-virtual-machine-chromebook-remote-desktop.md
         - name: Establecimiento o restablecimiento de contraseñas para máquinas virtuales
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Visualización de información de soporte técnico (alumno)

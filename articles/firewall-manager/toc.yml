@@ -4,8 +4,13 @@
   items:
     - name: ¿Qué es Azure Firewall Manager?
       href: overview.md
-- name: Tutoriales
+- name: Guías de inicio rápido
   expanded: true
+  items:
+    - name: Protección de centro virtual
+      displayName: Resource Manager
+      href: quick-secure-virtual-hub.md
+- name: Tutoriales
   items:
     - name: 'Protección de una WAN virtual: portal'
       href: secure-cloud-network.md

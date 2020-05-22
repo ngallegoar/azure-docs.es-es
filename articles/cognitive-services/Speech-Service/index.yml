@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: c065f3d12f98be85f45ed6233593d9ccab1cefa1
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: 50252d0a308c4232b84bffddd905d8a84e1be0d8
+  ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201647"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83707979"
 highlightedContent:
   items:
   - title: ¿Qué es Speech Service?
@@ -47,7 +47,7 @@ conceptualContent:
       text: Conceptos básicos del reconocimiento de voz
       url: speech-to-text-basics.md
     footerLink:
-      text: Ver más
+      text: Más
       url: index-speech-to-text.yml
   - title: Texto a voz
     links:
@@ -61,7 +61,7 @@ conceptualContent:
       text: Introducción a la síntesis de voz
       url: text-to-speech-basics.md
     footerLink:
-      text: Ver más
+      text: Más
       url: index-text-to-speech.yml
   - title: Traducción de voz
     links:
@@ -75,7 +75,7 @@ conceptualContent:
       text: Conceptos básicos de la traducción de voz
       url: speech-translation-basics.md
     footerLink:
-      text: Ver más
+      text: Más
       url: index-speech-translation.yml
   - title: Reconocimiento de la intención
     links:
@@ -89,7 +89,7 @@ conceptualContent:
       text: Portal de Language Understanding (LUIS)
       url: https://www.luis.ai
     footerLink:
-      text: Ver más
+      text: Más
       url: index-intent-recognition.yml
   - title: Escenarios de conversación
     links:
@@ -103,7 +103,7 @@ conceptualContent:
       text: Transcripción para los centros de llamadas
       url: call-center-transcription.md
     footerLink:
-      text: Ver más
+      text: Más
       url: index-conversation-scenarios.yml
   - title: Asistentes de voz
     links:
@@ -117,8 +117,16 @@ conceptualContent:
       text: Creación de un asistente de voz mediante Bot Framework
       url: direct-line-speech.md
     footerLink:
-      text: Ver más
+      text: Más
       url: index-voice-assistants.yml
+  - title: Speaker Recognition
+    links:
+    - itemType: how-to-guide
+      text: Acerca de Speaker Recognition
+      url: ../Speaker-recognition/Home.md
+    - itemType: how-to-guide
+      text: Referencia de API Speaker Recognition
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
   - title: Herramientas
     links:
     - itemType: overview
@@ -142,7 +150,7 @@ conceptualContent:
       text: Contenedores del servicio de voz en Azure Container Instances
       url: deploy-speech-on-container-instances.md
     footerLink:
-      text: Ver más
+      text: Más
       url: index-hosting.yml
   - title: Dispositivos
     links:
@@ -156,7 +164,7 @@ conceptualContent:
       text: Uso del SDK de dispositivos de voz
       url: speech-devices-sdk-quickstart.md
     footerLink:
-      text: Ver más
+      text: Más
       url: index-devices.yml
   - title: Migración
     links:

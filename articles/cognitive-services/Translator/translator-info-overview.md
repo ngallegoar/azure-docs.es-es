@@ -1,7 +1,7 @@
 ---
-title: ¿Qué es Translator Text API? Translator Text API
+title: '¿Qué es Translator?: Translator'
 titlesuffix: Azure Cognitive Services
-description: Integre Translator Text API en aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario en varios idiomas.
+description: Integre Translator en aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario en varios idiomas.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: overview
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e4a1f2d778fb2b811d4c38dd26956e2eab51258a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78331049"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592668"
 ---
-# <a name="what-is-the-translator-text-api"></a>¿Qué es Translator Text API?
+# <a name="what-is-the-translator"></a>¿Qué es Translator?
 
-Translator Text API es fácil de integrar en sus aplicaciones, sitios web, herramientas y soluciones. Permite agregar experiencias de usuario multilingüe en [más de 60 idiomas](languages.md) y se puede usar en cualquier plataforma de hardware con cualquier sistema operativo para la traducción de texto a texto.
+Translator es fácil de integrar en sus aplicaciones, sitios web, herramientas y soluciones. Permite agregar experiencias de usuario multilingüe en [más de 60 idiomas](languages.md) y se puede usar en cualquier plataforma de hardware con cualquier sistema operativo para la traducción de texto a texto.
 
-Translator Text API forma parte de [Azure Cognitive Services API](https://docs.microsoft.com/azure/?pivot=products&panel=ai), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
+Translator forma parte de la colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, de [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai), que se pueden consumir fácilmente en los proyectos de desarrollo.
 
 ## <a name="about-microsoft-translator"></a>Acerca de Microsoft Translator
 
-Microsoft Translator es un servicio de traducción automática basado en la nube. En el centro de este servicio está Translator Text API, que da servicio a diversos productos y servicios de Microsoft y que utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo para que su contenido llegue a una audiencia mundial.
+Translator es un servicio de traducción automática basado en la nube. En el centro de este servicio está Translator, que da servicio a diversos productos y servicios de Microsoft, y que utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo para que su contenido llegue a una audiencia mundial.
 
-La traducción de voz, con la tecnología de Translator Text API, también está disponible mediante [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina la funcionalidad de Translator Speech API y Custom Speech Service en un servicio totalmente personalizable y unificado. Speech Service reemplaza a Translator Speech API, que se retirará el 15 de octubre de 2019.
+La traducción de voz, con la tecnología de Translator, también está disponible mediante el [servicio de Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina la funcionalidad de Translator Speech API y Custom Speech Service en un servicio totalmente personalizable y unificado. Speech Service reemplaza a Translator Speech API, que se retirará el 15 de octubre de 2019.
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -46,9 +46,9 @@ Más información sobre [el funcionamiento de NMT](https://www.microsoft.com/en-
 
 ## <a name="language-customization"></a>Personalización de lenguaje
 
-Custom Translator, una extensión del servicio Microsoft Translator, se puede usar en combinación con Translator Text API para ayudar a personalizar el sistema de traducción neuronal y mejorar la traducción para su terminología y estilo específicos.
+Traductor personalizado, una extensión del servicio Microsoft Translator principal, se puede usar en combinación con Translator para ayudar a personalizar el sistema de traducción neuronal y mejorar la traducción para su terminología y estilo específicos.
 
-Con Custom Translator puede crear sistemas de traducción que administran la terminología usada en su propio negocio o sector. Luego, los sistemas de traducción personalizados se pueden integrar fácilmente en las aplicaciones, flujos de trabajo y sitios web ya existentes, en varios tipos de dispositivos, mediante el componente normal Microsoft Translator Text API, por medio del parámetro de categoría.
+Con Custom Translator puede crear sistemas de traducción que administran la terminología usada en su propio negocio o sector. Luego, los sistemas de traducción personalizados se pueden integrar fácilmente en las aplicaciones, flujos de trabajo y sitios web ya existentes, en varios tipos de dispositivos, mediante el componente normal Translator, por medio del parámetro de categoría.
 
 Más información sobre la [personalización de idioma](customization.md)
 

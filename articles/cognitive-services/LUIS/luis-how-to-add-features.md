@@ -1,5 +1,5 @@
 ---
-title: 'Descriptores: LUIS'
+title: 'Características: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Uso de Language Understanding (LUIS) para agregar características de aplicación que pueden mejorar la detección o predicción de intenciones y entidades de categorías y patrones.
 services: cognitive-services
@@ -9,53 +9,49 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 7560fdcbfc77ea2655e8af641794478ead4c11c7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 12445ec5b14f4c274e471bf1b061a3b221664d20
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631458"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592311"
 ---
-# <a name="use-descriptors-to-boost-signal-of-word-list"></a>Uso de descriptores para aumentar la señal de la lista de palabras
+# <a name="use-features-to-boost-signal-of-word-list"></a>Uso de características para aumentar la señal de la lista de palabras
 
 Puede agregar características a la aplicación de LUIS para mejorar su precisión. Las características ayudan a LUIS al proporcionar sugerencias sobre ciertas palabras y frases que forman parte de un vocabulario de dominio de aplicación.
 
-Un [descriptor](luis-concept-feature.md) (lista de frases) incluye un grupo de valores (palabras o frases) que pertenecen a la misma clase y que se deben tratar de forma similar (por ejemplo, nombres de ciudades o productos). Lo que LUIS aprende sobre una de ellas se aplica automáticamente al resto. Esta lista no es lo mismo que una [entidad de listas](reference-entity-list.md) (coincidencias de texto exactas) de palabras coincidentes.
+Revise los [conceptos](luis-concept-feature.md) para comprender cuándo y por qué usar una característica.
 
-Un descriptor se agrega al vocabulario del dominio de aplicación como una segunda señal para LUIS sobre esas palabras.
+## <a name="add-phrase-list-as-a-feature"></a>Adición de una lista de frases como característica
 
-Revise los [conceptos de características](luis-concept-feature.md) para comprender cuándo y por qué usar un descriptor.
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
+1. Seleccione **Compilación** y, a continuación, seleccione **Características** en el panel izquierdo de la aplicación.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+1. En la página **Características**, seleccione **+ Crear**.
 
-## <a name="add-descriptor"></a>Adición de descriptor
-
-1. Abra la aplicación con un clic en su nombre en la página **Mis aplicaciones**, haga clic en **Compilar** y luego en **Descriptores** en el panel izquierdo de la aplicación.
-
-1. En la página **Descriptores**, haga clic en **+Add Descriptor** (+ Agregar descriptor).
-
-1. En el cuadro de diálogo para **crear nuevo descriptor de lista de frases**, escriba un nombre como `Cities` para el descriptor. En el cuadro **Valor**, escriba los valores de los descriptores, como `Seattle`. Puede escribir un valor a la vez o un conjunto de valores separados por comas y luego presione **ENTRAR**.
+1. En el cuadro de diálogo **Create new phrase list feature** (Crear característica de lista de frases), escriba un nombre, como `Cities`. En el cuadro **Valor**, escriba ejemplos de ciudades, como `Seattle`. Puede escribir un valor a la vez o un conjunto de valores separados por comas y luego presione **ENTRAR**.
 
     > [!div class="mx-imgBorder"]
-    > ![Adición de ciudades de descriptor](./media/luis-add-features/add-phrase-list-cities.png)
+    > ![Captura de pantalla de la adición de la característica (lista de frases) Cities](./media/luis-add-features/add-phrase-list-cities.png)
 
     Una vez que haya especificado suficientes valores para LUIS, aparecerán sugerencias. Puede **agregar todos** los valores propuestos o seleccionar términos individuales.
 
-1. Mantenga activado **Estos valores son intercambiables** si los valores agregados de la lista de frases son alternativas que se pueden usar indistintamente.
+1. Mantenga activado **Estos valores son intercambiables** si las frases se pueden usar indistintamente.
 
-1. La lista de frases se puede aplicar a toda la aplicación con la configuración **Global**, o bien a un modelo específico (intención o entidad). Si crea la lista de frases, como un _descriptor_ de una intención o entidad, la alternancia se establece en no global. En este caso, el significado de la alternancia es que el descriptor es una característica solo de ese modelo, por lo que _no es global_  para la aplicación.
+1. La lista de frases se puede aplicar a toda la aplicación con la configuración **Global**, o bien a un modelo específico (intención o entidad). Si crea la lista de frases, como una _característica_ de una intención o entidad, la alternancia no se establece en global. En este caso, el significado de la alternancia es que la característica es solo local para ese modelo, por lo que _no es global_  para la aplicación.
 
-1. Seleccione **Listo**. El nuevo descriptor se agrega a la página de **descriptores**.
+1. Seleccione **Listo**. La nueva característica se agrega a la página **ML Features** (Características de ML).
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Puede eliminar o desactivar un suscriptor desde la barra de herramientas contextual de la página de **descriptores**.
+> Puede eliminar o desactivar una lista de frases desde la barra de herramientas contextual de la página **ML Features**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de agregar, editar, eliminar o desactivar un descriptor, vuelva a [entrenar y probar la aplicación](luis-interactive-test.md) para ver si mejora el rendimiento.
+Después de agregar, editar, eliminar o desactivar una característica, vuelva a [entrenar y probar la aplicación](luis-interactive-test.md) para ver si mejora el rendimiento.

@@ -17,13 +17,13 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Implementación con grupos de IP
+    - name: 'Implementación con grupos de IP: plantilla de Resource Manager'
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: Implementación con varias direcciones
+    - name: 'Implementación con varias direcciones: plantilla de Resource Manager'
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: Implementación con Availability Zones
+    - name: 'Implementación con Availability Zones: plantilla de Resource Manager'
       displayName: Resource Manager
       href: deploy-template.md
 - name: Ejemplos

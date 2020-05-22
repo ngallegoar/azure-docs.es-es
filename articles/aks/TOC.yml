@@ -12,6 +12,8 @@
       items:
         - name: Uso de la CLI de Azure
           href: kubernetes-walkthrough.md
+        - name: Uso de Azure PowerShell
+          href: kubernetes-walkthrough-powershell.md
         - name: Uso de Azure Portal
           href: kubernetes-walkthrough-portal.md
         - name: Uso de una plantilla de Resource Manager
@@ -225,7 +227,7 @@
         - name: Definición de intervalos IP de servidor de API autorizado
           href: api-server-authorized-ip-ranges.md
         - name: Implementaciones de control con Azure Policy (versión preliminar)
-          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
+          href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Actualización de credenciales del clúster
           href: update-credentials.md
         - name: Restricción y control del tráfico de salida del clúster
@@ -263,6 +265,8 @@
       items:
         - name: Creación de un clúster de AKS
           href: windows-container-cli.md
+        - name: Creación de un clúster de AKS con PowerShell
+          href: windows-container-powershell.md
         - name: Conexión remota
           href: rdp.md
         - name: Restricciones conocidas

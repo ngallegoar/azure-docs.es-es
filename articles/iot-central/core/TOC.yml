@@ -6,8 +6,14 @@
       href: overview-iot-central.md
     - name: Paseo por la interfaz de usuario
       href: overview-iot-central-tour.md
+    - name: Desarrollo de dispositivos
+      href: overview-iot-central-developer.md
     - name: Actualizaciones recientes
       items:
+        - name: Nuevas características de abril de 2020
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
+        - name: Actualizaciones de abril de 2020
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
         - name: Marzo de 2020
           href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: Guías de inicio rápido
@@ -81,6 +87,8 @@
           href: howto-manage-devices.md
         - name: Configuración de reglas
           href: howto-configure-rules.md
+        - name: Uso de flujos de trabajo para integrarlos con otros servicios
+          href: howto-configure-rules-advanced.md
         - name: Analizar los datos del dispositivo
           href: howto-create-analytics.md
         - name: Adición de iconos al panel

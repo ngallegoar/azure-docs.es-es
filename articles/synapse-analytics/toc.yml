@@ -25,9 +25,13 @@
         - name: Creación de cuadernos de Apache Spark mediante herramientas web
           href: quickstart-apache-spark-notebook.md
         - name: Creación de grupos de Apache Spark mediante Azure Portal
-          href: quickstart-create-apache-spark-pool.md
-        - name: Creación de grupos de SQL
-          href: quickstart-create-sql-pool.md
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Creación de un grupo de Apache Spark mediante Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
+        - name: Creación de un grupo de SQL mediante Azure Portal
+          href: quickstart-create-sql-pool-portal.md
+        - name: Creación de un grupo de SQL mediante Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
     - name: Carga de datos con grupos de SQL
       items:
         - name: Instrucción COPY
@@ -308,7 +312,7 @@
                   href: sql/develop-storage-files-overview.md
                 - name: Control de almacenamiento al almacenamiento
                   href: sql/develop-storage-files-storage-access-control.md
-                - name: Tablas de Spark
+                - name: Tablas externas de Apache Spark para Azure Synapse
                   href: sql/develop-storage-files-spark-tables.md
         - name: Administración de cargas de trabajo
           items:
@@ -328,8 +332,16 @@
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link
       items:
+        - name: "Synapse Link para Azure Cosmos\_DB"
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Introducción analítica a Microsoft Store
+          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Características que admite Synapse Link
           href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+        - name: Preguntas frecuentes sobre Synapse Link
+          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Casos de uso de Synapse Link
+          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'Integración de herramientas (IA, ETL, BI)'
       items:
         - name: Solución de problemas de Azure Synapse Analytics Studio
@@ -414,6 +426,8 @@
       items:
         - name: Synapse Link
           items:
+            - name: Configuración de Synapse Link
+              href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: "Conexión a Azure Synapse Link para Cosmos\_DB"
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Consulta de un almacén analítico de Azure Cosmos DB con Apache Spark para Azure Synapse Analytics
@@ -860,14 +874,16 @@
   items:
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Solicitudes de características
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
     - name: Foro
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Solicitudes de características
-      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: Preguntas y respuestas
+      href: 'https://docs.microsoft.com/en-us/answers/questions/topics/single/25423.html'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow

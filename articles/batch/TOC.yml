@@ -15,6 +15,9 @@
       href: quick-run-dotnet.md
     - name: 'Ejecución de un trabajo de Batch: Python'
       href: quick-run-python.md
+    - name: 'Creación de una cuenta de Batch: plantilla de Resource Manager'
+      href: quick-create-template.md
+      displayName: Resource Manager
 - name: Tutoriales
   items:
     - name: 'Procesamiento de archivos en paralelo: .NET'
@@ -169,32 +172,32 @@
               href: batch-cli-templates.md
     - name: Uso del SDK de Node.js de Batch
       href: batch-nodejs-get-started.md
-- name: Ejecución de cargas de trabajo
-  items:
-    - name: Trabajos de MPI
-      href: batch-mpi.md
-    - name: Cargas de trabajo de contenedor
-      href: batch-docker-container-workloads.md
-    - name: Representación
+    - name: Ejecución de cargas de trabajo
       items:
-        - name: Representación mediante Azure
-          href: batch-rendering-service.md
-        - name: Representación mediante imágenes de máquina virtual
-          href: batch-rendering-applications.md
-        - name: Funcionalidades de representación de Azure Batch
-          href: batch-rendering-functionality.md
-        - name: Representación de Azure Batch
-          href: batch-rendering-using.md
-        - name: Uso de administradores de representación
-          href: batch-rendering-render-managers.md
-        - name: Referencia sobre la aplicación de representación
-          href: batch-rendering-application-reference.md
-        - name: Almacenamiento y movimiento de datos
-          href: batch-rendering-storage-data-movement.md
-        - name: Representación de arquitecturas
-          href: batch-rendering-architectures.md
-    - name: Procesamiento de datos con Batch y Data Factory
-      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+        - name: Trabajos de MPI
+          href: batch-mpi.md
+        - name: Cargas de trabajo de contenedor
+          href: batch-docker-container-workloads.md
+        - name: Representación
+          items:
+            - name: Representación mediante Azure
+              href: batch-rendering-service.md
+            - name: Representación mediante imágenes de máquina virtual
+              href: batch-rendering-applications.md
+            - name: Funcionalidades de representación de Azure Batch
+              href: batch-rendering-functionality.md
+            - name: Representación de Azure Batch
+              href: batch-rendering-using.md
+            - name: Uso de administradores de representación
+              href: batch-rendering-render-managers.md
+            - name: Referencia sobre la aplicación de representación
+              href: batch-rendering-application-reference.md
+            - name: Almacenamiento y movimiento de datos
+              href: batch-rendering-storage-data-movement.md
+            - name: Representación de arquitecturas
+              href: batch-rendering-architectures.md
+        - name: Procesamiento de datos con Batch y Data Factory
+          href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Referencia
   items:
     - name: Azure CLI

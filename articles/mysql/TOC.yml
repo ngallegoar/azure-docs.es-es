@@ -276,6 +276,8 @@
       items:
         - name: "Configuración de la integración de Azure\_AD"
           href: howto-configure-sign-in-azure-ad-authentication.md
+        - name: Conexión con Identidad administrada
+          href: howto-connect-with-managed-identity.md
     - name: Denegación del acceso a una red pública
       items:
         - name: Azure Portal

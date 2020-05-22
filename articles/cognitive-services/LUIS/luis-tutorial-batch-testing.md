@@ -2,13 +2,13 @@
 title: 'Tutorial: Pruebas en lote para encontrar problemas: LUIS'
 description: En este tutorial se muestra cómo usar las pruebas en lote para asegurarse de la calidad de la aplicación Language Understanding (LUIS).
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78250564"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592600"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Pruebas en lote de conjuntos de datos
 
@@ -41,7 +41,9 @@ Importe una aplicación que tome un pedido de pizza como `1 pepperoni pizza on t
 
 1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Use el [portal de LUIS (versión preliminar)](https://preview.luis.ai/), importe el archivo JSON en una nueva aplicación y asigne a la aplicación el nombre `Pizza app`.
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Importe el archivo JSON en una aplicación nueva, denomine la aplicación como `Pizza app`.
+
 
 1. Seleccione **Entrenar** en la esquina superior derecha de la navegación para entrenar la aplicación.
 

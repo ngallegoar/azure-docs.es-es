@@ -1,7 +1,7 @@
 ---
-title: Migración a V3 Translator Text API
+title: 'Migración a V3: Translator'
 titleSuffix: Azure Cognitive Services
-description: En este artículo se indican los pasos para ayudarle a migrar de la V2 a la V3 de la Translator Text API de Azure Cognitive Services.
+description: En este artículo se indican los pasos para ayudarle a migrar de la V2 a la V3 de Translator de Azure Cognitive Services.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73837305"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592719"
 ---
-# <a name="translator-text-api-v2-to-v3-migration"></a>Migrar Translator Text API V2 a V3
+# <a name="translator-v2-to-v3-migration"></a>Migración de Translator V2 a V3
 
 > [!NOTE]
 > V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3.
 > 
 > Microsoft Translator Hub se retirará el 17 de mayo de 2019. [Ver información importante y fechas de migración](https://www.microsoft.com/translator/business/hub/).  
 
-El equipo de Microsoft Translator ha lanzado la versión 3 (V3) de Translator Text API. En esta versión se incluyen nuevas características, métodos en desuso y un nuevo formato para enviar y recibir datos del servicio Microsoft Translator. Este documento proporciona información para cambiar las aplicaciones para que usen V3. 
+El equipo de Microsoft Translator ha lanzado la versión 3 (V3) de Translator. En esta versión se incluyen nuevas características, métodos en desuso y un nuevo formato para enviar y recibir datos del servicio Microsoft Translator. Este documento proporciona información para cambiar las aplicaciones para que usen V3. 
 
 El final de este documento contiene vínculos útiles para que pueda obtener más información.
 
@@ -37,7 +37,7 @@ El final de este documento contiene vínculos útiles para que pueda obtener má
 * Transliterar: se ha agregado un método de transliteración a la API. Este método convertirá las palabras y oraciones de un script (por ejemplo, en árabe) en otro script (por ejemplo, en latín).
 * Idiomas: un nuevo método denominado "idiomas" ofrece información sobre el idioma en formato JSON, y se puede usar con los métodos "traducir", "diccionario" y "transliterar".
 * Novedades en Traducir: se han agregado nuevas capacidades al método "traducir" para admitir algunas de las características que se encontraban en la API V2 como métodos separados. Un ejemplo es TranslateArray.
-* Método leer: la funcionalidad de conversión de texto a voz ya no se admite en la API de Microsoft Translator. La funcionalidad de texto a voz está disponible en el [servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Método Leer: la funcionalidad de conversión de texto a voz ya no se admite en Microsoft Translator. La funcionalidad de texto a voz está disponible en el [servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que proporcionarán la funcionalidad de V2.
 
@@ -59,9 +59,9 @@ La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que 
 
 ## <a name="move-to-json-format"></a>Cambiar al formato JSON
 
-Microsoft Translator Text Translation V2 aceptaba y devolvía datos en formato XML. En V3, todos los datos que se envían y se reciben mediante la API están en formato JSON. XML ya no se aceptará ni devolverá datos en V3.
+Microsoft Translator Translation V2 aceptaba y devolvía datos en formato XML. En V3, todos los datos que se envían y se reciben mediante la API están en formato JSON. XML ya no se aceptará ni devolverá datos en V3.
 
-Este cambio afectará a varios aspectos de una aplicación escrita para la versión V2 de Text Translation API. Por ejemplo, la API de idiomas devuelve información del idioma que se usará en la traducción de texto, la transliteración y los dos métodos de diccionario. Puede solicitar toda la información del idioma para todos los métodos en una sola llamada o solicitarlos individualmente.
+Este cambio afectará a varios aspectos de una aplicación escrita para la versión V2 de Text Translation API. Por ejemplo: la API de idiomas devuelve información sobre el idioma que se usará en la traducción de texto, la transliteración y los dos métodos de diccionario. Puede solicitar toda la información del idioma para todos los métodos en una sola llamada o solicitarlos individualmente.
 
 El método de idiomas no requiere autenticación; si hace clic en el siguiente vínculo podrá ver toda la información de idioma para V3 en JSON:
 
@@ -118,24 +118,24 @@ La traducción neuronal con Text API V3 no admite el uso de categorías estánda
 
 | |Punto de conexión|    Compatible con el procesador GDPR|  Utiliza Translator Hub| Utiliza Traductor personalizado (versión preliminar)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API versión 2| api.microsofttranslator.com|    No  |Sí    |No|
-|Translator Text API versión 3| api.cognitive.microsofttranslator.com|  Sí|    No| Sí|
+|Translator versión 2|  api.microsofttranslator.com|    No  |Sí    |No|
+|Translator versión 3|  api.cognitive.microsofttranslator.com|  Sí|    No| Sí|
 
-**Translator Text API versión 3**
+**Translator versión 3**
 * Está disponible con carácter general y es totalmente compatible.
 * Es compatible con GDPR como procesador y satisface todas las estipulaciones de ISO 20001 y 20018, así como los requisitos de certificación de SOC 3. 
 * Permite invocar los sistemas de traducción de redes neuronales que se han personalizado con Traductor personalizado (versión preliminar), la nueva característica de personalización NMT de Translator. 
 * No proporciona acceso a los sistemas de traducción personalizada creados con Microsoft Translator Hub.
 
-Si usa el punto de conexión api.cognitive.microsofttranslator.com, esta utilizando la versión 3 de Translator Text API.
+Si usa el punto de conexión api.cognitive.microsofttranslator.com, está utilizando la versión 3 de Translator.
 
-**Translator Text API versión 2**
+**Translator versión 2**
 * No cumple todos los requisitos de certificación de ISO 20001, 20018 y SOC 3. 
 * No permite invocar los sistemas de traducción de redes neuronales que se han personalizado con la característica Traductor personalizado.
 * Proporciona acceso a los sistemas de traducción personalizada creados con Microsoft Translator Hub.
-* Si usa el punto de conexión api.microsofttranslator.com, está utilizando la versión 2 de Translator Text API.
+* Si usa el punto de conexión api.microsofttranslator.com, está utilizando la versión 2 de Translator.
 
-Ninguna versión de Translator API crea un registro de las traducciones. Las traducciones nunca se comparten con nadie. Obtenga más información en la página [No hay rastro de Translator](https://www.aka.ms/NoTrace).
+Ninguna versión de Translator crea un registro de las traducciones. Las traducciones nunca se comparten con nadie. Obtenga más información en la página [No hay rastro de Translator](https://www.aka.ms/NoTrace).
 
 ## <a name="links"></a>Vínculos
 

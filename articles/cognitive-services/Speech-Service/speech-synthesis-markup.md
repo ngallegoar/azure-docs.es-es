@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583225"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592787"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -191,11 +191,14 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > El ajuste de estilos de habla solo funciona con las voces neuronales.
 
-De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Con las voces neuronales, puede ajustar el estilo de habla para expresar alegría, empatía o sentimiento con el elemento `<mstts:express-as>`. Se trata de un elemento opcional único para el servicio de voz.
+De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Con las voces neuronales, puede ajustar el estilo de habla para expresar distintas emociones, como alegría, empatía y calma, o bien optimizar la voz para distintos escenarios, como el servicio personalizado, la transmisión de noticias y el asistente de voz, mediante el elemento < mstts:express-as>. Se trata de un elemento opcional único para el servicio de voz.
 
 Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
 * `en-US-AriaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
+* `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 
 Los cambios se aplican en el nivel de la oración y el estilo varía según la voz. Si no se admite un estilo, el servicio devolverá la voz con el estilo de habla neutro predeterminado.
 
@@ -220,10 +223,15 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="chat"`            | Expresa un tono casual y relajado                         |
 |                         | `style="cheerful"`        | Expresa un tono positivo y feliz                         |
 |                         | `style="empathetic"`      | Expresa un sentimiento de cuidado y comprensión.               |
+|   `pt-BR-FranciscaNeural`| `style="calm"`      | Expresa un tono tranquilo               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
 |                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
-|                         | `style="lyrical"`         | Expresa emociones de forma melódica y sentimental         |
+|                         | `style="lyrical"`         | Expresa emociones de forma melódica y sentimental         |   
+| `zh-CN-YunyangNeural`  | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
+| `zh-CN-YunyeNeural`  | `style="calm"`      | Expresa un tono tranquilo               |  
+|                         | `style="sad"`       | Expresa un tono insatisfecho y perturbador    |
+|                         | `style="serious"`         | Exprese un tono grave y rudo        |   
 
 **Ejemplo**
 
@@ -359,7 +367,10 @@ Los alfabetos fonéticos se componen de segmentos acústicos, que se componen de
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Uso de léxico personalizado para mejorar la pronunciación
 
-A veces, TTS no puede pronunciar con precisión una palabra, por ejemplo, una empresa o un nombre extranjero. Los desarrolladores pueden definir la lectura de estas entidades en SSML mediante las etiquetas `phoneme` y `sub`, o bien definir la lectura de varias entidades mediante la referencia a un archivo de léxico personalizado con la etiqueta `lexicon`.
+A veces, el servicio de conversión de texto a voz no puede pronunciar correctamente una palabra. Por ejemplo, el nombre de una empresa o un término médico. Los desarrolladores pueden definir cómo se leen las entidades únicas en SSML mediante las etiquetas `phoneme` y `sub`. Sin embargo, si tiene que definir cómo se leen varias entidades, puede crear un lexicón personalizado mediante la etiqueta `lexicon`.
+
+> [!NOTE]
+> El lexicón personalizado actualmente admite la codificación UTF-8. 
 
 **Sintaxis**
 
@@ -375,14 +386,10 @@ A veces, TTS no puede pronunciar con precisión una palabra, por ejemplo, una em
 
 **Uso**
 
-Paso 1: Definir el léxico personalizado 
-
-Puede definir la lectura de entidades con una lista de elementos de léxico personalizados, almacenada como un archivo .xml o .pls.
-
-**Ejemplo**
+Para definir el modo en que se leen varias entidades, puede crear un lexicón personalizado, que se almacena como archivo .xml o .pls. El siguiente es un archivo .xml de ejemplo.
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -400,39 +407,61 @@ Puede definir la lectura de entidades con una lista de elementos de léxico pers
 </lexicon>
 ```
 
-Cada elemento `lexeme` es un elemento de léxico. `grapheme` contiene texto que describe la ortografía de `lexeme`. El formulario de lectura se puede proporcionar como `alias`. Se puede proporcionar una cadena de teléfono en el elemento `phoneme`.
+El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alias` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`.
 
-El elemento `lexicon` contiene al menos un elemento `lexeme`. Cada elemento `lexeme` contiene al menos un elemento `grapheme` y uno o varios elementos `grapheme`, `alais` y `phoneme`. El elemento `grapheme` contiene texto que describe la <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografía de <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los elementos `alias` se usan para indicar la pronunciación de un acrónimo o un término abreviado. El elemento `phoneme` proporciona texto que describe cómo se pronuncia `lexeme`.
+Es importante destacar que no se puede establecer directamente la pronunciación de una palabra mediante el lexicón personalizado. Si tiene que establecer la pronunciación de una palabra, primero indique un `alias` y, a continuación, asocie el `phoneme` a ese `alias`. Por ejemplo:
 
-Para obtener más información sobre el archivo de léxico personalizado, consulte el artículo sobre la especificación de léxico de pronunciación (PLS), versión 1.0 [[Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/)] en el sitio web de W3C.
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>ScotlandMV</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme>ScotlandMV</grapheme> 
+    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
 
-Paso 2: Cargar el archivo de léxico personalizado creado en el paso 1 en línea. Puede almacenarlo en cualquier lugar y se recomienda almacenarlo en Microsoft Azure, por ejemplo [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+> [!IMPORTANT]
+> El elemento `phoneme` no puede contener espacios en blanco al usar el Alfabeto Fonético Internacional (IPA).
 
-Paso 3: Consultar el archivo de léxico personalizado en SSML
+Para obtener más información sobre el archivo de lexicón personalizado, consulte [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
+
+A continuación, publique el archivo de lexicón personalizado. Si bien no existen restricciones sobre dónde se puede almacenar este archivo, se recomienda usar [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Una vez que haya publicado el lexicón personalizado, puede hacer referencia a él desde su SSML.
+
+> [!NOTE]
+> El elemento `lexicon` debe estar dentro del elemento `voice`.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-<lexicon uri="http://www.example.com/customlexicon.xml"/>
-BTW, we will be there probably 8:00 tomorrow morning.
-Could you help leave a message to Robert Benigni for me?
+    <voice name="en-US-AriaRUS">
+        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        BTW, we will be there probably at 8:00 tomorrow morning.
+        Could you help leave a message to Robert Benigni for me?
+    </voice>
 </speak>
 ```
-"P. ej." se leerá como "por ejemplo". "Benigni" se leerá con la transcripción fonética internacional "bɛˈniːnji".  
 
-**Limitación**
+Al usar este lexicón personalizado, "BTW" se leerá como "By the way". "Benigni" se leerá con el IPA indicado "bɛˈniːnji".  
+
+**Limitaciones**
 - Tamaño de archivo: el límite máximo del tamaño de archivo de léxico personalizado es de 100 KB. Si supera este tamaño, se producirá un error en la solicitud de síntesis.
 - Actualización de la caché de léxico: el léxico personalizado se almacenará en caché con el URI como clave en el servicio TTS cuando se cargue por primera vez. El léxico con el mismo URI no se volverá a cargar durante 15 minutos, por lo que el cambio del léxico personalizado tardará un máximo de 15 minutos en aplicarse.
 
 **Conjuntos fonéticos del servicio de voz**
 
-En el ejemplo anterior, usamos el alfabeto fonético internacional, conocido también como conjunto de fonos IPA. Se recomienda que los desarrolladores usen este conjunto de fonos, ya que es el estándar internacional. Dado que este alfabeto no es fácil de recordar, el servicio de voz define un conjunto fonético para siete idiomas (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN` y `zh-TW`).
+En el ejemplo anterior, usamos el alfabeto fonético internacional, conocido también como conjunto de fonos IPA. Se recomienda que los desarrolladores usen este conjunto de fonos, ya que es el estándar internacional. En algunos caracteres del IPA, tienen la versión "precompuesta" y "descompuesta" cuando se representan con Unicode. El lexicón personalizado solo admite caracteres Unicode descompuestos.
+
+Dado que este alfabeto no es fácil de recordar, el servicio de voz define un conjunto fonético para siete idiomas (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN` y `zh-TW`).
 
 Puede usar `sapi` como valor para el atributo `alphabet` con léxicos personalizados, como se muestra a continuación:
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

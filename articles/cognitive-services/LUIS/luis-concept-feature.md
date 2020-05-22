@@ -1,90 +1,147 @@
 ---
 title: 'Características: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.author: diberry
-ms.openlocfilehash: 5b8257e24cf52d01be8065d97db17fd685aa316d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.date: 04/23/2020
+ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81531905"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591903"
 ---
-# <a name="machine-learned-features"></a>Características con aprendizaje automático
+# <a name="machine-learning-ml-features"></a>Características de Machine Learning (ML)
 
-En el aprendizaje automático, una _característica_ es un rasgo distintivo o un atributo de datos que el sistema observa y aprende. En Language Understanding (LUIS), una característica describe y explica lo que es importante sobre las intenciones y entidades.
+En el aprendizaje automático, una  **característica**  es un rasgo distintivo o un atributo de datos que el sistema observa.
 
-En el [portal en versión preliminar de LUIS](https://preview.luis.ai), las características son _descriptores_ porque se usan para _describir_ la intención o la entidad.
+Las características del aprendizaje automático proporcionan a LUIS indicaciones importantes sobre dónde buscar los elementos que distinguirán un concepto. Son sugerencias que LUIS puede usar, pero no reglas rígidas.  Estas sugerencias se usan en combinación con las etiquetas para buscar los datos.
 
-## <a name="features-_descriptors_-in-language-understanding"></a>Características (_descriptores_) de Language Understanding
+ LUIS es compatible tanto con las listas de frases como con el uso de otras entidades como características:
+* Característica de lista de frases
+* Modelo (intención o entidad) como una característica
 
-Las características, también conocidas como descriptores, describen pistas que ayudan a Language Understanding a identificar las expresiones de ejemplo. Características incluidas:
+Las características deben considerarse como una parte necesaria del diseño del esquema.
 
-* Lista de frases como una característica para las intenciones o entidades
-* Entidades como características para intenciones o entidades
+## <a name="a-phrase-list-for-a-particular-concept"></a>Lista de frases para un concepto determinado
 
-Las características deben considerarse como una parte necesaria del esquema para la descomposición del modelo.
+Una lista de frases es una lista de palabras o frases que encapsula un concepto determinado.
 
-## <a name="what-is-a-phrase-list"></a>¿Qué es una lista de frases?
+Al agregar una lista de frases, puede establecer la característica como:
+* **[Global](#global-features)** . Una característica global se aplica a toda la aplicación.
 
-Una lista de frases es una lista de palabras, frases, números u otros caracteres que ayudan a identificar el concepto que está intentando identificar. La lista distingue mayúsculas de minúsculas.
+### <a name="when-to-use-a-phrase-list"></a>Cuándo usar una lista de frases
 
-## <a name="when-to-use-a-phrase-list"></a>Cuándo usar una lista de frases
-
-Con una lista de frases, LUIS considera el contexto y lo generaliza para identificar los elementos que son similares, pero que no son una coincidencia de texto exacta. Si es necesario que la aplicación de LUIS sea capaz de generalizar e identificar los elementos nuevos, use una lista de frases.
-
-Si quiere poder reconocer nuevas instancias, como un programador de reuniones que deba reconocer los nombres de los contactos nuevos, o bien una aplicación de inventario que deba reconocer los productos nuevos, comience con una entidad con aprendizaje automático. A continuación, cree una lista de frases que ayude a LUIS a encontrar palabras con un significado similar. Esta lista de frases sirve de guía a LUIS para reconocer los ejemplos mediante la adición de más importancia al valor de esas palabras.
-
-Las listas de frases son similares al vocabulario específico de dominio que ayuda a mejorar la calidad de comprensión de las intenciones y entidades.
-
-## <a name="considerations-when-using-a-phrase-list"></a>Consideraciones al usar una lista de frases
-
-De forma predeterminada, se aplica una lista de frases a todos los modelos de la aplicación. Esto funcionará en las listas de frases que pueden cruzar todas las intenciones y entidades. Para la capacidad de descomposición, debería aplicar una lista de frases solo a los modelos para los que es relevante.
-
-Si crea una lista de frases (que se crea globalmente de forma predeterminada), después la aplica como descriptor (característica) a un modelo específico y la quita de otros modelos. Esta eliminación agrega relevancia a la lista de frases para el modelo al que se aplica, lo que ayuda a mejorar la precisión que proporciona en el modelo.
-
-La marca `enabledForAllModels` controla este ámbito del modelo en la API.
-
-<a name="how-to-use-phrase-lists"></a>
+Si es necesario que la aplicación LUIS sea capaz de generalizar e identificar los elementos nuevos del concepto, use una lista de frases. Las listas de frases son similares al vocabulario específico de dominio que ayuda a mejorar la calidad de comprensión de las intenciones y entidades.
 
 ### <a name="how-to-use-a-phrase-list"></a>Cómo utilizar una lista de frases
 
-[Cree una lista de frases](luis-how-to-add-features.md) cuando la intención o entidad tenga palabras o frases que son importantes, como:
+Con una lista de frases, LUIS considera el contexto y lo generaliza para identificar los elementos que son similares, pero que no son una coincidencia de texto exacta.
 
-* términos del sector
-* jerga
-* abreviaturas
-* lenguaje específico de la empresa
-* lenguaje que pertenece a otro idioma, pero que se utiliza con frecuencia en la aplicación
-* palabras y frases clave en las expresiones de ejemplo
+Pasos para utilizar una lista de frases:
+* Empezar con una entidad con aprendizaje automático
+    * Incorporación de expresiones de ejemplo
+    * Etiquete con una entidad con aprendizaje automático.
+* Agregar una lista de frases
+    * Agregue palabras con significado similar: **no** agregue todas las palabras o frases posibles. En su lugar, agregue algunas palabras o frases a la vez, y vuelva a entrenar y a publicar.
+    * Revise y agregue palabras sugeridas.
 
-**No** agregue todas las palabras o frases posibles. En su lugar, agregue algunas palabras o frases a la vez, y vuelva a entrenar y a publicar. Conforme vaya creciendo la lista, es posible que algunos de los términos presenten varias formas (sinónimos). Divídala en otra lista.
+### <a name="a-typical-scenario-for-a-phrase-list"></a>Escenario típico para una lista de frases
 
+Un escenario típico para una lista de frases es potenciar las palabras relacionadas con una idea concreta.
+
+Un ejemplo de palabras que pueden necesitar una lista de frases para aumentar su importancia son los términos médicos. Los términos pueden tener un significado específico físico, químico, terapéutico o abstracto. LUIS no sabrá que los términos son importantes para el dominio del tema sin una lista de frases.
+
+Si desea extraer términos médicos:
+* En primer lugar, cree expresiones de ejemplo y etiquete los términos médicos dentro de esas expresiones.
+* A continuación, cree una lista de frases con ejemplos de los términos dentro del dominio del tema. En esta lista de frases se debe incluir el término real que etiquetó y otros términos que describen el mismo concepto.
+* Agregue la lista de frases a la entidad o subentidad que extrae el concepto utilizado en la lista de frases. El escenario más común es un componente (secundario) de una entidad con aprendizaje automático. Si la lista de frases debe aplicarse a todos las intenciones o entidades, marque la lista de frases como lista de frases global. La marca `enabledForAllModels` controla este ámbito del modelo en la API.
+
+<a name="how-to-use-phrase-lists"></a>
+<a name="how-to-use-a-phrase-lists"></a>
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="when-to-use-an-entity-as-a-feature"></a>Cuándo usar una entidad como una característica
+## <a name="a-model-as-a-feature-helps-another-model"></a>Modelo como una característica que ayuda a otro modelo
 
-Una entidad se puede agregar como una característica al nivel de la intención o de entidad.
+Puede agregar un modelo (intención o entidad) como una característica para otro modelo (intención o entidad). Al agregar una intención o entidad existente como una característica, agrega un concepto bien definido con ejemplos con etiquetas.
 
-### <a name="entity-as-a-feature-to-an-intent"></a>Entidad como característica para una intención
+Al agregar un modelo como una característica, puede establecer la característica como:
+* **[Obligatoria](#required-features)** . Se deben encontrar las características que son obligatorias para que se devuelva el modelo desde el punto de conexión de predicción.
+* **[Global](#global-features)** . Una característica global se aplica a toda la aplicación.
 
-Agregue una entidad como un descriptor (característica) a una intención cuando la detección de esa entidad sea significativa para la intención.
+### <a name="when-to-use-an-entity-as-a-feature-to-an-intent"></a>Cuándo usar una entidad como una característica para una intención
 
-Por ejemplo, si la intención es reservar un vuelo y la entidad es la información sobre los billetes (como el número de asiento, el origen y el destino), la búsqueda de la entidad de información de los billetes debe agregar peso a la predicción de la intención de la reserva del vuelo.
+Agregue una entidad como una característica a una intención cuando la detección de esa entidad sea significativa para la intención.
 
-### <a name="entity-as-a-feature-to-another-entity"></a>Entidad como característica de otra entidad
+Por ejemplo, si la intención es reservar un vuelo, `BookFlight`, y la entidad es la información sobre el billete (como el número de asiento, el origen y el destino), la búsqueda de la entidad de información del billete debe agregar un peso significativo a la predicción de la intención `BookFlight`.
+
+### <a name="when-to-use-an-entity-as-a-feature-to-another-entity"></a>Cuándo usar una entidad como una característica para otra entidad
 
 Una entidad (A) debe agregarse como una característica a otra entidad (B), cuando la detección de esa entidad (A) es importante para la predicción de la entidad (B).
 
-Por ejemplo, si se detecta la entidad de dirección postal (A), la búsqueda de la dirección postal (A) agrega el peso a la predicción para la entidad de dirección de envío (B).
+Por ejemplo, si la entidad de dirección de envío n contiene una subentidad de dirección postal, la búsqueda de la subentidad de dirección postal agrega peso significativo a la predicción para la entidad de dirección de envío.
+
+* Dirección de envío (entidad con aprendizaje automático)
+    * Número de la calle (subentidad)
+    * Dirección postal (subentidad)
+    * Ciudad (subentidad)
+    * Estado o provincia (subentidad)
+    * País (subentidad)
+    * Código postal (subentidad)
+
+## <a name="required-features"></a>Características obligatorias
+
+Se deben encontrar las características que son obligatorias para que se devuelva el modelo desde el punto de conexión de predicción. Use una característica obligatoria si sabe que los datos entrantes deben coincidir con la característica.
+
+**Una característica obligatoria utiliza una entidad sin aprendizaje automático**:
+* Entidad de expresión regular
+* Entidad de lista
+* Entidad creada previamente
+
+¿Qué características son buenas para marcarlas como obligatorias? Si está seguro de que se encontrará el modelo en los datos, establezca la característica como obligatoria. Una característica obligatoria no devuelve nada, si no se encuentra.
+
+Continuando con el ejemplo de la dirección de envío:
+* Dirección de envío (entidad con aprendizaje automático)
+    * Número de la calle (subentidad)
+    * Dirección postal (subentidad)
+    * Nombre de la calle (subentidad)
+    * Ciudad (subentidad)
+    * Estado o provincia (subentidad)
+    * País (subentidad)
+    * Código postal (subentidad)
+
+### <a name="required-feature-using-prebuilt-entities"></a>Característica obligatoria con entidades precompiladas
+
+La ciudad, el estado y el país suelen ser un conjunto cerrado de listas, lo que significa que no cambian mucho con el tiempo. Estas entidades podrían tener las características recomendadas pertinentes y estas características podrían marcarse como obligatorias. Significa que no se devuelve la dirección de envío completa si no se encuentran las entidades con las características obligatorias.
+
+¿Qué ocurre si la ciudad, el estado o el país se encuentran en la expresión, pero en una ubicación o jerga que LUIS no espera? Si desea proporcionar algún procesamiento posterior para ayudar a resolver la entidad, debido a una puntuación de confianza baja de LUIS, no marque la característica como obligatoria.
+
+Otro ejemplo de una característica obligatoria para la dirección de envío es hacer que el número de la calle sea un número [precompilado](luis-reference-prebuilt-entities.md) obligatorio. Esto permite que el usuario pueda escribir "1 Microsoft Way" o "One Microsoft Way". Ambos se resolverán en el número "1" para la subentidad de número de la calle.
+
+### <a name="required-feature-using-list-entities"></a>Característica obligatoria con entidades de lista
+
+Una [entidad de lista](reference-entity-list.md) se utiliza como una lista de nombres canónicos junto con sus sinónimos. Como característica obligatoria, si la expresión no incluye el nombre canónico o un sinónimo, la entidad no se devuelve como parte del punto de conexión de predicción.
+
+Siguiendo con el ejemplo de la dirección de envío, supongamos que su compañía solo realiza envíos a un conjunto limitado de países. Puede crear una entidad de lista que incluya varias maneras en las que el cliente puede hacer referencia al país. Si LUIS no encuentra una coincidencia exacta en el texto de la expresión, la entidad (que tiene la característica obligatoria de la entidad de lista) no se devuelve en la predicción.
+
+|Nombre canónico|Sinónimos|
+|--|--|
+|Estados Unidos|EE. UU.<br>EE. UU.<br>US<br>EE. UU.<br>0|
+
+La aplicación cliente, como un bot de chat, puede formular una pregunta de seguimiento, para que el cliente entienda que la selección del país está limitada y es _obligatoria_.
+
+### <a name="required-feature-using-regular-expression-entities"></a>Característica obligatoria con entidades de expresión regular
+
+Una [entidad de expresión regular](reference-entity-regular-expression.md) utilizada como característica obligatoria proporciona funciones de coincidencia de texto enriquecidas.
+
+Continuando con la dirección de envío, puede crear una expresión regular que capture las reglas de sintaxis de los códigos postales de los países.
+
+## <a name="global-features"></a>Características globales
+
+Aunque el uso más común es aplicar una característica a un modelo específico, puede configurar la característica como **característica global** para aplicarla a toda la aplicación.
+
+El uso más común de una característica global es agregar un vocabulario adicional, como palabras de otro idioma, a la aplicación. Si los clientes usan un idioma principal, pero se espera poder usar otro idioma en la misma expresión, puede agregar una característica que incluya palabras del idioma secundario.
+
+Como el usuario esperaba usar el segundo idioma en cualquier intención o entidad, debe agregarse en una lista de frases que esté configurada como una característica global.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 Obtenga información sobre los [procedimientos recomendados](luis-concept-best-practices.md).

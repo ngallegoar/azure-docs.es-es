@@ -79,9 +79,8 @@
     - name: Cuadernos de Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Conjuntos de valores del diseñador
-      href: sample-designer-datasets.md
-    - name: Canalizaciones de ejemplo del diseñador
+    - name: Ejemplos conjuntos de datos de Designer
+      displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
     - name: Ejemplos de MLOps de un extremo a otro
       href: 'https://github.com/microsoft/MLOps'
@@ -261,6 +260,9 @@
             - name: Creación de versión y seguimiento de conjuntos de datos
               displayName: 'data, data set'
               href: how-to-version-track-datasets.md
+            - name: Conservación de la privacidad de los datos
+              displayName: 'data,privacy,differential privacy'
+              href: how-to-differential-privacy.md
     - name: Entrenamiento de modelos
       items:
         - name: Uso de estimadores para ML
@@ -376,6 +378,9 @@
               href: how-to-monitor-data-drift.md
             - name: Supervisión con Application Insights
               href: how-to-enable-app-insights.md
+        - name: Implementación de un servicio de inferencia cifrada
+          displayName: 'homomorhic,encryption,deployment'
+          href: how-to-homomorphic-encryption-seal.md
     - name: Compilación y uso de canalizaciones de Machine Learning
       displayName: pipelines
       items:
@@ -393,9 +398,6 @@
         - name: Depuración de canalizaciones en Application Insights
           displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
-        - name: Canalizaciones de Azure para CI/CD
-          displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
         - name: Transformación de datos en Designer
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -417,6 +419,9 @@
         - name: Iteración y evolución de canalizaciones de aprendizaje automático
           displayName: modularizing testing
           href: concept-pipeline-practices-tips.md
+    - name: Canalizaciones de Azure para CI/CD
+      displayName: 'continuous, integration, delivery'
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: Administración de cuotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

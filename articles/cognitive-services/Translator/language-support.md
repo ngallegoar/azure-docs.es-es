@@ -1,7 +1,7 @@
 ---
-title: 'Idiomas admitidos: Translator Text API'
+title: 'Idiomas admitidos: Translator'
 titleSuffix: Azure Cognitive Services
-description: Translator Text API admite los siguientes idiomas para la conversión de texto a texto con traducción automática neuronal (NMT).
+description: Translator de Cognitive Services admite los siguientes idiomas para la conversión de texto a texto con traducción automática neuronal (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81684823"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592736"
 ---
-# <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
+# <a name="language-and-region-support-for-translator"></a>Compatibilidad de idiomas y regiones para Translator
 
-Translator Text API admite los siguientes idiomas para la conversión de texto a texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator Text API cuando hay un sistema neuronal disponible.
+Translator admite los siguientes idiomas para la traducción de texto a texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator cuando hay un sistema neuronal disponible.
 
 [Más información sobre cómo funciona la traducción automática](https://www.microsoft.com/translator/mt.aspx)
 
 ## <a name="translation"></a>Traducción
 
-**Translator API V2**
+**Translator V2**
 
 > [!NOTE]
 > V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3.
@@ -35,7 +35,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 * Neuronal como sistema predeterminado: el sistema de traducción neuronal es el predeterminado. Utilice el parámetro `category=smt` para acceder al sistema estadístico y utilizarlo con Microsoft Translator Hub.
 * Solo neuronal: la traducción neuronal es la única que está disponible.
 
-**Translator API V3** Translator API V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal.
+**Translator V3** Translator V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal.
 
 > [!NOTE]
 > Actualmente, un subconjunto de los idiomas neuronales está disponible en Traductor personalizado y agregamos otros adicionales de forma gradual. [Vea los idiomas disponibles actualmente en Traductor personalizado](#customization).
@@ -204,12 +204,12 @@ El diccionario admite los siguientes idiomas desde o hacia el inglés con los m�
 
 ## <a name="detect"></a>Detect
 
-Translator Text API detecta todos los idiomas disponibles para traducción y transliteración.
+Translator detecta todos los idiomas disponibles para traducción y transliteración.
 
 
-## <a name="access-the-translator-text-api-language-list-programmatically"></a>Acceso a la lista de idiomas de Translator Text API mediante programación
+## <a name="access-the-translator-language-list-programmatically"></a>Acceso a la lista de idiomas de Translator mediante programación
 
-Puede recuperar una lista de los idiomas admitidos por Translator Text API v3.0 mediante el método Languages. Puede ver la lista por característica, código de idioma o por nombre del idioma en inglés o en cualquier otro idioma admitido. El servicio Microsoft Translator actualiza esta lista automáticamente cuando hay nuevos idiomas disponibles.
+Puede recuperar una lista de los idiomas admitidos por Translator v3.0 mediante el método Languages. Puede ver la lista por característica, código de idioma o por nombre del idioma en inglés o en cualquier otro idioma admitido. El servicio Microsoft Translator actualiza esta lista automáticamente cuando hay nuevos idiomas disponibles.
 
 [Ver la documentación de referencia de la operación Languages](reference/v3-0-languages.md)
 
@@ -269,6 +269,6 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Acceso a la lista en el sitio web de Microsoft Translator
 
-Para echar un vistazo rápido a los idiomas, el sitio web de Microsoft Translator muestra todos los idiomas admitidos por Translator Text API y Speech API. Esta lista no incluye información específica para desarrolladores, por ejemplo, los códigos de idioma.
+Para echar un vistazo rápido a los idiomas, el sitio web de Microsoft Translator muestra todos los idiomas admitidos por las API Translator y Voz. Esta lista no incluye información específica para desarrolladores, por ejemplo, los códigos de idioma.
 
 [Ver la lista de idiomas](https://www.microsoft.com/translator/languages.aspx)

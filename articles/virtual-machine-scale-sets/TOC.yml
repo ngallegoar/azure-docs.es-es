@@ -60,9 +60,39 @@
 - name: Ejemplos
   items:
     - name: Azure CLI
-      href: cli-samples.md
+      items:
+        - name: Crear un conjunto de escalado de máquinas virtuales
+          href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Creación de un conjunto de escalado a partir de una imagen de máquina virtual personalizada
+          href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
+        - name: Instalación de aplicaciones en un conjunto de escalado
+          href: ./scripts/cli-sample-install-apps.md
+        - name: Creación y conexión de discos a un conjunto de escalado
+          href: ./scripts/cli-sample-attach-disks.md
+        - name: Habilitación de la escalabilidad automática basada en host
+          href: ./scripts/cli-sample-enable-autoscale.md
+        - name: Creación de un conjunto de escalado de una única zona
+          href: ./scripts/cli-sample-single-availability-zone-scale-set.md
+        - name: Creación de un conjunto de escalado con redundancia de zona
+          href: ./scripts/cli-sample-zone-redundant-scale-set.md
     - name: PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Creación de un conjunto de escalado de máquinas virtuales sencillo
+          href: ./scripts/powershell-sample-create-simple-scale-set.md
+        - name: Creación de un conjunto de escalado de máquinas virtuales completo
+          href: ./scripts/powershell-sample-create-complete-scale-set.md
+        - name: Creación de un conjunto de escalado a partir de una imagen de máquina virtual personalizada
+          href: ./scripts/powershell-sample-create-scale-set-from-custom-image.md
+        - name: Instalación de aplicaciones en un conjunto de escalado
+          href: ./scripts/powershell-sample-install-apps.md
+        - name: Creación y conexión de discos a un conjunto de escalado
+          href: ./scripts/powershell-sample-attach-disks.md
+        - name: Habilitación de la escalabilidad automática basada en host
+          href: ./scripts/powershell-sample-enable-autoscale.md
+        - name: Creación de un conjunto de escalado de una única zona
+          href: ./scripts/powershell-single-av-zone-scale-set.md
+        - name: Creación de un conjunto de escalado con redundancia de zona
+          href: ./scripts/powershell-sample-zone-redundant-scale-set.md
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md

@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Reconocimiento de voz almacenada en Blob Storage
           href: quickstarts/from-blob.md
+        - name: Valoración de la pronunciación con entrada de referencias
+          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: Guías paso a paso
       items:
         - name: Elección del modo de reconocimiento de voz
@@ -61,6 +63,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluación de la precisión de Habla personalizada
           href: how-to-custom-speech-evaluate-data.md
+        - name: Mejora de la precisión de Habla personalizada
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Entrenamiento de un modelo de Habla personalizada
           href: how-to-custom-speech-train-model.md
         - name: Implementación de un modelo personalizado

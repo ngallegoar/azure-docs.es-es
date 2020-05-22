@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77560905"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593178"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migración de Translator Speech API al servicio de voz
 
@@ -37,7 +37,7 @@ Use este artículo para migrar las aplicaciones de Microsoft Translator Speech A
 | Varios idiomas que se traducen en una sola solicitud | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDK disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vea la [Documentación del servicio de voz](index.yml) para obtener información de los SDK disponibles.                                                                                                                                                    |
 | Conexiones de WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API Languages                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | El servicio de voz admite el mismo conjunto de idiomas que se describe en el artículo de [referencia de idiomas de las API Translator](../translator-speech/languages-reference.md). |
+| API Languages                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | El servicio de Voz admite el mismo conjunto de idiomas que se describe en el artículo de [referencia de idiomas de Translator](../translator-speech/languages-reference.md). |
 | Marcador y filtro de obscenidad                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Otros tipos de archivo como entrada                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -55,14 +55,14 @@ Si su organización o usted tienen aplicaciones en desarrollo o producción que 
 
 * Si la aplicación usa conexiones de larga duración y no puede usar un SDK disponible, puede usar una conexión de WebSockets. Administre el límite de tiempo de espera de 10 minutos volviendo a conectarse en los momentos adecuados.
 
-* Si la aplicación utiliza las API Translator Text y Translator Speech para habilitar los modelos de traducción personalizada, puede agregar los identificadores "Categoría" directamente mediante el servicio de voz.
+* Si la aplicación utiliza el servicio de Translator para y la API Translator Speech habilitar los modelos de traducción personalizada, puede agregar los identificadores "Categoría" directamente mediante el servicio de Voz.
 
 * A diferencia de la API Translator Speech, el servicio de voz puede completar las traducciones en varios idiomas en una sola solicitud.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Prueba gratuita del servicio de voz](get-started.md)
-* [Inicio rápido: Reconocimiento de voz en una aplicación para UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Consulte también
 

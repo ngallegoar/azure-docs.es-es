@@ -42,8 +42,6 @@
         - name: 2. Extracción de datos de usuario
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
-        - name: 3. Obtención de opiniones a partir de expresiones del usuario
-          href: tutorial-publish-settings.md
     - name: Mejora de la aplicación
       items:
         - name: Corrección de predicciones no seguras

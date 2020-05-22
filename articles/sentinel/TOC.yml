@@ -34,7 +34,7 @@
       items:
         - name: Conexión de servicio a servicio
           items:
-            - name: AWS
+            - name: AWS CloudTrail
               href: connect-aws.md
             - name: Azure AD
               href: connect-azure-active-directory.md
@@ -66,7 +66,7 @@
               href: connect-windows-security-events.md
         - name: Conexión de soluciones externas
           items:
-            - name: Barracuda
+            - name: Firewall de aplicaciones web Barracuda
               href: connect-barracuda.md
             - name: Barracuda CloudGen Firewall
               href: connect-barracuda-cloudgen-firewall.md
@@ -100,7 +100,7 @@
                       href: connect-extrahop.md
                     - name: F5 ASM
                       href: connect-f5.md
-                    - name: Productos de Forcepoint
+                    - name: 'Agente de seguridad de acceso a la nube, NGFW'
                       href: connect-forcepoint-casb-ngfw.md
                     - name: Fortinet
                       href: connect-fortinet.md

@@ -2,13 +2,13 @@
 title: 'Expresiones de ejemplo correctas: LUIS'
 description: Las expresiones son datos proporcionados por el usuario que la aplicación necesita interpretar. Recopile frases que crea que los usuarios pueden escribir. Incluya expresiones que signifiquen lo mismo, pero que se construyan de forma diferente tanto en longitud de palabras como en el orden de las palabras.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382286"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592872"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -68,11 +68,27 @@ Es mejor empezar con pocas expresiones y, luego, [revisar las expresiones del pu
 
 ## <a name="utterance-normalization"></a>Normalización de expresiones
 
-La normalización de expresiones es el proceso de omitir los efectos de la puntuación y los signos diacríticos durante el entrenamiento y la predicción. Utilice la [configuración de la aplicación](luis-reference-application-settings.md) para controlar cómo la normalización de las expresiones afecta a las predicciones de expresiones.
+La normalización de expresiones es el proceso de omitir los efectos de los tipos de texto, como la puntuación y las marcas diacríticas, durante el entrenamiento y la predicción.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalización de expresiones los signos diacríticos y la puntuación
+La configuración de la normalización de expresiones está desactivada de forma predeterminada. Esta configuración incluye:
 
-La normalización de expresiones se define al crear o importar la aplicación porque es una configuración del archivo JSON de la aplicación. La configuración de la normalización de expresiones está desactivada de forma predeterminada.
+* Formas de las palabras
+* Marcas diacríticas
+* Signos de puntuación
+
+Si activa la configuración de normalización, las puntuaciones del panel **Prueba**, las pruebas por lotes y las consultas de puntos de conexión cambiarán en todas las expresiones que usen esa configuración de normalización.
+
+Al clonar una versión en el portal de LUIS, la configuración de la versión continúa con la nueva versión clonada.
+
+Establezca la configuración de la versión a través del portal LUIS, en la sección **Administrar**, en la página **Configuración de la aplicación** o en la [Actualización de la configuración de la versión de la API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Obtenga más información sobre estos cambios de normalización en la [Referencia](luis-reference-application-settings.md).
+
+### <a name="word-forms"></a>Formas de las palabras
+
+Normalizar las **formas de las palabras** omite las diferencias en las palabras que se expanden más allá de la raíz. Por ejemplo, las palabras `run`, `running`y `runs` cambian en función del tiempo verbal.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>Marcas diacríticas
 
 Los signos diacríticos son marcas o signos dentro del texto, como:
 
@@ -80,24 +96,8 @@ Los signos diacríticos son marcas o signos dentro del texto, como:
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Si la aplicación activa la normalización, las puntuaciones del panel **Prueba**, las pruebas por lotes y las consultas de puntos de conexión cambiarán en todas las expresiones que usan signos diacríticos o puntuación.
-
-Active la normalización de expresiones para los signos diacríticos o la puntuación en el archivo de aplicación JSON de LUIS en el parámetro `settings`.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-Normalizar la **puntuación** significa que antes de que los modelos se entrenen y antes de que las consultas de punto de conexión se predigan, la puntuación se quitará de las expresiones.
-
-Al normalizar los **signos diacríticos** se reemplazan los caracteres con signos diacríticos en las expresiones por caracteres normales. Por ejemplo, `Je parle français` pasa a ser `Je parle francais`.
-
-La normalización no significa que deje de ver la puntuación y los diacríticos en sus expresiones o respuestas de predicción de ejemplo, sino que simplemente se omiten durante el entrenamiento y la predicción.
-
 ### <a name="punctuation-marks"></a>Signos de puntuación
+Normalizar la **puntuación** significa que antes de que los modelos se entrenen y antes de que las consultas de punto de conexión se predigan, la puntuación se quitará de las expresiones.
 
 Los signos de puntuación son un token independiente de LUIS. Una expresión que contiene un punto final frente a una expresión que no lo tiene son dos expresiones distintas y pueden tener predicciones diferentes.
 
@@ -111,7 +111,9 @@ Si la puntuación no tiene un significado concreto en la aplicación cliente, po
 
 Si quiere omitir palabras o signos de puntuación específicos en los patrones, use un [patrón](luis-concept-patterns.md#pattern-syntax) con la sintaxis _ignore_ de corchetes, `[]`.
 
-## <a name="training-utterances"></a>Expresiones de entrenamiento
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>Entrenamiento con todas las expresiones
 
 El entrenamiento no es generalmente determinista: la predicción de expresiones podría variar ligeramente entre versiones o aplicaciones.
 Puede quitar el aprendizaje no determinista actualizando la [API de configuración de versión](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con el par nombre-valor `UseAllTrainingData` para que así pueda utilizar todos los datos de aprendizaje.

@@ -88,7 +88,11 @@
         - name: Introducción a la seguridad
           href: azure-stack-edge-security.md
         - name: Revisión de especificaciones
-          href: azure-stack-edge-technical-specifications-compliance.md
+          items:
+            - name: Especificaciones del dispositivo
+              href: azure-stack-edge-technical-specifications-compliance.md
+            - name: Especificaciones del cable de alimentación
+              href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Procedimientos
       items:
         - name: 'Desarrollo de un módulo de C#'

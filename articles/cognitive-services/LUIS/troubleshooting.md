@@ -2,14 +2,14 @@
 title: 'Preguntas más frecuentes (P+F): LUIS'
 description: Este artículo contiene respuestas a las preguntas más frecuentes sobre Language Understanding (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101117"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592855"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -66,7 +66,7 @@ Para transferir una aplicación de LUIS a otra suscripción de Azure, exporte la
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Una entidad compilada previamente se etiqueta en una expresión de ejemplo en lugar de en mi entidad personalizada. ¿Cómo puedo corregirlo?
 
-En el portal de LUIS, puede etiquetar el texto de la entidad exacta que le interese extraer. Si el portal de LUIS no muestra la predicción de entidad correcta, puede que necesite agregar más expresiones y etiquetar la entidad en el texto o agregar un descriptor (por ejemplo, una característica).
+En el portal de LUIS, puede etiquetar el texto de la entidad exacta que le interese extraer. Si el portal de LUIS no muestra la predicción de entidad correcta, puede que necesite agregar más expresiones y etiquetar la entidad en el texto o agregar una característica.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Se intentó importar un archivo de aplicación o versión pero se produjo un error, ¿a qué se debe?
 
