@@ -1,5 +1,5 @@
 ---
-title: Método de búsqueda de diccionario de Translator Text API
+title: Método de búsqueda de diccionario de Traductor
 titleSuffix: Azure Cognitive Services
 description: El método Dictionary Lookup proporciona traducciones alternativas para una palabra y un pequeño número de frases hechas.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76548958"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584746"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Búsqueda de diccionario
+# <a name="translator-30-dictionary-lookup"></a>Traductor 3.0: Búsqueda en diccionario
 
 Proporciona traducciones alternativas para una palabra y un pequeño número de frases hechas. Cada traducción tiene funciones de sintaxis y una lista de traducciones inversas. Las traducciones inversas permiten al usuario comprender la traducción en contexto. La operación [Ejemplo de diccionario](./v3-0-dictionary-examples.md) le permite profundizar más para ver ejemplos de usos de cada par de traducción.
 
@@ -68,17 +68,17 @@ Se aplican las siguientes limitaciones:
 
 Una respuesta correcta es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
-  * `normalizedSource`: es una cadena que proporciona el formato normalizado del término de origen. Por ejemplo, si la solicitud es "JOHN", la forma normalizada será "john". El contenido de este campo se convierte en la entrada de los [ejemplos de búsqueda](./v3-0-dictionary-examples.md).
+  * `normalizedSource`: cadena que proporciona la forma normalizada del término de origen. Por ejemplo, si la solicitud es "JOHN", la forma normalizada será "john". El contenido de este campo se convierte en la entrada de los [ejemplos de búsqueda](./v3-0-dictionary-examples.md).
     
   * `displaySource`: es una cadena que proporciona el término de origen de la forma más adecuada para mostrársela al usuario final. Por ejemplo, si la entrada es "JOHN", el formulario de visualización reflejará la ortografía habitual del nombre: "John". 
 
-  * `translations`: es una lista de traducciones para el término de origen. Cada elemento de la lista es un objeto que consta de las siguientes propiedades:
+  * `translations`: es una lista de traducciones del término de origen. Cada elemento de la lista es un objeto que consta de las siguientes propiedades:
 
-    * `normalizedTarget`: es una cadena que da la forma normalizada del término en el idioma de destino. Este valor debe usarse como entrada para [buscar ejemplos](./v3-0-dictionary-examples.md).
+    * `normalizedTarget`: es una cadena que proporciona la forma normalizada del término en el idioma de destino. Este valor debe usarse como entrada para [buscar ejemplos](./v3-0-dictionary-examples.md).
 
-    * `displayTarget`: es una cadena que proporciona el término en el idioma de destino y de una forma más adecuada para mostrársela al usuario final. Generalmente, esto solo se diferencia de `normalizedTarget` en lo que respecta al uso de las mayúsculas. Por ejemplo, un nombre propio como "Juan" tendrá `normalizedTarget = "juan"` y `displayTarget = "Juan"`.
+    * `displayTarget`: es una cadena que proporciona el término en el idioma de destino de una forma más adecuada para mostrársela al usuario final. Generalmente, esto solo se diferencia de `normalizedTarget` en lo que respecta al uso de las mayúsculas. Por ejemplo, un nombre propio como "Juan" tendrá `normalizedTarget = "juan"` y `displayTarget = "Juan"`.
 
-    * `posTag`: es una cadena que asocia este término con una etiqueta de funciones de sintaxis.
+    * `posTag`: es una cadena que asocia este término con una etiqueta de categoría gramatical.
 
         | Nombre de etiqueta | Descripción  |
         |----------|--------------|
@@ -95,19 +95,19 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
         Como nota de implementación, estas etiquetas se determinaron como funciones de sintaxis mediante el etiquetado de la parte en inglés, y usando la etiqueta más frecuente para cada par de origen o destino. Por lo tanto, si las personas traducen con frecuencia una palabra en español a una etiqueta de función de sintaxis que está en inglés, las etiquetas pueden terminar siendo incorrectas (con respecto a la palabra en español).
 
-    * `confidence`: es un valor entre 0,0 y 1,0 que representa la "confianza" o, más exactamente, la "probabilidad en los datos de aprendizaje" del par de traducción. La suma de las puntuaciones de confianza para una palabra de origen puede, o no, sumar 1,0. 
+    * `confidence`: es un valor comprendido entre 0,0 y 1,0 que representa la "confianza" (o más exactamente la "probabilidad en los datos de aprendizaje") del par de traducción. La suma de las puntuaciones de confianza para una palabra de origen puede, o no, sumar 1,0. 
 
-    * `prefixWord`: es una cadena que indica que la palabra para mostrar es un prefijo en la traducción. En la actualidad, este es el determinante de género de los sustantivos, que se usa en idiomas que tienen determinantes de género. Por ejemplo, el prefijo de la palabra en español "mosca" es "la", ya que "mosca" es un nombre femenino en español. Esto solo depende de la traducción, y no del origen. Si no hay prefijo, la cadena quedará vacía.
+    * `prefixWord`: es una cadena que indica que la palabra que se va mostrar funciona como prefijo de la traducción. En la actualidad, este es el determinante de género de los sustantivos, que se usa en idiomas que tienen determinantes de género. Por ejemplo, el prefijo de la palabra en español "mosca" es "la", ya que "mosca" es un nombre femenino en español. Esto solo depende de la traducción, y no del origen. Si no hay prefijo, la cadena quedará vacía.
     
     * `backTranslations`: es una lista de "traducciones inversas" del destino. Por ejemplo, las palabras de origen que se pueden traducir al idioma de destino. La lista garantiza que se encontrará la palabra de origen que se solicitó (por ejemplo, si la palabra de origen que se busca es "fly", entonces se garantiza que "fly" estará en la lista `backTranslations`). Sin embargo, no se garantiza que esté en la primera posición, y a menudo no lo estará. Cada elemento de la lista `backTranslations` es un objeto que consta de las siguientes propiedades:
 
-        * `normalizedText`: una cadena que proporciona la forma normalizada del término de origen, que es a su vez una traducción inversa del destino. Este valor debe usarse como entrada para [buscar ejemplos](./v3-0-dictionary-examples.md).        
+        * `normalizedText`: es una cadena que proporciona la forma normalizada del término de origen, que es a su vez una traducción inversa del destino. Este valor debe usarse como entrada para [buscar ejemplos](./v3-0-dictionary-examples.md).        
 
-        * `displayText`: una cadena que proporciona el término de origen que es una traducción inversa del destino, y que se muestra de la forma más adecuada para el usuario final.
+        * `displayText`: es una cadena que proporciona el término de origen, que es una traducción inversa del destino, que se muestra de la forma más adecuada para el usuario final.
 
-        * `numExamples`: es un entero que representa el número de ejemplos que están disponibles para este par de traducción. Los ejemplos reales deben obtenerse con una llamada independiente a la opción [buscar ejemplos](./v3-0-dictionary-examples.md). El número está diseñado principalmente para facilitar la presentación en un diseño UX. Por ejemplo, una interfaz de usuario puede agregar un hipervínculo a la traducción inversa si el número de ejemplos es mayor que cero, y si se muestra la traducción inversa como texto sin formato si es que no hay ejemplos. Tenga en cuenta que el número real de ejemplos que devuelve una llamada a la opción [buscar ejemplos](./v3-0-dictionary-examples.md) puede ser menor que `numExamples`, ya que se puede aplicar un filtro adicional sobre la marcha para quitar ejemplos que sean "incorrectos".
+        * `numExamples`: es un entero que representa el número de ejemplos de este par de traducción que están disponibles. Los ejemplos reales deben obtenerse con una llamada independiente a la opción [buscar ejemplos](./v3-0-dictionary-examples.md). El número está diseñado principalmente para facilitar la presentación en un diseño UX. Por ejemplo, una interfaz de usuario puede agregar un hipervínculo a la traducción inversa si el número de ejemplos es mayor que cero, y si se muestra la traducción inversa como texto sin formato si es que no hay ejemplos. Tenga en cuenta que el número real de ejemplos que devuelve una llamada a la opción [buscar ejemplos](./v3-0-dictionary-examples.md) puede ser menor que `numExamples`, ya que se puede aplicar un filtro adicional sobre la marcha para quitar ejemplos que sean "incorrectos".
         
-        * `frequencyCount`: un entero que representa la frecuencia de este par de traducción en los datos. El propósito principal de este campo es proporcionar una interfaz de usuario con un medio para ordenar traducciones inversas, y así conseguir que los términos más frecuentes aparezcan en primer lugar.
+        * `frequencyCount`: es un entero que representa la frecuencia de este par de traducción en los datos. El propósito principal de este campo es proporcionar una interfaz de usuario con un medio para ordenar traducciones inversas, y así conseguir que los términos más frecuentes aparezcan en primer lugar.
 
     > [!NOTE]
     > Si el término que está buscando no está en el diccionario, la respuesta es 200 (OK), pero la lista `translations` será una lista vacía.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588350"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -70,7 +70,7 @@ Además de admitir los puntos de conexión de servicio de red virtual para los s
 > * [Personalizer](./personalizer/index.yml)
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](./translator/index.yml)
+> * [Traductor](./translator/index.yml)
 > * [Servicio Voz](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada

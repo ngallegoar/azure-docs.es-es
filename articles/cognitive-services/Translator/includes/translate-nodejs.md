@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: db48917bfb219a85dcaf0075d0dc7072858a9e27
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c0db3fb828355318d31264c856900f8c9bd13b43
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586670"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -31,7 +31,7 @@ Estos módulos son necesarios para construir la solicitud HTTP y crear un identi
 
 ## <a name="set-the-subscription-key-and-endpoint"></a>Establecimiento de la clave de suscripción y el punto de conexión
 
-En este ejemplo se intenta leer la clave de suscripción y el punto de conexión de Translator Text desde estas variables de entorno: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` y `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `subscriptionKey` y `endpoint` como cadenas y convertir en comentario las instrucciones condicionales.
+En este ejemplo se intenta leer la clave de suscripción y el punto de conexión de Traductor desde estas variables de entorno: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` y `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `subscriptionKey` y `endpoint` como cadenas y convertir en comentario las instrucciones condicionales.
 
 Copie este código en el proyecto:
 
@@ -53,7 +53,7 @@ var endpoint = process.env[endpoint_var];
 El método `request()`, disponible mediante el módulo de solicitud, nos permite pasar el método HTTP, la dirección URL, los parámetros de la solicitud, los encabezados y el cuerpo de JSON como un objeto `options`. En este fragmento de código, vamos a configurar la solicitud:
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Traducción](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Traductor 3.0: Traducción](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```javascript
 let options = {
@@ -97,7 +97,7 @@ request(options, function(err, res, body){
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto
 
-Eso es todo, ha creado un sencillo programa que llama a Translator Text API y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
+Eso es todo, ha creado un sencillo programa que llama a Traductor y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
 
 ```console
 node translate-text.js
@@ -134,7 +134,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Traductor.
 
 > [!div class="nextstepaction"]
 > [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

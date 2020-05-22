@@ -2,13 +2,13 @@
 title: 'Terminología: Personalizer'
 description: Personalizer utiliza la terminología del aprendizaje de refuerzo. Estos términos se usan en Azure Portal y las API.
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: f75437c5afd5d3fd7f7570079be410d3db1ca8db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/23/2020
+ms.openlocfilehash: 3f819ff3305a7c7302eb56c83b98340946613a92
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624202"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586310"
 ---
 # <a name="terminology"></a>Terminología
 
@@ -19,6 +19,15 @@ Personalizer utiliza la terminología del aprendizaje de refuerzo. Estos términ
 * **Ruta de aprendizaje**: puede crear un recurso de Personalizer, denominado _bucle de aprendizaje_, para todas las partes de la aplicación que pueden beneficiarse de la personalización. Si tiene varias experiencias de personalización, cree un bucle para cada una de ellas.
 
 * **Modelo**: los modelos de Personalizer capturan todos los datos aprendidos acerca del comportamiento del usuario y obtiene los datos de entrenamiento de la combinación de los argumentos que se envían a las llamadas a Rank y a Reward, y con un comportamiento de entrenamiento determinado por la directiva de aprendizaje.
+
+* **Modo en línea**: [Comportamiento de aprendizaje](#learning-behavior) predeterminado de Personalizer en el que el bucle de aprendizaje utiliza el aprendizaje automático para compilar el modelo que predice la **acción superior** para su contenido.
+
+* **Modo de aprendiz**: [Comportamiento de aprendizaje](#learning-behavior) que ayuda a arrancar en caliente un modelo de Personalizer para entrenar sin que afecte a las acciones y los resultados de las aplicaciones.
+
+## <a name="learning-behavior"></a>Comportamiento de aprendizaje:
+
+* **Modo en línea**: Devuelve la mejor acción. El modelo responderá a las llamadas de Rank con la mejor acción y usará las llamadas de Reward para aprender y mejorar sus selecciones a lo largo del tiempo.
+* **[Modo de aprendiz](concept-apprentice-mode.md)** : Aprenda como un aprendiz. El modelo aprenderá mediante la observación del comportamiento del sistema existente. Las llamadas de Rank siempre devuelven la **acción predeterminada** de la aplicación (línea de base).
 
 ## <a name="personalizer-configuration"></a>Configuración de Personalizer
 
@@ -63,8 +72,21 @@ Personalizer se configura desde [Azure Portal](https://portal.azure.com).
 
 * **Recompensa**: una medida de la forma en que el usuario respondió al id. de acción de Reward devuelta por API Rank, en forma de puntuación entre 0 y 1. El valor de 0 a 1 lo establece la lógica de negocios, en función de la forma en que la elección ha ayudado a lograr los objetivos empresariales de personalización. El bucle de aprendizaje no almacena esta recompensa como historial de usuario individual.
 
-## <a name="offline-evaluations"></a>Evaluaciones sin conexión
+## <a name="evaluations"></a>Evaluaciones
 
-* **Evaluación**: una evaluación sin conexión determina la mejor directiva de aprendizaje para el bucle en función de los datos del bucle.
+### <a name="offline-evaluations"></a>Evaluaciones sin conexión
+
+* **Evaluación**: una evaluación sin conexión determina la mejor directiva de aprendizaje para el bucle en función de los datos de la aplicación.
 
 * **Directiva de aprendizaje**: la manera en que Personalizer entrena un modelo en cada evento la determinarán algunos parámetros que afectan el funcionamiento de los algoritmos del aprendizaje automático. Un nuevo bucle de aprendizaje se iniciará con una **directiva de aprendizaje** predeterminada, que puede generar un rendimiento moderado. Cuando ejecuta las [evaluaciones](concepts-offline-evaluation.md), Personalizer crea directivas de aprendizaje nuevas específicamente optimizadas para los casos de uso del bucle. Personalizer tendrá un rendimiento mucho mejor con directivas optimizadas para cada bucle específico, generado durante la evaluación. La directiva de aprendizaje se denomina _configuración de aprendizaje_ en la **configuración de modelo y aprendizaje** del recurso de Personalizer en Azure Portal.
+
+### <a name="apprentice-mode-evaluations"></a>Evaluaciones del modo de aprendiz
+
+El modo de aprendiz proporciona las siguientes **métricas de evaluación**:
+* **Línea de base: promedio de recompensa**:  Promedio de recompensas del valor predeterminado de la aplicación (línea de base).
+* **Personalizer: promedio de recompensa**: Promedio de recompensas totales que Personalizer puede haber alcanzado.
+* **Promedio de recompensas acumuladas**: Proporción de recompensas de línea de base y de Personalizer, normalizadas con los últimos 1000 eventos.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Información sobre [Ética y uso responsable](ethics-responsible-use.md)

@@ -6,40 +6,66 @@ manager: nitinme
 description: Dos tablas que representan los registros de contenedor, los repositorios y los nombres de imagen de todas las ofertas de Cognitive Service.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: a854a090af908da691e9b26f5b0714c6560fc0ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876847"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590677"
 ---
 ### <a name="container-repositories-and-images"></a>Repositorios e imágenes de contenedor
 
-Las tablas siguientes son una lista de las imágenes de contenedor disponibles que ofrece Azure Cognitive Services. Para obtener una lista completa de todos los nombres de imagen de contenedor y sus etiquetas disponibles, consulte [Etiquetas de imágenes de contenedor de Azure Cognitive Services](../container-image-tags.md). En la actualidad, no hay contenedores de Cognitive Services disponibles con carácter general (GA). Por el momento, hasta que se realicen más anuncios, los contenedores están disponibles como *No controlado público* o *Controlado público (versión preliminar)* .
+Las tablas siguientes son una lista de las imágenes de contenedor disponibles que ofrece Azure Cognitive Services. Para obtener una lista completa de todos los nombres de imagen de contenedor y sus etiquetas disponibles, consulte [Etiquetas de imágenes de contenedor de Azure Cognitive Services](../container-image-tags.md). 
 
- - *No controlado público*: los contenedores están disponibles de forma pública sin un mecanismo de acceso.
- - *Controlado público (versión preliminar)* : los contenedores están disponibles de forma pública, pero primero necesitan una solicitud formal para acceder al registro de contenedor.
+#### <a name="generally-available"></a>Disponibilidad general 
 
-#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>"No validado" público (registro de contenedor: `mcr.microsoft.com`)
+Microsoft Container Registry (MCR) sindica todos los contenedores con disponibilidad general para Cognitive Services. Los contenedores también están disponibles directamente desde [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-Microsoft Container Registry sindica todos los contenedores "no validados" con disponibilidad general para Cognitive Services. Los contenedores también están disponibles directamente desde [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+#### <a name="luis"></a>[LUIS](#tab/luis)
+
+| Contenedor de LUIS | Container Registry/Repositorio/Nombre de imagen |
+|--|--|
+| LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+
+Consulte [Cómo ejecutar e instalar contenedores de LUIS](../../LUIS/luis-container-howto.md) para obtener más información.
+
+#### <a name="text-analytics"></a>[Text Analytics](#tab/text-analytics)
+
+| Contenedor de Text Analytics | Container Registry/Repositorio/Nombre de imagen |
+|--|--|
+| Análisis de sentimiento, versión 3 (inglés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en` |
+| Análisis de sentimiento, versión 3 (español) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-es` |
+| Análisis de sentimiento, versión 3 (francés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-fr` |
+| Análisis de sentimiento, versión 3 (italiano) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-it` |
+| Análisis de sentimiento, versión 3 (alemán) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-de` |
+| Análisis de sentimiento, versión 3 (chino simplificado) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
+| Análisis de sentimiento, versión 3 (chino tradicional) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
+| Análisis de sentimiento, versión 3 (japonés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-ja` |
+| Análisis de sentimiento, versión 3 (portugués) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-pt` |
+| Análisis de sentimiento, versión 3 (holandés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-nl` |
+
+Consulte [Cómo ejecutar e instalar contenedores de Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) para obtener más información.
+
+---
+
+#### <a name="public-ungated-preview-container-registry-mcrmicrosoftcom"></a>Versión preliminar pública "no validada" (registro de contenedor: `mcr.microsoft.com`)
+
+Los siguientes contenedores de versión preliminar están disponibles públicamente. Microsoft Container Registry sindica todos los contenedores no validados con disponibilidad general para Cognitive Services. Los contenedores también están disponibles directamente desde [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Servicio | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extracción de frases clave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Análisis de sentimiento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+| [Anomaly Detector](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Versión preliminar pública "validada" (registro de contenedor: `containerpreview.azurecr.io`)
 
-La versión preliminar del registro de contenedor hospeda todos los contenedores "validados" con disponibilidad general para Cognitive Services. Estos contenedores necesitan una solicitud formal para acceder a ellos desde su registro de contenedor.
+Los siguientes contenedores de la versión preliminar validada se hospedan en el registro de versiones preliminares de contenedores y requieren una aplicación para acceder a ellos. Para más información, consulte [Proceso de validación de Cognitive Services](../../cognitive-services-gating-process.md).
 
 | Servicio | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |--|--|--|
-| [Anomaly Detector](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lectura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Face](../../face/face-how-to-install-containers.md) | Caras | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |

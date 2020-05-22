@@ -2,14 +2,14 @@
 title: Prácticas recomendadas para la creación de una aplicación de LUIS
 description: Obtenga información sobre los procedimientos recomendados para conseguir los mejores resultados del modelo de la aplicación de LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382384"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589812"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedimientos recomendados para crear aplicaciones de Language Understanding (LUIS)
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS:
@@ -31,11 +31,11 @@ En la lista siguiente, se incluyen los procedimientos recomendados para las apli
 
 |Lo que es necesario hacer:|Lo que debe evitar:|
 |--|--|
-|[Definir diferentes intenciones](#do-define-distinct-intents)<br>[Agregar descriptores a intenciones](#do-add-descriptors-to-intents) |[Agregar varias expresiones de ejemplo a las intenciones](#dont-add-many-example-utterances-to-intents)<br>[Usar unas pocas entidades sencillas](#dont-use-few-or-simple-entities) |
+|[Definir diferentes intenciones](#do-define-distinct-intents)<br>[Agregar características a intenciones](#do-add-features-to-intents) |[Agregar varias expresiones de ejemplo a las intenciones](#dont-add-many-example-utterances-to-intents)<br>[Usar unas pocas entidades sencillas](#dont-use-few-or-simple-entities) |
 |[Buscar un punto óptimo entre ser demasiado genérico y demasiado específico para cada intención](#do-find-sweet-spot-for-intents)|[Usar LUIS como una plataforma de aprendizaje](#dont-use-luis-as-a-training-platform)|
 |[Compilar la aplicación de forma iterativa con versiones](#do-build-your-app-iteratively-with-versions)<br>[Crear entidades para la descomposición del modelo](#do-build-for-model-decomposition)|[Agregar varias expresiones de ejemplo del mismo formato, omitiendo otros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Agregar patrones en iteraciones posteriores](#do-add-patterns-in-later-iterations)|[Combinar la definición de intenciones y entidades](#dont-mix-the-definition-of-intents-and-entities)|
-|[Equilibrar las expresiones en todas las intenciones](#balance-your-utterances-across-all-intents), excepto en la intención None.<br>[Agregar expresiones de ejemplo a la intención None](#do-add-example-utterances-to-none-intent)|[Crear descriptores con todos los valores posibles](#dont-create-descriptors-with-all-the-possible-values)|
+|[Equilibrar las expresiones en todas las intenciones](#balance-your-utterances-across-all-intents), excepto en la intención None.<br>[Agregar expresiones de ejemplo a la intención None](#do-add-example-utterances-to-none-intent)|[Crear listas de frases con todos los valores posibles](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Aprovechar la característica de sugerencia para un aprendizaje activo](#do-leverage-the-suggest-feature-for-active-learning)|[Agregar demasiados patrones](#dont-add-many-patterns)|
 |[Supervisar el rendimiento de la aplicación con la prueba por lotes](#do-monitor-the-performance-of-your-app)|[Entrenar y publicar al agregar cada expresión de ejemplo](#dont-train-and-publish-with-every-single-example-utterance)|
 
@@ -53,9 +53,9 @@ Considere las siguientes expresiones de ejemplo:
 
 `Book a flight` y `Book a hotel` utilizan el mismo vocabulario de `book a `. Este formato es el mismo, por lo que debería tratarse de la misma intención con las diferentes palabras de `flight` y `hotel` que las entidades extraídas.
 
-## <a name="do-add-descriptors-to-intents"></a>Agregar descriptores a intenciones
+## <a name="do-add-features-to-intents"></a>Agregar características a intenciones
 
-Los descriptores ayudan a describir características para una intención. Un descriptor puede ser una lista de frases de palabras que son significativas para esa intención o una entidad que es significativa para dicha intención.
+Las características describen los conceptos de una intención. Una característica puede ser una lista de frases de palabras que son significativas para esa intención o una entidad que es significativa para dicha intención.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Buscar un punto óptimo para las intenciones
 Use datos de predicción de LUIS para determinar si las intenciones se superponen. Las intenciones que se superponen confunden a LUIS. El resultado es que la intención con mayor puntuación es demasiado cercana a otra intención. Dado que LUIS no usa exactamente la misma ruta a través de los datos para el aprendizaje todas las veces, una intención que se superpone tiene una posibilidad de ser la primera o segunda en el aprendizaje. Quiere que la puntuación de la expresión de cada intención esté más alejada para que esto no suceda. Una buena distinción de las intenciones debería dar como resultado cada vez la intención superior que se esperaba.
@@ -73,17 +73,22 @@ La descomposición del modelo tiene el siguiente proceso típico:
 * crear una **intención** basada en las intenciones del usuario de la aplicación cliente.
 * agregar entre 15 a 30 expresiones de ejemplo basadas en la entrada de usuario del mundo real
 * etiquetar el concepto de datos de nivel superior en la expresión de ejemplo
-* dividir el concepto de datos en subcomponentes
-* agregar descriptores (características) a subcomponentes
-* agregar descriptores (características) a la intención
+* dividir el concepto de datos en subentidades
+* agregar características a subentidades
+* agregar características a intenciones
 
 Cuando haya creado la intención y agregado las expresiones de ejemplo, en el siguiente ejemplo se describe la descomposición de entidades.
 
-Comience por identificar los conceptos de datos completos que quiere extraer en una expresión. Esta es la entidad con aprendizaje automático. A continuación, descomponga la frase en partes. Esto incluye la identificación de subcomponentes (como entidades), junto con descriptores y restricciones.
+Comience por identificar los conceptos de datos completos que quiere extraer en una expresión. Esta es la entidad con aprendizaje automático. A continuación, descomponga la frase en partes. Esto incluye la identificación de subentidades y las características.
 
-Por ejemplo, si desea extraer una dirección, la entidad superior con aprendizaje automático podría llamarse `Address`. Al crear la dirección, identifique algunos de sus subcomponentes, como la dirección postal, la ciudad, el estado y el código postal.
+Por ejemplo, si desea extraer una dirección, la entidad superior con aprendizaje automático podría llamarse `Address`. Al crear la dirección, identifique algunas de sus subentidades, como la dirección postal, la ciudad, el estado y el código postal.
 
-Siga descomponiendo esos elementos mediante la **restricción** del código postal a una expresión regular. Descomponga la dirección postal en partes del número de calle (con un número pregenerado), un nombre de calle y un tipo de calle. El tipo de calle se puede describir con una lista de **descriptores** como avenida, plaza, calle y vía.
+Continúe descomponiendo esos elementos mediante:
+* La adición de una característica obligatoria del código postal como una entidad de expresión regular.
+* La descomposición de la dirección de la calle en partes:
+    * Un **número de calle** con una característica obligatoria de una entidad de número precompilada.
+    * Un **nombre de la calle**.
+    * Un **tipo de calle** con una característica obligatoria de una entidad de lista que incluya palabras como avenida, plaza, carretera y vía.
 
 La API de creación V3 permite la descomposición del modelo.
 
@@ -109,7 +114,7 @@ Esta es la intención de reserva, que indica todo lo que está fuera de la aplic
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Aprovechar la característica de sugerencia para un aprendizaje activo
 
-Use la [revisión de las expresiones del punto de conexión](luis-how-to-review-endpoint-utterances.md) del **aprendizaje activo** de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
+Use la **revisión de las expresiones del punto de conexión** del [aprendizaje activo](luis-how-to-review-endpoint-utterances.md) de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Supervisar el rendimiento de la aplicación
 
@@ -145,9 +150,9 @@ Cree una intención para cualquier acción que llevará a cabo el bot. Use entid
 
 Para un bot que reservará vuelos, cree la intención **BookFlight**. No cree una intención para cada compañía aérea o destino. Use esos datos como [entidades](luis-concept-entity-types.md) y márquelos en las expresiones de ejemplo.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>No crear descriptores con todos los valores posibles
+## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>No crear listas de frases con todos los valores posibles
 
-Proporcione algunos ejemplos en las [listas de frases](luis-concept-feature.md), pero no todas las palabras. LUIS generaliza y tiene en cuenta el contexto.
+Proporcione algunos ejemplos en las [listas de frases](luis-concept-feature.md), pero no todas las palabras o frases. LUIS generaliza y tiene en cuenta el contexto.
 
 ## <a name="dont-add-many-patterns"></a>No agregar muchos patrones
 

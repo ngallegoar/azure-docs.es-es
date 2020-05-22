@@ -8,22 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71695167"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588911"
 ---
-# <a name="composite-entity"></a>Entidad compuesta 
+# <a name="composite-entity"></a>Entidad compuesta
 
-Una entidad compuesta consta de otras entidades, como las entidades pregeneradas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
+Una entidad compuesta consta de otras entidades, como las entidades pregeneradas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa.
+
+> [!CAUTION]
+> Esta entidad está **en desuso**. Migre a una [entidad con aprendizaje automático](reference-entity-machine-learned-entity.md).
 
 **Esta entidad es la opción ideal cuando los datos:**
 
-* Están relacionados entre sí. 
+* Están relacionados entre sí.
 * Se relacionan entre sí en el contexto de la expresión.
 * Usan una variedad de tipos de entidad.
 * Deben agruparse y la aplicación cliente debe procesarlos como una unidad de información.
@@ -87,7 +90,7 @@ Las entidades compuestas se devuelven en una matriz `compositeEntities` y todas 
       ]
     }
   ]
-```    
+```
 
 #### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
@@ -169,7 +172,7 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 }
 ```
 
-* * * 
+* * *
 
 
 |Objeto de datos|Nombre de entidad|Value|
@@ -179,4 +182,7 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este [tutorial](luis-tutorial-composite-entity.md), agregue una **entidad compuesta** para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
+Más información sobre las entidades:
+
+* [Conceptos](luis-concept-entity-types.md)
+* [Creación](luis-how-to-add-entities.md)

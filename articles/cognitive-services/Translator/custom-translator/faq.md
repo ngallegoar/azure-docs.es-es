@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 97d399f4a8ec704fd90eb6c49f0835be7e9e4537
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0413c15c025e554ab8465736dfdb5607149c5ed2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836593"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588690"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Traductor personalizado: preguntas más frecuentes
 
@@ -41,7 +41,7 @@ La implementación normalmente tarda menos de una hora.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>¿Cómo se tiene acceso a un sistema implementado?
 
-Se puede acceder a los sistemas implementados a través de Microsoft Translator Text API V3 especificando el valor del id. de categoría. Puede encontrar más información sobre Translator Text API en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Se puede acceder a los sistemas implementados a través de Microsoft Translator V3 especificando el valor del id. de categoría. Puede encontrar más información sobre Traductor en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>¿Cómo omito la alineación y la separación de oraciones si mis datos ya están alineados por oración?
 

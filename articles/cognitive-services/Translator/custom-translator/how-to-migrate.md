@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446781"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587011"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
@@ -80,9 +80,9 @@ Para migrar un área de trabajo:
 
 4. En la siguiente página, seleccione cualquiera de estas dos opciones:
 
-    a. Solo los aprendizajes implementados: si selecciona esta opción se migrarán solo los sistemas implementados y los documentos relacionados.
+    a. Solo los entrenamientos implementados: si selecciona esta opción se migrarán solo los sistemas implementados y los documentos relacionados.
 
-    b. Todos los aprendizajes correctos: si selecciona esta opción se migrarán todos los aprendizajes correctos y los documentos relacionados.
+    b. Todos los entrenamientos correctos: si selecciona esta opción se migrarán todos los entrenamientos y los documentos relacionados.
 
     c. Escriba el identificador del área de trabajo de destino en Custom Translator.
 
@@ -104,13 +104,13 @@ Para ver el historial de migraciones realice estos pasos:
 
 La página Historial de migraciones muestra la siguiente información como resumen para cualquier migración que solicite.
 
-1. Migrada por: nombre y correo electrónico del usuario que envió esta solicitud de migración
+1. Migrado por: nombre y correo electrónico del usuario que envió esta solicitud de migración
 
-2. Fecha de migración: marca de fecha y hora de la migración
+2. Migrado el: marca de fecha y hora de la migración
 
 3. Proyectos: número de proyectos para los que se solicitó la migración en comparación con el número de proyectos que se migraron correctamente.
 
-4. Aprendizajes: número de aprendizajes para los que se solicitó la migración en comparación con el número de aprendizajes que se migraron correctamente.
+4. Entrenamientos: número de entrenamientos para los que se solicitó la migración en comparación con el número de entrenamientos que se migraron correctamente.
 
 5. Documentos: número de documentos para los que se solicitó la migración en comparación con el número de documentos que se migraron correctamente.
 
@@ -146,4 +146,4 @@ Si es una comunidad u organización que trabaja para crear un nuevo sistema de i
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Entrenamiento de un modelo](how-to-train-model.md).
-- Comience a utilizar el modelo de traducción personalizado implementado mediante [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comience a utilizar el modelo de traducción personalizado implementado mediante [Traductor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

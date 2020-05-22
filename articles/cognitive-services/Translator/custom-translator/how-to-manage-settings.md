@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218630"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587257"
 ---
 # <a name="how-to-manage-settings"></a>Cómo administrar la configuración
 
@@ -29,11 +29,11 @@ Para acceder a la página de configuración, realice lo siguiente:
 
 ## <a name="associating-microsoft-translator-subscription"></a>Asociación de la suscripción de Microsoft Translator
 
-Debe tener una clave de suscripción de Microsoft Translator Text API asociada con el área de trabajo para entrenar o implementar modelos.
+Debe tener una clave de suscripción de Traductor asociada con el área de trabajo para entrenar o implementar modelos.
 
 Si no tiene una suscripción, siga los pasos a continuación:
 
-1. Suscríbase a Microsoft Translator Text API. En este artículo se muestra cómo suscribirse a Microsoft Translator Text API.
+1. Suscribirse a Traductor. En este artículo se muestra cómo suscribirse a Traductor.
 2. Apunte la clave para la suscripción a Translator Text. Tanto la clave Key1 como la clave Key2 son aceptables.
 3. Navegue de vuelta al portal de Custom Translator.
 

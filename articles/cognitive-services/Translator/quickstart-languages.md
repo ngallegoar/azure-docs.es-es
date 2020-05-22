@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Obtención de la lista de idiomas admitidos en la API Translator Text'
+title: 'Inicio rápido: Obtención de la lista de idiomas admitidos en Traductor'
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Translator Text API.
+description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Traductor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d992fcec6071ea9883f2db61d6c54f41a9615867
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: bfb8b9d81496d10601bf6e6cfeb26d18b57e3eca
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525148"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586912"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Inicio rápido: Uso de la API Translator Text para obtener una lista de los idiomas admitidos
+# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Inicio rápido: Uso de Traductor para obtener una lista de los idiomas admitidos
 
-En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Translator Text API.
+En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración y la búsqueda en el diccionario mediante Traductor.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/languages-csharp.md)]

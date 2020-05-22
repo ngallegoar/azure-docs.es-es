@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d36961a12162a587def76b1ffeb2109f9ed63f4d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74423933"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587687"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
@@ -38,12 +38,12 @@ Revisemos rápidamente los encabezados de autenticación disponibles para su uso
 | Encabezado | Descripción |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Utilice este encabezado para autenticarse con una clave de suscripción para un servicio específico o una clave de suscripción a varios servicios. |
-| Ocp-Apim-Subscription-Region | Este encabezado solo es necesario cuando se utiliza una clave de suscripción multiservicio con la [Translator Text API](./Translator/reference/v3-0-reference.md). Utilice este encabezado para especificar la región de la suscripción. |
+| Ocp-Apim-Subscription-Region | Este encabezado solo es necesario cuando se utiliza una clave de suscripción multiservicio con el [servicio de Traductor](./Translator/reference/v3-0-reference.md). Utilice este encabezado para especificar la región de la suscripción. |
 | Authorization | Utilice este encabezado si está usando un token de autenticación. En las secciones siguientes se describen los pasos necesarios para realizar un intercambio de tokens. El valor proporcionado sigue este formato: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Autenticación con una clave de suscripción a un servicio único
 
-La primera opción es autenticar una solicitud con una clave de suscripción para un servicio específico, como Translator Text. Las claves están disponibles en Azure Portal para cada recurso que se ha creado. Para utilizar una clave de suscripción para autenticar una solicitud, esta se debe pasar como encabezado `Ocp-Apim-Subscription-Key`.
+La primera opción es autenticar una solicitud con una clave de suscripción para un servicio específico, como Traductor. Las claves están disponibles en Azure Portal para cada recurso que se ha creado. Para utilizar una clave de suscripción para autenticar una solicitud, esta se debe pasar como encabezado `Ocp-Apim-Subscription-Key`.
 
 En estas solicitudes de ejemplo se muestra cómo utilizar el encabezado `Ocp-Apim-Subscription-Key`. Tenga en cuenta que, cuando utilice este ejemplo, deberá incluir una clave de suscripción válida.
 
@@ -53,7 +53,7 @@ curl -X GET 'https://api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pem
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Esto es una llamada de ejemplo a Translator Text API:
+Esta es una llamada de ejemplo al servicio Traductor:
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
@@ -78,7 +78,7 @@ La clave de suscripción se proporciona en cada solicitud como encabezado `Ocp-A
 
 Cuando utilice la clave de suscripción a varios servicios para realizar una solicitud a `api.cognitive.microsoft.com`, debe incluir la región en la dirección URL. Por ejemplo: `westus.api.cognitive.microsoft.com`.
 
-Cuando utilice la clave de suscripción a varios servicios con Translator Text API, debe especificar la región de suscripción con el encabezado `Ocp-Apim-Subscription-Region`.
+Cuando utilice la clave de suscripción a varios servicios con Traductor, debe especificar la región de suscripción con el encabezado `Ocp-Apim-Subscription-Region`.
 
 Se admite la autenticación de varios servicios en estas regiones:
 
@@ -100,7 +100,7 @@ curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Esto es una llamada de ejemplo a Translator Text API:
+Esta es una llamada de ejemplo al servicio Traductor:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -150,7 +150,7 @@ Estas regiones de varios servicios admiten el intercambio de tokens:
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
 
-Después de obtener un token de autenticación, deberá pasarlo en cada solicitud como encabezado `Authorization`. Esto es una llamada de ejemplo a Translator Text API:
+Después de obtener un token de autenticación, deberá pasarlo en cada solicitud como encabezado `Authorization`. Esta es una llamada de ejemplo al servicio Traductor:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \

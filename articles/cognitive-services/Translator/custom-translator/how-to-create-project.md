@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73836561"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587670"
 ---
 # <a name="create-a-project"></a>Crear un proyecto
 
@@ -30,17 +30,17 @@ Crear un proyecto es el primer paso para crear un modelo.
 
 2.  Escriba la siguiente información sobre el proyecto en el cuadro de diálogo:
 
-    a.  Nombre del proyecto (obligatorio): asigne un nombre único y descriptivo al proyecto. No es necesario mencionar los idiomas en el título.
+    a.  Project name (Nombre del proyecto) (obligatorio): asigne al proyecto un nombre único y descriptivo. No es necesario mencionar los idiomas en el título.
 
     b.  Descripción: un breve resumen sobre el proyecto. Esta descripción no influye en el comportamiento de Custom Translator ni en el sistema personalizado resultante, pero puede ayudar a distinguir entre distintos proyectos.
 
-    c.  Par de idiomas (obligatorio): seleccione los idiomas de origen y de destino para la traducción.
+    c.  Language pair (Par de idiomas) (obligatorio): seleccione los idiomas de origen y destino de la traducción.
 
-    d.  Categoría (obligatorio): seleccione la categoría más adecuada para su proyecto. La categoría describe la terminología y el estilo de los documentos que se van a traducir.
+    d.  Category (Categoría) (obligatorio): seleccione la categoría más adecuada para su proyecto. La categoría describe la terminología y el estilo de los documentos que se van a traducir.
 
-    e.  Descripción de la categoría: utilice este campo para describir mejor el sector o industria concretos en los que está trabajando. Por ejemplo, si la categoría es "medicina", podría agregar un documento concreto, como cirugía o pediatría. Esta descripción no influye en el comportamiento de Custom Translator ni en el sistema personalizado resultante.
+    e.  Category description (Descripción de la categoría): use este campo para describir mejor el sector o la industria en concreto en los que está trabajando. Por ejemplo, si la categoría es "medicina", podría agregar un documento concreto, como cirugía o pediatría. Esta descripción no influye en el comportamiento de Custom Translator ni en el sistema personalizado resultante.
 
-    f.  Etiqueta de proyecto: la [etiqueta de proyecto](workspace-and-project.md#project-labels) distingue entre proyectos con el mismo par de idiomas y categoría. Como práctica recomendada, use una etiqueta *solo* si piensa compilar varios proyectos para el mismo par de idiomas y la misma categoría y quiere tener acceso a estos proyectos con un id. de categoría distinto. No use este campo si está creando sistemas para una sola categoría. Las etiquetas de proyecto no son obligatorias y no ayudan a distinguir entre pares de idiomas. Puede usar la misma etiqueta para varios proyectos.
+    f.  Project label (Etiqueta del proyecto): la [etiqueta de proyecto](workspace-and-project.md#project-labels) distingue entre proyectos con el mismo par de idiomas y categoría. Como práctica recomendada, use una etiqueta *solo* si piensa compilar varios proyectos para el mismo par de idiomas y la misma categoría y quiere tener acceso a estos proyectos con un id. de categoría distinto. No use este campo si está creando sistemas para una sola categoría. Las etiquetas de proyecto no son obligatorias y no ayudan a distinguir entre pares de idiomas. Puede usar la misma etiqueta para varios proyectos.
 
     ![Cuadro de diálogo Crear proyecto](media/how-to/how-to-create-project-dialog.png)
 
@@ -52,13 +52,13 @@ La página principal de Custom Translator muestra los primeros 10 proyectos en e
 
 Después de seleccionar un proyecto, verá lo siguiente en la página del proyecto:
 
-- Id. de categoría: se crea al concatenar el id. de área de trabajo, la etiqueta de proyecto y el código de categoría. Utilice el id. de categoría con Translator Text API para obtener traducciones personalizadas.
+- CategoryID (Identificador de categoría): se crea al concatenar el identificador de área de trabajo, la etiqueta de proyecto y el código de categoría. Utilice el id. de categoría con Traductor para obtener traducciones personalizadas.
 
-- Botón Entrenar: utilice este botón para iniciar el [entrenamiento de un modelo](how-to-train-model.md).
+- Botón Train (Entrenar): use este botón para iniciar el [entrenamiento de un modelo](how-to-train-model.md).
 
-- Botón Agregar documentos: use este botón para [cargar documentos](how-to-upload-document.md).
+- Botón Add documents (Agregar documentos): use este botón para [cargar documentos](how-to-upload-document.md).
 
-- Botón Filtrar documentos: use este botón para filtrar y buscar documentos específicos.
+- Botón Filter documents (Filtrar documentos): use este botón para filtrar y buscar documentos específicos.
 
     ![Ver los detalles del proyecto](media/how-to/how-to-view-project.png)
 

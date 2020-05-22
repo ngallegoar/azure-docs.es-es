@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Búsqueda de palabras con diccionario bilingüe en la API Translator Text'
+title: 'Inicio rápido: Búsqueda de palabras con diccionario bilingüe en Traductor'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido aprenderá a obtener posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante la API Translator Text.
+description: En este inicio rápido aprenderá a obtener posibles traducciones alternativas de un término, y se proporcionan ejemplos de uso, mediante Traductor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 07fd984f72628ac4f6d6736bf0ab903619e96c72
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: fe2f4f2bea52650c2baa2ac3380b5b92f01c15eb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525165"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587060"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe
 
-En este inicio rápido aprenderá a obtener posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante la API Translator Text.
+En este inicio rápido aprenderá a obtener posibles traducciones alternativas de un término, y se proporcionan ejemplos de uso, mediante Traductor.
 
-En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Translator Text. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
+En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Traductor. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/) para obtener una clave de suscripción.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/dictionary-csharp.md)]

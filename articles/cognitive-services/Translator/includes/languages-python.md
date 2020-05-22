@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a491249e21db433d878a59cad19f59f8987b638b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906984"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586908"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Si no ha usado estos módulos deberá instalarlos antes de ejecutar el programa. Para instalar estos paquetes, ejecute: `pip install requests uuid`.
 
-El primer comentario le indica al intérprete de Python que debe usar la codificación UTF-8. Después, se importan los módulos necesarios para leer la clave de suscripción desde una variable de entorno, construir la solicitud HTTP, crear un identificador único y controlar la respuesta JSON que devuelve Translator Text API.
+El primer comentario le indica al intérprete de Python que debe usar la codificación UTF-8. Después, se importan los módulos necesarios para leer la clave de suscripción desde una variable de entorno, construir la solicitud HTTP, crear un identificador único y controlar la respuesta JSON que devuelve Traductor.
 
 ## <a name="set-the-endpoint-and-path"></a>Establecimiento del punto de conexión y la ruta de acceso
 
-En este ejemplo se intenta leer el punto de conexión de Translator Text desde una variable de entorno: `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `endpoint` como una cadena y convertir en comentario la instrucción condicional.
+En este ejemplo se intenta leer el punto de conexión de Traductor desde una variable de entorno: `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `endpoint` como una cadena y convertir en comentario la instrucción condicional.
 
 ```python
 endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
@@ -40,10 +40,10 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-El punto de conexión global de Translator Text se establece como `endpoint`. `path` establece la ruta de `languages` e identifica que deseamos usar la versión 3 de la API.
+El punto de conexión global de Traductor se establece como `endpoint`. `path` establece la ruta de `languages` e identifica que deseamos usar la versión 3 de la API.
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Traductor 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 path = '/languages?api-version=3.0'
@@ -85,7 +85,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto
 
-Eso es todo, ha creado un sencillo programa que llama a Translator Text API y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
+Eso es todo, ha creado un sencillo programa que llama a Traductor y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
 
 ```console
 python get-languages.py
@@ -189,7 +189,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Traductor.
 
 > [!div class="nextstepaction"]
 > [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

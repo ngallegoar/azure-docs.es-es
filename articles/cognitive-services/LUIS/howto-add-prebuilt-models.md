@@ -8,26 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 0a733aff14b71c6378971c0b72a9ca1f3cd4cfc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 653882db4b62d7731123faf7b177da44dbd74e3f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74013556"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585001"
 ---
-# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Adición de modelos precompilados en escenarios de uso común 
+# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Adición de modelos precompilados en escenarios de uso común
 
-LUIS incluye un conjunto de modelos precompilados para agregar rápidamente escenarios de usuario comunes y de conversación. Esta es una manera rápida y fácil de agregar capacidades a la aplicación cliente de conversación sin tener que diseñar los modelos correspondientes a esas capacidades. 
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+LUIS incluye un conjunto de modelos precompilados para agregar rápidamente escenarios de usuario comunes y de conversación. Esta es una manera rápida y fácil de agregar capacidades a la aplicación cliente de conversación sin tener que diseñar los modelos correspondientes a esas capacidades.
 
 ## <a name="add-a-prebuilt-domain"></a>Incorporación de un dominio creado previamente
 
-1. En la página **My Apps** (Mis aplicaciones), seleccione su aplicación. Esta opción abre su aplicación a la sección **Build** (Compilar) de la aplicación. 
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
 
-1. Seleccione **Dominios creados previamente** en la barra de herramientas de la izquierda. 
+1. Seleccione **Dominios creados previamente** en la barra de herramientas de la izquierda.
 
 1. Busque el dominio que quiere agregar a la aplicación y, luego, seleccione el botón **Agregar dominio**.
 
@@ -36,11 +35,12 @@ LUIS incluye un conjunto de modelos precompilados para agregar rápidamente esce
 
 ## <a name="add-a-prebuilt-intent"></a>Agregar una intención creada previamente
 
-1. En la página **My Apps** (Mis aplicaciones), seleccione su aplicación. Esta opción abre su aplicación a la sección **Build** (Compilar) de la aplicación. 
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
 
-1. En la página **Intents** (Intenciones), seleccione **Add prebuilt domain intent** (Agregar intención de dominio creado previamente) en la barra de herramientas sobre la lista de intenciones. 
+1. En la página **Intents** (Intenciones), seleccione **Add prebuilt domain intent** (Agregar intención de dominio creado previamente) en la barra de herramientas sobre la lista de intenciones.
 
-1. Seleccione la intención **Utilities.Cancel** en el cuadro de diálogo emergente. 
+1. Seleccione la intención **Utilities.Cancel** en el cuadro de diálogo emergente.
 
     > [!div class="mx-imgBorder"]
     > ![Agregar una intención creada previamente](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -48,25 +48,26 @@ LUIS incluye un conjunto de modelos precompilados para agregar rápidamente esce
 1. Haga clic en el botón **Done** (Listo).
 
 ## <a name="add-a-prebuilt-entity"></a>Adición de una entidad precompilada
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
+1. Seleccione **Entidades** en el lado izquierdo.
 
-1. Haga clic en la aplicación para abrirla desde la página **Mis aplicaciones** y, después, haga clic en **Entidades** a la izquierda. 
+1. En la página **Entidades**, seleccione **Agregar entidades predefinidas**.
 
-1. En la página **Entities** (Entidades), haga clic en **Add prebuilt entities** (Agregar entidad precompilada).
-
-1. En el cuadro de diálogo **Add prebuilt entities** (Agregar entidades precompiladas), seleccione la entidad precompilada. 
+1. En el cuadro de diálogo **Add prebuilt entities** (Agregar entidades precompiladas), seleccione la entidad precompilada.
 
     > [!div class="mx-imgBorder"]
     > ![Cuadro de diálogo Add prebuilt entity (Agregar entidades precompiladas)](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
-1. Seleccione **Listo**. Después de agregar la entidad, no es necesario entrenar la aplicación. 
+1. Seleccione **Listo**. Después de agregar la entidad, no es necesario entrenar la aplicación.
 
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publicación para visualizar el modelo precompilado desde el punto de conexión de predicción
 
-La manera más fácil de ver el valor de un modelo precompilado es consultar desde el punto de conexión publicado. 
+La manera más fácil de ver el valor de un modelo precompilado es consultar desde el punto de conexión publicado.
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>Entidades que contienen un token de entidad creada previamente
- 
-Si tiene una entidad de aprendizaje automático restringida por una entidad precompilada, agregue un subcomponente a la entidad de aprendizaje automático y, luego, agregue una restricción de una entidad precompilada.
+
+Si tiene una entidad con aprendizaje automático que necesita una característica obligatoria de una entidad precompilada, agregue un subcomponente a la entidad con aprendizaje automático y, luego, agregue una característica _obligatoria_ de una entidad precompilada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

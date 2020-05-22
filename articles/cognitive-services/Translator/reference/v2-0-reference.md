@@ -1,7 +1,7 @@
 ---
-title: Translator Text API v2.0
+title: Traductor versión 2.0
 titleSuffix: Azure Cognitive Services
-description: Documentación de referencia para Translator Text API v2.0.
+description: Documentación de referencia para Traductor versión 2.0.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,28 +10,28 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: f111169558118a80602bcb2136bc63ce54c9e0d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72242497"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588622"
 ---
-# <a name="translator-text-api-v20"></a>Translator Text API v2.0
+# <a name="translator-v20"></a>Traductor versión 2.0
 
 > [!IMPORTANT]
-> Esta versión de Translator Text API está en desuso. [Consulte la documentación de la versión 3 de Translator Text API](v3-0-reference.md).
+> Esta versión de Traductor está en desuso. [Consulte la documentación de la versión 3 de Traductor](v3-0-reference.md).
 
-La versión 2 de Translator Text API puede integrarse perfectamente en las aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario con varios idiomas. Se puede utilizar en cualquier plataforma de hardware y con cualquier sistema operativo para realizar la traducción de idiomas y otras operaciones lingüísticas relacionadas, como la detección del idioma de texto y texto a voz, según los estándares del sector. Para obtener más información, consulte [Translator Text API](../translator-info-overview.md).
+La versión 2 de Traductor puede integrarse perfectamente en las aplicaciones, sitios web, herramientas u otras soluciones para proporcionar experiencias de usuario con varios idiomas. Se puede utilizar en cualquier plataforma de hardware y con cualquier sistema operativo para realizar la traducción de idiomas y otras operaciones lingüísticas relacionadas, como la detección del idioma de texto y texto a voz, según los estándares del sector. Para obtener más información, consulte [Traductor](../translator-info-overview.md).
 
 ## <a name="getting-started"></a>Introducción
-Para acceder a Translator Text API, debe [suscribirse a Microsoft Azure](../translator-text-how-to-signup.md).
+Para acceder a Traductor, debe [suscribirse a Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authentication"></a>Authentication 
-Todas las llamadas a Translator Text API requieren una clave de suscripción para la autenticación. La API admite tres métodos de autenticación:
+Todas las llamadas a Traductor requieren una clave de suscripción para la autenticación. La API admite tres métodos de autenticación:
 
 - Un token de acceso. Use la clave de suscripción para crear un token de acceso mediante la realización de una solicitud POST al servicio de autenticación. Consulte la documentación de servicio de token para obtener más información. Pase el token de acceso al servicio de Translator con el encabezado de `Authorization` o el parámetro de consulta `access_token`. Cada token de acceso tiene una validez de 10 minutos. Obtenga un nuevo token de acceso cada 10 minutos y siga usando el mismo para solicitudes repetidas durante esos 10 minutos.
-- Una clave de suscripción usada directamente. Pase la clave de suscripción como valor en el encabezado de `Ocp-Apim-Subscription-Key` junto con la solicitud a Translator Text API. Al usar la clave de suscripción directamente, no es necesario llamar al servicio de autenticación de token para crear un token de acceso.
+- Una clave de suscripción usada directamente. Pase la clave de suscripción como valor en el encabezado de `Ocp-Apim-Subscription-Key` junto con la solicitud a Traductor. Al usar la clave de suscripción directamente, no es necesario llamar al servicio de autenticación de token para crear un token de acceso.
 - Una [suscripción a varios servicios de Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Este método le permite usar una única clave secreta para autenticar las solicitudes de varios servicios.
 Si usa una clave secreta para varios servicios, debe incluir dos encabezados de autenticación con la solicitud. El primer encabezado pasa la clave secreta. El segundo encabezado especifica la región asociada con la suscripción:
    - `Ocp-Apim-Subscription-Key`
@@ -803,6 +803,6 @@ Tipo de contenido de la respuesta: application/xml
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Migrar Translator Text API de V2 a V3](../migrate-to-v3.md)
+> [Migración a Traductor versión 3](../migrate-to-v3.md)
 
 

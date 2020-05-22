@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75531486"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584627"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -108,8 +108,8 @@ Los datos siguientes categorizan cada servicio según el tipo de datos que permi
 |[Speech: Voz a texto (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traducción de voz](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
-|[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text: traductor personalizado](./translator/custom-translator/overview.md)||x||
+|[Traductor](./translator/translator-info-overview.md)|x|||
+|[Traductor: traductor personalizado](./translator/custom-translator/overview.md)||x||
 
 *Personalizer solo necesita datos de entrenamiento recopilados por el servicio (como funciona en tiempo real) para evaluar la directiva y los datos. Personalizer no necesita grandes conjuntos de datos históricos para entrenamiento inicial o por lotes. 
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a67e199af1ee6e68f00dbde9a0a43d02e4c7d638
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218602"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588673"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>¿Qué es un área de trabajo de Custom Translator?
 
@@ -39,7 +39,7 @@ En la misma área de trabajo, puede crear proyectos para el mismo par de idiomas
 
 Custom Translator le permite asignar una etiqueta de proyecto al proyecto. La etiqueta de proyecto distingue entre varios proyectos con el mismo par de idiomas y categoría. Como práctica recomendada, evite usar etiquetas de proyecto a menos que sea necesario.
 
-La etiqueta de proyecto se usa como parte del id. de categoría. Si la etiqueta del proyecto se deja sin establecer o se establece de forma idéntica entre proyectos, los proyectos con la misma categoría y *diferentes* pares de idiomas compartirán el mismo id. de categoría. Este enfoque resulta ventajoso porque permite que usted o su cliente cambien entre idiomas cuando usen la Text Translator API sin preocuparse por que un id. de categoría sea único para cada proyecto.
+La etiqueta de proyecto se usa como parte del id. de categoría. Si la etiqueta del proyecto se deja sin establecer o se establece de forma idéntica entre proyectos, los proyectos con la misma categoría y *diferentes* pares de idiomas compartirán el mismo id. de categoría. Este enfoque resulta ventajoso porque permite que usted o su cliente cambien entre idiomas cuando usen Traductor sin preocuparse de que un id. de categoría sea único para cada proyecto.
 
 Por ejemplo, si quisiera permitir traducciones en el dominio Tecnología del inglés al francés y del francés al inglés, crearía dos proyectos: uno para inglés -\> francés y otro para francés -\> inglés. Especificaría la misma categoría para ambos (Tecnología) y dejaría en blanco la etiqueta del proyecto. El id. de categoría para ambos proyectos coincidiría, por lo que podría consultar la API para las traducciones al inglés y al francés sin tener que modificar el valor del id. de categoría.
 

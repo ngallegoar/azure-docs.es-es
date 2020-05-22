@@ -4,19 +4,19 @@ description: Cree entidades para extraer datos clave de las expresiones de usuar
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382157"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585579"
 ---
 # <a name="pattern-syntax"></a>Sintaxis del patrón
 
 La sintaxis del patrón es una plantilla para una expresión. La plantilla debe contener las palabras y entidades que quiere que coincidan, así como las palabras y la [puntuación](luis-reference-application-settings.md#punctuation-normalization) que quiere omitir. **No** es una expresión regular.
 
 > [!CAUTION]
-> Los patrones solo incluyen elementos primarios de la entidad de aprendizaje automático, no los subcomponentes.
+> Los patrones solo incluyen elementos primarios de entidad con aprendizaje automático, no subentidades.
 
 Las entidades en los patrones aparecen entre llaves, `{}`. Los patrones pueden incluir entidades y entidades con roles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) es una entidad que solo se usa en los patrones.
 

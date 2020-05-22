@@ -2,13 +2,13 @@
 title: Configuración de Personalizer
 description: La configuración del servicio incluye la forma en que el servicio trata las recompensas, la frecuencia con el servicio realiza las exploraciones, la frecuencia con que se vuelve a entrenar al modelo y la cantidad de datos que se almacenan.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218574"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584661"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configuración del bucle de aprendizaje de Personalizer
 
@@ -18,6 +18,23 @@ Configure el bucle de aprendizaje en la página **Configuración** de Azure Port
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>Planificación de los cambios de configuración
+
+Dado que algunos cambios de configuración [restablecen el modelo](#settings-that-include-resetting-the-model), debe planear los cambios de configuración.
+
+Si tiene previsto usar el [modo de aprendiz](concept-apprentice-mode.md), asegúrese de revisar la configuración de Personalizer antes de cambiar al modo de aprendiz.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>Configuración que incluye el restablecimiento del modelo
+
+Las siguientes acciones desencadenan un nuevo aprendizaje del modelo mediante los datos disponibles hasta los dos últimos días.
+
+* Recompensa
+* Exploración
+
+Para [borrar](how-to-manage-model.md) todos los datos, use la página **Configuración de modelo y aprendizaje**.
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>Configuración de recompensas para el bucle de comentarios
 
@@ -66,16 +83,7 @@ Después de cambiar este valor, asegúrese de seleccionar **Guardar**.
 
 Después de cambiar este valor, asegúrese de seleccionar **Guardar**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>Configuración que incluye el restablecimiento del modelo
-
-Las siguientes acciones incluyen un reentrenamiento inmediato del modelo con los datos de los últimos dos días.
-
-* Recompensa
-* Exploración
-
-Para [borrar](how-to-manage-model.md) todos los datos, use la página **Configuración de modelo y aprendizaje**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

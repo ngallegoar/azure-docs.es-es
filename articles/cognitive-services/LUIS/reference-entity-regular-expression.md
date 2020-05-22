@@ -1,21 +1,14 @@
 ---
 title: 'Tipo de entidad de expresión regular: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Una expresión regular es mejor para el texto de enunciado sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en los caracteres, no en el nivel de token.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74841224"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585613"
 ---
 # <a name="regular-expression-entity"></a>Entidad de expresión regular
 
@@ -106,4 +99,7 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este [tutorial](tutorial-regex-entity.md) va a crear una aplicación para extraer datos con formato de forma coherente a partir de una expresión con la entidad de **expresión regular**.
+Más información sobre las entidades:
+
+* [Conceptos](luis-concept-entity-types.md)
+* [Creación](luis-how-to-add-entities.md)

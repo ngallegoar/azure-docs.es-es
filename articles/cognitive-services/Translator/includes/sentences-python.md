@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9c7385d3457f3f5dbed2633c20445bb9ef0b1638
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a3e32dba557041fe90d1b7321b06daa6ea4e1235
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906852"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586771"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Si no ha usado estos módulos deberá instalarlos antes de ejecutar el programa. Para instalar estos paquetes, ejecute: `pip install requests uuid`.
 
-El primer comentario le indica al intérprete de Python que debe usar la codificación UTF-8. Después, se importan los módulos necesarios para leer la clave de suscripción desde una variable de entorno, construir la solicitud HTTP, crear un identificador único y controlar la respuesta JSON que devuelve Translator Text API.
+El primer comentario le indica al intérprete de Python que debe usar la codificación UTF-8. Después, se importan los módulos necesarios para leer la clave de suscripción desde una variable de entorno, construir la solicitud HTTP, crear un identificador único y controlar la respuesta JSON que devuelve Traductor.
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Establecimiento de la clave de suscripción, el punto de conexión y la ruta de acceso
 
-En este ejemplo se intenta leer la clave de suscripción y el punto de conexión de Translator Text desde las variables de entorno `TRANSLATOR_TEXT_KEY` y `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `subscription_key` y `endpoint` como cadenas y convertir en comentario las instrucciones condicionales.
+En este ejemplo se intenta leer la clave de suscripción y el punto de conexión de Traductor desde las variables de entorno `TRANSLATOR_TEXT_KEY` y `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `subscription_key` y `endpoint` como cadenas y convertir en comentario las instrucciones condicionales.
 
 Copie este código en el proyecto:
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-El punto de conexión global de Translator Text se establece como `endpoint`. `path` establece la ruta de `breaksentence` e identifica que deseamos usar la versión 3 de la API.
+El punto de conexión global de Traductor se establece como `endpoint`. `path` establece la ruta de `breaksentence` e identifica que deseamos usar la versión 3 de la API.
 
 Los elementos `params` de este ejemplo se utilizan para establecer el idioma del texto proporcionado. Los elementos `params` no son necesarios para la ruta `breaksentence`. Si no se incluye en la solicitud, la API intentará detectar el idioma del texto proporcionado y proporcionará esta información junto con una puntuación de confianza en la respuesta.
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Traductor 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 path = '/breaksentence?api-version=3.0'
@@ -105,7 +105,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto
 
-Eso es todo, ha creado un sencillo programa que llama a Translator Text API y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
+Eso es todo, ha creado un sencillo programa que llama a Traductor y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
 
 ```console
 python sentence-length.py
@@ -133,7 +133,7 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Traductor.
 
 > [!div class="nextstepaction"]
 > [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

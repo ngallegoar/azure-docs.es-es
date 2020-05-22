@@ -1,7 +1,7 @@
 ---
-title: Método de idiomas de Translator Text API
+title: Método de idiomas de Traductor
 titleSuffix: Azure Cognitive Services
-description: El método Languages obtiene el conjunto de idiomas admitidos actualmente en otras operaciones de Translator Text API.
+description: El método de idiomas obtiene el conjunto de idiomas admitidos actualmente en otras operaciones de Traductor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73835832"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588605"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Idiomas
+# <a name="translator-30-languages"></a>Traductor 3.0: Lenguajes
 
-Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Translator Text API. 
+Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Traductor. 
 
 ## <a name="request-url"></a>URL de la solicitud
 
@@ -275,7 +275,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
 </table> 
 
-Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. Códigos de error comunes que pueden encontrarse en la [página de referencia de Translator Text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pueden encontrarse los códigos de error comunes. 
 
 ## <a name="examples"></a>Ejemplos
 

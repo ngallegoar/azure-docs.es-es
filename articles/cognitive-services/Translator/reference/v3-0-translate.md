@@ -1,23 +1,23 @@
 ---
-title: Método de traducción de Translator Text API
+title: Método de traducción de Traductor
 titleSuffix: Azure Cognitive Services
-description: Comprenda los parámetros, los encabezados y el cuerpo de los mensajes para el método Translate de Translator Text API de Azure Cognitive Services para traducir el texto.
+description: Comprenda los parámetros, los encabezados y el cuerpo de los mensajes para el método de traducción de Traductor de Azure Cognitive Services para traducir el texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563f4693c358c570caa2566f58002ddfe6c7bc69
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80052390"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584644"
 ---
-# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
+# <a name="translator-30-translate"></a>Traductor 3.0: Translate
 
 Traduce el texto.
 
@@ -234,7 +234,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
 </table> 
 
-Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. Códigos de error comunes que pueden encontrarse en la [página de referencia de Translator Text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pueden encontrarse los códigos de error comunes. 
 
 ## <a name="examples"></a>Ejemplos
 
@@ -454,6 +454,14 @@ La respuesta es:
 
 ### <a name="obtain-alignment-information"></a>Obtención de información de alineación
 
+La alineación se devuelve como un valor de cadena del siguiente formato para cada palabra del origen. La información de cada palabra se divide por un espacio, incluso en el caso de los idiomas no separados por espacios (scripts), como el chino:
+
+[[SourceTextStartIndex]\:[SourceTextEndIndex]–[TgtTextStartIndex]\:[TgtTextEndIndex]] *
+
+Cadena de alineación de ejemplo: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+En otras palabras, los dos puntos separan el índice inicial y final, el guión separa los idiomas y el espacio separa las palabras. Una palabra se puede alinear con ninguna, una o varias palabras de otro idioma y las palabras alineadas pueden ser no contiguas. Si no existe información de alineación disponible, el elemento alignment estará vacío. El método no devuelve ningún error en ese caso.
+
 Para recibir información de alineación, especifique `includeAlignment=true` en la cadena de consulta.
 
 ```curl
@@ -483,9 +491,10 @@ La obtención de información de alineación es una característica experimental
 
 * La alineación no está disponible para texto en formato HTML, es decir, textType = html.
 * La alineación solo se devuelve para un subconjunto de pares de idiomas:
-  - de inglés a cualquier otro idioma;
-  - de cualquier otro idioma a inglés, excepto de chino simplificado, chino tradicional y letón a inglés;
+  - De inglés a cualquier otro idioma o viceversa, excepto el chino tradicional, cantonés (tradicional) o serbio (cirílico).
   - de japonés a coreano, o viceversa.
+  - De japonés a chino simplificado y de chino simplificado a japonés. 
+  - De chino simplificado a chino tradicional y de chino tradicional a chino simplificado. 
 * No recibirá alineación si la oración es una traducción preestablecida. Un ejemplo de traducción preestablecida es "Esto es una prueba", "Te quiero" y otras frases que se usan con mucha frecuencia.
 * La alineación no está disponible cuando se aplica cualquiera de los enfoques para evitar la traducción como se describe [aquí](../prevent-translation.md)
 
@@ -515,7 +524,7 @@ La respuesta es:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Traducción con diccionario dinámico
 
-Si ya conoce la traducción que quiere aplicar a una palabra o frase, puede proporcionarla como marcado dentro de la solicitud. El diccionario dinámico solo es seguro para los nombres compuestos, como nombres propios y nombres de productos.
+Si ya conoce la traducción que quiere aplicar a una palabra o frase, puede proporcionarla como marcado dentro de la solicitud. El diccionario dinámico solo es seguro para los nombres propios, como nombres de personas y nombres de productos.
 
 El marcado que se va a proporcionar utiliza la sintaxis siguiente.
 

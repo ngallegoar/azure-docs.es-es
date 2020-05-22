@@ -11,16 +11,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f6a1bc652125990a7daf3414895f34b95c544912
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878698"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590561"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configuración de los contenedores de docker de Text Analytics
 
-Text Analytics proporciona a cada contenedor un marco de configuración común, por lo que puede configurar y administrar fácilmente la configuración de almacenamiento, registro, telemetría y seguridad de los contenedores.
+Text Analytics proporciona a cada contenedor un marco de configuración común, por lo que puede configurar y administrar fácilmente la configuración de almacenamiento, registro, telemetría y seguridad de los contenedores. También están disponibles varios [ejemplos de comandos de docker run](how-tos/text-analytics-how-to-install-containers.md#run-the-container-with-docker-run).
 
 ## <a name="configuration-settings"></a>Parámetros de configuración
 
@@ -81,38 +81,6 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 |-------|------|-----------|-------------|
 |No permitida| `Input` | String | Los contenedores de Text Analytics no usan esto.|
 |Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
-
-Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`.  Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](how-tos/text-analytics-how-to-install-containers.md#stop-the-container).
-
-* **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
-* **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
-
-Reemplace {_argument_name_} por sus propios valores:
-
-| Marcador de posición | Value | Formato o ejemplo |
-|-------------|-------|---|
-| **{CLAVE_API}** | La clave del punto de conexión del recurso `Text Analytics` disponible en la página Claves de Azure `Text Analytics`. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Text Analytics`.| Consulte el apartado de [recopilación de los parámetros necesarios](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) para ejemplos explícitos. |
-
-> [!IMPORTANT]
-> Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](how-tos/text-analytics-how-to-install-containers.md#billing).
-> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Text Analytics`. 
-
-#### <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
-
-#### <a name="language-detection"></a>[Detección de idioma](#tab/language)
-
-[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
-
-#### <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
-
-***
 
 ## <a name="next-steps"></a>Pasos siguientes
 

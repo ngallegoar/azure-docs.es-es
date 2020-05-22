@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c976d3b74badc4eeb5978af352fe425089f2fbfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584979"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Cómo mejorar la aplicación LUIS revisando las expresiones de punto de conexión
 
 El proceso de revisión de las expresiones de punto de conexión para obtener predicciones correctas se denomina [Aprendizaje activo](luis-concept-review-endpoint-utterances.md). El aprendizaje activo captura las consultas de punto de conexión y selecciona las expresiones de punto de conexión del usuario de las que no está seguro. Revise estas expresiones para seleccionar la intención y marque las entidades para estas expresiones de lectura. Acepte estos cambios en sus expresiones de ejemplo, entrene y publique. LUIS identificará después las expresiones con mayor precisión.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="enable-active-learning"></a>Habilitación del aprendizaje activo
 
@@ -30,7 +28,8 @@ Para habilitar el aprendizaje activo, debe registrar las consultas de usuario. E
 
 Use el portal de LUIS para construir la consulta de punto de conexión correcta.
 
-1. En el [portal de LUIS en versión preliminar](https://preview.luis.ai/), seleccione la aplicación en la lista de aplicaciones.
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
 1. Vaya a la sección **Administrar** y seleccione **Recursos de Azure**.
 1. En el recurso de predicción asignado, seleccione la opción de **cambiar parámetros de consulta**.
 

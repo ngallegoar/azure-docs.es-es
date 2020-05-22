@@ -9,19 +9,34 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e502b886c8031174180d40f1c5b7e373a974ee8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3db0e2ffdd4a75f02634ca2227c3c41416d4f65
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877062"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588423"
 ---
-#### <a name="docker-pull-for-the-sentiment-analysis-container"></a>Docker pull para el contenedor de análisis de sentimiento
+#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Docker pull para el contenedor de Análisis de sentimiento v3
 
-Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar la imagen de contenedor del Registro de contenedor de Microsoft.
-
-Para una descripción completa de las etiquetas disponibles para los contenedores de Text Analytics, consulte el contenedor de [análisis de sentimiento](https://go.microsoft.com/fwlink/?linkid=2018654) en Docker Hub.
+El contenedor de Análisis de sentimiento v3 está disponible en varios idiomas. Para descargar el contenedor en inglés, use el siguiente comando. 
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en
 ```
+
+Para descargar el contenedor para otro idioma, reemplace `en` por uno de los siguientes códigos de idioma. 
+
+| Contenedor de Text Analytics | Código de lenguaje |
+|--|--|
+| Inglés | `en` |
+| Español | `es` |
+| Francés | `fr` |
+| Italiano | `it` |
+| Alemán | `de` |
+| Chino (simplificado) | `zh` |
+| Chino (tradicional) | `zht` |
+| Japonés | `ja` |
+| Portugués | `pt` |
+| Neerlandés | `nl` |
+
+Para obtener una descripción completa de las etiquetas disponibles para los contenedores de Text Analytics, consulte [Docker Hub](https://go.microsoft.com/fwlink/?linkid=2018654).

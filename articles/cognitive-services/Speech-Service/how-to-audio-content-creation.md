@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a263e7e17cda64a8519bab215f97fdf26e88d9d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402237"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589659"
 ---
-# <a name="improve-synthesis-with-audio-content-creation"></a>Mejora de síntesis con Audio Content Creation
+# <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Mejora de la síntesis con la herramienta Audio Content Creation
 
 [Audio Content Creation](https://aka.ms/audiocontentcreation) es una herramienta en línea que le permite personalizar y ajustar la salida de texto a voz de Microsoft para sus aplicaciones y productos. Puede usar esta herramienta para ajustar las voces públicas y personalizadas a fin de lograr expresiones naturales más precisas y administrar el resultado en la nube.
 
@@ -25,28 +25,26 @@ La herramienta Audio Content Creation se basa en el [lenguaje de marcado de sín
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
-En este diagrama se muestran los pasos necesarios para optimizar y exportar salidas de voz a texto personalizadas. Use los siguientes vínculos para obtener más información sobre cada paso.
+En este diagrama se muestran los pasos necesarios para ajustar las salidas de texto a voz. Use los siguientes vínculos para obtener más información sobre cada paso.
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
-1. El primer paso es [crear una cuenta de Azure, registrar un recurso de voz y obtener una clave de suscripción](#create-a-speech-resource). Después de tener una clave de suscripción, puede utilizarla para llamar al servicio de voz y para obtener acceso a [Audio Content Creation](https://aka.ms/audiocontentcreation).
-2. [Cree un archivo de ajuste de audio](#create-an-audio-tuning-file) con texto sin formato o SSML.
-3. Elija la voz y el idioma que quiere optimizar. Audio Content Creation incluye todas las [voces de texto a voz de Microsoft](language-support.md#text-to-speech). Puede usar voces estándar, neuronales o una propia personalizada.
+1. [Configuración de la cuenta de Azure y el recurso de voz](#set-up-your-azure-account-and-speech-resource) para comenzar.
+2. [Creación de un archivo de ajuste de audio](#create-an-audio-tuning-file) con texto sin formato o scripts SSML.
+3. Elija la voz y el lenguaje del contenido del script. Audio Content Creation incluye todas las [voces de texto a voz de Microsoft](language-support.md#text-to-speech). Puede usar voces estándar, neuronales o una propia personalizada.
    >[!NOTE]
    > El acceso controlado está disponible para las voces neuronales personalizadas, que le permiten crear voces de alta definición similares a una voz natural. Para obtener más información, consulte [Proceso de acceso controlado](https://aka.ms/ignite2019/speech/ethics).
 
-4. Revise el resultado predeterminado. A continuación, use la herramienta de optimización para ajustar la pronunciación, el tono, la velocidad, la entonación, el estilo de voz, etc. Para obtener una lista completa de opciones, consulte [Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md).
-5. Guarde y [exporte el audio optimizado](#export-tuned-audio). Cuando guarde la pista de optimización en el sistema, podrá seguir trabajando y recorrer en iteración la salida. Cuando esté satisfecho con el resultado, puede crear una tarea de creación de audio con la característica de exportación. Puede observar el estado de la tarea de exportación y descargar la salida para usarla con sus aplicaciones y productos.
-6. El último paso es usar la voz personalizada optimizada en sus aplicaciones y productos.
+4. Revise la salida de la síntesis predeterminada. A continuación, mejore la salida mediante el ajuste de la pronunciación, las interrupciones, el tono, la velocidad, la entonación, el estilo de voz, etc. Para obtener una lista completa de opciones, consulte [Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md). En este [vídeo](https://youtu.be/mUvf2NbfuYU) se muestra cómo ajustar la salida de voz con Audio Content Creation. 
+5. Guarde y [exporte el audio optimizado](#export-tuned-audio). Cuando guarde la pista de ajuste en el sistema, podrá seguir trabajando e iterar en la salida. Cuando esté satisfecho con el resultado, puede crear una tarea de creación de audio con la característica de exportación. Puede observar el estado de la tarea de exportación y descargar la salida para usarla con sus aplicaciones y productos.
 
-## <a name="create-a-speech-resource"></a>Creación de un recurso de voz
+## <a name="set-up-your-azure-account-and-speech-resource"></a>Configuración de la cuenta de Azure y el recurso de voz
 
-Siga estos pasos para crear un recurso de voz y conectarlo con Speech Studio.
-
-1. Siga estas instrucciones para [registrarse en una cuenta de Azure](get-started.md#new-resource) y [crear un recurso de Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Asegúrese de que el plan de tarifa está establecido en **S0**. Si usa una de las voces neuronales, asegúrese de crear el recurso en una [región compatible](regions.md#standard-and-neural-voices).
-2. Inicie sesión en [Audio Content Creation](https://aka.ms/audiocontentcreation).
-3. Seleccione un proyecto existente o haga clic en **Crear nuevo**.
-4. Puede modificar su suscripción en cualquier momento con la opción **Configuración**, que se encuentra en la navegación superior.
+1. Para trabajar con Audio Content Creation, debe tener una cuenta de Azure. Puede crear una cuenta de Azure con su cuenta de Microsoft. Siga estas instrucciones para [configurar una cuenta de Azure](get-started.md#new-resource). 
+2. [Cree un recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource) para su cuenta de Azure. Asegúrese de que el plan de tarifa está establecido en **S0**. Si usa una de las voces neuronales, asegúrese de crear el recurso en una [región compatible](regions.md#standard-and-neural-voices).
+2. Después de obtener la cuenta de Azure y el recurso de voz, puede usar los servicios de voz y acceder a [Audio Content Creation](https://aka.ms/audiocontentcreation).
+3. Seleccione el recurso de voz en el que necesita trabajar. También puede crear un nuevo recurso de voz aquí. 
+4. Puede modificar su recurso de voz en cualquier momento con la opción **Configuración**, que se encuentra en la navegación superior.
 
 ## <a name="create-an-audio-tuning-file"></a>Creación de un archivo de ajuste de audio
 
@@ -54,21 +52,22 @@ Hay dos maneras de obtener el contenido de la herramienta Audio Content Creation
 
 **Opción 1:**
 
-1. Después de iniciar sesión en [Audio Content Creation](https://aka.ms/audiocontentcreation), haga clic en **Audio Tuning** (ajuste de audio) para crear un nuevo archivo de ajuste de audio.
-2. Cuando aparece la ventana de edición, puede introducir hasta 10 000 caracteres.
+1. Haga clic en **Nuevo archivo** para crear un nuevo archivo de ajuste de audio.
+2. Escriba o pegue el contenido en la ventana de edición. En número máximo de caracteres de cada archivo es 20 000. Si el script tiene más de 20 000 caracteres, puede usar la opción 2 para dividir automáticamente el contenido en varios archivos. 
 3. No olvide guardar.
 
 **Opción 2:**
 
-1. Después de iniciar sesión en [Audio Content Creation](https://aka.ms/audiocontentcreation), haga clic en **Cargar** para importar uno o varios archivos de texto. Se admiten el texto sin formato y SSML.
-2. Al cargar los archivos de texto, asegúrese de que el contenido cumple estos requisitos.
+1. Haga clic en **Cargar** para importar uno o varios archivos de texto. Se admiten el texto sin formato y SSML.
+2. Si el archivo de script tiene más de 20 000 caracteres, divida el archivo por párrafos, por caracteres o por expresiones regulares. 
+3. Al cargar los archivos de texto, asegúrese de que el archivo cumple estos requisitos.
 
    | Propiedad | Valor/notas |
    |----------|---------------|
    | Formato de archivo | Texto sin formato (.txt)<br/> Texto en SSML (.txt)<br/> No se admiten los archivos ZIP. |
    | Formato de codificación | UTF-8 |
    | Nombre de archivo | Cada archivo debe tener un nombre único. No se admiten los duplicados. |
-   | Longitud del texto | Los archivos de texto no deben tener más de 10 000 caracteres. |
+   | Longitud del texto | Los archivos de texto no deben tener más de 20 000 caracteres. |
    | Restricciones de SSML | Cada archivo SSML solo puede contener un único fragmento de SSML. |
 
 ### <a name="plain-text-example"></a>Ejemplo de texto sin formato
@@ -91,7 +90,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 Una vez que haya revisado la salida de audio y esté satisfecho con la optimización y el ajuste, puede exportar el audio.
 
-1. En la herramienta [Audio Content Creation](https://aka.ms/audiocontentcreation), haga clic en **Exportar** para crear una tarea de creación de audio.
+1. Haga clic en **Exportar** para crear una tarea de creación de audio. Se recomienda **Export to Audio Library (Exportar a biblioteca de audio)** , ya que admite la salida de audio larga y la experiencia de salida de audio completa. También puede descargar el audio directamente en el disco local, pero solo estarán disponibles los primeros 10 minutos. 
 2. Elija el formato de salida para el audio ajustado. A continuación se ofrece una lista de formatos admitidos y frecuencias de muestreo.
 3. Puede ver el estado de la tarea en la pestaña **Export task** (tarea de exportación). Si se produce un error en la tarea, consulte la página de información detallada para obtener un informe completo.
 4. Una vez completada la tarea, el audio está disponible para su descarga en la pestaña **Audio Library** (biblioteca de audio).

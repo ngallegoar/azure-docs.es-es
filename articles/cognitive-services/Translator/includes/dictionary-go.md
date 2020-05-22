@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b646f1994c83dba18b246dc3738729058ce6922d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1802a8d68030dbc882b4687cae28668f5a1e7a29
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69907054"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587061"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Creación de la función main
 
-En este ejemplo se intenta leer la clave de suscripción y el punto de conexión de Translator Text desde estas variables de entorno: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` y `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `subscriptionKey` y `endpoint` como cadenas y convertir en comentario las instrucciones condicionales.
+En este ejemplo se intenta leer la clave de suscripción y el punto de conexión de Traductor desde estas variables de entorno: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` y `TRANSLATOR_TEXT_ENDPOINT`. Si no está familiarizado con las variables de entorno, puede establecer `subscriptionKey` y `endpoint` como cadenas y convertir en comentario las instrucciones condicionales.
 
 Copie este código en el proyecto:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-get-alternate-translations"></a>Crear una función para obtener posibles traducciones alternativas
 
-Vamos a crear una función para obtener posibles traducciones alternativas. Esta función tendrá un solo argumento, su clave de suscripción de Translator Text.
+Vamos a crear una función para obtener posibles traducciones alternativas. Esta función tendrá un solo argumento, su clave de suscripción de Traductor.
 
 ```go
 func dictionaryLookup(subscriptionKey string, uri string) {
@@ -92,7 +92,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Búsqueda de diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Traductor 3.0: Búsqueda de diccionario](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Creación de una estructura para el cuerpo de la solicitud
 
@@ -110,7 +110,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Compilar la solicitud
 
-Ahora que se ha codificado el cuerpo de la solicitud como JSON, puede crear la solicitud POST y llamar a Translator Text API.
+Ahora que se ha codificado el cuerpo de la solicitud como JSON, puede crear la solicitud POST y llamar a Traductor.
 
 ```go
 // Build the HTTP POST request
@@ -122,7 +122,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -148,7 +148,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Colocación de todo junto
 
-Eso es todo, ha creado un sencillo programa que llama a Translator Text API y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
+Eso es todo, ha creado un sencillo programa que llama a Traductor y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
 
 ```console
 go run dictionaryLookup.go
@@ -219,7 +219,7 @@ Si desea comparar su código con el nuestro, el ejemplo completo está disponibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Translator Text API.
+Eche un vistazo a la referencia de API para comprender todo lo que puede hacer con Traductor.
 
 > [!div class="nextstepaction"]
 > [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

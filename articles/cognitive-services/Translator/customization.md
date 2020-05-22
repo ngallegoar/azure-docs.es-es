@@ -1,5 +1,5 @@
 ---
-title: Personalización de la traducción con Translator Text API
+title: 'Personalización de la traducción: Traductor'
 titleSuffix: Azure Cognitive Services
 description: Use Microsoft Translator Hub para crear su propio sistema de traducción automática con su terminología y estilo preferidos.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71257621"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588656"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
-Traductor personalizado de Microsoft es una característica del servicio Microsoft Translator que permite a los usuarios personalizar la traducción automática neuronal avanzada de Microsoft Translator cuando se traduce texto con Translator Text API (solo en la versión 3).
+Traductor personalizado es una característica del servicio Traductor que permite a los usuarios personalizar la traducción automática neuronal avanzada de Microsoft Translator cuando se traduce texto con Traductor (solo en la versión 3).
 
 Esta característica solamente puede utilizarse para personalizar la traducción de voz cuando se usa con el [servicio Voz de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
@@ -33,7 +33,7 @@ Utilice los documentos traducidos anteriormente (prospectos, páginas web, docum
 
 El sistema también acepta datos que sean paralelos a nivel de documento, pero que aún no estén alineados a nivel de frase. Si los usuarios tienen acceso a versiones del mismo contenido en varios idiomas, pero en documentos independientes Custom Translator podrá hace concordar automáticamente las frases de los distintos documentos.  El sistema también puede utilizar datos monolingües en uno de los idiomas, o en ambos, para complementar los datos de aprendizaje paralelos, con el fin de mejorar las traducciones.
 
-A partir de ese momento, el sistema personalizado está disponible con una llamada normal a Microsoft Translator Text API con el parámetro de categoría.
+A partir de ese momento, el sistema personalizado está disponible con una llamada normal a Traductor con el parámetro de categoría.
 
 Si se proporcionan el tipo y la cantidad apropiados de datos de aprendizaje, no es extraño que con Custom Translator la calidad de la traducción mejore entre 5 y 10 puntos BLEU, o incluso más.
 
@@ -59,7 +59,7 @@ Puede encontrar más detalles acerca de los diferentes niveles de personalizaci�
 ## <a name="collaborative-translations-framework"></a>Marco de traducciones en colaboración
 
 > [!NOTE]
-> A partir del 1 de febrero de 2018, AddTranslation() y AddTranslationArray() no se pueden usar con la versión 2.0 de Translator Text API. Estos métodos generarán un error y no se escribirá nada. La versión 3.0 de Translator Text API no admite estos métodos.
+> A partir del 1 de febrero de 2018, AddTranslation() y AddTranslationArray() no se pueden usar con la versión 2.0 de Traductor. Estos métodos generarán un error y no se escribirá nada. La versión 3.0 de Traductor no admite estos métodos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,7 +1,7 @@
 ---
-title: Filtrado de blasfemias de Translator Text API
+title: Filtrado de blasfemias de Traductor
 titleSuffix: Azure Cognitive Services
-description: Use el filtrado de blasfemias para determinar el nivel de blasfemias traducidas en el texto en la Translator Text API de Azure Cognitive Services.
+description: Use el filtrado de blasfemias para determinar el nivel de blasfemias traducidas en el texto en Traductor de Azure Cognitive Services.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 864f6a6d92306c40713f66b526c8a8df1683d3c4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73836223"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586803"
 ---
-# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Agregar el filtrado de blasfemias con Translator Text API
+# <a name="add-profanity-filtering-with-the-translator"></a>Agregar el filtrado de blasfemias con Traductor
 
 Normalmente, el servicio de Translator conserva las blasfemias que están presentes en el origen de la traducción. El grado de blasfemia y el contexto que hace que las palabras sean soeces difieren entre las distintas culturas. Como consecuencia, el grado de blasfemia en el lenguaje de destino podría ampliarse o reducirse.
 
@@ -26,7 +26,7 @@ Si quiere evitar obtener blasfemias en la traducción (independientemente de su 
 El método Translate() toma el parámetro "options", que contiene el nuevo elemento "ProfanityAction". Los valores aceptados de ProfanityAction son "NoAction", "Marked" y "Deleted".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Valores aceptados de ProfanityAction y ejemplos
-|Valor de ProfanityAction | Acción | Ejemplo: origen en japonés | Ejemplo: destino en español|
+|Valor de ProfanityAction | Acción | Ejemplo: Origen: japonés | Ejemplo: Destino: inglés|
 | :---|:---|:---|:---|
 | NoAction | Predeterminada. Igual que si no se configura la opción. Las blasfemias pasan del origen al destino. | 彼は変態です。 | Es un estúpido. |
 | Marked | Las palabras soeces aparecerán rodeadas por etiquetas XML \<profanity> ... \</profanity>. | 彼は変態です。 | Es un \<profanity>estúpido\</profanity>. |
@@ -34,4 +34,4 @@ El método Translate() toma el parámetro "options", que contiene el nuevo eleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Aplicar filtrado de blasfemias con la llamada a Translator API](reference/v3-0-translate.md)
+> [Aplicar filtrado de blasfemias con la llamada a Traductor](reference/v3-0-translate.md)

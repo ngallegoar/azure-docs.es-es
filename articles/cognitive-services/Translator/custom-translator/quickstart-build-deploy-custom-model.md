@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c86a387e66cce914f9d0b92793893b0cba08e7bc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370248"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587107"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Inicio rápido: Compilación, implementación y uso de un modelo personalizado para la traducción
 
@@ -24,13 +24,13 @@ En este artículo se proporcionan instrucciones detalladas para compilar un sist
 
 1. Para usar el portal de [Custom Translator](https://portal.customtranslator.azure.ai), necesitará una [cuenta Microsoft](https://signup.live.com) o [cuenta de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (cuenta de organización hospedada en Azure) para iniciar sesión.
 
-2. Una suscripción a Translator Text API a través de Azure Portal. Necesitará la clave de suscripción de Translator Text API para asociarla con el área de trabajo de Custom Translator. Consulte [Cómo suscribirse a Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Una suscripción a Traductor a través de Azure Portal. Necesitará la clave de suscripción de Traductor para asociarla con el área de trabajo de Traductor personalizado. Consulte [Cómo suscribirse a Traductor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Cuando tenga los dos anteriores, inicie sesión in en el portal [Custom Translator](https://portal.customtranslator.azure.ai) para crear áreas de trabajo y proyectos, así como cargar archivos y crear e implementar modelos.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Si es la primera vez que lo usa, se le solicitará que acepte las Condiciones del servicio para crear un área de trabajo y asociarla a la suscripción de Microsoft Translator Text API.
+Si es la primera vez que lo usa, se le solicitará que acepte las Condiciones del servicio para crear un área de trabajo y asociarla a la suscripción de Traductor.
 
 ![Crear área de trabajo](media/quickstart/terms-of-service.png)
 ![Crear área de trabajo](media/quickstart/create-workspace-1.png)
@@ -40,7 +40,7 @@ Si es la primera vez que lo usa, se le solicitará que acepte las Condiciones de
 ![Crear área de trabajo](media/quickstart/create-workspace-5.png)
 ![Crear área de trabajo](media/quickstart/create-workspace-6.png)
 
-En las posteriores visitas al portal de Custom Translator, vaya a la página de configuración, donde puede administrar el área de trabajo, crear más áreas de trabajo, asociar la clave de suscripción de Microsoft Translator Text API a sus áreas de trabajo, agregar copropietarios y cambiar una clave de suscripción.
+En las posteriores visitas al portal de Traductor personalizado, navegue hasta la página de configuración, donde puede administrar el área de trabajo, crear más áreas de trabajo, asociar la clave de suscripción de Traductor a sus áreas de trabajo, agregar copropietarios y cambiar una clave de suscripción.
 
 ## <a name="create-a-project"></a>Crear un proyecto
 
@@ -83,7 +83,7 @@ Cuando esté listo para implementar el modelo entrenado, haga clic en el botón 
 
 ## <a name="use-a-deployed-model"></a>Uso de un modelo implementado
 
-Se puede acceder a los modelos implementados a través de Microsoft Translator [Text API V3 especificando CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Puede encontrar más información sobre Translator Text API en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Se puede acceder a los modelos implementados a través de Microsoft Translator [Text API V3 especificando CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Puede encontrar más información sobre Traductor en la página web de [referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

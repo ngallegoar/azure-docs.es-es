@@ -9,23 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: d3f8696388a33a8ea112aae438c6bbe9af520c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219110"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585630"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creación de una aplicación de LUIS en el portal de LUIS
 Hay un par de formas de crear aplicaciones de LUIS. Puede crear una aplicación de LUIS en el portal de LUIS o a través de las [API](developer-reference-resource.md) de creación de LUIS.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## <a name="using-the-luis-portal"></a>Mediante el portal de LUIS
 
-Puede crear una aplicación en el portal de versión preliminar de varias maneras:
+Puede crear una aplicación nueva en el portal de varias maneras:
 
 * Comience con una aplicación vacía y cree intenciones, expresiones y entidades.
 * Comience con una aplicación vacía y agregue un [dominio creado previamente](luis-how-to-use-prebuilt-domains.md).
@@ -35,13 +33,13 @@ Puede crear una aplicación en el portal de versión preliminar de varias manera
 Puede crear una aplicación con las API de creación de dos maneras:
 
 * [Agregar aplicación](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f): comience con una aplicación vacía y cree intenciones, expresiones y entidades.
-* [Agregar aplicación de ejemplo](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5): comience con un dominio precompilado que incluya intenciones, expresiones y entidades.  
+* [Agregar aplicación de ejemplo](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5): comience con un dominio precompilado que incluya intenciones, expresiones y entidades.
 
 
 <a name="export-app"></a>
 <a name="import-new-app"></a>
 <a name="delete-app"></a>
- 
+
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
@@ -59,10 +57,10 @@ Puede crear una aplicación con las API de creación de dos maneras:
 1. Elija la referencia cultural de la aplicación y seleccione **Listo**. En este momento, la descripción y el recurso de predicción son opcionales. Puede establecerlos en otro momento en la sección **Administrar** del portal.
 
     > [!NOTE]
-    > La referencia cultural no se puede cambiar una vez creada la aplicación. 
+    > La referencia cultural no se puede cambiar una vez creada la aplicación.
 
-    Después de crear la aplicación, el portal de LUIS muestra la lista de **intenciones** con la intención `None` creada automáticamente. Ahora tiene una aplicación vacía. 
-    
+    Después de crear la aplicación, el portal de LUIS muestra la lista de **intenciones** con la intención `None` creada automáticamente. Ahora tiene una aplicación vacía.
+
     > [!div class="mx-imgBorder"]
     > ![Lista de intentos con la intención None creada sin intenciones de ejemplo.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
@@ -79,4 +77,4 @@ La barra de herramientas de contexto ofrece otras acciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el diseño de la aplicación incluye la detección de intenciones, [cree otros intentos](luis-how-to-add-intents.md) y agregue expresiones de ejemplo. Si el diseño de la aplicación solo corresponde a extracción de datos, agregue expresiones de ejemplo la intención None, [cree entidades](luis-how-to-add-example-utterances.md) y etiquete las expresiones de ejemplo con esas entidades. 
+Si el diseño de la aplicación incluye la detección de intenciones, [cree otros intentos](luis-how-to-add-intents.md) y agregue expresiones de ejemplo. Si el diseño de la aplicación solo corresponde a extracción de datos, agregue expresiones de ejemplo la intención None, [cree entidades](luis-how-to-add-example-utterances.md) y etiquete las expresiones de ejemplo con esas entidades.

@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Predicción de intenciones: LUIS'
-description: En este tutorial, cree una aplicación personalizada que prediga la intención de un usuario. Esta aplicación es el tipo más primitivo de aplicación de LUIS, dado que no extrae varios elementos de datos del texto de la expresión, como direcciones de correo electrónico o fechas.
+description: Cree una aplicación personalizada que prediga la intención de un usuario en función de la expresión (texto) siguiendo este tutorial.
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/05/2020
+ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80286751"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588972"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación de LUIS para determinar las intenciones del usuario
 
@@ -37,7 +37,7 @@ Estas intenciones se categorizan en **Intenciones**.
 |`ModifyOrder`|Determinar el pedido de pizzas del usuario.|
 |`Greeting`|Comenzar la conversación con el bot.|
 |`ConfirmOrder`|Confirmar el pedido de pizzas.|
-|`None`|Determinar si el usuario pregunta algo que la aplicación no puede responder. Esta intención se proporciona como parte de la creación de la aplicación y no se puede eliminar. |
+|`None`|Determinar si el usuario pregunta algo que la aplicación LUIS no está diseñada para responder. Esta intención se proporciona como parte de la creación de la aplicación y no se puede eliminar. |
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
@@ -64,9 +64,10 @@ Para clasificar una expresión, la intención necesita ejemplos de expresiones d
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![Incorporación de expresiones de ejemplo](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla del ejemplo de adición de expresiones en el portal de LUIS en la página de intención](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Al proporcionar _expresiones de ejemplo_, está enseñando a LUIS qué tipos de expresiones deben predecirse para esta intención.
+    Al proporcionar _expresiones de ejemplo_, está enseñando a LUIS qué tipos de expresiones deben predecirse para esta intención. Son ejemplos positivos. Las expresiones de todas las demás intenciones se tratan como ejemplos negativos de esta intención.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -178,6 +179,8 @@ Para clasificar una expresión, la intención necesita ejemplos de expresiones d
 
 ## <a name="client-application-next-steps"></a>Pasos siguientes de la aplicación cliente
 
+En este tutorial se creó una aplicación de LUIS, se crearon intenciones, se agregaron expresiones de ejemplo a cada intención, se agregaron expresiones de ejemplo a la intención None, se entrenó, se publicó y se probó en el punto de conexión. Estos son los pasos básicos de la creación de un modelo de LUIS.
+
 Después de que LUIS devuelva la respuesta JSON, LUIS termina con esta solicitud. LUIS no proporciona respuestas a expresiones de usuario, solo identifica el tipo de información que se solicita en lenguaje natural. La aplicación cliente permite el seguimiento de la conversación, como una instancia de Azure Bot.
 
 
@@ -193,8 +196,6 @@ Después de que LUIS devuelva la respuesta JSON, LUIS termina con esta solicitud
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-En este tutorial se creó una aplicación de LUIS, se crearon intenciones, se agregaron expresiones de ejemplo a cada intención, se agregaron expresiones de ejemplo a la intención None, se entrenó, se publicó y se probó en el punto de conexión. Estos son los pasos básicos de la creación de un modelo de LUIS.
 
 > [!div class="nextstepaction"]
 > [Adición de una entidad que se puede descomponer a esta aplicación](tutorial-machine-learned-entity.md)

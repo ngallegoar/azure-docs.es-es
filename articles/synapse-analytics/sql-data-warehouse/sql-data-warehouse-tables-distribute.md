@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 599514f6e7b97208194fc4c1660712f4d5e0c4cb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742874"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585358"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Instrucciones para diseñar tablas distribuidas en un grupo de SQL de Synapse
 
@@ -92,11 +92,11 @@ WITH
 ;
 ```
 
-La elección de una columna de distribución es una decisión de diseño importante, puesto que los valores de esta columna determinan cómo se distribuyen las filas. La mejor opción depende de varios factores y, normalmente, supone tener que buscar un compromiso. Sin embargo, si no elige la columna más adecuada la primera vez, puede usar [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para volver a crear la tabla con una columna de distribución diferente.
+Los datos almacenados en la columna de distribución se pueden actualizar. Las actualizaciones de los datos de la columna de distribución podrían dar lugar a la operación de orden aleatorio de los datos.
 
-### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Elección de una columna de distribución que no requiere actualizaciones
+La elección de una columna de distribución es una decisión de diseño importante, puesto que los valores de esta columna determinan cómo se distribuyen las filas. La mejor opción depende de varios factores y, normalmente, supone tener que buscar un compromiso. Una vez que se elige una columna de distribución, no se puede cambiar.  
 
-No puede actualizar una columna de distribución a menos que elimine la fila e inserte una nueva fila con los valores actualizados. Por lo tanto, seleccione una columna con valores estáticos.
+Si no eligió la columna más adecuada la primera vez, puede usar [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para volver a crear la tabla con una columna de distribución diferente.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Elección de una columna de distribución con datos que se distribuyen de manera uniforme
 

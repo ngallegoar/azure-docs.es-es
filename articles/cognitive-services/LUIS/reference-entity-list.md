@@ -2,13 +2,13 @@
 title: 'Tipo de entidad de lista: LUIS'
 description: Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica Recommend (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097581"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588894"
 ---
 # <a name="list-entity"></a>Entidad de lista
 
@@ -132,4 +132,7 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este [tutorial](tutorial-list-entity.md), aprenderá a usar una **entidad de lista** para extraer las coincidencias exactas del texto de una lista de elementos conocidos.
+Más información sobre las entidades:
+
+* [Conceptos](luis-concept-entity-types.md)
+* [Creación](luis-how-to-add-entities.md)

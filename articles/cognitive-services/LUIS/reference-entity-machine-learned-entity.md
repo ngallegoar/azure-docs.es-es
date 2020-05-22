@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
+ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75552005"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585596"
 ---
 # <a name="machine-learned-entity"></a>Entidad de aprendizaje automático
 
@@ -38,7 +38,7 @@ Las expresiones de ejemplo incluyen:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
-Dado que una entidad aprendida automáticamente puede tener muchos subcomponentes con restricciones y descriptores, esto solo es un ejemplo. Debe tenerse en cuenta la posibilidad de una guía para lo que devolverá la entidad.
+Dado que una entidad con aprendizaje automático puede tener muchas subentidades con características obligatorias, esto solo es un ejemplo. Debe tenerse en cuenta la posibilidad de una guía para lo que devolverá la entidad.
 
 Tenga en cuenta la consulta siguiente:
 

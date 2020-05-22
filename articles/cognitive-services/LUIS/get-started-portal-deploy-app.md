@@ -2,13 +2,13 @@
 title: 'Inicio rápido: Implementación de una aplicación con el portal de LUIS'
 description: En este inicio rápido se muestra cómo implementar una aplicación mediante la creación de un recurso de punto de conexión de predicción, la asignación del recurso, el entrenamiento y la publicación de la aplicación.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756291"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585109"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
 
@@ -30,7 +30,7 @@ En esta guía de inicio rápido, aprenderá a implementar una aplicación. Cree 
 
 Cada vez que crea un recurso de predicción de consultas o de creación para LUIS, es preciso asignarlo a la aplicación de LUIS. Una vez que lo asigne, no tendrá que volver a realizar este paso, a menos que cree otro recurso. Puede crear un recurso para expandir las regiones de la aplicación o para admitir un mayor número de consultas de predicción.
 
-1. Inicie sesión en el [portal de LUIS (versión preliminar)](https://preview.luis.ai) y elija la aplicación **myEnglishApp** en la lista de aplicaciones.
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y elija la aplicación **myEnglishApp** en la lista de aplicaciones.
 
 1. Seleccione **Manage** (Administrar) en el menú superior derecho y, después, seleccione **Azure Resources** (Recursos de Azure).
 
@@ -59,7 +59,7 @@ Cada vez que crea un recurso de predicción de consultas o de creación para LUI
 
 ## <a name="prediction-endpoint-request"></a>Solicitud de punto de conexión de predicción
 
-En el portal de vista previa, `query=`, al final de la dirección URL, donde la expresión del usuario se anexa a la solicitud GET. Después de `query=`, escriba la misma expresión del usuario que se utilizó al final del inicio rápido anterior:
+En el portal, `query=` al final de la dirección URL es donde la expresión del usuario se anexa a la solicitud GET. Después de `query=`, escriba la misma expresión del usuario que se utilizó al final del inicio rápido anterior:
 
 ```Is there a form named hrf-234098```
 

@@ -7,19 +7,19 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: e67f65d252be0ea638d3b5fa241d9413e76f1a98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 253c391b222c757a367bd5cd39939052cc697b00
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877057"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588426"
 ---
-Para ejecutar el contenedor *Análisis de sentimiento*, ejecute el siguiente comando `docker run`.
+Para ejecutar el contenedor *Análisis de sentimiento v3*, ejecute el siguiente comando `docker run`.
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/sentiment \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -29,6 +29,6 @@ ApiKey={API_KEY}
 Este comando:
 
 * Ejecuta un contenedor de *Análisis de sentimiento* desde la imagen de contenedor.
-* Asigna un núcleo de CPU y 4 gigabytes (GB) de memoria.
+* Asigna un núcleo de CPU y 8 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.

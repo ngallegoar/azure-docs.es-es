@@ -9,18 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877082"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588427"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
-Los contenedores permiten ejecutar las API Text Analytics en su propio entorno y son ideales para sus requisitos específicos de seguridad y gobernanza de datos. Los contenedores de Text Analytics proporcionan un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. Actualmente no se admite la vinculación de entidad en un contenedor.
+> [!NOTE]
+> * El contenedor de Análisis de sentimiento v3 ya está disponible con carácter general. Los contenedores de extracción de frases clave y de detección de idioma están disponibles como [versión preliminar pública no validada](../../cognitive-services-gating-process.md).
+> * La vinculación de entidades y NER no están disponibles actualmente como contenedor.
+
+Los contenedores permiten ejecutar las API Text Analytics en su propio entorno y son ideales para sus requisitos específicos de seguridad y gobernanza de datos. Los contenedores de Text Analytics proporcionan un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -49,60 +53,32 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
-En la tabla siguiente, se describe el número mínimo y recomendado de núcleos de CPU, por lo menos 2,6 gigahercios (GHz) o con mayor rapidez, y de memoria, en gigabytes (GB), para asignar a cada contenedor de Text Analytics.
+En la tabla siguiente se describen las especificaciones mínima y recomendada para los contenedores de Text Analytics. Se necesitan al menos 2 gigabytes (GB) de memoria y cada núcleo de CPU debe ser de 2,6 gigahercios (GHz) como mínimo o más rápido. También se enumeran las transacciones permitidas por sección (TPS).
 
-# <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/keyphrase)
+|  | Especificaciones de host mínimas | Especificaciones de host recomendadas | TPS mínimas | TPS máximas|
+|---|---------|-------------|--|--|
+| **Detección de idioma, extracción de frases clave**   | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15 | 30|
+| **Análisis de sentimiento, versión 3**   | 1 núcleo, 2 GB de memoria | 4 núcleos, 8 GB de memoria |15 | 30|
 
-[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
-
-# <a name="language-detection"></a>[Detección de idioma](#tab/language)
-
-[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
-
-# <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
-
-***
-
-* Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
-* TPS: transacciones por segundo
-
-El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
+El núcleo de CPU y la memoria corresponden a los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtención de la imagen del contenedor con `docker pull`
 
-Las imágenes de contenedor de Text Analytics están disponibles en Microsoft Container Registry.
-
-# <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
-
-# <a name="language-detection"></a>[Detección de idioma](#tab/language)
-
-[!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
-
-# <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
-
-***
-
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker pull para los contenedores de Text Analytics
+Las imágenes de contenedor de Text Analytics están disponibles en Microsoft Container Registry.
 
-# <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/keyphrase)
+# <a name="sentiment-analysis-v3"></a>[Análisis de sentimiento, versión 3](#tab/sentiment)
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+# <a name="key-phrase-extraction-preview"></a>[Extracción de frases clave (versión preliminar)](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection"></a>[Detección de idioma](#tab/language)
+# <a name="language-detection-preview"></a>[Detección de idioma (versión preliminar)](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
-
-# <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment)
-
-[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
 ***
 
@@ -110,31 +86,38 @@ Las imágenes de contenedor de Text Analytics están disponibles en Microsoft C
 
 Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice el siguiente proceso para trabajar con el contenedor.
 
-1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación requerida. Hay más [ejemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) del comando `docker run` disponibles.
+1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación requerida.
 1. [Consulta del punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Ejecute el contenedor con `docker run`.
 
-Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar cualquiera de los tres contenedores. Consulte [Recopilación de los parámetros obligatorios](#gathering-required-parameters) para obtener más información sobre cómo obtener los valores de `{ENDPOINT_URI}`y `{API_KEY}`.
+Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar los contenedores. El contenedor continuará ejecutándose hasta que lo detenga.
 
-Hay disponibles [ejemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) del comando `docker run`.
+Reemplace los marcadores de posición por sus propios valores:
 
-# <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/keyphrase)
+| Marcador de posición | Value | Formato o ejemplo |
+|-------------|-------|---|
+| **{CLAVE_API}** | Clave del recurso de Text Analytics. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{URI_PUNTODECONEXIÓN}** | Punto de conexión para acceder a Text Analytics API. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
-[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
+> [!IMPORTANT]
+> * Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
+> * Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing).
+> * El contenedor de Análisis de sentimiento v3 ya está disponible con carácter general y devuelve [etiquetas de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) en la respuesta. Los contenedores de extracción de frases clave y de detección de idioma usan la versión 2 de la API y se encuentran en versión preliminar.
 
-# <a name="language-detection"></a>[Detección de idioma](#tab/language)
-
-[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
-
-# <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment)
+# <a name="sentiment-analysis-v3"></a>[Análisis de sentimiento, versión 3](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
-***
+# <a name="key-phrase-extraction-preview"></a>[Extracción de frases clave (versión preliminar)](#tab/keyphrase)
 
-> [!IMPORTANT]
-> Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing).
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
+
+# <a name="language-detection-preview"></a>[Detección de idioma (versión preliminar)](#tab/language)
+
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+***
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -175,16 +158,17 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 En este artículo, ha aprendido los conceptos y el flujo de trabajo para la descarga, instalación y ejecución de contenedores de Text Analytics. En resumen:
 
 * Text Analytics proporciona tres contenedores Linux para Docker, que encapsulan varias funcionalidades:
-   * *Extracción de frases clave*
-   * *Detección de idioma*
    * *Análisis de sentimiento*
+   * *Extracción de frases clave (versión preliminar)* 
+   * *Detección de idioma (versión preliminar)*
+   
 * Las imágenes del contenedor se descargan desde Microsoft Container Registry (MCR) en Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API REST o el SDK para llamar a operaciones en contenedores de Text Analytics mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.
 
 > [!IMPORTANT]
-> Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.
+> Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, el texto que se está analizando) a Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

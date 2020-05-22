@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7a38ec47d416027e8ea3fa772ae01e4f6264197a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f751aa947988544977f9baf2746191921c1aa9d4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876846"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590676"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
 
@@ -50,19 +50,19 @@ Los recursos de Cognitive Services están disponibles en [Microsoft Azure](https
 Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto de contenedores de Docker, cada uno de los cuales contiene un subconjunto de funcionalidades de servicios de Azure Cognitive Services:
 
 | Servicio | Plan de tarifa compatible | Contenedor | Descripción |
-|---------|----------|----------|-------------|
-|[Anomaly Detector][ad-containers] |F0, S0|**Anomaly-Detector** |Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso](https://aka.ms/adcontainer)|
-|[Computer Vision][cv-containers] |F0, S1|**Lectura** |Extrae texto impreso de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. El contenedor de lectura también detecta *texto manuscrito* en las imágenes y es compatible con los formatos PDF, TIFF y multipágina.<br/><br/>**Importante:** Actualmente, el contenedor de lectura solo funciona en inglés.|
-|[Face][fa-containers] |F0, S0|**Face** |Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos.<br>[Solicitar acceso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[Form Recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios.<br>[Solicitar acceso](https://aka.ms/FormRecognizerContainerRequestAccess)|
-|[LUIS][lu-containers] |F0, S0|**LUIS** ([imagen](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carga un modelo de Language Understanding entrenado o publicado, lo que también se conoce como aplicación de LUIS, en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor. Puede recopilar registros de consultas en el contenedor y cargarlos de nuevo en el [portal de LUIS](https://www.luis.ai) para mejorar la precisión de predicción de la aplicación.|
-|[Speech Service API][sp-containers-stt] |F0, S0|**Voz a texto** |Permite transcribir en tiempo real voz en texto.|
-|[Speech Service API][sp-containers-cstt] |F0, S0|**Conversión de voz a texto personalizada** |Permite transcribir en tiempo real voz en texto mediante un modelo personalizado.|
-|[Speech Service API][sp-containers-tts] |F0, S0|**Texto a voz** |Convierte el texto a una voz que parece natural.|
-|[Speech Service API][sp-containers-ctts] |F0, S0|**Conversión de texto a voz personalizada** |Convierte el texto en una voz que parece natural mediante un modelo personalizado.|
-|[Text Analytics][ta-containers-keyphrase] |F0, S|**Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
-|[Text Analytics][ta-containers-language]|F0, S|**Detección de idioma** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
-|[Text Analytics][ta-containers-sentiment]|F0, S|**Análisis de sentimiento** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para [idiomas seleccionados](./text-analytics/language-support.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
+|--|--|--|--|
+| [Anomaly Detector][ad-containers] | F0, S0 | **Anomaly-Detector** | Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso][request-access] |
+| [Computer Vision][cv-containers] | F0, S1 | **Lectura** | Extrae texto impreso de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. El contenedor de lectura también detecta *texto manuscrito* en las imágenes y es compatible con los formatos PDF, TIFF y multipágina.<br/><br/>**Importante:** Actualmente, el contenedor de lectura solo funciona en inglés. |
+| [Face][fa-containers] | F0, S0 | **Face** | Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos.<br>[Solicitar acceso][request-access] |
+| [Form Recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios.<br>[Solicitar acceso][request-access] |
+| [LUIS][lu-containers] | F0, S0 | **LUIS** ([imagen](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carga un modelo de Language Understanding entrenado o publicado, lo que también se conoce como aplicación de LUIS, en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor. Puede recopilar registros de consultas en el contenedor y cargarlos de nuevo en el [portal de LUIS](https://www.luis.ai) para mejorar la precisión de predicción de la aplicación. |
+| [Speech Service API][sp-containers-stt] | F0, S0 | **Voz a texto** | Permite transcribir en tiempo real voz en texto. |
+| [Speech Service API][sp-containers-cstt] | F0, S0 | **Conversión de voz a texto personalizada** | Permite transcribir en tiempo real voz en texto mediante un modelo personalizado. |
+| [Speech Service API][sp-containers-tts] | F0, S0 | **Texto a voz** | Convierte el texto a una voz que parece natural. |
+| [Speech Service API][sp-containers-ctts] | F0, S0 | **Conversión de texto a voz personalizada** | Convierte el texto en una voz que parece natural mediante un modelo personalizado. |
+| [Text Analytics][ta-containers-keyphrase] | F0, S | **Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
+| [Text Analytics][ta-containers-language] | F0, S | **Detección de idioma** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
+| [Text Analytics][ta-containers-sentiment] | F0, S | **Análisis de sentimiento, versión 3** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta versión del análisis de sentimiento devuelve etiquetas de sentimiento (por ejemplo, *positivo* o *negativo*) para cada documento y oración que contiene. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -78,14 +78,6 @@ Además, se admiten algunos contenedores en las claves del recurso de la [**ofer
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidad de contenedores en Azure Cognitive Services
 
 Los contenedores de Azure Cognitive Services están disponibles públicamente a través de su suscripción a Azure y se pueden extraer imágenes de contenedor de Docker desde Microsoft Container Registry o Docker Hub. Puede usar el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor desde el registro apropiado.
-
-> [!IMPORTANT]
-> Actualmente, debe completar un proceso de registro para obtener acceso a los contenedores siguientes, en el que debe rellenar y enviar un cuestionario con preguntas acerca de usted, su empresa y el caso de uso para el que desea implementar los contenedores. Una vez que se le concede acceso y se le proporcionan las credenciales, puede extraer las imágenes a partir de un registro de contenedor privado hospedado por Azure Container Registry.
-> * [Anomaly Detector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
-> * [Face](Face/face-how-to-install-containers.md)
-> * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
-> * [Lectura](computer-vision/computer-vision-how-to-install-containers.md)
-> * [Voz a texto y texto a voz](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
@@ -138,3 +130,4 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u

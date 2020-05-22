@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 44bb223dbc944be1b8769aa2572f1b88b916528b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79372041"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590900"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Cifrado de datos en reposo de Traductor
 
@@ -41,7 +41,7 @@ También tiene una opción para administrar su suscripción con sus propias clav
 
 Siga estos pasos para habilitar las claves administradas por el cliente para Traductor:
 
-1. Cree su recurso regional de Translator Text o Cognitive Services. Esto no funcionará con un recurso global.
+1. Cree su nuevo recurso Traductor regional o Cognitive Services regional. Esto no funcionará con un recurso global.
 2. Habilite la identidad administrada en Azure Portal y agregue la información de las claves administradas por el cliente.
 3. Cree un área de trabajo en Traductor personalizado y asocie esta información de suscripción.
 

@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: b7cca314ec59e46cf17751b1aec28b5c3ea029ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401074"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587347"
 ---
 # <a name="long-audio-api-preview"></a>Long Audio API (versión preliminar)
 
-Long Audio API está diseñada para la síntesis asincrónica de texto de formato largo a voz (por ejemplo: audiolibros). Esta API no devuelve audio sintetizado en tiempo real, sino que, en su lugar, se espera que se sondeen las respuestas y se consuman las salidas a medida que estén disponibles desde el servicio. A diferencia de Text To Speech API, que usa el SDK de Voz, Long Audio API puede crear audio sintetizado de más de diez minutos, lo que resulta idóneo para los editores y las plataformas de contenido de audio.
+Long Audio API está diseñada para la síntesis asincrónica de texto de formato largo a voz (por ejemplo: audiolibros, artículos de noticias y documentos). Esta API no devuelve audio sintetizado en tiempo real, sino que, en su lugar, se espera que se sondeen las respuestas y se consuman las salidas a medida que estén disponibles desde el servicio. A diferencia de Text To Speech API, que usa el SDK de Voz, Long Audio API puede crear audio sintetizado de más de diez minutos, lo que resulta idóneo para los editores y las plataformas de contenido de audio.
 
 Ventajas adicionales de Long Audio API:
 
-* La voz sintetizada devuelta por el servicio utiliza voces neuronales, lo que garantiza salidas de audio de alta fidelidad.
-* Dado que no se admiten las respuestas en tiempo real, no es necesario implementar un punto de conexión de voz.
+* La voz sintetizada devuelta por el servicio usa las mejores voces neuronales.
+* No es necesario implementar un punto de conexión de voz ya que no sintetiza las voces en ningún modo por lotes en tiempo real.
 
 > [!NOTE]
-> Long Audio API ahora solo admite [Voz neuronal personalizada](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> Long Audio API admite ahora [voces neuronales públicas](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) y [voces neuronales personalizadas](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -52,14 +52,47 @@ Cuando prepare el archivo de texto, asegúrese de lo siguiente:
 
 ## <a name="submit-synthesis-requests"></a>Envío de solicitudes de síntesis
 
-Después de preparar el contenido de entrada, siga el [inicio rápido de síntesis de audio de forma larga](https://aka.ms/long-audio-python) para enviar la solicitud. Si tiene más de un archivo de entrada, tendrá que enviar varias solicitudes. Existen algunas limitaciones a tener en cuenta, por ejemplo: 
-* El cliente puede enviar hasta 5 solicitudes al servidor por segundo para cada cuenta de suscripción de Azure. Si supera la limitación, el cliente obtendrá un código de error 429 (demasiadas solicitudes). Reduzca la cantidad de solicitudes por segundo.
-* El servidor puede ejecutarse y poner en cola hasta 120 solicitudes para cada cuenta de suscripción de Azure. Si supera la limitación, el servidor devolverá un código de error 429 (demasiadas solicitudes). Espere y evite enviar una nueva solicitud hasta que se completen algunas solicitudes.
-* El servidor mantendrá hasta 20 000 solicitudes para cada cuenta de suscripción de Azure. Si supera la limitación, elimine algunas solicitudes antes de enviar otras nuevas.
+Después de preparar el contenido de entrada, siga el [inicio rápido de síntesis de audio de forma larga](https://aka.ms/long-audio-python) para enviar la solicitud. Si tiene más de un archivo de entrada, tendrá que enviar varias solicitudes. 
+
+Los **códigos de estado HTTP** indican errores comunes.
+
+| API | Código de estado HTTP | Descripción | Propuesta |
+|-----|------------------|-------------|----------|
+| Crear | 400 | La síntesis de voz no está habilitada en esta región. | Cambie la clave de suscripción de voz a una región admitida. |
+|        | 400 | Solo es válida la suscripción **estándar** para esta región. | Cambie la clave de suscripción de voz al plan de tarifa "estándar". |
+|        | 400 | Se superó el límite de solicitudes de 20 000 para la cuenta de Azure. Quite algunas solicitudes antes de enviar otras nuevas. | El servidor mantendrá hasta 20 000 solicitudes para cada cuenta de suscripción de Azure. Elimine algunas solicitudes antes de enviar otras nuevas. |
+|        | 400 | Este modelo no se puede usar en la síntesis de voz: {modelID}. | Asegúrese de que el estado de {modelID} sea correcto. |
+|        | 400 | La región de la solicitud no coincide con la región del modelo: {modelID}. | Asegúrese de que la región de {modelID} coincida con la región de la solicitud. |
+|        | 400 | La síntesis de voz solo admite el archivo de texto en la codificación UTF-8 con el marcador de orden de bytes. | Asegúrese de que los archivos de entrada están en codificación UTF-8 con el marcador de orden de bytes. |
+|        | 400 | Solo se permiten entradas SSML válidas en la solicitud de síntesis de voz. | Asegúrese de que las expresiones SSML de entrada sean correctas. |
+|        | 400 | No se encuentra el nombre de voz {voiceName} en el archivo de entrada. | El nombre de voz SSML de entrada no está alineado con el id. de modelo. |
+|        | 400 | La cantidad de párrafo del archivo de entrada debe ser inferior a 10 000. | Asegúrese de que el párrafo del archivo es inferior a 10 000. |
+|        | 400 | El archivo de entrada debe tener más de 400 caracteres. | Asegúrese de que el archivo de entrada supere los 400 caracteres. |
+|        | 404 | No se encuentra el modelo declarado en la definición de síntesis de voz: {modelID}. | Asegúrese de que {modelID} sea correcto. |
+|        | 429 | Se superó el límite de síntesis de voz activa. Espere hasta que finalicen algunas solicitudes. | El servidor puede ejecutar y poner en cola hasta 120 solicitudes para cada cuenta de Azure. Espere y evite enviar nuevas solicitudes hasta que se completen algunas solicitudes. |
+| All       | 429 | Hay demasiadas solicitudes. | El cliente puede enviar hasta 5 solicitudes al servidor por segundo para cada cuenta de Azure. Reduzca la cantidad de solicitudes por segundo. |
+| Eliminar    | 400 | La tarea de síntesis de voz todavía está en uso. | Solo se pueden eliminar solicitudes **Completadas** o **Con errores**. |
+| GetByID   | 404 | No se encuentra la entidad especificada. | Asegúrese de que el id. de síntesis sea correcto. |
+
+## <a name="regions-and-endpoints"></a>Regiones y puntos de conexión
+
+Long Audio API está disponible en varias regiones con puntos de conexión únicos.
+
+| Region | Punto de conexión |
+|--------|----------|
+| Este de Australia | `https://australiaeast.customvoice.api.speech.microsoft.com` |
+| Centro de Canadá | `https://canadacentral.customvoice.api.speech.microsoft.com` |
+| Este de EE. UU. | `https://eastus.customvoice.api.speech.microsoft.com` |
+| India central | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| Centro-sur de EE. UU. | `https://southcentralus.customvoice.api.speech.microsoft.com` |
+| Sudeste de Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
+| Sur de Reino Unido 2 | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| Oeste de Europa | `https://westeurope.customvoice.api.speech.microsoft.com` |
+| Oeste de EE. UU. 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Formatos de salida de audio
 
-Se admiten formatos de salida de audio flexibles. Puede generar salidas de audio por párrafo o concatenar los audios en una salida estableciendo el parámetro "concatenateResult". Long Audio API admite los siguientes formatos de salida de audio:
+Se admiten formatos de salida de audio flexibles. Puede generar salidas de audio por párrafo o concatenar las salidas de audio en una sola salida estableciendo el parámetro "concatenateResult". Long Audio API admite los siguientes formatos de salida de audio:
 
 > [!NOTE]
 > El formato de audio predeterminado es riff-16khz-16bit-mono-pcm.

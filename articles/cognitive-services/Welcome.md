@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2906734a37fbb5516596d456386929c11c8dc1e4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169092"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588299"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -52,7 +52,7 @@ Azure Cognitive Services son las API, SDK y servicios disponibles para ayudar a 
 |[Language Understanding: LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|El servicio Language Understanding (LUIS) permite que la aplicación entienda lo que una persona quiere en sus propias palabras.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker permite generar un servicio de preguntas y respuestas a partir de contenido semiestructurado.|
 |[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics proporciona procesamiento de lenguaje natural en texto sin formato para el análisis de opiniones, la extracción de frases clave y la detección de idiomas.|
-|[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator Text permite la traducción de texto automática casi en tiempo real.|
+|[Traductor](https://docs.microsoft.com/azure/cognitive-services/translator/ "Traductor")|Traductor proporciona la traducción de texto automática casi en tiempo real.|
 
 
 ## <a name="search-apis"></a>API de búsqueda

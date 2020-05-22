@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73647688"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590645"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nombres de subdominios personalizados para Cognitive Services
 
@@ -66,11 +66,11 @@ Cada nombre de subdominio personalizado es único, por lo que para reutilizar un
 Sí. Esta es una lista de puntos de conexión regionales que puede usar con los recursos de Cognitive Services de Azure.
 
 > [!NOTE]
-> Las API de Translator Text y Bing Search usan puntos de conexión globales.
+> Las API del servicio Traductor y de Bing Search usan puntos de conexión globales.
 
 | Tipo de punto de conexión | Region | Punto de conexión |
 |---------------|--------|----------|
-| Público | Global (Translator Text y Bing) | `https://api.cognitive.microsoft.com` |
+| Público | Global (Traductor y Bing) | `https://api.cognitive.microsoft.com` |
 | | Este de Australia | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Sur de Brasil | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Centro de Canadá | `https://canadacentral.api.cognitive.microsoft.com` |

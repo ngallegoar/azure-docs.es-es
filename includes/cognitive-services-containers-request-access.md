@@ -3,18 +3,18 @@ author: IEvangelist
 ms.author: dapine
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
-ms.openlocfilehash: 993b0e8cc5b1ec482b2f6041dfc970dc7e7409dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/04/2020
+ms.openlocfilehash: 88d83676de1e7fa18c4c1dcbf347da8d685ba2fa
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68229309"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593345"
 ---
-Rellene y envíe el [formulario de solicitud de contenedores de visión de Cognitive Services](https://aka.ms/VisionContainersPreview) para solicitar acceso al contenedor. El formulario solicita información acerca del usuario y de su empresa, así como del escenario de usuario para el que se va a usar el contenedor. Después de enviar el formulario, el equipo de Azure Cognitive Services lo revisa para asegurarse de que cumple los criterios de acceso al registro de contenedor privado.
+Rellene y envíe el [formulario de solicitud de contenedores de Cognitive Services](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. El formulario solicita información acerca del usuario y de su empresa, así como del escenario de usuario para el que se va a usar el contenedor. Después de enviar el formulario, el equipo de Azure Cognitive Services lo revisa para asegurarse de que cumple los criterios de acceso al registro de contenedor privado.
 
 > [!IMPORTANT]
-> Debe usar una dirección de correo electrónico asociada con una cuenta de Microsoft (MSA) o de Azure Active Directory (Azure AD) en el formulario.
+> Debe usar una dirección de correo electrónico asociada con una cuenta de Microsoft (MSA) o de Azure Active Directory (Azure AD) en el formulario. Para obtener más información sobre los criterios de aceptación, consulte [Proceso de validación de Cognitive Services](../articles/cognitive-services/cognitive-services-gating-process.md).
 
 Si se aprueba la solicitud, recibirá un correo electrónico con instrucciones que describen cómo obtener las credenciales y acceder al registro de contenedor privado.
 

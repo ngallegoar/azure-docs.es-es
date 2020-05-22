@@ -3,12 +3,12 @@ title: ¿Qué es Personalizer?
 description: Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento en tiempo real.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687262"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586225"
 ---
 # <a name="what-is-personalizer"></a>¿Qué es Personalizer?
 
@@ -69,18 +69,25 @@ Dado que Personalizer usa información colectiva casi en tiempo real para devolv
 
 ## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Cómo diseñar e implementar Personalizer para la aplicación cliente
 
-1. [Diseñe](concepts-features.md) y planee contenido, **_acciones_** y **_contexto_** . Determine el algoritmo de recompensa para la puntuación de **_recompensa_** .
+1. [Diseñe](concepts-features.md) y planee contenido, **_acciones_** y **_contexto_**. Determine el algoritmo de recompensa para la puntuación de **_recompensa_**.
 1. Cada [recurso de Personalizer](how-to-settings.md) que cree se considera un bucle de aprendizaje. El bucle recibirá las llamadas Rank y Reward para ese contenido o experiencia de usuario.
-1. Agregue Personalizer a su sitio web o sistema de contenido:
+
+    |Tipo de recurso| Propósito|
+    |--|--|
+    |[Modo de aprendiz](concept-apprentice-mode.md) `E0`|Aprendizaje del modelo de Personalizer sin afectar a la aplicación existente e implementación del comportamiento de aprendizaje en línea en un entorno de producción|
+    |Estándar, `S0`|Comportamiento de aprendizaje en línea en un entorno de producción|
+    |Gratis, `F0`| Comportamiento de aprendizaje en línea en un entorno que no es de producción|
+
+1. Agregue Personalizer a su aplicación, sitio web o sistema:
     1. Agregue una llamada **Rank** a Personalizer en su aplicación, sitio web o sistema para determinar el mejor elemento de _contenido_ antes de que se muestre el contenido al usuario.
     1. Muestre al usuario el mejor elemento de _contenido_, que es el _identificador de acción de recompensa_ devuelto.
-    1. Aplique el _algoritmo_ a la información recopilada sobre cómo se comportará el usuario, para determinar la puntuación de **recompensa**, por ejemplo:
+    1. Aplique la _lógica de negocios_ a la información recopilada sobre cómo se comportará el usuario, para determinar la puntuación de **recompensa**, por ejemplo:
 
-        |Comportamiento|Puntuación de recompensa calculada|
-        |--|--|
-        |El usuario seleccionó el mejor elemento de _contenido_ (identificador de acción de recompensa)|**1**|
-        |El usuario seleccionó otro contenido|**0**|
-        |El usuario hizo una pausa, se desplazó sin decidirse, antes de seleccionar el mejor elemento de _contenido_ (identificador de acción de recompensa)|**0,5**|
+    |Comportamiento|Puntuación de recompensa calculada|
+    |--|--|
+    |El usuario seleccionó el mejor elemento de _contenido_ (identificador de acción de recompensa)|**1**|
+    |El usuario seleccionó otro contenido|**0**|
+    |El usuario hizo una pausa, se desplazó sin decidirse, antes de seleccionar el mejor elemento de _contenido_ (identificador de acción de recompensa)|**0,5**|
 
     1. Agregue una llamada **Reward** para enviar una puntuación de recompensa entre 0 y 1
         * Inmediatamente después de mostrar el contenido

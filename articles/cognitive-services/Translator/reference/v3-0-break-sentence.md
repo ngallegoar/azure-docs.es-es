@@ -1,7 +1,7 @@
 ---
-title: Método BreakSentence de Translator Text API.
+title: Método BreakSentence de Traductor
 titleSuffix: Azure Cognitive Services
-description: El método BreakSentence de Translator Text API identifica el posicionamiento de los límites de las oraciones en un fragmento de texto.
+description: El método BreakSentence de Traductor identifica el posicionamiento de los límites de las oraciones en un fragmento de texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76548125"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588639"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
+# <a name="translator-30-breaksentence"></a>Traductor 3.0: BreakSentence
 
 Identifica el posicionamiento de los límites de las oraciones en un fragmento de texto.
 
@@ -71,11 +71,11 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
   * `sentLen`: es una matriz de enteros que representan las longitudes de las oraciones en el elemento de texto. La longitud de la matriz es el número de oraciones y los valores son la longitud de cada oración. 
 
-  * `detectedLanguage`: un objeto que describe el idioma detectado a través de las siguientes propiedades:
+  * `detectedLanguage`: objeto que describe el idioma detectado mediante las siguientes propiedades:
 
-     * `language`: código del idioma detectado.
+     * `language`: Código del idioma detectado.
 
-     * `score`: un valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
+     * `score`: valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
      
     Tenga en cuenta que la propiedad `detectedLanguage` solo está presente en el objeto de resultado cuando se solicita la detección automática del idioma.
 
@@ -141,7 +141,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
 </table> 
 
-Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. Códigos de error comunes que pueden encontrarse en la [página de referencia de Translator Text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pueden encontrarse los códigos de error comunes. 
 
 ## <a name="examples"></a>Ejemplos
 

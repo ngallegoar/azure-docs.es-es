@@ -2,34 +2,29 @@
 title: 'Configuración de la aplicación: LUIS'
 description: La configuración de las aplicaciones de Language Understanding de Azure Cognitive Services se almacena en la aplicación y en el portal.
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/04/2020
+ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382204"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590999"
 ---
-# <a name="application-settings"></a>Configuración de la aplicación
+# <a name="app-and-version-settings"></a>Configuración de la aplicación y de la versión
 
-Esta configuración de la aplicación se almacena en la aplicación [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) y [actualizada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con las API REST. Al cambiar la configuración de la versión de la aplicación, se restablece el estado de entrenamiento de la aplicación a no entrenado.
+Esta configuración se almacena en la aplicación [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) y actualizada con las API de REST o el portal de LUIS.
 
-Obtenga información sobre los [conceptos](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) de diacríticos y puntuación.
+Al cambiar la configuración de la versión de la aplicación, se restablece el estado de entrenamiento de la aplicación a no entrenado.
 
-|Configuración|Valor predeterminado|Notas|
-|--|--|--|
-|NormalizePunctuation|True|Quita los signos de puntuación.|
-|NormalizeDiacritics|True|Quita las marcas diacríticas.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+Entre los ejemplos de referencia de texto y se incluyen:
+
+* [Puntuación](#punctuation-normalization)
+* [Diacríticos](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>Normalización de las marcas diacríticas
-
-Active la normalización de expresiones para las marcas diacríticas en el archivo de aplicación JSON de LUIS en el parámetro `settings`.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 Las declaraciones siguientes muestran cómo afecta la normalización de las marcas diacríticas a las grabaciones de voz:
 
@@ -133,16 +128,7 @@ Esto incluye tanto al mexicano y español.
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## <a name="punctuation-normalization"></a>Normalización de la puntuación
-
-Active la normalización de expresiones para la puntuación en el archivo de aplicación JSON de LUIS en el parámetro `settings`.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 Las expresiones siguientes muestran cómo la puntuación influye en las expresiones:
 
