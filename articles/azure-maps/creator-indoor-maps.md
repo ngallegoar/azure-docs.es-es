@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 34a1495d1a14e35bc5a94bfc01f4034c6fd6de72
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596064"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677800"
 ---
 # <a name="creator-for-indoor-maps"></a>Uso de Creator para planos interiores
 
@@ -35,7 +35,7 @@ Use la [API de carga de datos de Azure Maps](https://docs.microsoft.com/rest/api
 
 ## <a name="convert-a-drawing-package"></a>Conversión de un paquete de dibujo
 
-El [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) convierte un paquete de dibujo cargado en datos de un plano interior. El servicio de conversión también valida el paquete. Los problemas de validación se clasifican en dos tipos: errores y advertencias. Si se detecta algún error, se produce un error en el proceso de conversión. Si se detectan advertencias, la conversión se realizará correctamente. Sin embargo, se recomienda que revise y resuelva todas las advertencias. Una advertencia significa que parte de la conversión se ignoró o corrigió automáticamente. Si no se resuelven las advertencias, podrían producirse errores en los últimos procesos. Para obtener más información, consulte [Advertencias y errores del paquete de dibujo](drawing-conversion-error-codes.md).
+El [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) convierte un paquete de dibujo cargado en datos de un plano interior. El servicio de conversión también valida el paquete. Los problemas de validación se clasifican en dos tipos: errores y advertencias. Si se detecta algún error, se produce un error en el proceso de conversión. Si se detectan advertencias, la conversión se realizará correctamente. Sin embargo, se recomienda que revise y resuelva todas las advertencias. Una advertencia significa que parte de la conversión se ignoró o corrigió automáticamente. Si no se resuelven las advertencias, podrían producirse errores en los últimos procesos. Para obtener más información, consulte [Advertencias y errores del paquete de dibujo](drawing-conversion-error-codes.md).
 
 Cuando se produce un error, el servicio de conversión proporciona un vínculo a la aplicación web independiente [Visualizador de errores de dibujo de Azure Maps](drawing-error-visualizer.md). Puede usar el Visualizador de errores de dibujo para inspeccionar los [errores y advertencias del paquete de dibujo](drawing-conversion-error-codes.md) que se produjeron durante el proceso de conversión. Después de corregir los errores, puede intentar cargar y convertir el paquete.
 

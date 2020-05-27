@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 3d58173d239e7a9249b588ff038ea46cfedb27a3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: b81362f191e6317aa7ffa974a6d432b0c7514d8f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605199"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680549"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall con varias direcciones IP públicas: plantilla de Resource Manager
 
-En este inicio rápido, usará una plantilla de Resource Manager para implementar una instancia de Azure Firewall con varias direcciones IP públicas.
-
-El firewall implementado tiene reglas de recopilación de reglas NAT que permiten conexiones RDP a dos máquinas virtuales Windows Server 2019.
+En este inicio rápido, usará una plantilla de Resource Manager para implementar una instancia de Azure Firewall con varias direcciones IP públicas. El firewall implementado tiene reglas de recopilación de reglas NAT que permiten conexiones RDP a dos máquinas virtuales Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,21 +33,20 @@ Esta plantilla crea una instancia de Azure Firewall con dos grupos de direccione
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/fw-docs-qs/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
 :::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
 
 En la plantilla se definen varios recursos de Azure:
 
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 

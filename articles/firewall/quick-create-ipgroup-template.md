@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605248"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680566"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall y grupos de IP: plantilla de Resource Manager
 
-En este inicio rápido, se va a usar una plantilla de Resource Manager para implementar una instancia de Azure Firewall con grupos de IP de ejemplo usados en una regla de red y una regla de aplicación.
-
-Un grupo de IP es un recurso de nivel superior que le permite definir y agrupar direcciones IP, intervalos y subredes en un único objeto. Resulta útil para administrar direcciones IP en reglas de Azure Firewall. Puede especificar manualmente las direcciones IP o importarlas desde un archivo.
+En este inicio rápido, se va a usar una plantilla de Resource Manager para implementar una instancia de Azure Firewall con grupos de IP de ejemplo usados en una regla de red y una regla de aplicación. Un grupo de IP es un recurso de nivel superior que le permite definir y agrupar direcciones IP, intervalos y subredes en un único objeto. Resulta útil para administrar direcciones IP en reglas de Azure Firewall. Puede especificar manualmente las direcciones IP o importarlas desde un archivo.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -32,22 +31,21 @@ Esta plantilla crea una instancia de Azure Firewall y grupos de IP, junto con lo
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
 En la plantilla se definen varios recursos de Azure:
 
 - [**Microsoft.Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 

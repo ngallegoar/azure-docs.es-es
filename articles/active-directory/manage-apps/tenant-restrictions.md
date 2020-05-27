@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd49b340810f92727f0fc98f84031c8cbf68179
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481184"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680139"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -30,7 +30,7 @@ La solución de Azure Active Directory (Azure AD) para este desafío es una cara
 
 Con las restricciones de inquilino, las organizaciones pueden especificar la lista de inquilinos a los que sus usuarios pueden tener acceso. Después, Azure AD solo concede el acceso a estos inquilinos con permiso.
 
-Este artículo se centra en las restricciones de inquilino para Office 365, pero la característica debe funcionar con cualquier aplicación en la nube SaaS que use protocolos de autenticación moderna con Azure AD para inicio de sesión único. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Office 365, asegúrese de que todos los inquilinos necesarios tienen permiso. Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Este artículo se centra en las restricciones de inquilino para Office 365, pero la característica debe funcionar con cualquier aplicación en la nube SaaS que use protocolos de autenticación moderna con Azure AD para inicio de sesión único. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Office 365, asegúrese de que todos los inquilinos necesarios tienen permiso. Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Funcionamiento
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 945c7035c2eeada3fea358489460f80c40438950
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595944"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677956"
 ---
 # <a name="manage-azure-maps-creator"></a>Administración de Azure Maps Creator
 
@@ -39,7 +39,7 @@ En este artículo le guiaremos por los pasos necesarios para crear y eliminar un
 
 5. Revise la configuración y haga clic en **Crear**.
 
-    ![Confirmación de la página de configuración de la cuenta de Creator](./media/how-to-manage-creator/creator-create.PNG)
+    ![Confirmación de la página de configuración de la cuenta de Creator](./media/how-to-manage-creator/creator-create-dialog.png)
 
 6. Una vez finalizada la implementación, verá una página con un mensaje de error o de operación correcta.
 

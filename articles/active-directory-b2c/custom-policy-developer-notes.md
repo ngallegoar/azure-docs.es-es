@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 471c2d45e28e634adde78c2d96d407ec219be68c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90d9c6a2ebf445ba492f2e1634e57910cd235aed
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229670"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679250"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -69,7 +69,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | [Flujo implícito de OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Credenciales de contraseña del propietario del recurso OAuth2](ropc-custom.md) |  | X |  |  |
 | [Conexión OIDC](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | Enlaces POST y de redirección. |
+| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | Enlaces POST y de redirección. |
 | OAuth1 |  |  |  | No compatible. |
 | WSFED | X |  |  |  |
 

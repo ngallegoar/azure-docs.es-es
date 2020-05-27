@@ -9,12 +9,13 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: monitoring
+ms.openlocfilehash: 9b4accd14785aedee06850d5a79dc9835086306a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610979"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680379"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 
@@ -85,7 +86,7 @@ En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipo
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar el registro y las métricas del lado servidor
 
-Primero tenemos que configurar el registro y las métricas de Azure Storage para disponer de datos del lado del servicio para analizarlos. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Vea [Habilitar métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) y [Habilitar el registro](storage-analytics-logging.md#enable-storage-logging) para saber más sobre la configuración del registro y las métricas.
+Primero tenemos que configurar el registro y las métricas de Azure Storage para disponer de datos del lado del servicio para analizarlos. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Vea [Habilitar métricas](storage-analytics-metrics.md#enable-metrics-by-using-the-azure-portal) y [Habilitar el registro](storage-analytics-logging.md#enable-storage-logging) para saber más sobre la configuración del registro y las métricas.
 
 ### <a name="configure-net-client-side-logging"></a>Configurar el registro del lado cliente de .NET
 
