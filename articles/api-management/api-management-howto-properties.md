@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260928"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649202"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 
@@ -59,16 +59,12 @@ Los valores con nombre pueden contener cadenas literales y [expresiones de direc
 
 Una vez creado el valor con nombre, es posible editarlo haciendo clic en él. Si cambia el nombre del valor con nombre, las directivas que hagan referencia a ese valor con nombre se actualizarán automáticamente para utilizar el nuevo nombre.
 
-Para obtener información sobre cómo editar un valor con nombre mediante la API de REST, consulte [Edit a named value using the REST API](/rest/api/apimanagement/2019-12-01/property?patch)(Edición de un valor con nombre mediante la API de REST).
-
 ## <a name="to-delete-a-named-value"></a>Para eliminar un valor con nombre
 
 Para eliminar un valor con nombre, haga clic en **Eliminar** junto al valor con nombre que se va a eliminar.
 
 > [!IMPORTANT]
 > Si se hace referencia al valor con nombre mediante alguna directiva,no podrá eliminarlo correctamente hasta que lo quite de todas las directivas que lo utilicen.
-
-Para obtener información sobre cómo eliminar un valor con nombre mediante la API de REST, consulte [Delete a named value using the REST API](/rest/api/apimanagement/2019-12-01/property/delete) (Eliminación de un valor con nombre mediante la API de REST).
 
 ## <a name="to-search-and-filter-named-values"></a>Para buscar y filtrar valores con nombre
 

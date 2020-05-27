@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c7ddd6eda021c802eb256c62fcae680d573b69
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78272938"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681352"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante Azure PowerShell
 
@@ -292,11 +292,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, [https://www.contoso.com](https://www.contoso.com).
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, `https://www.contoso.com`.
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Cambie la dirección al otro dominio, por ejemplo https://www.contoso.org , para ver que el tráfico se ha redirigido de nuevo al cliente de escucha de www\. contoso.com.
+Cambie la dirección al otro dominio, por ejemplo `https://www.contoso.org`, para ver que el tráfico se ha redirigido de nuevo al cliente de escucha de www\.contoso.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

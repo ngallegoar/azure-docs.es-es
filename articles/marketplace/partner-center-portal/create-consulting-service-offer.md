@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 05/19/2020
+ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994349"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700954"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
@@ -126,32 +126,11 @@ Proporcione una breve descripción de la oferta. Puede tener una longitud de has
 
 ### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3000 caracteres). Se muestra a los clientes en la información general de la lista de Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Incluya uno o varios de los siguientes elementos en la descripción:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Valor y beneficios principales que proporciona la oferta
-- Asociaciones de categoría o de sector o ambas
-- Oportunidades de compra desde la aplicación
-- Cualquier divulgación necesaria
-
-Estas son algunas sugerencias para escribir la descripción:
-
-- Describa claramente la propuesta de valor de la oferta en las primeras frases de la descripción. Incluya los siguientes elementos:
-  - Descripción de la oferta.
-  - Tipo de usuario que se beneficia de la oferta.
-  - Necesidades o problemas del cliente que aborda la oferta.
-- Recuerde que estas primeras frases podrían mostrarse en los resultados de la búsqueda.
-- No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona la oferta.
-- Intente usar un vocabulario específico del sector o palabras relacionadas con las ventajas.
-
-Para que la descripción de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato.
-
-![Uso del editor de texto enriquecido](./media/rich-text-editor.png)
-
-| <center>Cambiar el formato de texto | <center>Agregar viñetas o numeración | <center>Agregar o quitar sangría del texto |
-| --- | --- | --- |
-| <center>![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png) |  <center>![Uso del editor de texto enriquecido para agregar listas](./media/text-editor4.png) |  <center>![Uso del editor de texto enriquecido para aplicar sangría](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="keywords"></a>Palabras clave
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330718"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636090"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
@@ -59,7 +59,7 @@ La configuración del punto de conexión de API REST está fuera del ámbito de 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
@@ -77,7 +77,7 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Configuración del perfil técnico de la API RESTful 
 
-Un [perfil técnico de RESTful](restful-technical-profile.md) proporciona compatibilidad para interactuar con su propio servicio RESTful. Azure AD B2C envía datos al servicio RESTful en una colección `InputClaims` y recibe los datos en una colección `OutputClaims`. Busque el elemento **ClaimsProviders** en el archivo <em> **`TrustFrameworkExtensions.xml`** </em> y agregue un nuevo proveedor de notificaciones como se indica a continuación:
+Un [perfil técnico de RESTful](restful-technical-profile.md) proporciona compatibilidad para interactuar con su propio servicio RESTful. Azure AD B2C envía datos al servicio RESTful en una colección `InputClaims` y recibe los datos en una colección `OutputClaims`. Busque el elemento **ClaimsProviders** en el archivo <em> **`TrustFrameworkExtensions.xml`**</em> y agregue un nuevo proveedor de notificaciones como se indica a continuación:
 
 ```xml
 <ClaimsProvider>
@@ -117,9 +117,9 @@ Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction
 
 Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explícitas con las que una directiva permite que una aplicación de usuario de confianza obtenga las notificaciones deseadas para un usuario. El recorrido del usuario se representa como una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. Puede agregar o quitar pasos de orquestación. En este caso, agregará un nuevo paso de orquestación que se usa para aumentar la información proporcionada a la aplicación después del registro o el inicio de sesión del usuario a través de la llamada a la API REST.
 
-1. Abra el archivo base de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>.
+1. Abra el archivo base de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>.
 1. Busque el elemento `<UserJourneys>`. Copie todo el elemento y luego elimínelo.
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Pegue `<UserJourneys>` en el archivo de extensiones, después del cierre del elemento `<ClaimsProviders>`.
 1. Localice `<UserJourney Id="SignUpOrSignIn">` y agregue el siguiente paso de orquestación antes del último.
 
@@ -148,7 +148,7 @@ Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explí
 
 ## <a name="include-a-claim-in-the-token"></a>Incorporación de una notificación en el token 
 
-Para devolver la notificación `balance` a la aplicación de usuario de confianza, agregue una notificación de salida al archivo <em>`SocialAndLocalAccounts/` **`SignUpOrSignIn.xml`** </em>. La incorporación de una notificación de salida emitirá la notificación al token después de un recorrido del usuario correcto y se enviará a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar `balance` como una notificación de salida.
+Para devolver la notificación `balance` a la aplicación de usuario de confianza, agregue una notificación de salida al archivo <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em>. La incorporación de una notificación de salida emitirá la notificación al token después de un recorrido del usuario correcto y se enviará a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar `balance` como una notificación de salida.
  
 ```xml
 <RelyingParty>
@@ -209,9 +209,6 @@ Guarde los archivos que ha cambiado: *TrustFrameworkBase.xml* y *TrustFrameworkE
   ...
 }
 ```
-
-## <a name="next-steps"></a>Pasos siguientes
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

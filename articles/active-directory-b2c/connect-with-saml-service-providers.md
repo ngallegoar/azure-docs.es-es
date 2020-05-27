@@ -8,22 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 38c98a65ac0b0f95a9a6e111a79b5dede04912c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff5d8ecaaeff67e1a97c4afd4ca8119f8ac7c1e1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229755"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696947"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
 En este artículo, aprenderá a configurar Azure Active Directory B2C (Azure AD B2C) para que actúe como proveedor de identidades (IdP) de SAML (Lenguaje de marcado de aserción de seguridad) para sus aplicaciones.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="scenario-overview"></a>Información general de escenario
 
@@ -115,7 +113,7 @@ A continuación, cargue el certificado de firma de respuesta y aserción de SAML
 
 Ahora, agregue la funcionalidad para que el inquilino emita tokens de SAML, mediante los perfiles técnicos [emisor de tokens SAML](saml-issuer-technical-profile.md) y [proveedor de sesión de SAML](custom-policy-reference-sso.md#samlssosessionprovider).
 
-Abra `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** en el paquete de inicio de directivas personalizadas.
+Abra `SocialAndLocalAccounts\`**`TrustFrameworkExtensions.xml`** en el paquete de inicio de directivas personalizadas.
 
 Busque la sección `<ClaimsProviders>` y agregue el siguiente fragmento de código XML.
 
@@ -371,7 +369,6 @@ Los siguientes escenarios de usuario de confianza (RP) de SAML se admiten a trav
 * Varias direcciones URL de cierre de sesión o enlace POST para la dirección URL de cierre de sesión en el objeto de entidad de servicio o aplicación.
 * Especificación de la clave de firma para comprobar las solicitudes de RP en el objeto de entidad de servicio o aplicación.
 * Especificación de una clave de cifrado de tokens en el objeto de entidad de servicio o aplicación.
-* Los inicios de sesión iniciados por el proveedor de identidades no se admiten actualmente en la versión preliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

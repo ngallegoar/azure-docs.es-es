@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: ae76c30f63c87f7e741fff31792d520fb144b93b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084284"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652519"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -35,13 +35,13 @@ Las máquinas virtuales de primera generación son compatibles con todos los tam
 * [Serie HB](../hb-series.md)
 * [Serie HC](../hc-series.md)
 * [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) y [serie Lsv2](../lsv2-series.md)
-* [Serie Mv2](../mv2-series.md)
+* [Serie M](../m-series.md)
+* [Serie Mv2](../mv2-series.md)<sup>1</sup>
 * [Serie NCv2](../ncv2-series.md) y [serie NCv3](../ncv3-series.md)
 * [Serie ND](../nd-series.md)
 * [Serie NVv3](../nvv3-series.md)
 
-> [!NOTE]
-> El uso de imágenes de máquina virtual de generación 2 en las máquinas virtuales de la serie Mv2 está disponible con carácter general, ya que esta serie funciona exclusivamente con imágenes de máquina virtual de generación 2. Las imágenes de máquina virtual de generación 1 no se admiten en máquinas virtuales de la serie Mv2. 
+<sup>1</sup> La serie MV2 no admite imágenes de máquina virtual de generación 1 y solo admite un subconjunto de imágenes de generación 2. Consulte la [documentación de la serie MV2](https://docs.microsoft.com/azure/virtual-machines/mv2-series) para obtener más información.
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imágenes de VM de generación 2 en Azure Marketplace
 
@@ -96,7 +96,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 
 En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de una imagen de Marketplace que admita el arranque UEFI.
 
-#### <a name="azure-portal"></a>Portal de Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 
@@ -122,12 +122,6 @@ Por ejemplo, use el siguiente cmdlet de PowerShell para obtener una lista de las
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-También puede usar la CLI de Azure para ver las imágenes de generación 2 disponibles, organizadas por **publicador**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 Si va a crear una máquina virtual con Windows Server 2012 como sistema operativo, seleccione la SKU de máquina virtual de generación 1 (BIOS) o de generación 2 (UEFI), que tienen un aspecto similar al siguiente:
 
 ```powershell
@@ -136,6 +130,14 @@ Si va a crear una máquina virtual con Windows Server 2012 como sistema operativ
 ```
 
 Consulte la sección [Características y funcionalidades](#features-and-capabilities) para obtener una lista de imágenes compatibles de Marketplace.
+
+#### <a name="azure-cli"></a>Azure CLI
+
+También puede usar la CLI de Azure para ver las imágenes de segunda generación disponibles, organizadas por **publicador**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### <a name="managed-image-or-managed-disk"></a>Imagen administrada o disco administrado
 

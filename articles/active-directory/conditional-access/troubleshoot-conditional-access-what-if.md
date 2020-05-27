@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73175810"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737646"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Solución de problemas de acceso condicional con la herramienta What If
 
@@ -37,7 +37,7 @@ La información adicional siguiente es opcional, pero le ayudará a reducir el �
 
 * Aplicaciones o acciones en la nube
 * Dirección IP 
-* Country
+* País/región
 * Plataforma de dispositivo
 * Aplicaciones cliente (versión preliminar)
 * Estado del dispositivo (versión preliminar) 

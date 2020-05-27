@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227868"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681755"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
@@ -149,7 +149,7 @@ Los permisos que requiera dependen de las características opcionales que habili
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
 | escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/howto-sspr-writeback.md) para los usuarios. |
 | Escritura diferida de dispositivos |Los permisos concedidos con un script de PowerShell como se describe en [Escritura diferida de dispositivos](how-to-connect-device-writeback.md). |
-| Escritura diferida de grupos |Permite la escritura diferida de **grupos de Office 365** en un bosque con Exchange instalado.  Para más información, vea [Escritura diferida de grupos](how-to-connect-preview.md#group-writeback).|
+| Escritura diferida de grupos |Permite la escritura diferida de **grupos de Office 365** en un bosque con Exchange instalado.|
 
 ## <a name="upgrade"></a>Actualizar
 Al actualizar desde una versión de Azure AD Connect a una nueva versión, necesita los siguientes permisos:

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 287b58f85cad0082ac782a20cdfb0b9b9ea810e7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732622"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743613"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -89,14 +89,13 @@ En esta sección, se configura el registro de la consola que usa la [plataforma 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
+   En este comando, reemplace `<3_X_VERSION>` por una versión 3. x compatible del paquete.
 
 1. En *Program.cs*, agregue una instrucción `using`:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
-
-    En este comando, reemplace `<3_X_VERSION>` por una versión 3. x compatible del paquete.
 
 1. Llame al método [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) en [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). El método [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) agrega el registro de la consola a la configuración.
 

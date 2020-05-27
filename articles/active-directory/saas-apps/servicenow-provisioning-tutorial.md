@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78205148"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780508"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -141,7 +141,6 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 * **InvalidLookupReference:** al aprovisionar ciertos atributos, como departamento y la ubicación en ServiceNow, los valores ya deben existir en una tabla de referencia de ServiceNow. Por ejemplo, puede tener dos ubicaciones (Seattle, Los Angeles) y tres departamentos (ventas, finanzas, marketing) en la tabla **insertar nombre de tabla** en ServiceNow. Si intenta aprovisionar un usuario del departamento "ventas" y la ubicación "Seattle", se aprovisionará correctamente. Si intenta aprovisionar un usuario del departamento "ventas" y la ubicación "LA", el usuario no se aprovisionará. La ubicación LA debe agregarse a la tabla de referencia en ServiceNow o el atributo de usuario de Azure AD debe actualizarse para que coincida con el formato en ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Revise las [asignaciones de atributos ](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para identificar el atributo coincidente. Este valor debe estar presente en el usuario o grupo que está intentando aprovisionar. 
 * Revise la [API de SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) para comprender los requisitos o las limitaciones (por ejemplo, el formato para especificar el código de país de un usuario).
-* Algunas implementaciones de ServiceNow requieren que se permitan intervalos IP para el servicio de aprovisionamiento de Azure AD. Los intervalos IP reservados para el servicio de aprovisionamiento de Azure AD se pueden encontrar [aquí](https://www.microsoft.com/download/details.aspx?id=56519) en "AzureActiveDirectoryDomainServices".
 * Las solicitudes de aprovisionamiento se envían de forma predeterminada a https://{nombre-de-instancia}.service-now.com/{nombre-de-tabla}. Si necesita una dirección URL de inquilino personalizada, puede proporcionar la dirección URL completa en el campo de nombre de instancia.
 
 ## <a name="additional-resources"></a>Recursos adicionales

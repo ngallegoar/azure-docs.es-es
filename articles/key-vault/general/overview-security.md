@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: dbe13b2d1291f212af7da9d1176bc3d90997978b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426752"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834385"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -97,6 +97,6 @@ Para obtener recomendaciones sobre la administración segura de las cuentas de a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md))
+- [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: roles integrados](../../role-based-access-control/built-in-roles.md)
-- [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md))
+- [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md)

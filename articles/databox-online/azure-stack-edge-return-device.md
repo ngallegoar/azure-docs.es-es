@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: dfd9c949767d3dc8e63e3f15ba12641f27d46b80
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82568621"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743634"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Devolver o reemplazar el dispositivo Azure Stack Edge
 
@@ -74,7 +74,7 @@ Para comenzar el proceso de devolución, siga los pasos siguientes.
 5. Coloque en el paquete la etiqueta de envío que ha recibido de Azure.
 6. Programe una recogida con su transportista regional. Si devuelve el dispositivo en EE. UU., el transportista podría ser UPS o FedEx. Póngase en contacto con UPS para programar la recogida:
 
-    1. Llame a la oficina local de UPS (número gratuito específico del país).
+    1. Llame a la oficina local de UPS (número gratuito específico del país o región).
     2. En la llamada, indique el número de seguimiento del envío inverso que se muestra en la etiqueta impresa.
     3. Si no indica el número de seguimiento, UPS le exigirá que pague una cantidad adicional en la recogida.
 

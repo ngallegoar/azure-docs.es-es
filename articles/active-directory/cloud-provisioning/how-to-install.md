@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764071eeaf368ecf78679632cffbd6964db40aa5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230816"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681035"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalación del agente de aprovisionamiento en la nube de Azure AD Connect
 Este documento le guiará en el proceso de instalación del agente de aprovisionamiento de Azure Active Directory (Azure AD) Connect y en el modo de configurarlo inicialmente en Azure Portal.
@@ -67,7 +67,7 @@ Para comprobar que Azure ve el agente, siga estos pasos.
 1. Inicie sesión en Azure Portal.
 1. En la parte izquierda, seleccione **Azure Active Directory** > **Azure AD Connect**. En el centro, seleccione **Administración del aprovisionamiento (versión preliminar)** .
 
-   ![Portal de Azure](media/how-to-install/install6.png)</br>
+   ![Azure Portal](media/how-to-install/install6.png)</br>
 
 1.  En la pantalla **Aprovisionamiento de Azure AD (versión preliminar)** , seleccione **Revisar todos los agentes**.
 
@@ -77,14 +77,7 @@ Para comprobar que Azure ve el agente, siga estos pasos.
 
    ![Pantalla de agentes de aprovisionamiento local](media/how-to-install/verify1.png)</br>
 
-### <a name="verify-the-port"></a>Comprobación del puerto
-Para comprobar que Azure está escuchando en el puerto 443 y que el agente puede comunicarse con él, siga estos pasos.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-En esta prueba se comprobará que los agentes pueden comunicarse con Azure a través del puerto 443. Abra un explorador y vaya a la dirección URL anterior desde el servidor en el que está instalado el agente.
-
-![Comprobación de disponibilidad de puertos](media/how-to-install/verify2.png)
 
 ### <a name="on-the-local-server"></a>En el servidor local
 Para comprobar que el agente se ejecuta, siga estos pasos.

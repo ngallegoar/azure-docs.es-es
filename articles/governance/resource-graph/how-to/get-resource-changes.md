@@ -1,14 +1,14 @@
 ---
 title: Obtención de los cambios del recurso
 description: Aprenda los métodos para identificar cuándo un recurso se cambió, obtener una lista de las propiedades que cambiaron y evaluar las diferencias.
-ms.date: 10/09/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d53148f302d82a7563520036f327406ca4a86040
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873036"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681058"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
@@ -289,3 +289,4 @@ Para comparar los resultados, use la propiedad **changes** en **resourceChanges*
 - Consulte el lenguaje en uso en[Consultas básicas](../samples/starter.md).
 - Consulte los usos avanzados en [Consultas avanzadas](../samples/advanced.md).
 - Obtenga más información sobre cómo [explorar recursos](../concepts/explore-resources.md).
+- Para instrucciones sobre cómo trabajar con consultas con mucha frecuencia, consulte [Guía para solicitudes limitadas](../concepts/guidance-for-throttled-requests.md).
