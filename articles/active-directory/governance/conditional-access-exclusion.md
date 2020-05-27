@@ -16,12 +16,12 @@ ms.date: 04/24/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91bb5a342eea079b6e9abcf109ad472151d3c13d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab2974cf95726f44641b4ac220c7ee871890ca56
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144495"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736864"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios a los que se les ha excluido de las directivas de acceso condicional
 
@@ -32,7 +32,7 @@ En un mundo ideal, todos los usuarios seguirían las directivas de acceso para p
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>¿En qué casos hay que excluir a usuarios de las directivas?
 
-Supongamos que, como administrador, decide usar el [acceso condicional de Azure AD](../conditional-access/overview.md) para requerir Multi-Factor Authentication (MFA) y limitar las solicitudes de autenticación a redes o dispositivos específicos. Durante la planeación de la implementación, se da cuenta de que no todos los usuarios pueden cumplir estos requisitos. Por ejemplo, puede que tenga usuarios que trabajan desde oficinas remotas y que no forman parte de la red interna. También puede que tenga que dar cabida a los usuarios que se conectan mediante dispositivos no compatibles mientras esperan a que se reemplacen esos dispositivos. En resumen, la empresa necesita que estos usuarios inicien sesión y hagan su trabajo, de modo que los excluye de las directivas de acceso condicional.
+Supongamos que, como administrador, decide usar el [acceso condicional de Azure AD](../conditional-access/concept-conditional-access-policy-common.md) para requerir Multi-Factor Authentication (MFA) y limitar las solicitudes de autenticación a redes o dispositivos específicos. Durante la planeación de la implementación, se da cuenta de que no todos los usuarios pueden cumplir estos requisitos. Por ejemplo, puede que tenga usuarios que trabajan desde oficinas remotas y que no forman parte de la red interna. También puede que tenga que dar cabida a los usuarios que se conectan mediante dispositivos no compatibles mientras esperan a que se reemplacen esos dispositivos. En resumen, la empresa necesita que estos usuarios inicien sesión y hagan su trabajo, de modo que los excluye de las directivas de acceso condicional.
 
 En otro ejemplo, podría usar [ubicaciones con nombre](../conditional-access/location-condition.md) en el acceso condicional para especificar un conjunto de países y regiones desde los que no quiere permitir que los usuarios accedan a su inquilino.
 

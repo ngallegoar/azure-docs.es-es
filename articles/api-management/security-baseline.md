@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: aa59a37f3a4413c92a483746ed4a08c363ab8457
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ceaa44429d105c2a6a1d0883ab29ed11b63ad497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793820"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736082"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Línea de base de seguridad de Azure para API Management
 
@@ -1070,9 +1070,9 @@ Las características de copia de seguridad y restauración de API Management ofr
 
 * [Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
 
-* [Llamada a la operación de copia de seguridad de API Management](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+* [Llamada a la operación de copia de seguridad de API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-* [Llamada a la operación de restauración de API Management](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Llamada a la operación de restauración de API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1096,7 +1096,7 @@ Las identidades administradas se pueden utilizar para obtener certificados de Az
 
 **Guía**: Compruebe las copias de seguridad; para ello, haga una restauración de prueba del servicio y los certificados a partir de las copias de seguridad.
 
-* [Llamada a la operación de restauración de API Management](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Llamada a la operación de restauración de API Management](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 * [Restauración de certificados de Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 

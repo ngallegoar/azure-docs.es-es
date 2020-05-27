@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 7f0c99899b647c677025dbb38480b4d7f64c24fa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114441"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739995"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
@@ -149,7 +149,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludeSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar la consulta de búsqueda en conjunto con la [API de Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludeSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar la consulta de búsqueda en conjunto con la [API de Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
