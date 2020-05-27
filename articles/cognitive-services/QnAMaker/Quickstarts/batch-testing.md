@@ -1,21 +1,14 @@
 ---
 title: 'Inicio rápido: Prueba de una base de conocimientos con preguntas por lotes'
-titleSuffix: Azure Cognitive Services
-description: ''
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: Use la herramienta de realización de pruebas por lotes de QnA Maker para probar las bases de conocimientos del recurso de QnA Maker y ver las respuestas esperadas, las puntuaciones de confianza y los avisos de turno múltiple.
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/26/2020
+ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756700"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873677"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Inicio rápido: Prueba de una base de conocimientos con preguntas por lotes y respuestas esperadas
 

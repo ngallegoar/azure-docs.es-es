@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214265"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873935"
 ---
 ::: zone target="docs"
 
@@ -56,7 +56,7 @@ Para el cliente Windows, también se debe instalar lo siguiente.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5,1|
 | BitLocker| - |
 
 ## <a name="other-required-software-for-linux-clients"></a>Otro software necesario para los clientes Linux
@@ -80,10 +80,6 @@ Aquí se proporciona una lista de los tipos de almacenamiento compatibles para D
 | Uso general  |Estándar; se admiten V1 y V2. Se admiten niveles frecuentes y esporádicos. |
 | Cuenta de Blob Storage | |
 
->[!NOTE]
-> No se admiten las cuentas de Azure Data Lake Storage Gen 2.
-
-
 ## <a name="supported-storage-types-for-upload"></a>Tipos de almacenamiento admitidos para la carga
 
 A continuación se muestra una lista de los tipos de almacenamiento admitidos para cargar en Azure mediante Data Box Disk.
@@ -92,7 +88,7 @@ A continuación se muestra una lista de los tipos de almacenamiento admitidos pa
 | --- | --- |
 | Blob en bloques de Azure | |
 | Blob en páginas de Azure  | |
-| Archivos de Azure  | |
+| Azure Files  | |
 | Managed Disks | |
 
 ::: zone target="docs"
