@@ -3,7 +3,7 @@ title: Creación de una red virtual para la instancia administrada
 description: En este artículo se describe cómo crear una red virtual en la que puede implementar una Instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 0ce88f9a61b8aa7c2588a6e077d694afa6fb8631
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: cece07cccf00548a62c17cb59e8cf873ba106a3c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878857"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773540"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creación de una red virtual para Instancia administrada de Azure SQL Database
 

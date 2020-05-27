@@ -1,10 +1,12 @@
 - name: Red Hat OpenShift en Azure
   href: index.yml
 - name: Información general
+  expanded: true
   items:
     - name: Acerca de Red Hat OpenShift en Azure
       href: intro-openshift.md
 - name: Tutoriales
+  expanded: true
   items:
     - name: "1: Creación de un clúster de Red Hat OpenShift en Azure\_4"
       href: tutorial-create-cluster.md
@@ -13,7 +15,6 @@
     - name: "3: Eliminación de un clúster de Red Hat OpenShift en Azure\_4"
       href: tutorial-delete-cluster.md
 - name: Guías paso a paso
-  expanded: true
   items:
     - name: "Creación de un clúster de Red Hat OpenShift en Azure\_4 privado"
       href: howto-create-private-cluster-4x.md
@@ -37,7 +38,6 @@
       items:
         - name: "Configuración del entorno de desarrollo de Red Hat OpenShift en Azure para Red Hat OpenShift en Azure\_3.11"
           href: howto-setup-environment.md
-          expanded: true
           items:
             - name: Creación de un inquilino de Azure AD
               href: howto-create-tenant.md
@@ -85,7 +85,9 @@
       href: support-policies-v4.md
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Documentación de Red Hat OpenShift
-      href: 'https://docs.openshift.com/aro/welcome/index.html'
+    - name: "Documentación de la versión\_4.3 de Red Hat OpenShift en Azure"
+      href: 'https://docs.openshift.com/aro/4/welcome/index.html'
+    - name: "Documentación de la versión\_3.11 de Red Hat OpenShift en Azure"
+      href: 'https://docs.openshift.com/aro/3/welcome/index.html'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'

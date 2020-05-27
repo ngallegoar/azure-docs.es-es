@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c485c1612df526e813119239fd2202b7657db9c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969351"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774196"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -179,6 +179,7 @@ Writing superblocks and filesystem accounting information: done
 La utilidad fdisk requiere una entrada interactiva y, por lo tanto, no resulta idónea para usarse en scripts de automatización. Sin embargo, se puede generar un script para la utilidad [parted](https://www.gnu.org/software/parted/) y, por lo tanto, resulta mejor en los escenarios de automatización. La utilidad parted se puede utilizar para crear particiones y formatear un disco de datos. En el tutorial siguiente, usamos un nuevo disco de datos /dev/sdc y lo formateamos con el sistema de archivos [XFS](https://xfs.wiki.kernel.org/).
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
 partprobe /dev/sdc1
 ```
 Como se indicó anteriormente, usamos la utilidad [partprobe](https://linux.die.net/man/8/partprobe) para garantizar que el kernel reconozca inmediatamente la nueva partición y el sistema de archivos. Si no se usa partprobe, los comandos blkid o lslbk no podrán devolver de forma inmediata el UUID del nuevo sistema de archivos.

@@ -3,7 +3,7 @@ title: Managed instance connect application (Aplicación conectada a una instanc
 description: En este artículo se describe la conexión de la aplicación a Instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: dc945dec20a15b02287e50bcbef4be0d860c892f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538093"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773666"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a una instancia administrada de Azure SQL Database
 
