@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443879"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674231"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -60,7 +60,7 @@ Para obtener más información, consulte la [tabla de componentes de Azure Backu
 
 -   Habilita la Administración de identidad y acceso (IAM) como servicio en la nube.
 -   Proporciona administración de acceso central, inicio de sesión único (SSO) y creación de informes.
--   Admite la administración de acceso integrado para [miles de aplicaciones](https://azure.microsoft.com/marketplace/active-directory/) de Azure Marketplace, como Salesforce, Google Apps, Box y Concur.
+-   Admite la administración de acceso integrado para [miles de aplicaciones](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) de Azure Marketplace, como Salesforce, Google Apps, Box y Concur.
 
 Azure AD también incluye un conjunto completo de [funcionalidades de administración de identidades](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), como las siguientes:
 

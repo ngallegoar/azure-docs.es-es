@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117214"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660582"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimiento de conmutación por error de recuperación ante desastres
 
@@ -39,7 +39,7 @@ Para restaurar a las instantáneas de almacenamiento replicado más recientes, s
 Si quiere conmutar por error varias instancias de SAP HANA, ejecute el comando azure_hana_dr_failover varias veces. Cuando se le solicite, escriba el SID de SAP HANA que desea conmutar por error y restaurar. 
 
 
-También puede probar la conmutación por error de recuperación ante desastres sin que afecte a la relación de replicación real. Para llevar a cabo una conmutación por error de prueba, siga los pasos descritos en "Perform a test DR failover - azure_hana_test_dr_failover" (Realizar una prueba de conmutación por error de recuperación ante desastres: azure_hana_test_dr_failover) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
+También puede probar la conmutación por error de recuperación ante desastres sin que afecte a la relación de replicación real. Para llevar a cabo una conmutación por error de prueba, siga los pasos descritos en "Perform a test DR failover - azure_hana_test_dr_failover" (Realizar una prueba de conmutación por error de recuperación ante desastres: azure_hana_test_dr_failover) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
 
 >[!IMPORTANT]
 >*No* ejecute transacciones de producción en la instancia que ha creado en el sitio de recuperación ante desastres a través del proceso de **prueba de una conmutación por error**. El comando azure_hana_test_dr_failover crea un conjunto de volúmenes que no tienen relación con el sitio primario. Como consecuencia, *no* se puede realizar una sincronización al sitio principal. 
@@ -117,7 +117,7 @@ Siga estos pasos:
 
 Para supervisar el estado del progreso de la replicación de almacenamiento, ejecute el script `azure_hana_replication_status`. Para que funcione como cabría esperar, este comando se debe ejecutar desde una unidad que ejecute en la ubicación de recuperación ante desastres. El comando funciona independientemente de si la replicación está activa. El comando se puede ejecutar para cada unidad de instancia grande de HANA del inquilino en la ubicación de recuperación ante desastres. No se puede usar para obtener detalles sobre el volumen de arranque. 
 
-Para más información sobre el comando y su salida, consulte "Get DR replication status - azure_hana_replication_status" (Obtener el estado de replicación de DR: azure_hana_replication_status) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
+Para más información sobre el comando y su salida, consulte "Get DR replication status - azure_hana_replication_status" (Obtener el estado de replicación de DR: azure_hana_replication_status) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

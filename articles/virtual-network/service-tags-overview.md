@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 05/18/2020
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 7da20a0bf87b33f05ea7f1d457157c5b7ee2ec7b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: bfeded391f582ab0ac6f3c15d2086789228f1494
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631528"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660587"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -100,7 +100,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **SqlManagement** | Tráfico de administración para implementaciones dedicadas de SQL. | Ambos | No | Sí |
 | **Storage** | Azure Storage. <br/><br/>*Nota:* Esta etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este. | Salida | Sí | Sí |
 | **StorageSyncService** | Servicio de sincronización de almacenamiento. | Ambos | No | No |
-| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Ambos | No | No |
+| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Ambos | No | Sí |
 | **VirtualNetwork** | El espacio de direcciones de red virtual (todos los intervalos de direcciones IP definidos para la red virtual), todos los espacios de direcciones locales conectados, las redes virtuales [del mismo nivel](virtual-network-peering-overview.md), las redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), la [dirección IP virtual del host](security-overview.md#azure-platform-considerations) y los prefijos de dirección usados en las [rutas definidas por el usuario](virtual-networks-udr-overview.md). Esta etiqueta también puede contener rutas predeterminadas. | Ambos | No | No |
 
 >[!NOTE]

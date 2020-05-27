@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: e6a8fe7771776a92b3c28a188bc352e3bb105313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1618e64eba32e857ccd0ba4b5a7a656f1d954bf8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79217917"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659916"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Progreso de un modelo de Machine Learning Studio (clásico) de un experimento a un servicio web
 
@@ -34,7 +34,7 @@ Cuando esté satisfecho con el experimento, puede implementarlo como un ***servi
 En este artículo ofrecemos una información general de cómo progresa el modelo de Machine Learning desde un experimento de desarrollo hasta un servicio web aplicado.
 
 > [!NOTE]
-> Hay otras maneras de desarrollar e implementar modelos de Machine Learning, pero este artículo se centra en cómo usar Machine Learning Studio (clásico). Por ejemplo, para leer una descripción sobre cómo crear un servicio web predictivo clásico con R, consulte la publicación del blog [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Creación e implementación de aplicaciones web predictivas con RStudio y Azure Machine Learning Studio).
+> Hay otras maneras de desarrollar e implementar modelos de Machine Learning, pero este artículo se centra en cómo usar Machine Learning Studio (clásico). Por ejemplo, para leer una descripción sobre cómo crear un servicio web predictivo clásico con R, consulte la publicación del blog [Build & Deploy Predictive Web Apps Using RStudio and Azure Machine Learning studio](https://docs.microsoft.com/archive/blogs/machinelearning/build-deploy-predictive-web-apps-using-rstudio-and-azure-ml) (Creación e implementación de aplicaciones web predictivas con RStudio y Azure Machine Learning Studio).
 >
 >
 

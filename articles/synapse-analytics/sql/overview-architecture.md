@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 570e84b3a545736aad6983c7f0d8c0f0296ca589
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427628"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658918"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitectura de SQL de Azure Synapse 
 
@@ -117,4 +117,4 @@ En el diagrama siguiente se muestra una tabla replicada que se almacena en cach�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ya conoce un poco sobre SQL de Synapse, aprenda a [crear un grupo de SQL](../quickstart-create-sql-pool.md) rápidamente y a [cargar datos de ejemplo](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). O bien, inicie [mediante SQL a petición](../quickstart-sql-on-demand.md). Si no está familiarizado con Azure, el [Glosario de Azure](../../azure-glossary-cloud-terminology.md) le puede resultar útil para consultar la nueva terminología que se encuentre. 
+Ahora que ya conoce un poco sobre SQL de Synapse, aprenda a [crear un grupo de SQL](../quickstart-create-sql-pool-portal.md) rápidamente y a [cargar datos de ejemplo](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). O bien, inicie [mediante SQL a petición](../quickstart-sql-on-demand.md). Si no está familiarizado con Azure, el [Glosario de Azure](../../azure-glossary-cloud-terminology.md) le puede resultar útil para consultar la nueva terminología que se encuentre. 

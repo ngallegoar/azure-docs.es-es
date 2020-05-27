@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 description: Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 09/24/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10c46b11fc3c4243914c48629f082ad83db8d138
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546526"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657079"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020
 

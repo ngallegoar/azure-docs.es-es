@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: f327844be57d7f8e177f3bf72b1e3b56c5147e00
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629344"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674593"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -181,7 +181,7 @@ Cuando esté listo para combinar los cambios de su rama de características con 
 
 ### <a name="configure-publishing-settings"></a>Configurar los valores de publicación
 
-De forma predeterminada, Data Factory genera las plantillas de Resource Manager de la factoría publicada y las guarda en una rama llamada `adf_public`. Para configurar una rama de publicación personalizada, agregue un archivo `publish_config.json` a la carpeta raíz de la rama de colaboración. Durante la publicación, ADF lee este archivo, busca el campo `publishBranch` y guarda todas las plantillas de Resource Manager en la ubicación especificada. Si no existe la rama, Data Factory la crea automáticamente. A continuación, se muestra un ejemplo de cuál es el aspecto de este archivo:
+De forma predeterminada, Data Factory genera las plantillas de Resource Manager de la factoría publicada y las guarda en una rama llamada `adf_publish`. Para configurar una rama de publicación personalizada, agregue un archivo `publish_config.json` a la carpeta raíz de la rama de colaboración. Durante la publicación, ADF lee este archivo, busca el campo `publishBranch` y guarda todas las plantillas de Resource Manager en la ubicación especificada. Si no existe la rama, Data Factory la crea automáticamente. A continuación, se muestra un ejemplo de cuál es el aspecto de este archivo:
 
 ```json
 {

@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 47cb20f3a23caf586777523e56902af20b747ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a4a68d45d633caf9a318cd17f1e8d94752ecfe9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399963"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673074"
 ---
 :::row:::
     :::column span="3":::
-        El SDK de Java para Android está empaquetado como una <a href="https://developer.android.com/studio/projects/android-library" target="_blank">biblioteca de Android (AAR)<span class="docon docon-navigate-external x-hidden-focus"></span></a>, que incluye las bibliotecas necesarias, así como los permisos necesarios de Android. Se hospeda en un repositorio de Maven en `https://csspeechstorage.blob.core.windows.net/maven/` como un paquete `com.microsoft.cognitiveservices.speech:client-sdk:1.11.0`.
+        El SDK de Java para Android está empaquetado como una <a href="https://developer.android.com/studio/projects/android-library" target="_blank">biblioteca de Android (AAR)<span class="docon docon-navigate-external x-hidden-focus"></span></a>, que incluye las bibliotecas necesarias, así como los permisos necesarios de Android. Se hospeda en un repositorio de Maven en `https://csspeechstorage.blob.core.windows.net/maven/` como un paquete `com.microsoft.cognitiveservices.speech:client-sdk:1.12.0`.
     :::column-end:::
     :::column:::
         <br>
@@ -32,7 +32,7 @@ Para consumir el paquete desde el proyecto de Android Studio, haga los siguiente
 
 2. En el archivo *build.gradle* de nivel de módulo, agregue lo siguiente a la sección `dependencies`:
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.11.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.12.0'
   ```
 
 El SDK de Java es parte del [SDK de dispositivos de voz](../speech-devices-sdk.md).

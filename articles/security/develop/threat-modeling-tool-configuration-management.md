@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 499e4cb2cb62ccc170637bad60898b38b4ff3be7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204260"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658610"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -212,7 +212,7 @@ Tenga en cuenta que esta característica de validación de solicitud no es compa
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Seguridad de IE8 [parte V]: protección total), [MIME types](https://en.wikipedia.org/wiki/Mime_type) (Tipos de MIME) |
+| **Referencias**              | [IE8 Security Part V: Comprehensive Protection](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) (Seguridad de IE8 [parte V]: protección total), [MIME types](https://en.wikipedia.org/wiki/Mime_type) (Tipos de MIME) |
 | **Pasos** | El encabezado X-Content-Type-Options es un encabezado HTTP que permite a los desarrolladores especificar que su contenido no se debe someter a un rastreo de MIME. Este encabezado se ha diseñado para mitigar los ataques de rastreo de MIME. Para cada página que podría incluir contenido controlable por el usuario, debe usar el encabezado HTTP X-Content-Type-Options:nosniff. Para habilitar el encabezado necesario globalmente para todas las páginas de la aplicación, puede realizar una de las siguientes acciones|
 
 ### <a name="example"></a>Ejemplo

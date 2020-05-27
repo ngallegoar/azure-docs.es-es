@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 059e77c063d00ef850a171507ca2e06422ade426
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 514694dc2e3f06db2fb80f6b3ba0106343be11d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191777"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658508"
 ---
 # <a name="azure-synapse-analytics-preview-release-notes"></a>Notas de la versión de Azure Synapse Analytics (versión preliminar)
 
@@ -38,6 +38,6 @@ En este artículo se describen las limitaciones y los problemas con Azure Synaps
 
 * [Creación de un área de trabajo](quickstart-create-workspace.md)
 * [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
-* [Creación de un grupo de SQL](quickstart-create-sql-pool.md)
+* [Creación de un grupo de SQL](quickstart-create-sql-pool-portal.md)
 * [Uso de SQL a petición](quickstart-sql-on-demand.md)
-* [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool.md)
+* [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool-portal.md)
