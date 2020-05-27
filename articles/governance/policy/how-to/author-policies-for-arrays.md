@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
-ms.date: 11/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236144"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684259"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 

@@ -3,12 +3,12 @@ title: Escenarios de diagnóstico comunes de Azure Service Fabric
 description: Más información sobre la solución de problemas comunes de supervisión y diagnóstico en aplicaciones de Azure Service Fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bc17f00dc46c6e995d18621353c8f10cacf7759c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76906952"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697689"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnóstico de escenarios comunes con Service Fabric
 
@@ -133,7 +133,7 @@ Consulte estos vínculos para obtener la lista completa de contadores de rendimi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Búsqueda de errores comunes de activación de paquetes de código](./service-fabric-diagnostics-code-package-errors.md)
-* [Definición de alertas en Application Insights](../azure-monitor/app/alerts.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
+* [Definición de alertas en Application Insights](/azure/azure-monitor/platform/alerts-log) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../azure-monitor/app/proactive-diagnostics.md), donde se realiza un análisis proactivo de la telemetría enviada a AI para avisar de problemas de rendimiento potenciales
 * Obtenga más información sobre las [alertas](../log-analytics/log-analytics-alerts.md) de los registros de Azure Monitor como ayuda para la detección y diagnóstico.
 * Si se trata de clústeres locales, los registros de Azure Monitor ofrecen una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a estos registros. Para más información, vea [Conectar equipos sin acceso a Internet a los registros de Azure Monitor a través de la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).

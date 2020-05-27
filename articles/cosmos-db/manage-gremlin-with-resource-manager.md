@@ -4,14 +4,14 @@ description: Use las plantillas de Azure Resource Manager para crear y configura
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: defeec2317f47e9d79245cbde0ef81c8a3543bfb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0f807213d68e2731e784198f8ce968cdea9b3957
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791245"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684819"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de la API de Gremlin de Azure Cosmos DB con plantillas de Azure Resource Manager
 
@@ -31,9 +31,7 @@ Para crear cualquiera de los siguientes recursos de Azure Cosmos DB, copie la si
 
 ## <a name="azure-cosmos-db-account-for-gremlin-with-autoscale-provisioned-throughput"></a>Cuenta de Azure Cosmos DB para Gremlin con rendimiento aprovisionado de escalabilidad automática
 
-Esta plantilla creará una cuenta de Azure Cosmos para la API de Gremlin con una base de datos y un grafo con rendimiento de escalabilidad automática.
-
-Esta plantilla también está disponible para implementar con un solo clic desde la galería de plantillas de inicio rápido de Azure.
+Esta plantilla creará una cuenta de Azure Cosmos para la API de Gremlin con una base de datos y un grafo con rendimiento de escalabilidad automática. Esta plantilla también está disponible para implementar con un solo clic desde la galería de plantillas de inicio rápido de Azure.
 
 [![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
 
@@ -43,9 +41,7 @@ Esta plantilla también está disponible para implementar con un solo clic desde
 
 ## <a name="azure-cosmos-db-account-for-gremlin-with-standard-provisioned-throughput"></a>Cuenta de Azure Cosmos DB para Gremlin con rendimiento aprovisionado estándar
 
-Esta plantilla creará una cuenta de Azure Cosmos para la API de Gremlin con una base de datos y un grafo con un rendimiento estándar (manual).
-
-Esta plantilla también está disponible para implementar con un solo clic desde la galería de plantillas de inicio rápido de Azure.
+Esta plantilla creará una cuenta de Azure Cosmos para la API de Gremlin con una base de datos y un grafo con un rendimiento estándar (manual). Esta plantilla también está disponible para implementar con un solo clic desde la galería de plantillas de inicio rápido de Azure.
 
 [![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
 

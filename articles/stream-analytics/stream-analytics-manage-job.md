@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 79b8cfd3f50ffd9f1c6b36dd73942ed3ddc5929f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594923"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697385"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
@@ -264,7 +264,7 @@ Puede probar una consulta en el editor de consultas y usar para ello datos de ej
 
 En esta parte del tutorial, usará una aplicación web [ASP.NET](https://asp.net/) de ejemplo que ha creado el equipo de Power BI para insertar el panel. Para más información sobre cómo insertar paneles, consulte el artículo [Inserción con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (El usuario es propietario de los datos) (use las direcciones URL de redireccionamiento y de la página principal en el subapartado **integrate-web-app**). Como se va a usar el ejemplo del panel, utilice el código de ejemplo **integrate-web-app** que se encuentra en el [repositorio de GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/User%20Owns%20Data/integrate-web-app).
+Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (El usuario es propietario de los datos) (use las direcciones URL de redireccionamiento y de la página principal en el subapartado **integrate-web-app**). Como se va a usar el ejemplo del panel, utilice el código de ejemplo **integrate-web-app** que se encuentra en el [repositorio de GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
 Cuando esté satisfecho con la aplicación que se ejecuta en el explorador, siga estos pasos para insertar el panel que creó anteriormente en la página web:
 
 1. Seleccione **Sign in to Power BI** (Iniciar sesión en Power BI). Mediante esta acción se concede a la aplicación acceso a los paneles de la cuenta de Power BI.

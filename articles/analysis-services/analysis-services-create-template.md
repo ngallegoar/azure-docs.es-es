@@ -8,12 +8,12 @@ ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d292500c5e26d3c07ff2402964166b3928cc7e44
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 6f0d5f084c5cd48abf399e351c627d64951ce719
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384107"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697450"
 ---
 # <a name="quickstart-create-a-server---azure-resource-manager-template"></a>Inicio rápido: Creación de un servidor: plantilla de Azure Resource Manager
 
@@ -32,7 +32,7 @@ En este inicio rápido se describe cómo crear un recurso de servidor de Analysi
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
 
 En la plantilla se define un único recurso [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) con una regla de Firewall. 
 
@@ -40,7 +40,7 @@ En la plantilla se define un único recurso [Microsoft.AnalysisServices/servers]
 
 1. Seleccione el vínculo Implementar en Azure siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla se usa para crear un recurso de servidor de Analysis Services y especificar propiedades obligatorias y opcionales.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json"><img src="./media/analysis-services-create-template/deploy-azure.png" alt="deploy to azure"/></a>
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
@@ -66,7 +66,7 @@ En la plantilla se define un único recurso [Microsoft.AnalysisServices/servers]
 
 Use Azure Portal o Azure PowerShell para comprobar que se ha creado el grupo de recursos y el recurso de servidor.
 
-#### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -96,6 +96,8 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

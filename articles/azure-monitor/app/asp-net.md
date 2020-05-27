@@ -3,12 +3,12 @@ title: Configuración del análisis de aplicaciones web para ASP.NET con Azure A
 description: Configure las herramientas de análisis del rendimiento, la disponibilidad y de comportamiento de usuarios para un sitio web de ASP.NET, hospedado localmente o en Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d3181c3d43f07c7cb920b9fe265a8420c1417a56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa4449a0229ba156dbeed37c10ed21f8b1b5f201
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145280"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698503"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -139,7 +139,7 @@ Si está interesado, puede examinar otros temas:
 
 * [Pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md): cree pruebas para asegurarse de que el sitio sea visible en la Web.
 * [Diagnósticos inteligentes](../../azure-monitor/app/proactive-diagnostics.md): estas pruebas se realizan automáticamente, por lo que no es preciso hacer nada para configurarlas. Le indican si la aplicación tiene una tasa de solicitudes con error inusual.
-* [Alertas de métricas](../../azure-monitor/app/alerts.md): Establezca alertas que le adviertan si una métrica supera un umbral. Puede establecerlas en las métricas personalizadas que codifique en la aplicación.
+* [Alertas de métricas](../../azure-monitor/platform/alerts-log.md): Establezca alertas que le adviertan si una métrica supera un umbral. Puede establecerlas en las métricas personalizadas que codifique en la aplicación.
 
 ### <a name="automation"></a>Automation
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546947"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684407"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -960,7 +960,7 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 Después de procesar datos, puede consumirlos con herramientas en línea como Power BI. Estos vínculos lo ayudarán a comprender Power BI y aprender a usarlo en Azure:
 
 * [Exploración de un conjunto de datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Introducción a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Introducción a Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Información general básica de Azure y Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 

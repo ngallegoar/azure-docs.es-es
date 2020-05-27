@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 87c915330fdc0d59d0d32c0747c7dc7647c342ba
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791891"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700985"
 ---
 # <a name="create-an-azure-container-offer"></a>Creación de una oferta de contenedor de Azure
-
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de contenedores de Azure de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Preparación de los recursos técnicos de contenedor](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) para Cloud Partner Portal para administrar las ofertas.
 
 En este artículo se proporcionan recursos técnicos y recomendaciones para ayudarle a crear una oferta de contenedor en Azure Marketplace.
 

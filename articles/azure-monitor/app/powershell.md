@@ -3,18 +3,18 @@ title: Automatización de Azure Application Insights con PowerShell | Microsoft 
 description: Automatice la creación y administración de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a6653582a990b97775976b757198f11b2a46c46b
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780511"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697926"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](../../azure-monitor/app/app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md), [configurar alertas](../../azure-monitor/app/alerts.md), establecer el [esquema de precios](pricing.md) y crear otros recursos de Azure.
+Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](../../azure-monitor/app/app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md), [configurar alertas](../../azure-monitor/platform/alerts-log.md), establecer el [esquema de precios](pricing.md) y crear otros recursos de Azure.
 
 La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../../azure-resource-manager/management/manage-resources-powershell.md). El procedimiento básico es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
 

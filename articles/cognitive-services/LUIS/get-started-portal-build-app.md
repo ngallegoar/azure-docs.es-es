@@ -2,13 +2,13 @@
 title: 'Inicio rápido: Creación de una aplicación en el portal de LUIS'
 description: En este inicio rápido creará las partes básicas de una aplicación, las intenciones y las entidades; además, utilizará una expresión de ejemplo para probar la aplicación en el portal de LUIS.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585285"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697264"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Inicio rápido: Creación de una aplicación en el portal de LUIS
 
@@ -137,7 +137,7 @@ Las expresiones de ejemplo de la intención **None** deben estar fuera del domin
 
 1. Compruebe que la entidad se encuentra en la intención **FindForm** seleccionando **Intents** (Intenciones) en el menú izquierdo. A continuación, seleccione la intención **FindForm**.
 
-   La entidad se marca donde aparece en las expresiones de ejemplo. Si desea ver el texto original, en lugar del nombre de entidad, cambie a **Entities View** (Vista de entidades) en la barra de herramientas.
+   La entidad se marca donde aparece en las expresiones de ejemplo.
 
    > [!div class="mx-imgBorder"]
    > [![Captura de pantalla de todas las expresiones de ejemplo marcadas con entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

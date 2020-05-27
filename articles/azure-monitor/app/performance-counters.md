@@ -3,12 +3,12 @@ title: Contadores de rendimiento en Application Insights | Microsoft Docs
 description: Supervise los contadores de rendimiento de .NET, tanto del sistema como personalizados, en Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 201338d3a904030ea961aede094b9877bfee3e36
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855117"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701466"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
@@ -147,7 +147,7 @@ La compatibilidad con los contadores de rendimiento en ASP.Net Core es limitada:
 * Las versiones 2.8.0 y posteriores del SDK admiten el contador de CPU/memoria de Linux. No se admite ningún otro contador en Linux. La manera recomendada de obtener contadores del sistema en Linux (y otros entornos que no son Windows) es mediante [EventCounters](eventcounters.md).
 
 ## <a name="alerts"></a>Alertas
-Al igual que otras métricas, puede [establecer una alerta](../../azure-monitor/app/alerts.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
+Al igual que otras métricas, puede [establecer una alerta](../../azure-monitor/platform/alerts-log.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
 
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 

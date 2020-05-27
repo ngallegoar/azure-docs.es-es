@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 3c8488fa794e2bfa4de7833cb4cd4756b5394263
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201364"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700833"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -255,8 +255,3 @@ En este tutorial aprendió cómo escalar y reducir horizontalmente de forma auto
 > * Crear y usar reglas de escalado automático
 > * Realizar pruebas de esfuerzo de instancias de máquina virtual y desencadenar reglas de escalado automático
 > * Reducir el escalado automáticamente cuando se reduzca la demanda
-
-Para más ejemplos de conjuntos de escalado de máquinas virtuales en acción, vea los siguientes scripts de ejemplo de Azure PowerShell:
-
-> [!div class="nextstepaction"]
-> [Ejemplos de scripts de conjuntos de escalado para Azure PowerShell](powershell-samples.md)

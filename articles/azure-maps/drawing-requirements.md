@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: dad9bb40161a2adc8654f50de5c1d876e3344e59
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596644"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681908"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de paquetes de dibujos
 
-El servicio de conversión de [Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. En este artículo se describen los requisitos de los paquetes de dibujos para la API de conversión. Para ver un paquete de ejemplo, puede descargar el [paquete de dibujos](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de ejemplo.
+El servicio de conversión de [Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. En este artículo se describen los requisitos de los paquetes de dibujos para la API de conversión. Para ver un paquete de ejemplo, puede descargar el [paquete de dibujos](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de ejemplo.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -25,7 +25,7 @@ El paquete de dibujos incluye dibujos guardados en formato DWG, que es el format
 
 Puede elegir cualquier software de CAD para generar los dibujos en el paquete de dibujos.  
 
-El [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) convierte un paquete de dibujos en datos de mapa.  El servicio de conversión se ha desarrollado y probado con el formato de archivo DWG de AutoCAD. `AC1032` es la versión de formato interno para los archivos DWG. Se recomienda seleccionar `AC1032` para la versión del formato de archivo DWG interno.  
+El [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) convierte un paquete de dibujos en datos de mapa.  El servicio de conversión se ha desarrollado y probado con el formato de archivo DWG de AutoCAD. `AC1032` es la versión de formato interno para los archivos DWG. Se recomienda seleccionar `AC1032` para la versión del formato de archivo DWG interno.  
 
 Glosario de términos usados en este documento.
 
@@ -54,7 +54,7 @@ Se requiere un único archivo DWG para cada nivel de la instalación. Los datos 
 * No debe contener características de varios niveles.
 * No debe contener características de varias instalaciones.
 
-El [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) puede extraer las siguientes clases de características de un archivo DWG:
+El [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) puede extraer las siguientes clases de características de un archivo DWG:
 
 * Niveles
 * Unidades
@@ -71,11 +71,11 @@ Las capas de DWG también deben seguir los siguientes criterios:
 
 * Los orígenes de los dibujos de todos los archivos DWG deben alinearse con la misma latitud y longitud.
 * Cada nivel debe tener la misma orientación que los demás niveles.
-* Los polígonos que formen intersección con ellos mismos se repararán automáticamente y el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) generará una advertencia. Se recomienda inspeccionar manualmente los resultados reparados, ya que es posible que no coincidan con los resultados esperados.
+* Los polígonos que formen intersección con ellos mismos se repararán automáticamente y el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) generará una advertencia. Se recomienda inspeccionar manualmente los resultados reparados, ya que es posible que no coincidan con los resultados esperados.
 
 Todas las entidades de las capas deben ser de uno de los siguientes tipos: Línea, polilínea, polígono, arco circular, círculo, texto (una sola línea). Se omitirán todos los demás tipos de entidad.
 
-En la tabla siguiente se describen los tipos de entidad admitidos y las características admitidas para cada capa. Si una capa contiene tipos de entidad no admitidos, el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) omitirá las entidades.  
+En la tabla siguiente se describen los tipos de entidad admitidos y las características admitidas para cada capa. Si una capa contiene tipos de entidad no admitidos, el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) omitirá las entidades.  
 
 | Nivel | Tipos de entidades | Características |
 | :----- | :-------------------| :-------
@@ -167,11 +167,11 @@ Se puede ver un ejemplo de la capa de ZoneLabel en la capa ZONELABELS del [paque
 
 ## <a name="manifest-file-requirements"></a>Requisitos del archivo de manifiesto
 
-La carpeta ZIP debe contener un archivo de manifiesto en el nivel raíz del directorio y el archivo debe tener el nombre **manifest.json**. Describe los archivos DWG para permitir que el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) analice su contenido. Solo se ingerirán los archivos identificados por el manifiesto. Los archivos que se encuentren en la carpeta ZIP pero que no se enumeren correctamente en el manifiesto se omitirán.
+La carpeta ZIP debe contener un archivo de manifiesto en el nivel raíz del directorio y el archivo debe tener el nombre **manifest.json**. Describe los archivos DWG para permitir que el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) analice su contenido. Solo se ingerirán los archivos identificados por el manifiesto. Los archivos que se encuentren en la carpeta ZIP pero que no se enumeren correctamente en el manifiesto se omitirán.
 
 Las rutas de acceso de los archivos en el objeto **buildingLevels** del archivo de manifiesto deben ser relativas a la raíz de la carpeta ZIP. El nombre del archivo DWG debe coincidir exactamente con el nombre del nivel de la instalación. Por ejemplo, un archivo DWG para el nivel "Sótano" sería "Sótano.dwg". Un archivo DWG para el nivel 2 tendría el nombre "nivel_2.dwg". Use un carácter de subrayado si el nombre del nivel tiene un espacio. 
 
-Aunque hay requisitos al usar los objetos del manifiesto, no se requieren todos los objetos. En la tabla siguiente se muestran los objetos obligatorios y opcionales para la versión 1.1 del [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion).
+Aunque hay requisitos al usar los objetos del manifiesto, no se requieren todos los objetos. En la tabla siguiente se muestran los objetos obligatorios y opcionales para la versión 1.1 del [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Object | Obligatorio | Descripción |
 | :----- | :------- | :------- |
@@ -402,7 +402,7 @@ A continuación se muestra un archivo de manifiesto de ejemplo para el paquete d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que el paquete de dibujos cumpla los requisitos, puede usar el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) para convertir el paquete en un conjunto de datos de mapa. Después, puede usar el conjunto de datos para generar un plano interior mediante el módulo de planos interiores. Para más información sobre el uso del módulo de mapas interiores, lea los artículos siguientes:
+Una vez que el paquete de dibujos cumpla los requisitos, puede usar el [servicio de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para convertir el paquete en un conjunto de datos de mapa. Después, puede usar el conjunto de datos para generar un plano interior mediante el módulo de planos interiores. Para más información sobre el uso del módulo de mapas interiores, lea los artículos siguientes:
 
 > [!div class="nextstepaction"]
 >[Uso de Creator para planos interiores](creator-indoor-maps.md)

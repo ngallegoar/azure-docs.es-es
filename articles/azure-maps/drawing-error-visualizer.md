@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596664"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681954"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizador de errores de dibujo de Azure Maps
 
-El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) solo devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
+El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) solo devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -90,7 +90,7 @@ Cuando se cargue el archivo _ConversionWarningsAndErrors.json_, verá una lista 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que el [paquete de dibujos cumpla los requisitos](drawing-requirements.md), puede usar el [servicio de conjuntos de datos de Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) para convertir el paquete de dibujos en un conjunto de datos. Después, puede usar el módulo web de planos interiores para desarrollar la aplicación. Para más información, lea los siguientes artículos:
+Una vez que el [paquete de dibujos cumpla los requisitos](drawing-requirements.md), puede usar el [servicio de conjuntos de datos de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para convertir el paquete de dibujos en un conjunto de datos. Después, puede usar el módulo web de planos interiores para desarrollar la aplicación. Para más información, lea los siguientes artículos:
 
 > [!div class="nextstepaction"]
 > [Códigos de error de conversión de dibujos](drawing-conversion-error-codes.md)

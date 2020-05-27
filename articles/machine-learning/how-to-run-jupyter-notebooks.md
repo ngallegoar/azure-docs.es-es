@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 67da2cb31d59838bb3ad2b964530d85d8be9be4c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82782593"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681448"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -62,7 +62,7 @@ El área de trabajo contiene una carpeta de **ejemplos** con cuadernos diseñado
 
 Para obtener un ejemplo, vea [Tutorial: Creación del primer experimento de Machine Learning](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="a-nameterminal-use-files-from-git-and-version-my-files"></a><a name="terminal"> Uso de los archivos de Git y versión mis archivos
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Uso de los archivos de Git y versión mis archivos
 
 Puede acceder a todas las operaciones de Git mediante una ventana de terminal. Todos los archivos y carpetas de Git se almacenarán en el sistema de archivos del área de trabajo.
 

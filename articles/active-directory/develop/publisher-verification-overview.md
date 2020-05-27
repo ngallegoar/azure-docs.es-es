@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d050efe1224e2783cdad52a12c842f7abe44b7af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595074"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682423"
 ---
 # <a name="publisher-verification-preview"></a>Comprobación del publicador (versión preliminar)
 
-La verificación del publicador (versión preliminar) ayuda a los administradores y usuarios finales a comprender la autenticidad de los desarrolladores de aplicaciones que se integran con la plataforma de identidad de Microsoft. En otras palabras, ¿el publicador es un origen conocido o un actor perjudicial que se hace pasar por un publicador conocido? Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) que ha completado el proceso de [verificación](/partner-center/verification-responses) y ha asociado esta cuenta de MPN con el registro de aplicación. 
+La verificación del publicador (versión preliminar) ayuda a los administradores y usuarios finales a comprender la autenticidad de los desarrolladores de aplicaciones que se integran con la plataforma de identidad de Microsoft. Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) que ha completado el proceso de [verificación](/partner-center/verification-responses) y ha asociado esta cuenta de MPN con el registro de aplicación. 
 
 Aparece una notificación "comprobado" de color azul en la petición de consentimiento de Azure AD y en otras pantallas: ![Petición de consentimiento](./media/publisher-verification-overview/consent-prompt.png)
 

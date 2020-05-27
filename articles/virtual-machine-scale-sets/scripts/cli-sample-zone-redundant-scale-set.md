@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ad25897663364b862f1e6fdb4c3d1856d206fa1e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7a8be9b9cebc72e9605af0aaa581783a75246eef
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201391"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701535"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Creación de un conjunto de escalado de máquinas virtuales con redundancia de zona con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu en varias zonas de disponibilidad. Después de ejecutar el script, puede acceder a la máquina virtual a través de RDP.
@@ -44,5 +44,3 @@ Este script usa los siguientes comandos para crear un grupo de recursos, un conj
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Se pueden encontrar otros ejemplos de scripts de la CLI de Azure para conjuntos de escalado de máquinas virtuales en la [documentación de conjuntos de escalado de máquinas virtuales de Azure](../cli-samples.md).

@@ -4,12 +4,12 @@ description: Alerta de cambios no habituales en la frecuencia de solicitudes con
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e4a629b4c33c22bf5663d6f8e8b9d0ba11ac24dc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536818"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700775"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
@@ -31,7 +31,7 @@ Los detalles de la alerta le indicarán lo siguiente:
 * Vínculo directos a búsquedas significativas en los datos de Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Ventajas de la detección inteligente
-Las [alertas de métricas](../../azure-monitor/app/alerts.md) normales le comunican que puede haber un problema. Sin embargo, la detección inteligente inicia el trabajo de diagnóstico y realiza gran parte del análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
+Las [alertas de métricas](../../azure-monitor/platform/alerts-log.md) normales le comunican que puede haber un problema. Sin embargo, la detección inteligente inicia el trabajo de diagnóstico y realiza gran parte del análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
 
 ## <a name="how-it-works"></a>Funcionamiento
 La detección inteligente supervisa los datos recibidos de su aplicación y, en particular, las tasas de errores. Esta regla cuenta el número de solicitudes para el que la propiedad `Successful request` es falsa y el número de llamadas de dependencia para el que la propiedad `Successful call` es falsa. De manera predeterminada, para las solicitudes, `Successful request == (resultCode < 400)` (a no ser que haya escrito código personalizado para [filtrar](../../azure-monitor/app/api-filtering-sampling.md#filtering) o generar sus propias llamadas de [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)). 
@@ -48,7 +48,7 @@ Si se instrumenta el servicio con estas llamadas de datos, el analizador busca u
 
 El análisis resultante se le envía como una alerta, a no ser que configurara lo contrario.
 
-Al igual que con las [alertas que establece de forma manual](../../azure-monitor/app/alerts.md), puede inspeccionar el estado de la alerta desencadenada y se puede resolver si el problema se ha corregido. Configure las reglas de alertas en la página Alertas de su recurso de Application Insights. Pero, a diferencia de otras alertas, no es necesario instalar ni configurar la detección inteligente. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
+Al igual que con las [alertas que establece de forma manual](../../azure-monitor/platform/alerts-log.md), puede inspeccionar el estado de la alerta desencadenada y se puede resolver si el problema se ha corregido. Configure las reglas de alertas en la página Alertas de su recurso de Application Insights. Pero, a diferencia de otras alertas, no es necesario instalar ni configurar la detección inteligente. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
 
 ### <a name="alert-logic-details"></a>Detalles de la lógica de alerta
 
@@ -317,7 +317,7 @@ Haga clic en **Alertas** en la página de recursos de Application Insights para 
 ## <a name="whats-the-difference-"></a>¿Cuál es la diferencia ...
 La detección inteligente de anomalías de errores complementa otras características similares pero distintas de Application Insights.
 
-* Las [alertas de métricas](../../azure-monitor/app/alerts.md) las configura el usuario y pueden supervisar una amplia variedad de métricas, como el uso de la CPU, la velocidad máxima de las solicitudes, los tiempos de carga de las páginas, etc. Puede usarlas para avisarle, por ejemplo, de si necesita agregar más recursos. Por el contrario, la detección inteligente de anomalías de error abarca un pequeño conjunto de métricas críticas (actualmente solo la tasa de solicitudes con errores), diseñadas para notificarle casi en tiempo real el momento en el que la tasa de solicitudes con errores de la aplicación web aumenta en comparación con el comportamiento normal de esta. A diferencia de las alertas de métricas, la detección inteligente establece y actualiza automáticamente los umbrales en respuesta a los cambios en el comportamiento. La detección inteligente también inicia el trabajo de diagnóstico, lo que le ahorra tiempo en la resolución de problemas.
+* Las [alertas de métricas](../../azure-monitor/platform/alerts-log.md) las configura el usuario y pueden supervisar una amplia variedad de métricas, como el uso de la CPU, la velocidad máxima de las solicitudes, los tiempos de carga de las páginas, etc. Puede usarlas para avisarle, por ejemplo, de si necesita agregar más recursos. Por el contrario, la detección inteligente de anomalías de error abarca un pequeño conjunto de métricas críticas (actualmente solo la tasa de solicitudes con errores), diseñadas para notificarle casi en tiempo real el momento en el que la tasa de solicitudes con errores de la aplicación web aumenta en comparación con el comportamiento normal de esta. A diferencia de las alertas de métricas, la detección inteligente establece y actualiza automáticamente los umbrales en respuesta a los cambios en el comportamiento. La detección inteligente también inicia el trabajo de diagnóstico, lo que le ahorra tiempo en la resolución de problemas.
 
 * La [detección inteligente de anomalías de rendimiento](proactive-performance-diagnostics.md) también usa la inteligencia automática para detectar patrones inusuales en las métricas y no requiere ninguna configuración por parte del usuario. Pero a diferencia de la detección inteligente de anomalías de errores, el objetivo de la detección inteligente de anomalías de rendimiento es encontrar segmentos del colector de uso que pudieran haberse servidor incorrectamente, por ejemplo, por páginas específicas de un tipo específico de explorador. El análisis se realiza diariamente y, si se encuentra algún resultado, probablemente sea mucho menos urgente que una alerta. Por el contrario, el análisis de anomalías de error se realiza continuamente sobre los datos de aplicación entrantes, y se le notificará en unos minutos si las tasas de errores del servidor son mayores de lo esperado.
 
@@ -359,5 +359,5 @@ Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de su a
 
 Las detecciones inteligentes son automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-* [Alertas de métricas configuradas manualmente](../../azure-monitor/app/alerts.md)
+* [Alertas de métricas configuradas manualmente](../../azure-monitor/platform/alerts-log.md)
 * [Pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md)

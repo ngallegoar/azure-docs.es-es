@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477177"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682716"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guía técnica sobre la plantilla de solución orientada al mantenimiento predictivo en el sector aeroespacial
 
@@ -159,7 +159,7 @@ Power BI se conecta a una base de datos de Azure SQL como su origen de datos, d
 
 Nota: 
 1.    Al implementar la solución, aparecerá una predicción real en la base de datos dentro de 3 horas. El archivo pbix incluido con la descarga del generador, contiene algunos datos de inicialización para que pueda crear el panel de Power BI inmediatamente. 
-2.    En este paso, el requisito previo es descargar e instalar gratuitamente el software [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+2.    En este paso, el requisito previo es descargar e instalar gratuitamente el software [Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
 
 Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL Database que estaba en marcha en el momento de la implementación de la solución que contiene los datos (por ejemplo, resultados de predicción) para su visualización.
 

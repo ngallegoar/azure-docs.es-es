@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: dc98085ca017f7249e225e8c1c009b3d255f1719
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8883bd099b684b5086554feded88e133764e614f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195785"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701612"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Creación de un conjunto de escalado de máquinas virtuales de zona única con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu en una sola zona de disponibilidad. Después de ejecutar el script, puede acceder a la máquina virtual a través de RDP.
@@ -44,5 +44,3 @@ Este script usa los siguientes comandos para crear un grupo de recursos, un conj
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Se pueden encontrar otros ejemplos de scripts de la CLI de Azure para conjuntos de escalado de máquinas virtuales en la [documentación de conjuntos de escalado de máquinas virtuales de Azure](../cli-samples.md).

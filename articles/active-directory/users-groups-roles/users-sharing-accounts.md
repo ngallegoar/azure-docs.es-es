@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37935d229f62028e074f92bb6f8b70b9eebd87dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77565509"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685206"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
 
@@ -62,13 +62,13 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 * [Panel/informes de uso de aplicaciones](../active-directory-passwords-get-insights.md)
 * Portales de acceso para usuarios finales
 * [Proxy de aplicaciones](../manage-apps/application-proxy.md)
-* [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## <a name="sharing-an-account"></a>Uso compartido de una cuenta
 
 Para usar Azure AD para compartir una cuenta, debe hacer lo siguiente:
 
-* Agregar una aplicación de la [galería de aplicaciones](https://azure.microsoft.com/marketplace/active-directory/) o una [aplicación personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Agregar una aplicación de la [galería de aplicaciones](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) o una [aplicación personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configurar la aplicación para el inicio de sesión único (SSO) con contraseña
 * Usar la [asignación basada en grupos](groups-saasapps.md) y seleccionar la opción para escribir una credencial compartida.
 

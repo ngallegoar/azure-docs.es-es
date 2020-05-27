@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/20/2020
-ms.openlocfilehash: 6da2c324872a86c2c0ce6f55801bc7b0ee8d713e
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 670cebe1c0f1c9002e33b729d0db9ee9f9a01283
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80611819"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682534"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-a-resource-manager-template"></a>Inicio rápido: Implementación de Cognitive Search con una plantilla de Resource Manager
 
@@ -30,9 +30,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de Azure](https://docs.microsoft.com/azure/templates/Microsoft.Search/2015-08-19/searchservices).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
-:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50":::
+:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50,70-85":::
 
 El recurso de Azure definido en esta plantilla:
 
@@ -42,7 +42,7 @@ El recurso de Azure definido en esta plantilla:
 
 Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un recurso de Azure Cognitive Search.
 
-[![Implementación en Azure](./media/search-get-started-arm/arm-deploybuttona.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
 El portal muestra un formulario que le permite proporcionar fácilmente los valores de parámetros. Algunos parámetros se rellenan previamente con los valores predeterminados de la plantilla. Tendrá que proporcionar la suscripción, el grupo de recursos, la ubicación y el nombre del servicio. Si desea usar Cognitive Services en una canalización de [enriquecimiento con IA](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), por ejemplo, para analizar archivos de imagen binarios para el texto, elija una ubicación que ofrezca Cognitive Search y Cognitive Services. Ambos servicios deben estar en la misma región para cargas de trabajo de enriquecimiento con inteligencia artificial. Una vez que haya completado el formulario, deberá aceptar los términos y condiciones y, a continuación, seleccionar el botón de compra para completar la implementación.
 

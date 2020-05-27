@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 04/05/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 57dfbb7ebdb2ca8d323dadfca570360211a16484
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0c97206d4e2f0c0484cfd89138dde7e2b0d0c625
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197533"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698634"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales con redundancia de zona con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016 en varias zonas de disponibilidad. Después de ejecutar el script, puede acceder a la máquina virtual a través de RDP.
@@ -49,5 +49,3 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
-
-Se pueden encontrar otros ejemplos de scripts de PowerShell de conjunto de escalado de máquinas virtuales en la [documentación del conjunto de escalado de máquinas virtuales de Azure](../powershell-samples.md).

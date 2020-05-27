@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 05/29/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 2d4e252484515f43e53bdfbed58f7350d4d82cb3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df2c1b10f0d63e3cafbd6f20805a296710219461
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200282"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699555"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales completo con PowerShell
 
@@ -62,5 +62,3 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
-
-Se pueden encontrar otros ejemplos de scripts de PowerShell de conjunto de escalado de máquinas virtuales en la [documentación del conjunto de escalado de máquinas virtuales de Azure](../powershell-samples.md).

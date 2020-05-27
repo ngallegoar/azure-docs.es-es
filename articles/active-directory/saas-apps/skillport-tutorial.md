@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 328f3d0dc648b3c5fa96c3aab02e80a37cf4218f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090571"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integración de Azure Active Directory con Skillport
 
@@ -139,7 +139,7 @@ Para configurar el inicio de sesión único de Azure AD con Skillport, realice l
 
 ### <a name="configure-skillport-single-sign-on"></a>Configuración del inicio de sesión único de Skillport
 
-Para configurar el inicio de sesión único en **Skillport**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Skillport](https://www.skillsoft.com/contact.asp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Skillport**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Skillport](https://www.skillsoft.com/about/contact-us). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -194,7 +194,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-skillport-test-user"></a>Creación de un usuario de prueba de Skillport
 
-Para crear el usuario de prueba de Skillport, debe ponerse en contacto con el [equipo de soporte técnico de Skillport](https://www.skillsoft.com/contact.asp) ya que disponen de varios escenarios empresariales acordes con los requisitos del usuario final. Después de mantener conversaciones con los usuarios, procederán a configurarlo.
+Para crear el usuario de prueba de Skillport, debe ponerse en contacto con el [equipo de soporte técnico de Skillport](https://www.skillsoft.com/about/contact-us) ya que disponen de varios escenarios empresariales acordes con los requisitos del usuario final. Después de mantener conversaciones con los usuarios, procederán a configurarlo.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

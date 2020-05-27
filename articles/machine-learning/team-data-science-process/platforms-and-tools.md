@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88e9cdfa8ea4554a44ddfc25cde2b0eb2aed7a57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81256525"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682701"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -49,7 +49,7 @@ También incluye **herramientas de ML e IA**, como xgboost, mxnet y Vowpal Wabbi
 
 Actualmente, la máquina virtual de ciencia de datos está disponible con los sistemas operativos **Windows** y **CentOS Linux**. Elija el tamaño de la máquina virtual de ciencia de datos (número de núcleos de CPU y cantidad de memoria) en función de los proyectos de ciencia de datos que se vayan a ejecutar en ella. 
 
-Para más información sobre la edición de Windows de DSVM, consulte [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) en Azure Marketplace. Para la edición Linux de la máquina virtual de ciencia de datos, consulte [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+Para más información sobre la edición de Windows de DSVM, consulte [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) en Azure Marketplace. Para la edición Linux de la máquina virtual de ciencia de datos, consulte [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
 Para aprender a ejecutar de forma eficaz algunas de las tareas comunes de ciencia de datos en DSVM, consulte [Diez cosas que puede hacer en Windows Data Science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md).
 

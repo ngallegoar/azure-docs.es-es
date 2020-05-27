@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421229"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700320"
 ---
 # <a name="sql-authentication"></a>Autenticación de SQL
 
@@ -50,7 +50,7 @@ Las cuentas de **administrador del servidor** y de **administrador de Azure AD**
 - Pueden agregar y quitar miembros en los roles `dbmanager` y `loginmanager`.
 - Pueden ver la tabla del sistema `sys.sql_logins`.
 
-## <a name="sql-on-demand-preview"></a>SQL a petición (versión preliminar)
+## <a name="sql-on-demand-preview"></a>[SQL a petición (versión preliminar)](#tab/serverless)
 
 Para administrar los usuarios que tienen acceso a SQL a petición, puede usar las instrucciones siguientes.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Una vez que se crean el inicio de sesión y el usuario, puede usar la sintaxis de SQL Server normal para conceder derechos.
 
-## <a name="sql-pool"></a>Grupo de SQL
+## <a name="sql-pool"></a>[Grupo de SQL](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>Ruta de acceso de administrador
 
@@ -127,6 +127,8 @@ Ahora, el usuario puede conectarse a la base de datos `master` y puede crear nue
 ### <a name="login-managers"></a>Administradores de inicio de sesión
 
 El otro rol administrativo es el rol de administrador de inicio de sesión. Los miembros de este rol pueden crear nuevos inicios de sesión en la base de datos maestra. Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager**) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra. Normalmente los inicios de sesión no son necesarios, ya que Microsoft recomienda utilizar los usuarios de la base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, vea [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## <a name="non-administrator-users"></a>Usuarios no administradores
 

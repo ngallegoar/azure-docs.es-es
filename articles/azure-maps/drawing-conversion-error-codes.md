@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 0d73d0b395547c281a2dbbe6a6ac5e8dc6dfd849
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596784"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682003"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Errores y advertencias de conversión de dibujos
 
-El servicio de conversión de [Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. Los paquetes de dibujos deben ajustarse a los [requisitos de los paquetes de dibujos](drawing-requirements.md). Si no se cumplen uno o más requisitos, el servicio de conversión devolverá errores o advertencias. En este artículo se enumeran los códigos de error y de advertencia de conversión, con recomendaciones sobre cómo resolverlos. También proporciona algunos ejemplos de dibujos que pueden hacer que el servicio de conversión devuelva estos códigos.
+El servicio de conversión de [Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. Los paquetes de dibujos deben ajustarse a los [requisitos de los paquetes de dibujos](drawing-requirements.md). Si no se cumplen uno o más requisitos, el servicio de conversión devolverá errores o advertencias. En este artículo se enumeran los códigos de error y de advertencia de conversión, con recomendaciones sobre cómo resolverlos. También proporciona algunos ejemplos de dibujos que pueden hacer que el servicio de conversión devuelva estos códigos.
 
 El servicio de conversión realizará la operación correctamente si hay advertencias de conversión. Sin embargo, se recomienda que revise y resuelva todas las advertencias. Una advertencia significa que parte de la conversión se ignoró o corrigió automáticamente. Si no se resuelven las advertencias, podrían producirse errores en procesos posteriores.
 
@@ -73,7 +73,7 @@ La advertencia **unsupportedFeatureRepresentation** se produce cuando el dibujo 
 
 La imagen siguiente muestra un tipo de entidad no admitido como un objeto de texto de varias líneas en una capa de etiquetas.
   
-![Ejemplo de un objeto de texto de varias líneas en la capa de etiquetas](./media/drawing-conversion-error-codes/multiline.png)
+![Ejemplo de un objeto de texto de varias líneas en la capa de etiquetas](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### <a name="how-to-fix-unsupportedfeaturerepresentation"></a>*Cómo corregir unsupportedFeatureRepresentation*
 
@@ -494,7 +494,7 @@ En la imagen siguiente se muestra un área de penetración vertical sin áreas d
 
 En la imagen siguiente se muestra un área de penetración vertical que se superpone a más de un área de penetración vertical en un nivel adyacente.
 
-![Ejemplo de penetración vertical 2](./media/drawing-conversion-error-codes/vrt.png)
+![Ejemplo de penetración vertical 2](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>Cómo corregir verticalPenetrationError
 

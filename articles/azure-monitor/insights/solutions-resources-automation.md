@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b1b134afbc4a13d7888281a82609d444cee377
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663069"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682876"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adición de recursos de Azure Automation a una solución de administración (versión preliminar)
 > [!NOTE]
@@ -33,7 +33,7 @@ En este artículo se supone que ya está familiarizado con la información sigui
 - Cómo [crear plantillas de Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Cuenta de Automation
-Todos los recursos de Azure Automation están incluidos en una [cuenta de Automation](../../automation/automation-security-overview.md#automation-account-overview).  Tal como se describe en el [área de trabajo de Log Analytics y cuenta de Automation]( solutions.md#log-analytics-workspace-and-automation-account), la cuenta de Automation no se incluye en la solución de administración, pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
+Todos los recursos de Azure Automation están incluidos en una [cuenta de Automation](../../automation/automation-security-overview.md).  Tal como se describe en el [área de trabajo de Log Analytics y cuenta de Automation]( solutions.md#log-analytics-workspace-and-automation-account), la cuenta de Automation no se incluye en la solución de administración, pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
 
 El nombre de cada recurso de Automation incluye el nombre de su cuenta de Automation.  Esto se hace en la solución con el parámetro **accountName** como se muestra en el siguiente ejemplo de un recurso de runbook.
 

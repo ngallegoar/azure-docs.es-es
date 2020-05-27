@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 74a6d1aecfc83ea68b9e30453056d231f4bf3e65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: daaa5e3a075eee19ab473818ae3bd84d4bd3b32b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416186"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683670"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -132,4 +132,4 @@ Verá dos columnas más agregadas al conjunto de datos de prueba.
 Comparación de la columna BikeBuyer (real) con las etiquetas puntuadas (predicción), puede ver cómo ha funcionado el modelo. Luego puede usar este modelo para realizar predicciones de los nuevos clientes y publicarlo como un servicio web o volver a escribir los resultados en Azure Synapse.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción a Machine Learning en Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).
+Para obtener más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción a Machine Learning en Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).

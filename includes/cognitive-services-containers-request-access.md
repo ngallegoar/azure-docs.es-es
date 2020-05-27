@@ -1,20 +1,20 @@
 ---
-author: IEvangelist
-ms.author: dapine
+author: aahill
+ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/04/2020
-ms.openlocfilehash: 88d83676de1e7fa18c4c1dcbf347da8d685ba2fa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/18/2020
+ms.openlocfilehash: 66bd78c94e6c54d26959778cc059730c13d02629
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593345"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698569"
 ---
-Rellene y envíe el [formulario de solicitud de contenedores de Cognitive Services](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. El formulario solicita información acerca del usuario y de su empresa, así como del escenario de usuario para el que se va a usar el contenedor. Después de enviar el formulario, el equipo de Azure Cognitive Services lo revisa para asegurarse de que cumple los criterios de acceso al registro de contenedor privado.
+El formulario solicita información acerca del usuario y de su empresa, así como del escenario de usuario para el que se va a usar el contenedor. Después de enviar el formulario, el equipo de Azure Cognitive Services lo revisa para asegurarse de que cumple los criterios de acceso al registro de contenedor privado.
 
 > [!IMPORTANT]
-> Debe usar una dirección de correo electrónico asociada con una cuenta de Microsoft (MSA) o de Azure Active Directory (Azure AD) en el formulario. Para obtener más información sobre los criterios de aceptación, consulte [Proceso de validación de Cognitive Services](../articles/cognitive-services/cognitive-services-gating-process.md).
+> Debe usar una dirección de correo electrónico asociada con una cuenta de Microsoft (MSA) o de Azure Active Directory (Azure AD) en el formulario.
 
 Si se aprueba la solicitud, recibirá un correo electrónico con instrucciones que describen cómo obtener las credenciales y acceder al registro de contenedor privado.
 
