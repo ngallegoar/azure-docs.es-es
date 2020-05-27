@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4113328a5de02c36b7285c837bd5314d11e526b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690392"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641605"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Información detallada e informes del acceso condicional
 
@@ -36,9 +36,6 @@ Los siguientes roles pueden acceder a información detallada e informes:
 
 Los usuarios también necesitan uno de los siguientes roles de área de trabajo de Log Analytics:  
 
-- Lector 
-- Lector de supervisión 
-- Lector de Log Analytics 
 - Colaborador  
 - Propietario 
 

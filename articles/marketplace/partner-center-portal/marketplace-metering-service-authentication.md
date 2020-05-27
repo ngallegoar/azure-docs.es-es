@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 31b9d4d57e38adcd079082a4f32770c4cbc8fbb3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/13/2020
+ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736115"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642310"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estrategias de autenticación del servicio de medición de Marketplace
 
@@ -151,7 +151,7 @@ Por ejemplo, siga los pasos que se indican a continuación para autenticarse con
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Utilice la [API del servicio de medición de Marketplace](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) para emitir el uso.
+1. Utilice la [API del servicio de medición de Marketplace](./marketplace-metering-service-apis.md) para emitir el uso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
