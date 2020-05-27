@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: e6fa490285582c827b8704496fb7a20a7eb9cfbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1aa2545f3bd4e7558c99a31dca43f65510bab59e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166026"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872136"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Inicio rápido: Depuración e iteración en Kubernetes: Visual Studio y .NET Core: Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Azure Dev Spaces también permite depurar e iterar mediante:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
-- Visual Studio 2019 en Windows con la carga de trabajo de desarrollo de Azure instalada. También puede usar Visual Studio 2017 en Windows con la carga de trabajo Desarrollo web y [Visual Studio Tools para Kubernetes](https://aka.ms/get-vsk8stools) instalados. Si no tiene instalado Visual Studio, descárguelo [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 en Windows con la carga de trabajo de desarrollo de Azure instalada. Si no tiene instalado Visual Studio, descárguelo [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
 
