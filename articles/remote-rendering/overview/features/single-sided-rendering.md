@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679454"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759105"
 ---
 # <a name="single-sided-rendering"></a>Representación en una sola cara
 
@@ -39,7 +39,7 @@ Hay tres modos diferentes:
 
 Para cambiar la configuración de representación en una sola cara, siga estos pasos:
 
-``` cs
+```cs
 void ChangeSingleSidedRendering(AzureSession session)
 {
     SingleSidedSettings settings = session.Actions.SingleSidedSettings;
@@ -49,6 +49,19 @@ void ChangeSingleSidedRendering(AzureSession session)
 
     // Single-sided geometry is always rendered double-sided
     settings.Mode = SingleSidedMode.AlwaysDoubleSided;
+}
+```
+
+```cpp
+void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
+{
+    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+
+    // Single-sided geometry is rendered as is
+    settings->Mode(SingleSidedMode::Normal);
+
+    // Single-sided geometry is always rendered double-sided
+    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
 

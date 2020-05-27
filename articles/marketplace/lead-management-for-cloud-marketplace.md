@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789851"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798587"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Administración de clientes potenciales de Marketplace comercial
 
@@ -86,7 +86,7 @@ Los clientes potenciales son los clientes que están implementando sus productos
 
 **¿Dónde puedo obtener ayuda para la configuración de mi destino de clientes potenciales?** 
 
-Puede encontrar documentación en [Obtención de clientes potenciales](./partner-center-portal/commercial-marketplace-get-customer-leads.md) o enviar una incidencia de soporte técnico desde [Ayuda y soporte técnico](https://partner.microsoft.com/support/v2/?stage=1). Seleccione el tipo de oferta y la administración de clientes potenciales. 
+Puede encontrar documentación en [Obtención de clientes potenciales](./partner-center-portal/commercial-marketplace-get-customer-leads.md) o enviar una incidencia de soporte técnico desde [Ayuda y soporte técnico](https://aka.ms/marketplacepublishersupport). Seleccione el tipo de oferta y la administración de clientes potenciales. 
 
 **¿Debo configurar un destino de clientes potenciales para poder publicar una oferta en Marketplace?**
 
@@ -183,7 +183,7 @@ El cliente potencial se escribe solo cuando se selecciona el almacenamiento de b
 
 **He recibido un correo electrónico desde Marketplace, ¿por qué no puedo encontrar al cliente potencial en mi instancia de CRM?**  
 
-Es posible que el dominio de correo electrónico del usuario final sea .edu. Por motivos de privacidad, no se pasan los datos de información de identificación personal provenientes del dominio .edu. Envíe una incidencia de soporte técnico desde [Ayuda y soporte técnico](https://partner.microsoft.com/support/v2/?stage=1).
+Es posible que el dominio de correo electrónico del usuario final sea .edu. Por motivos de privacidad, no se pasan los datos de información de identificación personal provenientes del dominio .edu. Envíe una incidencia de soporte técnico desde [Ayuda y soporte técnico](https://aka.ms/marketplacepublishersupport).
 
 **He configurado la tabla o el blob de Azure como destino de cliente potencial, ¿cómo puedo ver a los clientes potenciales?** 
 
@@ -193,7 +193,7 @@ Puede tener acceso a la tabla o blob desde Azure Portal, o puede descargar e ins
 
 Sí, siga las instrucciones para configurar la combinación de función y tabla de Azure en la documentación que se proporciona [aquí](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md). 
 
-**He configurado Salesforce como destino de cliente potencial, ¿por qué no puedo encontrar a los clientes potenciales?** 
+**He configurado Salesforce como destino de cliente potencial, ¿por qué no puedo encontrar a los clientes potenciales?**
 
 Compruebe si el campo de web en el formulario para clientes potenciales es un campo obligatorio de tipo lista desplegable. En caso afirmativo, cámbielo por un campo de texto no obligatorio.  
  

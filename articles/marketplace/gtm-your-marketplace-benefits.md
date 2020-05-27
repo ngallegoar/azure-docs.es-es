@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190340"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800511"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -36,7 +36,7 @@ El requisito mínimo para publicar en los escaparates es un MPNID, por lo que es
 
 Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, lo que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-Puede encontrar descripciones detalladas de todas las ventajas del programa en la [presentación del programa Recompensas de Marketplace](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Puede encontrar descripciones detalladas de todas las ventajas del programa en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
 Los pasos para comenzar son sencillos:
 
@@ -56,7 +56,7 @@ Los pasos para comenzar son sencillos:
 2. El uso de las ventajas de patrocinio de Azure se compartirá a través de un correo electrónico a medida que desbloquee estas ventajas.
 
 >[!Note]
->Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, mirando en el Centro de partners. Deberían tener la comunicación y los pasos siguientes. <br> <br> Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en [Ayuda y soporte técnico](https://partner.microsoft.com/support/v2/?stage=1).
+>Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, mirando en el Centro de partners. Deberían tener la comunicación y los pasos siguientes. <br> <br> Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en [Ayuda y soporte técnico](https://aka.ms/marketplacepublishersupport).
 
 El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las listas reciben un nivel básico de recomendaciones de optimización y promoción como parte de un correo electrónico de autoservicio de recursos y procedimientos recomendados.
 
@@ -68,7 +68,7 @@ En la tabla siguiente se resumen los requisitos de elegibilidad para las ofertas
 
 ![Ventajas de comercialización](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas de Marketplace para asociados de transacciones
 
@@ -89,7 +89,7 @@ Todos los asociados que tienen una oferta publicada trabajan con un administrado
 
 \* El umbral de puestos vendidos se aplica solo a las aplicaciones de Microsoft 365 (las aplicaciones SaaS que tienen integraciones con Microsoft Teams, Office, Outlook o SharePoint) y las ventajas deben completarse antes del 30 de junio de 2020.
 
-Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
 Además de las ventajas de las recompensas, los asociados de aplicaciones empresariales que tienen ofertas de Dynamics publicadas en Microsoft AppSource tienen una programación complementaria disponible a través de [Connect para ISV](https://partner.microsoft.com/solutions/business-applications/isv-overview). Esto incluye soporte técnico, de marketing y de ventas especializado para las necesidades de los asociados de aplicaciones empresariales.
 
@@ -97,7 +97,7 @@ Además de las ventajas de las recompensas, los asociados de aplicaciones empres
 
 ### <a name="publisher-agreement"></a>Contrato del anunciante
 
-Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante de Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) y se incluyen en el anexo del programa de ventajas comerciales.
+Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante de Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) y se incluyen en el anexo del programa de ventajas comerciales.
 
 ### <a name="cancellation-policy"></a>Directiva de cancelaciones
 
@@ -122,6 +122,6 @@ Si creó la oferta en el [Centro de partners](https://partner.microsoft.com/dash
 
 Revise los [recursos de autoservicio disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Regístrese en el [foro de la comunidad de Microsoft AppSource y Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) y obtenga información sobre los temas pertinentes o únase al debate.
+Regístrese en el [foro de la comunidad de Microsoft AppSource y Azure Marketplace](https://aka.ms/MarketplaceCommunity) y obtenga información sobre los temas pertinentes o únase al debate.
 
 ---

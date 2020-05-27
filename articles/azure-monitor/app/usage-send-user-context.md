@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670940"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797682"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar identificadores contextuales de usuario para habilitar las experiencias de uso en Azure Application Insights
 
@@ -22,7 +22,7 @@ Application Insights le permite supervisar y realizar un seguimiento de los usua
 - [Usuarios, sesiones, eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [Embudos](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - Cohortes de [retención](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-- [Libros](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Libros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 
 Para realizar un seguimiento de lo que hace un usuario a lo largo del tiempo, Application Insights necesita un identificador para cada usuario o sesión. Incluya los siguientes identificadores en cada evento personalizado o vista de página.
 
@@ -134,4 +134,4 @@ namespace MvcWebRole.Telemetry
     - [Usuarios, sesiones y eventos](usage-segmentation.md)
     - [Embudos](usage-funnels.md)
     - [Retención](usage-retention.md)
-    - [Libros](../../azure-monitor/app/usage-workbooks.md)
+    - [Libros](../../azure-monitor/platform/workbooks-overview.md)

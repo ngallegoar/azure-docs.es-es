@@ -1,14 +1,14 @@
 ---
 title: Envío de un gran número de tareas
 description: Envío eficaz de un gran número de tareas en un único trabajo de Azure Batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 0be30e1a413a224d566db535d369a0b285b1f668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46ab5e8879167a1808c51d4c4cd5c7071cb67cff
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117410"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778950"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 
@@ -41,7 +41,7 @@ El tamaño máximo de la colección de tareas que se puede agregar en una sola l
 
 Agregar una gran colección de tareas a un trabajo puede tardar, por ejemplo, agregar 20 000 tareas mediante la API de .NET tarda hasta 1 minuto. Dependiendo de la API de Batch y la carga de trabajo, puede mejorar el rendimiento de la tarea al modificar uno o varios de estos aspectos:
 
-* **Tamaño de la tarea**: las tareas de gran envergadura tardan más en agregarse que las pequeñas. Para reducir el tamaño de las tareas de una colección puede simplificar la línea de comandos de la tarea, reducir el número de variables de entorno o administrar más eficazmente los requisitos de ejecución de la tarea. Por ejemplo, en lugar de usar un gran número de archivos de recursos, instale las dependencias de las tareas mediante una [Tarea de inicio](batch-api-basics.md#start-task) en el grupo, un [paquete de aplicación](batch-application-packages.md) o un [contenedor de Docker](batch-docker-container-workloads.md).
+* **Tamaño de la tarea**: las tareas de gran envergadura tardan más en agregarse que las pequeñas. Para reducir el tamaño de las tareas de una colección puede simplificar la línea de comandos de la tarea, reducir el número de variables de entorno o administrar más eficazmente los requisitos de ejecución de la tarea. Por ejemplo, en lugar de usar un gran número de archivos de recursos, instale las dependencias de las tareas mediante una [Tarea de inicio](jobs-and-tasks.md#start-task) en el grupo, un [paquete de aplicación](batch-application-packages.md) o un [contenedor de Docker](batch-docker-container-workloads.md).
 
 * **Número de operaciones paralelas**: en función de la API de Batch, aumente el rendimiento al aumentar el máximo de operaciones simultáneas por cliente de Batch. Configure esta opción mediante la propiedad [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de la API de .NET o el parámetro `threads` de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) de la extensión del SDK de Python de Batch. (Esta propiedad no está disponible en el SDK de Python de Batch nativo). De forma predeterminada, esta propiedad está establecida en 1, pero puede elegir un valor mayor para mejorar el rendimiento de las operaciones. El aumento de rendimiento se compensa al consumirse ancho de banda de red y rendimiento de la CPU. El rendimiento de la tarea aumenta hasta 100 veces `MaxDegreeOfParallelism` o `threads`. En la práctica, debe establecer el número de operaciones simultáneas por debajo de 100. 
  

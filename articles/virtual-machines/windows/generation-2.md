@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838831"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659881"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -128,12 +128,6 @@ Por ejemplo, use el siguiente cmdlet de PowerShell para obtener una lista de las
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-También puede usar la CLI de Azure para ver las imágenes de segunda generación disponibles, organizadas por **publicador**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 Si va a crear una máquina virtual con Windows Server 2012 como sistema operativo, seleccione la SKU de máquina virtual de generación 1 (BIOS) o de generación 2 (UEFI), que tiene un aspecto similar al siguiente:
 
 ```powershell
@@ -142,6 +136,14 @@ Si va a crear una máquina virtual con Windows Server 2012 como sistema operativ
 ```
 
 Consulte la sección [Características y funcionalidades](#features-and-capabilities) para obtener una lista de imágenes compatibles de Marketplace.
+
+#### <a name="azure-cli"></a>Azure CLI
+
+También puede usar la CLI de Azure para ver las imágenes de segunda generación disponibles, organizadas por **publicador**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### <a name="managed-image-or-managed-disk"></a>Imagen administrada o disco administrado
 

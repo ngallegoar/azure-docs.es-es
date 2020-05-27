@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea3c68695e7e4fb4950fbcc4a190e9f1d83f49
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670991"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797695"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análisis de usuarios, sesiones y eventos en Application Insights
 
@@ -62,5 +62,5 @@ La sección **Meet your users** (Conozca a sus usuarios) muestra información ac
     - [Embudos](usage-funnels.md)
     - [Retención](usage-retention.md)
     - [Flujos de usuario](usage-flows.md)
-    - [Libros](../../azure-monitor/app/usage-workbooks.md)
+    - [Libros](../../azure-monitor/platform/workbooks-overview.md)
     - [Adición de contexto de usuario](usage-send-user-context.md)

@@ -1,15 +1,14 @@
 ---
 title: Uso de máquinas virtuales de Azure de proceso intensivo con Batch
 description: Aprovechamiento de los tamaños de máquina virtual HPC y GPU en grupos de Azure Batch Aprenda sobre las dependencias del sistema operativo y consulte varios escenarios de ejemplo.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/17/2018
-ms.author: labrenne
-ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115965"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779756"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -80,7 +79,7 @@ Dispone de varias opciones para instalar el software o los controladores necesar
 
 * Cree una [imagen de máquina virtual Windows o Linux personalizada](batch-sig-images.md) en la que haya instalado los controladores, software u otras configuraciones necesarias para el tamaño de máquina virtual. 
 
-* Cree un [paquete de aplicación](batch-application-packages.md) de Batch desde un controlador comprimido o el instalador de la aplicación y configure Batch para implementar el paquete en los nodos del grupo e instalarlo una vez cuando se crea cada nodo. Por ejemplo, si el paquete de aplicación es un instalador, cree una línea de comandos de la [tarea de inicio](batch-api-basics.md#start-task) para instalar de forma silenciosa la aplicación en todos los nodos del grupo. Considere el uso de un paquete de aplicación y una tarea de inicio de grupo si la carga de trabajo depende de una versión determinada del controlador.
+* Cree un [paquete de aplicación](batch-application-packages.md) de Batch desde un controlador comprimido o el instalador de la aplicación y configure Batch para implementar el paquete en los nodos del grupo e instalarlo una vez cuando se crea cada nodo. Por ejemplo, si el paquete de aplicación es un instalador, cree una línea de comandos de la [tarea de inicio](jobs-and-tasks.md#start-task) para instalar de forma silenciosa la aplicación en todos los nodos del grupo. Considere el uso de un paquete de aplicación y una tarea de inicio de grupo si la carga de trabajo depende de una versión determinada del controlador.
 
   > [!NOTE] 
   > La tarea de inicio se debe ejecutar con permisos elevados (administrador) y debe esperar a que se realice correctamente. Las tareas de larga ejecución aumentan el tiempo necesario para aprovisionar un grupo de Batch.

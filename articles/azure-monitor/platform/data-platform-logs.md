@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0b288bf6d987b9db682c8d1439879cf6b499f213
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae72454cd9c0b3cb7370873619595840b770ed3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457338"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799976"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -42,7 +42,7 @@ En la tabla siguiente se enumeran las distintas formas en que se pueden usar los
 |  |  |
 |:---|:---|
 | Analizar | Use [Log Analytics](../log-query/get-started-portal.md) en Azure Portal para escribir [consultas de registros](../log-query/log-query-overview.md) y analizar los datos de registro de forma interactiva mediante el potente motor de análisis de Data Explorer.<br>Use la [consola de análisis de Application Insights](../app/analytics.md) en Azure Portal para escribir consultas de registros y analizar de forma interactiva los datos de registro desde Application Insights. |
-| Visualizar | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../app/usage-workbooks.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinar con otros orígenes de datos.|
+| Visualizar | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../platform/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinar con otros orígenes de datos.|
 | Alerta | Configurar un [regla de alerta de registro](alerts-log.md) que envíe una notificación o realice [una acción automatizada](action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto.<br>Configure una [regla de alerta de métrica](alerts-metric-logs.md) en determinados registros de datos de registro extraídos como métricas. |
 | Recuperar | Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante la [CLI de Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Obtenga acceso a los resultados de la consulta de registro de una aplicación personalizada con la [API REST](https://dev.loganalytics.io/). |
 | Exportación | Cree un flujo de trabajo para recuperar datos de registro y cópielo en una ubicación externa mediante [Logic Apps](~/articles/logic-apps/index.yml). |

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474853"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659553"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
@@ -256,4 +256,4 @@ Puede buscar en la base de conocimiento publicada, con `isTest=false`, o bien en
 La página **Publicar** también proporciona información para [generar una respuesta](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) con Postman o cURL.
 
 > [!div class="nextstepaction"]
-> [Creación de un bot de base de conocimientos](../tutorials/integrate-qnamaker-luis.md)
+> [Obtener análisis en la base de conocimiento](../how-to/get-analytics-knowledge-base.md)

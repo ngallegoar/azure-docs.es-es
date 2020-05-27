@@ -328,9 +328,9 @@
           items:
             - name: Creación de una oferta de máquina virtual de Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Creación de recursos técnicos de máquina virtual de Azure
+            - name: Creación de un recurso técnico de máquina virtual de Azure
               items:
-                - name: Creación de recursos técnicos de máquina virtual de Azure
+                - name: Creación de un recurso técnico de máquina virtual de Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Preguntas frecuentes sobre los recursos técnicos de máquina virtual de Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md

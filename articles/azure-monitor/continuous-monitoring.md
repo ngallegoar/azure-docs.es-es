@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667200"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797600"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -74,7 +74,7 @@ Un aspecto fundamental de supervisión informa de forma proactiva a los administ
 Garantizar que su desarrollo y operaciones tengan acceso a la misma telemetría y herramientas les permite ver patrones en todo su entorno y minimizar sus instancias de Mean Time To Detect (MTTD) y Mean Time to Restore (MTTR).
 
 - Prepare [paneles personalizados](../azure-monitor/learn/tutorial-app-dashboards.md) en función de métricas y registros comunes para los diversos roles de su organización. Los paneles pueden combinar datos a partir de todos los recursos de Azure.
-- Prepare [libros](../azure-monitor/app/usage-workbooks.md) para garantizar el uso compartido del conocimiento entre el desarrollo y las operaciones. Estos podrían prepararse como informes dinámicos con gráficos de métricas y consultas de registro, o incluso como guías para la solución de problemas preparadas por desarrolladores que ayudan a las operaciones o la asistencia al cliente a afrontar los problemas básicos.
+- Prepare [libros](../azure-monitor/platform/workbooks-overview.md) para garantizar el uso compartido del conocimiento entre el desarrollo y las operaciones. Estos podrían prepararse como informes dinámicos con gráficos de métricas y consultas de registro, o incluso como guías para la solución de problemas preparadas por desarrolladores que ayudan a las operaciones o la asistencia al cliente a afrontar los problemas básicos.
 
 ## <a name="continuously-optimize"></a>Optimización continua
  La supervisión es uno de los aspectos fundamentales de la popular filosofía Build-Measure-Learn (crear, medir y aprender), que recomienda realizar un seguimiento continuo de sus KPI y las métricas de comportamiento del usuario y, a continuación, esforzarse por optimizarlos a través de iteraciones de planeación. Azure Monitor le ayuda a recopilar métricas y registros pertinentes para su empresa y agregar nuevos puntos de datos en la próxima implementación tal como se requiere.

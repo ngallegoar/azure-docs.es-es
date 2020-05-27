@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 8d8f1343d92f66dc464ab7064949bbabb813268e
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739167"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798527"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar y supervisar los datos
 
 
 
-Después de que haya [conectado los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, puede visualizar y supervisar los datos mediante la adopción de Azure Sentinel de Workbooks de Azure Monitor, lo que proporciona versatilidad al crear paneles personalizados. Aunque los Workbooks se muestran de manera diferente en Azure Sentinel, puede que le resulte útil ver cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel permite crear libros personalizados en los datos y también incluye plantillas de libro integradas que permiten obtener información rápidamente en los datos en cuanto se conecta con un origen de datos.
+Después de que haya [conectado los orígenes de datos](quickstart-onboard.md) a Azure Sentinel, puede visualizar y supervisar los datos mediante la adopción de Azure Sentinel de Workbooks de Azure Monitor, lo que proporciona versatilidad al crear paneles personalizados. Aunque los Workbooks se muestran de manera diferente en Azure Sentinel, puede que le resulte útil ver cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel permite crear libros personalizados en los datos y también incluye plantillas de libro integradas que permiten obtener información rápidamente en los datos en cuanto se conecta con un origen de datos.
 
 
 Este tutorial lo ayudará a visualizar los datos en Azure Sentinel.
@@ -52,7 +52,7 @@ Este tutorial lo ayudará a visualizar los datos en Azure Sentinel.
    > Esto crea un recurso de Azure basado en la plantilla correspondiente y guarda el archivo JSON de la plantilla en sí pero no los datos.
 
 
-1. Seleccione **Mostrar panel**. Después, haga clic en el botón **Editar** en la parte superior. Ahora puede editar el libro y personalizarlo según sus necesidades. Para más información sobre cómo personalizar el libro, consulte cómo [Crear informes interactivos con libros de Azure Monitor](../azure-monitor/app/usage-workbooks.md).
+1. Seleccione **Mostrar panel**. Después, haga clic en el botón **Editar** en la parte superior. Ahora puede editar el libro y personalizarlo según sus necesidades. Para más información sobre cómo personalizar el libro, consulte cómo [Crear informes interactivos con libros de Azure Monitor](../azure-monitor/platform/workbooks-overview.md).
 ![mostrar paneles](./media/tutorial-monitor-data/workbook-graph.png)
 1. Después de realizar los cambios, puede guardar el libro. 
 
@@ -64,7 +64,7 @@ Este tutorial lo ayudará a visualizar los datos en Azure Sentinel.
 1. Vaya a **Libros** y, a continuación, seleccione **Agregar libro** para crear un nuevo libro desde el principio.
   ![Ir a Libros](./media/tutorial-monitor-data/create-workbook.png)
 
-1. Para editar el libro, seleccione **Editar** y, a continuación, agregue texto, consultas y parámetros según sea necesario. Para más información sobre cómo personalizar el libro, consulte cómo [Crear informes interactivos con libros de Azure Monitor](../azure-monitor/app/usage-workbooks.md). 
+1. Para editar el libro, seleccione **Editar** y, a continuación, agregue texto, consultas y parámetros según sea necesario. Para más información sobre cómo personalizar el libro, consulte cómo [Crear informes interactivos con libros de Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
 
 1. Al compilar una consulta, establezca **Origen de datos** en **Registros**, el **tipo de recurso** en **Log Analytics** y, después, elija las áreas de trabajo apropiadas. 
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685746"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800285"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
@@ -38,7 +38,7 @@ Antes de insertar el código en el repositorio, realice [revisiones de código](
 
 ### <a name="perform-static-code-analysis"></a>Realización de análisis de código estático
 
-El [análisis de código estático](https://www.owasp.org/index.php/Static_Code_Analysis) (también conocido como *análisis de código fuente*) normalmente se realiza como parte de la revisión de código. El análisis de código estático se refiere normalmente a la ejecución de herramientas de análisis de código estático para encontrar posibles vulnerabilidades en el código que no se está ejecutando mediante técnicas como la [comprobación de objetos corruptos](https://en.wikipedia.org/wiki/Taint_checking) y el [análisis de flujo de datos](https://en.wikipedia.org/wiki/Data-flow_analysis).
+El [análisis de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (también conocido como *análisis de código fuente*) normalmente se realiza como parte de la revisión de código. El análisis de código estático se refiere normalmente a la ejecución de herramientas de análisis de código estático para encontrar posibles vulnerabilidades en el código que no se está ejecutando mediante técnicas como la [comprobación de objetos corruptos](https://en.wikipedia.org/wiki/Taint_checking) y el [análisis de flujo de datos](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace ofrece [herramientas de desarrollo](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) que realizan análisis de código estático y le ayudan con las revisiones de código.
 
@@ -97,7 +97,7 @@ Si la aplicación debe generar contraseñas automáticamente, asegúrese de que 
 
 ### <a name="validate-file-uploads"></a>Validación de cargas de archivos
 
-Si la aplicación permite [cargar archivos](https://www.owasp.org/index.php/Unrestricted_File_Upload), considere la posibilidad de tomar medidas para esta actividad de riesgo. El primer paso en muchos ataques es insertar código malintencionado en un sistema que está sufriendo un ataque. El uso de la carga de archivos ayuda al atacante a llevarlo a cabo. OWASP ofrece soluciones para validar un archivo a fin de garantizar que el archivo que va a cargar es seguro.
+Si la aplicación permite [cargar archivos](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), considere la posibilidad de tomar medidas para esta actividad de riesgo. El primer paso en muchos ataques es insertar código malintencionado en un sistema que está sufriendo un ataque. El uso de la carga de archivos ayuda al atacante a llevarlo a cabo. OWASP ofrece soluciones para validar un archivo a fin de garantizar que el archivo que va a cargar es seguro.
 
 La protección antimalware ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Puede instalar [Microsoft Antimalware](../fundamentals/antimalware.md) o una solución de protección de puntos de conexión de un asociado de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) y [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 

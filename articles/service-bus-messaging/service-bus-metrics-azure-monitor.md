@@ -7,14 +7,14 @@ author: axisc
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/20/2020
 ms.author: aschhab
-ms.openlocfilehash: 227dfaff211eb60c5c2b25b5c76ecc82b6ce3edc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2f3c8113fb89a41b1a22567b4e5ca0085353689
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240785"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736048"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de Azure Service Bus en Azure Monitor
 
@@ -99,6 +99,8 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
 |ActiveConnections|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Conexiones abiertas |Número de conexiones abiertas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Conexiones cerradas |Número de conexiones cerradas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Métricas de uso de recursos
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a02b3df02d455db8a7dfd21f63d659f75a66e446
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23e4d104697b5b688330c6ab3a93beebf62f3c6a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457321"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799964"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
@@ -32,7 +32,7 @@ En la tabla siguiente se enumeran las distintas formas en que se pueden usar dat
 |  |  |
 |:---|:---|
 | Analizar | Use el [Explorador de métricas](metrics-charts.md) para analizar las métricas recopiladas en un gráfico y compare las métricas de diferentes recursos. |
-| Visualizar | Ancle un gráfico del Explorador de métricas en un [panel de Azure](../learn/tutorial-app-dashboards.md).<br>Cree un [libro](../app/usage-workbooks.md) para combinar con varios conjuntos de datos en un informe interactivo. Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinarlos con otros orígenes de datos. |
+| Visualizar | Ancle un gráfico del Explorador de métricas en un [panel de Azure](../learn/tutorial-app-dashboards.md).<br>Cree un [libro](../platform/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinarlos con otros orígenes de datos. |
 | Alerta | Configure una [regla de alertas de métricas](alerts-metric.md) que envíe una notificación o realice una [acción automatizada](action-groups.md) cuando el valor de la métrica cruce un umbral. |
 | Automatizar |  Use la [escalabilidad automática](autoscale-overview.md) para aumentar o disminuir los recursos según un valor de métrica que cruce un umbral. |
 | Exportación | [Redirija las métricas a los registros](resource-logs-collect-storage.md) para analizar los datos en las métricas en Microsoft Azure junto con los datos en los registros de Azure Monitor y para almacenar los valores de las métricas durante un período superior a 93 días.<br>Haga streaming de métricas a un [centro de eventos](stream-monitoring-data-event-hubs.md) para redirigirlas a sistemas externos. |

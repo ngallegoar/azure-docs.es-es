@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: be3dc2b113cb21c2dfb54a29e7f426e0d925c6d9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679022"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759122"
 ---
 # <a name="sky-reflections"></a>Reflejos del cielo
 
@@ -39,7 +39,7 @@ Para más información sobre el modelo de iluminación, vea el capítulo de [mat
 
 Para cambiar el mapa de entorno, lo único que tiene que hacer es [cargar una textura](../../concepts/textures.md) y cambiar el valor de `SkyReflectionSettings` de la sesión:
 
-``` cs
+```cs
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
@@ -64,6 +64,30 @@ void ChangeEnvironmentMap(AzureSession session)
             }
         };
 }
+```
+
+```cpp
+void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::CubeMap;
+    params.TextureUrl = "builtin://VeniceSunset";
+    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+
+    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();
+            settings->SkyReflectionTexture(*res->Result());
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+
 ```
 
 Tenga en cuenta que la variante `LoadTextureFromSASAsync` se usa porque se carga una textura integrada. Si la carga se realiza desde [almacenamientos de blobs vinculados](../../how-tos/create-an-account.md#link-storage-accounts), utilice la variante `LoadTextureAsync`.

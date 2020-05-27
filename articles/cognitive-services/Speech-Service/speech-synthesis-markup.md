@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592787"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714328"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -195,10 +195,8 @@ De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante 
 
 Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
-* `zh-CN-YunyeNeural`
 
 Los cambios se aplican en el nivel de la oración y el estilo varía según la voz. Si no se admite un estilo, el servicio devolverá la voz con el estilo de habla neutro predeterminado.
 
@@ -223,15 +221,11 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 |                         | `style="chat"`            | Expresa un tono casual y relajado                         |
 |                         | `style="cheerful"`        | Expresa un tono positivo y feliz                         |
 |                         | `style="empathetic"`      | Expresa un sentimiento de cuidado y comprensión.               |
-|   `pt-BR-FranciscaNeural`| `style="calm"`      | Expresa un tono tranquilo               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
 |                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
 |                         | `style="lyrical"`         | Expresa emociones de forma melódica y sentimental         |   
-| `zh-CN-YunyangNeural`  | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
-| `zh-CN-YunyeNeural`  | `style="calm"`      | Expresa un tono tranquilo               |  
-|                         | `style="sad"`       | Expresa un tono insatisfecho y perturbador    |
-|                         | `style="serious"`         | Exprese un tono grave y rudo        |   
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  | 
 
 **Ejemplo**
 

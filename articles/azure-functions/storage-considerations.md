@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984170"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648797"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -53,9 +53,7 @@ Una misma cuenta de almacenamiento puede estar compartida entre varias aplicacio
 
 ## <a name="storage-data-encryption"></a>Cifrado de datos de almacenamiento
 
-Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. Para más información, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).
-
-De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede proporcionar claves administradas por el cliente que puede usar para el cifrado de datos de archivos y blobs. Estas claves deben estar presentes en Azure Key Vault para que Azure Functions pueda acceder a la cuenta de almacenamiento. Para más información, consulte [Configuración de claves administradas por el cliente con Azure Key Vault mediante Azure Portal](../storage/common/storage-encryption-keys-portal.md).  
+[!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
 ## <a name="mount-file-shares-linux"></a>Montaje de recursos compartidos de archivos (Linux)
 

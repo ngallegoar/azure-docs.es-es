@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1317989434cca9375c612c8af0525323c6dda3c
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 0348461e2a58bd8e71b8dff10667c512125d7b03
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82081666"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656695"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption
 
@@ -31,7 +31,7 @@ La creación y configuración de un almacén de claves para su uso con Azure Dis
 Estos pasos se muestran en los siguientes tutoriales de inicio rápido:
 
 - [Creación y cifrado de una máquina virtual Windows con la CLI de Azure](disk-encryption-cli-quickstart.md)
-- [Creación y cifrado de una máquina virtual Windows con Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Creación y cifrado de una máquina virtual Windows con Azure PowerShell](disk-encryption-powershell-quickstart.md)
 
 Si lo desea, también puede generar o importar una clave de cifrado de claves (KEK).
 

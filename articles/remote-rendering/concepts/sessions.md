@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91a59e1398bf5e68799ad16a20dfb824904edc8a
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679354"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758867"
 ---
 # <a name="remote-rendering-sessions"></a>Sesiones de Remote Rendering
 
@@ -82,7 +82,7 @@ Puede [ampliar el tiempo de la concesión](../how-tos/session-rest-api.md#update
 
 En el código siguiente se muestra una implementación simple del inicio de una sesión, de la espera al estado *Listo*, de la conexión y, a continuación, de la desconexión y la finalización.
 
-``` cs
+```cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 // fill out RemoteRenderingInitialization parameters...
 

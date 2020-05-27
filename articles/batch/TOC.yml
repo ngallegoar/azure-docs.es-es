@@ -53,12 +53,26 @@
       items:
         - name: Línea de base de seguridad
           href: security-baseline.md
-    - name: Características del desarrollador
-      href: batch-api-basics.md
+    - name: Flujo de trabajo y recursos del servicio Batch
+      displayName: developer features
+      href: batch-service-workflow-features.md
+      items:
+        - name: Cuentas de Batch
+          displayName: storage account
+          href: accounts.md
+        - name: Nodos y grupos
+          displayName: 'compute node, application package, scaling, schedule, os'
+          href: nodes-and-pools.md
+        - name: Trabajos y tareas
+          displayName: Batch job
+          href: jobs-and-tasks.md
+        - name: Archivos y directorios
+          displayName: Batch file
+          href: files-and-directories.md
     - name: API y herramientas
       href: batch-apis-tools.md
-    - name: Detección y control de errores en el servicio Batch
-      href: batch-retry-after-errors.md
+    - name: Control y detección de errores
+      href: error-handling.md
     - name: Procedimientos recomendados
       href: best-practices.md
     - name: Cuotas y límites
@@ -91,6 +105,10 @@
           href: batch-aad-auth-management.md
         - name: Acceso seguro a Key Vault con Batch
           href: credential-access-key-vault.md
+        - name: Uso de certificados con Batch
+          href: batch-certificates.md
+    - name: Uso de paquetes de aplicaciones
+      href: batch-application-packages.md
     - name: Copia de archivos y aplicaciones en nodos de grupo
       items:
         - name: Copia de aplicaciones y datos en nodos de grupo

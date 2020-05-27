@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837335"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800925"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Clientes potenciales a partir de la oferta en el marketplace comercial
 
@@ -96,7 +96,7 @@ La información del cliente se envía a través de varios campos. En el ejemplo 
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>¿Dónde puedo obtener ayuda para la configuración de mi destino de clientes potenciales?
 
-Siga los pasos descritos en la sección [Conectarse a su sistema CRM](#connect-to-your-crm-system) o envíe una incidencia de soporte técnico desde [Ayuda y soporte técnico del Centro de partners](https://partner.microsoft.com/support/v2/?stage=1). A continuación, seleccione **Creación de ofertas** > **El tipo de oferta** > **Configuración de administración de clientes potenciales**.
+Siga los pasos descritos en la sección [Conectarse a su sistema CRM](#connect-to-your-crm-system) o envíe una incidencia de soporte técnico desde [Ayuda y soporte técnico del Centro de partners](https://aka.ms/marketplacepublishersupport). A continuación, seleccione **Creación de ofertas** > **El tipo de oferta** > **Configuración de administración de clientes potenciales**.
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>¿Tengo que configurar un destino de clientes potenciales para poder publicar una oferta en el marketplace comercial?
 
@@ -133,7 +133,7 @@ Azure Blob Storage ya no se admite como destino de clientes potenciales, por lo 
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>He recibido un correo electrónico del marketplace comercial. ¿Por qué no encuentro al cliente potencial en mi CRM?
 
-Es posible que el dominio de correo electrónico del usuario final sea .edu. Por motivos de privacidad, no se pasa información personal procedente del dominio .edu. Envíe una incidencia de soporte técnico mediante la [Ayuda y soporte técnico del Centro de partners](https://partner.microsoft.com/support/v2/?stage=1).
+Es posible que el dominio de correo electrónico del usuario final sea .edu. Por motivos de privacidad, no se pasa información personal procedente del dominio .edu. Envíe una incidencia de soporte técnico mediante la [Ayuda y soporte técnico del Centro de partners](https://aka.ms/marketplacepublishersupport).
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>He configurado una tabla de Azure como destino de mi cliente potencial. ¿Cómo puedo ver los clientes potenciales?
 
