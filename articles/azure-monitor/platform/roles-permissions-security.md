@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658989"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836386"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roles, permisos y seguridad en Azure Monitor
 
@@ -28,7 +28,7 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 
 * Ver paneles de supervisión en el portal y crear sus propios paneles de supervisión privados.
 * Ver las reglas de alerta definidas en [Alertas de Azure](alerts-overview.md)
-* Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](powershell-quickstart-samples.md) o la [CLI multiplataforma](cli-samples.md).
+* Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](powershell-quickstart-samples.md) o la [CLI multiplataforma](../samples/cli-samples.md).
 * Consultar el registro de actividades a través del portal, la API de REST de Azure Monitor, los cmdlets de PowerShell o la CLI multiplataforma.
 * Ver la [configuración de diagnóstico](diagnostic-settings.md) de un recurso.
 * Ver el [perfil de registro](activity-log-export.md) de una suscripción.

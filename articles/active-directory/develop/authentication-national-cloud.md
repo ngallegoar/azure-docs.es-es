@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
-ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a8d9c5c0a24e59c8f6345666f8838aa4c41d0f9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230708"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845192"
 ---
 # <a name="national-clouds"></a>Nubes nacionales
 
@@ -60,8 +60,8 @@ En la tabla siguiente se enumeran las direcciones URL base de los puntos de cone
 
 Puede realizar solicitudes a los puntos de conexión de autorización o token de Azure AD mediante la dirección URL base específica de la región pertinente. Por ejemplo, para Azure Alemania:
 
-  - El punto de conexión común de autorización es `https://login.microsoftonline.de/common/oauth2/authorize`.
-  - El punto de conexión común de token es `https://login.microsoftonline.de/common/oauth2/token`.
+  - El punto de conexión común de autorización es `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+  - El punto de conexión común de token es `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 En el caso de las aplicaciones de inquilino único, reemplace "common" en las direcciones URL anteriores por el identificador o el nombre del inquilino. Un ejemplo es `https://login.microsoftonline.de/contoso.com`.
 

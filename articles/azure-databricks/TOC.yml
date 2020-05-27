@@ -1982,8 +1982,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/databricks/'
-    - name: 'Formule una pregunta: foro de MSDN'
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks'
+    - name: 'Formulación de una pregunta: página de preguntas y respuestas de Microsoft'
+      href: 'https://docs.microsoft.com/answers/topics/azure-databricks.html'
     - name: 'Formule una pregunta: Stack Overflow'
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: Disponibilidad en regiones
