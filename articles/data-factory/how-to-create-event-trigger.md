@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: d697fb8afe3e92dfe54eb5d89a2ef59425cb0cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56d80571253d95d28c839ed81b6e1ce6dda9dc46
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414927"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652408"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,11 +69,11 @@ En esta sección se muestra cómo crear un desencadenador de eventos dentro de l
 
 1. Para adjuntar una canalización a este desencadenador, vaya al lienzo de canalización, haga clic en **Agregar desencadenador** y seleccione **Nuevo/editar**. Cuando aparezca la barra de navegación lateral, haga clic en el desplegable **Choose trigger** (Elegir desencadenador...) y seleccione el desencadenador que creó. Haga clic en **Siguiente: Vista previa de los datos** para confirmar que la configuración es correcta y, después, **Siguiente** para validar que la vista previa de los datos es correcta.
 
-1. Si la canalización tiene parámetros, puede especificarlos en el parámetro de ejecución del desencadenador. El desencadenador de eventos captura el nombre de archivo y la ruta de acceso del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización. Cuando haya terminado, haga clic en **Finalizar**.
+1. Si la canalización tiene parámetros, puede especificarlos en el parámetro de ejecución del desencadenador. El desencadenador de eventos captura el nombre de archivo y la ruta de acceso del blob en las propiedades `@trigger().outputs.body.folderPath` y `@trigger().outputs.body.fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización. Cuando haya terminado, haga clic en **Finalizar**.
 
     ![Asignación de propiedades a los parámetros de la canalización](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-En el ejemplo anterior, el desencadenador está configurado para activarse cuando se crea una ruta de acceso de blob que termina en .csv en la carpeta prueba-de-eventos en el contenedor datos-de-ejemplo. Las propiedades **folderPath** y **fileName** capturan la ubicación del nuevo blob. Por ejemplo, cuando se agrega MoviesDB.csv a la ruta de acceso datos-de-ejemplo/prueba-de-eventos, `@triggerBody().folderPath` tiene un valor de `sample-data/event-testing` y `@triggerBody().fileName` tiene un valor de `moviesDB.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`, que se pueden utilizar en toda la canalización como `@pipeline().parameters.sourceFolder` y `@pipeline().parameters.sourceFile` respectivamente.
+En el ejemplo anterior, el desencadenador está configurado para activarse cuando se crea una ruta de acceso de blob que termina en .csv en la carpeta prueba-de-eventos en el contenedor datos-de-ejemplo. Las propiedades **folderPath** y **fileName** capturan la ubicación del nuevo blob. Por ejemplo, cuando se agrega MoviesDB.csv a la ruta de acceso datos-de-ejemplo/prueba-de-eventos, `@trigger().outputs.body.folderPath` tiene un valor de `sample-data/event-testing` y `@trigger().outputs.body.fileName` tiene un valor de `moviesDB.csv`. Estos valores se asignan en el ejemplo a los parámetros de canalización `sourceFolder` y `sourceFile`, que se pueden utilizar en toda la canalización como `@pipeline().parameters.sourceFolder` y `@pipeline().parameters.sourceFile` respectivamente.
 
 ## <a name="json-schema"></a>Esquema JSON
 

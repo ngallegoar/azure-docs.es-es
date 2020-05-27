@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592957"
+ms.locfileid: "83656196"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) en Azure Synapse Analytics mediante herramientas web
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Área de trabajo de Synapse Analytics](quickstart-create-workspace.md)
-- [Grupo de Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Grupo de Apache Spark](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -133,7 +133,9 @@ SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Azure Synapse guarda los datos en Azure Data Lake Storage. Puede permitir que una instancia de Spark se cierre de forma segura cuando no esté en uso. Se le cobra un grupo de Apache Spark en Azure Synapse mientras esté en ejecución, aunque no esté en uso. Los cargos del grupo son mucho mayores que los del almacenamiento. Por eso, tiene sentido dejar que las instancias de Spark se cierren cuando no estén en uso.
+Azure Synapse guarda los datos en Azure Data Lake Storage. Puede dejar que se cierre de forma segura una instancia de Spark cuando no esté en uso. Un grupo de Apache Spark en Azure Synapse se le cobra mientras esté en ejecución, aunque no esté en uso. 
+
+Como en muchas ocasiones los cargos del clúster son mucho más elevados que los cargos de almacenamiento, es mejor para la economía dejar que las instancias de Spark se cierren cuando no estén en uso.
 
 Para asegurarse de que se cierra la instancia de Spark, finalice todas las sesiones (cuadernos) conectadas. El grupo se cierra cuando se alcanza el **tiempo de inactividad** especificado en el grupo de Apache Spark. También puede decidir **finalizar la sesión** en la barra de estado en la parte inferior del cuaderno.
 

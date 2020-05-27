@@ -5,16 +5,17 @@ description: Obtenga información sobre cómo volver a entrenar modelos con cana
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: fb0122833dabe4030232efb3ca07557ce1826aff
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: 7a132734c3ccb6d5d143053b83723950d154d74c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981908"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653695"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

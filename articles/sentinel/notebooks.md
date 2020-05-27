@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77581844"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652031"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter para buscar amenazas de seguridad
 
@@ -125,7 +125,7 @@ En cada cuaderno se le guiará por el proceso para llevar a cabo una búsqueda o
 
 Recomendaciones:
 
-- Para una introducción rápida sobre cómo consultar datos en Azure Sentinel, eche un vistazo al cuaderno [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) en la carpeta principal **Notebooks** (Cuadernos). 
+- Para una introducción rápida sobre cómo consultar datos en Azure Sentinel, eche un vistazo al cuaderno [GetStarted](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/345cf9f7c8f6137f5af4593a3f9d7568acd6cbc2/DeprecatedNotebooks/Get%20Started.ipynb) en la carpeta principal **Notebooks** (Cuadernos). 
 
 - Encontrará más cuadernos de ejemplo en la subcarpeta **Sample-Notebooks** (Cuadernos de ejemplo). Los cuadernos de ejemplo se han guardado con datos, así será más fácil ver los resultados previstos. Se recomienda ver estos cuadernos en [nbviewer](https://nbviewer.jupyter.org/). 
 

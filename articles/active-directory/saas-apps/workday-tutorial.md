@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f39b6f58b250d68a3b2ce962f158c7df36d812
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 83fd986e31410e34871d1b795db0c8c83ece688e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046612"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648604"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workday
 
@@ -247,7 +247,7 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
 
 ### <a name="create-workday-test-user"></a>Creación de un usuario de prueba de Workday
 
-En esta sección, creará un usuario llamado B. Simon en Workday. Trabaje con el [equipo de soporte técnico al cliente de Workday](https://www.workday.com/partners-services/services/support.html) para agregar los usuarios a la plataforma de Workday. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B. Simon en Workday. Trabaje con el [equipo de soporte técnico al cliente de Workday](https://www.workday.com/en-us/partners-services/services/support.html) para agregar los usuarios a la plataforma de Workday. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

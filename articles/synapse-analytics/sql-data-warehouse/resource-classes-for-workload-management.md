@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6214c7f0d7728d39e36a7b555f503e130b405e81
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743270"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653056"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Administración de cargas de trabajo con clases de recursos en Azure Synapse Analytics
 
@@ -592,4 +592,4 @@ GO
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para obtener más información sobre la manera en que las clases de recursos más grandes pueden mejorar la calidad de los índices de almacén de columnas en clúster, consulte [Memory optimizations for columnstore compression (Optimizaciones de memoria para la compresión del almacén de columnas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Protección de una base de datos en Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obtener más información sobre la manera en que las clases de recursos más grandes pueden mejorar la calidad de los índices de almacén de columnas en clúster, consulte [Memory optimizations for columnstore compression (Optimizaciones de memoria para la compresión del almacén de columnas)](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).

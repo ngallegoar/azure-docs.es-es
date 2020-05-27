@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6276d198e547efec3d2e3cb88816da5e2b593aae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096289"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644680"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Conceptos básicos de Apache Spark en Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Como no hay ningún costo de recursos asociado a la creación de grupos de Spark
 
 Un procedimiento recomendado consiste en crear grupos de Spark más pequeños que se puedan usar para el desarrollo y la depuración y, después, otros más grandes para ejecutar cargas de trabajo de producción.
 
-Puede consultar cómo crear un grupo de Spark y ver todas sus propiedades en [Introducción a los grupos de Spark en Synapse Analytics](../quickstart-create-apache-spark-pool.md).
+Puede consultar cómo crear un grupo de Spark y ver todas sus propiedades en [Introducción a los grupos de Spark en Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md).
 
 ## <a name="spark-instances"></a>Instancias de Spark
 

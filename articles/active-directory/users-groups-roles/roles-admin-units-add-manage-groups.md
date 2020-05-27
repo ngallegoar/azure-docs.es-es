@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f0b0c0a7b666aed56ad24625c80c0a57683b998
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 2547a0fdbfbcc143ff822de333b41198f469375c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683269"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649323"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Adición y administración de grupos en las unidades administrativas en Azure Active Directory
 
@@ -75,7 +75,7 @@ Ejemplo:
 
 Vaya a **Azure AD > Unidades administrativas** en el portal. Seleccione la unidad administrativa cuyos usuarios quiere enumerar. De forma predeterminada, la opción **Todos los usuarios** ya está seleccionada en el panel izquierdo. Seleccione **Todos los grupos** y, a la derecha, se mostrará la lista de los grupos que son miembros de la unidad administrativa seleccionada.
 
-![Seleccione la unidad administrativa que se va a eliminar](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+![Enumeración de los grupos en una unidad administrativa](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

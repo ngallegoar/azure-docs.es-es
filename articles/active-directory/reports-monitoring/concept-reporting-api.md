@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f240a5191dd483f89889f3ffe13b1819ca1e53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399320"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647400"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación informes de Azure Active Directory
 
@@ -47,7 +47,7 @@ Para obtener instrucciones detalladas, consulte [Requisitos previos para acceder
 
 ## <a name="api-endpoints"></a>Puntos de conexión de API 
 
-El punto de conexión de Microsoft Graph API para registros de auditoría es `https://graph.microsoft.com/beta/auditLogs/directoryAudits` y el punto de conexión de Microsoft Graph API para inicios de sesión es `https://graph.microsoft.com/beta/auditLogs/signIns`. Para más información, consulte la [referencia de API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) y la [referencia de API de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
+El punto de conexión de Microsoft Graph API para registros de auditoría es `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` y el punto de conexión de Microsoft Graph API para inicios de sesión es `https://graph.microsoft.com/v1.0/auditLogs/signIns`. Para más información, consulte la [referencia de API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) y la [referencia de API de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn).
 
 Además, puede utilizar la [API de detecciones de riesgos Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/graph-get-started.md). 
   

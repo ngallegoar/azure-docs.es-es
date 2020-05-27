@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a421afc736399472a513dfc145321ba33ef6fdca
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d353aad9f0ecf871410dd94b0081381a0b1304c6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71129723"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647335"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Apptio
 
@@ -129,11 +129,11 @@ En esta sección, va a permitir que B. Simon acceda a Apptio mediante el inicio
 
 ## <a name="configure-apptio-sso"></a>Configuración del inicio de sesión único de Apptio
 
-Para configurar el inicio de sesión único en **Apptio**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Apptio](https://www.apptio.com/about/contact). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Apptio**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Apptio](https://www.apptio.com/resources/customer-support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-apptio-test-user"></a>Creación del usuario de prueba de Apptio
 
-En esta sección, creará un usuario llamado B. Simon en Apptio. Colabore con el [equipo de soporte técnico de Apptio](https://www.apptio.com/about/contact) para agregar los usuarios a la plataforma de Apptio. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B. Simon en Apptio. Colabore con el [equipo de soporte técnico de Apptio](https://www.apptio.com/resources/customer-support/) para agregar los usuarios a la plataforma de Apptio. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

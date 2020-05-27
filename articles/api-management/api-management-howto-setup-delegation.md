@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c28872e6cffa973f01b3f5a87c423d9dd93a2aa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfb863da9f06cfc0c81944aa4037933cdd650ad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259109"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649188"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
@@ -74,7 +74,7 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
    * [solicite un token de inicio de sesión único (SSO)] a través de la API de REST de API Management
    * anexe un parámetro de consulta returnUrl a la URL de SSO que se recibió de la llamada de API anterior:
      
-     > por ejemplo, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > por ejemplo, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * redirija al usuario a la URL producida anteriormente

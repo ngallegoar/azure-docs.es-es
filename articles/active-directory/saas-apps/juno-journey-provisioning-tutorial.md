@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 08de07a52d1e43dea91e6684d33027d8bcad61fc
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 41a6cc3a4fd604c4272783f528ed3d37372044fb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81642577"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647748"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutorial: Configuración de Juno Journey para el aprovisionamiento automático de usuarios
 
@@ -40,7 +40,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 * [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Una cuenta de usuario en Azure AD con [permiso](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
-*  Un [inquilino de Juno Journey](https://www.junojourney.com/getstartedwithjuno).
+*  Un [inquilino de Juno Journey](https://www.junojourney.com/blank).
 *  Una cuenta de usuario de Juno Journey con permisos de administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento

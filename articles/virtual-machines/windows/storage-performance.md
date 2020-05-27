@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: cd15df2a7074463789bcf4a2d4de3c41bd012bbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a093303efe63a051e8e2ff9824a35228e44e1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100556"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652604"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimización del rendimiento en las máquinas virtuales de la serie Lsv2
 
@@ -21,7 +21,7 @@ Las máquinas virtuales de la serie Lsv2 admiten una variedad de cargas de trab
 
 El diseño de las máquinas virtuales de la serie Lsv2 maximiza el procesador AMD EPYC™ 7551 para proporcionar el mejor rendimiento entre el procesador, la memoria, las máquinas virtuales y los dispositivos NVMe. Además de maximizar el rendimiento del hardware, las máquinas virtuales de la serie Lsv2 están diseñadas para responder a las necesidades de los sistemas operativos Windows y Linux para mejorar el rendimiento con el hardware y el software.
 
-El ajuste del hardware y el software dio lugar a la versión optimizada de [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), que se publicó a principios de diciembre de 2018 en Azure Marketplace, que admite el rendimiento máximo en los dispositivos NVMe en las máquinas virtuales de la serie Lsv2.
+El ajuste del hardware y el software dio lugar a la versión optimizada de [Windows Server 2019 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), que se publicó a principios de diciembre de 2018 en Azure Marketplace, que admite el rendimiento máximo en los dispositivos NVMe en las máquinas virtuales de la serie Lsv2.
 
 En este artículo se proporcionan consejos y sugerencias para asegurarse de que las cargas de trabajo y las aplicaciones alcanzan el máximo rendimiento diseñado en las máquinas virtuales. La información de esta página se actualizará continuamente a medida que se agreguen más imágenes optimizadas de Lsv2 a Azure Marketplace.
 

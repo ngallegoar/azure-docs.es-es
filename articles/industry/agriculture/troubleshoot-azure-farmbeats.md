@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113488"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656818"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -88,11 +88,11 @@ Para saber cómo descargar registros, vaya a la sección ["Recopilación de regi
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
+          "<sensor measure name (as defined in the Sensor Model)>":<value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

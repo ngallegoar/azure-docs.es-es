@@ -3,12 +3,12 @@ title: 'Mejora de una base de conocimiento: QnA Maker'
 description: Mejore la calidad de su base de conocimientos con el aprendizaje activo. Revise, acepte o rechace, o agregue sin quitar ni cambiar las preguntas existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756761"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650761"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceptación de preguntas sugeridas de aprendizaje activo en la base de conocimiento
 
@@ -329,11 +329,6 @@ La columna `SuggestedQuestions` es un objeto JSON de la información de los come
     }
 ]
 ```
-
-También puede usar la API de descarga de modificaciones para revisar estas modificaciones, mediante REST o cualquiera de los SDK basados en lenguaje:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 Cuando se vuelva a importar esta aplicación, el aprendizaje activo continúa para recopilar información y sugerencias recomendadas para la base de conocimiento.
 

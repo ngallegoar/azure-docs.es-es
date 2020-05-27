@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e453723692e0e6c08c1bd03301318688082201c2
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: e6b752eab3f6a8f40fad8b2f947a82f86a8ccfe5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564923"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652066"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Tutorial: Preparación de la implementación de Azure Stack Edge  
 
@@ -25,12 +25,13 @@ Para completar el proceso de instalación y configuración se necesitan privileg
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear un nuevo recurso
 > * Obtención de la clave de activación
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-### <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Introducción
 
 Para implementar Azure Stack Edge, consulte los siguientes tutoriales en el orden indicado.
 
@@ -52,14 +53,15 @@ A continuación, encontrará los requisitos previos para configurar su recurso d
 
 Antes de comenzar, asegúrese de que:
 
-- Su suscripción de Microsoft Azure está habilitada para un recurso de Azure Stack Edge. No se admiten suscripciones de pago por uso.
-- Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Azure Stack Edge o Data Box Gateway, IoT Hub y Azure Storage.
+* Su suscripción de Microsoft Azure debe estar habilitada para un recurso de Azure Stack Edge. Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). No se admiten suscripciones de pago por uso.
 
-    - Para crear cualquier recurso de Azure Stack Edge o Data Box Gateway, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
-- Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
+* Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Azure Stack Edge o Data Box Gateway, IoT Hub y Azure Storage.
+
+  * Para crear cualquier recurso de Azure Stack Edge o Data Box Gateway, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
+* Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
 ### <a name="for-the-azure-stack-edge-device"></a>Para el dispositivo de Azure Stack Edge
 
@@ -70,7 +72,6 @@ Antes de implementar un dispositivo físico, asegúrese de que:
 - Tiene acceso a una superficie de trabajo plana, estable y nivelada en la que el dispositivo pueda apoyarse con seguridad.
 - La ubicación en la que desea efectuar la instalación del dispositivo dispone de corriente alterna estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con un sistema de alimentación ininterrumpida (UPS).
 - Tiene acceso a un dispositivo físico.
-
 
 ### <a name="for-the-datacenter-network"></a>Para la red del centro de datos
 
@@ -90,7 +91,7 @@ Si ya tiene un recurso de Azure Stack Edge para administrar el dispositivo físi
 Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 1. Use sus credenciales de Microsoft Azure para iniciar sesión en: 
-    
+
     - Azure Portal en esta dirección URL: [https://portal.azure.com](https://portal.azure.com).
     - O bien, el portal de Azure Government en esta dirección URL: [https://portal.azure.us](https://portal.azure.us). Para más información, vaya a [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal) (Conexión a Azure Government mediante el portal).
 
@@ -155,14 +156,16 @@ Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obten
     ![Obtención de la clave de activación](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - La clave de activación expira tres días después de generarla.
-> - Si la clave ha expirado, genere una nueva. La clave antigua no es válida.
+>
+> * La clave de activación expira tres días después de generarla.
+> * Si la clave ha expirado, genere una nueva. La clave antigua no es válida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Stack Edge, como:
 
 > [!div class="checklist"]
+>
 > * Crear un nuevo recurso
 > * Obtención de la clave de activación
 

@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611794"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651928"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Table Storage: Tablas escalables y eficaces
 
@@ -134,7 +134,7 @@ El nombre de la cuenta, el nombre de la tabla y `PartitionKey` juntos identifica
 
 En Table Storage, un nodo individual da servicio a una o más particiones completas, y el servicio se escala equilibrando dinámicamente la carga de las particiones entre nodos. Si un nodo está bajo carga, Table Storage puede dividir el intervalo de particiones atendidas por ese nodo en nodos diferentes. Cuando el tráfico disminuye, Table Storage puede combinar los intervalos de la partición de nodos silenciosos en un único nodo.  
 
-Para más información sobre los detalles internos de Table Storage, y en particular cómo administra las particiones, consulte [Microsoft Azure Storage: servicio de almacenamiento en nube altamente disponible y de gran coherencia](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para más información sobre los detalles internos de Table Storage, y en particular cómo administra las particiones, consulte [Microsoft Azure Storage: servicio de almacenamiento en nube altamente disponible y de gran coherencia](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transacciones de grupos de entidades
 En Table Storage, las transacciones de grupo de entidades (EGT) son el único mecanismo integrado para realizar actualizaciones atómicas en varias entidades. Las EGT se conocen también como *transacciones por lotes*. Las EGT funcionan únicamente en entidades almacenadas en la misma partición (comparten la misma clave de partición en una tabla determinada), por lo que siempre que necesite un comportamiento transaccional atómico a través de varias entidades, asegúrese de que las entidades se encuentren en la misma partición. Este suele ser un motivo para mantener varios tipos de entidad en la misma tabla (y partición) y no utilizar varias tablas para diferentes tipos de entidad. Una sola EGT puede operar en 100 entidades como máximo.  Si envía varias EGT simultáneas para procesamiento, es importante asegurarse de que esas EGT no se usan en las entidades que son comunes a todas las EGT, ya que de lo contrario se puede retrasar el procesamiento.

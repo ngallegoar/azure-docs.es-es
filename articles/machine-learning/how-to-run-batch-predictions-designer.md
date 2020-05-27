@@ -5,17 +5,17 @@ description: Aprenda a entrenar un modelo y a configurar una canalización de pr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019
-ms.openlocfilehash: 01d69bffcf2c17abceba8ba2e0893360bead8b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: Ignite2019, designer
+ms.openlocfilehash: 5079953994b74378a54a316c288c77d13c3af782
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477228"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653680"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

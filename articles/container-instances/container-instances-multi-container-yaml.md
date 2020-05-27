@@ -3,12 +3,12 @@ title: 'Tutorial: implementación de un grupo de varios contenedores - YAML'
 description: En este tutorial, aprenderá a implementar un grupo de contenedores con varios contenedores en Azure Container Instances mediante un archivo YAML con la CLI de Azure.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c029a9c605548b828c96fa741e12a43930ec4b01
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533588"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653506"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implementación de un grupo de varios contenedores con un archivo YAML
 
@@ -73,9 +73,9 @@ properties:
     type: Public
     ports:
     - protocol: tcp
-      port: '80'
+      port: 80
     - protocol: tcp
-      port: '8080'
+      port: 8080
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```

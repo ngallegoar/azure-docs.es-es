@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e199b0d6cf2be7dc956267843f4dabe521d87428
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897811"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647631"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AwardSpring
 
@@ -157,7 +157,7 @@ Para configurar el inicio de sesión único en **AwardSpring**, es preciso envia
 En esta sección, se crea un usuario llamado B.Simon en AwardSpring. AwardSpring admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en AwardSpring, se crea uno después de la autenticación.
 
 > [!Note]
-> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de AwardSpring](maito:support@awardspring.com).
+> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de AwardSpring](mailto:support@awardspring.com).
 
 ## <a name="test-sso"></a>Prueba de SSO
 

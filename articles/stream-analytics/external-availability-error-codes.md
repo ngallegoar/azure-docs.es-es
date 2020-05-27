@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 092b548e73330fe80ef10b2e25d9ab7883b256ac
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ce867d60c53b9befe5b4480693b54d2c9eba018
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595204"
+ms.locfileid: "83650057"
 ---
 # <a name="azure-stream-analytics-external-availability-error-codes"></a>Códigos de error externo de disponibilidad de Azure Stream Analytics
 
@@ -20,11 +20,7 @@ Puede usar registros de actividad y registros de recursos para ayudar a depurar 
 ## <a name="externalserviceunavailable"></a>ExternalServiceUnavailable
 
 * **Causa**: el servicio no está disponible temporalmente.
-* **Recomendación:** Stream Analytics seguirá intentando acceder al servicio. 
-
-## <a name="kafkaservernotavailable"></a>KafkaServerNotAvailable
-
-* **Causa**: el servidor de Kafka no está disponible.
+* **Recomendación:** Stream Analytics seguirá intentando acceder al servicio.
 
 ## <a name="eventhubmessagingerror"></a>EventHubMessagingError
 

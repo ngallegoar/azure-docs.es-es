@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728071"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650087"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones: mitigaciones 
 | Producto o servicio | Artículo |
@@ -223,7 +223,7 @@ Compruebe los vínculos en la sección de referencias para obtener información 
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Fail securely](https://www.owasp.org/index.php/Fail_securely) (Control seguro de los errores) |
+| **Referencias**              | [Fail securely](https://owasp.org/www-community/Fail_securely) (Control seguro de los errores) |
 | **Pasos** | La aplicación debe generar un error con seguridad. Cualquier método que devuelve un valor booleano en el que se va a basar la toma de una decisión específica, debe tener el bloque de excepción creado con cuidado. Hay muchos errores lógicos debido a los que se pueden infiltrar problemas de seguridad cuando el bloque de excepción se escribe sin el cuidado necesario.|
 
 ### <a name="example"></a>Ejemplo

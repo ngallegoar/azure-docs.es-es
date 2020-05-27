@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 712a0707826f97f29b015a2c5892f8d20577e41b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687888"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653110"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Marco de seguridad: Validación de entrada | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -71,7 +71,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [IE8 Security Part V - Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Seguridad de IE8 (parte V): Protección completa)  |
+| **Referencias**              | [IE8 Security Part V - Comprehensive Protection](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) (Seguridad de IE8 (parte V): Protección completa)  |
 | **Pasos** | <p>Para cada página que podría incluir contenido controlable por el usuario, debe usar el encabezado HTTP `X-Content-Type-Options:nosniff`. Para cumplir este requisito, puede establecer el encabezado necesario página a página solo para aquellas que puedan incluir contenido controlable por el usuario o puede establecerlo globalmente para todas las páginas de la aplicación.</p><p>Cada tipo de archivo que se entregue desde un servidor web tiene asociado un [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) (también llamado *content-type*) que describe la naturaleza del contenido (es decir, imagen, texto, aplicación, etc.).</p><p>El encabezado X-Content-Type-Options es un encabezado HTTP que permite a los desarrolladores especificar que su contenido no se debe someter a un rastreo de MIME. Este encabezado se ha diseñado para mitigar los ataques de rastreo de MIME. Se agregó compatibilidad con este encabezado en Internet Explorer 8 (IE8).</p><p>Los únicos que se beneficiarán de X-Content-Type-Options son los usuarios de Internet Explorer 8 (IE8). Las versiones anteriores de Internet Explorer no respetan actualmente el encabezado X-Content-Type-Options.</p><p>Internet Explorer 8 (y versiones posteriores) es el único explorador importante que implementa una característica para excluir del rastreo de MIME. Cuando otros exploradores importantes (Firefox, Safari, Chrome) implementen características similares, si lo hacen, se actualizará esta recomendación para incluir también la sintaxis de esos exploradores.</p>|
 
 ### <a name="example"></a>Ejemplo
@@ -213,7 +213,7 @@ Tenga en cuenta que en MSXML6, ProhibitDTD está establecido en true (deshabilit
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) (Carga de archivos sin restricciones), [File Signature Table](https://www.garykessler.net/library/file_sigs.html) (Tabla de firmas de archivo) |
+| **Referencias**              | [Unrestricted File Upload](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload) (Carga de archivos sin restricciones), [File Signature Table](https://www.garykessler.net/library/file_sigs.html) (Tabla de firmas de archivo) |
 | **Pasos** | <p>Los archivos cargados presentan un riesgo notable para las aplicaciones.</p><p>El primer paso en muchos ataques consiste en incluir código en el sistema que va a sufrir el ataque. Después, el ataque solo necesita encontrar una manera de que se ejecute el código. El uso de la carga de archivos ayuda al atacante a llevar a cabo el primer paso. Las consecuencias de la carga de archivos sin restricciones varían, desde la toma de control de todo el sistema, la sobrecarga del sistema de archivos o la base de datos, o el reenvío de ataques a sistemas back-end hasta una simple alteración.</p><p>Depende de lo que haga la aplicación con el archivo cargado y especialmente de dónde se almacene. Falta la validación del lado servidor para las cargas de archivos. Se deberían implementar los siguientes controles de seguridad para la funcionalidad de carga de archivos:</p><ul><li>Comprobación de la extensión del archivo (solo se debe aceptar un conjunto válido de tipos de archivo permitidos)</li><li>Límite máximo de tamaño de archivo</li><li>No se debe cargar el archivo a webroot; la ubicación debe ser un directorio en una unidad que no sea del sistema.</li><li>Se debe seguir la convención de nomenclatura, por ejemplo, que el nombre del archivo cargado contenga elementos aleatorios, para evitar que se sobrescriban archivos.</li><li>Se deben examinar los archivos en busca de virus antes de escribirlos en el disco.</li><li>Asegúrese de que el nombre de archivo y cualquier otro metadato (como la ruta de acceso del archivo) se validen en busca de caracteres malintencionados.</li><li>Se debe comprobar la firma de formato del archivo para evitar que un usuario cargue un archivo enmascarado (por ejemplo, un archivo exe cuya extensión se haya cambiado a txt).</li></ul>| 
 
 ### <a name="example"></a>Ejemplo
