@@ -106,8 +106,8 @@
   items:
     - name: Foro de comentarios de Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Página de preguntas y respuestas de Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Actualizaciones del servicio
