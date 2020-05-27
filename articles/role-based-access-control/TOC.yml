@@ -11,15 +11,15 @@
   items:
     - name: Visualización del acceso de un usuario
       href: check-access.md
+    - name: Plantilla ARM
+      displayName: Resource Manager
+      href: quickstart-role-assignments-template.md
 - name: Tutoriales
   items:
     - name: 'Concesión de acceso a un usuario: Portal'
       href: quickstart-assign-role-user-portal.md
     - name: 'Concesión de acceso a un usuario: PowerShell'
       href: tutorial-role-assignments-user-powershell.md
-    - name: 'Concesión de acceso a un usuario: plantilla de Resource Manager'
-      displayName: 'ARM, resource manager template'
-      href: tutorial-role-assignments-user-template.md
     - name: 'Concesión de acceso a un grupo: PowerShell'
       href: tutorial-role-assignments-group-powershell.md
     - name: 'Creación de un rol personalizado: PowerShell'
@@ -67,7 +67,8 @@
           href: role-assignments-cli.md
         - name: API DE REST
           href: role-assignments-rest.md
-        - name: Plantilla
+        - name: Plantilla ARM
+          displayName: Resource Manager
           href: role-assignments-template.md
     - name: Enumeración de asignaciones de denegación
       items:
@@ -113,8 +114,8 @@
       href: /cli/azure/role?view=azure-cli-latest
     - name: API DE REST
       href: /rest/api/authorization/
-    - name: Plantillas de Resource Manager
-      displayName: ARM
+    - name: Plantillas de ARM
+      displayName: Resource Manager
       items:
         - name: Asignaciones de roles
           href: /azure/templates/microsoft.authorization/roleassignments

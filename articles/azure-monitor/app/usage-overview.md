@@ -3,12 +3,12 @@ title: Análisis de uso con Azure Application Insights | Microsoft Docs
 description: Entienda a los usuarios y lo qué hacen con la aplicación.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283963"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797793"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
@@ -175,5 +175,5 @@ Todos los nuevos clientes de telemetría agregan automáticamente el valor de pr
    - [Embudos](usage-funnels.md)
    - [Retención](usage-retention.md)
    - [Flujos de usuario](usage-flows.md)
-   - [Libros](../../azure-monitor/app/usage-workbooks.md)
+   - [Libros](../../azure-monitor/platform/workbooks-overview.md)
    - [Adición de contexto de usuario](usage-send-user-context.md)

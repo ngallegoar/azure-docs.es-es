@@ -11,28 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8253b784a427ceb3842b6b4d585c52a2c30e0c4d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190456"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592430"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usar una galería de imágenes compartidas en Azure Lab Services
-En este artículo se explica cómo los profesores y administradores del laboratorio cómo pueden guardar una imagen de máquina virtual de plantilla para que otros usuarios puedan reutilizarla. Estas imágenes se guardan en una [galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md) de Azure. Como primer paso, el administrador del laboratorio asocia una galería de imágenes compartidas existente a la cuenta de laboratorio. Una vez que se ha asociado la galería de imágenes compartidas, los laboratorios creados en la cuenta de laboratorio pueden guardar imágenes en la galería de imágenes compartidas. Otros profesores pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus clases. 
+En este artículo se muestra cómo los formadores y los administradores de laboratorio pueden guardar una imagen de máquina virtual de plantilla en una [galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md) para que otras personas puedan usarla para crear laboratorios. 
 
-> [!NOTE]
-> Actualmente, Azure Lab Services admite la creación de máquinas virtuales de plantilla basadas solo en imágenes de máquina virtual **generalizadas** (no imágenes especializadas) en una galería de imágenes compartidas. 
+## <a name="scenarios"></a>Escenarios
+Estos son los pares de escenarios compatibles con esta característica: 
 
-## <a name="prerequisites"></a>Prerequisites
+- Un administrador de la cuenta de laboratorio adjunta una galería de imágenes compartidas a la cuenta de laboratorio y carga una imagen en la galería de imágenes compartidas fuera del contexto de un laboratorio. A continuación, los creadores del laboratorio pueden usar esa imagen de la galería de imágenes compartidas para crear laboratorios. 
+- El administrador de una cuenta de laboratorio adjunta una galería de imágenes compartidas a la cuenta de laboratorio. Un creador del laboratorio (instructor) guarda la imagen personalizada de su laboratorio en la galería de imágenes compartidas. A continuación, otros creadores del laboratorio pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus laboratorios. 
+
+    Cuando una imagen se guarda en una galería de imágenes compartida, Azure Lab Services replica la imagen guardada en otras regiones disponibles en la misma [ubicación geográfica](https://azure.microsoft.com/global-infrastructure/geographies/). Ello garantiza que la imagen está disponible para los laboratorios creados en otras regiones de la misma ubicación geográfica. Guardar las imágenes en una galería de imágenes compartida conlleva un costo adicional, lo que incluye el costo de todas las imágenes replicadas. Este costo es independiente del costo de uso de Azure Lab Services. Para más información sobre los precios de Shared Image Gallery, vea [Introducción a la galería de imágenes compartidas - Facturación]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+
+    > [!NOTE]
+    > Azure Lab Services admite la creación de VM de plantilla basadas solo en imágenes **generalizadas** y **especializadas** en una galería de imágenes compartidas. 
+
+
+## <a name="prerequisites"></a>Prerrequisitos
 - Tener creada una galería de imágenes compartidas con [Azure PowerShell](../../virtual-machines/windows/shared-images.md) o con la [CLI de Azure](../../virtual-machines/linux/shared-images.md).
 - Haber asociado la galería de imágenes compartidas a la cuenta de laboratorio. Para obtener instrucciones detalladas, vea [Asociar o desasociar una galería de imágenes compartidas en Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
 
 
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>Guardar una imagen en la galería de imágenes compartidas
-Una vez que se ha asociado una galería de imágenes compartidas, un administrador de cuenta de laboratorio o un profesor puede guardar una imagen en la galería de imágenes compartidas para que otros profesores la puedan reutilizar. 
+Una vez que se ha asociado una galería de imágenes compartidas, un administrador de cuenta de laboratorio o un formador puede guardar una imagen en la galería de imágenes compartidas para que otros formaodres la puedan reutilizar. 
 
 1. En la página **Template** (Plantilla) del laboratorio, seleccione **Export to Shared Image Gallery** (Exportar a Shared Image Gallery) en la barra de herramientas.
 
@@ -47,10 +56,15 @@ Una vez que se ha asociado una galería de imágenes compartidas, un administrad
 
     ![Exportación finalizada](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
-También puede cargar una imagen en la galería de imágenes compartidas fuera del contexto de un laboratorio. Para más información, consulte [Introducción a la galería de imágenes compartidas](../../virtual-machines/windows/shared-images.md). 
+    > [!NOTE]
+    > Después de guardar la imagen en la galería de imágenes compartidas, puede usar esa imagen de la galería al crear otro laboratorio. 
+    > 
+    > También puede cargar una imagen en la galería de imágenes compartidas fuera del contexto de un laboratorio. Para más información, consulte [Introducción a la galería de imágenes compartidas](../../virtual-machines/windows/shared-images.md). 
+
+    
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Usar una imagen de la galería de imágenes compartidas
-Un profesor puede elegir una imagen personalizada disponible en la galería de imágenes compartidas para la plantilla durante la creación de un laboratorio.
+Un formador puede elegir una imagen personalizada disponible en la galería de imágenes compartidas para la plantilla durante la creación de un laboratorio.
 
 ![Usar una imagen de máquina virtual de la galería](../media/how-to-use-shared-image-gallery/use-shared-image.png)
 

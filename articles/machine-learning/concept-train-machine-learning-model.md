@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c75c41012928b7bffb61a00a73f314e4c372b154
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792350"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592396"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -26,7 +26,7 @@ Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde
     | ----- | ----- |
     | [Configuración de ejecución](#run-configuration) | Una **manera genérica de entrenar modelos** es usar un script de entrenamiento y una configuración de ejecución. La configuración de ejecución proporciona la información necesaria para configurar el entorno de entrenamiento que se usa para entrenar el modelo. Puede tomar una configuración de ejecución, el script de entrenamiento y un destino de proceso (el entorno de entrenamiento) y ejecutar un trabajo de aprendizaje. |
     | [Aprendizaje automático automatizado](#automated-machine-learning) | El aprendizaje automático automatizado el permite **entrenar modelos sin un amplio conocimiento de programación ni de ciencia de datos**. En el caso de las personas con conocimientos de programación y de ciencia de datos, proporciona una manera de ahorrar tiempo y recursos mediante la automatización de la selección de algoritmos y la optimización de los hiperparámetros. No tiene que preocuparse de definir una configuración de ejecución al usar el aprendizaje automático automatizado. |
-    | [Estimadores](#estimators) | Las clases de estimador **facilitan el entrenamiento de modelos en función de marcos populares de aprendizaje automático**. Hay clases de estimador para **Scikit-learn**, **PyTorch**, **TensorFlow** y **Chainer**. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores. |
+    | [Estimadores](#estimators) | Las clases de estimador **facilitan el entrenamiento de modelos en función de marcos populares de aprendizaje automático**. Hay clases de estimador para **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer** y **Ray RLlib**. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores. |
     | [Canalización de aprendizaje automático](#machine-learning-pipeline) | Las canalizaciones no son un método de entrenamiento distinto, sino una **manera de definir un flujo de trabajo con pasos modulares y reutilizables**, que puede incluir el entrenamiento como parte del flujo de trabajo. Las canalizaciones de aprendizaje automático admiten el uso de aprendizaje automático automatizado, estimadores y configuración de ejecución para entrenar modelos. Como las canalizaciones no se centran específicamente en el entrenamiento, las razones para usar una canalización son más variadas que los demás métodos de entrenamiento. Por lo general, puede usar una canalización cuando:<br>* Quiere **programar procesos desatendidos**, como trabajos de entrenamiento de larga duración o la preparación de los datos.<br>* Use **varios pasos** coordinados entre ubicaciones de almacenamiento y recursos de proceso heterogéneos.<br>* Use la canalización como una **plantilla reutilizable** para escenarios específicos, como el reentrenamiento o la puntuación por lotes.<br>* **Haga seguimiento y realice versiones de sus orígenes de datos, entradas y salidas** del flujo de trabajo.<br>* El flujo de trabajo **lo implementan distintos equipos que trabajan en pasos específicos de manera independiente**. Luego, los pasos se pueden reunir en una canalización para implementar el flujo de trabajo. |
 
 + [SDK de Azure Machine Learning para Python](#r-sdk): El SDK usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
@@ -73,7 +73,7 @@ Defina las iteraciones, la configuración de hiperparámetros, la caracterizaci�
 
 ### <a name="estimators"></a>Estimadores
 
-Los estimadores facilitan el entrenamiento de modelos con marcos populares de aprendizaje automático. Si usa **Scikit-learn**, **PyTorch**, **TensorFlow** o **Chainer**, debe considerar la posibilidad de usar un estimador para el entrenamiento. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores.
+Los estimadores facilitan el entrenamiento de modelos con marcos populares de aprendizaje automático. Si usa **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer** o **Ray RLlib**, debe considerar la posibilidad de usar un estimador para el aprendizaje. También hay un estimador genérico que se puede usar con marcos que aún no tienen una clase de estimador dedicada. No tiene que preocuparse de definir una configuración de ejecución al usar estimadores.
 
 * [¿Qué son los estimadores?](concept-azure-machine-learning-architecture.md#estimators)
 * [Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn mediante Azure Machine Learning](tutorial-train-models-with-aml.md)

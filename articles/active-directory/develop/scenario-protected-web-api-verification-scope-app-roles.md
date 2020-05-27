@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 018e7f9bc389e3d148ff6860dae9fef88991e5c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ee2679da5065ab9e9b02d4ddb313fab75e78f7
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537175"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845142"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Comprobación de ámbitos y roles de aplicación
 
@@ -149,7 +149,7 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-Esta vez, el fragmento de código es para ASP.NET. Para ASP.NET Core, solo tiene que reemplazar `ClaimsPrincipal.Current` por `HttpContext.User` y reemplazar el nombre de la notificación `"roles"` por `"http://schemas.microsoft.com/identity/claims/roles"`. Consulte también el fragmento de código incluido anteriormente en este artículo.
+Esta vez, el fragmento de código es para ASP.NET. Para ASP.NET Core, solo tiene que reemplazar `ClaimsPrincipal.Current` por `HttpContext.User` y reemplazar el nombre de la notificación `"roles"` por `"http://schemas.microsoft.com/ws/2008/06/identity/claims/role"`. Consulte también el fragmento de código incluido anteriormente en este artículo.
 
 ### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>Aceptación de tokens solo de aplicación si la API web debe invocarse únicamente mediante aplicaciones de demonio
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: d02cd12552b3664dd7acaae0142fc939ee57f5f6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606007"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591988"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar)
 
@@ -28,7 +28,7 @@ Para proteger un área de trabajo de Synapse (versión preliminar), debe seguir 
 - Roles de Synapse: estos roles son exclusivos de Synapse y no están basados en los roles de Azure. Hay tres roles de este tipo:
   - Administrador del área de trabajo de Synapse
   - Administrador de SQL de Synapse
-  - Administrador de Spark de Synapse
+  - Apache Spark para el administrador de Azure Synapse Analytics
 - Control de acceso a los datos de Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Control de acceso a las bases de datos de SQL y Spark de Synapse
 
@@ -89,7 +89,7 @@ El área de trabajo de Synapse necesita acceso a STG1 y CNT1 para que ejecutar c
 - Abra Azure Portal.
 - Busque la cuenta STG1.
 - Navegue al contenedor CNT1.
-- Asegúrese de que el archivo MSI (Managed Service Identity) para WS1 esté asignado al rol **Colaborador de datos de Azure Blob** en CNT1
+- Asegúrese de que el archivo MSI (Managed Service Identity) para WS1 esté asignado al rol **Colaborador de datos de Storage Blob** en CNT1.
   - Si no lo está, asígnelo.
   - El MSI tiene el mismo nombre que el área de trabajo. En este caso, sería &quot;WS1&quot;.
 
@@ -145,7 +145,7 @@ Synapse Studio se comportará de forma diferente en función de los roles de usu
 | Abrir Synapse Studio | SÍ | SÍ | SÍ |
 | Ver el centro de Inicio | SÍ | SÍ | SÍ |
 | Ver el centro de datos | SÍ | SÍ | SÍ |
-| Centro de datos: ver los contenedores y las cuentas de ADLSGen2 vinculados | SÍ [1] | SÍ [1] | SÍ [1] |
+| Centro de datos / ver los contenedores y las cuentas de ADLS Gen2 vinculados | SÍ [1] | SÍ [1] | SÍ [1] |
 | Centro de datos: ver las bases de datos | SÍ | SÍ | SÍ |
 | Centro de datos: ver los objetos en las bases de datos | SÍ | SÍ | SÍ |
 | Centro de datos: acceso a datos en las bases de datos del grupo de SQL | SÍ   | No   | SÍ   |
@@ -165,9 +165,22 @@ Synapse Studio se comportará de forma diferente en función de los roles de usu
 | Centro de administración: servicios vinculados | SÍ | SÍ | SÍ |
 | Centro de administración: control de acceso (asignar usuarios a los roles del área de trabajo de Synapse) | SÍ | No | No |
 | Centro de administración: entornos de ejecución de integración | SÍ | SÍ | SÍ |
+| Uso del concentrador de supervisión | SÍ | SÍ | SÍ |
+| Concentrador de supervisión/orquestación/ejecuciones de canalizaciones  | SÍ | No | No |
+| Concentrador de supervisión/orquestación/ejecuciones de desencadenadores  | SÍ | No | No |
+| Concentrador de supervisión/orquestación/tiempo de ejecución de integraciones  | SÍ | SÍ | SÍ |
+| Concentrador de supervisión/actividades/aplicaciones de Spark | SÍ | SÍ | No  |
+| Concentrador de supervisión/actividades/solicitudes SQL | SÍ | No | SÍ |
+| Concentrador de supervisión/actividades/grupos de Spark | SÍ | SÍ | No  |
+| Concentrador de supervisión/desencadenadores | SÍ | No | No |
+| Centro de administración: servicios vinculados | SÍ | SÍ | SÍ |
+| Centro de administración: control de acceso (asignar usuarios a los roles del área de trabajo de Synapse) | SÍ | No | No |
+| Centro de administración: entornos de ejecución de integración | SÍ | SÍ | SÍ |
+
 
 > [!NOTE]
-> [1] El acceso a los datos de los contenedores depende del control de acceso de ADLSGen2 [2] las tablas de SQL a petición y las tablas de Spark almacenan datos en ADLSGen2, por lo que el acceso requiere de los permisos adecuados en ADLSGen2.
+> [1] El acceso a los datos de los contenedores depende del control de acceso en ADLS Gen2. </br>
+> [2] Las tablas de SQL a petición y las tablas de Spark almacenan datos en ADLS Gen2, por lo que el acceso requiere los permisos adecuados en ADLS Gen2.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

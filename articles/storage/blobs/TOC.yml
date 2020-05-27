@@ -166,6 +166,8 @@
               href: storage-blob-change-feed.md
             - name: Restauración a un momento dado
               href: point-in-time-restore-overview.md
+        - name: Replicación de objetos
+          href: object-replication-overview.md
         - name: Acceso y niveles de rendimiento
           items:
             - name: Niveles de acceso
@@ -399,6 +401,8 @@
               href: storage-blob-change-feed-how-to.md
             - name: Habilitación de la restauración a un momento dado
               href: point-in-time-restore-manage.md
+        - name: Configuración de la replicación de objetos
+          href: object-replication-configure.md
         - name: Administración de la recuperación ante desastres
           items:
             - name: Comprobación de la propiedad Hora de la última sincronización
@@ -694,16 +698,22 @@
               href: data-lake-storage-supported-azure-services.md
             - name: Plataformas de código abierto compatibles
               href: data-lake-storage-supported-open-source-platforms.md
-        - name: Supervisión y solución de problemas
+        - name: Supervisión
           items:
-            - name: 'Supervisión, diagnóstico y solución de problemas'
-              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Métricas en Azure Monitor
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migración a nuevas métricas
+            - name: Supervisión de una cuenta de almacenamiento
+              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migración desde métricas clásicas
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Registros de Storage Analytics
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Supervisión (clásica)
+              items:
+                - name: Storage Analytics
+                  href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Métricas
+                  href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Registros
+                  href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Supervisión, diagnóstico y solución de problemas'
+                  href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedimientos
       items:
         - name: Crear

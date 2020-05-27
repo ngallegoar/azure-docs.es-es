@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 7a60f761e4ee575e3196bb1ccd3baa42f27221f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257749"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588180"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de clase de una cuenta de laboratorio. 
@@ -54,7 +54,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
         > Tome nota de ambos. No se volverán a mostrar.
     3. Deshabilite la opción **Usar la misma contraseña para todas las máquinas virtuales** si quiere que los alumnos establezcan sus propias contraseñas. Este paso es **opcional**. 
 
-        Un profesor puede elegir usar la misma contraseña para todas las máquinas virtuales en el laboratorio o permitir a los alumnos establecer contraseñas para sus máquinas virtuales. De forma predeterminada, esta configuración está habilitada para todas las imágenes Windows y Linux, excepto para Ubuntu. Al seleccionar la máquina virtual **Ubuntu**, esta opción está deshabilitada, por lo que se pedirá a los alumnos que establezcan una contraseña cuando inicien sesión por primera vez.  
+        Un formador puede elegir usar la misma contraseña para todas las VM en el laboratorio o permitir a los alumnos establecer contraseñas para sus VM. De forma predeterminada, esta configuración está habilitada para todas las imágenes Windows y Linux, excepto para Ubuntu. Al seleccionar la máquina virtual **Ubuntu**, esta opción está deshabilitada, por lo que se pedirá a los alumnos que establezcan una contraseña cuando inicien sesión por primera vez.  
 
         ![Ventana de nuevo laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. A continuación, seleccione **Next** (Siguiente) en la página **Virtual machine credentials** (Credenciales de la máquina virtual). 
@@ -103,14 +103,16 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 | ---- | ----- | --- | ----------- | 
 | Pequeña | 2 | 3,5 GB | Este tamaño es el más adecuado para la línea de comandos, apertura de navegador web, servidores web de poco tráfico, bases de datos pequeñas o medianas. |
 | Media | 4 | 7 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria | 
-| Mediano (virtualización anidada) | 4 | 16 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. Este tamaño admite la virtualización anidada. <p>Este tamaño puede usarse en escenarios donde cada alumno necesita varias máquinas virtuales. Los profesores pueden usar la virtualización anidada para configurar varias máquinas virtuales anidadas de tamaño pequeño dentro de la máquina virtual. </p> |
-| grande | 8 | 32 GB | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. Este tamaño admite la virtualización anidada |  
+| Mediano (virtualización anidada) | 4 | 16 GB | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. Este tamaño admite la virtualización anidada. <p>Este tamaño puede usarse en escenarios donde cada alumno necesita varias máquinas virtuales. Los formadores pueden usar la virtualización anidada para configurar varias máquinas virtuales anidadas de tamaño pequeño dentro de la máquina virtual. </p> |
+| GPU pequeña (proceso) | 6 | 56 GB | <p>Este tamaño es más adecuado para aplicaciones de proceso intensivo y uso intensivo de la red; por ejemplo, aplicaciones de inteligencia artificial y aprendizaje profundo.</p><p>Azure Lab Services instala y configura automáticamente los controladores de GPU necesarios cuando se crea un laboratorio con imágenes de GPU. </p> | 
 | GPU pequeña (visualización) | 6 | 56 GB | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. | 
-| GPU pequeña (proceso) | 6 | 56 GB | Este tamaño es más adecuado para aplicaciones de proceso intensivo y uso intensivo de la red; por ejemplo, aplicaciones de inteligencia artificial y aprendizaje profundo. | 
+| grande | 8 | 16 GB | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. |
+| Grande (virtualización anidada) | 8 | 32 GB | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. Este tamaño admite la virtualización anidada. |  
 | GPU mediana (visualización) | 12 | 112 GB | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. | 
 
 > [!NOTE]
-> Azure Lab Services instala y configura automáticamente los controladores de GPU necesarios cuando se crea un laboratorio con imágenes de GPU.  
+> Es posible que no vea algunos de estos tamaños de VM en la lista al crear un laboratorio de clase. La lista se rellena en función de la capacidad actual de la ubicación del laboratorio. Si el creador de la cuenta de laboratorio [permite que los creadores del laboratorio elijan una ubicación para el laboratorio](allow-lab-creator-pick-lab-location.md), puede intentar elegir otra ubicación para el laboratorio y ver si el tamaño de VM está disponible. 
+
 
 ## <a name="view-all-classroom-labs"></a>Visualización de todos los laboratorios de clase
 1. Vaya al [portal de Azure Lab Services](https://labs.azure.com).

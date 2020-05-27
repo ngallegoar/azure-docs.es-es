@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637299"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585033"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Uso de entradas de audio comprimido con códec con el SDK de voz
 
 La API **Compressed Audio Input Stream** del SDK del servicio de voz ofrece una forma de transmitir en secuencias audio comprimido al servicio de voz mediante `PullStream` o `PushStream`.
 
-El streaming de audio de entrada comprimido actualmente se admite para C#, C++ y Java en Windows (las aplicaciones para UWP no se admiten) Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8 y CentOS 8). También se admite para Java en Android y Objective-C en la plataforma iOS.
+El streaming de audio de entrada comprimido actualmente se admite para C#, C++ y Java en Windows (las aplicaciones para UWP no se admiten) y Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8 y CentOS 7/8). También se admite para Java en Android y Objective-C en la plataforma iOS.
 * Se requiere el SDK de Voz versión 1.10.0 o posterior para RHEL 8 y CentOS 8.
 * Se requiere el SDK de Voz versión 1.11.0 o posterior para Windows.
 

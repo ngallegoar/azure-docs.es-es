@@ -2,13 +2,13 @@
 title: Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 description: Aprenda a configurar la publicación automática en Azure Event Grid de Durable Functions.
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/25/2020
+ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535492"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83124318"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicación de Durable Functions en Azure Event Grid (versión preliminar)
 
@@ -30,7 +30,7 @@ A continuación se muestran algunos escenarios donde esta característica result
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creación de un tema de Event Grid personalizado
 
-Cree un tema de Event Grid para enviar eventos desde Durable Functions. Las instrucciones siguientes muestran cómo crear un tema con la CLI de Azure. También puede hacerlo [mediante PowerShell](../../event-grid/custom-event-quickstart-powershell.md) o [Azure Portal](../../event-grid/custom-event-quickstart-portal.md).
+Cree un tema de Event Grid para enviar eventos desde Durable Functions. Las instrucciones siguientes muestran cómo crear un tema con la CLI de Azure. También puede crear el tema [mediante PowerShell](../../event-grid/custom-event-quickstart-powershell.md) o [Azure Portal](../../event-grid/custom-event-quickstart-portal.md).
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -101,7 +101,7 @@ Agregue una sección `notifications` a la propiedad `durableTask` del archivo, r
 }
 ```
 
-Las posibles propiedades de configuración de Azure Event Grid se pueden encontrar en la [documentación de host.json](../functions-host-json.md#durabletask). Después de configurar el archivo `host.json`, la aplicación de función envía eventos del ciclo de vida al tema de Event Grid. Esto funciona cuando se ejecuta la aplicación de función tanto localmente como en Azure.
+Las posibles propiedades de configuración de Azure Event Grid se pueden encontrar en la [documentación de host.json](../functions-host-json.md#durabletask). Después de configurar el archivo `host.json`, la aplicación de función envía eventos del ciclo de vida al tema de Event Grid. Esta acción empieza cuando se ejecuta la aplicación de funciones tanto localmente como en Azure.
 
 Establezca la configuración de la aplicación para la clave del tema en la aplicación de función y en `local.settings.json`. El siguiente JSON es un ejemplo de `local.settings.json` para la depuración local. Reemplace `<topic_key>` por la clave del tema.  
 
@@ -126,52 +126,65 @@ Con Azure Portal, cree otra aplicación de función para escuchar eventos public
 
 ### <a name="create-an-event-grid-trigger-function"></a>Creación de una función de desencadenador de Event Grid
 
-Cree una función que reciba los eventos de ciclo de vida. Seleccione **Función personalizada**.
+1. En la aplicación de funciones, seleccione **Funciones** y, a continuación, seleccione **+ Agregar**. 
 
-![Selección de creación de una función personalizada](./media/durable-functions-event-publishing/functions-portal.png)
+   :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Incorporación de una función en Azure Portal" border="true":::.
 
-Elija el desencadenador de Event Grid y seleccione el lenguaje.
+1. Busque **Event Grid** y, a continuación, seleccione la plantilla **Desencadenador de Azure Event Grid**. 
 
-![Selección de Desencadenador de Event Grid](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selección de la plantilla Desencadenador de Event Grid en Azure Portal." border="true":::
 
-Escriba el nombre de la función y seleccione `Create`.
+1. Asigne un nombre al nuevo desencadenador y, a continuación, seleccione **Crear función**.
 
-![Creación de Desencadenador de Event Grid](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nombre del desencadenador de Event Grid en Azure Portal." border="true":::
 
-Se creará una función con el código siguiente:
 
-# <a name="c-script"></a>[Script de C#](#tab/csharp-script)
+    Se creará una función con el código siguiente:
 
-```csharp
-#r "Newtonsoft.Json"
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
+    # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
-public static void Run(JObject eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-}
-```
+    ```csharp
+    #r "Newtonsoft.Json"
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+    public static void Run(JObject eventGridEvent, ILogger log)
+    {
+        log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+    }
+    ```
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-    context.log(typeof eventGridEvent);
-    context.log(eventGridEvent);
-}
-```
+   # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+   ```javascript
+   module.exports = async function(context, eventGridEvent) {
+       context.log(typeof eventGridEvent);
+       context.log(eventGridEvent);
+   }
+   ```
 
 ---
 
-Seleccione `Add Event Grid Subscription`. Esta operación agrega una suscripción a Event Grid para el tema que ha creado. Para más información, consulte [Conceptos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
+### <a name="add-an-event-grid-subscription"></a>Incorporación de una suscripción de Event Grid
 
-![Selección del vínculo Desencadenador de Event Grid](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+Ya puede agregar una suscripción a Event Grid para el tema de Event Grid que ha creado. Para más información, consulte [Conceptos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
 
-Seleccione `Event Grid Topics` como **Tipo de tema**. Seleccione el grupo de recursos que ha creado para el tema de Event Grid. A continuación, seleccione la instancia del tema de Event Grid. Presione `Create`.
+1. En la nueva función, seleccione **Integración** y, a continuación, seleccione **Desencadenador de Event Grid (eventGridEvent)** . 
 
-![Cree una suscripción de Event Grid.](./media/durable-functions-event-publishing/eventsubscription.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selección del vínculo Desencadenador de Event Grid." border="true":::
+
+1. Seleccione **Crear descripción de Event Grid**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Creación de la suscripción a Event Grid." border="true":::
+
+1. Asigne un nombre a la suscripción de eventos y seleccione el tipo de tema de **Temas de Event Grid**. 
+
+1. Seleccione la suscripción. A continuación, seleccione el grupo de recursos y el recurso que ha creado para el tema de Event Grid. 
+
+1. Seleccione **Crear**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Creación de una suscripción a Event Grid." border="true":::
 
 Ahora está preparado para recibir eventos de ciclo de vida.
 

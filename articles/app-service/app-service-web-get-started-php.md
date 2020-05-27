@@ -3,14 +3,14 @@ title: 'Inicio rápido: Creación de una aplicación web de PHP'
 description: Implementación de su primera aplicación Hola mundo de PHP en Azure App Service en cuestión de minutos. Realice la implementación mediante Git, que es una de las distintas maneras de realizar implementaciones en App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 05/25/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: de51df50995c47800a2084108973c3b009ae3462
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d9ee9ac3abd7dada8e87bdf5a4385185933fc4ae
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085984"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847886"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creación de una aplicación web de PHP en Azure
 
@@ -70,14 +70,14 @@ En la ventana de terminal, presione **Ctrl + C** para salir del servidor web.
 
 En Cloud Shell, cree una aplicación web en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
 
-En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `PHP|7.0`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+En el siguiente ejemplo, reemplace `<app-name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `PHP|7.0`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
 ```
 > [!NOTE]
 > El símbolo de detención de análisis `(--%)`, introducido en PowerShell 3.0, indica a PowerShell que no interprete la entrada como expresiones o comandos de PowerShell. 
@@ -86,7 +86,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
 
 <pre>
-Local git is configured with url of 'https://&lt;username&gt;@&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git'
+Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -94,7 +94,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app_name&gt;.s
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
   "enabled": true,
   &lt; JSON data removed for brevity. &gt;
 }
@@ -103,7 +103,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app_name&gt;.s
 Ha creado una nueva aplicación web vacía, con la implementación de Git habilitada.
 
 > [!NOTE]
-> La dirección URL del repositorio de Git remoto se muestra en la propiedad `deploymentLocalGitUrl`, con el formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde esta dirección URL, ya que la necesitará más adelante.
+> La dirección URL del repositorio de Git remoto se muestra en la propiedad `deploymentLocalGitUrl`, con el formato `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Guarde esta dirección URL, ya que la necesitará más adelante.
 >
 
 Vaya a la aplicación web recién creada. Reemplace _&lt;nombre de aplicación>_ por el nombre de aplicación único creado en el paso anterior.
@@ -118,7 +118,7 @@ Este es el aspecto que debería tener su nueva aplicación web:
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
+<pre>
 Counting objects: 2, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
@@ -139,16 +139,16 @@ remote: Ignoring: .git
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
    cc39b1e..25f1805  master -> master
-```
+</pre>
 
 ## <a name="browse-to-the-app"></a>Navegación hasta la aplicación
 
 Vaya a la aplicación implementada mediante el explorador web.
 
 ```
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 El código de ejemplo de PHP se está ejecutando en una aplicación web de Azure App Service.

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526236"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592634"
 ---
 # <a name="classroom-labs-concepts"></a>Conceptos de laboratorios educativos
 
@@ -26,13 +26,13 @@ La lista siguiente contiene las definiciones y los conceptos clave de Lab Servic
 
 ## <a name="quota"></a>Quota
 
-Cuota es el límite de tiempo (en horas) que puede establecer un profesor para que un alumno use una máquina virtual de laboratorio. Se puede establecer en 0, o en un número específico de horas. Si la cuota se establece en 0, el alumno solo podrá usar la máquina virtual cuando se ejecute una programación o cuando un profesor active manualmente la máquina virtual para el alumno.  
+Cuota es el límite de tiempo (en horas) que puede establecer un formador para que un alumno use una VM de laboratorio. Se puede establecer en 0, o en un número específico de horas. Si la cuota se establece en 0, el alumno solo podrá usar la máquina virtual cuando se ejecute una programación o cuando un formador active manualmente la máquina virtual para el alumno.  
 
-Las horas de cuota se contabilizan cuando el alumno inicia la máquina virtual de laboratorio por su cuenta.  Si un profesor inicia manualmente la VM de laboratorio de un alumno, no se usan las horas de cuota de ese alumno.
+Las horas de cuota se contabilizan cuando el alumno inicia la máquina virtual de laboratorio por su cuenta.  Si un formador inicia manualmente la VM de laboratorio de un alumno, no se usan las horas de cuota de ese alumno.
 
 ## <a name="schedules"></a>Programaciones
 
-Las programaciones son los períodos de tiempo que un profesor puede crear para la clase, de modo que las VM de los alumnos estén disponibles para el horario de clase.  Las programaciones pueden ser para una sola vez o periódicas.  Las horas de cuota no se utilizan cuando se ejecuta una programación.
+Las programaciones son los períodos de tiempo que un formador puede crear para la clase, de modo que las VM de los alumnos estén disponibles para el horario de clase.  Las programaciones pueden ser para una sola vez o periódicas.  Las horas de cuota no se utilizan cuando se ejecuta una programación.
 
 Hay tres tipos de programaciones: Estándar, Solo inicio y Solo detención.
 
@@ -50,13 +50,13 @@ En este artículo se describen distintos perfiles de usuario de Azure Lab Servic
 
 ### <a name="lab-account-owner"></a>Propietario de la cuenta del laboratorio
 
-Por lo general, el administrador de TI de los recursos de nube de la organización, que es el propietario de la suscripción de Azure, actúa como propietario de la cuenta del laboratorio y realiza las siguientes tareas:
+Por lo general, un administrador de TI de los recursos de nube de la organización, que es el propietario de la suscripción de Azure, actúa como propietario de la cuenta del laboratorio y realiza las siguientes tareas:
 
 - Configura una cuenta de laboratorio para la organización.
 - Administra y configura las directivas en todos los laboratorios.
 - Concede permisos a personas de la organización para crear un laboratorio en la cuenta del laboratorio.
 
-### <a name="professor"></a>Profesor
+### <a name="educator"></a>Profesor
 
 Normalmente, los usuarios como un profesor o un instructor en línea, crean laboratorios en una cuenta de laboratorio. Un profesor realiza las siguientes tareas:
 

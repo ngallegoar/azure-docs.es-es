@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4db00fd43095c44a88cc0aae40778ab5b4b751b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd49d11061a345b396d300c2356645a2acd5b4c0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137406"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588129"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Con Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
+Con Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-targets). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de proceso de Azure Machine Learning, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
 Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Machine Learning Studio, la CLI de Azure o la extensión de VS Code de Azure Machine Learning. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo de Azure Machine Learning.
  
@@ -36,7 +36,7 @@ En este artículo, aprenderá a usar diversos destinos de proceso para el entren
 
 ## <a name="compute-targets-for-training"></a>Destinos de proceso para entrenamiento
 
-Azure Machine Learning tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente su entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
+Azure Machine Learning tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente el entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -56,7 +56,7 @@ Obtenga más información sobre cómo [enviar experimentos](#submit) al final de
 
 Para facilitar el entrenamiento del modelo mediante plataformas populares, el SDK de Azure Machine Learning para Python proporciona una abstracción de nivel más alto alternativa, la clase "Estimator".  Esta clase le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija, como scikit-learn. Se recomienda usar un objeto "estimator" para el entrenamiento, ya que crea automáticamente objetos insertados como un entorno u objetos RunConfiguration. Si desea tener más control sobre cómo se crean estos objetos y especificar los paquetes que se deben instalar para la ejecución de su experimento, siga [estos pasos](#amlcompute) para enviar sus experimentos de entrenamiento mediante un objeto RunConfiguration en un Proceso de Azure Machine Learning.
 
-En las tareas de PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los objetos Estimator de [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estas plataformas.
+Azure Machine Learning proporciona estimadores específicos para [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) y [Ray RLlib](how-to-use-reinforcement-learning.md).
 
 Para obtener más información, consulte [Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator](how-to-train-ml-models.md).
 
@@ -64,7 +64,7 @@ Para obtener más información, consulte [Entrenamiento de modelos con Azure Mac
 
 Con las canalizaciones de ML, puede optimizar su flujo de trabajo con sencillez y velocidad, dotarlo de portabilidad y reutilizarlo. Al crear canalizaciones mediante Azure Machine Learning, puede centrarse en lo que domina, el aprendizaje automático, en lugar de en la infraestructura y la automatización.
 
-Las canalizaciones de ML se construyen a partir de varios **pasos**, que son unidades de cálculo diferentes en la canalización. Cada paso se puede ejecutar de forma independiente y usar recursos de proceso aislados. Esto permite que varios científicos de datos trabajen en la misma canalización al mismo tiempo sin sobrecargar los recursos de proceso y facilita el uso de diferentes tamaños o tipos de proceso para cada paso.
+Las canalizaciones de ML se construyen a partir de varios **pasos**, que son unidades de cálculo diferentes en la canalización. Cada paso se puede ejecutar de forma independiente y usar recursos de proceso aislados. Este enfoque permite que varios científicos de datos trabajen en la misma canalización al mismo tiempo sin sobrecargar los recursos de proceso y facilita el uso de diferentes tamaños o tipos de proceso para cada paso.
 
 > [!TIP]
 > Las canalizaciones de ML pueden utilizar la configuración de ejecución o los objetos "Estimator" al entrenar modelos.
@@ -100,10 +100,11 @@ Proceso Azure Machine Learning Compute para distribuir el proceso de entrenamien
 Proceso de Azure Machine Learning tiene límites predeterminados, como el número de núcleos que se pueden asignar. Para más información, consulte [Administración y solicitud de cuotas para recursos de Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
 > [!TIP]
-> Por lo general, los clústeres pueden escalar hasta 100 nodos, siempre y cuando tenga la cuota suficiente para el número de núcleos necesarios. De forma predeterminada, los clústeres se configuran con la comunicación entre nodos del clúster habilitada para, por ejemplo, permitir trabajos de MPI. No obstante, puede escalar los clústeres a miles de nodos simplemente [generando una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y solicitando la inclusión en la lista blanca de su suscripción, área de trabajo o un clúster específico para deshabilitar la comunicación entre nodos. 
->
+> Por lo general, los clústeres pueden escalar verticalmente hasta 100 nodos, siempre y cuando tenga la cuota suficiente para el número de núcleos necesarios. De forma predeterminada, los clústeres se configuran con la comunicación entre nodos del clúster habilitada para, por ejemplo, permitir trabajos de MPI. No obstante, puede escalar los clústeres a miles de nodos simplemente [generando una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y solicitando la inclusión en la lista blanca de su suscripción, área de trabajo o un clúster específico para deshabilitar la comunicación entre nodos. 
 
-Se puede reutilizar una instancia de Proceso de Azure Machine Learning entre trabajos. El proceso puede compartirse con otros usuarios del área de trabajo y se conserva entre ejecuciones, escalando o reduciendo automáticamente los nodos verticalmente según el número de ejecuciones enviadas y el valor de max_nodes establecido en el clúster.
+Se puede reutilizar una instancia de Proceso de Azure Machine Learning entre trabajos. El proceso puede compartirse con otros usuarios del área de trabajo y se conserva entre ejecuciones, escalando o reduciendo automáticamente los nodos verticalmente según el número de ejecuciones enviadas y el valor de max_nodes establecido en el clúster. La configuración min_nodes controla los nodos mínimos disponibles.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
 1. **Crear y adjuntar**: para crear un recurso de Proceso de Azure Machine Learning persistente en Python, especifique las propiedades **vm_size** y **max_nodes**. Azure Machine Learning usará valores predeterminados inteligentes para las demás propiedades. El proceso se reduce verticalmente a cero nodos cuando no se utiliza.   Se crean máquinas virtuales dedicadas para ejecutar los trabajos según sea necesario.
     
@@ -365,7 +366,7 @@ Después de crear una configuración de ejecución, se utiliza para ejecutar el 
 > [!IMPORTANT]
 > Cuando envía la ejecución de entrenamiento, se crea una instantánea del directorio que contiene los scripts de entrenamiento y se envía al destino de proceso. También se almacena como parte del experimento del área de trabajo. Si cambia los archivos y vuelve a enviar la ejecución, solo se cargarán los archivos cambiados.
 >
-> Para evitar que los archivos se incluyan en la instantánea, cree un archivo [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguelos. El archivo `.amlignore` usa la misma sintaxis y patrones que el archivo [.gitignore](https://git-scm.com/docs/gitignore). Si ambos archivos existen, el archivo `.amlignore` tiene prioridad.
+> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 > 
 > Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -483,7 +484,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Observe la sección *arguments* (argumentos) en runconfig y el *espacio de parámetros* en la configuración de HyperDrive. Contienen los argumentos de la línea de comandos que se van a pasar al script de aprendizaje. El valor de runconfig permanece igual para cada iteración, mientras que el intervalo de la configuración de HyperDrive se repite en interación. No especifique el mismo argumento en ambos archivos.
 
-Para obtener más información sobre estos comandos de la CLI ```az ml``` y el conjunto completo de argumentos, consulte la [documentación de referencia](reference-azure-machine-learning-cli.md).
+Para obtener más información sobre estos comandos de la CLI ```az ml```, consulte la [documentación de referencia](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

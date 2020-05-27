@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a1a743f313ca4159ce4ef03413a94ec25bb8fae
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126659"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591240"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
@@ -90,8 +90,8 @@ Ahora podrá establecer el identificador y el secreto de cliente, ya sea escribi
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Configuración de la federación de Google en el portal de Azure AD 
 1. Vaya a [Azure Portal](https://portal.azure.com). En el panel izquierdo, seleccione **Azure Active Directory**. 
-2. Seleccione **Relaciones organizativas**.
-3. Seleccione **Proveedores de identidades** y haga clic en el botón de **Google**.
+2. Seleccione **External Identities**.
+3. Seleccione **Todos los proveedores de identidades** y haga clic en el botón de **Google**.
 4. Escriba un nombre. A continuación, escriba el identificador y el secreto de cliente que obtuvo anteriormente. Seleccione **Guardar**. 
 
    ![Captura de pantalla que muestra la página para agregar un proveedor de identidades de Google](media/google-federation/google-identity-provider.png)
@@ -112,8 +112,8 @@ La configuración de la federación de Google se puede eliminar. Si lo hace, los
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Para eliminar la federación de Google desde el portal de Azure AD: 
 1. Vaya a [Azure Portal](https://portal.azure.com). En el panel izquierdo, seleccione **Azure Active Directory**. 
-2. Seleccione **Relaciones organizativas**.
-3. Seleccione **Proveedores de identidades**.
+2. Seleccione **External Identities**.
+3. Seleccione **Todos los proveedores de identidades**.
 4. En la línea de **Google**, seleccione el menú contextual ( **...** ) y, a continuación, seleccione **Eliminar**. 
    
    ![Captura de pantalla que muestra la opción de eliminación del proveedor de identidades sociales](media/google-federation/google-social-identity-providers.png)

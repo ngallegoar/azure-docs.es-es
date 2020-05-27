@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77443557"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589506"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configuración de un laboratorio para enseñar el scripting de shell en Linux
 En este artículo se muestra cómo configurar un laboratorio para enseñar el scripting de shell en Linux. El scripting es una parte útil de la administración del sistema que permite a los administradores evitar tareas repetitivas. En este escenario de ejemplo, la clase cubre scripts bash tradicionales y scripts mejorados. Los scripts mejorados son scripts que combinan comandos bash y Ruby. Este enfoque permite a Ruby pasar datos y comandos bash para interactuar con el shell. 
@@ -32,19 +32,19 @@ Después de crear la cuenta de laboratorio, habilite la siguiente configuración
 
 | Configuración de la cuenta de laboratorio | Instructions |
 | ----------- | ------------ |  
-| Imágenes de Marketplace | Habilite la imagen de [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) para su uso en la cuenta de laboratorio. Para más información, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](specify-marketplace-images.md). | 
+| Imágenes de Marketplace | Habilite la imagen de Ubuntu Server 18.04 LTS para su uso en la cuenta de laboratorio. Para más información, consulte [Especificación de las imágenes de Marketplace disponibles para los creadores de laboratorios](specify-marketplace-images.md). | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para crear un laboratorio y aplique la configuración siguiente:
 
 | Configuración del laboratorio | Valor/instrucciones | 
 | ------------ | ------------------ |
 | Tamaño de la máquina virtual | Pequeña  |
-| Imagen de la máquina virtual | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
-| Habilitar la conexión a Escritorio remoto | Enable (Habilitar). <p>La habilitación de esta configuración permitirá a los profesores y alumnos conectarse a sus máquinas virtuales mediante el escritorio remoto (RDP). Para más información, consulte [Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Imagen de la máquina virtual | Ubuntu Server 18.04 LTS |
+| Habilitar la conexión a Escritorio remoto | Enable (Habilitar). <p>La habilitación de esta configuración permitirá a los formadores y alumnos conectarse a sus VM mediante el escritorio remoto (RDP). Para más información, consulte [Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Instalación del escritorio y xrdp
-La imagen de [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) no tiene instalado de forma predeterminada el servidor de escritorio remoto. Siga las instrucciones del artículo [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../virtual-machines/linux/use-remote-desktop.md) para instalar los paquetes necesarios en la máquina de plantilla para conectarse mediante el protocolo de escritorio remoto.
+La imagen de Ubuntu Server 18.04 LTS no tiene instalado de manera predeterminada el servidor de escritorio remoto. Siga las instrucciones del artículo [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../virtual-machines/linux/use-remote-desktop.md) para instalar los paquetes necesarios en la máquina de plantilla para conectarse mediante el protocolo de escritorio remoto.
 
 ## <a name="install-ruby"></a>Instalación de Ruby
 Ruby es un lenguaje dinámico de código abierto que se puede combinar con scripts de Bash. En esta sección se muestra cómo usar `apt-get` para instalar la versión más reciente de [Ruby](https://www.ruby-lang.org/).

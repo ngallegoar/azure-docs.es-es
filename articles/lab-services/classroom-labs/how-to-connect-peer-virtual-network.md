@@ -1,6 +1,6 @@
 ---
 title: Conectarse a una red del mismo nivel en Azure Lab Services | Microsoft Docs
-description: Aprenda a conectar la red de laboratorio a otra red como una red del mismo nivel. Por ejemplo, conecte la red local de la escuela o la universidad a la red virtual de laboratorio en Azure.
+description: Aprenda a conectar la red de laboratorio a otra red como una red del mismo nivel. Por ejemplo, conecte la red local de la organización o la universidad a la red virtual de laboratorio en Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 556a32a111149fe5ade3b11fee9c732c935de289
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188011"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592022"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services
 
@@ -46,11 +46,16 @@ Durante la [creación de la cuenta de laboratorio](tutorial-setup-lab-account.md
 
 ### <a name="address-range"></a>Intervalo de direcciones
 
-También hay una opción para proporcionar un **intervalo de direcciones** para las máquinas virtuales de los laboratorios.  La propiedad **Intervalo de direcciones** solo se aplica si se ha habilitado **Emparejar Red virtual** para el laboratorio.  Si se proporciona el intervalo de direcciones, todas las máquinas virtuales de los laboratorios de la cuenta de laboratorio se crearán en ese intervalo de direcciones. El intervalo de direcciones debe estar en notación CIDR (por ejemplo, 10.20.0.0/20) y no superponerse con ningún intervalo de direcciones existente.  Al proporcionar un intervalo de direcciones, es importante pensar en el número de *laboratorios* que se crearán e indicar un intervalo de direcciones para acomodarlos. Lab Services presupone un máximo de 512 máquinas virtuales por laboratorio.  Por ejemplo, un intervalo de direcciones IP con "/23" solo puede crear un laboratorio.  Un intervalo con "/21" permitirá la creación de cuatro laboratorios.
+También hay una opción para proporcionar un **intervalo de direcciones** para las máquinas virtuales de los laboratorios.  La propiedad **Intervalo de direcciones** solo se aplica si se ha habilitado **Emparejar Red virtual** para el laboratorio. Si se proporciona el intervalo de direcciones, todas las máquinas virtuales de los laboratorios de la cuenta de laboratorio se crearán en ese intervalo de direcciones. El intervalo de direcciones debe estar en notación CIDR (por ejemplo, 10.20.0.0/20) y no superponerse con ningún intervalo de direcciones existente.  Al proporcionar un intervalo de direcciones, es importante pensar en el número de *laboratorios* que se crearán e indicar un intervalo de direcciones para acomodarlos. Lab Services presupone un máximo de 512 máquinas virtuales por laboratorio.  Por ejemplo, un intervalo de direcciones IP con "/23" solo puede crear un laboratorio.  Un intervalo con "/21" permitirá la creación de cuatro laboratorios.
 
 Si no se especifica el **intervalo de direcciones**, Lab Services usa el intervalo de direcciones predeterminado que proporciona Azure al crear la red virtual que se empareja con la suya.  El intervalo suele ser similar a 10.x.0.0/16.  Esto puede dar lugar a la superposición del intervalo de direcciones IP, por lo que debe asegurarse de especificar dicho intervalo en la configuración del laboratorio, o bien comprobar el intervalo de direcciones de la red virtual que se va a emparejar.
 
-## <a name="configure-after-the-lab-is-created"></a>Configuración después de crear el laboratorio
+> [!NOTE]
+> Se puede producir un error en la creación del laboratorio si la cuenta de laboratorio está emparejada a una red virtual, pero tiene un intervalo de direcciones IP demasiado estrecho. Puede quedarse sin espacio en el intervalo de direcciones si hay demasiados laboratorios en la cuenta de laboratorio (cada laboratorio usa 512 direcciones). 
+> 
+> Si se produce un error en la creación del laboratorio, póngase en contacto con el administrador o el propietario de la cuenta de laboratorio y solicite que se aumente el intervalo de direcciones. El administrador puede aumentar el intervalo de direcciones mediante los pasos mencionados en la sección [Especificación de un intervalo de direcciones para las VM de la cuenta de laboratorio](#specify-an-address-range-for-vms-in-the-lab-account). 
+
+## <a name="configure-after-the-lab-account-is-created"></a>Configuración después de crear la cuenta de laboratorio
 
 La misma propiedad se puede habilitar desde la pestaña **Configuración de laboratorios** de la página **Cuenta de laboratorio** si no configuró una red del mismo nivel cuando creó la cuenta de laboratorio. El cambio realizado en esta configuración tendrá efecto únicamente en los laboratorios creados después de dicho cambio. Como puede ver en la imagen, la opción **Asociar red virtual** se puede habilitar o deshabilitar en los laboratorios de la cuenta de laboratorio.
 
@@ -60,6 +65,21 @@ Al seleccionar una red virtual en el campo **Asociar red virtual**, se deshabili
 
 > [!IMPORTANT]
 > La configuración de la red virtual emparejada solo se aplica a los laboratorios creados después de realizar el cambio, no a los laboratorios que ya existían.
+
+
+## <a name="specify-an-address-range-for-vms-in-the-lab-account"></a>Especificación de un intervalo de direcciones para las VM de la cuenta de laboratorio
+El procedimiento siguiente tiene pasos para especificar un intervalo de direcciones para las máquinas virtuales del laboratorio. Si actualiza el intervalo que ha especificado antes, el intervalo de direcciones modificado se aplica solo a las máquinas virtuales que se crean después de realizar el cambio. 
+
+Estas son algunas restricciones al especificar el intervalo de direcciones que debe tener en cuenta. 
+
+- El prefijo debe ser menor o igual a 23. 
+- Si una red virtual se empareja con la cuenta de laboratorio, el intervalo de direcciones proporcionado no puede coincidir con el de la red virtual emparejada.
+
+1. En la página **Cuenta de laboratorio**, seleccione **Configuración del laboratorio** en el menú de la izquierda.
+2. Para el campo **Intervalo de direcciones**, especifique el intervalo de direcciones para las máquinas virtuales que se van a crear en el laboratorio. Dicho rango debe estar en la notación de enrutamiento de interdominios sin clases (CIDR) (por ejemplo: 10.20.0.0/23). Las máquinas virtuales del laboratorio se crearán en este rango de direcciones.
+3. Seleccione **Guardar** en la barra de herramientas. 
+
+    ![Configuración del intervalo de direcciones](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

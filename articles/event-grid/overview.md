@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393187"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587602"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -52,15 +52,15 @@ Actualmente, los siguientes servicios de Azure admiten el envío de eventos a Ev
 
 Para obtener una información completa sobre las funcionalidades de cada controlador, así como los artículos relacionados, consulte [controladores de eventos](event-handlers.md). Actualmente, los siguientes servicios de Azure admiten el control de eventos de Event Grid: 
 
-* [Azure Automation](event-handlers.md#azure-automation)
-* [Funciones de Azure](event-handlers.md#azure-functions)
-* [Event Hubs](event-handlers.md#event-hubs)
-* [conexiones híbridas](event-handlers.md#hybrid-connections)
-* [Logic Apps](event-handlers.md#logic-apps)
+* [Azure Automation](handler-webhooks.md#azure-automation)
+* [Funciones de Azure](handler-functions.md)
+* [Event Hubs](handler-event-hubs.md)
+* [Retransmisión de conexiones híbridas](handler-relay-hybrid-connections.md)
+* [Logic Apps](handler-webhooks.md#logic-apps)
 * [Power Automate (conocido anteriormente como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Service Bus](event-handlers.md#service-bus)
-* [Queue Storage](event-handlers.md#queue-storage)
-* [Webhooks](event-handlers.md#webhooks)
+* [Service Bus](handler-service-bus.md)
+* [Queue Storage](handler-storage-queues.md)
+* [Webhooks](handler-webhooks.md)
 
 ## <a name="concepts"></a>Conceptos
 

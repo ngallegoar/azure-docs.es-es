@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690629"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799364"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -42,13 +42,13 @@ Quiere:
 
 - Obtenga información más detallada sobre las consultas del registro de inicio de sesión, el libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
 
-- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
+- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
 
 
 
 Este artículo:
 
-- Supone que está familiarizado con cómo [crear informes interactivos con libros de Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Supone que está familiarizado con cómo [crear informes interactivos con libros de Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
 
 - Explica cómo utilizar los libros de Monitor para comprender el efecto de las directivas de acceso condicional, para solucionar los problemas de inicio de sesión e identificar las autenticaciones heredadas.
  
@@ -302,4 +302,4 @@ Para ayudarle a solucionar problemas de inicios de sesión, Azure Monitor propor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de informes interactivos con los libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Creación de informes interactivos con los libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

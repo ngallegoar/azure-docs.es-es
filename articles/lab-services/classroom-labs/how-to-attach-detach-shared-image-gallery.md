@@ -11,24 +11,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 00dbef7b4453ffcb54020340bde51f55827759a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aef5cd13742c0265851f5ba2918d557b4e1026d0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237268"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592651"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services
-Los profesores y administradores del laboratorio pueden guardar una imagen de máquina virtual de plantilla en una [galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md) de Azure para que otros usuarios puedan reutilizarla. Como primer paso, el administrador del laboratorio asocia una galería de imágenes compartidas existente a la cuenta de laboratorio. Una vez que se ha asociado la galería de imágenes compartidas, los laboratorios creados en la cuenta de laboratorio pueden guardar imágenes en la galería de imágenes compartidas. Otros profesores pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus clases. 
-
-Cuando una imagen se guarda en una galería de imágenes compartida, Azure Lab Services replica la imagen guardada en otras regiones disponibles en la misma [ubicación geográfica](https://azure.microsoft.com/global-infrastructure/geographies/). Ello garantiza que la imagen está disponible para los laboratorios creados en otras regiones de la misma ubicación geográfica. Guardar las imágenes en una galería de imágenes compartida conlleva un costo adicional, lo que incluye el costo de todas las imágenes replicadas. Este costo es independiente del costo de uso de Azure Lab Services. Para más información sobre los precios de Shared Image Gallery, vea [Introducción a la galería de imágenes compartidas - Facturación]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
-
 En este artículo se muestra cómo asociar o desasociar una galería de imágenes compartidas en una cuenta de laboratorio. 
 
-> [!NOTE]
-> Actualmente, Azure Lab Services admite la creación de máquinas virtuales de plantilla basadas solo en imágenes de máquina virtual **generalizadas** (no imágenes especializadas) en una galería de imágenes compartidas. 
+## <a name="scenarios"></a>Escenarios
+Estos son los pares de escenarios compatibles con esta característica: 
+
+- Un administrador de la cuenta de laboratorio adjunta una galería de imágenes compartidas a la cuenta de laboratorio y carga una imagen en la galería de imágenes compartidas fuera del contexto de un laboratorio. A continuación, los creadores del laboratorio pueden usar esa imagen de la galería de imágenes compartidas para crear laboratorios. 
+- El administrador de una cuenta de laboratorio adjunta una galería de imágenes compartidas a la cuenta de laboratorio. Un creador del laboratorio (instructor) guarda la imagen personalizada de su laboratorio en la galería de imágenes compartidas. A continuación, otros creadores del laboratorio pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus laboratorios. 
+
+    Cuando una imagen se guarda en una galería de imágenes compartida, Azure Lab Services replica la imagen guardada en otras regiones disponibles en la misma [ubicación geográfica](https://azure.microsoft.com/global-infrastructure/geographies/). Ello garantiza que la imagen está disponible para los laboratorios creados en otras regiones de la misma ubicación geográfica. Guardar las imágenes en una galería de imágenes compartida conlleva un costo adicional, lo que incluye el costo de todas las imágenes replicadas. Este costo es independiente del costo de uso de Azure Lab Services. Para más información sobre los precios de Shared Image Gallery, vea [Introducción a la galería de imágenes compartidas - Facturación]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+
+    > [!NOTE]
+    > Azure Lab Services admite la creación de VM de plantilla basadas solo en imágenes **generalizadas** y **especializadas** en una galería de imágenes compartidas. 
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configuración al crear la cuenta de laboratorio
@@ -79,7 +83,7 @@ En el procedimiento siguiente se muestra cómo asociar una galería de imágenes
     
     En este ejemplo, todavía no hay ninguna imagen en la galería de imágenes compartidas.
 
-    La identidad de Azure Lab Services se agrega como colaborador a la galería de imágenes compartidas asociada al laboratorio. Permite a profesores y administradores de TI guardar imágenes de máquina virtual en la galería de imágenes compartidas. Todos los laboratorios creados en esta cuenta de laboratorio tienen acceso a la galería de imágenes compartidas adjunta. 
+    La identidad de Azure Lab Services se agrega como colaborador a la galería de imágenes compartidas asociada al laboratorio. Permite a formadores y administradores de TI guardar imágenes de máquina virtual en la galería de imágenes compartidas. Todos los laboratorios creados en esta cuenta de laboratorio tienen acceso a la galería de imágenes compartidas adjunta. 
 
     Todas las imágenes de la galería de imágenes compartidas adjunta están habilitadas de forma predeterminada. Puede habilitar o deshabilitar imágenes concretas si las selecciona en la lista y usa el botón **Enable selected images** (Habilitar imágenes seleccionadas) o **Disable selected images** (Deshabilitar imágenes seleccionadas). 
 

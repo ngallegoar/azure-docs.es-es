@@ -7,19 +7,21 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: bd9241e526d7cf42f0697afb8635c085a08c80d8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 05/21/2020
+ms.openlocfilehash: eece6f97e82f3800d4f59ac1849b34c2a1e4635b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606482"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800082"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Transformación División condicional en el flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La transformación División condicional enruta las filas de datos a diferentes flujos en función de las condiciones coincidentes. La transformación División condicional es similar a una estructura de decisión CASE en un lenguaje de programación. La transformación evalúa las expresiones y, según los resultados, dirige la fila de datos a la secuencia especificada.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
 
 ## <a name="configuration"></a>Configuración
 
