@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 05/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5339136513d4a9553c46bb50c0dd29f9785c7fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa90775df4462328ed7c39e70c8dd1989248e308
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330943"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900510"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -271,6 +271,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 |UserMessageIfSessionDoesNotExist |La sesión de comprobación de contraseña única ha expirado. |
 |UserMessageIfSessionConflict |La sesión de comprobación de contraseña única presenta un conflicto. |
 |UserMessageIfInvalidCode |La contraseña única que se proporcionó para la comprobación no es correcta. |
+|UserMessageIfVerificationFailedRetryAllowed |Este código no es correcto. Inténtelo de nuevo. | 
 
 ### <a name="example"></a>Ejemplo
 
@@ -281,6 +282,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

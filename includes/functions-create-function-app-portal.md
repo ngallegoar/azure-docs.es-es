@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: c590b61ee1424d32d83dc5f758682fde37492c3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 439b312050f657566026a36c145e7b6dd5cc9bad
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80057073"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116457"
 ---
 1. En el menú de Azure Portal o en la página **Principal**, seleccione **Crear un recurso**.
 
@@ -47,7 +47,7 @@ ms.locfileid: "80057073"
 
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Valor predeterminado | Crea un recurso de Application Insights con el mismo *nombre de aplicación* en la región más cercana que lo admita. Si expande esta configuración, puede cambiar el valor de **Nuevo nombre de recurso**  o elegir otro valor en **Ubicación** en la [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) donde desee almacenar los datos. |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Valor predeterminado | Crea un recurso de Application Insights con el mismo *nombre de aplicación* en la región más cercana que lo admita. Si expande esta configuración o selecciona **Crear nuevo** puede cambiar el nombre de Application Insights o elegir otra región de una [geografía de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) en la que quiera almacenar los datos. |
 
     ![Supervisión](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "80057073"
 
 1. En la página **Revisar y crear**, revise la configuración y, a continuación, seleccione **Crear** para aprovisionar e implementar la aplicación de función.
 
-1. Seleccione el icono de notificación de la esquina superior derecha del portal y observe el mensaje **Implementación correcta**.
+1. Seleccione el icono **Notificaciones** de la esquina superior derecha del portal y observe el mensaje **Implementación correcta**.
 
 1. Seleccione **Ir al recurso** para ver la nueva aplicación de función. También puede seleccionar **Anclar al panel**. Dicho anclaje facilita la vuelta a este recurso de aplicación de función desde el panel.
 

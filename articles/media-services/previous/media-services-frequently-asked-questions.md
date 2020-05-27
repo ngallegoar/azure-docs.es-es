@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bdb5a43ad6669bfcd6e93ef4e3bf1646314e4606
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 67c7955316d4c9670509affb478813df0768f261
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705877"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832561"
 ---
 # <a name="media-services-v2-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v2
 
@@ -56,7 +56,7 @@ A. Para copiar recursos de una cuenta de Media Services a otra mediante .NET, us
 
 P: ¿Cuáles son los caracteres admitidos para nombrar los archivos cuando se trabaja con AMS?
 
-A. Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]" Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
+A. Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]" Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 P: ¿Cómo se realiza la conexión con REST?
 
