@@ -12,17 +12,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4b6a2481c18314a44470a020033ffdc4ba1d7259
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380026"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860059"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular
-
-> [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general (GA).
 
 En este inicio rápido se usa un código de ejemplo que muestra cómo una aplicación de página única (SPA) de Angular puede iniciar sesión en usuarios que tienen cuentas personales, profesionales o educativas de Microsoft. Una SPA de Angular también puede obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web.
 

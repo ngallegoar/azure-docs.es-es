@@ -3,20 +3,20 @@ title: Guía de inicio rápido de instancia administrada de SQL
 description: Empiece a usar rápidamente Instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, carlr
+author: davidtrigano
+ms.author: datrigan
+ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 602de3e23eb5419958f84b071e2220550d1d04d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b873588393ed765fa21b30dfb3a71486d055373b
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73821717"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780462"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introducción a Instancia administrada de Azure SQL Database
 
@@ -37,7 +37,8 @@ Como primer paso, tendrá que crear su primera instancia administrada con el ent
   - Configure una [conexión VPN de punto a sitio a la instancia administrada](sql-database-managed-instance-configure-p2s.md) desde el equipo cliente en el que tiene SQL Server Management Studio y otras aplicaciones de conectividad de cliente. Estas son las dos opciones de conectividad a la instancia administrada y a su red virtual.
 
   > [!NOTE]
-  > También puede usar ExpressRoute o una conexión de sitio a sitio desde la red local, pero estos métodos están fuera del ámbito de estos inicios rápidos.
+  > - También puede usar ExpressRoute o una conexión de sitio a sitio desde la red local, pero estos métodos están fuera del ámbito de estos inicios rápidos.
+  > - Si cambia el período de retención de 0 (retención ilimitada) a cualquier otro valor, tenga en cuenta que la retención solo se aplicará a los registros escritos una vez cambiado el valor de retención (los registros escritos durante el período en el que la retención se estableció en ilimitada se conservan, incluso después de habilitarse la retención).
 
 Como alternativa a la creación manual de la instancia administrada, puede usar [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [PowerShell con una plantilla de Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) para crear scripts y automatizar este proceso.
 

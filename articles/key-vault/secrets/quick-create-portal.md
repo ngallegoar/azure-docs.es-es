@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d659ca519e5bd7f26e4cca17707e0db397aae98
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421179"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652281"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -63,7 +63,11 @@ Para agregar un secreto al almacén, simplemente debe realizar un par de pasos a
     - **Valor**: hVFkk965BuUv
     - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
 
-Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. A continuación, puede ver algunas de las propiedades. Si hace clic en la versión actual puede ver el valor especificado en el paso anterior.
+Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. 
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar un secreto del almacén de claves
+
+Si hace clic en la versión actual puede ver el valor especificado en el paso anterior.
 
 ![Propiedades del secreto](../media/quick-create-portal/current-version-hidden.png)
 

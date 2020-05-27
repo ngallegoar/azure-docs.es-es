@@ -5,27 +5,18 @@ keywords: azure app service, aplicación web, aplicación móvil, api app, aplic
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535662"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649030"
 ---
 # <a name="security-in-azure-app-service"></a>Seguridad en Azure App Service
 
 En este artículo se muestra cómo [Azure App Service](overview.md) ayuda a proteger su aplicación web, el back-end de la aplicación móvil, la aplicación de API y la [aplicación de función](/azure/azure-functions/). También muestra cómo proteger aún más su aplicación con las características de App Service integradas.
 
-Los componentes de plataforma de App Service, incluidas las máquinas virtuales de Azure, el almacenamiento, las conexiones de red, las plataformas web y las características de administración e integración se protegen y refuerzan activamente. App Service realiza exhaustivas comprobaciones de cumplimiento de forma continua para asegurarse de que:
-
-- Los recursos de aplicación estén [protegidos](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) de los recursos de Azure de otros clientes.
-- [Las instancias de máquina virtual y el software en tiempo de ejecución se actualicen periódicamente](overview-patch-os-runtime.md) para abordar puntos vulnerables recién detectados. 
-- La comunicación de secretos (por ejemplo, cadenas de conexión) entre su aplicación y otros recursos de Azure (por ejemplo, [SQL Database](https://azure.microsoft.com/services/sql-database/)) permanezca dentro de Azure y no cruce ningún límite de la red. Los secretos siempre se cifren al guardarlos.
-- Todas las comunicaciones que se realicen con las características de conectividad de App Service, como la [conexión híbrida](app-service-hybrid-connections.md), se cifren. 
-- Todas las conexiones con herramientas de administración remota como Azure PowerShell, la CLI de Azure, los SDK de Azure o las API REST, se cifren.
-- La administración ininterrumpida de amenazas proteja la infraestructura y la plataforma frente a malware, ataques por denegación de servicio distribuido (DDoS), ataques de tipo "Man in the middle" (MITM) y otras amenazas.
-
-Para más información sobre la seguridad de la infraestructura y la plataforma en Azure, consulte [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/overview/trusted-cloud/).
+[!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
 Las secciones siguientes muestran cómo proteger aún más la aplicación de App Service frente a amenazas.
 

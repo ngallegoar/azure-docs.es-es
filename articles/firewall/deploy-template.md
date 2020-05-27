@@ -5,26 +5,27 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: 17ab693033b61c25ba2f5b5bd588ef52caf8c046
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9b9b7926caa717c1a02988ac7a927bd9bd39d52a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597712"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683711"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager
 
 En este inicio rápido, se usa una plantilla de Resource Manager para implementar una instancia de Azure Firewall en tres instancias de Availability Zones. 
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Esta plantilla crea un entorno de red de prueba con un firewall. La red tiene una red virtual (VNet) con tres subredes: *AzureFirewallSubnet*, *ServersSubnet* y *JumpboxSubnet*. Cada una de las subredes *ServersSubnet* y *JumpboxSubnet* tiene una única máquina virtual Windows Server de doble núcleo.
 
 El firewall está en la subred *AzureFirewallSubnet* y tiene una colección de reglas de aplicación con una única regla que permite el acceso a `www.microsoft.com`.
 
 Una ruta definida por el usuario señala el tráfico de red desde la subred *ServersSubnet* a través del firewall, en donde se aplican las reglas de firewall.
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para más información sobre Azure Firewall, vea [Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md).
 
@@ -38,20 +39,20 @@ Esta plantilla crea una instancia de Azure Firewall con Availability Zones, junt
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-with-zones-sandbox/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
 
 En la plantilla se definen varios recursos de Azure:
 
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -82,10 +83,12 @@ Cuando ya no los necesite, puede quitar el grupo de recursos, el firewall y todo
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
+
 Si planea continuar con el tutorial de supervisión de firewall, no quite el firewall ni el grupo de recursos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-A continuación, puede supervisar los registros de Azure Firewall:
+A continuación, puede supervisar los registros de Azure Firewall.
 
-[Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md)

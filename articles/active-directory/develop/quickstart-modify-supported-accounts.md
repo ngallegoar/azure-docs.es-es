@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050239"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826866"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Inicio rápido: Modificación de las cuentas compatibles con una aplicación
 
@@ -69,6 +69,8 @@ De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilita
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>Para habilitar la concesión implícita de OAuth 2.0
 
+1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**.
+1. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación o la de registro principal.
 1. Desde la página **Introducción** de la aplicación, seleccione la sección **Autenticación**.
 1. En **Configuración avanzada**, busque la sección **Concesión implícita**.
 1. Seleccione **Tokens de identificador**, **Tokens de acceso** o ambos.

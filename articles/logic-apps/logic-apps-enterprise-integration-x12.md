@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 8ec20e03544ba54b83130ae41244dcdb186252d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613089"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739539"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes X12 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -319,8 +319,8 @@ En esta tabla se enumeran los tipos de mensaje afectados, cualquier variante y l
 | Tipo de mensaje o variante |  Descripción | Número de versión del documento (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Notificación de estado de información de asistencia sanitaria | 005010X212 |
-| 837_I | Reclamación de asistencia sanitaria dental | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
-| 837_D | Reclamación de asistencia sanitaria institucional | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
+| 837_I | Reclamación de asistencia sanitaria institucional | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
+| 837_D | Reclamación de asistencia sanitaria dental | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
 | 837_P | Reclamación de asistencia sanitaria profesional | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 
