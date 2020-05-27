@@ -892,8 +892,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preguntas frecuentes
       href: service-fabric-common-questions.md
-    - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Página de preguntas y respuestas de Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-service-fabric.html'
     - name: Protecciones en la implementación de Azure Resource Manager
       href: service-fabric-azure-resource-manager-guardrails.md
     - name: Precios

@@ -393,8 +393,8 @@
   items:
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Foro
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
+    - name: Página de preguntas y respuestas de Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
     - name: Calculadora de precios

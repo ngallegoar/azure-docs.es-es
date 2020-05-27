@@ -33,7 +33,7 @@
     - name: Creación de una canalización para transformar datos
       href: data-factory-build-your-first-pipeline.md
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: data-factory-build-your-first-pipeline-using-editor.md
         - name: Visual Studio
           href: data-factory-build-your-first-pipeline-using-vs.md
@@ -201,8 +201,8 @@
       href: data-factory-customer-case-studies.md
     - name: Ruta de aprendizaje
       href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Página de preguntas y respuestas de Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Calculadora de precios
