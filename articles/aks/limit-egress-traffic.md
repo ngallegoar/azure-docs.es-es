@@ -4,12 +4,12 @@ description: Obtenga información sobre qué puertos y direcciones son necesario
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 194e799daf107220c28404001d223e521dceeb3f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207180"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870900"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -147,8 +147,8 @@ Los clústeres de AKS que tienen habilitado Azure Dev Spaces necesitan las regla
 | FQDN                                    | Port      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Esta dirección se usa para extraer Linux Alpine y otras imágenes de Azure Dev Spaces |
-| gcr.io | HTTP:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
-| storage.googleapis.com | HTTP:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
+| gcr.io | HTTPS:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
+| storage.googleapis.com | HTTPS:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
 | azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Direcciones y puertos necesarios para los clústeres de AKS que tienen habilitado Azure Policy (en versión preliminar pública)
