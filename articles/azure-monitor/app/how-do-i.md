@@ -3,12 +3,12 @@ title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536869"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701946"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -16,7 +16,7 @@ ms.locfileid: "81536869"
 Establecer una [prueba web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ### <a name="email-if-my-site-is-overloaded"></a>Enviar un correo electrónico si mi sitio está sobrecargado
-Establecer una [alerta](../../azure-monitor/app/alerts.md) en **Tiempo de respuesta del servidor**. Un umbral entre 1 y 2 segundos debería funcionar.
+Establecer una [alerta](../../azure-monitor/platform/alerts-log.md) en **Tiempo de respuesta del servidor**. Un umbral entre 1 y 2 segundos debería funcionar.
 
 ![](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Si quiere establecer una alerta en **Excepciones de servidor**, puede que tenga 
 
 ### <a name="email-on-exceptions"></a>Envío de excepciones por correo electrónico
 1. [Configurar supervisión de excepciones](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Establecer una alerta](../../azure-monitor/app/alerts.md) en la métrica de recuento de excepciones
+2. [Establecer una alerta](../../azure-monitor/platform/alerts-log.md) en la métrica de recuento de excepciones
 
 ### <a name="email-on-an-event-in-my-app"></a>Enviar un correo electrónico sobre un evento en mi aplicación
-Supongamos que quiere recibir un correo electrónico cuando se produce un evento específico. Application Insights no ofrece esta función directamente, pero puede [enviar una alerta cuando una métrica sobrepasa un umbral](../../azure-monitor/app/alerts.md).
+Supongamos que quiere recibir un correo electrónico cuando se produce un evento específico. Application Insights no ofrece esta función directamente, pero puede [enviar una alerta cuando una métrica sobrepasa un umbral](../../azure-monitor/platform/alerts-log.md).
 
 Las alertas se pueden establecer en [métricas personalizadas](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), aunque no así los eventos no personalizados. Escribir código para aumentar una métrica cuando se produce el evento:
 
@@ -65,11 +65,11 @@ Algunos puntos que se deben tener en cuenta:
 * Puesto que los correos electrónicos se envían tanto en los estados "alerta" como "correcto", es posible que considere volver a pensar en su evento monoestable como en una condición de dos estados. Por ejemplo, en lugar de un evento de "trabajo completado", tiene una condición de "trabajo en curso", donde recibe correos electrónicos al principio y al final de un trabajo.
 
 ### <a name="set-up-alerts-automatically"></a>Configuración de alertas automáticamente
-[Uso de PowerShell para crear nuevas alertas](../../azure-monitor/app/alerts.md#automation)
+[Uso de PowerShell para crear nuevas alertas](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Uso de PowerShell para administrar Application Insights
 * [Creación de nuevos recursos](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Creación de nuevas alertas](../../azure-monitor/app/alerts.md#automation)
+* [Creación de nuevas alertas](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetría independiente de diferentes versiones
 

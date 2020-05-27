@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6ba1410034abcfb95923fd2ccb3fdcbc9939ec4b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 63487cc09ab6635967dcee79e7c0ab0041f33dde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195868"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701988"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Instalación de aplicaciones en un conjunto de escalado de máquinas virtuales con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016 y usa la extensión de script personalizado para instalar una aplicación web básica. Después de ejecutar el script, puede tener acceso a la aplicación web mediante un explorador web.
@@ -48,5 +48,3 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
-
-Se pueden encontrar otros ejemplos de scripts de PowerShell de conjunto de escalado de máquinas virtuales en la [documentación del conjunto de escalado de máquinas virtuales de Azure](../powershell-samples.md).

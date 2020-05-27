@@ -2,15 +2,15 @@
 title: 'Tutorial: Creación e implementación de una plantilla'
 description: Creación de la primera plantilla de Azure Resource Manager En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c07f587b8b200a6f9d686c77e5ffefa399c6e179
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2180ca80d87643eb885d814318e516b4b3c53f37
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199922"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714804"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
@@ -98,7 +98,7 @@ Si tiene varias suscripciones de Azure, seleccione la suscripción que desee usa
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)

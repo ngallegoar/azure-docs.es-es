@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fb776b4c1ff537401a23eb272526b3043fdb1e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ac6a38d99f588c9dbab7a40bc092aa01b27649a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235723"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726016"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registro de un dispositivo de Azure IoT Edge
 
@@ -122,7 +122,7 @@ La [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) es
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Creación de un dispositivo IoT Edge con la CLI de Azure
 
-Use el comando [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) para crear una nueva identidad de dispositivo en su centro de IoT. Por ejemplo:
+Use el comando [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) para crear una nueva identidad de dispositivo en su centro de IoT. Por ejemplo:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -138,7 +138,7 @@ Este comando incluye tres parámetros:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Creación de dispositivos IoT Edge con la CLI de Azure
 
-Use el comando [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) para ver todos los dispositivos en su centro de IoT. Por ejemplo:
+Use el comando [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) para ver todos los dispositivos en su centro de IoT. Por ejemplo:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -148,7 +148,7 @@ Los dispositivos que están registrados como dispositivos IoT Edge tendrán la p
 
 ### <a name="retrieve-the-connection-string-with-the-azure-cli"></a>Recuperación de la cadena de conexión con la CLI de Azure
 
-Cuando esté listo para configurar el dispositivo, necesitará la cadena de conexión que vincula el dispositivo físico con su identidad en el centro de IoT. Use el comando [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) para devolver la cadena de conexión para un único dispositivo:
+Cuando esté listo para configurar el dispositivo, necesitará la cadena de conexión que vincula el dispositivo físico con su identidad en el centro de IoT. Use el comando [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) para devolver la cadena de conexión para un único dispositivo:
 
    ```azurecli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]

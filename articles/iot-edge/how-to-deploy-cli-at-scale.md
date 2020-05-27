@@ -9,12 +9,12 @@ ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff6bb9e4d4e40c02b52f35bd56bf065a8804a43a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134044"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726169"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -182,7 +182,7 @@ Para más información sobre dispositivos gemelos y etiquetas, consulte [Informa
 
 Implemente módulos en los dispositivos de destino; para ello, cree una implementación que consista en el manifiesto de implementación y otros parámetros.
 
-Utilice el comando [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) para crear una implementación:
+Utilice el comando [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) para crear una implementación:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -215,7 +215,7 @@ Si actualiza la condición de destino, se producen las siguientes actualizacione
 
 No se puede actualizar el contenido de una implementación, lo cual incluye los módulos y las rutas definidos en el manifiesto de implementación. Si desea actualizar el contenido de una implementación, debe crear una nueva implementación que tenga como destino los mismos dispositivos con una prioridad más alta. Puede modificar determinadas propiedades de un módulo existente, incluidas la condición de destino, las etiquetas, las métricas y la prioridad.
 
-Utilice el comando [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) para actualizar una implementación:
+Utilice el comando [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) para actualizar una implementación:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -236,7 +236,7 @@ El comando deployment update toma los parámetros siguientes:
 
 Cuando se elimina una implementación, los dispositivos adoptan la siguiente implementación de prioridad más alta. Si los dispositivos no cumplen la condición de destino de alguna implementación, los módulos no se quitan cuando se elimina la implementación.
 
-Utilice el comando [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) para eliminar una implementación:
+Utilice el comando [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) para eliminar una implementación:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

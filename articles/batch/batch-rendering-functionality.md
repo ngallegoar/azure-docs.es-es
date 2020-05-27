@@ -4,13 +4,13 @@ description: Las funcionalidades estándar de Azure Batch se utilizan para ejecu
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 867dfae570a1e2006b7eea568e3450050f485d9d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115761"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726475"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 

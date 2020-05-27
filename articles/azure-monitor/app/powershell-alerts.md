@@ -3,18 +3,18 @@ title: Uso de PowerShell para configurar alertas en Application Insights | Micro
 description: Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f35658b08eff7574448e3c72b103178b66acbbe0
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669852"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701836"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Puede automatizar la configuración de [alertas](../../azure-monitor/app/alerts.md) en [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Puede automatizar la configuración de [alertas](../../azure-monitor/platform/alerts-log.md) en [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Además, puede [establecer webhooks para automatizar su respuesta ante una alerta](../../azure-monitor/platform/alerts-webhooks.md).
 

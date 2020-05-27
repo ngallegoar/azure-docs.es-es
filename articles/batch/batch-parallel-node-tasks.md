@@ -1,15 +1,15 @@
 ---
 title: Ejecución de tareas en paralelo para optimizar los recursos de proceso
 description: Aumente la eficiencia y reduzca los costos usando menos nodos de proceso y ejecutando tareas simultáneas en cada nodo de un grupo de Azure Batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 180294e7da95392e5c6c8055e53cea1ad3b4c7a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d38076396ea89eed9e1ef0c2e9ba14cddfd7cc6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116764"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724197"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Ejecución simultánea de tareas para maximizar el uso de los nodos de proceso de Batch 
 

@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 999204cf2fc8ce18b42f873b9d34af4e6c08052b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 3edd29703f74c7671537fbcf08159dd830e5453c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411494"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726233"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
 
@@ -59,7 +59,7 @@ Puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azu
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest).
+Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
 
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
@@ -109,7 +109,7 @@ Puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azu
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos, la generación de certificados y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest).
+Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos, la generación de certificados y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 
@@ -152,7 +152,7 @@ Puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azu
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Para más información, consulte el contenido de referencia de la CLI de Azure de los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest).
+Para más información, consulte el contenido de referencia de la CLI de Azure de los comandos [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 

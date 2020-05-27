@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.custom: avverma
-ms.openlocfilehash: 4e9c050c82a08572042f75e7979fc338b8133d0f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 759ebb58afcceade8d52305c6a6a41a782ed4df6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125067"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701997"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Escalado automático de un conjunto de escalado de máquinas virtuales con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecuta Windows Server 2016 y usa métricas basadas en el host para escalar automáticamente a medida que la carga de CPU cambia.
@@ -49,4 +49,3 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 
-Se pueden encontrar otros ejemplos de scripts de PowerShell de conjunto de escalado de máquinas virtuales en la [documentación del conjunto de escalado de máquinas virtuales de Azure](../powershell-samples.md).

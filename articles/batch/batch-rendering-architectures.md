@@ -2,14 +2,14 @@
 title: 'Representación de Azure: arquitecturas de referencia'
 description: Arquitecturas para el uso de Azure Batch y otros servicios de Azure para ampliar una granja de representación local llevándola a la nube
 ms.date: 02/07/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115778"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726526"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquitecturas de referencia para la representación de Azure
 

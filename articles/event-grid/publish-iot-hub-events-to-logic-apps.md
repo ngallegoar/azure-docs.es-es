@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 889c5e68759a94682150ac88970b7123ad0fc412
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201744"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722565"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps
 
@@ -240,7 +240,7 @@ Pruebe la aplicación lógica mediante la creación de un dispositivo para desen
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
-En lugar de usar Azure Portal, puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
+En lugar de usar Azure Portal, puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

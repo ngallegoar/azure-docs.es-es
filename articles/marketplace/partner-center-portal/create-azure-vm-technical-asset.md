@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 3c4e5fa4ce960f8113504b52aa0d5055bf1bf85a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730712"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722718"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creación de recursos técnicos para máquinas virtuales de Azure
-
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de máquina virtual de Azure de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Creación de recursos técnicos para una oferta de máquina virtual para Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets) para administrar las ofertas.
 
 En este artículo se describe cómo crear y configurar recursos técnicos para una oferta de máquina virtual (VM) para Azure Marketplace. Una máquina virtual contiene dos componentes: el disco duro virtual (VHD) del sistema operativo y los discos duros virtuales de los discos de datos asociados opcionales:
 

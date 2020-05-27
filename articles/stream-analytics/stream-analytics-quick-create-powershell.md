@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 84c132c333e4d6ba052029350f275ebf499a906f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a12f74e1b96cd305ec7b7a89f8ad77725122ac75
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79536809"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724588"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 
@@ -96,7 +96,7 @@ El siguiente bloque de código de la CLI de Azure realiza varios comandos para p
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Obtenga la cadena de conexión del dispositivo con el comando [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string). Copie la cadena de conexión completa y guárdela para cuando cree el simulador de Raspberry Pi.
+4. Obtenga la cadena de conexión del dispositivo con el comando [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string). Copie la cadena de conexión completa y guárdela para cuando cree el simulador de Raspberry Pi.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table

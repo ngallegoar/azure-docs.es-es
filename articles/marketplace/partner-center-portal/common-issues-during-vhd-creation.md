@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: a47bece4df7263dbc29ec19510c3ea422bb3f4cf
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81265104"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724724"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problemas comunes durante la creación de discos duros virtuales
-
-> [!NOTE]
-> Estamos trasladando la administración de las ofertas de máquina virtual de Azure de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Problemas comunes durante la creación de discos duros virtuales (P+F)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues) en Cloud Partner Portal para administrar las ofertas.
 
 Estas preguntas más frecuentes (P+F) abordan problemas comunes que pueden surgir al crear un disco duro virtual (VHD) para la oferta de máquinas virtuales de Azure.
 

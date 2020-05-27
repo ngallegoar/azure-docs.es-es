@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656745"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725319"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta
 
@@ -23,8 +23,9 @@ Un URI de redireccionamiento, o URL de respuesta, es la ubicación a la que el s
 
  Las siguientes restricciones se aplican a las direcciones URL de respuesta:
 
-    * La dirección URL de respuesta debe comenzar con el esquema `https`.
-    * La dirección URL de respuesta distingue mayúsculas de minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en la dirección URL de respuesta. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
+* La dirección URL de respuesta debe comenzar con el esquema `https`.
+
+* La dirección URL de respuesta distingue mayúsculas de minúsculas. Sus mayúsculas o minúsculas deben coincidir con las de la ruta de acceso de la dirección URL de la aplicación en ejecución. Por ejemplo, si la aplicación incluye como parte de su ruta de acceso `.../abc/response-oidc`, no especifique `.../ABC/response-oidc` en la dirección URL de respuesta. Dado que el explorador web tiene en cuenta las mayúsculas y minúsculas de la ruta de acceso, se pueden excluir las cookies asociadas con `.../abc/response-oidc` si se redirigen a la dirección URL `.../ABC/response-oidc` con mayúsculas y minúsculas no coincidentes.
     
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URI de redireccionamiento
 

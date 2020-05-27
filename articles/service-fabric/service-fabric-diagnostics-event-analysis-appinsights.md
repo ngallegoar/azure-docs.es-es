@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464756"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701900"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -73,5 +73,5 @@ Al hacer clic en **Analytics**, se le remitirá al portal de Analytics en Applic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Definición de alertas en Application Insights](../azure-monitor/app/alerts.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
+* [Definición de alertas en Application Insights](/azure/azure-monitor/platform/alerts-log) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza un análisis proactivo de la telemetría que se envía a Application Insights para avisar de posibles problemas de rendimiento

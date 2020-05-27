@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731121"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726152"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certificación de imágenes de máquinas virtuales (VM) de Azure
-
-> [!NOTE]
-> Estamos trasladando la administración de las ofertas de máquina virtual de Azure de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Creación de certificados para Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) en Cloud Partner Portal para administrar las ofertas.
 
 En este artículo se describe cómo probar y enviar una imagen de máquina virtual (VM) en Marketplace comercial para asegurarse de que cumple los requisitos de publicación más recientes de Azure Marketplace.
 
