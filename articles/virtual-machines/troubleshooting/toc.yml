@@ -81,8 +81,6 @@
           href: boot-error-status-not-found.md
         - name: Solución de problemas de capacidad de la instalación de Windows Update
           href: windows-update-installation-capacity.md
-        - name: La máquina virtual no responde al aplicar la directiva de usuarios y grupos locales
-          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: No es un disco de arranque
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Reinicio de bucle
