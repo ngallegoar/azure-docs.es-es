@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: spelluru
-ms.openlocfilehash: dfd16d0977504e598492225238d29c83fcb7a028
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: a40575340fc5b1c202be6b001807085954439f03
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598069"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588163"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
 
 - Habilitar Escritorio remoto para una VM Linux
-- Cómo los profesores pueden conectarse a la VM de plantillas a través de una Conexión a Escritorio remoto (RDP).
+- Cómo los formadores pueden conectarse a la VM de plantillas a través de una Conexión a Escritorio remoto (RDP).
 
 ## <a name="enable-remote-desktop-for-linux-vm"></a>Habilitar Escritorio remoto para una VM Linux
-Durante la creación del laboratorio, los profesores pueden habilitar la **Conexión a Escritorio remoto** para imágenes **Linux**. La opción **Habilitar Conexión a Escritorio remoto** aparece cuando se selecciona una imagen de Linux para la plantilla. Cuando se habilita esta opción, los profesores pueden conectarse a la VM de plantillas y las VM de alumnos a través de RDP (Escritorio remoto). 
+Durante la creación del laboratorio, los formadores pueden habilitar la **Conexión a Escritorio remoto** para imágenes **Linux**. La opción **Habilitar Conexión a Escritorio remoto** aparece cuando se selecciona una imagen de Linux para la plantilla. Cuando se habilita esta opción, los formadores pueden conectarse a la VM de plantillas y las VM de alumnos a través de RDP (Escritorio remoto). 
 
 ![Habilitación de la conexión a Escritorio remoto para una imagen de Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
@@ -49,7 +49,7 @@ Actualmente, la conexión a Escritorio remoto se admite para los sistemas operat
 - Ubuntu Server 16.04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Conexión a la plantilla de máquina virtual 
-Los profesores primero deben conectarse a la VM de plantillas mediante SSH e instalar los paquetes de RDP y GUI en ella. A continuación, los profesores pueden usar RDP para conectarse a la máquina virtual de plantilla: 
+Los formadores primero deben conectarse a la VM de plantillas mediante SSH e instalar los paquetes de RDP y GUI en ella. A continuación, los formadores pueden usar RDP para conectarse a la VM de plantilla: 
 
 1. Si ve **Customize template** (Personalizar plantilla) en la barra de herramientas, selecciónelo. A continuación, seleccione **Continue** (Continuar) en el cuadro de diálogo **Customize template** (Personalizar plantilla). Esta acción inicia la máquina virtual de la plantilla.  
 

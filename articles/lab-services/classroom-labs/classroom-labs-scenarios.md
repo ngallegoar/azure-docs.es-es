@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26caebafc7c147452decbb28e313513072d7511b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76717985"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592056"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Uso de laboratorios educativos con fines de aprendizaje
-Puede configurar un laboratorio con fines de aprendizaje. Los laboratorios educativos de Azure Lab Services permiten crear un laboratorio para el aprendizaje donde cada aprendiz usa entornos idénticos y aislados para tal fin. Puede aplicar directivas para garantizar que los entornos de entrenamiento estarán disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el entrenamiento. 
+Azure Labs Services permite que los formadores (profesores, instructores, profesores ayudantes, etc.) creen de forma rápida y sencilla un laboratorio en línea para aprovisionar entornos de aprendizaje preconfigurados para los aprendices. Cada aprendiz podría usar entornos idénticos y aislados para el aprendizaje. Pueden aplicarse directivas para garantizar que los entornos de aprendizaje estén disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el aprendizaje. 
 
 ![Laboratorio educativo](../media/classroom-labs-scenarios/classroom.png)
 
@@ -37,10 +37,10 @@ Los laboratorios educativos cumplen los siguientes requisitos necesarios para ll
 En este artículo, aprenderá acerca de las diversas características de Azure Lab Services que se pueden utilizar para cumplir los requisitos de aprendizaje descritos anteriormente y los pasos detallados que puede seguir para configurar un laboratorio para el aprendizaje.  
 
 ## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Creación de una cuenta de laboratorio como un administrador de cuenta de laboratorio
-El primer paso para usar Azure Lab Services es crear una cuenta de laboratorio en Azure Portal. Una vez que un administrador de cuenta de laboratorio crea la cuenta de laboratorio, agrega a los usuarios que deseen crear laboratorios al rol **Creador de laboratorio**. Los instructores crean laboratorios con máquinas virtuales para que los alumnos realicen los ejercicios del curso que están impartiendo. Para obtener más información, consulte [Administración de cuentas de laboratorio en Azure Lab Services](how-to-manage-lab-accounts.md).
+El primer paso para usar Azure Lab Services es crear una cuenta de laboratorio en Azure Portal. Una vez que un administrador de cuenta de laboratorio crea la cuenta de laboratorio, agrega a los usuarios que deseen crear laboratorios al rol **Creador de laboratorio**. Los formadores crean laboratorios con máquinas virtuales para que los alumnos realicen los ejercicios del curso que están impartiendo. Para obtener más información, consulte [Administración de cuentas de laboratorio en Azure Lab Services](how-to-manage-lab-accounts.md).
 
 ## <a name="create-and-manage-classroom-labs"></a>Creación y administración de laboratorios educativos
-Un instructor que sea miembro del rol Creador de laboratorio en una cuenta de laboratorio puede crear uno o varios laboratorios en la cuenta de laboratorio. Cree y configure una plantilla de máquina virtual con todo el software necesario para realizar los ejercicios del curso. Tome una imagen lista para usar del conjunto de imágenes disponibles para crear un laboratorio educativo y luego personalícelo mediante la instalación del software requerido para ello. Para obtener más información, consulte [Crear y administrar laboratorios educativos](how-to-manage-classroom-labs.md).
+Un formador que sea miembro del rol Creador de laboratorio en una cuenta de laboratorio puede crear uno o varios laboratorios en la cuenta de laboratorio. Cree y configure una plantilla de máquina virtual con todo el software necesario para realizar los ejercicios del curso. Tome una imagen lista para usar del conjunto de imágenes disponibles para crear un laboratorio educativo y luego personalícelo mediante la instalación del software requerido para ello. Para obtener más información, consulte [Crear y administrar laboratorios educativos](how-to-manage-classroom-labs.md).
 
 ## <a name="configure-usage-settings-and-policies"></a>Configuración de los valores y directivas de uso
 El creador de laboratorio puede agregar o quitar usuarios del laboratorio; obtener el vínculo de registro para enviar a los usuarios del laboratorio; establecer directivas, como la configuración de cuotas individuales por usuario; o actualizar el número de máquinas virtuales disponibles en el laboratorio, entre otras acciones. Para obtener más información, consulte [Configuración de los valores y directivas de uso](how-to-configure-student-usage.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690812"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589863"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconocimiento de texto manuscrito e impreso
 
@@ -26,10 +26,9 @@ Computer Vision proporciona varios servicios que detectan y extraen texto manusc
 
 Read API detecta el contenido de texto de una imagen con los últimos modelos de reconocimiento y convierte el texto identificado en una secuencia de caracteres legible por una máquina. Está optimizada para imágenes con gran cantidad de texto (por ejemplo, documentos que han sido digitalizados) y para imágenes con mucho ruido visual. Determinará qué modelo de reconocimiento se usará para cada línea de texto y admite imágenes con texto escrito a mano e impreso. Read API se ejecuta de forma asincrónica porque los documentos más grandes pueden tardar varios minutos en devolver un resultado.
 
-La operación de lectura mantiene las agrupaciones de líneas originales de palabras reconocidas en la salida. Cada línea incluye las coordenadas del rectángulo delimitador y cada palabra dentro de la línea también tiene sus propias coordenadas. Si una palabra se ha reconocido con confianza baja, dicha información se muestra también. Consulte los [documentos de referencia de Read API v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) o los [documentos de referencia de la versión preliminar de Read API v3.0](https://go.microsoft.com/fwlink/?linkid=2118322) para más información.
+La operación de lectura mantiene las agrupaciones de líneas originales de palabras reconocidas en la salida. Cada línea incluye las coordenadas del rectángulo delimitador y cada palabra dentro de la línea también tiene sus propias coordenadas. Si una palabra se ha reconocido con confianza baja, dicha información se muestra también. Consulte los [documentos de referencia de Read API v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) o los [documentos de referencia de Read API v3.0](https://aka.ms/computer-vision-v3-ref) para más información.
 
-> [!NOTE]
-> Esta característica solo está disponible para texto en inglés y español (versión preliminar 3.0).
+La operación de lectura puede reconocer texto en inglés, español, alemán, francés, italiano, portugués y neerlandés.
 
 ### <a name="image-requirements"></a>Requisitos de imagen
 

@@ -3,15 +3,15 @@ title: Configuración del firewall para Azure Lab Services
 description: Obtenga información sobre cómo determinar la dirección IP pública y el intervalo de números de puerto de las máquinas virtuales de un laboratorio para que se pueda agregar información a las reglas de firewall.
 author: emaher
 ms.author: enewman
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: article
 ms.service: lab-services
-ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcb8c0d5304f052dbe7f14386425ce67ae3b79a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77443469"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589540"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Configuración del firewall para Azure Lab Services
 
@@ -24,7 +24,7 @@ Cada laboratorio usa una sola dirección IP pública y varios puertos.  Todas la
 
 ## <a name="find-public-ip-for-a-lab"></a>Búsqueda de la dirección IP pública de un laboratorio
 
-Las direcciones IP públicas de cada laboratorio se muestran en la página **Todos los laboratorios** de la cuenta de laboratorio de Lab Services.  Para obtener instrucciones sobre cómo buscar la página **Todos los laboratorios**, consulte [cómo administrar laboratorios en una cuenta de laboratorio](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+Las direcciones IP públicas de cada laboratorio se muestran en la página **Todos los laboratorios** de la cuenta de laboratorio de Lab Services.  Para obtener instrucciones sobre cómo buscar la página **Todos los laboratorios**, consulte [Visualización de laboratorios en una cuenta de laboratorio](manage-labs.md#view-labs-in-a-lab-account).  
 
 > [!div class="mx-imgBorder"]
 > ![Página Todos los laboratorios](../media/how-to-configure-firewall-settings/all-labs-properties.png)

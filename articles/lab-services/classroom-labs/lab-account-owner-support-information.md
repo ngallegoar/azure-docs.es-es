@@ -3,18 +3,18 @@ title: 'Azure Lab Services: Configuración de la información de soporte técnic
 description: Indica cómo el propietario de una cuenta de laboratorio debe establecer la información de contacto de soporte técnico. Los creadores y usuarios de laboratorios pueden verla y usarla para obtener ayuda.
 author: spelluru
 ms.author: spelluru
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: how-to
 ms.service: lab-services
-ms.openlocfilehash: f387e6b8832d8e7144b8338a3fc887b6b27db789
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07a37a4b87b7efe1fc3f3c08824da01e83cbb660
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80089108"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592413"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Configuración de la información de soporte técnico (propietario de la cuenta de laboratorio en Azure Lab Services)
-En este artículo se explica cómo el propietario de una cuenta de laboratorio especifica la información de soporte técnico que los creadores del laboratorio (instructores) y los usuarios del mismo (estudiantes) podrán utilizar para obtener ayuda si se producen problemas técnicos con el uso de la cuenta de laboratorio o del laboratorio. 
+En este artículo se explica cómo el propietario de una cuenta de laboratorio especifica la información de soporte técnico que los creadores del laboratorio (formadores) y los usuarios del mismo (alumnos) podrán utilizar para obtener ayuda si se producen problemas técnicos con el uso de la cuenta de laboratorio o del laboratorio. 
 
 La información de soporte técnico incluye:
 

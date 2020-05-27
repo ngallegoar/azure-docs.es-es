@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: dba6a4c07691f3d7ec88d8b889e68d6ac7116f07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1823d9df8824c9a0bf1ee30a9900ca118625fd9e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223472"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589438"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services
 En Azure Lab Services, una cuenta de laboratorio sirve como cuenta central en la que se administran los laboratorios de una organización. En su cuenta de laboratorio, puede conceder permiso a otros usuarios para crear laboratorios y establecer las directivas que se aplican a todos los laboratorios de la cuenta de laboratorio. En este tutorial, aprenderá a crear una cuenta de laboratorio. 
@@ -75,7 +75,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, el usuario
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha creado una cuenta de laboratorio. Para aprender a crear un laboratorio educativo como profesor, pase al siguiente tutorial:
+En este tutorial, ha creado una cuenta de laboratorio. Para aprender a crear un laboratorio educativo como formador, pase al siguiente tutorial:
 
 > [!div class="nextstepaction"]
 > [Configuración de un laboratorio de clase](tutorial-setup-classroom-lab.md)

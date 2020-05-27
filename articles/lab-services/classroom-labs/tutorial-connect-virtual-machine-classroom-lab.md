@@ -1,6 +1,6 @@
 ---
 title: Acceso a un laboratorio educativo en Azure Lab Services | Microsoft Docs
-description: En este tutorial, va a acceder a máquinas virtuales en un laboratorio educativo configurado por un profesor.
+description: En este tutorial, va a tener acceso a máquinas virtuales en un laboratorio educativo configurado por un formador.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 27d79e28a986e929fb71dd77fc50b3c2cd32618f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2d40c007a06bad09748b14394da46c50c80dc19
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77134037"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589455"
 ---
-# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acceso a un laboratorio educativo en Azure Lab Services
+# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acceso a un laboratorio de clase en Azure Lab Services
 En este tutorial, se conectará como alumno a una máquina virtual de un laboratorio educativo. 
 
 En este tutorial realizará lo siguiente:
@@ -33,12 +33,16 @@ En este tutorial realizará lo siguiente:
 
 ## <a name="register-to-the-lab"></a>Registro en el laboratorio
 
-1. Vaya a la **dirección URL de registro** que recibió del profesor o educador. No es necesario usar la dirección URL de registro después de completar el registro. En su lugar, use la dirección URL: [https://labs.azure.com](https://labs.azure.com). Todavía no se admite Internet Explorer 11. 
+1. Vaya a la **dirección URL de registro** que recibió del formador. No es necesario usar la dirección URL de registro después de completar el registro. En su lugar, use la dirección URL: [https://labs.azure.com](https://labs.azure.com). Todavía no se admite Internet Explorer 11. 
+
+    ![Registro en el laboratorio](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Inicie sesión en el servicio con su cuenta organizativa para completar el registro. 
 
     > [!NOTE]
     > Para usar Azure Lab Services se requiere una cuenta Microsoft. Si intenta usar una cuenta que no sea de Microsoft, como las cuentas de Yahoo o de Google, para iniciar sesión en el portal, siga las instrucciones para crear una cuenta Microsoft que se vincule a una cuenta que no sea de Microsoft. Luego, siga los pasos para completar el proceso de registro. 
 1. Una vez registrado, confirme que ve las máquinas virtuales de los laboratorios a los que tiene acceso. 
+
+    ![VM accesibles](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. Espere hasta que la máquina virtual esté lista. En el icono de VM, observe los campos siguientes:
     1. En la parte superior del icono, se puede ver el **nombre del laboratorio**.
     1. A su derecha, aparece el icono que representa el **sistema operativo (SO)** de la máquina virtual. En este ejemplo, es el sistema operativo Windows. 
@@ -64,11 +68,11 @@ En este tutorial realizará lo siguiente:
 
     ![Conexión con una máquina virtual](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Realice uno de los siguientes pasos: 
-    1. Para máquinas virtuales **Windows**, guarde el archivo **RDP** en el disco duro. Abra el archivo RDP para conectarse a la máquina virtual. Utilice el **nombre de usuario** y la **contraseña** que obtenga de su profesor o educador para iniciar sesión en la máquina. 
+    1. Para máquinas virtuales **Windows**, guarde el archivo **RDP** en el disco duro. Abra el archivo RDP para conectarse a la máquina virtual. Utilice el **nombre de usuario** y la **contraseña** que obtenga del formador para iniciar sesión en la máquina. 
     3. Puede usar **SSH** o **RDP** (si está habilitado) para conectarse a máquinas virtuales **Linux**. Para más información, consulte el artículo sobre la [Habilitación de la conexión a Escritorio remoto para máquinas Linux](how-to-enable-remote-desktop-linux.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha accedido a un laboratorio educativo de mediante el vínculo de registro que le proporcionó su profesor o instructor.
+En este tutorial, ha obtenido acceso a un laboratorio educativo mediante el vínculo de registro que le proporcionó el formador.
 
 Como propietario del laboratorio, desea ver quién está registrado en él y hacer un seguimiento del uso de las máquinas virtuales. Avance al siguiente tutorial para aprender a realizar un seguimiento del uso del laboratorio:
 

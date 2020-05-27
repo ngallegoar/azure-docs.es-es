@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77592227"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591784"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -37,9 +37,9 @@ En este tutorial, configurará un laboratorio con máquinas virtuales para su cl
 
 Este es el flujo de trabajo típico al usar Azure Lab Services:
 
-1. El creador de una cuenta de laboratorio puede agregar a otros usuarios al rol **Creador de laboratorio**. Por ejemplo, el creador/administrador de la cuenta de laboratorio agrega profesores al rol **Creador de laboratorio** para que puedan crear laboratorios para sus clases. 
-2. A continuación, los profesores crean laboratorios con máquinas virtuales para sus clases y envían vínculos de registro a los alumnos de la clase. 
-3. Los estudiantes pueden usar el vínculo de registro que reciban de los profesores para registrar el laboratorio. Una vez registrados, pueden usar las máquinas virtuales de los laboratorios para hacer las tareas de clase y de casa. 
+1. El creador de una cuenta de laboratorio puede agregar a otros usuarios al rol **Creador de laboratorio**. Por ejemplo, el creador o administrador de la cuenta de laboratorio agrega formadores al rol **Creador de laboratorio** para que puedan crear laboratorios para sus clases. 
+2. A continuación, los profesores crean laboratorios con VM para sus clases y envían vínculos de registro a los alumnos de la clase. 
+3. Los alumnos pueden usar el vínculo de registro que reciban de los formadores para registrase en el laboratorio. Una vez registrados, pueden usar las máquinas virtuales de los laboratorios para hacer las tareas de clase y de casa. 
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
 En este paso, creará un laboratorio para su clase en Azure. 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050872"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591223"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 |     |
@@ -50,10 +50,13 @@ El dominio con el que desea federarse ***no*** puede estar verificado por DNS en
 
 ### <a name="authentication-url"></a>Dirección URL de autenticación
 La federación directa solo se permite para las directivas en las que el dominio de la dirección URL de autenticación coincide con el dominio de destino, o en las que la dirección URL de autenticación es uno de estos proveedores de identidades permitidos (esta lista está sujeta a cambios):
+
 -   accounts.google.com
 -   pingidentity.com
 -   login.pingone.com
 -   okta.com
+-   oktapreview.com
+-   okta-emea.com
 -   my.salesforce.com
 -   federation.exostar.com
 -   federation.exostartest.com
@@ -143,8 +146,8 @@ A continuación, va a configurar la federación con el proveedor de identidades 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Para configurar la federación directa en el portal de Azure AD
 
 1. Vaya a [Azure Portal](https://portal.azure.com/). En el panel izquierdo, seleccione **Azure Active Directory**. 
-2. Seleccione **Relaciones organizativas**.
-3. Seleccione **Proveedores de identidades** y, después, **New SAML/WS-Fed IdP** (Nuevo proveedor de identidades de SAMS/WS-Fed).
+2. Seleccione **External Identities** > **Todos los proveedores de identidades**.
+3. Seleccione y, después, **Nuevo proveedor de identidades de SAML/WS-Fed**.
 
     ![Captura de pantalla que muestra el botón para agregar un nuevo proveedor de identidades de SAML o WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -191,8 +194,8 @@ Ahora pruebe la configuración de la federación directa e invite a un nuevo usu
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>¿Cómo se puede editar una relación de federación directa?
 
 1. Vaya a [Azure Portal](https://portal.azure.com/). En el panel izquierdo, seleccione **Azure Active Directory**. 
-2. Seleccione **Relaciones organizativas**.
-3. Seleccione **Proveedores de identidades**.
+2. Seleccione **External Identities**.
+3. Seleccione **Todos los proveedores de identidades**.
 4. En **SAML/WS-Fed identity providers** (Proveedores de identidades SAML/WS-Fed), seleccione el proveedor.
 5. En el panel de detalles del proveedor de identidades, actualice los valores.
 6. Seleccione **Guardar**.
@@ -202,8 +205,8 @@ Ahora pruebe la configuración de la federación directa e invite a un nuevo usu
 Puede quitar la configuración de la federación directa. Si lo hace, los usuarios invitados de la federación directa que ya hayan canjeado sus invitaciones no podrán iniciar sesión. Pero puede darles acceso a los recursos de nuevo si los elimina del directorio y los vuelve a invitar. Para quitar una federación directa con un proveedor de identidades en el portal de Azure AD:
 
 1. Vaya a [Azure Portal](https://portal.azure.com/). En el panel izquierdo, seleccione **Azure Active Directory**. 
-2. Seleccione **Relaciones organizativas**.
-3. Seleccione **Proveedores de identidades**.
+2. Seleccione **External Identities**.
+3. Seleccione **Todos los proveedores de identidades**.
 4. Seleccione el proveedor de identidades y, a continuación, seleccione **Eliminar**. 
 5. Seleccione **Sí** para confirmar la eliminación. 
 

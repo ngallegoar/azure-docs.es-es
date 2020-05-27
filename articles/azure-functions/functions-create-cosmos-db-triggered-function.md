@@ -3,22 +3,22 @@ title: Creación de una función desencadenada por Azure Cosmos DB
 description: Use Azure Functions para crear una función sin servidor que se invoque cuando se agreguen datos a una base de datos de Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 10/02/2018
+ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754199"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83123784"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
-Aprenda a crear una función que se desencadena cuando se agregan o se cambian datos en Azure Cosmos DB. Para más información sobre Azure Cosmos DB, consulte [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](../cosmos-db/serverless-computing-database.md).
+Aprenda a crear una función que se desencadena cuando se agregan o se cambian datos en Azure Cosmos DB. Para más información acerca de Azure Cosmos DB, consulte [Azure Cosmos DB: Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-![Vea el mensaje en los registros.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Código de Azure Cosmos DB":::
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -26,6 +26,9 @@ Para completar este tutorial:
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de Azure.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
 
@@ -43,35 +46,33 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Creación de un desencadenador de Azure Cosmos DB
 
-1. Expanda su instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
+1. En la aplicación de funciones, seleccione **Funciones** en el menú de la izquierda y, a continuación, seleccione **Agregar** en el menú superior. 
 
-   ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+1. En la página **Nueva función**, escriba `cosmos` en el campo de búsqueda y, después, elija la plantilla **Desencadenador de Azure Cosmos DB**.
 
-1. Elija **Más plantillas** y, a continuación, **Finish and view templates** (Finalizar y ver plantillas).
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página Funciones en Azure Portal":::
 
-    ![Guía de inicio rápido de Functions para elegir más plantillas](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-1. En el campo de búsqueda, escriba `cosmos` y seleccione la plantilla del **desencadenador de Azure Cosmos DB**.
-
-1. Si se le solicita, seleccione **Instalar** para instalar la extensión de Azure Cosmos DB en la aplicación de función. Una vez finalizada correctamente la instalación, seleccione **Continuar**.
-
-    ![Instalación de extensiones de enlace](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
-
-1. Configure el nuevo desencadenador según la configuración especificada en la tabla que aparece debajo de la imagen.
-
-    ![Creación de la función desencadenada de Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
+1. Configure el nuevo desencadenador según la configuración especificada en la tabla siguiente:
 
     | Configuración      | Valor sugerido  | Descripción                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nombre** | Valor predeterminado | Use el nombre de función predeterminado sugerido por la plantilla.|
-    | **Conexión de la cuenta de Azure Cosmos DB** | Nueva configuración | Seleccione **Nuevo**, a continuación, elija su **suscripción**, la **cuenta de la base de datos** que creó anteriormente y **Seleccionar**. Con esto se crea una configuración de la aplicación para la conexión de la cuenta. Esta configuración la usa el enlace para establecer la conexión a la base de datos. |
-    | **Nombre del contenedor** | Elementos | Nombre del contenedor que se va a supervisar. |
-    | **Creación de un contenedor de concesiones si no existe** | Activado | El contenedor no existe, así que créelo. |
-    | **Nombre de la base de datos** | Tareas | Nombre de la base de datos con el contenedor que se va a supervisar. |
+    | **Nueva función** | Aceptar el nombre predeterminado | El nombre de la función. |
+    | **Conexión de la cuenta de Cosmos DB** | Aceptar el nuevo nombre predeterminado | Seleccione **Nuevo**, a continuación, la **cuenta de la base de datos** que creó anteriormente y, después, **Aceptar**. Con esta acción se crea una configuración de la aplicación para la conexión de la cuenta. Esta configuración la usa el enlace para establecer la conexión a la base de datos. |
+    | **Nombre de la base de datos** | Tareas | Nombre de la base de datos que incluye la colección que se va a supervisar. |
+    | **Nombre de colección** | Elementos | Nombre de la colección que se va a supervisar. |
+    | **Nombre de la colección de concesiones** | concesiones | Nombre de la colección para almacenar las concesiones. |
+    | **Crear colección de concesiones si no existe** | Sí | Comprueba si existe la colección de concesiones y la crea automáticamente. |
 
-1. Haga clic en **Crear** para crear la función desencadenada de Azure Cosmos DB. Después de crea la función, se muestra el código de función basado en la plantilla.  
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Creación de la función de desencadenador de Azure Cosmos DB":::
 
-    ![Plantilla de función de Cosmos DB en C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+1. Seleccione **Crear función**. 
+
+    Azure crea la función de desencadenador de Cosmos DB.
+
+1. Para mostrar el código de función basado en plantilla, seleccione **Código y prueba**.
+
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Plantilla de función de Cosmos DB en C#":::
 
     Esta plantilla de función escribe el número de documentos y el identificador del primer documento en los registros.
 
@@ -110,7 +111,7 @@ Una vez que el contenedor especificado en el enlace de función existe, puede pr
 
 1. Expanda el nuevo contenedor **Items** en Data Explorer, elija **Elementos** y, a continuación, seleccione **Nuevo elemento**.
 
-    ![Creación de un elemento en el contenedor Items](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Creación de un elemento en el contenedor Items":::
 
 1. Reemplace el contenido del nuevo elemento por el siguiente contenido, y luego elija **Guardar**.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8479c00ed2129d5726421f576e1fffdb4506fb4b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933825"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592481"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -74,14 +74,14 @@ En el cuadro de diálogo **Reset virtual machine(s)** (Restablecer máquinas vir
 
 
 ## <a name="set-password-for-vms"></a>Establecimiento de contraseña para las máquinas virtuales
-El propietario de un laboratorio (profesor) puede establecer o restablecer la contraseña de las máquinas virtuales en el momento de crear el laboratorio (asistente para la creación de laboratorio) o después de crearlo en la página **Template** (Plantilla). 
+El propietario de un laboratorio (formador) puede establecer o restablecer la contraseña de las VM en el momento de crear el laboratorio (asistente para la creación de laboratorio) o después de crearlo en la página **Plantilla**. 
 
 ### <a name="set-password-at-the-time-of-lab-creation"></a>Establecimiento de la contraseña en el momento de crear el laboratorio
-El propietario de un laboratorio (profesor) puede establecer una contraseña para las máquinas virtuales del laboratorio en la página **Virtual machine credentials** (Credenciales de la máquina virtual) del asistente para la creación de laboratorio.
+El propietario de un laboratorio (formador) puede establecer una contraseña para las VM del laboratorio en la página **Credenciales de la máquina virtual** del asistente para la creación de laboratorio.
 
 ![Ventana de nuevo laboratorio](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
-Mediante la habilitación/deshabilitación de la opción **Usar la misma contraseña para todas las máquinas virtuales** de esta página, un profesor puede optar por utilizar la misma contraseña para todas las máquinas virtuales del laboratorio o permitir que los alumnos establezcan las contraseñas de sus máquinas virtuales. De forma predeterminada, esta opción está habilitada para todas las imágenes del sistema operativo Windows y Linux, excepto para Ubuntu. Cuando está deshabilitada, se pedirá a los alumnos que establezcan una contraseña al intentar conectarse a la máquina virtual por primera vez. 
+Mediante la habilitación o deshabilitación de la opción **Usar la misma contraseña para todas las máquinas virtuales** de esta página, un formador puede optar por utilizar la misma contraseña para todas las VM del laboratorio o permitir que los alumnos establezcan las contraseñas de sus VM. De forma predeterminada, esta opción está habilitada para todas las imágenes del sistema operativo Windows y Linux, excepto para Ubuntu. Cuando está deshabilitada, se pedirá a los alumnos que establezcan una contraseña al intentar conectarse a la máquina virtual por primera vez. 
 
 ### <a name="reset-password-later"></a>Restablecimiento de contraseña más tarde
 
@@ -91,7 +91,7 @@ Mediante la habilitación/deshabilitación de la opción **Usar la misma contras
     ![Cuadro de diálogo Establecer contraseña](../media/how-to-set-virtual-machine-passwords/set-password.png)
 
 ## <a name="connect-to-student-vms"></a>Conexión a máquinas virtuales de alumnos
-El creador del laboratorio (instructor o profesor) puede conectarse a la máquina virtual de un alumno si se cumplen las condiciones siguientes: 
+El creador del laboratorio (formador) puede conectarse a la VM de un alumno si se cumplen las condiciones siguientes: 
 
 - Se ha seleccionado la opción **Use same password for all virtual machines** (Usar la misma contraseña para todas las máquinas virtuales) al crear el laboratorio
 - La máquina virtual se está ejecutando 
@@ -101,7 +101,7 @@ El creador del laboratorio (instructor o profesor) puede conectarse a la máquin
 ![Botón de conexión a la máquina virtual de alumno](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 > [!NOTE]
-> Cuando el profesor inicia la máquina virtual y se conecta, la cuota del alumno no se ve afectada. 
+> Cuando el formador inicia la VM y se conecta, la cuota del alumno no se ve afectada. 
 
 ## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Exportación de la lista de máquinas virtuales a un archivo CSV
 

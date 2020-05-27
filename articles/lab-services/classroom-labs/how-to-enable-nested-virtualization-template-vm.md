@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7831e554fcca20134d5cf8608481ff0c82eb8a0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184680"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592005"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services
 
-Actualmente, Azure Lab Services le permite configurar una máquina virtual de una plantilla en un laboratorio y realizar una copia única disponible para cada uno de los usuarios. Si usted es un profesor que hace clases de redes, seguridad o TI, puede que necesite proporcionar a cada uno de sus alumnos un entorno en el que varias máquinas virtuales puedan comunicarse entre sí a través de una red.
+Actualmente, Azure Lab Services le permite configurar una máquina virtual de una plantilla en un laboratorio y realizar una copia única disponible para cada uno de los usuarios. Si usted es un formador que hace clases de redes, seguridad o TI, puede que necesite proporcionar a cada uno de sus alumnos un entorno en el que varias máquinas virtuales puedan comunicarse entre sí a través de una red.
 
 La virtualización anidada le permite crear un entorno de varias máquinas virtuales dentro de una plantilla de máquina virtual de un laboratorio. La publicación de la plantilla proporcionará a cada usuario del laboratorio una máquina virtual configurada con varias máquinas virtuales dentro.  En este artículo se explica cómo configurar la virtualización anidada en una máquina de pantilla en Azure Lab Services.
 

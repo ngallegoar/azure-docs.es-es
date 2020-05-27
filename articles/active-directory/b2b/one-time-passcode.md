@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230824"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585933"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)
 
@@ -56,7 +56,7 @@ Cuando un usuario invitado canjea una invitación o usa un vínculo a un recurso
 
 En el momento de la invitación, no hay ninguna indicación de que el usuario al que está invitando usará la autenticación de código de acceso de un solo uso. Pero cuando el usuario invitado inicia sesión, la autenticación de código de acceso de un solo uso será el método de reserva si no se puede usar ningún otro método de autenticación. 
 
-Puede ver los usuarios invitados que se autentican con códigos de acceso de un solo uso en Azure Portal, en **Azure Active Directory** > **Relaciones organizativas** > **Usuarios de otras organizaciones**.
+Puede ver los usuarios invitados que se autentican con códigos de acceso de un solo uso en Azure Portal, en **Azure Active Directory** > **Usuarios**.
 
 ![Captura de pantalla que muestra un usuario de código de acceso único con el valor origen de OTP.](media/one-time-passcode/otp-users.png)
 
@@ -72,8 +72,7 @@ Es posible que tarde unos minutos para que la acción de participación surta ef
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Para participar con el portal de Azure AD
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global de Azure AD.
 2.  En el panel de navegación, seleccione **Azure Active Directory**.
-3.  En **Administrar**, seleccione **Relaciones organizativas**.
-4.  Seleccione **Configuración**.
+3.  Seleccione **External Identities** > **Configuración de colaboración externa**.
 5.  En **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** , seleccione **Sí**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para participar con PowerShell
@@ -139,8 +138,7 @@ Es posible que tarde unos minutos para que la acción de dejar de participar sur
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Para desactivar la versión preliminar desde el portal de Azure AD
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global de Azure AD.
 2.  En el panel de navegación, seleccione **Azure Active Directory**.
-3.  En **Administrar**, seleccione **Relaciones organizativas**.
-4.  Seleccione **Configuración**.
+3.  Seleccione **External Identities** > **Configuración de colaboración externa**.
 5.  En **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** , seleccione **No**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desactivar la versión preliminar con PowerShell

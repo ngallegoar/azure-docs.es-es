@@ -2,13 +2,13 @@
 title: Creación de una aplicación de funciones en Linux desde Azure Portal
 description: Obtenga información sobre cómo crear su primera función de Azure para su ejecución sin servidor mediante Azure Portal.
 ms.topic: how-to
-ms.date: 02/28/2019
-ms.openlocfilehash: b2de36faf07ad661ff8817adc48b726f54990ceb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754119"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83116206"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creación de una aplicación de función en Linux en un plan de Azure App Service
 
@@ -26,67 +26,88 @@ Inicie sesión en Azure Portal en <https://portal.azure.com> con su cuenta de Az
 
 Debe tener una aplicación de función para hospedar la ejecución de las funciones en Linux. La aplicación de función proporciona un entorno para la ejecución del código de su aplicación. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación, el escalado y el uso compartido de recursos. En este artículo, creará un plan de App Service al crear la aplicación de función.
 
-1. Seleccione el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal y, después, **Proceso** > **Function App**.
+1. En el menú de Azure Portal o en la página **Principal**, seleccione **Crear un recurso**.
 
-    ![Creación de una aplicación de función en Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
+1. En la página **Nuevo**, seleccione **Compute** > **Function App**.
 
-2. Use la configuración de Function App especificada en la tabla debajo de la imagen.
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-flow.png" alt-text="Creación de una aplicación de función en Azure Portal":::
 
-    ![Definir nueva configuración de Function App](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
+1. En la página **Básico**, utilice la configuración de la aplicación de funciones que se especifica en la tabla siguiente.
 
-    | Configuración      | Valor sugerido  | Descripción                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nombre de la aplicación** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z`, `0-9` y `-`.  | 
-    | **Suscripción** | Su suscripción | Suscripción en la que se creará esta nueva aplicación de función. | 
-    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |
-    | **SISTEMA OPERATIVO** | Linux | La aplicación de función se ejecuta en Linux. |
-    | **Publicar** | Código | Se usa el contenedor de Linux predeterminado para su **pila en tiempo de ejecución**. Todo lo que tiene que proporcionar es el código de proyecto de aplicación de función. Otra opción consiste en publicar una [imagen de Docker](functions-create-function-linux-custom-image.md) personalizada. |
-    | **[Plan de hospedaje](functions-scale.md)** | Plan de App Service | Plan de hospedaje que define cómo se asignan los recursos a la Function App. Si usa un plan de App Service, puede controlar el [escalado de la aplicación de función](functions-scale.md).  |
-    | **Plan de App Service/ubicación** | Creación del plan | Elija **Crear nuevo** y proporcionar un nombre para **Plan de App Service**. Elija una **ubicación** en una [región](https://azure.microsoft.com/regions/) próxima a usted o a otros servicios a los que accedan las funciones. Elija su **[plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/linux/)** deseado. <br/>No puede ejecutar aplicaciones de función de Windows y Linux en el mismo plan de App Service. |
-    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET** para funciones de C# y F#. |
-    | **[Storage](../storage/common/storage-account-create.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](storage-considerations.md#storage-account-requirements). |
-    | **[Application Insights](functions-monitoring.md)** | habilitado | Application Insights está deshabilitado de forma predeterminada. Se recomienda habilitar la integración de Application Insights ahora y elegir una ubicación de hospedaje cerca de la ubicación del plan de App Service. Si quiere hacer esto más tarde, consulte [Supervisión de Azure Functions](functions-monitoring.md).  |
+    | Configuración      | Valor sugerido  | Descripción |
+    | ------------ | ---------------- | ----------- |
+    | **Suscripción** | Su suscripción | Suscripción en la que se creará esta nueva aplicación de función. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |
+    | **Nombre de la aplicación de función** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `-`.  |
+    |**Publicar**| **Código** (valor predeterminado) | Opción para publicar archivos de código o un contenedor de Docker. |
+    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET Core** para las funciones de C# y F#. |
+    |**Versión**| Número de la versión | Elija la versión del entorno de ejecución instalado.  |
+    |**Región**| Región preferida | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
 
-3. Seleccione **Crear** para aprovisionar e implementar la aplicación de función.
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Datos básicos":::
 
-4. Seleccione el icono de notificación de la esquina superior derecha del portal y observe el mensaje **Implementación correcta**.
+1. Seleccione **Siguiente: Hospedaje**. En la página **Hospedaje**, escriba la siguiente configuración.
 
-    ![Definir nueva configuración de Function App](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
+    | Configuración      | Valor sugerido  | Descripción |
+    | ------------ | ---------------- | ----------- |
+    | **[Cuenta de almacenamiento](../storage/common/storage-account-create.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](../azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Sistema operativo**| **Linux** | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
+    | **[Plan](../azure-functions/functions-scale.md)** | **Consumo (sin servidor)** | Plan de hospedaje que define cómo se asignan los recursos a la Function App. En el plan de **Consumo** predeterminado, los recursos se agregan dinámicamente según lo requieran sus funciones. En este hospedaje [sin servidor](https://azure.microsoft.com/overview/serverless-computing/), solo paga por el tiempo durante el cual se ejecutan las funciones. Si ejecuta un plan de App Service, debe administrar el [escalado de la aplicación de función](../azure-functions/functions-scale.md).  |
 
-5. Seleccione **Ir al recurso** para ver la nueva aplicación de función.
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Plan de hospedaje":::
 
-Después, cree una función en la nueva Function App. Incluso después de que la aplicación de función está disponible, puede tardar unos minutos en inicializarse totalmente.
+1. Seleccione **Siguiente: Supervisión**. En la página **Supervisión**, escriba la siguiente configuración.
 
-## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Crear una función desencadenada por HTTP
+    | Configuración      | Valor sugerido  | Descripción |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Sí** (valor predeterminado) | Crea un recurso de Application Insights con el mismo *nombre de aplicación* en la región más cercana que lo admita. Si expande esta configuración o selecciona **Crear nuevo** puede cambiar el nombre de Application Insights o elegir otra región de una [geografía de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) en la que quiera almacenar los datos. |
+
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Página Supervisión":::
+
+1. Seleccione **Revisar y crear** para revisar las selecciones de configuración de la aplicación.
+
+1. En la página **Revisar y crear**, revise la configuración y, a continuación, seleccione **Crear** para aprovisionar e implementar la aplicación de función.
+
+1. Seleccione el icono **Notificaciones** de la esquina superior derecha del portal y observe el mensaje **Implementación correcta**.
+
+1. Seleccione **Ir al recurso** para ver la nueva aplicación de función. También puede seleccionar **Anclar al panel**. Dicho anclaje facilita la vuelta a este recurso de aplicación de función desde el panel.
+
+    ![Notificación de implementación](./media/create-function-app-linux-app-service-plan/function-app-create-notification2.png)
+
+    Incluso después de que la aplicación de función está disponible, puede tardar unos minutos en inicializarse totalmente.
+
+Después, cree una función en la nueva Function App.
+
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Creación de una función desencadenada mediante HTTP
 
 En esta sección se muestra cómo crear una función en la nueva aplicación de función en el portal.
 
 > [!NOTE]
 > La experiencia del portal de desarrollo puede ser útil para probar Azure Functions. En la mayoría de los escenarios, considere la posibilidad de desarrollar sus funciones localmente y publicar el proyecto en la aplicación de función mediante [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) o [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
 
-1. En la nueva aplicación de función, elija la pestaña **Overview** (Información general) y, una vez cargada completamente, elija **+ New function** (+ Nueva función).
+1. En el menú de la izquierda de la ventana **Funciones**, seleccione **Funciones** y, a continuación, seleccione **Agregar** en el menú superior. 
+ 
+1. En la ventana **Nueva función**, seleccione **Desencadenador de HTTP**.
 
-    ![Creación de una función desde la pestaña de información general](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
+    ![Elección de la función de desencadenador de HTTP](./media/create-function-app-linux-app-service-plan/function-app-select-http-trigger.png)
 
-1. En la pestaña **Quickstart** (Inicio rápido), elija **In-portal** (En el portal) y seleccione **Continue** (Continuar).
+1. En la ventana **Nueva función**, acepte el nombre predeterminado para la **nueva función** o escriba un nombre nuevo. 
 
-    ![Elija la plataforma de desarrollo de la función.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
+1. En la lista desplegable **Nivel de autorización**, elija **Anónimo** y, a continuación, seleccione **Crear función**.
 
-1. Elija **WebHook y API** y, a continuación, seleccione **Crear**.
-
-    ![Inicio rápido de funciones en Azure Portal.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-node-webhook.png)
-
-Se crea una función mediante una plantilla específica del idioma para una función desencadenada por HTTP.
-
-Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
+    Azure crea la función de desencadenador de HTTP. Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
 
 ## <a name="test-the-function"></a>Prueba de la función
 
-1. En la nueva función, haga clic en **</> Obtener la dirección URL de la función** en la parte superior derecha, seleccione **default (Function key)** y, después, haga clic en **Copiar**. 
+1. En la nueva función de desencadenador de HTTP, seleccione **Código y prueba** en el menú de la izquierda y, a continuación, seleccione **Obtener la dirección URL de la función** en el menú superior.
+
+    ![Selección de Obtener la dirección URL de la función](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
+
+1. En el cuadro de diálogo **Obtener la dirección URL de la función**, seleccione **valor predeterminado** en la lista desplegable y, a continuación, seleccione el icono **Copiar al Portapapeles**. 
 
     ![Copiar la dirección URL de la función desde Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 
-2. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `&name=<yourname>` de la cadena de consulta al final de esta dirección URL y presione la tecla `Enter` en el teclado para ejecutar la solicitud. Debería ver la respuesta devuelta por la función mostrada en el explorador.  
+1. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `?name=<your_name>` de la cadena de consulta al final de esta dirección URL y presione Entrar para ejecutar la solicitud. 
 
     El ejemplo siguiente muestra la respuesta en el explorador:
 
@@ -94,7 +115,7 @@ Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP
 
     La dirección URL de la solicitud incluye una clave que, de forma predeterminada, es necesaria para tener acceso a la función a través de HTTP.
 
-3. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha que encontrará en la parte inferior de la pantalla para expandir **Registros**.
+1. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver los resultados del seguimiento, vuelva a la página **Código y prueba** en el portal y expanda la flecha **Registros** en la parte inferior de la página.
 
    ![Visor de registros de las funciones en Azure Portal.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
@@ -104,7 +125,7 @@ Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha creado una Function App con una función simple desencadenada por HTTP.  
+Ha creado una aplicación de funciones con una función simple de desencadenador de HTTP.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

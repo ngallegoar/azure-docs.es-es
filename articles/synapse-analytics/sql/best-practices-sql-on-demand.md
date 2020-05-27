@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 86678365d1510199247e8a1aaa48ec844d07de32
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692158"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592940"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Procedimientos recomendados de SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Una vez detectada la limitación, SQL a petición tiene controles integrados par
 
 Si es posible, puede preparar los archivos para mejorar el rendimiento:
 
-- Convierta los archivos CSV a Parquet: Parquet es un formato de columnas. Dado que está comprimido, sus tamaños de archivo son más pequeños que los archivos CSV con los mismos datos. SQL a petición necesitará menos tiempo y solicitudes de almacenamiento para leerlos.
+- Convierta los archivos CSV y JSON a Parquet: Parquet es un formato de columnas. Dado que está comprimido, sus tamaños de archivo son más pequeños que los archivos CSV y JSON con los mismos datos. SQL a petición necesitará menos tiempo y solicitudes de almacenamiento para leerlos.
 - Si una consulta tiene como destino un solo archivo de gran tamaño, se beneficiará de dividirlo en varios archivos más pequeños.
 - Pruebe a mantener el tamaño del archivo CSV por debajo de los 10 GB.
 - Es mejor tener archivos de igual tamaño para una sola ruta de acceso OPENROWSET o una ubicación de tabla externa.
@@ -118,7 +118,14 @@ Para obtener más información, consulte las funciones [filename](develop-storag
 > [!TIP]
 > Convierta siempre el resultado de las funciones filepath y fileinfo al tipo de datos adecuado. Si usa tipos de datos de caracteres, asegúrese de que se usa la longitud apropiada.
 
+> [!NOTE]
+> Las funciones usadas para la eliminación de particiones, FilePath y FileInfo, no se admiten actualmente para tablas externas que no sean las creadas automáticamente para cada tabla creada en Apache Spark para Azure Synapse Analytics.
+
 Si los datos almacenados no tienen particiones, considere la posibilidad de crear particiones para usar estas funciones en la optimización de las consultas que están dirigidas a esos archivos. Cuando [consulte las tablas de Spark con particiones](develop-storage-files-spark-tables.md) de SQL a petición, la consulta tendrá como destino automático solo los archivos necesarios.
+
+## <a name="use-parser_version-20-for-querying-csv-files"></a>Uso de PARSER_VERSION 2.0 para consultar archivos CSV
+
+Puede usar el analizador optimizado para rendimiento al consultar archivos CSV. Consulte [PARSER_VERSION](develop-openrowset.md) para obtener más información.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Uso de CETAS para mejorar el rendimiento de las consultas y las combinaciones
 
@@ -127,6 +134,12 @@ Si los datos almacenados no tienen particiones, considere la posibilidad de crea
 Puede usar CETAS para almacenar en un nuevo conjunto de archivos las partes más frecuentemente usadas de las consultas, como las tablas de referencia combinadas. A continuación, puede realizar combinaciones con esta tabla externa única, en lugar de repetir combinaciones comunes en varias consultas.
 
 Cuando CETAS genera archivos Parquet, las estadísticas se crean automáticamente cuando la primera consulta selecciona como destino a esta tabla externa, lo que mejora el rendimiento.
+
+## <a name="aad-pass-through-performance"></a>Rendimiento de paso a través de AAD
+
+SQL a petición permite tener acceso a archivos en el almacenamiento mediante la credencial de SAS o de paso a través de AAD. Es posible que experimente un rendimiento más lento con el paso a través de AAD en comparación con SAS. 
+
+Si necesita un mejor rendimiento, pruebe las credenciales de SAS para tener acceso al almacenamiento hasta que mejore el rendimiento de paso a través de AAD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

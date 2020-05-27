@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: c82b5d02ab3928eb0472f2a047cdca2238bf0b63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a67ba18b70f6b5b9eebb473e6cc2915bc937ce6b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237260"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588197"
 ---
-# <a name="manage-lab-accounts-in-azure-lab-services"></a>Administración de cuentas de laboratorio en Azure Lab Services 
+# <a name="create-and-manage-lab-accounts"></a>Creación y administración de cuentas de laboratorio
 En Azure Lab Services, una cuenta de laboratorio es un contenedor para tipos de laboratorios administrados, como los laboratorios de clase. Los administradores configuran una cuenta de laboratorio con Azure Lab Services y proporcionan acceso a los propietarios del laboratorio que pueden crear laboratorios en la cuenta. En este artículo se describe cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio.
 
 ## <a name="create-a-lab-account"></a>Creación de una cuenta de laboratorio
@@ -45,7 +45,10 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear una cuenta de l
     1. Seleccione una **galería de imágenes compartidas** existente o créela. Puede guardar la plantilla de máquina virtual en la galería de imágenes compartidas para que otros usuarios puedan usarla. Para más información acerca de las galerías de imágenes compartidas, consulte [Use una galería de imágenes compartidas en Azure Lab Services](how-to-use-shared-image-gallery.md).
     2. Especifique si desea **apagar automáticamente las máquinas virtuales Windows** cuando los usuarios se desconecten de ellas. Especifique cuánto tiempo deben esperar las máquinas virtuales por si el usuario se vuelve a conectar antes de que estas se apaguen automáticamente. 
     3. Para **Asociar red virtual**, seleccione una red virtual del mismo nivel como red de laboratorio. Los laboratorios creados en esta cuenta se conectan a la red virtual seleccionada y tienen acceso a los recursos de esta. Para más información, consulte [Conexión de la red virtual del laboratorio con una red virtual del mismo nivel](how-to-connect-peer-virtual-network.md).    
-    8. Especifique un **rango de direcciones** para las máquinas virtuales en el laboratorio. Dicho rango debe estar en la notación de enrutamiento de interdominios sin clases (CIDR) (por ejemplo: 10.20.0.0/23). Las máquinas virtuales del laboratorio se crearán en este rango de direcciones. Para más información, consulte el apartado [Especifique un intervalo de direcciones para las máquinas virtuales en el laboratorio](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).  
+    8. Especifique un **rango de direcciones** para las máquinas virtuales en el laboratorio. Dicho rango debe estar en la notación de enrutamiento de interdominios sin clases (CIDR) (por ejemplo: 10.20.0.0/23). Las máquinas virtuales del laboratorio se crearán en este rango de direcciones. Para más información, consulte el apartado [Especifique un intervalo de direcciones para las máquinas virtuales en el laboratorio](how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account).  
+
+        > [!NOTE]
+        > La propiedad **Intervalo de direcciones** solo se aplica si se ha habilitado **Emparejar Red virtual** para el laboratorio.
 
         ![Crear una cuenta de laboratorio -> Avanzado](../media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
 6. Seleccione **Siguiente: Etiquetas** en la parte inferior de la página para cambiar a la pestaña **Etiquetas**. Agregue las etiquetas que desee asociar a la cuenta de laboratorio. Las etiquetas son pares nombre-valor que permiten categorizar los recursos y ver una facturación consolidada mediante la aplicación de la misma etiqueta en varios recursos y grupos de recursos. Para más información, consulte [Uso de etiquetas para organizar los recursos de Azure](../../azure-resource-manager/management/tag-resources.md).
@@ -74,28 +77,6 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear una cuenta de l
 
     ![Todos los recursos -> Cuentas de laboratorio](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
 
-## <a name="view-and-manage-labs-in-the-lab-account"></a>Visualización y administración de laboratorios en la cuenta de laboratorio
-
-1. En la página **Cuenta de laboratorio**, seleccione **Todos los laboratorios** en el menú de la izquierda.
-
-    ![Laboratorios en la cuenta](../media/how-to-manage-lab-accounts/labs-in-account.png)
-1. Verá una **lista de laboratorios** en la cuenta con la siguiente información: 
-    1. Nombre del laboratorio.
-    2. La fecha en que se creó el laboratorio. 
-    3. Dirección de correo electrónico del usuario que creó el laboratorio. 
-    4. Máximo número de usuarios permitidos en el laboratorio. 
-    5. Estado del laboratorio. 
-    6. Asignaciones de roles. 
-
-## <a name="delete-a-lab-in-the-lab-account"></a>Eliminación de un laboratorio en la cuenta de laboratorio
-Siga las instrucciones que aparecen en la sección anterior para ver una lista de los laboratorios de la cuenta de laboratorio.
-
-1. Seleccione **... (puntos suspensivos)**  y después **Eliminar**. 
-
-    ![Botón de eliminación de un laboratorio](../media/how-to-manage-lab-accounts/delete-lab-button.png)
-2. Seleccione **Sí** en el mensaje de advertencia. 
-
-    ![Confirmar eliminación de laboratorio](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## <a name="delete-a-lab-account"></a>Eliminación de una cuenta de laboratorio
 Siga las instrucciones que aparecen en la sección anterior que muestra una lista de las cuentas de laboratorio. Use las instrucciones siguientes para eliminar una cuenta de laboratorio: 
@@ -113,11 +94,4 @@ Siga las instrucciones que aparecen en la sección anterior que muestra una list
 > También puede usar el módulo Az.LabServices de PowerShell (versión preliminar) para administrar cuentas de laboratorio. Para más información, consulte la [página principal de Az.LabServices en GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea los artículos siguientes:
-
-- [Permiso para que el creador del laboratorio seleccione su ubicación](allow-lab-creator-pick-lab-location.md)
-- [Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services](how-to-connect-peer-virtual-network.md)
-- [Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services](how-to-attach-detach-shared-image-gallery.md)
-- [Cómo agregar un usuario como propietario de un laboratorio de clase en Azure Lab Services](how-to-add-user-lab-owner.md)
-- [Configuración del firewall para Azure Lab Services](how-to-configure-firewall-settings.md)
-- [Configuración de cuentas de laboratorio en Azure Lab Services](how-to-configure-lab-accounts.md)
+Consulte otros artículos en la sección **Guías paso a paso** -> **Creación y configuración de cuentas de laboratorio (propietario de la cuenta de laboratorio)** de la tabla de contenido (TDC). 

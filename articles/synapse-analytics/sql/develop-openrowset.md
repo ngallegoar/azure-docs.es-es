@@ -6,30 +6,70 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6325d5555b01373b148dce69731ec64896d6e1fd
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680492"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591427"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Uso de OPENROWSET con SQL a petición (versión preliminar)
 
-La función OPENROWSET (BULK...) permite acceder a archivos en Azure Storage. En el recurso de SQL a petición (versión preliminar), para acceder al proveedor de conjuntos de filas BULK de OPENROWSET se llama a la función OPENROWSET y se especifica la opción BULK.  
+La función `OPENROWSET(BULK...)` permite acceder a archivos en Azure Storage. La función `OPENROWSET` lee el contenido de un origen de datos remoto (por ejemplo, un archivo) y devuelve el contenido como un conjunto de filas. En el recurso de SQL a petición (versión preliminar), para acceder al proveedor de conjuntos de filas BULK de OPENROWSET se llama a la función OPENROWSET y se especifica la opción BULK.  
 
-Se puede hacer referencia a la función OPENROWSET en la cláusula FROM de una consulta, como si fuera una tabla llamada OPENROWSET. Admite operaciones masivas a través de un proveedor integrado BULK que permite que los datos se lean y se devuelvan en forma de conjunto de filas.
+Se puede hacer referencia a la función `OPENROWSET` en la cláusula `FROM` de una consulta como si fuera un nombre de tabla `OPENROWSET`. Admite operaciones masivas a través de un proveedor integrado BULK que permite que los datos se lean y se devuelvan en forma de conjunto de filas.
 
-OPENROWSET no se admite actualmente en el grupo de SQL.
+## <a name="data-source"></a>Origen de datos
+
+La función OPENROWSET de Synapse SQL lee el contenido de los archivos de un origen de datos. El origen de datos es una cuenta de almacenamiento de Azure a la que se puede hacer referencia explícitamente en la función `OPENROWSET` o se puede deducir dinámicamente a partir de la dirección URL de los archivos que quiera leer.
+La función `OPENROWSET` puede contener opcionalmente un parámetro `DATA_SOURCE` para especificar el origen de datos que contiene los archivos.
+- `OPENROWSET` sin `DATA_SOURCE` se puede usar para leer directamente el contenido de los archivos desde la ubicación de la dirección URL especificada como opción `BULK`:
+
+    ```sql
+    SELECT *
+    FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
+                    TYPE = 'PARQUET') AS file
+    ```
+
+Se trata de una manera rápida y sencilla de leer el contenido de los archivos sin necesidad de preconfiguración. Esta opción le permite usar la opción de autenticación básica para acceder al almacenamiento (acceso directo de Azure AD para inicios de sesión de Azure AD y tokens de SAS para inicios de sesión de SQL). 
+
+- `OPENROWSET` con `DATA_SOURCE` se puede usar para tener acceso a los archivos de la cuenta de almacenamiento especificada:
+
+    ```sql
+    SELECT *
+    FROM OPENROWSET(BULK '/folder/*.parquet',
+                    DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
+                    TYPE = 'PARQUET') AS file
+    ```
+
+    Esta opción le permite configurar la ubicación de la cuenta de almacenamiento en el origen de datos y especificar el método de autenticación que debe usarse para tener acceso al almacenamiento. 
+    
+    > [!IMPORTANT]
+    > `OPENROWSET` sin `DATA_SOURCE` proporciona una forma rápida y sencilla de acceder a los archivos de almacenamiento, pero ofrece opciones de autenticación limitadas. Por ejemplo, la entidad de seguridad de Azure AD puede tener acceso a los archivos solo mediante su [identidad de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) y no puede tener acceso a los archivos disponibles públicamente. Si necesita opciones de autenticación más eficaces, use la opción `DATA_SOURCE` y defina las credenciales que quiera usar para tener acceso al almacenamiento.
+
+## <a name="security"></a>Seguridad
+
+Un usuario de base de datos debe tener permiso de `ADMINISTER BULK OPERATIONS` para utilizar la función `OPENROWSET`.
+
+El administrador de almacenamiento también debe permitir que un usuario tenga acceso a los archivos proporcionando un token de SAS válido o habilitando la entidad de seguridad de Azure AD para tener acceso a los archivos de almacenamiento. Obtenga más información sobre el control de acceso de almacenamiento en [este artículo](develop-storage-files-storage-access-control.md).
+
+`OPENROWSET` usa las siguientes reglas para determinar cómo autenticarse en el almacenamiento:
+- En `OPENROWSET` con `DATA_SOURCE` el mecanismo de autenticación depende del tipo de autor de llamada.
+  - Los inicios de sesión de AAD solo pueden acceder a los archivos mediante su propia [identidad de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) si el almacenamiento de Azure permite que el usuario de Azure AD tenga acceso a los archivos subyacentes (por ejemplo, si el autor de llamada tiene permiso de lector de almacenamiento en el almacenamiento) y si [habilita la autenticación de acceso directo de Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) en el servicio de Synapse SQL.
+  - Los inicios de sesión de SQL también pueden usar `OPENROWSET` sin `DATA_SOURCE` para tener acceso a los archivos disponibles públicamente, los archivos protegidos mediante el token de SAS o la identidad administrada del área de trabajo Synapse. Debe [crear credenciales con ámbito en el servidor](develop-storage-files-storage-access-control.md#examples) para permitir el acceso a los archivos de almacenamiento. 
+- En `OPENROWSET` con `DATA_SOURCE` el mecanismo de autenticación se define en la credencial con ámbito en la base de datos asignada al origen de datos al que se hace referencia. Esta opción permite acceder al almacenamiento disponible públicamente o acceder al almacenamiento mediante el token de SAS, la identidad administrada del área de trabajo o la [identidad del autor de llamada de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#) (si el autor de llamada es la entidad de seguridad de Azure AD). Si `DATA_SOURCE` hace referencia a una instancia de Azure Storage que no es pública, deberá [crear una credencial con ámbito en la base de datos](develop-storage-files-storage-access-control.md#examples) y hacer referencia a ella en `DATA SOURCE` para permitir el acceso a los archivos de almacenamiento.
+
+El autor de llamada debe tener permiso de `REFERENCES` en la credencial para usarla para autenticarse en el almacenamiento.
 
 ## <a name="syntax"></a>Sintaxis
 
 ```syntaxsql
 --OPENROWSET syntax for reading Parquet files
 OPENROWSET  
-( { BULK 'unstructured_data_path' , 
+( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
     FORMAT='PARQUET' }  
 )  
 [WITH ( {'column_name' 'column_type' }) ]
@@ -37,7 +77,7 @@ OPENROWSET
 
 --OPENROWSET syntax for reading delimited text files
 OPENROWSET  
-( { BULK 'unstructured_data_path' , 
+( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ] 
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
@@ -48,8 +88,10 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
 [ , ESCAPE_CHAR = 'char' ] 
-[ , FIRSTROW = 'first_row'  ]     
-[ , FIELDQUOTE = 'quote_characters']
+[ , FIRSTROW = 'first_row' ]     
+[ , FIELDQUOTE = 'quote_characters' ]
+[ , DATA_COMPRESSION = 'data_compression_method' ]
+[ , PARSER_VERSION = 'parser_version' ]
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -62,11 +104,11 @@ Hay dos opciones para los archivos de entrada que contienen los datos de destino
 
 **"unstructured_data_path"**
 
-El elemento unstructured_data_path que establece una ruta de acceso a los datos se estructura de la siguiente manera:  
-"\<prefijo>://\<rutaDeLaCuentaDeAlmacenamiento>/\<rutaDeAlmacenamiento>"
- 
- 
- A continuación, encontrará las rutas de acceso de las cuentas de almacenamiento pertinentes que se vincularán a su origen de datos externo concreto. 
+El elemento unstructured_data_path que establece una ruta de acceso a los datos puede ser una ruta de acceso relativa o absoluta:
+- La ruta de acceso absoluta con el formato "\<prefix>://\<storage_account_path>/\<storage_path>" permite que un usuario lea directamente los archivos.
+- Ruta de acceso relativa con el formato "<storage_path>" que se debe usar con el parámetro `DATA_SOURCE` y describe el patrón de archivo en la ubicación <storage_account_path> definida en `EXTERNAL DATA SOURCE`. 
+
+ A continuación, encontrará los valores de <storage account path> relevantes que se vincularán a su origen de datos externo concreto. 
 
 | Origen de datos externo       | Prefijo | Ruta de acceso a la cuenta de almacenamiento                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -78,7 +120,7 @@ El elemento unstructured_data_path que establece una ruta de acceso a los datos 
 "\<rutaDeAlmacenamiento>"
 
  Especifica una ruta de acceso en el almacenamiento que apunta a la carpeta o archivo que desea leer. Si la ruta de acceso apunta a un contenedor o a una carpeta, se leerán todos los archivos de ese contenedor o carpeta. No se incluirán los archivos de las subcarpetas. 
- 
+
  Puede usar caracteres comodín si el destino son varios archivos o carpetas. Se permite el uso de varios caracteres comodín no consecutivos.
 A continuación se muestra un ejemplo en el que se leen todos los archivos *csv* que comienzan por *population* de todas las carpetas a partir de */csv/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
@@ -98,8 +140,10 @@ La cláusula WITH le permite especificar las columnas que desea leer de los arch
 
 - En el caso de los archivos de datos con la extensión .csv, para leer todas las columnas, especifique los nombres de columna y sus tipos de datos. Si desea un subconjunto de columnas, use números ordinales para seleccionar las columnas en los archivos de datos de origen por ordinal. Las columnas se enlazarán por la designación ordinal. 
 
-> [!IMPORTANT]
-> La cláusula WITH es obligatoria para los archivos .csv.
+    > [!IMPORTANT]
+    > La cláusula WITH es obligatoria para los archivos .csv.
+    >
+    
 - En el caso de los archivos de datos con formato Parquet, especifique nombres de columna que coincidan con los de los archivos de datos de origen. Las columnas se enlazarán por nombre. Si se omite la cláusula WITH, se devolverán todas las columnas de los archivos con formato Parquet.
 
 column_name = Nombre de la columna de salida. Si se especifica, este nombre anula el nombre de la columna del archivo de origen.
@@ -125,7 +169,7 @@ Especifica el terminador de campo que se va a usar. El terminador de campo prede
 
 ROWTERMINATOR ="row_terminator"
 
-Especifica el terminador de fila que se va a usar. El terminador de fila predeterminado es un carácter de nueva línea, como \r\n.
+Especifica el terminador de fila que se va a usar. Si no se especifica el terminador de fila, se usará uno de los terminadores predeterminados. Los terminadores predeterminados para PARSER_VERSION = "1.0" son \r\n, \n y \r. Los terminadores predeterminados para PARSER_VERSION = "2.0" son \r\n y \n.
 
 ESCAPE_CHAR = "char"
 
@@ -141,22 +185,33 @@ FIELDQUOTE = "field_quote"
 
 Especifica un carácter que se usará como carácter de comillas en el archivo CSV. Si no se especifica, se usará el carácter de comillas ("). 
 
+DATA_COMPRESSION = "data_compression_method"
+
+Especifica el método de compresión. Se admite el siguiente método de compresión:
+
+- org.apache.hadoop.io.compress.GzipCodec
+
+PARSER_VERSION = "parser_version"
+
+Especifica la versión del analizador que se utilizará al leer archivos. Las versiones del analizador de CSV admitidas actualmente son 1.0 y 2.0.
+
+- PARSER_VERSION = "1.0"
+- PARSER_VERSION = "2.0"
+
+La versión 1.0 del analizador de CSV es el valor predeterminado y es rico en características, mientras que la versión 2.0 se basa en el rendimiento y no es compatible con todas las opciones y codificaciones. 
+
+Detalles de la versión 2.0 del analizador de CSV:
+
+- No se admiten todos los tipos de datos.
+- El límite máximo de tamaño de fila es de 8 MB.
+- Las siguientes opciones no se admiten: DATA_COMPRESSION.
+- La cadena vacía entre comillas ("") se interpreta como una cadena vacía.
+
 ## <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se devuelven solo dos columnas con los números ordinales 1 y 4 de los archivos population*.csv. Al no haber fila de encabezado en los archivos, empieza a leer desde la primera línea:
 
 ```sql
-/* make sure you have credentials for storage account access created
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-GO
-
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = ''
-GO
-*/
-
 SELECT * 
 FROM OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
@@ -169,22 +224,9 @@ WITH (
 ) AS [r]
 ```
 
-
-
 En el ejemplo siguiente se devuelven todas las columnas de la primera fila del conjunto de datos del censo en formato Parquet sin especificar los nombres de columna ni los tipos de datos: 
 
 ```sql
-/* make sure you have credentials for storage account access created
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-GO
-
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = ''
-GO
-*/
-
 SELECT 
     TOP 1 *
 FROM  
@@ -194,8 +236,10 @@ FROM
     ) AS [r]
 ```
 
-
+Si recibe un error que indica que los archivos no se pueden mostrar, debe habilitar el acceso al almacenamiento público en Synapse SQL a petición:
+- Si usa un inicio de sesión de SQL, debe [crear una credencial con ámbito en el servidor que permita el acceso al almacenamiento público](develop-storage-files-storage-access-control.md#examples).
+- Si usa una entidad de seguridad de Azure AD para tener acceso al almacenamiento público, deberá [crear una credencial con ámbito en el servidor que permita el acceso al almacenamiento público](develop-storage-files-storage-access-control.md#examples) y deshabilitar la [autenticación de acceso directo de Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más ejemplos, vaya a los [inicios rápidos](query-data-storage.md) o guarde los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).
+Para obtener más ejemplos, consulte la [guía de inicio rápido de datos de consulta](query-data-storage.md) para aprender a usar `OPENROWSET para leer formato de archivo [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) y [JSON](query-json-files.md). También puede obtener información sobre cómo guardar los resultados de la consulta en Azure Storage mediante [CETAS](develop-tables-cetas.md).

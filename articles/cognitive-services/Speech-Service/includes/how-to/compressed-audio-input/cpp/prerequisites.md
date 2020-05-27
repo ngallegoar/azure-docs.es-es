@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 5ff25155529b9a763bcf5af6cfb15593e9da9853
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b38857cd5ea12767f872690dfcdcb84dcbbb3f7d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422368"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585032"
 ---
 El control del audio comprimido se implementa mediante [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licencia, los binarios de GStreamer no se compilan ni se vinculan con el SDK de Voz. Los desarrolladores deben instalar varias dependencias y complementos.
 
@@ -23,7 +23,7 @@ gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
 
-# <a name="rehl--centos"></a>[RHEL/CentOS](#tab/centos)
+# <a name="rhelcentos-78"></a>[RHEL/CentOS 7/8](#tab/centos)
 
 ```sh
 sudo yum install gstreamer1 \
@@ -34,6 +34,10 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> En RHEL/CentOS, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](../../../../how-to-configure-openssl-linux.md).
+> - En RHEL/CentOS 7, siga las instrucciones sobre [cómo configurar RHEL/CentOS 7 para el SDK de voz](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+
+> [!IMPORTANT]
+> El formato de codificación de audio Opus no es compatible con el SDK de voz en RHEL/CentOS 7.
 
 ---

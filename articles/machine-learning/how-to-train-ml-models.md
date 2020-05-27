@@ -11,19 +11,20 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c96ba3496f4542658878518207b2033342e33f5
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: c47bdc17041b2c388b01681dc1e65ddea29b0efb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628766"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584406"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Con Azure Machine Learning, puede enviar fácilmente el script de entrenamiento a [diversos destinos de proceso](how-to-set-up-training-targets.md#compute-targets-for-training), con un [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) y un [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ese patrón le ofrece mucha flexibilidad y el máximo control.
 
-Para facilitar el entrenamiento del modelo de aprendizaje profundo, el SDK de Azure Machine Learning para Python proporciona una abstracción de nivel más alto, la clase Estimator, que permite a los usuarios construir fácilmente configuraciones de ejecución. Puede crear y usar un [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar el script de entrenamiento con cualquier marco de aprendizaje que elija (como scikit-learn) en cualquier destino de proceso: ya sea la máquina local, una sola máquina virtual en Azure o un clúster de GPU en Azure. En las tareas de PyTorch, TensorFlow y Chainer, Azure Machine Learning también proporciona los estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) y [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar el uso de estos marcos.
+
+La clase estimador facilita el entrenamiento de modelos con aprendizaje profundo y aprendizaje de refuerzo. Proporciona una abstracción de alto nivel que le permite construir fácilmente la configuración de ejecución. Puede crear y usar un [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar el script de entrenamiento con cualquier marco de aprendizaje que elija (como scikit-learn) en cualquier destino de proceso: ya sea la máquina local, una sola máquina virtual en Azure o un clúster de GPU en Azure. En las tareas de PyTorch, TensorFlow, Chainer y de aprendizaje de refuerzo, Azure Machine Learning también proporciona los estimadores de [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) y [aprendizaje de refuerzo](how-to-use-reinforcement-learning.md) para simplificar el uso de estos marcos.
 
 ## <a name="train-with-an-estimator"></a>Entrenamiento con un estimador
 
@@ -68,7 +69,7 @@ Parámetro | Descripción
 
 El constructor tiene otro parámetro llamado `pip_packages` que puede usar para los paquetes de pip necesarios.
 
-Ahora que ha creado el objeto `Estimator`, envíe el trabajo de aprendizaje que se va a ejecutar en el proceso remoto mediante una llamada a la función `submit` en el objeto [ del ](concept-azure-machine-learning-architecture.md#experiments)experimento`experiment`. 
+Ahora que ha creado el objeto `Estimator`, envíe el trabajo de aprendizaje que se va a ejecutar en el proceso remoto mediante una llamada a la función `submit` en el objeto `experiment` del [experimento](concept-azure-machine-learning-architecture.md#experiments). 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -156,6 +157,7 @@ Para obtener cuadernos de modelos de entrenamiento con objetos Estimator especí
 * [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
 * [Entrenar modelos de PyTorch](how-to-train-pytorch.md)
 * [Entrenar modelos de TensorFlow](how-to-train-tensorflow.md)
+* [Entrenar una red neuronal profunda de aprendizaje de refuerzo](how-to-use-reinforcement-learning.md)
 * [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)
 * [Implementar un modelo entrenado](how-to-deploy-and-where.md)
 * [Creación y administración de entornos de entrenamiento e implementación](how-to-use-environments.md)

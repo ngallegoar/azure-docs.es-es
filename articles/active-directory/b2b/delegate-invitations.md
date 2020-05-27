@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74272895"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591291"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
@@ -36,11 +36,9 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
 ### <a name="to-configure-external-collaboration-settings"></a>Para configurar los valores de colaboración externa B2B:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de inquilinos.
-2. Seleccione **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
-3. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
-   > [!NOTE]
-   > La opción **Configuración de colaboración externa** también está disponible en la página **Relaciones de organización**. En Azure Active Directory, en **Administrar**, vaya a **Relaciones de organización** > **Configuración**.
-4. En la página **Configuración de colaboración externa**, elija las directivas que quiere habilitar.
+2. Seleccione **Azure Active Directory**.
+3. Seleccione **External Identities** > **Configuración de colaboración externa**.
+6. En la página **Configuración de colaboración externa**, elija las directivas que quiere habilitar.
 
    ![Configuración de colaboración externa](./media/delegate-invitations/control-who-to-invite.png)
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6a6cc8e5931f3e29c242f51a6e062441953228ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337286"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636997"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integración de intercambios de notificaciones de la API de REST en la directiva personalizada de Azure AD B2C
 
@@ -162,7 +162,7 @@ En un perfil técnico de RESTful, puede querer enviar el idioma o la configuraci
 
 ## <a name="handling-error-messages"></a>Control de mensajes de error
 
-Es posible la API de REST tenga que devolver un mensaje de error, como "No se encuentra el usuario en el sistema CRM". Si se produce un error, la API de REST debe devolver un mensaje de error HTTP 409 (código de estado de respuesta de conflicto). Para obtener más información, consulte [Perfil técnico de RESTful](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster&anchor=returning-error-message).
+Es posible la API de REST tenga que devolver un mensaje de error, como "No se encuentra el usuario en el sistema CRM". Si se produce un error, la API de REST debe devolver un mensaje de error HTTP 409 (código de estado de respuesta de conflicto). Para obtener más información, consulte [Perfil técnico de RESTful](restful-technical-profile.md#returning-error-message).
 
 Esto solo se puede lograr si se llama a un perfil técnico de la API de REST desde un perfil técnico de validación. Esto permite al usuario corregir los datos en la página y volver a ejecutar la validación tras el envío de la página.
 
