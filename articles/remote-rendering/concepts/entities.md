@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b9ecd048b080ae0ec9fd3fb7a4fb35009551b8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679434"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758731"
 ---
 # <a name="entities"></a>Entidades
 
@@ -41,6 +41,13 @@ CutPlaneComponent cutplane = (CutPlaneComponent)entity.FindComponentOfType(Objec
 CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 ```
 
+```cpp
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
+
+// or alternatively:
+ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
+```
+
 ### <a name="querying-transforms"></a>Consulta de transformaciones
 
 Las consultas de transformación son llamadas sincrónicas en el objeto. Es importante tener en cuenta que las transformaciones que se consultan a través de la API son transformaciones de espacio local, relativas al elemento primario del objeto. Las excepciones son objetos raíz, para los que el espacio local y el espacio global son idénticos.
@@ -53,6 +60,13 @@ Las consultas de transformación son llamadas sincrónicas en el objeto. Es impo
 Double3 translation = entity.Position;
 Quaternion rotation = entity.Rotation;
 ```
+
+```cpp
+// local space transform of the entity
+Double3 translation = *entity->Position();
+Quaternion rotation = *entity->Rotation();
+```
+
 
 ### <a name="querying-spatial-bounds"></a>Consulta de enlaces espaciales
 
@@ -77,6 +91,21 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
         // ...
     }
 };
+```
+
+```cpp
+ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
+metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+    {
+        if (query->IsRanToCompletion())
+        {
+            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+            int64_t intValue = *entry->AsInt64();
+
+            // ...
+        }
+    });
 ```
 
 La consulta se realizará correctamente incluso si el objeto no contiene metadatos.

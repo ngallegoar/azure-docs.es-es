@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 68f6f8ec67aca44c89b338287bdd37b6066992e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 82439f8380b0dca676b781e36fff738b5d5bee93
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207027"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758187"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplicación web que llama a las API web: Configuración del código
 
@@ -268,18 +268,18 @@ El uso de aserciones de cliente es un escenario avanzado, que se detalla en [Ase
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-En el tutorial de ASP.NET Core se usa la inserción de dependencias para permitir decidir la implementación de la caché de tokens en el archivo Startup.cs de la aplicación. Microsoft.Identity.Web incluye varios serializadores de caché de tokens pregenerados que se describen en [Serialización del almacenamiento en caché de los tokens](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/README.md#token-cache-serialization). Una posibilidad interesante es elegir las [cachés de memoria distribuidas](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache) de ASP.NET Core:
+En el tutorial de ASP.NET Core se usa la inserción de dependencias para permitir decidir la implementación de la caché de tokens en el archivo Startup.cs de la aplicación. Microsoft.Identity.Web incluye varios serializadores de caché de tokens pregenerados que se describen en [Serialización del almacenamiento en caché de los tokens](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Una posibilidad interesante es elegir las [cachés de memoria distribuidas](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache) de ASP.NET Core:
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddSignIn(Configuration, "AzureAd");
+    services.AddSignIn(Configuration, "AzureAd")
             .AddWebAppCallsProtectedWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
 // Then, choose your implementation.
 // For instance, the distributed in-memory cache (not cleared when you stop the app):
-services.AddDistributedMemoryCache()
+services.AddDistributedMemoryCache();
 
 // Or a Redis cache:
 services.AddStackExchangeRedisCache(options =>

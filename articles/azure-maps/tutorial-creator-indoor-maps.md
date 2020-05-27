@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596594"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745935"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Uso de Creator para crear planos interiores
 
@@ -57,7 +57,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 
 4. En la pestaña de **encabezados**, especifique un valor para la clave `Content-Type`. El paquete de dibujo es una carpeta comprimida, por lo que debe usar el valor `application/octet-stream`. En la pestaña **Body** (Cuerpo), seleccione **binary** (binario). Haga clic en **Select File** (Seleccionar archivo) y elija un paquete de dibujo.
 
-     ![administración de datos](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![administración de datos](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Haga clic en el botón azul **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave **Location** (Ubicación), que es `status URL`.
 
@@ -215,7 +215,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. El cuerpo de la respuesta se entregará en formato GeoJSON y contendrá todas las colecciones del conjunto de datos. Para simplificar, en este ejemplo solo se muestra la colección de `unit`. Para ver un ejemplo que contenga todas las colecciones, consulte [Describe Collections API de WFS](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). Para obtener más información sobre cualquier colección, puede hacer clic en cualquiera de las direcciones URL del elemento `link`.
+3. El cuerpo de la respuesta se entregará en formato GeoJSON y contendrá todas las colecciones del conjunto de datos. Para simplificar, en este ejemplo solo se muestra la colección de `unit`. Para ver un ejemplo que contenga todas las colecciones, consulte [Describe Collections API de WFS](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Para obtener más información sobre cualquier colección, puede hacer clic en cualquiera de las direcciones URL del elemento `link`.
 
     ```json
     {
@@ -285,7 +285,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 
 1. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
 
-2. Realice una solicitud **POST** en [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Use el `datasetId` del conjunto de datos que contiene el estado que quiere modificar. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+2. Realice una solicitud **POST** en [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Use el `datasetId` del conjunto de datos que contiene el estado que quiere modificar. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}

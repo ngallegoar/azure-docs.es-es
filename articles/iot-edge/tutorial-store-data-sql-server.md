@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 96106882c1c43c322afbf6517209621557de9d25
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c239c16103dc0c1f847c5d4354aed89a143a28c6
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592073"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745505"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -41,7 +41,7 @@ Antes de comenzar este tutorial, debe haber realizado el anterior para configura
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
 * Un [dispositivo Linux que ejecute Azure IoT Edge](quickstart-linux.md) que sea AMD64.
-  * Los dispositivos ARM, como Raspberry PI, no pueden ejecutar SQL Server. Si quiere usar SQL en un dispositivo ARM, puede registrarse para probar la versión preliminar de [Azure SQL Edge](https://azure.microsoft.com/services/azure-sql-edge/).
+  * Los dispositivos ARM, como Raspberry PI, no pueden ejecutar SQL Server. Si quiere usar SQL en un dispositivo ARM, puede registrarse para probar la versión preliminar de [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 * Un registro de contenedor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio Code](https://code.visualstudio.com/) configurado con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [CE de Docker](https://docs.docker.com/install/) configurado para ejecutar contenedores de Linux.

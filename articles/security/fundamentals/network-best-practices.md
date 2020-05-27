@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548302"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757830"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedimientos recomendados de seguridad de la red de Azure
 En este artículo se aborda un conjunto de procedimientos recomendados de Azure que sirven para mejorar la seguridad de la red. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
@@ -74,7 +74,7 @@ Las redes deben evolucionar de las defensas tradicionales porque pueden ser vuln
 Los procedimientos recomendados son:
 
 **Procedimiento recomendado**: conceder acceso condicional a recursos en función del dispositivo, la identidad, la garantía, la ubicación de red y otros muchos aspectos.  
-**Detalles**: el [acceso condicional de Azure AD](/azure/active-directory/conditional-access/overview) permite aplicar los controles de acceso adecuados poniendo en marcha decisiones de control de acceso automatizado según las condiciones necesarias. Para más información, vea [Administración el acceso a la administración de Azure con acceso condicional](../../role-based-access-control/conditional-access-azure-management.md).
+**Detalles**: el [acceso condicional de Azure AD](../../active-directory/conditional-access/overview.md) permite aplicar los controles de acceso adecuados poniendo en marcha decisiones de control de acceso automatizado según las condiciones necesarias. Para más información, vea [Administración el acceso a la administración de Azure con acceso condicional](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Procedimiento recomendado**: habilitar el acceso a los puertos solo tras la aprobación del flujo de trabajo.  
 **Detalles**: puede usar el [acceso a VM Just-In-Time en Azure Security Center](../../security-center/security-center-just-in-time.md) para bloquear el tráfico entrante a las VM de Azure, lo que reduce la exposición a ataques al mismo tiempo que proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario.

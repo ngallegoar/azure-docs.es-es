@@ -3,7 +3,7 @@ title: Restauración de una copia de seguridad en una instancia administrada
 description: Restaure una copia de seguridad de datos a una instancia administrada de Azure SQL Database mediante SSMS.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 3b12aa860bee189f706bd98df63fc194a3a0cc71
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7b7d635a45929ead1ef67e10fef75e502c5005f7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874711"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770098"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Inicio rápido: Restauración de una base de datos en una instancia administrada
 

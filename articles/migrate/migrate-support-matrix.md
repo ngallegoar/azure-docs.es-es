@@ -4,12 +4,12 @@ description: Proporciona un resumen de limitaciones y configuraciones de compati
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: ec267053a0bc675d05e6488665f77467da9370e0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81680695"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746852"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de compatibilidad para Azure Migrate
 
@@ -43,7 +43,7 @@ Migración de servidores de Azure Migrate | N/D | Migrar [máquinas virtuales de
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Evaluar bases de datos de SQL Server locales. | N/D
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | N/D | Migrar SQL Server, Oracle, MySQL, PostgreSQL y MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Evaluar infraestructura de escritorio virtual (VDI) | N/D
-[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Evaluar máquinas virtuales de VMWare, máquinas virtuales de Hyper-V, máquinas virtuales de Xen, máquinas físicas, estaciones de trabajo (incluida VDI) y cargas de trabajo en la nube pública | N/D
+[Movere](https://www.movere.io/) | Evaluar máquinas virtuales de VMWare, máquinas virtuales de Hyper-V, máquinas virtuales de Xen, máquinas físicas, estaciones de trabajo (incluida VDI) y cargas de trabajo en la nube pública | N/D
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/D | Migrar máquinas virtuales de VMWare, máquinas virtuales de Hyper-V, máquinas virtuales de Xen, máquinas virtuales de KVM, máquinas físicas y cargas de trabajo en la nube pública 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y cargas de trabajo en la nube pública. | N/D
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos, cargas de trabajo en la nube pública y bases de datos de SQL Server. | N/D

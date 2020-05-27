@@ -3,19 +3,19 @@ title: Habilitación de la configuración de subred asistida por servicio para I
 description: Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: efc2b8578651f68d052f227694f85348853e191f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f22c713af700225ffe6954460c36217abdea5eea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533273"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770166"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-database-managed-instance"></a>Habilitación de la configuración de subred asistida por servicio para Instancia administrada de Azure SQL Database
 La configuración de subred asistida por servicio proporciona administración de la configuración de red automatizada para las subredes que hospedan instancias administradas. Con la configuración de subred asistida por servicio, el usuario tiene control total sobre el acceso a datos (flujos de tráfico de TDS) mientras que la instancia administrada asume la responsabilidad de garantizar el flujo ininterrumpido de tráfico de administración para cumplir el Acuerdo de Nivel de Servicio.

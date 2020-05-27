@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Asignación de directivas nuevas con plantillas'
 description: En este inicio rápido se usa una plantilla de Resource Manager para crear una asignación de directivas para identificar recursos no compatibles.
-ms.date: 03/16/2020
+ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82187790"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757456"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
@@ -30,7 +30,7 @@ En este inicio rápido, creará una asignación de directiva y asignará una def
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
 El recurso definido en la plantilla es el siguiente:
 

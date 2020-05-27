@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 22d27d50a7d2c304e5d1a04a9a5eaa03d2f0bfa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8c0644a84b917acff60060a0c48f8e9aac30e16
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366349"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746216"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop de terceros en Azure HDInsight
 
@@ -31,7 +31,7 @@ En la lista siguiente se muestran las aplicaciones publicadas:
 |[Dataiku DSS en HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS en una plataforma de ciencia de datos empresariales que permite a científicos y analistas de datos colaborar para diseñar y ejecutar nuevos servicios y productos de datos de forma más eficaz, con el fin de convertir los datos sin procesar en predicciones de gran impacto. |
 |[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark, HBase, Storm, Kafka |El mantenimiento de la coherencia de los datos en un entorno distribuido es un desafío de las operaciones de datos masivos. WANdisco Fusion, una plataforma de software de nivel empresarial, soluciona este problema mediante la habilitación de la coherencia de datos no estructurados en cualquier entorno. |
 |[H2O SparklingWater para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water es compatible con los siguientes algoritmos distribuidos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, redes neurales profundas, aprendizaje profundo, K-means, PCA, Generalized Low Rank Models, Detección de anomalías y Autoencoders. |
-|[Striim para la integración de datos en tiempo real en HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.hdinsightintegration) |Hadoop, HBase, Storm, Spark, Kafka |Striim es una plataforma de inteligencia e integración de datos de streaming de un extremo a otro que permite la ingesta continua, el procesamiento y el análisis de flujos de datos dispares. |
+|[Striim para la integración de datos en tiempo real en HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striim es una plataforma de inteligencia e integración de datos de streaming de un extremo a otro que permite la ingesta continua, el procesamiento y el análisis de flujos de datos dispares. |
 |[Jumbune Enterprise: aceleración de análisis de macrodatos](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |A nivel general, Jumbune ayuda a las empresas mediante, 1. la aceleración del rendimiento de cargas de trabajo Hive, Java, Scala basadas en Tez, MapReduce y el motor de Spark; 2. la supervisión proactiva de clústeres de Hadoop; y 3. el establecimiento de administración de calidad de los datos en sistemas de archivos distribuidos. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Con tecnología Apache Kylin, Kyligence Enterprise permite la inteligencia empresarial sobre macrodatos. Como un motor OLAP empresarial en Hadoop, Kyligence Enterprise permite a los analistas empresariales diseñar una arquitectura de inteligencia empresarial en Hadoop con metodologías de inteligencia empresarial y almacenamiento de datos estándar del sector. |
 |[Starburst Presto para Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto es un motor de consulta SQL distribuido, rápido y escalable. Diseñado para la separación de almacenamiento y proceso, Presto es perfecto para consultar datos en Azure Data Lake Storage, Azure Blob Storage, bases de datos SQL y NoSQL y otros orígenes de datos. |

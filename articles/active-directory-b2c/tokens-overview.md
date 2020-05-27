@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186495"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757626"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -37,8 +37,8 @@ Los tokens siguientes se utilizan en la comunicación con Azure AD B2C:
 
 Una [aplicación registrada](tutorial-register-applications.md) recibe los tokens y se comunica con Azure AD B2C mediante el envío de solicitudes a estos puntos de conexión:
 
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Los tokens de seguridad que la aplicación recibe de Azure AD B2C pueden proceder de los puntos de conexión `/authorize` o `/token`. Cuando los tokens de identificador se adquieren en el punto de conexión `/authorize`, el procedimiento se realiza con el [flujo implícito](implicit-flow-single-page-application.md), que se usa a menudo para los usuarios que inician sesión en aplicaciones web basadas en JavaScript. Cuando se adquieren los tokens de identificador en el punto de conexión `/token`, el procedimiento se realiza utilizando el [flujo de código de autorización](openid-connect.md#get-a-token), que mantiene el token oculto al explorador.
 
@@ -53,7 +53,7 @@ En la tabla siguiente se enumeran las notificaciones que puede esperar de los to
 | Nombre | Notificación | Valor de ejemplo | Descripción |
 | ---- | ----- | ------------- | ----------- |
 | Público | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica al destinatario previsto del token. Para Azure AD B2C, la audiencia es el identificador de la aplicación. La aplicación tiene que validar este valor y rechazar el token si no coincide. Audiencia es sinónimo de recursos. |
-| Emisor | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica el servicio de token de seguridad (STS) que construye y devuelve el token. También identifica el directorio en el que se autenticó el usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del punto de conexión adecuado. |
+| Emisor | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica el servicio de token de seguridad (STS) que construye y devuelve el token. También identifica el directorio en el que se autenticó el usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del punto de conexión adecuado. |
 | Emitido a las | `iat` | `1438535543` | La hora en que se emitió el token, que se representa en tiempo de época. |
 | Fecha de expiración | `exp` | `1438539443` | La hora en que el token deja de ser válido, que se representa en tiempo de época. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
 | No antes de | `nbf` | `1438535543` | Hora a la que el token pasa a ser válido, representada en tiempo de época. Suele ser la misma hora a la que se emitió el token. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
@@ -124,14 +124,14 @@ El valor de la notificación **alg** es el algoritmo que se usó para firmar el 
 Azure AD B2C tiene un punto de conexión de metadatos OpenID Connect. Con este punto de conexión, las aplicaciones pueden solicitar información acerca de Azure AD B2C en tiempo de ejecución. En esta información se incluyen los extremos, los contenidos del token y las claves de firma de los token. Hay un documento de metadatos JSON para cada directiva en su inquilino de Azure AD B2C. El documento de metadatos es un objeto JSON que contiene varias piezas de información útiles. Los metadatos contienen **jwks_uri**, que ofrece la ubicación del conjunto de claves públicas que se usan para firmar los tokens. La ubicación se proporciona aquí, pero es mejor capturarla dinámicamente mediante el documento de metadatos y el análisis de **jwks_uri**:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
 ```
 El documento JSON que se encuentra en esta dirección URL contiene toda la información de clave pública en uso en ese momento determinado. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar en el documento JSON la clave pública que se ha usado en este documento para firmar un token concreto. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
 
 El documento de metadatos de la directiva `B2C_1_signupsignin1` en el inquilino `contoso.onmicrosoft.com` se encuentra en:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
 Para determinar qué directiva se usó para firmar un token (y dónde solicitar los metadatos), tiene dos opciones. En primer lugar, el nombre de la directiva se incluye en la notificación `acr` del token. Las notificaciones se pueden analizar fuera del cuerpo del JWT; para ello, descodifique la descodificación en base 64 del cuerpo y deserialice la cadena JSON resultante. La notificación `acr` es el nombre de la directiva que se usó para emitir el token. La otra opción consiste en codificar la directiva en el valor del parámetro `state` al emitir la solicitud y, a continuación, descodificarla para determinar qué directiva se ha usado. Cualquiera de estos métodos es válido.

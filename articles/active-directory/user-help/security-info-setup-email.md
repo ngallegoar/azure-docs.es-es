@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 4c3dd3e7e0bc899b87a16f66dc4d049a2876dbb4
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4f0ea55149fc8cfeeb6ef719d67346019b81078a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628374"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744467"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configuración de una dirección de correo electrónico como método de comprobación
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfde52db9cbe5bc14be7b30c1063215472bff699
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3ef98f243abd02f0156190638cda8ab7c33f935d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116295"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770914"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ Algunas de estas opciones se aplican al Servidor MFA, Azure MFA o ambos.
 | [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se usa para impedir que usuarios específicos puedan recibir solicitudes de Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
 | [Alerta de fraude](#fraud-alert) | Configure valores relacionados con la capacidad de los usuarios para notificar solicitudes de comprobación fraudulentas. |
 | [Notificaciones](#notifications) | Permite notificaciones de eventos desde el Servidor MFA. |
-| [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
+| [Tokens OATH](concept-authentication-methods.md#oath-tokens) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
 | [Configuración de las llamadas telefónicas](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
 | Proveedores | Se mostrarán los proveedores de autenticación existentes que pueden haberse asociado con su cuenta. A partir del 1 de septiembre de 2018 no se pueden crear nuevos proveedores de autenticación. |
 
