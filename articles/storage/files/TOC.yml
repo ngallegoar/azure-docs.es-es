@@ -266,7 +266,7 @@
     - name: Notas de la versión de Azure File Sync
       href: storage-files-release-notes.md
     - name: Foro de Azure Storage
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+      href: 'https://docs.microsoft.com/answers/products/azure?product=storage'
     - name: Azure Storage en Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Precios de Azure Storage

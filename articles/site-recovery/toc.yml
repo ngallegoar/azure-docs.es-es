@@ -388,6 +388,8 @@
               href: service-updates-how-to.md
             - name: Eliminación de un almacén
               href: delete-vault.md
+    - name: Compatibilidad de Site Recovery con grupos con ubicación por proximidad
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: Recuperación ante desastres para aplicaciones
       items:
         - name: Acerca de la recuperación ante desastres en aplicaciones locales
@@ -514,8 +516,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: Foro
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Página de preguntas y respuestas de Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
     - name: Ruta de aprendizaje
       href: /learn/azure/
     - name: Precios
