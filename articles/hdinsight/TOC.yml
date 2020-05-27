@@ -289,8 +289,8 @@
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Habilitación de volcados del montón para servicios de Apache Hadoop
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        - name: Obtención de ayuda en el foro
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
+        - name: Obtención de ayuda en la página de preguntas y respuestas de Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-hdinsight.html'
         - name: Calculadora de precios
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Herramientas de Windows para HDInsight
@@ -330,8 +330,18 @@
           href: ./spark/spark-best-practices.md
         - name: Configuración de opciones de Apache Spark
           href: ./spark/apache-spark-settings.md
-        - name: Optimización de trabajos de Apache Spark
-          href: ./spark/apache-spark-perf.md
+        - name: Optimization
+          items:
+            - name: Optimización de trabajos de Apache Spark
+              href: ./spark/apache-spark-perf.md
+            - name: Optimización del procesamiento de datos
+              href: ./spark/optimize-data-processing.md
+            - name: Optimización del almacenamiento de datos
+              href: ./spark/optimize-data-storage.md
+            - name: Optimización del uso de la memoria
+              href: ./spark/optimize-memory-usage.md
+            - name: Optimización de la configuración de clústeres
+              href: ./spark/optimize-cluster-configuration.md
         - name: "Migración a Spark\_2.3 o\_2.4"
           href: ./spark/migrate-versions.md
     - name: Procedimientos

@@ -196,6 +196,8 @@
           href: service-bus-diagnostic-logs.md
         - name: Suspensión y reactivación de entidades de mensajería
           href: entity-suspend.md
+        - name: Uso de Service Bus Explorer para realizar operaciones de datos en Service Bus
+          href: explorer.md
         - name: Uso de plantillas de Resource Manager
           href: service-bus-resource-manager-overview.md
           items:

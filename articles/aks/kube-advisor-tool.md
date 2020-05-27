@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 17e21c142dc354de7b72bc17396b19366027c5cd
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668393"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773796"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Comprobación de los procedimientos recomendados de Kubernetes en el clúster
 
@@ -34,7 +34,7 @@ Para ejecutar la herramienta en un clúster configurado para el [control de acce
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
-kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
+kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
 Si no usa RBAC, puede ejecutar el comando como se indica a continuación:

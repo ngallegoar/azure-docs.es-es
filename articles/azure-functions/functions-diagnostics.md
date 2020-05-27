@@ -6,37 +6,36 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834049"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83122379"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Información general sobre diagnósticos de Azure Functions
 
-Al ejecutar una aplicación de función, quiere estar preparado para las incidencias que puedan surgir, desde errores 4xx hasta errores de desencadenador. Los diagnósticos de Azure Functions son una experiencia inteligente e interactiva que le ayuda a solucionar los problemas de la aplicación de funciones sin ninguna configuración o costo adicional. Cuando surgen incidencias con la aplicación de funciones, los diagnósticos de Azure Functions le indicarán lo que pasa y le guiarán a la información correcta de forma que pueda solucionar la incidencia de la manera más fácil y rápida. En este artículo se muestran los conceptos básicos sobre cómo usar los diagnósticos de Azure Functions para diagnosticar y resolver incidencias comunes de la aplicación de funciones.
+Al ejecutar una aplicación de función, quiere estar preparado para las incidencias que puedan surgir, desde errores 4xx hasta errores de desencadenador. Los diagnósticos de Azure Functions son una experiencia inteligente e interactiva que le ayuda a solucionar los problemas de la aplicación de funciones sin ninguna configuración o costo adicional. Cuando se producen problemas con la aplicación de funciones, los diagnósticos de Azure Functions señalan lo que es incorrecto. Sirven como guía a través de la información correcta para solucionar y resolver el problema de forma más fácil y rápida. En este artículo se muestran los conceptos básicos sobre cómo usar los diagnósticos de Azure Functions para diagnosticar y resolver incidencias comunes de la aplicación de funciones.
 
 ## <a name="start-azure-functions-diagnostics"></a>Inicio de diagnósticos de Azure Functions
 
-Para acceder a los diagnósticos de Azure Functions:
+Para iniciar los diagnósticos de Azure Functions:
 
 1. Vaya a la aplicación de funciones en [Azure Portal](https://portal.azure.com).
-2. Seleccione la pestaña **Características de la plataforma**.
-3. Seleccione **Diagnosticar y resolver problemas** en **Administración de recursos**, para abrir los diagnósticos de Azure Functions.
-4. Elija una categoría que describa mejor la incidencia de la aplicación de funciones mediante las palabras clave en el icono de Página principal. También puede escribir una palabra clave que describa mejor la incidencia en la barra de búsqueda. Por ejemplo, podría escribir `execution` para ver una lista de los informes de diagnóstico relacionados con la ejecución de la aplicación de funciones y abrirlos directamente desde la página principal.
+1. Seleccione **Diagnosticar y solucionar problemas** para abrir los diagnósticos de Azure Functions.
+1. Elija una categoría que describa mejor la incidencia de la aplicación de funciones mediante las palabras clave en el icono de Página principal. También puede escribir una palabra clave que describa mejor la incidencia en la barra de búsqueda. Por ejemplo, podría escribir `execution` para ver una lista de los informes de diagnóstico relacionados con la ejecución de la aplicación de funciones y abrirlos directamente desde la página principal.
 
-![Página principal](./media/functions-diagnostics/homepage.png)
+   :::image type="content" source="./media/functions-diagnostics/functions-app-search-azure-functions-diagnostics.png" alt-text="Busque los diagnósticos de Azure Functions." border="true":::
 
 ## <a name="use-the-interactive-interface"></a>Uso de la interfaz interactiva
 
-Una vez que seleccione una categoría de la página principal que mejor se corresponda con el problema de la aplicación de funciones, la interfaz interactiva de diagnósticos de Azure Functions, Genie, le guiará a través del diagnóstico y la resolución del problema de la aplicación. Puede usar los accesos directos de iconos que proporciona Genie para ver el informe de diagnóstico completo de la categoría del problema que le interesa. Los accesos directos de iconos proporcionan una manera directa de acceder a las métricas de diagnóstico.
+Una vez que seleccione una categoría de la página principal que mejor se corresponda con el problema de la aplicación de funciones, la interfaz interactiva de diagnósticos de Azure Functions, denominada Genie, le guiará a través del diagnóstico y la resolución del problema de la aplicación. Puede usar los accesos directos de mosaicos que proporciona Genie para ver el informe de diagnóstico completo de la categoría del problema que le interesa. Los accesos directos de iconos proporcionan una manera directa de acceder a las métricas de diagnóstico.
 
-![Genie](./media/functions-diagnostics/genie.png)
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Genie es la interfaz de los diagnósticos de Azure Functions." border="false":::
 
-Después de seleccionar un icono, podrá ver una lista de temas relacionados con la incidencia descrita en el icono. En estos temas se proporcionan fragmentos de información importante del informe completo. Puede seleccionar cualquiera de estos temas para profundizar en las incidencias. Además, puede seleccionar **Ver el informe completo** para explorar todos los temas en una sola página.
+Después de seleccionar un icono, podrá ver una lista de temas relacionados con la incidencia descrita en el icono. En estos temas se proporcionan fragmentos de información importante del informe completo. Seleccione cualquiera de estos temas para profundizar en las incidencias. Además, puede seleccionar **Ver el informe completo** para explorar todos los temas en una sola página.
 
-![Vista previa del informe de diagnóstico](./media/functions-diagnostics/preview-of-diagnostic-report.png)
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Versión preliminar del informe de diagnóstico" border="false":::
 
 ## <a name="view-a-diagnostic-report"></a>Visualización de un informe de diagnóstico
 
@@ -44,11 +43,11 @@ Después de elegir un tema, podrá ver un informe de diagnóstico específico de
 
 ## <a name="find-the-problem-code"></a>Búsqueda del código del problema
 
-En el caso de las funciones basadas en scripts, se puede usar **Function Execution and Errors** (Ejecuciones y errores de funciones) de **Function App Down or Reporting Errors** (Aplicación de funciones fuera de servicio o notificación de errores) para restringir la línea de código que provoca las excepciones o los errores. Esta característica puede ser una herramienta útil para llegar a la causa principal y corregir las incidencias de una línea de código específica. Esta opción no está disponible para las funciones de C# y de Java compiladas previamente.
+En el caso de las funciones basadas en scripts, se puede usar **Function Execution and Errors** (Ejecuciones y errores de funciones) de **Function App Down or Reporting Errors** (Aplicación de funciones fuera de servicio o notificación de errores) para restringir la línea de código que provoca las excepciones o los errores. Puede usar esta herramienta para llegar a la causa principal y corregir las incidencias de una línea de código específica. Esta opción no está disponible para las funciones de C# y de Java compiladas previamente.
 
-![Informe de diagnóstico sobre errores de ejecución de función](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Informe de diagnóstico sobre errores de ejecución de función" border="false":::
 
-![Excepción de función](./media/functions-diagnostics/function-exception.png)
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Vista de los detalles de la excepción." border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

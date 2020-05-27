@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ba34976192d7e840f6077b13fd9aa165ed22b900
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3f51c4e50c3c5499c73e18ce40e55de6aeb54472
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195876"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700892"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 
@@ -216,8 +216,3 @@ En este tutorial, ha aprendido a escalar y reducir horizontalmente un conjunto d
 > * Crear y usar reglas de escalado automático
 > * Realizar pruebas de esfuerzo de instancias de máquina virtual y desencadenar reglas de escalado automático
 > * Reducir el escalado automáticamente cuando se reduzca la demanda
-
-Para más ejemplos de conjuntos de escalado de máquinas virtuales en acción, vea los siguientes scripts de ejemplo de la CLI de Azure:
-
-> [!div class="nextstepaction"]
-> [Ejemplos de scripts de conjunto de escalado para la CLI de Azure](cli-samples.md)

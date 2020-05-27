@@ -432,8 +432,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog de redes
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Foro de redes
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Página de preguntas y respuestas de Microsoft para Redes
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: Comentarios de redes
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Precios
