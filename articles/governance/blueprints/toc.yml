@@ -285,7 +285,7 @@
     - name: 'GitHub: Ejemplos de Azure Blueprints'
       href: 'https://github.com/Azure/azure-blueprints'
     - name: Preguntas y respuestas de Microsoft para Azure Blueprints
-      href: /answers/topics/azure-blueprints.html
+      href: /answers/topics/azure-blueprints.html.html
     - name: Canal de YouTube de gobernanza
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: 'Azure Friday: Introducción a Azure Blueprints'

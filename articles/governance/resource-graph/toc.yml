@@ -17,6 +17,9 @@
     - name: 'Ejecución de la primera consulta: PowerShell'
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+    - name: 'Ejecución de la primera consulta: Python'
+      displayName: 'library, azure-mgmt, cli'
+      href: first-query-python.md
     - name: 'Implementación de una consulta compartida: plantilla de Resource Manager'
       displayName: 'resource manager, queries'
       href: shared-query-template.md
@@ -87,13 +90,13 @@
       href: ./reference/supported-tables-resources.md
 - name: Recursos
   items:
+    - name: 'GitHub: ejemplos de gobernanza'
+      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
+    - name: Canal de YouTube de gobernanza
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Repositorio de ejemplos de GitHub
-      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
     - name: UserVoice
       href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345061'
-    - name: Canal de YouTube de gobernanza
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

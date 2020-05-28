@@ -9,10 +9,17 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Creación de la base de datos: Azure Portal'
-      href: quickstart-create-mariadb-server-database-using-azure-portal.md
-    - name: 'Creación de la base de datos: CLI de Azure'
-      href: quickstart-create-mariadb-server-database-using-azure-cli.md
+    - name: Creación de una base de datos
+      items:
+        - name: 'Creación de la base de datos: Azure Portal'
+          href: quickstart-create-mariadb-server-database-using-azure-portal.md
+        - name: 'Creación de la base de datos: CLI de Azure'
+          href: quickstart-create-mariadb-server-database-using-azure-cli.md
+        - name: 'Creación de una base de datos: Azure PowerShell'
+          href: quickstart-create-mariadb-server-database-using-azure-powershell.md
+        - name: 'Creación de una base de datos: plantilla de Resource Manager'
+          href: quickstart-create-mariadb-server-database-arm-template.md
+          displayName: deploy azure resource manager template
     - name: Conexión y consulta
       items:
         - name: MySQL Workbench
@@ -25,6 +32,8 @@
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
 - name: Ejemplos
   items:
     - name: Azure CLI
@@ -119,6 +128,8 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: Migración de bases de datos
       items:
         - name: Volcado de memoria y restauración
@@ -137,12 +148,16 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: Almacenamiento de crecimiento automático
       items:
         - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: Denegación del acceso a una red pública
       items:
         - name: Azure Portal
@@ -173,6 +188,8 @@
           href: howto-read-replicas-portal.md
         - name: Creación de réplicas de lectura en la CLI de Azure o API REST
           href: howto-read-replicas-cli.md
+        - name: 'Creación de réplicas de lectura, Azure PowerShell'
+          href: howto-read-replicas-powershell.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de conexión
@@ -201,6 +218,8 @@
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: Referencia
   items:
     - name: Azure CLI

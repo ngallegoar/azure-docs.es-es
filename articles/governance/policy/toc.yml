@@ -198,7 +198,7 @@
     - name: 'GitHub: repositorio de directivas de la comunidad'
       href: 'https://github.com/Azure/Community-Policy'
     - name: Preguntas y respuestas de Microsoft para Azure Policy
-      href: /answers/topics/azure-policy.html
+      href: /answers/topics/azure-policy.html.html
     - name: Canal de YouTube de gobernanza
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Vídeos de configuración de invitado
