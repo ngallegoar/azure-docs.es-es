@@ -1,10 +1,10 @@
 - name: Documentación de Azure Logic Apps
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: ¿Qué es Azure Logic Apps?
       href: logic-apps-overview.md
-- name: Guías de inicio rápido
+- name: Guías de inicios rápidos
   expanded: true
   items:
     - name: 'Creación de aplicaciones lógicas: Azure Portal'
@@ -377,6 +377,8 @@
       href: logic-apps-limits-and-config.md
     - name: Modelo de precios y medición de uso
       href: logic-apps-pricing.md
+    - name: Azure CLI
+      href: /cli/azure/ext/logic/logic?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: API DE REST

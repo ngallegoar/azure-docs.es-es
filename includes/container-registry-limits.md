@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 05/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0090f02382e024e5539383328b55d58798002d63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79117112"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683412"
 ---
 | Resource | Básica | Estándar | Premium |
 |---|---|---|---|
@@ -26,9 +26,9 @@ ms.locfileid: "79117112"
 | webhooks | 2 | 10 | 500 |
 | Replicación geográfica | N/D | N/D | [Compatible][geo-replication] |
 | Confianza de contenido | N/D | N/D | [Compatible][content-trust] |
-| Acceso de redes virtuales | N/D | N/D | [Versión preliminar][vnet] |
-| Integración de Private Link | N/D | N/D | [Versión preliminar][plink] |
-| Claves administradas por el cliente | N/D | N/D | [Versión preliminar][cmk] |
+| Vínculo privado con puntos de conexión privados | N/D | N/D | [Compatible][plink] |
+| Acceso a red virtual del punto de conexión de servicio | N/D | N/D | [Versión preliminar][vnet] |
+| Claves administradas por el cliente | N/D | N/D | [Compatible][cmk] |
 | Permisos de ámbito de repositorio | N/D | N/D | [Versión preliminar][token]|
 | &bull; Tokens | N/D | N/D | 20.000 |
 | &bull; Asignaciones de ámbito | N/D | N/D | 20.000 |

@@ -1,11 +1,11 @@
 - name: Azure Dev Spaces
   href: ./index.yml
   items:
-    - name: Información general
+    - name: Introducción
       items:
         - name: ¿Qué es Azure Dev Spaces?
           href: about.md
-    - name: Guías de inicio rápido
+    - name: Guías de inicios rápidos
       items:
         - name: Desarrollo en equipo
           href: quickstart-team-development.md
@@ -113,8 +113,6 @@
           href: how-to/ingress-https-nginx.md
         - name: Conexión de un equipo de desarrollo a un clúster de AKS (versión preliminar)
           href: how-to/connect.md
-        - name: "Configuración del clúster de Azure Dev Spaces para que use Helm\_3 (versión preliminar)"
-          href: how-to/helm-3.md
     - name: Solución de problemas
       href: troubleshooting.md
     - name: Preguntas más frecuentes

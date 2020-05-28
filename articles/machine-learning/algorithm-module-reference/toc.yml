@@ -32,6 +32,8 @@
       href: clean-missing-data.md
     - name: Edición de metadatos
       href: edit-metadata.md
+    - name: Agrupación de datos en intervalos
+      href: group-data-into-bins.md
     - name: Combinación de datos
       href: join-data.md
     - name: Normalización de datos
@@ -130,6 +132,8 @@
       href: execute-r-script.md
 - name: Análisis de texto
   items:
+    - name: Conversión de palabra en vector
+      href: convert-word-to-vector.md
     - name: Extracción de características de n-gramas a partir de texto
       href: extract-n-gram-features-from-text.md
     - name: Hash de características

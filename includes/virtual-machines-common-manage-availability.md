@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: ba21dfc900145ceeacab6c363e5de84b830282b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f65912d0e2ab322d73315828a98cc48274850fc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82109756"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696491"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
@@ -33,7 +33,7 @@ Para reducir el impacto del tiempo de parada debido a uno o más de estos evento
 * [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]
 * [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]
 * [Uso de eventos programados para responder de manera proactiva a eventos que afectan a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
-* [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]
+* [Configuración de cada nivel de aplicación en conjuntos separados de disponibilidad]
 * [Combinación de un equilibrador de carga con conjuntos de disponibilidad]
 * [Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos]
 
@@ -97,13 +97,6 @@ Si tiene previsto usar máquinas virtuales con discos no administrados, siga los
 
 Cuando se suscribe a [eventos programados](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), se le notifica a la máquina virtual sobre próximos eventos de mantenimiento que pueden afectar a su funcionamiento. Si los eventos programados están habilitados, se le da a la máquina virtual una cantidad mínima de tiempo antes de que se lleve a cabo la actividad de mantenimiento. Por ejemplo, las actualizaciones del sistema operativo del host que pueden afectar a la máquina virtual se ponen en cola como eventos en los que se especifica el impacto, así como la hora en que se efectuará el mantenimiento si no se realiza ninguna acción. Los eventos de programación también se ponen en cola cuando Azure detecta un error inminente del hardware que podría afectar a la máquina virtual, lo cual permite al usuario decidir cuándo se debe realizar la recuperación. Los clientes pueden usar el evento para realizar determinadas tareas antes del mantenimiento, como guardar el estado, conmutar por error a la base de datos secundaria, etc. Después de completar la lógica para controlar correctamente el evento de mantenimiento, puede aprobar el evento programado pendiente para permitir que la plataforma continúe con el mantenimiento.
 
-## <a name="configure-each-application-tier-into-separate-availability-zones-or-availability-sets"></a>Configure cada capa de aplicación en zonas de disponibilidad o conjuntos de disponibilidad independientes
-Si las máquinas virtuales son todas prácticamente idénticas y tienen la misma función en la aplicación, se recomienda configurar una zona de disponibilidad o un conjunto de disponibilidad para cada capa de la aplicación.  Si coloca dos capas diferentes en la misma zona o conjunto de disponibilidad, todas las máquinas virtuales de la misma capa de aplicación se pueden reiniciar a la vez. Al configurar al menos dos máquinas virtuales en una zona o un conjunto de disponibilidad para cada capa, se garantiza que al menos haya disponible una en cada capa.
-
-Por ejemplo, podría colocar todas las máquinas virtuales del front-end de la aplicación que ejecuta IIS, Apache y Nginx en un solo conjunto o zona de disponibilidad. Asegúrese de que solo las máquinas virtuales del front-end se colocan en el mismo conjunto o zona de disponibilidad. De la misma manera, asegúrese de que solo las máquinas virtuales de la capa de datos se colocan en su propio conjunto o zona de disponibilidad, por ejemplo, las máquinas virtuales replicadas de SQL Server o las de MySQL.
-
-<!--Image reference-->
-   ![Capas de aplicación](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combinación de un equilibrador de carga con conjuntos o zonas de disponibilidad
 Combine [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) con un conjunto o zona de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. No todos los niveles de las máquinas virtuales incluyen Azure Load Balancer. Para obtener más información sobre el equilibrio de carga en máquinas virtuales, consulte [Equilibrio de carga de máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
@@ -115,7 +108,6 @@ Para obtener un tutorial sobre cómo equilibrar la carga entre las zonas de disp
 
 <!-- Link references -->
 [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure cada nivel de aplicación en conjuntos separados de disponibilidad]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
 [Combinación de un equilibrador de carga con conjuntos de disponibilidad]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]: #use-managed-disks-for-vms-in-an-availability-set
