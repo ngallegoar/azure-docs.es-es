@@ -1,10 +1,10 @@
 - name: Documentación de Container Instances
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca de Azure Container Instances
       href: container-instances-overview.md
-- name: Guías de inicio rápido
+- name: Guías de inicios rápidos
   expanded: true
   items:
     - name: 'Implementación de una instancia de contenedor: CLI'
@@ -52,8 +52,12 @@
       href: container-instances-region-availability.md
     - name: Relación con los orquestadores
       href: container-instances-orchestrator-relationship.md
-    - name: Consideraciones sobre la seguridad
-      href: container-instances-image-security.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
+        - name: Consideraciones sobre la seguridad
+          href: container-instances-image-security.md
     - name: Redes virtuales
       href: container-instances-virtual-network-concepts.md
 - name: Guías paso a paso

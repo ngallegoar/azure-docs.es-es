@@ -29,7 +29,7 @@
           href: tutorial-run-ml-model-on-sql-edge.md
 - name: Procedimientos
   items:
-    - name: Paquetes DAC y trabajos de Stream Analytics
+    - name: Implementación de trabajos de Stream Analytics
       href: stream-analytics.md
     - name: Configuración de la replicación
       href: configure-replication.md

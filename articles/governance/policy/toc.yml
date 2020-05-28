@@ -77,7 +77,7 @@
     - name: Diseño de flujos de trabajo de directiva como código
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
-    - name: Azure Policy para Kubernetes
+    - name: Azure Policy para Kubernetes (versión preliminar)
       displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
       href: ./concepts/policy-for-kubernetes.md
     - name: Auditoría de máquinas virtuales con la configuración de invitado
@@ -197,8 +197,8 @@
       href: 'https://github.com/Azure/azure-policy'
     - name: 'GitHub: repositorio de directivas de la comunidad'
       href: 'https://github.com/Azure/Community-Policy'
-    - name: 'Vídeo: Compilación 2018'
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Preguntas y respuestas de Microsoft para Azure Policy
+      href: /answers/topics/azure-policy.html.html
     - name: Canal de YouTube de gobernanza
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Vídeos de configuración de invitado
@@ -211,9 +211,11 @@
           href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
         - name: Tarea de corrección
           href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
+    - name: 'Vídeo: Compilación 2018'
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 05/11/2020
 ms.author: zhshang
-ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496d98c5faebfcef511152476b58dd6257dbbedc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67186716"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673550"
 ---
 | Resource | Límite predeterminado | Límite máximo | 
 | --- | --- | --- |
@@ -29,6 +29,9 @@ ms.locfileid: "67186716"
 | Conexiones por unidad por día del nivel Gratis |20 |20 |
 | Conexiones por unidad por día del nivel Estándar |1,000 |1,000|
 | Mensajes incluidos por unidad por día del nivel Gratis|20.000 |20.000 |
+| Mensajes adicionales por unidad y día en el nivel Gratis|0 |0 |
 | Mensajes incluidos por unidad por día del nivel Estándar|1 000 000 |1 000 000 |
+| Mensajes adicionales por unidad y día en el nivel Estándar|Sin límite |Sin límite |
 
-Para solicitar una actualización de los límites predeterminados de la suscripción, abra un vale de soporte técnico. 
+Para solicitar una actualización de los límites predeterminados de la suscripción, abra un vale de soporte técnico.
+

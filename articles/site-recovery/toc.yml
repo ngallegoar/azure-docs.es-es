@@ -388,7 +388,7 @@
               href: service-updates-how-to.md
             - name: Eliminación de un almacén
               href: delete-vault.md
-    - name: Compatibilidad de Site Recovery con grupos con ubicación por proximidad
+    - name: Site Recovery para grupos con ubicación por proximidad
       href: how-to-enable-replication-proximity-placement-groups.md
     - name: Recuperación ante desastres para aplicaciones
       items:
