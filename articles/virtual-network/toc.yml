@@ -48,7 +48,7 @@
           items:
             - name: Información general
               href: nat-overview.md
-            - name: Resource
+            - name: Recurso
               href: nat-gateway-resource.md
             - name: Métricas y alertas
               href: nat-metrics.md
@@ -80,8 +80,10 @@
           href: virtual-network-for-azure-services.md
     - name: Servicios de IP
       items:
-        - name: Direcciones IP
-          href: virtual-network-ip-addresses-overview-arm.md
+        - name: Direcciones IP públicas
+          href: public-ip-addresses.md
+        - name: "Direcciones\_IP privadas"
+          href: private-ip-addresses.md
         - name: Prefijo de IP pública
           href: public-ip-address-prefix.md
         - name: IPv6 para la red virtual de Azure

@@ -1,0 +1,123 @@
+### YamlMime:Landing
+title: Documentación de Instancia administrada de Azure SQL
+summary: Busque documentación sobre Instancia administrada de Azure SQL, que es una instancia administrada de Azure que usa la última versión estable de Microsoft SQL Server.
+metadata:
+  title: Documentación de Instancia administrada de Azure SQL
+  description: Busque documentación sobre Instancia administrada de Azure SQL, que es una instancia administrada de Azure que usa la última versión estable de Microsoft SQL Server.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: single-database
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: 967bf5461a1f4e6cf8869bcea6a0e7c74204d1a1
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023626"
+landingContent:
+- title: Instancia administrada de Azure SQL
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una Instancia administrada de SQL
+      url: instance-create-quickstart.md
+  - linkListType: concept
+    links:
+    - text: Novedades
+      url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: ¿Qué es Instancia administrada de SQL?
+      url: sql-managed-instance-paas-overview.md
+    - text: Opciones de compra
+      url: ../database/purchasing-models.md
+    - text: Niveles de servicio
+      url: ../database/service-tiers-general-purpose-business-critical.md
+    - text: Replicación transaccional
+      url: replication-transactional-overview.md
+    - text: Migración desde SQL Server
+      url: migrate-to-instance-from-sql-server.md
+    - text: Diferencias de T-SQL con SQL Server
+      url: transact-sql-tsql-differences-sql-server.md
+- title: Seguridad avanzada
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Funcionalidades de seguridad
+      url: ../database/security-overview.md
+    - text: Recomendaciones de seguridad
+      url: ../database/security-best-practice.md
+    - text: Inicios de sesión, cuentas de usuario, roles y permisos
+      url: ../database/logins-create-manage.md
+    - text: Azure Active Directory
+      url: ../database/authentication-aad-overview.md
+    - text: Auditoría
+      url: auditing-configure.md
+    - text: Cifrado de datos transparente (TDE)
+      url: ../database/transparent-data-encryption-tde-overview.md
+    - text: Enmascaramiento dinámico de datos
+      url: ../database/dynamic-data-masking-overview.md
+    - text: Puntos de conexión públicos
+      url: public-endpoint-overview.md
+- title: Referencia
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Recursos educativos de SQL
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Ejemplos de la CLI de Azure
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Ejemplos de PowerShell
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Ejemplos de plantilla de Resource Manager
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SQL Server Management Studio (SSMS)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: Guía de migración
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL (T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: API DE REST
+      url: https://docs.microsoft.com/rest/api/sql/
+- title: Continuidad empresarial
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Continuidad empresarial
+      url: ../database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+    - text: Alta disponibilidad
+      url: ../database/high-availability-sla.md
+    - text: Grupos de conmutación por error automática
+      url: ../database/auto-failover-group-overview.md
+    - text: Copias de seguridad automatizadas
+      url: ../database/automated-backups-overview.md
+    - text: Recuperación con copia de seguridad
+      url: ../database/recovery-using-backups.md
+    - text: Retención de copia de seguridad a largo plazo
+      url: ../database/long-term-retention-overview.md
+- title: Grupos de instancias
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es un grupo de instancias?
+      url: instance-pools-overview.md
+    - text: Configuración
+      url: instance-pools-configure.md

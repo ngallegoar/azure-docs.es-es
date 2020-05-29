@@ -73,6 +73,8 @@
       href: spring-cloud-howto-persistent-storage.md
     - name: Integración de Azure Spring Cloud con soluciones de equilibrio de carga de Azure
       href: spring-cloud-howto-integrate-azure-load-balancers.md
+    - name: Habilitación de la identidad administrada asignada por el sistema para una aplicación de Azure Spring Cloud
+      href: spring-cloud-howto-enable-system-assigned-managed-identity.md
 - name: Implementación de DevOps en Azure Spring Cloud
   items:
     - name: CI/CD con Azure DevOps

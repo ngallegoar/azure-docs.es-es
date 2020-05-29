@@ -1,0 +1,121 @@
+### YamlMime:Landing
+title: Ajuste de rendimiento y supervisión de Azure SQL Database e Instancia administrada de Azure SQL
+summary: Azure SQL Database e Instancia administrada de Azure SQL proporcionan herramientas que facilitan la recopilación de métricas e información de diagnóstico para supervisar cualquier base de datos y mejorar su rendimiento.
+metadata:
+  title: Documentación acerca del ajuste y la supervisión de Azure SQL Database e Instancia administrada de Azure SQL
+  description: Obtenga información sobre las herramientas de supervisión y ajuste del rendimiento de Azure SQL Database que le ayudan a recopilar métricas y diagnósticos, y a mejorar el rendimiento de las bases de datos.
+  ms.service: sql-database
+  ms.subservice: performance
+  ms.custom: sqldbrb=2
+  ms.topic: landing-page
+  ms.collection: performance
+  author: CarlRabeler
+  ms.author: carlrab
+  ms.date: 03/10/2020
+  ms.openlocfilehash: d25dfaa9dc51fd781c2b8640f34cc5221f7990ec
+  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84117881"
+landingContent:
+- title: Introducción al ajuste del rendimiento y supervisión
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Optimización de la supervisión y el rendimiento
+      url: monitor-tune-overview.md
+  - linkListType: learn
+    links:
+    - text: Cuaderno de estrategias para la supervisión de Microsoft Azure Database
+      url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
+- title: Recomendaciones inteligentes para mejorar el rendimiento de Azure SQL Database
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Recomendaciones de optimización de SQL Database Advisor
+      url: database-advisor-implement-performance-recommendations.md
+    - text: Ajuste automático
+      url: automatic-tuning-enable.md
+    - text: Información de rendimiento de consultas
+      url: query-performance-insight-use.md
+  - linkListType: video
+    links:
+    - text: Ajuste automático
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
+- title: Límites de recursos de Azure SQL Database e Instancia administrada de Azure SQL
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Límites de recursos de núcleo virtual de bases de datos únicas
+      url: resource-limits-vcore-single-databases.md
+    - text: Límites de recursos de DTU de bases de datos única
+      url: resource-limits-dtu-single-databases.md
+    - text: Límites de recursos de núcleo virtual de grupos elásticos
+      url: resource-limits-vcore-elastic-pools.md
+    - text: Límites de recursos de DTU de grupos elásticos
+      url: resource-limits-dtu-elastic-pools.md
+    - text: Límites de recursos de Instancia administrada de SQL
+      url: ../managed-instance/resource-limits.md
+    - text: Limites de recursos de grupos de instancias
+      url: ../managed-instance/instance-pools-overview.md#resource-limitations
+- title: Análisis inteligente del rendimiento de Azure SQL Database e Instancia administrada de Azure SQL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Intelligent Insights mediante inteligencia artificial
+      url: intelligent-insights-overview.md
+  - linkListType: concept
+    links:
+    - text: Métricas y registros de diagnóstico
+      url: metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+    - text: Información acerca del registro de diagnóstico del rendimiento
+      url: intelligent-insights-use-diagnostics-log.md
+    - text: Azure SQL Analytics
+      url: ../../azure-monitor/insights/azure-sql.md
+    - text: Patrones de rendimiento detectables
+      url: intelligent-insights-troubleshoot-performance.md
+    - text: Procesamiento de consultas inteligentes
+      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
+  - linkListType: video
+    links:
+    - text: Intelligent Insights
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
+- title: Ajuste manual del rendimiento de Azure SQL Database e Instancia administrada de Azure SQL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Identificación de problemas de rendimiento de las consultas
+      url: ../identify-query-performance-issues.md
+  - linkListType: concept
+    links:
+    - text: Supervisión con DMV
+      url: monitoring-with-dmvs.md
+    - text: Ajuste de aplicaciones y bases de datos
+      url: performance-guidance.md
+    - text: Uso del Almacén de consultas
+      url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+    - text: Uso de eventos extendidos
+      url: xevent-db-diff-from-svr.md
+    - text: Diagnóstico de rendimiento de Hiperescala
+      url: hyperscale-performance-diagnostics.md
+- title: Escalado de recursos de Azure SQL Database e Instancia administrada de Azure SQL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Escalado dinámico de recursos
+      url: scale-resources.md
+  - linkListType: concept
+    links:
+    - text: Escalado de recursos de bases de datos únicas
+      url: single-database-scale.md
+    - text: Escalado de los recursos de un grupo elástico
+      url: elastic-pool-scale.md
+    - text: Escalado de recursos de instancias administradas
+      url: ../managed-instance/sql-managed-instance-paas-overview.md#management-operations
+    - text: Escalado horizontal de lectura
+      url: read-scale-out.md
+  - linkListType: video
+    links:
+    - text: Escalabilidad dinámica
+      url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player

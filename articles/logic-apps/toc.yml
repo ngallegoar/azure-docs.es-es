@@ -1,10 +1,10 @@
 - name: Documentación de Azure Logic Apps
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: ¿Qué es Azure Logic Apps?
       href: logic-apps-overview.md
-- name: Guías de inicios rápidos
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de aplicaciones lógicas: Azure Portal'
@@ -82,6 +82,8 @@
           href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Mensajes de proceso de Batch
           href: logic-apps-batch-process-send-receive-messages.md
+        - name: 'Envío mensajes en orden: convoy secuencial'
+          href: send-related-messages-sequential-convoy.md
         - name: Creación de definiciones de JSON
           href: logic-apps-author-definitions.md
         - name: Control de los tipos de contenido

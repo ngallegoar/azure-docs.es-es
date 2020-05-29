@@ -7,7 +7,7 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Protección de centro virtual
+    - name: 'Protección de centro virtual: plantilla de Resource Manager'
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
 - name: Tutoriales

@@ -972,6 +972,8 @@
           href: insights/container-insights-update-metrics.md
         - name: Configuración de supervisión de estado
           href: insights/container-insights-health-monitors-config.md
+        - name: Administración de costo y uso
+          href: insights/container-insights-cost.md
         - name: Deshabilitar la supervisión
           items:
             - name: Deshabilitación del AKS de supervisión
@@ -991,7 +993,7 @@
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Key Vault
-          href: insights/key-vault-insights-overview.md
+          href: insights/key-vaults-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
         - name: Storage

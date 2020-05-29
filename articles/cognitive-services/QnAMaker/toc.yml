@@ -44,7 +44,7 @@
           href: Concepts/knowledge-base.md
         - name: Tipos de contenido importados
           href: Concepts/content-types.md
-        - name: Conjuntos de preguntas y respuestas
+        - name: Pares de preguntas y respuestas
           href: Concepts/question-answer-set.md
     - name: Ciclo de vida de una base de conocimiento
       items:
@@ -72,8 +72,6 @@
         - name: Administrar recursos
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Creación de un plan de continuidad empresarial
-          href: How-To/business-continuity-plan.md
         - name: Colaborar
           href: How-To/collaborate-knowledge-base.md
         - name: Activación del aprendizaje activo

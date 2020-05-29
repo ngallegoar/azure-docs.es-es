@@ -13,7 +13,7 @@
       href: create-notification-hub-portal.md
     - name: 'Creación de un centro de notificaciones: CLI de Azure'
       href: create-notification-hub-azure-cli.md
-    - name: 'Creación de un centro de notificaciones: plantilla de Azure Resource Manager'
+    - name: 'Creación de un centro de notificaciones: plantilla de Resource Manager'
       href: create-notification-hub-template.md
     - name: Configuración de un Centro de notificaciones
       href: configure-notification-hub-portal-pns-settings.md

@@ -1,0 +1,131 @@
+### YamlMime:Landing
+title: Documentación de SQL Server en máquinas virtuales de Azure
+summary: Busque conceptos, inicios rápidos, tutoriales y ejemplos de SQL Server instalados en máquinas virtuales de Azure, tanto en Windows como en Linux.
+metadata:
+  title: Documentación de SQL Server en máquinas virtuales de Azure
+  description: Busque documentación sobre SQL Server instalado en máquinas virtuales de Azure, tanto en Windows como en Linux.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: single-database
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: a02a76e3d0080e731643ff82162aafdf3b783423
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023779"
+landingContent:
+- title: SQL Server en máquina virtual de Azure
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una máquinas virtual de SQL, Windows (Azure Portal)
+      url: windows/sql-vm-create-portal-quickstart.md
+    - text: Creación de una máquinas virtual de SQL, Windows (PowerShell)
+      url: windows/sql-vm-create-powershell-quickstart.md
+    - text: Creación de máquinas virtuales de SQL, Linux (Azure Portal)
+      url: linux/sql-vm-create-portal-quickstart.md
+  - linkListType: overview
+    links:
+    - text: Novedades
+      url: windows/doc-changes-updates-release-notes.md?
+    - text: ¿Qué es SQL Server en una máquina virtual Windows?
+      url: windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+    - text: ¿Qué es SQL Server en una máquina virtual Linux?
+      url: linux/sql-server-on-linux-vm-what-is-iaas-overview.md
+    - text: Migración desde SQL Server
+      url: windows/migrate-to-vm-from-sql-server.md
+    - text: Consideraciones sobre la seguridad
+      url: windows/security-considerations-best-practices.md
+    - text: Directrices de rendimiento
+      url: windows/performance-guidelines-best-practices.md
+    - text: Guía de precios
+      url: windows/pricing-guidance.md
+- title: Administrar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Extensión Agente de IaaS de SQL Server
+      url: windows/sql-server-iaas-agent-extension-automate-management.md
+    - text: Administración con Azure Portal
+      url: windows/manage-sql-vm-portal.md
+    - text: Registro en un proveedor de recursos de VM de SQL
+      url: windows/sql-vm-resource-provider-register.md
+    - text: Aplicación de revisiones automatizada
+      url: windows/automated-patching.md
+    - text: Cambio de tipo de licencia
+      url: windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+    - text: Cambio de edición de SQL Server
+      url: windows/change-sql-server-edition.md
+    - text: Desplazamiento a una nueva región
+      url: windows/move-sql-vm-different-region.md
+    - text: Integración con Azure Key Vault
+      url: windows/azure-key-vault-integration-configure.md
+- title: Continuidad empresarial
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Alta disponibilidad y recuperación ante desastres
+      url: windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+    - text: Copia de seguridad y restauración
+      url: windows/backup-restore.md
+    - text: Grupos de disponibilidad
+      url: windows/availability-group-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Grupo de disponibilidad (CLI de Azure)
+      url: windows/availability-group-az-cli-configure.md
+    - text: Grupo de disponibilidad sin clúster
+      url: windows/availability-group-clusterless-workgroup-configure.md
+    - text: FCI (espacios de almacenamiento directo)
+      url: windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+    - text: FCI (recurso compartido de archivos Prémium)
+      url: windows/failover-cluster-instance-premium-file-share-manually-configure.md
+  - linkListType: tutorial
+    links:
+    - text: Grupo de disponibilidad (manualmente)
+      url: windows/availability-group-manually-configure-prerequisites-tutorial.md
+    - text: Nombre de grupo de disponibilidad de Stonith (Red Hat Enterprise Linux)
+      url: linux/rhel-high-availability-stonith-tutorial.md
+    - text: Escucha de grupo de disponibilidad (Red Hat Enterprise Linux)
+      url: linux/rhel-high-availability-listener-tutorial.md
+- title: Referencia
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Recursos educativos de SQL
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Ejemplos de la CLI de Azure
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Ejemplos de PowerShell
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Ejemplos de plantilla de Resource Manager
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SQL Server Management Studio (SSMS)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: Guía de migración
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL (T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: API DE REST
+      url: https://docs.microsoft.com/rest/api/sql/
