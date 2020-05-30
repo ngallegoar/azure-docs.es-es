@@ -1,6 +1,6 @@
 - name: Red Hat OpenShift en Azure
   href: index.yml
-- name: Información general
+- name: Introducción
   expanded: true
   items:
     - name: Acerca de Red Hat OpenShift en Azure
@@ -75,7 +75,7 @@
       href: /rest/api/openshift
 - name: Recursos
   items:
-    - name: Preguntas frecuentes
+    - name: Preguntas más frecuentes
       href: openshift-faq.md
     - name: Solución de problemas
       href: troubleshoot.md
