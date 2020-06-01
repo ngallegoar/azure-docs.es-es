@@ -1,26 +1,27 @@
 ---
-title: 'Inicio rápido: Búsqueda interactiva de mapas con Azure Maps | Microsoft Azure Maps'
+title: 'Inicio rápido: Búsqueda interactiva de mapas con Azure Maps'
 description: Aprenda a crear una aplicación web de demostración para la búsqueda interactiva de mapas mediante el SDK web de Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
-ms.date: 1/14/2020
+ms.date: 5/21/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 13dc5f6c7175e1ed568199abcbaa4c5d9a20fa7f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da225f9a0bac5d179efadb7d507750c8aa0bc13e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80334432"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872114"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Inicio rápido: Creación de una búsqueda interactiva de mapas mediante Azure Maps
 
 En este artículo se muestran las funcionalidades de Azure Maps para crear un mapa que dé a los usuarios una experiencia de búsqueda interactiva. Le guía por estos pasos básicos:
+
 * Cree su propia cuenta de Azure Maps.
-* Obtenga la clave de cuenta que se usará en la aplicación web de demostración.
+* Obtenga la clave principal que se usará en la aplicación web de demostración.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -51,24 +52,27 @@ Cree una nueva cuenta de Maps con los pasos siguientes:
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obtención de la clave principal de una cuenta
 
-Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave que le permite consultar las API de Maps. Se recomienda el uso de la clave principal de la cuenta como clave de suscripción al llamar a los servicios Azure Maps.
+Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave principal que le permite consultar las API de Maps.
 
 1. Abra su cuenta de Maps en el portal.
 2. En la sección de configuración, seleccione **Autenticación**.
 3. Copie la **clave principal** al Portapapeles. Guárdela localmente para usarla más adelante en este tutorial.
 
+>[!NOTE]
+> Si usa la clave de suscripción en lugar de la clave principal, la asignación no se representará correctamente. Además, por motivos de seguridad, se recomienda que rote entre las claves principal y secundaria. Para rotar las claves, actualice la aplicación para que use la clave secundaria, impleméntela y, luego, presione el botón de ciclo/actualización situado junto a la clave principal para generar una nueva clave principal. La clave principal anterior se deshabilitará. Para más información sobre la rotación de claves, consulte [Configuración de Azure Key Vault con la auditoría y la rotación de claves](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring).
+
 ![Obtención de la clave principal de Azure Maps en Azure Portal](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Descarga de la aplicación
 
-1. Vaya a [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) y haga clic en él para ver el contenido de la interfaz de usuario de GitHub. Haga clic con el botón derecho en el botón **Sin formato** y copie el contenido del archivo o seleccione "Guardar como" para descargar el archivo.
+1. Vaya a [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copie el contenido del archivo.
 2. Guarde el contenido de este archivo localmente como **AzureMapDemo.html**. Ábralo en un editor de texto.
 3. Busque la cadena `<Your Azure Maps Key>`. Reemplácela por el valor de **Clave principal** de la sección anterior.
 
 ## <a name="open-the-application"></a>Abrir la aplicación
 
 1. Abra el archivo **AzureMapDemo.html** en un explorador de su preferencia.
-2. Observe el mapa que se muestra de la Ciudad de Los Ángeles. Acerque y aleje para ver de qué manera el mapa se representa automáticamente con más o menos información según el nivel de zoom. 
+2. Observe el mapa que se muestra de la Ciudad de Los Ángeles. Acerque y aleje para ver de qué manera el mapa se representa automáticamente con más o menos información según el nivel de zoom.
 3. Cambie el centro predeterminado del mapa. En el archivo **AzureMapDemo.html**, busque la variable denominada **center**. Reemplace el par de valores de longitud y latitud de esta variable con los nuevos valores **[-74.0060, 40.7128]** . Guarde el archivo y actualice el explorador.
 4. Pruebe la experiencia de búsqueda interactiva. En el cuadro de búsqueda de la esquina superior izquierda de la aplicación web de demostración, busque **restaurants**.
 5. Mueva el mouse sobre la lista de direcciones y ubicaciones que aparecen debajo del cuadro de búsqueda. Observe cómo el correspondiente alfiler en el mapa muestra información sobre esa ubicación. Para proteger la privacidad de empresas privadas, se muestran nombres y direcciones ficticios.

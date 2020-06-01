@@ -2,19 +2,19 @@
 title: 'Inicio rápido: Creación de un área de trabajo'
 description: Cree un área de trabajo de Azure Synapse Analytics siguiendo los pasos de esta guía.
 services: synapse-analytics
-author: malvenko
+author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: josels
+ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792214"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656120"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse Analytics (versión preliminar)
 
@@ -26,6 +26,9 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
 - [Cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json):
 
+## <a name="register-azure-synapse-resource-provider"></a>Registro de un proveedor de recursos de Azure Synapse
+Si aún no lo ha hecho, registre el proveedor de recursos de Azure Synapse. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Para registrar un proveedor de recursos de Azure Synapse, consulte el artículo [Tipos y proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Elija *Microsoft.Synapse* en la lista de proveedores de recursos al registrarse.
+
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
@@ -33,9 +36,9 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Creación de un área de trabajo de Azure Synapse mediante Azure Portal
 
 1. En el panel búsqueda de Microsoft Azure, escriba **Área de trabajo de Synapse** y, a continuación, seleccione este servicio.
-![Barra de búsqueda de Azure Portal con Áreas de trabajo de Azure Synapse escrito.](media/quickstart-create-synapse-workspace/workspace-search.png).
+![Barra de búsqueda de Azure Portal en la que se ha escrito "Áreas de trabajo de Azure Synapse".](media/quickstart-create-synapse-workspace/workspace-search.png)
 2. En la página **Áreas de trabajo de Synapse**, haga clic en **+ Agregar**.
-![Comando para crear una nueva área de trabajo de Azure Synapse resaltada.](media/quickstart-create-synapse-workspace/create-workspace-02.png).
+![Comando para crear un área de trabajo de Azure Synapse resaltado.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Rellene el formulario **Área de trabajo de Azure Synapse** con la siguiente información:
 
     | Configuración | Valor sugerido | Descripción |
@@ -47,7 +50,7 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
     | **Data Lake Storage Gen2** | Cuenta: `storage account name` </br> Sistema de archivos: `root file system to use` | Especifica el nombre de la cuenta de almacenamiento de ADLS Gen2 que se va a usar como almacenamiento principal y el sistema de archivos que se va a usar.|
     ||||
 
-    ![Flujo de aprovisionamiento del área de trabajo: pestaña de aspectos básicos.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![Flujo de aprovisionamiento del área de trabajo: pestaña de aspectos básicos.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
 
     La cuenta de almacenamiento se puede seleccionar desde:
     - Una lista de cuentas de ADLS Gen2 disponibles en su suscripción
@@ -60,8 +63,8 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 4. (Opcional) Modifique cualquiera de los valores predeterminados de la pestaña **Seguridad y redes**:
 5. (Opcional) Agregue etiquetas en la pestaña **Etiquetas**.
-6. En la pestaña **Resumen** se ejecutarán las validaciones necesarias para asegurarse de que el área de trabajo se puede crear correctamente. Cuando la validación sea correcta, presione **Crear** ![Flujo de aprovisionamiento del área de trabajo: pestaña de confirmación.](media/quickstart-create-synapse-workspace/create-workspace-05.png).
-7. Cuando el proceso de aprovisionamiento de recursos se completa correctamente, verá una entrada para el área de trabajo creada en la lista de áreas de trabajo de Synapse. ![Lista de áreas de trabajo de Synapse que muestran el área de trabajo aprovisionada recientemente.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+6. En la pestaña **Resumen** se ejecutarán las validaciones necesarias para asegurarse de que el área de trabajo se puede crear correctamente. Cuando la validación finalice correctamente, seleccione el botón **Crear** ![Flujo de aprovisionamiento del área de trabajo: pestaña de confirmación.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
+7. Cuando el proceso de aprovisionamiento de recursos se completa correctamente, verá una entrada para el área de trabajo creada en la lista de áreas de trabajo de Synapse. ![Lista de áreas de trabajo de Synapse que muestran el área de trabajo aprovisionada recientemente.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -76,10 +79,10 @@ Si desea eliminar el área de trabajo de Azure Synapse, complete los pasos sigui
 1. Diríjase al área de trabajo de Azure Synapse para eliminarlo.
 1. En la barra de comandos, presione **Eliminar**.
  ![Información general del área de trabajo de Azure Synapse: comando de eliminación resaltado.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Confirme la eliminación y presione el botón **Eliminar**.
+1. Confirme la eliminación y haga clic en el botón **Eliminar**.
  ![Información general del área de trabajo de Azure Synapse: cuadro de diálogo de confirmación de la eliminación del área de trabajo](media/quickstart-create-synapse-workspace/create-workspace-11.png)
 1. Cuando el proceso se complete correctamente, el área de trabajo de Azure Synapse ya no aparecerá en la lista de áreas de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-A continuación, puede [crear grupos de SQL](quickstart-create-sql-pool.md) o [crear grupos de Apache Spark](quickstart-create-apache-spark-pool.md) para empezar a analizar y explorar los datos.
+A continuación, puede [crear grupos de SQL](quickstart-create-sql-pool-studio.md) o [crear grupos de Apache Spark](quickstart-create-apache-spark-pool-studio.md) para empezar a analizar y explorar los datos.
