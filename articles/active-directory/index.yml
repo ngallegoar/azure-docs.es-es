@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/19/2020
-  ms.openlocfilehash: 4e1b18e1037b37deba3e037f3e896bf1536f4fd7
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 05/29/2020
+  ms.openlocfilehash: e5567804ec64fd4c1399bc3c978287ddec9817ce
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83591920"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84233949"
 highlightedContent:
   items:
   - title: ¿Qué es Azure AD?
@@ -109,20 +109,6 @@ conceptualContent:
       text: Condiciones basadas en la ubicación
     footerLink:
       url: ./conditional-access/index.yml
-      text: Ver más
-  - title: Desarrolladores
-    links:
-    - url: ./develop/v2-overview.md
-      itemType: overview
-      text: Acerca de la plataforma de identidad de Microsoft
-    - url: ./develop/v2-oauth2-auth-code-flow.md
-      itemType: concept
-      text: Concesión de flujo de código de OAuth 2.0
-    - url: ./develop/quickstart-register-app.md
-      itemType: quickstart
-      text: Registro de una aplicación con la plataforma de identidad de Microsoft
-    footerLink:
-      url: ./develop/index.yml
       text: Ver más
   - title: Administración de dispositivos
     links:
@@ -235,6 +221,20 @@ conceptualContent:
       text: Servicios que admiten la identidad administrada
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
+      text: Ver más
+  - title: Plataforma de identidad de Microsoft
+    links:
+    - url: ./develop/v2-overview.md
+      itemType: overview
+      text: Acerca de la plataforma de identidad de Microsoft
+    - url: ./develop/v2-oauth2-auth-code-flow.md
+      itemType: concept
+      text: Concesión de flujo de código de OAuth 2.0
+    - url: ./develop/quickstart-register-app.md
+      itemType: quickstart
+      text: Registro de una aplicación con la plataforma de identidad de Microsoft
+    footerLink:
+      url: ./develop/index.yml
       text: Ver más
   - title: Privileged Identity Management (PIM)
     links:

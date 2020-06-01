@@ -24,6 +24,8 @@
       href: classroom-labs-concepts.md
     - name: Aspectos básicos de la arquitectura de los laboratorios educativos
       href: classroom-labs-fundamentals.md
+    - name: Límites de capacidad
+      href: capacity-limits.md
     - name: Escenarios
       items:
         - name: Uso de laboratorios para impartir clases
