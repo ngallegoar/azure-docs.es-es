@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333854"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746056"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
@@ -81,12 +81,12 @@ Al examinar la captura de pantalla de los datos, podemos hacer las observaciones
     
 * La información de ubicación se almacena mediante las columnas **AddressLine**, **City**, **Municipality** (municipio), **AdminDivision** (región/provincia), **PostCode** (código postal) y **Country**.  
 * Las columnas **Latitude** y **Longitude** contienen las coordenadas de cada ubicación de cafetería de Contoso Coffee. Si no tiene información de coordenadas, puede usar los servicios de búsqueda de Azure Maps para determinar las coordenadas de ubicación.
-* Algunas columnas adicionales contienen metadatos relacionados con las cafeterías: un número de teléfono, columnas booleanas y el horario de apertura y cierre de la tienda en formato de 24 horas. Las columnas booleanas son para la Wi-Fi y la accesibilidad en silla de ruedas. Puede crear sus propias columnas que contengan metadatos más significativos para sus datos de ubicación.
+* Algunas columnas adicionales contienen metadatos relacionados con las cafeterías: un número de teléfono, columnas booleanas y el horario de apertura y cierre de la tienda en formato de 24 horas. Las columnas booleanas son para la Wi-Fi y la accesibilidad en silla de ruedas. Puede crear sus propias columnas para incluir los metadatos más significativos en relación con los datos de su ubicación.
 
 > [!Note]
 > Azure Maps representa los datos en la proyección esférica de Mercator "EPSG:3857" pero lee los datos en "EPSG:4325" que usan los datos de WGS84. 
 
-Hay muchas maneras de exponer el conjunto de datos a la aplicación. Un enfoque es cargar los datos en una base de datos y exponer un servicio web que consulte los datos. A continuación, puede enviar los resultados al explorador del usuario. Esta opción es muy conveniente para grandes conjuntos de datos o para conjuntos de datos que se actualizan con frecuencia. Sin embargo, esta opción requiere más trabajo de desarrollo y el costo es mayor. 
+Hay muchas maneras de exponer el conjunto de datos a la aplicación. Un enfoque es cargar los datos en una base de datos y exponer un servicio web que consulte los datos. Puede enviar los resultados al explorador del usuario. Esta opción es muy conveniente para grandes conjuntos de datos o para conjuntos de datos que se actualizan con frecuencia. Sin embargo, esta opción requiere más trabajo de desarrollo y el costo es mayor. 
 
 Otro enfoque consiste en convertir este conjunto de datos en un archivo de texto sin formato que el explorador pueda analizar fácilmente. El archivo en sí se puede hospedar con el resto de la aplicación. Esta opción simplifica las cosas, pero solo es adecuada para conjuntos de datos más pequeños debido a que el usuario descarga todos los datos. Con este conjunto de datos se usará el archivo de texto sin formato porque el tamaño del archivo de datos es inferior a 1 MB.  
 
@@ -375,7 +375,7 @@ El siguiente paso consiste en definir los estilos CSS. Los estilos CSS definen c
     }
    ```
 
-Ejecute la aplicación ahora y verá el encabezado, el cuadro de búsqueda y el botón Buscar. Pero el mapa no está visible porque todavía no se ha cargado. Si intenta realizar una búsqueda, no ocurre nada. Es necesario configurar la lógica de JavaScript, que se describe en la sección siguiente. Esta lógica tiene acceso a toda la funcionalidad del localizador de tiendas.
+Ejecute la aplicación ahora y verá el encabezado, el cuadro de búsqueda y el botón Buscar. Pero la asignación no está visible porque todavía no se ha cargado. Si intenta realizar una búsqueda, no ocurre nada. Es necesario configurar la lógica de JavaScript, que se describe en la sección siguiente. Esta lógica tiene acceso a toda la funcionalidad del localizador de tiendas.
 
 ## <a name="wire-the-application-with-javascript"></a>Conexión de la aplicación con JavaScript
 
@@ -397,7 +397,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
 
 1. Agregue código a *index.js*. El código siguiente inicializa el mapa. Hemos agregado un [cliente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para esperar hasta que la página termine de cargarse. A continuación, se realiza una conexión de los eventos para supervisar la carga del mapa y se proporciona la funcionalidad para el botón Buscar y el botón Mi ubicación.
 
-   Cuando el usuario selecciona el botón de búsqueda o escribe una ubicación en el cuadro de búsqueda y presiona Entrar, se inicia una búsqueda aproximada con la consulta del usuario. Pase una matriz de valores de país ISO 2 a la opción `countrySet` para limitar los resultados de la búsqueda a esos países y regiones. Limitar los países y regiones de búsqueda ayuda a aumentar la precisión de los resultados que se devuelven. 
+   Cuando el usuario selecciona el botón de búsqueda o escribe una ubicación en el cuadro de búsqueda y presiona Entrar, se inicia una búsqueda aproximada con la consulta del usuario. Pase una matriz de valores de país o región ISO 2 a la opción `countrySet` para limitar los resultados de la búsqueda a esos países o regiones. Limitar los países y regiones de búsqueda ayuda a aumentar la precisión de los resultados que se devuelven. 
   
    Una vez finalizada la búsqueda, tome el primer resultado y establezca la cámara del mapa sobre esa zona. Cuando el usuario seleccione el botón My Location (Mi ubicación), recuperará su ubicación mediante HTML5 Geolocation API. Esta API está integrada en el explorador. A continuación, centre el mapa en su ubicación.  
 
@@ -453,7 +453,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -461,7 +461,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Extracción de texto impreso y manuscrito con Computer Vision 2.0 y 2.1 (REST, C#)'
+title: 'Inicio rápido: Extracción de texto impreso y manuscrito con Computer Vision 2.1 y 3.0 : REST, C#'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido extraerá texto impreso y manuscrito de una imagen mediante la API Computer Vision con C#.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b5bb1e80ac7a2a7fca053365b1062df61b2acc03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bd42dd52af039ee61585b110ee31f1ad41613162
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405147"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681202"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Inicio rápido: Extracción de texto impreso y manuscrito mediante la API REST Computer Vision 2.0 y 2.1 y C#
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-21-and-30-rest-api-and-c"></a>Inicio rápido: Extracción de texto impreso y manuscrito mediante la API REST Computer Vision 2.1 y 3.0 y C#
 
 En este inicio rápido, extraerá texto impreso y manuscrito de una imagen mediante la API REST de Computer Vision. Los métodos [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) y [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres de lectura mecánica. La API determinará qué modelo de reconocimiento se usará para cada línea de texto, ya que admite imágenes tanto con texto impreso como manuscrito.
 
-En comparación con Computer Vision 2.0 y 2.1, la versión preliminar pública de Computer Vision 3.0 proporciona:
+En comparación con Computer Vision 2.1 y 3.0, la versión preliminar pública de Computer Vision 3.0 proporciona:
 
 * Mayor exactitud
 * Formato de salida modificado
@@ -34,7 +34,7 @@ En comparación con Computer Vision 2.0 y 2.1, la versión preliminar pública 
 > [!IMPORTANT]
 > El método [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Batch Read devuelve un identificador URI en el valor del campo del encabezado de respuesta `Operation-Location`. A continuación, puede llamar a este identificador URI, que representa a [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, para comprobar el estado y devolver los resultados de la llamada al método Batch Read.
 
-#### <a name="version-3-public-preview"></a>[Versión 3 (versión preliminar pública)](#tab/version-3)
+#### <a name="version-3"></a>[Versión 3](#tab/version-3)
 
 > [!IMPORTANT]
 > El método [Batch Read](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Batch Read devuelve un identificador URI en el valor del campo del encabezado de respuesta `Operation-Location`. A continuación, puede llamar a este identificador URI, que representa a [Read Operation Result](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) API, para comprobar el estado y devolver los resultados de la llamada al método Batch Read.
@@ -80,29 +80,20 @@ namespace CSHttpClientSample
         static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
-        
+
         // the Batch Read method endpoint
         static string uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
+        // Add your own local image with text (png or jpg OK)
+        static string imageFilePath = @"my-image.png";
 
-        static async Task Main()
+        static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Text Recognition:");
-            Console.Write(
-                "Enter the path to an image with text you wish to read: ");
-            string imageFilePath = Console.ReadLine();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                await ReadText(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
-            Console.WriteLine("\nPress Enter to exit...");
+            // Call the REST API method.
+            Console.WriteLine("\nExtracting text...\n");
+            ReadText(imageFilePath).Wait();
+
+            Console.WriteLine("\nPress Enter to exit.");
             Console.ReadLine();
         }
 
@@ -257,70 +248,20 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0-preview//read/analyze";
 
-        static void PrintUsage()
-        {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Cognitive Service Batch Read File Sample");
-            Console.WriteLine("Usage: ");
-            Console.WriteLine("    From Azure Cogntivie Service, retrieve your endpoint and subscription key.");
-            Console.WriteLine("    Set environment variable COMPUTER_VISION_ENDPOINT, such as \"https://westus2.api.cognitive.microsoft.com\"");
-            Console.WriteLine("    Set environment variable COMPUTER_VISION_SUBSCRIPTION_KEY, such as \"1234567890abcdef1234567890abcdef\"\n");
-            Console.WriteLine("    Run the program without argument to enter a file name and a language manually.");
-            Console.WriteLine("    Or run the program with a file name for an image file (bmp/jpg/png/tiff) or a PDF file, plus the language. The language can be \"en\" or \"es\".");
-            Console.WriteLine("       For example: dotnet Program.dll sample.jpg en");
-            Console.WriteLine();
-        }
+        // Add a local image with text here (png or jpg is OK)
+        static string imageFilePath = @"my-image.png";
+        // Add a language, either "en" or "es"
+        static string language = "en";
+
 
         static void Main(string[] args)
         {
-            PrintUsage();
+            // Call the REST API method.
+            Console.WriteLine("\nExtracting text...\n");
+            ReadText(imageFilePath, language).Wait();
 
-            if (string.IsNullOrEmpty(subscriptionKey) || string.IsNullOrEmpty(endpoint))
-            {
-                Console.Error.WriteLine("Please set environment variables COMPUTER_VISION_ENDPOINT and COMPUTER_VISION_SUBSCRIPTION_KEY.");
-                return;
-            }
-
-            string imageFilePath;
-            string language;
-            if (args.Length == 0)
-            {
-                Console.Write(
-                    "Enter the path to an image (bmp/jpg/png/tiff) or PDF with text you wish to read: ");
-                imageFilePath = Console.ReadLine();
-            }
-            else
-            {
-                imageFilePath = args[0];
-            }
-
-            if (args.Length <= 1)
-            {
-                Console.Write(
-                    "Enter the language to read: \"en\" or \"es\": ");
-                language = Console.ReadLine();
-            }
-            else
-            {
-                language = args[1];
-            }
-
-            Console.WriteLine($"Endpoint:     [{endpoint}]");
-            Console.WriteLine($"Subscription: [{subscriptionKey}]");
-            Console.WriteLine($"URL:          [{uriBase}]");
-
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                ReadText(imageFilePath, language).Wait();
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }

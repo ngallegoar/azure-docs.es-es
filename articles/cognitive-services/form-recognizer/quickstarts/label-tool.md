@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691337"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871374"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -143,6 +143,7 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
     > * Etiquete los valores tal como aparecen en el formulario; no intente dividir un valor en dos partes con dos etiquetas diferentes. Por ejemplo, un campo de dirección debe etiquetarse con una sola etiqueta incluso si abarca varias líneas.
     > * No incluya claves en los campos etiquetados, solo los valores.
     > * Los datos de la tabla se deben detectar automáticamente y estarán disponibles en el archivo JSON de salida final. Sin embargo, si el modelo no detecta todos los datos de la tabla, también puede etiquetar manualmente estos campos. Etiquete cada celda de la tabla con una etiqueta diferente. Si los formularios tienen tablas con un número variable de filas, asegúrese de etiquetar al menos un formulario con la tabla más grande posible.
+    > * Para eliminar una etiqueta aplicada, seleccione el rectángulo en la vista de documento y presione la tecla Suprimir.
 
 ![Ventana principal del editor de la herramienta de etiquetado de ejemplo](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
     * predeterminado, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> Consulte estas reglas para el formato de fecha:
+> 
+> Los siguientes caracteres se pueden usar como delimitadores de fecha de DMA: `, - / . \`. No se puede usar un espacio en blanco como delimitador. Por ejemplo:
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> El día y el mes se pueden escribir con uno o dos dígitos y el año puede tener dos o cuatro dígitos:
+> * 1-1-2020
+> * 1-01-20
+>
+> Si una cadena de fecha de DMA tiene ocho dígitos, el delimitador es opcional:
+> * 01012020
+> * 01 01 2020
+>
+> El mes también se puede escribir con su nombre completo o abreviado. Si se usa el nombre, los caracteres delimitadores son opcionales:
+> * 01/Ene/2020
+> * 01Ene2020
+> * 01 de enero de 2020
 
 ## <a name="train-a-custom-model"></a>Entrenamiento de un modelo personalizado
 

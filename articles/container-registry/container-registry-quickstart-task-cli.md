@@ -3,12 +3,12 @@ title: 'Inicio rápido: Compilación y ejecución de una imagen de contenedor'
 description: Ejecute las tareas rápidamente con Azure Container Registry para compilar y ejecutar una imagen de contenedor Docker a petición en la nube.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76986281"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680651"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Inicio rápido: Compilación y ejecución de una imagen de contenedor en Azure Container Registry Tasks
 

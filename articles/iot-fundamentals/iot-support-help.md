@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: c40aa9b0a94940f48a8edbd046a744678f02cbd2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76775347"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827242"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opciones de ayuda y soporte técnico de IoT de Azure
 
@@ -53,11 +53,11 @@ Para analizar las tecnologías y servicios de Azure para crear soluciones de IoT
 
 Si no encuentra una respuesta a su problema a través de la búsqueda, envíe una nueva pregunta a MSDN en el foro relacionado con el servicio.
 
-- [Azure Digital Twins](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Azure IoT Hub](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
-- [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
-- [Azure Maps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
-- [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)
+- [Página de preguntas y respuestas de Microsoft sobre Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Página de preguntas y respuestas de Microsoft sobre Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Página de preguntas y respuestas sobre Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Página de preguntas y respuestas sobre Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Página de preguntas y respuestas sobre Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Envío de comentarios sobre Azure
 

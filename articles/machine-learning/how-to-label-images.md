@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204328"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758918"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado
+# <a name="tag-images-in-a-labeling-project-preview"></a>Etiquetado de imágenes en un proyecto de etiquetado (versión preliminar)
 
 Después de que el administrador del proyecto [cree un proyecto de etiquetado](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado (versión preliminar pública) para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
 
@@ -65,11 +65,13 @@ Una vez que haya enviado etiquetas para los datos con los que está trabajando, 
 
 ### <a name="assisted-machine-learning"></a>Aprendizaje automático asistido 
 
-En una tarea de clasificación con varias clases o varias etiquetas se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmos se han habilitado en su proyecto, puede ver lo siguiente:
+Se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmos se han habilitado en su proyecto, puede ver lo siguiente:
 
 * Después de que se haya habilitado una cierta cantidad de imágenes, puede ver el mensaje **Tasks clustered** (Tareas agrupadas) en la parte superior de la pantalla al lado del nombre del proyecto,  lo cual significa que las imágenes se agrupan para mostrar las imágenes que sean similares en la misma página.  En ese caso, cambie a una de las distintas vistas de las imágenes para aprovechar la agrupación.  
 
 * Más adelante puede ver **Tasks prelabeled** (Tareas preetiquetadas) junto al nombre del proyecto.  Luego aparecerán imágenes con una etiqueta sugerida que proviene de un modelo de clasificación de aprendizaje automático. Ninguno de los modelos de Machine Learning tiene una precisión del 100 %. Aunque solo usamos imágenes para las que el modelo sea seguro, existe la posibilidad de que estas etiquetas no estén preetiquetadas correctamente.  Cuando vea estas etiquetas, corrija las incorrectas antes de enviar la página.  
+
+* En el caso de los modelos de detección de objetos, puede ver que los cuadros de límite y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página.
 
 En las primeras fases de un proyecto de etiquetado, es posible que el modelo de Machine Learning sea suficientemente preciso para preetiquetar un pequeño subconjunto de imágenes. Una vez que se etiqueten estas imágenes, el proyecto de etiquetado volverá al etiquetado manual para recopilar más datos para la siguiente ronda del entrenamiento del modelo. Con el paso del tiempo, el modelo pasará a ser más seguro en una mayor proporción de imágenes, lo cual dará como resultado posteriormente un mayor número de tareas preetiquetadas en el proyecto.
 

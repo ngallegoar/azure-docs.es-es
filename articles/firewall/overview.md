@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/11/2020
+ms.date: 05/22/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 928e0cec1cad5d6fe8b70b728cd86a41577ce797
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2f466c71673c9239f6f984f838d050af8bf52182
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195358"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816070"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -61,15 +61,15 @@ Puede crear reglas de filtrado de red para *permitir* o *denegar* por dirección
 
 ## <a name="fqdn-tags"></a>Etiquetas FQDN
 
-Con las etiquetas FQDN, puede permitir fácilmente el tráfico de red conocido del servicio de Azure a través del firewall. Por ejemplo, supongamos que quiere permitir el tráfico de red de Windows Update a través del firewall. Puede crear una regla de aplicación e incluir la etiqueta de Windows Update. Ahora, el tráfico de red de Windows Update puede fluir a través del firewall.
+Con las [etiquetas FQDN](fqdn-tags.md), puede permitir fácilmente que el tráfico de red conocido del servicio de Azure atraviese el firewall. Por ejemplo, supongamos que quiere permitir el tráfico de red de Windows Update a través del firewall. Puede crear una regla de aplicación e incluir la etiqueta de Windows Update. Ahora, el tráfico de red de Windows Update puede fluir a través del firewall.
 
 ## <a name="service-tags"></a>Etiquetas de servicio
 
-Una etiqueta de servicio representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad. No puede crear su propia etiqueta de servicio ni especificar qué direcciones IP se incluyen dentro de una etiqueta. Microsoft administra los prefijos de direcciones que incluye la etiqueta de servicio y actualiza automáticamente esta a medida que las direcciones cambian.
+Una [etiqueta de servicio](service-tags.md) representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad. No puede crear su propia etiqueta de servicio ni especificar qué direcciones IP se incluyen dentro de una etiqueta. Microsoft administra los prefijos de direcciones que incluye la etiqueta de servicio y actualiza automáticamente esta a medida que las direcciones cambian.
 
 ## <a name="threat-intelligence"></a>Información sobre amenazas
 
-El filtrado basado en inteligencia sobre amenazas puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft.
+El filtrado basado en [inteligencia sobre amenazas](threat-intel.md) puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft.
 
 ## <a name="outbound-snat-support"></a>Compatibilidad con SNAT saliente
 
@@ -83,7 +83,7 @@ El tráfico entrante de Internet a la dirección IP pública de firewall se trad
 
 ## <a name="multiple-public-ip-addresses"></a>Varias direcciones IP públicas
 
-Puede asociar varias direcciones IP públicas (hasta 250) con el firewall.
+Puede asociar [varias direcciones IP públicas](deploy-multi-public-ip-powershell.md) (hasta 250) con el firewall.
 
 Esto admite los siguientes escenarios:
 
@@ -92,7 +92,7 @@ Esto admite los siguientes escenarios:
 
 ## <a name="azure-monitor-logging"></a>Registro de Azure Monitor
 
-Todos los eventos se integran en Azure Monitor, lo que permite archivar registros en una cuenta de almacenamiento, transmitir eventos al centro de eventos o enviarlos a los registros de Azure Monitor.
+Todos los eventos se integran en Azure Monitor, lo que permite archivar registros en una cuenta de almacenamiento, transmitir eventos al centro de eventos o enviarlos a los registros de Azure Monitor. Para más información, consulte el [Tutorial: Supervisión de métricas y registros de Azure Firewall](tutorial-diagnostics.md).
 
 ## <a name="forced-tunneling"></a>Tunelización forzada
 
@@ -127,7 +127,8 @@ Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, I
 |FTP pasivo saliente no funciona en el caso de los firewalls con varias direcciones IP públicas.|FTP pasivo establece distintas conexiones para los canales de control y datos. Cuando un firewall con varias direcciones IP públicas envía datos de salida, selecciona de manera aleatoria una de sus direcciones IP públicas como dirección IP de origen. FTP produce un error cuando los canales de control y datos usan direcciones IP de origen diferentes.|Está previsto una configuración de SNAT explícita. Mientras tanto, considere la posibilidad de usar una única dirección IP en esta situación.|
 |Falta una dimensión de protocolo en la métrica NetworkRuleHit|La métrica ApplicationRuleHit permite el filtrado basado en el protocolo, pero esta funcionalidad falta en la métrica NetworkRuleHit correspondiente.|Se está investigando una solución.|
 |No se admiten las reglas NAT con puertos entre el 64000 y el 65535|Azure Firewall permite cualquier puerto en el rango 1-65535 en reglas de red y de aplicación; sin embargo, las reglas NAT solo admiten los puertos del rango 1-63999.|Se trata de una limitación actual.
-|Las actualizaciones de configuración pueden tardar cinco minutos por término medio.|Una actualización de la configuración de Azure Firewall puede tardar entre tres y cinco minutos por término medio, y no se admiten actualizaciones en paralelo.|Se está investigando una solución.
+|Las actualizaciones de configuración pueden tardar cinco minutos por término medio.|Una actualización de la configuración de Azure Firewall puede tardar entre tres y cinco minutos por término medio, y no se admiten actualizaciones en paralelo.|Se está investigando una solución.|
+|Azure Firewall usa encabezados TLS SNI para filtrar el tráfico HTTPS y MSSQL|Si el software de explorador o servidor no admite la extensión de indicación de nombre de servidor (SNI), no podrá conectarse mediante Azure Firewall.|Si el software de explorador o servidor no admite SNI, es posible que pueda controlar la conexión mediante una regla de red en lugar de una regla de aplicación. Consulte [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication) para conocer el software que admite SNI.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

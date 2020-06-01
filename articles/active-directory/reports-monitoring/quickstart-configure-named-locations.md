@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df45ab0a7b1729ae6c1602c9769cd5b6da26f6ac
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 897762e523a2d20445c3a25e612cf138e021f633
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74014355"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739726"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory
 
@@ -31,7 +31,7 @@ Con las ubicaciones con nombre, puede etiquetar intervalos de direcciones IP de 
 
 En este tutorial, obtendrá información sobre cómo configurar ubicaciones con nombre en su entorno.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este inicio rápido necesita instalar:
 
@@ -63,6 +63,5 @@ Para completar este inicio rápido necesita instalar:
 
 Para más información, consulte:
 
-- [Acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md).
-- [Condiciones de ubicación del acceso condicional de Azure AD](../conditional-access/location-condition.md).
+- [Ubicación como una condición en el acceso condicional](../conditional-access/concept-conditional-access-conditions.md#locations).
 - [Informe de inicios de sesión de riesgo](concept-risky-sign-ins.md)  

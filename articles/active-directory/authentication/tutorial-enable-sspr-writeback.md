@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143759"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640186"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -58,6 +58,10 @@ Para trabajar correctamente con la escritura diferida del autoservicio de restab
    * Las unidades organizativas (OU) de usuario que quiera que estén en el ámbito de SSPR.
 
 Si no asigna estos permisos, la escritura diferida parece estar configurada correctamente, pero los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube. Para que aparezca "contraseña sin expiración", los permisos deben aplicarse a **Este objeto y todos los descendientes**.  
+
+> [!TIP]
+>
+> Si las contraseñas de algunas cuentas de usuario no se escriben de nuevo en el directorio local, asegúrese de que la herencia no esté deshabilitada para la cuenta en el entorno de AD DS local. Los permisos de escritura para las contraseñas se deben aplicar a los objetos descendientes para que la característica funcione correctamente.
 
 Para configurar los permisos adecuados para que se realice la escritura diferida de contraseñas, complete los pasos siguientes:
 

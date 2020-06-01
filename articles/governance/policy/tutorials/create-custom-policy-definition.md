@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190714"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683242"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -321,7 +321,7 @@ Azure Resource Graph se usa mediante [Cloud Shell](https://shell.azure.com), lo 
 
 Decidir qué hacer con los recursos no compatibles es casi tan importante como decidir qué se debe evaluar en primer lugar. Cada posible respuesta a un recurso no compatible se conoce como [efecto](../concepts/effects.md). Los efectos controlan si se registra o bloquea el recurso no compatible, si tiene datos anexados o si tiene una implementación asociada para devolver el recurso a un estado de compatibilidad.
 
-En nuestro ejemplo, Denegar es el efecto que se desea ya que no queremos tener recursos no compatibles creados en el entorno de Azure. Auditar es una buena primera opción de efecto de directiva para determinar de qué modo afecta una directiva antes de establecerla en Denegar. Una manera de facilitar el cambio del efecto por asignación es parametriza el efecto. Consulte a continuación los [parámetros](#parameters) para saber cómo hacerlo.
+En nuestro ejemplo, la denegación es el efecto que se desea ya que no queremos tener recursos no compatibles creados en el entorno de Azure. Auditar es una buena primera opción de efecto de directiva para determinar de qué modo afecta una directiva antes de establecerla en Denegar. Una manera de facilitar el cambio del efecto por asignación es parametriza el efecto. Consulte a continuación los [parámetros](#parameters) para saber cómo hacerlo.
 
 ## <a name="compose-the-definition"></a>Elaboración de la definición
 

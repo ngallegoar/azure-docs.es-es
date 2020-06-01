@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77168644"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747003"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador de Azure Cosmos: notas de la versión e información de descarga.
 
@@ -25,6 +25,15 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 |**Introducción**|[Uso del emulador de Azure Cosmos para desarrollo y pruebas locales](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="2110"></a>2.11.0
+
+- Esta versión introduce la compatibilidad con el rendimiento aprovisionado de escalado automático. Estas características nuevas incluyen la posibilidad de establecer un nivel de rendimiento aprovisionado máximo personalizado en unidades de solicitud (RU/s), habilitar el escalado automático en los contenedores y bases de datos existentes, así como la compatibilidad con la programación mediante los SDK de Azure Cosmos DB.
+- Se corrige un problema al consultar una gran cantidad de documentos (más de 1 GB) por el que el emulador daba el código de estado de error interno 500.
+
+### <a name="292"></a>2.9.2
+
+- En esta versión se corrige un error al habilitar la compatibilidad con la versión 3.2 del punto de conexión de MongoDb. También agrega compatibilidad para generar seguimientos de ETL para solucionar problemas mediante el uso de WPR en lugar de LOGMAN.
 
 ### <a name="291"></a>2.9.1
 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5bd20f98b10989da0a66acbf45b99d724664cf5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208132"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846943"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Tutorial: Compilación de una aplicación de ASP.NET Core y SQL Database en Azure App Service en Linux
 
@@ -314,6 +314,10 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
+> [!NOTE]
+> Si abre una nueva ventana de terminal, debe establecer la cadena de conexión en la base de datos de producción en el terminal, como hizo en [Ejecución de migraciones de base de datos a la base de datos de producción](#run-database-migrations-to-the-production-database).
+>
+
 ### <a name="use-the-new-property"></a>Uso de la nueva propiedad
 
 Realice algunos cambios en el código para usar la propiedad `Done`. Para simplificar, en este tutorial va a cambiar las vistas `Index` y `Create` para ver la propiedad en acción.
@@ -367,6 +371,10 @@ Ejecute localmente la aplicación.
 ```bash
 dotnet run
 ```
+
+> [!NOTE]
+> Si abre una nueva ventana de terminal, debe establecer la cadena de conexión en la base de datos de producción en el terminal, como hizo en [Ejecución de migraciones de base de datos a la base de datos de producción](#run-database-migrations-to-the-production-database).
+>
 
 Abra el explorador y vaya a `http://localhost:5000/`. Ahora puede agregar una tarea pendiente y marcar **Listo**. A continuación se debería mostrar en su página principal como un elemento completado. Recuerde que la vista `Edit` no muestra el campo `Done`, dado que no cambió la vista `Edit`.
 

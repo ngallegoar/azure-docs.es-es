@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: b56f6743b642904349797ac5b6167194f7916b45
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7b33a857953b7f96180e306195dd0e8b21450556
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446587"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874014"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API REST Bing Visual Search y Python
 
-Use este inicio rápido para realizar la primera llamada a Bing Visual Search API y ver los resultados. Esta aplicación de Python carga una imagen en la API y muestra la información que se devuelve. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a la API Bing Visual Search. Esta aplicación de Python carga una imagen en la API y muestra la información que se devuelve. Aunque esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -35,7 +35,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Visual Search AP
     import requests, json
     ```
 
-2. Cree variables para la clave de suscripción, el punto de conexión y la ruta de acceso a la imagen que está cargando. `BASE_URI` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso:
+2. Cree variables para la clave de suscripción, el punto de conexión y la ruta de acceso a la imagen que está cargando. Para el valor de `BASE_URI` puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```python
 
@@ -44,7 +44,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Visual Search AP
     imagePath = 'your-image-path'
     ```
     
-    Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Debe establecer su parámetro `name` en "image", y puede establecer el parámetro `filename` en cualquier cadena. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
+3. Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Establezca su parámetro `name` en "image", y el parámetro `filename` en el nombre de archivo de la imagen. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -55,13 +55,13 @@ Use este inicio rápido para realizar la primera llamada a Bing Visual Search AP
     --boundary_1234-abcd--
     ```
 
-3. Cree un objeto de diccionario para almacenar la información de encabezado de la solicitud. Enlace la clave de suscripción a la cadena `Ocp-Apim-Subscription-Key`, como se muestra a continuación:
+4. Cree un objeto de diccionario para almacenar la información de encabezado de la solicitud. Enlace la clave de suscripción a la cadena `Ocp-Apim-Subscription-Key`.
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Cree otro diccionario para almacenar la imagen, que se abrirá y cargará cuando envíe la solicitud:
+5. Cree otro diccionario para contener la imagen, que se abrirá y cargará cuando envíe la solicitud.
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -69,27 +69,27 @@ Use este inicio rápido para realizar la primera llamada a Bing Visual Search AP
 
 ## <a name="parse-the-json-response"></a>Procese la respuesta JSON.
 
-1. Cree un método denominado `print_json()` para ejecutar en la respuesta de API e imprima el código JSON.
+Cree un método denominado `print_json()` para aceptar la respuesta de la API, e imprima el código JSON.
 
-    ```python
-    def print_json(obj):
-        """Print the object as json"""
-        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-    ```
+```python
+def print_json(obj):
+    """Print the object as json"""
+    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+```
 
 ## <a name="send-the-request"></a>Envío de la solicitud
 
-1. Use `requests.post()` para enviar una solicitud a Bing Visual Search API. Incluya la cadena para la información de archivo, encabezado y punto de conexión. Imprima `response.json()` con `print_json()`:
+Use `requests.post()` para enviar una solicitud a Bing Visual Search API. Incluya la cadena para la información de archivo, encabezado y punto de conexión. Imprima `response.json()` con `print_json()`.
 
-    ```python
-    try:
-        response = requests.post(BASE_URI, headers=HEADERS, files=file)
-        response.raise_for_status()
-        print_json(response.json())
+```python
+try:
+    response = requests.post(BASE_URI, headers=HEADERS, files=file)
+    response.raise_for_status()
+    print_json(response.json())
     
-    except Exception as ex:
-        raise ex
-    ```
+except Exception as ex:
+    raise ex
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

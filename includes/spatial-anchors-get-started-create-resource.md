@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67135029"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638992"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Creación de un recurso de Spatial Anchors
 
@@ -41,6 +41,10 @@ Una vez creado el recurso, Azure Portal mostrará que se completó la implementa
 A continuación, puede ver las propiedades del recurso. Copie el valor de **Id. de cuenta** en un editor de texto, ya que lo necesitará más adelante.
 
    ![Propiedades del recurso](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+
+Copie también el valor **Dominio de cuenta** del recurso en un editor de texto, ya que lo necesitará más adelante.
+
+   ![Dominio de cuenta](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
 En **Configuración**, seleccione **Clave**. Copie el valor de **Clave principal** en un editor de texto. Este valor es `Account Key`. Lo necesitará más adelante.
 

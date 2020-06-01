@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/18/2020
+ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81682586"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770931"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>¿Qué son las identidades administradas de recursos de Azure?
 
@@ -47,16 +47,13 @@ Los siguientes términos se usan en las identidades administradas para el conjun
 
 Hay dos tipos de identidades administradas:
 
-- Las **identidades administradas asignadas por el sistema** se habilitan directamente en las instancias de servicio de Azure. Cuando se habilita la identidad, Azure crea una identidad para la instancia del servicio en el inquilino de Azure AD de confianza de la suscripción de la instancia. Una vez creada la identidad, las credenciales se aprovisionan en la instancia. El ciclo de vida de una identidad administrada asignada por el sistema está vinculado directamente a la instancia de servicio de Azure en que está habilitada. Si se elimina la instancia, Azure limpia automáticamente las credenciales y la identidad en Azure AD.
+- Las **identidades administradas asignadas por el sistema** se habilitan directamente en las instancias de servicio de Azure. Cuando se habilita la identidad, Azure crea una identidad para la instancia del servicio en el inquilino de Azure AD de confianza de la suscripción de la instancia. Una vez creada la identidad, las credenciales se aprovisionan en la instancia. El ciclo de vida de una identidad asignada por el sistema está vinculado directamente a la instancia de servicio de Azure en que está habilitada. Si se elimina la instancia, Azure limpia automáticamente las credenciales y la identidad en Azure AD.
 - Las **identidades administrada asignadas por el usuario** se crean como recursos de Azure independientes. Mediante un proceso de creación, Azure crea una identidad en el inquilino de Azure AD de confianza para la suscripción que se utiliza. Una vez creada la identidad, esta puede asignarse a una o varias instancias de servicio de Azure. El ciclo de vida de una identidad asignada por el usuario no se administra junto con el ciclo de vida de las instancias de servicio de Azure a las que se asigna.
 
 Internamente, las identidades administradas son entidades de servicio de un tipo especial, que se bloquean para que solo puedan usarse con recursos de Azure. Cuando se elimina la identidad administrada, se quita automáticamente la entidad de servicio correspondiente.
 Además, cuando se crea una identidad asignada por el usuario o asignada por el sistema, el proveedor de recursos de identidades administradas (MSRP) genera un certificado internamente para esa identidad. 
 
 El código puede usar una identidad administrada para solicitar tokens de acceso de los servicios que admiten la autenticación de Azure AD. Azure se encarga de rotar las credenciales que usa la instancia del servicio. 
-
-## <a name="credential-rotation"></a>Rotación de credenciales
-La rotación de credenciales la controla el proveedor de recursos que hospeda el recurso de Azure. La rotación predeterminada de la credencial se produce cada 46 días. Es responsabilidad del proveedor de recursos llamar para obtener nuevas credenciales, por lo que el proveedor de recursos puede tardar más de 46 días en hacerlo.
 
 En el diagrama siguiente se muestra cómo funcionan las identidades de servicio administradas con máquinas virtuales (VM) de Azure:
 
@@ -107,6 +104,9 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
 
 6. Se realiza una llamada a Azure AD para solicitar un token de acceso, tal y como se especifica en el paso 5, con el identificador de cliente y el certificado configurado en el paso 3. Azure AD devuelve un token de acceso JSON Web Token (JWT).
 7. El código envía el token de acceso en una llamada a un servicio que admite la autenticación de Azure AD.
+
+## <a name="credential-rotation"></a>Rotación de credenciales
+La rotación de credenciales la controla el proveedor de recursos que hospeda el recurso de Azure. La rotación predeterminada de la credencial se produce cada 46 días. Es responsabilidad del proveedor de recursos llamar para obtener nuevas credenciales, por lo que el proveedor de recursos puede tardar más de 46 días en hacerlo.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>¿Cómo se usan las identidades administradas de Managed Identities for Azure Resources?
 

@@ -6,58 +6,44 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/20/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 20916ff80ae52ee9fc215d87c0987900d89e590a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 8ae5bf3790db82d8d96f872d6375e9d3b167bf6d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733340"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654318"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Un identificador de aplicación de LUIS: use el identificador de aplicación de IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La consulta de usuario que se usa en el código del inicio rápido es específica de esa aplicación.
 
-## <a name="create-luis-runtime-key-for-predictions"></a>Creación de una clave de tiempo de ejecución de LUIS para predicciones
+## <a name="create-pizza-app"></a>Creación de una aplicación de pizza
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Haga clic en [Crear **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-1. Establezca todas las opciones de configuración necesarias para la clave de tiempo de ejecución:
-
-    |Configuración|Value|
-    |--|--|
-    |Nombre|Nombre que quiera (2-64 caracteres).|
-    |Subscription|Seleccione una suscripción adecuada.|
-    |Location|Seleccione cualquier ubicación disponible cercana.|
-    |Nivel de precios|`F0`: el plan de tarifa mínimo.|
-    |Grupo de recursos|Seleccione un grupo de recursos disponible.|
-
-1. Haga clic en **Crear** y espere a que el recurso se cree. Una vez creado, vaya a la página de recursos.
-1. Recopile el elemento `endpoint` configurado y una `key`.
+[!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
 
 ## <a name="get-intent-programmatically"></a>Obtención de la intención mediante programación
 
 Use C# (.NET Core) para consultar el [punto de conexión de predicción](https://aka.ms/luis-apim-v3-prediction) y obtener un resultado de predicción.
 
-1. Cree una aplicación de consola con C# como lenguaje de destino, con `predict-with-rest` como nombre del proyecto y de la carpeta.
+1. Cree una aplicación de consola con C# como lenguaje de destino, con `csharp-predict-with-rest` como nombre del proyecto y de la carpeta.
 
     ```console
-    dotnet new console -lang C# -n predict-with-rest
+    dotnet new console -lang C# -n csharp-predict-with-rest
     ```
 
-1. Cambie al directorio `predict-with-rest` que acaba de crear e instale las dependencias requeridas con estos comandos:
+1. Cambie al directorio `csharp-predict-with-rest` que ha creado e instale las dependencias necesarias con este comando:
 
     ```console
-    cd predict-with-rest
+    cd csharp-predict-with-rest
     dotnet add package System.Net.Http
     ```
 
 1. Abra `Program.cs` en el IDE o editor que prefiera. A continuación, sobrescriba `Program.cs` con el código siguiente:
 
-   ```csharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -68,22 +54,24 @@ Use C# (.NET Core) para consultar el [punto de conexión de predicción](https:/
         {
             static void Main(string[] args)
             {
-                // YOUR-KEY: 32 character key
-                var key = "YOUR-KEY";
+                // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
+                var appId = "YOUR-APP-ID";
 
-                // YOUR-ENDPOINT: example is your-resource-name.api.cognitive.microsoft.com
-                var endpoint = "YOUR-ENDPOINT";
+                // YOUR-PREDICTION-KEY: 32 character key.
+                var key = "YOUR-PREDICTION-KEY";
 
-                // //public sample app
-                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+                // YOUR-PREDICTION-ENDPOINT: Example is "https://westus.api.cognitive.microsoft.com/"
+                var endpoint = "YOUR-PREDICTION-ENDPOINT";
 
-                var utterance = "turn on all lights";
+                // An utterance to test the pizza app.
+                var utterance = "I want two large pepperoni pizzas on thin crust please";
 
                 MakeRequest(key, endpoint, appId, utterance);
 
-                Console.WriteLine("Hit ENTER to exit...");
+                Console.WriteLine("Press ENTER to exit...");
                 Console.ReadLine();
             }
+
             static async void MakeRequest(string key, string endpoint, string appId, string utterance)
             {
                 var client = new HttpClient();
@@ -101,26 +89,32 @@ Use C# (.NET Core) para consultar el [punto de conexión de predicción](https:/
                 queryString["staging"] = "false";
                 queryString["timezoneOffset"] = "0";
 
-                var endpointUri = String.Format("https://{0}/luis/prediction/v3.0/apps/{1}/slots/production/predict?query={2}", endpoint, appId, queryString);
+                var endpointUri = String.Format("{0}luis/prediction/v3.0/apps/{1}/slots/production/predict?{2}", endpoint, appId, queryString);
+
+                // Remove these before updating the article.
+                Console.WriteLine("endpoint: " + endpoint);
+                Console.WriteLine("appId: " + appId);
+                Console.WriteLine("queryString: " + queryString);
+                Console.WriteLine("endpointUri: " + endpointUri);
 
                 var response = await client.GetAsync(endpointUri);
 
                 var strResponseContent = await response.Content.ReadAsStringAsync();
 
-                // Display the JSON result from LUIS
+                // Display the JSON result from LUIS.
                 Console.WriteLine(strResponseContent.ToString());
             }
         }
     }
+    ```
 
-   ```
-
-1. Reemplace los valores `YOUR-KEY` y `YOUR-ENDPOINT` por su propia clave y punto de conexión de predicción.
+1. Reemplace los valores `YOUR-APP-ID`, `YOUR-KEY` y `YOUR-ENDPOINT` con su propia clave y punto de conexión de predicción.
 
     |Information|Propósito|
     |--|--|
-    |`YOUR-KEY`|La clave de predicción de 32 caracteres.|
-    |`YOUR-ENDPOINT`| El punto de conexión de la dirección URL de predicción. Por ejemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+    |`YOUR-APP-ID`|El identificador de la aplicación. Se encuentra en el portal de LUIS, en la página Configuración de la aplicación de la aplicación.
+    |`YOUR-PREDICTION-KEY`|La clave de predicción de 32 caracteres. Se encuentra en el portal de LUIS, en la página Recursos de Azure de la aplicación.
+    |`YOUR-PREDICTION-ENDPOINT`| El punto de conexión de la dirección URL de predicción. Se encuentra en el portal de LUIS, en la página Recursos de Azure de la aplicación.<br>Por ejemplo, `https://westus.api.cognitive.microsoft.com/`.|
 
 1. Compile la aplicación de la consola con este comando:
 
@@ -136,57 +130,175 @@ Use C# (.NET Core) para consultar el [punto de conexión de predicción](https:/
 
 1. Revise la respuesta de la predicción, que se devuelve como JSON:
 
-    ```console
-    Hit ENTER to exit...
-    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```json
+    {"query":"I want two large pepperoni pizzas on thin crust please","prediction":{"topIntent":"ModifyOrder","intents":{"ModifyOrder":{"score":1.0},"None":{"score":8.55E-09},"Greetings":{"score":1.82222226E-09},"CancelOrder":{"score":1.47272727E-09},"Confirmation":{"score":9.8125E-10}},"entities":{"Order":[{"FullPizzaWithModifiers":[{"PizzaType":["pepperoni pizzas"],"Size":[["Large"]],"Quantity":[2],"Crust":[["Thin"]],"$instance":{"PizzaType":[{"type":"PizzaType","text":"pepperoni pizzas","startIndex":17,"length":16,"score":0.9978157,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"Size":[{"type":"SizeList","text":"large","startIndex":11,"length":5,"score":0.9984481,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"Quantity":[{"type":"builtin.number","text":"two","startIndex":7,"length":3,"score":0.999770939,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"Crust":[{"type":"CrustList","text":"thin crust","startIndex":37,"length":10,"score":0.933985531,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}]}}],"$instance":{"FullPizzaWithModifiers":[{"type":"FullPizzaWithModifiers","text":"two large pepperoni pizzas on thin crust","startIndex":7,"length":40,"score":0.90681237,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}]}}],"ToppingList":[["Pepperoni"]],"$instance":{"Order":[{"type":"Order","text":"two large pepperoni pizzas on thin crust","startIndex":7,"length":40,"score":0.9047088,"modelTypeId":1,"modelType":"Entity Extractor","recognitionSources":["model"]}],"ToppingList":[{"type":"ToppingList","text":"pepperoni","startIndex":17,"length":9,"modelTypeId":5,"modelType":"List Entity Extractor","recognitionSources":["model"]}]}}}}
     ```
 
     Respuesta JSON con formato para mejorar la legibilidad:
 
     ```JSON
     {
-        "query": "turn on all lights",
-        "prediction": {
-            "topIntent": "HomeAutomation.TurnOn",
-            "intents": {
-                "HomeAutomation.TurnOn": {
-                    "score": 0.5375382
-                },
-                "None": {
-                    "score": 0.08687421
-                },
-                "HomeAutomation.TurnOff": {
-                    "score": 0.0207554
-                }
-            },
-            "entities": {
-                "HomeAutomation.Operation": [
-                    "on"
-                ],
-                "$instance": {
-                    "HomeAutomation.Operation": [
-                        {
-                            "type": "HomeAutomation.Operation",
-                            "text": "on",
-                            "startIndex": 5,
-                            "length": 2,
-                            "score": 0.724984169,
-                            "modelTypeId": -1,
-                            "modelType": "Unknown",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
+      "query": "I want two large pepperoni pizzas on thin crust please",
+      "prediction": {
+        "topIntent": "ModifyOrder",
+        "intents": {
+          "ModifyOrder": {
+            "score": 1
+          },
+          "None": {
+            "score": 8.55e-9
+          },
+          "Greetings": {
+            "score": 1.82222226e-9
+          },
+          "CancelOrder": {
+            "score": 1.47272727e-9
+          },
+          "Confirmation": {
+            "score": 9.8125e-10
+          }
+        },
+        "entities": {
+          "Order": [
+            {
+              "FullPizzaWithModifiers": [
+                {
+                  "PizzaType": [
+                    "pepperoni pizzas"
+                  ],
+                  "Size": [
+                    [
+                      "Large"
                     ]
+                  ],
+                  "Quantity": [
+                    2
+                  ],
+                  "Crust": [
+                    [
+                      "Thin"
+                    ]
+                  ],
+                  "$instance": {
+                    "PizzaType": [
+                      {
+                        "type": "PizzaType",
+                        "text": "pepperoni pizzas",
+                        "startIndex": 17,
+                        "length": 16,
+                        "score": 0.9978157,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ],
+                    "Size": [
+                      {
+                        "type": "SizeList",
+                        "text": "large",
+                        "startIndex": 11,
+                        "length": 5,
+                        "score": 0.9984481,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ],
+                    "Quantity": [
+                      {
+                        "type": "builtin.number",
+                        "text": "two",
+                        "startIndex": 7,
+                        "length": 3,
+                        "score": 0.999770939,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ],
+                    "Crust": [
+                      {
+                        "type": "CrustList",
+                        "text": "thin crust",
+                        "startIndex": 37,
+                        "length": 10,
+                        "score": 0.933985531,
+                        "modelTypeId": 1,
+                        "modelType": "Entity Extractor",
+                        "recognitionSources": [
+                          "model"
+                        ]
+                      }
+                    ]
+                  }
                 }
+              ],
+              "$instance": {
+                "FullPizzaWithModifiers": [
+                  {
+                    "type": "FullPizzaWithModifiers",
+                    "text": "two large pepperoni pizzas on thin crust",
+                    "startIndex": 7,
+                    "length": 40,
+                    "score": 0.90681237,
+                    "modelTypeId": 1,
+                    "modelType": "Entity Extractor",
+                    "recognitionSources": [
+                      "model"
+                    ]
+                  }
+                ]
+              }
             }
+          ],
+          "ToppingList": [
+            [
+              "Pepperoni"
+            ]
+          ],
+          "$instance": {
+            "Order": [
+              {
+                "type": "Order",
+                "text": "two large pepperoni pizzas on thin crust",
+                "startIndex": 7,
+                "length": 40,
+                "score": 0.9047088,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                  "model"
+                ]
+              }
+            ],
+            "ToppingList": [
+              {
+                "type": "ToppingList",
+                "text": "pepperoni",
+                "startIndex": 17,
+                "length": 9,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                  "model"
+                ]
+              }
+            ]
+          }
         }
+      }
     }
     ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado con este inicio rápido, elimine el archivo del sistema de archivos.
+Cuando haya terminado con este inicio rápido, elimine la carpeta del proyecto del sistema de archivos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

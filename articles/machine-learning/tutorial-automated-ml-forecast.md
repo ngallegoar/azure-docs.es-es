@@ -1,5 +1,5 @@
 ---
-title: Previsión de la demanda de uso compartido de bicicletas con el experimento de ML automatizado
+title: 'Tutorial: previsión de la demanda y aprendizaje automático automatizado'
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar e implementar un modelo de previsión de la demanda con aprendizaje automático automatizado en Azure Machine Learning Studio.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088329"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656571"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda de uso compartido de bicicletas con aprendizaje automático automatizado
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda con aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 En este tutorial utilizará el aprendizaje automático automatizado, o ML automatizado, en Azure Machine Learning Studio para crear un modelo de previsión de la demanda de serie temporal de la demanda de alquiler para un servicio de uso compartido de bicicletas.
+
+Para obtener un ejemplo de modelo de clasificación, consulte [Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 En este tutorial, aprenderá las siguientes tareas:
 
 > [!div class="checklist"]
 > * Creación y carga de un conjunto de datos.
 > * Configuración y ejecución de un experimento de ML automatizado.
+> * Especifique la configuración de la previsión.
 > * Exploración de los resultados del experimento.
 > * Implementación del mejor modelo.
 
@@ -129,7 +132,7 @@ Complete la configuración del experimento de ML automatizado especificando el t
 
 1. Seleccione **date** (fecha) como **Time column** (Columna de hora) y deje **Group by column(s)** (Agrupar por columnas) en blanco. 
 
-    1. Seleccione **View additional configuration settings** (Ver opciones de configuración adicionales) y rellene los campos como se indica a continuación. Esta configuración es para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento.
+    1. Seleccione **View additional configuration settings** (Ver opciones de configuración adicionales) y rellene los campos como se indica a continuación. Esta configuración es para controlar mejor el trabajo de entrenamiento y especificar la configuración de la previsión. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento.
 
   
         Configuraciones&nbsp;adicionales|Descripción|Valor&nbsp;para&nbsp;tutorial
@@ -138,7 +141,7 @@ Complete la configuración del experimento de ML automatizado especificando el t
         Características automáticas| Permite el procesamiento previo. Aquí se incluyen la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas.| Habilitar
         Explicación del mejor modelo (versión preliminar)| Muestra automáticamente la posible explicación relativa al mejor modelo creado mediante ML automatizado.| Habilitar
         Algoritmos bloqueados | Algoritmos que desea excluir del trabajo de entrenamiento.| Árboles aleatorios extremos
-        Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Horizonte de previsión**_ : tiempo en el futuro que se desea predecir. <br> _**Retardos de destino para la previsión**_ : hasta dónde desea construir los retardos en una variable de destino. <br> _**Periodos acumulados de destino**_ : especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). |Horizonte de previsión: 14 <br> Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
+        Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Horizonte de previsión**_: tiempo en el futuro que se desea predecir. <br> _**Retardos de destino para la previsión**_: hasta dónde desea construir los retardos en una variable de destino. <br> _**Periodos acumulados de destino**_: especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). |Horizonte de previsión: 14 <br> Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
         Criterios de exclusión| Si se cumplen los criterios, se detiene el trabajo de entrenamiento. |Tiempo del&nbsp;trabajo de&nbsp;entrenamiento (en horas): 3 <br> Umbral de&nbsp;puntuación&nbsp;de métrica: None
         Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 5
         Simultaneidad| Número máximo de iteraciones paralelas ejecutadas por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 6
@@ -224,6 +227,10 @@ Consulte este artículo para conocer los pasos de creación de un esquema que ad
 > [!div class="nextstepaction"]
 > [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
++ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification).
++ Más información sobre la [caracterización](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Más información acerca de la [generación de perfiles de datos](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
 > Este conjunto de datos del uso compartido de bicicletas se ha modificado para el tutorial. Este conjunto de datos se puso a disponibilidad como parte de un [concurso de Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) y estaba accesible originalmente desde [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). También se puede encontrar en la [base de datos UCI de Machine Learning](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

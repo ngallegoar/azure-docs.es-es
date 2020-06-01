@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd00972c2da0d3d5dafe76a8619e0f0ccaedc19
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b5d631143b839e052316490d3b3b89ca10469cb1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222992"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778826"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -30,7 +30,7 @@ Al igual que un usuario de su organización, un dispositivo es una identidad pri
 
 Este artículo se centra en la unión a Azure AD híbrido.
 
-Al traer sus dispositivos a Azure AD, está maximizando la productividad de los usuarios mediante un inicio de sesión único (SSO) en los recursos de nube y del entorno local. Puede proteger el acceso a los recursos de nube y del entorno local con [acceso condicional](../active-directory-conditional-access-azure-portal.md) al mismo tiempo.
+Al traer sus dispositivos a Azure AD, está maximizando la productividad de los usuarios mediante un inicio de sesión único (SSO) en los recursos de nube y del entorno local. Puede proteger el acceso a los recursos de nube y del entorno local con [acceso condicional](../conditional-access/howto-conditional-access-policy-compliant-device.md) al mismo tiempo.
 
 Un entorno administrado se puede implementar mediante la [sincronización de hash de contraseña (PHS)](../hybrid/whatis-phs.md) o la [autenticación de paso a través (PTA)](../hybrid/how-to-connect-pta.md) con el [inicio de sesión único de conexión directa](../hybrid/how-to-connect-sso.md). Estos escenarios no requieren que se configure un servidor de federación para la autenticación.
 
@@ -159,6 +159,24 @@ El instalador crea una tarea programada en el sistema que se ejecuta en el conte
 
 ## <a name="verify-the-registration"></a>Comprobación del registro
 
+A continuación se muestran tres maneras de buscar y comprobar el estado del dispositivo:
+
+### <a name="locally-on-the-device"></a>De forma local en el dispositivo
+
+1. Abra Windows PowerShell.
+2. Escriba `dsregcmd /status`.
+3. Compruebe que tanto **AzureAdJoined** como **DomainJoined** estén establecidos en **SÍ**.
+4. Puede utilizar **DeviceId** y comparar el estado del servicio mediante Azure Portal o PowerShell.
+
+### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+
+1. Vaya a la página de dispositivos mediante un [vínculo directo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Puede encontrar información acerca de cómo buscar un dispositivo en el artículo sobre [cómo administrar identidades de dispositivo mediante Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+3. Si la columna **Registrado** indica **Pendiente**, entonces Unión a Azure AD híbrido no se ha completado.
+4. Si la columna **Registrado** contiene una **fecha y hora**, entonces Unión a Azure AD híbrido se ha completado.
+
+### <a name="using-powershell"></a>Usar PowerShell
+
 Compruebe el estado de registro del dispositivo en el inquilino de Azure mediante **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** . Este cmdlet se encuentra en el [módulo de PowerShell de Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 Cuando utiliza el cmdlet **Get-MSolDevice** para comprobar los detalles de servicio:
@@ -167,17 +185,43 @@ Cuando utiliza el cmdlet **Get-MSolDevice** para comprobar los detalles de servi
 - El valor de **DeviceTrustType** es **Unido a dominio**. Este valor es equivalente al estado **Hybrid Azure AD joined** en la página **Dispositivos** del portal de Azure AD.
 - En el caso de los dispositivos que se usan en el acceso condicional, el valor de **Habilitado** es **True** y el de **DeviceTrustLevel** es **Administrado**.
 
-Para comprobar los detalles del servicio:
-
 1. Abra Windows PowerShell como administrador.
-1. Escriba `Connect-MsolService` para conectarse a su inquilino de Azure.  
-1. Escriba `get-msoldevice -deviceId <deviceId>`.
-1. Compruebe que **Habilitado** está establecido en **True**.
+2. Escriba `Connect-MsolService` para conectarse a su inquilino de Azure.
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-excluding-pending-state"></a>Recuento de todos los dispositivos unidos a Azure AD híbrido (excepto el estado **Pendiente**)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Recuento de todos los dispositivos unidos a Azure AD híbrido con el estado **Pendiente**
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices"></a>Lista de todos los dispositivos unidos a Azure AD híbrido
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Lista de todos los dispositivos unidos a Azure AD híbrido con el estado **Pendiente**
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-details-of-a-single-device"></a>Lista de detalles de un solo dispositivo:
+
+1. Escriba `get-msoldevice -deviceId <deviceId>` (es el valor **DeviceId** obtenido localmente en el dispositivo).
+2. Compruebe que **Habilitado** está establecido en **True**.
 
 ## <a name="troubleshoot-your-implementation"></a>Solución de problemas de la implementación
 
 Si tiene problemas para completar la unión a Azure AD híbrido para los dispositivos Windows unidos a un dominio, consulte:
 
+- [Solución de problemas de dispositivos mediante el comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
 - [Solución de problemas de dispositivos unidos a Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
 - [Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 

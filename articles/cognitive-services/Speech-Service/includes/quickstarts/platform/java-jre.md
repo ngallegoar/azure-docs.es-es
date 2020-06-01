@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925098"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673227"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Java 8 JRE de 64 bits. Si desea simplemente que el nombre del paquete comience por su cuenta, el SDK de Java no está disponible en el repositorio central de Maven. Si usa Gradle o un archivo de dependencia `pom.xml`, debe agregar un repositorio personalizado que apunte a `https://csspeechstorage.blob.core.windows.net/maven/` (consulte la siguiente información sobre el nombre del paquete).
 
@@ -29,7 +29,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 - El paquete del SDK de Voz para Java está disponible para estos sistemas operativos:
   - Windows: solo 64 bits
   - Mac: macOS X versión 10.13 o posterior
-  - Linux: solo 64 bits en Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8 y CentOS 8
+  - Linux: solo 64 bits en Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8 y CentOS 7/8
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -52,7 +52,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - En RHEL o CentOS 8, ejecute los siguientes comandos para instalar los paquetes necesarios:
+  - En RHEL o CentOS, ejecute los siguientes comandos para instalar los paquetes necesarios:
 
         ```sh
         sudo yum update
@@ -60,7 +60,8 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
         ```
 
 > [!NOTE]
-> En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - En RHEL/CentOS 7, siga las instrucciones sobre [cómo configurar RHEL/CentOS 7 para el SDK de voz](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para su plataforma. Tenga en cuenta que si es la primera vez que instala este paquete, puede que deba reiniciar Windows antes de seguir con esta guía.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predicción del precio de un automóvil con el diseñador'
+title: 'Tutorial: Predicción de los precios de los automóviles con el diseñador'
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar, puntuar e implementar un modelo de Machine Learning mediante una interfaz de arrastrar y colocar. Este tutorial es la primera de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
 author: peterclu
@@ -8,13 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/12/2020
-ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 05/12/2020
+ms.custom: designer
+ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389433"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656584"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -76,7 +77,7 @@ Puede establecer un **destino de proceso predeterminado** para toda la canalizac
     Si ya tiene un destino de proceso disponible, puede seleccionarlo para ejecutar esta canalización.
 
     > [!NOTE]
-    > El diseñador solo puede ejecutar experimentos en destino de proceso de Azure Machine Learning. Otros destinos de proceso no aparecerán.
+    > El diseñador solo puede ejecutar experimentos de entrenamiento en Azure Machine Learning Compute y destinos de instancias de proceso de Azure Machine Learning. Otros destinos de proceso no aparecerán.
 
 1. Escriba un nombre para el recurso de proceso.
 

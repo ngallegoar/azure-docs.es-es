@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo realizar la restauración en e
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 439ffeed7f0e37f04eda39380ddcabe1fa4e06c3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171738"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653267"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restauración de archivos en una máquina virtual de Azure
 
@@ -25,7 +25,7 @@ Azure Backup crea puntos de recuperación que se almacenan en almacenes de recup
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para este tutorial se necesita una máquina virtual Linux protegida con Azure Backup. Para simular un proceso de recuperación y la eliminación accidental de archivos, elimine una página desde un servidor web. Si necesita una máquina virtual Linux que ejecute un servidor web y esté protegida con Azure Backup, consulte [Copia de seguridad de una máquina virtual en Azure con la CLI](quick-backup-vm-cli.md).
 
@@ -117,6 +117,9 @@ Para restaurar sus archivos, Azure Backup proporciona un script que se ejecuta e
 ## <a name="restore-file-to-your-vm"></a>Restaurar archivos en la máquina virtual
 
 Con el script de recuperación copiado en la máquina virtual, ahora puede conectar el punto de recuperación y restaurar archivos.
+
+>[!NOTE]
+> Consulte [aquí](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) si puede ejecutar el script en la máquina virtual antes de continuar.
 
 1. Conéctese a la máquina virtual mediante SSH. Reemplace *publicIpAddress* por la dirección IP pública de la máquina virtual, como se indica a continuación:
 

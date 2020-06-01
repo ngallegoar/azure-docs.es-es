@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720930"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743592"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
 
@@ -34,7 +34,7 @@ En esta sección creará la base de datos y el contenedor de Azure Cosmos e impo
 
 1. Después de crear un nuevo cuaderno, puede cambiar su nombre a algo como **VisualizeRetailData.ipynb**.
 
-1. A continuación, creará una base de datos denominada "RetailDemo" y un contenedor denominado "WebsiteData" para almacenar los datos comerciales. Puede usar /CardID como clave de partición. Copie y pegue el siguiente código en una nueva celda del cuaderno y ejecútelo:
+1. A continuación, creará una base de datos denominada "RetailDemo" y un contenedor denominado "WebsiteData" para almacenar los datos comerciales. Puede usar /CartID como clave de partición. Copie y pegue el siguiente código en una nueva celda del cuaderno y ejecútelo:
 
    ```python
    import azure.cosmos
@@ -121,7 +121,7 @@ Antes de ejecutar consultas para analizar los datos, puede leer los datos del co
 {Query text}
 ```
 
-Para más información, consulte el artículo [Comandos y características de cuadernos integrados en Azure Cosmos DB](use-notebook-features-and-commands.md). Ejecutará la consulta `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Los resultados se guardarán en una estructura DataFrame de Pandas denominada df_cosmos. Pegue el siguiente comando en una nueva celda del cuaderno y ejecútelo:
+Para más información, consulte el artículo [Comandos y características de cuadernos integrados en Azure Cosmos DB](use-python-notebook-features-and-commands.md). Ejecutará la consulta `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Los resultados se guardarán en una estructura DataFrame de Pandas denominada df_cosmos. Pegue el siguiente comando en una nueva celda del cuaderno y ejecútelo:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 En esta sección ejecutará algunas consultas en los datos recuperados.
 
-* **Query1**: ejecute una consulta de tipo Agrupar por en la estructura DataFrame para obtener la suma de los ingresos totales por ventas en cada país y mostrar cinco elementos de los resultados. En una nueva celda del cuaderno, ejecute el siguiente código:
+* **Query1**: ejecute una consulta de tipo Agrupar por en la estructura DataFrame para obtener la suma de los ingresos totales por ventas en cada país y región, y mostrar cinco elementos de los resultados. En una nueva celda del cuaderno, ejecute el siguiente código:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -176,10 +176,10 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -187,7 +187,7 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualice los ingresos por ventas en distintos países en un mapa mundial ejecutando el siguiente código en una nueva celda del cuaderno:
+1. Visualice los ingresos por ventas en distintos países o regiones en un mapa mundial; para ello, ejecute el siguiente código en una nueva celda del cuaderno:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,9 +233,9 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
    show(p)
    ```
 
-   La salida muestra el mapa mundial con distintos colores. Los colores más oscuros representan a los países con mayores ingresos y los colores más claros a los que presentan menores ingresos.
+   La salida muestra el mapa mundial con distintos colores. Los colores más oscuros representan a los países con mayores ingresos y los más claros, a los de menores ingresos.
 
-   ![Visualización del mapa de ingresos de países](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Visualización del mapa de ingresos de países y regiones](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. Veamos otro caso de visualización de datos. El contenedor WebsiteData tiene un registro de usuarios que han visto un artículo, lo han agregado al carro y lo han adquirido. Vamos a trazar la tasa de conversión de los artículos comprados. Ejecute el siguiente código en una nueva celda para visualizar la tasa de conversión de cada artículo:
 
@@ -290,4 +290,4 @@ En esta sección ejecutará algunas consultas en los datos recuperados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre los comandos de cuadernos, consulte el artículo [Uso de comandos y características de cuadernos integrados en Azure Cosmos DB](use-notebook-features-and-commands.md).
+* Para más información sobre los comandos de cuadernos de Python, consulte el artículo [Uso de comandos y características de cuadernos integrados en Azure Cosmos DB](use-python-notebook-features-and-commands.md).

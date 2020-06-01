@@ -7,20 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
-ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 89fc13f7391a3bd270730a6e95e0132305e04b68
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76718300"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683846"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Ejemplos de Node.js para administrar datos en Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Ejemplos del SDK de .NET V2](sql-api-dotnet-samples.md)
 > * [Ejemplos del SDK de .NET V3](sql-api-dotnet-v3sdk-samples.md)
-> * [Ejemplos de Java](sql-api-java-samples.md)
-> * [Ejemplos de Java asincrónico](sql-api-async-java-samples.md)
+> * [Ejemplos del SDK de Java V4](sql-api-java-sdk-samples.md)
 > * [Ejemplos de Node.js](sql-api-nodejs-samples.md)
 > * [Ejemplos de Python](sql-api-python-samples.md)
 > * [Galería de ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -36,7 +35,7 @@ En el repositorio de GitHub [azure-cosmos-js](https://github.com/Azure/azure-cos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Puede [activar los beneficios de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
+- Puede [activar los beneficios de suscripción a Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -105,5 +104,5 @@ El archivo [index.ts](https://github.com/Azure/azure-cosmos-js/blob/master/sampl
 | [Creación de un procedimiento almacenado](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/upsert.js) |[StoredProcedures.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedures?view=azure-node-latest) |
 | [Ejecución de un procedimiento almacenado](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/index.ts) |[StoredProcedure.execute](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedure?view=azure-node-latest) |
 
-Para más información sobre la programación en el servidor, consulte [Programación en el servidor de Azure Cosmos DB: procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario](stored-procedures-triggers-udfs.md).
+Para más información sobre la programación en el servidor, consulte [Programación en el servidor de Azure Cosmos DB: procedimientos almacenados, desencadenadores de base de datos y UDF](stored-procedures-triggers-udfs.md).
 

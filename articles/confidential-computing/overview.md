@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192270"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773286"
 ---
 # <a name="confidential-computing-on-azure"></a>Computación confidencial en Azure
 
@@ -42,13 +42,13 @@ Microsoft Azure ayuda a reducir la superficie expuesta a los ataques para conseg
 
 ## <a name="introduction-to-confidential-computing"></a>Introducción a la computación confidencial <a id="intro to acc"></a>
 
-La computación confidencial es un término del sector que definió el [Consorcio de Computación Confidencial](https://confidentialcomputing.io/) (CCC), una fundación dedicada a definir y acelerar la adopción de la computación confidencial. La computación confidencial es la protección de los datos en uso al realizar cálculos. Los cálculos se producen en un entorno de ejecución de confianza (TEE) basado en hardware.
+La computación confidencial es un término del sector que definió el [Consorcio de Computación Confidencial](https://confidentialcomputing.io/) (CCC), una fundación dedicada a definir y acelerar la adopción de la computación confidencial. El CCC define la informática confidencial como la protección de los datos en uso mediante la realización de cálculos en un entorno de ejecución de confianza (TEE) basado en hardware.
 
 Un TEE es un entorno que aplica la ejecución de solo código autorizado. Los datos de TEE no se pueden leer ni alterar con ningún código ajeno a ese entorno.
 
-### <a name="enclaves-and-trusted-execution-environments"></a>Enclaves y entornos de ejecución de confianza
+### <a name="enclaves"></a>Enclaves
 
-En el contexto de la computación confidencial, normalmente se hace referencia a los TEE como *enclaves* o *enclaves seguros*. Los enclaves son partes protegidas del procesador y la memoria de hardware. No existen ninguna forma de ver los datos o el código del interior del enclave, ni siquiera con un depurador. Si los intentos de código que no son de confianza modifican el contenido de la memoria del enclave, el entorno se deshabilita y se deniegan las operaciones.
+Los enclaves son partes protegidas del procesador y la memoria de hardware. No existen ninguna forma de ver los datos o el código del interior del enclave, ni siquiera con un depurador. Si los intentos de código que no son de confianza modifican el contenido de la memoria del enclave, el entorno se deshabilita y se deniegan las operaciones.
 
 Al desarrollar aplicaciones, puede usar [herramientas de software](#oe-sdk) para blindar partes del código y de los datos que contiene el enclave. Estas herramientas garantizan que nadie que no pertenezca al entorno de confianza pueda ver o modificar el código y los datos. 
 
@@ -96,11 +96,11 @@ Una aplicación compilada con enclaves se divide en dos sentidos:
 1. Un componente que no es de confianza (el host)
 1. Un componente que es de confianza (el enclave)
 
-**El host** es la aplicación de enclave que se ejecuta en un entorno que no es de confianza. El código del host no puede acceder al código cargado en el enclave. 
+**El host** es donde se ejecuta la aplicación de enclave y es un entorno que no es de confianza. El host no puede acceder al código del enclave implementado en el host. 
 
-**El enclave** es donde el código y los datos se ejecutan dentro de la implementación de TEE. Los cálculos seguros deben realizarse en el enclave para garantizar que los secretos y los datos confidenciales estén protegidos. 
+**El enclave** es el lugar en el que se ejecuta el código de aplicación y sus datos o memoria en caché. Los cálculos seguros deben realizarse en los enclaves para garantizar que los secretos y los datos confidenciales estén protegidos. 
 
-Cuando empiece a desarrollar una aplicación de enclave, debe determinar qué código y datos necesitan protección. El código que elija incluir en el componente de confianza está aislado del resto de la aplicación. Una vez que se inicializa el enclave y el código se carga en la memoria, ese código no se puede leer ni cambiar desde fuera del entorno protegido.
+Durante el diseño de la aplicación, es importante identificar y determinar qué parte de la aplicación debe ejecutarse en los enclaves. El código que elija incluir en el componente de confianza está aislado del resto de la aplicación. Una vez que se inicializa el enclave y el código se carga en la memoria, ese código no se puede leer ni cambiar desde los componentes que no son de confianza. 
 
 ### <a name="open-enclave-software-development-kit-oe-sdk"></a>Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>
 

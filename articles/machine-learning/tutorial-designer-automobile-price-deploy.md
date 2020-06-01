@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de un modelo de Machine Learning con el diseñador'
+title: 'Tutorial: Implementación de modelos de aprendizaje automático con el diseñador'
 titleSuffix: Azure Machine Learning
 description: En este tutorial se indica cómo crear una solución de análisis predictivo en el diseñador de Azure Machine Learning (versión preliminar). Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
 author: peterclu
@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: c3ca37fd47b6551a95f9a491053ec7863acd1eeb
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.custom: designer
+ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389399"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656523"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -58,7 +59,7 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
 1. Seleccione **Enviar** y use el mismo destino de proceso y el mismo experimento que usó en la parte 1.
 
-    Si es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, ya que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+    Si es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
 
 1. Seleccione **Implementar**.
 

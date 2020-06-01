@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68943438"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integración de Azure Active Directory con PolicyStat
 
@@ -34,7 +34,7 @@ La integración de PolicyStat con Azure AD le proporciona las siguientes ventaja
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con PolicyStat, se necesitan los siguientes elementos:
 
@@ -80,10 +80,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con PolicyStat,
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
 2. **[Configuración del inicio de sesión único de PolicyStat](#configure-policystat-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de PolicyStat](#create-policystat-test-user)** : para tener un homólogo de Britta Simon en PolicyStat vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
+3. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Creación de un usuario de prueba de PolicyStat](#create-policystat-test-user)** : para tener un homólogo de Britta Simon en PolicyStat vinculado a la representación del usuario en Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -164,25 +163,7 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
    
     ![Menú Administrador](./media/policystat-tutorial/ic808633.png "Menú Administrador")
 
-3. En la sección **Configuración**, seleccione **Habilitar la integración de inicio de sesión único**.
-   
-    ![Configuración de inicio de sesión único](./media/policystat-tutorial/ic808634.png "Configuración de inicio de sesión único")
-
-4. Haga clic en **Configurar atributos** y, en la sección **Configurar atributos**, realice los pasos siguientes:
-   
-    ![Configuración de inicio de sesión único](./media/policystat-tutorial/ic808635.png "Configuración de inicio de sesión único")
-   
-    a. En el cuadro de texto **Atributo de nombre de usuario**, escriba **uid**.
-
-    b. En el cuadro de texto **Atributo de nombre**, escriba el **nombre** del usuario, **Britta**.
-
-    c. En el cuadro de texto **Atributo de apellido**, escriba el **apellido** del usuario, **Simon**.
-
-    d. En el cuadro de texto **Atributo de correo electrónico**, escriba la **dirección de correo electrónico** del usuario, `BrittaSimon@contoso.com`.
-
-    e. Haga clic en **Guardar cambios**.
-
-5. Haga clic en **Sus metadatos de IDP** y en la sección **Sus metadatos de IDP**, realice los pasos siguientes:
+3. Haga clic en **Sus metadatos de IDP** y en la sección **Sus metadatos de IDP**, realice los pasos siguientes:
    
     ![Configuración de inicio de sesión único](./media/policystat-tutorial/ic808636.png "Configuración de inicio de sesión único")
    
@@ -190,33 +171,26 @@ Para configurar el inicio de sesión único de Azure AD con PolicyStat, realice 
 
     b. Haga clic en **Guardar cambios**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
+4. Haga clic en **Configurar atributos** y, en la sección **Configurar atributos**, realice los pasos siguientes:
+   
+    a. En el cuadro de texto **Atributo de nombre de usuario**, escriba **uid**.
 
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+    b. En el cuadro de texto **First Name Attribute** (Atributo Nombre), escriba el nombre de atributo de notificación Nombre de Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+    c. En el cuadro de texto **Last Name Attribute** (Atributo Apellidos), escriba el nombre de atributo de notificación Apellidos de Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
+    d. En el cuadro de texto **Email Attribute** (Atributo Correo electrónico), escriba el nombre de atributo de notificación Correo electrónico de Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+    e. Haga clic en **Guardar cambios**.
 
-    ![Botón Nuevo usuario](common/new-user.png)
+5. En la sección **Configuración**, seleccione **Habilitar la integración de inicio de sesión único**.
+   
+    ![Configuración de inicio de sesión único](./media/policystat-tutorial/ic808634.png "Configuración de inicio de sesión único")
 
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a PolicyStat para que use el inicio de sesión único de Azure.
+En esta sección, concederá acceso a su propia cuenta a PolicyStat para que use el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **PolicyStat**.
 
@@ -234,7 +208,7 @@ En esta sección, concederá acceso a Britta Simon a PolicyStat para que use el 
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione su cuenta en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
@@ -260,4 +234,3 @@ Al hacer clic en el icono de PolicyStat en el panel de acceso y debería iniciar
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 704da86fd1d816dbf5d6cd9cf67dfee53fce2622
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419639"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658243"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conexión a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -30,14 +30,17 @@ Puede usar [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-m
 
 ### <a name="supported-tools-for-sql-on-demand-preview"></a>Herramientas compatibles con SQL a petición (versión preliminar)
 
-SSMS se admite parcialmente a partir de la versión 18.5 con características limitadas como la conexión y la consulta. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) se admite por completo.
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) es totalmente compatible a partir de la versión 1.18.0. SSMS es parcialmente compatible a partir de la versión 18.5, que solo se puede usar para establecer conexión y realizar consultas.
 
+> [!NOTE]
+> Si el inicio de sesión de AAD tiene abierta la conexión durante más de una hora en el momento de la ejecución de la consulta, se producirá un error en todas las consultas que usen AAD, lo que incluye la realización de consultas en el almacenamiento mediante el paso a través de AAD y las instrucciones que interactúan con AAD (como CREATE EXTERNAL PROVIDER). Esto afecta a todas las herramientas que mantienen la conexión abierta, como en el editor de consultas de SSMS y ADS. Las herramientas que abren una conexión nueva para ejecutar cada consulta no se ven afectadas, como Synapse Studio.
+> Para mitigar este problema, puede reiniciar SSMS, o bien conectarse y desconectarse en ADS. .
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de que cumple los siguientes requisitos previos antes de empezar:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* Para el grupo de SQL, necesita un almacén de datos existente. Para crear uno, vea [Creación de un grupo de SQL](../quickstart-create-sql-pool.md). En el caso de SQL a petición, ya se ha aprovisionado uno en el área de trabajo en el momento de la creación. 
+* Para el grupo de SQL, necesita un almacén de datos existente. Para crear uno, vea [Creación de un grupo de SQL](../quickstart-create-sql-pool-portal.md). En el caso de SQL a petición, ya se ha aprovisionado uno en el área de trabajo en el momento de la creación. 
 * El nombre del servidor SQL completo. Para encontrarlo, consulte [Conexión a Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Conectar

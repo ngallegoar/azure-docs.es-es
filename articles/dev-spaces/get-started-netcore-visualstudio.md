@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio para depurar e iterar rápidamente una aplicación .NET Core en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: f3be10929a9a0df23529348f2c62e35f2ebaa850
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a807af3ffe14da943786051a3ece03b777a0edf5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75770720"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873623"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio y .NET Core con Azure Dev Spaces
 
@@ -50,7 +50,7 @@ En esta guía, aprenderá a:
 1. Seleccione **Review + create** (Revisar y crear) y, a continuación, **Create** cuando haya terminado.
 
 ## <a name="get-the-visual-studio-tools"></a>Obtención de las herramientas de Visual Studio
-Instale la versión más reciente de [Visual Studio 2017](https://www.visualstudio.com/vs/). Para Visual Studio 2019 en Windows deberá instalar la carga de trabajo de desarrollo de Azure. Para Visual Studio 2017 en Windows deberá instalar la carga de trabajo de desarrollo de ASP.NET y de web, así como [Visual Studio Tools para Kubernetes](https://aka.ms/get-azds-visualstudio).
+Instale la versión más reciente de [Visual Studio 2019](https://www.visualstudio.com/vs/) en Windows con la carga de trabajo Desarrollo de Azure.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Crear una aplicación web que se ejecuta en un contenedor
 

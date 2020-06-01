@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 94bcba80e5768d57e3dc97bed1a74a8369ac60b9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e35f5c9288860056a910f54f9601b2178a628bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425804"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828090"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Cambio del identificador de inquilino de Key Vault después de mover una suscripción
 
@@ -61,4 +61,4 @@ Si usa MSI, también tendrá que actualizar la identidad de MSI, ya que la anter
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si le queda alguna duda al respecto de Azure Key Vault, visite los [foros de Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Si le queda alguna duda acerca de Azure Key Vault, visite la [página de preguntas más frecuentes de Microsoft para Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

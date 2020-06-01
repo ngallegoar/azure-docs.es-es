@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido:  Extracción de texto impreso y manuscrito con Computer Vision 2.0 y 2.1 (REST, Python)'
+title: 'Inicio rápido:  Extracción de texto impreso y manuscrito con Computer Vision 2.1 y 3.0: REST, Python'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido extraerá texto manuscrito de una imagen mediante la API Computer Vision con Python.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 29944311c2215ebcc46ff3752004092bdeb9a9c8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae83978994eb421e21ed73514a5c8fa697875349
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404391"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684115"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Inicio rápido: Extracción de texto impreso y manuscrito mediante la API REST Computer Vision y Python
 

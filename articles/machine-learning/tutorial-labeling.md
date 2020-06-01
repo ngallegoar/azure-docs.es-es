@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203648"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759190"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
+# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado (versión preliminar) para la clasificación de imágenes con varias clases 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este tutorial se muestra cómo administrar el proceso de creación de etiquetas (también conocido como etiquetado) de imágenes que se usarán como datos para crear modelos de aprendizaje automático. El etiquetado de datos en Azure Machine Learning está en versión preliminar pública.
@@ -77,7 +77,7 @@ Los almacenes de datos de Azure Machine Learning se usan para guardar la informa
 
 ### <a name="create-a-labeling-project"></a>Crear un proyecto de etiquetado
 
-Ahora que tiene la lista de etiquetadores y el acceso a los datos que desea que se etiqueten, cree el proyecto de etiquetado.
+Ahora que tiene acceso a los datos que desea que se etiqueten, cree el proyecto de etiquetado.
 
 1. En la parte superior de la página, seleccione **Proyectos**.
 

@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1a657a7d57b3e725b0ae92b5110935c0aecf73f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75533038"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847232"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Maxient Conduct Manager Software
 
 En este tutorial, obtendrá información sobre cómo integrar Maxient Conduct Manager Software con Azure Active Directory (Azure AD). Al integrar Maxient Conduct Manager Software con Azure AD, puede:
 
-* Controlar en Azure AD quién tiene acceso al software Maxient Conduct Manager Software.
+* Utilizar Azure AD a fin de autenticar a todos los usuarios para Maxient Conduct Manager Software.
 * Permitir que los usuarios inicien sesión automáticamente en Maxient Conduct Manager Software con sus cuentas de Azure AD.
-* Administrar las cuentas desde una ubicación central (Azure Portal).
+
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
@@ -42,8 +42,7 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
-
+En este tutorial, configurará Azure AD para usarlo con Maxient Conduct Manager Software.
 
 
 * Maxient Conduct Manager Software admite el inicio de sesión único iniciado por **SP e IDP**
@@ -65,16 +64,13 @@ Para configurar la integración de Maxient Conduct Manager Software en Azure AD
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-maxient-conduct-manager-software"></a>Configuración y prueba del inicio de sesión único de Azure AD para Maxient Conduct Manager Software
 
-Configure y pruebe el inicio de sesión único de Azure AD con Maxient Conduct Manager Software con un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Maxient Conduct Manager Software.
+Configure y pruebe del inicio de sesión único de Azure AD con Maxient Conduct Manager Software. Para que el inicio de sesión único funcione, es necesario establecer una vinculación entre un usuario de Azure AD y el usuario correspondiente de Maxient Conduct Manager Software.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Maxient Conduct Manager Software, complete los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
-    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único de Maxient Conduct Manager Software](#configure-maxient-conduct-manager-software-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Maxient Conduct Manager Software](#create-maxient-conduct-manager-software-test-user)** , para tener un homólogo de B.Simon en Maxient Conduct Manager Software que esté vinculado a la representación del usuario en Azure AD.
-1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** : para permitir que los usuarios se autentiquen con el fin de utilizar Maxient Conduct Manager Software.
+    1. **[Asignación de todos los usuarios que van a utilizar Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** : para permitir que todos los usuarios de su institución puedan autenticarse.
+1. **[Prueba de la configuración de Azure AD con Maxient](#test-with-maxient)** : para comprobar si la configuración funciona y se han lanzado los atributos correctos.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -93,27 +89,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://cm.maxient.com/<SCHOOLCODE>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Maxient Conduct Manager Software](mailto:support@maxient.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Consulte al representante de soporte técnico o implementación de Maxient para obtener el valor.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.  Tendrá que proporcionar esta dirección URL al representante de soporte técnico o implementación de Maxient.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Asignación de todos los usuarios para que puedan autenticarse en Maxient Conduct Manager Software.
 
-En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
-
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, va a conceder a B.Simon acceso a Maxient Conduct Manager Software utilizando el inicio de sesión único de Azure.
+En esta sección, proporcionará acceso para que todas las cuentas se autentiquen con el sistema de Azure en Maxient Conduct Manager Software.  Es importante tener en cuenta que este paso es **OBLIGATORIO** para que Maxient funcione correctamente.  Maxient utiliza el sistema de Azure AD para *autenticar* a los usuarios. La *autorización* de usuarios se realiza en el sistema de Maxient para la función concreta que están intentando realizar. Maxient no usa atributos de su directorio para tomar esas decisiones.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Maxient Conduct Manager Software**.
@@ -125,24 +109,12 @@ En esta sección, va a conceder a B.Simon acceso a Maxient Conduct Manager Softw
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione todos los usuarios (o los grupos adecuados) y **asígnelos** para que puedan autenticarse con Maxient.
 
-## <a name="configure-maxient-conduct-manager-software-sso"></a>Configuración del inicio de sesión único de Maxient Conduct Manager Software
+## <a name="test-with-maxient"></a>Prueba con Maxient 
 
-Para configurar el inicio de sesión único en **Maxient Conduct Manager Software**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Maxient Conduct Manager Software](mailto:support@maxient.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-### <a name="create-maxient-conduct-manager-software-test-user"></a>Creación del usuario de prueba de Maxient Conduct Manager Software
-
-En esta sección, creará un usuario llamado Britta Simon en Maxient Conduct Manager Software. Colabore con el  [equipo de soporte técnico de Maxient Conduct Manager Software](mailto:support@maxient.com) para agregar los usuarios a la plataforma de Maxient Conduct Manager Software. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
-
-## <a name="test-sso"></a>Prueba de SSO 
-
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
-
-Al hacer clic en el icono de Maxient Conduct Manager Software en el panel de acceso, debería iniciar sesión automáticamente en esta aplicación para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+Si aún no se ha abierto una incidencia de soporte técnico con un representante de soporte técnico o implementación de Maxient, envíe un correo electrónico a [support@maxient.com](mailto:support@maxient.com) con el asunto "Campus Based Authentication/Azure Setup - \<\<nombre de la escuela\>\>". En el cuerpo del correo electrónico, proporcione la **dirección URL de metadatos de federación de aplicación**. El personal de Maxient responderá con un vínculo de prueba para comprobar que se están lanzando los atributos adecuados.  
+    
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)

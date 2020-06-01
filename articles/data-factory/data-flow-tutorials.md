@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 04/17/2020
-ms.openlocfilehash: 3abec9b0c37e0475e369ce3cd2f91e40a1040b75
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/25/2020
+ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628970"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848908"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriales en vídeo del flujo de datos de asignación
 
@@ -51,6 +51,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 
 [Transformación Búsqueda](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
+[Actualizaciones de transformación de búsqueda y sugerencias](https://youtu.be/MBskWoeuTLw)
+
 [Transformación Dinamizar](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
 [Transformación Dinamizar: asignación de las columnas desplazadas](https://youtu.be/5MygzCX0wnM)
@@ -58,6 +60,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Transformación Select](http://youtu.be/F9VjQ_YyRyU?hd=1) (Seleccionar)
 
 [Transformación Select (Seleccionar): asignación basada en reglas](https://youtu.be/5lf1lh1qMwU)
+
+[Transformación Select (Seleccionar): Conjuntos de datos grandes](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Transformación Surrogate key](https://www.youtube.com/watch?v=ISpegL9CbTM) (Clave suplente)
 
@@ -148,6 +152,8 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 [Modelos lógicos frente a modelos físicos](http://youtu.be/K5tgzLjEE9Q)
 
 [Detección de cambios en los datos de origen](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+[Dimensión de variación lenta de tipo genérico 2](http://youtu.be/tc283k8CWh8)
 
 ## <a name="data-flow-expressions"></a>Expresiones del flujo de datos
 

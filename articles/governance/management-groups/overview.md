@@ -3,12 +3,12 @@ title: 'Organización de los recursos con grupos de administración: Servicios d
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
 ms.date: 04/15/2020
 ms.topic: overview
-ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381538"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773158"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -154,7 +154,7 @@ Supongamos que hay un rol personalizado definido en el grupo de administración 
 Si intentamos mover una de esas suscripciones para que sea un elemento secundario del grupo de administración Producción, se desasociaría la ruta de asignación de roles de la suscripción de la definición del rol del grupo de administración Marketing. En este escenario, recibirá un error que indica que no se permite el movimiento porque interrumpirá esta relación.  
 
 Para corregir este escenario hay varias opciones:
-- Quitar la asignación de roles de la suscripción antes de moverla a otro grupo de administración primario.
+- Quitar la asignación de roles de la suscripción antes de mover esta al nuevo grupo de administración primario.
 - Agregar la suscripción al ámbito asignable de la definición de roles.
 - Cambiar el ámbito asignable en la definición de roles. En el ejemplo anterior, se pueden actualizar los ámbitos asignables de Marketing a Grupo de administración raíz para que las dos ramas de la jerarquía puedan acceder a la definición.  
 - Crear un rol personalizado adicional que se definirá en la otra rama. Este nuevo rol requerirá que la asignación de roles se cambie también en la suscripción.  
@@ -163,8 +163,9 @@ Para corregir este escenario hay varias opciones:
 
 Existen limitaciones al usar roles personalizados en grupos de administración. 
 
- - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esto sucede cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario que no tiene la definición de roles.  
- - No se permite definir las acciones del plano de datos de RBAC en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia cuando las acciones de RBAC actualizan los proveedores de recursos del plano de datos. Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
+ - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación aparece cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
+ - No se pueden definir acciones del plano de datos de RBAC en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia cuando las acciones de RBAC actualizan los proveedores de recursos del plano de datos.
+   Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
  - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. Aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista, se creará la definición de roles.  
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Movimiento de grupos de administración y suscripciones 

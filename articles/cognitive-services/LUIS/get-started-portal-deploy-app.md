@@ -3,12 +3,12 @@ title: 'Inicio rápido: Implementación de una aplicación con el portal de LUIS
 description: En este inicio rápido se muestra cómo implementar una aplicación mediante la creación de un recurso de punto de conexión de predicción, la asignación del recurso, el entrenamiento y la publicación de la aplicación.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585109"
+ms.locfileid: "83653236"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
 
@@ -40,7 +40,8 @@ Cada vez que crea un recurso de predicción de consultas o de creación para LUI
 
 1. Seleccione el inquilino, la suscripción y el nombre del recurso. Seleccione **Asignar recurso**.
 
-   ![Asignación de un recurso a la aplicación](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![Asignar un recurso a la aplicación](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Siga los mismos pasos para agregar la clave de creación a la aplicación.
 
@@ -51,11 +52,11 @@ Cada vez que crea un recurso de predicción de consultas o de creación para LUI
 
 ## <a name="train-the-app"></a>Entrenamiento de la aplicación
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+Si cambió la aplicación desde que la entrenó por última vez, [entrene](get-started-portal-build-app.md) la aplicación.
 
 ## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publicación de la aplicación en el punto de conexión de predicción
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>Solicitud de punto de conexión de predicción
 

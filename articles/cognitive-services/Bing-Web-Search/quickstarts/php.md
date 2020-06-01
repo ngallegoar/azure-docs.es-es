@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Realizar una búsqueda con PHP - Bing Web Search API'
+title: 'Inicio rápido: Realizar una búsqueda con PHP: Bing Web Search API'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para enviar solicitudes a la API de REST Bing Web Search mediante PHP y reciba una respuesta JSON.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169722"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873821"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guía de inicio rápido: Uso de PHP para llamar a Bing Web Search API  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Inicio rápido: Uso de PHP para llamar a Bing Web Search API  
 
-Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Node.js envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a la API Bing Web Search. Esta aplicación de Node.js envía una solicitud de búsqueda a la API y muestra la respuesta JSON. Aunque esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
@@ -33,7 +33,7 @@ Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio r
 
 ## <a name="enable-secure-http-support"></a>Habilitar compatibilidad HTTP segura
 
-Antes de empezar, busque `php.ini` y quite la marca de comentario de esta línea:
+Antes de empezar, busque php.ini y quite la marca de comentario de esta línea:
 
 ```php
 ; extension=php_openssl.dll
@@ -41,9 +41,13 @@ Antes de empezar, busque `php.ini` y quite la marca de comentario de esta línea
 
 ## <a name="create-a-project-and-define-variables"></a>Creación de un proyecto y definición de variables
 
-Cree un nuevo proyecto de PHP en su IDE o editor favorito. No olvide agregar las etiquetas de apertura y de cierre `<?php` y `?>`.
+1. Cree un nuevo proyecto de PHP en su IDE o editor favorito. Agregue las etiquetas de apertura y de cierre: `<?php` y `?>`.
 
-Algunas variables deben establecerse antes de poder continuar. `$endpoint` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. Confirme que el valor `$endpoint` es correcto y reemplace el valor `$accesskey` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `$term`.
+2. Para el valor `$endpoint` puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. 
+
+3. Confirme que el valor `$endpoint` es correcto y reemplace el valor `$accesskey` por una clave de suscripción válida de su cuenta de Azure. 
+
+4. De forma opcional puede personalizar la consulta de búsqueda reemplazando el valor de `$term`.
 
 ```php
 $accessKey = 'enter key here';
@@ -53,7 +57,7 @@ $term = 'Microsoft Cognitive Services';
 
 ## <a name="construct-a-request"></a>Creación de una solicitud
 
-Este código declara una función denominada `BingWebSearch` que se usa para crear solicitudes a Bing Web Search API. Toma tres argumentos: `$url`, `$key` y `$query`.
+Este código declara una función denominada `BingWebSearch` que se usa para crear solicitudes a la API Bing Web Search. Toma tres argumentos: `$url`, `$key` y `$query`.
 
 ```php
 function BingWebSearch ($url, $key, $query) {
@@ -155,7 +159,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## <a name="sample-response"></a>Respuesta de muestra
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Las respuestas de Bing Web Search API se devuelven como JSON. Esta respuesta de ejemplo se ha truncado para mostrar un único resultado.  
 
@@ -284,6 +288,6 @@ Las respuestas de Bing Web Search API se devuelven como JSON. Esta respuesta de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicación de una sola página de Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de creación de una aplicación de una sola página con la API Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

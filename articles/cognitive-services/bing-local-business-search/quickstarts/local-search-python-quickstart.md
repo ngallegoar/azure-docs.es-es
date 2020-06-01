@@ -8,38 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/29/2019
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: c7e7ef7f052fccfea18b246f41109d5fa7528b4b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3a90d5455c0664ceabf80647fc94a37ad0c716b5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75379750"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873024"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Guía de inicio rápido: Envío de una consulta a Bing Local Business Search API en Python
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API en Python
 
-Use esta guía de inicio rápido para empezar a enviar solicitudes a Bing Local Business Search API, que es un servicio de Azure Cognitive Services. Si bien esta aplicación sencilla está escrita en Python, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
+Use este inicio rápido para aprender a enviar solicitudes a la API Bing Local Business Search, que es un servicio de Azure Cognitive Services. Aunque esta aplicación sencilla está escrita en Python, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
 
-Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para la consulta de búsqueda `hotel in Bellevue`.
+Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para una consulta de búsqueda.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* [Python](https://www.python.org/) 2.x o 3.x
- 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con las API de Bing. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Utilice la clave de acceso proporcionada por la evaluación gratuita.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Python](https://www.python.org/) 2.x o 3.x.
+* Una [cuenta de API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con las API Bing Search. Para este inicio rápido, la [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente. Guarde la clave de API que se proporciona al activar la evaluación gratuita. Para más información, consulte [Precios de Cognitive Services: API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-complete-application"></a>Ejecución de la aplicación completa
 
-El código siguiente obtiene resultados localizados. Se implementa en los pasos siguientes:
+En el ejemplo siguiente se obtienen resultados localizados que se implementan en los pasos siguientes:
 1. Declare las variables para especificar el punto de conexión por host y ruta de acceso.
 2. Especifique el parámetro de consulta. 
-3. Defina la función de búsqueda que crea la solicitud y agrega el encabezado Ocp-Apim-Subscription-Key.
-4. Establezca el encabezado Ocp-Apim-Subscription-Key. 
+3. Defina la función de búsqueda que crea la solicitud y agrega el encabezado `Ocp-Apim-Subscription-Key`.
+4. Establezca el encabezado `Ocp-Apim-Subscription-Key`. 
 5. Realice la conexión y envíe la solicitud.
 6. Imprima los resultados JSON.
 
-Este es el código completo de esta demostración:
+Este es el código completo de esta demostración es el siguiente:
 
 ```python
 import http.client, urllib.parse
@@ -69,5 +68,5 @@ print (json.dumps(json.loads(result), indent=4))
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Guía de inicio rápido de Local Business Search para Java](local-search-java-quickstart.md)
-- [Guía de inicio rápido de Local Business Search para C#](local-quickstart.md)
-- [Guía de inicio rápido de Local Business Search para Node](local-search-node-quickstart.md)
+- [Inicio rápido de Local Business Search para C#](local-quickstart.md)
+- [Inicio rápido de Local Business Search para Node](local-search-node-quickstart.md)

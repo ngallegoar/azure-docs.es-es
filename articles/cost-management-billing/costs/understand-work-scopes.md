@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877939"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873429"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -67,9 +67,12 @@ Cost Management es compatible con los siguientes roles integrados para cada uno 
 
 Colaborador de Cost Management es el rol con menos privilegios que se recomienda. Permite a los usuarios acceder para crear y administrar presupuestos y exportaciones para supervisar de manera más eficaz los costos. Los colaboradores de Cost Management también podrían requerir roles adicionales para admitir escenarios de administración de costos globales. Considere los casos siguientes:
 
+- **Informes sobre el uso de recursos**: Azure Cost Management muestra el costo en Azure Portal e incluye el uso total y los cargos por API y descargas. Si quiere información más detallada, revise las métricas de uso en Azure Monitor. Considere la posibilidad de conceder el rol [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) en cualquier ámbito en el que necesite también informar sobre métricas de uso detalladas.
 - **Actuación cuando se superan los presupuestos**: los colaboradores de Cost Management también necesitan acceso para crear y administrar grupos de acciones para reaccionar automáticamente a usos por encima del límite. Considere la posibilidad de conceder el rol de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a un grupo de recursos que contiene el grupo de acciones que se debe usar cuando se superan los umbrales del presupuesto. La automatización de acciones concretas requiere roles adicionales para los servicios específicos utilizados como, por ejemplo, Automation y Azure Functions.
 - **Programación de exportación de datos de costo**: los colaboradores de Cost Management también necesitan acceso para administrar las cuentas de almacenamiento y programar una exportación para copiar datos en una de ellas. Considere la posibilidad de conceder el rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a un grupo de recursos que contenga la cuenta de almacenamiento donde se exportan los datos de costos.
 - **Visualización de las recomendaciones de ahorro de costos**: los lectores y los colaboradores de Cost Management tienen permiso para *ver* las recomendaciones sobre costos de forma predeterminada. No obstante, el acceso para actuar sobre las recomendaciones de costos requiere acceso a los recursos individuales. Considere la posibilidad de conceder un [rol específico de servicio](../../role-based-access-control/built-in-roles.md#all) si desea actuar en una recomendación basada en costos.
+
+Los grupos de administración solo se admiten si contienen suscripciones de Contrato Enterprise (EA), pago por uso (PAYG) o internas de Microsoft. Los grupos de administración con cualquier otro tipo de suscripción, como Contrato de cliente de Microsoft o Azure Active Directory, no pueden ver los costos. Si tiene una combinación de suscripciones, mueva las suscripciones que no se admitan a un lugar independiente de la jerarquía del grupo de administración para habilitar Cost Management para las suscripciones admitidas. Por ejemplo, cree dos grupos de administración en el grupo de administración raíz: **Azure AD** y **My Org**. Mueva la suscripción de Azure AD grupo de administración**Azure AD** y, después, vea y administre los costos mediante el grupo de administración **My Org**.
 
 ## <a name="enterprise-agreement-scopes"></a>Ámbitos del Contrato Enterprise
 

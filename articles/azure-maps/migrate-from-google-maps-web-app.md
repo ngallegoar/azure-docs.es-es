@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: bdbf2a975cbdc3d06745b9375c1e6f8e751ddfd6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df23226adfa8caa86b7ad91dd28a9352381f4170
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77914105"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747559"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migración de una aplicación web desde Google Maps
 
@@ -194,7 +194,7 @@ Para ver documentación detallada sobre cómo configurar y usar el control de ma
 
 ### <a name="localizing-the-map"></a>Localización del mapa
 
-Si el público está distribuido entre varios países o habla distintos idiomas, la localización es importante.
+Si su audiencia se extiende a varios países o regiones y habla distintos idiomas, la localización es importante.
 
 **Antes: Google Maps**
 

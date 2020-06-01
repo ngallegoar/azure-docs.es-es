@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5fe8d261cb6804ffdf2cbe4f543db29336c4c78b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790888"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656406"
 ---
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
@@ -61,13 +61,6 @@ Esta plantilla de dispositivo incluye:
 - Propiedades de la nube que no están almacenadas en el dispositivo.
 - Personalizaciones, paneles y formularios que forman parte de la aplicación IoT Central.
 
-### <a name="pricing"></a>Precios
-
-Para crear aplicaciones de IoT Central se puede usar una evaluación gratuita de 7 días, o bien un plan de precios estándar.
-
-- Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.
-- Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo y se pueden elegir el plan de precios **Estándar 1** o **Estándar 2** y los dos primeros dispositivos son gratis. Obtenga más información sobre los planes de precios gratuito y estándar en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
-
 ### <a name="create-device-templates"></a>Creación de plantillas de dispositivo
 
 [IoT Plug and Play (versión preliminar)](../../iot-pnp/overview-iot-plug-and-play.md) permite a IoT Central integrar dispositivos sin necesidad de escribir ningún código de dispositivo integrado. En el centro de IoT Plug and Play (versión preliminar) se encuentra un esquema del modelo de funcionalidad del dispositivo que describe las funcionalidades del dispositivo. En una aplicación de IoT Central, las plantillas de dispositivo usan estos modelos de funcionalidad del dispositivo de IoT Plug and Play (versión preliminar).
@@ -81,6 +74,8 @@ Como generador de soluciones, tiene varias opciones para crear plantillas de dis
 
 Como generador de soluciones, puede usar IoT Central para generar código para que los dispositivos de prueba validen las plantillas de dispositivo.
 
+Si es un desarrollador de dispositivos, consulte [Introducción al desarrollo de dispositivos de IoT Central](./overview-iot-central-developer.md) para obtener una introducción a la implementación de dispositivos que usan estas plantillas de dispositivo.
+
 ### <a name="customize-the-ui"></a>Personalización de la interfaz de usuario
 
 Como generador de soluciones, también puede personalizar la interfaz de usuario de la aplicación IoT Central para los operadores responsables del uso cotidiano de la aplicación. Entre las personalizaciones que puede crear un generador de soluciones se incluyen:
@@ -89,43 +84,7 @@ Como generador de soluciones, también puede personalizar la interfaz de usuario
 - Configurar paneles personalizados para ayudar a los operadores a descubrir información y resolver los problemas con mayor rapidez.
 - Configurar análisis personalizados para explorar los datos de series temporales de los dispositivos conectados.
 
-## <a name="pricing"></a>Precios
-
-Para crear aplicaciones de IoT Central se puede usar una evaluación gratuita de 7 días, o bien un plan de precios estándar.
-
-- Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.
-- Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo y se puede elegir el plan de precios **Estándar 1** o **Estándar 2**, y los dos primeros dispositivos son gratis. Más información sobre los [precios de IoT Central](https://aka.ms/iotcentral-pricing).
-
-## <a name="connect-your-devices"></a>Conectar dispositivos
-
-Azure IoT Central usa Azure [IoT Device Provisioning Service (DPS)](../../iot-dps/about-iot-dps.md) para administrar el registro y la conexión de todos los dispositivos.
-
-El uso de DPS permite:
-
-- Que IoT Central admite la incorporación y la conexión de dispositivos a escala.
-- Que usted pueda generar credenciales de dispositivo y configurar los dispositivos sin conexión sin tener que registrarlos primero en la interfaz de usuario de IoT Central.
-- Que los dispositivos se conecten mediante firmas de acceso compartido.
-- Que los dispositivos se conecten con los certificados X.509 estándar del sector.
-- Que usted pueda usar identificadores de dispositivo propios para registrar estos en IoT Central. Esto simplifica la integración con sistemas del área de operaciones existentes.
-- Una manera sencilla y coherente de conectar dispositivos a IoT Central.
-
-Para más información, consulte [Conexión a Azure IoT Central](./concepts-get-connected.md).
-
-### <a name="azure-iot-edge-devices"></a>Dispositivos de Azure IoT Edge
-
-Además de los dispositivos creados con el [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks), también puede conectar [dispositivos Azure IoT Edge](../../iot-edge/about-iot-edge.md) a una aplicación IoT Central. Azure IoT Edge permite ejecutar la inteligencia de nube y la lógica personalizada directamente en dispositivos IoT administrados por IoT Central. El tiempo de ejecución de IoT Edge permite:
-
-- Instalación y actualización de las cargas de trabajo en el dispositivo.
-- Mantenimiento de los estándares de seguridad de Azure IoT Edge en el dispositivo.
-- Garantía de que los módulos de IoT Edge están siempre en ejecución.
-- Notificación del mantenimiento del módulo a la nube para la supervisión remota.
-- Administración de la comunicación entre los dispositivos hoja descendentes y un dispositivo IoT Edge, entre los módulos de un dispositivo IoT Edge y entre un dispositivo IoT Edge y la nube.
-
-Para más información, consulte [dispositivos Azure IoT Edge e IoT Central](concepts-architecture.md#azure-iot-edge-devices).
-
-## <a name="stay-connected"></a>Mantenimiento de la conexión
-
-Las aplicaciones IoT Central están totalmente hospedadas por Microsoft, lo que reduce la sobrecarga de administración que suponen las aplicaciones.
+## <a name="manage-your-devices"></a>Administración de los dispositivos
 
 Como operador, se usa la aplicación IoT Central para administrar los dispositivos de la solución de IoT Central. Los operadores realizan tareas como:
 
@@ -134,8 +93,6 @@ Como operador, se usa la aplicación IoT Central para administrar los dispositiv
 - Aprovisionar dispositivos nuevos.
 
 Como generador de soluciones, puede definir reglas y acciones personalizadas que funcionan a través de la transmisión de datos desde dispositivos conectados. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
-
-Los administradores administran el acceso a la aplicación con [permisos y roles de usuario](howto-administer.md).
 
 Con cualquier solución de IoT diseñada para funcionar a escala es importante tener un enfoque estructurado en relación con la administración de dispositivos. No basta con conectar los dispositivos a la nube, sino que es necesario mantener los dispositivos conectados y en buen estado. Un operador puede usar las siguientes funcionalidades de IoT Central para administrar los dispositivos a lo largo del ciclo de vida de la aplicación:
 
@@ -149,23 +106,13 @@ Cree [reglas personalizadas](tutorial-create-telemetry-rules.md) basadas en el e
 
 ### <a name="jobs"></a>Trabajos
 
-Los [trabajos](howto-run-a-job.md) permiten aplicar actualizaciones individuales o en masa a los dispositivos, para lo que se establecen propiedades o se realizan llamadas a comandos. 
+Los [trabajos](howto-run-a-job.md) permiten aplicar actualizaciones individuales o en masa a los dispositivos, para lo que se establecen propiedades o se realizan llamadas a comandos.
 
-### <a name="user-roles-and-permissions"></a>Roles y permisos de usuario
-
-Los [roles y permisos](howto-manage-users-roles.md) permiten a los administradores adaptar la experiencia de cada usuario. Los administradores usan la interfaz de usuario web para crear roles y asignar permisos.
-
-## <a name="transform-your-iot-data"></a>Transformación de los datos de IoT
+## <a name="integrate-with-other-services"></a>Integración con otros servicios
 
 Como plataforma de aplicaciones, IoT Central permite transformar los datos de IoT en información empresarial que produce resultados útiles. Las [reglas](./tutorial-create-telemetry-rules.md), la [exportación de datos](./howto-export-data.md) y la [API REST pública](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) son ejemplos de integración de IoT Central con aplicaciones de línea de negocio:
 
 ![Transformación de datos de IoT mediante IoT Central](media/overview-iot-central/transform.png)
-
-### <a name="monitor-device-health-and-operations-using-rules"></a>Supervisión del estado de los dispositivos y las operaciones mediante reglas
-
-Mientras los dispositivos estén conectados y envíen datos, las reglas pueden identificar aquellos dispositivos que tienen problemas o enviar mensajes de error, con el fin de que se puedan solucionar con un tiempo de inactividad mínimo. Cree en la aplicación IoT Central reglas que supervisen los datos de telemetría de los dispositivos y que avisen a algún operador cuando una métrica supere un umbral o un dispositivo envíe un mensaje concreto. Las acciones del correo electrónico y los webhooks de sus reglas envían notificaciones tanto a las personas como a los sistemas de bajada correctos.
-
-### <a name="run-custom-analytics-and-processing-on-your-exported-data"></a>Ejecución de análisis y procesamiento personalizados en los datos exportados
 
 Puede generar información empresarial, como determinar las tendencias de eficiencia de la máquina o predecir el uso futuro de la energía en una fábrica, mediante la creación de canalizaciones de análisis personalizadas para procesar los datos de telemetría de los dispositivos y almacenar el resultado. Configure las exportaciones de datos en la aplicación de IoT Central para exportar datos de telemetría, cambios de propiedades de los dispositivos y cambios de las plantillas de dispositivos a otros servicios en los que puede analizar, almacenar y visualizar los datos con sus herramientas preferidas.
 
@@ -176,6 +123,17 @@ Cree soluciones de IoT como:
 - Aplicaciones de Mobile Companion que pueden configurar y controlar dispositivos de forma remota.
 - Integraciones personalizadas que permiten a las aplicaciones de línea de negocio existentes interactuar con los datos y dispositivos de IoT.
 - Aplicaciones de administración de dispositivos para el modelado de dispositivos, la incorporación, la administración y el acceso a los datos.
+
+## <a name="administer-your-application"></a>Administración de la aplicación
+
+Las aplicaciones IoT Central están totalmente hospedadas por Microsoft, lo que reduce la sobrecarga de administración que suponen las aplicaciones. Los administradores administran el acceso a la aplicación con [permisos y roles de usuario](howto-administer.md).
+
+## <a name="pricing"></a>Precios
+
+Para crear aplicaciones de IoT Central se puede usar una evaluación gratuita de 7 días, o bien un plan de precios estándar.
+
+- Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.
+- Las aplicaciones que se crean con un plan *estándar* se facturan por dispositivo y se puede elegir el plan de precios **Estándar 1** o **Estándar 2**, y los dos primeros dispositivos son gratis. Más información sobre los [precios de IoT Central](https://aka.ms/iotcentral-pricing).
 
 ## <a name="quotas"></a>Cuotas
 

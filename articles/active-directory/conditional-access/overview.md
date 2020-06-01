@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: contperfq4
+ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79215993"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798238"
 ---
 # <a name="what-is-conditional-access"></a>¿Qué es el acceso condicional?
 
@@ -47,7 +48,7 @@ Entre las señales comunes que puede tener en cuenta el acceso condicional al to
    - Las directivas pueden dirigirse a usuarios y grupos concretos, lo que proporciona a los administradores un mayor control sobre el acceso.
 - Información de la ubicación de la IP
    - Las organizaciones pueden crear intervalos de direcciones IP de confianza que se pueden usar al tomar decisiones sobre directivas. 
-   - Los administradores pueden especificar que se bloquee o se permita el tráfico de intervalos de IP de países completos.
+   - Los administradores pueden especificar que se bloquee o se permita el tráfico de intervalos de direcciones IP de países o regiones completos.
 - Dispositivo
    - Los usuarios con dispositivos de plataformas concretas o marcados con un estado concreto se pueden usar al aplicar directivas de acceso condicional.
 - Application
@@ -71,7 +72,7 @@ Entre las señales comunes que puede tener en cuenta el acceso condicional al to
 
 ## <a name="commonly-applied-policies"></a>Directivas que se aplican habitualmente
 
-Muchas organizaciones tienen problemas de acceso comunes y las directivas de acceso condicional pueden servir de ayuda al respecto. Dicha ayuda se concreta en:
+Muchas organizaciones tienen [problemas de acceso comunes y las directivas de acceso condicional pueden servir de ayuda al respecto](concept-conditional-access-policy-common.md). Por ejemplo, para:
 
 - Requerir la autenticación multifactor a los usuarios con roles administrativos
 - Requerir la autenticación multifactor para las tareas de administración de Azure
@@ -96,12 +97,8 @@ Los clientes con [licencias de Microsoft 365 Empresa](/office365/servicedescri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una directiva de acceso condicional paso a paso](concept-conditional-access-policies.md)
-
-Para saber cómo implementar el acceso condicional en su entorno, consulte [Planeamiento de la implementación del acceso condicional en Azure Active Directory](plan-conditional-access.md).
-
-[Información acerca de Identity Protection](../identity-protection/overview-v2.md)
-
-[Información acerca de Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-
-[Información acerca de Microsoft Intune](/intune/index)
+- [Creación de una directiva de acceso condicional paso a paso](concept-conditional-access-policies.md)
+- [Planeamiento de la implementación del acceso condicional](plan-conditional-access.md)
+- [Información acerca de Identity Protection](../identity-protection/overview-v2.md)
+- [Información acerca de Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Información acerca de Microsoft Intune](/intune/index)

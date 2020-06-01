@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
-ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68976857"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860994"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Inicio rápido: Creación de una instancia de Azure Data Catalog
 
@@ -22,6 +22,9 @@ Este inicio rápido le muestra los primeros pasos para crear una instancia de Az
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
+
+> [!Note]
+> Debido a los requisitos de seguridad de Azure, Azure Data Catalog ha aplicado el protocolo Seguridad de la capa de transporte (TLS) 1.2. Se han deshabilitado TLS 1.0 y TLS 1.1. Es posible que se produzcan errores al ejecutar la herramienta de registro si la máquina no está actualizada a TLS 1.2. Para actualizar su máquina a TLS 1.2, consulte [Habilitación de la Seguridad de la capa de transporte (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2).
 
 Para empezar, necesitará tener lo siguiente:
 

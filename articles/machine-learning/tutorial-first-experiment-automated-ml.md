@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366525"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656518"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -23,6 +23,8 @@ ms.locfileid: "80366525"
 En este tutorial, aprenderá a crear un modelo de clasificación básico sin escribir ninguna línea de código mediante la interfaz de aprendizaje automático automatizado de Azure Machine Learning. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
 Con el aprendizaje automático, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
+
+Para ver un ejemplo de previsión de serie temporal, consulte [Tutorial: Previsión de la demanda y aprendizaje automático automatizado](tutorial-automated-ml-forecast.md).
 
 En este tutorial, aprenderá las siguientes tareas:
 
@@ -221,7 +223,8 @@ En este tutorial ha usado la interfaz de aprendizaje automático automatizado de
 > [Consumo de un servicio web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
-+ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo [Descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification). Más información acerca de las [características](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification).
++ Más información sobre la [caracterización](how-to-use-automated-ml-for-ml-models.md#featurization).
 + Más información acerca de la [generación de perfiles de datos](how-to-use-automated-ml-for-ml-models.md#profile).
 
 

@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 6a781e767393f35a1ec22f195ba787e3018d8d1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0b5647dd2e43c8a73bb999af559a579c14bb86a1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76713083"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683980"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Los puntos de conexión personalizados se miden para realizar la evaluación en las pruebas de Internet Analyzer 
 
@@ -31,7 +31,7 @@ Asegúrese de configurar un recurso de Internet Analyzer y seleccione la opción
 
 1. Descargue [aquí](https://fpc.msedge.net/apc/trans.gif) una imagen de prueba transparente de un solo píxel. Esta imagen de un solo píxel es el recurso que el cliente JavaScript capturará para medir el rendimiento.
 2. En su aplicación web personalizada, implemente la imagen de prueba en una ruta de acceso a la que se pueda acceder de forma pública. La ruta de acceso debe funcionar sobre HTTPS. 
-3. Copie la dirección URL completa del punto de conexión personalizado (por ejemplo, https://contoso.com/test/trans.gif) en el campo del punto de conexión personalizado al crear la prueba.
+3. Copie la dirección URL completa del punto de conexión personalizado (por ejemplo, `https://contoso.com/test/trans.gif`) en el campo del punto de conexión personalizado al crear la prueba.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

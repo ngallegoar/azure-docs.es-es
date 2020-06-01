@@ -1,17 +1,16 @@
 ---
 title: 'Ejemplos de la CLI de Azure: Azure Functions'
 description: 'Ejemplos de la CLI de Azure: Azure Functions'
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223752"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779539"
 ---
 # <a name="azure-cli-samples"></a>Ejemplos de la CLI de Azure
 
@@ -21,9 +20,9 @@ En la tabla siguiente se incluyen vínculos a scripts de bash para los casos en 
 
 | Creación de una aplicación | Descripción |
 |---|---|
-| [Creación de una aplicación de función para la ejecución sin servidor](scripts/functions-cli-create-serverless.md) | Crea una aplicación de función en un plan de consumo.  |
-| [Creación de una aplicación de funciones de Python sin servidor](scripts/functions-cli-create-serverless-python.md) | Crea una aplicación de función en un plan de App Service dedicado. |
-| [Creación de una aplicación de funciones en un plan Premium escalable](scripts/functions-cli-create-premium-plan.md) | Crea una aplicación de función en un plan de App Service dedicado. |
+| [Creación de una aplicación de función para la ejecución sin servidor](scripts/functions-cli-create-serverless.md) | Crea una aplicación de funciones en un plan de consumo.  |
+| [Creación de una aplicación de funciones de Python sin servidor](scripts/functions-cli-create-serverless-python.md) | Crea una aplicación de funciones de Python en un plan de consumo. |
+| [Creación de una aplicación de funciones en un plan Premium escalable](scripts/functions-cli-create-premium-plan.md) | Crea una aplicación de funciones en un plan Premium. |
 | [Creación de una aplicación de funciones en un plan dedicado (App Service)](scripts/functions-cli-create-app-service-plan.md) | Crea una aplicación de función en un plan de App Service dedicado. |
 
 | Integrate | Descripción|

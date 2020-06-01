@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 816f2692a71d5d4281248405cc84102cfa881f66
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44dc3f16128913f76369ad645a32e91f38272546
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382887"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869867"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y PHP
 
-Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de PHP envía una solicitud a la API y devuelve una lista de correcciones sugeridas. Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de PHP envía una solicitud a la API y devuelve una lista de correcciones sugeridas. 
+
+Aunque esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -28,12 +30,12 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 
-## <a name="get-spell-check-results"></a>Obtención de resultados de Spell Check
+## <a name="get-bing-spell-check-rest-api-results"></a>Obtención de resultados de la API REST de Bing Spell Check
 
 1. Cree un nuevo proyecto PHP en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `subscriptionKey` por una clave de acceso válida para la suscripción.
-4. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+4. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 5. Ejecute el programa.
     
     ```php
@@ -143,4 +145,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Creación de una aplicación web de una sola página](../tutorials/spellcheck.md)
 
 - [¿Qué es Bing Spell Check API?](../overview.md)
-- [Referencia de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referencia de la API Bing Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

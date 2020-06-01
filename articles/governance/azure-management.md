@@ -1,14 +1,14 @@
 ---
 title: 'Introducción a la administración de Azure: Gobernanza de Azure'
 description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
-ms.date: 12/06/2018
+ms.date: 05/22/2020
 ms.topic: overview
-ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75980897"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828154"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Información general de los servicios de administración de Azure
 
@@ -18,7 +18,7 @@ Administración hace referencia a las tareas y procesos necesarios para mantener
 
 El siguiente diagrama muestra las diferentes áreas de administración necesarias para mantener cualquier aplicación o recurso. Estas áreas distintas pueden considerarse como un ciclo de vida. Cada área es necesaria en una sucesión continua a lo largo de toda la duración de un recurso. El ciclo de vida de este recurso empieza con la implementación inicial, sigue con la operación continua y, finalmente, termina cuando se le retira.
 
-![Disciplinas de administración en Azure](../monitoring/media/management-overview/management-capabilities.png)
+:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Materias de administración en Azure" border="false":::
 
 No hay ningún servicio único de Azure que cumpla íntegramente con los requisitos de un área de administración determinada. En vez de eso, son varios los servicios que los satisfacen, trabajando en conjunto. Algunos servicios, como Application Insights, proporcionan una funcionalidad de supervisión dirigida para las aplicaciones web. Otros, como los registros de Azure Monitor, almacenan datos de administración para otros servicios. Esta característica permite analizar datos de tipos diferentes recopilados por distintos servicios.
 
@@ -36,7 +36,9 @@ La automatización de estas tareas permite eliminar la redundancia, reducir el t
 ## <a name="govern"></a>Control
 
 La gobernanza proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure. Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.
-En Azure, la gobernanza se implementa principalmente con dos servicios. [Azure Policy](./policy/overview.md) permite crear, asignar y administrar definiciones de directivas para aplicar las reglas en los recursos. Con esta característica, esos recursos se mantienen en cumplimiento con los estándares corporativos. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube.
+En Azure, la gobernanza se implementa principalmente con dos servicios. [Azure Policy](./policy/overview.md) permite crear, asignar y administrar definiciones de directivas para aplicar las reglas en los recursos.
+Con esta característica, esos recursos se mantienen en cumplimiento con los estándares corporativos.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube.
 
 ## <a name="secure"></a>Seguridad
 

@@ -1,17 +1,16 @@
 ---
 title: 'Inicio rápido: Copia de seguridad de una máquina virtual con Azure Portal'
 description: En esta guía de inicio rápido, aprenda a crear un almacén de Recovery Services, a habilitar la protección en una VM de Azure y a crear una copia de seguridad de la VM con Azure Portal.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215333"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656957"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Copia de seguridad de una máquina virtual en Azure
 
@@ -66,11 +65,11 @@ En la ventana **Copia de seguridad** de la máquina virtual, se muestran el esta
 
 Cuando deje de ser necesaria, puede deshabilitar la protección en la máquina virtual, quitar los puntos de restauración y el almacén de Recovery Services, y eliminar tanto el grupo de recursos como los recursos de la máquina virtual asociados
 
-Si va a continuar con un tutorial de Backup en el que se explique cómo restaurar los datos en una máquina virtual, omita los pasos de esta sección y vaya a [Pasos siguientes](#next-steps).
+Si va a continuar con un tutorial sobre copia de seguridad en el que se explique cómo restaurar los datos de una máquina virtual, omita los pasos de esta sección y vaya a [Pasos siguientes](#next-steps).
 
 1. Seleccione la opción **Copia de seguridad** en la máquina virtual.
 
-2. Seleccione **... Más** para mostrar las opciones adicionales y, después, elija **Detener copia de seguridad**.
+2. Elija **Detener copia de seguridad**.
 
     ![Detener la copia de seguridad de una máquina virtual desde Azure Portal](./media/quick-backup-vm-portal/stop-backup.png)
 

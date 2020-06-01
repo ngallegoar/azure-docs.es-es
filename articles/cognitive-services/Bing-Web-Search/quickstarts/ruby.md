@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9400558f8ea26199a2f7ac406fd6d94647243e11
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169532"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873812"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Inicio rápido: Uso de Ruby para llamar a Bing Web Search API  
 
-Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Ruby envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a la API Bing Web Search. Esta aplicación de Ruby envía una solicitud de búsqueda a la API y muestra la respuesta JSON. Aunque esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -33,7 +33,7 @@ Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio r
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Creación de un proyecto y declaración de los módulos necesarios
 
-Cree un nuevo proyecto de Ruby en su IDE o editor favorito. A continuación, necesita `net/https` para las solicitudes, `uri` para el control de URI y `json` analizar la respuesta.
+Cree un nuevo proyecto de Ruby en su IDE o editor favorito. A continuación, necesita `net/https` para las solicitudes, `uri` para el control de URI y `json` para analizar la respuesta.
 
 ```ruby
 require 'net/https'
@@ -43,7 +43,13 @@ require 'json'
 
 ## <a name="define-variables"></a>Definición de variables
 
-Algunas variables deben establecerse antes de poder continuar. `uri` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. Confirme que los valores `uri` y `path` sean válidos y reemplace el valor `accessKey` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `term`.
+Para poder continuar tienen que establecerse algunas variables:
+
+1. Para el valor `uri` puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. 
+
+2. Confirme que los valores `uri` y `path` sean válidos y reemplace el valor `accessKey` por una clave de suscripción de su cuenta de Azure. 
+
+3. De forma opcional puede personalizar la consulta de búsqueda reemplazando el valor de `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -60,7 +66,7 @@ end
 
 ## <a name="make-a-request"></a>Realización de una solicitud
 
-Use este código para realizar una solicitud y controlar la respuesta.
+Use este código para realizar una solicitud y administrar la respuesta:
 
 ```ruby
 # Construct the endpoint uri.
@@ -135,7 +141,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="sample-response"></a>Respuesta de muestra
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Las respuestas de Bing Web Search API se devuelven como JSON. Esta respuesta de ejemplo se ha truncado para mostrar un único resultado.
 
@@ -264,6 +270,6 @@ Las respuestas de Bing Web Search API se devuelven como JSON. Esta respuesta de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicación de una sola página de Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de creación de una aplicación de una sola página con la API Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

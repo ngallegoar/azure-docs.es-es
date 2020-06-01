@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637889"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850069"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Inicio rápido: Recopilación de datos de un equipo Linux en un entorno híbrido con Azure Monitor
 
@@ -115,7 +115,7 @@ Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 Azure Monitor puede recopilar eventos de Linux Syslog y de los contadores de rendimiento que especifique para el análisis y la generación de informes a más largo plazo. También puede realizar acciones cuando detecta una condición determinada. Siga estos pasos para configurar la recopilación de eventos desde Syslog de Linux, así como desde varios contadores de rendimiento comunes, para empezar.  
 
-1. En la esquina inferior izquierda de Azure Portal, seleccione **Más servicios**. En el cuadro de búsqueda, escriba **Log Analytics**. La lista se filtra en función de lo que escriba. Seleccione **Áreas de trabajo de Log Analytics**.
+1. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba Log Analytics. La lista se filtra en función de lo que escriba. Seleccione **Áreas de trabajo de Log Analytics** y, en la lista, seleccione el área de trabajo que busca y elija **Configuración avanzada** del área de trabajo de **Log Analytics**.
 
 2. Seleccione **Datos** y, después, seleccione **Syslog**.  
 

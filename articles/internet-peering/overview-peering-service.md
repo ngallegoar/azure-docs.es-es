@@ -3,17 +3,17 @@ title: Emparejamiento de Internet frente a Peering Service
 titleSuffix: Azure
 description: Emparejamiento de Internet frente a Peering Service
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75772812"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849389"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Emparejamiento de Internet frente a Peering Service
 
@@ -44,9 +44,9 @@ En la ilustración anterior, cada sucursal de una empresa global se conecta a la
 * Análisis y estadísticas de rutas: eventos de anomalías (detección de fugas y secuestros) de enrutamiento del Protocolo de puerta de enlace de borde ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) y enrutamiento no óptimo.
 
 ## <a name="peering-service-partnership-requirements"></a>Requisitos de asociación de Peering Service
-* Conectividad con la nube de Microsoft en la ubicación más cercana al cliente. Un proveedor de servicios asociado enrutará el tráfico de usuario a la red perimetral de Microsoft más cercana al usuario. Del mismo modo, en el tráfico hacia el usuario, Microsoft enrutará el tráfico (mediante la etiqueta BGP) a la ubicación perimetral más cercana al usuario y el proveedor de servicio enviará el tráfico al usuario.
+* Conectividad con la nube de Microsoft en la ubicación más cercana al cliente. Un proveedor de servicios asociado enrutará el tráfico de usuario a la red perimetral de Microsoft más cercana al usuario. Del mismo modo, en el tráfico hacia el usuario, Microsoft enrutará el tráfico (mediante la etiqueta BGP) a la ubicación perimetral más cercana al usuario y el proveedor de servicios lo enviará al usuario.
 * El asociado mantendrá una conectividad de alta disponibilidad, alto rendimiento y redundancia geográfica con la red global de Microsoft.
-* El asociado puede utilizar el emparejamiento existente para admitir Peering Service si este cumple los requisitos.
+* El asociado puede usar el emparejamiento existente para admitir Peering Service si cumple los requisitos.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 Para ver las preguntas más frecuentes, consulte [Preguntas más frecuentes sobre Peering Service](service-faqs.md).

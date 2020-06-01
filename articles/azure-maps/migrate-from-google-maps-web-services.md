@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371459"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747493"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migración de un servicio web desde Google Maps
 
@@ -56,7 +56,7 @@ La geocodificación es el proceso de convertir una dirección en una coordenada.
 Azure Maps proporciona varios métodos de geocodificación de direcciones:
 
 - [**Geocodificación de direcciones de forma libre**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): especifique una única cadena de dirección y procese la solicitud inmediatamente. "1 Microsoft Way, Redmond, WA" es un ejemplo de una única cadena de dirección. Esta es la API recomendada si hay que geocodificar direcciones individuales rápidamente.
-- [**Geocodificación de direcciones estructurada**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): especifique las partes de una dirección (como el nombre de la calle, la ciudad, el país y el código postal) y procese la solicitud inmediatamente. Esta es la API recomendada si hay que geocodificar direcciones individuales rápidamente y los datos ya se han analizado en partes individuales.
+- [**Geocodificación de direcciones estructurada**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Especifique las partes de una dirección individual (por ejemplo, el nombre de la calle, la ciudad, el país o la región y el código postal) y procese la solicitud inmediatamente. Esta es la API recomendada si hay que geocodificar direcciones individuales rápidamente y los datos ya se han analizado en partes individuales.
 - [**Geocodificación de direcciones por lotes**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): cree una solicitud que contenga hasta 10 000 direcciones y procéselas durante un período de tiempo determinado. Todas las direcciones se geocodificarán en paralelo en el servidor y, cuando la operación se complete, puede descargar el conjunto de resultados completo. Este es el método recomendable para geocodificar grandes conjuntos de datos.
 - [**Búsqueda aproximada**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): esta API combina la geocodificación de direcciones con la búsqueda de puntos de interés. Esta API toma una cadena de forma libre. Esta cadena puede ser un dirección, un lugar, un punto de referencia, un punto de interés o una categoría de puntos de interés. Esta API procesa la solicitud casi en tiempo real. Se recomienda usar esta API en aplicaciones en las que los usuarios buscan direcciones o puntos de interés desde el mismo cuadro de texto.
 - [**Búsqueda parcial por lotes**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): cree una solicitud que contenga hasta 10 000 direcciones, lugares, puntos de referencia o puntos de interés y procéselos durante un período de tiempo determinado. Todos los datos se procesarán en paralelo en el servidor y, cuando la operación se complete, puede descargar el conjunto de resultados completo.
@@ -67,7 +67,7 @@ En la siguiente tabla se establecen referencias cruzadas entre los parámetros d
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` y `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` (ciudad/municipio)<br/>`municipalitySubdivision` (barrio, ciudades más grandes o más pequeñas)<br/>`countrySubdivision` (estado o provincia)<br/>`countrySecondarySubdivision` (condado)<br/>`countryTertiarySubdivision` (distrito)<br/>`countryCode` (código de país de dos letras) |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` (ciudad/municipio)<br/>`municipalitySubdivision` (barrio, ciudades más grandes o más pequeñas)<br/>`countrySubdivision` (estado o provincia)<br/>`countrySecondarySubdivision` (condado)<br/>`countryTertiarySubdivision` (distrito)<br/>`countryCode` (código de dos letras de país o región) |
 | `key`                       | `subscription-key` (vea también la documentación de [autenticación con Azure Maps](azure-maps-authentication.md)) |
 | `language`                  | `language` (vea la documentación de [compatibilidad de idiomas](supported-languages.md))  |
 | `region`                    | `countrySet`                       |
@@ -179,7 +179,7 @@ Calcular rutas y direcciones con Azure Maps. Azure Maps tiene muchas funcionali
 
 El servicio de enrutamiento de Azure Maps proporciona las siguientes API para calcular rutas:
 
-- [**Calcular ruta**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): calcula una ruta y la solicitud se procesa inmediatamente. Esta API admite solicitudes tanto GET como POST. Se recomienda usar solicitudes POST cuando se especifique un gran número de puntos de referencia o al usar muchas opciones de ruta para asegurarse de que la solicitud de dirección URL no se eternice y cause problemas. La dirección de la ruta POST de Azure Maps tiene una opción que puede tomar miles de [puntos de apoyo](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) y los usa para volver a crear una ruta lógica entre ellos (ajustar a la carretera). 
+- [**Calcular ruta**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): calcula una ruta y la solicitud se procesa inmediatamente. Esta API admite solicitudes tanto GET como POST. Las solicitudes POST son recomendables cuando se especifica un gran número de puntos de referencia o se utilizan muchas opciones de ruta para garantizar que la solicitud de dirección URL no sea demasiado larga y provoque problemas. La dirección de la ruta POST de Azure Maps tiene una opción que puede tomar miles de [puntos de apoyo](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) y los usa para volver a crear una ruta lógica entre ellos (ajustar a la carretera). 
 - [**Ruta por lotes**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): cree una solicitud que contenga hasta 1000 solicitudes de ruta y procéselas durante un período de tiempo determinado. Todos los datos se procesarán en paralelo en el servidor y, cuando la operación se complete, puede descargar el conjunto de resultados completo.
 - [**Servicios de movilidad**](https://docs.microsoft.com/rest/api/maps/mobility): calcula rutas y direcciones según el transporte público.
 
@@ -327,7 +327,7 @@ Agregue estilos de chincheta con el formato `optionNameValue`. Separe los distin
 - `ro`: valor en grados para girar el icono. Elija un número entre -360 y 360.
 - `sc`: valor de escala del icono de anclaje. Elija un número mayor que 0.
 
-Especifique los valores de etiqueta para la ubicación de cada chincheta. Este enfoque es más eficaz que aplicar un único valor de etiqueta a todos los marcadores de la lista de ubicaciones. El valor de etiqueta puede ser una cadena de varios caracteres. Ajuste la cadena entre comillas simples para asegurarse de que no se confunda por un valor de estilo o de ubicación.
+Especifique los valores de etiqueta para la ubicación de cada chincheta. Este enfoque es más eficaz que aplicar un único valor de etiqueta a todos los marcadores de la lista de ubicaciones. El valor de etiqueta puede ser una cadena de varios caracteres. Escriba la cadena entre comillas simples para que no se confunda con un valor de estilo o de ubicación.
 
 Vamos a agregar un icono predeterminado rojo (`FF0000`), con la etiqueta "Space Needle" justo debajo (15 50). El icono está en la longitud:-122.349300, latitud: 47.620180:
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 05/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b130bb88ea9a3e08d788171b1d341b8db21a3ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3f1384d23f77407d2d20066cc2fa086037d546f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75532718"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648479"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-talentsoft"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Talentsoft
 
@@ -90,7 +90,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant>.talentsoft.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Talentsoft](mailto:jlegoff@talentsoft.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Talentsoft](mailto:advancedservices@talentsoft.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -132,11 +132,11 @@ En esta sección va a permitir que B.Simon acceda a Talentsoft utilizando el ini
 
 ## <a name="configure-talentsoft-sso"></a>Configuración del inicio de sesión único de Talentsoft
 
-Para configurar el inicio de sesión único en **Talentsoft**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes de Azure Portal al [equipo de soporte técnico de Talentsoft](mailto:jlegoff@talentsoft.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Talentsoft**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes de Azure Portal al [equipo de soporte técnico de Talentsoft](mailto:advancedservices@talentsoft.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-talentsoft-test-user"></a>Creación de un usuario de prueba de Talentsoft
 
-En esta sección, va a crear un usuario llamado B.Simon en Talentsoft. Trabaje con  [equipo de soporte técnico de Talentsoft](mailto:jlegoff@talentsoft.com) para agregar los usuarios a la plataforma de Talentsoft. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, va a crear un usuario llamado B.Simon en Talentsoft. Trabaje con el [equipo de soporte técnico de Talentsoft](mailto:advancedservices@talentsoft.com) para agregar los usuarios a la plataforma de Talentsoft. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

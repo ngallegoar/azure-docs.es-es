@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3a98308716696f677f04db66e83ff4e9d5d08c85
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382868"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869850"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Node.js
 
-Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de Node envía una solicitud a la API y devuelve una lista de palabras que no ha reconocido, seguida de las correcciones sugeridas. Si bien esta aplicación está escrita en Node.js, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de JavaScript envía una solicitud a la API y devuelve una lista de correcciones sugeridas. 
+
+Aunque esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -30,7 +32,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 ## <a name="create-and-initialize-a-project"></a>Creación e inicialización de un proyecto
 
-1. Cree un archivo de JavaScript en su IDE o editor favorito. Establezca la rigurosidad y que se requiera `https`. A continuación, cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+1. Cree un archivo de JavaScript en su IDE o editor favorito. Establezca la rigurosidad y que se requiera `https`. A continuación, cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```javascript
     'use strict';
@@ -41,7 +43,11 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Create las variables de los parámetros de búsqueda y el texto que desea comprobar. Anexe el código de mercado después de `mkt=`. El código de mercado es el país desde el que se realiza la solicitud. Anexe también el modo de revisión ortográfica después de `&mode=`. El modo es `proof` (detecta la mayoría de los errores ortográficos y gramaticales) o `spell` (detecta la mayoría de los errores ortográficos, pero no todos los gramaticales).
+2. Cree las variables de los parámetros de búsqueda y el texto que desea comprobar: 
+
+   a. Asigne el código de mercado al parámetro `mkt` con el operador `=`. El código de mercado es el código del país desde el que se realiza la solicitud. 
+
+   b. Agregue el parámetro `mode` con el operador `&` y, a continuación, asigne el modo de revisión ortográfica. El modo puede ser `proof` (detecta la mayoría de los errores ortográficos y gramaticales) o `spell` (detecta la mayoría de los errores ortográficos, pero no todos los gramaticales).
 
     ```javascript
     let mkt = "en-US";
@@ -52,7 +58,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 ## <a name="create-the-request-parameters"></a>Creación de los parámetros de solicitud
 
-Para crear los parámetros de solicitud, cree un objeto con un método `POST`. Agregue la ruta de acceso mediante la anexión de la ruta de acceso del punto de conexión y la cadena de consulta. Agregue la clave de suscripción al encabezado `Ocp-Apim-Subscription-Key`.
+Para crear los parámetros de solicitud, cree un objeto con un método `POST`. Agregue la ruta de acceso mediante la anexión de la ruta de acceso del punto de conexión y la cadena de consulta. A continuación, agregue la clave de suscripción al encabezado `Ocp-Apim-Subscription-Key`.
 
 ```javascript
 let request_params = {
@@ -69,7 +75,7 @@ let request_params = {
 
 ## <a name="create-a-response-handler"></a>Creación de un controlador de respuesta
 
-Cree una función denominada `response_handler` que tome la respuesta JSON de la API e imprímala. Cree una variable para el cuerpo de la respuesta. Anexe la respuesta cuando se reciba la marca `data`, con `response.on()`. Cuando se reciba una marca `end`, imprima el cuerpo JSON en la consola.
+Cree una función denominada `response_handler` que tome la respuesta JSON de la API e imprímala. Cree una variable para el cuerpo de la respuesta. Anexe la respuesta cuando se reciba una marca `data`, mediante `response.on()`. Después de recibir una marca `end`, imprima el cuerpo JSON en la consola.
 
 ```javascript
 let response_handler = function (response) {
@@ -100,13 +106,13 @@ req.end ();
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Compile y ejecute el proyecto.
+1. Compile y ejecute el proyecto.
 
-Si usa la línea de comandos, use los siguientes comandos para compilar y ejecutar la aplicación.
+1. Si usa la línea de comandos, utilice los siguientes comandos para compilar y ejecutar la aplicación:
 
-```bash
-node <FILE_NAME>.js
-```
+   ```bash
+   node <FILE_NAME>.js
+   ```
 
 
 ## <a name="example-json-response"></a>Ejemplo de respuesta JSON
@@ -157,4 +163,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Creación de una aplicación web de una sola página](../tutorials/spellcheck.md)
 
 - [¿Qué es Bing Spell Check API?](../overview.md)
-- [Referencia de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referencia de la API Bing Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

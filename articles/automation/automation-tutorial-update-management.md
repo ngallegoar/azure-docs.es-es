@@ -1,38 +1,28 @@
 ---
-title: Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
-description: En este artículo se proporciona una introducción al uso de Azure Automation y Update Management para administrar las actualizaciones y revisiones de las máquinas virtuales de Azure y las que no son de Azure.
+title: Administración de actualizaciones y revisiones para las máquinas virtuales de Azure en Azure Automation
+description: En este artículo se indica cómo usar Update Management para administrar actualizaciones y revisiones para las máquinas virtuales de Azure.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604673"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829161"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
-Puede usar la solución Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. En este tutorial aprenderá a evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias, revisar los resultados de la implementación y crear una alerta para verificar que las actualizaciones se aplican correctamente.
+En este artículo se describe cómo se puede usar la característica [Update Management](automation-update-management.md) de Azure Automation para administrar las actualizaciones y revisiones para las máquinas virtuales de Azure. 
 
 Para obtener información de precios, consulte [Precios de Automation para Update Management](https://azure.microsoft.com/pricing/details/automation/).
 
-En este tutorial, aprenderá a:
-
-> [!div class="checklist"]
-> * Visualización de la evaluación de la actualización
-> * Configurar alertas
-> * Programación de una implementación de actualizaciones
-> * Ver los resultados de una implementación
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este tutorial, necesita:
-
-* La solución [Update Management](automation-update-management.md) habilitada para una o varias de las máquinas virtuales.
-* Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
+* La característica [Update Management](automation-update-management.md) habilitada para una o varias de las máquinas virtuales. 
+* Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) habilitada para Update Management.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -95,7 +85,7 @@ Para personalizar el asunto del correo electrónico de alerta, en **Crear regla*
 
 ## <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
 
-A continuación, programe una implementación que se ajuste a la ventana de programación y servicio de su versión para instalar las actualizaciones. Puede elegir los tipos de actualizaciones que desea incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
+Programe una implementación que se ajuste a la ventana de programación y servicio de su versión para instalar las actualizaciones. Puede elegir los tipos de actualizaciones que desea incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
 
 >[!NOTE]
 >Cuando se programa una implementación de actualizaciones, se crea un recurso de [programación](shared-resources/schedules.md) vinculado al runbook **Patch-MicrosoftOMSComputers** que controla la implementación de actualizaciones en las máquinas de destino. Si elimina el recurso de programación desde Azure Portal o mediante PowerShell después de crear la implementación, esta operación de eliminación interrumpe la implementación de actualizaciones programada y, cuando se intenta volver a configurar el recurso de programación desde el portal, aparece un error. Solo se puede eliminar el recurso de programación si se elimina la programación de implementaciones correspondiente.  
@@ -112,16 +102,7 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 * **Máquinas para actualizar**: Seleccione una búsqueda guardada, un grupo importado o la opción **Máquinas** del menú desplegable y elija máquinas específicas. Si elige la opción **Máquinas**, el grado de preparación de cada máquina se indicará en la columna **Preparación de actualizaciones del agente**. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
-* **Actualizar clasificación**: En cada producto, anule la selección de todas las clasificaciones de actualizaciones compatibles, salvo las que se incluirán en la implementación de actualizaciones. En este tutorial, deje todos los tipos de productos seleccionados.
-
-  Los tipos de clasificación son:
-
-   |SO  |Tipo  |
-   |---------|---------|
-   |Windows     | Actualizaciones críticas</br>Actualizaciones de seguridad</br>Paquetes acumulativos de actualizaciones</br>Feature Packs</br>Service Packs</br>Actualizaciones de definiciones</br>Herramientas</br>Actualizaciones<br>Controlador        |
-   |Linux     | Actualizaciones críticas y de seguridad</br>Otras actualizaciones       |
-
-   Para ver una descripción de los tipos de clasificación, consulte [Clasificaciones de actualizaciones](automation-view-update-assessments.md#update-classifications).
+* **Actualizar clasificación**: En cada producto, anule la selección de todas las clasificaciones de actualizaciones compatibles, salvo las que se incluirán en la implementación de actualizaciones. Para ver una descripción de los tipos de clasificación, consulte [Clasificaciones de actualizaciones](automation-view-update-assessments.md#work-with-update-classifications).
 
 * **Actualizaciones para incluir/excluir**: abre la página Incluir/Excluir. Las actualizaciones que se van a incluir o excluir aparecen en pestañas independientes y se especifican mediante el número de identificador del artículo de KB. Si especifica uno o varios números de identificador, debe quitar o desactivar todas las clasificaciones con la implementación de actualizaciones. De ese modo, se asegurará de que no se incluyen otras actualizaciones en el paquete cuando se especifiquen los identificadores de las actualizaciones.
 
@@ -131,7 +112,6 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 > [!NOTE]
 > No puede especificar actualizaciones que se hayan descartado para incluirlas en la implementación de actualizaciones.
 >
-
 * **Configuración de la programación**: se abre el panel de configuración de la programación. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 
    También puede especificar si la implementación se produce una vez o configurar una programación periódica. Seleccione **Una vez** en **Periodicidad**. Deje el valor predeterminado de 1 día y haga clic en **Aceptar**. Estas entradas definen una programación periódica.
@@ -196,16 +176,4 @@ Cuando la implementación de actualizaciones se realice correctamente, recibirá
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
-
-> [!div class="checklist"]
-> * Incorporar máquinas virtuales a Update Management
-> * Visualización de la evaluación de la actualización
-> * Configurar alertas
-> * Programación de una implementación de actualizaciones
-> * Ver los resultados de una implementación
-
-Continúe hacia la introducción sobre la solución Update Management.
-
-> [!div class="nextstepaction"]
-> [Solución Update Management](automation-update-management.md)
+* Para más información sobre Update Management, consulte [Introducción a Update Management](automation-update-management.md).

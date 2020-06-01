@@ -14,23 +14,21 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 35d5bb13cf9c3735c61173177a3b94f4594c9272
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75638670"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714141"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Instancias de Microsoft Graph API para Privileged Identity Management (versión preliminar)
 
-Ya puede realizar todas las tareas de Privileged Identity Management mediante las instancias de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/overview) para Azure Active Directory. En este artículo se describen conceptos importantes a la hora de usar instancias de Microsoft Graph API para Privileged Identity Management.
+Puede realizar todas las tareas de Privileged Identity Management mediante las instancias de [Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/overview) para Azure Active Directory. En este artículo se describen conceptos importantes a la hora de usar instancias de Microsoft Graph API para Privileged Identity Management.
 
 Para más información acerca de las instancias de Microsoft Graph API, consulte la [referencia de las API de Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 
 > [!IMPORTANT]
 > Las API de la versión /beta de Microsoft Graph están en versión preliminar y sujetas a cambios. No se admite su uso en aplicaciones de producción.
->
-> Aunque todas las operaciones de PIM se admiten a través de nuestros comandos de Graph API, usamos otro sistema para aprobar las solicitudes de activación. Graph API para la aprobación se está desarrollando actualmente y se publicará en los próximos meses.
 
 ## <a name="required-permissions"></a>Permisos necesarios
 

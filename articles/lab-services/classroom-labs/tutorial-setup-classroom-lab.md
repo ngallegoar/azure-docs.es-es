@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c9e594af96fd43bc03f67caa06f585ab57b4b6e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591784"
+ms.locfileid: "83643471"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -70,6 +70,9 @@ En este paso, creará un laboratorio para su clase en Azure.
     1. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. Si es una plantilla de máquina virtual Linux, decida si desea conectarse mediante SSH o RDP (si RDP está habilitado).
     3. Instale y configure el software necesario para su clase en la plantilla de máquina virtual. 
     4. **Detenga** la plantilla de máquina virtual.  
+
+    > [!NOTE]
+    > Las máquinas virtuales de plantilla incurren en un **costo** al ejecutarse, por lo que debe asegurarse de que la máquina virtual de la plantilla se cierre cuando no sea necesario que se esté ejecutando. 
 
 ## <a name="publish-the-template-vm"></a>Publicación de la plantilla de máquina virtual
 En este paso, publicará la plantilla de máquina virtual. Al publicar la máquina virtual de plantilla, Azure Lab Services crea máquinas virtuales en el laboratorio mediante la plantilla. Todas las máquinas virtuales tienen la misma configuración que la plantilla.

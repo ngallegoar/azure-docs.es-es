@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79497678"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647347"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>¿Qué es Azure Active Directory Identity Protection?
 
@@ -85,6 +85,8 @@ Identity Protection requiere que los usuarios tengan el rol Lector de seguridad,
 | Administrador de seguridad | Acceso completo a Identity Protection | Restablecer la contraseña de un usuario |
 | Operador de seguridad | Ver todos los informes de Identity Protection y la hoja de información general <br><br> Descartar el riesgo del usuario, confirmar el inicio de sesión seguro, confirmar el compromiso | Configurar o cambiar directivas <br><br> Restablecer la contraseña de un usuario <br><br> Configurar alertas |
 | Lector de seguridad | Ver todos los informes de Identity Protection y la hoja de información general | Configurar o cambiar directivas <br><br> Restablecer la contraseña de un usuario <br><br> Configurar alertas <br><br> Enviar comentarios sobre las detecciones |
+
+Actualmente, el rol de operador de seguridad no puede acceder al informe de inicios de sesión de riesgo.
 
 Los administradores de acceso condicional también pueden crear directivas que representen el riesgo de inicio de sesión como una condición; consulte más información en el artículo [Acceso condicional: Condiciones](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 

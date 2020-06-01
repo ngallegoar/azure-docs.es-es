@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a0d1ba696b39b9331c4a85c9cf37d13d545ffad5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593702"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870701"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
 
@@ -133,13 +133,11 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 1. Haga clic en el botón **Siguiente: Compilar >** para editar la configuración de compilación.
 
-1. Establezca _Ubicación de la aplicación_ en **/**
+1. Establezca _Ubicación de la aplicación_ en **pública**.
 
-1. Establezca _Ubicación del artefacto de la aplicación_ en **public**.
+1. Deje _Ubicación del artefacto de la aplicación_ en blanco.
 
    No es necesario un valor para _Ubicación de la API_, ya que por el momento no está implementando una API.
-
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Configuración de la compilación":::
 
 ### <a name="review-and-create"></a>Revisar y crear
 
@@ -155,12 +153,12 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 1. Abra la aplicación de Hugo en un editor de texto y abra el archivo _.github/workflows/azure-pages-<NOMBRE_DE_FLUJO_DE_TRABAJO>.yml_.
 
-1. Reemplace la línea `- uses: actions/checkout@v1` (línea 18) por lo siguiente para compilar la aplicación de Hugo.
+1. Reemplace la línea `- uses: actions/checkout@v2` (línea 18) por lo siguiente para compilar la aplicación de Hugo.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8

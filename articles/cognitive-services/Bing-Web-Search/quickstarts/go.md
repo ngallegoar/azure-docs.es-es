@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d0bd9dfa8dc115ae10831d997dccc8000a1ae25
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74978805"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873915"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Go
 
-Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Go envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Go, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a la API Bing Web Search. Esta aplicación de Go envía una solicitud de búsqueda a la API y muestra la respuesta JSON. Aunque esta aplicación está escrita en Go, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+
+ Los ejemplos de código en este inicio rápido solo se necesitan bibliotecas principales, no hay dependencias externas.  
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
@@ -29,13 +31,11 @@ Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio r
 * [Archivos binarios de Go](https://golang.org/dl/)
 * Una clave de suscripción
 
-En esta guía de inicio rápido solo se necesitan bibliotecas **principales**, no hay dependencias externas.  
-
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>Creación de un proyecto e importación de bibliotecas principales
 
-Cree un nuevo proyecto de Go en su IDE o editor favorito. A continuación, importe `net/http` para las solicitudes, `ioutil` para leer la respuesta, `time` y `encoding/json` para controlar el JSON y `fmt` para imprimir la salida.
+Cree un nuevo proyecto de Go en su IDE o editor favorito. A continuación, importe `net/http` para las solicitudes, `ioutil` para leer la respuesta, `time` y `encoding/json` para administrar el JSON y `fmt` para imprimir la salida.
 
 ```go
 package main
@@ -111,7 +111,13 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declaración de la función main y definición de variables  
 
-Este código declara la función main y establece las variables necesarias. `endpoint` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. Confirme que el punto de conexión es correcto y reemplace el valor `token` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `searchTerm`.
+Este código declara la función principal y establece las variables necesarias: 
+
+1. Para el valor `endpoint` puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. 
+
+2. Confirme que el punto de conexión es correcto y reemplace el valor `token` por una clave de suscripción válida de su cuenta de Azure. 
+ 
+3. De forma opcional puede personalizar la consulta de búsqueda reemplazando el valor de `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -170,7 +176,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Control de la respuesta
 
-¿Recuerda la estructura que creamos anteriormente? Vamos a usarla para dar formato a la respuesta e imprimir los resultados de la búsqueda.
+Use la estructura que hemos creado anteriormente para dar formato a la respuesta e imprimir los resultados de la búsqueda.
 
 ```go
 // Create a new answer.  
@@ -305,7 +311,7 @@ func main() {
 }
 ```
 
-## <a name="sample-response"></a>Respuesta de muestra  
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Las respuestas de Bing Web Search API se devuelven como JSON. A esta respuesta de ejemplo se le ha dado formato mediante la estructura `BingAnswer` y muestra los valores de `result.Name` y `result.URL`.
 
@@ -324,6 +330,6 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/m
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicación de una sola página de Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de creación de una aplicación de una sola página con la API Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

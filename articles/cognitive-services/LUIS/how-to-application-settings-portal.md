@@ -2,13 +2,13 @@
 title: Configuración de la aplicación
 description: Configure la aplicación y la configuración de la versión en el portal de LUIS, por ejemplo, la normalización de expresiones y la privacidad de la aplicación.
 ms.topic: quickstart
-ms.date: 05/04/2020
-ms.openlocfilehash: 4f0703973a4ef15f1d9b6582bd4789cd825dfe9f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: c1d5572c3eeb71ec0631a03444d08da46d0a0106
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599276"
+ms.locfileid: "83653160"
 ---
 # <a name="application-and-version-settings"></a>Configuración de la aplicación y de la versión
 
@@ -21,21 +21,25 @@ Puede editar el nombre y la descripción de la aplicación. Puede copiar el iden
 1. Inicie sesión en el [portal de LUIS](https://www.luis.ai).
 1. Seleccione una aplicación de la lista **Mis aplicaciones**.
 .
-1. Seleccione **Administrar** en la barra de navegación superior y, a continuación, **Configuración de la aplicación** en la barra de navegación izquierda.
+1. Seleccione **Administrar** en la barra de navegación superior y, a continuación, **Configuración** en la barra de navegación izquierda.
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla del portal de LUIS, sección Administrar, página Configuración de la aplicación](media/app-settings/luis-portal-manage-section-application-settings.png)
 
 
-## <a name="change-training-and-endpoint-settings"></a>Cambiar la configuración de entrenamiento y del punto de conexión
+## <a name="change-application-settings"></a>Cambio de la configuración de la aplicación
 
 Para cambiar una configuración, seleccione el botón de alternancia de la página.
 
-[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+[!INCLUDE [App settings](includes/app-settings.md)]
 
+## <a name="change-version-settings"></a>Cambio de los valores de la versión
 
-Use la [referencia de configuración](luis-reference-application-settings.md) de la aplicación y la versión para comprender qué formularios de texto se ignoran.
+Para cambiar una configuración, seleccione el botón de alternancia de la página.
+
+[!INCLUDE [Version settings](includes/app-version-settings.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Cómo [colaborar](luis-how-to-collaborate.md) con otros creadores
+* [Publicación de valores](luis-how-to-publish-app.md#configuring-publish-settings)

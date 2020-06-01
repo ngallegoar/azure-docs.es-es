@@ -1,14 +1,14 @@
 ---
 title: Azure Batch ejecuta trabajos paralelos de gran tamaño en la nube
 description: Información acerca del servicio Azure Batch para cargas de trabajo HPC y paralelas a gran escala
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116356"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779564"
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
@@ -74,7 +74,7 @@ El siguiente diagrama muestra los pasos de un flujo de trabajo común de Batch, 
 
 No olvide que esta es simplemente una forma de usar Batch y que este escenario describe solo algunas de sus características. Por ejemplo, puede ejecutar [varias tareas en paralelo](batch-parallel-node-tasks.md) en cada nodo de proceso. O bien, usar [tareas de preparación y finalización de trabajos](batch-job-prep-release.md) para preparar los nodos para los trabajos y, a continuación, limpiarlos. 
 
-Consulte [Introducción a las características de Batch para desarrolladores](batch-api-basics.md) para obtener información más detallada acerca de los grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Batch. Consulte también la versión más reciente de las [actualizaciones del servicio Batch](https://azure.microsoft.com/updates/?product=batch).
+Consulte [Flujo de trabajo y recursos principales del servicio Batch](batch-service-workflow-features.md) para información general sobre características como grupos, nodos, trabajos y tareas. Consulte también la versión más reciente de las [actualizaciones del servicio Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

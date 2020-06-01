@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: db5c35db271f84a88fdc03f4f0178ee1c35f727e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732332"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834329"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 
@@ -39,8 +39,8 @@ Será preciso que las aplicaciones cliente de Key Vault accedan a los puntos de 
 
 | Tipo de entidad de seguridad | Punto de conexión:puerto |
 | --- | --- |
-| Usuario que utiliza cuenta Microsoft<br> (por ejemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure Alemania:**<br>  login.microsoftonline.de:443<br><br> y <br>login.live.com:443 |
-| Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa con Azure AD (por ejemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure Alemania:**<br>  login.microsoftonline.de:443 |
+| Usuario que utiliza cuenta Microsoft<br> (por ejemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443<br><br> y <br>login.live.com:443 |
+| Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa con Azure AD (por ejemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443 |
 | Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa, más Servicios de federación de Active Directory (AD FS) u otro punto de conexión federado (por ejemplo, user@contoso.com) |Todos los puntos de conexión de una cuenta profesional o educativa, más AD FS u otros puntos de conexión federados |
 
 Hay otros escenarios complejos posibles. Para más información, consulte [Escenarios de autenticación para Azure AD](../../active-directory/develop/authentication-scenarios.md), [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) y [Guía del desarrollador de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
@@ -51,8 +51,8 @@ Para la administración de Key Vault (CRUD y establecimiento de una directiva de
 
 | Tipo de operación | Punto de conexión:puerto |
 | --- | --- |
-| Operaciones del plano de control de Key Vault<br>  a través de Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br>  management.microsoftazure.de:443 |
-| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> graph.microsoft.com:443<br><br> **Azure Alemania:**<br>  graph.cloudapi.de:443 |
+| Operaciones del plano de control de Key Vault<br> a través de Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 |
+| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> graph.microsoft.com:443<br><br> **Azure Alemania:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operaciones de Key Vault
 
@@ -74,4 +74,4 @@ Authentication and Identity (Azure Active Directory) es un servicio global que p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si le queda alguna duda acerca de Key Vault, visite los [foros de Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Si le queda alguna duda acerca de Key Vault, visite la [página de preguntas más frecuentes de Microsoft para Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482192"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652727"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -192,15 +192,15 @@ El código de proyecto de función se implementa directamente desde el repositor
 
 Una suscripción de eventos indica los eventos generados por el proveedor que se quieren enviar a un punto de conexión determinado. En este caso, el punto de conexión se expone mediante la función. Use los pasos siguientes para crear una suscripción a evento que envíe notificaciones a su función en Azure Portal:
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios** en el menú izquierdo y, a continuación, seleccione **Instancias de Function App**.
+1. En [Azure Portal](https://portal.azure.com), en la parte superior de la página, busque y seleccione `Function App` y elija la aplicación de función recién creada. Seleccione **Funciones** y elija la función **Miniatura**.
 
-    ![Vaya a Function Apps en Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Elección de la función Miniatura en el portal":::
 
-2. Expanda la aplicación de función, elija la función **Thumbnail** y luego seleccione **Agregar suscripción a Event Grid**.
+1.  Seleccione **Integración**, elija el **Desencadenador de la cuadrícula de eventos** y, después, seleccione **Crear suscripción a Event Grid**.
 
-    ![Vaya a Agregar suscripción a Event Grid en Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Vaya a la suscripción a Event Grid en Azure Portal" :::
 
-3. Use la configuración de suscripción de eventos que se especifica en la tabla.
+1. Use la configuración de suscripción de eventos que se especifica en la tabla.
     
     ![Creación de suscripción de eventos a partir de la función en Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
@@ -215,13 +215,13 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
     | **Tipo de punto de conexión** | generado automáticamente | Definido previamente como instancia de **Azure Functions**. |
     | **Punto de conexión** | generado automáticamente | El nombre de la función. En este caso, es **Thumbnail**. |
 
-4. Cambie a la pestaña **Filtros** y realice las siguientes acciones:
+1. Cambie a la pestaña **Filtros** y realice las siguientes acciones:
     1. Seleccione la opción **Habilitar el filtrado del asunto**.
     2. En **El asunto comienza por**, escriba el siguiente valor: **/blobServices/default/containers/images/blobs/** .
 
         ![Especificación del filtro para la suscripción a eventos](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Seleccione **Crear** para agregar la suscripción de eventos. Se crea una suscripción de eventos que desencadena la función `Thumbnail` cuando se agrega un blob al contenedor `images`. La función cambia el tamaño de las imágenes y las agrega al contenedor `thumbnails`.
+1. Seleccione **Crear** para agregar la suscripción de eventos. Se crea una suscripción de eventos que desencadena la función `Thumbnail` cuando se agrega un blob al contenedor `images`. La función cambia el tamaño de las imágenes y las agrega al contenedor `thumbnails`.
 
 Ahora que se han configurado los servicios back-end, pruebe la funcionalidad de cambio de tamaño de imagen en la aplicación web de ejemplo.
 

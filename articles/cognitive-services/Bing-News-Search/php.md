@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 79f00e4138d0fecdc7320235dd9c496033693d2b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ecdcfc7d90f61443cc6947680df9bbf9d9b9514e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383103"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873230"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Inicio rápido: Realizar una búsqueda de noticias mediante PHP y la API de REST de Bing News Search
 
-Use esta guía de inicio rápido para realizar la primera llamada a Bing Image Search API y recibir una respuesta JSON. Esta sencilla aplicación de JavaScript envía una consulta de búsqueda a la API y muestra los resultados sin formato.
+Use este inicio rápido para realizar la primera llamada a la API Bing News Search. Esta sencilla aplicación de PHP envía una consulta de búsqueda a la API y muestra la respuesta JSON.
 
-Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Aunque esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -30,18 +30,18 @@ Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Para más información, consulte [Precios de Cognitive Services: API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-[Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devuelve resultados relacionados con las noticias desde el motor de búsqueda de Bing.
+Para ejecutar esta aplicación, siga estos pasos:
 
-1. Asegúrese de que la compatibilidad segura con HTTP está habilitada en `php.ini`, tal como se describe en el comentario del código.
+1. Para habilitar la compatibilidad segura con HTTP en el archivo `php.ini`, quite la marca de comentario de la línea `;extension=php_openssl.dll`, tal y como se describe en el comentario de código.
 2. Cree un nuevo proyecto de PHP en su IDE o editor favorito.
 3. Agregue el código que se proporciona a continuación.
 4. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-5. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
-5. Ejecute el programa.
+5. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+6. Ejecute el programa.
 
 ```php
 <?php
@@ -103,7 +103,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Respuesta**
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 

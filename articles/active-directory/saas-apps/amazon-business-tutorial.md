@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68496570"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773064"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integración de Amazon Business con Azure Active Directory
 
@@ -87,24 +87,22 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     
        | | |
        |-|-|
-       | `https://www.amazon.com`|
-       | `https://www.amazon.co.jp`|
-       | `https://www.amazon.de`|
+       | `https://www.amazon.com`| Norteamérica |
+       | `https://www.amazon.co.jp`| Este de Asia |
+       | `https://www.amazon.de`| Europa |
 
     1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con uno de los siguientes patrones:
     
        | | |
        |-|-|
-       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
+       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Norteamérica |
+       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Este de Asia |
+       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Europa |
 
        > [!NOTE]
        > El valor de dirección URL de respuesta no es real. Actualice este valor con la dirección URL de respuesta real. El valor de `<idpid>` lo obtendrá de la sección de configuración del inicio de sesión único en Amazon Business, que se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.amazon.com/`
+1. Si desea configurar la aplicación en modo iniciado por **SP**, deberá agregar la dirección URL completa que se proporciona en la configuración de Amazon Business a la **URL de inicio de sesión** en la sección **Establecer direcciones URL adicionales**.
 
 1. La siguiente captura de muestra la lista de atributos predeterminados. Para editar los atributos, haga clic en el icono **Editar** en la sección **Atributos y notificaciones de usuario**.
 
@@ -153,6 +151,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En el **Asistente para configurar SSO**, seleccione el proveedor según los requisitos de su organización y haga clic en **Siguiente**.
 
     ![Grupo predeterminado](media/amazon-business-tutorial/default-group1.png)
+    
+    > [!NOTE]
+    > Aunque Microsoft ADFS es una opción de la lista, no funciona con el inicio de sesión único de Azure AD.
 
 1. En el asistente **New user account defaults** (Nuevas cuentas de usuario predeterminadas), seleccione el **grupo predeterminado** y, a continuación, seleccione **Default Buying Role** (Rol de compra predeterminado) según el rol de usuario en la organización y haga clic en **Next** (Siguiente).
 
@@ -197,7 +198,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. Por último, en la sección de **detalles de conexión de SSO**, el **estado** se muestra como **activo**.
 
     ![Conexión](media/amazon-business-tutorial/sso-connection5.png)
-
+    
+    > [!NOTE]
+    > Si desea configurar la aplicación en modo iniciado por **SP**, complete el paso siguiente y pegue la dirección URL de inicio de sesión de la captura de pantalla anterior en el cuadro de texto **URL de inicio de sesión** de la sección **Establecer direcciones URL adicionales** en Azure Portal. Utilice el siguiente formato:
+    >
+    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
+    
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 973a50833d92fd9b68aae084fc6b4cbb3afe7160
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 099c835ae2047538c882414660f699341af60b8b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980193"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673261"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Linux.
 
@@ -23,7 +23,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 
 ## <a name="system-requirements"></a>Requisitos del sistema
 
-Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
+Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -47,7 +47,7 @@ Para realizar este inicio rápido, necesita lo siguiente:
      sudo apt-get install build-essential libssl1.0.2 libasound2 wget
      ```
 
-   * En On RHEL/CentOS 8:
+   * En RHEL/CentOS:
 
      ```sh
      sudo yum update
@@ -56,7 +56,8 @@ Para realizar este inicio rápido, necesita lo siguiente:
      ```
 
 > [!NOTE]
-> En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - En RHEL/CentOS 7, siga las instrucciones sobre [cómo configurar RHEL/CentOS 7 para el SDK de voz](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 

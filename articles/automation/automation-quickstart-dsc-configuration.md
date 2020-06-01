@@ -1,22 +1,22 @@
 ---
-title: 'Inicio rápido de Azure: Configuración de una máquina virtual con DSC | Microsoft Docs'
-description: Configurar una pila de LAMP en una máquina virtual Linux con Desired State Configuration
+title: 'Inicio rápido de Azure: Configuración de una máquina virtual con Desired State Configuration | Microsoft Docs'
+description: Este artículo le ayuda a empezar a configurar una máquina virtual con Desired State Configuration.
 services: automation
 ms.subservice: dsc
 keywords: dsc, configuración, automation
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 1a146ab7c05d200b71a33a72fa6362c3cf62629a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457525"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836726"
 ---
-# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurar una máquina virtual con Desired State Configuration
+# <a name="configure-a-vm-with-desired-state-configuration"></a>Configuración de una máquina virtual con Desired State Configuration
 
-Al habilitar Azure Automation State Configuration, puede administrar y supervisar las configuraciones de los servidores Windows y Linux mediante Desired State Configuration (DSC). Las configuraciones que se desvían de una configuración deseada se pueden identificar o corregir automáticamente. Esta guía de inicio rápido le guía por la incorporación de una máquina virtual Linux y la implementación de una pila de LAMP con DSC.
+Al habilitar Azure Automation State Configuration, puede administrar y supervisar las configuraciones de los servidores Windows y Linux mediante Desired State Configuration (DSC). Las configuraciones que se desvían de una configuración deseada se pueden identificar o corregir automáticamente. Este inicio rápido le guía en la habilitación de una máquina virtual Linux y la implementación de una pila LAMP mediante State Configuration de Azure Automation.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -29,9 +29,9 @@ Para completar este inicio rápido necesita instalar:
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure en https://portal.azure.com.
 
-## <a name="onboard-a-virtual-machine"></a>Incorporar una máquina virtual
+## <a name="enable-a-virtual-machine"></a>Habilitación de una máquina virtual
 
-Hay muchos métodos diferentes de incorporar una máquina y habilitar DSC. Esta guía de inicio rápido trata la incorporación a través de una cuenta de Automation. Para más información sobre los distintos métodos de incorporación de máquinas a State Configuration, lea el artículo sobre la [incorporación](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
+Hay muchos métodos diferentes para habilitar la característica State Configuration en una máquina. En este inicio rápido se indica cómo hacerlo mediante una cuenta de Automation. Puede leer [Habilitación de State Configuration de Azure Automation en una máquina](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) para aprender más sobre los distintos métodos para realizar esta operación.
 
 1. En el panel izquierdo de Azure Portal, seleccione **Cuentas de Automation**. Si la opción no está visible en el panel izquierdo, haga clic en **Todos los servicios** y busque en la vista que se muestra.
 1. Seleccione una cuenta de Automation de la lista.
@@ -42,7 +42,7 @@ Hay muchos métodos diferentes de incorporar una máquina y habilitar DSC. Esta 
 5. Seleccione la configuración de DSC adecuada para la máquina virtual. Si ya tiene una configuración preparada, la puede especificar como `Node Configuration Name`. Puede establecer el [modo de configuración](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) para controlar el comportamiento de la configuración de la máquina.
 6. Haga clic en **OK**. Mientras la extensión de DSC se implementa en la máquina virtual, el estado aparece como `Connecting`.
 
-![Incorporación de una máquina virtual de Azure a DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
+![Habilitación de DSC en una máquina virtual de Azure](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## <a name="import-modules"></a>Importación de módulos
 
@@ -128,11 +128,7 @@ Puede ver el estado de todos los nodos administrados por State Configuration de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha incorporado una máquina virtual Linux a State Configuration, ha creado una configuración para una pila de LAMP y ha implementado la configuración en la máquina virtual. Para aprender a usar Azure Automation State Configuration para habilitar la implementación continua, consulte este artículo:
+En este inicio rápido, ha habilitado State Configuration en una máquina virtual Linux, ha creado una configuración para una pila LAMP y ha implementado la configuración en la máquina virtual. Para aprender a usar Azure Automation State Configuration para habilitar la implementación continua, consulte este artículo:
 
 > [!div class="nextstepaction"]
-> [Implementación continua en máquinas virtuales con DSC y Chocolatey](./automation-dsc-cd-chocolatey.md)
-
-* Para más información sobre DSC de PowerShell, consulte [Introducción a Desired State Configuration de PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* Para más información sobre cómo administrar State Configuration desde PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/).
-* Para aprender a reenviar los informes de DSC a los registros de Azure Monitor para la generación de informes y alertas, consulte el artículo sobre el [reenvío de informes de DSC a los registros de Azure Monitor](automation-dsc-diagnostics.md).
+> [Configuración de la implementación continua con Chocolatey](./automation-dsc-cd-chocolatey.md)
