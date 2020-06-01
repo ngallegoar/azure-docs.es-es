@@ -42,6 +42,8 @@
   items:
     - name: Uso de Form Recognizer con Logic Apps
       href: tutorial-form-recognizer-with-logic-apps.md
+    - name: Uso de Form Recognizer con Cognitive Search
+      href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: Guías paso a paso
   items:
     - name: Creación de un conjunto de datos de aprendizaje

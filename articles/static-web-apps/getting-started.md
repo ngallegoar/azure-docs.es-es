@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599136"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714243"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Inicio rápido: creación de la primera aplicación web estática
 
@@ -69,7 +69,7 @@ Ahora que se ha creado el repositorio, puede crear una aplicación web estática
 - Vaya a [Azure Portal](https://portal.azure.com).
 - Haga clic en **Crear un recurso**.
 - Busque **Static Web Apps**.
-- Haga clic en **Static Web Apps (versión preliminar)** .
+- Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
 - Haga clic en **Crear**
 
 ### <a name="basics"></a>Aspectos básicos
@@ -81,7 +81,7 @@ Para empezar, configure la nueva aplicación y vincúlela a un repositorio de Gi
 - Seleccione su _suscripción a Azure_.
 - Seleccione o cree un nuevo _grupo de recursos_.
 - Asigne el nombre **my-first-static-web-app** a la aplicación.
-  - Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `_`.
+  - Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `-`.
 - Seleccione la _región_ más cercana a la suya.
 - Seleccione la _SKU_ **gratis**.
 - Haga clic en el botón **Iniciar sesión con GitHub** y realice la autenticación con GitHub.
@@ -130,6 +130,8 @@ A continuación, agregue los detalles de configuración específicos de su plata
 Haga clic en el botón **Revisar y Crear**.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Botón Revisar y crear":::
+
+Para cambiar estos valores después de crear la aplicación, puede editar el [archivo de flujo de trabajo](github-actions-workflow.md).
 
 ### <a name="review--create"></a>Revisar y crear
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589285"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835842"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Control del acceso a la cuenta de almacenamiento para SQL a petición (versión preliminar)
 
@@ -26,11 +26,7 @@ En este artículo se describen los tipos de credenciales que puede usar y cómo 
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorización de almacenamiento admitidos
 
-Un usuario que haya iniciado sesión en un recurso de SQL a petición debe estar autorizado para obtener acceso a los archivos de Azure Storage, así como para consultarlos, si los archivos no están disponibles públicamente. Se admiten tres tipos de autorización:
-
-- [Firma de acceso compartido](?tabs=shared-access-signature)
-- [Identidad de usuario](?tabs=user-identity)
-- [Identidad administrada](?tabs=managed-identity)
+Un usuario que haya iniciado sesión en un recurso de SQL a petición debe estar autorizado para obtener acceso a los archivos de Azure Storage, así como para consultarlos, si los archivos no están disponibles públicamente. Para acceder al almacenamiento no público puede usar tres tipos de autorización: [Identidad de usuario](?tabs=user-identity), [Firma de acceso compartido](?tabs=shared-access-signature) e [Identidad administrada](?tabs=managed-identity).
 
 > [!NOTE]
 > [Paso a través de Azure AD](#force-azure-ad-pass-through) es el comportamiento predeterminado cuando se crea un área de trabajo. Si lo usa, no tendrá que crear credenciales para cada cuenta de almacenamiento a la que se acceda mediante inicios de sesión de Azure AD. Puede [deshabilitar este comportamiento](#disable-forcing-azure-ad-pass-through).
@@ -99,7 +95,7 @@ Antes de acceder a los datos, el administrador de Azure Storage debe conceder pe
 
 ### <a name="anonymous-access"></a>[Acceso anónimo](#tab/public-access)
 
-Puede tener acceso a los archivos disponibles públicamente ubicados en cuentas de almacenamiento de Azure que [permitan el acceso anónimo](/azure/storage/blobs/storage-manage-access-to-resources.md).
+Puede tener acceso a los archivos disponibles públicamente ubicados en cuentas de almacenamiento de Azure que [permitan el acceso anónimo](/azure/storage/blobs/storage-manage-access-to-resources).
 
 ---
 

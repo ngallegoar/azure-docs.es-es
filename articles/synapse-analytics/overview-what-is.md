@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0f34b853728c91d9e3c6e32396c0f7eb427af101
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587889"
+ms.locfileid: "83656210"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>¿Qué es Azure Synapse Analytics (versión preliminar para área de trabajo)?
 
@@ -63,7 +63,7 @@ Azure Synapse elimina las barreras de la tecnología tradicionales entre el uso 
 
 Azure Synapse incluye el mismo motor de integración de datos y experiencias que Azure Data Factory, lo que le permite crear canalizaciones de datos enriquecidas sin usar un motor de orquestación independiente.
 
-* Movimiento de datos entre Synapse y más de 85 orígenes de datos locales
+* Movimiento de datos entre Azure Synapse y más de 90 orígenes de datos locales
 * Organización de cuadernos, canalizaciones, trabajos de Spark, scripts SQL y procedimientos almacenados
 * ETL sin código con actividades de flujo de datos
 
@@ -87,6 +87,6 @@ Azure Synapse proporciona a las empresas una única forma de administrar los rec
 
 * [Creación de un área de trabajo](quickstart-create-workspace.md)
 * [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
-* [Creación de un grupo de SQL](quickstart-create-sql-pool.md)
+* [Creación de un grupo de SQL](quickstart-create-sql-pool-portal.md)
 * [Uso de SQL a petición](quickstart-sql-on-demand.md)
-* [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool.md)
+* [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool-portal.md)

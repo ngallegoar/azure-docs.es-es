@@ -12,12 +12,12 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1251049add8c9d3c71b6ba13aff24e086613e84b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450962"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640572"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
 
@@ -150,6 +150,12 @@ var currentAccount: MSALAccount?
 ```
 
 El único valor que debe modificar arriba es el asignado a `kClientID` como [Identificador de aplicación](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Este valor forma parte de los datos de Configuración de MSAL que guardó al principio de este tutorial para registrar la aplicación en Azure Portal.
+
+## <a name="configure-xcode-project-settings"></a>Configuración de los valores del proyecto de Xcode
+
+Agregue un nuevo grupo de cadena de claves al proyecto **Signing & Capabilities** (Firma y funcionalidades). El grupo de cadena de claves debe ser `com.microsoft.adalcache` en iOS y `com.microsoft.identity.universalstorage` en macOS.
+
+![Interfaz de usuario de Xcode que muestra cómo se debe configurar el grupo de cadena de claves](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
 
 ## <a name="for-ios-only-configure-url-schemes"></a>Solo para iOS, configure los esquemas de dirección URL.
 

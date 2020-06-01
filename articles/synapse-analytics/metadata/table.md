@@ -6,37 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c1951c772dcd2f49f4f7c09021f69193af0a87e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420839"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701062"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tablas de metadatos compartidos de Azure Synapse Analytics
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas respaldadas por Parquet entre los grupos de Apache Spark (versión preliminar), el motor de SQL a petición (versión preliminar) y los grupos de SQL.
+Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas con el respaldo de Parquet entre sus grupos de Apache Spark (versión preliminar) y el motor de SQL On-Demand (versión preliminar).
 
 Una vez creada una base de datos con un trabajo de Spark, puede crear en ella, mediante Spark, tablas que usen Parquet como formato de almacenamiento. Estas tablas estarán disponibles de forma inmediata para que cualquiera de los grupos de Spark del área de trabajo de Azure Synapse realice consultas en ellas. También se pueden usar desde cualquiera de los trabajos de Spark sujetos a permisos.
 
-Las tablas creadas, administradas y externas de Spark también están disponibles como tablas externas con el mismo nombre en la base de datos sincronizada correspondiente en SQL a petición, y en los esquemas de prefijos de `$`correspondientes en los grupos de SQL que tienen habilitada la sincronización de metadatos. [La exposición de una tabla de Spark en SQL](#exposing-a-spark-table-in-sql) proporciona más información sobre la sincronización de la tabla.
+Las tablas creadas, administradas y externas de Spark también están disponibles como tablas externas con el mismo nombre en la base de datos sincronizada correspondiente en SQL On-Demand. [La exposición de una tabla de Spark en SQL](#exposing-a-spark-table-in-sql) proporciona más información sobre la sincronización de la tabla.
 
-Dado que las tablas se sincronizan con SQL a petición y los grupos de SQL lo hacen de forma asincrónica, se producirá un retraso hasta que aparezcan.
-
-Asignación de tablas a tablas externas, orígenes de datos y formatos de archivo.
+Dado que las tablas se sincronizan con SQL On-Demand de forma asincrónica, se producirá un retraso hasta que aparezcan.
 
 ## <a name="manage-a-spark-created-table"></a>Administración de una tabla creada con Spark
 
 Use Spark para administrar las bases de datos creadas con Spark. Por ejemplo, elimínelas mediante un trabajo de grupo de Spark y cree tablas en ellas desde Spark.
 
 Si crea objetos en una base de datos de este tipo desde SQL a petición o intenta anular la base de datos, la operación se realizará correctamente, pero la base de datos original de Spark no se cambiará.
-
-Si intenta anular el esquema sincronizado en un grupo de SQL o intenta crear una tabla en él, Azure devuelve un error.
 
 ## <a name="exposing-a-spark-table-in-sql"></a>Exposición de una tabla de Spark en SQL
 
@@ -56,7 +52,7 @@ En la actualidad, Azure Synapse solo comparte tablas de Spark administradas y ex
 
 ### <a name="how-are-spark-tables-shared"></a>Cómo se comparten las tablas de Spark
 
-Las tablas administradas y externas de Spark que se pueden compartir se exponen en los motores SQL como tablas externas con las siguientes propiedades:
+Las tablas de Spark administradas y externas que se pueden compartir se exponen en el motor SQL como tablas externas con las siguientes propiedades:
 
 - El origen de datos de la tabla externa de SQL es el origen de datos que representa la carpeta de ubicación de la tabla de Spark.
 - El formato de archivo de la tabla externa de SQL es Parquet.
@@ -88,7 +84,7 @@ Las tablas de Spark proporcionan tipos de datos diferentes a los motores de Syna
 
 ## <a name="security-model"></a>Modelo de seguridad
 
-Las bases de datos y las tablas de Spark, al igual que sus representaciones sincronizadas en los motores de SQL, se protegerán en el nivel de almacenamiento subyacente. Teniendo en cuenta que actualmente no tienen permisos para los propios objetos, estos se pueden visualizar en el explorador de objetos.
+Las bases de datos y las tablas de Spark, al igual que sus representaciones sincronizadas en el motores SQL, estarán protegidas en el nivel de almacenamiento subyacente. Teniendo en cuenta que actualmente no tienen permisos para los propios objetos, estos se pueden visualizar en el explorador de objetos.
 
 La entidad de seguridad que crea una tabla administrada se considera el propietario de dicha tabla y tiene todos los derechos en la tabla, así como en las carpetas y los archivos subyacentes. Además, el propietario de la base de datos se convertirá automáticamente en copropietario de la tabla.
 
@@ -193,27 +189,6 @@ id | name | birthdate
 ---+-------+-----------
 1 | Alice | 2010-01-01
 ```
-
-### <a name="querying-spark-tables-in-a-sql-pool"></a>Consulta de tablas de Spark en un grupo de SQL
-
-Con las tablas creadas en los ejemplos anteriores, cree ahora un grupo de SQL en el área de trabajo denominado `mysqlpool` que permita la sincronización de metadatos (o use el grupo que ya se ha creado en [Exposición de una base de datos de Spark en un grupo de SQL](database.md#exposing-a-spark-database-in-a-sql-pool)).
-
-Ejecute la siguiente instrucción en el grupo de SQL `mysqlpool`:
-
-```sql
-SELECT * FROM sys.tables;
-```
-
-Compruebe que las tablas `myParquetTable` y `myExternalParquetTable` estén visibles en el esquema `$mytestdb`.
-
-Ahora puede leer los datos de SQL a petición como sigue:
-
-```sql
-SELECT * FROM [$mytestdb].myParquetTable WHERE name = 'Alice';
-SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
-```
-
-Debe obtener los mismos resultados que con este SQL a petición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

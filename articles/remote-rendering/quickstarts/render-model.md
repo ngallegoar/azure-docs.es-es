@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677690"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682573"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Inicio rápido: Representación de un modelo con Unity
 
@@ -32,11 +32,11 @@ Para obtener acceso al servicio Azure Remote Rendering, primero debe [crear una 
 Debe instalar el software siguiente:
 
 * Windows SDK 10.0.18362.0 [(descargar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* La versión más reciente de Visual Studio 2019 [(descargar)](https://visualstudio.microsoft.com/vs/older-downloads/).
+* La versión más reciente de Visual Studio 2019 [(descargar)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(descargar)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(descargar)](https://unity3d.com/get-unity/download)
   * Instale estos módulos en Unity:
-    * **UWP**: compatibilidad con la compilación de Plataforma universal de Windows
+    * **UWP**: compatibilidad con la compilación de la Plataforma universal de Windows
     * **IL2CPP**: compatibilidad con la compilación de Windows (IL2CPP)
 
 ## <a name="clone-the-sample-app"></a>Clonación de la aplicación de ejemplo
@@ -66,7 +66,7 @@ El modelo predeterminado que se representa es un [modelo de ejemplo integrado](.
 
 1. En el explorador de recursos de Unity, vaya a la carpeta *Scenes* y abra la escena **Quickstart** (Inicio rápido).
 1. En la *jerarquía*, seleccione el objeto de juego **RemoteRendering**.
-1. En *Inspector*, escriba las [credenciales de la cuenta](../how-tos/create-an-account.md).
+1. En *Inspector*, escriba las [credenciales de la cuenta](../how-tos/create-an-account.md). Si aún no tiene una cuenta, [créela](../how-tos/create-an-account.md).
 
 ![Información de cuenta de ARR](./media/arr-sample-account-info.png)
 

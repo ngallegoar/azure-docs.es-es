@@ -7,18 +7,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 3/18/2020
-ms.openlocfilehash: 715be66e1b7d1c9270600dd3f11ee16d9aa1885d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: 8b2873944aec82d3df7d0a3bf127f19578eecf83
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067990"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871492"
 ---
-# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database for MySQL: uso de .NET (C#) para conectarse y consultar datos
+# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de .NET (C#) para conectarse a los datos y consultarlos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de C#. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante C# y que nunca ha usado Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
@@ -26,6 +26,9 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 Además, deberá:
 - Instale [.NET](https://www.microsoft.com/net/download). Siga los pasos descritos en el artículo vinculado para instalar .NET específicamente para su plataforma (Windows, Ubuntu Linux o macOS). 
 - Instale [Visual Studio](https://www.visualstudio.com/downloads/).
+
+> [!IMPORTANT] 
+> Asegúrese de que a la dirección IP desde la que se conecta se le han agregado las reglas de firewall del servidor desde [Azure Portal](./howto-manage-firewall-using-portal.md) o la [CLI de Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="create-a-c-project"></a>Cree un proyecto de C#
 En un símbolo del sistema, ejecute:

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 60771d5a188df5dfeca3530a551a116c870e63f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82150490"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722463"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Inicio rápido: Creación de un clúster de Service Fabric mediante una plantilla de Resource Manager
 
@@ -91,7 +91,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en esta guía de inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, consulte https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). La plantilla de este artículo es demasiado larga para mostrarse aquí. Para ver la plantilla, examine el archivo [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json).
 
 En la plantilla se han definido varios recursos de Azure:
 

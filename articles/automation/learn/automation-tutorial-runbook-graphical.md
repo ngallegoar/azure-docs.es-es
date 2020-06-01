@@ -1,17 +1,17 @@
 ---
 title: Creación de un runbook gráfico en Azure Automation
-description: Tutorial en el que se muestra cómo crear, probar y publicar un runbook gráfico simple en Azure Automation.
+description: Este artículo le enseña a crear, probar y publicar un sencillo runbook gráfico en Azure Automation.
 keywords: runbook, plantilla de runbook, automatización de runbooks, runbook de azure
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: f87f389667043e26f066886eddcdb8061df0319f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3cd5db3736d5eda88e7cad7bda1966efb2b00977
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725129"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744733"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutorial: Creación de un runbook gráfico
 
@@ -24,9 +24,6 @@ En este tutorial, aprenderá a:
 > * Prueba y publicación del runbook
 > * Ejecutar y seguir el estado del trabajo de runbook
 > * Actualización del runbook para iniciar una máquina virtual de Azure, con parámetros de runbook y vínculos condicionales
-
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -354,7 +351,7 @@ Ahora puede modificar el runbook para que solo intente iniciar la máquina virtu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información acerca de la creación de gráficos, consulte [Creación gráfica en Azure Automation](../automation-graphical-authoring-intro.md).
+* Para obtener más información sobre la creación de runbooks gráficos, consulte [Creación de un runbook gráfico en Azure Automation](../automation-graphical-authoring-intro.md).
 * Para empezar a trabajar con Runbooks de PowerShell, consulte [Creación de un runbook de PowerShell](automation-tutorial-runbook-textual-powershell.md).
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Creación de un runbook de flujo de trabajo de PowerShell](automation-tutorial-runbook-textual.md).
 * Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation

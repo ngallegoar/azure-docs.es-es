@@ -1,5 +1,5 @@
 ---
-title: Características admitidas de Azure Synapse Link para Azure Cosmos DB
+title: Características admitidas de Azure Synapse Link (versión preliminar) para Azure Cosmos DB
 description: Descripción de la lista actual de acciones que admite Azure Synapse Link para Azure Cosmos DB
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1b94d7677026f3695d07be4d83a5059373078c2e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599037"
+ms.locfileid: "83658845"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Características admitidas de Azure Synapse Link para Azure Cosmos DB
+# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Características admitidas de Azure Synapse Link (versión preliminar) para Azure Cosmos DB
 
 En este artículo se describen las funcionalidades que se admiten actualmente en Azure Synapse Link para Azure Cosmos DB. 
 

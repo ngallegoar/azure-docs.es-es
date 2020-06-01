@@ -4,12 +4,12 @@ description: Aprenda rápidamente a crear un registro de Docker privado en Azure
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0875e5be628ddfe47696a9d4fc537a8a07122804
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409300"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682801"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Inicio rápido: Creación de un registro de contenedor privado con Azure Portal
 

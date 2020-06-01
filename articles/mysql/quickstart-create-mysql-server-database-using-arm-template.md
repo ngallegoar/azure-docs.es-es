@@ -1,23 +1,22 @@
 ---
 title: Creación de una instancia de Azure DB for MySQL mediante una plantilla de Resource Manager
 description: En este artículo, aprenderá a crear un servidor de Azure Database for MySQL con la integración de red virtual mediante una plantilla de Azure Resource Manager.
-services: azure-resource-manager
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/27/2020
-ms.openlocfilehash: 7313d12509859514e41b30c4021f74f25a0e50b9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/19/2020
+ms.openlocfilehash: ef3813840b1ecb3ad091a5b420ff8cfff9f6059a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82630371"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800198"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-arm-template"></a>Inicio rápido: Creación de un servidor de Azure Database for MySQL mediante la plantilla de Resource Manager
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear un servidor de Azure Database for MySQL
 
-Azure Database for MySQL es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MySQL de alta disponibilidad en la nube. En este inicio rápido se muestra cómo usar una plantilla de Azure Resource Manager (ARM) predefinida para crear un servidor de Azure Database for MySQL con integración de red virtual. El servidor se puede crear mediante Azure Portal, la CLI de Azure o Azure PowerShell.
+Azure Database for MySQL es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MySQL de alta disponibilidad en la nube. En este inicio rápido se usa una plantilla de Resource Manager para crear un servidor de Azure Database for MySQL con integración de red virtual. El servidor se puede crear en Azure Portal, la CLI de Azure o Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -100,7 +99,7 @@ En la página **Implementación de Azure Database for MySQL con red virtual**:
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-Use el siguiente código interactivo para crear un nuevo servidor de Azure Database for MySQL mediante la plantilla. El código le pide el nuevo nombre de servidor, el nombre y la ubicación de un nuevo grupo de recursos, y un nombre y una contraseña de cuenta de administrador.
+Use el siguiente código interactivo para crear un nuevo servidor de Azure Database for MySQL mediante la plantilla. El código le pide el nombre del nuevo servidor, el nombre y la ubicación de un nuevo grupo de recursos, y un nombre y una contraseña de cuenta de administrador.
 
 Para ejecutar el código en Azure Cloud Shell, seleccione **Probar** en la esquina superior de cualquier bloque de código.
 

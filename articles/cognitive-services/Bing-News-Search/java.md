@@ -8,36 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c3ce10b6d3acb947d3fde6e3c872a2c2a83ddb69
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383619"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871135"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Inicio rápido: Realizar una búsqueda de noticias mediante Java y la API de REST Bing News Search
 
-Use este inicio rápido para realizar la primera llamada a Bing News Search API y ver la respuesta JSON. Esta sencilla aplicación de Java envía una consulta de búsqueda de noticias a la API y muestra la respuesta.
+Use este inicio rápido para realizar la primera llamada a la API Bing News Search. Esta sencilla aplicación de Java envía una consulta de búsqueda de noticias a la API y muestra la respuesta JSON.
 
-Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Aunque esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
+El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Kit de desarrollo de Java (JDK) 7 u 8](https://aka.ms/azure-jdks)
-
-* [Biblioteca Gson](https://github.com/google/gson)
+* El [kit de desarrollo de Java (JDK) 7 u 8](https://aka.ms/azure-jdks).
+* La [biblioteca Gson](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Creación e inicialización de un proyecto
 
-1. Cree un proyecto de Java en su IDE o editor favorito e importe las bibliotecas siguientes.
+1. Cree un proyecto de Java en su IDE o editor favoritos e importe las bibliotecas siguientes:
 
     ```java
     import java.net.*;
@@ -50,7 +49,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
     import com.google.gson.JsonParser;
     ```
 
-2. Cree una nueva clase con variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+2. Cree una clase. Agregue variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -64,7 +63,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 
 ## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construcción de la solicitud de búsqueda y recepción de una respuesta JSON
 
-1. Utilice las variables del último paso para dar formato a una dirección URL de búsqueda para la solicitud de API. Tenga en cuenta que el término de búsqueda debe codificarse para URL antes de anexarlo a la solicitud.
+1. Utilice las variables del paso anterior para dar formato a una dirección URL de búsqueda para la solicitud de API. Codifique como URL el término de búsqueda antes de anexarlo a la solicitud.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -75,7 +74,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
     }
     ```
 
-2. Reciba la respuesta JSON de Bing News Search API y construya el objeto de resultado.
+2. Reciba la respuesta JSON de la API Bing News Search y construya el objeto de resultado.
 
     ```java
     // receive JSON body
@@ -88,6 +87,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 ## <a name="process-the-json-response"></a>Procesamiento de la respuesta JSON
 
 1. Separe los encabezados HTTP relacionados con Bing del cuerpo JSON, después cierre el flujo y devuelva la respuesta de API.
+
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -101,7 +101,8 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
     return results;
     ```
 
-2. Creación de un método para analizar y volver a serializar JSON
+2. Cree un método para analizar y volver a serializar los resultados JSON.
+
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -113,7 +114,8 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
     ```
 
 3. En el método main de la aplicación, llame al método de búsqueda y muestre los resultados.
-    ```csharp
+
+    ```java
    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
@@ -126,7 +128,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
     }
     ```
 
-## <a name="json-response"></a>Respuesta JSON
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo:
 

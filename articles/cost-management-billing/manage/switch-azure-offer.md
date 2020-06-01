@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/14/2020
 ms.author: banders
-ms.openlocfilehash: 4aa02dae521844f2654a50f77be9b2ee3c46a74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee2de33fadb068ee2697f79c1ebcb1b2fa4e5fcc
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199524"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715892"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Cambio de la suscripción de Azure a una oferta distinta
 
@@ -45,16 +45,16 @@ Puede cambiar de una suscripción individual con tarifas de pago por uso a:
 
 1. Inicie sesión en [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
 1. Seleccione la suscripción individual con tarifas de pago por uso.
-1. Haga clic en **Cambiar a otra oferta**. La opción solo está disponible si tiene una suscripción individual con tarifas de pago por uso y ya completó el primer período de facturación.
+1. Haga clic en **Cambiar a otra oferta**. La opción solo está disponible si se tiene una suscripción individual con tarifas de pago por uso y ha finalizado el primer período de facturación.
 
    ![Observar el botón Cambiar oferta situado en el lado derecho de la página](./media/switch-azure-offer/switchbutton.png)
 1. **Seleccione la oferta que desee** en la lista de suscripciones a las que puede cambiar. Dicha lista varía en función de los grupos a los que la cuenta está asociada. Si no hay ninguna disponible, compruebe la [lista de ofertas disponibles a las que puede cambiar](#whats-supported) y asegúrese de que pertenece a los grupos apropiados.
 
    ![Seleccionar una oferta a la que desee cambiar](./media/switch-azure-offer/selectoffer.png)
-1. Según la oferta a la que cambie, es posible que vea una nota sobre el impacto del cambio. Recorra esta lista detenidamente y siga las instrucciones antes de continuar.
+1. Según la oferta a la que cambie, es posible que vea una nota sobre el impacto del cambio. Antes de continuar, recorra la lista detenidamente y siga las instrucciones.
 
    ![Revisar las notas](./media/switch-azure-offer/thingstonote.png)
-1. Puede cambiar el nombre de la suscripción. De manera predeterminada, se establece en el nombre de la oferta nueva. Haga clic en **Cambiar oferta** para completar el proceso.
+1. Puede cambiar el nombre de la suscripción. De manera predeterminada, no se establece en el nombre de la oferta nueva. Haga clic en **Cambiar oferta** para completar el proceso.
 
    ![Hacer clic en el botón verde](./media/switch-azure-offer/confirmpage.png)
 1. ¡Hecho! Ya se ha cambiado la suscripción a la nueva oferta.
@@ -100,7 +100,7 @@ El mismo día que se realiza el cambio se genera una factura por todos los cargo
 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>¿Puedo migrar desde una suscripción con tarifas de pago por uso a Proveedor de soluciones en la nube (CSP) o Contrato Enterprise (EA)?
 
-* Para migrar a CSP, consulte [Migrar las suscripciones de Azure de Pago por uso a CSP de Azure](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Para migrar a CSP, consulte [Transferencia de suscripciones de Azure entre suscriptores y CSP](transfer-subscriptions-subscribers-csp.md).
 * Para migrar a EA, indique a su administrador de inscripciones que agregue su cuenta a dicho EA. Siga las instrucciones que aparecen en el correo electrónico de invitación para mover las suscripciones bajo la inscripción EA. Para más información, consulte [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Asociar una cuenta existente) en el portal EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>¿Puedo migrar datos y servicios a nueva una suscripción?

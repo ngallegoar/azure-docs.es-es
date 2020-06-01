@@ -5,16 +5,16 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.author: banders
-ms.openlocfilehash: b8c523acabd02dc30e9b13f7f83a4a44554cbd4d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 79d0a648645743751eed3b50edb628a20023546e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690923"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660359"
 ---
-# <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Roles administrativos del Contrato Enterprise de Azure en Azure
+# <a name="managing-azure-enterprise-roles"></a>Administración de roles de Azure Enterprise
 
 Para ayudar a administrar el uso y el gasto de su organización, los clientes de Azure con un Contrato Enterprise (EA) pueden asignar cinco roles de administrador diferentes:
 
@@ -62,6 +62,19 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 - <sup>4</sup> A los contactos de notificación se les envían comunicaciones por correo electrónico sobre el Contrato Enterprise de Azure.
 - <sup>5</sup> La tarea se limita a las cuentas de su departamento.
 
+## <a name="add-a-new-enterprise-administrator"></a>Adición de un nuevo administrador de empresa
+
+Los administradores de empresa tienen los máximos privilegios al administrar una inscripción del Contrato Enterprise de Azure. Se creó el administrador del Contrato Enterprise de Azure inicial cuando se configuró el acuerdo del Contrato Enterprise. Sin embargo, puede agregar o quitar nuevos administradores en cualquier momento. Solo los administradores existentes agregan nuevos administradores. Para más información sobre cómo agregar administradores de empresa adicionales, consulte [Creación de otro administrador de empresa](ea-portal-get-started.md#create-another-enterprise-administrator). Para más información acerca de los roles del perfil de facturación, consulte [Tareas y roles del perfil de facturación](understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## <a name="update-account-owner-state-from-pending-to-active"></a>Actualización del estado del propietario de la cuenta, de pendiente a activo
+
+Cuando se agregan nuevos propietarios de la cuenta a una inscripción del Contrato Enterprise de Azure por primera vez, su estado aparece como _pendiente_. Cuando un nuevo propietario de la cuenta recibe el correo electrónico de bienvenida de activación, puede iniciar sesión para activar su cuenta. Al activar su cuenta, el estado de la cuenta se actualiza de _pendiente_ a _activa_. El propietario de la cuenta tiene que leer el mensaje de advertencia y seleccionar **Continuar**. Es posible que se pida a los nuevos usuarios que escriban su nombre y apellidos para crear una cuenta comercial. En ese caso, deben agregar la información necesaria para continuar y, acto seguido, se activará la cuenta.
+
+## <a name="add-a-department-admin"></a>Adición de un administrador de departamento
+
+Cuando un administrador de Contrato Enterprise de Azure crea un departamento, el administrador puede agregar administradores de departamento y asociar cada uno de ellos a un departamento. Un administrador de departamento puede crear nuevas cuentas. Se necesitan nuevas cuentas para que se creen las suscripciones del Contrato Enterprise de Azure.
+
+Para más información sobre cómo agregar un administrador de departamento, consulte [Creación de un administrador de departamento del Contrato Enterprise de Azure](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Acceso de uso y costos por rol
 
@@ -77,8 +90,7 @@ En las secciones siguientes se describen las limitaciones y funcionalidades de c
 - <sup>6</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del administrador de departamento** en Enterprise Portal. El administrador de departamento puede entonces ver los detalles de costo del departamento.
 - <sup>7</sup> Requiere que el administrador de empresa habilite la directiva de **visualización de cargos del propietario de la cuenta** en Enterprise Portal. El propietario de la cuenta puede ver entonces los detalles del costo de la cuenta.
 
-
-## <a name="pricing-in-azure-portal"></a>Precios en Azure Portal
+## <a name="see-pricing-for-different-user-roles"></a>Consulte los precios de los diferentes roles de usuario
 
 Es posible que vea un precio diferente en Azure Portal según su rol administrativo y cómo el administrador de empresa haya establecido las directivas de visualización de los cargos. Las dos directivas de Enterprise Portal que afectan a los precios que ve en Azure Portal son:
 
@@ -98,6 +110,8 @@ En la tabla siguiente se muestra la relación entre los roles de administrador d
 |None|No aplicable |Propietario|Precio de venta|
 
 El rol de administrador de Enterprise y las directivas de visualización de cargos se establecen en Enterprise Portal. El rol de RBAC puede actualizarse en Azure Portal. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

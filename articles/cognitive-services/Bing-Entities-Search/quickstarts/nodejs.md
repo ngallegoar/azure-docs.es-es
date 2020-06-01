@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 194368acd6be65da6a800ad1394ac156a6654b50
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448630"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650246"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Node.js
 
 Use este inicio rápido para realizar la primera llamada a Bing Entity Search API y ver la respuesta JSON. Esta sencilla aplicación de JavaScript envía una consulta de búsqueda de noticias a la API y muestra la respuesta. El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
-Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Aunque esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -40,7 +40,7 @@ Si bien esta aplicación está escrita en Java, la API es un servicio web RESTfu
     let https = require ('https');
     ```
 
-2. Cree variables para el punto de conexión de la API, la clave de suscripción y la consulta de búsqueda. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+2. Cree variables para el punto de conexión de la API, la clave de suscripción y la consulta de búsqueda. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -58,52 +58,53 @@ Si bien esta aplicación está escrita en Java, la API es un servicio web RESTfu
 
 ## <a name="handle-and-parse-the-response"></a>Control y análisis de la respuesta
 
-1. Defina una función denominada `response_handler` que toma una llamada HTTP, `response`, como un parámetro. Con esta función, lleve a cabo los pasos siguientes:
+1. Defina una función denominada `response_handler()` que toma una llamada HTTP, `response`, como un parámetro. 
 
-    1. Defina una variable para que contenga el cuerpo de la respuesta JSON.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
+2. Dentro de esta función defina una variable para que contenga el cuerpo de la respuesta JSON.  
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
+
+3. Almacene el cuerpo de la respuesta cuando se llame a la marca `data`.
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+4. Cuando se señale una marca `end`, analice la respuesta JSON e imprímala.
+
+    ```javascript
+    response.on ('end', function () {
+    let json = JSON.stringify(JSON.parse(body), null, '  ');
+    console.log (json);
+    });
         ```
 
-    2. Almacene el cuerpo de la respuesta cuando se llame a la marca **data**.
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+## Send a request
 
-    3. Cuando se señale una marca **end**, analice la respuesta JSON e imprímala.
+1. Create a function called `Search()` to send a search request. In it, perform the following steps:
 
-        ```javascript
-        response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log (json);
-        });
-        ```
+2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
 
-## <a name="send-a-request"></a>Enviar una solicitud
-
-1. Cree una función denominada `Search` para enviar una solicitud de búsqueda. En ella, lleve a cabo los siguiente pasos.
-
-   1. Cree un objeto JSON que contenga los parámetros de solicitud: use `Get` para el método y agregue la información de host y de ruta de acceso. Agregue la clave de suscripción al encabezado `Ocp-Apim-Subscription-Key`. 
-   2. Use `https.request()` para enviar la solicitud con el controlador de respuestas que creó anteriormente y los parámetros de búsqueda.
+3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
     
-      ```javascript
-      let Search = function () {
-       let request_params = {
-           method : 'GET',
-           hostname : host,
-           path : path + query,
-           headers : {
-               'Ocp-Apim-Subscription-Key' : subscriptionKey,
-           }
-       };
+   ```javascript
+   let Search = function () {
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + query,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
     
-       let req = https.request (request_params, response_handler);
-       req.end ();
-      }
+    let req = https.request (request_params, response_handler);
+    req.end ();
+   }
       ```
 
 2. Llame a la función `Search()`.
@@ -179,4 +180,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Compilar una aplicación web de una sola página](../tutorial-bing-entities-search-single-page-app.md)
 
 * [¿Qué es Bing Entity Search API?](../overview.md )
-* [Referencia de Bing Entity Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Referencia de la API Bing Entity Search](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

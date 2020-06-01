@@ -1,5 +1,5 @@
 ---
-title: Consulta de un almacén analítico de Azure Cosmos DB con Apache Spark para Azure Synapse Analytics
+title: Consulta de un almacén analítico de Azure Cosmos DB (versión preliminar) con Apache Spark para Azure Synapse Analytics
 description: Cómo consultar un almacén analítico de Azure Cosmos DB con Apache Spark para Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02d4b6a636bff5ef11686abba6efb52f45f04779
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5c19a3f808b85ba9e34d3304251fe8acb21204ce
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599257"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700191"
 ---
-# <a name="query-azure-cosmos-db-analytical-store-with-apache-spark-for-azure-synapse-analytics"></a>Consulta de un almacén analítico de Azure Cosmos DB con Apache Spark para Azure Synapse Analytics
+# <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Consulta de un almacén analítico de Azure Cosmos DB (versión preliminar) con Apache Spark para Azure Synapse Analytics
 
 En este artículo se ofrecen algunos ejemplos sobre cómo puede interactuar con el almacén analítico desde los gestos de Synapse. Dichos gestos se muestran cuando se hace clic con el botón secundario en un contenedor. Con ellos, puede generar código rápidamente y adaptarlo a sus necesidades. También son ideales para detectar datos con un solo clic.
 

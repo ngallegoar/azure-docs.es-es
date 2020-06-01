@@ -2,19 +2,19 @@
 title: Autoayuda sobre SQL a petición (versión preliminar)
 description: Esta sección contiene información que puede ayudarle a solucionar problemas con SQL a petición (versión preliminar).
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421199"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658876"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Autoayuda para SQL a petición (versión preliminar)
 
@@ -33,7 +33,7 @@ Si se produce un error en la consulta y se indica que no se puede abrir el archi
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>Se produce un error en la consulta porque no se puede ejecutar debido a las restricciones de recursos actuales 
 
-Si se produce un error en la consulta con el mensaje "no se puede ejecutar esta consulta debido a las restricciones de recursos actuales", significa que SQL a petición no puede ejecutarla en este momento debido a restricciones de recursos: 
+Si la consulta no se puede ejecutar y aparece el mensaje de error "This query cannot be executed due to current resource constraints" (Esta consulta no se puede ejecutar debido a las actuales restricciones de los recursos), significa que SQL On-Demand no puede ejecutarla en este momento a causa de las restricciones de recursos: 
 
 - Asegúrese de que se usan los tipos de datos de tamaños razonables. Además, especifique el esquema para los archivos Parquet para las columnas de cadenas, ya que serán VARCHAR(8000) de forma predeterminada. 
 
@@ -41,13 +41,43 @@ Si se produce un error en la consulta con el mensaje "no se puede ejecutar esta 
 
 - Visite los [procedimientos recomendados de rendimiento para SQL a petición](best-practices-sql-on-demand.md) para optimizar la consulta.  
 
+## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT' no se admite en la base de datos maestra
+
+Si la consulta no se puede ejecutar y aparece el mensaje de error:
+
+> "Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database" (No se pudo ejecutar la consulta. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT no se admiten en la base de datos maestra). 
+
+Esto significa que la base de datos maestra de SQL On-Demand no admite la creación de:
+  - Tablas externas
+  - Orígenes de datos externos
+  - Credenciales cuyo ámbito es la base de datos
+  - Formatos de archivo externos
+
+Solución:
+
+  1. Cree una base de datos de usuarios:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Ejecute la instrucción de creación en el contexto de <NOMBRE_BASE DE DATOS> que produjo un error antes en la base de datos maestra. 
+  
+  Ejemplo de creación de formato de archivo externo:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte los artículos siguientes para aprender a usar SQL a petición:
 
 - [Consulta de archivos CSV](query-single-csv-file.md)
 
-- [Consulta de carpetas y varios archivos CSV](query-folders-multiple-csv-files.md)
+- [Consulta de carpetas y varios archivos .csv](query-folders-multiple-csv-files.md)
 
 - [Consulta de archivos específicos](query-specific-files.md)
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133182"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745539"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solución de problemas al registrar una cuenta nueva en Azure Portal o en el centro de cuentas de Azure
 
@@ -63,7 +63,7 @@ Utilice los pasos siguientes para actualizar la configuración de las cookies de
 
 ### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Incompatibilidad del formulario de tarjeta de crédito con la dirección de facturación
 
-La dirección de facturación debe estar en el país que seleccionó en la sección **Acerca de usted**. Asegúrese de seleccionar el país correcto.
+La dirección de facturación debe estar en el país o región que selecciona en la sección **Acerca de usted**. Asegúrese de seleccionar el país o región correctos.
 
 ### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>No hay mensajes de texto o llamadas durante la comprobación de la cuenta de suscripción
 
@@ -72,7 +72,7 @@ Aunque el proceso suele ser rápido, un código de verificación puede tardar ha
 Estas son algunas sugerencias adicionales:
 
 - En el proceso de verificación telefónica no se puede usar un número de teléfono de voz sobre IP (VoIP).
-- Revise el número de teléfono especificado, incluido el código de país seleccionado en el menú desplegable.
+- Revise el número de teléfono especificado, incluido el código de país o regiones seleccionados en el menú desplegable.
 - Si el teléfono no recibe mensajes de texto (SMS), pruebe la opción **Llamarme**.
 - Asegúrese de que el teléfono puede recibir llamadas o mensajes SMS desde un número de teléfono de Estados Unidos.
 

@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415721"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759003"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Inicio rápido: Implementación de un ejemplo de Unity en el escritorio
 
@@ -45,8 +45,8 @@ Actualmente solo se admiten aplicaciones de escritorio planas en el escritorio, 
 
 ## <a name="build-the-sample-project"></a>Compilación del proyecto de ejemplo
 
-1. Abra *File -> Build Settings* (Archivo -> Configuración de compilación).
-1. Cambie *Platform* (Plataforma) a **Universal Windows Platform** (Plataforma universal de Windows).
+1. Abra *File -> Build Settings* (Archivo -> Configuración de la compilación).
+1. Cambie el valor de *Plataforma* a **Plataforma universal de Windows** (**Equipo independiente** también se admite, pero no se usa aquí).
 1. Establezca *Target Device* (Dispositivo de destino) en **PC**.
 1. Establezca *Architecture* (Arquitectura) en **x86**.
 1. Establezca *Build Type* (Tipo de compilación) en **D3D Project** (Proyecto de D3D).

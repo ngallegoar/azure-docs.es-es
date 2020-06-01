@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 02/01/2020
+ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77915646"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816376"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicaciones web en Azure en Azure Front Door
 
@@ -26,7 +26,7 @@ WAF evita los ataques malintencionados cerca de los orígenes de ataques antes d
 
 ## <a name="waf-policy-and-rules"></a>Reglas y directiva de WAF
 
-Puede configurar una directiva de WAF y asociarla con uno o varios servidores front-end de Front Door para estar protegido. Una directiva de WAF consta de dos tipos de reglas de seguridad:
+Puede configurar una [directiva de WAF](waf-front-door-create-portal.md) y asociarla a uno o varios servidores front-end de Front Door para estar protegido. Una directiva de WAF consta de dos tipos de reglas de seguridad:
 
 - Reglas personalizadas que crea el cliente.
 

@@ -1,33 +1,26 @@
 ---
-title: Ejemplos de plantillas de directivas | Microsoft Docs
-description: Ejemplos de plantillas de Azure Policy para Virtual Network.
-services: virtual-network
-documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-network
-ms.devlang: na
+title: Definiciones de directivas integradas para Azure Virtual Network
+description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Virtual Network. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
+ms.date: 05/13/2020
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
-ms.date: 05/05/2020
+author: KumudD
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.service: virtual-network
+ms.custom: subject-policy-samples
+ms.openlocfilehash: bae8d7b6e102cb5fdc4938ee4951f8a89a50753e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839137"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659902"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Complementos de ejemplo de Azure Policy para Virtual Network
+# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-network"></a>Definiciones de directivas integradas de Azure Policy para Azure Virtual Network
 
-En la siguiente tabla se incluyen vínculos a ejemplos de [Azure Policy](../governance/policy/overview.md). Estos ejemplos se encuentran en el [repositorio de ejemplos de Azure Policy](https://github.com/Azure/azure-policy).
+Esta página es un índice de las definiciones de directivas integradas de [Azure Policy](../governance/policy/overview.md) para Azure Virtual Network. Puede encontrar elementos integrados adicionales de Azure Policy para otros servicios en [Definiciones de elementos integrados de Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-## <a name="network"></a>Red
+El nombre de cada definición de directiva integrada se vincula a la definición de directiva en Azure Portal. Use el vínculo de la columna **GitHub** para ver el origen en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
+
+## <a name="azure-virtual-network"></a>Azure Virtual Network
 
 [!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
@@ -38,3 +31,9 @@ En la siguiente tabla se incluyen vínculos a ejemplos de [Azure Policy](../gove
 ## <a name="general"></a>General
 
 [!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Los elementos integrados se pueden encontrar en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
+- Revise la [estructura de definición de Azure Policy](../governance/policy/concepts/definition-structure.md).
+- Vea la [Descripción de los efectos de directivas](../governance/policy/concepts/effects.md).

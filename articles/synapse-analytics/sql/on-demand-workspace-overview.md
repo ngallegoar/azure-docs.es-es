@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d4de424d5d4d6da1ee80e04b35e63ae29df57c8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421309"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702045"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL a petición (versión preliminar) en Azure Synapse Analytics 
 
@@ -28,7 +28,7 @@ SQL a petición es un sistema de procesamiento de datos distribuido, creado para
 
 SQL a petición funciona sin servidor, por lo que no hay que instalar ninguna infraestructura ni mantener ningún clúster. Se proporciona un punto de conexión predeterminado para este servicio en cada área de trabajo de Azure Synapse, por lo que puede empezar a consultar datos tan pronto como se crea el área de trabajo. No se cobra por los recursos reservados, solo se cobra por los datos examinados por las consultas que se ejecutan, por lo que este modelo es un modelo de pago por uso auténtico.  
 
-Si usa Spark en la canalización de datos, o para la preparación, limpieza o enriquecimiento de datos, puede [consultar todas las tablas de Spark](develop-storage-files-spark-tables.md) que haya creado en el proceso, directamente desde SQL a petición. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) para llevar el punto de conexión de SQL a petición a la [red virtual del área de trabajo administrada](../security/synapse-workspace-managed-vnet.md).  
+Si usa Apache Spark para Azure Synapse en la canalización de datos, o para la preparación, limpieza o enriquecimiento de datos, puede [consultar las tablas externas de Spark](develop-storage-files-spark-tables.md) que haya creado en el proceso, directamente desde SQL On-Demand. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) para llevar el punto de conexión de SQL a petición a la [red virtual del área de trabajo administrada](../security/synapse-workspace-managed-vnet.md).  
 
 ## <a name="who-is-sql-on-demand-for"></a>Destinatarios de SQL a petición
 
@@ -42,7 +42,7 @@ Diferentes puestos profesionales se pueden beneficiar de SQL a petición:
 
 - Los ingenieros de datos pueden explorar el lago, transformar y preparar los datos mediante este servicio, y simplificar las canalizaciones de transformación de datos. Para más información, consulte este [tutorial](tutorial-data-analyst.md).
 - Los científicos de datos pueden analizar rápidamente el contenido y la estructura de los datos del lago gracias a características como OPENROWSET y la inferencia de esquemas automática.
-- Los analistas de datos pueden [explorar los datos y tablas de Spark](develop-storage-files-spark-tables.md) que crean los científicos o ingenieros de datos mediante el conocido lenguaje T-SQL o con sus herramientas favoritas, las cuales pueden conectarse a SQL a petición.
+- Los analistas de datos pueden [explorar los datos y tablas externas de Spark](develop-storage-files-spark-tables.md) que crean los científicos o ingenieros de datos mediante el conocido lenguaje T-SQL o con sus herramientas favoritas, las cuales pueden conectarse a SQL On-Demand.
 - Los profesionales de inteligencia empresarial pueden [crear rápidamente informes de Power BI a partir de los datos del lago](tutorial-connect-power-bi-desktop.md) y las tablas de Spark.
 
 ## <a name="what-do-i-need-to-do-to-start-using-it"></a>¿Qué debo hacer para empezar a usarlo?
@@ -92,11 +92,11 @@ Con el fin de permitir una experiencia fluida para la consulta en contexto de lo
 
 [Formato de archivo PARQUET](develop-storage-files-overview.md#parquet-file-format)
 
-[Opciones adicionales para trabajar con texto delimitado (terminador de campo, terminador de fila, carácter de escape)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Otras opciones para trabajar con texto delimitado (terminador de campo, terminador de fila, carácter de escape)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
 
 [Lectura de un subconjunto de columnas elegido](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
 
-[Inferencia de esquema](develop-storage-files-overview.md#schema-inference)
+[Inferencia de esquemas](develop-storage-files-overview.md#schema-inference)
 
 [Función filename](develop-storage-files-overview.md#filename-function)
 
@@ -110,7 +110,7 @@ SQL a petición ofrece mecanismos para proteger el acceso a los datos.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integración de Azure Active Directory y autenticación multifactor
 
-SQL a petición permite administrar centralmente las identidades de usuario de base de datos y otros servicios de Microsoft con la [integración de Azure Active Directory](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta funcionalidad simplifica la administración de permisos y mejora la seguridad. Azure Active Directory (Azure AD) admite la [autenticación multifactor](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar la seguridad tanto de los datos como de las aplicaciones y admite un proceso de inicio de sesión único.
+SQL a petición permite administrar centralmente las identidades de usuario de base de datos y otros servicios de Microsoft con la [integración de Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta funcionalidad simplifica la administración de permisos y mejora la seguridad. Azure Active Directory (Azure AD) admite la [autenticación multifactor](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar la seguridad tanto de los datos como de las aplicaciones y admite un proceso de inicio de sesión único.
 
 #### <a name="authentication"></a>Authentication
 

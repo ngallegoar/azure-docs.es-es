@@ -3,24 +3,24 @@ title: 'Tutorial: Extracción de datos estructurados con una entidad de aprendiz
 description: Extraiga los datos estructurados de una expresión mediante la entidad de aprendizaje automático. Para aumentar la precisión de la extracción, agregue subentidades con características.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: d1bc8fc6aac52e264cb4352ca05f9df45ccfc50e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588877"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83676179"
 ---
-# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades con aprendizaje automático en Language Understanding (LUIS)
+# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades de aprendizaje automático en Language Understanding (LUIS)
 
 En este tutorial, se extraen datos estructurados de una expresión mediante la entidad de aprendizaje automático.
 
-La entidad con aprendizaje automático admite el [concepto de descomposición del modelo](luis-concept-model.md#v3-authoring-model-decomposition), ya que proporciona entidades de subentidad con sus [características](luis-concept-feature.md).
+La entidad con aprendizaje automático admite el [concepto de descomposición del modelo](luis-concept-model.md#v3-authoring-model-decomposition), ya que proporciona entidades de subentidad con [características](luis-concept-feature.md).
 
 **En este tutorial, aprenderá a:**
 
 > [!div class="checklist"]
 > * Importar la aplicación de ejemplo
-> * Agregar una entidad de aprendizaje automático
+> * Agregar la entidad de aprendizaje automático
 > * Agregar una subentidad y una característica
 > * Entrenar, probar y publicar una aplicación
 > * Obtener la predicción de la entidad a partir del punto de conexión
@@ -28,7 +28,7 @@ La entidad con aprendizaje automático admite el [concepto de descomposición de
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
 
 
-## <a name="why-use-a-machine-learned-entity"></a>¿Por qué usar una entidad de aprendizaje automático?
+## <a name="why-use-a-machine-learning-entity"></a>¿Por qué usar una entidad de aprendizaje automático?
 
 En este tutorial se agrega una entidad de aprendizaje automático para extraer datos de una expresión de usuario.
 
@@ -58,7 +58,7 @@ Descargue y guarde el [archivo JSON de la aplicación](https://raw.githubusercon
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="label-text-as-entities-in-example-utterances"></a>Etiquetado de texto como entidades en expresiones de ejemplo
+## <a name="create-machine-learned-entity"></a>Crear una entidad con aprendizaje automático
 
 Para extraer detalles sobre un pedido de pizza, cree un nivel superior, una entidad `Order` de aprendizaje automático.
 
@@ -70,7 +70,7 @@ Para extraer detalles sobre un pedido de pizza, cree un nivel superior, una enti
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Comience a seleccionar justo antes del texto situado más a la izquierda de `pickup` (n.º 1) y, después, vaya hasta el texto de más a la derecha, `anchovies` (n.º 2, esto finaliza el proceso de etiquetado). Aparece un menú emergente. En el cuadro emergente, escriba el nombre de la entidad como `Order` (n.º 3). A continuación, seleccione `Order - Create new entity` de la lista (n.º 4).
+    Comience a seleccionar justo antes del texto situado más a la izquierda de `pickup` (n.º 1) y, después, vaya hasta el texto de más a la derecha, `anchovies` (n.º 2, esto finaliza el proceso de etiquetado). Aparece un menú emergente. En el cuadro emergente, escriba el nombre de la entidad como `Order` (n.º 3). A continuación, seleccione `Order Create new entity` de la lista (n.º 4).
 
     ![Etiquetar el comienzo y el final del texto para el pedido completo](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -81,139 +81,165 @@ Para extraer detalles sobre un pedido de pizza, cree un nivel superior, una enti
 
     ![Agregar estructura a la entidad](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. En el cuadro **Create a machine learned entity** (Crear una entidad de aprendizaje automático), en el cuadro **Estructura**, agregue `Size` presione Entrar.
-1. Para agregar una **Característica**, seleccione `+` en el área **Características** y, después, seleccione **Crear lista de frases**.
+1. En el cuadro **Add subentities (optional)** (Agregar subentidades [opcional]), seleccione **+** en la fila `Order`, después agregue `Size` y `Quantity` como subentidades y, a continuación, seleccione **Crear**.
 
-1. En el cuadro **Crear lista de frases**, escriba el nombre `SizeFeature` y, a continuación, los valores `small`, `medium` y `large`. Cuando se rellene el cuadro **Sugerencias**, seleccione `extra large` y `xl`. Seleccione **Listo** para crear la lista de frases.
+    > [!div class="mx-imgBorder"]
+    > ![Agregar estructura a la entidad](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
-    Esta característica lista de frases ayuda a la subentidad `Size` a buscar palabras relacionadas con el tamaño al proporcionarle palabras de ejemplo. Esta lista no necesita incluir cada palabra de tamaño, pero debe incluir palabras que se espera que indiquen tamaño.
+## <a name="edit-subentities-to-improve-extraction"></a>Edición de subentidades para mejorar la extracción
 
-    ![Creación de una característica para la subentidad de tamaño](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
+En los pasos anteriores se ha creado la entidad y la subentidad. Para mejorar la extracción, agregue ahora características a las subentidades.
 
-1. En la ventana **Create a machine learned entity** (Crear una entidad de aprendizaje automático), seleccione **Crear** para terminar de crear la subentidad `Size`.
+### <a name="improve-size-extraction-with-phrase-list"></a>Mejora de la extracción de tamaño con una lista de frases
 
-    Se crea la entidad `Order` con una entidad `Size`, pero solo se ha aplicado la entidad `Order` a la expresión. Debe etiquetar el texto de la entidad `Size` en la expresión de ejemplo.
+1. Seleccione **Entidades** en el menú de la izquierda y, a continuación, seleccione la entidad **Order** (Pedido).
 
-1. En la misma expresión de ejemplo, etiquete la subentidad **Size** de `large` seleccionando la palabra y, a continuación, la entidad **Size** de la lista desplegable.
+1. En la pestaña **Schema and features** (Esquema y características), seleccione la subentidad **Size** (Tamaño) y, a continuación, seleccione **+ Add feature** (Agregar característica).
 
-    ![Etiquete la entidad size para el texto en la expresión.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
+1. Seleccione **Crear nueva lista de frases** en el menú desplegable.
 
-    La línea es sólida debajo del texto porque la etiqueta y la predicción coinciden porque el texto se etiquetó _explícitamente_.
+1. En el cuadro **Crear lista de frases**, escriba el nombre `SizePhraselist` y, a continuación, los valores `small`, `medium` y `large`. Cuando se rellene el cuadro **Sugerencias**, seleccione `extra large` y `xl`. Seleccione **Guardar** para crear la nueva lista de frases.
 
-1. Etiquete la entidad `Order` en las expresiones restantes junto con la entidad size. Los corchetes en el texto indican la entidad `Order` etiquetada y la entidad `Size` en su interior.
+    Esta característica lista de frases ayuda a la subentidad `Size` a buscar palabras relacionadas con el tamaño al proporcionarle palabras de ejemplo. Esta lista de frases no necesita incluir cada palabra de tamaño, pero debe incluir palabras que se espera que indiquen tamaño.
 
-    |Expresiones de pedido de ejemplo|
-    |--|
-    |`can i get [a pepperoni pizza and a can of coke] please`|
-    |`can i get [a [small] pizza with onions peppers and olives]`|
-    |`[delivery for a [small] pepperoni pizza]`|
-    |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
+### <a name="add-sizelist-entity"></a>Incorporación de la entidad SizeList
 
-    ![Cree la entidad y las subentidades en todas las expresiones de ejemplo restantes.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
+Agregar una lista de tamaños conocidos que la aplicación cliente reconoce, ayudará también a la extracción.
 
-    > [!CAUTION]
-    > ¿Cómo se tratan los datos implícitos, como la letra `a`, que implican una única pizza? ¿O la falta de `pickup` y `delivery` para indicar dónde se espera la pizza? ¿O la falta de un tamaño para indicar el tamaño predeterminado o pequeño o grande? Considere la posibilidad de tratar los datos implícitos como parte de las reglas de negocio en la aplicación cliente, en lugar o además de LUIS.
+1. Seleccione **Entidades** en el menú de la izquierda y, a continuación, seleccione **+ Crear**.
 
-1. Para entrenar la aplicación, seleccione **Entrenar**. El entrenamiento aplica los cambios, como las nuevas entidades y las expresiones etiquetadas, al modelo activo.
+1. Establezca el nombre de la entidad como `SizeListentity` para que sea fácil de identificar cuando se compare con la lista `SizePhraselist` creada en la sección anterior.
 
-1. Después del entrenamiento, agregue una nueva expresión de ejemplo a la intención para ver el grado en que LUIS entiende la entidad de aprendizaje automático.
+1. Agregue los tamaños que espera la aplicación cliente: `Small`, `Medium`, `Large` y `XLarge`, a continuación, agregue sinónimos para cada uno. Los sinónimos deben ser los términos que un usuario escribe en el bot de chat. La entidad se extrae con una entidad de lista cuando coincide exactamente con el valor normalizado o con los sinónimos.
+
+    |Valor normalizado|Sinónimos|
+    |--|--|
+    |Pequeña|P, pq, mini, mínima|
+    |Media|M, md, normal, mediana|
+    |grande|G, gr, maxi|
+    |XGrande|XG, familiar, extra|
+
+
+    > [!div class="mx-imgBorder"]
+    > ![Agregar estructura a la entidad](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+
+### <a name="add-feature-of-sizelist-entity"></a>Incorporación de la característica de la entidad SizeList
+
+1. Seleccione **Entidades** en el menú de la izquierda para volver a la lista de entidades.
+
+1. Seleccione **Order** (Pedido) en la lista de entidades.
+
+1. En la pestaña **Schema and features** (Esquema y características), seleccione la entidad **Size** (Tamaño) y, a continuación, seleccione **+ Add feature** (Agregar característica).
+
+1. Seleccione **@ SizeList** en la lista desplegable.
+
+<a name="add-prebuilt-number-entity-to-app"></a>
+
+### <a name="add-prebuilt-number-entity"></a>Incorporación de una entidad numérica precompilada
+
+Agregar una entidad de número precompilada también ayudará a la extracción.
+
+1. Seleccione **Entidades** en el menú de la izquierda y, a continuación, seleccione **+ Agregar entidad predefinida**.
+
+1. Seleccione **Número** en la lista y, a continuación, seleccione **Listo**.
+
+1. Seleccione **Entidades** en el menú de la izquierda para volver a la lista de entidades.
+
+### <a name="add-feature-of-prebuilt-number-entity"></a>Incorporación de la característica de entidad de número precompilada
+
+1. Seleccione **Order** (Pedido) en la lista de entidades.
+
+1. En la pestaña **Schema and features** (Esquema y características), seleccione la entidad **Quantity** (Cantidad) y, a continuación, seleccione **+ Add feature** (Agregar característica).
+
+1. Seleccione **@ number** en la lista desplegable.
+
+<a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
+
+## <a name="configure-required-features"></a>Configuración de las características necesarias
+
+En la página de detalles de la entidad para la entidad **Order** (Pedido), seleccione el asterisco, `*`, para las características **@ SizeList** y **@ number**. El asterisco aparece en la misma etiqueta que el nombre de la característica.
+
+> [!div class="mx-imgBorder"]
+> ![Agregar estructura a la entidad](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+
+<a name="label-text-as-entities-in-example-utterances"></a>
+<a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
+
+## <a name="label-example-utterances"></a>Expresiones de ejemplo de etiqueta
+
+Se crea la entidad de aprendizaje automático, y las subentidades tienen características. Para completar la mejora de la extracción, las expresiones de ejemplo tienen que etiquetarse con las subentidades.
+
+1. Seleccione **Intenciones** desde el panel de navegación de la izquierda y, a continuación, seleccione la intención **OrderPizza**.
+
+1. Para abrir la **Paleta de entidades**, seleccione el símbolo **@** en la barra de herramientas contextual.
+
+1. Seleccione cada fila de entidad en la paleta y, a continuación, use el cursor de la paleta para seleccionar la entidad en cada expresión de ejemplo. Cuando haya terminado, la lista de entidades debe tener un aspecto similar al de la siguiente imagen.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla parcial de la configuración de la característica necesaria](media/tutorial-machine-learned-entity/labeled-example-utterances-for-machine-learned-entity.png)
+
+## <a name="train-the-app"></a>Entrenamiento de la aplicación
+
+Para entrenar la aplicación, seleccione **Entrenar**. El entrenamiento aplica los cambios, como las nuevas entidades y las expresiones etiquetadas, al modelo activo.
+
+## <a name="add-a-new-example-utterance"></a>Incorporación de una nueva expresión de ejemplo
+
+1. Después del entrenamiento, agregue una nueva expresión de ejemplo a la intención `OrderPizza` para ver el grado en que LUIS entiende la entidad de aprendizaje automático.
 
     |Expresión de pedido de ejemplo|
     |--|
-    |`pickup XL meat lovers pizza`|
+    |`I need a large pepperoni pizza`|
 
     La entidad superior general, `Order`, está etiquetada, y la subentidad `Size` también está etiquetada con líneas punteadas.
 
-    ![Nueva expresión de ejemplo predicha con la entidad](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla parcial de la nueva expresión de ejemplo prevista con la entidad](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-    La línea de puntos indica la predicción.
+    La línea de puntos indica la predicción basada en la aplicación entrenada actual.
 
-1. Para cambiar la predicción por una entidad etiquetada, seleccione la fila y, a continuación, seleccione **Confirm entity predictions** (Confirmar predicciones de entidad).
+1. Para cambiar la predicción a una entidad etiquetada, seleccione la marca de verificación en la misma fila.
 
-    ![Para aceptar la predicción, seleccione Confirm entity prediction.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla parcial de la nueva expresión de ejemplo prevista con la entidad](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     En este momento, la entidad de aprendizaje automático funciona porque puede encontrar la entidad dentro de una nueva expresión de ejemplo. Al agregar expresiones de ejemplo, si la entidad no se predice correctamente, etiquete la entidad y las subentidades. Si la entidad se predice correctamente, asegúrese de confirmar las predicciones.
 
 
-<a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
-
-## <a name="add-subentity-with-feature-of-prebuilt-entity"></a>Adición de subentidad con característica de entidad precompilada
-
-La información del pedido también debe incluir la cantidad de un elemento del pedido, como el número de pizzas. Para extraer estos datos, es necesario agregar una nueva subentidad con aprendizaje automático a `Order`, y esa subentidad necesita una característica obligatoria de un número precompilado. Al usar una característica de una entidad precompilada para un número precompilado, la entidad buscará y extraerá números si el texto es una cifra, `2`, o texto, `two`.
-
-## <a name="add-prebuilt-number-entity-to-app"></a>Adición de la entidad numérica creada previamente a la aplicación
-La información del pedido también debe incluir el número de elementos del pedido, como el número de pizzas. Para extraer estos datos, es necesario agregar un nuevo subcomponente con aprendizaje automático a `Order`, y ese componente necesita una característica obligatoria de un número predefinido. Al restringir la entidad a un número predefinido, la entidad buscará y extraerá números si el texto es una cifra o, `2`, o texto, `two`.
-
-Comience agregando a la aplicación la entidad numérica precompilada.
-
-1. Seleccione **Entidades** en el menú de la izquierda y, a continuación, seleccione **+ Agregar entidad predefinida**.
-
-1. En el cuadro **Agregar entidades predefinidas**, busque y seleccione **número** y, a continuación, seleccione **Listo**.
-
-    ![Incorporación de entidad precompilada](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
-
-    La entidad precompilada se ha agregado a la aplicación, pero aún no es una característica.
-
-## <a name="create-subentity-entity-with-required-feature-to-help-extract-data"></a>Creación de una entidad de subentidad con característica obligatoria para ayudar a extraer datos
-
-La entidad `Order` debe tener una subentidad `Quantity` para determinar qué cantidad de un elemento hay en el pedido. La cantidad debe usar una característica obligatoria de un número precompilado, con el fin de que los datos extraídos estén disponibles inmediatamente para la aplicación cliente por nombre.
-
-Una característica obligatoria se aplica como una coincidencia de texto, ya sea con coincidencia exacta (como una entidad de lista) o a través de expresiones regulares (como una entidad de expresión regular o una entidad precompilada).
-
-Al usar una entidad sin aprendizaje automático como característica, solo se extrae el texto que coincide.
-
-1. Seleccione **Entidades** y seleccione la entidad `Order`.
-1. Seleccione **+ Agregar entidad**, a continuación, escriba el nombre `Quantity` y presione Entrar para agregar la nueva subentidad a la entidad `Order`.
-1. Después de la notificación correcta, en **Opciones avanzadas** y seleccione el lápiz de Restricción.
-1. En la lista desplegable, seleccione el número predefinido.
-
-    ![Cree una entidad quantity con un número predefinido como restricción.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
-
-    La entidad `Quantity` se aplica cuando el texto coincide con la entidad de número pregenerada.
-
-    La entidad con la característica obligatoria se ha creado, pero aún no se aplica a las expresiones de ejemplo.
-
-    > [!NOTE]
-    > Una subentidad puede estar anidada hasta 5 niveles dentro de una subentidad. Aunque esto no se muestra en este artículo, está disponible en el portal y la API.
-
-## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Expresión de etiqueta de ejemplo para enseñar a LUIS la entidad
-
-1. Seleccione **Intenciones** desde el panel de navegación de la izquierda y, a continuación, seleccione **OrderPizza**. Los tres números de las siguientes expresiones se han etiquetado, pero se muestran visualmente debajo de la línea de entidad `Order`. Este nivel inferior significa que se han encontrado las entidades, pero que no se consideran parte de la entidad `Order`.
-
-    ![El número predefinido se ha encontrado, pero no se considera aparte de la entidad Order todavía.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
-
-1. Para etiquetar los números con la entidad `Quantity`, seleccione `2` en la expresión de ejemplo y seleccione `Quantity` de la lista. Etiquete el `6` y el `1` en la misma expresión de ejemplo.
-
-    ![Etiquete el texto con la entidad quantity.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)
-
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Entrenamiento de la aplicación para aplicar los cambios de la entidad a la aplicación
 
-Seleccione **Entrenar** para entrenar la aplicación con estas nuevas expresiones. Después del entrenamiento, la subentidad `Quantity` se predice correctamente en la entidad `Order`. Esta predicción correcta se indica con una línea continua.
-
-![Entrene la aplicación y revise las expresiones de ejemplo.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
+Seleccione **Entrenar** para entrenar la aplicación con esta nueva expresión.
 
 En este momento, el pedido tiene algunos detalles que se pueden extraer (tamaño, cantidad y texto total del pedido). Hay más refinamientos de la entidad `Order`, como los ingredientes de la pizza, el tipo de corteza y los pedidos secundarios. Cada uno debe crearse como subentidad de la entidad `Order`.
 
 ## <a name="test-the-app-to-validate-the-changes"></a>Prueba de la aplicación para validar los cambios
 
-Pruebe la aplicación mediante el panel **Prueba** interactivo. Este proceso permite especificar una nueva expresión y, a continuación, ver los resultados de la predicción para ver el funcionamiento de la aplicación activa y entrenada. La predicción de intención debe ser bastante segura (por encima del 70 %), y la extracción de entidades debe recoger al menos la entidad `Order`. Puede que falten los detalles de la entidad Order porque 5 expresiones no bastan para controlar cada caso.
+Pruebe la aplicación mediante el panel **Prueba** interactivo. Este proceso permite especificar una nueva expresión y, a continuación, ver los resultados de la predicción para ver el funcionamiento de la aplicación entrenada en activo. La predicción de intención debe ser bastante segura (por encima del 60 %), y la extracción de entidades debe recoger al menos la entidad `Order`. Puede que falten los detalles de la entidad Order porque estas pocas expresiones no bastan para administrar cada caso.
 
 1. Seleccione **Test** (Prueba) en la barra de navegación superior.
-1. Escriba la expresión `deliver a medium veggie pizza` y presione Entrar. El modelo activo predijo la intención correcta con más del 70 % de confianza.
+1. Escriba la expresión `2 small cheese pizzas for pickup` y presione Entrar. El modelo activo predijo la intención correcta con más del 60 % de confianza.
 
-    ![Escriba una nueva expresión para probar la intención.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance.png)
 
 1. Seleccione **Inspeccionar** para ver las predicciones de la entidad.
 
-    ![Vea las predicciones de la entidad en el panel de prueba interactivo.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla parcial de vista de las predicciones de la entidad en el panel de prueba interactivo.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    El tamaño se identificó correctamente. Recuerde que las expresiones de ejemplo en la intención `OrderPizza` no tienen un ejemplo de `medium` como tamaño, sino que usan una característica de una lista de frases de `SizeFeature` que incluye medium.
-
-    La cantidad no se predice correctamente. Para corregir este error en la aplicación cliente utilice como tamaño predeterminado el uno (1) si no se devuelve ningún tamaño en la predicción de LUIS.
+<a name="publish-with-sentiment-analysis"></a>
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicación de la aplicación para tener acceso a ella desde el punto de conexión HTTP
 
-[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+Para recibir una predicción de LUIS en un bot de chat u otra aplicación cliente, tiene que publicar la aplicación en el punto de conexión.
+
+1. Seleccione **Publish** (Publicar) en el panel de navegación superior derecho.
+
+    ![Captura de pantalla del botón de publicación en el punto de conexión de LUIS del menú superior derecho](./media/howto-publish/publish-button.png)
+
+1. Seleccione el espacio de **Producción** y luego **Cambiar la configuración**, seleccione **Análisis de sentimiento** y, a continuación, **Listo**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la publicación de LUIS en el punto de conexión](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
+
+1. Seleccione el vínculo **Access your endpoint URLs** (Acceder a las direcciones URL del punto de conexión) de la notificación para ir a la página **Azure Resources** (Recursos de Azure). Las direcciones URL del punto de conexión se muestran como **Example Query** (Ejemplo de consulta).
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Obtención de la intención y la predicción de la entidad desde el punto de conexión HTTP
 
@@ -221,13 +247,13 @@ Pruebe la aplicación mediante el panel **Prueba** interactivo. Este proceso per
 
 1. Vaya al final de la dirección URL en la barra de direcciones sustituya _YOUR_QUERY_HERE_ por la misma consulta que especificó en el panel de prueba interactivo.
 
-    `deliver a medium veggie pizza`
+    `2 small cheese pizzas for pickup`
 
     El último parámetro de la cadena de consulta es `query`, la expresión **query**.
 
     ```json
     {
-        "query": "deliver a medium veggie pizza",
+        "query": "2 small cheese pizzas for pickup",
         "prediction": {
             "topIntent": "OrderPizza",
             "intents": {
@@ -248,44 +274,19 @@ Pruebe la aplicación mediante el panel **Prueba** interactivo. Este proceso per
                 "Order": [
                     {
                         "Size": [
-                            "medium"
+                            "small"
                         ],
-                        "$instance": {
-                            "Size": [
-                                {
-                                    "type": "Size",
-                                    "text": "medium",
-                                    "startIndex": 10,
-                                    "length": 6,
-                                    "score": 0.9955588,
-                                    "modelTypeId": 1,
-                                    "modelType": "Entity Extractor",
-                                    "recognitionSources": [
-                                        "model"
-                                    ]
-                                }
-                            ]
-                        }
+                        "Quantity": [
+                            2
+                        ]
                     }
-                ],
-                "$instance": {
-                    "Order": [
-                        {
-                            "type": "Order",
-                            "text": "a medium veggie pizza",
-                            "startIndex": 8,
-                            "length": 21,
-                            "score": 0.7983857,
-                            "modelTypeId": 1,
-                            "modelType": "Entity Extractor",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
-                    ]
-                }
+                ]
             }
-        }
+        },
+        "sentimentAnalysis":{
+            "label":"neutral",
+            "score":0.98
+       }
     }
     ```
 
@@ -303,7 +304,7 @@ Pruebe la aplicación mediante el panel **Prueba** interactivo. Este proceso per
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, la aplicación usa una entidad de aprendizaje automático para encontrar la intención de la expresión de un usuario y extraer los detalles de esa expresión. El uso de la entidad de aprendizaje automático permite descomponer los detalles de la entidad.
+En este tutorial, la aplicación usa una entidad de aprendizaje automático para encontrar la intención de una expresión de usuario y extraer los detalles de esa expresión. El uso de la entidad de aprendizaje automático permite descomponer los detalles de la entidad.
 
 > [!div class="nextstepaction"]
 > [Incorporación de una entidad keyphrase precompilada](luis-quickstart-intent-and-key-phrase.md)

@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 61d401a543032b1a206a4477f04d7e8e209c0f2a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77525896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646599"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Inicio rápido: Configuración de una instancia de Geo Artificial Intelligence Virtual Machine en Azure 
 
@@ -21,15 +21,15 @@ Geo AI Data Science Virtual Machine (Geo-DSVM) es una extensión de la conocida 
 
 Las herramientas de inteligencia artificial que se incluyen en Geo-DSVM son las siguientes:
 
-- Ediciones de GPU de plataformas de aprendizaje profundo conocidas, como Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2 y Chainer.
-- Herramientas para adquirir y preprocesar imágenes y datos de texto.
-- Herramientas para actividades de desarrollo, como Microsoft Machine Learning Server Developer Edition, Anaconda Python, cuadernos de Jupyter para Python y R, IDE para Python y R, y bases de datos SQL.
-- Software de escritorio ArcGIS Pro de ESRI junto con interfaces de Python y R que pueden trabajar con los datos geoespaciales de sus aplicaciones de inteligencia artificial.
+- Ediciones de GPU de plataformas de aprendizaje profundo conocidas, como Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2 y Chainer
+- Herramientas para adquirir y preprocesar imágenes y datos de texto
+- Herramientas para actividades de desarrollo, como Microsoft Machine Learning Server Developer Edition, Anaconda Python, cuadernos de Jupyter para Python y R, IDE para Python y R, y bases de datos SQL
+- Software de escritorio ArcGIS Pro de Esri junto con interfaces de Python y R que pueden trabajar con los datos geoespaciales de sus aplicaciones de inteligencia artificial
  
 
-## <a name="create-your-geo-ai-data-science-vm"></a>Creación de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
+## <a name="create-your-geo-ai-data-science-vm"></a>Creación de una instancia de Geo AI Data Science Virtual Machine
 
-Para crear una instancia de Geo AI Data Science VM, siga estos pasos:
+Para crear una instancia de Geo AI Data Science Virtual Machine, siga estos pasos:
 
 1. Vaya al listado de máquinas virtuales en [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 1. Seleccione **Crear** en la parte inferior para generar un asistente:
@@ -62,7 +62,7 @@ Para crear una instancia de Geo AI Data Science VM, siga estos pasos:
 **Comprar**: Para iniciar el proceso de aprovisionamiento, haga clic en **Comprar**. Se proporciona un vínculo a los términos del servicio. No se generan cargos adicionales por el uso de la máquina virtual a excepción de los relativos al proceso por el tamaño de servidor elegido en el paso **Tamaño**. 
  
  >[!NOTE]
- > El aprovisionamiento tardará entre 20 y 30 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
+ > El aprovisionamiento tardará entre 20 y 30 minutos. El estado del aprovisionamiento se muestra en Azure Portal.
 
  
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Acceso a la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine
@@ -80,7 +80,7 @@ En caso contrario, puede registrarse para obtener una nueva cuenta y licencia de
 
 ![Evaluación-gratuita-ArcGIS](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Después de registrarse para obtener una cuenta estándar o de evaluación gratuita ArcGIS, puede conceder autorización a ArcGIS Pro sobre su cuenta mediante las instrucciones de [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf) (Introducción a ArcGIS Pro).
+Después de registrarse para obtener una cuenta estándar o de evaluación gratuita ArcGIS, puede conceder autorización a ArcGIS Pro sobre su cuenta mediante las instrucciones que encontrará en la [introducción a ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf).
 
 Después de iniciar sesión en el escritorio ArcGIS Pro con su cuenta de ArcGIS, está listo para empezar a usar las herramientas de ciencia de datos instaladas y configuradas en la máquina virtual para sus proyectos de análisis geoespacial y aprendizaje automático.
 
@@ -88,4 +88,4 @@ Después de iniciar sesión en el escritorio ArcGIS Pro con su cuenta de ArcGIS,
 
 Empiece a usar Geo AI Data Science VM con ayuda del siguiente recurso:
 
-* [Use the Geo AI Data Science VM](use-geo-ai-dsvm.md) (Uso de la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial)
+* [Uso de la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine](use-geo-ai-dsvm.md)

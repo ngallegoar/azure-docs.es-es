@@ -3,18 +3,18 @@ title: 'Tutorial: Acceso a la nube privada'
 description: Acceso a una nube privada de Azure VMware Solution (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: fcee332818c89d9c8b00795dca9e74f68260eefd
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739590"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873598"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Tutorial: Acceso a una nube privada de Azure VMware Solution (AVS)
 
 Durante la versión preliminar, AVS no permite administrar la nube privada con la instancia local de vCenter. Tendrá que conectar y configurar adicionalmente una instancia local de vCenter mediante un JumpBox. 
 
-En este tutorial, creará una máquina virtual Windows para un JumpBox en el grupo de recursos que creó en el tutorial anterior [Tutorial: Configuración de redes para la nube privada de VMWare en Azure](tutorial-configure-networking.md) e iniciará sesión en vCenter. Se trata de una máquina virtual que se encuentra en la misma red virtual que ha creado y que proporciona acceso al administrador NSX y vCenter. 
+En este tutorial, creará una máquina virtual Windows para un JumpBox en el grupo de recursos que creó en el tutorial anterior [Tutorial: Configuración de redes para la nube privada de VMware en Azure](tutorial-configure-networking.md) e inicie sesión en vCenter. Se trata de una máquina virtual que se encuentra en la misma red virtual que ha creado y que proporciona acceso al administrador NSX y vCenter. 
 
 En este tutorial, aprenderá a:
 

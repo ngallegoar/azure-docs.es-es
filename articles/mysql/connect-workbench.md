@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/18/2020
-ms.openlocfilehash: 95a3c9e81bfc1d3b010027e628204666c472d1da
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 5/26/2020
+ms.openlocfilehash: 1e2dd26e2b954bebd7bac15991b2b5aef9def88d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "81731872"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870042"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de MySQL Workbench para conectarse a los datos y consultarlos
 En esta guía de inicio rápido se muestra cómo conectarse a Azure Database for MySQL mediante la aplicación MySQL Workbench. 
@@ -21,6 +21,9 @@ En esta guía de inicio rápido se muestra cómo conectarse a Azure Database for
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
+
+> [!IMPORTANT] 
+> Asegúrese de que a la dirección IP desde la que se conecta se le han agregado las reglas de firewall del servidor desde [Azure Portal](./howto-manage-firewall-using-portal.md) o la [CLI de Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-mysql-workbench"></a>Instalación de MySQL Workbench
 Descargue e instale MySQL Workbench en el equipo desde [el sitio web de MySQL](https://dev.mysql.com/downloads/workbench/).
@@ -44,16 +47,16 @@ Para conectarse al servidor Azure MySQL mediante la herramienta MySQL Workbench 
 
 2.    En el cuadro de diálogo **Setup New Connection** (Establecer nueva conexión), escriba la siguiente información en la pestaña **Parámetros**:
 
-    ![Configuración de una conexión nueva](./media/connect-workbench/2-setup-new-connection.png)
-    
-   | **Configuración** | **Valor sugerido** | **Descripción del campo** |
-   |---|---|---|
-   |    Nombre de la conexión | Conexión de demostración | Especifique una etiqueta para esta conexión. |
-   | Método de conexión | Estándar (TCP/IP) | Estándar (TCP/IP) es suficiente. |
-   | Hostname | *nombre del servidor* | Especifique el valor de nombre de servidor que se usó cuando creó el servidor de Azure Database for MySQL. Nuestro servidor de ejemplo es mydemoserver.mysql.database.azure.com. Use el nombre de dominio completo (\*.mysql.database.azure.com) tal como se muestra en el ejemplo. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre del servidor.  |
-   | Port | 3306 | Utilice siempre el puerto 3306 para conectarse a Azure Database for MySQL. |
-   | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor de nombre de inicio de sesión del administrador del servidor que se usó al crear el servidor de Azure Database for MySQL. El nombre de usuario de nuestro ejemplo es myadmin@mydemoserver. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre de usuario. El formato es *nombre de usuario\@nombre de servidor*.
-   | Contraseña | la contraseña | Haga clic en el botón **Store in Vault...** (Almacenar en el almacén) para guardar la contraseña. |
+![Configuración de una conexión nueva](./media/connect-workbench/2-setup-new-connection.png)
+
+| **Configuración** | **Valor sugerido** | **Descripción del campo** |
+|---|---|---|
+|    Nombre de la conexión | Conexión de demostración | Especifique una etiqueta para esta conexión. |
+| Método de conexión | Estándar (TCP/IP) | Estándar (TCP/IP) es suficiente. |
+| Hostname | *nombre del servidor* | Especifique el valor de nombre de servidor que se usó cuando creó el servidor de Azure Database for MySQL. Nuestro servidor de ejemplo es mydemoserver.mysql.database.azure.com. Use el nombre de dominio completo (\*.mysql.database.azure.com) tal como se muestra en el ejemplo. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre del servidor.  |
+| Port | 3306 | Utilice siempre el puerto 3306 para conectarse a Azure Database for MySQL. |
+| Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor de nombre de inicio de sesión del administrador del servidor que se usó al crear el servidor de Azure Database for MySQL. El nombre de usuario de nuestro ejemplo es myadmin@mydemoserver. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre de usuario. El formato es *nombre de usuario\@nombre de servidor*.
+| Contraseña | la contraseña | Haga clic en el botón **Store in Vault...** (Almacenar en el almacén) para guardar la contraseña. |
 
 3.   Haga clic en **Probar conexión** para probar si todos los parámetros están configurados correctamente. 
 

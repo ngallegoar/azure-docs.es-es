@@ -8,40 +8,38 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: d366195f9cd72e6baa88c17203ae93cbbc6cbe6a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3bb31c36e8c614a72b86f95cb7e7d1c588692f97
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475542"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873076"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Guía de inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Node.js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Node.js
 
-Use esta guía de inicio rápido para empezar a enviar solicitudes a Bing Local Business Search API, que es un servicio de Azure Cognitive Services. Si bien esta aplicación sencilla está escrita en Node.js, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
+Use este inicio rápido para aprender a enviar solicitudes a la API Bing Local Business Search, que es un servicio de Azure Cognitive Services. Aunque esta aplicación sencilla está escrita en Node.js, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
 
-Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para la consulta de búsqueda `hotel in Bellevue`.
+Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para una consulta de búsqueda.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La última versión de [Node.js](https://nodejs.org/en/download/).
-
 * La [biblioteca de solicitudes de JavaScript](https://github.com/request/request).
+* Una [cuenta de API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con las API Bing Search. Para este inicio rápido, la [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente. Guarde la clave de API que se proporciona al activar la evaluación gratuita. Para más información, consulte [Precios de Cognitive Services: API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con las API de Bing. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Utilice la clave de acceso proporcionada por la evaluación gratuita.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="code-scenario"></a>Escenario de código
 
-El código siguiente obtiene, define y envía la solicitud. Se implementa en los pasos siguientes:
+El código siguiente define y envía la solicitud, que se implementa en los pasos a continuación:
 
 1. Declare las variables para especificar el punto de conexión por host y ruta de acceso.
 2. Especifique la consulta y agregue el parámetro de consulta.
 3. Cree una función de controlador para la respuesta.
-4. Defina la función de búsqueda que crea la solicitud y agrega el encabezado Ocp-Apim-Subscription-Key.
+4. Defina la función de búsqueda que crea la solicitud y agrega el encabezado `Ocp-Apim-Subscription-Key`.
 5. Ejecute la función Search.
 
-Este es el código completo de esta demostración:
 
 ```javascript
 'use strict';
@@ -94,6 +92,6 @@ Search();
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Guía de inicio rápido de Local Business Search](local-quickstart.md)
+* [Inicio rápido de Local Business Search para C#](local-quickstart.md)
 * [Guía de inicio rápido de Local Business Search para Java](local-search-java-quickstart.md)
 * [Guía de inicio rápido de Local Business Search para Python](local-search-python-quickstart.md)

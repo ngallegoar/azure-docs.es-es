@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332545"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739106"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Un usuario con una cuenta de consumidor puede iniciar sesión con varias identid
 
 ![Identidades de cuenta de consumidor](media/technical-overview/identities.png)<br/>*Ilustración: Una sola cuenta de consumidor con varias identidades en Azure AD B2C*
 
-Azure AD B2C permite administrar atributos comunes de los perfiles de la cuenta de consumidor, como el nombre para mostrar, el apellido, el nombre dado, la ciudad y otros. También se puede ampliar el esquema de Azure AD para almacenar información adicional sobre los usuarios. Por ejemplo, su país o residencia, el idioma preferido y las preferencias, por ejemplo, si quieren suscribirse a un boletín o habilitar la autenticación multifactor.
+Azure AD B2C permite administrar atributos comunes de los perfiles de la cuenta de consumidor, como el nombre para mostrar, el apellido, el nombre dado, la ciudad y otros. También se puede ampliar el esquema de Azure AD para almacenar información adicional sobre los usuarios. Por ejemplo, su país/región o residencia, el idioma preferido y las preferencias, por ejemplo, si quieren suscribirse a un boletín o habilitar la autenticación multifactor.
 
 Más información sobre los tipos de cuentas de usuario en Azure AD B2C en [Introducción a las cuentas de usuario en Azure Active Directory B2C](user-overview.md).
 
@@ -100,7 +100,7 @@ Para ayudarle a configurar rápidamente las tareas más comunes de identidad, Az
 Puede configurar valores de flujo de usuario como estos para controlar los comportamientos de la experiencia de identidad en las aplicaciones:
 
 * Los tipos de cuenta usados para el inicio de sesión, como cuentas de redes sociales (por ejemplo, Facebook), o cuentas locales que usan una dirección de correo electrónico y una contraseña para el inicio de sesión.
-* Los atributos que se recopilan del consumidor, como el nombre, el código postal o el país de residencia.
+* Los atributos que se recopilan del consumidor, como el nombre, el código postal o el país o región de residencia.
 * Azure Multi-Factor Authentication (MFA)
 * Personalización de la interfaz de usuario
 * El conjunto de notificaciones en un token que recibe la aplicación después de que el usuario completa el flujo de usuario.

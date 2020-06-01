@@ -6,47 +6,101 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: trbye, jmartens, larryfr, vaidyas
-ms.author: vaidyas
-author: vaidya-s
-ms.date: 01/15/2020
-ms.custom: Ignite2019
-ms.openlocfilehash: 3d283d1094336b928869aa281b4a640d7a62dd94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.reviewer: trbye, jmartens, larryfr
+ms.author: tracych
+author: tracychms
+ms.date: 04/15/2020
+ms.custom: Build2020
+ms.openlocfilehash: 058cdaa77a38dcb45164e01a54e73218b469940b
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79477194"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860960"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Ejecución de la inferencia por lotes en grandes cantidades de datos mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Aprenda a procesar grandes cantidades de datos de forma asincrónica y en paralelo mediante Azure Machine Learning. La funcionalidad ParallelRunStep que se describe aquí se encuentra en versión preliminar pública. Se trata de un método de alto rendimiento y alta capacidad de proceso para generar inferencias y datos para el procesamiento. Proporciona funcionalidades asincrónicas listas para su uso.
+Obtenga información sobre cómo ejecutar una inferencia por lotes en grandes cantidades de datos de forma asincrónica y en paralelo con Azure Machine Learning. ParallelRunStep proporciona funcionalidades de paralelismo de serie.
 
-Con ParallelRunStep es sencillo escalar inferencias sin conexión a grandes clústeres de máquinas en terabytes de datos de producción, lo que aumenta la productividad y optimiza el costo.
+Con ParallelRunStep, es sencillo escalar inferencias sin conexión a grandes clústeres de máquinas en terabytes de datos estructurados o no estructurados, lo que aumenta la productividad y optimiza el costo.
 
 En este artículo, obtendrá información sobre las siguientes tareas:
 
-> * Crear un recurso de proceso remoto.
-> * Escribir un script de inferencia personalizado.
-> * Crear una [canalización de Machine Learning](concept-ml-pipelines.md) para registrar un modelo de clasificación de imágenes previamente entrenado basado en el conjunto de datos de [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/). 
-> * Usar el modelo para ejecutar la inferencia por lotes en las imágenes de ejemplo disponibles en la cuenta de Azure Blob Storage. 
+> * Configurar los recursos de aprendizaje automático.
+> * Configurar las entradas y salidas de datos de inferencia por lotes.
+> * Preparar el modelo de clasificación de imágenes previamente entrenado basado en el conjunto de datos de [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/). 
+> * Escriba el script de inferencia.
+> * Cree una [canalización de aprendizaje automático](concept-ml-pipelines.md) que contenga ParallelRunStep y ejecute la inferencia por lotes en las imágenes de prueba de MNIST. 
+> * Vuelva a enviar una ejecución de inferencia por lotes con nuevos parámetros y entrada de datos. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para un inicio rápido guiado, complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning o una máquina virtual de cuadernos. 
+* Para un inicio rápido guiado, complete el [tutorial de instalación](tutorial-1st-experiment-sdk-setup.md) si aún no tiene un área de trabajo de Azure Machine Learning. 
 
-* Para administrar el entorno y las dependencias propias, consulte la [guía paso a paso](how-to-configure-environment.md) sobre la configuración del entorno propio. Ejecute `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` en su entorno para descargar las dependencias necesarias.
+* Para administrar el entorno y las dependencias propias, consulte la [guía paso a paso](how-to-configure-environment.md) sobre la configuración de su propio entorno local.
 
 ## <a name="set-up-machine-learning-resources"></a>Configurar los recursos de aprendizaje automático
 
-Las siguientes acciones configuran los recursos necesarios para ejecutar una canalización de inferencias por lotes:
+Las siguientes acciones configuran los recursos de aprendizaje automático necesarios que necesita para ejecutar una canalización de inferencias por lotes:
 
-- Cree un almacén de datos que apunte a un contenedor de blobs que tenga imágenes para inferencia.
-- Configure referencias de datos como entradas y salidas para el paso de la canalización de inferencias por lotes.
-- Configure un clúster de proceso para ejecutar el paso de inferencia por lotes.
+- Conexión a un área de trabajo.
+- Creación o asociación de un recurso de proceso existente.
+
+### <a name="configure-workspace"></a>Configuración del área de trabajo
+
+Cree un objeto de área de trabajo desde el área de trabajo existente. `Workspace.from_config()` lee el archivo config.json y carga los detalles en un objeto denominado ws.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+> [!IMPORTANT]
+> Este fragmento de código espera que la configuración del área de trabajo se guarde en el directorio actual o en su elemento primario. Para más información sobre cómo crear un área de trabajo, consulte [Creación y administración de áreas de trabajo de Azure Machine Learning](how-to-manage-workspace.md). Para más información sobre cómo guardar la configuración en un archivo, consulte [Creación de un archivo de configuración de área de trabajo](how-to-configure-environment.md#workspace).
+
+### <a name="create-a-compute-target"></a>Creación de un destino de proceso
+
+En Azure Machine Learning, el *proceso* (o *destino de proceso*) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Ejecute el código siguiente para crear un destino [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) basado en CPU.
+
+```python
+from azureml.core.compute import AmlCompute, ComputeTarget
+from azureml.core.compute_target import ComputeTargetException
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
+
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
+    print('creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
+
+    # create the cluster
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # can poll for a minimum number of nodes and for a specific timeout. 
+    # if no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
+```
+
+## <a name="configure-inputs-and-output"></a>Configuración de las entradas y salidas
 
 ### <a name="create-a-datastore-with-sample-images"></a>Creación de un almacén de datos con imágenes de ejemplo
 
@@ -76,25 +130,13 @@ Cuando cree su área de trabajo, [Azure Files](https://docs.microsoft.com/azure/
 def_data_store = ws.get_default_datastore()
 ```
 
-### <a name="configure-data-inputs-and-outputs"></a>Configuración de las entradas y salidas de datos
+### <a name="create-the-data-inputs"></a>Creación de las entradas de datos
 
-Ahora debe configurar las entradas y salidas de datos, entre las que se incluyen:
+Las entradas de la inferencia por lotes son los datos que desea dividir en particiones para el procesamiento en paralelo. Una canalización de inferencia por lotes acepta entradas de datos con [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
 
-- directorio que contiene las imágenes de entrada.
-- El directorio en el que se almacena el modelo previamente entrenado.
-- El directorio que contiene las etiquetas.
-- El directorio de salida.
-
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) es una clase para explorar, transformar y administrar datos en Azure Machine Learning. Esta clase tiene dos tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) y [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). En este ejemplo usará `FileDataset` como entradas para el paso de canalización de inferencias por lotes. 
-
-> [!NOTE] 
-> Por ahora, la compatibilidad con `FileDataset` en la inferencia por lotes está restringida a Azure Blob Storage. 
-
-También puede hacer referencia a otros conjuntos de datos del script de inferencia personalizado. Por ejemplo, puede utilizarlo para acceder a las etiquetas del script para etiquetar las imágenes mediante `Dataset.register` y `Dataset.get_by_name`.
+`Dataset` es una clase para explorar, transformar y administrar datos en Azure Machine Learning. Hay dos tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) y [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). En este ejemplo, se usa `FileDataset` como entradas. `FileDataset` permite descargar o montar los archivos en el proceso. Al crear un conjunto de datos, se crea una referencia a la ubicación del origen de datos. Si aplicó alguna transformación de subconjunto al conjunto de datos, también se almacenará en el conjunto de datos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional.
 
 Para más información sobre los conjuntos de datos de Azure Machine Learning, consulte [Creación de conjuntos de datos y acceso a ellos (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
-
-Los objetos [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) se usan para transferir los datos intermedios entre los pasos de la canalización. En este ejemplo, se usa para las salidas de inferencia.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -103,50 +145,28 @@ mnist_ds_name = 'mnist_sample_data'
 
 path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
-registered_mnist_ds = input_mnist_ds.register(ws, mnist_ds_name, create_new_version=True)
-named_mnist_ds = registered_mnist_ds.as_named_input(mnist_ds_name)
+```
+
+Para usar entradas de datos dinámicas al ejecutar la canalización de inferencia por lotes, puede definir las entradas `Dataset` como [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). Puede especificar el conjunto de datos de entradas cada vez que vuelva a enviar una ejecución de canalización de inferencia por lotes.
+
+```python
+from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
+from azureml.pipeline.core import PipelineParameter
+
+pipeline_param = PipelineParameter(name="mnist_param", default_value=input_mnist_ds)
+input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pipeline_param).as_mount()
+```
+
+### <a name="create-the-output"></a>Creación de la salida
+
+Los objetos [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) se usan para transferir los datos intermedios entre los pasos de la canalización. En este ejemplo, se usa para la salida de la inferencia.
+
+```python
+from azureml.pipeline.core import Pipeline, PipelineData
 
 output_dir = PipelineData(name="inferences", 
                           datastore=def_data_store, 
                           output_path_on_compute="mnist/results")
-```
-
-### <a name="set-up-a-compute-target"></a>Configuración de un destino de proceso
-
-En Azure Machine Learning, el *proceso* (o *destino de proceso*) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Ejecute el código siguiente para crear un destino [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) basado en CPU.
-
-```python
-from azureml.core.compute import AmlCompute, ComputeTarget
-from azureml.core.compute_target import ComputeTargetException
-
-# choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
-compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
-
-# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
-
-
-if compute_name in ws.compute_targets:
-    compute_target = ws.compute_targets[compute_name]
-    if compute_target and type(compute_target) is AmlCompute:
-        print('found compute target. just use it. ' + compute_name)
-else:
-    print('creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes, 
-                                                                max_nodes = compute_max_nodes)
-
-    # create the cluster
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-     # For a more detailed view of current AmlCompute status, use get_status()
-    print(compute_target.get_status().serialize())
 ```
 
 ## <a name="prepare-the-model"></a>Preparar el modelo
@@ -168,7 +188,7 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
 ```
 
-Después, registre el modelo con el área de trabajo para que esté disponible para el recurso de proceso remoto.
+Después, registre el modelo con el área de trabajo de modelo que esté disponible para el recurso de proceso.
 
 ```python
 from azureml.core.model import Model
@@ -190,7 +210,7 @@ El script *debe contener* dos funciones:
 - `init()`: utilice esta función para cualquier preparación costosa o común para la inferencia posterior. Por ejemplo, para cargar el modelo en un objeto global. Solo se llamará a esta función una vez al principio del proceso.
 -  `run(mini_batch)`: la función se ejecutará para cada instancia de `mini_batch`.
     -  `mini_batch`: ParallelRunStep invocará el método run y pasará una trama de datos de Pandas o una lista como argumento al método. Cada entrada de min_batch será una ruta de acceso de archivo si la entrada es FileDataset o una trama de datos de Pandas si es TabularDataset.
-    -  `response`: el método run() debe devolver una trama de datos de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. Debe asegurarse de que se incluyen suficientes datos en el resultado de la ejecución para asignar la entrada a este. La salida de la ejecución se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que debe usar alguna clave en la salida para asignarla a la entrada.
+    -  `response`: el método run() debe devolver una trama de datos de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. Debe asegurarse de que se incluyan suficientes datos en el resultado de la ejecución para asignar la entrada al resultado de salida. La salida de la ejecución se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que debe usar alguna clave en la salida para asignarla a la entrada.
 
 ```python
 # Snippets from a sample script.
@@ -237,9 +257,7 @@ def run(mini_batch):
     return resultList
 ```
 
-### <a name="how-to-access-other-files-in-source-directory-in-entry_script"></a>Acceso a otros archivos del directorio de origen de entry_script
-
-Si tiene otro archivo o carpeta en el mismo directorio que el script de entrada, puede buscar el directorio de trabajo actual para hacer referencia a él.
+Si tiene otro archivo o carpeta en el mismo directorio que el script de inferencia, puede hacer referencia a él buscando el directorio de trabajo actual.
 
 ```python
 script_dir = os.path.realpath(os.path.join(__file__, '..',))
@@ -248,29 +266,31 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ## <a name="build-and-run-the-pipeline-containing-parallelrunstep"></a>Compilación y ejecución de la canalización que contiene ParallelRunStep
 
-Ahora ya tiene todo lo que necesita para compilar la canalización.
+Ahora tiene todo lo que necesita: las entradas de datos, el modelo, la salida y el script de inferencia. Vamos a compilar la canalización de inferencia por lotes que contiene ParallelRunStep.
 
-### <a name="prepare-the-run-environment"></a>Preparación del entorno de ejecución
+### <a name="prepare-the-environment"></a>Preparación del entorno
 
-Primero, especifique las dependencias para el script. Usará este objeto más adelante cuando cree el paso de canalización.
+Primero, especifique las dependencias para el script. De esta forma puede instalar paquetes PIP y configurar el entorno. Incluya siempre los paquetes **azureml-core** y **azureml-webprep[pandas,fuse]** .
+
+Si usa una imagen de Docker personalizada (user_managed_dependencies=true), también debe tener instalado Conda.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
+                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
 batch_env.docker.enabled = True
 batch_env.docker.base_image = DEFAULT_GPU_IMAGE
-batch_env.spark.precache_packages = False
 ```
 
-### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Especificación de los parámetros para el paso de canalización de inferencias por lotes
+### <a name="specify-the-parameters-using-parallelrunconfig"></a>Especificación de los parámetros mediante ParallelRunConfig
 
-`ParallelRunConfig` es la configuración principal de la instancia de `ParallelRunStep` de inferencia por lotes recién introducida en la canalización de Azure Machine Learning. Se usa para encapsular el script y configurar los parámetros necesarios, incluidos los siguientes:
+`ParallelRunConfig` es la configuración principal de la instancia de `ParallelRunStep` dentro de la canalización de Azure Machine Learning. Se usa para encapsular el script y configurar los parámetros necesarios, incluidos los siguientes:
 - `entry_script`: script de usuario como ruta de acceso de archivo local que se ejecutará en paralelo en varios nodos. Si `source_directory` está presente, utilice una ruta de acceso relativa. De lo contrario, use cualquier ruta de acceso accesible desde la máquina.
 - `mini_batch_size`: tamaño del minilote que se pasa a una sola llamada de `run()`. (Opcional; el valor predeterminado es `10` archivos para FileDataset y `1MB` para TabularDataset).
     - En el caso de `FileDataset`, es el número de archivos con un valor mínimo de `1`. Puede combinar varios archivos en un solo minilote.
@@ -278,60 +298,61 @@ batch_env.spark.precache_packages = False
 - `error_threshold`: número de errores de registro para `TabularDataset` y errores de archivo para `FileDataset` que se deben omitir durante el procesamiento. Si el recuento de errores de la entrada supera este valor, el trabajo se anulará. El umbral de error es para toda la entrada y no para los minilotes individuales que se envían al método `run()`. El intervalo es `[-1, int.max]`. La parte `-1` indica que se omitirán todos los errores durante el procesamiento.
 - `output_action`: uno de los valores siguientes indica cómo se organizará la salida:
     - `summary_only`: el script de usuario almacenará la salida. `ParallelRunStep` usará la salida solo para el cálculo del umbral de error.
-    - `append_row`: en los archivos de entrada solo se creará un archivo en la carpeta de salida para anexar todas las salidas separadas por líneas. El nombre de archivo será `parallel_run_step.txt`.
+    - `append_row`: en las entradas, solo se creará un archivo en la carpeta de salida para anexar todas las salidas separadas por líneas.
+- `append_row_file_name`: para personalizar el nombre del archivo de salida de append_row output_action (opcional; el valor predeterminado es `parallel_run_step.txt`).
 - `source_directory`: rutas de acceso a las carpetas que contienen todos los archivos que se van a ejecutar en el destino de proceso (opcional).
 - `compute_target`: Solo se admite `AmlCompute`.
 - `node_count`: número de nodos de proceso que se usarán para ejecutar el script de usuario.
-- `process_count_per_node`: número de procesos por nodo.
-- `environment`: definición del entorno de Python. Puede configurarla para que use un entorno de Python existente o para un entorno temporal para el experimento. La definición también es responsable de establecer las dependencias de la aplicación necesarias (opcional).
+- `process_count_per_node`: número de procesos por nodo. El procedimiento recomendado es establecerlo en el número de GPU o CPU que tenga un nodo (opcional; el valor predeterminado es `1`).
+- `environment`: definición del entorno de Python. Puede configurarla para usar un entorno de Python existente o un entorno temporal. La definición también es responsable de establecer las dependencias de la aplicación necesarias (opcional).
 - `logging_level`: nivel de detalle del registro. Los valores con nivel de detalle en aumento son: `WARNING`, `INFO` y `DEBUG`. (Opcional; el valor predeterminado es `INFO`).
 - `run_invocation_timeout`: tiempo de espera de invocación del método `run()` en segundos. (Opcional; el valor predeterminado es `60`).
+- `run_max_try`: número máximo de intentos de `run()` para un minilote. Se produce un error en `run()` si se genera una excepción o no se devuelve nada cuando se alcanza `run_invocation_timeout` (opcional; el valor predeterminado es `3`). 
+
+Puede especificar `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` y `run_max_try` como `PipelineParameter`, de modo que, cuando vuelva a enviar una ejecución de la canalización, pueda ajustar los valores de los parámetros. En este ejemplo, se usa PipelineParameter para `mini_batch_size` y `Process_count_per_node`, y se cambian estos valores cuando se vuelve a enviar una ejecución más tarde. 
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunConfig
+from azureml.pipeline.core import PipelineParameter
+from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
     source_directory=scripts_folder,
     entry_script="digit_identification.py",
-    mini_batch_size="5",
+    mini_batch_size=PipelineParameter(name="batch_size_param", default_value="5"),
     error_threshold=10,
     output_action="append_row",
+    append_row_file_name="mnist_outputs.txt",
     environment=batch_env,
     compute_target=compute_target,
-    node_count=4)
+    process_count_per_node=PipelineParameter(name="process_count_param", default_value=2),
+    node_count=2)
 ```
 
-### <a name="create-the-pipeline-step"></a>Creación del paso de canalización
+### <a name="create-the-parallelrunstep"></a>Creación de ParallelRunStep
 
-Cree el paso de canalización mediante el script, la configuración del entorno y los parámetros. Especifique el destino de proceso que ya adjuntó a su área de trabajo como destino de ejecución del script. Use `ParallelRunStep` para crear el paso de canalización de inferencias por lotes, que toma todos los parámetros siguientes:
+Cree ParallelRunStep mediante el script, la configuración del entorno y los parámetros. Especifique el destino de proceso que ya adjuntó a su área de trabajo como destino de ejecución del script de inferencia. Use `ParallelRunStep` para crear el paso de canalización de inferencias por lotes, que toma todos los parámetros siguientes:
 - `name`: nombre del paso, con las siguientes restricciones de nomenclatura: unique, 3-32 caracteres y regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
-- `models`: cero o más nombres de modelo ya registrados en el registro de modelos de Azure Machine Learning.
 - `parallel_run_config`: objeto `ParallelRunConfig`, tal y como se definió anteriormente.
-- `inputs`: uno o más conjuntos de datos de Azure Machine Learning de tipo único.
+- `inputs`: uno o varios conjuntos de datos de Azure Machine Learning de tipo único que se van a particionar para el procesamiento en paralelo.
+- `side_inputs`: uno o varios datos de referencia o conjuntos de datos que se usan como entradas laterales sin necesidad de crear particiones.
 - `output`: objeto `PipelineData` que corresponde al directorio de salida.
-- `arguments`: lista de argumentos pasados al script de usuario (opcional).
+- `arguments`: lista de los argumentos pasados al script de usuario. Use unknown_args para recuperarlos en el script de entrada (opcional).
 - `allow_reuse`: sirve para decidir si el paso debe volver a usar los resultados anteriores cuando se ejecuta con la misma configuración o entrada. Si este parámetro es `False`, siempre se generará una nueva ejecución para este paso durante la ejecución de la canalización. (Opcional; el valor predeterminado es `True`).
 
 ```python
-from azureml.contrib.pipeline.steps import ParallelRunStep
+from azureml.pipeline.steps import ParallelRunStep
 
 parallelrun_step = ParallelRunStep(
-    name="batch-mnist",
-    models=[model],
+    name="predict-digits-mnist",
     parallel_run_config=parallel_run_config,
-    inputs=[named_mnist_ds],
+    inputs=[input_mnist_ds_consumption],
     output=output_dir,
-    arguments=[],
     allow_reuse=True
 )
 ```
+### <a name="create-and-run-the-pipeline"></a>Creación y ejecución de la canalización
 
->[!Note]
-> El paso anterior depende de `azureml-contrib-pipeline-steps`, como se describe en [Requisitos previos](#prerequisites). 
-
-### <a name="submit-the-pipeline"></a>Enviar la canalización
-
-Ahora ejecute la canalización. En primer lugar, cree un objeto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos. En este caso, la puntuación por lotes consta de un solo paso. Para compilar canalizaciones con varios pasos, colóquelos en orden en esta matriz.
+Ahora ejecute la canalización. En primer lugar, cree un objeto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos. En este caso, la inferencia por lotes consta de un solo paso. Para compilar canalizaciones con varios pasos, colóquelos en orden en esta matriz.
 
 Luego, use la función `Experiment.submit()` para enviar la canalización para su ejecución.
 
@@ -340,10 +361,11 @@ from azureml.pipeline.core import Pipeline
 from azureml.core.experiment import Experiment
 
 pipeline = Pipeline(workspace=ws, steps=[parallelrun_step])
-pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
+experiment = Experiment(ws, 'digit_identification')
+pipeline_run = experiment.submit(pipeline)
 ```
 
-## <a name="monitor-the-parallel-run-job"></a>Supervisión del trabajo de ejecución en paralelo
+## <a name="monitor-the-batch-inference-job"></a>Supervisión del trabajo de inferencias por lotes
 
 Un trabajo de inferencias por lotes puede tardar mucho tiempo. En este ejemplo se supervisa el progreso mediante un widget de Jupyter. También puede administrar el progreso del trabajo mediante:
 
@@ -355,6 +377,24 @@ from azureml.widgets import RunDetails
 RunDetails(pipeline_run).show()
 
 pipeline_run.wait_for_completion(show_output=True)
+```
+
+## <a name="resubmit-a-run-with-new-data-inputs-and-parameters"></a>Nuevo envío de una ejecución con nuevos parámetros y entradas de datos
+
+Dado que ha realizado las entradas y varias configuraciones como `PipelineParameter`, puede volver a enviar una ejecución de inferencia por lotes con una entrada de conjunto de datos diferente y ajustar los parámetros sin tener que crear una canalización completamente nueva. Usará el mismo almacén de datos, pero una sola imagen como entrada de datos.
+
+```python
+path_on_datastore = mnist_data.path('mnist/0.png')
+single_image_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
+single_image_ds._ensure_saved(ws)
+
+pipeline_run_2 = experiment.submit(pipeline, 
+                                   pipeline_parameters={"mnist_param": single_image_ds, 
+                                                        "batch_size_param": "1",
+                                                        "process_count_param": 1}
+)
+
+pipeline_run_2.wait_for_completion(show_output=True)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

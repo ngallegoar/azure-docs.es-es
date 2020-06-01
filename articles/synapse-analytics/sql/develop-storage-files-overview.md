@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691872"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653539"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consulta de archivos de almacenamiento mediante recursos de SQL a petición (versión preliminar) en Synapse SQL
 
@@ -90,7 +90,7 @@ Estos parámetros adicionales se introducen para trabajar con archivos .csv (tex
 ```
 
 - ESCAPE_CHAR = 'char' especifica el carácter del archivo que se usa como carácter de escape de sí mismo y de todos los valores de delimitador del archivo. Si el carácter de escape va seguido de un valor distinto de sí mismo o de cualquiera de los valores de delimitador, se quita al leer el valor.
-El parámetro ESCAPE_CHAR se aplicará independientemente de que FIELDQUOTE esté habilitado. No se utilizará para usar las comillas como carácter de escape. El carácter de escape de las comillas es el de las comillas dobles, de acuerdo con el comportamiento de los archivos .csv de Excel.
+El parámetro ESCAPE_CHAR se aplicará, independientemente de que FIELDQUOTE esté habilitado o no. No se utilizará como carácter de escape el carácter de comillas. El carácter de escape de las comillas simples es el carácter de comillas dobles, igual que sucede en los archivos .csv de Excel.
 - FIELDTERMINATOR='field_terminator' especifica el terminador de campo que se va a usar. El terminador de campo predeterminado es una coma (" **,** ")
 - ROWTERMINATOR ='row_terminator' especifica el terminador de fila que se va a usar. El terminador de fila predeterminado es un carácter de nueva línea:  **\r\n**.
 

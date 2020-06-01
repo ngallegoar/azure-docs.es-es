@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08c6610541d987cddd7cf2aeb71c526cb2359598
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419559"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645323"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Puntos de conexión privados administrados de Synapse (versión preliminar)
 
@@ -30,8 +30,9 @@ El punto de conexión privado usa una dirección IP privada de la red virtual pa
 
 >[!IMPORTANT]
 >Los puntos de conexión privados administrados solo se admiten en áreas de trabajo de Azure Synapse con una red virtual de área de trabajo administrada.
+
 >[!NOTE]
->Se recomienda crear puntos de conexión privados administrados para conectarse a todos los orígenes de datos de Azure. Todo el tráfico saliente de la red virtual de área de trabajo administrada se bloqueará en el futuro.
+>Todo el tráfico saliente de la red virtual del área de trabajo administrada, excepto el que atraviese puntos de conexión privados administrados, se bloqueará en el futuro. Se recomienda crear puntos de conexión privados administrados para conectarse a todos los orígenes de datos de Azure que se encuentren fuera del área de trabajo. 
 
 Una conexión de punto de conexión privado se crea en un estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Synapse. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
 

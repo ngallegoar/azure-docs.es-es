@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770725"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744079"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (versión preliminar para área de trabajo)
 
@@ -35,9 +35,7 @@ A. Azure Synapse es una plataforma de datos integrada para BI, IA e inteligencia
 
 ### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>P: ¿Cómo puedo empezar a usar Azure Synapse Analytics?
 
-A. Para empezar a usar Azure Synapse Analytics, cree un [área de trabajo de Synapse](https://portal.azure.com) (es gratis) y cree los recursos que desee en esa área de trabajo. Puede seguir uno de nuestros tutoriales de inicio rápido, como el de [creación de un grupo de Synapse SQL](quickstart-create-sql-pool.md) o el de [creación de un área de trabajo](quickstart-create-workspace.md), que le guiará por un caso de uso simple. 
-
-También puede buscar cuadernos de ejemplo y scripts SQL en nuestro [repositorio](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Si necesita conectarse a un conjunto de datos público, cree un nuevo servicio vinculado con los siguientes atributos:
+A. Para empezar a usar Azure Synapse Analytics, [registre el proveedor de recursos de Azure Synapse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types), para lo que debe seleccionar *Microsoft.Synapse* en la lista de proveedor de recursos. Luego, cree un [área de trabajo de Synapse](https://portal.azure.com) (es gratis) y cree en ella los recursos que desee. Puede seguir uno de nuestros tutoriales de inicio rápido, como el de [creación de un grupo de Synapse SQL](quickstart-create-sql-pool-portal.md) o el de [creación de un área de trabajo](quickstart-create-workspace.md), que le guiará por un caso de uso simple. También puede buscar cuadernos de ejemplo y scripts SQL en nuestro [repositorio](https://github.com/Azure-Samples/Synapse). Si necesita conectarse a un conjunto de datos público, cree un nuevo servicio vinculado con los siguientes atributos:
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (write **""** )
@@ -94,9 +92,9 @@ A. El flujo de datos permite a los ingenieros de datos desarrollar una lógica d
 
 A. La experiencia de inicio de sesión único de un extremo a otro es un proceso de autenticación importante en Synapse Analytics. La administración y el paso de la identidad mediante una integración completa de AAD son imprescindibles.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: ¿Cómo se obtiene acceso a archivos y carpetas en ADLSg2?
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>P: ¿Cómo se accede a archivos y carpetas en Azure Data Lake Storage Gen2?
 
-A. El acceso a los archivos y las carpetas se administra actualmente mediante ADLSg2. Para más información, consulte [Control de acceso en Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+A. El acceso a los archivos y las carpetas se administra actualmente mediante Azure Data Lake Storage Gen2. Para más información, consulte [Control de acceso en Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>P: ¿Puedo usar herramientas de inteligencia empresarial de terceros para acceder a Azure Synapse Analytics?
 
@@ -106,6 +104,6 @@ A. Sí, puede usar aplicaciones empresariales de terceros, como Tableau y Power�
 
 - [Creación de un área de trabajo](quickstart-create-workspace.md)
 - [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
-- [Creación de un grupo de SQL](quickstart-create-sql-pool.md)
+- [Creación de un grupo de SQL](quickstart-create-sql-pool-portal.md)
 - [Uso de SQL a petición](quickstart-sql-on-demand.md)
-- [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool.md) 
+- [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool-portal.md) 

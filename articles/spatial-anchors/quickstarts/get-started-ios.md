@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1da5bd7020304c67bd9f9058612f47d528611a9e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 542b5168bb70d876d91f8a747a230f2b754568e9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195327"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873104"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Inicio rápido: Crear una aplicación iOS con Azure Spatial Anchors en Swift u Objective-C
 
@@ -101,6 +101,8 @@ Busque el campo `spatialAnchorsAccountKey` y reemplace `Set me` por la clave de 
 
 Busque el campo `spatialAnchorsAccountId` y reemplace `Set me` por el identificador de la cuenta.
 
+Busque `startSession()` y agregue la siguiente línea, en la que sustituye el dominio de cuenta por el anterior: `cloudSession!.configuration.accountDomain = "MyAccountDomain";`.
+
 # <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 Abra `iOS/Objective-C/SampleObjC/BaseViewController.m`.
@@ -108,6 +110,8 @@ Abra `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 Busque el campo `SpatialAnchorsAccountKey` y reemplace `Set me` por la clave de la cuenta.
 
 Busque el campo `SpatialAnchorsAccountId` y reemplace `Set me` por el identificador de la cuenta.
+
+Busque `startSession()` y agregue la siguiente línea, en la que sustituye el dominio de cuenta por el anterior: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";`.
 
 ---
 

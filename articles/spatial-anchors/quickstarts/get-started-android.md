@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3f794d1c70baee07b9ff3ed5d8299cf8ad3bf983
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75376467"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652504"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Android con Azure Spatial Anchors
 
@@ -28,16 +28,16 @@ Aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
+Para completar este inicio rápido, asegúrese de que dispone de lo siguiente:
 
 - Una máquina Windows o macOS con <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 o superior</a>.
   - Si se ejecuta en Windows, también necesitará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> y <a href="https://git-lfs.github.com/">Git LFS</a>.
-  - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git` y `brew install git-lfs`.
+  - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea del terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Luego, ejecute `brew install git` y `brew install git-lfs`.
   - Para compilar el ejemplo de NDK, también deberá instalar las herramientas NDK y CMake 3.6 o posterior de SDK Tools en Android Studio.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
-  - Puede que se necesiten controladores de dispositivo adicionales para que el equipo se comunique con el dispositivo Android. Para obtener más información e instrucciones, visite [este vínculo](https://developer.android.com/studio/run/device.html).
+  - Puede que se necesiten controladores de dispositivo adicionales para que el equipo se comunique con el dispositivo Android. Para más información e instrucciones, visite [este vínculo](https://developer.android.com/studio/run/device.html).
 - La aplicación debe tener como destino ARCore **1.11.0**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -86,6 +86,8 @@ Busque el campo `SpatialAnchorsAccountKey` y reemplace `Set me` por la clave de 
 
 Busque el campo `SpatialAnchorsAccountId` y reemplace `Set me` por el identificador de la cuenta.
 
+Busque `public AzureSpatialAnchorsManager(Session arCoreSession)` y agregue la siguiente línea, en la que sustituye el dominio de cuenta por el anterior: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");`.
+
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Abra `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
@@ -93,6 +95,8 @@ Abra `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 Busque el campo `SpatialAnchorsAccountKey` y reemplace `Set me` por la clave de la cuenta.
 
 Busque el campo `SpatialAnchorsAccountId` y reemplace `Set me` por el identificador de la cuenta.
+
+Busque `AzureSpatialAnchorsApplication::StartCloudSession()` y agregue la siguiente línea, en la que sustituye el dominio de cuenta por el anterior: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");`.
 
 ---
 

@@ -98,6 +98,8 @@
               href: virtual-wan-route-table.md
         - name: Visualización de rutas efectivas de centro virtual
           href: effective-routes-virtual-hub.md
+        - name: 'Varios vínculos de ISP: selección de ruta de acceso de Azure'
+          href: path-selection-multiple-links.md
     - name: Seguridad
       items:
         - name: Instalación de Azure Firewall en un centro de conectividad

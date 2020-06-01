@@ -2,13 +2,13 @@
 title: Novedades de Language Understanding (LUIS)
 description: Este artículo se actualiza periódicamente con noticias sobre la API de Language Understanding de Azure Cognitive Services.
 ms.topic: overview
-ms.date: 05/08/2020
-ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592804"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675957"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
@@ -27,6 +27,12 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
 * Cambios en las API de creación en versión preliminar
     * Esquema de aplicación 7.x para entidades anidadas de aprendizaje automático
     * [Migración a la característica necesaria](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* Nuevos recursos para desarrolladores
+    * [Herramientas de integración continua](developer-reference-resource.md#continuous-integration-tools)
+    * Taller: Aprenda procedimientos recomendados para la [_Comprensión del lenguaje natural_ (NLU) con LUIS](developer-reference-resource.md#workshops)
+* [Claves administradas por el cliente](luis-encryption-of-data-at-rest.md): cifre todos los datos que use en LUIS mediante su propia clave
+* [Show de IA](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (vídeo): consulte las nuevas características de LUIS
+
 
 
 ### <a name="march-2020"></a>Marzo de 2020
@@ -54,7 +60,7 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
 * [Límites](luis-limits.md) nuevos y ampliados: un límite máximo más elevado para las listas de frases y las frases totales, nuevos límites de modelo como característica
 * Extraiga información de texto en el formato de la estructura de jerarquía profunda, lo que permite que las aplicaciones de conversación sean más eficaces.
 
-    ![Imagen de entidad de aprendizaje automático](./media/whats-new/deep-entity-extraction-example.png)
+    ![imagen de entidad de aprendizaje automático](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 de septiembre de 2019
 

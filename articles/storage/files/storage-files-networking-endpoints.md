@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8ee9ddbd8a2d0ecbe8e2f13e6421cec177c7ce69
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 4695164e7bcbc63b852f2f4364cdccbc8ea7d8c4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594209"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849321"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuración de puntos de conexión de red de Azure Files
 Azure Files proporciona dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 
@@ -400,7 +400,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Si todo ha funcionado correctamente, verá la siguiente salida, donde `192.168.0.5` es la dirección IP privada del punto de conexión privado de la red virtual:
+Si todo ha funcionado correctamente, debería ver la siguiente salida, donde `192.168.0.5` es la dirección IP privada del punto de conexión privado de la red virtual. Tenga en cuenta que debe seguir usando storageaccount.file.core.windows.net para contar el recurso compartido de archivos, en lugar de la ruta de acceso a privatelink.
 
 ```Output
 Server:         127.0.0.53

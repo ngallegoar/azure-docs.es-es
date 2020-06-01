@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido de Azure: Creación de una cuenta de Azure Automation | Microsoft Docs'
-description: Información sobre cómo crear una cuenta de Azure Automation y ejecutar un runbook
+description: Este artículo le ayuda a empezar a crear una cuenta de Azure Automation y a ejecutar un runbook.
 services: automation
 ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536988"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836709"
 ---
 # <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 
@@ -70,5 +70,5 @@ Ejecute uno de los runbooks de tutorial.
 En esta guía de inicio rápido, ha implementado una cuenta de Automation, ha iniciado un trabajo de runbook y ha visto los resultados del trabajo. Para obtener más información sobre Azure Automation, continúe en la guía de inicio rápido sobre la creación del primer runbook.
 
 > [!div class="nextstepaction"]
-> [Inicio rápido de Automation: creación de un runbook](./automation-quickstart-create-runbook.md)
+> [Inicio rápido de Automation: creación de un runbook de Azure Automation](./automation-quickstart-create-runbook.md)
 

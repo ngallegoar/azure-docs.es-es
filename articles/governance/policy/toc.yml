@@ -60,20 +60,34 @@
           href: ./samples/pattern-group-with-initiative.md
         - name: Implementación de recursos
           href: ./samples/pattern-deploy-resources.md
+    - name: Integraciones del cumplimiento normativo
+      items:
+        - name: Prueba comparativa de la seguridad de Azure
+          href: ./samples/azure-security-benchmark.md
+        - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
+          href: ./samples/cis-azure-1-1-0.md
+        - name: "NIST\_SP\_800-53\_R4"
+          href: ./samples/nist-sp-800-53-r4.md
 - name: Conceptos
   items:
-    - name: Estructura de definición de Azure Policy
+    - name: Estructura de definición
       displayName: 'parameters, location, rule, alias, initiatives'
       href: ./concepts/definition-structure.md
-    - name: Descripción de los efectos de Policy
+    - name: Descripción de los efectos
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
-    - name: Estructura de asignaciones de Azure Policy
+    - name: Estructura de la iniciativa
+      displayName: 'parameters, groups, domains, policies'
+      href: ./concepts/initiative-definition-structure.md
+    - name: Estructura de asignación
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
     - name: Evaluación del impacto de una nueva directiva
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Cumplimiento normativo
+      displayName: 'standards, domains, controls'
+      href: ./concepts/regulatory-compliance.md
     - name: Diseño de flujos de trabajo de directiva como código
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
@@ -127,6 +141,8 @@
         - name: Habilitar Azure Monitor para VM (versión preliminar)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Solución de problemas
+  href: ./troubleshoot/general.md
 - name: Referencia
   items:
     - name: Azure CLI
@@ -198,7 +214,7 @@
     - name: 'GitHub: repositorio de directivas de la comunidad'
       href: 'https://github.com/Azure/Community-Policy'
     - name: Preguntas y respuestas de Microsoft para Azure Policy
-      href: /answers/topics/azure-policy.html.html
+      href: /answers/topics/azure-policy.html
     - name: Canal de YouTube de gobernanza
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Vídeos de configuración de invitado

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: 373d6fa5402ba703cbebe88ad562974ba97f3391
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7dfb3adb5d7bf5b005beb7e7b75fb339d456cd15
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75379715"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872598"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante Bing Visual Search API y Node.js
 
-Use este inicio rápido para realizar la primera llamada a Bing Visual Search API y ver los resultados de la búsqueda. Esta sencilla aplicación de JavaScript carga una imagen en la API y muestra la información que se devuelve sobre ella. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a la API Bing Visual Search. Esta sencilla aplicación de JavaScript carga una imagen en la API y muestra la información que se devuelve sobre ella. Aunque esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -39,7 +39,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Visual Search AP
     var fs = require('fs');
     ```
 
-2. Cree variables para el punto de conexión de API, la clave de suscripción y la ruta de acceso a la imagen. `baseUri` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso:
+2. Cree variables para el punto de conexión de API, la clave de suscripción y la ruta de acceso a la imagen. Para el valor `baseUri` puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -47,7 +47,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Visual Search AP
     var imagePath = "path-to-your-image";
     ```
 
-3. Cree una función denominada `requestCallback()` para imprimir la respuesta de la API:
+3. Cree una función denominada `requestCallback()` para imprimir la respuesta de la API.
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -57,25 +57,25 @@ Use este inicio rápido para realizar la primera llamada a Bing Visual Search AP
 
 ## <a name="construct-and-send-the-search-request"></a>Construcción y envío de la solicitud de búsqueda
 
-Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Debe establecer su parámetro `name` en "image" y el parámetro `filename` se puede establecer en cualquier cadena. El contenido del formulario incluye los datos binarios de la imagen. Recuerde que el tamaño de imagen máximo que puede cargar es de 1 MB.
+1. Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Establezca su parámetro `name` en "image", y el parámetro `filename` en el nombre de archivo de la imagen. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
 
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+   ```
+   --boundary_1234-abcd
+   Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+   ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
---boundary_1234-abcd--
-```
+   --boundary_1234-abcd--
+   ```
 
-1. Cree un objeto **FormData** mediante `FormData()`, y anexe a él la ruta de acceso de la imagen por medio de `fs.createReadStream()`:
+2. Cree un objeto `FormData` con `FormData()`, y anexe a él la ruta de acceso a la imagen mediante `fs.createReadStream()`.
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Use la biblioteca de solicitudes para cargar la imagen y llame a `requestCallback()` para imprimir la respuesta. No olvide agregar la clave de suscripción al encabezado de solicitud:
+3. Use la biblioteca de solicitudes para cargar la imagen y llame a `requestCallback()` para imprimir la respuesta. Agregue la clave de suscripción al encabezado de solicitud.
 
     ```javascript
     form.getLength(function(err, length){

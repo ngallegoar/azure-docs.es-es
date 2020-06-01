@@ -24,28 +24,28 @@
           href: work-remotely-support.md
     - name: Modelos de conectividad
       href: expressroute-connectivity-models.md
-    - name: Circuitos y emparejamiento
-      href: expressroute-circuit-peerings.md
     - name: Ubicaciones y asociados
       items:
         - name: Proveedores por ubicación
           href: expressroute-locations-providers.md
         - name: Ubicaciones por proveedor
           href: expressroute-locations.md
-    - name: Acerca de las puertas de enlace de red virtual
-      href: expressroute-about-virtual-network-gateways.md
     - name: Prerrequisitos
       href: expressroute-prerequisites.md
     - name: Workflows
       href: expressroute-workflows.md
     - name: Requisitos de enrutamiento
       href: expressroute-routing.md
+    - name: Circuitos y emparejamiento
+      items:
+        - name: Acerca de los circuitos y el emparejamiento
+          href: expressroute-circuit-peerings.md
+        - name: Movimiento de circuitos del portal clásico a Resource Manager
+          href: expressroute-move.md
     - name: BFD a través de ExpressRoute
       href: expressroute-bfd.md
     - name: Requisitos QoS
       href: expressroute-qos.md
-    - name: Movimiento de circuitos del portal clásico a Resource Manager
-      href: expressroute-move.md
     - name: Acerca de FastPath de ExpressRoute
       href: about-fastpath.md
     - name: Acerca de ExpressRoute Direct
@@ -54,6 +54,10 @@
       href: expressroute-global-reach.md
     - name: Acerca del cifrado de Azure ExpressRoute
       href: expressroute-about-encryption.md
+    - name: Controles de seguridad
+      href: expressroute-security-controls.md
+    - name: Acerca de las puertas de enlace de red virtual
+      href: expressroute-about-virtual-network-gateways.md
     - name: Conexión de Azure a una nube pública
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilidad de conectividad de back-end
@@ -68,11 +72,9 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Conectividad entre redes
       href: cross-network-connectivity.md
-    - name: Controles de seguridad integrados
-      href: expressroute-security-controls.md
-    - name: Diseño para lograr alta disponibilidad
+    - name: 'Alta disponibilidad: diseño'
       href: designing-for-high-availability-with-expressroute.md
-    - name: Diseño de la recuperación ante desastres
+    - name: 'Recuperación ante desastres: diseño'
       items:
         - name: Emparejamiento privado
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
@@ -82,7 +84,7 @@
   items:
     - name: Creación y modificación de un circuito
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: expressroute-howto-circuit-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-circuit-arm.md
@@ -93,7 +95,7 @@
           href: expressroute-howto-circuit-resource-manager-template.md
     - name: Creación y modificación de la configuración de emparejamiento
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: expressroute-howto-routing-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-routing-arm.md
@@ -101,7 +103,7 @@
           href: howto-routing-cli.md
     - name: Vinculación de una red virtual a un circuito ExpressRoute
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: expressroute-howto-linkvnet-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-linkvnet-arm.md
@@ -121,7 +123,7 @@
           href: expressroute-howto-set-global-reach-cli.md
     - name: Configuración de una puerta de enlace de red virtual para ExpressRoute
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: expressroute-howto-add-gateway-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-add-gateway-resource-manager.md
@@ -137,7 +139,7 @@
       href: expressroute-howto-macsec.md
     - name: Configuración de filtros de ruta para el emparejamiento de Microsoft
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: how-to-routefilter-portal.md
         - name: Azure PowerShell
           href: how-to-routefilter-powershell.md
@@ -165,6 +167,8 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configuración de Network Performance Monitor para ExpressRoute
           href: how-to-npm.md
+        - name: Configuración de alertas personalizadas para supervisar rutas anunciadas
+          href: how-to-custom-route-alert.md
     - name: Artículos clásicos y heredados
       items:
         - name: Modificación de un circuito

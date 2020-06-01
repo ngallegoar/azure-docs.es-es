@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
-ms.date: 3/18/2020
-ms.openlocfilehash: c09327e208719d31b1ae1587c14d0223269abfa9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 5/26/2020
+ms.openlocfilehash: a8c922912cae72e1b4344d4d970ec9f3b4949d9f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80062577"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871510"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL: uso de Connector/C++ para conectarse a los datos y consultarlos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de C++. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante C++ y que nunca ha usado Azure Database for MySQL.
@@ -28,6 +28,9 @@ Además, deberá:
 - Instalar [Visual Studio](https://www.visualstudio.com/downloads/)
 - Instalación de [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
 - Instalación de [Boost](https://www.boost.org/)
+
+> [!IMPORTANT] 
+> Asegúrese de que a la dirección IP desde la que se conecta se le han agregado las reglas de firewall del servidor desde [Azure Portal](./howto-manage-firewall-using-portal.md) o la [CLI de Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-visual-studio-and-net"></a>Instalación de Visual Studio y .NET
 En los pasos de esta sección se supone que está familiarizado con el desarrollo mediante .NET.

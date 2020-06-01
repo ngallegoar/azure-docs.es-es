@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0eeddc26ac1a1f286d8ed253f3fe097f0e7de91f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7cf42950bc25ad501fd11b1b28c74b5f63066c32
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409397"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745522"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Solución de problemas de una tarjeta rechazada en el registro de Azure
 
@@ -20,9 +20,9 @@ Puede experimentar un problema o un error en el que se rechace una tarjeta de cr
 
 Para resolver el problema, seleccione a continuación el tema que más se asemeje al error.
 
-## <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>El proveedor de la tarjeta de crédito no se acepta en su país
+## <a name="the-credit-card-provider-is-not-accepted-for-your-countryregion"></a>El proveedor de la tarjeta de crédito no se acepta en su país o región
 
-Cuando elige una tarjeta, Azure muestra únicamente las opciones de tarjeta que son válidas en el país que seleccione. Póngase en contacto con su banco o con el emisor de la tarjeta para confirmar que la tarjeta de crédito tiene habilitada las transacciones internacionales. Para más información sobre los países y las divisas admitidos, vea [Preguntas más frecuentes sobre los precios de Azure](https://azure.microsoft.com/pricing/faq/).
+Cuando se elige una tarjeta, Azure muestra únicamente las opciones que son válidas en el país o región que se seleccionen. Póngase en contacto con su banco o con el emisor de la tarjeta para confirmar que la tarjeta de crédito tiene habilitada las transacciones internacionales. Para más información sobre los países/regiones y las divisas admitidos, consulte [Preguntas más frecuentes sobre los precios de Azure](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
 >Las tarjetas de crédito de American Express no se admiten actualmente como instrumento de pago en la India. No existe ningún plazo relativo a cuándo pasará a ser una forma de pago aceptada.
@@ -33,7 +33,7 @@ Las tarjetas de crédito o débito virtuales o de prepago no se aceptan como opc
 
 ## <a name="your-credit-information-is-inaccurate-or-incomplete"></a>La información de la tarjeta de crédito es inadecuada o está incompleta
 
-El nombre, la dirección y el código CVV que escriba deben coincidir exactamente con lo que aparece impreso en la tarjeta.
+El nombre, la dirección y el código CVV que escriba deben coincidir exactamente con lo que aparece impreso en la tarjeta.
 
 ## <a name="the-card-is-inactive-or-blocked"></a>La tarjeta está inactiva o bloqueada
 
@@ -47,7 +47,7 @@ Para más información sobre cómo solucionar problemas de registro en Azure, ve
 
 ## <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>Representa a una empresa que no quiere pagar con tarjeta
 
-Si representa una empresa, puede usar diferentes métodos de pago de factura (como cheques, cheques urgentes o transferencias electrónicas) para pagar la suscripción de Azure. Tras configurar la cuenta para el pago con factura, no podrá cambiar a otra opción de pago, a menos que tenga un contrato de cliente de Microsoft y se haya suscrito a Azure a través del sitio web de Azure.
+Si representa una empresa, puede usar diferentes métodos de pago de factura (como cheques, cheques urgentes o transferencias electrónicas) para pagar la suscripción de Azure. Tras configurar la cuenta para el pago con factura, no puede cambiar a otra opción de pago, salvo que tenga un Contrato de cliente de Microsoft y se haya suscrito a Azure a través del sitio web de Azure.
 
 Para más información sobre cómo pagar con factura, vea [Pago de las suscripciones de Azure con factura](pay-by-invoice.md).
 

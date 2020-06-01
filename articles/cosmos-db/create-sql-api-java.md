@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Uso de Java para crear una base de datos de documentos mediante Azure Cosmos DB'
 description: En este inicio rápido se presenta un ejemplo de código de Java que se puede usar para conectarse a la API de SQL de Azure Cosmos DB y realizar consultas en ellas
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/31/2019
-ms.author: sngun
+ms.date: 05/11/2020
+ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1d818957daa53efc856a345a4886e814fdaab6f3
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 236cff59ffbef835b5a57a3d5a0d223cfebf34ae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858143"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647684"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Inicio rápido: Creación de una aplicación Java para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -22,12 +22,16 @@ ms.locfileid: "82858143"
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [SDK para Java v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para SQL API desde Azure Portal, y se usa una aplicación de Java clonada desde GitHub. En primer lugar, se crea una cuenta de SQL API de Azure Cosmos DB desde Azure Portal, luego, una aplicación Java mediante el SDK de SQL Java y, después, se agregan los recursos a la cuenta de Cosmos DB mediante la aplicación de Java. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
+
+> [!IMPORTANT]  
+> Este inicio rápido solo es para el SDK de Azure Cosmos DB para Java v4. Consulte las [notas de la versión](sql-api-sdk-java-v4.md) del SDK de Azure Cosmos DB para Java v4, el [repositorio de Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 y la [guía de solución de problemas](troubleshoot-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 para más información. Si en la actualidad usa una versión anterior a v4, vea la guía [Migración al SDK de Azure Cosmos DB para Java v4](migrate-java-v4-sdk.md) a fin de obtener ayuda para actualizar a v4.
+>
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

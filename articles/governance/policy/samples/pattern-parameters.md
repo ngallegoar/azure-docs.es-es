@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: parámetros de una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar parámetros en una definición de directiva.
-ms.date: 01/31/2020
+ms.date: 05/20/2020
 ms.topic: sample
-ms.openlocfilehash: 4921bb216ef67b561bc8986cf48239e6448beafc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e163a243a0dc23f04d564287b630634eb4662cda
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170183"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696728"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Patrón de Azure Policy: parámetros
 
@@ -16,7 +16,10 @@ Una definición de directiva se puede convertir en dinámica para reducir el nú
 
 ## <a name="sample-1-string-parameters"></a>Muestra 1: Parámetros de cadena
 
-Esta definición de directiva usa dos parámetros, **tagName** y **tagValue**, para establecer lo que busca la asignación de directiva en los recursos. Este formato permite usar la directiva para cualquier número de combinaciones de nombre de etiqueta y valor de etiqueta, pero solo se mantiene una única definición de directiva.
+Esta definición de directiva usa dos parámetros, **tagName** y **tagValue**, para establecer lo que busca la asignación de directiva en los recursos. Este formato permite usar la definición de directiva para cualquier número de combinaciones de nombre de etiqueta y valor de etiqueta, pero solo se mantiene una única definición de directiva.
+
+> [!NOTE]
+> Para obtener un ejemplo de etiqueta que use el **modo**  _Todos_ y funcione con un grupo de recursos, consulte [Patrón: Etiquetas: ejemplo nº. 1](./pattern-tags.md#sample-1-parameterize-tags).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
@@ -47,6 +50,22 @@ A continuación, el parámetro se usa en el bloque **policyRule.if**. Como pará
 En este caso, se usa con el alias **serviceProvider.bandwidthInMbps** como uno de los valores definidos.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
+
+## <a name="sample-3-parameterized-effect"></a>Ejemplo 3: Efecto con parámetros
+
+Una forma habitual de hacer que las definiciones de directiva sean reutilizables es parametrizar el propio efecto. En este ejemplo se usa un solo parámetro, **effect**. La parametrización del efecto permite asignar la misma definición a distintos ámbitos con distintos efectos.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json":::
+
+### <a name="sample-3-explanation"></a>Ejemplo 3: Explicación
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="11-25":::
+
+En esta parte de la definición de la directiva, el parámetro **effect** se define como _cadena_. La definición de directiva establece el valor predeterminado de una asignación para _auditoría_ y limita las demás opciones a _deshabilitar_ y _denegar_.
+
+A continuación, el parámetro se usa en el bloque **policyRule.then** para el _efecto_.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

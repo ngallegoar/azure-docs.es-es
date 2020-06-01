@@ -14,6 +14,7 @@
     - name: 'Creación de un centro de notificaciones: CLI de Azure'
       href: create-notification-hub-azure-cli.md
     - name: 'Creación de un centro de notificaciones: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: create-notification-hub-template.md
     - name: Configuración de un Centro de notificaciones
       href: configure-notification-hub-portal-pns-settings.md
@@ -23,7 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Envío de notificaciones push a todos los registros
+            - name: "Envío de notificaciones push a todos los registros (SDK, versión\_1.0.0-preview1)"
+              href: android-sdk.md
+            - name: "Envío de notificaciones push a todos los registros (SDK, versión\_0.6)"
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Envío de notificaciones push a dispositivos específicos
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -139,7 +142,7 @@
     - name: Registro con back-end de aplicación
       href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
     - name: Uso de la autenticación basada en token con dispositivos de Apple
-      href: notification-hubs-push-notification-http2-token-authentification.md
+      href: notification-hubs-push-notification-http2-token-authentication.md
     - name: Solución de problemas de notificaciones descartadas
       href: notification-hubs-push-notification-fixer.md
     - name: Envío de notificaciones push mediante Baidu Cloud Push

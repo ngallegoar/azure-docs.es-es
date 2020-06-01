@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9605d20fa6a1480b24d7b64963aa9579ed3b5a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81115176"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770829"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Inicio rápido: Creación y consulta de un grupo de SQL de Synapse mediante Azure Portal
 
@@ -66,7 +66,11 @@ Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **
 
    Para más información acerca de los niveles de rendimiento, consulte [Administración de proceso en Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-5. Una vez completada la pestaña Basics (Aspectos básicos) del formulario de Azure Synapse Analytics, seleccione **Review + Create** (Revisar y crear) y, después, **Create** (Crear) para crear el grupo de SQL. El aprovisionamiento tarda unos minutos.
+5. Seleccione **Configuración adicional**, en **Usar datos existentes**, elija **Ejemplo** para que AdventureWorksDW se cree como la base de datos de ejemplo.
+
+    ![Seleccionar Usar datos existentes](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+
+6. Una vez completada la pestaña Basics (Aspectos básicos) del formulario de Azure Synapse Analytics, seleccione **Review + Create** (Revisar y crear) y, después, **Create** (Crear) para crear el grupo de SQL. El aprovisionamiento tarda unos minutos.
 
    ![seleccionar Revisar y crear](./media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
@@ -148,6 +152,8 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
    ![Objetos de base de datos](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## <a name="run-some-queries"></a>Ejecución de algunas consultas
+
+No se recomienda ejecutar consultas si se ha iniciado sesión como administrador del servidor, ya que usa una [clase de recursos limitada](resource-classes-for-workload-management.md). En su lugar, configure [Aislamiento de la carga de trabajo](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) como [se ilustra en los tutoriales](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
 SQL Data Warehouse utiliza T-SQL como lenguaje de consulta. Para abrir una ventana de consulta y ejecutar algunas consultas de T-SQL, siga estos pasos:
 

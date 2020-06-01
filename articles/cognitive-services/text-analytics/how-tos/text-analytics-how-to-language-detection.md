@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70387786"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745570"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
 
@@ -155,9 +155,9 @@ Una puntuación positiva de 1,0 expresa el nivel más alto de confianza posible 
 
 ### <a name="ambiguous-content"></a>Contenido ambiguo
 
-En algunos casos, puede ser difícil eliminar la ambigüedad de los idiomas en función de la entrada. Puede usar el parámetro `countryHint` para especificar un código de país de dos letras. De forma predeterminada, la API usa "US" como valor de countryHint predeterminado; para quitar este comportamiento, puede restablecer este parámetro y configurarlo como una cadena `countryHint = ""` vacía.
+En algunos casos, puede ser difícil eliminar la ambigüedad de los idiomas en función de la entrada. Puede usar el parámetro `countryHint` para especificar un código de país o región de dos letras. De forma predeterminada, la API usa "US" como valor de countryHint predeterminado; para quitar este comportamiento, puede restablecer este parámetro y configurarlo como una cadena `countryHint = ""` vacía.
 
-Por ejemplo, "imposible" es igual en inglés que en francés, y si se proporciona con un contexto limitado, la respuesta se basará en la sugerencia de país "US". Si se sabe que el origen del texto procede de Francia, eso se puede proporcionar como sugerencia.
+Por ejemplo, "impossible" es igual en inglés que en francés, y si se proporciona con un contexto limitado, la respuesta se basará en la sugerencia de país o región de "US". Si se sabe que el origen del texto procede de Francia, eso se puede proporcionar como sugerencia.
 
 **Entrada**
 

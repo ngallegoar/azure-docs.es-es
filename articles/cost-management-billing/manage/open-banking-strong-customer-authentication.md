@@ -8,16 +8,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 847e9b692ddbd7880c37d1068d61447dcccb9c80
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200595"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747160"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Banca abierta (PSD2) y autenticación segura de clientes (SCA) para los clientes de Azure
 
-A partir del 14 de septiembre de 2019, los bancos de 31 países del [Espacio Económico Europao](https://en.wikipedia.org/wiki/European_Economic_Area) están obligados a comprobar la identidad de todas las personas que realizan compras en línea antes de procesar el pago. Esta comprobación requiere la autenticación multifactor para ayudar a garantizar que las compras en línea son seguras y están protegidas. La fecha de este requisito de comprobación se retrasará en algunos países. Para más información, consulte las [P+F de Microsoft sobre PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+A partir del 14 de septiembre de 2019, los bancos de 31 países o regiones del [Espacio Económico Europeo](https://en.wikipedia.org/wiki/European_Economic_Area) están obligados a comprobar la identidad de todas las personas que realizan compras en línea antes de procesar el pago. Esta comprobación requiere la autenticación multifactor para ayudar a garantizar que las compras en línea son seguras y están protegidas. La fecha de este requisito de comprobación se retrasará en algunos países y regiones. Para más información, consulte las [P+F de Microsoft sobre PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## <a name="what-psd2-means-for-azure-customers"></a>Qué significa PSD2 para los clientes de Azure
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591427"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702032"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Uso de OPENROWSET con SQL a petición (versión preliminar)
 
@@ -45,10 +45,12 @@ Se trata de una manera rápida y sencilla de leer el contenido de los archivos s
                     TYPE = 'PARQUET') AS file
     ```
 
+
     Esta opción le permite configurar la ubicación de la cuenta de almacenamiento en el origen de datos y especificar el método de autenticación que debe usarse para tener acceso al almacenamiento. 
     
     > [!IMPORTANT]
     > `OPENROWSET` sin `DATA_SOURCE` proporciona una forma rápida y sencilla de acceder a los archivos de almacenamiento, pero ofrece opciones de autenticación limitadas. Por ejemplo, la entidad de seguridad de Azure AD puede tener acceso a los archivos solo mediante su [identidad de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) y no puede tener acceso a los archivos disponibles públicamente. Si necesita opciones de autenticación más eficaces, use la opción `DATA_SOURCE` y defina las credenciales que quiera usar para tener acceso al almacenamiento.
+
 
 ## <a name="security"></a>Seguridad
 
@@ -57,10 +59,10 @@ Un usuario de base de datos debe tener permiso de `ADMINISTER BULK OPERATIONS` p
 El administrador de almacenamiento también debe permitir que un usuario tenga acceso a los archivos proporcionando un token de SAS válido o habilitando la entidad de seguridad de Azure AD para tener acceso a los archivos de almacenamiento. Obtenga más información sobre el control de acceso de almacenamiento en [este artículo](develop-storage-files-storage-access-control.md).
 
 `OPENROWSET` usa las siguientes reglas para determinar cómo autenticarse en el almacenamiento:
-- En `OPENROWSET` con `DATA_SOURCE` el mecanismo de autenticación depende del tipo de autor de llamada.
-  - Los inicios de sesión de AAD solo pueden acceder a los archivos mediante su propia [identidad de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) si el almacenamiento de Azure permite que el usuario de Azure AD tenga acceso a los archivos subyacentes (por ejemplo, si el autor de llamada tiene permiso de lector de almacenamiento en el almacenamiento) y si [habilita la autenticación de acceso directo de Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) en el servicio de Synapse SQL.
-  - Los inicios de sesión de SQL también pueden usar `OPENROWSET` sin `DATA_SOURCE` para tener acceso a los archivos disponibles públicamente, los archivos protegidos mediante el token de SAS o la identidad administrada del área de trabajo Synapse. Debe [crear credenciales con ámbito en el servidor](develop-storage-files-storage-access-control.md#examples) para permitir el acceso a los archivos de almacenamiento. 
-- En `OPENROWSET` con `DATA_SOURCE` el mecanismo de autenticación se define en la credencial con ámbito en la base de datos asignada al origen de datos al que se hace referencia. Esta opción permite acceder al almacenamiento disponible públicamente o acceder al almacenamiento mediante el token de SAS, la identidad administrada del área de trabajo o la [identidad del autor de llamada de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#) (si el autor de llamada es la entidad de seguridad de Azure AD). Si `DATA_SOURCE` hace referencia a una instancia de Azure Storage que no es pública, deberá [crear una credencial con ámbito en la base de datos](develop-storage-files-storage-access-control.md#examples) y hacer referencia a ella en `DATA SOURCE` para permitir el acceso a los archivos de almacenamiento.
+- En `OPENROWSET` sin `DATA_SOURCE` el mecanismo de autenticación depende del tipo de autor de llamada.
+  - Los inicios de sesión de Azure AD solo pueden acceder a los archivos mediante su propia [identidad de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) si el Azure Storage permite al usuario de Azure AD acceder a los archivos subyacentes (por ejemplo, si el autor de llamada tiene permiso de lector de almacenamiento en el almacenamiento) y si [habilita la autenticación de acceso directo de Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) en el servicio de Synapse SQL.
+  - Los inicios de sesión de SQL también pueden usar `OPENROWSET` sin `DATA_SOURCE` para tener acceso a los archivos disponibles públicamente, a los archivos protegidos mediante el token de SAS o a la identidad administrada del área de trabajo Synapse. Debe [crear credenciales con ámbito en el servidor](develop-storage-files-storage-access-control.md#examples) para permitir el acceso a los archivos de almacenamiento. 
+- En `OPENROWSET` con `DATA_SOURCE`, el mecanismo de autenticación se define en la credencial con ámbito en la base de datos asignada al origen de datos al que se hace referencia. Esta opción permite acceder al almacenamiento disponible públicamente o acceder al almacenamiento mediante el token de SAS, la identidad administrada del área de trabajo o la [identidad del autor de llamada de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (si el autor de llamada es la entidad de seguridad de Azure AD). Si `DATA_SOURCE` hace referencia a una instancia de Azure Storage que no sea pública, deberá [crear una credencial cuyo ámbito sea la base de datos](develop-storage-files-storage-access-control.md#examples) y hacer referencia a ella en `DATA SOURCE` para permitir el acceso a los archivos de almacenamiento.
 
 El autor de llamada debe tener permiso de `REFERENCES` en la credencial para usarla para autenticarse en el almacenamiento.
 
@@ -169,7 +171,7 @@ Especifica el terminador de campo que se va a usar. El terminador de campo prede
 
 ROWTERMINATOR ="row_terminator"
 
-Especifica el terminador de fila que se va a usar. Si no se especifica el terminador de fila, se usará uno de los terminadores predeterminados. Los terminadores predeterminados para PARSER_VERSION = "1.0" son \r\n, \n y \r. Los terminadores predeterminados para PARSER_VERSION = "2.0" son \r\n y \n.
+Especifica el terminador de fila que se va a usar. Si no se especifica ningún terminador de fila, se usará uno de los terminadores predeterminados. Los terminadores predeterminados para PARSER_VERSION = "1.0" son \r\n, \n y \r. Los terminadores predeterminados para PARSER_VERSION = "2.0" son \r\n y \n.
 
 ESCAPE_CHAR = "char"
 
@@ -193,12 +195,12 @@ Especifica el método de compresión. Se admite el siguiente método de compresi
 
 PARSER_VERSION = "parser_version"
 
-Especifica la versión del analizador que se utilizará al leer archivos. Las versiones del analizador de CSV admitidas actualmente son 1.0 y 2.0.
+Especifica la versión del analizador que se utilizará al leer archivos. Las versiones del analizador de archivos .csv admitidas actualmente son 1.0 y 2.0:
 
 - PARSER_VERSION = "1.0"
 - PARSER_VERSION = "2.0"
 
-La versión 1.0 del analizador de CSV es el valor predeterminado y es rico en características, mientras que la versión 2.0 se basa en el rendimiento y no es compatible con todas las opciones y codificaciones. 
+La versión 1.0 del analizador de archivos .csv es el valor predeterminado y es rico en características, mientras que la versión 2.0 se basa en el rendimiento y no es compatible con todas las opciones y codificaciones. 
 
 Detalles de la versión 2.0 del analizador de CSV:
 
@@ -236,9 +238,9 @@ FROM
     ) AS [r]
 ```
 
-Si recibe un error que indica que los archivos no se pueden mostrar, debe habilitar el acceso al almacenamiento público en Synapse SQL a petición:
-- Si usa un inicio de sesión de SQL, debe [crear una credencial con ámbito en el servidor que permita el acceso al almacenamiento público](develop-storage-files-storage-access-control.md#examples).
-- Si usa una entidad de seguridad de Azure AD para tener acceso al almacenamiento público, deberá [crear una credencial con ámbito en el servidor que permita el acceso al almacenamiento público](develop-storage-files-storage-access-control.md#examples) y deshabilitar la [autenticación de acceso directo de Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+Si aparece un error que indica que los archivos no se pueden mostrar, debe habilitar el acceso al almacenamiento público en Synapse SQL On-Demand:
+- Si usa un inicio de sesión de SQL, debe [crear una credencial cuyo ámbito sea el servidor que permita el acceso al almacenamiento público](develop-storage-files-storage-access-control.md#examples).
+- Si usa una entidad de seguridad de Azure AD para acceder al almacenamiento público, deberá [crear una credencial cuyo ámbito sea el servidor que permita el acceso al almacenamiento público](develop-storage-files-storage-access-control.md#examples) y deshabilitar la [autenticación de paso a través de Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

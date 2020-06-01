@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692405"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745396"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Uso de SQL a petición (versión preliminar) con Power BI Desktop y creación de un informe
 
@@ -51,10 +51,7 @@ Cree la base de datos de demostración (y quite una base de datos existente si e
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
-BEGIN
-    DROP DATABASE Demo
-END;
+DROP DATABASE IF EXISTS Demo
 GO
 
 -- Create new database
@@ -62,23 +59,16 @@ CREATE DATABASE [Demo];
 GO
 ```
 
-## <a name="2---create-credential"></a>2\. Creación de una credencial
+## <a name="2---create-data-source"></a>2\. Creación de un origen de datos
 
-Se necesita una credencial para que el servicio SQL a petición acceda a los archivos del almacenamiento. Cree la credencial para una cuenta de almacenamiento que se encuentre en la misma región que el punto de conexión. Aunque SQL a petición puede acceder a las cuentas de almacenamiento de distintas regiones, tener el almacenamiento y el punto de conexión en la misma región proporciona un mejor rendimiento.
+Se necesita un origen de datos para que el servicio SQL On-Demand acceda a los archivos del almacenamiento. Cree el origen de datos para una cuenta de almacenamiento que se encuentre en la misma región que el punto de conexión. Aunque SQL a petición puede acceder a las cuentas de almacenamiento de distintas regiones, tener el almacenamiento y el punto de conexión en la misma región proporciona un mejor rendimiento.
 
-Para crear la credencial, ejecute el siguiente script de Transact-SQL (T-SQL):
+Para crear el origen de datos, ejecute el siguiente script de Transact-SQL (T-SQL):
 
 ```sql
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
-GO
-
--- Create credentials for Census Data container which resides in a azure open data storage account
--- There is no secret. We are using public storage account which doesn't need a secret.
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = '';
-GO
+-- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+CREATE EXTERNAL DATA SOURCE AzureOpenData
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```
 
 ## <a name="3---prepare-view"></a>3\. Preparación de la vista
@@ -96,7 +86,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        BULK 'censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        DATA_SOURCE = 'AzureOpenData',
         FORMAT='PARQUET'
     ) AS uspv;
 ```
@@ -163,7 +154,7 @@ Cuando haya terminado de usar este informe, elimine los recursos con los pasos s
 1. Eliminación de la credencial de la cuenta de almacenamiento
 
    ```sql
-   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
+   DROP EXTENAL DATA SOURCE AzureOpenData
    ```
 
 2. Eliminación de la vista

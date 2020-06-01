@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 5f552dfc320459d23e538e65e5f34c085f5b5ad9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 909c787c8ddc9443dca46dd80c0757cf099449c0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133672"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778303"
 ---
 <a name="HOLTop"></a>
 
@@ -162,13 +162,13 @@ Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo
 
 ### <a name="call-the-read-api"></a>Llamada a la API Read
 
-En primer lugar, use el siguiente código para llamar al método **batch_read_file** para la imagen especificada. Esto devuelve un identificador de operación e inicia un proceso asincrónico para leer el contenido de la imagen.
+En primer lugar, use el siguiente código para llamar al método **read** para la imagen especificada. Esto devuelve un identificador de operación e inicia un proceso asincrónico para leer el contenido de la imagen.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
 ### <a name="get-read-results"></a>Obtención de resultados de lectura
 
-A continuación, obtenga el identificador de operación devuelto de la llamada a **batch_read_file** y úselo para consultar los resultados de la operación en el servicio. El código siguiente comprueba la operación a intervalos de un segundo hasta que se devuelven los resultados. A continuación, imprime los datos de texto extraídos en la consola.
+A continuación, obtenga el identificador de operación devuelto por la llamada a **read** y úselo para consultar los resultados de la operación en el servicio. El código siguiente comprueba la operación a intervalos de un segundo hasta que se devuelven los resultados. A continuación, imprime los datos de texto extraídos en la consola.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238166"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745853"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -144,8 +144,8 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
 
 Todos los recursos, como las VM, los discos y los sitios web, se transfieren a la nueva cuenta. Sin embargo, si transfiere una suscripción a una cuenta en otro inquilino de Azure AD, los [roles de administrador](add-change-subscription-administrator.md) y las asignaciones de [Control de acceso basado en roles (RBAC)](../../role-based-access-control/role-assignments-portal.md) de la suscripción [no se transfieren](#transfer-a-subscription-to-another-azure-ad-tenant-account). Tampoco se transferirán los [registros de aplicaciones](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ni otros servicios específicos del inquilino junto con la suscripción.
 
-### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>¿Puedo transferir la propiedad a una cuenta en otro país?
-Las transferencias entre países no pueden hacerse en Azure Portal. Para transferir la suscripción entre países, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>¿Puedo transferir la propiedad a una cuenta de otro país o región?
+Lamentablemente, las transferencias entre países o regiones no pueden hacerse en Azure Portal. Para transferir una suscripción entre países o regiones, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Soy el administrador de dos cuentas. ¿Puedo transferir una suscripción de una de mis cuentas a otra?
 Sí, puede transferir la suscripción entre las cuentas. En teoría, las cuentas se consideran cuentas de dos usuarios distintos, por lo que puede usar los pasos anteriores para transferir las suscripciones entre las cuentas.

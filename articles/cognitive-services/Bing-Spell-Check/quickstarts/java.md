@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 491481156f026e9887244064297d0790a965158e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735120"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869817"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Java
 
-Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de Java envía una solicitud a la API y devuelve una lista de correcciones sugeridas. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
+Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de Java envía una solicitud a la API y devuelve una lista de correcciones sugeridas. 
+
+Aunque esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -31,7 +33,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 ## <a name="create-and-initialize-an-application"></a>Creación e inicialización de una aplicación
 
-1. Cree un nuevo proyecto de Java en su IDE o editor favoritos con el nombre de clase que elija e importe los siguientes paquetes.
+1. Cree un nuevo proyecto de Java en su IDE o editor preferidos con el nombre de clase que elija e importe los siguientes paquetes:
 
     ```java
     import java.io.*;
@@ -40,7 +42,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API. A continuación, cree variables para su mercado, el texto cuya ortografía quiere revisar y una cadena para el modo de revisión ortográfica. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+2. Cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API. A continuación, cree variables para su mercado, el texto cuya ortografía quiere revisar y una cadena para el modo de revisión ortográfica. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -55,7 +57,11 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 ## <a name="create-and-send-an-api-request"></a>Creación y envío de una solicitud de API
 
-1. Cree una función llamada `check()` para crear y enviar la solicitud de API. Dentro de ella, siga estos pasos. Cree una cadena para los parámetros de solicitud. Anexe el parámetro `?mkt=` a la cadena de su mercado y el parámetro `&mode=` al modo de revisión ortográfica.  
+1. Cree una función llamada `check()` para crear y enviar la solicitud de API. Dentro de esta función, agregue el código especificado en los pasos siguientes. Cree una cadena para los parámetros de solicitud:
+
+   a. Asigne el código de mercado al parámetro `mkt` con el operador `=`. 
+
+   b. Agregue el parámetro `mode` con el operador `&` y, a continuación, asigne el modo de revisión ortográfica. 
 
    ```java
    public static void check () throws Exception {
@@ -71,7 +77,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Abra una conexión a la dirección URL. Establezca el método de solicitud en `POST`. Agregue los parámetros de solicitud. No olvide agregar la clave de suscripción al encabezado `Ocp-Apim-Subscription-Key`.
+3. Abra una conexión a la dirección URL. Establezca el método de solicitud en `POST` y agregue los parámetros de la solicitud. No olvide agregar la clave de suscripción al encabezado `Ocp-Apim-Subscription-Key`.
 
     ```java
     connection.setRequestMethod("POST");
@@ -91,7 +97,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 ## <a name="format-and-read-the-api-response"></a>Formato y lectura de la respuesta de API
 
-1. Agregue este método a la clase. Dicho método da formato a JSON para obtener una salida más legible.
+1. Agregue el método `prettify()` a la clase para dar formato a la respuesta código JSON y obtener una salida más legible.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +123,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 ## <a name="call-the-api"></a>Llamada a la API
 
-En la función principal de la aplicación, llame al método check() creado anteriormente.
+En la función principal de la aplicación, llame al método `check()` creado anteriormente.
 ```java
         public static void main(String[] args) {
             try {
@@ -131,19 +137,19 @@ En la función principal de la aplicación, llame al método check() creado ante
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Compile y ejecute el proyecto.
+Compile y ejecute el proyecto. Si usa la línea de comandos, use los siguientes comandos para compilar y ejecutar la aplicación:
 
-Si usa la línea de comandos, use los siguientes comandos para compilar y ejecutar la aplicación.
+1. Compilar la aplicación:
 
-**Compilar:**
-```bash
-javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
-```
+   ```bash
+   javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+   ```
 
-**Ejecutar:**
-```bash
-java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
-```
+2. Ejecute la aplicación:
+
+   ```bash
+   java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+   ```
 
 ## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
@@ -193,4 +199,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Creación de una aplicación web de una sola página](../tutorials/spellcheck.md)
 
 - [¿Qué es Bing Spell Check API?](../overview.md)
-- [Referencia de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Referencia de la API Bing Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

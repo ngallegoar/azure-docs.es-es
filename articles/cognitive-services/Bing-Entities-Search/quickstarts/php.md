@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 21a8d47f80dae35553114f522c1c78a97a086518
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383958"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650227"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con PHP
 
 Use este inicio rápido para realizar la primera llamada a Bing Entity Search API y ver la respuesta JSON. Esta sencilla aplicación de PHP envía una consulta de búsqueda de noticias a la API y muestra la respuesta. 
 
-Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Aunque esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -31,12 +31,12 @@ Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful
 
 ## <a name="search-entities"></a>Entidades de búsqueda
 
-Para ejecutar esta aplicación, siga estos pasos.
+Para ejecutar esta aplicación, siga estos pasos:
 
 1. Cree un nuevo proyecto PHP en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
-4. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+4. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 5. Ejecute el programa.
 
 ```php
@@ -83,7 +83,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Respuesta**
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
@@ -154,4 +154,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [Compilar una aplicación web de una sola página](../tutorial-bing-entities-search-single-page-app.md)
 
 * [¿Qué es Bing Entity Search API?](../overview.md )
-* [Referencia de Bing Entity Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Referencia de la API Bing Entity Search](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

@@ -3,34 +3,26 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690990"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648186"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
 En este artículo se describe cómo los acuerdos y modificaciones del Contrato Enterprise de Azure pueden afectar al acceso a los servicios de Azure, a su uso y al pago por ellos.
 
-## <a name="amendment-status"></a>Estado de la enmienda
-
-Cualquier enmienda de los clientes de Azure debe pasar por su asociado o equipo de cuenta de Microsoft y procesarse mediante el centro de operaciones regional. Si cree que no se ha procesado una enmienda, consulte con el asociado, asesor de software o equipo de cuentas de Microsoft.
-
 ## <a name="enrollment-provisioning-status"></a>Estado de aprovisionamiento de inscripciones
 
 La fecha de inicio de un nuevo compromiso monetario se define por la fecha en que el centro de operaciones regional lo ha procesado. Como los pedidos de compromiso monetario a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra del compromiso monetario se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra en https://www.explore.ms muestra el inicio del compromiso monetario. La fecha de inicio de la cobertura es cuando el compromiso monetario aparece en el portal del Contrato Enterprise de Azure.
 
-## <a name="support-offer-not-provisioned"></a>Oferta de soporte técnico no aprovisionada
-
-Puede solicitar soporte técnico Estándar o Pro-Direct al comprar SKU específicas de soporte técnico. El pedido es similar a un pedido de compra de la SKU monetaria del Contrato Enterprise de Azure. Por ejemplo, 6QK-00001. Los números de SKU de soporte técnico son W6T-00002 (Pro-Direct) y W6T-00003 (Estándar). Compruebe las ofertas de soporte técnico actuales antes de adquirir SKU de soporte técnico.
-
-La inscripción debe tener al menos una cuenta activa para aprovisionar la oferta de soporte técnico.
+## <a name="support-for-enterprise-customers"></a>Soporte técnico para clientes de Enterprise
 
  La [oferta del plan de soporte técnico del Contrato Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support/) de Azure está disponible para algunos clientes.
 
@@ -158,24 +150,6 @@ Puede solicitar un aumento de la cuota en cualquier momento mediante el envío d
 - El identificador de suscripción del Portal para desarrolladores de Azure asociado al servicio.
   - Para información sobre cómo obtener el identificador de la suscripción, [póngase en contacto con el servicio de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## <a name="azure-compute-pre-purchase-plan-cpp"></a>Plan de compra anticipada de Azure Compute (CPP)
-
-El plan de compra anticipada de Azure Compute (CPP, anteriormente conocido como la promoción de Azure Compute) es una oferta que da a los clientes con cargas de trabajo predecibles y con estado estable la oportunidad de obtener capacidad de proceso con un descuento importante, mediante la adquisición anticipada de Azure Compute para 12 meses. Está disponible para el Contrato Enterprise y visible en EA Portal.
-
-Si ha solicitado una SKU de CPP, se aplica a un tipo específico de máquina en un centro de datos específico. Tal como se ofrece actualmente esta característica, no se proporciona una lista de todas las compras de CPP que ha realizado un cliente, por lo que no hay ninguna lista de créditos en espera; sin embargo, cuando configure los tipos de máquina comprados en el centro de datos donde se adquirieron, verá la asignación mensual en el informe Usage Summary (Resumen de uso) de EA Portal.
-
-El importe comprado anticipadamente se mostrará como un crédito en la columna "Included Units" (Unidades incluidas) y su uso no producirá ningún cargo por uso hasta que se consuman estas unidades. Cuando se consuman, el uso adicional se calculará según las tasas negociadas en la hoja de precios del cliente del Contrato Enterprise normal.
-
-La forma en la que se compran los créditos se basa en el número de máquinas de una clase por mes. Por ejemplo, si compró 70 máquinas virtuales A2 en el Este de EE. UU. 2, no lo verá en EA Portal del mismo modo que lo adquirió.
-
-Las máquinas mensuales se calculan como una ejecución de 744 horas al mes. Al convertirlo en horas, supone 70 por 744, o lo que es lo mismo, 52 080 horas compradas de las máquinas virtuales A2 al mes. Dado que las máquinas virtuales A2 se presentan en el informe Usage Summary (Resumen de uso) de EA Portal en incrementos de 100 horas, lo que se ve es un crédito de 520,8 (52 080/100) "unidades incluidas" al mes y las unidades consumidas hasta el momento en el mes. Los cargos por uso deben aparecer como cero hasta que las unidades mensuales consumidas superen las unidades mensuales incluidas.
-
-Los distintos tipos de máquina usan unidades de medida diferentes, por lo que, por ejemplo, las máquinas virtuales D3 y D4 usan una unidad de medida de 10 horas en el informe Usage Summary (Resumen de uso), por lo que una compra de 70 de estas máquinas mostraría 5208 unidades incluidas al mes (52 080/10).
-
-En general, la fórmula siguiente le indicará el número de máquinas virtuales adquiridas en función de sus unidades de medida correspondientes:
-
-<center><b> ("Cantidad incluida" * "unidades de medida")/744 </b></center>
-
 ## <a name="plan-skus"></a>SKU de plan
 
 Las SKU de plan ofrecen la posibilidad de adquirir unidos un conjunto de servicios integrados con un descuento en la tasa. Las SKU de plan se diseñan para complementarse entre sí mediante otras ofertas y conjuntos integrados, para un mayor ahorro de costos.
@@ -191,35 +165,6 @@ Los administradores de empresa pueden asignar propietarios de la cuenta para apr
 1. Haga clic en la pestaña **Price Sheet** (Hoja de precios).
 1. Haga clic en el icono "Download" (Descargar) en la esquina superior derecha.
 1. Busque los números de pieza de la SKU de plan correspondiente, con el filtro en la columna "Included Quantity" (Cantidad incluida) y la selección de valores mayores que "0".
-
-### <a name="provision-the-plan-skus"></a>Aprovisionamiento de las SKU del plan
-
-Los administradores de empresa pueden, siguiendo los pasos que se indican a continuación, agregar nuevos propietarios de la cuenta, asociar un propietario de la cuenta existente o solicitar a propietarios de la cuenta existentes que inicien sesión en Azure EA Portal, para aprovisionar SKU de plan adquiridos previamente en este portal.  
-
-**Incorporación de un nuevo propietario de la cuenta (realizado por el administrador de Contrato Enterprise):**
-
-1. En Azure EA Portal, seleccione **Manage** (Administrar) en el panel de navegación izquierdo.
-1. Haga clic en la pestaña **Account** (Cuenta).
-1. En la página Account (Cuenta), haga clic en **+Add Account** (+Agregar cuenta).
-1. Seleccione un departamento o déjelo sin asignar.
-1. Seleccione el tipo de autenticación deseado.
-1. Proporcione el nombre descriptivo que desea usar para identificar esta cuenta en los informes.
-1. Escriba la dirección de correo electrónico del propietario de la cuenta que desea asociar a la nueva cuenta.
-1. Confirme la dirección de correo electrónico que desea asociar a la nueva cuenta.
-1. Haga clic en **Agregar**.
-1. Puede agregar otra cuenta si hace clic en **Add Another Account** (Agregar otra cuenta), o bien puede hacer clic en el botón **Add** (Agregar) en la esquina inferior derecha de la barra de herramientas izquierda.
-1. Ahora, el propietario de la cuenta puede iniciar sesión para agregar las suscripciones pertinentes en las que aprovisionar las SKU de plan.
-
-**Asociación de un propietario de la cuenta existente:**
-
-1. En Enterprise Portal, haga clic en **Manage** (Administrar).
-1. Haga clic en la pestaña **Account** (Cuenta).
-1. Haga clic en **+Add an account** (+Agregar una cuenta). Escriba la cuenta de Microsoft o la cuenta profesional o educativa asociada con la cuenta existente.
-1. Confirme la cuenta de Microsoft o la cuenta profesional o educativa asociada con la cuenta existente.
-1. Proporcione el nombre que desea usar para identificar esta cuenta en los informes.
-1. Haga clic en **Agregar**.
-1. Puede agregar una cuenta adicional seleccionando de nuevo la opción **+Add an Account** (+Agregar una cuenta) o volver a la página principal; para ello, seleccione el botón **Admin** (Administración).  
-1. Si hace clic para ver la página Account (Cuenta), la cuenta recién agregada aparecerá con estado "Pending" (Pendiente). Cambiará al estado "Active" (Activo) después de que el propietario de la cuenta inicie sesión en EA Portal por primera vez.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Propietarios de la cuenta nuevos o existentes para crear nuevas suscripciones
 

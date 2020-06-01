@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71bc20680467d270436e28190bb49db5b9313ca0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f3e53ac189e0d612b09c362e82ba5bc2fe5fec8d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420049"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696833"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS con Synapse SQL
 
@@ -78,6 +78,9 @@ SELECT <select_criteria>
 
 Rellena la nueva tabla con los resultados de una instrucción SELECT. *select_criteria* es el cuerpo de la instrucción SELECT que determina qué datos se copian en la nueva tabla. Para más información sobre las instrucciones SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
+> [!NOTE]
+> La cláusula ORDER BY de la parte SELECT de CETAS no se admite.
+
 ## <a name="permissions"></a>Permisos
 
 Debe tener permisos para mostrar el contenido de la carpeta y escribir en la carpeta LOCATION de CETAS para que funcione.
@@ -86,7 +89,9 @@ Debe tener permisos para mostrar el contenido de la carpeta y escribir en la car
 
 En estos ejemplos se usa CETAS para guardar la población total agregada por año y estado a una carpeta aggregated_data que se encuentra en el origen de datos population_ds.
 
-Este ejemplo se basa en las credenciales, el origen de datos y el formato de archivo externo que se crearon anteriormente. Consulte el documento [tablas externas](develop-tables-external-tables.md). Para guardar los resultados de la consulta en una carpeta diferente del mismo origen de datos, cambie el argumento LOCATION. Para guardar los resultados en una cuenta de almacenamiento distinta, cree y use un origen de datos diferente para el argumento DATA_SOURCE.
+Este ejemplo se basa en las credenciales, el origen de datos y el formato de archivo externo que se crearon anteriormente. Consulte el documento [tablas externas](develop-tables-external-tables.md). Para guardar los resultados de la consulta en una carpeta diferente del mismo origen de datos, cambie el argumento LOCATION. 
+
+Para guardar los resultados en una cuenta de almacenamiento distinta, cree y use un origen de datos diferente para el argumento DATA_SOURCE.
 
 > [!NOTE]
 > Los ejemplos siguientes usan una cuenta de almacenamiento pública de datos abiertos de Azure. Es de solo lectura. Para ejecutar estas consultas, debe proporcionar el origen de datos para el que tenga permisos de escritura.
@@ -111,7 +116,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-En el ejemplo siguiente se usa una tabla externa como el origen de CETAS. Esta se basa en las credenciales, el origen de datos, el formato de archivo externo y la tabla externa que se crearon anteriormente. Consulte el documento [tablas externas](develop-tables-external-tables.md).
+En el ejemplo siguiente se usa una tabla externa como origen de CETAS. Esta se basa en las credenciales, el origen de datos, el formato de archivo externo y la tabla externa que se crearon anteriormente. Consulte el documento [tablas externas](develop-tables-external-tables.md).
 
 ```sql
 -- use CETAS with select from external table
@@ -152,9 +157,10 @@ CETAS se puede usar para almacenar conjuntos de resultados con los siguientes ti
 - TINYINT
 - bit
 
-Las aplicaciones de línea de negocio no se pueden utilizar con CETAS.
+> [!NOTE]
+> Las aplicaciones de línea de negocio no se pueden utilizar con CETAS.
 
-No se pueden usar los siguientes tipos de datos en la parte SELECT de CETAS:
+Los siguientes tipos de datos no se pueden usar en la parte SELECT de CETAS:
 
 - NCHAR
 - NVARCHAR
@@ -167,4 +173,4 @@ No se pueden usar los siguientes tipos de datos en la parte SELECT de CETAS:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede intentar consultar las [tablas de Spark](develop-storage-files-spark-tables.md).
+Puede probar a consultar [Tablas externas de Apache Spark para Azure Synapse](develop-storage-files-spark-tables.md).

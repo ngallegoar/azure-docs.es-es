@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: aaeb905c9cdc1e7b74e21d3c191f6a24a94fcd7d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053803"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869290"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Inicio rápido: Obtenga resultados de noticias con la API de REST Bing News Search y Go
 
@@ -23,14 +23,13 @@ En este inicio rápido se usa el lenguaje Go para llamar a Bing News Search API.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 * Instale los [binarios de Go](https://golang.org/dl/).
-* Instale la biblioteca go-spew para que la impresora con sangría muestre los resultados.
-    * Instale esta biblioteca: `$ go get -u https://github.com/davecgh/go-spew`
+* Instale la biblioteca go-spew para usar una impresora con sangría profunda para mostrar los resultados. Use este comando para instalar la biblioteca: `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>Creación de un proyecto e importación de las bibliotecas
 
-Cree un proyecto de Go en su IDE o editor favoritos. Luego, importe `net/http` para solicitudes, `ioutil` para leer la respuesta y `encoding/json` para tratar con el texto JSON de resultados. La biblioteca go-spew es necesaria para analizar JSON. 
+Cree un proyecto de Go en su IDE o editor favoritos. Luego, importe `net/http` para solicitudes, `ioutil` para leer la respuesta y `encoding/json` para administrar el texto JSON de resultados y la biblioteca `go-spew` para analizar los resultados JSON. 
 
 ```go
 package main
@@ -47,7 +46,7 @@ import (
 
 ## <a name="create-a-struct-to-format-the-news-search-results"></a>Creación de una estructura para dar formato a los resultados de la búsqueda de noticias
 
-La estructura `NewsAnswer` da formato a los datos que se proporcionan en la respuesta. La respuesta JSON es bastante compleja y tiene varios niveles.  En la siguiente implementación se cubren los aspectos básicos.
+La estructura `NewsAnswer` da formato a los datos proporcionados en la respuesta JSON, que es multinivel y complejo. En la siguiente implementación se cubren los aspectos básicos:
 
 ```go
 // This struct formats the answer provided by the Bing News Search API.
@@ -87,7 +86,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declaración de la función main y definición de variables  
 
-El siguiente código declara la función main y asigna las variables necesarias. Confirme que el punto de conexión es correcto y reemplace el valor `token` por una clave de suscripción válida de su cuenta de Azure. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+El siguiente código declara la función principal y asigna las variables necesarias. Confirme que el punto de conexión es correcto y reemplace el valor `token` por una clave de suscripción válida de su cuenta de Azure. Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
 ```go
 func main() {
@@ -160,7 +159,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Control de la respuesta
 
-La función `Unmarshall` extrae información del texto JSON devuelto por News Search API.  A continuación, puede mostrar los nodos de los resultados mediante la impresora con sangría `go-spew`.
+La función `Unmarshall` extrae información del texto JSON devuelto por la API Bing News Search. A continuación,muestre los nodos de los resultados mediante la impresora con sangría profunda `go-spew`.
 
 ```go
 // Create a new answer object 
@@ -181,7 +180,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>Results
 
-Los resultados contienen el nombre y la dirección URL de cada resultado.
+La siguiente salida contiene el nombre y la dirección URL de cada resultado:
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"

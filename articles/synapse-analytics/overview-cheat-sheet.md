@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: aa93a816fc11158d928978bdec2dbf42119fa149
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420949"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652662"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Hoja de referencia rápida de Azure Synapse Analytics
 
@@ -30,8 +30,8 @@ La hoja de referencia rápida de Azure Synapse Analytics le guiará por los conc
 ## <a name="concepts"></a>Conceptos
 | Nombres y verbos                         | Qué hace       |
 |:---                                 |:---                 |
-| **Área de trabajo de Synapse (versión preliminar)** | Límite de colaboración protegible para realizar análisis empresariales basados en la nube en Azure. El área de trabajo se implementa en una región específica y tiene una cuenta de ADLSg2 y un sistema de archivos asociados (para almacenar los datos temporales). Un área de trabajo está en un grupo de recursos. |
-| **SQL Analytics**   | Ejecute el análisis con grupos o con funcionalidades a petición.  |
+| **Área de trabajo de Synapse (versión preliminar)** | Límite de colaboración protegible para realizar análisis empresariales basados en la nube en Azure. El área de trabajo se implementa en una región específica y tiene una cuenta de Azure Data Lake Storage Gen2 y un sistema de archivos asociados (para almacenar los datos temporales). Un área de trabajo está en un grupo de recursos. |
+| **Synapse SQL**   | Ejecute el análisis con grupos o con funcionalidades a petición.  |
 | **Grupo de SQL**   | Se pueden implementar en un área de trabajo de 0 a N recursos aprovisionados de SQL con sus bases de datos correspondientes. Cada grupo de SQL tiene una base de datos asociada. Un grupo de SQL se puede escalar, pausar y reanudar manual o automáticamente. Un grupo de SQL se puede escalar de 100 DWU a 30 000 DWU.       |
 | **SQL a petición (versión preliminar)**   | Sistema de procesamiento de datos distribuido creado para datos a gran escala que permite ejecutar consultas de T-SQL a través de datos en el lago de datos. No tiene servidor, por lo que no tiene que administrar la infraestructura.       |
 |**Spark de Apache** | Entorno de ejecución de Spark que se usa en un grupo de Spark. La versión actual admitida es Spark 2.4 con Python 3.6.1, Scala 2.11.12, compatibilidad con .NET para Apache Spark 0.5 y Delta Lake 0.3.  | 
@@ -55,7 +55,7 @@ La hoja de referencia rápida de Azure Synapse Analytics le guiará por los conc
 
 - [Creación de un área de trabajo](quickstart-create-workspace.md)
 - [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
-- [Creación de un grupo de SQL](quickstart-create-sql-pool.md)
+- [Creación de un grupo de SQL](quickstart-create-sql-pool-portal.md)
 - [Uso de SQL a petición](quickstart-sql-on-demand.md)
-- [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool-portal.md)
 

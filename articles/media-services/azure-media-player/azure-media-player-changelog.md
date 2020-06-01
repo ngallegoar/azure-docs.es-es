@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727602"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698312"
 ---
 # <a name="changelog"></a>Registro de cambios #
 
@@ -577,8 +577,8 @@ ms.locfileid: "81727602"
 - [Corrección de errores][AzureHtml5JS] La reproducción en vivo se inmoviliza en las actualizaciones de MPD cuando hay pequeñas imprecisiones en la marca de tiempo.
 - [Corrección de errores][AzureHtml5JS] Se han mitigado varios problemas de la reproducción en vivo.
 - [Corrección de errores][AzureHtml5JS] Los búferes se vacían cuando la heurística del tamaño de la ventana está activa y se va a una pantalla con mayor resolución.
-- [Corrección de errores][AzureHtml5JS] Chrome ahora muestra correctamente el evento finalizado. Vinculado a un problema conocido anterior de *Chrome por el que no se enviaba correctamente un evento &euro;ended&euro; cuando se usa AzureHtml5JS. Hay un problema en el explorador subyacente.*
-- [Corrección de errores][AzureHtml5JS] Se ha deshabilitado Safari para esta tecnología, con el fin de solucionar un *problema de reproducción con OSX Yosemite con la tecnología AzureHtml5JS. Hay problemas de implementación de MSE. Mitigación temporal: forzar &euro;Flash&euro;, &euro;Silverlight&euro;como orden de las tecnologías para estos agentes de usuario*.
+- [Corrección de errores][AzureHtml5JS] Chrome ahora muestra correctamente el evento finalizado. Vinculado a un problema conocido anterior de *Chrome por el que no se enviaba correctamente un evento terminado cuando se usa AzureHtml5JS. Hay un problema en el explorador subyacente.*
+- [Corrección de errores][AzureHtml5JS] Se ha deshabilitado Safari para esta tecnología, con el fin de solucionar un *problema de reproducción con OSX Yosemite con la tecnología AzureHtml5JS. Hay problemas de implementación de MSE. Mitigación temporal: forzar flashSS, silverlightSS como orden de las tecnologías para estos agentes de usuario*
 - [Corrección de errores][FlashSS] Se activaba loadstart después de que se produjera un error.
 
 ## <a name="020-beta"></a>0.2.0 (Beta) ##

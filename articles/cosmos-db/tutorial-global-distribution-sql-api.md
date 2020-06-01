@@ -1,22 +1,22 @@
 ---
 title: 'Tutorial: Tutorial de distribución global de Azure Cosmos DB para API de SQL'
-description: 'Tutorial: Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB mediante SQL API con .NET, Java, Python y otros SDK.'
+description: 'Tutorial: Información sobre cómo configurar la distribución global de Azure Cosmos DB mediante SQL API con .NET, Java, Python y otros SDK'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: ee648efde22e6bbef045b9d89b8d016e2e489f20
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80295523"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872968"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configuración de la distribución global de Azure Cosmos DB con SQL API
 
-En este artículo se muestra cómo usar Azure Portal para configurar la distribución global de Azure Cosmos DB y luego conectarse con la API de SQL.
+En este artículo se muestra cómo usar Azure Portal para configurar la distribución global de Azure Cosmos DB y luego conectarse con la API de SQL.
 
 En este artículo se tratan las tareas siguientes: 
 
@@ -28,7 +28,7 @@ En este artículo se tratan las tareas siguientes:
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Conexión a una región de preferencia con la API de SQL
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a> Conexión a una región de preferencia con la API de SQL
 
 Para aprovechar las ventajas de la [distribución global](distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Esto puede hacerse estableciendo la directiva de conexión. Según la configuración de la cuenta de Azure Cosmos DB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK de SQL elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
 
@@ -110,21 +110,24 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## <a name="java-v2-sdk"></a>SDK de Java V2
+## <a name="java-v4-sdk"></a>SDK de Java V4
 
 El siguiente código muestra cómo establecer las ubicaciones preferidas con el SDK de Java:
 
-```java
-ConnectionPolicy policy = new ConnectionPolicy();
-policy.setUsingMultipleWriteLocations(true);
-policy.setPreferredLocations(Arrays.asList("East US", "West US", "Canada Central"));
-AsyncDocumentClient client =
-        new AsyncDocumentClient.Builder()
-                .withMasterKeyOrResourceToken(this.accountKey)
-                .withServiceEndpoint(this.accountEndpoint)
-                .withConnectionPolicy(policy)
-                .build();
-```
+### <a id="java4-preferred-locations"></a>
+#### <a name="async"></a>[Async](#tab/api-async)
+
+   [SDK para Java V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) API asincrónica
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
+
+#### <a name="sync"></a>[Sincronizar](#tab/api-sync)
+
+   [SDK para Java V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) API sincrónica
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=TutorialGlobalDistributionPreferredLocationSync)]
+
+--- 
 
 ## <a name="rest"></a>REST
 Una vez que una cuenta de base de datos está disponible en varias regiones, los clientes pueden consultar su disponibilidad llevando a cabo una solicitud GET en el siguiente URI.

@@ -1,26 +1,26 @@
 ---
 title: 'Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin'
 description: En este tema se incluye un ejemplo de código Xamarin que puede usar para conectarse a Azure Cosmos DB y realizar consultas
-author: codemillmatt
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/30/2018
-ms.author: masoucou
-ms.openlocfilehash: 125cc2516fbd694bbe62545e85d4e14225fb2a6a
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 3278374a0a09ed4e776ba0f773ad2dafd9786164
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756432"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652012"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Creación de una aplicación de lista de tareas con Xamarin mediante la cuenta de SQL API de Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [SDK para Java v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)

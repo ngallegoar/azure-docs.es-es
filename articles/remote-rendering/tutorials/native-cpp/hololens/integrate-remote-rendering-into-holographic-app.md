@@ -1,0 +1,471 @@
+---
+title: Integración de Remote Rendering en una aplicación holográfica de C++/DirectX11
+description: Aquí se explica cómo integrar Remote Rendering en una aplicación holográfica de C++/DirectX11 sin formato creada con el asistente para proyectos de Visual Studio.
+author: florianborn71
+ms.author: flborn
+ms.date: 05/04/2020
+ms.topic: tutorial
+ms.openlocfilehash: 9db32912e86079875ad382fb23e521c720fc7fbd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775623"
+---
+# <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: Integración de Remote Rendering en una aplicación de HoloLens Holographic
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Uso de Visual Studio para crear una aplicación holográfica que se puede implementar en HoloLens
+> * Agregue los fragmentos de código y la configuración de proyecto necesarios para combinar la representación local con contenido representado de forma remota.
+
+Este tutorial se centra en agregar los fragmentos necesarios a un ejemplo nativo de `Holographic App` para combinar la representación local con Azure Remote Rendering. El único tipo de comentarios de estado en esta aplicación se ofrece mediante el panel de salida de depuración de Visual Studio, por lo que se recomienda iniciar el ejemplo desde Visual Studio. La adición de comentarios dentro de la aplicación queda fuera del ámbito de este ejemplo, porque la creación de un panel de texto dinámico desde cero implica una gran cantidad de código. Un buen punto de partida es la clase `StatusDisplay`, que forma parte del [proyecto de ejemplo de Remoting Player en GitHub](https://github.com/microsoft/MixedReality-HolographicRemoting-Samples/tree/master/player/common/Content). De hecho, la versión predefinida de este tutorial usa una copia local de esa clase.
+
+> [!TIP]
+> El [repositorio de ejemplos de Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering) contiene el resultado de este tutorial como un proyecto de Visual Studio que está listo para usarse. También se enriquece con informes de estado y de error adecuados mediante la clase de interfaz de usuario `StatusDisplay`. En el tutorial, todas las adiciones específicas de Azure Remote Rendering se encuentran en el ámbito de `#ifdef USE_REMOTE_RENDERING` / `#endif`, por lo que es fácil identificar las adiciones de Remote Rendering.
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Para este tutorial, necesitará:
+
+* La información de su cuenta (identificador de cuenta, clave de cuenta, identificador de suscripción). Si no tiene una cuenta, [cree una](../../../how-tos/create-an-account.md).
+* Windows SDK 10.0.18362.0 [(descargar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
+* La versión más reciente de Visual Studio 2019 [(descargar)](https://visualstudio.microsoft.com/vs/older-downloads/).
+* Las plantillas de aplicación de Windows Mixed Reality para Visual Studio [(descargar)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
+
+## <a name="create-a-new-holographic-app-sample"></a>Creación de una nueva aplicación holográfica de ejemplo
+
+Como primer paso, se crea un inventario de ejemplo que constituye la base de la integración de Remote Rendering. Abra Visual Studio, seleccione "Crear un proyecto" y busque "Holographic DirectX 11 App (Universal Windows) (C++/WinRT)".
+
+![Creación de un proyecto](media/new-project-wizard.png)
+
+Escriba el nombre de proyecto que desee, elija una ruta de acceso y seleccione el botón "Crear".
+En el nuevo proyecto, cambie la configuración a **"Debug / ARM64"** . Ahora podrá compilarlo e implementarlo en un dispositivo HoloLens 2 conectado. Si lo ejecuta en HoloLens, verá un cubo girando delante.
+
+## <a name="add-remote-rendering-dependencies-through-nuget"></a>Adición de dependencias de Remote Rendering mediante NuGet
+
+El primer paso para agregar funcionalidades de Remote Rendering es agregar las dependencias del lado cliente. Las dependencias pertinentes están disponibles como un paquete NuGet.
+En el Explorador de soluciones, haga clic con el botón derecho en el nombre del proyecto y seleccione **Administrar paquetes NuGet…** en el menú contextual.
+
+En el cuadro de diálogo solicitado, busque el paquete NuGet denominado **"Microsoft.Azure.RemoteRendering.Cpp"** :
+
+![Búsqueda del paquete NuGet](media/add-nuget.png)
+
+y agréguelo al proyecto seleccionando el paquete y, a continuación, presionando el botón "Instalar".
+
+El paquete NuGet agrega las dependencias de Remote Rendering al proyecto. Concretamente:
+* Vincule la biblioteca cliente (RemoteRenderingClient.lib).
+* Configure las dependencias .dll.
+* Establezca la ruta de acceso correcta al directorio include.
+
+## <a name="project-preparation"></a>Preparación del proyecto
+
+Necesitamos realizar pequeños cambios en el proyecto existente. Estos cambios son mínimos, pero sin ellos Remote Rendering no funcionaría.
+
+### <a name="enable-multithread-protection-on-directx-device"></a>Habilitar la protección multiproceso en el dispositivo de DirectX
+El dispositivo `DirectX11` debe tener habilitada la protección multiproceso. Para cambiar esa configuración, abra el archivo DeviceResources.cpp de la carpeta "Common" e inserte el código siguiente al final de la función `DeviceResources::CreateDeviceResources()`:
+
+```cpp
+// Enable multi thread protection as now multiple threads use the immediate context.
+Microsoft::WRL::ComPtr<ID3D11Multithread> contextMultithread;
+if (context.As(&contextMultithread) == S_OK)
+{
+    contextMultithread->SetMultithreadProtected(true);
+}
+```
+
+### <a name="enable-network-capabilities-in-the-app-manifest"></a>Habilitar las funcionalidades de red en el manifiesto de la aplicación
+Las funcionalidades de red se deben habilitar explícitamente para la aplicación implementada. Si esto no se configura, las consultas de conexión acabarán agotando el tiempo de espera. Para habilitarlas, haga doble clic en el elemento `package.appxmanifest` del Explorador de soluciones. En la siguiente interfaz de usuario, vaya a la pestaña **Funcionalidades** y seleccione:
+* Internet (cliente y servidor)
+* Internet (cliente)
+
+![Funcionalidades de red](media/appx-manifest-caps.png)
+
+
+## <a name="integrate-remote-rendering"></a>Integración de Remote Rendering
+
+Ahora que el proyecto está preparado, podemos empezar con el código. Un buen punto de entrada en la aplicación es la clase `HolographicAppMain` (archivo HolographicAppMain.h/cpp) porque tiene todos los enlaces necesarios para la inicialización, la desinicialización y la representación.
+
+### <a name="includes"></a>Includes
+
+En primer lugar, agregaremos las instrucciones include necesarias. Agregue la siguiente instrucción include al archivo HolographicAppMain.h:
+
+```cpp
+#include <AzureRemoteRendering.h>
+```
+
+...y esta directiva `include` adicional al archivo HolographicAppMain.cpp:
+
+```cpp
+#include <AzureRemoteRendering.inl>
+#include <RemoteRenderingExtensions.h>
+```
+
+Para simplificar el código, definimos el siguiente acceso directo del espacio de nombres en la parte superior del archivo HolographicAppMain.h, después de la directiva `include`:
+
+```cpp
+namespace RR = Microsoft::Azure::RemoteRendering;
+```
+
+Este acceso directo es útil, ya que no tenemos que escribir el espacio de nombres completo en todas partes pero podremos reconocer las estructuras de datos específicas de Azure Remote Rendering. Por supuesto, también podríamos usar la directiva `using namespace...`.
+
+### <a name="remote-rendering-initialization"></a>Inicialización de Remote Rendering
+ 
+Necesitamos almacenar algunos objetos para la sesión durante la vigencia de la aplicación. La vigencia coincide con la duración del objeto `HolographicAppMain` de la aplicación, por lo que agregaremos los objetos como miembros a la clase `HolographicAppMain`. El paso siguiente consiste en agregar los siguientes miembros de clase al archivo HolographicAppMain.h:
+
+```cpp
+class HolographicAppMain
+{
+    ...
+    // members:
+    std::string m_sessionOverride;                // if we have a valid session ID, we specify it here. Otherwise a new one is created
+    RR::ApiHandle<RR::AzureFrontend> m_frontEnd;  // the front end instance
+    RR::ApiHandle<RR::AzureSession> m_session;    // the current remote rendering session
+    RR::ApiHandle<RR::RemoteManager> m_api;       // the API instance, that is used to perform all the actions. This is just a shortcut to m_session->Actions()
+    RR::ApiHandle<RR::GraphicsBindingWmrD3d11> m_graphicsBinding; // the graphics binding instance
+}
+```
+
+Un buen lugar para realizar la implementación real es el constructor de la clase `HolographicAppMain`. Aquí debemos realizar tres tipos de inicialización:
+1. Inicialización única del sistema de Remote Rendering
+1. Creación del front-end
+1. Creación de la sesión
+
+Todo ello se realiza secuencialmente en el constructor. Sin embargo, en casos de uso reales, podría ser adecuado realizar estos pasos por separado.
+
+Agregue el código siguiente al principio del cuerpo del constructor en el archivo HolographicAppMain.cpp:
+
+```cpp
+HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> const& deviceResources) :
+    m_deviceResources(deviceResources)
+{
+    // 1. One time initialization
+    {
+        RR::RemoteRenderingInitialization clientInit;
+        memset(&clientInit, 0, sizeof(RR::RemoteRenderingInitialization));
+        clientInit.connectionType = RR::ConnectionType::General;
+        clientInit.graphicsApi = RR::GraphicsApiType::WmrD3D11;
+        clientInit.toolId = "<sample name goes here>"; // <put your sample name here>
+        clientInit.unitsPerMeter = 1.0f;
+        clientInit.forward = RR::Axis::Z_Neg;
+        clientInit.right = RR::Axis::X;
+        clientInit.up = RR::Axis::Y;
+        RR::StartupRemoteRendering(clientInit);
+    }
+
+
+    // 2. Create front end
+    {
+        // Users need to fill out the following with their account data and model
+        RR::AzureFrontendAccountInfo init;
+        memset(&init, 0, sizeof(RR::AzureFrontendAccountInfo));
+        init.AccountId = "00000000-0000-0000-0000-000000000000";
+        init.AccountKey = "<account key>";
+        init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to your region>
+        m_modelURI = "builtin://Engine";
+        m_sessionOverride = ""; // if there is a valid session ID to re-use, put it here. Otherwise a new one is created
+
+        m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+    }
+
+    // 3. Open/create rendering session
+    {
+        bool createNewSession = true;
+
+        auto SetNewSession = [this](RR::ApiHandle<RR::AzureSession> newSession)
+        {
+            SetNewState(AppConnectionStatus::Connecting, RR::Result::Success);
+            m_session = newSession;
+            m_api = m_session->Actions();
+            m_graphicsBinding = m_session->GetGraphicsBinding().as<RR::GraphicsBindingWmrD3d11>();
+            m_session->ConnectionStatusChanged([this](auto status, auto error)
+                {
+                    OnConnectionStatusChanged(status, error);
+                });
+
+            // The following is async, but we'll get notifications via OnConnectionStatusChanged
+            RR::ConnectToRuntimeParams init;
+            init.mode = RR::ServiceRenderMode::Default;
+            m_session->ConnectToRuntime(init);
+        };
+
+        // If we had an old (valid) session that we can recycle, we call synchronous function m_frontEnd->OpenRenderingSession
+        if (!m_sessionOverride.empty())
+        {
+            auto openSessionRes = m_frontEnd->OpenRenderingSession(m_sessionOverride);
+            if (openSessionRes->valid())
+            {
+                SetNewSession(*openSessionRes);
+                createNewSession = false;
+            }
+        }
+
+        if (createNewSession)
+        {
+            // Create a new session
+            RR::RenderingSessionCreationParams init;
+            memset(&init, 0, sizeof(RR::RenderingSessionCreationParams));
+            init.MaxLease.minute = 10; // session is leased for 10 minutes
+            init.Size = RR::RenderingSessionVmSize::Standard;
+            auto createSessionAsync = *m_frontEnd->CreateNewRenderingSessionAsync(init);
+            createSessionAsync->Completed([&](auto handler)
+                {
+                    if (handler->Result())
+                    {
+                        SetNewSession(*handler->Result());
+                    }
+                    else
+                    {
+                        SetNewState(AppConnectionStatus::ConnectionFailed, RR::Result::Fail);
+                    }
+                });
+            SetNewState(AppConnectionStatus::CreatingSession, RR::Result::Success);
+        }
+    }
+
+    // Rest of constructor code:
+    ...
+}
+```
+Dentro de la función local `SetNewSession`, registramos una devolución de llamada que se desencadena cuando cambia el estado de conexión de la sesión especificada. Redirigiremos esa llamada a nuestra propia función `OnConnectionStatusChanged`. La declararemos e implementaremos (junto con el resto del código de la máquina de estados) en el párrafo siguiente. Tenga en cuenta también que las credenciales están codificadas de forma rígida en el ejemplo y que deben rellenarse ([identificador de cuenta, clave de cuenta](../../../how-tos/create-an-account.md#retrieve-the-account-information) y [dominio](../../../reference/regions.md)).
+
+La desinicialización se realiza de forma simétrica y en orden inverso al final del cuerpo del destructor:
+
+```cpp
+HolographicAppMain::~HolographicAppMain()
+{
+    // Existing destructor code:
+    ...
+    
+    // Destroy session:
+    if (m_session != nullptr)
+    {
+        m_session->DisconnectFromRuntime();
+        m_session = nullptr;
+    }
+
+    // Destroy front end:
+    m_frontEnd = nullptr;
+
+    // One-time de-initialization:
+    RR::ShutdownRemoteRendering();
+}
+```
+
+## <a name="state-machine"></a>Máquina de estados
+
+En Remote Rendering, las funciones clave para crear una sesión y cargar un modelo son funciones asincrónicas. Por ello, se necesita una máquina de estado simple que, esencialmente, pase por los siguientes estados automáticamente:
+
+*Inicialización > Creación de sesión > Carga de modelos (con progreso)*
+
+En consecuencia, en el paso siguiente, se agrega un fragmento de control de la máquina de estados a la clase. Declaramos nuestra propia enumeración `AppConnectionStatus` para los distintos estados en los que la aplicación puede encontrarse. Es similar a `RR::ConnectionStatus`, pero tiene un estado adicional para una conexión con errores.
+
+Agregue los siguientes miembros y funciones a la declaración de clase:
+
+```cpp
+namespace HolographicApp
+{
+    // Our application's possible states:
+    enum class AppConnectionStatus
+    {
+        Disconnected,
+
+        CreatingSession,
+        Connecting,
+        Connected,
+
+        // error state:
+        ConnectionFailed,
+    };
+
+    class HolographicAppMain
+    {
+        ...
+        // Member functions for state transition handling
+        void OnConnectionStatusChanged(RR::ConnectionStatus status, RR::Result error);
+        void SetNewState(AppConnectionStatus state, RR::Result error);
+        void StartModelLoading();
+
+        // Members for state handling:
+
+        // Model loading:
+        std::string m_modelURI;
+        RR::ApiHandle<RR::LoadModelAsync> m_loadModelAsync;
+
+        // Connection state machine:
+        AppConnectionStatus m_currentStatus = AppConnectionStatus::Disconnected;
+        RR::Result m_connectionResult = RR::Result::Success;
+        RR::Result m_modelLoadResult = RR::Result::Success;
+        bool m_isConnected = false;
+        bool m_modelLoadTriggered = false;
+        float m_modelLoadingProgress = 0.f;
+        bool m_modelLoadFinished = false;
+
+    }
+```
+
+En el lado de implementación en el archivo .cpp, agregue estos cuerpos de función:
+
+```cpp
+void HolographicAppMain::StartModelLoading()
+{
+    m_modelLoadingProgress = 0.f;
+
+    RR::LoadModelFromSASParams params;
+    params.ModelUrl = m_modelURI.c_str();
+    params.Parent = nullptr;
+
+    // Start the async model loading
+    if (auto loadModel = m_api->LoadModelFromSASAsync(params))
+    {
+        m_loadModelAsync = *loadModel;
+        m_loadModelAsync->Completed([this](const RR::ApiHandle<RR::LoadModelAsync>& async)
+        {
+            m_modelLoadResult = *async->Status();
+            m_modelLoadFinished = true; // successful if m_modelLoadResult==RR::Result::Success
+            m_loadModelAsync = nullptr;
+            char buffer[1024];
+            sprintf_s(buffer, "Remote Rendering: Model loading completed. Result: %s\n", RR::ResultToString(m_modelLoadResult));
+            OutputDebugStringA(buffer);
+            });
+        m_loadModelAsync->ProgressUpdated([this](float progress)
+        {
+            // Progress callback
+            m_modelLoadingProgress = progress;
+
+            // Output progress percentage to VS output
+            char buffer[1024];
+            sprintf_s(buffer, "Remote Rendering: Model loading progress: %.1f\n", m_modelLoadingProgress * 100.f);
+            OutputDebugStringA(buffer);
+        });
+    }
+}
+
+
+
+void HolographicAppMain::SetNewState(AppConnectionStatus state, RR::Result error)
+{
+    m_currentStatus = state;
+    m_connectionResult = error;
+
+    // Some log for the VS output panel:
+    const char* appStatus = nullptr;
+
+    switch (state)
+    {
+        case AppConnectionStatus::Disconnected: appStatus = "Disconnected"; break;
+        case AppConnectionStatus::CreatingSession: appStatus = "CreatingSession"; break;
+        case AppConnectionStatus::Connecting: appStatus = "Connecting"; break;
+        case AppConnectionStatus::Connected: appStatus = "Connected"; break;
+        case AppConnectionStatus::ConnectionFailed: appStatus = "ConnectionFailed"; break;
+    }
+
+    char buffer[1024];
+    sprintf_s(buffer, "Remote Rendering: New status: %s, result: %s\n", appStatus, RR::ResultToString(error));
+    OutputDebugStringA(buffer);
+}
+
+
+void HolographicAppMain::OnConnectionStatusChanged(RR::ConnectionStatus status, RR::Result error)
+{
+    switch (status)
+    {
+    case RR::ConnectionStatus::Connecting:
+        SetNewState(AppConnectionStatus::Connecting, error);
+        break;
+    case RR::ConnectionStatus::Connected:
+        if (error == RR::Result::Success)
+        {
+            SetNewState(AppConnectionStatus::Connected, error);
+        }
+        else
+        {
+            SetNewState(AppConnectionStatus::ConnectionFailed, error);
+        }
+        m_modelLoadTriggered = m_modelLoadFinished = false;
+        m_isConnected = error == RR::Result::Success;
+
+        // start model loading as soon as we have a valid connection
+        if (m_isConnected && !m_modelLoadTriggered)
+        {
+            m_modelLoadTriggered = true;
+            StartModelLoading();
+        }
+        break;
+    case RR::ConnectionStatus::Disconnected:
+        if (error == RR::Result::Success)
+        {
+            SetNewState(AppConnectionStatus::Disconnected, error);
+        }
+        else
+        {
+            SetNewState(AppConnectionStatus::ConnectionFailed, error);
+        }
+        m_modelLoadTriggered = m_modelLoadFinished = false;
+        m_isConnected = false;
+        break;
+    default:
+        break;
+    }
+}
+```
+
+### <a name="per-frame-update"></a>Actualización por fotograma
+
+Tenemos que marcar el cliente una vez por cada tic de simulación. La clase `HolographicApp1Main` proporciona un buen enlace para las actualizaciones por fotograma, por lo que debe agregar el código siguiente al cuerpo de la función `HolographicApp1Main::Update`:
+
+```cpp
+// Updates the application state once per frame.
+HolographicFrame HolographicAppMain::Update()
+{
+    // Tick Remote rendering:
+    if (m_session != nullptr)
+    {
+        // Tick the client to receive messages
+        m_api->Update();
+    }
+
+    // Rest of the body:
+    ...
+}
+```
+
+### <a name="rendering"></a>Representación
+
+El último paso es invocar la representación del contenido remoto. Tenemos que realizar esta llamada en la posición exacta dentro de la canalización de representación, después de la función clear de destino de la representación. Inserte el siguiente fragmento de código en el bloqueo `UseHolographicCameraResources` dentro de la función `HolographicAppMain::Render`:
+
+```cpp
+        ...
+        // Existing clear function:
+        context->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+
+        // Inject remote rendering: as soon as we are connected, start blitting the remote frame.
+        // We do the blitting after the Clear, and before cube rendering.
+        if (m_isConnected)
+        {
+            m_graphicsBinding->BlitRemoteFrame();
+        }
+
+        ...
+```
+
+## <a name="run-the-sample"></a>Ejecución del ejemplo
+
+El ejemplo debería estar ahora en un estado en el que se compile y se ejecute.
+
+Cuando el ejemplo se ejecute correctamente, verá el cubo girando justo delante y, después de la creación de la sesión y la carga del modelo, representará el modelo de motor que se encuentra en la posición principal actual. La creación de la sesión y la carga del modelo pueden tardar unos minutos. El estado actual solo se escribe en el panel de resultados de Visual Studio. Por lo tanto, se recomienda iniciar el ejemplo desde Visual Studio.
+
+> [!CAUTION]
+> El cliente se desconecta del servidor cuando no se llama a la función de tic durante unos segundos. Por lo tanto, desencadenar puntos de interrupción puede hacer que la aplicación se desconecte fácilmente.
+
+Para mostrar el estado correcto con un panel de texto, consulte la versión predefinida de este tutorial en GitHub.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial, ha aprendido todos los pasos necesarios para agregar Remote Rendering a una **aplicación holográfica** de C++/DirectX11 de inventario de ejemplo.
+Para convertir su propio modelo, consulte el siguiente inicio rápido:
+
+> [!div class="nextstepaction"]
+> [Inicio rápido: Conversión de un modelo para su representación](../../../quickstarts/convert-model.md)

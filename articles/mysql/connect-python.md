@@ -9,13 +9,13 @@ ms.custom:
 - seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/09/2020
-ms.openlocfilehash: c9ea155f3cc71dd961a3780e3b188a6d062606bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: 827a34999cc3f4d90344915a9b57492a0f31bafe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067911"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870024"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Inicio rápido: Uso de Python para conectarse y consultar datos con Azure Database for MySQL
 
@@ -27,6 +27,9 @@ En este tema se da por hecho que está familiarizado con el desarrollo mediante 
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un servidor de Azure Database for MySQL. [Creación de un servidor de Azure Database for MySQL mediante Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+> [!IMPORTANT] 
+> Asegúrese de que a la dirección IP desde la que se conecta se le han agregado las reglas de firewall del servidor desde [Azure Portal](./howto-manage-firewall-using-portal.md) o la [CLI de Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Instalación de Python y el conector de MySQL
 

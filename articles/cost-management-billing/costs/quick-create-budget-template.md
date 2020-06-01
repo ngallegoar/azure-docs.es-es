@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: de24895334ec4c864e6daae84a6aab47a47d7b9b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82103640"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830317"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Inicio rápido: Crear un presupuesto con una plantilla de Azure Resource Manager
 
@@ -39,21 +39,23 @@ Se admiten los siguientes permisos o ámbitos de Azure por suscripción para los
 
 Para más información sobre cómo asignar permisos a los datos de Cost Management, consulte [Asignación del acceso a los datos de Cost Management](assign-access-acm-data.md).
 
-## <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="create-a-budget"></a>Creación de un presupuesto
+
+### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
 
 En la plantilla, se define un recurso de Azure:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Cree un presupuesto de Azure.
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+### <a name="deploy-the-template"></a>Implementación de la plantilla
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un presupuesto.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json"><img src="./media/quick-create-budget-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
@@ -97,6 +99,37 @@ az consumption budget list
 
 ```azurepowershell-interactive
 Get-AzConsumptionBudget
+```
+
+---
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no necesite un presupuesto, utilice cualquiera de los siguientes métodos para eliminarlo:
+
+### <a name="azure-portal"></a>Azure Portal
+
+Vaya a **Administración de costos + facturación** > seleccione un ámbito de facturación > **Presupuestos** > seleccione un presupuesto > seleccione **Eliminar presupuesto**.
+
+### <a name="command-line"></a>Línea de comandos
+
+Para quitar el presupuesto se pueden usar la CLI de Azure o Azure PowerShell.
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the budget name:" &&
+read budgetName &&
+az consumption budget delete --budget-name $budgetName &&
+echo "Press [ENTER] to continue ..."
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$budgetName = Read-Host -Prompt "Enter the budget name"
+Remove-AzConsumptionBudget -Name $budgetName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ---

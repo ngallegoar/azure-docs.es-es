@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c4bfe55c4ebe722e98f0816078b64c0131a30d03
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201030"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778737"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -200,7 +200,7 @@ Si hay más de un nombre de dominio comprobado, es preciso proporcionar la sigui
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Si ya se emite una notificación de ImmutableID (por ejemplo, identificador de inicio de sesión alternativo), será preciso proporcionar una notificación correspondiente para los equipos:
+Si ya se emite una notificación de ImmutableID (por ejemplo, mediante `mS-DS-ConsistencyGuid` u otro atributo como valor de origen para ImmutableID), será preciso proporcionar una notificación correspondiente para los equipos:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -329,7 +329,7 @@ Para obtener una lista de los dominios comprobados de la compañía, puede usar 
 
 ![Lista de dominios de la compañía](./media/hybrid-azuread-join-manual/01.png)
 
-### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>Emisión de ImmutableID para el equipo cuando existe uno para los usuarios (por ejemplo, se ha establecido un identificador de inicio de sesión alternativo)
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-using-ms-ds-consistencyguid-as-the-source-for-immutableid"></a>Emisión de ImmutableID para el equipo cuando existe uno para los usuarios (por ejemplo, mediante mS-DS-ConsistencyGuid como origen de ImmutableID)
 
 La notificación `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` debe contener un valor válido para los equipos. En AD FS, se puede crear una regla de transformación de emisión como se indica a continuación:
 
@@ -549,16 +549,71 @@ Para registrar dispositivos de nivel inferior de Windows, debe descargar e insta
 
 ## <a name="verify-joined-devices"></a>Comprobación dispositivos unidos
 
-Para comprobar los dispositivos unidos correctamente en la organización, use el cmdlet [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) del [módulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+A continuación se muestran tres maneras de buscar y comprobar el estado del dispositivo:
 
-La salida de este cmdlet muestra los dispositivos que se han registrado y unido en Azure AD. Para obtener todos los dispositivos, use el parámetro **-All** y, después, fíltrelos mediante la propiedad **deviceTrustType**. Los dispositivos unidos a un dominio tienen el valor de **Unido a dominio**.
+### <a name="locally-on-the-device"></a>De forma local en el dispositivo
+
+1. Abra Windows PowerShell.
+2. Escriba `dsregcmd /status`.
+3. Compruebe que tanto **AzureAdJoined** como **DomainJoined** estén establecidos en **SÍ**.
+4. Puede utilizar **DeviceId** y comparar el estado del servicio mediante Azure Portal o PowerShell.
+
+### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+
+1. Vaya a la página de dispositivos mediante un [vínculo directo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Puede encontrar información acerca de cómo buscar un dispositivo en el artículo sobre [cómo administrar identidades de dispositivo mediante Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+3. Si la columna **Registrado** indica **Pendiente**, entonces Unión a Azure AD híbrido no se ha completado. En entornos federados, esto solo puede ocurrir si no se ha podido realizar el registro y AAD Connect está configurado para sincronizar los dispositivos.
+4. Si la columna **Registrado** contiene una **fecha y hora**, entonces Unión a Azure AD híbrido se ha completado.
+
+### <a name="using-powershell"></a>Usar PowerShell
+
+Compruebe el estado de registro del dispositivo en el inquilino de Azure mediante **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** . Este cmdlet se encuentra en el [módulo de PowerShell de Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+
+Cuando utiliza el cmdlet **Get-MSolDevice** para comprobar los detalles de servicio:
+
+- Tiene que existir un objeto con el **Identificador de dispositivo** que coincida con el identificador en el cliente de Windows.
+- El valor de **DeviceTrustType** es **Unido a dominio**. Este valor es equivalente al estado **Hybrid Azure AD joined** en la página **Dispositivos** del portal de Azure AD.
+- En el caso de los dispositivos que se usan en el acceso condicional, el valor de **Habilitado** es **True** y el de **DeviceTrustLevel** es **Administrado**.
+
+1. Abra Windows PowerShell como administrador.
+2. Escriba `Connect-MsolService` para conectarse a su inquilino de Azure.
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-excluding-pending-state"></a>Recuento de todos los dispositivos unidos a Azure AD híbrido (excepto el estado **Pendiente**)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Recuento de todos los dispositivos unidos a Azure AD híbrido con el estado **Pendiente**
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices"></a>Lista de todos los dispositivos unidos a Azure AD híbrido
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Lista de todos los dispositivos unidos a Azure AD híbrido con el estado **Pendiente**
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-details-of-a-single-device"></a>Lista de detalles de un solo dispositivo:
+
+1. Escriba `get-msoldevice -deviceId <deviceId>` (es el valor **DeviceId** obtenido localmente en el dispositivo).
+2. Compruebe que **Habilitado** está establecido en **True**.
 
 ## <a name="troubleshoot-your-implementation"></a>Solución de problemas de la implementación
 
-Si tiene problemas para completar la unión a Azure AD híbrido para los dispositivos de Windows unidos a un dominio, consulte:
+Si tiene problemas para completar la unión a Azure AD híbrido para los dispositivos Windows unidos a un dominio, consulte:
 
-* [Solución de problemas de la unión a Azure AD híbrido para dispositivos actuales de Windows](troubleshoot-hybrid-join-windows-current.md)
-* [Solución de problemas de la unión a Azure AD híbrido para dispositivos de nivel inferior de Windows](troubleshoot-hybrid-join-windows-legacy.md)
+- [Solución de problemas de dispositivos mediante el comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Solución de problemas de dispositivos unidos a Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
+- [Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

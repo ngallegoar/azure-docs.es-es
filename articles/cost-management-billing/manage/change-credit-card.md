@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 99b6d86a65ec05a1299abfffae779113e573310c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199864"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834975"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Agregar, actualizar o quitar una tarjeta de crédito para Azure
 
@@ -29,9 +29,9 @@ Si tiene un Contrato de cliente de Microsoft, los métodos de pago se asocian a 
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Administración de tarjetas de crédito para una suscripción de Azure
 
-Las secciones siguientes se aplican a los clientes que tienen una cuenta de facturación del programa Microsoft Online Services. Aprenda a [comprobar el tipo de cuenta de facturación](#check-the-type-of-your-account). Si el tipo de cuenta de facturación es el programa de Microsoft Online Services, los métodos de pago se asocian a las suscripciones individuales de Azure.
+Las secciones siguientes se aplican a los clientes que tienen una cuenta de facturación del programa Microsoft Online Services. Aprenda a [comprobar el tipo de cuenta de facturación](#check-the-type-of-your-account). Si el tipo de cuenta de facturación es el programa de Microsoft Online Services, los métodos de pago se asocian a las suscripciones individuales de Azure. Si se produce un error después de agregar la tarjeta de crédito, consulte [Tarjeta de crédito rechazada al suscribirse a Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-### <a name="change-credit-card-for-a-subscription"></a>Cambio de la tarjeta de crédito para una suscripción
+### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Cambio de la tarjeta de crédito de una suscripción mediante la adición de una nueva tarjeta de crédito
 
 Puede cambiar el crédito predeterminado de la suscripción de Azure a una nueva tarjeta de crédito o a una tarjeta de crédito guardada previamente en Azure Portal. Para cambiar la tarjeta de crédito, debe ser el administrador de cuenta. Si se tiene el mismo método de pago activo en más de una suscripción, el cambio del método de pago activo en cualquiera de estas suscripciones también actualizará el método de pago activo en las demás.
 
@@ -57,7 +57,7 @@ Puede cambiar la tarjeta de crédito predeterminada de la suscripción a una nue
 
 1. Seleccione **Next** (Siguiente).
 
-Si se produce un error después de agregar la tarjeta de crédito, consulte [Tarjeta de crédito rechazada al suscribirse a Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
+### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Cambio de la tarjeta de crédito de una suscripción por una tarjeta de crédito que se ha guardado previamente
 
 También puede cambiar la tarjeta de crédito predeterminada de la suscripción a una que ya esté guardada en la cuenta siguiendo estos pasos:
 
@@ -116,6 +116,7 @@ Si la tarjeta de crédito es el método de pago activo de otras suscripciones de
 Las secciones siguientes se aplican a los clientes que tienen un Contrato de cliente de Microsoft y se han suscrito a Azure Online con una tarjeta de crédito. [Aprenda a comprobar si tiene un Contrato de cliente de Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Cambio de la tarjeta de crédito predeterminada
+
 Si tiene un Contrato de cliente de Microsoft, la tarjeta de crédito están asociada a un perfil de facturación. Para cambiar el método de pago de un perfil de facturación, debe ser la persona que se suscribió a Azure y que creó la cuenta de facturación.
 
 Si quiere cambiar el método de pago predeterminado del perfil de facturación al pago mediante cheque o transferencia bancaria, consulte [Pago de las suscripciones de Azure con factura](pay-by-invoice.md).
@@ -159,9 +160,11 @@ Para editar o eliminar una tarjeta de crédito, siga estos pasos:
 1. Para eliminar la tarjeta de crédito, seleccione **Eliminar** en el menú contextual.
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
 No se admiten tarjetas virtuales ni prepago. Si aparecen errores al agregar o actualizar una tarjeta de crédito válida, pruebe a abrir el explorador en modo privado.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
 Las siguientes secciones responden a las preguntas más frecuentes sobre cómo cambiar la información de la tarjeta de crédito.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Mi suscripción está deshabilitada. ¿Por qué no puedo eliminar mi tarjeta de crédito ahora?
@@ -189,6 +192,7 @@ Si desea [pagar con factura](pay-by-invoice.md), envíe el pago a la ubicación 
 Para agregar o actualizar el número de identificación tributaria, actualice el perfil en el [Centro de cuentas de Azure](https://account.azure.com/Profile) y seleccione **Registro fiscal**. Este número de identificación tributaria se utiliza para los cálculos de exención fiscal y aparece en la factura.
 
 ## <a name="check-the-type-of-your-account"></a>Comprobación del tipo de la cuenta
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
@@ -196,4 +200,5 @@ Para agregar o actualizar el número de identificación tributaria, actualice el
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Obtenga información sobre [reservas de Azure](../reservations/save-compute-costs-reservations.md) para ver si pueden hacerle ahorrar dinero.

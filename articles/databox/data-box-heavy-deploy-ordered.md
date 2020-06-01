@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 91d78975106299c3b3a6df6d8dee05f337dd339a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415161"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742991"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutorial: Pedir Azure Data Box Heavy
 
@@ -75,7 +75,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
     |---------|---------|
     |Subscription     | Seleccione una suscripción patrocinada por EA, CSP o Azure para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
     |Tipo de transferencia     | Seleccione **Importar en Azure**.        |
-    |País de origen     | Seleccione el país o región en que residen los datos actualmente.         |
+    |País o región de origen     | Seleccione el país o región en que residen los datos actualmente.         |
     |Región de Azure de destino     | Seleccione la región de Azure a la que desea transferir los datos.        |
 
     [![Seleccionar disponibilidad de la familia de Data Box](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
@@ -91,7 +91,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
     |Nombre     | Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.      |
     |Resource group     | Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente.         |
     |Región de Azure de destino     | Seleccione la región de la cuenta de almacenamiento. <br> Para más información, vaya a [Disponibilidad por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
-    |Destino de almacenamiento     | Elija una cuenta de almacenamiento o discos administrados, o ambos. <br> En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada una cuenta de almacenamiento existente. <br>Data Box Heavy se puede vincular con un máximo de diez cuentas de almacenamiento. <br> También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**. <br> No se admiten las cuentas de Azure Data Lake Storage Gen 2. Consulte la [cuentas de almacenamiento compatibles con el dispositivo](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Se admiten cuentas de almacenamiento con redes virtuales. Para permitir que el servicio de Data Box trabaje con cuentas de almacenamiento seguro, habilite los servicios de confianza dentro de la configuración de firewall de la red de la cuenta de almacenamiento. Para más información, vea cómo [agregar el servicio Azure Data Box como un servicio de confianza](../storage/common/storage-network-security.md#exceptions).|
+    |Destino de almacenamiento     | Elija una cuenta de almacenamiento o discos administrados, o ambos. <br> En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada una cuenta de almacenamiento existente. <br>Data Box Heavy se puede vincular con un máximo de diez cuentas de almacenamiento. <br> También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**. <br>Consulte la [cuentas de almacenamiento compatibles con el dispositivo](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Se admiten cuentas de almacenamiento con redes virtuales. Para permitir que el servicio de Data Box trabaje con cuentas de almacenamiento seguro, habilite los servicios de confianza dentro de la configuración de firewall de la red de la cuenta de almacenamiento. Para más información, vea cómo [agregar el servicio Azure Data Box como un servicio de confianza](../storage/common/storage-network-security.md#exceptions).|
 
     Si usa la cuenta de almacenamiento como el destino de almacenamiento, consulte la siguiente captura de pantalla:
 

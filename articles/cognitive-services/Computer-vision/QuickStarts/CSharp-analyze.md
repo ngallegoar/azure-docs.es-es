@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d8002530120eee4a3613f2310c4a59cc18612cad
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ed003e83d8343d2da0f1b11c6d82581b76d3168d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405163"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679882"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Inicio rápido: Análisis de una imagen local mediante la API REST Computer Vision y C#
 
@@ -33,13 +33,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para crear el ejemplo en Visual Studio, siga estos pasos:
 
-1. Cree una solución de Visual Studio en Visual Studio, mediante la plantilla de aplicación de consola de Visual C# (.NET Framework).
+1. Cree una solución o un proyecto de Visual Studio en Visual Studio, mediante la plantilla de aplicación de consola de Visual C# (.NET Core Framework).
 1. Instale el paquete NuGet Newtonsoft.Json.
     1. En el menú, haga clic en **Herramientas**, seleccione **Administrador de paquetes NuGet** y, luego, **Manage NuGet Packages for Solution** (Administrar paquetes NuGet para la solución).
-    1. Haga clic en la pestaña **Examinar** y, en el cuadro **Buscar**, escriba "Newtonsoft.Json".
-    1. Seleccione **Newtonsoft.Json** cuando se muestre, marque la casilla junto al nombre del proyecto y haga clic en **Instalar**.
+    1. Haga clic en la pestaña **Examinar** y, en el cuadro **Buscar**, escriba "Newtonsoft.Json" (si aún no se muestra).
+    1. Seleccione **Newtonsoft.Json**, marque la casilla junto al nombre del proyecto y haga clic en **Instalar**.
+1. Copie y pegue el ejemplo de fragmento de código a continuación en el archivo Program.cs. Ajuste el nombre del espacio de nombres si es diferente del que creó.
+1. Agregue una imagen de su elección a la carpeta bin/Debug/netcoreappX. X y luego agregue el nombre de la imagen (con extensión) a la variable "imageFilePath".
 1. Ejecute el programa.
-1. En el símbolo del sistema, escriba la ruta de acceso a una imagen local.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -59,26 +60,18 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        static string uriBase = endpoint + "vision/v2.1/analyze";
+        static string uriBase = endpoint + "vision/v3.0/analyze";
 
-        static async Task Main()
+        // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
+        // For sample images, download one from here (png or jpg):
+        // https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
+        static string imageFilePath = @"my-sample-image";
+
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Analyze an image:");
-            Console.Write(
-                "Enter the path to the image you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the API
+            MakeAnalysisRequest(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait for the results to appear.\n");
-                await MakeAnalysisRequest(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -167,7 +160,7 @@ namespace CSHttpClientSample
 
 ## <a name="examine-the-response"></a>Examen de la respuesta
 
-Se devuelve una respuesta correcta en JSON. La aplicación de ejemplo analiza y muestra una respuesta correcta en la ventana de la consola, parecida a la del ejemplo siguiente:
+Se devuelve una respuesta correcta en JSON (basada en la propia imagen usada) en la ventana de la consola, de forma similar al ejemplo siguiente:
 
 ```json
 {
