@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79234732"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854969"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -76,7 +76,7 @@ De forma predeterminada, el SDK de JavaScript de Application Insights recopila a
     - Identificador (si existe) del usuario que realiza la solicitud
     - Contexto de correlación (si existe) en el que se realiza la solicitud
 - **Información del usuario** (por ejemplo, ubicación, red, IP)
-- **Información del dispositivo** (por ejemplo, explorador, sistema operativo, versión, idioma, resolución, modelo)
+- **Información del dispositivo** (por ejemplo, explorador, sistema operativo, versión, idioma, modelo)
 - **Información de la sesión**
 
 ### <a name="telemetry-initializers"></a>Inicializadores de telemetría
@@ -146,6 +146,13 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 De forma predeterminada, este SDK **no** controlará el cambio de ruta basado en el estado que se produce en las aplicaciones de página única. Para habilitar el seguimiento automático de cambios de ruta para una aplicación de página única, puede agregar `enableAutoRouteTracking: true` a la configuración de instalación.
 
 Actualmente, ofrecemos un [complemento React](#react-extensions) independiente que puede inicializarse con este SDK. También llevará a cabo el seguimiento de cambios de ruta, así como la recopilación de [otros datos de telemetría específicos de React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+> [!NOTE]
+> Use `enableAutoRouteTracking: true` solo si **no** está usando el complemento React. Ambos pueden enviar nuevos valores PageView cuando cambia la ruta. Si ambos están habilitados, es posible que se envíen valores de PageView duplicados.
+
+## <a name="configuration-autotrackpagevisittime"></a>Configuración: autoTrackPageVisitTime
+
+Al establecer `autoTrackPageVisitTime: true`, se realiza un seguimiento del tiempo que un usuario permanece en cada página. En cada instancia nueva de PageView, el tiempo que pasó el usuario en la página anterior (*previous*) se envía como una [métrica personalizada](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) denominada `PageVisitTime`. Esta métrica personalizada es visible en el [Explorador de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) como "Métricas basadas en registros".
 
 ## <a name="react-extensions"></a>Extensiones de React
 
