@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 03/31/2020
 ms.author: juliako
-ms.openlocfilehash: 99aeb5384b317d1b4d291c769b5402e829247b30
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656192"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997688"
 ---
 > [!NOTE]
 > En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
@@ -43,7 +43,7 @@ En la tabla siguiente se muestran los límites en cada una de las unidades reser
 |S2    | 60|
 |S3    |260|
 
-<sup>2</sup> Las cuentas de almacenamiento deben proceder de la misma suscripción a Azure.
+<sup>2</sup> Las cuentas de almacenamiento deben proceder de la misma suscripción de Azure.
 
 ### <a name="jobs-encoding--analyzing-limits"></a>Límites de trabajos (codificación y análisis)
 
@@ -66,7 +66,7 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 | --- | --- | 
 | Eventos en directo <sup>(4)</sup> por cuenta de Media Services |5|
 | Salidas en directo por evento en directo |3 <sup>(5)</sup> |
-| Duración máxima de la salida en directo | 25 horas |
+| Duración máxima de la salida en directo | [Tamaño de la ventana de DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
 
 <sup>4</sup> Para obtener información detallada sobre las limitaciones de eventos en directo, consulte [Comparación de tipos de objetos LiveEvent](../articles/media-services/latest/live-event-types-comparison.md).
 

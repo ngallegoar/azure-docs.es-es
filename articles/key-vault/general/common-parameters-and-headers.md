@@ -10,17 +10,18 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427340"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005816"
 ---
 # <a name="common-parameters-and-headers"></a>Parámetros y encabezados comunes
 
 La siguiente información es común a todas las operaciones que puede realizar relacionadas con los recursos de Key Vault:
 
+- El encabezado HTTP `Host` debe estar siempre presente y debe especificar el nombre de host del almacén. Ejemplo: `Host: contoso.vault.azure.net`. Tenga en cuenta que la mayoría de las tecnologías de cliente rellenan el encabezado `Host` del URI. Por ejemplo, `GET https://contoso.vault.azure.net/secrets/mysecret{...}` establecerá el `Host` como `contoso.vault.azure.net`. Esto significa que si tiene acceso a Key Vault mediante una dirección raw IP, como `GET https://10.0.0.23/secrets/mysecret{...}`, el valor automático del encabezado de `Host` será incorrecto y tendrá que asegurarse de que el encabezado de `Host` contiene el nombre de host del almacén de forma manual.
 - Reemplace `{api-version}` por la versión de api del URI.
 - Reemplace `{subscription-id}` por el identificador de suscripción del URI.
 - Sustituya `{resource-group-name}` por el grupo de recursos. Para más información, consulte el artículo Uso de grupos de recursos para administrar los recursos de Azure.

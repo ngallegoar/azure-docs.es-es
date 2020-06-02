@@ -3,12 +3,12 @@ title: Ejecución rápida de tareas con una plantilla
 description: Ponga en cola una tarea de ACR Tasks que desee ejecutar para compilar una imagen con una plantilla de Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e85e4a3d10ea34d71efde959aa7d179eba69e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196993"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927775"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Ejecución de ACR Tasks mediante plantillas de Resource Manager
 
@@ -139,7 +139,7 @@ A efectos de esta demostración, cree un registro de contenedor independiente co
 
 ### <a name="create-new-dockerfile"></a>Creación de un nuevo archivo Dockerfile
 
-Cree un archivo Dockerfile que extraiga la imagen base del registro base. Realice los pasos siguientes en la bifurcación local del repositorio de GitHub, por ejemplo, https://github.com/myGitHubID/acr-build-helloworld-node.git *.
+Cree un archivo Dockerfile que extraiga la imagen base del registro base. Realice los pasos siguientes en la bifurcación local del repositorio de GitHub; por ejemplo, `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
 
 1. En la interfaz de usuario de GitHub, seleccione **Create new file** (Crear nuevo archivo).
 1. Llame *Dockerfile-test* al archivo y pegue el siguiente contenido. Cambie el nombre del registro por *mybaseregistry*.

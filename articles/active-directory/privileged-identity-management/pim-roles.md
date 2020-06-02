@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/31/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6eaa50f57dd8037ef0ad96b69284f565bd3558f
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 7d1d7ad27c43a0f8b4bbb763a1eb933a63cec58e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607524"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115649"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Roles que no se pueden administrar en Privileged Identity Management
 
@@ -40,7 +40,7 @@ Para más información sobre los roles de administrador de suscripciones clásic
 Se admiten todos los roles de Office365 en la experiencia de roles de Azure AD y el portal de administradores, como Administrador de Exchange y Administrador de SharePoint, pero no se admiten roles específicos en RBAC de Exchange ni en RBAC de SharePoint. Para más información acerca de estos servicios de Office 365, consulte [Roles de administrador de Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> Los usuarios que cumplan los requisitos para el rol Administrador de SharePoint, así como los roles que intenten tener acceso al centro de seguridad y cumplimiento de Microsoft, pueden experimentar retrasos de hasta unas horas después de activar su rol. Estamos trabajando con esos equipos para corregir los problemas.
+> Los usuarios que cumplan los requisitos para el rol Administrador de SharePoint, el rol Administrador de dispositivos, así como los roles que intenten tener acceso al centro de seguridad y cumplimiento de Microsoft, pueden experimentar retrasos de hasta unas horas después de activar su rol. Estamos trabajando con esos equipos para corregir los problemas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

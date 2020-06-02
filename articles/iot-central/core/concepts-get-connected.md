@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509523"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930495"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -95,6 +95,14 @@ Para conectar dispositivos de forma masiva mediante certificados X.509, registre
 
 Genere certificados X.509 de hoja para los dispositivos con el certificado raíz o intermedio cargado. Use el valor de **Device ID** (Id. de dispositivo) como valor `CNAME` en los certificados de hoja. El código del dispositivo necesita el valor de **ID scope** (Id. de ámbito) de la aplicación, el valor de **device ID** (Id. de dispositivo) y el certificado de dispositivo correspondiente.
 
+#### <a name="sample-device-code"></a>Código del dispositivo de ejemplo
+
+En el ejemplo siguiente del [SDK de Azure IoT para Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) se muestra cómo un cliente de dispositivo de Node.js usa un certificado de hoja X.509 y un DPS para registrarse en una aplicación de IoT Central:
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+Para obtener un ejemplo equivalente de C, consulte [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c) en el [SDK de cliente de Provisioning Device de C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md).
+
 ### <a name="for-testing-purposes-only"></a>Solo para fines de prueba
 
 Solo para pruebas, puede usar las siguientes utilidades para generar certificados raíz, intermedio y de dispositivo:
@@ -106,11 +114,6 @@ Solo para pruebas, puede usar las siguientes utilidades para generar certificado
   - Guardar los certificados como archivos .cer para cargarlos en la aplicación de IoT Central.
   - Usar el código de verificación de la aplicación de IoT Central para generar el certificado de verificación.
   - Crear certificados de hoja para los dispositivos mediante sus identificadores de dispositivo como parámetro en la herramienta.
-
-### <a name="further-reference"></a>Referencia adicional
-
-- [Implementación de ejemplo para RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [Cliente de dispositivo de ejemplo en C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## <a name="connect-without-registering-devices"></a>Conexión sin registro de los dispositivos
 
@@ -143,7 +146,7 @@ El flujo es ligeramente diferente en función de si los dispositivos usan tokens
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Conexión de dispositivos que usan certificados X.509 sin registrarse
 
-1. [Agregue y verifique un certificado X.509 raíz o intermedio](#connect-devices-using-x509-certificates) a la aplicación de IoT Central. (#connect-devices-using-x509-certificates)
+1. [Agregue y verifique un certificado X.509 raíz o intermedio](#connect-devices-using-x509-certificates) a la aplicación de IoT Central.
 
 1. genere los certificados de hoja para sus dispositivos mediante el certificado raíz o intermedio que agregó a la aplicación de IoT Central. Use los identificadores de dispositivo en minúsculas como `CNAME` en los certificados de hoja.
 

@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de servidores físicos en Azure Migrat
 description: Obtenga información sobre la compatibilidad para la evaluación de servidores físicos con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: ae76a6b570ec58e71a8a1728a2a601728030f58c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 31fd676a339a6c82cec84e0f355ac875f68a653c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538161"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983676"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de compatibilidad para la evaluación de servidores físicos 
 
@@ -34,16 +34,18 @@ Para evaluar los servidores físicos, cree un proyecto de Azure Migrate y, a con
 | **Soporte técnico**                | **Detalles**               
 | :-------------------       | :------------------- |
 | **Implementación de servidor físico**       | El servidor físico puede ser independiente o implementarse en un clúster. |
-| **Permisos**           | **Windows:** Necesita una cuenta de usuario local o de dominio en todos los servidores Windows que quiera detectar. Debe agregar la cuenta de usuario a estos grupos: Usuarios de escritorio remoto, Usuarios del monitor de sistema, Usuarios del registro de rendimiento. <br/><br/> **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar. |
-| **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), salvo Windows Server 2003 y SUSE Linux.|
+| **Permisos**           | **Windows:** debe ser administrador de dominio o administrador local en todos los servidores de Windows que quiera detectar. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento. <br/><br/> **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar. |
+| **Sistema operativo** | Todos los sistemas operativos de servidor de [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) compatibles con Azure, excepto Windows Server 2003 y SUSE Linux.<br/><br/> Sistemas operativos cliente de Windows 10 y Windows 8. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos del dispositivo de Azure Migrate
 
-Azure Migrate usa el [dispositivo de Azure Migrate](migrate-appliance.md) para la detección y la evaluación. El dispositivo para los servidores físicos se puede ejecutar en una máquina virtual o en una máquina física. Además, este dispositivo se configura mediante un script de PowerShell que se descarga desde Azure Portal.
+Azure Migrate usa el [dispositivo de Azure Migrate](migrate-appliance.md) para la detección y la evaluación. El dispositivo para los servidores físicos se puede ejecutar en una máquina virtual o en una máquina física. 
 
 - Obtenga información sobre los [requisitos del dispositivo](migrate-appliance.md#appliance---physical) para los servidores físicos.
 - Obtenga información sobre las direcciones URL a las que el dispositivo necesita acceder en nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
+- Además, este dispositivo se configura mediante un [script de PowerShell](how-to-set-up-appliance-physical.md) que se descarga desde Azure Portal.
+En Azure Government, debe implementar el dispositivo [mediante este script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Acceso a puertos
 

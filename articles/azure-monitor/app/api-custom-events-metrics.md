@@ -2,13 +2,13 @@
 title: API de Application Insights para eventos y métricas personalizados | Microsoft Docs
 description: Inserte unas cuantas líneas de código en su aplicación de dispositivo o de escritorio, página o servicio web, para realizar el seguimiento del uso y diagnosticar problemas.
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.openlocfilehash: 152bd117ec0ae76c2c85ead26ba5278aa71d582f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.date: 05/11/2020
+ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509294"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115666"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -649,7 +649,7 @@ Lo ideal es que se utilice el método flush() en la actividad de cierre de la ap
 
 ## <a name="authenticated-users"></a>Usuarios autenticados
 
-En una aplicación web, los usuarios se identifican por cookies (de manera predeterminada). Se puede contar al usuario más de una vez si accede a la aplicación desde un equipo o explorador diferente, o si elimina las cookies.
+En una aplicación web, los usuarios se [identifican por cookies](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool) (de manera predeterminada). Se puede contar al usuario más de una vez si accede a la aplicación desde un equipo o explorador diferente, o si elimina las cookies.
 
 Si los usuarios inician sesión en su aplicación, puede obtener un recuento más preciso estableciendo el identificador del usuario autenticado en el código del explorador:
 
@@ -1096,16 +1096,14 @@ Para determinar cuánto tiempo se conservan los datos, consulte el artículo sob
 * [Referencia de Java](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [Referencia de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-
 ## <a name="sdk-code"></a>Código del SDK
 
-* [SDK básico de ASP.NET](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [SDK básico de ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [Paquetes de Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
+* [Paquetes de Windows Server](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK de Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [SDK de Node.js](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [SDK de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-
 
 ## <a name="questions"></a>Preguntas
 

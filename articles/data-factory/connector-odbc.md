@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: da5c53f8953960c382070be658add2877fff3f8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 71b05d8607c174dbe9298a1c02f4927ed2218374
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416892"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891413"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -35,7 +35,7 @@ Este conector ODBC es compatible con las actividades siguientes:
 
 Puede copiar datos desde un origen ODBC a cualquier almacén de datos de receptor o viceversa. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-En concreto, este conector ODBC admite copiar datos con **cualquier almacén de datos compatible con ODBC** como origen o destino mediante la autenticación **básica** o **anónima**. Se requiere un **controlador ODBC de 64 bits**.
+En concreto, este conector ODBC admite copiar datos con **cualquier almacén de datos compatible con ODBC** como origen o destino mediante la autenticación **básica** o **anónima**. Se requiere un **controlador ODBC de 64 bits**. En el caso del receptor ODBC, ADF es compatible con la versión 2.0 de ODBC.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -236,48 +236,9 @@ Para copiar datos a un almacén de datos compatible con ODBC, establezca el tipo
 ]
 ```
 
-## <a name="sap-hana-sink"></a>Receptor de SAP HANA
-
->[!NOTE]
->Para copiar datos desde un almacén de datos de SAP HANA, consulte el artículo sobre el [conector SAP HANA](connector-sap-hana.md) nativo. Para copiar datos a SAP HANA, siga estas instrucciones para usar el conector ODBC. Tenga en cuenta que los servicios vinculados para el conector SAP HANA y el conector ODBC tienen tipos distintos y, por tanto, no se pueden reutilizar.
->
-
-Puede copiar datos en la base de datos de SAP HANA mediante el conector ODBC genérico.
-
-Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para SAP HANA para conectarse al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Consulte la sección [Requisitos previos](#prerequisites) para detalles.
-
-Antes de usar el receptor de SAP HANA en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección [Solución de problemas de conectividad](#troubleshoot-connectivity-issues).
-
-Cree un servicio vinculado ODBC para vincular un almacén de datos de SAP HANA con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
-
-```json
-{
-    "name": "SAPHANAViaODBCLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen o receptor en una operación de copia.
-
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
-
 
 ## <a name="troubleshoot-connectivity-issues"></a>Solución de problemas de conectividad
 

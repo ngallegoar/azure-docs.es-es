@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427148"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995963"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
 
@@ -85,23 +85,35 @@ En primer lugar, tendrá que registrar la aplicación en Azure Active Directory.
 > [!NOTE]
 > La aplicación debe crearse en el mismo inquilino de Azure Active Directory que el del almacén de claves.
 
-1. Abra **Azure Active Directory**.
-2. Seleccione **App registrations** (Registros de aplicaciones). 
-3. Seleccione **Nuevo registro de aplicaciones** para agregar una aplicación a Azure Active Directory.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Si la cuenta proporciona acceso a más de un inquilino, seleccione su cuenta en la esquina superior derecha. Establezca la sesión del portal en el inquilino de Azure AD que desee.
+1. Busque y seleccione **Azure Active Directory**. En **Administrar**, seleccione **Registros de aplicaciones**.
+1. Seleccione **Nuevo registro**.
+1. En **Registrar una aplicación**, escriba un nombre de aplicación significativo para mostrar a los usuarios.
+1. Especifique quién puede usar la aplicación, como se indica a continuación:
 
-    ![Abra las aplicaciones de Azure Active Directory](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Tipos de cuenta admitidos | Descripción |
+    |-------------------------|-------------|
+    | **Solo las cuentas de este directorio organizativo** | Seleccione esta opción si va a crear una aplicación de línea de negocio (LOB). Esta opción no está disponible si no va a registrar la aplicación en un directorio.<br><br>Esta opción se asigna solo a un único inquilino de Azure AD.<br><br>Esta es la opción predeterminada, a menos que registre la aplicación fuera de un directorio. En los casos en los que la aplicación se registra fuera de un directorio, el valor predeterminado son las cuentas personales de Microsoft y cuentas multiinquilino de Azure AD. |
+    | **Cuentas en cualquier directorio organizativo** | Seleccione esta opción si desea tener como destino todos los clientes de negocios y del sector educativo.<br><br>Esta opción se asigna solo a un multiinquilino de Azure AD.<br><br>Si ha registrado la aplicación como solo para un único inquilino de Azure AD, puede actualizarla para que sea de multiinquilino de Azure AD y que vuelva a serlo para un solo inquilino mediante la página **Autenticación**. |
+    | **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales** | Seleccione esta opción para establecer como destino el mayor conjunto posible de clientes.<br><br>Esta opción asigna cuentas personales de Microsoft y cuentas multiinquilinos de Azure AD.<br><br>Si registró la aplicación como cuentas multiinquilino de Azure AD y cuentas personales de Microsoft, no puede cambiar esta opción en la interfaz de usuario. En su lugar, debe usar el editor de manifiestos de aplicación para cambiar los tipos de cuenta admitidos. |
 
-4. En **Crear**, deje el tipo de aplicación como **Aplicación web o API** y asigne un nombre a la aplicación. Asigne una **URL de inicio de sesión** a la aplicación. Esta URL puede ser la que quiera para esta demostración.
+1. En **URI de redirección (opcional)** , seleccione el tipo de aplicación que va a crear: **Web** o **Cliente público (dispositivos móviles y escritorio)** . A continuación, escriba el identificador URI de redireccionamiento o la dirección URL de respuesta de la aplicación.
 
-    ![Crear registro de aplicación](../media/keyvault-keyrotation/create-app.png)
+    * Para aplicaciones web, proporcione la dirección URL base de la aplicación. Por ejemplo, `https://localhost:31544` podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web.
+    * Para aplicaciones cliente públicas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, como `myapp://auth`.
 
-5. Una vez que la aplicación se ha agregado a Azure Active Directory, se abre la página de la aplicación. Seleccione **Configuración** y luego **Propiedades**. Copie el valor **Id. de aplicación**. Lo necesitará en pasos posteriores.
+1. Cuando termine, seleccione **Registrar**.
 
-A continuación, genere una clave para la aplicación con el fin de que pueda interactuar con Azure Active Directory. Para crear una clave, seleccione **Claves** en **Configuración**. Anote esta clave nueva para la aplicación de Azure Active Directory. La necesitará en otro paso más adelante. La clave no estará disponible después de salir de esta sección. 
+    ![Muestra la pantalla para registrar una aplicación nueva en Azure Portal.](../media/new-app-registration.png)
 
-![Claves de aplicación de Azure Active Directory](../media/keyvault-keyrotation/create-key.png)
+Azure AD asigna un identificador de aplicación o cliente único a la aplicación. El portal abre la página de **información general** de la aplicación. Anote el valor de **Id. de aplicación (cliente)** .
 
-Antes de establecer llamadas desde la aplicación al almacén de claves, tendrá que indicarle al almacén de claves la aplicación y sus permisos. En el comando siguiente se usan el nombre del almacén y el identificador de la aplicación de Azure Active Directory para concederle acceso **Obtener** al almacén de claves.
+Para agregar funcionalidades a la aplicación, puede seleccionar otras opciones de configuración, como personalización de marca, certificados y secretos, permisos de API y mucho más.
+
+![Ejemplo de una página de introducción de la aplicación recién registrada](../media//new-app-overview-page-expanded.png)
+
+Antes de establecer llamadas desde la aplicación al almacén de claves, tendrá que indicarle al almacén de claves la aplicación y sus permisos. En comando siguiente usa el nombre del almacén y el **Id. de aplicación (cliente)** de la aplicación de Azure Active Directory para conceder a la aplicación acceso **Obtener** al almacén de claves.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722142"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890853"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
 
@@ -27,18 +27,21 @@ Para obtener información acerca de los reintentos y las entregas de eventos, co
 
 El portal muestra las métricas para el estado de la entrega de mensajes de eventos.
 
-Para los temas, las métricas son:
+En el caso de los temas, estas son algunas de las métricas:
 
 * **Publicación correcta**: el evento se envió correctamente al tema y se procesó con una respuesta 2xx.
 * **Error al publicar**: el evento se envió al tema, pero se rechazó con un código de error.
 * **Sin coincidencia**: el evento se publicó correctamente en el tema, pero no coincide con ninguna suscripción a eventos. Se descartó el evento.
 
-Para las suscripciones, las métricas son:
+En el caso de las suscripciones, estas son algunas de las métricas:
 
 * **Entrega realizada**: el evento se entregó correctamente al punto de conexión de la suscripción y se recibió una respuesta 2xx.
-* **Entrega no realizada**: el evento se envió al punto de conexión de la suscripción, pero se recibió una respuesta 4xx o 5xx.
-* **Expired Events (Eventos expirados)** : no se entregó el evento y se enviaron todos los reintentos. Se descartó el evento.
-* **Matched Events (Eventos coincidentes)** : la suscripción a eventos coincide con el evento del tema.
+* **Entrega no realizada**: Cada vez que el servicio intenta entregar y el controlador de eventos no devuelve un código de error 2xx, se incrementa el contador de **error de entrega**. Si intentamos entregar el mismo evento varias veces y se produce un error, se incrementa el contador de **error de entrega** por cada error.
+* **Eventos expirados**: no se entregó el evento y se enviaron todos los reintentos. Se descartó el evento.
+* **Eventos coincidentes**: la suscripción a eventos coincide con el evento del tema.
+
+    > [!NOTE]
+    > Para obtener la lista completa de las métricas, consulte [Métricas compatibles con Azure Event Grid](metrics.md).
 
 ## <a name="event-subscription-status"></a>Estado de la suscripción a eventos
 

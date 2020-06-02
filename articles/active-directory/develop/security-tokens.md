@@ -9,26 +9,29 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: faaf4a9c4fe37bc184b9860390f1eb99eede035c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584160"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115802"
 ---
 # <a name="security-tokens"></a>Tokens de seguridad
 
 Un proveedor de identidades centralizado es especialmente útil para las aplicaciones que tienen usuarios repartidos por todo el mundo que no inician sesión necesariamente desde la red de la empresa. La Plataforma de identidad de Microsoft autentica a los usuarios y proporciona tokens de seguridad, como el [token de acceso](developer-glossary.md#access-token), el [token de actualización](developer-glossary.md#refresh-token) y el [token de identificador](developer-glossary.md#id-token), que permiten a una [aplicación cliente](developer-glossary.md#client-application) acceder a recursos protegidos en un [servidor de recursos](developer-glossary.md#resource-server).
 
-Un **token de acceso** es un token de seguridad emitido por un [servidor de autorización](developer-glossary.md#authorization-server) como parte de un flujo de [OAuth 2.0](active-directory-v2-protocols.md). Contiene información sobre el usuario y la aplicación para la que se ha creado el token y se puede usar para acceder tanto a las API web como a otros recursos protegidos. Para obtener más información sobre cómo emite la Plataforma de identidad de Microsoft los tokens de acceso, ver [Tokens de acceso](access-tokens.md).
+Un **token de acceso** es un token de seguridad emitido por un [servidor de autorización](developer-glossary.md#authorization-server) como parte de un flujo de [OAuth 2.0](active-directory-v2-protocols.md). Contiene información sobre el usuario y la aplicación para la que se ha creado el token y se puede usar para acceder tanto a las API web como a otros recursos protegidos. Para más información sobre cómo emite la Plataforma de identidad de Microsoft los tokens de acceso, consulte [Tokens de acceso](access-tokens.md).
 
-Los tokens de acceso solo son válidos durante un breve período de tiempo, por lo que los servidores de autorización a veces emiten **tokens de actualización** al mismo tiempo que se emite el token de acceso. La aplicación cliente puede intercambiar este token de actualización por un nuevo token de acceso cuando es necesario. Para obtener más información sobre cómo usa la plataforma de identidad de Microsoft los tokens de actualización para revocar permisos, ver [Revocación de tokens](access-tokens.md#token-revocation).
+Los tokens de acceso solo son válidos durante un breve período de tiempo, por lo que los servidores de autorización a veces emiten un **token de actualización** al mismo tiempo que se emite el token de acceso. La aplicación cliente puede intercambiar este token de actualización por un nuevo token de acceso cuando es necesario. Para más información sobre cómo usa la plataforma de identidad de Microsoft los tokens de actualización para revocar permisos, consulte [Revocación de tokens](access-tokens.md#token-revocation).
 
-Los **tokens de identificador** se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v2-protocols-oidc.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario. Para obtener más información sobre cómo emite la Plataforma de identidad de Microsoft los tokens de identificador, ver [tokens de identificador.](id-tokens.md)
+Los **tokens de identificador** se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v2-protocols-oidc.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario. Para más información sobre cómo emite la Plataforma de identidad de Microsoft los tokens de identificador, consulte [tokens de identificador.](id-tokens.md)
+
+> [!NOTE]
+> En este artículo se describen los tokens de seguridad que usan los protocolos OAuth2 y OpenID Connect. Muchas aplicaciones empresariales usan SAML para autenticar a los usuarios. Consulte [Referencia de tokens SAML de Azure AD](reference-saml-tokens.md) para obtener información sobre las aserciones de SAML.
 
 ## <a name="validating-security-tokens"></a>Validación de tokens de seguridad
 
@@ -43,9 +46,9 @@ Los tokens de acceso se pasan a una API web en el encabezado de `Authorization` 
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>JSON Web Tokens (JWT) y notificaciones
 
-La Plataforma de identidad de Microsoft implementa los tokens de seguridad como **JSON Web Tokens (JWT)** que contienen **notificaciones**.
+La Plataforma de identidad de Microsoft implementa los tokens de seguridad como **JSON Web Tokens (JWT)** que contienen **notificaciones**. Dado que los JWT se usan como tokens de seguridad, esta forma de autenticación se denomina a veces **autenticación de JWT**.
 
-Una [notificación](developer-glossary.md#claim) proporciona aserciones sobre una entidad, como una aplicación cliente o un [propietario de recursos](developer-glossary.md#resource-owner), a otra entidad, como un servidor de recursos.
+Una [notificación](developer-glossary.md#claim) proporciona aserciones sobre una entidad, como una aplicación cliente o un [propietario de recursos](developer-glossary.md#resource-owner), a otra entidad, como un servidor de recursos. También se puede hacer referencia a una notificación como una notificación de JWT o de JSON Web Token.
 
 Las notificaciones son pares nombre-valor que retransmiten hechos sobre el firmante del token. Por ejemplo, una notificación puede contener datos sobre la entidad de seguridad autenticada por el servidor de autorización. Las notificaciones presentes en un token determinado dependen de muchas cosas, como el tipo de token, el tipo de credencial usada para autenticar al firmante, la configuración de la aplicación, etc.
 
@@ -64,7 +67,7 @@ Una notificación se compone de pares clave-valor que proporcionan información,
 * La audiencia, que es la aplicación para la que se generó el token.
 * La aplicación (el cliente) que solicitó el token. En el caso de las aplicaciones web, puede ser igual a la audiencia.
 
-Para obtener más información sobre cómo implementa la plataforma de identidad de Microsoft los tokens y la información de notificaciones, ver [tokens de acceso](access-tokens.md) y [tokens de identificador](id-tokens.md).
+Para más información sobre cómo implementa la plataforma de identidad de Microsoft los tokens y la información de notificaciones, consulte [tokens de acceso](access-tokens.md) y [tokens de identificador](id-tokens.md).
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Cómo emite cada flujo los tokens y los códigos
 

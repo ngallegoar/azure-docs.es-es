@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427244"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982707"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Ingesta de datos en un grupo de SQL
 
@@ -39,7 +39,7 @@ En Azure Synapse Analytics, un servicio vinculado es donde se define la informac
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 
-Una canalización contiene el flujo lógico para una ejecución de un conjunto de actividades. En esta sección, creará una canalización que contiene una actividad de copia que ingiere datos de ADLS Gen 2 en un grupo de SQL.
+Una canalización contiene el flujo lógico para una ejecución de un conjunto de actividades. En esta sección, creará una canalización que contiene una actividad de copia que ingiere datos de ADLS Gen2 en un grupo de SQL.
 
 1. Vaya a la pestaña **Orchestrate** (Orquestar). Haga clic en el icono de signo de más situado junto al encabezado de canalizaciones y seleccione **Canalización**.
 1. En **Mover y transformar** en el panel de actividades, arrastre **Copiar datos** al lienzo de la canalización.

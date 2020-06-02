@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1531d9b70860f498a3e38305f26eb862c9513f3
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756273"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901488"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de administración de Service Bus
 
@@ -32,7 +32,7 @@ Las bibliotecas de administración de Azure Service Bus pueden aprovisionar din�
 * Creación, actualización y eliminación de temas
 * Creación, actualización y eliminación de suscripciones
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para comenzar a usar las bibliotecas de administración de Service Bus, debe autenticarse con el servicio Azure Active Directory (Azure AAD). Azure AAD requiere que se autentique como una entidad de servicio que proporciona acceso a los recursos de Azure. Para más información sobre cómo crear una entidad de servicio, consulte uno de los siguientes artículos:  
 
@@ -40,7 +40,7 @@ Para comenzar a usar las bibliotecas de administración de Service Bus, debe aut
 * [Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Estos tutoriales le proporcionan valores para `AppId` (identificador de cliente), `TenantId` y `ClientSecret` (clave de autenticación), que usan las bibliotecas de administración con fines de autenticación. Debe tener permisos de **Propietario** en el grupo de recursos en el que desea realizar la ejecución.
+Estos tutoriales le proporcionan valores para `AppId` (identificador de cliente), `TenantId` y `ClientSecret` (clave de autenticación), que usan las bibliotecas de administración con fines de autenticación. Debe tener como mínimo los permisos [**propietario de datos**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) o [**colaborador de Azure Service Bus**](/azure/role-based-access-control/built-in-roles#contributor) para el grupo de recursos en el que quiere realizar la ejecución.
 
 ## <a name="programming-pattern"></a>Modelo de programación
 

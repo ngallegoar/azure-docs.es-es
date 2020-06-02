@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: 3618e6d3fe919bc06496d5b41d162bd211c3d404
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/25/2020
+ms.openlocfilehash: 47bb4e4cc4902168631fa67f186d0b3259c94328
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231941"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004642"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad en Azure Logic Apps
 
@@ -54,7 +54,7 @@ Para ver las diferencias entre este desencadenador y el desencadenador de ventan
 
    | Propiedad | Nombre JSON | Obligatorio | Tipo | Descripción |
    |----------|-----------|----------|------|-------------|
-   | **Intervalo** | `interval` | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
+   | **Intervalo** | `interval` | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses <br>- Semana: 1-71 semanas <br>- Día: 1-500 días <br>- Hora: 1-12 000 horas <br>- Minuto: 1-72 000 minutos <br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
    | **Frecuencia** | `frequency` | Sí | String | Unidad de tiempo que se usa para la periodicidad: **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** |
    ||||||
 
@@ -75,17 +75,17 @@ Para ver las diferencias entre este desencadenador y el desencadenador de ventan
    | Propiedad | Nombre JSON | Obligatorio | Tipo | Descripción |
    |----------|-----------|----------|------|-------------|
    | **Zona horaria** | `timeZone` | No | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. |
-   | **Hora de inicio** | `startTime` | No | String | Proporcione una fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 14:00, especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico". O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [ *¿De qué formas puedo usar la fecha y hora de inicio?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Hora de inicio** | `startTime` | No | String | Proporcione una fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2020 a las 14:00, especifique entonces "2020-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico". O bien, especifique "2020-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [ *¿De qué formas puedo usar la fecha y hora de inicio?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **En estos días** | `weekDays` | No | Cadena o matriz de cadenas | Si selecciona "Semana", puede seleccionar uno o más días que desee ejecutar el flujo de trabajo: **Lunes**, **Martes**, **Miércoles**, **Jueves**, **Viernes**, **Sábado** y **Domingo** |
    | **A estas horas** | `hours` | No | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede especificar uno o varios enteros de 0 a 23 como las horas del día en las que desea ejecutar el flujo de trabajo. <p><p>Por ejemplo, si especifica "10", "12" y "14", obtendrá las 10:00, las 12:00 y las 14:00 para las horas del día, pero los minutos del día se calcularán en función del momento en el que se inicie la periodicidad. Para establecer minutos específicos del día (por ejemplo, las 10:00, las 12:00 y las 14:00), especifique esos valores mediante la propiedad **En estos minutos**. |
    | **En estos minutos** | `minutes` | No | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede seleccionar uno o varios enteros de 0 a 59 como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a. m., 12:30 p. m. y las 2:30 p. m. |
    |||||
 
-   Por ejemplo, supongamos que hoy es lunes, 4 de septiembre de 2017. El siguiente desencadenador de periodicidad no se inicia *antes* de la fecha y hora de inicio, establecida el lunes, 18 de septiembre de 2017, a las 8:00 a. m. PST. Sin embargo, la programación de periodicidad está establecida para las 10:30 a. m., las 12:30 p. m. y las 2:30 p. m., solo los lunes. Por tanto, el desencadenador inicia y crea una instancia de flujo de trabajo de aplicación lógica por primera vez a las 10:30 a. m. Para más información sobre cómo funcionan las horas de inicio, vea estos [ejemplos de hora de inicio](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   Por ejemplo, supongamos que hoy es viernes, 4 de septiembre de 2020. El siguiente desencadenador de periodicidad no se inicia *antes* de la fecha y hora de inicio, establecida el viernes, 18 de septiembre de 2020, a las 8:00 a. m. PST. Sin embargo, la programación de periodicidad está establecida para las 10:30 a. m., las 12:30 p. m. y las 2:30 p. m., solo los lunes. Por tanto, el desencadenador inicia y crea una instancia de flujo de trabajo de aplicación lógica por primera vez el lunes a las 10:30 a. m. Para más información sobre cómo funcionan las horas de inicio, vea estos [ejemplos de hora de inicio](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
    Las futuras ejecuciones se realizan a las 12:30 p. m. y a las 2:30 p. m. ese mismo día. Cada periodicidad crea su propia instancia de flujo de trabajo. Después de eso, toda la programación se repite el próximo lunes. [ *¿Qué otros ejemplos se hay?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
-   ![Ejemplo de programación avanzada](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
+   ![Ejemplo de programación avanzada](./media/connectors-native-recurrence/recurrence-trigger-advanced-schedule-options.png)
 
    > [!NOTE]
    > El desencadenador muestra una vista previa de la periodicidad especificada solo si selecciona la frecuencia "Day" o "Week".
@@ -118,7 +118,7 @@ En este ejemplo se muestra el aspecto que podrá tener una definición de desenc
                "Monday"
             ]
          },
-         "startTime": "2017-09-07T14:00:00Z",
+         "startTime": "2020-09-07T14:00:00Z",
          "timeZone": "Pacific Standard Time"
       }
    }

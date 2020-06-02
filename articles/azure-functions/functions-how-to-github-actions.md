@@ -3,14 +3,14 @@ title: Uso de Acciones de GitHub para crear actualizaciones de código en Azure 
 description: Obtenga información sobre cómo usar Acciones de GitHub para definir un flujo de trabajo para crear e implementar proyectos de Azure Functions en GitHub.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878211"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122345"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 
@@ -46,17 +46,19 @@ En este ejemplo, reemplace los marcadores de posición del recurso por su identi
 
 ## <a name="download-the-publishing-profile"></a>Descarga del perfil de publicación
 
-Puede descargar el perfil de publicación de su aplicación de funciones. Para ello, vaya a la página **Información general** de la aplicación y haga clic en **Obtener perfil de publicación**.
+Para descargar el perfil de publicación de la aplicación de funciones:
 
-   ![Descargar perfil de publicación](media/functions-how-to-github-actions/get-publish-profile.png)
+1. Seleccione la página **Información general** de la aplicación de funciones y, después, seleccione **Obtener perfil de publicación**.
 
-Copie el contenido del archivo.
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Descargar perfil de publicación":::
+
+1. Guarde y copie el contenido del archivo de configuración de publicación.
 
 ## <a name="configure-the-github-secret"></a>Configuración del secreto de GitHub
 
 1. En [GitHub](https://github.com), examine su repositorio, seleccione **Configuración** > **Secretos** > **Agregar un nuevo secreto**.
 
-   ![Agregar secreto](media/functions-how-to-github-actions/add-secret.png)
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Agregar secreto":::
 
 1. Agregue un nuevo secreto.
 
@@ -217,7 +219,7 @@ En el siguiente ejemplo se usa la versión 1 de la `functions-action`:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver un flujo de trabajo completo .yaml, consulte uno de los archivos del [repositorio de ejemplos de flujo de trabajo de Acciones de GitHub de Azure](https://aka.ms/functions-actions-samples) con `functionapp` en el nombre. Puede usar estos ejemplos como punto de partida para su flujo de trabajo.
+Para ver un archivo .yaml de flujo de trabajo completo, consulte uno de los archivos del [repositorio de ejemplos de flujo de trabajo de Acciones de GitHub de Azure](https://aka.ms/functions-actions-samples) con `functionapp` en el nombre. Puede usar estos ejemplos como punto de partida para su flujo de trabajo.
 
 > [!div class="nextstepaction"]
 > [Más información sobre Acciones de GitHub](https://help.github.com/en/articles/about-github-actions)

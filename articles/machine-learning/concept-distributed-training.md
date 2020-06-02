@@ -9,18 +9,18 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385345"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995016"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Entrenamiento distribuido con Azure Machine Learning
 
 En este artículo, obtendrá información sobre el entrenamiento distribuido y sobre cómo lo admite Azure Machine Learning para los modelos de aprendizaje profundo. 
 
-En el entrenamiento distribuido, la carga de trabajo para entrenar un modelo se divide y se comparte entre varios procesadores pequeños, denominados nodos de trabajo. Estos nodos de trabajo trabajan en paralelo para acelerar el entrenamiento del modelo. El entrenamiento distribuido se puede usar para modelos tradicionales de ML, pero es más adecuado para tareas de proceso y que requieren mucho tiempo, como el [aprendizaje profundo](concept-deep-learning-vs-machine-learning.md) para entrenar redes neuronales profundas.
+En el entrenamiento distribuido, la carga de trabajo para entrenar un modelo se divide y se comparte entre varios procesadores pequeños, denominados nodos de trabajo. Estos nodos de trabajo trabajan en paralelo para acelerar el entrenamiento del modelo. El entrenamiento distribuido se puede usar para modelos tradicionales de ML, pero es más adecuado para tareas de proceso y que requieren mucho tiempo, como el [aprendizaje profundo](concept-deep-learning-vs-machine-learning.md) para entrenar redes neuronales profundas. 
 
 ## <a name="deep-learning-and-distributed-training"></a>Aprendizaje profundo y entrenamiento distribuido 
 
@@ -36,7 +36,9 @@ Para los modelos de ML que no requieren entrenamiento distribuido, consulte el a
 
 De entre los dos enfoques de entrenamiento distribuido, el paralelismo de datos es el más sencillo de implementar y es suficiente para la mayoría de los casos de uso.
 
-En este enfoque, los datos se dividen en particiones, donde el número de particiones es igual al número total de nodos disponibles en el clúster de proceso. El modelo se copia en cada uno de estos nodos de trabajo y cada trabajador opera en su propio subconjunto de los datos. Tenga en cuenta que cada nodo debe tener la capacidad de admitir el modelo que se está entrenando; es decir, el modelo debe ajustarse por completo a cada nodo.
+En este enfoque, los datos se dividen en particiones, donde el número de particiones es igual al número total de nodos disponibles en el clúster de proceso. El modelo se copia en cada uno de estos nodos de trabajo y cada trabajador opera en su propio subconjunto de los datos. Tenga en cuenta que cada nodo debe tener la capacidad de admitir el modelo que se está entrenando; es decir, el modelo debe ajustarse por completo a cada nodo. En el siguiente diagrama se ofrece una demostración visual de este enfoque.
+
+![Diagrama conceptual de paralelismo de datos](./media/concept-distributed-training/distributed-training.svg)
 
 Cada uno de los nodos calcula de forma independiente los errores entre sus predicciones en sus ejemplos de entrenamiento y las salidas etiquetadas. A su vez, cada nodo actualiza su modelo en función de los errores encontrados y debe comunicar todos sus cambios al resto de nodos para que actualicen sus modelos correspondientes. Esto significa que los nodos de trabajo deben sincronizar los parámetros del modelo, o gradientes, al final del cálculo por lotes para asegurarse de que están entrenando un modelo coherente. 
 

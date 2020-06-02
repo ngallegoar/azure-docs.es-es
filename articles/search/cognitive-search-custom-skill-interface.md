@@ -7,15 +7,17 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/06/2020
+ms.openlocfilehash: 7a1a2aa92549bcab35532120c4af5bd0b6904f58
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500265"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891246"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Incorporación de una aptitud personalizada a una canalización de enriquecimiento de Azure Cognitive Search
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=172&end=221]
 
 Una [canalización de indexación](cognitive-search-concept-intro.md) de Azure Cognitive Search se puede ensamblar a partir de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) y [aptitudes personalizadas](cognitive-search-custom-skill-web-api.md) que puede crear y agregar personalmente a la canalización. En este artículo, obtendrá información sobre cómo crear una aptitud personalizada que exponga una interfaz para que pueda incluirse en una canalización de enriquecimiento con IA. 
 
@@ -39,6 +41,10 @@ Asegúrese de que el URI sea seguro (HTTPS).
 Actualmente, el único mecanismo para interactuar con una aptitud personalizada es a través de una interfaz de Web API. Web API debe cumplir los requisitos que se describen en esta sección.
 
 ### <a name="1--web-api-input-format"></a>1.  Formato de entrada de Web API
+
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=294&end=340]
+
 
 Web API debe aceptar la matriz de registros que se va a procesar. Cada registro debe tener un "contenedor de propiedades" que será la entrada proporcionada a Web API. 
 
@@ -158,6 +164,7 @@ Cuando crea una opción de enriquecimiento de Web API, puede describir encabezad
 
 En este artículo se han tratado los requisitos de la interfaz necesarios para integrar una aptitud personalizada en un conjunto de aptitudes. Haga clic en los vínculos siguientes para más información sobre las aptitudes personalizadas y la composición del conjunto de aptitudes.
 
++ [Vea el vídeo sobre las aptitudes personalizadas](https://youtu.be/fHLCE-NZeb4)
 + [Aptitudes avanzadas: un repositorio de aptitudes personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/22/2020
+ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417234"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890612"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -46,7 +46,7 @@ En concreto, este conector SAP HANA admite las siguientes funcionalidades:
 - Copia paralela desde un origen de SAP HANA. Consulte la sección [Copia paralela desde SAP HANA](#parallel-copy-from-sap-hana) para más información.
 
 > [!TIP]
-> Para copiar datos **en** un almacén de datos SAP HANA, use un conector ODBC genérico. Consulte el artículo sobre el [receptor de SAP HANA](connector-odbc.md#sap-hana-sink) con detalles. Tenga en cuenta que los servicios vinculados para el conector SAP HANA y el conector ODBC tienen tipos distintos y, por tanto, no se pueden reutilizar.
+> Para copiar datos **en** un almacén de datos SAP HANA, use un conector ODBC genérico. Consulte la sección sobre el [receptor de SAP HANA](#sap-hana-sink) con detalles. Tenga en cuenta que los servicios vinculados para el conector SAP HANA y el conector ODBC tienen tipos distintos y, por tanto, no se pueden reutilizar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -298,6 +298,34 @@ Al copiar datos desde SAP HANA, se usan las siguientes asignaciones de tipos de 
 | VARCHAR            | String                         |
 | timestamp          | DateTime                       |
 | VARBINARY          | Byte[]                         |
+
+### <a name="sap-hana-sink"></a>Receptor de SAP HANA
+
+Actualmente, el conector de SAP HANA no se admite como receptor, aunque puede usar el conector ODBC genérico con el controlador de SAP HANA para escribir datos en SAP HANA. 
+
+Siga los [requisitos previos](#prerequisites) de configuración de un entorno de ejecución de integración autohospedado e instale primero el controlador ODBC de SAP HANA. Cree un servicio vinculado de ODBC para conectarse al almacén de datos de SAP HANA como se muestra en el ejemplo siguiente. A continuación, cree el conjunto de datos y el receptor de la actividad de copia con el tipo ODBC, según corresponda. Obtenga más información en el artículo [conector ODBC](connector-odbc.md).
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

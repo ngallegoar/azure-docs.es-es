@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74270597"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006014"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relaciones de anclaje y búsqueda de caminos en Azure Spatial Anchors
 
@@ -73,7 +73,7 @@ Puede seguir este procedimiento para más anclajes y más sesiones a lo largo de
 
 ### <a name="verify-anchor-connections"></a>Comprobación de las conexiones de los anclajes
 
-La aplicación puede comprobar que dos anclajes están conectados mediante la emisión de una consulta de anclajes cercanos. Cuando los resultados de la consulta contienen el anclaje de destino, se comprueba la conexión del anclaje. Si los anclajes no están conectados, la aplicación puede intentar conectarlos de nuevo.
+La aplicación puede comprobar que dos anclajes están conectados mediante la emisión de una consulta de anclajes cercanos, lo que se hace estableciendo el `NearAnchorCriteria` en un `CloudSpatialAnchorWatcher`. Cuando los resultados de la consulta contienen el anclaje de destino, se comprueba la conexión del anclaje. Si los anclajes no están conectados, la aplicación puede intentar conectarlos de nuevo.
 
 Estos son algunos de los motivos por los que los anclajes podrían no conectarse:
 

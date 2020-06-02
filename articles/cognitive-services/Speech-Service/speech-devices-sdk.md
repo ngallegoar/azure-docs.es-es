@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370651"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927214"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>¿Qué es Speech Devices SDK?
 
@@ -49,7 +49,7 @@ La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo 
 En el caso de Linux, la aplicación de ejemplo se proporciona como aplicación Java multiplataforma. Descargue la última versión del [SDK para dispositivos de voz de JRE](https://aka.ms/sdsdk-download-JRE).
 La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo integrado de Java de Eclipse (v4) en Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8 y CentOS 8). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
-Se proporcionan archivos binarios adicionales para ofrecer compatibilidad con los próximos dispositivos: [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) y [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter) y [GGEC Speaker](https://aka.ms/sdsdk-download-speaker).
+Se proporcionan archivos binarios adicionales para ofrecer compatibilidad con los próximos dispositivos: [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter), [GGEC Speaker](https://aka.ms/sdsdk-download-speaker), [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) y [Linux ARM64](https://aka.ms/sdsdk-download-linux-arm64).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

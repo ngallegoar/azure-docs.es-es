@@ -1,31 +1,21 @@
 ---
 title: Incorporación de herramientas de evaluación en Azure Migrate
 description: Obtenga información sobre como agregar herramientas de evaluación en Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/26/2020
+ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185907"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901052"
 ---
 # <a name="add-assessment-tools"></a>Incorporación de herramientas de evaluación
 
-En este artículo se describe cómo agregar herramientas de valoración en [Azure Migrate](migrate-overview.md).
+En este artículo se describe cómo agregar herramientas de valoración en [Azure Migrate](migrate-overview.md). 
 
-Azure Migrate proporciona un centro de herramientas para la valoración y la migración a Azure. Incluye herramientas de Azure Migrate, así como otras herramientas y ofertas de fabricantes de software independientes (ISV).
-
-Si quiere agregar una herramienta de valoración y todavía no tiene un proyecto de Azure Migrate, consulte este [artículo](how-to-add-tool-first-time.md).
-
-## <a name="select-a-tool"></a>Seleccionar una herramienta
-
-Si elige una herramienta que no sea de Azure Migrate para la valoración, empiece por obtener una licencia o regístrese para una evaluación gratuita, de acuerdo con la directiva de la herramienta. Las herramientas tienen una opción para conectarse a Azure Migrate. Siga las instrucciones y la documentación para conectar la herramienta con Azure Migrate. [Más información](migrate-services-overview.md) sobre las herramientas.
-
+- Si quiere agregar una herramienta de valoración y todavía no tiene un proyecto de Azure Migrate, consulte este [artículo](how-to-add-tool-first-time.md).
+- Si ha agregado una herramienta de ISV o Movere para la valoración, [siga los pasos](prepare-isv-movere.md) de preparación para trabajar con la herramienta.
 
 ## <a name="select-an-assessment-scenario"></a>Selección de un escenario de valoración
 

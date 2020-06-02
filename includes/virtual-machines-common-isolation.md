@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3aeb0369ee4a04dbbe89a4d0684b2a6c97378d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77123252"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343327"
 ---
 Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.  Estos tamaños de máquina virtual son más adecuados para cargas de trabajo que requieren un alto grado de aislamiento de otros clientes como, por ejemplo, las cargas de trabajo que incluyen elementos como el cumplimiento normativo y los requisitos legales.  Los clientes también puede elegir subdividir aún más los recursos de estas máquinas virtuales aisladas mediante la [compatibilidad de Azure para máquinas virtuales anidadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -23,11 +23,11 @@ Usar un tamaño aislado garantiza que la máquina virtual será la única que se
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
+* Standard_DS15_v2 <sup>*</sup>
+* Standard_D15_v2 <sup>*</sup>
 * Standard_F72s_v2
 
-Puede más información sobre cada tamaño aislado disponible [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+<sup>*</sup>La garantía de aislamiento se retirará el 15 de mayo de 2020
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-may-15-2020"></a>Retirada del aislamiento de D15_v2/DS15_v2 el 15 de mayo de 2020
 **Actualización del 10 de febrero de 2020: La escala de tiempo de retirada del "aislamiento" se ha ampliado al 15 de mayo de 2020**

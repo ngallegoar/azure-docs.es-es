@@ -4,14 +4,14 @@ description: En este artículo se explica cómo codificar actualizaciones de mod
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73572350"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926568"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
 
@@ -60,7 +60,7 @@ La entidad de servicio que cree debe tener permisos de administrador de servidor
 
     ![Crear una credencial](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Escriba los detalles de la credencial.  Para el **nombre de usuario**, escriba el **id. de cliente de SPN** y, para la **contraseña**, escriba el **secreto de SPN**.
+2. Escriba los detalles de la credencial. En **Nombre de usuario**, escriba el identificador de aplicación de la entidad de servicio (appid) y, a continuación, en **Contraseña**, escriba el secreto de la entidad de servicio.
 
     ![Crear una credencial](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -68,7 +68,7 @@ La entidad de servicio que cree debe tener permisos de administrador de servidor
 
     ![Importación del runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Busque el archivo **Refresh-Model.ps1**, proporcione un **nombre**  y una **descripción**  y, luego, haga clic en **Crear** .
+4. Busque el archivo **Refresh-Model.ps1**, proporcione un **Nombre** y una **Descripción**  y, luego, haga clic en **Crear** .
 
     ![Importación del runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -173,7 +173,7 @@ Una máquina virtual de Azure con una dirección IP pública estática se puede 
 > [!IMPORTANT]
 > Asegúrese de que la dirección IP pública de la máquina virtual esté configurada como estática.
 >
->Para obtener más información sobre cómo configurar las instancias de Azure Automation Hybrid Worker, consulte [Automatización de recursos en su centro de datos o nube con Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Para más información sobre la configuración de Azure Automation Hybrid Worker, consulte [Instalación de Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
 Una vez que se configura una instancia de Hybrid Worker, cree un webhook tal y como se describe en la sección [Consumir con Data Factory](#consume-with-data-factory).  La única diferencia en este caso es que debe seleccionar la opción **Ejecutar en** > **Hybrid Worker** al configurar el webhook.
 

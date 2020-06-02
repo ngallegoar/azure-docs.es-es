@@ -11,12 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 433e4160972a06ee3652410e062f6602e9ca6767
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729128"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996919"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referencia: elección de un protocolo de comunicación
 

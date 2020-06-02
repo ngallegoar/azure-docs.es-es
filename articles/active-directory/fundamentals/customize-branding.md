@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049791"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982044"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Office 365, que usan Azure AD como proveedor de identidades.
@@ -52,9 +52,9 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
         - **Idioma**. El idioma se establece automáticamente como valor predeterminado y no se puede cambiar.
         
-        - **Imagen de fondo de la página de inicio de sesión.** Seleccione un archivo de imagen .png o .jpg para que aparezca como fondo de las páginas de inicio de sesión. 
+        - **Imagen de fondo de la página de inicio de sesión.** Seleccione un archivo de imagen .png o .jpg para que aparezca como fondo de las páginas de inicio de sesión. La imagen se anclará al centro del explorador y se escalará según el tamaño del espacio visible. No se puede seleccionar una imagen de más de 1920 x 1080 píxeles de tamaño o con un tamaño de archivo superior a los 300 KB.
         
-            La imagen no puede tener más de 1920 x 1080 píxeles de tamaño y debe tener un tamaño de archivo inferior a 300 KB.
+            Se recomienda usar imágenes sin enfoque en un sujeto definido; por ejemplo, aparece un cuadro blanco opaco en el centro de la pantalla y puede cubrir cualquier parte de la imagen según las dimensiones del espacio visible.
 
         - **Logotipo del banner**. Seleccione una versión .png o .jpg del logotipo para que aparezca en la página de inicio de sesión después de que el usuario escriba un nombre de usuario y en la página del portal **Mis aplicaciones**.
             
@@ -62,7 +62,7 @@ La personalización de marca no aparecerá inmediatamente cuando los usuarios te
 
         - **Sugerencia de nombre de usuario**. Escriba el texto de sugerencia que se muestra a los usuarios en caso de que olviden su nombre de usuario. Este texto debe ser Unicode, sin código ni vínculos y no puede superar los 64 caracteres. Si un invitado inicia sesión en la aplicación, se recomienda no agregar esta sugerencia.
 
-        - **Texto de la página de inicio de sesión**. Escriba el texto que aparece en la parte inferior de la página de inicio de sesión. Puede usar este texto para comunicar información adicional, como el número de teléfono de su departamento de soporte técnico o una declaración legal. Este texto debe ser Unicode y no superar los 256 caracteres. También se recomienda no incluir vínculos ni etiquetas HTML.
+        - **Texto de la página de inicio de sesión**. Escriba el texto que aparece en la parte inferior de la página de inicio de sesión. Puede usar este texto para comunicar información adicional, como el número de teléfono de su departamento de soporte técnico o una declaración legal. Este texto debe ser Unicode y no superar los 256 caracteres.
 
     - **Configuración avanzada**
             

@@ -3,34 +3,29 @@ title: Aumento del rango de búsqueda mediante perfiles de puntuación
 titleSuffix: Azure Cognitive Search
 description: Potencie las puntuaciones de clasificación de búsqueda en los resultados de búsqueda de Azure Cognitive Search mediante la incorporación de perfiles de puntuación.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231108"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890177"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search
 
 La *puntuación* calcula una puntuación de la búsqueda para cada elemento de un conjunto de resultados ordenado por rango. A cada elemento de un conjunto de resultados de búsqueda se le asigna una puntuación de búsqueda, a continuación, se ordena de mayor a menor.
 
  Azure Cognitive Search usa la puntuación predeterminada para calcular una puntuación inicial, pero puede personalizar el cálculo mediante un *perfil de puntuación*. Los perfiles de puntuación proporcionan un mayor control sobre la clasificación de los elementos en los resultados de búsqueda. Por ejemplo, desea aumentar los elementos según su potencial de ingresos, promover elementos más recientes o quizás aumentar los elementos que han permanecido en inventario demasiado largo.  
+
+ El siguiente segmento de vídeo pasa a la parte donde se explica cómo funcionan los perfiles de puntuación en Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## <a name="scoring-profile-definitions"></a>Definiciones de los perfiles de puntuación
 
  Un perfil de puntuación es parte de la definición del índice que se compone de campos, funciones y parámetros ponderados.  
 

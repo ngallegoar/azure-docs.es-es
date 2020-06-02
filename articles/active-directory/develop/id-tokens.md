@@ -1,5 +1,6 @@
 ---
-title: Referencia de tokens de id. de la plataforma de identidad de Microsoft
+title: Tokens de id. de la plataforma de identidad de Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo usar los id_tokens emitidos por Azure AD v1.0 y los puntos de conexión de la plataforma de identidad de Microsoft (v2.0).
 services: active-directory
 author: hpsin
@@ -8,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690179"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926721"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
-Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v2-protocols-oidc.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
+Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v2-protocols-oidc.md) (OIDC). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
 
 ## <a name="using-the-id_token"></a>Uso del id_token
 
@@ -30,7 +31,7 @@ Los tokens de id. se deben usar para validar que un usuario es quien dice ser y 
 
 ## <a name="claims-in-an-id_token"></a>Notificaciones de un id_token
 
-Los `id_tokens` de una identidad de Microsoft son elementos [JWT](https://tools.ietf.org/html/rfc7519), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
+Los `id_tokens` de una identidad de Microsoft son elementos [JWT](https://tools.ietf.org/html/rfc7519) (JSON Web Token), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones de JWT que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -52,14 +53,14 @@ Puede ver este token de ejemplo de la versión v2.0 en [jwt.ms](https://jwt.ms/#
 
 |Notificación | Formato | Descripción |
 |-----|--------|-------------|
-|`typ` | Cadena: siempre "JWT" | Indica que el token es un token JWT.|
+|`typ` | Cadena: siempre "JWT" | Indica que se trata de un token JWT.|
 |`alg` | String | Indica el algoritmo que se usó para firmar el token. Ejemplo: "RS256" |
 |`kid` | String | Huella digital de la clave pública utilizada para firmar este token. Se emite en los `id_tokens` de las versiones 1.0 y 2.0. |
 |`x5t` | String | Es igual (en uso y valor) a `kid`. Sin embargo, esta es una notificación heredada emitida solo en los `id_tokens` de la versión 1.0 para fines de compatibilidad. |
 
 ### <a name="payload-claims"></a>Notificaciones de carga
 
-En esta lista se muestran las notificaciones que se encuentran en la mayoría de los id_tokens de forma predeterminada (excepto donde se indique).  Sin embargo, puede usar [notificaciones opcionales](active-directory-optional-claims.md) para solicitar notificaciones adicionales en el id_token.  Estas pueden ir desde la notificación `groups` hasta información sobre el nombre del usuario.
+En esta lista se muestran las notificaciones de JWT que se encuentran en la mayoría de los id_tokens de forma predeterminada (excepto donde se indique).  Sin embargo, puede usar [notificaciones opcionales](active-directory-optional-claims.md) para solicitar notificaciones de JWT adicionales en el id_token.  Estas pueden ir desde la notificación `groups` hasta información sobre el nombre del usuario.
 
 |Notificación | Formato | Descripción |
 |-----|--------|-------------|
@@ -85,9 +86,9 @@ En esta lista se muestran las notificaciones que se encuentran en la mayoría de
 |`uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`ver` | Cadena, 1.0 o 2.0 | Indica la versión del id_token. |
 
-
 > [!NOTE]
-> Los id_token v1 y v2 tienen diferencias en la cantidad de información que llevarán, como se ha visto en los ejemplos anteriores. Fundamentalmente, la versión especifica el punto de conexión de la plataforma Azure AD desde donde se emitió. [La implementación de OAuth de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) ha evolucionado a lo largo de los años. Actualmente tenemos dos puntos de conexión de OAuth diferentes para las aplicaciones de Azure AD. Puede usar cualquiera de los nuevos puntos de conexión que se clasifican como v2 o el anterior, que se indica como v1. Los puntos de conexión de OAuth de ambos son diferentes. El punto de conexión v2 es el más reciente al que estamos tratando de migrar todas las características del punto de conexión v1 y recomendamos a los nuevos desarrolladores que lo usen. 
+> Los id_token v1 y v2 tienen diferencias en la cantidad de información que llevarán, como se ha visto en los ejemplos anteriores. Fundamentalmente, la versión especifica el punto de conexión de la plataforma Azure AD desde donde se emitió. [La implementación de OAuth de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) ha evolucionado a lo largo de los años. Actualmente tenemos dos puntos de conexión de OAuth diferentes para las aplicaciones de Azure AD. Puede usar cualquiera de los nuevos puntos de conexión que se clasifican como v2 o el anterior, que se indica como v1. Los puntos de conexión de OAuth de ambos son diferentes. El punto de conexión v2 es el más reciente al que estamos tratando de migrar todas las características del punto de conexión v1 y recomendamos a los nuevos desarrolladores que lo usen.
+>
 > - V1: Puntos de conexión de Azure Active Directory: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2: Puntos de conexión de la plataforma de identidad de Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
@@ -95,13 +96,13 @@ En esta lista se muestran las notificaciones que se encuentran en la mayoría de
 
 La validación de un `id_token` es similar al primer paso de la [validación de un token de acceso](access-tokens.md#validating-tokens): el cliente debe asegurarse de que el emisor correcto ha enviado de vuelta el token y que no se ha manipulado. Dado que los `id_tokens` siempre son un token JWT, existen muchas bibliotecas para validar estos tokens: se recomienda usar una de ellas en lugar de hacerlo usted mismo.
 
-Para validar manualmente el token, consulte los pasos detallados en [Validación de un token de acceso](access-tokens.md#validating-tokens). Después de validar la firma del token, se deben validar las siguientes notificaciones del id_token (esto también se podría hacer con la biblioteca de validación de tokens):
+Para validar manualmente el token, consulte los pasos detallados en [Validación de un token de acceso](access-tokens.md#validating-tokens). Después de validar la firma del token, se deben validar las siguientes notificaciones de JWT del id_token (esto también se podría hacer con la biblioteca de validación de tokens):
 
-* Marcas de tiempo: las marcas de tiempo `iat`, `nbf` y `exp` deben estar todas antes o después de la hora actual, según corresponda. 
+* Marcas de tiempo: las marcas de tiempo `iat`, `nbf` y `exp` deben estar todas antes o después de la hora actual, según corresponda.
 * Audiencia: la notificación `aud` debe coincidir con el identificador de aplicación de la aplicación.
 * Nonce: la notificación `nonce` de la carga debe coincidir con el parámetro nonce pasado en el punto de conexión /authorize durante la solicitud inicial.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre los [tokens de acceso](access-tokens.md)
-* Personalizar las notificaciones del id_token utilizando [notificaciones opcionales](active-directory-optional-claims.md).
+* Personalice las notificaciones de JWT del id_token mediante las [notificaciones opcionales](active-directory-optional-claims.md).

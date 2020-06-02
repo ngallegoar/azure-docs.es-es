@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 86b68b794928900717bea25623e7eb833c23e86c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655345"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926976"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 
@@ -91,6 +91,7 @@ Sí. Cada dominio administrado de Azure AD Domain Services contiene dos control
 * [¿Puedo modificar o agregar registros DNS en mi dominio administrado?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [¿Qué es la directiva de duración de la contraseña en un dominio administrado?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [¿Azure AD Domain Services proporciona protección de bloqueo de cuentas de AD?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [¿Puedo configurar el sistema de archivos distribuido (DFS) y la replicación en Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>¿Puedo conectarme al controlador de dominio para mi dominio administrado mediante Escritorio remoto?
 No. Los administradores de inquilinos no tienen privilegios para conectarse a controladores de dominio en el dominio administrado con el Escritorio remoto. Los miembros del grupo *Administradores de controlador de dominio de AAD* pueden administrar el dominio administrado usando las herramientas de administración de AD, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Estas herramientas se instalan mediante la característica *Herramientas de administración de servidor remoto* en un servidor de Windows unido al dominio administrado. Para obtener más información, consulte [Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure AD Domain Services](tutorial-create-management-vm.md).
@@ -118,6 +119,9 @@ La duración predeterminada de la contraseña en un dominio administrado de Azur
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>¿Azure AD Domain Services proporciona protección de bloqueo de cuentas de AD?
 Sí. Tras escribir una contraseña incorrecta del dominio administrado cinco veces en un lapso de dos minutos, la cuenta de usuario quedará bloqueada durante 30 minutos. Pasados los 30 minutos, la cuenta de usuario se desbloqueará automáticamente. Los intentos no válidos de escribir la contraseña del dominio administrado no provocarán el bloqueo de la cuenta de usuario en Azure AD. La cuenta de usuario solo se bloqueará en el dominio administrado de Azure AD Domain Services. Para obtener más información [Directivas de bloqueo de cuenta y contraseña en dominios administrados](password-policy.md).
+
+### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>¿Puedo configurar el sistema de archivos distribuido y la replicación en Azure AD Domain Services?
+No. El sistema de archivos distribuido (DFS) y la replicación no están disponibles cuando se usa Azure AD Domain Services.
 
 ## <a name="billing-and-availability"></a>Facturación y disponibilidad
 

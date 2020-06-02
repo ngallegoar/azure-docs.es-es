@@ -11,99 +11,137 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6deb5714a43d61f5ceb793757d49bd099f09f2b7
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197154"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82977669"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Estándar y zonas de disponibilidad
 
-Azure Standard Load Balancer admite escenarios de [zonas de disponibilidad](../availability-zones/az-overview.md). Puede usar Standard Load Balancer para optimizar la disponibilidad en un escenario de un extremo a otro mediante la alineación de recursos con zonas y su distribución entre ellas.  Revise el documento sobre [zonas de disponibilidad](../availability-zones/az-overview.md) para ver qué son las zonas de disponibilidad, qué regiones las admiten actualmente y otros productos y conceptos relacionados. Las zonas de disponibilidad, combinadas con Standard Load Balancer, son un conjunto de características ampliable y flexible que posibilita la creación de diferentes escenarios.  Revise este documento para conocer estos [conceptos](#concepts) y la [guía de diseño](#design) de un escenario básico.
+Azure Standard Load Balancer admite escenarios de zonas de disponibilidad. Puede usar Standard Load Balancer para aumentar la disponibilidad en todo el escenario mediante la alineación de recursos con zonas y su distribución entre ellas. Las zonas de disponibilidad, combinadas con Standard Load Balancer, son un conjunto de características ampliable y flexible que posibilita la creación de diferentes escenarios.  Revise este documento para conocer estos [conceptos](#concepts) y la [guía de diseño](#design) de un escenario básico.
 
 ## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a> Conceptos de las zonas de disponibilidad aplicados a Load Balancer
 
-Un recurso de Load Balancer en sí mismo es regional y nunca zonal. La granularidad de lo que se puede configurar está restringida por cada configuración de front-end, regla y definición del grupo de back-end.
-En el contexto de las zonas de disponibilidad, el comportamiento y las propiedades de una regla de Load Balancer se describen como con redundancia de zona o zonales.  Con redundancia de zona y zonal describen la zonalidad de una propiedad.  En el contexto de Load Balancer, con redundancia de zona siempre significa *varias zonas* y zonal significa aislamiento del servicio para una *sola zona*.
-El uso de Load Balancer, tanto público como interno, admite escenarios con redundancia de zona y escenarios zonales, y ambos pueden dirigir el tráfico entre las zonas según sea necesario (*equilibrio de carga entre zonas*). 
+Un equilibrador de carga hereda la configuración de zona de sus componentes: 
 
-### <a name="frontend"></a>Front-end
+* Front-end
+* Reglas
+* Definición de grupo de back-end
 
-Un front-end de Load Balancer es una configuración de IP de front-end que hace referencia a un recurso de dirección IP pública o a una dirección IP privada dentro de la subred de un recurso de red virtual.  Conforma el punto de conexión con equilibrio de carga en el que se expone su servicio.
-Un recurso de Load Balancer puede contener reglas con front-end zonales y con redundancia de zona al mismo tiempo. Cuando se garantiza un recurso de dirección IP pública o una dirección IP privada a una zona, la zonalidad (o la falta de ella) no es mutable.  Si desea cambiar u omitir la zonalidad de un front-end con dirección IP pública o privada, debe volver a crear la dirección IP pública en la zona que corresponda.  Las zonas de disponibilidad no cambian las restricciones para varios front-end, revise [varios front-ends para Load Balancer](load-balancer-multivip-overview.md) para más información sobre esta capacidad.
+En el contexto de las zonas de disponibilidad, el comportamiento y las propiedades de una regla de equilibrador de carga se describen como con redundancia de zona o zonales.  En el contexto del equilibrador de carga, con redundancia de zona siempre significa **varias zonas** y zonal significa aislar el servicio para una **sola zona**. Una instancia de Azure Load Balancer tiene dos tipos: pública e interna. Ambos tipos de equilibrador de carga admiten la redundancia de zona y la implementación zonal.  Además, ambos pueden dirigir el tráfico entre las zonas según sea necesario.
 
-#### <a name="zone-redundant"></a>Redundancia de zona 
+## <a name="frontend"></a>Front-end
 
-En una región con zonas de disponibilidad, un front-end de Standard Load Balancer tiene redundancia de zona.  La redundancia de zona significa que todos los flujos de entrada o de salida son atendidos por todas las zonas de disponibilidad de una región de forma simultánea con una única dirección IP. No son necesarios esquemas de redundancia de DNS. Una dirección IP de front-end única puede sobrevivir a un error en la zona y se puede utilizar para llegar a todos los miembros del grupo de back-end (no afectados) con independencia de la zona. Se puede producir un error en una o más zonas de disponibilidad y la ruta de acceso de datos sobrevive siempre que una zona de la región permanezca correcta. La dirección IP única del front-end se suministra a la vez en varias implementaciones de infraestructura independientes de varias zonas de disponibilidad.  Esto no significa que sea una ruta de acceso de datos sin incidencias, sino que los reintentos o el restablecimiento se realizarán correctamente en otras zonas no afectadas por el error zonal.   
+Un front-end de equilibrador de carga es una configuración de IP de front-end que hace referencia a una dirección IP pública o privada dentro de la subred de una red virtual. Conforma el punto de conexión con equilibrio de carga en el que se expone su servicio.
 
-#### <a name="optional-zone-isolation"></a>Aislamiento de zona opcional
+Un recurso de equilibrador de carga puede contener reglas con front-end zonales y con redundancia de zona al mismo tiempo. Cuando se garantiza una dirección IP pública o privada para una zona, no se puede modificar la zonalidad (o la ausencia de zonalidad). Para cambiar u omitir la zonalidad de un front-end con dirección IP pública o privada, vuelva a crear la dirección IP en la zona que corresponda. 
 
-Puede optar por tener un front-end garantizado para una sola zona, que se conoce como un *front-end zonal*.  Esto significa que cualquier flujo de entrada o de salida es atendido por una sola zona en una región.  El front-end comparte destino con el estado de la zona.  La ruta de acceso de datos no se ve afectada por errores en zonas distintas a la garantizada. Puede utilizar front-end zonales para exponer una dirección IP por cada zona de disponibilidad.  
+Las zonas de disponibilidad no cambian las restricciones para varios servidores front-end. Revise el artículo [varios servidores front-end para Load Balancer](load-balancer-multivip-overview.md) para obtener más información sobre esta funcionalidad.
 
-Además, puede consumir servidores front-end zonales directamente para puntos de conexión con equilibrio de carga dentro de cada zona. También puede utilizar esto para exponer puntos de conexión con equilibrio de carga por zona para supervisar de forma individual cada zona.  O bien, para los puntos de conexión públicos, puede integrarlos con un producto de equilibrio de carga de DNS como [Traffic Manager](../traffic-manager/traffic-manager-overview.md) y usar un nombre DNS único. Después, el cliente resolverá este nombre DNS en varias direcciones IP zonales.  
+### <a name="zone-redundant"></a>Redundancia de zona 
+
+En una región con zonas de disponibilidad, un front-end de Standard Load Balancer tiene redundancia de zona. Varias zonas pueden servir como entrada o salida en una región. El tráfico se sirve mediante una dirección IP única. No son necesarios esquemas de redundancia de DNS. 
+
+Una única dirección IP de servidor front-end sobrevivirá a los errores de zona. Se puede usar la IP de front-end para llegar a todos los miembros del grupo de back-end (no afectados), independientemente de la zona. Se puede producir un error en una o más zonas de disponibilidad y la ruta de acceso de datos sobrevive siempre que una zona de la región permanezca correcta. 
+
+La dirección IP del front-end se suministra a la vez en varias implementaciones de infraestructura independientes de varias zonas de disponibilidad. Los reintentos o el restablecimiento se realizarán correctamente en otras zonas a las que no haya afectado por el error de zona. 
+
+:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Con redundancia de zona" border="true":::
+
+*Ilustración: Equilibrador de carga con redundancia de zona*
+
+### <a name="zonal"></a>Zonal
+
+Puede optar por tener un front-end garantizado para una sola zona, que se conoce como un *front-end zonal*.  Este escenario significa que cualquier flujo de entrada o de salida es atendido por una sola zona en una región.  El front-end comparte destino con el estado de la zona.  La ruta de acceso de datos no se ve afectada por errores en zonas distintas a la garantizada. Puede utilizar front-end zonales para exponer una dirección IP por cada zona de disponibilidad.  
+
+Además, se admite el uso de servidores front-end zonales directamente para puntos de conexión con equilibrio de carga dentro de cada zona. Puede usar esta configuración para exponer puntos de conexión con equilibrio de carga por zona para supervisar de forma individual cada zona. En el caso de los puntos de conexión públicos, puede integrarlos con un producto de equilibrio de carga de DNS como [Traffic Manager](../traffic-manager/traffic-manager-overview.md) y usar un nombre DNS único.
+
+:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Con redundancia de zona" border="true":::
 
 Si desea combinar estos conceptos (con redundancia de zona y zonal para el mismo back-end), consulte [varios front-end en Azure Load Balancer](load-balancer-multivip-overview.md).
 
-Para un front-end de Load Balancer público, se agrega un parámetro *zones* al recurso de dirección IP pública al que hace referencia la configuración de IP del front-end que usa cada regla correspondiente.
+En el caso de un servidor front-end de equilibrador de carga público, se agrega un parámetro de **zonas** a la dirección IP pública. La configuración IP del servidor front-end que usa la regla correspondiente hace referencia a esta dirección IP pública.
 
-Para un front-end de Load Balancer interno, se agrega un parámetro de *zonas* a la configuración IP del front-end del recurso de Load Balancer interno. El front-end zonal hace que Load Balancer garantice una dirección IP en una subred para una zona específica.
+En el caso de un servidor front-end de equilibrador de carga interno, se agrega un parámetro de **zonas** a la configuración IP del front-end del recurso de equilibrador de carga interno. Un servidor front-end zonal garantiza una dirección IP en una subred a una zona específica.
 
-### <a name="cross-zone-load-balancing"></a>Equilibrio de carga entre zonas
+## <a name="backend"></a>Back-end
 
-El equilibrio de carga entre zonas es la capacidad de Load Balancer para alcanzar un punto de conexión de back-end en cualquier zona y es independiente del front-end y su zonalidad.  Cualquier regla de equilibrio de carga puede tener como destino una instancia de back-end de cualquier zona de disponibilidad o instancia regional.
+Azure Load Balancer funciona con instancias de máquinas virtuales. Estas pueden ser independientes, conjuntos de disponibilidad o conjuntos de escalado de máquinas virtuales. Cualquier máquina virtual de una red virtual única puede formar parte del grupo de back-end, independientemente de la zona a la que esté asignada la máquina virtual.
 
-Debe tener cuidado para construir el escenario de forma que exprese una noción de zonas de disponibilidad. Por ejemplo, debe garantizar la implementación de la máquina virtual en una sola zona o en varias y alinear los recursos de front-end y de back-end zonales en la misma zona.  Si cruza zonas de disponibilidad solo con recursos de zona, el escenario funcionará, pero es posible que no tenga un modo de recuperación de errores con respecto a las zonas de disponibilidad. 
+Para alinear y garantizar el front-end y el back-end con una sola zona, basta con colocar las máquinas virtuales dentro de la misma zona en el grupo de back-end correspondiente.
 
-### <a name="backend"></a>Back-end
+Para ubicar las máquinas virtuales a través de varias zonas, coloque las máquinas virtuales de varias zonas en el mismo grupo de back-end. 
 
-Load Balancer funciona con máquinas virtuales.  Pueden ser independientes, conjuntos de disponibilidad o conjuntos de escalado de máquinas virtuales.  Cualquier máquina virtual de una red virtual individual puede formar parte del grupo de back-end con independencia de si están garantizadas para una zona o no, o a qué zona están garantizadas.
+Cuando use conjuntos de escalado de máquinas virtuales, ubique uno o más conjuntos de escalado de máquinas virtuales en el mismo grupo de back-end. Los conjuntos de escalado pueden estar en una o varias zonas.
 
-Si desea alinear y garantizar el front-end y el back-end con una sola zona, basta con colocar las máquinas virtuales dentro de la misma zona en el grupo de back-end respectivo.
+## <a name="outbound-connections"></a>Conexiones de salida
 
-Si desea ubicar las máquinas virtuales a través de varias zonas, basta con colocar las máquinas virtuales de varias zonas en el mismo grupo de back-end.  Cuando se utilizan conjuntos de escalado de máquinas virtuales, puede ubicar uno o más conjuntos de escalado de máquinas virtuales en el mismo grupo de back-end.  Y cada uno de estos conjuntos de escalado de máquinas virtuales puede estar en una o varias zonas.
+La redundancia de zona y la zonalidad se aplican a las [conexiones salientes](load-balancer-outbound-connections.md). Todas las zonas proporcionan una dirección IP pública con redundancia de zona para las conexiones salientes. Una dirección IP pública zonal solo sirve en la zona en la que está asignada. 
 
-### <a name="outbound-connections"></a>Conexiones de salida
-
-Las mismas propiedades de zonas y con redundancia de zona se aplican a las [conexiones salientes](load-balancer-outbound-connections.md).  Todas las zonas proporcionan una dirección IP pública con redundancia de zona para las conexiones salientes. Una dirección IP pública zonal solo sirve para la zona en la que se garantiza.  Las asignaciones del puerto SNAT de conexión saliente sobreviven a los errores de zona y el escenario seguirá proporcionando conectividad SNAT saliente si no se ve afectada por un error de zona.  Esto puede requerir que las transmisiones o las conexiones se vuelvan a establecer para escenarios con redundancia de zona si un flujo se sirvió mediante una zona afectada.  Los flujos en zonas distintas de las zonas afectadas no resultan afectados.
+Las asignaciones del puerto SNAT de conexión saliente sobreviven a los errores de zona y el escenario seguirá proporcionando conectividad SNAT saliente si no se ve afectado por un error de zona. Los errores de zona pueden requerir que las conexiones se vuelvan a establecerse para escenarios con redundancia de zona si una zona afectada sirvió el tráfico. Los flujos en zonas distintas de las zonas afectadas no se ven afectados.
 
 El algoritmo de asignación previa de puerto SNAT es el mismo, con o sin zonas de disponibilidad.
 
-### <a name="health-probes"></a>Sondeos de estado
+## <a name="health-probes"></a>Sondeos de estado
 
-Las definiciones de sondeos de mantenimiento existentes permanecen tal cual estaban sin zonas de disponibilidad.  Pero hemos ampliado el modelo de mantenimiento hasta un nivel de infraestructura. 
+Las definiciones de sondeos de mantenimiento existentes permanecen tal cual estaban sin zonas de disponibilidad. Pero hemos ampliado el modelo de mantenimiento hasta un nivel de infraestructura. 
 
-Cuando se usan front-end con redundancia de zona, Load Balancer expande su modelo de mantenimiento interno para sondear el alcance de una máquina virtual de cada zona de disponibilidad por separado y cerrar las rutas de acceso entre zonas que puedan haber tenido errores sin la intervención del usuario.  Si una ruta de acceso determinada no está disponible desde la infraestructura de Load Balancer de una zona para una máquina virtual de otra zona, Load Balancer puede detectar y evitar este error. Otras zonas que puedan llegar a esta máquina virtual pueden continuar sirviendo la máquina virtual desde sus front-end respectivos.  Como resultado, es posible que, durante los eventos de error, cada zona pueda tener distribuciones de nuevos flujos ligeramente diferentes al proteger el mantenimiento general de su servicio de un extremo a otro.
+Cuando se usan servidores front-end con redundancia de zona, el equilibrador de carga expande su comprobación de estado interna. El equilibrador de carga sondea de forma independiente la disponibilidad de una máquina virtual de cada zona y cierra las rutas de acceso de las zonas en las que se produjo un error sin intervención.  
+
+Otras zonas que puedan llegar a esta máquina virtual pueden continuar sirviendo la máquina virtual desde sus front-end respectivos. Durante los eventos de error, cada zona puede tener distribuciones diferentes de nuevos flujos al proteger el mantenimiento general de su servicio.
 
 ## <a name="design-considerations"></a><a name="design"></a> Consideraciones de diseño
 
-Load Balancer es deliberadamente flexible en el contexto de las zonas de disponibilidad. Puede optar por alinearse con zonas y puede optar por la redundancia de zona para cada zona.  Aumentar la disponibilidad puede conllevar una mayor complejidad y debe diseñar la disponibilidad para un rendimiento óptimo.  Revise algunas consideraciones de diseño importantes.
+Load Balancer es flexible en el contexto de las zonas de disponibilidad. Puede optar por alinearse con zonas y por la redundancia de zona para cada regla. Una mayor disponibilidad puede suponer una mayor complejidad. Al diseñar, tenga en mente la disponibilidad para lograr un rendimiento óptimo.
 
 ### <a name="automatic-zone-redundancy"></a>Redundancia de zona automática
 
-Load Balancer hace sencillo tener una dirección IP única como un front-end con redundancia de zona. Una dirección IP con redundancia de zona puede servir de forma segura un recurso zonal de cualquier zona y puede sobrevivir a uno o más errores de zona mientras una zona funcione correctamente en la región. Por el contrario, un front-end zonal es una reducción del servicio a una única zona y comparte el destino con la zona correspondiente.
+Load Balancer hace sencillo tener una dirección IP única como un front-end con redundancia de zona. Una dirección IP con redundancia de zona puede servir a un recurso zonal en cualquier zona.  La IP puede sobrevivir a uno o más errores de zona siempre que una de las zonas tenga un estado correcto dentro de la región.  En su lugar, un servidor front-end zonal es una reducción del servicio a una única zona y comparte el mismo destino que la zona correspondiente.
 
-La redundancia de zona no implica una ruta de acceso de datos sin incidencias ni un plano de control; es expresamente un plano de datos. Los flujos con redundancia de zona pueden usar cualquier zona y los flujos de un cliente utilizarán todas las zonas correctas de una región. En caso de error de zona, el tráfico fluye por las zonas correctas que en ese momento del tiempo no se ven afectadas.  Los flujos de tráfico que están usando una zona en el momento en que se produce un error en esta se pueden ver afectados pero las aplicaciones se pueden recuperar. Estos flujos pueden continuar en las restantes zonas correctas de la región después de la retransmisión o el restablecimiento una vez que Azure ha detectado el error en la zona.
+La redundancia de zona no implica una ruta de acceso de datos sin incidencias ni un plano de control; es un plano de datos. Los flujos con redundancia de zona pueden usar cualquier zona y los flujos de un cliente utilizarán todas las zonas correctas de una región. En el caso de un error de zona, los flujos de tráfico que usan zonas correctas no se ven afectados. 
+
+Los flujos de tráfico que están usando una zona en el momento en que se produce un error en esta pueden resultar afectados, pero las aplicaciones se pueden recuperar. El tráfico continúa por las zonas correctas de la región después de la retransmisión cuando Azure ha detectado el error en la zona.
 
 ### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a> Límites entre zonas
 
-Es importante comprender que cuando un servicio de un extremo a otro cruza zonas, comparte su destino no con una zona, sino potencialmente con varias zonas.  Como resultado, el servicio de un extremo a otro podría no obtener ninguna disponibilidad en implementaciones no zonales.
+Es importante comprender que cuando un servicio cruza zonas, comparte su destino no con una, sino potencialmente con varias zonas. Como resultado, el servicio podría no aumentar su disponibilidad en implementaciones no zonales.
 
-Cuando use zonas de disponibilidad, evite la introducción de dependencias entre zonas no deseadas que anulen las mejoras de disponibilidad.  Cuando la aplicación consta de varios componentes y desea que sean resistentes a los errores de zona, debe tener cuidado para asegurar la supervivencia de los componentes fundamentales suficientes si se produce un error en la zona.  Por ejemplo, un único componente crítico de la aplicación puede afectar a toda la aplicación si solo se encuentra en una zona que no sea de las zonas supervivientes.  Además, considere también la restauración de la zona y cómo se restablecerá la aplicación. Debe comprender el motivo por el que se producen errores en algunas partes de la aplicación. Vamos a revisar algunos puntos clave y usarlos como ideas para preguntas al pensar sobre su escenario concreto.
+Cuando use zonas de disponibilidad, evite la introducción de dependencias entre zonas no deseadas que anulen las mejoras de disponibilidad. Si la aplicación contiene varios componentes críticos, asegúrese de que sobrevivan a un error de zona.
 
-- Si la aplicación tiene dos componentes, como una dirección IP y una máquina virtual con un disco administrado, y están garantizados en las zonas 1 y 2, cuando se produce un error en la zona 1, el servicio de un extremo a otro de la zona no sobrevive.  En los escenarios zonales no se deben cruzar las zonas, a menos que entienda perfectamente que se va a crear un modo de error potencialmente perjudicial.  Este escenario puede proporcionar flexibilidad.
+Un único componente crítico puede afectar a toda la aplicación si solo se encuentra en una zona distinta de las zonas supervivientes. Considere también la restauración de la zona y cómo se restablecerá la aplicación. Obtenga información sobre cómo responde la aplicación a los errores en algunas partes de la misma. Revise los puntos clave y úselos para las preguntas al pensar sobre su escenario concreto.
 
-- Si la aplicación tiene dos componentes, como una dirección IP y una máquina virtual con un disco administrado, y tienen garantizadas la redundancia de zona y la zona 1 respectivamente, el servicio de un extremo a otro sobrevivirá a los errores en las zonas 2 y 3, o ambas, a menos que se produzcan errores en la zona 1.  No obstante, perderá cierta capacidad para razonar sobre el mantenimiento del servicio si todo lo que se observa es si se puede llegar al front-end.  Considere la posibilidad de desarrollar un modelo de mantenimiento y capacidad más amplio.  Podría usar los conceptos zonal y con redundancia de zona juntos para ampliar su visión y capacidad de administración.
+- Si la aplicación tiene dos componentes:
 
-- Si la aplicación tiene dos componentes, como un front-end de Load Balancer con redundancia de zona y un conjunto de escalado de máquinas virtuales distribuido en tres zonas, los recursos de las zonas no afectadas por el error estarán disponibles, pero el servicio de un extremo a otro puede verse degradado en términos de capacidad durante el error en la zona. Desde una perspectiva de infraestructura, la implementación puede sobrevivir a uno o más errores de zona y esto nos lleva a las siguientes preguntas:
-  - ¿Conoce la lógica de la aplicación ante estos errores y ante una capacidad degradada?
+    * Dirección IP
+    * Máquina virtual con disco administrado
+
+Están configurados en las zonas 1 y 2. Cuando se produce un error en la zona 1, el servicio no sobrevive. En los escenarios zonales no se deben cruzar las zonas, a menos que entienda perfectamente que se va a crear un modo de error potencialmente perjudicial. Este escenario puede proporcionar flexibilidad.
+
+- Si la aplicación tiene dos componentes:
+
+    * Dirección IP
+    * Máquina virtual con disco administrado
+
+Están configurados para tener redundancia de zona y estar en la zona 1. El servicio sobrevivirá el error de la zona 2, la zona 3 o ambas, a menos que se haya producido un error en la zona 1. No obstante, perderá cierta capacidad para razonar sobre el estado del servicio si solo presta atención a la disponibilidad del servidor front-end.  Considere la posibilidad de desarrollar un modelo de mantenimiento y capacidad más amplio.  Podría usar los conceptos zonal y con redundancia de zona juntos para ampliar su visión y capacidad de administración.
+
+- Si la aplicación tiene dos componentes:
+
+    * Servidor front-end de Load Balancer con redundancia de zona
+    * Conjunto de escalado de máquinas virtuales entre tres zonas
+
+Los recursos de las zonas que no sean afectados por el error estarán disponibles. La capacidad del servicio puede disminuir durante el error. Desde una perspectiva de infraestructura, la implementación puede sobrevivir a uno o más errores de zona. En este escenario, surgen las siguientes preguntas:
+
+  - ¿Conoce la respuesta de la aplicación ante estos errores y ante una capacidad disminuida?
   - ¿Necesita contar con medidas de seguridad en el servicio para forzar la conmutación por error a un par de regiones, si es necesario?
-  - ¿Cómo serán la supervisión, la detección y la mitigación ante este escenario? Puede usar los diagnósticos de Load Balancer Estándar para aumentar la supervisión del rendimiento del servicio de un extremo a otro. Tenga en cuenta lo que está disponible y lo que puede necesitar de un aumento para tener una imagen completa.
+  - ¿Cómo serán la supervisión, la detección y la mitigación ante este escenario? Puede usar los diagnósticos de Standard Load Balancer para aumentar la supervisión del rendimiento del servicio. Tenga en cuenta lo que está disponible y lo que puede necesitar de un aumento.
 
-- Las zonas pueden hacer que los errores sean más fáciles de entender y contener.  Sin embargo, un error en la zona no es diferente a otros errores en cuanto a conceptos como tiempos de espera, reintentos y algoritmos de retroceso. Aunque Azure Load Balancer proporciona rutas de acceso con redundancia de zona e intenta una rápida recuperación, en un nivel de paquete en tiempo real, las retransmisiones o los restablecimientos pueden producirse durante la aparición de un error y es importante conocer cómo controla la aplicación los errores. El esquema de equilibrio de carga sobrevivirá, pero debe planear lo siguiente:
-  - Cuando se produce un error en una zona, ¿el servicio de un extremo a otro comprende esto y si se pierde el estado, cómo se recuperará?
+- Las zonas pueden hacer que los errores sean más fáciles de entender y contener. Un error en la zona no es diferente a otros errores en cuanto a tiempos de espera, reintentos y algoritmos de retroceso. Azure Load Balancer proporciona rutas de acceso con redundancia de zona. El equilibrador de carga intenta recuperarse rápidamente en el nivel de paquete en tiempo real. Las retransmisiones o el restablecimiento puede producirse durante la aparición de un error. Es importante comprender cómo se enfrenta la aplicación con los errores. El esquema de equilibrio de carga sobrevivirá, pero debe planear con las siguientes preguntas en mente:
+
+  - Cuando se produce un error en una zona, ¿el servicio lo comprende? Y si se pierde el estado, ¿cómo se recuperará?
   - Cuando vuelve la disponibilidad de una zona, ¿la aplicación sabe cómo realizar una recuperación de forma segura?
 
 Revise [los patrones de diseño en la nube de Azure](https://docs.microsoft.com/azure/architecture/patterns/) para mejorar la resistencia de la aplicación a los escenarios de error.

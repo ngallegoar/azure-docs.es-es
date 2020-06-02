@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/25/2020
+ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74786918"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004615"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Programación y ejecución de tareas para datos contiguos mediante el desencadenador de ventana deslizante en Azure Logic Apps
 
@@ -19,9 +19,9 @@ Para ejecutar con regularidad tareas, procesos o trabajos que deben administrar 
 
 Aquí se presentan algunos patrones que admite este desencadenador:
 
-* Ejecutar inmediatamente y repetir cada *n* segundos, minutos y horas.
+* Ejecutar inmediatamente y repetir cada *n* segundos, minutos, horas, días, semanas o meses.
 
-* Empezar a una fecha y hora específicas y después ejecutar y repetir cada número ( *n*) de segundos, minutos u horas. Con este desencadenador, puede especificar una hora de inicio pasada, que ejecutará todas las periodicidades anteriores.
+* Empezar a una fecha y hora específicas, y después ejecutar y repetir cada *n* segundos, minutos, horas, días, semanas o meses. Con este desencadenador, puede especificar una hora de inicio pasada, que ejecutará todas las periodicidades anteriores.
 
 * Retrasar cada periodicidad de una duración específica antes de la ejecución.
 
@@ -40,7 +40,7 @@ Para ver las diferencias entre este desencadenador y el desencadenador de period
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
 
-1. Cuando se abra el Diseñador de aplicaciones lógicas, en el cuadro de búsqueda, escriba el filtro "sliding window" (ventana deslizante). En la lista de desencadenadores, seleccione este desencadenador como primer paso en el flujo de trabajo de la aplicación lógica: **Ventana deslizante**
+1. Cuando se abra el Diseñador de aplicaciones lógicas, en el cuadro de búsqueda, especifique `sliding window` como filtro. En la lista de desencadenadores, seleccione el desencadenador **Ventana deslizante** como primer paso en el flujo de trabajo de la aplicación lógica.
 
    ![Seleccionar el desencadenador "Ventana deslizante"](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -48,16 +48,15 @@ Para ver las diferencias entre este desencadenador y el desencadenador de period
 
    ![Establecer el intervalo y la frecuencia](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propiedad | Obligatorio | Nombre JSON | Tipo | Descripción |
+   | Propiedad | Nombre JSON | Obligatorio | Tipo | Descripción |
    |----------|----------|-----------|------|-------------|
-   | **Intervalo** | Sí | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "hour", la periodicidad es cada 6 horas. |
-   | **Frecuencia** | Sí | frequency | String | Unidad de tiempo que se usa para la periodicidad: **Second**, **Minute** o **Hour** |
+   | **Intervalo** | `interval` | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses <br>- Semana: 1-71 semanas <br>- Día: 1-500 días <br>- Hora: 1-12 000 horas <br>- Minuto: 1-72 000 minutos <br>- Segundo: 1-9 999 999 segundos <p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
+   | **Frecuencia** | `frequency` | Sí | String | Unidad de tiempo que se usa para la periodicidad: **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** |
    ||||||
 
    ![Opciones avanzadas de periodicidad](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
 
-   Para ver más propiedades de periodicidad, abra la lista **Agregar nuevo parámetro**. 
-   Las opciones que seleccione aparecerán en el desencadenador después de la selección.
+   Para ver más propiedades de periodicidad, abra la lista **Agregar nuevo parámetro**. Las opciones que seleccione aparecerán en el desencadenador después de la selección.
 
    | Propiedad | Obligatorio | Nombre JSON | Tipo | Descripción |
    |----------|----------|-----------|------|-------------|

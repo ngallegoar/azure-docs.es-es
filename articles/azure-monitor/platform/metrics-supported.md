@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128446"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196625"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -21,18 +21,24 @@ ms.locfileid: "82128446"
 
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. 
 
-Este artículo es una lista completa de todas las métricas de la plataforma (recopiladas automáticamente) que actualmente están disponibles con la canalización de métricas consolidada de Azure Monitor. La lista se actualizó por última vez el 27 de marzo de 2020. Es posible que las métricas cambiadas o agregadas después de esta fecha no aparezcan a continuación. Para consultar y obtener acceso a la lista de métricas mediante programación, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
+Este artículo es una lista completa de todas las métricas de la plataforma (recopiladas automáticamente) que actualmente están disponibles con la canalización de métricas consolidada de Azure Monitor. La lista se actualizó por última vez el 27 de marzo de 2020. Es posible que las métricas cambiadas o agregadas después de esta fecha no aparezcan a continuación. Para consultar y obtener acceso a la lista de métricas mediante programación, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Otras métricas que no aparecen en esta lista pueden estar disponibles en el portal o mediante las API heredadas.
 
-Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. Las métricas del sistema operativo invitado (SO invitado) que se ejecuta en Azure Virtual Machines, Service Fabric y Cloud Services **NO** aparecen aquí. Se deben recopilar a través de uno o varios agentes que se ejecuten en el sistema operativo o como parte de él. Puede enviar las métricas del agente a la base de datos de métricas de la plataforma mediante la API de [métricas personalizadas](metrics-custom-overview.md), que se encuentra actualmente en versión preliminar pública. A continuación, puede crear un gráfico, alertas o usar las métricas del sistema operativo invitado como las métricas de la plataforma. Para más información, consulte [Información general sobre los agentes de supervisión](agents-overview.md).    
+Las métricas están organizadas en función de los proveedores de recursos y el tipo de recurso. Para obtener una lista de los servicios y los proveedores de recursos que pertenecen a las métricas, consulte [Proveedores de recursos para servicios de Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-Las métricas se organizan por espacio de nombres. Para obtener una lista de los servicios y los espacios de nombres que pertenecen a ellos, consulte [Proveedores de recursos para servicios de Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-> [!NOTE]
-> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
->
-> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representará con todos los mensajes entrantes de todas las colas de Event Hub.
->
-> Para obtener una lista de las métricas de plataforma exportables a través de la configuración de diagnóstico, consulte [este artículo](metrics-supported-export-diagnostic-settings.md).
+## <a name="guest-os-metrics"></a>Métricas de SO invitado
+
+Las métricas del sistema operativo invitado (SO invitado) que se ejecuta en Azure Virtual Machines, Service Fabric y Cloud Services **NO** aparecen aquí. En su lugar, las métricas de rendimiento del sistema operativo invitado se deben recopilar a través de uno o varios agentes que se ejecuten en el sistema operativo invitado o como parte de él.  Las métricas del sistema operativo invitado incluyen los contadores de rendimiento que realizan el seguimiento del porcentaje de las CPU invitadas o el uso de la memoria, ya que se usan con frecuencia para el realizar el escalado automático o las alertas.  Mediante la [extensión de Azure Diagnostics](diagnostics-extension-overview.md), puede enviar métricas de rendimiento del sistema operativo invitado a la misma base de datos donde se almacenan las métricas de la plataforma. Esta opción enruta las métricas del sistema operativo invitado a través de la API de [métricas personalizadas](metrics-custom-overview.md). A continuación, puede crear un gráfico, alertas o usar las métricas del sistema operativo invitado como las métricas de la plataforma. Para más información, consulte [Información general sobre los agentes de supervisión](agents-overview.md).    
+
+## <a name="routing-platform-metrics-to-other-locations"></a>Enrutamiento de métricas de plataforma a otras ubicaciones
+
+Puede usar la [configuración de diagnósticos](diagnostic-settings.md) para enrutar las métricas de la plataforma a Azure Storage, a los registros de Azure Monitor (y, por tanto, Log Analytics) y a Event Hubs.  
+
+Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al formulario en el que se almacenan las métricas. 
+- Recuerde que no todas las métricas son exportables a otras ubicaciones. Para obtener una lista de las métricas de plataforma exportables a través de la configuración de diagnóstico, consulte [este artículo](metrics-supported-export-diagnostic-settings.md).
+
+- Actualmente no se admite el envío de métricas de varias dimensiones a otras ubicaciones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
+*Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representará con todos los mensajes entrantes de todas las colas de Event Hub.
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers

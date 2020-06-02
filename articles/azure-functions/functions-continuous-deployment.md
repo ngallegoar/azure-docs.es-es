@@ -4,12 +4,12 @@ description: Use las características de implementación continua de Azure App S
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235024"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123701"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
 
@@ -36,46 +36,30 @@ Para que la implementación continua se realice correctamente, la estructura de 
 
 Para configurar la implementación continua de una aplicación de funciones existente, siga estos pasos. Estos pasos muestran la integración con un repositorio de GitHub, aunque estos mismos pasos son válidos en Azure Repos o en otros repositorios de código fuente.
 
-1. En la aplicación de funciones, en [Azure Portal](https://portal.azure.com), seleccione **Características de la plataforma** > **Centro de implementación**.
+1. En la aplicación de funciones de [Azure Portal](https://portal.azure.com), seleccione **Centro de implementación**, **GitHub** y, a continuación, **Autorizar**. Si ya ha autorizado GitHub, seleccione **Continuar** y omita el paso siguiente. 
 
-    ![Abrir el centro de implementación](./media/functions-continuous-deployment/platform-features.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Centro de implementación de Azure App Service":::
 
-2. En el **Centro de implementación**, seleccione **GitHub** y, después, **Autorizar** o, si ya ha autorizado GitHub, seleccione **Continuar**. 
+3. En GitHub, seleccione **Autorizar AzureAppService**.
 
-    ![Centro de implementación de Azure App Service](./media/functions-continuous-deployment/github.png)
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autorizar Azure App Service":::
 
-3. En GitHub, seleccione el botón **Autorizar AzureAppService**. 
-
-    ![Autorizar Azure App Service](./media/functions-continuous-deployment/authorize.png)
-    
-    En el **Centro de implementación** de Azure Portal, seleccione **Continuar**.
+    Escriba la contraseña de GitHub y, a continuación, seleccione **Continuar**.
 
 4. Seleccione uno de los siguientes proveedores de compilación:
 
     * **Servicio de compilación de App Service**: opción ideal si no se necesita una compilación o se necesita una compilación genérica.
     * **Azure Pipelines (versión preliminar)** : opción ideal si se necesita más control sobre la compilación. Este proveedor está actualmente en versión preliminar.
 
-    ![Selección de un proveedor de compilación](./media/functions-continuous-deployment/build.png)
+    Seleccione **Continuar**.
 
 5. Configure información específica de la opción de control de origen que haya indicado. En GitHub, debe escribir o seleccionar valores de **Organización**, **Repositorio** y **Rama**. Los valores se basan en la ubicación del código. Después, seleccione **Continuar**.
 
-    ![Configuración de GitHub](./media/functions-continuous-deployment/github-specifics.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configuración de GitHub":::
 
 6. Revise todos los detalles y seleccione **Finalizar** para completar la configuración de la implementación.
 
-    ![Resumen](./media/functions-continuous-deployment/summary.png)
-
 Cuando finalice el proceso, todo el código del origen especificado se implementará en la aplicación. Hecho esto, los cambios en el origen de implementación desencadenarán una implementación de dichos cambios en la aplicación de funciones en Azure.
-
-## <a name="deployment-scenarios"></a>Escenarios de implementación
-
-<a name="existing"></a>
-
-### <a name="move-existing-functions-to-continuous-deployment"></a>Movimiento de funciones existentes para la implementación continua
-
-Si ya ha escrito funciones en [Azure Portal](https://portal.azure.com) y quiere descargar el contenido de la aplicación antes de cambiar a la implementación continua, vaya a la pestaña **Introducción** de la aplicación de funciones. Seleccione el botón **Descargar contenido de aplicación**.
-
-![Descargar contenido de aplicación](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > Después de configurar la integración continua, ya no podrá modificar los archivos de origen en el portal de Functions.

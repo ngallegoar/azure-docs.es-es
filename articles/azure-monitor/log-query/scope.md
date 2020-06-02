@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226584"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199025"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor
 Al ejecutar una [consulta de registro](log-query-overview.md) en [Log Analytics en Azure Portal](get-started-portal.md), el conjunto de datos que evalúa la consulta depende del ámbito y el intervalo de tiempo que seleccione. En este artículo se describe el ámbito y el intervalo de tiempo y cómo puede establecer cada uno de ellos en función de sus requisitos. También describe el comportamiento de distintos tipos de ámbitos.
@@ -25,6 +25,9 @@ El ámbito siempre se muestra en la parte superior izquierda de la ventana de Lo
 ![Ámbito](media/scope/scope.png)
 
 El ámbito lo determina el método que se utiliza para iniciar Log Analytics y, en algunos casos, puede cambiar el ámbito haciendo clic en él. En la tabla siguiente se enumeran los diferentes tipos de ámbito utilizados y los distintos detalles para cada uno.
+
+> [!IMPORTANT]
+> Si usa APM 2,1, las aplicaciones de Application Insights se almacenan en un área de trabajo de Log Analytics con el resto de datos de registro y el ámbito de Application Insights no está disponible. Si selecciona **Registros** en el menú de Application Insights, esta opción actuará igual que el ámbito **Otros recursos de Azure** y solo estarán disponibles los datos de la aplicación en las tablas de Application Insights.
 
 | Ámbito de la consulta | Registros del ámbito | Cómo realizar la selección | Cambio del ámbito |
 |:---|:---|:---|:---|

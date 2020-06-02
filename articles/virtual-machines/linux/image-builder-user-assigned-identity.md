@@ -7,12 +7,12 @@ ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: d8e897d2736202f1fb6c5cb8a6497c5c886acef8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792435"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930665"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creación de una imagen y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage 
 
@@ -42,9 +42,11 @@ az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachine
 
 Compruebe el registro.
 
+
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -52,7 +54,8 @@ Si no se muestran como registradas, ejecute lo siguiente:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
 
@@ -90,6 +93,37 @@ az group create -n $imageResourceGroup -l $location
 az group create -n $strResourceGroup -l $location
 ```
 
+Cree una identidad asignada por el usuario y establezca permisos en el grupo de recursos.
+
+Image Builder usará la [identidad de usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) proporcionada para insertar la imagen en el grupo de recursos. En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen. La definición de roles se asignará a la identidad del usuario.
+
+```console
+# create user assigned identity for image builder to access the storage account where the script is located
+idenityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $idenityName
+
+# get identity id
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+
+# get the user identity URI, needed for the template
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+
+# download preconfigured role definition example
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+
+# update the definition
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
+sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
+
+# create role definitions
+az role definition create --role-definition ./aibRoleImageCreation.json
+
+# grant role definition to the user assigned identity
+az role assignment create \
+    --assignee $imgBuilderCliId \
+    --role "Azure Image Builder Service Image Creation Role" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
+```
 
 Cree el almacenamiento y copie ahí el script de ejemplo de GitHub.
 
@@ -116,35 +150,16 @@ az storage blob copy start \
     --source-uri https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
 ```
 
-
-
-Conceda al generador de imágenes permiso para crear recursos en el grupo de recursos de imagen. El valor `--assignee` es el identificador de registro de aplicación para el servicio del generador de imágenes. 
+Conceda al generador de imágenes permiso para crear recursos en el grupo de recursos de imagen. El valor `--assignee` es el identificador de identidad del usuario.
 
 ```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
-```
-
-
-## <a name="create-user-assigned-managed-identity"></a>Creación de una identidad administrada asignada por el usuario
-
-Cree la identidad y asigne permisos para la cuenta de almacenamiento del script. Para obtener más información, consulte [Identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
-
-```azurecli-interactive
-# Create the user assigned identity 
-identityName=aibBuiUserId$(date +'%s')
-az identity create -g $imageResourceGroup -n $identityName
-# assign the identity permissions to the storage account, so it can read the script blob
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
 az role assignment create \
     --assignee $imgBuilderCliId \
     --role "Storage Blob Data Reader" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$strResourceGroup/providers/Microsoft.Storage/storageAccounts/$scriptStorageAcc/blobServices/default/containers/$scriptStorageAccContainer 
-# create the user identity URI
-imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 ```
+
+
 
 
 ## <a name="modify-the-example"></a>Modificación del ejemplo
@@ -223,6 +238,13 @@ Verá que la imagen se ha personalizado con un mensaje del día en cuanto se ha 
 Cuando haya terminado, puede eliminar los recursos si ya no son necesarios.
 
 ```azurecli-interactive
+
+az role definition delete --name "$imageRoleDefName"
+```azurecli-interactive
+az role assignment delete \
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 az identity delete --ids $imgBuilderId
 az resource delete \
     --resource-group $imageResourceGroup \

@@ -3,14 +3,14 @@ title: Ranuras de implementación de Azure Functions
 description: Aprenda a crear y a usar ranuras de implementación con Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75769224"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122602"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 
@@ -45,7 +45,7 @@ Durante un intercambio, una ranura se considera el origen y la otra, el destino.
 
 1. **Actualizar el enrutamiento:** si todas las instancias de la ranura de origen se han preparado correctamente, las dos ranuras completan el intercambio cambiando sus reglas de enrutamiento correspondientes. Después de este paso, la ranura de destino (por ejemplo, la de producción) tendrá la aplicación que se preparó previamente en la ranura de origen.
 
-1. **Repetir la operación:** ahora que la ranura de origen tiene la aplicación que se preparó previamente antes del intercambio, realice la misma operación, es decir, aplique la configuración y reinicie las instancias de la ranura de origen.
+1. **Repetir la operación:** Ahora que la ranura de origen tiene la aplicación que se preparó previamente antes del intercambio, complete la misma operación, es decir, aplique la configuración y reinicie las instancias de la ranura de origen.
 
 Tenga en cuenta los siguientes puntos:
 
@@ -67,15 +67,21 @@ Si crea una configuración de implementación en una ranura, asegúrese de crear
 
 Use los siguientes pasos para crear una configuración de implementación:
 
-- Vaya a *Ranuras* en la aplicación de funciones.
-- Haga clic en el nombre de la ranura.
-- En *Características de la plataforma > Configuración general*, haga clic en **Configuración**.
-- Haga clic en el nombre de la configuración que quiera hacer permanente en la ranura actual.
-- Haga clic en la casilla **Configuración de ranura de implementación**.
-- Haga clic en **Aceptar**
-- Cuando la hoja de configuración desaparezca, haga clic en **Guardar** para conservar los cambios.
+1. Vaya a **Ranuras de implementación** en la aplicación de funciones y, luego, seleccione el nombre de la ranura.
 
-![Configuración de ranura de implementación](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Busque ranuras en Azure Portal." border="true":::
+
+1. Seleccione **Configuración** y luego seleccione el nombre de la configuración que quiera hacer permanente en la ranura actual.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configure la configuración de la aplicación para una ranura en Azure Portal." border="true":::
+
+1. Seleccione **Configuración de ranura de implementación** y luego seleccione **Aceptar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configure la configuración de ranura de implementación." border="true":::
+
+1. Cuando la sección de configuración desaparezca, seleccione **Guardar** para conservar los cambios
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Guarde la configuración de ranura de implementación." border="true":::
 
 ## <a name="deployment"></a>Implementación
 
@@ -92,22 +98,28 @@ Todas las ranuras escalan al mismo número de trabajos que la ranura de producci
 
 Una ranura se puede agregar a través de la [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) o mediante el portal. En los siguientes pasos se describe cómo crear una ranura en el portal:
 
-1. Vaya a la aplicación de funciones y haga clic en el **signo más** junto a *Ranuras*.
+1. Vaya a la aplicación de funciones.
 
-    ![Agregar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+1. Seleccione **Ranuras de implementación**y, luego, seleccione **+ Agregar ranura**.
 
-1. Escriba un nombre en el cuadro de texto y haga clic en el botón **Crear**.
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Agregue una ranura de implementación de Azure Functions." border="true":::
 
-    ![Designar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+1. Escriba el nombre de la ranura y seleccione **Agregar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Asigne un nombre a la ranura de implementación de Azure Functions." border="true":::
 
 ## <a name="swap-slots"></a>Intercambio de ranuras
 
 Las ranuras se pueden intercambiar a través de la [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) o mediante el portal. En los siguientes pasos se describe cómo intercambiar ranuras en el portal:
 
-1. Vaya a la aplicación de funciones.
-1. Haga clic en el nombre de la ranura de origen que quiera intercambiar.
-1. En la pestaña *Información general*, haga clic en el botón **Intercambiar**. ![Intercambiar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Compruebe la configuración del intercambio y haga clic en **Intercambiar** ![Intercambiar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Vaya a la aplicación de función.
+1. Seleccione **Ranuras de implementación**y, luego, seleccione **Intercambiar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Intercambie la ranura de implementación." border="true":::
+
+1. Compruebe los valores de configuración del intercambio y seleccione **Intercambiar**
+    
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Intercambie la ranura de implementación." border="true":::
 
 La operación puede tardar un rato mientras la operación de intercambio se lleva a cabo.
 
@@ -119,11 +131,21 @@ Si un intercambio genera errores o simplemente quiere "deshacer" un intercambio,
 
 Una ranura se puede quitar a través de la [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) o mediante el portal. En los siguientes pasos se describe cómo quitar una ranura en el portal:
 
-1. Vaya a la sección Información general de la aplicación de funciones.
+1. Vaya a **Ranuras de implementación** en la aplicación de funciones y, luego, seleccione el nombre de la ranura.
 
-1. Haga clic en el botón **Eliminar**.
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Busque ranuras en Azure Portal." border="true":::
 
-    ![Agregar una ranura de implementación de Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+1. Seleccione **Eliminar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Elimine la ranura de implementación en Azure Portal." border="true":::
+
+1. Escriba el nombre de la ranura de implementación que desea eliminar y, luego, seleccione **Eliminar**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Elimine la ranura de implementación en Azure Portal." border="true":::
+
+1. Cierre el panel de confirmación de eliminación.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Confirmación de eliminación de la ranura de implementación." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatización de la administración de ranuras
 
@@ -137,27 +159,24 @@ Con la [CLI de Azure](https://docs.microsoft.com/cli/azure/functionapp/deploymen
 
 ## <a name="change-app-service-plan"></a>Cambio del plan de App Service
 
-En una aplicación de funciones que se ejecuta en un plan de App Service, existe la posibilidad de cambiar el plan de App Service subyacente de una ranura.
+En una aplicación de funciones que se ejecuta en un plan de App Service, puede cambiar el plan de App Service subyacente de una ranura.
 
 > [!NOTE]
 > No se puede cambiar el plan de App Service de una ranura que está en el plan de consumo.
 
 Haga lo siguiente para cambiar el plan de App Service de una ranura:
 
-1. Vaya a la ranura.
+1. Vaya a **Ranuras de implementación** en la aplicación de funciones y, luego, seleccione el nombre de la ranura.
 
-1. En *Características de la plataforma*, haga clic en **Toda la configuración**.
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Busque ranuras en Azure Portal." border="true":::
 
-    ![Cambio del plan de App Service](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+1. En **Plan de App Service**, seleccione **Cambiar el plan de App Service**.
 
-1. Haga clic en **Plan de App Service**.
+1. Seleccione el plan al que desea cambiarse o cree un nuevo plan.
 
-1. Seleccione un plan de App Service o cree uno.
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Cambie el plan de App Service en Azure Portal." border="true":::
 
-1. Haga clic en **Aceptar**
-
-    ![Cambio del plan de App Service](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
-
+1. Seleccione **Aceptar**.
 
 ## <a name="limitations"></a>Limitaciones
 

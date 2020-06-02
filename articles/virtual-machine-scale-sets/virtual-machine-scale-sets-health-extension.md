@@ -1,25 +1,27 @@
 ---
 title: Uso de la extensión Estado de la aplicación con conjuntos de escalado de máquinas virtuales de Azure
 description: Obtenga información sobre cómo usar la extensión Estado de la aplicación para supervisar el estado de las aplicaciones implementadas en conjuntos de escalado de máquinas virtuales.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: mimckitt
-ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.subservice: extensions
+ms.date: 05/06/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273739"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124115"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso de la extensión Estado de la aplicación con conjuntos de escalado de máquinas virtuales
-Supervisar el estado de la aplicación es una señal importante para administrar y actualizar la implementación. Los conjuntos de escalado de máquinas virtuales de Azure proporcionan compatibilidad para [actualizaciones graduales](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluyendo [las actualizaciones automáticas de imagen de sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), que se basan en la supervisión del estado de las instancias individuales para actualizar la implementación.
+Supervisar el estado de la aplicación es una señal importante para administrar y actualizar la implementación. Los conjuntos de escalado de máquinas virtuales de Azure proporcionan compatibilidad para [actualizaciones graduales](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluyendo [las actualizaciones automáticas de imagen de sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), que se basan en la supervisión del estado de las instancias individuales para actualizar la implementación. También puede usar la extensión de estado para supervisar el estado de la aplicación de cada instancia de su conjunto de escalado y realizar reparaciones de instancias mediante [reparaciones de instancias automáticas](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 En este artículo se describe cómo usar la extensión Estado de la aplicación para supervisar el estado de las aplicaciones implementadas en conjuntos de escalado de máquinas virtuales.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se asume que está familiarizado con:
 -   [Extensiones](../virtual-machines/extensions/overview.md) de máquina virtual de Azure
 -   [Modificación](virtual-machine-scale-sets-upgrade-scale-set.md) de conjuntos de escalado de máquinas virtuales
@@ -31,7 +33,7 @@ Dado que la extensión informa sobre el estado desde dentro de una máquina virt
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-En el siguiente JSON, se muestra el esquema para la extensión de Estado de la aplicación. La extensión requiere como mínimo una solicitud "tcp" o "http" con un puerto asociado o solicitar la ruta de acceso, respectivamente.
+En el siguiente JSON, se muestra el esquema para la extensión de Estado de la aplicación. La extensión requiere como mínimo una solicitud "tcp", "http" o "https"con un puerto asociado o una ruta de acceso de solicitud, respectivamente.
 
 ```json
 {
@@ -66,9 +68,9 @@ En el siguiente JSON, se muestra el esquema para la extensión de Estado de la a
 
 | Nombre | Valor / ejemplo | Tipo de datos
 | ---- | ---- | ----
-| protocol | `http` o `tcp` | string |
-| port | Opcional cuando el protocolo es `http`, obligatorio cuando el protocolo es `tcp` | int |
-| requestPath | Obligatorio cuando el protocolo es `http`, no se permite cuando el protocolo es `tcp` | string |
+| protocol | `http`, `https` o `tcp` | string |
+| port | Opcional cuando el protocolo es `http` o `https`, u obligatorio cuando el protocolo es `tcp`. | int |
+| requestPath | Obligatorio cuando el protocolo es `http` o `https`, o no se permite cuando el protocolo es `tcp`. | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implementación de la extensión Estado de la aplicación
 Hay varias maneras de implementar la extensión Estado de la aplicación tal como se detalla en los siguientes ejemplos.

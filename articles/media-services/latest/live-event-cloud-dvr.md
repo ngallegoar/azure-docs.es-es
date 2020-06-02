@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74899792"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995820"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Uso de cambio de tiempo y salidas activas para crear la reproducción de vídeo a petición
 
-En Azure Media Services, un objeto [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) es como una grabadora de vídeo digital que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado se conserva en el contenedor definido por el recurso [Asset](https://docs.microsoft.com/rest/api/media/assets) (el contenedor está en la cuenta de Azure Storage asociada a su cuenta). La salida activa también le permite controlar algunas propiedades del streaming en vivo saliente, como la cantidad de la transmisión que se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) o cuándo los espectadores pueden empezar a ver el streaming en vivo. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** de la salida activa. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. El valor archiveWindowLength representa una duración de intervalo de tiempo de ISO-8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR. Este valor se puede establecer en 5 minutos como mínimo y 25 horas como máximo.
+En Azure Media Services, un objeto [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) es como una grabadora de vídeo digital que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado se conserva en el contenedor definido por el recurso [Asset](https://docs.microsoft.com/rest/api/media/assets) (el contenedor está en la cuenta de Azure Storage asociada a su cuenta). La salida activa también le permite controlar algunas propiedades del streaming en vivo saliente, como la cantidad de la transmisión que se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) o cuándo los espectadores pueden empezar a ver el streaming en vivo. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** de la salida activa. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. El valor archiveWindowLength representa una duración de intervalo de tiempo de ISO-8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR. Este valor se puede establecer en 1 minuto como mínimo y 25 horas como máximo.
 
 La relación entre un evento en directo y sus salidas activas es similar a la retransmisión de televisión tradicional, en la que un canal (evento en directo) representa una transmisión constante de vídeo y una grabación (salida activa) está limitada a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Una vez que la transmisión fluye en el evento en directo, puede comenzar el evento de streaming mediante la creación de un recurso, salida activa, y un localizador de streaming. El objeto LiveOutput archivará la secuencia y la pondrá a disposición de los usuarios a través del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Puede crear varios objetos LiveOutput (hasta un máximo de tres) en un objeto LiveEvent con diferentes longitudes y configuraciones de archivo. Para obtener información sobre el flujo de trabajo del streaming en vivo, consulte la sección de [pasos generales](live-streaming-overview.md#general-steps).
 

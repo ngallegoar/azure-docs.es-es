@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978720"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930461"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 
@@ -44,7 +44,7 @@ Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación
 1. Crear un experimento en [Azure Machine Learning Studio (clásico)](https://studio.azureml.net).
 2. Cuando esté satisfecho con el modelo, use Azure Machine Learning Studio (clásico) para publicar los servicios web tanto para el **experimento de entrenamiento** como para el **experimento predictivo** o de puntuación.
 
-En la tabla siguiente se describen los servicios web empleados en este ejemplo.  Consulte [Volver a entrenar modelos de Machine Learning mediante programación](../../machine-learning/machine-learning-retrain-models-programmatically.md) para obtener información detallada.
+En la tabla siguiente se describen los servicios web empleados en este ejemplo.  Consulte [Nuevo entrenamiento de modelos de Machine Learning Studio (clásico) mediante programación](../../machine-learning/studio/retrain-machine-learning-model.md) para más información.
 
 - **Servicio web de entrenamiento**: recibe datos de entrenamiento y genera modelos entrenados. El resultado del nuevo entrenamiento es un archivo .ilearner en Blob Storage de Azure. El **punto de conexión predeterminado** se crea automáticamente para cuando publique el experimento de entrenamiento como un servicio web. Se pueden crear más puntos de conexión, pero el ejemplo usa solo el predeterminado.
 - **Servicio web de puntuación**: recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o como las filas de una base de datos de Azure SQL, dependiendo de la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. 

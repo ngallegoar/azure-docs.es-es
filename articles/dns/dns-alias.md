@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 271770935cf4cb83d4abc6e82a4f4b13ffe865b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295484"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926238"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -66,7 +66,7 @@ Por ejemplo, contoso.com y www\.contoso.com pueden apuntar al mismo perfil de Tr
 
 Al igual que un perfil de Traffic Manager, también puede usar registros de alias para apuntar el vértice de zona DNS a los puntos de conexión de Azure CDN. Esto es útil al crear los sitios web estáticos mediante Azure Storage y Azure CDN. Luego, puede acceder al sitio web sin anteponer "www" al nombre de DNS.
 
-Por ejemplo, si su sitio web estático se denomina `www.contoso.com, your users can access your site using contoso.com` sin necesidad de anteponer www al nombre DNS.
+Por ejemplo, si el sitio web estático se denomina `www.contoso.com`, los usuarios pueden acceder a él con `contoso.com`, sin tener que anteponer www en el nombre DNS.
 
 Como se describió anteriormente, en el vértice de zona no se admiten los registros CNAME. Por lo tanto, no se puede usar un registro CNAME para que apunte contoso.com al punto de conexión de CDN. En su lugar, puede usar un registro de alias para que apunte el vértice de zona a un punto de conexión de CDN directamente.
 

@@ -9,41 +9,37 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209509"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982197"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introducción a Azure Machine Learning Studio (clásico) en R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-Este tutorial le ayudará a empezar a ampliar Azure Machine Learning Studio (clásico) mediante el uso del lenguaje de programación R. Siga este tutorial de programación R para crear, probar y ejecutar código R en Studio (clásico). A medida que vaya avanzando en este tutorial, creará una solución completa de previsión en lenguaje R en Studio (clásico).  
+En este tutorial, aprenderá a usar ML Studio (clásico) para crear, probar y ejecutar código de R. Al final, tendrá una solución completa de previsión.  
 
-Azure Machine Learning Studio (clásico) contiene muchos módulos versátiles de manipulación de datos y aprendizaje automático. El lenguaje R se conoce como la lingua franca del análisis de datos. Afortunadamente, el análisis y la manipulación de datos en Studio (clásico) se pueden ampliar mediante R. Esta combinación une la escalabilidad y sencillez de la implementación de Studio (clásico) con la flexibilidad y el análisis profundo de R.
+> [!div class="checklist"]
+> * Cree código para la limpieza y la transformación de los datos.
+> * Analice las correlaciones entre muchas de las variables en el conjunto de datos.
+> * Cree un modelo de previsión de serie temporal estacional para la producción de leche.
 
-### <a name="forecasting-and-the-dataset"></a>Previsión y conjunto de datos
 
-La previsión es un método de análisis ampliamente utilizado y bastante útil. La previsión suele utilizarse para crear predicciones de ventas de productos estacionales, para determinar los niveles de inventario óptimos o para predecir las variables macroeconómicas. La previsión suele realizarse con modelos de serie temporal.
+Azure Machine Learning Studio (clásico) contiene muchos módulos versátiles de manipulación de datos y aprendizaje automático. Además, con el lenguaje de programación R, esta combinación une la escalabilidad y sencillez de la implementación de Studio (clásico) con la flexibilidad y el análisis profundo de R.
 
-Los datos de series temporales son datos en los que los valores tienen un índice temporal. El índice temporal puede ser normal, es decir, cada mes o cada minuto; o bien puede ser irregular. Los modelos de serie temporal se basan en datos de series temporales. El lenguaje de programación R contiene un marco de trabajo flexible y amplias características de análisis de datos de serie temporales.
+La previsión es un método de análisis ampliamente utilizado y bastante útil. La previsión suele utilizarse para crear predicciones de ventas de productos estacionales, para determinar los niveles de inventario óptimos o para predecir las variables macroeconómicas. La previsión suele realizarse con modelos de serie temporal. Los datos de series temporales son datos en los que los valores tienen un índice temporal. El índice temporal puede ser normal, es decir, cada mes o cada minuto; o bien puede ser irregular. Los modelos de serie temporal se basan en datos de series temporales. El lenguaje de programación R contiene un marco de trabajo flexible y amplias características de análisis de datos de serie temporales.
 
-En esta guía, trabajaremos con los productos lácteos de California y los datos de precios. Estos datos incluyen información mensual acerca de la producción de varios de los productos lácteos, así como sobre el precio de la grasa láctea, materia prima de referencia.
+## <a name="get-the-data"></a>Obtener los datos
+
+En este tutorial, usará datos sobre la producción y precios de lácteos en California, que incluyen información mensual acerca de la producción de varios de los productos lácteos, así como sobre el precio de la grasa láctea, materia prima de referencia.
 
 Los datos usados en este artículo, junto con los scripts de R, pueden descargarse desde [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Los datos del archivo `cadairydata.csv` se resumieron a partir de la información disponible gracias a la Universidad de Wisconsin en [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>Organización
 
-En esta sección abordaremos distintos pasos a medida que aprenda a crear, probar y ejecutar código R de análisis y manipulación de datos en el entorno de Azure Machine Learning Studio (clásico).  
-
-* Primero analizaremos los aspectos básicos del uso del lenguaje R en el entorno de Azure Machine Learning Studio (clásico).
-* Luego, trataremos distintos aspectos de la E/S de datos, el código R y los gráficos en el entorno de Azure Machine Learning Studio (clásico).
-* Llegados a este punto, crearemos la primera parte de nuestra solución de previsión mediante la creación de código para la limpieza y la transformación de datos.
-* Con los datos preparados, realizamos un análisis de las correlaciones existentes entre varias de las variables de nuestro conjunto de datos.
-* Por último, crearemos un modelo de previsión de serie temporal estacional para la producción de leche.
 
 ## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interactuación con el lenguaje R en Machine Learning Studio (clásico)
 
@@ -67,7 +63,7 @@ Tomando como referencia la figura 1, veamos algunas de las partes principales de
 
 Por supuesto, analizaremos el módulo [Ejecutar script R][execute-r-script] con mayor detalle en el resto de este artículo.
 
-Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos.  Luego, corte y pegue las funciones en la ventana de scripts R del módulo [Ejecutar script R][execute-r-script]. Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Azure Machine Learning Studio (clásico).  
+Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos. Luego, corte y pegue las funciones en la ventana de scripts R del módulo [Ejecutar script R][execute-r-script]. Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Azure Machine Learning Studio (clásico).  
 
 #### <a name="execute-r-code"></a>Ejecución del código R
 
@@ -143,7 +139,7 @@ En esta sección, veremos cómo introducir y extraer datos del módulo [Ejecutar
 
 El código completo de esta sección se encuentra en [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
-### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Carga y comprobación de datos en Machine Learning Studio (clásico)
+### <a name="load-and-check-data"></a>Carga y comprobación de datos 
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Carga del conjunto de datos
 

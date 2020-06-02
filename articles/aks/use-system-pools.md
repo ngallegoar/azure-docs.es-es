@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de nodos del sistema en Azure 
 services: container-service
 ms.topic: article
 ms.date: 04/28/2020
-ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790565"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125254"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
@@ -50,6 +50,7 @@ Puede hacer las siguientes operaciones con los grupos de nodos:
 * Eliminar grupos de nodos del usuario.
 * Puede eliminar grupos de nodos del sistema, siempre que disponga de otro grupo de nodos del sistema que ocupe su lugar en el clúster de AKS.
 * Un clúster de AKS puede incluir varios grupos de nodos del sistema y requiere uno como mínimo.
+* Si quiere cambiar varias opciones de configuración inmutables en los grupos de nodos existentes, puede crear nuevos grupos de nodos para reemplazarlas. Por ejemplo, puede agregar un nuevo grupo de nodos con una nueva opción de configuración maxPods y eliminar el grupo de nodos anterior.
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Creación de un nuevo clúster de AKS con un grupo de nodos del sistema
 

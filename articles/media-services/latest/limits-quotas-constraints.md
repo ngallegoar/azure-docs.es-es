@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e9855a02a57d71793f3a5d6c5ce01cbfda341b70
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632222"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995873"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Cuotas y límites de Azure Media Services
@@ -78,7 +78,7 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 | --- | --- | 
 | [Eventos en directo](live-events-outputs-concept.md) <sup>(4)</sup> por cuenta de Media Services |5|
 | Salidas en directo por evento en directo |3 <sup>(5)</sup> |
-| Duración máxima de la salida en directo | 25 horas |
+| Duración máxima de la salida en directo | [Tamaño de la ventana de DVR](live-event-cloud-dvr.md) |
 
 <sup>4</sup> Para obtener información detallada sobre los límites de los eventos en directo, consulte [Comparación de tipos y límites de los eventos en directo](live-event-types-comparison.md).
 

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 05/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 2e26a2ed81ed215d7ef2029123349b39e6e67d25
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686278"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890925"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -90,16 +90,15 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 | Propiedad      | Descripción                                                  | Obligatorio                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | La propiedad type de formatSettings debe establecerse en **JsonWriteSettings**. | Sí                                                   |
-| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |No |
+| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** (líneas JSON) y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |No |
 
 ### <a name="json-file-patterns"></a>Patrones de archivo JSON
 
-La actividad de copia puede detectar y analizar automáticamente los siguientes patrones de archivos JSON. 
+Al copiar datos de archivos JSON, dicha actividad de copia puede detectar y analizar automáticamente los siguientes patrones de los archivos JSON. Al escribir datos en archivos JSON, puede configurar el patrón de archivo en el receptor de la actividad de copia.
 
 - **Tipo I: setOfObjects**
 
-    Cada archivo contiene un único objeto o bien varios objetos concatenados/delimitados por líneas. 
-    Si se elige esta opción en el receptor de la actividad de copia, la actividad de copia genera un único archivo JSON con cada objeto por línea (delimitado por líneas).
+    Cada archivo contiene un solo objeto, líneas JSON u objetos concatenados.
 
     * **ejemplo de JSON de objeto único**
 
@@ -114,7 +113,7 @@ La actividad de copia puede detectar y analizar automáticamente los siguientes 
         }
         ```
 
-    * **ejemplo de JSON delimitado por líneas**
+    * **Líneas JSON (valor predeterminado para el receptor)**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

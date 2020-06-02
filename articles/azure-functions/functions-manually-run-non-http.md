@@ -3,14 +3,14 @@ title: Ejecución manual de una instancia de Azure Functions no desencadenada po
 description: Uso de una solicitud HTTP para ejecutar una instancia de Azure Functions no desencadenada por HTTP
 author: craigshoemaker
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 6571482d738549d2708fd8ab23eaf8c9f6fb1f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892366"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121819"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Ejecución manual de una función no desencadenada por HTTP
 
@@ -37,11 +37,17 @@ Puede usar la ubicación de esta solicitud en Postman junto con la clave maestra
 
 ## <a name="get-the-functions-master-key"></a>Obtención de la clave maestra de la función
 
-Vaya a la función en Azure Portal, haga clic en **Administrar** y busque la sección **Claves de host**. Haga clic en el botón **Copiar** en la fila *_master* para copiar la clave maestra en el Portapapeles.
+1. Vaya a su función en Azure Portal y seleccione **Claves de función**. Posteriormente, seleccione la clave de función que quiera copiar. 
 
-![Copia de la clave maestra desde la pantalla de administración de la función](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Busque la clave maestra que se va a copiar." border="true":::
 
-Después de copiar la clave maestra, haga clic en el nombre de la función para volver a la ventana de archivo de código. Luego, haga clic en la pestaña **Registros**. Aquí verá mensajes de la función que se registraron cuando ejecutó manualmente la función desde Postman.
+1. En la sección **Editar clave**, copie el valor de la clave en el portapapeles y, a continuación, seleccione **Aceptar**.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copie la clave maestra en el portapapeles." border="true":::
+
+1. Después de copiar la clave *_master*, seleccione **Código y prueba** y, a continuación, seleccione **Registros**. Aquí verá mensajes de la función que se registraron cuando ejecutó manualmente la función desde Postman.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Vea los registros para ver los resultados de la prueba de clave maestra." border="true":::
 
 > [!CAUTION]  
 > Debido a los permisos elevados de la aplicación de función otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en una aplicación.
@@ -51,27 +57,27 @@ Después de copiar la clave maestra, haga clic en el nombre de la función para 
 Abra Postman y siga estos pasos:
 
 1. Escriba la **ubicación de la solicitud en el cuadro de texto de la dirección URL**.
-2. Asegúrese de que el método HTTP está establecido en **POST**.
-3. **Haga clic** en la pestaña **Encabezados**.
-4. Escriba **x-functions-key** como la primera **clave** y pegue la clave maestra (que está en el Portapapeles) en el cuadro **value**.
-5. Escriba **Content-Type** como la segunda **clave** y **application/json** como el **valor**.
+1. Asegúrese de que el método HTTP está establecido en **POST**.
+1. Seleccione la pestaña **Encabezados**.
+1. Escriba **x-functions-key** como la primera clave y pegue la clave maestra (que está en el portapapeles) como el valor.
+1. Escriba **Content-Type** como la segunda clave y **application/json** como el valor.
 
-    ![Configuración de los encabezados de Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Configuración de los encabezados de Postman." border="true":::
 
-6. **Haga clic** en la pestaña **Cuerpo**.
-7. Escriba **{ "input": "test" }** como el cuerpo de la solicitud.
+1. Seleccione la pestaña **Cuerpo**.
+1. Escriba **{ "input": "test" }** como el cuerpo de la solicitud.
 
-    ![Configuración del cuerpo de Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Configuración del cuerpo de Postman." border="true":::
 
-8. Haga clic en **Enviar**.
+1. Seleccione **Enviar**.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Envíe una solicitud con Postman." border="true":::
 
-    ![Envío de una solicitud con Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    Postman luego notifica un estado de **202 - Aceptado**.
 
-Postman luego notifica un estado de **202 - Aceptado**.
+1. A continuación, vuelva a la función en Azure Portal. Revise los registros y verá mensajes procedentes de la llamada manual a la función.
 
-A continuación, vuelva a la función en Azure Portal. Busque la ventana *Registros* y verá mensajes procedentes de la llamada manual a la función.
-
-![Resultados del registro de la función a partir de la llamada local](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Vea los registros para ver los resultados de la prueba de clave maestra." border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

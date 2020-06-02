@@ -1,5 +1,5 @@
 ---
-title: Ingesta en Azure Data Lake Storage Gen2 en Azure Synapse Analytics
+title: Intesta en Azure Data Lake Storage Gen2
 description: Aprenda a ingerir datos en Azure Data Lake Storage Gen2 en Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d7d7be523749797e5dbce0e50c307fc682974f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7b844bcf45417fefc7dd78a26d5dae0b2ce03249
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427248"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982911"
 ---
 # <a name="ingesting-data-into-azure-data-lake-storage-gen2"></a>Ingesta de datos en Azure Data Lake Storage Gen2 
 

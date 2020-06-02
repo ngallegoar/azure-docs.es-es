@@ -7,25 +7,22 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 2664b1abd4131cf1dca186c7b044e338bf1efa84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/11/2020
+ms.openlocfilehash: 0945743fb2cf3e37345ff562250e48511944cee6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75945822"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125560"
 ---
-# <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search-preview"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search (versión preliminar)
+# <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
-En este artículo, use el portal para crear una nueva instancia del servicio Azure Cognitive Search a la que no se pueda obtener acceso a través de una dirección IP pública. A continuación, configure una máquina virtual de Azure en la misma red virtual y úsela para obtener acceso al servicio de búsqueda a través de un punto de conexión privado.
+En este artículo, usará Azure Portal para crear una nueva instancia del servicio Azure Cognitive Search a la que no se pueda obtener acceso a través de Internet. A continuación, configurará una máquina virtual de Azure en la misma red virtual y la usará para obtener acceso al servicio de búsqueda a través de un punto de conexión privado.
 
 > [!Important]
-> La compatibilidad del punto de conexión privado con Azure Cognitive Search está disponible [a petición](https://aka.ms/SearchPrivateLinkRequestAccess) como versión preliminar de acceso limitado. Las características de la versión preliminar se ofrecen sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
->
-> Una vez que se le conceda acceso a la versión preliminar, podrá configurar puntos de conexión privados para su servicio mediante Azure Portal o la [API de REST de administración versión 2019-10-06-Preview](https://docs.microsoft.com/rest/api/searchmanagement/).
->   
+> El soporte técnico del punto de conexión privado de Azure Cognitive Search se puede configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes.
 
-## <a name="why-use-private-endpoint-for-secure-access"></a>¿Por qué usar un punto de conexión privado para un acceso seguro?
+## <a name="why-use-a-private-endpoint-for-secure-access"></a>¿Por qué usar un punto de conexión privado para obtener un acceso seguro?
 
 Los [puntos de conexión privados](../private-link/private-endpoint-overview.md) para Azure Cognitive Search permiten a un cliente de una red virtual obtener acceso de forma segura a los datos de un índice de búsqueda a través de un [vínculo privado](../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del [espacio de direcciones de la red virtual](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) para el servicio de búsqueda. El tráfico de red entre el cliente y el servicio de búsqueda atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Para obtener una lista de otros servicios de PaaS que admiten Private Link, compruebe la [sección de disponibilidad](../private-link/private-link-overview.md#availability) en la documentación del producto.
 
@@ -34,20 +31,6 @@ Los puntos de conexión privados para su servicio de búsqueda le permiten:
 - Bloquear todas las conexiones del punto de conexión público para su servicio de búsqueda.
 - Aumentar la seguridad de la red virtual, ya que permite bloquear la filtración de datos de la red virtual.
 - Conectarse de forma segura al servicio de búsqueda desde las redes locales que se conectan a la red virtual mediante [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [instancias de ExpressRoute](../expressroute/expressroute-locations.md) con emparejamiento privado.
-
-> [!NOTE]
-> Actualmente hay algunas limitaciones en la versión preliminar que debe tener en cuenta:
-> * Solo disponible para los servicios de búsqueda en el nivel **Básico**. 
-> * Disponible en las regiones Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de EE. UU., Centro-sur de EE. UU., Este de Australia y Sudeste de Australia.
-> * Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes.
-> * Cuando el punto de conexión de servicio sea privado, debe usar la [API de REST de búsqueda](https://docs.microsoft.com/rest/api/searchservice/) para cargar documentos en el índice.
-> * Debe usar el siguiente vínculo para ver la opción de compatibilidad con punto de conexión privado en Azure Portal: https://portal.azure.com/?feature.enablePrivateEndpoints=true
-
-
-
-## <a name="request-access"></a>Solicitar acceso 
-
-Haga clic en [Solicitar acceso](https://aka.ms/SearchPrivateLinkRequestAccess) para registrarse en esta característica en vista previa (GB). El formulario solicita información sobre usted, su empresa y la topología de red general. Una vez que revisemos su solicitud, recibirá un correo electrónico de confirmación con instrucciones adicionales.
 
 ## <a name="create-the-virtual-network"></a>Crear la red virtual
 
@@ -59,17 +42,13 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
     | Configuración | Value |
     | ------- | ----- |
-    | Nombre | Escriba *MyVirtualNetwork*. |
-    | Espacio de direcciones | Escriba *10.1.0.0/16*. |
     | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
-    | Location | Seleccione **Oeste de EE. UU.** o la región que esté usando.|
-    | Subred: nombre | Escriba *mySubnet*. |
-    | Subred: intervalo de direcciones | Escriba *10.1.0.0/24*. |
+    | Nombre | Escriba *MyVirtualNetwork*. |
+    | Region | Seleccione la región que quiera. |
     |||
 
-1. Deje el resto tal como está y seleccione **Crear**.
-
+1. En el resto de la configuración, deje los valores predeterminados. Haga clic en **Revisar y crear** y, a continuación, en **Crear**.
 
 ## <a name="create-a-search-service-with-a-private-endpoint"></a>Creación de un servicio de búsqueda con un punto de conexión privado
 
@@ -86,8 +65,8 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **DETALLES DE INSTANCIA** |  |
     | URL | Escriba un nombre único. |
-    | Location | Seleccione la región que especificó al solicitar acceso a esta característica en vista previa (GB). |
-    | Plan de tarifa | Seleccione **Cambio de nivel de precios** y elija **Básico**. Este nivel es necesario para la versión preliminar. |
+    | Location | Seleccione la región que quiera. |
+    | Plan de tarifa | Seleccione la opción para **cambiar el plan de tarifa** y elija el nivel de servicio que quiera. (No se admite en el nivel **gratuito**. Debe ser **básico** o posterior). |
     |||
   
 1. Seleccione **Siguiente: Escalado**.
@@ -206,7 +185,7 @@ Descargue y, a continuación, conéctese a la máquina virtual *myVm* de la sigu
 
 En esta sección, comprobará el acceso de la red privada al servicio de búsqueda y se conectará de forma privada a este mediante el punto de conexión privado.
 
-Recuerde de la introducción que todas las interacciones con el servicio de búsqueda requieren la [API de REST de búsqueda](https://docs.microsoft.com/rest/api/searchservice/). El portal y el SDK de .NET no se admiten en esta versión preliminar.
+Cuando el punto de conexión del servicio de búsqueda es privado, se deshabilitan algunas características del portal. Podrá ver y administrar la configuración del nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como el índice, el indexador y las definiciones del conjunto de aptitudes.
 
 1. En el Escritorio remoto de  *myVm*, abra PowerShell.
 

@@ -3,12 +3,12 @@ title: Referencia de errores en las comprobaciones de estado
 description: Códigos de error y posibles soluciones de los problemas encontrados tras la ejecución del comando az acr para el diagnóstico de comprobación de mantenimiento en Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289148"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978321"
 ---
 # <a name="health-check-error-reference"></a>Referencia de errores de la comprobación de mantenimiento
 
@@ -58,7 +58,7 @@ Este error indica que se ha hecho ping al DNS del servidor de inicio de sesión 
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Este error indica que el punto de conexión de comprobación del registro determinado respondió con un código de estado HTTP 403 Prohibido. Esto significa que los usuarios no tienen acceso al registro, probablemente debido a una configuración de red virtual. Para ver las reglas de firewall configuradas actualmente, ejecute `az acr show --query networkRuleSet --name <registry>`.
+Este error indica que el punto de conexión de comprobación del registro determinado respondió con un código de estado HTTP 403 Prohibido. Esto significa que los usuarios no tienen acceso al registro, probablemente debido a una configuración de red virtual o a que no está permitido el acceso al punto de conexión público del registro. Para ver las reglas de firewall configuradas actualmente, ejecute `az acr show --query networkRuleSet --name <registry>`.
 
 *Posibles soluciones*: quite las reglas de red virtual o agregue la dirección IP del cliente actual a la lista de permitidos.
 

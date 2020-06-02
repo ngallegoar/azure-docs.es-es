@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418395"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890733"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory 
 
@@ -128,6 +128,10 @@ La ubicación de Integration Runtime define la ubicación de su proceso de back-
 
 ### <a name="azure-ir-location"></a>Ubicación de Azure Integration Runtime
 
+Puede establecer una ubicación determinada para una instancia de Azure Integration Runtime, en cuyo caso la ejecución o la distribución de la actividad se producirá en esa región específica.
+
+Si opta por usar la resolución automática de Azure Integration Runtime, que es la opción predeterminada.
+
 - En la actividad de copia, ADF intentará detectar automáticamente la ubicación del almacén de datos del receptor y luego usará IR en la misma región si está disponible, o la más cercana en la misma ubicación geográfica; si la región del almacén de datos del receptor no se puede detectar, se usa IR en la región de la factoría de datos como alternativa.
 
   Por ejemplo, ha creado su factoría en la región Este de EE. UU.: 
@@ -135,7 +139,8 @@ La ubicación de Integration Runtime define la ubicación de su proceso de back-
   - Cuando copie datos en un blob de Azure en la región Oeste de EE. UU., si ADF detecta correctamente que el blob está en esa región, la actividad de copia se ejecuta en IR en la región Oeste de EE. UU. Si se produce un error en la detección de la región, la actividad de copia se ejecuta en IR en la región Este de EE. UU.
   - Cuando copie datos en Salesforce cuya región no se puede detectar, la actividad de copia se ejecuta en IR en la región Este de EE. UU.
 
-- En la actividad de copia, ADF intenta detectar automáticamente el receptor y el almacén de datos de origen para elegir la mejor ubicación en la misma región (si está disponible), o la más cercana en la misma ubicación geográfica, o si esta no se puede detectar, para usar la región de la factoría de datos como alternativa.
+  >[!TIP] 
+  >Si tiene requisitos estrictos de cumplimiento de datos y debe garantizar que los datos no salen de una determinada región geográfica, puede crear explícitamente una instancia de Azure IR en una determinada región y dirigir el servicio vinculado a esta instancia de IR con la propiedad ConnectVia. Por ejemplo, si desea copiar datos de un blob de la región Sur de Reino Unido en SQL DW de esa misma región y desea garantizar que los datos no salen del Reino Unido, cree una instancia de Azure IR en Reino Unido y vincule ambos servicios vinculados a ella.
 
 - Para la ejecución de las actividades de Búsqueda, Obtener metadatos o Eliminar (también conocidas como actividades de canalización), la distribución de actividades de transformación (también conocidas como actividades externas) y las operaciones de creación (probar conexión, examinar lista de carpetas y lista de tablas, obtener una vista previa de datos), ADF usa IR en la región de la factoría de datos.
 

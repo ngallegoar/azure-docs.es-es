@@ -1,16 +1,14 @@
 ---
 title: Reliable Actors temporizadores y recordatorios
 description: Introducción a los temporizadores y avisos de Service Fabric Reliable Actors, incluidas instrucciones sobre cuándo usar cada uno.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75639622"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996350"
 ---
 # <a name="actor-timers-and-reminders"></a>Recordatorios y temporizadores de los actores
 Los actores pueden programar el trabajo periódico mediante el registro de temporizadores o recordatorios. En este artículo se muestra cómo utilizar temporizadores y recordatorios. Además, se explican las diferencias entre ellos.
@@ -122,12 +120,17 @@ El siguiente período del temporizador comienza cuando la devolución de llamada
 
 El runtime de los actores guarda los cambios realizados en el administrador de estados del actor cuando finaliza la devolución de llamada. Si se produce un error al guardar el estado, se desactivará dicho objeto de actor y se activará una nueva instancia.
 
+A diferencia de los [recordatorios](#actor-reminders), los temporizadores no se pueden actualizar. Si se llama de nuevo a `RegisterTimer`, se registrará un nuevo temporizador.
+
 Todos los temporizadores se detienen cuando el actor se desactiva como parte de la recolección de elementos no utilizados. Después de eso, no se invoca ninguna devolución de llamada de temporizador. Además, el tiempo de ejecución de los actores no conserva ninguna información sobre los temporizadores que se estaban ejecutando antes de la desactivación. Es el actor el que decide si se registran los temporizadores que necesita cuando se reactive en el futuro. Para obtener más información, consulte la sección [Recolección de actores no utilizados](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Recordatorios de actor
-Los recordatorios son un mecanismo para desencadenar devoluciones de llamada persistentes en un actor en momentos especificados. Su funcionalidad es similar a la de los temporizadores. Sin embargo, a diferencia de los temporizadores, los recordatorios se desencadenan en todas las circunstancias hasta que el actor las registre o elimine del registro expresamente. En concreto, los recordatorios se activan en conmutaciones por error y desactivaciones de actores, ya que el tiempo de ejecución de los actores conserva la información sobre los recordatorios de actor mediante un proveedor de estado. Tenga en cuenta que la confiabilidad de los recordatorios está ligada a las garantías de confiabilidad del estado proporcionadas por el proveedor de estado del actor. Esto significa que para los actores cuya persistencia de estado se establece en Ninguna, los recordatorios no se activarán después de una conmutación por error. 
+Los recordatorios son un mecanismo para desencadenar devoluciones de llamada persistentes en un actor en momentos especificados. Su funcionalidad es similar a la de los temporizadores. Sin embargo, a diferencia de los temporizadores, los recordatorios se desencadenan en todas las circunstancias hasta que el actor las registre o elimine del registro expresamente. En concreto, los recordatorios se activan en conmutaciones por error y desactivaciones de actores, ya que el tiempo de ejecución de los actores conserva la información sobre los recordatorios de actor mediante un proveedor de estado. Además, a diferencia de los temporizadores, los recordatorios existentes se pueden actualizar llamando al método de registro (`RegisterReminderAsync`) de nuevo con el mismo *reminderName*.
 
-Para registrar un recordatorio, un actor llama al método `RegisterReminderAsync` que se ofrece en la clase base, tal y como se muestra en el ejemplo siguiente:
+> [!NOTE]
+> La confiabilidad de los recordatorios está ligada a las garantías de confiabilidad del estado proporcionadas por el proveedor de estado del actor. Esto significa que para los actores cuya persistencia de estado se establece en *Ninguna*, los recordatorios no se activarán después de una conmutación por error.
+
+Para registrar un recordatorio, un actor llama al método [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) que se ofrece en la clase base, tal y como se muestra en el ejemplo siguiente:
 
 ```csharp
 protected override async Task OnActivateAsync()

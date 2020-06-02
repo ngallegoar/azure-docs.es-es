@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99a6c0153105627e272d05af5514a030577431f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c42c0dd3848ec913f991e4b07612669c5a25c9f1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233999"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197265"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para roles de Azure AD en Privileged Identity Management
 
@@ -122,11 +122,10 @@ Hay cuatro objetos principales en la configuración. PIM solo usa tres de estos 
 
 [![](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png "Get and update role settings")](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
 
-Para actualizar la configuración de rol, debe definir primero un objeto de configuración como se indica a continuación:
+Para actualizar la configuración de rol, debe obtener el objeto de configuración existente para un rol determinado y realizar cambios en él:
 
-    $setting = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting 
-    $setting.RuleIdentifier = "JustificationRule"
-    $setting.Setting = "{'required':false}"
+    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+    $setting.UserMemberSetting.justificationRule = '{"required":false}'
 
 Luego, puede continuar y aplicar la configuración a uno de los objetos de un rol determinado, como se muestra a continuación. El identificador aquí es el identificador de la configuración de rol que se puede recuperar del resultado del cmdlet de configuración de roles de lista.
 

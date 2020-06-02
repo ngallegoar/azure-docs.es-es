@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521184"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119304"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guía para configurar una máquina de plantillas de Windows en Azure Lab Services
 
@@ -211,7 +211,7 @@ Si necesita instalar idiomas adicionales en la máquina virtual, puede agregarlo
 2. Busque "paquete de idioma".
 3. Elegir el idioma que se va a instalar.
 
-Si ya ha iniciado sesión en la VM de plantillas, use el [acceso directo "instalar paquete de idioma"](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) para ir directamente a la página de configuración adecuada.
+Si ya ha iniciado sesión en la VM de plantillas, use el acceso directo "instalar paquete de idioma" (`ms-settings:regionlanguage?activationSource=SMC-IA-4027670`) para ir directamente a la página de configuración adecuada.
 
 ## <a name="remove-unneeded-built-in-apps"></a>Quitar las aplicaciones integradas innecesarias
 

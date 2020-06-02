@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459039"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198500"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Traslado de una cuenta de Azure Storage a otra región
 
@@ -232,25 +232,10 @@ En la tabla siguiente se enumeran estas características junto con instrucciones
 
 ### <a name="move-data-to-the-new-storage-account"></a>Traslado de datos a la cuenta de almacenamiento nueva
 
-Estas son algunas maneras de trasladar los datos.
+AzCopy es la herramienta preferida para trasladar los datos. Está optimizado para el rendimiento.  Una manera más rápida de hacerlo es que los datos se copien directamente entre los servidores de almacenamiento, para que AzCopy no use el ancho de banda de red del equipo. Use AzCopy en la línea de comandos o como parte de un script personalizado. Consulte [Introducción a AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-:heavy_check_mark: **Explorador de Azure Storage**
+También puede usar Azure Data Factory para trasladar los datos. Esta proporciona una interfaz de usuario intuitiva. Para usar Azure Data Factory, consulte cualquiera de estos vínculos: 
 
-  Es fácil de usar y adecuado para conjuntos de datos pequeños. Puede copiar contenedores y recursos compartidos de archivos y, luego, pegarlos en la cuenta de destino.
-
-  Consulte [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
-
-:heavy_check_mark: **AzCopy**
-
-  Este es el método preferido. Está optimizado para el rendimiento.  Una manera más rápida de hacerlo es que los datos se copien directamente entre los servidores de almacenamiento, para que AzCopy no use el ancho de banda de red del equipo. Use AzCopy en la línea de comandos o como parte de un script personalizado.
-
-  Consulte [Introducción a AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-:heavy_check_mark: **Azure Data Factory** 
-
-  Use esta herramienta solo si necesita una funcionalidad que no se admite en la versión actual de AzCopy. Por ejemplo, en la versión actual de AzCopy, no se pueden copiar blobs entre cuentas que tengan un espacio de nombres jerárquico. Además, AzCopy no conserva las listas de control de acceso de archivos ni las marcas de tiempo de archivos (por ejemplo, las marcas de tiempo de creación y modificación). 
-
-  Consulte estos vínculos:
   - [Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Copia de datos con Azure File Storage como origen o destino mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)

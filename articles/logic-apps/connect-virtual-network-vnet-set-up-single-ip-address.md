@@ -3,19 +3,19 @@ title: Configuración de una dirección IP de salida pública para ISE
 description: Aprenda a configurar una única dirección IP de salida pública para entornos del servicio de integración (ISE) en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/06/2020
+ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191502"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927146"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configuración de una única dirección IP para uno o varios entornos de servicio de integración en Azure Logic Apps
 
-Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicaciones lógicas que necesitan acceso a recursos en una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). Si tiene varias instancias de ISE que necesitan acceso a otros puntos de conexión con restricciones de IP, implemente [Azure Firewall](../firewall/overview.md) o una [aplicación virtual de red](../virtual-network/virtual-networks-overview.md#filter-network-traffic) en la red virtual y enrute el tráfico saliente a través de ese firewall o aplicación virtual de red. Luego, puede hacer que todas las instancias de ISE de la red virtual usen una única dirección IP pública, estática y predecible para comunicarse con los sistemas de destino. De ese modo, no es necesario configurar aperturas adicionales del firewall en los sistemas de destino para cada ISE.
+Cuando trabaja con Azure Logic Apps, puede configurar un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicaciones lógicas que necesitan acceso a recursos en una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). Si tiene varias instancias de ISE que necesitan acceso a otros puntos de conexión con restricciones de IP, implemente [Azure Firewall](../firewall/overview.md) o una [aplicación virtual de red](../virtual-network/virtual-networks-overview.md#filter-network-traffic) en la red virtual y enrute el tráfico saliente a través de ese firewall o aplicación virtual de red. Luego, puede hacer que todas las instancias de ISE de la red virtual usen una única dirección IP pública, estática y predecible para comunicarse con los sistemas de destino que quiera. De ese modo, no es necesario configurar aperturas adicionales del firewall en los sistemas de destino para cada ISE.
 
 En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Firewall, pero puede aplicar conceptos similares a una aplicación virtual de red, como un firewall de terceros, desde Azure Marketplace. Aunque este tema se centra en la configuración de varias instancias de ISE, también puede usar este enfoque para un solo ISE si el escenario requiere limitar el número de direcciones IP que necesitan acceso. Considere si los costos adicionales del firewall o el dispositivo de red virtual tienen sentido para su escenario. Más información acerca de los [precios de Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
@@ -52,10 +52,12 @@ En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Fi
    | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre de ruta** | <*unique-route-name*> | Un nombre único para la ruta en la tabla de rutas. |
-   | **Prefijo de dirección** | <*destination-address*> | La dirección del sistema de destino adonde quiere que vaya el tráfico. Asegúrese de usar la [notación de enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para esta dirección. |
+   | **Prefijo de dirección** | <*destination-address*> | El prefijo de la dirección del sistema de destino adonde quiere que vaya el tráfico saliente. Asegúrese de usar la [notación de enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para esta dirección. En este ejemplo, el prefijo de dirección es para un servidor SFTP, que se describe en la sección [Configuración de la regla de red](#set-up-network-rule). |
    | **Tipo del próximo salto** | **Aplicación virtual** | El [tipo de salto](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) que usa el tráfico saliente. |
    | **Dirección del próximo salto** | <*firewall-private-IP-address*> | La dirección IP privada del firewall. |
    |||
+
+<a name="set-up-network-rule"></a>
 
 ## <a name="set-up-network-rule"></a>Configuración de la regla de red
 
@@ -65,7 +67,7 @@ En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Fi
 
 1. En la colección, agregue una regla que permita el tráfico al sistema de destino.
 
-   Por ejemplo, supongamos que tiene una aplicación lógica que se ejecuta en un ISE y necesita comunicarse con un sistema SFTP. Cree una colección de reglas de red denominada `LogicApp_ISE_SFTP_Outbound` que contenga una regla de red denominada `ISE_SFTP_Outbound`. Esta regla permite el tráfico desde la dirección IP de cualquier subred en la que el ISE se ejecuta en la red virtual al sistema SFTP de destino mediante el uso de la dirección IP privada del firewall.
+   Por ejemplo, supongamos que tiene una aplicación lógica que se ejecuta en un ISE y necesita comunicarse con un servidor SFTP. Cree una colección de reglas de red denominada `LogicApp_ISE_SFTP_Outbound` que contenga una regla de red denominada `ISE_SFTP_Outbound`. Esta regla permite el tráfico desde la dirección IP de cualquier subred en la que el ISE se ejecuta en la red virtual al servidor SFTP de destino mediante el uso de la dirección IP privada del firewall.
 
    ![Configuración de una regla de red para el firewall](./media/connect-virtual-network-vnet-set-up-single-ip-address/set-up-network-rule-for-firewall.png)
 
@@ -85,7 +87,7 @@ En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Fi
    | **Nombre** | <*network-rule-name*> | El nombre de la regla de red. |
    | **Protocolo** | <*connection-protocols*> | Los protocolos de conexión que se van a usar. Por ejemplo, si usa reglas de NSG, seleccione tanto **TCP** como **UDP**, no solo **TCP**. |
    | **Direcciones de origen** | <*ISE-subnet-addresses*> | Las direcciones IP de subred donde se ejecuta el ISE y donde se origina el tráfico desde la aplicación lógica. |
-   | **Direcciones de destino** | <*destination-IP-address*> | Las direcciones IP del sistema de destino adonde quiere que vaya el tráfico. |
+   | **Direcciones de destino** | <*destination-IP-address*> | Las direcciones IP del sistema de destino adonde quiere que vaya el tráfico saliente. En este ejemplo, esta dirección IP es para el servidor SFTP. |
    | **Puertos de destino** | <*destination-ports*> | Todo puerto que el sistema de destino usa para la comunicación entrante. |
    |||
 

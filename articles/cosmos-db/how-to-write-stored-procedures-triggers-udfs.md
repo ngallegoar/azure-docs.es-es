@@ -1,17 +1,17 @@
 ---
 title: Escribir procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
 description: Aprenda a definir procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75441729"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982299"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
@@ -21,15 +21,12 @@ Para llamar a un procedimiento almacenado, desencadenador o función definida po
 
 > [!NOTE]
 > Para los contenedores con particiones, al ejecutar un procedimiento almacenado, se debe proporcionar un valor de clave de partición en las opciones de solicitud. Los procedimientos almacenados siempre se limitan a una clave de partición. Los elementos que tienen un valor de clave de partición diferente no estarán visibles para el procedimiento almacenado. Esto también se aplica a los desencadenadores.
-
 > [!Tip]
 > Cosmos admite la implementación de contenedores con procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Para más información, consulte [Creación de un contenedor de Azure Cosmos DB con funcionalidad del lado servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Escritura de procedimientos almacenados
 
 Los procedimientos almacenados se escriben con JavaScript y pueden crear, actualizar, leer, consultar y eliminar elementos dentro de un contenedor de Azure Cosmos. Los procedimientos almacenados se registran por colección y pueden funcionar en cualquier documento o dato adjunto presente en esa colección.
-
-**Ejemplo**
 
 Este es un sencillo procedimiento almacenado que devuelve una respuesta "Hola mundo".
 
@@ -51,7 +48,7 @@ Una vez escrito, el procedimiento almacenado debe registrarse con una colección
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Creación de un elemento con el procedimiento almacenado
 
-Cuando se crea un elemento utilizando el procedimiento almacenado, el elemento se inserta en el contenedor de Azure Cosmos y se devuelve un identificador para el elemento recién creado. La creación de un elemento es una operación asincrónica y depende de las funciones de devolución de llamada de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que la operación no se complete y otro para un valor devuelto; en este caso, el objeto creado. Dentro de la devolución de llamada, puede controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el sistema en tiempo de ejecución de Azure Cosmos DB producirá un error. 
+Cuando se crea un elemento utilizando el procedimiento almacenado, el elemento se inserta en el contenedor de Azure Cosmos y se devuelve un identificador para el elemento recién creado. La creación de un elemento es una operación asincrónica y depende de las funciones de devolución de llamada de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que la operación no se complete y otro para un valor devuelto; en este caso, el objeto creado. Dentro de la devolución de llamada, puede controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el sistema en tiempo de ejecución de Azure Cosmos DB producirá un error.
 
 El procedimiento almacenado también incluye un parámetro para establecer la descripción, que es un valor booleano. Cuando el parámetro se establece en true y falta la descripción, el procedimiento almacenado iniciará una excepción. En caso contrario, el resto del procedimiento almacenado continúa ejecutándose.
 
@@ -73,7 +70,7 @@ function createToDoItem(itemToCreate) {
 }
 ```
 
-### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrices como parámetros de entrada para procedimientos almacenados 
+### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrices como parámetros de entrada para procedimientos almacenados
 
 Al definir un procedimiento almacenado mediante Azure Portal, los parámetros de entrada siempre se envían como una cadena para el procedimiento almacenado. Incluso si pasa una matriz de cadenas como entrada, la matriz se convierte en cadena y se envía al procedimiento almacenado. Para solucionar este problema, puede definir una función en el procedimiento almacenado para analizar la cadena como una matriz. El código siguiente muestra cómo analizar un parámetro de entrada de cadena como una matriz:
 
@@ -102,12 +99,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 
-    {     
+    var filterQuery =
+    {
         'query' : 'SELECT * FROM Players p where p.id = @playerId1',
         'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
     };
-            
+
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -115,10 +112,10 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 
-            {     
+            var filterQuery2 =
+            {
                 'query' : 'SELECT * FROM Players p where p.id = @playerId2',
-                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}]
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
@@ -208,6 +205,56 @@ function bulkImport(items) {
             tryCreate(items[count], callback);
         }
     }
+}
+```
+
+### <a name="async-await-with-stored-procedures"></a><a id="async-promises"></a>Característica async/await con procedimientos almacenados
+
+A continuación se proporciona un procedimiento almacenado de ejemplo que usa async-await con promesas mediante una función auxiliar. El procedimiento almacenado consulta un elemento y lo reemplaza.
+
+```javascript
+function async_sample() {
+    const ERROR_CODE = {
+        NotAccepted: 429
+    };
+
+    const asyncHelper = {
+        queryDocuments(sqlQuery, options) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.queryDocuments(__.getSelfLink(), sqlQuery, options, (err, feed, options) => {
+                    if (err) reject(err);
+                    resolve({ feed, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        },
+
+        replaceDocument(doc) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.replaceDocument(doc._self, doc, (err, result, options) => {
+                    if (err) reject(err);
+                    resolve({ result, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        }
+    };
+
+    async function main() {
+        let continuation;
+        do {
+            let { feed, options } = await asyncHelper.queryDocuments("SELECT * from c", { continuation });
+
+            for (let doc of feed) {
+                doc.newProp = 1;
+                await asyncHelper.replaceDocument(doc);
+            }
+
+            continuation = options.continuation;
+        } while (continuation);
+    }
+
+    main().catch(err => getContext().abort(err));
 }
 ```
 

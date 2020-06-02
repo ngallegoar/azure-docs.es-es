@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 2a68a50a5d15b9f38407c19494a39a14abfa0a5a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bd67c3b7eed6b3ce3730bd48cda69d85aa276df4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427708"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930597"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -79,6 +79,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure Event Hubs|[Permitir el acceso a un almacén de claves para un escenario de claves administradas por el cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[Permitir el acceso a un almacén de claves para un escenario de claves administradas por el cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Azure Import/Export| [Uso de claves administradas por el cliente en Azure Key Vault para el servicio de importación y exportación](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Azure Container Registry|[Cifrado del registro con claves administradas por el cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > Debe configurar las directivas de acceso pertinentes de Key Vault para permitir que los servicios correspondientes obtengan acceso a Key Vault.

@@ -4,12 +4,12 @@ description: Aprenda a configurar redes de Azure CNI (avanzadas) en Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207503"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120936"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,9 @@ El número máximo de pods por nodo en un clúster de AKS es 250. El número má
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo: nuevos clústeres
 
-Puede configurar el número máximo de pods por nodo *solo en tiempo de implementación del clúster*. Si realiza la implementación con la CLI de Azure o con una plantilla de Resource Manager, puede establecer un valor máximo de pods por nodo de hasta 250.
+Puede configurar el número máximo de pods por nodo solo en tiempo de implementación del clúster o al agregar nuevos grupos de nodos. Si realiza la implementación con la CLI de Azure o con una plantilla de Resource Manager, puede establecer un valor máximo de pods por nodo de hasta 250.
+
+Si no especifica maxPods al crear grupos de nodos nuevos, recibirá un valor predeterminado de 30 para Azure CNI.
 
 Se exige un valor mínimo para los pods máximos por nodo para garantizar el espacio de los pods del sistema críticos para el estado del clúster. El valor mínimo que se puede establecer para los pods máximos por nodo es diez si y solo si la configuración de cada grupo de nodos tiene espacio para un mínimo de treinta pods. Por ejemplo, si se establece el número máximo de pods por nodo en el mínimo de diez, cada grupo de nodos individual debe tener un mínimo de tres nodos. Este requisito se aplica también a cada nuevo grupo de nodos que se crea, por lo que si se define diez como el número máximo de pods por nodo, cada grupo de nodos que se agregue después debe tener al menos tres nodos.
 
@@ -85,7 +87,7 @@ Se exige un valor mínimo para los pods máximos por nodo para garantizar el esp
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar máximo: clústeres existentes
 
-No se puede cambiar el número máximo de pods por nodo en un clúster de AKS existente. Solo puede ajustar el número cuando se implementa inicialmente el clúster.
+La configuración de maxPod por nodo se puede definir cuando se crea un nuevo grupo de nodos. Si necesita aumentar el valor de maxPod por nodo en un clúster existente, agregue un nuevo grupo de nodos con el nuevo recuento de maxPod deseado. Después de migrar los pods al nuevo grupo, elimine el grupo anterior. Para eliminar cualquier grupo anterior en un clúster, asegúrese de que está configurando los modos de grupo de nodos tal como se define en el [documento del grupo de nodos del sistema [system-node-pools].
 
 ## <a name="deployment-parameters"></a>Parámetros de implementación
 
@@ -212,3 +214,4 @@ Los clústeres de Kubernetes creados con AKS Engine admiten los complementos [ku
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[system-node-pools]: use-system-pools.md

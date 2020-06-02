@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
-ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234240"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196231"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propiedades estándar de los registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../log-query/logs-structure.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de propiedades. Muchos tipos de datos tendrán propiedades estándar que son comunes en varios tipos. En este artículo se describen estas propiedades y se proporcionan ejemplos de cómo puede usarlas en las consultas.
+
+> [!IMPORTANT]
+> Si usa APM 2,1, las aplicaciones de Application Insights se almacenan en un área de trabajo de Log Analytics con el resto de datos de registro. Se ha cambiado el nombre de las tablas y se han reestructurado, pero tienen la misma información que las tablas de la aplicación Application Insights. Estas nuevas tablas tienen las mismas propiedades estándar que otras tablas del área de trabajo de Log Analytics.
 
 > [!NOTE]
 > Algunas de las propiedades estándar no se mostrarán en la vista de esquema ni en IntelliSense en Log Analytics, y no aparecerán en los resultados de la consulta, a menos que especifique explícitamente la propiedad en la salida.
@@ -48,7 +51,7 @@ exceptions
 ## <a name="_timereceived"></a>\_TimeReceived
 La propiedad **\_TimeReceived** contiene la fecha y hora en que el punto de ingesta de Azure Monitor recibió el registro en la nube de Azure. Esto puede resultar útil para identificar problemas de latencia entre el origen de datos y la nube. Un ejemplo sería un error de red que genere un retraso con los datos que se envían desde un agente. Consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](data-ingestion-time.md) para más detalles.
 
-En la consulta siguiente se proporciona la latencia promedio por hora para los registros de eventos de un agente. Esto incluye el tiempo del agente a la nube y el tiempo total para que el registro esté disponible para las consultas de registro.
+En la consulta siguiente se proporciona la latencia promedio por hora para los registros de eventos de un agente. Esto incluye el tiempo del agente a la nube y el tiempo total para que el registro esté disponible en las consultas de registro.
 
 ```Kusto
 Event
@@ -122,7 +125,7 @@ union withsource = tt *
 Use estas consultas `union withsource = tt *` con moderación, ya que la ejecución de exámenes entre tipos de datos es costosa.
 
 ## <a name="_isbillable"></a>\_IsBillable
-La propiedad **\_IsBillable** especifica si los datos ingeridos son facturables. Los datos con **\_IsBillable** igual a _false_ se recopilan de forma gratuita y no se facturan en su cuenta de Azure.
+La propiedad **\_IsBillable** especifica si los datos ingeridos son facturables. Los datos con **\_IsBillable** igual a `false` se recopilan de forma gratuita y no se facturan en su cuenta de Azure.
 
 ### <a name="examples"></a>Ejemplos
 Para obtener una lista de equipos que envían los tipos de datos de facturación, use la siguiente consulta:

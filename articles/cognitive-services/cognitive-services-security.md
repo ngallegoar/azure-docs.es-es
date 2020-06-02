@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/11/2020
 ms.author: dapine
-ms.openlocfilehash: c86d806c408c2e8226e632a0b15e1e8729c987f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0ad8c7f75a977e1a39ff6ffd6fee08d977f57a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131527"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202008"
 ---
 # <a name="azure-cognitive-services-security"></a>Seguridad de Azure Cognitive Services
 
-La seguridad se debe considerar una de las máximas prioridades cuando se desarrolla cualquier aplicación. Con la aparición de las aplicaciones habilitadas para la inteligencia artificial, la seguridad cobra aún mayor importancia. En este artículo se describen varios aspectos de la seguridad de Azure Cognitive Services, como el uso de la seguridad de la capa de transporte, la autenticación y la configuración segura de los datos confidenciales.
+La seguridad se debe considerar una de las máximas prioridades cuando se desarrolla cualquier aplicación. Con la aparición de las aplicaciones habilitadas para la inteligencia artificial, la seguridad cobra aún mayor importancia. En este artículo se describen varios aspectos de la seguridad de Azure Cognitive Services, como el uso de la seguridad de la capa de transporte, la autenticación, la configuración segura de los datos confidenciales y la Caja de seguridad del cliente para el acceso a los datos de los clientes.
 
 ## <a name="transport-layer-security-tls"></a>Seguridad de la capa de transporte (TLS)
 
@@ -193,6 +193,21 @@ NSString* value =
 ```
 
 ---
+
+## <a name="customer-lockbox"></a>Caja de seguridad del cliente
+
+[La Caja de seguridad del cliente de Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) proporciona una interfaz para los clientes y así permitirles revisar y aprobar o rechazar las solicitudes de acceso de datos de cliente. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico. En este artículo se indica la manera de iniciar, seguir y almacenar las solicitudes de la Caja de seguridad del cliente para realizar revisiones y auditorías posteriores; consulte [Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md). 
+
+La Caja de seguridad del cliente está disponible para esta instancia de Cognitive Services:
+
+* Traductor
+
+En cuanto a Language Understanding, los ingenieros de Microsoft no obtendrán acceso a los datos de clientes de la SKU de E0. Para solicitar la capacidad de usar la SKU de E0, rellene y envíe el  [formulario de solicitud de servicio LUIS](https://aka.ms/cogsvc-cmk). Tardará de tres a cinco días hábiles aproximadamente en recibir una respuesta sobre el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez aprobado el uso de E0 SKU con LUIS, deberá crear un nuevo recurso de Language Understanding desde Azure Portal y seleccionar E0 como el plan de tarifa. Los usuarios no podrán realizar la actualización de F0 a la nueva SKU de E0.
+
+El servicio de voz no admite actualmente la Caja de seguridad del cliente. Sin embargo, los datos del cliente pueden almacenarse mediante BYOS, lo que le permite lograr controles de datos similares para la [Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md). Tenga en cuenta que los datos del servicio de voz permanecen y se procesan en la región en la que se creó el recurso de voz. Esto se aplica a los datos en reposo y a los datos en tránsito. Cuando se usan características de personalización, como el Habla personalizada y la Voz personalizada, todos los datos del cliente se transfieren, almacenan y procesan en la misma región donde residen el recurso de BYOS (si se usa) y el servicio de voz.
+
+> [!IMPORTANT]
+> Microsoft **no** usa los datos del cliente para mejorar sus modelos de voz. Además, si el registro de puntos de conexión está deshabilitado y no se usa ninguna personalización, no se almacenan los datos de clientes. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

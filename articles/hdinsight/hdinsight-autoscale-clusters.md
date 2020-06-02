@@ -6,44 +6,36 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 03/05/2020
-ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/29/2020
+ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399721"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199731"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
 
-> [!Important]
-> La característica de escalado automático de Azure HDInsight se lanzó con carácter general el 7 de noviembre de 2019 para los clústeres de Spark y Hadoop, e incluía mejoras que no están disponibles en la versión preliminar de la característica. Si creó un clúster de Spark antes del 7 de noviembre de 2019 y quiere usar la característica de escalado automático en el clúster, la ruta recomendada es crear un nuevo clúster y habilitar el escalado automático en el nuevo clúster.
->
-> El escalado automático para los clústeres de Interactive Query (LLAP) y HBase todavía está en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase.
-
-La característica de escalabilidad automática de clústeres de Azure HDInsight escala o reduce verticalmente el número de nodos de trabajo. Actualmente no se pueden escalar otros tipos de nodos del clúster.  Durante la creación de un nuevo clúster de HDInsight, se puede establecer un número mínimo y máximo de nodos de trabajo. La escalabilidad automática luego supervisa los requisitos de recursos de la carga de análisis y escala o reduce verticalmente el número de nodos de trabajo. El uso de esta característica no tiene un cargo adicional.
-
-## <a name="cluster-compatibility"></a>Compatibilidad con el clúster
-
-En la tabla siguiente se describen las versiones y los tipos de clúster que son compatibles con la característica de escalabilidad automática.
-
-| Versión | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 4.0 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
-| HDInsight 4.0 con ESP | Sí | Sí | Sí | Sí* | No | No | No |
-
-\* Los clústeres de HBase solo se pueden configurar para escalado basado en programación, no basado en cargas.
+La característica gratuita de escalabilidad automática de Azure HDInsight puede aumentar o disminuir automáticamente el número de nodos de trabajo del clúster en función de los criterios establecidos previamente. Se establece un número mínimo y máximo de nodos durante la creación del clúster, se establecen los criterios de escalado mediante una programación de día y hora o métricas de rendimiento específicas, y la plataforma de HDInsight hace el resto.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-Puede elegir el escalado basado en carga o el escalado basado en programación para el clúster de HDInsight. El escalado basado en carga cambia el número de nodos del clúster, dentro de un intervalo establecido, para garantizar la utilización de CPU óptima y minimizar el costo de ejecución.
+La característica de escalabilidad automática emplea dos tipos de condiciones para desencadenar eventos de escalado: umbrales para varias métricas de rendimiento del clúster (lo que se conoce como *escalado basado en la carga*) y desencadenadores basados en el tiempo (lo que se conoce como *escalado basado en la programación*). El escalado basado en cargas cambia el número de nodos del clúster, dentro de un intervalo establecido, para garantizar el uso de CPU óptimo y minimizar el costo de ejecución. El escalado basado en la programación cambia el número de nodos del clúster en función de las operaciones que se asocian con fechas y horas específicas.
 
-El escalado basado en programación cambia el número de nodos del clúster en función de las condiciones que se aplican en momentos específicos. Estas condiciones escalan el clúster a un número deseado de nodos.
+En el vídeo siguiente se proporciona información general sobre los desafíos que puede resolver la escalabilidad automática y cómo puede ayudarle a controlar los costos con HDInsight.
 
-### <a name="metrics-monitoring"></a>Supervisión de métricas
+
+> [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Elección del escalado basado en carga o basado en programación
+
+Al elegir un tipo de escalado, tenga en cuenta los siguientes factores:
+
+* Varianza de carga: ¿la carga del clúster sigue un patrón coherente a horas específicas en días específicos? Si no es así, la programación basada en carga es una mejor opción.
+* Requisitos de SLA: el escalado de escalabilidad automática es reactivo en lugar de predictivo. ¿Habrá una demora suficiente entre el momento en que la carga empieza a aumentar y el momento en que el clúster tiene que alcanzar su tamaño de destino? Si los requisitos de SLA son estrictos y la carga es un patrón fijo conocido, la mejor opción es "basado en programación".
+
+### <a name="cluster-metrics"></a>Métricas del clúster
 
 La escalabilidad automática supervisa continuamente el clúster y recopila las métricas siguientes:
 
@@ -56,7 +48,7 @@ La escalabilidad automática supervisa continuamente el clúster y recopila las 
 |Memoria usada por nodo|La carga en un nodo de trabajo. Un nodo de trabajo donde se usan 10 GB de memoria se considera bajo más carga que un trabajo con 2 GB de memoria usada.|
 |Número de patrones de aplicación por nodo|El número de contenedores de patrones de aplicación (AM) que se ejecutan en un nodo de trabajo. Un nodo de trabajo que hospeda dos contenedores de AM se considera más importante que un nodo de trabajo que no hospeda ninguno de estos contenedores.|
 
-Las métricas anteriores se comprueban cada 60 segundos. La escalabilidad automática toma decisiones de escalar o reducir verticalmente según estas métricas.
+Las métricas anteriores se comprueban cada 60 segundos. Puede configurar las operaciones de escalado para el clúster mediante cualquiera de estas métricas.
 
 ### <a name="load-based-scale-conditions"></a>Condiciones de escalado basado en la carga
 
@@ -67,9 +59,27 @@ Cuando se detectan las condiciones siguientes, Escalabilidad automática emite u
 |El total de CPU pendiente es mayor que el total de CPU libre durante más de 3 minutos.|El total de CPU pendiente es menor que el total de CPU libre durante más de 10 minutos.|
 |El total de memoria pendiente es mayor que el total de memoria libre durante más de 3 minutos.|El total de memoria pendiente es menor que el total de memoria libre durante más de 10 minutos.|
 
-Para la escalabilidad vertical, el servicio de HDInsight calcula cuántos nodos de trabajo nuevos se necesitan para cumplir con los requisitos actuales de CPU y memoria y, luego, emite una solicitud de escalabilidad vertical para agregar el número de nodos necesario.
+En el caso del escalado vertical, la Escalabilidad automática emite una solicitud para agregar el número necesario de nodos. El escalado vertical se basa en el número de nodos de trabajo nuevos que son necesarios para satisfacer los requisitos de CPU y memoria actuales.
 
-Para la reducción vertical, en función del número de contenedores de AM por nodo y de los requisitos actuales de CPU y memoria, Escalabilidad automática emite una solicitud para quitar un número determinado de nodos. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
+En el caso de la reducción vertical, la Escalabilidad automática emite una solicitud para quitar un cierto número de nodos. La reducción vertical se basa en el número de contenedores AM en cada nodo y en los requisitos actuales de CPU y memoria. El servicio detecta también qué nodos son candidatos para la eliminación en función de la ejecución del trabajo actual. En primer lugar, la operación de reducción vertical retira los nodos y, luego, los quita del clúster.
+
+### <a name="cluster-compatibility"></a>Compatibilidad con el clúster
+
+> [!Important]
+> La característica de escalado automático de Azure HDInsight se lanzó con carácter general el 7 de noviembre de 2019 para los clústeres de Spark y Hadoop, e incluía mejoras que no están disponibles en la versión preliminar de la característica. Si creó un clúster de Spark antes del 7 de noviembre de 2019 y quiere usar la característica de escalado automático en el clúster, la ruta recomendada es crear un nuevo clúster y habilitar el escalado automático en el nuevo clúster.
+>
+> El escalado automático para los clústeres de Interactive Query (LLAP) y HBase todavía está en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase.
+
+En la tabla siguiente se describen las versiones y los tipos de clúster que son compatibles con la característica de escalabilidad automática.
+
+| Versión | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+|---|---|---|---|---|---|---|---|
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 4.0 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 3.6 sin ESP | Sí | Sí | Sí | Sí* | No | No | No |
+| HDInsight 4.0 con ESP | Sí | Sí | Sí | Sí* | No | No | No |
+
+\* Los clústeres de HBase solo se pueden configurar para escalado basado en programación, no basado en cargas.
 
 ## <a name="get-started"></a>Introducción
 
@@ -79,7 +89,7 @@ Para habilitar la característica Escalabilidad automática con escalado basado 
 
 1. En la pestaña **Configuración y precios**, marque la casilla **Habilitar escalabilidad automática**.
 1. Seleccione **Load-based** (Basada en carga) en **Tipo de escalabilidad automática**.
-1. Escriba los valores deseados para estas propiedades:  
+1. Escriba los valores previstos para estas propiedades:  
 
     * **Número de nodos** inicial para **Nodo de trabajo**.
     * Número **Mín.** de nodos de trabajo.
@@ -108,11 +118,11 @@ El número de nodos debe estar entre 3 y el número máximo de nodos de trabajo 
 
 ### <a name="final-creation-steps"></a>Pasos finales de creación
 
-Tanto para el escalado basado en carga como el basado en programación, seleccione el tipo de máquina virtual de los nodos de trabajo al seleccionar una máquina virtual en la lista desplegable de **Tamaño del nodo**. Después de elegir el tipo de máquina virtual para cada tipo de nodo, puede ver el intervalo de costo estimado para todo el clúster. Ajuste los tipos de máquina virtual que se ajusten a su presupuesto.
+Seleccione el tipo de máquina virtual de los nodos de trabajo; para ello, seleccione una máquina virtual en la lista desplegable de **Tamaño del nodo**. Después de elegir el tipo de máquina virtual para cada tipo de nodo, puede ver el intervalo de costo estimado para todo el clúster. Ajuste los tipos de máquina virtual que se ajusten a su presupuesto.
 
 ![Habilitación de la escalabilidad automática del tamaño del nodo basada en la programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
-La suscripción tiene una cuota de capacidad para cada región. El número total de núcleos de los nodos principales junto con el número máximo de nodos de trabajo no puede superar la cuota de capacidad. Sin embargo, esta cuota tiene un límite flexible; sencillamente puede crear una incidencia de soporte técnico en cualquier momento para que la aumenten.
+La suscripción tiene una cuota de capacidad para cada región. El número total de núcleos de los nodos principales y el máximo de nodos de trabajo no puede superar la cuota de capacidad. Sin embargo, esta cuota tiene un límite flexible; sencillamente puede crear una incidencia de soporte técnico en cualquier momento para que la aumenten.
 
 > [!Note]  
 > Si se supera el límite de cuota de núcleos total, recibirá un mensaje de error que dice "the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota" (El nodo máximo superó los núcleos disponibles en esta región, elija otra región o póngase en contacto con soporte técnico para aumentar la cuota).
@@ -148,8 +158,6 @@ Para crear un clúster de HDInsight con el escalado automático basado en carga 
   "scriptActions": []
 }
 ```
-
-Para más información sobre cómo crear clústeres con plantillas de Resource Manager, consulte [Creación de clústeres de Apache Hadoop basados en Windows en HDInsight mediante plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
 #### <a name="schedule-based-autoscaling"></a>Escalado automático basado en programación
 
@@ -193,7 +201,7 @@ Para habilitar la escalabilidad automática en un clúster en ejecución, selecc
 
 #### <a name="using-the-rest-api"></a>Uso de la API de REST
 
-Para habilitar o deshabilitar el escalado automático en un clúster en ejecución mediante la API REST, realice una solicitud POST al punto de conexión de escalado automático, tal como se muestra en el siguiente fragmento de código:
+Para habilitar o deshabilitar la Escalabilidad automática en un clúster en ejecución mediante la API REST, realice una solicitud POST al punto de conexión de escalado automático:
 
 ```
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
@@ -207,32 +215,7 @@ Use los parámetros adecuados en la carga de solicitud. La carga de JSON siguien
 
 Vea la sección anterior sobre [cómo habilitar el escalado automático basado en la carga](#load-based-autoscaling) para obtener una descripción completa de todos los parámetros de carga.
 
-## <a name="best-practices"></a>Procedimientos recomendados
-
-### <a name="choosing-load-based-or-schedule-based-scaling"></a>Elección del escalado basado en carga o basado en programación
-
-Tenga en cuenta estos factores antes de tomar una decisión con respecto al modo que va a elegir:
-
-* Habilite la escalabilidad automática durante la creación del clúster.
-* El número mínimo de nodos debe ser tres.
-* Varianza de carga: si la carga del clúster sigue un patrón coherente a horas específicas en días específicos. Si no es así, la programación basada en carga es una mejor opción.
-* Requisitos de SLA: el escalado de escalabilidad automática es reactivo en lugar de predictivo. ¿Habrá una demora suficiente entre el momento en que la carga empieza a aumentar y el momento en que el clúster tiene que alcanzar su tamaño de destino? Si los requisitos de SLA son estrictos y la carga es un patrón fijo conocido, la mejor opción es "basado en programación".
-
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Consideración de la latencia de las operaciones de escalado o reducción verticales
-
-Una operación de escalado puede tardar entre 10 y 20 minutos en completarse. Cuando configure una programación personalizada, planee esta demora. Por ejemplo, si necesita que el tamaño del clúster sea 20 a las 9:00 a.m., establezca el desencadenador de programación más temprano, a eso de las 8:30 a.m., para que la operación de escalado se complete antes de las 9:00 a.m.
-
-### <a name="preparation-for-scaling-down"></a>Preparación para la reducción vertical
-
-Durante el proceso de reducción vertical de un clúster, la característica Escalabilidad automática retirará los nodos para cumplir con el tamaño de destino. Si hay tareas en ejecución en esos nodos, Escalabilidad automática esperará hasta que se completen las tareas. Como cada nodo de trabajo también tiene un rol en HDFS, los datos temporales se desplazarán a los nodos restantes. Por tanto, debe asegurarse de que haya espacio suficiente en los nodos restantes para hospedar todos los datos temporales.
-
-Los trabajos en ejecución se seguirán ejecutando y se completarán. Los trabajos pendientes esperarán ser programados como normales con menos nodos de trabajo disponibles.
-
-### <a name="minimum-cluster-size"></a>Tamaño mínimo del clúster
-
-No reduzca verticalmente el clúster a menos de tres nodos. El escalado del clúster a menos de tres nodos puede hacer que se quede atascado en el modo seguro debido a una replicación de archivos insuficiente.  Para obtener más información, consulte [Bloqueo en modo seguro](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
-
-## <a name="monitoring"></a>Supervisión
+## <a name="monitoring-autoscale-activities"></a>Supervisión de actividades de escalabilidad automática
 
 ### <a name="cluster-status"></a>Estado del clúster
 
@@ -247,10 +230,10 @@ Todos los mensajes de estado del clúster que podría ver se explican en la list
 | En ejecución | El clúster funciona normalmente. Todas las actividades de Escalabilidad automática anteriores se completaron correctamente. |
 | Actualizando  | La configuración de Escalabilidad automática del clúster se está actualizando.  |
 | Configuración de HDInsight  | Una operación de escalado o de reducción verticales de un clúster está en curso.  |
-| Error de actualización  | HDInsight encontró problemas durante la actualización de la configuración de Escalabilidad automática. Los clientes pueden elegir si reintentan la actualización o deshabilitan la escalabilidad automática.  |
+| Error de actualización  | HDInsight experimentó problemas durante la actualización de la configuración de Escalabilidad automática. Los clientes pueden elegir si reintentan la actualización o deshabilitan la escalabilidad automática.  |
 | Error  | Error en el clúster, que no se puede usar. Elimine este clúster y cree uno nuevo.  |
 
-Para ver el número actual de nodos en el clúster, vaya al gráfico **Tamaño del clúster** en la página de **Información general** del clúster, o bien seleccione **Tamaño del clúster** en **Configuración**.
+Para ver el número actual de nodos en el clúster, vaya al gráfico **Tamaño del clúster** en la página de **información general** del clúster. O bien, seleccione **Tamaño del clúster** en **Configuración**.
 
 ### <a name="operation-history"></a>Historial de operaciones
 
@@ -260,6 +243,22 @@ Seleccione **Métricas** en **Supervisión**. Luego, seleccione en **Agregar mé
 
 ![Habilitación de la escalabilidad automática de la métrica basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
+## <a name="other-considerations"></a>Otras consideraciones
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Consideración de la latencia de las operaciones de escalado o reducción verticales
+
+Una operación de escalado puede tardar entre 10 y 20 minutos en completarse. Cuando configure una programación personalizada, planee esta demora. Por ejemplo, si necesita que el tamaño del clúster sea 20 a las 9:00 a.m., establezca el desencadenador de programación más temprano, a eso de las 8:30 a.m., para que la operación de escalado se complete antes de las 9:00 a.m.
+
+### <a name="preparation-for-scaling-down"></a>Preparación para la reducción vertical
+
+Durante el proceso de reducción vertical de un clúster, la característica Escalabilidad automática retirará los nodos para cumplir con el tamaño de destino. Si las tareas están en ejecución en esos nodos, la Escalabilidad automática esperará hasta que se completen las tareas. Como cada nodo de trabajo también tiene un rol en HDFS, los datos temporales se desplazarán a los nodos restantes. Por tanto, debe asegurarse de que haya espacio suficiente en los nodos restantes para hospedar todos los datos temporales.
+
+Los trabajos seguirán en ejecución. Los trabajos pendientes esperarán una programación con menos nodos de trabajo disponibles.
+
+### <a name="minimum-cluster-size"></a>Tamaño mínimo del clúster
+
+No reduzca verticalmente el clúster a menos de tres nodos. El escalado del clúster a menos de tres nodos puede hacer que se quede atascado en el modo seguro debido a una replicación de archivos insuficiente.  Para obtener más información, consulte [Bloqueo en modo seguro](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre los procedimientos recomendados para el escalado manual de clústeres en los [procedimientos recomendados de escalado](hdinsight-scaling-best-practices.md)
+Obtenga información acerca de las instrucciones para el escalado manual de clústeres en las [Instrucciones de escalado](hdinsight-scaling-best-practices.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 57a49f9e1473f33eceba14591815415338aeecf4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312051"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198795"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -59,9 +59,9 @@ Para determinar si tiene instalados los módulos de Azure Az, ejecute `Get-Inst
 
 Para usar esta opción, los módulos de Azure Az no deben estar instalados en el equipo. En caso de que lo estén, el comando siguiente mostrará un error. Puede desinstalar los módulos de Azure Az o usar la otra opción para descargar manualmente el script y ejecutarlo.
   
-Ejecute el script con el siguiente comando:
+Ejecute el script con el siguiente comando para obtener la última versión:
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 Este comando también instala los módulos de Az necesarios.  
 
@@ -196,7 +196,7 @@ No. Actualmente, el script no admite los certificados de Key Vault, pero se est�
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Se han producido algunos problemas al usar este script. ¿Cómo puedo obtener ayuda?
   
-Puede enviar un correo electrónico a appgwmigrationsup@microsoft.com, abrir una incidencia con el Soporte técnico de Azure o hacer ambas cosas.
+Puede ponerse en contacto con el Soporte técnico de Azure en el tema "Configuración y migración a la SKU V2". Obtenga más información sobre el [Soporte técnico de Azure aquí](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

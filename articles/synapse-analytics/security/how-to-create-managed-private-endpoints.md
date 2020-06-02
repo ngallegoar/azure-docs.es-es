@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 363dc4d469d912c14f5f89ef6ff433a2243587e8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d6a0a84050cb8f1b3ad0c04aa66c5b3797282f2e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426732"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983234"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Creación de un punto de conexión privado administrado al origen de datos (versión preliminar)
 
@@ -40,7 +40,7 @@ En la ventana siguiente, escriba la información sobre el origen de datos. En es
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Paso 5: Compruebe que el punto de conexión privado administrado se creó correctamente
 
-Después de enviar la solicitud, verá el estado. Para comprobar que el punto de conexión privado administrado se ha creado correctamente, compruebe su *Estado de aprovisionamiento*. Quizá deba esperar 1 minuto y seleccionar **Actualizar** para actualizar el estado de aprovisionamiento. Puede ver que el punto de conexión privado administrado de la cuenta ADLS Gen2 se creó correctamente.
+Después de enviar la solicitud, verá el estado. Para comprobar que el punto de conexión privado administrado se ha creado correctamente, compruebe su *Estado de aprovisionamiento*. Quizá deba esperar 1 minuto y seleccionar **Actualizar** para actualizar el estado de aprovisionamiento. Puede ver que el punto de conexión privado administrado a la cuenta de ADLS Gen2 se creó correctamente.
 
 También puede ver que el *Estado de aprobación* es *Pendiente*. El propietario del recurso de destino puede aprobar o denegar la solicitud de conexión del punto de conexión privado. Si el propietario aprueba la solicitud de conexión del punto de conexión privado, se establece el vínculo privado. Si se rechaza, no se establecerá un vínculo privado.
 ![Estado de solicitud de creación de un punto de conexión privado administrado](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)

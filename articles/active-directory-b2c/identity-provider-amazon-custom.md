@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188518"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900429"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Amazon mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -29,17 +29,16 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 - Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md).
 - Si aún no tiene una cuenta de Amazon, cree una en [https://www.amazon.com/](https://www.amazon.com/).
 
-## <a name="register-the-application"></a>Registro de la aplicación
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Creación de una aplicación en la consola de desarrolladores de Amazon
 
-Para habilitar el inicio de sesión para usuarios de una cuenta de Amazon, deberá crear una aplicación de Amazon.
+Para usar una cuenta de Amazon como proveedor de identidades federadas en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en [Servicios y tecnologías para desarrolladores de Amazon](https://developer.amazon.com). Si aún no tiene una cuenta de Amazon, puede suscribirse en [https://www.amazon.com/](https://www.amazon.com/).
 
-1. Inicie sesión en [Amazon Developer Center](https://login.amazon.com/) con las credenciales de su cuenta de Amazon.
-2. Si aún no lo ha hecho, haga clic en **Sign up**(Registro), siga los pasos de registro para desarrolladores y acepte la directiva.
-3. Seleccione **Register new application**(Registrar nueva aplicación).
-4. Escriba la información de **Name** (Nombre), **Description** (Descripción) y **Privacy Notice URL** (Dirección URL de aviso de privacidad) y, a continuación, haga clic en **Save** (Guardar). El aviso de privacidad es una página administrada por el usuario que proporciona información de privacidad a los usuarios.
-5. En la sección **Web Settings** (Configuración web), copie los valores de **Client ID** (Identificador de cliente). Seleccione **Show secret** (Mostrar secreto) para obtener el secreto de cliente y, a continuación, cópielo. Necesitará los dos para configurar la cuenta de Amazon como proveedor de identidades de su inquilino. **secreto de cliente** es una credencial de seguridad importante.
-6. En la sección **Web Settings** (Configuración Web), seleccione **Edit** (Editar) y, a continuación, escriba `https://your-tenant-name.b2clogin.com` en **Allowed JavaScript Origins** (Orígenes de JavaScript permitidos) y `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` en **Allowed Return URLs** (Direcciones URL de devolución permitidas). Reemplace `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
-7. Haga clic en **Save**(Guardar).
+> [!NOTE]  
+> Use las direcciones URL siguientes en el **paso 8** a continuación y reemplace `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, use solo letras en minúscula, aunque se haya definido con letras mayúscula en Azure AD B2C.
+> - En **Orígenes permitidos**, escriba `https://your-tenant-name.b2clogin.com`. 
+> - En **URL de retorno permitidas**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="create-a-policy-key"></a>Creación de una clave de directiva
 

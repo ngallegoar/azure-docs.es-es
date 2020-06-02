@@ -7,20 +7,17 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 97f08bf0f89fdb65f0ffef7d18557f210e45a8d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101015"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890819"
 ---
-# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains-preview"></a>Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid (versión preliminar)
+# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configuración de puntos de conexión privados para temas o dominios de Azure Event Grid
 Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para permitir la entrada de eventos directamente desde su red virtual a sus temas y dominios de forma segura a través de un [vínculo privado](../private-link/private-link-overview.md) sin tener que ir a la red pública de Internet. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el tema o dominio. Para más información conceptual, consulte [Seguridad de las redes](network-security.md).
 
 En este artículo se describe cómo configurar los puntos de conexión privados para los temas o dominios.
-
-> [!IMPORTANT]
-> La característica de puntos de conexión privados está disponible para los temas y dominios solo en el nivel Premium. Para actualizar del nivel Básico al nivel Premium, consulte el artículo [Actualización del plan de tarifa](update-tier.md). 
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal 
 En esta sección se muestra cómo usar Azure Portal para crear un punto de conexión privado para un tema o dominio.
@@ -205,7 +202,7 @@ Este es un script de ejemplo que crea los siguientes recursos de Azure:
 - Resource group
 - Virtual network
 - Una subred en la red virtual
-- Un tema de Azure Event Grid (nivel Premium)
+- Tema de Azure Event Grid
 - Un punto de conexión privado para el tema
 
 > [!NOTE]
@@ -254,8 +251,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -369,7 +365,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `

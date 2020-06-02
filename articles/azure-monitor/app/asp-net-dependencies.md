@@ -3,12 +3,12 @@ title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
 description: Supervise las llamadas de dependencia de su aplicación web o local de Microsoft Azure con Application Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731506"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980854"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -92,14 +92,14 @@ Para las llamadas SQL, el nombre del servidor y la base de datos siempre se reco
 
 Para las aplicaciones de ASP.NET Core, no se requiere ningún paso adicional para obtener la consulta SQL completa.
 
-Para las aplicaciones ASP.NET, la consulta SQL completa se recopila con ayuda de la instrumentación del código de bytes, que requiere de un motor de instrumentación. Se requieren pasos adicionales específicos para cada plataforma, tal como se describe a continuación.
+En el caso de las aplicaciones de ASP.NET, se recopila una consulta SQL completa con la ayuda de la instrumentación de código de bytes, que requiere el motor de instrumentación o puede realizarse mediante el paquete NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient), en lugar de la biblioteca System.Data.SqlClient. Se requieren pasos adicionales específicos para cada plataforma, tal como se describe a continuación.
 
 | Plataforma | Pasos necesarios para obtener la consulta SQL completa |
 | --- | --- |
 | Aplicación web de Azure |En el panel de control de la aplicación web [abra la hoja de Application Insights](../../azure-monitor/app/azure-web-apps.md) y habilite los comandos SQL de .NET |
-| Servidor IIS (máquina virtual de Azure, del entorno local, entre otras). | Use el módulo Monitor de estado de PowerShell para [instalar el motor de instrumentación](../../azure-monitor/app/status-monitor-v2-api-reference.md) y reiniciar IIS. |
+| Servidor IIS (máquina virtual de Azure, del entorno local, entre otras). | Use el paquete de NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) o use el módulo Monitor de estado de PowerShell para [instalar el motor de instrumentación](../../azure-monitor/app/status-monitor-v2-api-reference.md) y reiniciar IIS. |
 | Servicio en la nube de Azure | Agregue una [tarea de inicio para instalar StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional). <br> La aplicación se debe incorporar al SDK de ApplicationInsights en tiempo de compilación mediante la instalación de paquetes de NuGet para las aplicaciones de [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). |
-| IIS Express | No compatible
+| IIS Express | Use el paquete NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient).
 
 En los casos anteriores, la forma correcta de validar que el motor de instrumentación está instalado correctamente es comprobar que la versión de SDK de la `DependencyTelemetry` recopilada sea "rddp". Un valor "rdddsd" o "rddf" indica que las dependencias se recopilan a través de las devoluciones de llamada de DiagnosticSource o EventSource y, por lo tanto, no se puede capturar la consulta SQL completa.
 

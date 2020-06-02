@@ -3,14 +3,14 @@ title: Configuración de la aplicación de funciones en Azure
 description: Obtenga información sobre cómo definir la configuración de Azure Function App.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235000"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122311"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -27,15 +27,17 @@ En este artículo se describe cómo configurar y administrar la aplicación de f
 
 ## <a name="get-started-in-the-azure-portal"></a>Introducción a Azure Portal
 
-Para comenzar, vaya a [Azure Portal] e inicie sesión en la cuenta de Azure. En la barra de búsqueda en la parte superior del portal, escriba el nombre de la Function App y selecciónela en la lista. Después de seleccionar la Function App, vea la siguiente página:
+1. Para comenzar, vaya a [Azure Portal] e inicie sesión en la cuenta de Azure. En la barra de búsqueda en la parte superior del portal, escriba el nombre de la aplicación de funciones y selecciónela en la lista. 
 
-![Información general sobre Function App en Azure Portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. En **Configuración** en el panel izquierdo, seleccione **Configuración**.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Información general sobre las aplicaciones de funciones en Azure Portal":::
 
 Puede navegar a todo lo que necesita para administrar Function App desde la página de información general, en particular la **[Configuración de la aplicación](#settings)** y las **[Características de la plataforma](#platform-features)** .
 
 ## <a name="application-settings"></a><a name="settings"></a>Configuración de la aplicación
 
-La pestaña **Configuración de la aplicación** mantiene la configuración de la aplicación que Function App utiliza. Esta configuración se almacena cifrada y debe seleccionar **Mostrar valores** para ver los valores en el portal. También puede acceder a esta configuración de la aplicación mediante la CLI de Azure.
+La pestaña **Configuración de la aplicación** mantiene la configuración de la aplicación que la aplicación de funciones usa. Esta configuración se almacena cifrada y debe seleccionar **Mostrar valores** para ver los valores en el portal. También puede acceder a esta configuración de la aplicación mediante la CLI de Azure.
 
 ### <a name="portal"></a>Portal
 
@@ -69,9 +71,7 @@ Al desarrollar una aplicación de funciones localmente, debe mantener copias loc
 
 ## <a name="platform-features"></a>Características de la plataforma
 
-![Pestaña Características de la plataforma de Function App](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-Las Function App se ejecutan en la plataforma de Azure App Service, donde también se realiza su mantenimiento. Por tanto, Function App tiene acceso a la mayoría de las características de la plataforma de hospedaje web principal de Azure. En la pestaña **Características de la plataforma** puede acceder a muchas características de la plataforma de App Service que puede usar en las Function App. 
+Las aplicaciones de funciones se ejecutan en la plataforma de Azure App Service, donde también se realiza su mantenimiento. Por tanto, Function App tiene acceso a la mayoría de las características de la plataforma de hospedaje web principal de Azure. En el panel de la izquierda puede acceder a muchas características de la plataforma de App Service que puede usar en las aplicaciones de funciones. 
 
 > [!NOTE]
 > No todas las características de App Service están disponibles cuando una Function App se ejecuta con el plan de hospedaje de consumo.

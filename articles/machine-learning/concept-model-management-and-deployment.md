@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314309"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929764"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
@@ -153,7 +153,7 @@ Azure Machine Learning ofrece la capacidad de realizar un seguimiento del regi
 - La [interpretabilidad](how-to-machine-learning-interpretability.md) permite explicar los modelos, satisfacer el cumplimiento normativo y comprender cómo llegan los modelos a un resultado para la entrada determinada.
 - El historial de ejecución de Azure Machine Learning almacena una instantánea del código, los datos y los procesos utilizados para entrenar un modelo.
 - El registro de modelos de Azure Machine Learning captura todos los metadatos asociados al modelo (el experimento que lo entrenó, dónde se está implementando, si las implementaciones son correctas).
-- La [integración con Azure Event Grid](concept-event-grid-integration.md) permite actuar en los eventos del ciclo de vida de Machine Learning. Por ejemplo, el registro de modelos, la implementación, el desfase de datos y los eventos de aprendizaje (ejecución).
+- La [integración con Azure](how-to-use-event-grid.md) permite actuar en los eventos del ciclo de vida de Machine Learning. Por ejemplo, el registro de modelos, la implementación, el desfase de datos y los eventos de aprendizaje (ejecución).
 
 > [!TIP]
 > Aunque parte de la información sobre los modelos y conjuntos de datos se capturan automáticamente, puede agregar información adicional mediante __etiquetas__. Al buscar modelos y conjuntos de datos registrados en el área de trabajo, puede usar etiquetas como filtro.

@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79372085"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198666"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio de voz
 
@@ -31,7 +31,7 @@ Cuando se usan Custom Speech y Voz personalizada, el servicio de voz puede almac
 * Datos de seguimiento de voz (solo si activa el seguimiento para su punto de conexión personalizado)
 * Carga de datos de entrenamiento y prueba
 
-De forma predeterminada, sus datos se guardan en el almacenamiento de Microsoft y su suscripción usa claves de cifrado administradas por Microsoft. También tiene la opción de preparar su propia cuenta de almacenamiento. El acceso a la tienda lo administra la identidad administrada y el servicio de voz no puede acceder directamente a sus propios datos, como los datos de seguimiento de voz, datos de entrenamiento de personalización y modelos personalizados.
+De forma predeterminada, los datos se guardan en el almacenamiento de Microsoft y la suscripción usa claves de cifrado administradas por Microsoft. También tiene la opción de preparar su propia cuenta de almacenamiento. El acceso a la tienda lo administra la identidad administrada y el servicio de voz no puede acceder directamente a sus propios datos, como los datos de seguimiento de voz, datos de entrenamiento de personalización y modelos personalizados.
 
 Para más información sobre la identidad administrada, consulte [¿Qué son las identidades administradas?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
@@ -42,13 +42,10 @@ Para solicitar acceso para traer su propio almacenamiento, rellene y envíe el �
 > [!IMPORTANT]
 > Si deshabilita identidades administradas asignadas por el sistema, se quitará el acceso a la cuenta de almacenamiento. Esto hará que las partes del servicio de voz que requieran acceso a la cuenta de almacenamiento dejen de funcionar.  
 
-## <a name="regional-availability"></a>Disponibilidad regional
+El servicio de voz no admite actualmente la Caja de seguridad del cliente. Sin embargo, los datos del cliente pueden almacenarse mediante BYOS, lo que le permite lograr controles de datos similares para la [Caja de seguridad del cliente](../../security/fundamentals/customer-lockbox-overview.md). Tenga en cuenta que los datos del servicio de voz permanecen y se procesan en la región en la que se creó el recurso de voz. Esto se aplica a los datos en reposo y a los datos en tránsito. Cuando se usan características de personalización, como el Habla personalizada y la Voz personalizada, todos los datos del cliente se transfieren, almacenan y procesan en la misma región donde residen el recurso de BYOS (si se usa) y el servicio de voz.
 
-BYOS está disponible actualmente en estas regiones:
-
-* Centro y Sur de EE. UU.
-* Oeste de EE. UU. 2
-* Este de EE. UU.
+> [!IMPORTANT]
+> Microsoft **no** usa los datos del cliente para mejorar sus modelos de voz. Además, si el registro de puntos de conexión está deshabilitado y no se usa ninguna personalización, no se almacenan los datos de clientes. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

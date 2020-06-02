@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: fe684d15e2ce9b8d302db4eb6bd31dd1416abf21
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617877"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196541"
 ---
 # <a name="network-requirements"></a>Requisitos de red
 
@@ -20,7 +20,7 @@ Una conexión de red estable y de baja latencia a un centro de datos de Azure es
 
 Los requisitos exactos de la red dependen de su caso de uso específico, por ejemplo del número y la frecuencia de las modificaciones realizadas en el grafo de escenas remotas, así como de la complejidad de la vista representada. Pero hay una serie de instrucciones que permiten garantizar que su experiencia sea la mejor posible:
 
-* La conectividad a Internet debe admitir al menos **50 Mbps de bajada** y **10 Mbps de subida** para una sesión de un solo usuario de Azure Remote Rendering, suponiendo que no haya tráfico en competencia en la red. La experiencia mejora con tasas mayores. Con más usuarios en la misma red, estos requisitos se escalan verticalmente según corresponda.
+* La conectividad a Internet debe admitir al menos y de forma consistente **40 Mbps de bajada** y **5 Mbps de subida** en una sesión de un solo usuario de Azure Remote Rendering, suponiendo que no haya tráfico en competencia en la red. La experiencia mejora con tasas mayores. Con más usuarios en la misma red, estos requisitos se escalan verticalmente según corresponda.
 * El uso de la **banda Wi-Fi de 5 GHz** normalmente producirá mejores resultados que la banda Wi-Fi de 2,4 GHz, aunque ambas deberían funcionar.
 * Si hay otras redes Wi-Fi cercanas, evite usar canales Wi-Fi que estas otras redes utilicen. Puede usar herramientas de análisis de red como [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) para comprobar si los canales que usa la red Wi-Fi son gratuitos para el tráfico en competencia.
 * **Evite siempre utilizar repetidores de Wi-Fi** o el reenvío en LAN a través de Powerline.

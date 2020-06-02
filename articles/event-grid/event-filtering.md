@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509659"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888778"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Descripción del filtrado de eventos para suscripciones de Event Grid
 
@@ -158,6 +158,7 @@ El filtrado avanzado tiene las siguientes limitaciones:
 * 5 filtros avanzados por suscripción de Event Grid
 * 512 caracteres por valor de cadena
 * 5 valores para los operadores **in** y **not in**
+* Claves que incluyen el carácter **`.` (punto)** . Por ejemplo, `http://schemas.microsoft.com/claims/authnclassreference` o `john.doe@contoso.com`. Actualmente, las claves no admiten caracteres de escape. 
 
 La misma clave se puede usar en más de un filtro.
 

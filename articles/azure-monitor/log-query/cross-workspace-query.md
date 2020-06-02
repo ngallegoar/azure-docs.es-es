@@ -5,15 +5,18 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/05/2019
-ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226588"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199904"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Consulta de registros entre recursos en Azure Monitor  
+
+> [!IMPORTANT]
+> Si usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), la telemetría se almacena en un área de trabajo de Log Analytics con todos los demás datos del registro. Use la expresión log() para escribir una consulta que incluya la aplicación en varias áreas de trabajo. Si tiene varias aplicaciones en la misma área de trabajo, no se necesita realizar una consulta entre áreas de trabajo.
 
 Anteriormente, con Azure Monitor, solo podía analizar datos desde dentro del área de trabajo actual, lo que limitaba su capacidad de consulta a través de varias áreas de trabajo definidas en la suscripción.  Además, solo puede buscar los elementos de telemetría recopilados de la aplicación basada en web con Application Insights directamente en Application Insights o desde Visual Studio. Esto también convirtió en un desafío analizar de manera nativa los datos operativos y de aplicación en conjunto.
 

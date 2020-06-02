@@ -7,15 +7,15 @@ author: njray
 manager: edprice
 editor: edprice
 ms.author: larryme
-ms.date: 04/02/2019
+ms.date: 05/09/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: cf02ff7078fe5d33f220c0abc2d941d483e5c125
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07234e5f456a5467adde4d899341a6124d128567
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76293511"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006119"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Cargas de trabajo del sistema central que se admiten en Azure
 
@@ -25,20 +25,24 @@ Para obtener más ayuda con la emulación y los servicios del sistema central, c
 
 ## <a name="migrate-mainframe-closer-to-azure"></a>Migración del sistema central más cerca de Azure
 
+- Compilador [Visual RPG para .NET de ASNA](https://asna.com/us/products/visual-rpg) para .NET Framework a través del complemento de Visual Studio.
+- Entorno de desarrollo [Asysco AMT COBOL](https://www.asysco.com/cobol/) (Unisys, sistemas centrales de IBM y otros dialectos COBOL como Micro Focus COBOL).
+- Arquitectura de implementación basada en la nube [Asysco AMT GO](https://www.asysco.com/amt-go/) para cargas de trabajo de alto nivel.
+- [Asysco AMT Transform](https://www.asysco.com/amt-transform/) para convertir datos, código, scripting, seguridad, interfaces y otros artefactos del sistema central.
+- Herramientas de desarrollo e integración [NetCOBOL de Fujitsu](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/).
 - Herramientas de desarrollo e integración [Visual COBOL de Micro Focus](https://www.microfocus.com/products/visual-cobol/).
 - Compilador heredado [PL/I de Micro Focus](https://www.microfocus.com/campaign/download/pli-modernization/) para la plataforma .NET, que admite la sintaxis, los tipos de datos y el comportamiento de PL/I del sistema central.
 - Plataforma de integración del sistema central [Enterprise Server de Micro Focus](https://www.microfocus.com/products/enterprise-suite/enterprise-server/).
-- Herramientas de desarrollo e integración [NetCOBOL de Fujitsu](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/).
+- Herramientas de desarrollo e integración [CTU (COBOL-To-Universal) de Modern Systems](https://modernsystems.com/automatic-cobol-to-java-conversion/).
 - Herramientas de desarrollo e integración [COBOL para empresas de NTT Data](https://us.nttdata.com/en/digital/application-development-and-modernization).
 - Compilador heredado [PL/I abierto de NTT](https://us.nttdata.com/en/digital/application-development-and-modernization) para la plataforma .NET, que admite la sintaxis, los tipos de datos y el comportamiento de PL/I del sistema central.
 - Herramientas de desarrollo e integración del [compilador COBOL de Raincode](https://www.raincode.com/products/cobol/).
 - El [compilador PL/I de Raincode](https://www.raincode.com/products/pli/) para la plataforma .NET admite la sintaxis, los tipos de datos y el comportamiento de PL/I del sistema central.
 - [Compilador ASM370 de Raincode](https://www.raincode.com/technical-landscape/asm370/) para la sintaxis de HLASM y Assembler 370 del sistema central.
-- Compilador [Visual RPG para .NET de ASNA](https://asna.com/us/products/visual-rpg) para .NET Framework a través del complemento de Visual Studio.
-- Herramientas de desarrollo e integración [CTU (COBOL-To-Universal) de Modern Systems](https://modernsystems.com/automatic-cobol-to-java-conversion/).
 
 ## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>Implementación de un entorno de emulación para el procesamiento en línea y por lotes
 
+- Arquitectura de implementación [Asysco AMT GO](https://www.asysco.com/amt-go/) que admite CICS, IMS, TIP, HVTIP y otros entornos comunes del sistema central.
 - Plataforma de integración del sistema central [Enterprise Server de Micro Focus](https://www.microfocus.com/products/enterprise-suite/enterprise-server/).
 - Entorno de procesamiento de transacciones nativo [NTT DATA Mainframe Rehosting Development Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf).
 - [NTT DATA Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) (BPE), que incluye las funcionalidades de transacciones de JCL.
@@ -47,10 +51,11 @@ Para obtener más ayuda con la emulación y los servicios del sistema central, c
 
 ## <a name="code-conversion"></a>Conversión de código
 
-- Conversión de código fuente de [Asysco](https://www.asysco.com/azure-cloud/).
-- Contenedor de software administrado [LzLabs Software Defined Mainframe](https://www.lzlabs.com/) para la migración de aplicaciones del sistema central a equipos Linux o entornos privados, públicos o de nube híbrida.
+- Tecnología de conversión del sistema [Asysco](https://www.asysco.com/azure-cloud/) que abarca el código fuente, los datos, el lote, la programación, los monitores de procesamiento de transacciones, las interfaces, la seguridad, la administración, etc.
+- Servicios de un extremo a otro [Asysco AMT Services](https://www.asysco.com/migration-services/) para los proyectos de migración, como el inventario y el análisis, la capacitación en diseño, los ensayos generales, la puesta en marcha, el soporte técnico posterior a la migración.
 - Herramientas de [Blu Age](https://www.bluage.com/) para la digitalización de bases de datos y aplicaciones empresariales heredadas.
 - Servicios de [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) para la conversión de contenido COBOL, CICS y VSAM del sistema central a Java.
+- Contenedor de software administrado [LzLabs Software Defined Mainframe](https://www.lzlabs.com/) para la migración de aplicaciones del sistema central a equipos Linux o entornos privados, públicos o de nube híbrida.
 
 ## <a name="modernization-services"></a>Servicios de modernización
 

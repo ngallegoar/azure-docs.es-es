@@ -6,17 +6,28 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 5/11/2020
+ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232028"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124081"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 
 Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o aumentar los flujos de datos. Por ejemplo, en un escenario de IoT, podría almacenar los metadatos sobre sensores (que no cambian a menudo) en los datos de referencia y combinarlos con los flujos de datos de IoT en tiempo real. Azure Stream Analytics carga los datos de referencia en la memoria para lograr un procesamiento del flujo de baja latencia. Para usar los datos de referencia en el trabajo de Azure Stream Analytics, por lo general usará una [combinación de datos de referencia](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) en la consulta. 
+
+## <a name="example"></a>Ejemplo  
+Puede generar un flujo de eventos en tiempo real cuando los automóviles pasen por una cabina de peaje. La cabina de peaje puede capturar la matrícula en tiempo real y acceder a un conjunto de datos estático que incluye detalles de registro para identificar las matrículas que han expirado.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
 
 Stream Analytics admite Azure Blob Storage y Azure SQL Database como capa de almacenamiento de los datos de referencia. También puede transformar o copiar datos de referencia a Blob Storage desde Azure Data Factory para usar [cualquier número de almacenes de datos basados en la nube y locales](../data-factory/copy-activity-overview.md).
 
@@ -34,7 +45,7 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 |Cuenta de almacenamiento   | El nombre de la cuenta de almacenamiento donde se encuentran los blobs. Si está en la misma suscripción que su trabajo de Stream Analytics, puede seleccionarla en el menú desplegable.   |
 |Clave de cuenta de almacenamiento   | La clave secreta asociada con la cuenta de almacenamiento. Se rellena automáticamente si la cuenta de almacenamiento está en la misma suscripción que el trabajo de Stream Analytics .   |
 |Contenedor de almacenamiento   | Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando carga un blob a Blob service, debe especificar un contenedor para ese blob.   |
-|Patrón de la ruta de acceso   | La ruta de acceso para ubicar los blobs dentro del contenedor especificado. Dentro de la ruta, puede elegir especificar una o más instancias de las siguientes dos variables:<BR>{date}, {time}<BR>Ejemplo 1: products/{date}/{time}/product-list.csv<BR>Ejemplo 2: products/{date}/product-list.csv<BR>Ejemplo 3: product-list.csv<BR><br> Si el blob no existe en la ruta de acceso especificada, el trabajo de Stream Analytics esperará indefinidamente a que el blob esté disponible.   |
+|Patrón de la ruta de acceso   | Se trata de una propiedad obligatoria que se usa para ubicar los blobs dentro del contenedor especificado. Dentro de la ruta, puede elegir especificar una o más instancias de las siguientes dos variables:<BR>{date}, {time}<BR>Ejemplo 1: products/{date}/{time}/product-list.csv<BR>Ejemplo 2: products/{date}/product-list.csv<BR>Ejemplo 3: product-list.csv<BR><br> Si el blob no existe en la ruta de acceso especificada, el trabajo de Stream Analytics esperará indefinidamente a que el blob esté disponible.   |
 |Formato de fecha [opcional]   | Si ha usado {date} dentro del patrón de ruta de acceso especificado, puede seleccionar el formato de fecha en el que se organizan los blobs en la lista desplegable de formatos admitidos.<BR>Ejemplo: AAAA/MM/DD, MM/DD/AAAA, etc.   |
 |Formato de hora [opcional]   | Si ha usado {time} dentro del patrón de ruta de acceso especificado, puede seleccionar el formato de hora en el que se organizan los blobs en la lista desplegable de formatos admitidos.<BR>Ejemplo: HH, HH/mm o HH:mm.  |
 |Formato de serialización de eventos   | Para asegurarse de que las consultas funcionen como se espera, Stream Analytics debe saber cuál es el formato de serialización que usa para los flujos de datos entrantes. Para los datos de referencia, los formatos admitidos son CSV y JSON.  |
@@ -100,17 +111,32 @@ Puede usar [Instancia administrada de Azure SQL Database](https://docs.microsoft
 
 ## <a name="size-limitation"></a>Limitación del tamaño
 
-Stream Analytics admite datos de referencia con **tamaño máximo de 300 MB**. El tamaño máximo de 300 MB de datos de referencia es factible solo con consultas sencillas. A medida que aumenta la complejidad de la consulta para incluir el procesamiento con estado, tal como los agregados por intervalos de tiempo, combinaciones temporales y funciones de análisis temporal, se espera que se reduzca el tamaño máximo admitido de datos de referencia. Si Azure Stream Analytics no puede cargar los datos de referencia y realizar operaciones complejas, el trabajo se quedará sin memoria y producirá un error. En estos casos, la métrica de porcentaje de uso de SU llegará a 100 %.    
+Le recomendamos usar conjuntos de datos de referencia de menos de 300 MB para obtener el mejor rendimiento. En los trabajos con 6 SU o más, se admite un uso de datos de referencia superior a 300 MB. Esta funcionalidad se encuentra en versión preliminar y no debe usarse en producción. El uso de datos de referencia de gran tamaño puede afectar al rendimiento del trabajo. A medida que aumenta la complejidad de la consulta para incluir el procesamiento con estado, tal como los agregados por intervalos de tiempo, combinaciones temporales y funciones de análisis temporal, se espera que se reduzca el tamaño máximo admitido de datos de referencia. Si Azure Stream Analytics no puede cargar los datos de referencia y realizar operaciones complejas, el trabajo se quedará sin memoria y producirá un error. En estos casos, la métrica de porcentaje de uso de SU llegará a 100 %.    
 
-|**Número de unidades de streaming**  |**Tamaño máximo aprox. admitido (en MB)**  |
+|**Número de unidades de streaming**  |**Tamaño recomendado:**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 y más   |300   |
+|1   |50 MB o inferior   |
+|3   |150 MB o inferior   |
+|6 y más   |300 MB o inferior. El uso de datos de referencia superiores a 300 MB se admite en la versión preliminar y puede afectar al rendimiento del trabajo.    |
 
-Aumentar el número de unidades de streaming de un trabajo a más de 6 no aumenta el tamaño máximo admitido de datos de referencia.
+La compatibilidad con la compresión no está disponible para los datos de referencia.
 
-La compatibilidad con la compresión no está disponible para los datos de referencia. 
+## <a name="joining-multiple-reference-datasets-in-a-job"></a>Combinación de varios conjuntos de datos de referencia en un trabajo
+Solo puede unir una entrada de flujo con una entrada de datos de referencia en un paso de la consulta. Sin embargo, puede combinar varios conjuntos de datos de referencia si desglosa la consulta en varios pasos. A continuación se muestra un ejemplo.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

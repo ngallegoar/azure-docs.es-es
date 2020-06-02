@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45043718664eb1b3b6b865821b3f6b2a51199194
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79296734"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115037"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Información general sobre tipos de clase: Azure Lab Services
 
@@ -61,6 +61,10 @@ Puede configurar un laboratorio en Azure Lab Services para enseñar una clase in
 
 Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para enseñar el desarrollo de aplicaciones móviles con Android Studio](class-type-mobile-dev-android-studio.md).
 
+## <a name="big-data-analytics"></a>Análisis de macrodatos
+Puede configurar un laboratorio para enseñar una clase de análisis de macrodatos. Con este tipo de clase, los alumnos aprenden a manipular grandes volúmenes de datos y a aplicar algoritmos de aprendizaje automático y estadístico para obtener conclusiones sobre los datos. Un objetivo clave para los alumnos es aprender a usar herramientas de análisis de datos, como el paquete de software de código abierto de Apache Hadoop, que proporciona herramientas para almacenar, administrar y procesar macrodatos. 
+
+Para obtener información detallada sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para el análisis de macrodatos mediante una implementación de Docker de Hortonworks Data Platform](class-type-big-data-analytics.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60381202"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982010"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADSyncConfig
 En la siguiente documentación se proporciona información de referencia para el módulo de PowerShell ADSyncConfig.psm1 que se incluye con Azure AD Connect.
@@ -59,25 +59,24 @@ Busca en AD a partir del parámetro SearchBase y devuelve todos los objetos, fil
 ### <a name="examples"></a>EJEMPLOS
 
 #### <a name="example-1"></a>EJEMPLO 1
+Busca objetos con la herencia deshabilitada en el dominio "contoso" (de forma predeterminada, solo devuelve objetos "organizationalUnit").
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### <a name="example-2"></a>EJEMPLO 2
+Busca objetos "user" con la herencia deshabilitada en el dominio "contoso".
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### <a name="example-3"></a>EJEMPLO 3
+Busca todos los tipos de objetos con la herencia deshabilitada en una unidad organizativa.
 ```
-Find all types of objects with disabled inheritance in a OU
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+
 
 ### <a name="parameters"></a>PARAMETERS
 

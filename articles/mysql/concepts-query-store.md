@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: d138c2fb8ed667d5b3c961c9f567264fa40edaee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 5/12/2020
+ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537047"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402231"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MySQL con el Almacén de consultas
 
-**Se aplica a:** Azure Database for MySQL 5.7
+**Se aplica a:** Azure Database for MySQL 5.7, 8.0
 
 La característica Almacén de consultas de Azure Database for MySQL proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. El Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y lo conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en la base de datos de esquema denominada **mysql** en la instancia de Azure Database for MySQL.
 

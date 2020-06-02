@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf8d461485cefd37b9508031f5cce7ae0a070ef5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 2a81d28998c531339a1b719e37e4b90004157edf
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653195"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005849"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 
@@ -35,7 +35,7 @@ Nuestra recomendación es usar un almacén por cada aplicación y cada entorno (
 
 ## <a name="backup"></a>Copia de seguridad
 
-Asegúrese de hacer copias de seguridad del [almacén](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) periódicamente, cuando actualice, elimine o cree objetos dentro de un almacén.
+Asegúrese de hacer copias de seguridad del almacén periódicamente, cuando actualice, elimine o cree objetos dentro de un almacén.
 
 ## <a name="turn-on-logging"></a>Activar el registro
 

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b000776c04550e1deb883039d94deeb735061ce
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 40d6768b528d132b3d238227098d4340fce37cca
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985888"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125798"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -109,7 +109,7 @@ Incluso con Always On habilitado, el tiempo de espera de ejecución para las fun
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinación del plan de hospedaje de una aplicación existente
 
-Para determinar el plan de hospedaje utilizado por la aplicación de función, consulte **Plan de App Service/plan de tarifa** en la pestaña **Introducción** para la aplicación de función en [Azure Portal](https://portal.azure.com). Los planes de App Service, también se indica el plan de tarifa.
+Para determinar el plan de hospedaje que usa la aplicación de funciones, consulte **Plan de App Service** en la pestaña **Introducción** de la aplicación de funciones en [Azure Portal](https://portal.azure.com). Para ver el plan de tarifa, seleccione el nombre del **Plan de App Service** y, a continuación, seleccione **Propiedades** en el panel izquierdo.
 
 ![Vista del plan de escalado en el portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -124,7 +124,7 @@ Cuando el resultado de este comando es `dynamic`, la aplicación de función est
 
 ## <a name="storage-account-requirements"></a>Requisitos de la cuenta de almacenamiento
 
-En cualquier plan, una aplicación de funciones requiere una cuenta de Azure Storage general que admita almacenamiento de Azure en blobs, colas, archivos y tablas. Esto es porque las Functions basa en Azure Storage para operaciones como la administración de desencadenadores y el registro de las ejecuciones de funciones, pero algunas cuentas de almacenamiento no admiten colas y tablas. Estas cuentas, que incluyen las cuentas de almacenamiento solo para blobs (incluido almacenamiento Premium) y las cuentas de almacenamiento de uso general con replicación de almacenamiento con redundancia de zona, se filtran horizontalmente de las selecciones de **Cuenta de almacenamiento** existentes cuando se crea una aplicación de función.
+En cualquier plan, una aplicación de funciones requiere una cuenta de Azure Storage general que admita almacenamiento de Azure en blobs, colas, archivos y tablas. Esto es porque Azure Functions se basa en Azure Storage para realizar operaciones como la administración de desencadenadores y el registro de las ejecuciones de funciones, pero algunas cuentas de almacenamiento no admiten colas y tablas. Estas cuentas, que incluyen las cuentas de almacenamiento solo para blobs (incluido almacenamiento Premium) y las cuentas de almacenamiento de uso general con replicación de almacenamiento con redundancia de zona, se filtran horizontalmente de las selecciones de **Cuenta de almacenamiento** existentes cuando se crea una aplicación de función.
 
 Los desencadenadores y enlaces para almacenar los datos de la aplicación también pueden usar la misma cuenta de almacenamiento que usa la aplicación de función. Sin embargo, para las operaciones que consumen muchos recursos de almacenamiento, debe usar una cuenta de almacenamiento independiente.  
 
@@ -134,7 +134,7 @@ Es muy posible que varias aplicaciones de función compartan la misma cuenta de 
 
 Para obtener más información sobre los tipos de cuenta de almacenamiento, vea [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#core-storage-services).
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Cómo funcionan los planes de consumo y Prémium
+## <a name="how-the-consumption-and-premium-plans-work"></a>Cómo funcionan los planes de consumo y premium
 
 En los planes de consumo y Premium, la infraestructura de Azure Functions escala los recursos de CPU y memoria. Para ello, agrega instancias adicionales del host de Functions, según el número de eventos en los que se desencadenan sus funciones. Cada instancia del host de Functions del plan de consumo tiene una limitación de 1.5 GB de memoria y una CPU.  Una instancia del host es la aplicación de funciones completa, lo que significa que todas las funciones de una aplicación de funciones comparten recursos al mismo tiempo en una instancia y escala determinadas. Las aplicaciones de función que comparten el mismo plan de consumo se escalan de manera independiente.  En el plan Premium, el tamaño del plan determinará la memoria y la CPU disponibles para todas las aplicaciones de ese plan en esa instancia.  
 
@@ -162,7 +162,7 @@ El escalado puede variar en función de varios factores, y realizarse de forma d
 
 Hay muchos aspectos de una aplicación de función que afectarán a cómo se escala esta, incluida la configuración del host, la superficie del sistema de tiempo de ejecución y la eficacia de los recursos.  Para obtener más información, consulte la [sección de escalabilidad del artículo sobre consideraciones de rendimiento](functions-best-practices.md#scalability-best-practices). También debe tener en cuenta cómo se comportan las conexiones a medida que la aplicación de función se escala. Para más información, consulte [How to manage connections in Azure Functions](manage-connections.md) (Administración de conexiones en Azure Functions).
 
-Para más información sobre el escalado en Python y Node.js, vea [Guía de Azure Functions para desarrolladores de Python: Simultaneidad](functions-reference-python.md#scaling-and-concurrency) y [Guía para el desarrollador de JavaScript para Azure Functions: Escalado y simultaneidad](functions-reference-node.md#scaling-and-concurrency).
+Para obtener más información sobre el escalado en Python y Node.js, consulte la [Guía de Azure Functions para desarrolladores de Python: escalado y simultaneidad](functions-reference-python.md#scaling-and-concurrency) y la [Guía para desarrolladores de Node.js para Azure Functions: escalado y simultaneidad](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de facturación
 

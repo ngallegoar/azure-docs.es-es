@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684707"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983574"
 ---
 # <a name="execute-r-script"></a>Ejecución script de R
 
@@ -42,6 +42,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> Si la canalización contiene varios módulos Ejecutar script R y necesita los mismos paquetes que no están en la lista preinstalada, instale los paquetes en cada módulo respectivamente. 
 
 ## <a name="installing-r-packages"></a>Instalación de paquetes de R
 Para instalar paquetes de R adicionales, use el método `install.packages()`. Se instalan paquetes para cada módulo **Ejecutar script R** y no se pueden compartir entre con otros módulos **Ejecutar script R**.
@@ -140,7 +142,7 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
 1. En el cuadro de texto **Script de R**, escriba o pegue el script de R válido.
 
     > [!NOTE]
-    > Tenga mucho cuidado al escribir el script y asegúrese de que no incluya ningún error de sintaxis, por ejemplo, el uso de una variable no declarada o de un módulo o función no importados. Además, preste especial atención a la lista de paquetes preinstalados al final de este documento. Para usar paquetes que no aparecen en la lista, instálelos en el script como `install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    > Tenga mucho cuidado al escribir el script y asegúrese de que no incluya ningún error de sintaxis, como el uso de variables no declaradas o de módulos o funciones no importados. Además, preste especial atención a la lista de paquetes preinstalados al final de este documento. Para usar paquetes que no aparecen en la lista, instálelos en el script como `install.packages("zoo",repos = "http://cran.us.r-project.org")`
     
     > [!NOTE]
     > Las funciones dependientes de la biblioteca X11 como "View" no se admiten porque la biblioteca X11 no está preinstalada.

@@ -5,19 +5,22 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/22/2019
-ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.date: 05/09/2020
+ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738089"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196287"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estructura de registros de Azure Monitor
 La capacidad de obtener rápidamente información sobre sus datos mediante una [consulta de registro](log-query-overview.md) es una versátil característica de Azure Monitor. Para crear consultas eficaces y útiles, debe comprender algunos conceptos básicos, como dónde se encuentran los datos que desea y cómo se estructuran. En este artículo se proporcionan los conceptos básicos que necesita para empezar a trabajar.
 
 ## <a name="overview"></a>Información general
 Los datos de los registros de Azure Monitor se almacenan en un área de trabajo de Log Analytics o en una aplicación de Application Insights. Ambos usan [Azure Data Explorer](/azure/data-explorer/), lo que significa que aprovechan su lenguaje de consulta y motor de datos eficaces.
+
+> [!IMPORTANT]
+> Si usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), la telemetría se almacena en un área de trabajo de Log Analytics con todos los demás datos del registro. Se ha cambiado el nombre de las tablas y se han reestructurado, pero tienen la misma información que las tablas de la aplicación Application Insights.
 
 Los datos de las áreas de trabajo y las aplicaciones se organizan en tablas, cada una de las cuales almacena diferentes tipos de datos y tiene su propio conjunto único de propiedades. La mayoría de los [orígenes de datos](../platform/data-sources.md) escribirán en sus propias tablas en un área de trabajo de Log Analytics, mientras que Application Insights escribirá en un conjunto predefinido de tablas en una aplicación de Application Insights. Las consultas son muy flexibles, lo que le permite combinar fácilmente datos de varias tablas e incluso usar una consulta entre recursos para combinar datos de tablas en varias áreas de trabajo o para escribir las consultas que combinan datos de áreas de trabajo y aplicaciones.
 
@@ -48,23 +51,26 @@ Consulte la documentación de cada origen de datos para conocer los detalles de 
 Consulte [Diseño de la implementación de registros de Azure Monitor](../platform/design-logs-deployment.md) para comprender la estrategia de control de acceso y las recomendaciones para proporcionar acceso a los datos de un área de trabajo. Además de conceder acceso a la propia área de trabajo, puede limitar el acceso a tablas individuales mediante [RBAC de nivel de tabla](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Aplicación de Application Insights
+
+> [!IMPORTANT]
+> Si usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), la telemetría se almacena en un área de trabajo de Log Analytics con todos los demás datos del registro. Se ha cambiado el nombre de las tablas y se han reestructurado, pero tienen la misma información que las tablas de un recurso de una instancia clásica de Application Insights.
+
 Al crear una aplicación en Application Insights, se crea automáticamente una aplicación correspondiente en los registros de Azure Monitor. No se necesita ninguna configuración para recopilar datos y la aplicación escribirá automáticamente datos tales como las vistas de páginas, solicitudes y excepciones de supervisión.
 
 A diferencia de un área de trabajo de Log Analytics, una aplicación de Application Insights tiene un conjunto fijo de tablas. No puede configurar otros orígenes de datos para escribir en la aplicación, por lo que no se puede crear ninguna tabla adicional. 
 
 | Tabla | Descripción | 
 |:---|:---|
-| availabilityResults   | Datos de resumen de las pruebas de disponibilidad.
-| browserTimings      |     Datos sobre el rendimiento del cliente, como el tiempo que se tardan en procesar los datos entrantes.
-| customEvents        | Eventos personalizados creados por la aplicación.
-| customMetrics       | Métricas personalizadas creadas por la aplicación.
-| dependencies        | Llamadas desde la aplicación a otros componentes (incluidos componentes externos) registradas a través de TrackDependency(), por ejemplo, llamadas a la API de REST, a una base de datos o a un sistema de archivos. 
-| exceptions            | Excepciones producidas por el tiempo de ejecución de la aplicación, captura las excepciones del lado servidor y cliente (exploradores).
-| pageViews           | Datos sobre cada vista del sitio web con información del explorador.
-| performanceCounters   | Medidas de rendimiento de los recursos de proceso que respaldan la aplicación, por ejemplo, contadores de rendimiento de Windows.
-| Solicitudes            | Solicitudes recibidas por su aplicación. Por ejemplo, se registra un registro de solicitud independiente para cada solicitud HTTP que recibe la aplicación web. 
-| traces                | Registros detallados (seguimientos) emitidos a través de código de aplicación/plataformas de registro, registrados a través de TrackTrace().
-
+| availabilityResults | Datos de resumen de las pruebas de disponibilidad. |
+| browserTimings      | Datos sobre el rendimiento del cliente, como el tiempo que se tardan en procesar los datos entrantes. |
+| customEvents        | Eventos personalizados creados por la aplicación. |
+| customMetrics       | Métricas personalizadas creadas por la aplicación. |
+| dependencies        | Llamadas desde la aplicación a otros componentes (incluidos componentes externos) registradas a través de TrackDependency(), por ejemplo, llamadas a la API de REST, a una base de datos o a un sistema de archivos. |
+| exceptions          | Excepciones producidas por el tiempo de ejecución de la aplicación, captura las excepciones del lado servidor y cliente (exploradores).|
+| pageViews           | Datos sobre cada vista del sitio web con información del explorador. |
+| performanceCounters | Medidas de rendimiento de los recursos de proceso que respaldan la aplicación, por ejemplo, contadores de rendimiento de Windows. |
+| Solicitudes            | Solicitudes recibidas por su aplicación. Por ejemplo, se registra un registro de solicitud independiente para cada solicitud HTTP que recibe la aplicación web.  |
+| traces              | Registros detallados (seguimientos) emitidos a través de código de aplicación/plataformas de registro, registrados a través de TrackTrace(). |
 
 Puede ver el esquema para cada tabla de la pestaña **Esquema** en Log Analytics para la aplicación.
 

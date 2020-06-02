@@ -5,24 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 05/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a108c952c4f1f9b8298e57c8fd94c767bb065f00
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74380013"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981780"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>¿Cuáles son las dependencias de servicio del acceso condicional de Azure Active Directory? 
 
 Con las directivas de acceso condicional, puede especificar requisitos de acceso para sitios web y servicios. Por ejemplo, los requisitos de acceso pueden incluir el uso obligatorio de la autenticación multifactor (MFA) o [dispositivos administrados](require-managed-devices.md). 
 
-Cuando se accede a un sitio o a un servicio directamente, suele ser fácil evaluar el impacto de una directiva relacionada. Por ejemplo, si tiene una directiva que requiere tener configurado MFA para SharePoint Online, MFA se aplica en cada inicio de sesión al portal web de SharePoint. Sin embargo, no siempre resulta sencillo evaluar el impacto de una directiva porque hay aplicaciones en la nube con dependencias de otras aplicaciones en la nube. Por ejemplo, Microsoft Teams puede proporcionar acceso a los recursos de SharePoint Online. Por lo tanto, cuando accede a Microsoft Teams en nuestro escenario actual, también está sujeto a la directiva de MFA de SharePoint.   
+Cuando se accede a un sitio o a un servicio directamente, suele ser fácil evaluar el impacto de una directiva relacionada. Por ejemplo, si tiene una directiva que requiere tener configurada la autenticación multifactor (MFA) para SharePoint Online, MFA se aplica en cada inicio de sesión al portal web de SharePoint. Sin embargo, no siempre resulta sencillo evaluar el impacto de una directiva porque hay aplicaciones en la nube con dependencias de otras aplicaciones en la nube. Por ejemplo, Microsoft Teams puede proporcionar acceso a los recursos de SharePoint Online. Por lo tanto, cuando accede a Microsoft Teams en nuestro escenario actual, también está sujeto a la directiva de MFA de SharePoint. 
+
+> [!TIP]
+> Al usar la aplicación [Office 365 (versión preliminar)](concept-conditional-access-cloud-apps.md#office-365-preview), todas las aplicaciones de Office evitarán los problemas con las dependencias en la pila de Office.
 
 ## <a name="policy-enforcement"></a>Aplicación de directivas 
 
@@ -36,6 +39,8 @@ En el diagrama siguiente se ilustran las dependencias del servicio MS Teams. Las
 ![Dependencias del servicio MS Teams](./media/service-dependencies/01.png)
 
 Como procedimiento recomendado, debe establecer directivas comunes en aplicaciones y servicios relacionados siempre que sea posible. Tener una posición de seguridad coherente proporciona la mejor experiencia de usuario. Por ejemplo, establecer una directiva común en Exchange Online, SharePoint Online, Microsoft Teams y Skype Empresarial reduce considerablemente los mensajes inesperados que pueden surgir por la aplicación de diferentes directivas a servicios de nivel inferior. 
+
+Una excelente manera de lograr esto con las aplicaciones en la pila de Office es usar [Office 365 (versión preliminar)](concept-conditional-access-cloud-apps.md#office-365-preview) en lugar de dirigirse a aplicaciones individuales.
 
 En la tabla siguiente se enumeran las dependencias de servicio adicionales que deben satisfacer las aplicaciones cliente.  
 

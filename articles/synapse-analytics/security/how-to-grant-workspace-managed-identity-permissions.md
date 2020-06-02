@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f519022fffe98c565c3b2d30f6578b9ebb70c57
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f0644c25d0047f774fe8f99efa34a33e10d7b2b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426460"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983302"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)
 
@@ -41,7 +41,7 @@ Azure Synapse intentará conceder el rol de colaborador de datos de Blob Storage
 
 Elija la cuenta de almacenamiento de ADLS Gen2 y el sistema de archivos en **Nombre de cuenta** y **Nombre del sistema de archivos**, respectivamente.
 
-![Proporcionar los detalles de una cuenta de almacenamiento de ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
+![Suministro de los detalles de una cuenta de almacenamiento de ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
 Si el creador del área de trabajo también es **Propietario** de la cuenta de almacenamiento de ADLS Gen2, Azure Synapse asignará el rol *Colaborador de datos de Storage Blob* a la identidad administrada. Verá el siguiente mensaje debajo de los detalles de la cuenta de almacenamiento que especificó.
 
@@ -55,7 +55,7 @@ Como indica el mensaje, no puede crear grupos de Spark a menos que el *colaborad
 
 ### <a name="grant-permissions-to-managed-identity-after-workspace-creation"></a>Concesión de permisos a una identidad administrada después de la creación del área de trabajo
 
-Durante la creación del área de trabajo, si no asigna el *colaborador de datos de Storage Blob* a la identidad administrada, el **Propietario** de la cuenta de almacenamiento de ADLS Gen2 lo asigna manualmente. Los pasos siguientes le ayudarán a realizar la asignación manual.
+Durante la creación del área de trabajo, si no asigna el rol *Colaborador de datos de Storage Blob* a la identidad administrada, el **Propietario** de la cuenta de almacenamiento de ADLS Gen2 lo asigna manualmente. Los pasos siguientes le ayudarán a realizar la asignación manual.
 
 #### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Paso 1: Navegación a la cuenta de almacenamiento de ADLS Gen2 en Azure Portal
 
@@ -69,7 +69,7 @@ La identidad administrada debe tener acceso a los datos del contenedor (sistema 
 
 
 Seleccione el mismo contenedor o sistema de archivos para conceder el rol de *Colaborador de datos de Storage Blob* a la identidad administrada.
-![Seleccionar el contenedor de la cuenta de almacenamiento de ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Selección del contenedor de la cuenta de almacenamiento de ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Paso 3: Navegación hasta el Control de acceso
 
@@ -114,7 +114,7 @@ Seleccione **Control de acceso (IAM)** y después **Asignaciones de roles**.
 ![Comprobación de la asignación de roles](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 
 La identidad administrada debería mostrarse en la sección **Colaborador de datos de Storage Blob** con el rol *Colaborador de datos de Storage Blob* asignado. 
-![Seleccionar el contenedor de la cuenta de almacenamiento de ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
+![Selección del contenedor de la cuenta de almacenamiento de ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

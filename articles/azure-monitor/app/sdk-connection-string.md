@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410609"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125713"
 ---
 # <a name="connection-strings"></a>Cadenas de conexión
 
@@ -64,10 +64,10 @@ La cadena de conexión consta de una lista de valores de configuración represen
 - `EndpointSuffix` (por ejemplo: applicationinsights.azure.cn) Al establecer el sufijo del punto de conexión, se indicará al SDK a qué nube de Azure se conectará. El SDK ensamblará el resto del punto de conexión para los servicios individuales.
 - Puntos de conexión explícitos.
   Cualquier servicio se puede invalidar explícitamente en la cadena de conexión.
-   - `IngestionEndpoint` (por ejemplo: https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint` (por ejemplo: https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint` (por ejemplo: https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint` (por ejemplo: https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint` (por ejemplo: `https://dc.applicationinsights.azure.com`)
+   - `LiveEndpoint` (por ejemplo: `https://live.applicationinsights.azure.com`)
+   - `ProfilerEndpoint` (por ejemplo: `https://profiler.applicationinsights.azure.com`)
+   - `SnapshotEndpoint` (por ejemplo: `https://snapshot.applicationinsights.azure.com`)
 
 #### <a name="endpoint-schema"></a>Esquema del punto de conexión
 
@@ -106,10 +106,10 @@ En este ejemplo, solo se ha establecido la clave de instrumentación.
 - El esquema de autorización tiene como valor predeterminado "ikey". 
 - Clave de instrumentación: 00000000-0000-0000-0000-000000000000
 - Los identificadores URI de servicio regional se basan en los [valores predeterminados del SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) y se conectarán a Azure público global:
-   - Ingesta: https://dc.services.visualstudio.com/
-   - Live Metrics: https://rt.services.visualstudio.com/
-   - Profiler: https://agent.azureserviceprofiler.net/
-   - Depurador: https://agent.azureserviceprofiler.net/  
+   - Ingesta: `https://dc.services.visualstudio.com/`
+   - Live Metrics: `https://rt.services.visualstudio.com/`
+   - Profiler: `https://agent.azureserviceprofiler.net/`
+   - Depurador: `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -122,10 +122,10 @@ En este ejemplo, esta cadena de conexión especifica el sufijo de punto de conex
 - El esquema de autorización tiene como valor predeterminado "ikey". 
 - Clave de instrumentación: 00000000-0000-0000-0000-000000000000
 - Los identificadores URI de servicio regional se basan en el sufijo de punto de conexión proporcionado: 
-   - Ingesta: https://dc.ai.contoso.com
-   - Live Metrics: https://live.ai.contoso.com
-   - Profiler: https://profiler.ai.contoso.com 
-   - Depurador: https://snapshot.ai.contoso.com   
+   - Ingesta: `https://dc.ai.contoso.com`
+   - Live Metrics: `https://live.ai.contoso.com`
+   - Profiler: `https://profiler.ai.contoso.com`
+   - Depurador: `https://snapshot.ai.contoso.com`  
 
 
 
@@ -138,10 +138,10 @@ En este ejemplo, esta cadena de conexión especifica invalidaciones explícitas 
 - El esquema de autorización tiene como valor predeterminado "ikey". 
 - Clave de instrumentación: 00000000-0000-0000-0000-000000000000
 - Los identificadores URI de servicio regional se basan en los valores de invalidación explícitos: 
-   - Ingesta: https:\//custom.com:111/
-   - Métricas en directo: https:\//custom.com:222/
-   - Generador de perfiles: https:\//custom.com:333/ 
-   - Depurador: https:\//custom.com:444/   
+   - Ingesta: `https://custom.com:111/`
+   - Live Metrics: `https://custom.com:222/`
+   - Profiler: `https://custom.com:333/`
+   - Depurador: `https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Cómo establecer una cadena de conexión

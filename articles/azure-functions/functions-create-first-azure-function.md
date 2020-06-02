@@ -5,16 +5,16 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: a96d2ede80b4c57e7b85048379a4bfb66cacfd52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 030af8a289daaf03d17f8402e8d603e893657853
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754853"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123635"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
 
-Azure Functions permite ejecutar el código en un entorno sin servidor y sin necesidad de crear una máquina virtual (VM) ni publicar una aplicación web. En este artículo, aprenderá a usar Azure Functions para crear una función desencadenada por HTTP "Hola mundo" en Azure Portal.
+Azure Functions permite ejecutar el código en un entorno sin servidor y sin necesidad de crear una máquina virtual (VM) ni publicar una aplicación web. En este artículo, aprenderá a usar Azure Functions para crear una función de desencadenador de HTTP "Hola mundo" en Azure Portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,29 +32,31 @@ Debe tener una Function App para hospedar la ejecución de las funciones. Una ap
 
 Después, cree una función en la nueva aplicación de funciones.
 
-## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Crear una función desencadenada por HTTP
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Creación de una función de desencadenador de HTTP
 
-1. Expanda la nueva aplicación de funciones, seleccione el botón **+** situado junto a **Funciones**, elija **En el portal** y luego seleccione **Continuar**.
+1. En el menú de la izquierda de la ventana **Funciones**, seleccione **Funciones** y, a continuación, seleccione **Agregar** en el menú superior. 
+ 
+1. En la ventana **Nueva función**, seleccione **Desencadenador de HTTP**.
 
-    ![Inicio rápido de Functions para elegir una plataforma.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Elección de la función de desencadenador de HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Elija **WebHook y API** y, a continuación, seleccione **Crear**.
+1. En la ventana **Nueva función**, acepte el nombre predeterminado para la **nueva función** o escriba un nombre nuevo. 
 
-    ![Inicio rápido de funciones en Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+1. En la lista desplegable **Nivel de autorización**, elija **Anónimo** y, a continuación, seleccione **Crear función**.
 
-   Se crea una función mediante una plantilla específica del idioma para una función desencadenada por HTTP.
-
-Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
+    Azure crea la función de desencadenador de HTTP. Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
 
 ## <a name="test-the-function"></a>Prueba de la función
 
-1. En la nueva función, seleccione **</> Obtener la dirección URL de la función** en la parte superior. 
+1. En la nueva función de desencadenador de HTTP, seleccione **Código y prueba** en el menú de la izquierda y, a continuación, seleccione **Obtener la dirección URL de la función** en el menú superior.
 
-1. En el cuadro de diálogo **Obtener la dirección URL de la función**, seleccione **default (Function key)** [predeterminada (tecla de función)] en la lista desplegable y, a continuación, **Copiar**. 
+    ![Selección de la opción Obtener la dirección URL de la función](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. En el cuadro de diálogo **Obtener la dirección URL de la función**, seleccione **valor predeterminado** en la lista desplegable y, a continuación, seleccione el icono **Copiar al Portapapeles**. 
 
     ![Copiar la dirección URL de la función desde Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `&name=<your_name>` de la cadena de consulta al final de esta dirección URL y presione Entrar para ejecutar la solicitud. 
+1. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `?name=<your_name>` de la cadena de consulta al final de esta dirección URL y presione Entrar para ejecutar la solicitud. 
 
     El ejemplo siguiente muestra la respuesta en el explorador:
 
@@ -62,7 +64,7 @@ Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP
 
     La dirección URL de la solicitud incluye una clave que, de forma predeterminada, es necesaria para tener acceso a la función a través de HTTP.
 
-1. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y seleccione la flecha que encontrará en la parte inferior de la pantalla para expandir **Registros**.
+1. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver los resultados del seguimiento, vuelva a la página **Código y prueba** en el portal y expanda la flecha **Registros** en la parte inferior de la página.
 
    ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 

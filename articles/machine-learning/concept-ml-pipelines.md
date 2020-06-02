@@ -1,7 +1,6 @@
 ---
-title: ¿Qué son las canalizaciones de Machine Learning?
-titleSuffix: Azure Machine Learning
-description: En este artículo conocerá las ventajas de las canalizaciones de Machine Learning (ML) que puede crear con el SDK de Azure Machine Learning para Python. Los científicos de datos usan canalizaciones de Machine Learning para crear, optimizar y administrar sus flujos de trabajo de aprendizaje automático.
+title: ¿Qué son las canalizaciones de Azure Machine Learning?
+description: Obtenga información sobre cómo las canalizaciones de Machine Learning (ML) ayudan a crear, optimizar y administrar los flujos de trabajo de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +8,16 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 79e9551650866e5f5fc28b123c1259e2a5fb6f20
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878585"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983455"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>¿Qué son las canalizaciones de Azure Machine Learning?
 
-Las canalizaciones de Azure Machine Learning permiten crear flujos de trabajo en los proyectos de aprendizaje automático. Estos flujos de trabajo tienen una serie de ventajas: 
+En este artículo, puede obtener información sobre cómo las canalizaciones de Machine Learning ayudan a crear, optimizar y administrar los flujos de trabajo de Machine Learning. Estos flujos de trabajo tienen una serie de ventajas: 
 
 + Simplicidad
 + Velocidad
@@ -45,7 +44,6 @@ La nube de Azure proporciona otras canalizaciones, cada una con una finalidad di
 | Orquestación de modelo (aprendizaje automático) | Científico de datos | Canalizaciones de Azure Machine Learning | Canalizaciones de Kubeflow | Datos -> Modelo | Distribución, almacenamiento en caché, Code First, reutilización | 
 | Orquestación de datos (preparación de datos) | Ingeniero de datos | [Canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Airflow de Apache | Datos -> Datos | Movimiento fuertemente tipado. Actividades centradas en datos. |
 | Orquestación de códigos y aplicaciones (CI/CD) | Desarrollo/operaciones de aplicaciones | [Canalizaciones de Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + modelo-> Aplicación o servicio | Compatibilidad con la mayoría de las actividades abiertas y flexibles, colas de aprobación, fases con restricción de acceso | 
-
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>¿Qué pueden hacer las canalizaciones de Azure ML?
 

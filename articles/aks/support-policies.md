@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77593587"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402452"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -38,11 +38,6 @@ Microsoft administra y supervisa los siguientes componentes mediante el panel de
 AKS no es una solución de clúster totalmente administrado. Algunos componentes, como los nodos de trabajo, tienen *responsabilidad compartida* con los usuarios para ayudar a mantener el clúster de AKS. Se requiere la participación del usuario, por ejemplo, para aplicar una revisión de seguridad del sistema operativo en el nodo de trabajo.
 
 Los servicios son *administrados* en el sentido en que Microsoft y el equipo de AKS implementan y operan el servicio, y son responsables de su disponibilidad y funcionalidad. Los clientes no pueden modificar estos componentes administrados. Microsoft limita la personalización para garantizar una experiencia de usuario coherente y escalable. Para una solución totalmente personalizable, consulte el [motor de AKS](https://github.com/Azure/aks-engine).
-
-> [!NOTE]
-> Los nodos de trabajo de AKS aparecen en Azure Portal como recursos de Azure IaaS normales. No obstante, estas máquinas virtuales se implementan en un grupo de recursos de Azure personalizado (con el prefijo MC\\\*). Los nodos de trabajo de AKS se pueden cambiar. Por ejemplo, puede conectar otros recursos de Azure a los nodos de trabajo de AKS y usar Secure Shell (SSH) para cambiar estos nodos igual que cambia las máquinas virtuales normales (en cambio, no puede cambiar la imagen base del sistema operativo y los cambios podrían no persistir tras una actualización o un reinicio). Pero si realiza cambios *fuera de la administración de la banda y la personalización*, el clúster de AKS puede dejar de ser compatible. Evite cambiar los nodos de trabajo a menos que el Soporte técnico de Microsoft se lo solicite.
-
-La emisión de operaciones no compatibles, como se definió anteriormente, como la desasignación de todos los nodos de agente, hace que el clúster deje de ser compatible. AKS se reserva el derecho de archivar los planos de control que se han configurado fuera de las directrices de compatibilidad durante períodos prolongados iguales o superiores a 30 días. AKS mantiene copias de seguridad de los metadatos de etcd del clúster y puede reasignar fácilmente el clúster. Esta reasignación puede iniciarse con cualquier operación PUT haciendo que el clúster vuelva a ser compatible, como una actualización o un escalado a los nodos de agente activos.
 
 ## <a name="shared-responsibility"></a>Responsabilidad compartida
 
@@ -103,6 +98,20 @@ Microsoft y los clientes comparten la responsabilidad sobre los nodos de trabajo
 Microsoft no reinicia automáticamente los nodos de trabajo para aplicar revisiones de nivel de sistema operativo. Aunque las revisiones del sistema operativo se entregan a los nodos de trabajo, el *cliente* es responsable de reiniciar los nodos de trabajo para aplicar los cambios. Las revisiones a las bibliotecas compartidas, los demonios como la unidad de estado sólido híbrida (SSHD) y otros componentes del nivel del sistema o del sistema operativo se realizan automáticamente.
 
 Los clientes son responsables de ejecutar las actualizaciones de Kubernetes. Pueden ejecutar las actualizaciones mediante el panel de control de Azure o la CLI de Azure. Esto se aplica a las actualizaciones que contienen mejoras de seguridad o funcionalidad para Kubernetes.
+
+#### <a name="user-customization-of-worker-nodes"></a>Personalización de usuario de los nodos de trabajo
+> [!NOTE]
+> Los nodos de trabajo de AKS aparecen en Azure Portal como recursos de Azure IaaS normales. No obstante, estas máquinas virtuales se implementan en un grupo de recursos de Azure personalizado (con el prefijo MC\\\*). Es posible aumentar los nodos de trabajo de AKS desde sus configuraciones base. Por ejemplo, puede usar Secure Shell (SSH) para cambiar los nodos de trabajo de AKS de la misma forma que cambia las máquinas virtuales normales. Sin embargo, no puede cambiar la imagen base del sistema operativo. Es posible que no se conserven los cambios personalizados si realiza una actualización, un escalado o un reinicio. **Sin embargo**, si hace cambios *fuera de banda y fuera del ámbito de la API de AKS* el clúster de AKS dejará de ser compatible. Evite cambiar los nodos de trabajo a menos que el Soporte técnico de Microsoft se lo solicite.
+
+La emisión de operaciones no compatibles, como se definió anteriormente, como la desasignación de todos los nodos de agente, hace que el clúster deje de ser compatible. AKS se reserva el derecho de archivar los planos de control que se han configurado fuera de las directrices de compatibilidad durante períodos prolongados iguales o superiores a 30 días. AKS mantiene copias de seguridad de los metadatos de etcd del clúster y puede reasignar fácilmente el clúster. Esta reasignación puede iniciarse con cualquier operación PUT haciendo que el clúster vuelva a ser compatible, como una actualización o un escalado a los nodos de agente activos.
+
+AKS administra el ciclo de vida y las operaciones de los nodos de trabajo en nombre de los clientes, por lo que **no admite** la modificación de los recursos de IaaS asociados a los nodos de trabajo. Un ejemplo de una operación no admitida es la personalización de un conjunto de escalado de máquinas virtuales del grupo de nodos mediante el cambio manual de las configuraciones en VMSS a través del portal o la API de VMSS.
+ 
+En el caso de las configuraciones o paquetes específicos de la carga de trabajo, AKS recomienda usar [controladores DaemonSet de Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+El uso de contenedores de tipo init y controladores DaemonSet con privilegios de Kubernetes permite a los clientes ajustar, modificar o instalar software de terceros en los nodos de trabajo del clúster. Algunos ejemplos de estas personalizaciones incluyen agregar software personalizado de examen de seguridad o actualizar la configuración de sysctl.
+
+Aunque se trata de una ruta de acceso recomendada si se cumplen los requisitos anteriores, los servicios de ingeniería y soporte técnico de AKS no pueden ayudarle en la solución de problemas, en el diagnóstico de modificaciones interrumpidas o que no funcionen, ni en aquellas modificaciones que indiquen que el nodo no está disponible debido a un controlador de DaemonSet que haya implementado un cliente.
 
 > [!NOTE]
 > Dado que AKS es un *servicio administrado*, sus objetivos finales incluyen eximir de responsabilidad sobre las revisiones, las actualizaciones y la recopilación de registros para que la administración de servicios sea más completa y discreta. A medida que aumenta la capacidad del servicio para la administración de un extremo a otro, las versiones futuras podrían omitir algunas funciones (por ejemplo, el reinicio del nodo y aplicación de revisiones automática).

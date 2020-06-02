@@ -4,22 +4,22 @@ description: Obtenga información sobre la sintaxis de SQL y un ejemplo de la cl
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587692"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005871"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM en Azure Cosmos DB
 
 La cláusula FROM (`FROM <from_specification>`) es opcional, a menos que el origen se filtre o se proyecte posteriormente en la consulta. Una consulta como `SELECT * FROM Families` se enumera en todo el contenedor `Families`. También puede usar el identificador especial ROOT para el contenedor en lugar de usar el nombre del contenedor.
 
-La cláusula FROM exige las reglas siguientes por consulta:
+La cláusula `FROM` exige las reglas siguientes por consulta:
 
-* Se puede establecer un alias para el contenedor, como `SELECT f.id FROM Families AS f` o simplemente `SELECT f.id FROM Families f`. Aquí `f` es el alias de `Families`. AS es una palabra clave opcional para [establecer un alias](sql-query-aliasing.md) para el identificador.  
+* Se puede establecer un alias para el contenedor, como `SELECT f.id FROM Families AS f` o simplemente `SELECT f.id FROM Families f`. Aquí `f` es el alias de `Families`. AS es una palabra clave opcional para [establecer un alias](sql-query-working-with-json.md#aliasing) para el identificador.  
 
 * Una vez establecido un alias, el nombre de origen original no puede enlazarse. Por ejemplo, `SELECT Families.id FROM Families f` no es válido sintácticamente porque no puede establecerse el alias del identificador `Families` y ya no puede resolverse.  
 
@@ -30,15 +30,15 @@ La cláusula FROM exige las reglas siguientes por consulta:
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -51,9 +51,9 @@ FROM <from_specification>
   
   Especifica un origen de datos, con o sin alias. Si no se especifica, se deducirá de `<container_expression>` con las siguientes reglas:  
   
-  -  Si la expresión es un nombre de contenedor, se utilizará container_name como alias.  
+-  Si la expresión es un nombre de contenedor, se utilizará container_name como alias.  
   
-  -  Si la expresión es `<container_expression>`, se utilizará property_name como alias. Si la expresión es un nombre de contenedor, se utilizará container_name como alias.  
+-  Si la expresión es `<container_expression>`, se utilizará property_name como alias. Si la expresión es un nombre de contenedor, se utilizará container_name como alias.  
   
 - AS `input_alias`.  
   
@@ -99,9 +99,9 @@ Si una expresión de contenedor accede a propiedades o elementos de matriz y el 
   
 El ámbito de las expresiones de contenedor puede ser de contenedor o de documento:  
   
--   Una expresión es de ámbito de contenedor si el origen subyacente de la expresión de contenedor es ROOT o `container_name`. Este tipo de expresión representa un conjunto de documentos que se recuperan directamente del contenedor y no dependen del procesamiento de otras expresiones de contenedor.  
+- Una expresión es de ámbito de contenedor si el origen subyacente de la expresión de contenedor es ROOT o `container_name`. Este tipo de expresión representa un conjunto de documentos que se recuperan directamente del contenedor y no dependen del procesamiento de otras expresiones de contenedor.  
   
--   Una expresión es de ámbito de documento si el origen subyacente de la expresión de contenedor es el valor `input_alias` introducido anteriormente en la consulta. Esta expresión representa un conjunto de documentos obtenidos al evaluar la expresión de contenedor en el ámbito de cada documento perteneciente al conjunto asociado con el contenedor del alias.  El conjunto de resultados será una combinación de los conjuntos obtenidos al evaluar la expresión de contenedor para cada uno de los documentos del conjunto subyacente. 
+- Una expresión es de ámbito de documento si el origen subyacente de la expresión de contenedor es el valor `input_alias` introducido anteriormente en la consulta. Esta expresión representa un conjunto de documentos obtenidos al evaluar la expresión de contenedor en el ámbito de cada documento perteneciente al conjunto asociado con el contenedor del alias. El conjunto de resultados será una combinación de los conjuntos obtenidos al evaluar la expresión de contenedor para cada uno de los documentos del conjunto subyacente.
 
 ## <a name="examples"></a>Ejemplos
 

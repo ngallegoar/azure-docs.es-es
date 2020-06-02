@@ -2,43 +2,94 @@
 title: Indexación de un conjunto de datos grande mediante indizadores integrados
 titleSuffix: Azure Cognitive Search
 description: Estrategias de indexación de datos de gran tamaño o indexación de cálculo intensivo mediante modo por lotes, recursos y técnicas para indexación programada, paralela y distribuida.
-manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+manager: liamca
+author: dereklegenzoff
+ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 4ad5e961e390b60784355ff3bc72aca4a2f73e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/05/2020
+ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190962"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925990"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Indexación de grandes conjuntos de datos en Azure Cognitive Search
+
+Azure Cognitive Search admite [dos enfoques básicos](search-what-is-data-import.md) para importar datos a un índice de búsqueda: *insertar* los datos en el índice mediante programación, o bien señalar un [indexador de Azure Cognitive Search](search-indexer-overview.md) en un origen de datos admitido para *extraer* los datos.
 
 A medida que los volúmenes de datos aumentan o las necesidades de procesamiento cambian, es posible que las estrategias de indexación simples o predeterminadas ya no sean prácticas. Para Azure Cognitive Search, existen varios enfoques para adaptar los grandes conjuntos de datos, que van desde cómo estructurar una solicitud de carga de datos hasta usar un indizador específico del origen para las cargas de trabajo programadas y distribuidas.
 
 Las mismas técnicas también se aplican a procesos de ejecución prolongada. En concreto, los pasos que se describen en [indización paralela](#parallel-indexing) son útiles para la indización de cálculo intensivo, como el análisis de imágenes o el procesamiento de lenguaje natural en la [canalización de enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md).
 
-En las secciones siguientes se exploran tres técnicas para indexar grandes cantidades de datos.
+En las secciones siguientes se exploran técnicas para indexar grandes cantidades de datos mediante la API de inserción y los índices.
 
-## <a name="option-1-pass-multiple-documents"></a>Opción 1: Pasar varios documentos
+## <a name="push-api"></a>API de inserción
 
-Uno de los mecanismos más sencillos para la indización de un conjunto de datos más grande es enviar varios documentos o registros en una sola solicitud. Siempre y cuando la carga completa sea menor a 16 MB, una solicitud puede administrar hasta 1000 documentos en una operación de carga masiva. Estos límites se aplican tanto si usa la [API REST para agregar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) como el [método Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) del SDK de .NET. Con cualquier API, se empaquetarían 1000 documentos en el cuerpo de cada solicitud.
+Al insertar datos en un índice, hay varias consideraciones importantes que afectan a la velocidad de indexación de la API de inserción. Estos factores se describen en la siguiente sección. 
 
-La indización por lotes se implementa para las solicitudes individuales con REST o. NET, o a través de indizadores. Algunos indizadores funcionan bajo distintos límites. En concreto, la indización de Azure Blob establece el tamaño de lote en 10 documentos en reconocimiento al tamaño máximo medio de los documentos. Para los indizadores basados en la [API REST para crear indizadores](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer), puede establecer el argumento `BatchSize` para personalizar esta configuración de modo que se adapte mejor a las características de los datos. 
+Además de la información de este artículo, también puede aprovechar los ejemplos de código del [tutorial para optimizar las velocidades de indexación](tutorial-optimize-indexing-push-api.md) para obtener más información.
+
+### <a name="service-tier-and-number-of-partitionsreplicas"></a>Nivel de servicio y número de particiones o réplicas
+
+La adición de particiones o el aumento del nivel del servicio de búsqueda aumentarán las velocidades de indexación.
+
+Agregar réplicas adicionales también puede aumentar las velocidades de indexación, pero no está garantizado. Por otro lado, las réplicas adicionales aumentarán el volumen de consultas que el servicio de búsqueda puede controlar. Las réplicas también son un componente clave para obtener un [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
+Antes de agregar particiones o réplicas o actualizar a un nivel superior, tenga en cuenta el costo monetario y el tiempo de asignación. La adición de particiones puede aumentar significativamente la velocidad de indexación, pero las operaciones de adición o eliminación pueden tardar entre 15 minutos y varias horas. Para obtener más información, consulte la documentación sobre cómo [ajustar la capacidad](search-capacity-planning.md).
+
+### <a name="index-schema"></a>Esquema de índices
+
+El esquema del índice desempeña un papel importante en la indexación de los datos. La incorporación de campos y propiedades adicionales a esos campos (por ejemplo, *que permitan buscar*, *clasificar* o *filtrar*) reducen la velocidad de indexación.
+
+En general, recomendamos agregar propiedades adicionales a los campos solo si piensa usarlos.
 
 > [!NOTE]
 > Para mantener un tamaño de documento reducido, evite agregar datos no consultables a un índice. Las imágenes y otros datos binarios no se pueden buscar directamente y no se deben almacenar en el índice. Para integrar los datos no consultables en los resultados de búsqueda, debe definir un campo que no admita búsquedas que almacene una referencia de dirección URL al recurso.
 
-## <a name="option-2-add-resources"></a>Opción 2: Adición de recursos
+### <a name="batch-size"></a>Tamaño de lote
 
-Los servicios que se aprovisionan en uno de los [planes de tarifa Estándar](search-sku-tier.md) a menudo tienen una capacidad infrautilizada de almacenamiento y cargas de trabajo (consultas o indización), lo que hace que [aumentar los recuentos de particiones y réplicas ](search-capacity-planning.md) sea una solución obvia para adaptarse a los grandes conjuntos de datos. Para obtener mejores resultados, necesita dos recursos: las particiones para el almacenamiento y las réplicas para el trabajo de ingesta de datos.
+Uno de los mecanismos más sencillos para la indización de un conjunto de datos más grande es enviar varios documentos o registros en una sola solicitud. Siempre y cuando la carga completa sea menor a 16 MB, una solicitud puede administrar hasta 1000 documentos en una operación de carga masiva. Estos límites se aplican tanto si usa la [API REST para agregar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) como el [método Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) del SDK de .NET. Con cualquier API, se empaquetarían 1000 documentos en el cuerpo de cada solicitud.
 
-Aumentar las réplicas y las particiones son eventos facturables que aumentan el costo; sin embargo, salvo que indexe continuamente por debajo de la carga máxima, puede agregar escala para el tiempo que dure el proceso de indexación y, luego, reducir los niveles de recursos cuando el proceso finalice.
+El uso de lotes para indexar los documentos mejora significativamente el rendimiento de la indexación. Determinar el tamaño de lote óptimo para los datos es un aspecto fundamental de la optimización de las velocidades de indexación. Los dos factores principales que influyen en el tamaño de lote óptimo son:
++ El esquema del índice
++ El tamaño de los datos
 
-## <a name="option-3-use-indexers"></a>Opción 3: Uso de indizadores
+Dado que el tamaño de lote óptimo depende del índice y los datos, la mejor estrategia es probar distintos tamaños de lote para determinar cuál ofrece mayores velocidades de indexación en su caso. En este [tutorial](tutorial-optimize-indexing-push-api.md) se proporciona código de ejemplo para probar los tamaños de lote mediante el SDK de .NET. 
+
+### <a name="number-of-threadsworkers"></a>Número de subprocesos/trabajos
+
+Para aprovechar al máximo las velocidades de indexación de Azure Cognitive Search, es posible que tenga que usar varios subprocesos para enviar solicitudes de indexación por lotes de forma simultánea al servicio.  
+
+El número óptimo de subprocesos viene determinado por lo siguiente:
+
++ El nivel del servicio de búsqueda
++ El número de particiones
++ El tamaño de los lotes
++ El esquema del índice
+
+Puede modificar este ejemplo y probar con diferentes números de subprocesos para determinar cuál es el número óptimo de subprocesos en su caso. Sin embargo, siempre que tenga varios subprocesos que se ejecuten simultáneamente, debería poder aprovechar al máximo la mayoría de los aumentos de eficiencia. 
+
+> [!NOTE]
+> A medida que aumente el nivel del servicio de búsqueda o el número de particiones, también debe aumentar el número de subprocesos simultáneos.
+
+A medida que aumenta las solicitudes que alcanzan el servicio de búsqueda, puede ver [códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) que indican que la solicitud no se completó correctamente. Durante la indexación, dos códigos de estado HTTP comunes son:
+
++ **503 Servicio no disponible**: este error significa que el sistema está sobrecargado y la solicitud no se puede procesar en este momento.
++ **207 Varios estados**: este error significa que algunos documentos se han procesado correctamente, pero al menos uno generó error.
+
+### <a name="retry-strategy"></a>Estrategia de reintento 
+
+Si se produce un error, las solicitudes deberán reintentarse con una [estrategia de reintento de retroceso exponencial](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+
+El SDK de .NET de Azure Cognitive Search reintenta automáticamente las solicitudes 503 y otras con errores, pero debe implementar su propia lógica para reintentar las solicitudes 207. También se pueden usar herramientas de código abierto como [Polly](https://github.com/App-vNext/Polly) para implementar una estrategia de reintento.
+
+### <a name="network-data-transfer-speeds"></a>Velocidades de transferencia de datos entre redes
+
+Las velocidades de transferencia de datos de red pueden ser un factor de limitación durante la indexación de datos. La indexación de datos desde su entorno de Azure es una manera fácil de acelerar la indexación.
+
+## <a name="indexers"></a>Indexadores
 
 Los [indexadores](search-indexer-overview.md) sirven para rastrear en los orígenes de datos de Azure admitidos contenido que permite búsquedas. Aunque no se diseñaron específicamente para el indexado a gran escala, varias funcionalidades de los indizadores son especialmente útiles para adaptar grandes conjuntos de datos:
 
@@ -48,6 +99,12 @@ Los [indexadores](search-indexer-overview.md) sirven para rastrear en los oríge
 
 > [!NOTE]
 > Los indizadores son específicos del origen de datos, por lo que un enfoque con indizadores solo es posible para algunos orígenes de datos en Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md) y [Cosmos DB](search-howto-index-cosmosdb.md).
+
+### <a name="batch-size"></a>Tamaño de lote
+
+Al igual que con la API de inserciones, los indizadores permiten configurar el número de elementos por lote. Para los indizadores basados en la [API REST para crear indizadores](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer), puede establecer el argumento `batchSize` para personalizar esta configuración de modo que se adapte mejor a las características de los datos. 
+
+Los tamaños de lote predeterminados son específicos para cada origen de datos. Azure SQL Database y Azure Cosmos DB tienen un tamaño de lote predeterminado de 1000. Por el contrario, la indexación de Azure Blob establece el tamaño de lote en 10 documentos en atención al tamaño máximo medio de los documentos. 
 
 ### <a name="scheduled-indexing"></a>Indexación programada
 

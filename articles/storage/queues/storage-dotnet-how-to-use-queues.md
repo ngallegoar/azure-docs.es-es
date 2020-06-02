@@ -3,27 +3,23 @@ title: 'Introducción a Azure Queue Storage mediante .NET: Azure Storage'
 description: Las colas de Azure proporcionan mensajería asincrónica confiable entre componentes de aplicaciones. La mensajería en la nube permite que los componentes de las aplicaciones se escalen de forma independiente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0806c1101c0bc93a1b917cb2d18709721ff0c6d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: afdd9b1b063d0a82c8cdb27ef01b412daaa9f1df
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75968286"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198901"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 
-[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
-
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
-
 ## <a name="overview"></a>Información general
 
-El almacenamiento en cola de Azure proporciona mensajería en la nube entre componentes de aplicaciones. A la hora de diseñar aplicaciones para escala, los componentes de las mismas suelen desacoplarse para poder escalarlos de forma independiente. El almacenamiento en cola ofrece mensajería asincrónica para la comunicación entre los componentes de las aplicaciones, independientemente de si se ejecutan en la nube, en el escritorio, en un servidor local o en un dispositivo móvil. Además, este tipo de almacenamiento admite la administración de tareas asincrónicas y la creación de flujos de trabajo de procesos.
+El almacenamiento en cola de Azure proporciona mensajería en la nube entre componentes de aplicaciones. A la hora de diseñar aplicaciones para realizar su escalado, los componentes de las mismas suelen desacoplarse, por lo que se pueden escalar de forma independiente. La instancia de Queue Storage ofrece mensajería asincrónica entre los componentes de las aplicaciones, independientemente de si se ejecutan en la nube, en el escritorio, en un servidor local o en un dispositivo móvil. Además, este tipo de almacenamiento admite la administración de tareas asincrónicas y la creación de flujos de trabajo de procesos.
 
 ### <a name="about-this-tutorial"></a>Acerca de este tutorial
 
@@ -33,11 +29,11 @@ Este tutorial muestra cómo escribir código .NET para algunos escenarios comune
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Biblioteca cliente Azure Storage Common para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-* [Biblioteca cliente Azure Storage Queue para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-* [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* Una [cuenta de almacenamiento de Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
+- [Biblioteca cliente Azure Storage Common para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+- [Biblioteca cliente Azure Storage Queue para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+- [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
+- Una [cuenta de almacenamiento de Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -64,18 +60,38 @@ Las bibliotecas cliente de Azure Storage se pueden usar en cualquier tipo de apl
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Uso de NuGet para instalar los paquetes necesarios
 
-Para completar este tutorial, es preciso que haga referencia a los siguientes tres paquetes en el proyecto:
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-* [Biblioteca cliente Microsoft Azure Storage Common para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este paquete proporciona acceso mediante programación a los recursos de datos de la cuenta de almacenamiento.
-* [Biblioteca cliente Microsoft Azure Storage Queue para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Esta biblioteca cliente permite trabajar con el servicio Microsoft Azure Storage Queue para almacenar los mensajes a los que puede acceder un cliente.
-* [Biblioteca del Administrador de configuración de Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Este paquete proporciona una clase para analizar una cadena de conexión en un archivo de configuración, independientemente del lugar en que se ejecute la aplicación.
+Para completar este tutorial, es preciso que haga referencia a los siguientes cuatro paquetes en el proyecto:
+
+- [Biblioteca de Azure Core para .NET](https://www.nuget.org/packages/Azure.Core/): este paquete proporciona primitivas, abstracciones y aplicaciones auxiliares compartidas para las bibliotecas de cliente modernas de Azure SDK de .NET.
+- [Biblioteca cliente de Azure Storage Common para .NET](https://www.nuget.org/packages/Azure.Storage.Common/): este paquete proporciona una infraestructura que comparte el resto de bibliotecas de cliente de Azure Storage.
+- [Biblioteca de Azure Storage Queue para .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): este paquete permite trabajar con el servicio Azure Storage Queue para almacenar los mensajes a los que puede acceder un cliente.
+- [Biblioteca de Configuration Manager para .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): este paquete proporciona acceso a los archivos de configuración de las aplicaciones cliente.
 
 Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 
 1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones**, y elija **Administrar paquetes NuGet**.
-2. Seleccione **Examinar**
-3. Busque "Microsoft.Azure.Storage.Queue" en línea y seleccione **Instalar** para instalar la biblioteca cliente de Storage y sus dependencias. Esto instalará también la biblioteca Microsoft.Azure.Storage.Common, que es una dependencia de la biblioteca de Queue.
-4. Busque "Microsoft.Azure.ConfigurationManager" en línea y seleccione **Instalar** para instalar Azure Configuration Manager.
+1. Seleccione **Examinar**
+1. Busque "Azure.Storage.Queues" en línea y seleccione **Instalar** para instalar la biblioteca cliente de Storage y sus dependencias. También se instalarán las bibliotecas Azure.Storage.Common y Azure.Core, que son dependencias de la biblioteca de colas.
+1. Busque "System.Configuration.ConfigurationManager" en línea y seleccione **Instalar** para instalar Configuration Manager.
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Para completar este tutorial, es preciso que haga referencia a los siguientes tres paquetes en el proyecto:
+
+- [Biblioteca cliente Microsoft Azure Storage Common para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este paquete proporciona acceso mediante programación a los recursos de datos de la cuenta de almacenamiento.
+- [Biblioteca cliente Microsoft Azure Storage Queue para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Esta biblioteca cliente permite trabajar con el servicio Microsoft Azure Storage Queue para almacenar los mensajes a los que puede acceder un cliente.
+- [Biblioteca del Administrador de configuración de Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Este paquete proporciona una clase para analizar una cadena de conexión en un archivo de configuración, independientemente del lugar en que se ejecute la aplicación.
+
+Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
+
+1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones**, y elija **Administrar paquetes NuGet**.
+1. Seleccione **Examinar**
+1. Busque "Microsoft.Azure.Storage.Queue" en línea y seleccione **Instalar** para instalar la biblioteca cliente de Storage y sus dependencias. Esto instalará también la biblioteca Microsoft.Azure.Storage.Common, que es una dependencia de la biblioteca de Queue.
+1. Busque "Microsoft.Azure.ConfigurationManager" en línea y seleccione **Instalar** para instalar Azure Configuration Manager.
+
+---
 
 > [!NOTE]
 > El paquete de las bibliotecas cliente de Storage también se incluye en el [SDK de Azure para .NET](https://azure.microsoft.com/downloads/). Sin embargo, se recomienda que instale también las bibliotecas cliente de Storage desde NuGet para garantizar que siempre dispone de las versiones más recientes.
@@ -86,57 +102,15 @@ Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 
 Tiene dos opciones de entorno para ejecutar los ejemplos de esta guía:
 
-* Puede ejecutar el código en una cuenta de Azure Storage en la nube.
-* Puede ejecutar el código en el emulador de almacenamiento de Azure. El emulador de almacenamiento es un entorno local que emula una cuenta de Azure Storage en la nube. El emulador es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../common/storage-use-emulator.md).
-
-Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../common/storage-account-keys-manage.md).
+- Puede ejecutar el código en una cuenta de Azure Storage en la nube.
+- Puede ejecutar el código en el emulador de almacenamiento de Azurite. Azurite es un entorno local que emula una cuenta de Azure Storage en la nube. Azurite es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para obtener más información, consulte [Uso del emulador Azurite en la instancia local de Azure Storage para desarrollo y pruebas](../common/storage-use-azurite.md).
 
 > [!NOTE]
 > Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Azure Storage. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.
 
-### <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
+## <a name="get-your-storage-connection-string"></a>Obtención de la cadena de conexión de almacenamiento
 
-Las bibliotecas cliente de Azure Storage para .NET admiten el uso de una cadena de conexión de almacenamiento para configurar puntos de conexión y credenciales a fin de acceder a los servicios de almacenamiento. La mejor manera de conservar la cadena de conexión de almacenamiento es mediante un archivo de configuración.
-
-Para más información acerca de las cadenas de conexión, consulte [Configuración de una cadena de conexión a Azure Storage](../common/storage-configure-connection-string.md).
-
-> [!NOTE]
-> La clave de la cuenta de almacenamiento es similar a la contraseña raíz de la cuenta de almacenamiento. Siempre debe proteger la clave de la cuenta de almacenamiento. Evite distribuirla a otros usuarios, codificarla de forma rígida o guardarla en un archivo de texto que sea accesible a otros usuarios. Vuelva a generar la clave mediante Azure Portal si cree que puede verse comprometida.
-
-Para configurar la cadena de conexión, abra el archivo **app.config** en el Explorador de soluciones de Visual Studio. Agregue el contenido del elemento **\<appSettings\>** que se muestra a continuación. Reemplace *nombre-de-la-cuenta* por el nombre de la cuenta de almacenamiento y *clave-de-la-cuenta* por la clave de acceso a la cuenta:
-
-```xml
-<configuration>
-    <startup>
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-    </startup>
-    <appSettings>
-        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-    </appSettings>
-</configuration>
-```
-
-Por ejemplo, el valor de configuración es similar a:
-
-```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
-```
-
-Para elegir como destino el emulador de almacenamiento, puede utilizar un acceso directo que se asigna al nombre y la clave conocidas de la cuenta. En ese caso, la configuración de la cadena de conexión es:
-
-```xml
-<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
-```
-
-### <a name="add-using-directives"></a>Adición de directivas using
-
-Agregue las siguientes directivas `using` al principio del archivo `Program.cs`:
-
-```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.Azure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
-```
+Las bibliotecas cliente de Azure Storage para .NET admiten el uso de una cadena de conexión de almacenamiento para configurar puntos de conexión y credenciales a fin de acceder a los servicios de almacenamiento. Para más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../common/storage-account-keys-manage.md).
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copia de las credenciales desde Azure Portal
 
@@ -149,65 +123,151 @@ El código de ejemplo debe autorizar el acceso a su cuenta de almacenamiento. Pa
 
     ![Captura de pantalla que muestra cómo copiar una cadena de conexión desde Azure Portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
-### <a name="parse-the-connection-string"></a>Análisis de la cadena de conexión
+Para más información acerca de las cadenas de conexión, consulte [Configuración de una cadena de conexión a Azure Storage](../common/storage-configure-connection-string.md).
 
-[!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
+> [!NOTE]
+> La clave de la cuenta de almacenamiento es similar a la contraseña raíz de la cuenta de almacenamiento. Siempre debe proteger la clave de la cuenta de almacenamiento. Evite distribuirla a otros usuarios, codificarla de forma rígida o guardarla en un archivo de texto que sea accesible a otros usuarios. Vuelva a generar la clave mediante Azure Portal si cree que puede verse comprometida.
+
+La mejor manera de conservar la cadena de conexión de almacenamiento es mediante un archivo de configuración. Para configurar la cadena de conexión, abra el archivo *app.config* en el Explorador de soluciones de Visual Studio. Agregue el contenido del elemento `\<appSettings\>` , que se muestra a continuación. Reemplace la *cadena de conexión* con el valor que copió de la cuenta de almacenamiento en el portal:
+
+```xml
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="connection-string" />
+    </appSettings>
+</configuration>
+```
+
+Por ejemplo, el valor de configuración es similar a:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==EndpointSuffix=core.windows.net" />
+```
+
+Para elegir como destino el emulador de almacenamiento Azurite, puede utilizar un acceso directo que se asigna al nombre y la clave conocidas de la cuenta. En ese caso, la configuración de la cadena de conexión es:
+
+```xml
+<add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
+```
+
+### <a name="add-using-directives"></a>Adición de directivas using
+
+Agregue las siguientes directivas `using` al principio del archivo `Program.cs`:
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UsingStatements":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+```csharp
+using System; // Namespace for Console output
+using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.Azure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
+```
+
+---
 
 ### <a name="create-the-queue-service-client"></a>Creación del cliente del servicio Cola
 
-La clase [CloudQueueClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet) le permite recuperar las colas almacenadas en Almacenamiento en cola. Esta es una forma de crear el cliente de servicio:
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+La clase [QueueClient](/dotnet/api/azure.storage.queues.queueclient) le permite recuperar las colas almacenadas en Queue Storage. Esta es una forma de crear el cliente de servicio:
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+La clase [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) le permite recuperar las colas almacenadas en Almacenamiento en cola. Esta es una forma de crear el cliente de servicio:
 
 ```csharp
+// Retrieve storage account from connection string
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+// Create the queue client
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
+
+---
 
 Ahora ya puede escribir código que lee y escribe datos en el Almacenamiento en cola.
 
 ## <a name="create-a-queue"></a>Creación de una cola
 
-En este ejemplo se muestra cómo crear una cola si todavía no existe:
+En este ejemplo se muestra cómo crear una cola:
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateQueue":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
-// Retrieve storage account from connection string.
+// Retrieve storage account from connection string
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create the queue client
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a container.
+// Retrieve a reference to a queue
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
 // Create the queue if it doesn't already exist
 queue.CreateIfNotExists();
 ```
 
+---
+
 ## <a name="insert-a-message-into-a-queue"></a>un mensaje en una cola
 
-Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet). A continuación, llame al método [AddMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet) . Se puede crear un valor de **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de **bytes**. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo":
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Para insertar un mensaje en una cola existente, llame al método [SendMessage](/dotnet/api/azure.storage.queues.queueclient.sendmessage). Un mensaje puede ser un valor `string` (en formato UTF-8) o una matriz de `byte`. En el código siguiente se crea una cola (si es que no existe) y se inserta un mensaje:
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_InsertMessage":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). A continuación, llame al método [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy) . Se puede crear `CloudQueueMessage` a partir de un elemento `string` (en formato UTF-8) o de una matriz `byte`. A continuación, se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo":
 
 ```csharp
-// Retrieve storage account from connection string.
+// Retrieve storage account from connection string
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create the queue client
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference to a queue
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Create the queue if it doesn't already exist.
+// Create the queue if it doesn't already exist
 queue.CreateIfNotExists();
 
-// Create a message and add it to the queue.
+// Create a message and add it to the queue
 CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 queue.AddMessage(message);
 ```
 
+---
+
 ## <a name="peek-at-the-next-message"></a>siguiente mensaje
 
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método [PeekMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet) .
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Puede inspeccionar el mensaje de la cola sin tener que quitarlo de la misma, mediante una llamada al método [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages). Si no pasa un valor para el parámetro *maxMessages*, el valor predeterminado es inspeccionar un mensaje.
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy) .
 
 ```csharp
 // Retrieve storage account from connection string
@@ -227,9 +287,17 @@ CloudQueueMessage peekedMessage = queue.PeekMessage();
 Console.WriteLine(peekedMessage.AsString);
 ```
 
+---
+
 ## <a name="change-the-contents-of-a-queued-message"></a>contenido de un mensaje en cola
 
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UpdateMessage":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -250,9 +318,19 @@ queue.UpdateMessage(message,
     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
+---
+
 ## <a name="de-queue-the-next-message"></a>siguiente mensaje de la cola
 
-El código quita un mensaje de una cola en dos pasos. Si llama a [GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet), obtiene el siguiente mensaje en una cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a [DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **DeleteMessage** justo después de que se haya procesado el mensaje.
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Quitar un mensaje de una cola en dos pasos. Al llamar a [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages), obtiene el siguiente mensaje de una cola. Un mensaje devuelto por `ReceiveMessages` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a [DeleteMessage](/dotnet/api/azure.storage.queues.queueclient.deletemessage). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `DeleteMessage` justo después de haberse procesado el mensaje.
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessage":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+El código quita un mensaje de una cola en dos pasos. Si llama a [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy), obtiene el siguiente mensaje en una cola. Un mensaje devuelto por `GetMessage` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a `DeleteMessage` justo después de haberse procesado el mensaje.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -272,9 +350,17 @@ CloudQueueMessage retrievedMessage = queue.GetMessage();
 queue.DeleteMessage(retrievedMessage);
 ```
 
+---
+
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Uso del patrón Async-Await con API comunes de almacenamiento de colas
 
 En este ejemplo se muestra cómo usar el patrón Async-Await con API comunes de almacenamiento de colas. El ejemplo llama a la versión asincrónica de cada uno de los métodos indicados, tal como se puede ver por el sufijo *Async* de cada método. Cuando se utiliza un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se completa la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo, lo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_AsyncQueue":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Create the queue if it doesn't already exist
@@ -303,9 +389,21 @@ await queue.DeleteMessageAsync(retrievedMessage);
 Console.WriteLine("Deleted message");
 ```
 
+---
+
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>Uso de opciones adicionales para quitar mensajes de la cola
 
-Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método [GetMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **foreach** . También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a **GetMessages**, todos los mensajes que no se han eliminado volverán a estar visibles.
+Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+El siguiente ejemplo de código utiliza el método [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a `ReceiveMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessages":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+El siguiente ejemplo de código utiliza el método [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a `GetMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -325,9 +423,19 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 }
 ```
 
+---
+
 ## <a name="get-the-queue-length"></a>la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método [FetchAttributes](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad [ApproximateMessageCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar a Queue service.
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Puede obtener una estimación del número de mensajes existentes en una cola. El método [GetProperties](/dotnet/api/azure.storage.queues.queueclient.getproperties) solicita a Queue service la recuperación de las propiedades de la cola, incluido el número de mensajes. El método [ApproximateMessagesCount](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) obtiene el número aproximado de mensajes en la cola. Este número no es menor que el número real de mensajes de la cola, pero podría ser mayor.
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_GetQueueLength":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Puede obtener una estimación del número de mensajes existentes en una cola. El método [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) devuelve el último valor que recuperó el método `FetchAttributes`, sin llamar a Queue service.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -344,15 +452,25 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 queue.FetchAttributes();
 
 // Retrieve the cached approximate message count.
-int? cachedMessageCount = queue.ApproximateMessageCount;
+int cachedMessageCount = queue.ApproximateMessageCount;
 
 // Display number of messages.
 Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
+---
+
 ## <a name="delete-a-queue"></a>Eliminación de una cola
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [Delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) en el objeto de cola.
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [Delete](/dotnet/api/azure.storage.queues.queueclient.delete) en el objeto de cola.
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DeleteQueue":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) en el objeto de cola.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -369,18 +487,20 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 queue.Delete();
 ```
 
+---
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-* Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
-  * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [Referencia de API de REST](https://msdn.microsoft.com/library/azure/dd179355)
-* Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
-* Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-  * [Introducción al Almacenamiento de tablas de Azure mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para almacenar datos estructurados.
-  * [Introducción al Almacenamiento de blobs de Azure mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
-  * Para almacenar datos relacionales, consulte [Conexión a SQL Database mediante .NET (C#)](../../sql-database/sql-database-connect-query-dotnet-core.md).
+- Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
+  - [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  - [Referencia de API de REST](https://msdn.microsoft.com/library/azure/dd179355)
+- Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+- Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
+  - [Introducción al Almacenamiento de tablas de Azure mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para almacenar datos estructurados.
+  - [Introducción al Almacenamiento de blobs de Azure mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
+  - Para almacenar datos relacionales, consulte [Conexión a SQL Database mediante .NET (C#)](../../sql-database/sql-database-connect-query-dotnet-core.md).
 
 [Download and install the Azure SDK for .NET]: /develop/net/
 [.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

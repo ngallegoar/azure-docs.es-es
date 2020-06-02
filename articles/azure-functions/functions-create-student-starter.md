@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo crear una función de Azure en una
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: how-to
-ms.date: 02/22/2019
+ms.date: 04/29/2020
 ms.author: alkarche
-ms.openlocfilehash: c7dd88bf0ead558a0c4951baf38543566d805caa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756461"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122907"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creación de una función con Microsoft Azure for Students Starter
 
@@ -21,78 +21,51 @@ Microsoft *Azure for Students Starter* le inicia en el uso de los productos de A
 
 Azure Functions permite ejecutar el código en un entorno [sin servidor](https://azure.microsoft.com/solutions/serverless/) sin necesidad de crear una máquina virtual o publicar una aplicación web. [Obtenga más información aquí sobre Azure Functions](./functions-overview.md).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="create-a-function"></a>Creación de una función
 
- En este tema, obtendrá información sobre cómo usar Functions para crear una función "Hola mundo" desencadenada por HTTP en Azure Portal.
+ En este artículo, aprenderá a usar Azure Functions para crear una función de desencadenador HTTP "Hola mundo" en Azure Portal.
 
 ![Creación de una aplicación de función en Azure Portal](./media/functions-create-student-starter/function-app-in-portal-editor.png)
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en <https://portal.azure.com> con su cuenta de Azure.
+Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
 Debe tener una Function App para hospedar la ejecución de las funciones. Una aplicación de función permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación, el escalado y el uso compartido de recursos.
 
-1. Seleccione el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal. Después, seleccione **Proceso** > **Aplicación de funciones**.
-
-    ![Creación de una aplicación de función en Azure Portal](./media/functions-create-student-starter/function-app-create-flow.png)
-
-2. Use la configuración de Function App especificada en la tabla debajo de la imagen.
-
-    <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
-
-    | Configuración      | Valor sugerido  | Descripción                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nombre de la aplicación** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z`, `0-9` y `-`.  | 
-    | **Suscripción** | Su suscripción | Suscripción en la que se creará esta nueva aplicación de función. | 
-    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |
-   | **[Plan/ubicación de App Service](./functions-scale.md)** | Nuevo | El plan de hospedaje que controla en qué región se implementa la aplicación de función y la densidad de los recursos. Varias aplicaciones de función implementadas en el mismo plan compartirán la misma instancia gratuita única. Se trata de una restricción del plan Student Starter. Las opciones de hospedaje completas [se explican aquí](./functions-scale.md).|
-    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET** para funciones de C# y F#. |
-    |**[Application Insights](./functions-monitoring.md)**| habilitado | Application Insights se usa para almacenar y analizar los registros de la aplicación de función. Está habilitado de forma predeterminada si elige una ubicación compatible con Application Insights. Application Insights pueden habilitarse para cualquier función al elegir manualmente una región cercana para implementar Application Insights. Sin Application Insights, solo podrá ver los registros de streaming en vivo.
-
-3. Seleccione la opción **Plan/ubicación de App Service** anterior para elegir una ubicación diferente.
-
-4. Seleccione **Crear nuevo** y, a continuación, asigne al plan un nombre único.
-
-5. Seleccione la ubicación más cercana a la suya. [Aquí puede consultar un mapa completo de las regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/). 
-
-    <img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
-
-6. Seleccione **Crear** para aprovisionar e implementar la aplicación de función.
-
-    <img src="./media/functions-create-student-starter/Function-create-end.png" width="315">
-
-7. Seleccione el icono de notificación de la esquina superior derecha del portal y observe el mensaje **Implementación correcta**.
-
-    ![Definir nueva configuración de Function App](./media/functions-create-student-starter/function-app-create-notification.png)
-
-8. Seleccione **Ir al recurso** para ver la nueva aplicación de función.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
 Después, cree una función en la nueva Function App.
 
-## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Crear una función desencadenada por HTTP
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Creación de una función desencadenada mediante HTTP
 
-1. Expanda la nueva aplicación de función, después, seleccione el botón **+** situado junto a **Functions**, elija **En el portal** y seleccione **Continuar**.
+1. En el menú de la izquierda de la ventana **Funciones**, seleccione **Funciones** y, a continuación, seleccione **Agregar** en el menú superior. 
+ 
+1. En la ventana **Nueva función**, seleccione **Desencadenador HTTP**.
 
-    ![Guía de inicio rápido de Functions para elegir plataforma.](./media/functions-create-student-starter/function-app-quickstart-choose-portal.png)
+    ![Elección de la función de desencadenador HTTP](./media/functions-create-student-starter/function-app-select-http-trigger.png)
 
-1. Elija **WebHook y API** y, a continuación, seleccione **Crear**.
+1. En la ventana **Nueva función**, acepte el nombre predeterminado para la **Nueva función** o escriba un nombre nuevo. 
 
-    ![Inicio rápido de funciones en Azure Portal.](./media/functions-create-student-starter/function-app-quickstart-node-webhook.png)
+1. En la lista desplegable **Nivel de autorización**, elija **Anónimo** y, a continuación, seleccione **Crear función**.
 
-Se crea una función mediante una plantilla específica del idioma para una función desencadenada por HTTP.
-
-Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
+    Azure crea la función de desencadenador HTTP. Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
 
 ## <a name="test-the-function"></a>Prueba de la función
 
-1. En la nueva función, haga clic en **</> Obtener la dirección URL de la función** en la parte superior derecha, seleccione **default (Function key)** y, después, haga clic en **Copiar**. 
+1. En la nueva función de desencadenador HTTP, seleccione **Código y prueba** en el menú de la izquierda y, a continuación, seleccione **Obtener la dirección URL de la función** en el menú superior.
+
+    ![Selección de Obtener la dirección URL de la función](./media/functions-create-student-starter/function-app-select-get-function-url.png)
+
+1. En el cuadro de diálogo **Obtener la dirección URL de la función**, seleccione **valor predeterminado** en la lista desplegable y, a continuación, seleccione el icono **Copiar al Portapapeles**. 
 
     ![Copiar la dirección URL de la función desde Azure Portal](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 
-2. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `&name=<yourname>` de la cadena de consulta al final de esta dirección URL y presione la tecla `Enter` en el teclado para ejecutar la solicitud. Debería ver la respuesta devuelta por la función mostrada en el explorador.  
+1. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe el valor `?name=<your_name>` de la cadena de consulta al final de esta dirección URL y presione Entrar para ejecutar la solicitud. 
 
     El ejemplo siguiente muestra la respuesta en el explorador:
 
@@ -100,7 +73,7 @@ Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP
 
     La dirección URL de la solicitud incluye una clave que, de forma predeterminada, es necesaria para tener acceso a la función a través de HTTP.
 
-3. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha que encontrará en la parte inferior de la pantalla para expandir **Registros**.
+1. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver los resultados del seguimiento, vuelva a la página **Código y prueba** en el portal y expanda la flecha **Registros** en la parte inferior de la página.
 
    ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-student-starter/function-view-logs.png)
 
@@ -126,7 +99,7 @@ En Microsoft Azure for Students Starter, puede acceder a la mayoría de las cara
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha creado una aplicación de función con una función simple desencadenada por HTTP. Ahora puede explorar herramientas locales, más lenguajes, supervisión e integraciones.
+Ya ha terminado de crear una aplicación de funciones con una función simple de desencadenador HTTP. Ahora puede explorar herramientas locales, más lenguajes, supervisión e integraciones.
 
  * [Creación de la primera función mediante Visual Studio](./functions-create-your-first-function-visual-studio.md)
  * [Creación de la primera función mediante Visual Studio Code](./functions-create-first-function-vs-code.md)

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 04/27/2020
+ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684724"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983608"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
@@ -150,6 +150,8 @@ Los paquetes instalados previamente son:
 import os
 os.system(f"pip install scikit-misc")
 ```
+> [!NOTE]
+> Si la canalización contiene varios módulos Ejecutar script de Python y necesita los mismos paquetes que no están en la lista preinstalada, instale los paquetes en cada módulo respectivamente. 
 
 ## <a name="upload-files"></a>Carga de archivos
 **Ejecución de script de Python** admite la carga de archivos con el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -218,7 +220,7 @@ El módulo **Ejecución de script de Python** contiene código de Python de ejem
 5. En el cuadro de texto **Python Script** (Script de Python), escriba o pegue el script de Python válido.
 
     > [!NOTE]
-    > Tenga mucho cuidado al escribir el script y asegúrese de que no incluya ningún error de sintaxis, por ejemplo, el uso de un objeto no declarado o de un módulo no importado. Además, preste atención adicional a la lista de módulos preinstalados. Para importar módulos que no aparecen en la lista, instale los paquetes correspondientes en el script como se indica a continuación:
+    > Tenga mucho cuidado al escribir el script y asegúrese de que no incluya ningún error de sintaxis, como el uso de objetos no declarados o de módulos no importados. Además, preste atención adicional a la lista de módulos preinstalados. Para importar módulos que no aparecen en la lista, instale los paquetes correspondientes en el script como se indica a continuación:
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")

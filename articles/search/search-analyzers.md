@@ -8,16 +8,21 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460721"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891231"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizadores para procesamientos textuales en Búsqueda cognitiva de Azure
 
 Un *analizador* es un componente del [motor de búsqueda de texto completo](search-lucene-query-architecture.md) responsable del procesamiento de texto en cadenas de consulta y documentos indexados. Diferentes analizadores manipulan el texto de maneras diferentes según el escenario. Los analizadores de idioma procesan el texto mediante reglas lingüísticas para mejorar la calidad de la búsqueda, mientras que otros analizadores realizan tareas más básicas como la conversión de caracteres a minúsculas, por ejemplo. 
+
+El siguiente segmento de vídeo avanza rápidamente a una explicación de cómo funciona el procesamiento de texto en Azure Cognitive Search.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
 
 Estos analizadores son los que se usan con más frecuencia, y hay un analizador de idioma predeterminado asignado a cada campo de búsqueda en un índice de Búsqueda cognitiva de Azure. Las siguientes transformaciones de lenguaje son habituales durante el análisis de texto:
 

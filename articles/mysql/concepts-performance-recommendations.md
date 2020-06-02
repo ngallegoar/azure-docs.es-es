@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c7779d82ddd6e5fd1bf7fcd983937ea6c10dab1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/12/2020
+ms.openlocfilehash: cba07b84a1ddc2b9362c818ae2d3747b98379f2e
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537081"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402646"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recomendaciones de rendimiento en Azure Database for MySQL
 
-**Se aplica a:** Azure Database for MySQL 5.7
+**Se aplica a:** Azure Database for MySQL 5.7, 8.0
 
 La característica Recomendaciones de rendimiento analiza las bases de datos para crear sugerencias personalizadas para mejorar el rendimiento. Para generar las recomendaciones, el análisis examina diversas características de bases de datos, incluido el esquema. Habilite [Almacén de consultas](concepts-query-store.md) en el servidor para poder usar por completo la característica Recomendaciones de rendimiento. Si el esquema de rendimiento está desactivado, al activarlo en el Almacén de consultas se activarán performance_schema y un subconjunto de los instrumentos del esquema de rendimiento necesarios para la característica. Después de implementar una recomendación de rendimiento, debe probar el rendimiento para evaluar el efecto de estos cambios.
 

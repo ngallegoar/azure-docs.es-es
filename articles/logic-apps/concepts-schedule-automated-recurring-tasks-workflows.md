@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: 20f27ebc7b9712d440dc1c67c46cb0385a3f874a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/25/2020
+ms.openlocfilehash: 6d00c7d7cc88427a3500b28891ec70bb8a4bbb43
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234101"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005203"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps
 
@@ -48,13 +48,13 @@ En este artículo se describen las funcionalidades de los desencadenadores y las
 
 ## <a name="schedule-triggers"></a>Programación de desencadenadores
 
-Puede iniciar el flujo de trabajo de la aplicación lógica mediante el desencadenador de periodicidad o el de ventana deslizante, que no están asociados con ningún servicio o sistema específicos, por ejemplo, Office 365 Outlook o SQL Server. Estos desencadenadores inician y ejecutan su flujo de trabajo en función de la periodicidad que especifica, en la que debe seleccionar el intervalo y la frecuencia, como el número de segundos, minutos y horas para ambos desencadenadores, o el número de días, semanas o meses para el desencadenador de periodicidad. También puede establecer la fecha de inicio y la hora, así como la zona horaria. Cada vez que se activa un desencadenador, Logic Apps crea una instancia de flujo de trabajo para la aplicación lógica y la ejecuta.
+Puede iniciar el flujo de trabajo de la aplicación lógica mediante el desencadenador de periodicidad o el de ventana deslizante, que no están asociados con ningún servicio o sistema específicos. Estos desencadenadores inician y ejecutan su flujo de trabajo en función de la periodicidad que especifica, en la que debe seleccionar el intervalo y la frecuencia, como el número de segundos, minutos, horas, días, semanas o meses. También puede establecer la fecha de inicio y la hora, así como la zona horaria. Cada vez que se activa un desencadenador, Logic Apps crea una instancia de flujo de trabajo para la aplicación lógica y la ejecuta.
 
 Las diferencias entre estos desencadenadores son las siguientes:
 
 * **Periodicidad**: su flujo de trabajo se ejecuta en intervalos de tiempo regulares según la programación especificada. Si se pierden las periodicidades, el desencadenador de periodicidad no procesa las periodicidades perdidas, sino que las reinicia con el siguiente intervalo programado. También puede establecer una fecha de inicio y una hora, así como la zona horaria. Si selecciona "Día", puede especificar horas del día y los minutos de la hora, por ejemplo, cada día a las 2:30. Si selecciona "Semana", también puede seleccionar los días de la semana, por ejemplo, el miércoles y el sábado. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de periodicidad](../connectors/connectors-native-recurrence.md).
 
-* **Ventana deslizante**: su flujo de trabajo se ejecuta a intervalos de tiempo regulares que administran los datos en fragmentos continuos. Si se pierden las periodicidades, el desencadenador de ventana deslizante retrocede y procesa las repeticiones perdidas. Puede especificar una fecha de inicio y una hora, la zona horaria y una duración para retrasar cada periodicidad del flujo de trabajo. Este desencadenador no tiene opciones para especificar los días, las semanas y los meses, ñas horas del día, los minutos de la hora y los días de la semana. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md).
+* **Ventana deslizante**: su flujo de trabajo se ejecuta a intervalos de tiempo regulares que administran los datos en fragmentos continuos. Si se pierden las periodicidades, el desencadenador de ventana deslizante retrocede y procesa las repeticiones perdidas. Puede especificar una fecha de inicio y una hora, la zona horaria y una duración para retrasar cada periodicidad del flujo de trabajo. Este desencadenador no admite programaciones avanzadas; por ejemplo, las horas específicas del día, los minutos de la hora y los días de la semana. Para obtener más información, consulte [Creación, programación y ejecución de tareas y flujos de trabajo periódicos con el desencadenador de ventana deslizante](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473856"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006003"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solución de problemas del cliente de Escritorio remoto
 
@@ -60,6 +60,12 @@ Si el explorador comienza a dar problemas o deja de funcionar mientras usa el cl
 3. Borre la memoria caché del explorador Consulte [Borrar la memoria caché del explorador](https://binged.it/2RKyfdU).
 4. Abra el explorador en modo privado.
 
+## <a name="web-client-does-not-show-my-resources"></a>El cliente web no muestra mis recursos
+
+Primero compruebe la cuenta de Azure Active Directory que está usando. Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Windows Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.
+
+Si usa la versión Fall 2019 de Windows Virtual Desktop, use el vínculo del cliente web en [este artículo](./virtual-desktop-fall-2019/connect-web-2019.md) para conectarse a los recursos.
+
 ## <a name="web-client-stops-responding-or-disconnects"></a>El cliente web deja de responder o se desconecta
 
 Intente conectarse con otro explorador o cliente.
@@ -81,7 +87,7 @@ Si el cliente web sigue solicitando las credenciales, siga estas instrucciones:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
-- Para solucionar problemas durante la creación de un grupo de inquilinos y de hosts en un entorno de Windows Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues.md).
+- Para solucionar problemas durante la creación de un entorno de Windows Virtual Desktop y de un grupo de hosts de este, consulte [Creación de entorno y grupo de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
 - Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

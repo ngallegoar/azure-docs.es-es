@@ -3,17 +3,17 @@ title: Utilizar Azure Image Builder con una galería de imágenes para máquinas
 description: Cree imágenes de máquinas virtuales Linux con Azure Image Builder y Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/20/2019
+ms.date: 05/05/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 196f7b41a9d7eb5da1b2cf52a38917c34905d7bb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ccb622f786e6df5271684cf2aabba36cd2f5184f
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791517"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930699"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas 
 
@@ -45,7 +45,8 @@ Compruebe el registro.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -53,7 +54,8 @@ Si no se muestran como registradas, ejecute lo siguiente:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
 
@@ -90,18 +92,39 @@ Cree el grupo de recursos.
 az group create -n $sigResourceGroup -l $location
 ```
 
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creación de una identidad asignada por el usuario y establecimiento de los permisos en el grupo de recursos
+Image Builder usará la [identidad de usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) proporcionada para insertar la imagen en la instancia de Azure Shared Image Gallery (SIG). En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la instancia de SIG. La definición de roles se asignará a la identidad del usuario.
 
-Conceda a Azure Image Builder permiso para crear recursos en ese grupo de recursos. El valor `--assignee` es el identificador de registro de aplicación para el servicio del generador de imágenes. 
+```bash
+# create user assigned identity for image builder to access the storage account where the script is located
+idenityName=aibBuiUserId$(date +'%s')
+az identity create -g $sigResourceGroup -n $idenityName
 
-```azurecli-interactive
+# get identity id
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+
+# get the user identity URI, needed for the template
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+
+# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+
+imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
+
+# update the definition
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" aibRoleImageCreation.json
+sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+
+# create role definitions
+az role definition create --role-definition ./aibRoleImageCreation.json
+
+# grant role definition to the user assigned identity
 az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
+    --assignee $imgBuilderCliId \
+    --role $imageRoleDefName \
     --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 ```
-
-
-
 
 
 ## <a name="create-an-image-definition-and-gallery"></a>Creación de una definición de imagen y una galería
@@ -143,6 +166,7 @@ sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforSIG.json
 sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIG.json
 sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIG.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIG.json
 ```
 
 ## <a name="create-the-image-version"></a>Creación de la versión de la imagen
@@ -219,6 +243,18 @@ az resource delete \
     --resource-group $sigResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateforSIG01
+```
+
+Elimine las asignaciones de permisos, los roles y la identidad.
+```azurecli-interactive
+az role assignment delete \
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
+
+az role definition delete --name "$imageRoleDefName"
+
+az identity delete --ids $imgBuilderId
 ```
 
 Obtenga la versión de la imagen creada por el generador de imágenes, que siempre empieza por `0.`, y después elimínela.

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230794"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927044"
 ---
 # <a name="azure-ad-b2c-session"></a>Sesión de Azure AD B2C
 
@@ -99,22 +99,20 @@ Después de una solicitud de cierre de sesión, Azure AD B2C hará lo siguient
    - SAML: si los metadatos del proveedor de identidades contienen la ubicación `SingleLogoutService`.
 1. También puede cerrar la sesión de otras aplicaciones. Para obtener más información, consulte la sección [Cierre de sesión único](#single-sign-out).
 
-> [!NOTE]
-> El cierre de sesión borrará el estado de inicio de sesión único del usuario con Azure AD B2C, pero podría no cerrar la sesión del proveedor de identidades social del usuario. Si el usuario selecciona el mismo proveedor de identidades durante un inicio de sesión posterior, podría volver a autenticarse sin especificar sus credenciales. Si un usuario quiere cerrar sesión en su aplicación, eso no significa necesariamente que quiera cerrar sesión en su cuenta de Facebook. Sin embargo, si se usan cuentas locales, la sesión del usuario finalizará correctamente.
+El cierre de sesión borrará el estado de inicio de sesión único del usuario con Azure AD B2C, pero podría no cerrar la sesión del proveedor de identidades social del usuario. Si el usuario selecciona el mismo proveedor de identidades durante un inicio de sesión posterior, podría volver a autenticarse sin especificar sus credenciales. Si un usuario quiere cerrar sesión en su aplicación, eso no significa necesariamente que quiera cerrar sesión en su cuenta de Facebook. Sin embargo, si se usan cuentas locales, la sesión del usuario finalizará correctamente.
 
-### <a name="single-sign-out"></a>Cierre de sesión único
+### <a name="single-sign-out"></a>Cierre de sesión único 
+
+
+> [!NOTE]
+> Esta característica está limitada a [las directivas personalizadas](custom-policy-overview.md).
 
 Cuando redirige al usuario al punto de conexión de cierre de sesión de Azure AD B2C (para los protocolos OAuth2 y SAML), Azure AD B2C borra la sesión del usuario del explorador. Sin embargo, el usuario podría permanecer conectado a otras aplicaciones que usan Azure AD B2C para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, Azure AD B2C envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que tiene una sesión iniciada.
 
-Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`. Si quiere admitir el inicio de sesión único en la aplicación, debe implementar un elemento `LogoutUrl` en el código de la aplicación. Puede habilitar `LogoutUrl` desde Azure Portal:
 
-1. Acceda a [Azure Portal](https://portal.azure.com).
-1. Para elegir la instancia de Active Directory B2C, haga clic en su cuenta en la esquina superior derecha de la página.
-1. En el panel de navegación izquierdo, elija **Azure AD B2C**, seleccione **Registros de aplicaciones** y, después, seleccione la aplicación.
-1. Seleccione **Configuración**, **Propiedades** y después busque el cuadro de texto **URL de cierre de sesión**. 
-
+Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`. Si quiere admitir el inicio de sesión único en la aplicación, debe implementar un elemento `LogoutUrl` en el código de la aplicación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo [configurar el comportamiento de la sesión en el flujo de usuario](session-behavior.md).
-- Obtenga información sobre cómo [configurar el comportamiento de la sesión en la directiva personalizada](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso).
+- Obtenga información sobre cómo [configurar el comportamiento de la sesión en las directivas personalizadas](session-behavior-custom-policy.md).

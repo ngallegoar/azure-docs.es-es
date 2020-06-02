@@ -5,17 +5,17 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226232"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980820"
 ---
 # <a name="createuidefinition-functions"></a>Funciones CreateUiDefinition
 Esta sección contiene las firmas de todas las funciones compatibles de una CreateUiDefinition.
 
-Para utilizar una función, encierre la declaración entre corchetes. Por ejemplo:
+Para usar una función, encierre la invocación entre corchetes. Por ejemplo:
 
 ```json
 "[function()]"
@@ -484,6 +484,45 @@ Asuma que `element1` y `element2` son indefinidos. El siguiente ejemplo devuelve
 ```json
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
+
+Esta función es especialmente útil en el contexto de la invocación opcional que se produce debido a una acción del usuario después de que se carga la página. Un ejemplo puede ser si las restricciones colocadas en un campo de la interfaz de usuario dependen del valor seleccionado actualmente en otro campo que **no es visible inicialmente**. En este caso, se puede usar `coalesce()` para permitir que la función sea sintácticamente válida en el momento de la carga de la página y tenga el efecto deseado cuando el usuario interactúa con el campo.
+
+Tenga en cuenta este elemento `DropDown`, que permite al usuario elegir entre varios tipos de bases de datos diferentes:
+
+```
+{
+    "name": "databaseType",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Choose database type",
+    "toolTip": "Choose database type",
+    "defaultValue": "Oracle Database",
+    "visible": "[bool(steps('section_database').connectToDatabase)]"
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Azure Database for PostgreSQL",
+                "value": "postgresql"
+            },
+            {
+                "label": "Oracle Database",
+                "value": "oracle"
+            },
+            {
+                "label": "Azure SQL",
+                "value": "sqlserver"
+            }
+        ],
+        "required": true
+    },
+```
+
+Para condicionar la acción de otro campo según el valor seleccionado actualmente en este campo, use `coalesce()`, como se muestra a continuación:
+
+```
+"regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
+```
+
+Esto es necesario porque el campo `databaseType` no es visible inicialmente y, por lo tanto, no tiene un valor. Esto hace que toda la expresión no se evalúe correctamente.
 
 ## <a name="conversion-functions"></a>Funciones de conversión
 Estas funciones se pueden usar para convertir valores entre tipos de datos JSON y codificaciones.

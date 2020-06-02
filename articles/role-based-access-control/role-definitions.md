@@ -1,6 +1,6 @@
 ---
-title: Descripción de definiciones de roles en RBAC para recursos de Azure | Microsoft Docs
-description: Obtenga información acerca de las definiciones de roles en el control de acceso basado en rol (RBAC) para la administración de acceso específico de recursos de Azure.
+title: 'Descripción de las definiciones de roles de Azure: RBAC de Azure'
+description: Obtenga información acerca de las definiciones de roles de Azure en el control de acceso basado en roles de Azure (RBAC de Azure) para la administración de acceso específico de recursos de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,24 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641372"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996608"
 ---
-# <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
+# <a name="understand-azure-role-definitions"></a>Descripción de las definiciones de roles de Azure
 
-Si quiere comprender el funcionamiento de un rol o si va a crear su propio [rol personalizado](custom-roles.md) para recursos de Azure, resulta útil entender cómo se definen los roles. En este artículo se describen los detalles de las definiciones de roles y se proporcionan algunos ejemplos.
+Tanto si quiere comprender el funcionamiento de un rol de Azure como si va a crear su propio [rol de Azure personalizado](custom-roles.md), le resultará útil entender cómo se definen los roles. En este artículo se describen los detalles de las definiciones de roles y se proporcionan algunos ejemplos.
 
 ## <a name="role-definition"></a>Definición de roles
 
-Una *definición de roles* es una recopilación de permisos. A veces, se denomina *rol* simplemente. Una definición de roles enumera las operaciones que se pueden realizar, por ejemplo, de lectura, escritura y eliminación. También puede enumerar las operaciones que no se pueden realizar u operaciones relacionadas con datos subyacentes. Una definición de roles tiene las siguientes propiedades:
+Una *definición de roles* es una recopilación de permisos. A veces, se denomina *rol* simplemente. Una definición de roles enumera las operaciones que se pueden realizar, por ejemplo, de lectura, escritura y eliminación. También puede enumerar las operaciones excluidas de las operaciones permitidas o las operaciones relacionadas con datos subyacentes.
+
+A continuación se muestra un ejemplo de las propiedades de una definición de roles cuando se muestran mediante Azure PowerShell:
 
 ```
 Name
@@ -42,17 +44,33 @@ NotDataActions []
 AssignableScopes []
 ```
 
+A continuación se muestra un ejemplo de las propiedades de una definición de roles cuando se muestran mediante Azure Portal, la CLI de Azure o la API de REST:
+
+```
+roleName
+name
+type
+description
+actions []
+notActions []
+dataActions []
+notDataActions []
+assignableScopes []
+```
+
+En la tabla siguiente se describe el significado de las propiedades de roles.
+
 | Propiedad | Descripción |
 | --- | --- |
-| `Name` | Nombre para mostrar del rol. |
-| `Id` | Identificador único del rol. |
-| `IsCustom` | Indica si es un rol personalizado. Establecido en `true` para los roles personalizados. |
-| `Description` | Descripción del rol. |
-| `Actions` | Matriz de cadenas que especifica las operaciones de administración que el rol permite realizar. |
-| `NotActions` | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. |
-| `DataActions` | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. |
-| `NotDataActions` | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. |
-| `AssignableScopes` | Matriz de cadenas que especifica los ámbitos en los que el rol está disponible para la asignación. |
+| `Name`</br>`roleName` | Nombre para mostrar del rol. |
+| `Id`</br>`name` | Identificador único del rol. |
+| `IsCustom`</br>`roleType` | Indica si es un rol personalizado. Se establece en `true` o `CustomRole` para los roles personalizados. Se establece en `false` o `BuiltInRole` para los roles integrados. |
+| `Description`</br>`description` | Descripción del rol. |
+| `Actions`</br>`actions` | Matriz de cadenas que especifica las operaciones de administración que el rol permite realizar. |
+| `NotActions`</br>`notActions` | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. |
+| `DataActions`</br>`dataActions` | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. |
+| `NotDataActions`</br>`notDataActions` | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. |
+| `AssignableScopes`</br>`assignableScopes` | Matriz de cadenas que especifica los ámbitos en los que el rol está disponible para la asignación. |
 
 ### <a name="operations-format"></a>Formato de las operaciones
 
@@ -72,7 +90,9 @@ La parte `{action}` de una cadena de la operación especifica el tipo de operaci
 
 ### <a name="role-definition-example"></a>Ejemplo de definición de roles
 
-Esta es la definición de roles [Colaborador](built-in-roles.md#contributor) en formato JSON. La operación de carácter comodín (`*`) en `Actions` indica que la entidad de seguridad asignada a este rol puede realizar todas las acciones o, en otras palabras, administrar todo el contenido. Esto incluye las acciones definidas en el futuro, a medida que Azure agregue nuevos tipos de recursos. Las operaciones en `NotActions` se restan de `Actions`. En el caso del rol [Colaborador](built-in-roles.md#contributor), `NotActions` le quita la capacidad para administrar y asignar el acceso a los recursos.
+Esta es la definición del rol [Colaborador](built-in-roles.md#contributor) como se muestra en Azure PowerShell y la CLI de Azure. La operación de carácter comodín (`*`) en `Actions` indica que la entidad de seguridad asignada a este rol puede realizar todas las acciones o, en otras palabras, administrar todo el contenido. Esto incluye las acciones definidas en el futuro, a medida que Azure agregue nuevos tipos de recursos. Las operaciones en `NotActions` se restan de `Actions`. En el caso del rol [Colaborador](built-in-roles.md#contributor), `NotActions` le quita la capacidad para administrar y asignar el acceso a los recursos.
+
+Rol Colaborador tal como se muestra en Azure PowerShell:
 
 ```json
 {
@@ -86,13 +106,47 @@ Esta es la definición de roles [Colaborador](built-in-roles.md#contributor) en 
   "NotActions": [
     "Microsoft.Authorization/*/Delete",
     "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
   ],
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Rol Colaborador tal como se muestra en la CLI de Azure:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage everything except access to resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "notActions": [
+        "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action",
+        "Microsoft.Blueprint/blueprintAssignments/write",
+        "Microsoft.Blueprint/blueprintAssignments/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -116,6 +170,8 @@ Para admitir las operaciones de datos, se agregaron nuevas propiedades de datos 
 
 Esta es la definición del rol [Lector de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-reader), que incluye operaciones en las propiedades `Actions` y `DataActions`. Esta función permite leer el contenedor de blobs y también los datos de blob subyacentes.
 
+Rol Lector de datos de Storage Blob tal como se muestra en Azure PowerShell:
+
 ```json
 {
   "Name": "Storage Blob Data Reader",
@@ -123,7 +179,8 @@ Esta es la definición del rol [Lector de datos de blobs de almacenamiento](buil
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+    "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
   ],
   "NotActions": [],
   "DataActions": [
@@ -133,6 +190,35 @@ Esta es la definición del rol [Lector de datos de blobs de almacenamiento](buil
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Rol Lector de datos de Storage Blob tal como se muestra en la CLI de Azure:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Storage blob containers and data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Blob Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -159,9 +245,11 @@ Colaborador de datos de blobs de almacenamiento
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;DataActions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
 Puesto que Alice tiene una acción de carácter comodín (`*`) en un ámbito de suscripción, sus permisos se heredan para poder realizar todas las acciones de administración. Alice puede leer, escribir y eliminar contenedores. Sin embargo, Alice no puede realizar operaciones de datos sin pasos adicionales. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor. Para leer los blobs, Alice tendría que recuperar las claves de acceso de almacenamiento y usarlas para acceder a los blobs.
@@ -170,7 +258,7 @@ Los permisos de Bob se limitan a solo los valores de `Actions` y `DataActions` e
 
 Para más información acerca de la administración y la seguridad en el plano de datos, consulte la [guía de seguridad de Azure Storage](../storage/blobs/security-recommendations.md).
 
-### <a name="what-tools-support-using-rbac-for-data-operations"></a>¿Qué herramientas se admiten cuando se usa RBAC para las operaciones de datos?
+### <a name="what-tools-support-using-azure-roles-for-data-operations"></a>¿Qué herramientas admiten el uso de roles de Azure en las operaciones de datos?
 
 Para visualizar y trabajar con operaciones de datos, debe tener las versiones correctas de las herramientas o SDK:
 
@@ -245,7 +333,7 @@ Los roles integrados tienen `AssignableScopes` establecido en el ámbito raíz (
 > | Grupo de administración y suscripción | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | Todos los ámbitos (se aplica solo a los roles integrados) | `"/"` |
 
-Para obtener información acerca de `AssignableScopes` para roles personalizados, consulte [Roles personalizados en los recursos de Azure](custom-roles.md).
+Para más información acerca de `AssignableScopes` para roles personalizados, consulte [Roles personalizados en los recursos de Azure](custom-roles.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: Lista de asignaciones de roles con RBAC de Azure y Azure Portal
-description: Aprenda a determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y Azure Portal.
+title: 'Enumeración de asignaciones de roles de Azure mediante Azure Portal: RBAC de Azure'
+description: Obtenga información sobre cómo determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante Azure Portal y el control de acceso basado en roles (RBAC) de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062239"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996643"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de asignaciones de roles con RBAC de Azure y Azure Portal
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Enumeración de asignaciones de roles de Azure mediante Azure Portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] En este artículo se describe cómo enumerar las asignaciones de roles mediante Azure Portal.
 
@@ -32,7 +32,9 @@ ms.locfileid: "80062239"
 
 La forma más fácil de ver los roles asignados a un usuario o grupo de una suscripción es usar el panel **Recursos de Azure**.
 
-1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione **Usuarios** o **Grupos**.
+1. En el menú de Azure Portal, seleccione **Todos los servicios**.
+
+1. Seleccione **Azure Active Directory** y después seleccione **Usuarios** o **Grupos**.
 
 1. Haga clic en el usuario o grupo del que desea enumerar las asignaciones de roles.
 
@@ -128,7 +130,7 @@ Para mostrar el acceso de un usuario, grupo, entidad de servicio o identidad adm
 
 ## <a name="list-number-of-role-assignments"></a>Enumeración del número de asignaciones de roles
 
-Puede tener hasta **2000** asignaciones de roles en cada suscripción. Para ayudarle a realizar un seguimiento de este límite, la pestaña **Asignaciones de roles** incluye un gráfico que muestra el número de asignaciones de roles de la suscripción actual.
+Puede tener hasta **2000** asignaciones de roles en cada suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Para ayudarle a realizar un seguimiento de este límite, la pestaña **Asignaciones de roles** incluye un gráfico que muestra el número de asignaciones de roles de la suscripción actual.
 
 ![Cuadro de control de acceso: número de asignaciones de roles](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
@@ -138,5 +140,5 @@ Si está cerca del número máximo e intenta agregar más asignaciones de roles,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](role-assignments-portal.md)
-- [Solución de problemas del control de acceso basado en rol para recursos de Azure](troubleshooting.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md)
+- [Solución de problemas de Azure RBAC](troubleshooting.md)

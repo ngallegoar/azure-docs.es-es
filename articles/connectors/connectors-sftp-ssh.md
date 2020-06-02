@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393634"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927452"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -34,7 +34,7 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
 * Las acciones de SFTP-SSH que admiten la [fragmentación](../logic-apps/logic-apps-handle-large-messages.md) pueden administrar archivos de hasta 1 GB, mientras que las acciones de SFTP-SSH que no admiten la fragmentación pueden administrar archivos de hasta 50 MB. Aunque el tamaño de fragmento predeterminado es de 15 MB, este tamaño puede cambiar dinámicamente, empezando por 5 MB y aumentando gradualmente hasta 50 MB, como máximo, en función de factores como la latencia de red, el tiempo de respuesta del servidor, etc.
 
   > [!NOTE]
-  > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
+  > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE necesita fragmentarse para usar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
 
   Puede invalidar este comportamiento adaptable en caso de [especificar un tamaño de fragmento constante](#change-chunk-size) para usar en su lugar. Este tamaño puede oscilar entre 5 MB y 50 MB. Por ejemplo, supongamos que tiene un archivo de 45 MB y una red que admite ese tamaño de archivo sin latencia. La fragmentación adaptable da como resultado varias llamadas, en lugar de una llamada. Para reducir el número de llamadas, puede intentar establecer un tamaño de fragmento de 50 MB. En un escenario diferente, si se agota el tiempo de espera de la aplicación lógica, por ejemplo, al usar fragmentos de 15 MB, puede intentar reducir el tamaño a 5 MB.
 
@@ -248,7 +248,7 @@ Si no puede evitar o retrasar el traslado del archivo, puede omitir la lectura d
 Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/sftpwithssh/).
 
 > [!NOTE]
-> En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
+> En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE necesita fragmentarse para usar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

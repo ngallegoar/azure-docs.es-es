@@ -1,6 +1,6 @@
 ---
-title: Lista de definiciones de roles del control de acceso basado en rol de Azure mediante Azure Portal, Azure PowerShell, la CLI de Azure o la API de REST | Microsoft Docs
-description: Aprenda a enumerar los roles integrados y personalizados en el control de acceso basado en rol de Azure mediante Azure Portal, Azure PowerShell, la CLI de Azure o la API de REST.
+title: 'Enumeración de las definiciones de roles de Azure: RBAC de Azure'
+description: Aprenda a enumerar los roles integrados y personalizados de Azure mediante Azure Portal, Azure PowerShell, la CLI de Azure o la API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e691e37a85604132a6b1c4b2af3501f2c8636e18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062983"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891267"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Lista de definiciones de roles en el control de acceso basado en rol de Azure
+# <a name="list-azure-role-definitions"></a>Enumeración de las definiciones de roles de Azure
 
 Una definición de roles es una colección de permisos que se pueden realizar, por ejemplo, de lectura, escritura y eliminación. Suele denominarse un rol. [El control de acceso basado en rol (RBAC) de Azure](overview.md) tiene más de 120 [roles integrados](built-in-roles.md) o puede crear sus propios roles personalizados. En este artículo se describe cómo mostrar en una lista los roles integrados y personalizados que puede usar para conceder acceso a los recursos de Azure.
 
 Para ver la lista de los roles de administrador de Azure Active Directory, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="list-all-roles"></a>Lista de todos los roles
 
@@ -344,6 +344,55 @@ Para enumerar las definiciones de roles, use la API de REST [Definiciones de rol
     > | `$filter=atScopeAndBelow()` | Muestra las definiciones de roles para el ámbito especificado y cualquier subámbito. |
     > | `$filter=type+eq+'{type}'` | Muestra las definiciones de roles del tipo especificado. El tipo de rol puede ser `CustomRole` o `BuiltInRole`. |
 
+La siguiente solicitud enumera las definiciones de roles personalizadas en el ámbito de la suscripción:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+```
+
+El siguiente texto muestra un ejemplo de la salida:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleName": "Billing Reader Plus",
+                "type": "CustomRole",
+                "description": "Read billing data and download invoices",
+                "assignableScopes": [
+                    "/subscriptions/{subscriptionId1}"
+                ],
+                "permissions": [
+                    {
+                        "actions": [
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Billing/*/read",
+                            "Microsoft.Commerce/*/read",
+                            "Microsoft.Consumption/*/read",
+                            "Microsoft.Management/managementGroups/read",
+                            "Microsoft.CostManagement/*/read",
+                            "Microsoft.Billing/invoices/download/action",
+                            "Microsoft.CostManagement/exports/*"
+                        ],
+                        "notActions": [
+                            "Microsoft.CostManagement/exports/delete"
+                        ]
+                    }
+                ],
+                "createdOn": "2020-02-21T04:49:13.7679452Z",
+                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId1}",
+            "type": "Microsoft.Authorization/roleDefinitions",
+            "name": "{roleDefinitionId1}"
+        }
+    ]
+}
+```
+
 ### <a name="list-a-role-definition"></a>Enumeración de una definición de roles
 
 Para mostrar los detalles de un rol específico, use la API de REST [Definiciones de roles: obtención](/rest/api/authorization/roledefinitions/get) o [Definiciones de roles: obtención por id.](/rest/api/authorization/roledefinitions/getbyid)
@@ -372,9 +421,45 @@ Para mostrar los detalles de un rol específico, use la API de REST [Definicione
      
 1. Reemplace *{roleDefinitionId}* por el identificador de la definición de roles.
 
+La siguiente solicitud enumera la definición de roles de [lector](built-in-roles.md#reader):
+
+```http
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+```
+
+El siguiente texto muestra un ejemplo de la salida:
+
+```json
+{
+    "properties": {
+        "roleName": "Reader",
+        "type": "BuiltInRole",
+        "description": "Lets you view everything, but not make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "*/read"
+                ],
+                "notActions": []
+            }
+        ],
+        "createdOn": "2015-02-02T21:55:09.8806423Z",
+        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "createdBy": null,
+        "updatedBy": null
+    },
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Roles integrados en los recursos de Azure](built-in-roles.md)
 - [Roles personalizados en los recursos de Azure](custom-roles.md)
-- [Lista de asignaciones de roles con RBAC de Azure y Azure Portal](role-assignments-list-portal.md)
-- [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](role-assignments-portal.md)
+- [Enumeración de asignaciones de roles de Azure mediante Azure Portal](role-assignments-list-portal.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md)

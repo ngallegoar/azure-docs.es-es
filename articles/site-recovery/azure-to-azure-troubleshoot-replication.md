@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667415"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901348"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solución de problemas de replicación en recuperación ante desastres de VM de Azure
 
@@ -41,7 +41,7 @@ Si selecciona el evento, debería ver la información exacta del disco:
 
 En la tabla siguiente se proporcionan los límites de Azure Site Recovery. Estos límites se basan en nuestras pruebas, pero no pueden cubrir todas las combinaciones de E/S posibles de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación.
 
-Hay dos límites que se deben tener en cuenta: la frecuencia de modificación de datos por disco y la frecuencia de modificación de datos por máquina virtual. Por ejemplo, veamos el disco Premium P20 en la tabla siguiente. En el caso de una sola máquina virtual, Site Recovery puede controlar 5 MB/s de renovación por disco con un máximo de cinco discos de este tipo. Site Recovery tiene un límite de 25 MB/s de renovación total por máquina virtual.
+Hay dos límites que se deben tener en cuenta: la frecuencia de modificación de datos por disco y la frecuencia de modificación de datos por máquina virtual. Por ejemplo, veamos el disco Premium P20 en la tabla siguiente. En el caso de una sola máquina virtual, Site Recovery puede controlar 5 MB/s de renovación por disco con un máximo de cinco discos de este tipo. Site Recovery tiene un límite de 54 MB/s de renovación total por máquina virtual.
 
 **Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos total por día de disco de datos de origen**
 ---|---|---|---

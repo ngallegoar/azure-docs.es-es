@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 618803e8e94f96a63e0c39c27b40a933acac7cb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74968705"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995525"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming sin conexión para iOS 
 
@@ -211,7 +211,7 @@ Las preguntas más frecuentes que aparecen a continuación proporcionan ayuda pa
 - **¿Qué significa el último parámetro en la siguiente API para el modo sin conexión de FPS?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Si necesita la configuración correspondiente a esta API, consulte el [método FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). El parámetro representa la duración del alquiler sin conexión con la hora como unidad.
+    Si necesita la configuración correspondiente a esta API, consulte el [método FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). El parámetro representa la duración del alquiler sin conexión con el segundo como unidad.
 - **¿Cuál es la estructura del archivo descargado o sin conexión en dispositivos iOS?** La estructura del archivo descargado en un dispositivo iOS es similar a la captura de pantalla siguiente. La carpeta `_keys` almacena licencias FPS descargadas, con un archivo de almacén para cada host de servicio de licencia. La carpeta `.movpkg` almacena el contenido de audio y vídeo. La primera carpeta, cuyo nombre finaliza con un guion seguido de un valor numérico, contiene datos de vídeo. El valor numérico es el valor PeakBandwidth de la reproducción de vídeo. La segunda carpeta, cuyo nombre finaliza con un guion seguido de un 0, contiene datos de audio. La tercera carpeta, denominada "Data", contiene la lista de reproducción maestra del contenido FPS. Por último, boot.xml proporciona una descripción completa del contenido de la carpeta `.movpkg`. 
 
 ![Estructura del archivo de aplicación de ejemplo de iOS de FairPlay sin conexión](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

@@ -8,18 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74280982"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005484"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos con IA a un índice de búsqueda
 
 En este artículo, aprenderá a asignar campos de entrada enriquecidos a campos de salida en un índice de búsqueda. Una vez que haya [definido un conjunto de aptitudes](cognitive-search-defining-skillset.md), debe asignar los campos de salida de cualquier aptitud que aporte directamente valores a un campo dado del índice de búsqueda. 
 
 Las asignaciones de campos de salida son necesarias para mover contenido de documentos enriquecidos al índice.  El documento enriquecido es en realidad un árbol de información y, aunque hay compatibilidad con tipos complejos en el índice, a veces puede interesarle transformar la información del árbol enriquecido en un tipo más simple (por ejemplo, una matriz de cadenas). Las asignaciones de campos de salida permiten realizar transformaciones en la forma de los datos mediante la reducción de información.
+
+> [!NOTE]
+> Recientemente se ha habilitado la funcionalidad de asignación de funciones en las asignaciones de campos de salida. Para obtener más información sobre las funciones de asignación, consulte [Funciones de asignación de campos](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Usar outputFieldMappings
 Para asignar los campos, agregue `outputFieldMappings` a la definición del indexador tal como se muestra a continuación:
@@ -50,7 +53,10 @@ El cuerpo de la solicitud está estructurado de la siguiente manera:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

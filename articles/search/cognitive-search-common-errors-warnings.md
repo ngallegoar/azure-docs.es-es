@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086622"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125101"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -75,6 +75,11 @@ El indexador leyó el documento desde el origen de datos, pero hubo un problema 
 | La clave del documento no es válida | La clave del documento no puede tener más de 1024 caracteres | Modifique la clave del documento para que cumpla los requisitos de validación. |
 | No se pudo aplicar la asignación de campos a un campo | No se pudo aplicar la función de asignación `'functionName'` al campo `'fieldName'`. La matriz no puede ser NULL. Nombre de parámetro: bytes | Compruebe las [asignaciones de campos](search-indexer-field-mappings.md) definidas en el indexador y compárelas con los datos del campo especificado del documento con errores. Puede que sea necesario modificar las asignaciones de campos o los datos del documento. |
 | No se pudo leer el valor del campo | No se pudo leer el valor de la columna `'fieldName'` en el índice `'fieldIndex'`. Error en el nivel del transporte al recibir los resultados del servidor. (proveedor: Proveedor TCP, error: 0: El host remoto forzó el cierre de la conexión existente). | Normalmente, estos errores se deben a problemas de conectividad inesperados con el servicio subyacente del origen de datos. Intente volver a ejecutar el documento mediante el indexador más adelante. |
+
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Error: No se pudo asignar el campo de salida "`xyz`" al índice de búsqueda debido a un problema de deserialización al aplicar la función de asignación "`abc`".
+Es posible que se haya producido un error en la asignación de salida porque los datos de salida tienen un formato incorrecto en la función de asignación que está usando. Por ejemplo, si se aplica la función de asignación Base64Encode en datos binarios, se generaría este error. Para resolver el problema, vuelva a ejecutar el indexador sin especificar la función de asignación o asegúrese de que la función de asignación es compatible con el tipo de datos del campo de salida. Consulte [Asignación de campos de salida](cognitive-search-output-field-mapping.md) para obtener más información.
 
 <a name="could-not-execute-skill"/>
 
@@ -311,7 +316,12 @@ Para más información, consulte [Límites de índice](search-limits-quotas-capa
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Advertencia: No se pudo asignar el campo de salida "X" al índice de búsqueda
-Las asignaciones de campos de salida que hagan referencia a datos inexistentes o nulos generarán advertencias con cada documento y producirán un campo de índice vacío. Para solucionar este problema, compruebe las rutas de acceso de origen de la asignación de campos de salida en busca de posibles errores tipográficos o establezca un valor predeterminado mediante la [aptitud condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Las asignaciones de campos de salida que hagan referencia a datos inexistentes o nulos generarán advertencias con cada documento y producirán un campo de índice vacío. Para solucionar este problema, compruebe las rutas de acceso de origen de la asignación de campos de salida en busca de posibles errores tipográficos o establezca un valor predeterminado mediante la [aptitud condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Consulte [Asignación de campos de salida](cognitive-search-output-field-mapping.md) para obtener más información.
+
+| Motivo | Detalles/ejemplo | Solución |
+| --- | --- | --- |
+| No se puede iterar en un elemento que no sea una matriz | "No se puede iterar en el elemento `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`, que no es una matriz". | Este error se produce cuando la salida no es una matriz. Si cree que la salida es una matriz, compruebe si hay errores en la ruta de acceso del campo de origen de salida indicada. Por ejemplo, es posible que tenga un elemento `*` adicional o ausente en el nombre del campo de origen. También es posible que la entrada a esta aptitud sea NULL, lo que da lugar a una matriz vacía. Busque detalles similares en la sección [La entrada de aptitudes no es válida](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).    |
+| No se puede seleccionar `0` en un elemento que no sea una matriz | "No se puede seleccionar `0` en un elemento que no sea una matriz `/document/pages`". | Esto puede ocurrir si la salida de las aptitudes no produce una matriz y el nombre del campo de origen de salida tiene un índice de matriz o `*` en su ruta de acceso. Compruebe las rutas de acceso proporcionadas en los nombres del campo de origen de salida y en el valor de campo del nombre de campo indicado. Busque detalles similares en la sección [La entrada de aptitudes no es válida](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 

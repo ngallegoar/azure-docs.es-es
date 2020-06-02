@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1265d018997f9540e14e83ab15a44e78f4f86fb1
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684099"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402659"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratación de los datos de blob desde el nivel de archivo
 
@@ -34,6 +34,9 @@ Mientras un blob se encuentra en el nivel de acceso de archivo, se considera sin
 Si no quiere rehidratar un archivo blob, puede elegir realizar una operación [Copiar blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Su blob original permanecerá sin modificaciones en el archivo, mientras se crea un nuevo blob en el nivel frecuente o esporádico en línea para que pueda trabajar. En la operación Copiar blob, también puede establecer la propiedad opcional *​​x-ms-rehydrate-priority* en Estándar o Alta para especificar la prioridad con la que desea que se cree su copia de blob.
 
 La copia de un BLOB desde el archivo puede tardar horas en completarse, en función de la prioridad de rehidratación seleccionada. En segundo plano, la operación **Copiar blob** lee el blob de origen de archivo para crear un nuevo blob en línea en el nivel de destino seleccionado. El nuevo blob puede ser visible cuando enumera los blobs, pero los datos no estarán disponibles hasta que la lectura del blob de archivo de origen esté completa y los datos se escriban en el nuevo blob de destino en línea. El nuevo BLOB es una copia independiente y cualquier modificación o eliminación en él no afecta al BLOB de archivo de origen.
+
+> [!IMPORTANT]
+> No elimine el blob de origen hasta que la copia se complete correctamente en el destino. Si se elimina el blob de origen, es posible que el blob de destino no finalice la copia y quedará vacío. Puede comprobar el elemento*x-ms-copy-status* para determinar el estado de la operación de copia.
 
 Los blobs de archivo solo se pueden copiar en los niveles de destino en línea dentro de la misma cuenta de almacenamiento. No se admite la copia de un blob de archivo en otro blob de archivo. En la tabla siguiente se indican las funcionalidades de CopyBlob.
 

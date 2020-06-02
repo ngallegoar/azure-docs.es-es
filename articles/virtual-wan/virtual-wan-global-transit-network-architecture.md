@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113174"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195678"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -99,6 +99,9 @@ Las sucursales se pueden conectar a un centro de Azure Virtual WAN mediante circ
 
 Esta opción permite que las empresas usen la red troncal de Azure para conectar las sucursales. Sin embargo, aunque esta funcionalidad esté disponible, debe ponderar los beneficios de conectar las sucursales a través de Azure Virtual WAN en comparación con usar una WAN privada.  
 
+> [!NOTE]
+> Deshabilitación de la conectividad de rama a rama en Virtual WAN: Virtual WAN puede configurarse para deshabilitar la conectividad de rama a rama. Esta configuración bloqueará la propagación de rutas entre VPN (S2S y P2S) y los sitios conectados de ExpressRoute. Esta configuración no afectará a la conectividad y propagación de rutas de red virtual a red virtual y de rama a red virtual. Para configurar esta opción con Azure Portal: En el menú configuración de Virtual WAN, elija Configuración: De rama a rama: deshabilitado. 
+
 ### <a name="remote-user-to-vnet-c"></a>Usuario remoto a red virtual (c)
 
 Puede habilitar el acceso remoto seguro y directo a Azure mediante una conexión de punto a sitio desde un cliente de usuario remoto a una WAN virtual. Los usuarios empresariales remotos ya no tienen que conectarse a la nube a través de una VPN corporativa.
@@ -110,6 +113,15 @@ La ruta de usuario remoto a sucursal permite que los usuarios remotos que usan u
 ### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>Tránsito de red virtual a red virtual (e) y de red virtual a red virtual entre (h)
 
 El tránsito de red virtual a red virtual permite que las redes virtuales se conecten entre sí para interconectar aplicaciones de varios niveles implementadas en varias redes virtuales. Opcionalmente, puede conectar redes virtuales entre sí mediante el emparejamiento de red virtual. Esta opción puede ser adecuada para algunos escenarios en los que no es necesario el tránsito a través del centro de WAN virtual.
+
+
+## <a name="force-tunneling-and-default-route-in-azure-virtual-wan"></a><a name="DefaultRoute"></a>Tunelización forzada y ruta predeterminada en Azure Virtual WAN
+
+La tunelización forzada se puede habilitar configurando la opción para habilitar la ruta predeterminada en una conexión de VPN, ExpressRoute o Virtual Network en una red de Virtual WAN.
+
+Un centro de conectividad virtual puede propagar una ruta predeterminada aprendida en una red virtual, una VPN de sitio a sitio y una conexión ExpressRoute si la marca está habilitada en la conexión. 
+
+Esta marca está visible cuando el usuario edita una conexión de red virtual, una conexión VPN o una conexión ExpressRoute. De forma predeterminada, esta marca está deshabilitada cuando un sitio o circuito de ExpressRoute se conecta a un centro. Está habilitada de forma predeterminada cuando se agrega una conexión de red virtual para conectar una red virtual a un centro de conectividad virtual. La ruta predeterminada no se origina en el centro de conectividad de Virtual WAN; la ruta se propaga si ya la ha aprendido el centro de Virtual WAN como resultado de la implementación de un firewall en el centro o en caso de que otro sitio conectado tenga habilitada la tunelización forzada.
 
 ## <a name="security-and-policy-control"></a><a name="security"></a>Seguridad y control de directivas
 
@@ -133,10 +145,28 @@ El tránsito seguro de red virtual a red virtual permite que las redes virtuales
 
 ### <a name="vnet-to-internet-or-third-party-security-service-i"></a>Servicio de seguridad de red virtual a Internet o a terceros (i)
 
-El tránsito seguro de red virtual a Internet o a terceros permite que las redes virtuales se conecten a Internet o a servicios de seguridad de terceros admitidos a través de Azure Firewall en el centro de WAN virtual.
+El tránsito de red virtual a Internet permite que las redes virtuales se conecten entre sí a través de Azure Firewall en el centro de conectividad de WAN virtual. El tráfico de Internet a través de servicios de seguridad admitidos de terceros no fluye a través de Azure Firewall. Puede configurar la ruta de acceso de red virtual a Internet a través de un servicio de seguridad admitido de terceros mediante Azure Firewall Manager.  
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Servicio de seguridad de sucursal a Internet o a terceros (i)
-El tránsito seguro de sucursal a Internet o a terceros permite que las sucursales se conecten a Internet o a servicios de seguridad de terceros admitidos a través de Azure Firewall en el centro de WAN virtual.
+El tránsito de rama a Internet permite que las ramas se conecten a Internet a través de Azure Firewall en el centro de conectividad de WAN virtual. El tráfico de Internet a través de servicios de seguridad admitidos de terceros no fluye a través de Azure Firewall. Puede configurar la ruta de acceso de rama a Internet a través de un servicio de seguridad admitido de terceros mediante Azure Firewall Manager. 
+
+### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Cómo habilitar la ruta predeterminada (0.0.0.0/0) en un centro virtual protegido
+
+Si Azure Firewall está implementado en un centro de conectividad WAN virtual (centro virtual protegido), se puede configurar como enrutador predeterminado a Internet o al proveedor de seguridad de confianza en todas las ramas (siempre que estén conectadas mediante VPN o Express Route), redes virtuales de radios y usuarios (conectados a través de VPN P2S). Esta configuración debe realizarse mediante Azure Firewall Manager.  Consulte el enrutamiento del tráfico al centro de conectividad para configurar todo el tráfico de las ramas (incluidos los usuarios), así como las redes virtuales a Internet a través de Azure Firewall. 
+
+Esta es una configuración de dos pasos:
+
+1. Configure el enrutamiento de tráfico de Internet mediante el menú de configuración de la ruta del centro virtual protegido. Configure las redes virtuales y las ramas que puedan enviar tráfico a Internet a través del firewall.
+
+2. Configure qué conexiones (de red virtual y rama) pueden enrutar el tráfico a Internet (0.0.0.0/0) a través del FW de Azure en el centro de conectividad o el proveedor de seguridad de confianza. Este paso garantiza que la ruta predeterminada se propague a las ramas y redes virtuales seleccionadas que están conectadas al centro de Virtual WAN a través de las conexiones. 
+
+### <a name="force-tunneling-traffic-to-on-premises-firewall-in-a-secured-virtual-hub"></a>Forzar el tráfico de tunelización al firewall local en un centro virtual protegido
+
+Si el centro virtual ya ha aprendido una ruta predeterminada (a través de BGP) de una de las ramas (sitios VPN o ER), esta ruta predeterminada se invalida mediante la ruta predeterminada aprendida de la configuración de Azure Firewall Manager. En este caso, todo el tráfico que entra en el centro desde las redes virtuales y las ramas destinadas a Internet se enrutará a Azure Firewall o al proveedor de seguridad de confianza.
+
+> [!NOTE]
+> Actualmente, no hay ninguna opción para seleccionar la instancia de firewall o de Azure Firewall local (así como el proveedor de seguridad de confianza) para el tráfico enlazado a Internet que se origina en las redes virtuales, las ramas o los usuarios. La ruta predeterminada aprendida de la configuración de Azure Firewall Manager siempre es preferible a la ruta predeterminada aprendida de una de las ramas.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,19 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 99393ed518df590140f79933623a9f7ec96edc85
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612085"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402295"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión Windows Virtual Desktop Fall 2019 sin objetos de Azure Resource Manager, vea [este artículo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 >
-> La actualización Spring 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Windows Virtual Desktop admite la representación y codificación de la aceleración por GPU para mejorar el rendimiento y la escalabilidad de las aplicaciones. La aceleración de la GPU es especialmente importante para las aplicaciones que contienen muchos gráficos.
@@ -96,5 +96,5 @@ Para comprobar que Escritorio remoto utiliza la codificación de aceleración po
 
 Con estas instrucciones debería poder configurar y ejecutar la aceleración por GPU en un host de sesión (una máquina virtual). A continuación se indican algunas consideraciones adicionales para habilitar la aceleración por GPU en un grupo host más grande:
 
-* Considere la posibilidad de usar la [extensión de máquina virtual](/azure/virtual-machines/extensions/overview) para simplificar la instalación de controladores y las actualizaciones en múltiples máquinas virtuales. Use la [extensión de controlador de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para las máquinas virtuales con GPU NVIDIA y use la extensión de controlador de GPU AMD (próximamente) para las máquinas virtuales con GPU AMD.
+* Considere la posibilidad de usar la [extensión de máquina virtual](/azure/virtual-machines/extensions/overview) para simplificar la instalación de controladores y las actualizaciones en múltiples máquinas virtuales. Use la [extensión de controlador de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para las VM con GPU NVIDIA y use la [extensión de controlador de GPU AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) para las VM con GPU AMD.
 * Considere la posibilidad de usar la directivas de Active Directory para simplificar la configuración de directivas de grupo en varias máquinas virtuales. Para obtener información sobre cómo implementar la directiva de grupo en el dominio de Active Directory, consulte [Trabajar con objetos de directiva de grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

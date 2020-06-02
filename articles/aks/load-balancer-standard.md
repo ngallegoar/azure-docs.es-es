@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3be60888d3d12d37650ad2cffc1911fb3b5e6682
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 14e80f6348772af77c5a53b1d5e9111c4ae8ba9b
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790701"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402066"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 
@@ -89,12 +89,17 @@ Cuando se usa un equilibrador de carga de SKU *estándar*, el clúster de AKS cr
 
 Al incorporar varios prefijos o direcciones IP, puede definir varios servicios de respaldo al definir la dirección IP detrás de un solo objeto de equilibrador de carga. El punto de conexión de salida de nodos específicos dependerá del servicio con el que estén asociados.
 
-> [!IMPORTANT]
-> Debe usar direcciones IP públicas de SKU *estándar* para salida con la SKU *estándar* del equilibrador de carga. Puede comprobar la SKU de las direcciones IP públicas mediante el comando [az network public-ip show][az-network-public-ip-show]:
->
-> ```azurecli-interactive
-> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
-> ```
+### <a name="pre-requisites-to-bring-your-own-ip-addresses-or-ip-prefixes"></a>Requisitos previos para traer sus propias direcciones IP o prefijos IP
+1. Debe usar direcciones IP públicas de SKU *estándar* para salida con la SKU *estándar* del equilibrador de carga. Puede comprobar la SKU de las direcciones IP públicas mediante el comando [az network public-ip show][az-network-public-ip-show]:
+
+   ```azurecli-interactive
+   az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+   ```
+ 1. Las direcciones IP públicas y los prefijos de dirección IP pública deben estar en la misma región y formar parte de la misma suscripción que el clúster de AKS.
+ 1. Las direcciones IP públicas y los prefijos IP no pueden ser direcciones IP que haya creado AKS como una dirección IP administrada. Asegúrese de que las direcciones IP especificadas como direcciones IP personalizadas se crearon manualmente y no mediante el servicio AKS.
+ 1. Otro recurso o servicio no puede usar las direcciones IP públicas y los prefijos IP.
+
+ ### <a name="define-your-own-public-ip-or-prefixes-on-an-existing-cluster"></a>Defina sus propios prefijos o direcciones IP públicas en un clúster existente
 
 Use el comando [az network public-ip show][az-network-public-ip-show] para enumerar los id. de las direcciones IP públicas.
 
@@ -131,9 +136,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
-
-> [!IMPORTANT]
-> Las direcciones IP públicas y los prefijos de dirección IP pública deben estar en la misma región y formar parte de la misma suscripción que el clúster de AKS. 
 
 ### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Definición de sus propios prefijos o IP públicas en el momento de la creación del clúster
 

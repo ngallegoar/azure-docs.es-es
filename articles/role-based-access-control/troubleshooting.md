@@ -15,12 +15,12 @@ ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735577"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996594"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -28,7 +28,7 @@ En este artículo se responden algunas preguntas comunes acerca del control de a
 
 ## <a name="azure-role-assignments-limit"></a>Límite de asignaciones de roles de Azure
 
-Azure admite hasta **2000** asignaciones de roles por suscripción. Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a reducir el número de asignaciones de roles de la suscripción.
+Azure admite hasta **2000** asignaciones de roles por suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a reducir el número de asignaciones de roles de la suscripción.
 
 > [!NOTE]
 > El límite de **2000** asignaciones de roles por suscripción es fijo y no se puede aumentar.

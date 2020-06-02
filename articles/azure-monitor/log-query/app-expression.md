@@ -5,19 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/25/2019
-ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/09/2019
+ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670268"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201101"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
 
 La expresión `app` se usa en una consulta de Azure Monitor para recuperar datos de una aplicación de Application Insights específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción. Resulta útil para incluir datos de aplicación en una consulta de registros de Azure Monitor y para consultar datos a través de varias aplicaciones en una consulta de Application Insights.
 
-
+> [!IMPORTANT]
+> La expresión app() no se usa si se usa un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md), ya que los datos de registro se almacenan en un área de trabajo de Log Analytics. Use la expresión log() para escribir una consulta que incluya la aplicación en varias áreas de trabajo. Si tiene varias aplicaciones en la misma área de trabajo, no se necesita realizar una consulta entre áreas de trabajo.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -26,11 +27,11 @@ La expresión `app` se usa en una consulta de Azure Monitor para recuperar datos
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: identifica la aplicación mediante uno de los formatos de la tabla siguiente.
+- *Identificador*: Identifica la aplicación con uno de los formatos de la tabla siguiente.
 
 | Identificador | Descripción | Ejemplo
 |:---|:---|:---|
-| Nombre de recurso | Nombre legible de la aplicación (también denominado "nombre del componente") | app("fabrikamapp") |
+| Nombre de recurso | Nombre legible de la aplicación (también conocido como "nombre del componente") | app("fabrikamapp") |
 | Nombre completo | Nombre completo de la aplicación en el formato siguiente: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
 | id | GUID de la aplicación | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Id. de recurso de Azure | Identificador del recurso de Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |

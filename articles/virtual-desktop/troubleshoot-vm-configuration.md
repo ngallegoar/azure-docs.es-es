@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/03/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127590"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125121"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
+
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use este artículo para solucionar los problemas que tiene al configurar las máquinas de virtuales (VM) de host de sesión de Windows Virtual Desktop.
 
@@ -25,10 +31,10 @@ Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>Las VM no se unen al dominio
 
-Siga estas instrucciones si tiene problemas para unir las VM al dominio.
+Siga estas instrucciones si tiene problemas para unir las máquinas virtuales al dominio.
 
 - Una la VM manualmente con el proceso de [Unir una máquina virtual de Windows Server a un dominio administrado](../active-directory-domain-services/join-windows-vm.md) o con la [plantilla de unión a un dominio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-- Intente hacer ping en el nombre de dominio desde la línea de comandos en la VM.
+- Intente hacer ping en el nombre de dominio desde la línea de comandos en la máquina virtual.
 - Revise la lista de mensajes de error de unión a un dominio en [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx) (Solución de problemas con mensajes de error de unión a un dominio).
 
 ### <a name="error-incorrect-credentials"></a>Error: Credenciales incorrectas
@@ -77,7 +83,7 @@ Siga estas instrucciones si tiene problemas para unir las VM al dominio.
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>El agente de Windows Virtual Desktop y el cargador de arranque de Windows Virtual Desktop no están instalados
 
-La manera recomendada para aprovisionar VM es mediante la plantilla **Create and provision Windows Virtual Desktop host pool** (Creación y aprovisionamiento del grupo de host de Windows Virtual Desktop) de Azure Resource Manager. La plantilla instala automáticamente el agente de Windows Virtual Desktop y el cargador de arranque de Windows Virtual Desktop.
+La manera recomendada para aprovisionar máquinas virtuales es usar la plantilla de creación de Azure Portal. La plantilla instala automáticamente el agente de Windows Virtual Desktop y el cargador de arranque de Windows Virtual Desktop.
 
 Siga estas instrucciones para confirmar que los componentes se han instalado y para comprobar los mensajes de error.
 
@@ -96,8 +102,8 @@ Siga estas instrucciones para confirmar que los componentes se han instalado y p
 **Corrección 2:** Confirme los elementos de la lista siguiente.
 
 - Asegúrese de que la cuenta no tenga MFA.
-- Confirme que el nombre del inquilino esté correcto y que el inquilino exista en Windows Virtual Desktop.
-- Confirme que la cuenta tiene al menos permisos de colaborador de RDS.
+- Confirme que el nombre del grupo de hosts sea correcto y que este exista en Windows Virtual Desktop.
+- Confirme que la cuenta tiene al menos permisos de colaborador en el grupo de recursos o la suscripción de Azure.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Error: Error de autenticación, error en C:\Windows\Temp\ScriptLog.log
 
@@ -106,16 +112,16 @@ Siga estas instrucciones para confirmar que los componentes se han instalado y p
 **Solución:** Confirme los elementos de la lista siguiente.
 
 - Registre manualmente las VM con el servicio de Windows Virtual Desktop.
-- Confirme que la cuenta usada para conectarse a Windows Virtual Desktop tiene permisos en el inquilino para crear grupos host.
+- Confirme que la cuenta usada para conectarse a Windows Virtual Desktop tiene permisos en el grupo de recursos o la suscripción de Azure para crear grupos de hosts.
 - Confirme que la cuenta no tenga MFA.
 
 ## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>El agente de Windows Virtual Desktop no se registra en el servicio de Windows Virtual Desktop
 
 Cuando el agente de Windows Virtual Desktop se instala por primera vez en las VM de host de sesión (ya sea manualmente o a través de la plantilla de Azure Resource Manager y DSC de PowerShell), proporciona un token de registro. En la siguiente sección se trata la solución de problemas aplicables al agente de Windows Virtual Desktop y el token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Error: El estado archivado en el cmdlet Get-RdsSessionHost muestra el estado como no disponible
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Error: El estado archivado en el cmdlet Get-AzWvdSessionHost muestra el estado como no disponible
 
-![El cmdlet Get-RdsSessionHost muestra el estado como no disponible.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![El cmdlet Get-AzWvdSessionHost muestra el estado como no disponible.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** El agente no puede actualizarse automáticamente a una nueva versión.
 
@@ -128,17 +134,17 @@ Cuando el agente de Windows Virtual Desktop se instala por primera vez en las VM
 5. Complete el Asistente para la instalación.
 6. Abra el Administrador de tareas e inicie el servicio RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Error:  La entrada del registro IsRegistered del agente de Windows Virtual Desktop muestra un valor de 0
+## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Error: La entrada del registro IsRegistered del agente de Windows Virtual Desktop muestra un valor de 0
 
 **Causa:** El token de registro ha expirado o se ha generado con el valor de expiración de 999999.
 
 **Solución:** Siga estas instrucciones para corregir el error del registro del agente.
 
-1. Si ya hay un token de registro, quítelo con Remove-RDSRegistrationInfo.
-2. Genere un nuevo token con Rds-NewRegistrationInfo.
-3. Confirme que el parámetro -ExpriationHours esté configurado en 72 (el valor máximo es 99999).
+1. Si ya hay un token de registro, quítelo con Remove-AzWvdRegistrationInfo. 
+2. Ejecute el cmdlet **New-AzWvdRegistrationInfo** para generar un nuevo token. 
+3. Confirme que el parámetro *-ExpirationTime* esté configurado en 3 días.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Error: El agente de Windows Virtual Desktop no notifica un latido al ejecutar Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Error: El agente de Windows Virtual Desktop no notifica un latido al ejecutar Get-AzWvdSessionHost
 
 **Causa 1:** Se ha detenido el servicio RDAgentBootLoader.
 
@@ -180,7 +186,7 @@ La pila en paralelo de Windows Virtual Desktop se instala automáticamente con W
 
 Hay tres maneras principales de instalar la pila en paralelo o habilitarla en VM del grupo de host de sesión:
 
-- Con la plantilla **Create and provision Windows Virtual Desktop host pool** (Creación y aprovisionamiento del grupo de host de Windows Virtual Desktop) de Azure Resource Manager.
+- Con la plantilla de creación de Azure Portal
 - Al incluirla y habilitarla en la imagen maestra.
 - Al instalarla o habilitarla manualmente en cada VM (con extensiones o PowerShell).
 
@@ -209,13 +215,7 @@ Examine las entradas del Registro que se enumeran a continuación y confirme que
 **Solución:** Siga estas instrucciones para instalar la pila en paralelo en la VM del host de sesión.
 
 1. Use el Protocolo de escritorio remoto (RDP) para ir directamente a la VM del host de sesión como administrador local.
-2. Descargue e importe [el módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) que se usará en la sesión de PowerShell, si aún no lo ha hecho y, a continuación, ejecute este cmdlet para iniciar sesión en la cuenta:
-
-    ```powershell
-    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-    ```
-
-3. Instale la pila en paralelo con [Creación de un grupo host con PowerShell](create-host-pools-powershell.md).
+2. Instale la pila en paralelo con [Creación de un grupo host con PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Cómo corregir una pila en paralelo de Windows Virtual Desktop con error de funcionamiento
 
@@ -336,10 +336,16 @@ Si el número de versión indica "1809", instale [la actualización KB4516077 ](
 
 Vuelva a implementar el sistema operativo host con la versión más reciente de la imagen de Windows 10, versión 1903, de la galería de Azure.
 
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>No se pudo conectar al equipo remoto debido a un error de seguridad.
+
+Si los usuarios ven un error que dice "no se pudo conectar al equipo remoto debido a un error de seguridad. Si esto sigue ocurriendo, póngase en contacto con el administrador o el servicio de soporte técnico para obtener ayuda", valide las directivas existentes que cambian los permisos RDP predeterminados. Una directiva que podría provocar que este error aparezca es "Permitir el inicio de sesión a través de la directiva de seguridad de los Servicios de Escritorio remoto".
+
+Para obtener más información acerca de esta directiva, consulte [Permitir el inicio de sesión a través de Servicios de Escritorio remoto](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
-- Para solucionar problemas durante la creación de un grupo de inquilinos y de hosts en un entorno de Windows Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues.md).
+- Para solucionar problemas durante la creación de un grupo de hosts en un entorno de Windows Virtual Desktop, consulte [Creación de entornos y grupos de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
 - Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de servicios de Windows Virtual Desktop](troubleshoot-service-connection.md).
 - Para solucionar problemas con los clientes de Escritorio remoto, consulte [Solución de problemas del cliente de Escritorio remoto](troubleshoot-client.md).

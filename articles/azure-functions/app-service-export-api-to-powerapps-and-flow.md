@@ -2,20 +2,20 @@
 title: Exportación de una API hospedada en Azure a PowerApps y Microsoft Flow
 description: Introducción a la exposición de una API que se hospeda en App Service a PowerApps y Microsoft Flow
 ms.topic: conceptual
-ms.date: 12/15/2017
+ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233071"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115834"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportación de una API hospedada en Azure a PowerApps y Microsoft Flow
 
 [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) es un servicio para generar y utilizar aplicaciones empresariales personalizadas que se conectan a los datos y funcionan en otras plataformas. [Microsoft Flow](/learn/modules/get-started-with-flow/index) facilita la automatización de los flujos de trabajo y los procesos empresariales en sus aplicaciones y servicios favoritos. Tanto PowerApps como Microsoft Flow vienen con una variedad de conectores integrados a los orígenes de datos, como Office 365, 365 Dynamics, Salesforce y mucho más. En algunos casos, los generadores de aplicaciones y flujos también desean conectarse a los orígenes de datos y las API generadas por su organización.
 
-De igual forma, los desarrolladores que desean exponer su API de manera más amplia dentro de la organización pueden poner sus API a disposición de los generadores de aplicaciones y flujos. En este tema se muestra cómo exportar una API generada con [Azure Functions](../azure-functions/functions-overview.md) o [Azure App Service](../app-service/overview.md). La API exportada se convierte en un *conector personalizado*, que se utiliza en PowerApps y Microsoft Flow igual que un conector integrado.
+De igual forma, los desarrolladores que desean exponer su API de manera más amplia dentro de la organización pueden poner sus API a disposición de los generadores de aplicaciones y flujos. En este artículo se muestra cómo exportar una API generada con [Azure Functions](../azure-functions/functions-overview.md) o [Azure App Service](../app-service/overview.md). La API exportada se convierte en un *conector personalizado*, que se utiliza en PowerApps y Microsoft Flow igual que un conector integrado.
 
 > [!IMPORTANT]
 > La funcionalidad de la definición de la API que se muestra en este artículo solo se admite para la [versión 1.x del entorno de ejecución de Azure Functions](functions-versions.md#creating-1x-apps) y de las aplicaciones de App Services. La versión 2.x de Funciones se integra con API Management para crear y mantener las definiciones de OpenAPI. Para más información, consulte [Creación de una definición de OpenAPI para una función con Azure API Management](functions-openapi-definition.md). 
@@ -28,17 +28,13 @@ Antes de exportar una API, debe describir la API con una definición de OpenAPI 
 
 Para exportar la definición de API, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com), vaya a su aplicación Azure Functions o a otra aplicación de App Service.
+1. En [Azure Portal](https://portal.azure.com), vaya a la aplicación de funciones o a una aplicación de App Service.
 
-    Si usa Azure Functions, seleccione la aplicación de función, elija **Características de la plataforma** y luego **Definición de la API**.
+    En el menú de la izquierda, en **API**, seleccione **Definición de la API**.
 
-    ![Definición de la API de Azure Functions](media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png)
+    :::image type="content" source="media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png" alt-text="Definición de la API de Azure Functions":::
 
-    Si usa Azure App Service, seleccione **Definición de la API** de la lista de valores.
-
-    ![Definición de API de App Service](media/app-service-export-api-to-powerapps-and-flow/api-definition-app.png)
-
-2. El botón **Exportar a PowerApps + Microsoft Flow** debe estar disponible (si no es así, primero debe crear una definición de OpenAPI). Haga clic en este botón para iniciar la exportación.
+2. El botón **Exportar a PowerApps + Microsoft Flow** debe estar disponible (si no es así, primero debe crear una definición de OpenAPI). Seleccione este botón para iniciar la exportación.
 
     ![Botón Exportar a PowerApps + Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
@@ -81,7 +77,7 @@ Para completar la exportación en el modo **Manual**, siga estos pasos:
  
     ![Exportación manual a PowerApps y Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-manual.png)
  
-2. Si la definición de la API incluye cualquier definición de seguridad, estas se indican en el paso 2. Durante la importación, PowerApps y Microsoft Flow las detectan y solicitan información de seguridad. Recopile las credenciales relacionadas con cada definición para su uso en la sección siguiente. Para obtener más información, vea el apartado [Especificar el tipo de autenticación](#auth) más abajo.
+2. Si la definición de la API incluye cualquier definición de seguridad, estas definiciones se indican en el paso 2. Durante la importación, PowerApps y Microsoft Flow detectan estas definiciones y solicitan información de seguridad. Recopile las credenciales relacionadas con cada definición para su uso en la sección siguiente. Para obtener más información, vea el apartado [Especificar el tipo de autenticación](#auth) más abajo.
 
     ![Seguridad para la exportación manual](media/app-service-export-api-to-powerapps-and-flow/export-manual-security.png)
 
@@ -140,7 +136,7 @@ PowerApps y Microsoft Flow admiten una colección de proveedores de identidad qu
 ``` 
 Durante la exportación, proporcione los valores de configuración que permiten a PowerApps y Microsoft Flow autenticar a los usuarios.
 
-En esta sección se describen los tipos de autenticación admitidos en la modalidad **Rápida**: clave de API, Azure Active Directory y OAuth 2.0 genérico. PowerApps y Microsoft Flow también admiten la autenticación básica y OAuth 2.0 para servicios específicos como Dropbox, Facebook y SalesForce.
+En esta sección se describen los tipos de autenticación admitidos en el modo **Rápido**: clave de API, Azure Active Directory y OAuth 2.0 genérico. PowerApps y Microsoft Flow también admiten la autenticación básica y OAuth 2.0 para servicios específicos como Dropbox, Facebook y SalesForce.
 
 ### <a name="api-key"></a>Clave de API
 Cuando se usa una clave de API, a los usuarios de su conector se les pide que proporcionen la clave cuando creen una conexión. Especifique un nombre para la clave de API para ayudarlos a entender qué clave necesitan. En el ejemplo anterior, se utiliza el nombre `API Key (contact meganb@contoso.com)` para que los usuarios sepan dónde obtener información acerca de la clave de API. En Azure Functions, la clave es normalmente una de las claves de host, que abarcan varias funciones en una aplicación de función.
@@ -157,8 +153,8 @@ Para más información, vea los ejemplos de registro de Azure AD para [PowerApps
 Se requieren los siguientes valores de configuración:
 - **Id. de cliente**: el identificador de cliente del registro de Azure AD del conector
 - **Secreto de cliente**: el secreto de cliente del registro de Azure AD del conector
-- **Dirección URL de inicio de sesión**: la dirección URL base para Azure AD. En Azure, esto suele ser `https://login.windows.net`.
-- **Identificador de inquilino**: el identificador del inquilino que se usará para el inicio de sesión. Debe ser "common" o el identificador del inquilino en el que se crea el conector.
+- **Dirección URL de inicio de sesión**: la dirección URL base para Azure AD. En Azure, normalmente `https://login.windows.net`.
+- **Identificador de inquilino**: el identificador del inquilino que se usará para el inicio de sesión. Este identificador debe ser "common" o el identificador del inquilino en el que se crea el conector.
 - **URL de recursos**: la dirección URL del recurso del registro de Azure AD para la API
 
 > [!IMPORTANT]

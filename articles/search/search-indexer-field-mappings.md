@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791925"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005797"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -36,7 +36,7 @@ Una asignación de campos consta de tres partes:
 
 1. `sourceFieldName`, que representa un campo de su origen de datos. Esta propiedad es obligatoria.
 2. `targetFieldName`opcional, que representa un campo de su índice de búsqueda. Si se omite, se usa el mismo nombre que en el origen de datos.
-3. `mappingFunction`opcional, que puede transformar sus datos con una de las diversas funciones predefinidas. La lista completa de funciones se encuentra [a continuación](#mappingFunctions).
+3. `mappingFunction`opcional, que puede transformar sus datos con una de las diversas funciones predefinidas. Se puede aplicar en las asignaciones de campos de entrada y de salida. La lista completa de funciones se encuentra [a continuación](#mappingFunctions).
 
 Las asignaciones de campos se agregan a la matriz `fieldMappings` de la definición del indexador.
 

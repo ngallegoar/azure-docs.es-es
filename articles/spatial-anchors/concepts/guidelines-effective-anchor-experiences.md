@@ -8,20 +8,24 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74270521"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005523"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Creación una experiencia de anclaje efectiva mediante Azure Spatial Anchors
 
-En este artículo se proporcionan directrices y consideraciones que le ayudarán a crear y ubicar anclajes de forma efectiva mediante Spatial Anchors.
+En este artículo se proporcionan directrices y consideraciones que le ayudarán a crear y ubicar anclajes de forma efectiva mediante Azure Spatial Anchors.
+
+## <a name="anchor-improvement-over-time"></a>Mejora de anclaje con el tiempo
+
+Con Azure Spatial Anchors, cada vez que localiza anclajes, intentamos mejorar la calidad de las operaciones de búsqueda futuras. Esto se realiza mediante el uso de los datos de entorno recopilados para aumentar la información visual sobre los anclajes que se buscan. Este proceso se ejecuta en segundo plano y es una optimización sin conexión que ejecuta el servicio de Azure Spatial Anchors para optimizar el entorno. Los datos adicionales recopilados durante cada operación compilan una mayor comprensión del entorno. Esto mejora la calidad y permite ubicar mejor los anclajes teniendo en cuenta los cambios en el entorno, el paso del tiempo y el ángulo o la perspectiva desde los que los usuarios examinan los anclajes.
 
 ## <a name="good-anchors"></a>Anclajes adecuados
 
-Spatial Anchors le ayuda a crear anclajes adecuados. Es importante invertir tiempo en la formación u orientación de los usuarios para la experiencia de usuario (UX) con el fin de crear anclajes adecuados. Si invierte en la creación de anclajes adecuados por adelantado, ayuda a los usuarios finales a buscar anclajes de forma confiable:
+Aunque Azure Spatial Anchors intenta mejorar la calidad de los anclajes con el paso del tiempo, también es importante invertir tiempo en educar a los usuarios en torno a la experiencia del usuario (UX) o guiarlos para crear buenos anclajes. Si invierte en la creación de anclajes adecuados por adelantado, ayuda a los usuarios finales a buscar anclajes de forma confiable:
 
 - Entre diferentes dispositivos.
 - En distintos momentos.
@@ -100,7 +104,7 @@ Los sistemas de seguimiento visual dependen de las características visuales en 
 
 Siga las directrices generales de esta sección para crear una experiencia de usuario que fomente un análisis útil del entorno.
 
-En primer lugar, si el usuario no encuentra el anclaje en pocos segundos, la aplicación debe animar a los usuarios a desplazar el dispositivo para capturar más perspectivas. La aplicación también puede animar a los usuarios a que se muevan por el entorno para buscar el anclaje desde varias perspectivas. Conforme más perspectivas de características detecte el dispositivo, mejor.
+En primer lugar, si el usuario no encuentra el anclaje en pocos segundos, la aplicación debe animar a los usuarios a desplazar el dispositivo para capturar más perspectivas. La aplicación también puede animar a los usuarios a que se muevan por el entorno para buscar el anclaje desde varias perspectivas. Conforme más perspectivas de características detecte el dispositivo, mejor, ya que aumentará la probabilidad de que se encuentre un anclaje y también recopilará más datos de entorno que se usarán para mejorar la calidad del anclaje.
 
 Para escenarios de destino, solicite al usuario que se desplace por el destino para verlo desde distintas perspectivas. Es decir, pida al usuario que capture el destino desde nuevas perspectivas hasta que encuentre el anclaje.
 

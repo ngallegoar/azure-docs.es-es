@@ -2,13 +2,13 @@
 title: Application Insights para las aplicaciones de Worker Service (aplicaciones no HTTP) | Microsoft Docs
 description: Supervisión de aplicaciones de .NET Core/.NET Framework que no son HTTP con Azure Monitor Application Insights.
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: f043140e5a342d114f777ad16bba588790b7f8cc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.date: 05/11/2020
+ms.openlocfilehash: 1f9b35022e63c4c3fe671237149602f8db465466
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536733"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117884"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para las aplicaciones de servicio de trabajo (aplicaciones sin HTTP)
 
@@ -425,7 +425,8 @@ Los siguientes módulos de recopilación automática están habilitados de forma
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`
+* `AppServicesHeartbeatTelemetryModule` - (Actualmente hay un problema relacionado con este módulo de telemetría. Para obtener una solución temporal, consulte el [problema de GitHub 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
+)).
 * `AzureInstanceMetadataTelemetryModule`
 
 Para configurar cualquier objeto `TelemetryModule` predeterminado, use el método de la extensión `ConfigureTelemetryModule<T>` en `IServiceCollection`, como se muestra en el ejemplo siguiente.

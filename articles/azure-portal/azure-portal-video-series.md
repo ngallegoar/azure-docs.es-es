@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 04/06/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 5aa1a677836be3f05269539d52abf7bd8704833d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 74d43f8c200fad5caf152d24df6c8544074916ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757072"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120035"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie de vídeos sobre "procedimientos" de Azure Portal
 
@@ -22,18 +22,18 @@ La serie de vídeos de procedimientos de Azure Portal muestra cómo trabajar con
 
 ## <a name="featured-video"></a>Vídeo destacado
 
-En este vídeo destacado, le mostramos cómo ahorrar dinero en Azure con las recomendaciones de costo de Azure Advisor.
+En este vídeo destacado, le mostramos cómo conectarse a una cuenta de almacenamiento mediante Azure Private Link.
 
-> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
+> [!VIDEO https://www.youtube.com/embed/vM7yDwHSc_o]
 
-[Uso de las recomendaciones de costo de Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
+[Cómo conectarse a una cuenta de almacenamiento mediante Azure Private Link](https://www.youtube.com/watch?v=vM7yDwHSc_o)
 
 Póngase al día con estos vídeos recientes que puede que haya perdido:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Imagen de vídeo de YouTube sobre el uso de libros de Azure Monitor](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Imagen de vídeo de YouTube sobre el filtrado de la vista de la lista de recursos en Azure Portal](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Imagen de vídeo de YouTube sobre el uso de la actualización automática de paneles](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
-| [Uso de libros de Azure Monitor](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtrado de la vista de la lista de recursos en Azure Portal](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Uso de la actualización automática de paneles](https://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [![Imagen del vídeo de YouTube sobre la nueva experiencia de Azure Functions](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Imagen del vídeo de YouTube Implementación de la aplicación web mediante Acciones de GitHub](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Imagen del vídeo de YouTube sobre el uso de tarjetas de información del servicio](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
+| [La nueva experiencia de Azure Functions](https://www.youtube.com/watch?v=0bdT_9uOqkg) | [Implementación de la aplicación web mediante Acciones de GitHub](https://www.youtube.com/watch?v=b2oyxbSbLPA) | [Uso de las tarjetas información del servicio](https://www.youtube.com/watch?v=u00TU531qsQ) |
 
 ## <a name="video-playlist"></a>Lista de reproducción de vídeo
 

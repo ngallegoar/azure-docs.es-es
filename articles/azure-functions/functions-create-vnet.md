@@ -3,15 +3,15 @@ title: Integración de Azure Functions con una red virtual de Azure
 description: Tutorial paso a paso donde se explica cómo conectarse a una función en una red virtual de Azure
 author: alexkarcher-msft
 ms.topic: article
-ms.date: 5/03/2019
+ms.date: 4/23/2020
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75433209"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122740"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integración de Functions con una red virtual de Azure
 
@@ -100,17 +100,15 @@ Ahora, tendrá un sitio de WordPress implementado por completo dentro de la red 
 
 Gracias a un sitio de WordPress que se ejecuta en una máquina virtual en una red virtual, ahora puede conectar la aplicación de funciones a esa red virtual.
 
-1. En la nueva aplicación de funciones, seleccione **Características de la plataforma** > **Redes**.
-
-    ![Elección de una red en la aplicación de funciones](./media/functions-create-vnet/networking-0.png)
+1. En la nueva aplicación de funciones, seleccione **Redes** en el menú de la izquierda.
 
 1. En **Integración de red virtual**, seleccione **Haga clic aquí para configurar**.
 
-    ![Estado de configuración de una característica de red](./media/functions-create-vnet/Networking-1.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Elección de una red en la aplicación de funciones":::
 
-1. En la página de integración de la red virtual, seleccione **Agregar red virtual (versión preliminar)** .
+1. En la página de **Integración con red virtual**, seleccione **Agregar VNET**.
 
-    ![Adición de la versión preliminar de integración de red virtual](./media/functions-create-vnet/networking-2.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Adición de la versión preliminar de integración con red virtual":::
 
 1. En **Estado de la característica de red**, use la configuración de la tabla que aparece debajo de la imagen:
 
@@ -124,7 +122,7 @@ Gracias a un sitio de WordPress que se ejecuta en una máquina virtual en una re
     | **Bloque de direcciones de la red virtual** | 10.10.0.0/16 | Elija el mismo bloque de direcciones que ha usado el sitio de WordPress. Solo debe tener un bloque de direcciones definido. |
     | **Intervalo de direcciones** | 10.10.2.0/24   | El tamaño de la subred restringe el número total de instancias a las que la aplicación de funciones del plan Premium puede escalar horizontalmente. En este ejemplo se usa una subred de `/24` con 254 direcciones disponibles en el host. Esta subred tiene un aprovisionamiento excesivo, pero es fácil de calcular. |
 
-1. Seleccione **Aceptar** para agregar la subred. Cierre las páginas de estado de integración de red virtual y de característica de red para volver a la página de aplicación de funciones.
+1. Seleccione **Aceptar** para agregar la subred. Cierre las páginas de **Integración con red virtual** y de **Estado de característica de red** para volver a la página de aplicación de funciones.
 
 Ahora la aplicación de funciones puede tener acceso a la red virtual donde se ejecuta el sitio de WordPress. Luego, use [Azure Functions Proxies](functions-proxies.md) para devolver un archivo desde el sitio de WordPress.
 
@@ -132,9 +130,9 @@ Ahora la aplicación de funciones puede tener acceso a la red virtual donde se e
 
 Con la integración de red virtual habilitada, puede crear a un proxy en la aplicación de funciones para reenviar solicitudes a la máquina virtual que se ejecuta en la red virtual.
 
-1. En la aplicación de funciones, seleccione **Proxies** >  **+** y luego use la configuración de proxy de la tabla que aparece debajo de la imagen:
+1. En la aplicación de funciones, seleccione **Proxies** en el menú de la izquierda y, a continuación, seleccione **Agregar**. Use la configuración de proxy de la tabla debajo de la imagen:
 
-    ![Definición de la configuración del proxy](./media/functions-create-vnet/create-proxy.png)
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definición de la configuración del proxy":::
 
     | Configuración  | Valor sugerido  | Descripción      |
     | -------- | ---------------- | ---------------- |

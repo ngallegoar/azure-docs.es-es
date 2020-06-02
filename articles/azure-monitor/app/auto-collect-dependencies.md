@@ -2,16 +2,15 @@
 title: 'Azure Application Insights: recopilación automática de dependencias | Microsoft Docs'
 description: Recopilación y visualización automática de dependencias de Application Insights
 ms.topic: reference
-author: nikmd23
-ms.author: nimolnar
-ms.date: 04/29/2019
-ms.reviewer: mbullwin
-ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/06/2020
+ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665823"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891611"
 ---
 # <a name="dependency-auto-collection"></a>Recopilación automática de dependencias
 
@@ -28,10 +27,15 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 | <b>Bibliotecas de comunicaciones</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
+| [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0: versión estable más reciente. (Consulte la siguiente nota).
 | [SDK de cliente de Event Hubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
 | [SDK de cliente de Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Clientes de Storage</b>|  |
 | ADO.NET | 4.5+ |
+
+> [!NOTE]
+> Hay un [problema conocido](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) con versiones anteriores de Microsoft.Data.SqlClient. Se recomienda usar la versión 1.1.0 o posterior para mitigar este problema. Entity Framework Core no necesariamente se distribuye con la versión estable más reciente de Microsoft.Data.SqlClient, por lo que se recomienda confirmar que está usando al menos la versión 1.1.0 para evitar este problema.   
+
 
 ## <a name="java"></a>Java
 | Servidores de aplicaciones | Versiones |

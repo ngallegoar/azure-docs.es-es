@@ -1,6 +1,6 @@
 ---
-title: Lista de asignaciones de roles con RBAC de Azure y la API REST
-description: Aprenda a determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y la API REST.
+title: 'Enumeración de asignaciones de roles de Azure mediante la API REST: RBAC de Azure'
+description: Aprenda a determinar a qué recursos tienen acceso los usuarios, grupos, entidades de servicio e identidades administradas mediante la API REST y el control de acceso basado en roles de Azure (RBAC de Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,17 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a494e7fd4c9fb79faa6a1d8cb2c3c871796ccdc5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50ef431559a38d30f7e1e76646e8930c70fc4ef9
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062153"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891327"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lista de asignaciones de roles con RBAC de Azure y la API REST
+# <a name="list-azure-role-assignments-using-the-rest-api"></a>Enumeración de asignaciones de roles de Azure mediante la API REST
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] En este artículo se describe cómo enumerar las asignaciones de roles mediante la API REST.
 
@@ -31,7 +31,7 @@ ms.locfileid: "80062153"
 
 ## <a name="list-role-assignments"></a>Lista de asignaciones de roles
 
-En RBAC, para enumerar el acceso se enumeran las asignaciones de roles. Para mostrar la lista de asignación de roles, use una de las API de REST de [Asignación de roles - Lista](/rest/api/authorization/roleassignments/list). Para mejorar los resultados, especifique un ámbito y un filtro opcional.
+En RBAC de Azure, para enumerar el acceso se enumeran las asignaciones de roles. Para mostrar la lista de asignación de roles, use una de las API de REST de [Asignación de roles - Lista](/rest/api/authorization/roleassignments/list). Para mejorar los resultados, especifique un ámbito y un filtro opcional.
 
 1. Empiece con la solicitud siguiente:
 
@@ -61,7 +61,36 @@ En RBAC, para enumerar el acceso se enumeran las asignaciones de roles. Para mos
     > | `$filter=atScope()+and+assignedTo('{objectId}')` | Muestra las asignaciones de roles para el usuario o la entidad de servicio determinados y en el ámbito especificado. |
     > | `$filter=principalId+eq+'{objectId}'` | Lista de las asignaciones de roles para un usuario, un grupo o una entidad de servicio determinados. |
 
+La solicitud siguiente enumera todas las asignaciones de roles del usuario especificado en el ámbito de la suscripción:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()+and+assignedTo('{objectId1}')
+```
+
+El siguiente texto muestra un ejemplo de la salida:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+                "principalId": "{objectId1}",
+                "scope": "/subscriptions/{subscriptionId1}",
+                "createdOn": "2019-01-15T21:08:45.4904312Z",
+                "updatedOn": "2019-01-15T21:08:45.4904312Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "name": "{roleAssignmentId1}"
+        }
+    ]
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la API REST](role-assignments-rest.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/) (Referencia de API de REST en Azure)

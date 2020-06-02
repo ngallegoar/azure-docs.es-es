@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730303"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996952"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -54,9 +54,9 @@ En la lista siguiente se describen los puntos de conexión:
 
   * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos](iot-hub-devguide-direct-methods.md).
 
-    Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 y [AMQP 1.0](https://www.amqp.org/). AMQP también está disponible sobre [WebSockets](https://tools.ietf.org/html/rfc6455) en el puerto 443.
+    Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 y [AMQP 1.0](https://www.amqp.org/). AMQP y MQTT también están disponibles sobre [WebSockets](https://tools.ietf.org/html/rfc6455) en el puerto 443.
 
-* **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con el protocolo [AMQP](https://www.amqp.org/). El punto de conexión de invocación de método se muestra en el protocolo HTTPS.
+* **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con los protocolo [AMQP](https://www.amqp.org/) y AMQP sobre WebSockets. El punto de conexión de invocación de método directo se muestra en el protocolo HTTPS.
   
   * *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Un servicio back-end puede usarse para leer los [mensajes de dispositivo a nube](iot-hub-devguide-messages-d2c.md) enviados por los dispositivos. Además de este punto de conexión integrado, puede crear puntos de conexión personalizados en el centro de IoT.
   

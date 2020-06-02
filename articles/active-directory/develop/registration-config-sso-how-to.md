@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 630be1676d73410f1b0d376b163a8599299ddbe2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9b6451d29a3a874e09d74cbe664662a395b647f9
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883158"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890466"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Para configurar el inicio de sesión único para una aplicación
 
@@ -40,6 +40,6 @@ En el caso de iOS, consulte [Habilitación del inicio de sesión único entre ap
 
 [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Consentimiento y permisos para las aplicaciones convergentes v2.0 de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

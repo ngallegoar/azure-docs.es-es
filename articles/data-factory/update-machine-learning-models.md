@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409073"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927418"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Actualización de los modelos de ML Studio (clásico) mediante la actividad de actualización de recurso
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo.
+Este artículo complementa el artículo de integración principal Azure Data Factory - ML Studio (clásico): [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo.
 
 ## <a name="overview"></a>Información general
-Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predictivo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles.
+Como parte del proceso de operacionalización de modelos de ML Studio (clásico), el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predictivo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles.
 
-Los modelos que crea mediante Machine Learning no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. Consulte [Volver a entrenar un modelo de Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) para más información acerca de cómo volver a entrenar un modelo en Azure Machine Learning.
+Los modelos que crea mediante Machine Learning no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. 
 
 El reentrenamiento puede producirse con frecuencia. Con la actividad de ejecución por lotes y la actividad de actualización de recurso, puede operacionalizar el modelo de Azure Machine Learning volviendo a entrenar y actualizar el servicio web predictivo con Data Factory.
 
@@ -35,9 +35,9 @@ La siguiente imagen muestra la relación entre los servicios web de entrenamient
 
 ![SERVICIOS WEB](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Actividad Actualización de recurso de Azure Machine Learning
+## <a name="ml-studio-classic-update-resource-activity"></a>Actividad de actualización de recursos de ML Studio (clásico)
 
-El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure Machine Learning.
+El siguiente fragmento JSON define una actividad de ejecución de lotes de ML Studio (clásico).
 
 ```json
 {
@@ -130,7 +130,7 @@ Esta es una definición de un servicio vinculado de ejemplo:
 El escenario siguiente proporciona más detalles. Tiene un ejemplo para volver a entrenar y actualizar modelos de Azure Machine Learning Studio a partir de una canalización de Azure Data Factory.
 
 
-## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Ejemplo: Volver a entrenar y actualizar un modelo de Azure Machine Learning
+## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Sample: Volver a entrenar y actualizar un modelo de Azure Machine Learning
 
 Esta sección proporciona una canalización de ejemplo que usa la **actividad Ejecución de lotes de Azure Machine Learning Studio** para volver a entrenar un modelo. La canalización usa también la **actividad Actualizar recurso de Azure Machine Learning Studio** para actualizar el modelo en el servicio web de puntuación. La sección también proporciona fragmentos JSON para todos los servicios vinculados, conjuntos de datos y canalización en el ejemplo.
 

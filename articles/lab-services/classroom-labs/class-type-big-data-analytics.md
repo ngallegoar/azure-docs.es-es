@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: c499b7a0f1cd16bf57fef21742b01bda71249916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538681"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118437"
 ---
 # <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Configuración de un laboratorio para el análisis de macrodatos mediante una implementación de Docker de Hortonworks Data Platform
 
@@ -102,7 +102,7 @@ En esta sección, implementará HDP Sandbox y, a continuación, accederá tambi�
 1. Una vez que los contenedores de Docker para HDP Sandbox se hayan implementado y estén en ejecución, puede acceder al entorno iniciando el explorador y siguiendo las instrucciones de Cloudera para abrir la [página principal de Sandbox](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) e iniciar el panel de HDP.
 
     > [!NOTE] 
-    > En estas instrucciones se da por hecho que primero ha asignado la dirección IP local del entorno de espacio aislado a sandbox-hdp.hortonworks.com en el archivo de host en la VM de la plantilla.  Si **no** realiza esta asignación, puede acceder a la página principal de Sandbox yendo a [http://localhost:8080](http://localhost:8080).
+    > En estas instrucciones se da por hecho que primero ha asignado la dirección IP local del entorno de espacio aislado a sandbox-hdp.hortonworks.com en el archivo de host en la VM de la plantilla.  Si **no** realiza esta asignación, puede acceder a la página principal de Sandbox yendo a `http://localhost:8080`.
 
 ### <a name="automatically-start-docker-containers-when-students-log-in"></a>Inicio automático de los contenedores de Docker cuando los alumnos inician sesión
 

@@ -3,17 +3,26 @@ title: Incorporación de una herramienta de evaluación y migración en Azure Mi
 description: En este artículo se describe cómo crear un proyecto de Azure Migrate y agregar una herramienta de valoración o migración.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537736"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901183"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Incorporación de una herramienta de evaluación y migración por primera vez
 
 En este artículo se describe cómo agregar una herramienta de valoración o migración por primera vez a un proyecto de [Azure Migrate](migrate-overview.md).  
 Azure Migrate proporciona un centro de conectividad para realizar el seguimiento de la detección, la valoración y la migración a Azure de aplicaciones y cargas de trabajo locales, así como de máquinas virtuales en la nube privadas o públicas. El centro proporciona herramientas de Azure Migrate para la evaluación y la migración, así como otras herramientas y [ofertas](migrate-services-overview.md#isv-integration) de proveedores de software independientes (ISV). 
+
+## <a name="check-permissions-to-create-project"></a>Comprobación de permisos para crear un proyecto
+
+Si aún no ha creado un proyecto de Azure Migrate, compruebe que tiene los permisos adecuados.
+
+1. En Azure Portal, abra la suscripción y seleccione **Control de acceso (IAM)** .
+2. En Comprobar acceso, busque la cuenta correspondiente y haga clic en ella para ver los permisos. Debe tener permisos de Colaborador o Propietario.
+    - Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción.
+    - Si no es el propietario, trabaje con él para asignar el rol.
 
 ## <a name="create-a-project-and-add-a-tool"></a>Creación de un proyecto e incorporación de una herramienta
 
@@ -66,4 +75,6 @@ En algunas circunstancias, puede que necesite crear otros proyectos de Azure Mig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a agregar más herramientas de [valoración](how-to-assess.md) y [migración](how-to-migrate.md). 
+- Introducción a [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) o [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+- Si agregó una herramienta ISV o Movere, [revise los pasos](prepare-isv-movere.md) de preparación para vincular la herramienta con Azure Migrate.
+- Aprenda a agregar más herramientas de [valoración](how-to-assess.md) y [migración](how-to-migrate.md). 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5e0e459800e7cb57672518597f3d04a74f53118
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008658"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196928"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -22,23 +22,30 @@ Las únicas opciones de redundancia de infraestructura disponibles actualmente p
 En la tabla siguiente se describen las regiones en las que los discos Ultra Disks están disponibles, así como las opciones de disponibilidad correspondientes:
 
 > [!NOTE]
-> Algunas zonas de disponibilidad dentro de estas regiones no ofrecen discos Ultra Disks.
+> Si una región de la lista siguiente no tiene ninguna zona de disponibilidad compatible con Disco Ultra, las VM de esa región deben implementarse sin ninguna opción de redundancia de infraestructura para poder conectar un Disco Ultra.
 
-|Regions  |Sin redundancia de la infraestructura  |Zonas de disponibilidad  |
-|---------|---------|---------|
-|Oeste de EE. UU.     |Sí         |No         |
-|Oeste de EE. UU. 2    |No         |Sí         |
-|Este de EE. UU.     |No         |Sí         |
-|Este de EE. UU. 2     |No         |Sí         |
-|Sudeste de Asia     |No         |Sí         |
-|Norte de Europa     |No         |Sí         |
-|Oeste de Europa     |No         |Sí         |
-|Sur de Reino Unido 2     |No         |Sí         |
+|Regions  |Número de zonas de disponibilidad que admiten Discos Ultra  |
+|---------|---------|
+|US Gov - Virginia     |None         |
+|Centro-sur de EE. UU.     |None         |
+|Centro de EE. UU.     |Tres zonas         |
+|Oeste de EE. UU.     |None         |
+|Oeste de EE. UU. 2    |Tres zonas         |
+|Este de EE. UU.     |Tres zonas         |
+|Este de EE. UU. 2     |Dos zonas         |
+|Sudeste de Asia     |Tres zonas         |
+|Norte de Europa     |Tres zonas          |
+|Oeste de Europa     |Tres zonas          |
+|Sur de Reino Unido 2     |Tres zonas          |
+|Japón Oriental     |Dos zonas         |
+
+
 
 - Solo se admiten en las siguientes series de máquinas virtuales:
-    - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - FSv2
+    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [FSv2](../articles/virtual-machines/fsv2-series.md)
+    - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - No todos los tamaños de máquina virtual están disponibles en las regiones admitidas con discos Ultra
