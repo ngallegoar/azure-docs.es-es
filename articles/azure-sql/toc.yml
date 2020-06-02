@@ -50,6 +50,8 @@
               href: database/advanced-data-security.md
             - name: Protección contra amenazas avanzada
               href: database/threat-detection-overview.md
+            - name: Clasificación y detección de datos
+              href: database/data-discovery-and-classification-overview.md
             - name: Enmascaramiento de datos dinámicos
               href: database/dynamic-data-masking-overview.md
             - name: Evaluación de vulnerabilidad de SQL
@@ -73,8 +75,6 @@
                   href: database/transparent-data-encryption-tde-overview.md
                 - name: Bring Your Own Key (BYOK)
                   href: database/transparent-data-encryption-byok-overview.md
-                - name: Clasificación y detección de datos
-                  href: database/data-discovery-and-classification-overview.md
         - name: Continuidad empresarial
           displayName: 'Backup, back up, restore, recovery'
           items:
@@ -977,7 +977,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: Configuración manual
                       items:
-                        - name: Prerrequisitos
+                        - name: Requisitos previos
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: Tutorial
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

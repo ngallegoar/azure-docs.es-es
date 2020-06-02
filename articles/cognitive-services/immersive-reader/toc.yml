@@ -7,12 +7,8 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Con C#'
-      href: Quickstart.md
-    - name: Uso de Node.js
-      href: quickstart-nodejs.md
-    - name: Uso de Swift (iOS)
-      href: ios-quickstart.md
+    - name: Uso de la biblioteca cliente
+      href: ./quickstarts/client-libraries.md
 - name: Tutoriales
   items:
     - name: Inicio del Lector inmersivo (Python)
