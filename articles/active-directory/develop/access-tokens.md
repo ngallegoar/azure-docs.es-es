@@ -1,5 +1,6 @@
 ---
-title: Referencia de tokens de acceso de la Plataforma de identidad de Microsoft | Azure
+title: Tokens de acceso de la Plataforma de identidad de Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre los tokens de acceso emitidos por Azure AD v1.0 y los puntos de conexión de la Plataforma de identidad de Microsoft (v2.0).
 services: active-directory
 author: hpsin
@@ -8,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ad0f82d4266c42e404200bf6c341623794a6c36e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690348"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772240"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
-Los tokens de acceso permiten a los clientes llamar a las API protegidas por Azure de forma segura. Los tokens de acceso de la Plataforma de identidad de Microsoft son [JWT](https://tools.ietf.org/html/rfc7519), objetos JSON codificados en Base64 firmados por Azure. Los clientes deben tratar los tokens de acceso como cadenas opacas, ya que el contenido del token está destinado únicamente al recurso. Para fines de validación y depuración, los desarrolladores pueden decodificar los tokens JWT mediante un sitio como [jwt.ms](https://jwt.ms). El cliente puede obtener un token de acceso desde el punto de conexión de la versión 1.0 o 2.0 mediante una variedad de protocolos.
+Los tokens de acceso permiten a los clientes llamar de forma segura a las API protegidas. Los tokens de acceso de la Plataforma de identidad de Microsoft son [JWT](https://tools.ietf.org/html/rfc7519), objetos JSON codificados en Base64 firmados por la Plataforma de identidad de Microsoft. Los clientes deben tratar los tokens de acceso como cadenas opacas, ya que el contenido del token está destinado únicamente al recurso. Para fines de validación y depuración, los desarrolladores pueden decodificar los JWT (JSON Web Token) mediante un sitio como [jwt.ms](https://jwt.ms). El cliente puede obtener un token de acceso desde el punto de conexión de la versión 1.0 o 2.0 mediante una variedad de protocolos.
 
-Cuando el cliente solicita un token de acceso, Azure AD también devuelve algunos metadatos sobre el token de acceso para el consumo de la aplicación. Esta información incluye la hora de expiración del token de acceso y los ámbitos para los que es válido. Estos datos permiten a la aplicación realizar un almacenamiento inteligente en caché de los tokens de acceso sin tener que analizar el mismo token de acceso.
+Cuando el cliente solicita un token de acceso, la Plataforma de identidad de Microsoft también devuelve algunos metadatos sobre el token de acceso para el consumo de la aplicación. Esta información incluye la hora de expiración del token de acceso y los ámbitos para los que es válido. Estos datos permiten a la aplicación realizar un almacenamiento inteligente en caché de los tokens de acceso sin tener que analizar el mismo token de acceso.
 
 Si la aplicación es un recurso (API web) al que los clientes pueden solicitar acceso, los tokens de acceso proporcionan información útil para su uso en la autenticación y autorización, como el usuario, cliente, emisor, permisos y mucho más.
 
@@ -55,7 +56,7 @@ Vea este token de la versión 2.0 en [JWT.ms](https://jwt.ms/#access_token=eyJ0e
 
 ## <a name="claims-in-access-tokens"></a>Notificaciones de tokens de acceso
 
-Los tokens JWT se dividen en tres partes:
+Los JWT (JSON Web Token) se dividen en tres partes:
 
 * **Encabezado**: proporciona información sobre cómo [validar el token](#validating-tokens) incluida la información sobre el tipo de token y cómo fue firmado.
 * **Carga**: contiene todos los datos importantes sobre el usuario o la aplicación que está intentando llamar a su servicio.
@@ -113,7 +114,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 
 **Notificación de grupos por encima del límite**
 
-Para garantizar que el tamaño del token no supera los límites de tamaño del encabezado HTTP, Azure AD limita el número de identificadores de objeto que se incluyen en la notificación de grupo. Si un usuario es miembro de más grupos que el límite de uso por encima del límite (150 para los tokens SAML, 200 para los tokens JWT), Azure AD no emite la notificaciones de grupos en el token. En su lugar, incluye una demanda de uso por encima del límite en el token que indica a la aplicación que consulte la Microsoft Graph API para recuperar la pertenencia a grupos del usuario.
+Para garantizar que el tamaño del token no supere los límites de tamaño del encabezado HTTP, Azure AD limita el número de identificadores de objeto que se incluyen en la notificación de grupo. Si un usuario es miembro de más grupos que el límite de uso por encima del límite (150 para los tokens SAML, 200 para los tokens JWT), Azure AD no emite la notificaciones de grupos en el token. En su lugar, incluye una demanda de uso por encima del límite en el token que indica a la aplicación que consulte la Microsoft Graph API para recuperar la pertenencia a grupos del usuario.
 
 ```JSON
 {
@@ -161,7 +162,7 @@ Las identidades de Microsoft pueden autenticarse de diversas maneras, que pueden
 | `otp` | Código de acceso de un solo uso que utiliza un correo electrónico o un mensaje de texto. |
 | `fed` | Se ha utilizado una aserción de autenticación federada (por ejemplo, JWT o SAML). |
 | `wia` | Autenticación integrada de Windows |
-| `mfa` | Se utilizó la autenticación multifactor. Cuando esto esté presente, también se incluirán los otros métodos de autenticación. |
+| `mfa` | Se utilizó la [autenticación multifactor](../authentication/concept-mfa-howitworks.md). Cuando esto esté presente, también se incluirán los otros métodos de autenticación. |
 | `ngcmfa` | Equivalente a `mfa`, que se utiliza para el aprovisionamiento de ciertos tipos de credenciales avanzadas. |
 | `wiaormfa`| El usuario utiliza una credencial MFA o Windows para autenticar. |
 | `none` | No se realizó ninguna autenticación. |

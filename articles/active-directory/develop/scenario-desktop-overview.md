@@ -1,5 +1,6 @@
 ---
-title: 'Compilación de una aplicación de escritorio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: Compilación de una aplicación de escritorio que llama a las API web | Azure
+titleSuffix: Microsoft identity platform
 description: Aprenda a compilar una aplicación de escritorio que llame a API web (información general).
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 09cc43dec2eff48754f5a6e693badd6bb1907cce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883008"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771866"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Escenario: Aplicación de escritorio que llama a las API web
 
@@ -50,7 +51,7 @@ Supongamos que escribe una aplicación de escritorio y que desea que los usuario
   - O si se trata de una aplicación .NET Core y acepta que la interacción de autenticación con Azure Active Directory (Azure AD) suceda en el explorador del sistema.
 
 - En el caso de las aplicaciones hospedadas en Windows, también es posible que las aplicaciones que se ejecutan en equipos unidos a un dominio de Windows o unidos a Azure AD adquieran un token en modo silencioso mediante el uso de la autenticación integrada de Windows.
-- Por último, y aunque no es recomendable, puede usar un nombre de usuario y una contraseña en las aplicaciones clientes públicas. Esto sigue siendo necesario en algunos escenarios, como DevOps. Su uso impone restricciones en la aplicación. Por ejemplo, no puede iniciar la sesión de un usuario que necesita realizar la autenticación multifactor (acceso condicional). Además, la aplicación no se beneficiará del inicio de sesión único (SSO).
+- Por último, y aunque no es recomendable, puede usar un nombre de usuario y una contraseña en las aplicaciones clientes públicas. Esto sigue siendo necesario en algunos escenarios, como DevOps. Su uso impone restricciones en la aplicación. Por ejemplo, no puede iniciar sesión si el usuario necesita realizar la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) (acceso condicional). Además, la aplicación no se beneficiará del inicio de sesión único (SSO).
 
   También va en contra de los principios de la autenticación moderna y solo se proporciona por motivos de herencia.
 

@@ -1,6 +1,7 @@
 ---
 title: Protocolo SAML de inicio de sesión único de Azure
-description: En este artículo se describe el protocolo SAML de inicio de sesión único de Azure Active Directory.
+titleSuffix: Microsoft identity platform
+description: En este artículo se describe el protocolo SAML de inicio de sesión único (SSO) de Azure Active Directory.
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -9,24 +10,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2017
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853785"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771679"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 
-Este artículo se centra en las solicitudes y las respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles con el inicio de sesión único.
+Este artículo se centra en las solicitudes y las respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles con el inicio de sesión único (SSO).
 
 En el siguiente diagrama de protocolo se describe la secuencia de inicio de sesión único. El servicio en la nube (proveedor de servicios) utiliza un enlace de redirección HTTP para pasar un elemento `AuthnRequest` (solicitud de autenticación) a Azure AD (el proveedor de identidades). Después, Azure AD utiliza un enlace HTTP POST para registrar un elemento `Response` en el servicio en la nube.
 
-![Flujo de trabajo de inicio de sesión único](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Flujo de trabajo del inicio de sesión único (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+
+> [!NOTE]
+> En este artículo se describe el uso de SAML para el inicio de sesión único. Para obtener más información sobre otras formas de administrar el inicio de sesión único (por ejemplo, mediante OpenID Connect o la Autenticación integrada de Windows), consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="authnrequest"></a>AuthnRequest
 
@@ -93,10 +97,10 @@ El elemento `Scoping`, que incluye una lista de proveedores de identidades, es o
 Si se proporciona, no incluya el atributo `ProxyCount` ni el elemento `IDPListOption` o `RequesterID`, ya que no se admiten.
 
 ### <a name="signature"></a>Signature
-No incluya un elemento `Signature` en los elementos `AuthnRequest`, ya que Azure AD no es compatible con la firma de solicitudes de autenticación.
+No incluya un elemento `Signature` en elementos `AuthnRequest`. Azure AD no valida las solicitudes de autenticación firmadas. La verificación del solicitante solo se cumple respondiendo a las direcciones URL del Servicio de consumidor de aserciones registradas.
 
 ### <a name="subject"></a>Asunto
-Azure AD omite el elemento `Subject` de los elementos `AuthnRequest`.
+No incluya un elemento `Subject`. Azure AD no admite la especificación de un asunto para una solicitud y devolverá un error si se proporciona uno.
 
 ## <a name="response"></a>Response
 Cuando un proceso de inicio de sesión solicitado se completa correctamente, Azure AD envía una respuesta al servicio en la nube. Una respuesta a un intento de inicio de sesión correcto tiene este aspecto:

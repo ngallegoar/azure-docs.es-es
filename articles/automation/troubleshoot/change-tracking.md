@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas con Change Tracking e Inventario
-description: Obtenga información acerca de cómo solucionar problemas con la solución Change Tracking e Inventario de Azure Automation.
+title: Solución de problemas de Change Tracking e Inventario de Azure Automation
+description: En este artículo se trata cómo solucionar problemas con la característica Change Tracking e Inventario de Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f230cd0965d58f690d333cd62f2c7c1d499e8d1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582155"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684868"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solución de problemas de Change Tracking e Inventario
 
-En este artículo se describe cómo solucionar problemas de Change Tracking e Inventario de Azure Automation.
-
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la última versión mediante [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
+En este artículo se describe cómo diagnosticar y solucionar problemas de Change Tracking e Inventario de Azure Automation. Para obtener información general de Change Tracking e Inventario, consulte [Información general de Change Tracking e Inventario](../change-tracking.md).
 
 ## <a name="windows"></a>Windows
 
@@ -29,7 +26,7 @@ En este artículo se describe cómo solucionar problemas de Change Tracking e In
 
 #### <a name="issue"></a>Problema
 
-No aparecen los resultados de Change Tracking e Inventario para las máquinas Windows que se han incorporado.
+No aparecen los resultados de Change Tracking e Inventario para las máquinas Windows donde se ha habilitado la característica.
 
 #### <a name="cause"></a>Causa
 
@@ -38,7 +35,7 @@ Este error puede tener las causas siguientes:
 * El agente de Azure Log Analytics para Windows no se está ejecutando.
 * Está bloqueada la comunicación a la cuenta de Automation.
 * No se han descargado los módulos de administración de Change Tracking e Inventario.
-* La VM que se está incorporando puede provenir de una máquina clonada que no estaba preparada con sysprep con el agente de Log Analytics instalado.
+* La VM que se quiere habilitar puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
 
 #### <a name="resolution"></a>Solución
 
@@ -64,7 +61,7 @@ Compruebe que el agente de Log Analytics para Windows (**HealthService.exe**) es
 
 Consulte el Visor de eventos en el equipo y busque cualquier evento que contenga la palabra `changetracking`.
 
-Para obtener información sobre las direcciones y los puertos que se deben permitir para que Change Tracking e Inventario funcione, vea [Automatización de los recursos en el centro de datos o la nube con Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#network-planning).
+Para conocer las direcciones y puertos que deben estar permitidos para que Change Tracking e Inventario funcione, consulte la sección sobre [planeamiento de la red](../automation-hybrid-runbook-worker.md#network-planning).
 
 ##### <a name="management-packs-not-downloaded"></a>Módulos de administración no descargados
 
@@ -84,7 +81,7 @@ Si utiliza una imagen clonada, primero prepare con sysprep la imagen y, a contin
 
 #### <a name="issue"></a>Problema
 
-No ve los resultados de Change Tracking e Inventario de las máquinas Linux que se han incorporado para la solución. 
+No ve los resultados de Change Tracking e Inventario de las máquinas Linux que tienen habilitada la característica. 
 
 #### <a name="cause"></a>Causa
 Estas son algunas causas posibles específicas de este problema:
@@ -111,11 +108,11 @@ Para más información sobre cómo solucionar este problema, consulte [Problema:
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>El agente de Log Analytics para Linux no está configurado correctamente
 
-Es posible que el agente de Log Analytics para Linux no esté correctamente configurado para el registro y la recopilación de la salida de la línea de comandos mediante la herramienta Recopilador de registros de OMS. Consulte [Seguimiento de cambios en el entorno con la solución Change Tracking e Inventario](../change-tracking.md).
+Es posible que el agente de Log Analytics para Linux no esté correctamente configurado para el registro y la recopilación de la salida de la línea de comandos mediante la herramienta Recopilador de registros de OMS. Consulte [Información general de Change Tracking e Inventario](../change-tracking.md).
 
 ##### <a name="fim-conflicts"></a>Conflictos de FIM
 
-La característica FIM de Azure Security Center podría estar validando incorrectamente la integridad de los archivos de Linux. Compruebe que FIM está operativo y configurado correctamente para la supervisión de archivos de Linux. Consulte [Seguimiento de cambios en el entorno con la solución Change Tracking e Inventario](../change-tracking.md).
+La característica FIM de Azure Security Center podría estar validando incorrectamente la integridad de los archivos de Linux. Compruebe que FIM está operativo y configurado correctamente para la supervisión de archivos de Linux. Consulte [Información general de Change Tracking e Inventario](../change-tracking.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

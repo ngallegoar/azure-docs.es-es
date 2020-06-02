@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188402"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683064"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -88,7 +88,7 @@ Cada área de trabajo también tiene una identidad administrada asignada por el 
 
 Para más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-| Resource | Permisos |
+| Recurso | Permisos |
 | ----- | ----- |
 | Área de trabajo | Colaborador |
 | Cuenta de almacenamiento | Colaborador de datos de blobs de almacenamiento |
@@ -105,29 +105,9 @@ Azure Machine Learning crea una aplicación adicional (el nombre empieza por `am
 
 Azure Machine Learning depende de otros servicios de Azure para los recursos de proceso. Los recursos de proceso (destinos de proceso) se usan para entrenar e implementar modelos. Puede crear estos destinos de proceso en una red virtual. Por ejemplo, puede usar Azure Data Science Virtual Machine para entrenar un modelo y, después, implementarlo en AKS.  
 
-Para más información, consulte [Ejecución de experimentos y realización de inferencias en una red virtual](how-to-enable-virtual-network.md).
+Para obtener más información, consulte [Ejecución segura de experimentos y realización de inferencias en una red virtual aislada](how-to-enable-virtual-network.md).
 
 También puede habilitar Azure Private Link para el área de trabajo. Private Link le permite restringir las comunicaciones con el área de trabajo desde una instancia de Azure Virtual Network. Para más información, consulte [Configuración de Private Link](how-to-configure-private-link.md).
-
-> [!TIP]
-> Puede combinar la red virtual y Private Link para proteger la comunicación entre el área de trabajo y otros recursos de Azure. Sin embargo, algunas combinaciones requieren un área de trabajo de Enterprise Edition. Use la tabla siguiente para comprender qué escenarios requieren Enterprise Edition:
->
-> | Escenario | Enterprise</br>edition | Básica</br>edition |
-> | ----- |:-----:|:-----:| 
-> | Sin red virtual ni Private Link | ✔ | ✔ |
-> | Área de trabajo sin Private Link. Otros recursos (excepto Azure Container Registry) en una red virtual | ✔ | ✔ |
-> | Área de trabajo sin Private Link. Otros recursos con Private Link | ✔ | |
-> | Área de trabajo con Private Link. Otros recursos (excepto Azure Container Registry) en una red virtual | ✔ | ✔ |
-> | Área de trabajo y cualquier otro recurso con Private Link | ✔ | |
-> | Área de trabajo con Private Link. Otros recursos sin Private Link ni red virtual | ✔ | ✔ |
-> | Azure Container Registry en una red virtual | ✔ | |
-> | Claves administradas por el cliente para el área de trabajo | ✔ | |
-> 
-
-> [!WARNING]
-> No se admite la vista previa de instancias de proceso de Azure Machine Learning en un área de trabajo en la que Private Link está habilitado.
-> 
-> Azure Machine Learning no admite el uso de un servicio Azure Kubernetes Service que tenga habilitado Private Link. En su lugar, puede usar Azure Kubernetes Service en una red virtual. Para obtener más información, consulte [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Cifrado de datos
 
@@ -165,8 +145,6 @@ Azure Machine Learning almacena métricas y metadatos en una instancia de Azure 
 Si quiere usar sus propias claves (administradas por el cliente) para cifrar su instancia de Azure Cosmos DB, puede crear una instancia de Cosmos DB dedicada para usarla con el área de trabajo. Recomendamos este método si quiere almacenar los datos, como la información del historial de ejecución, fuera de la instancia de Cosmos DB multiinquilino hospedada en la suscripción de Microsoft. 
 
 Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripción con claves administradas por el cliente, realice estas acciones:
-
-* Habilite las funciones de claves administradas por el cliente para Cosmos DB. Por el momento, debe solicitar acceso para poder usar esta función. Para ello, póngase en contacto con [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
 
 * Si aún no lo ha hecho, registre los proveedores de recursos de Azure Machine Learning y Azure Cosmos DB en su suscripción.
 
@@ -265,7 +243,7 @@ Cada área de trabajo lleva asociada una identidad administrada asignada por el 
 
 Microsoft puede recopilar información de identificación no relacionada con el usuario, como los nombres de los recursos (por ejemplo, el nombre del conjunto de datos o el nombre del experimento de aprendizaje automático) o las variables de entorno de trabajo con fines de diagnóstico. Todos estos datos se almacenan mediante claves administradas por Microsoft en el almacenamiento hospedado en suscripciones propiedad de Microsoft, y siguen los [estándares de tratamiento de los datos y la directiva de privacidad estándar de Microsoft](https://privacy.microsoft.com/privacystatement).
 
-Microsoft también recomienda no almacenar información confidencial (como secretos de clave de cuenta) en variables de entorno. Nosotros no encargamos de registrar, cifrar y almacenar las variables de entorno. Del mismo modo, al asignar nombres [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir información confidencial, como nombres de usuario o nombres de proyectos secretos. Esta información puede aparecer en los registros de telemetría a los que pueden acceder los ingenieros de Soporte técnico de Microsoft.
+Microsoft también recomienda no almacenar información confidencial (como secretos de clave de cuenta) en variables de entorno. Nosotros no encargamos de registrar, cifrar y almacenar las variables de entorno. Del mismo modo, al asignar nombres [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir información confidencial, como nombres de usuario o nombres de proyectos secretos. Esta información puede aparecer en los registros de telemetría a los que pueden acceder los ingenieros de Soporte técnico de Microsoft.
 
 Puede dejar de participar en la recopilación de datos de diagnóstico si establece el parámetro `hbi_workspace` en `TRUE` mientras aprovisiona el área de trabajo. Esta función se admite cuando se usa el SDK de Python de AzureML, la CLI, las API REST o las plantillas de Azure Resource Manager.
 

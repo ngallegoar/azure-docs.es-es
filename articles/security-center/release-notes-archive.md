@@ -1,0 +1,211 @@
+---
+title: Archivo de novedades de Azure Security Center
+description: Una descripción de las novedades y los cambios en Azure Security Center desde hace seis meses y versiones anteriores.
+services: security-center
+documentationcenter: na
+author: memildin
+manager: rkarlin
+ms.service: security-center
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/11/2020
+ms.author: memildin
+ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860909"
+---
+# <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
+
+La página principal de notas de la versión de [novedades de Azure Security Center](release-notes.md) contiene actualizaciones de los últimos seis meses, mientras que esta página contiene elementos más antiguos.
+
+En este página se proporciona información acerca de lo siguiente:
+
+- Nuevas características
+- Corrección de errores
+- Funciones obsoletas
+
+## <a name="november-2019"></a>Noviembre de 2019
+
+### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>Protección contra amenazas para Azure Key Vault en versión preliminar pública en regiones de Norteamérica
+
+Azure Key Vault es un servicio esencial para proteger los datos y mejorar el rendimiento de las aplicaciones en la nube, ya que ofrece la posibilidad de administrar de forma centralizada claves, secretos, claves criptográficas y directivas en la nube. Como Azure Key Vault almacena datos confidenciales y críticos para la empresa, requiere la máxima seguridad para los almacenes de claves y los datos almacenados en ellos.
+
+El soporte de Azure Security Center para Threat Protection para Azure Key Vault proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a los almacén de claves o vulnerarlos. Esta nueva capa de protección permite a los clientes afrontar las amenazas contra sus almacenes sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de la seguridad. La característica está en versión preliminar pública en regiones Norteamérica.
+
+
+### <a name="threat-protection-for-azure-storage-includes-malware-reputation-screening"></a>La protección contra amenazas para Azure Storage incluye el filtrado de reputación de malware
+
+La protección contra amenazas para Azure Storage ofrece nuevas detecciones basadas en la inteligencia sobre amenazas de Microsoft para detectar cargas de malware en Azure Storage mediante el análisis de reputación de hash y accesos sospechosos desde un nodo de salida de Tor activo (un proxy de anonimización). Ahora puede ver el malware detectado en todas las cuentas de almacenamiento mediante Azure Security Center.
+
+
+### <a name="workflow-automation-with-logic-apps-preview"></a>Automatización del flujo de trabajo con Logic Apps (versión preliminar)
+
+Organizaciones con seguridad administrada centralmente y de TI/operaciones que implementan procesos de flujo de trabajo internos para impulsar la acción necesaria dentro de la organización cuando se detectan discrepancias en sus entornos. En muchos casos, estos flujos de trabajo son procesos repetibles y la automatización puede optimizar considerablemente los procesos dentro de la organización.
+
+Hoy estamos presentando una nueva funcionalidad en Security Center que permite a los clientes crear configuraciones de automatización que aprovechan Azure Logic Apps y crear directivas que las desencadenarán automáticamente en función de determinados resultados de ASC, como recomendaciones o alertas. La aplicación lógica de Azure se puede configurar para realizar cualquier acción personalizada compatible con la amplia comunidad de conectores de aplicaciones lógicas, o bien usar una de las plantillas proporcionadas por Security Center como enviar un correo electrónico o abrir un vale de ServiceNow™.
+
+Para más información acerca de las capacidades de Security Center automática y manual para ejecutar los flujos de trabajo, consulte [ automatización de flujos de trabajo](workflow-automation.md).
+
+Para información acerca de la creación de Logic Apps, consulte [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+
+
+### <a name="quick-fix-for-bulk-resources-generally-available"></a>Corrección rápida de los recursos en masa disponibles con carácter general
+
+Con las muchas tareas que se proporcionan a un usuario como parte de la puntuación segura, la capacidad de corregir los problemas de forma eficaz en una flota de gran tamaño puede resultar complicada.
+
+Para simplificar la corrección de las configuraciones erróneas de seguridad y poder corregir rápidamente las recomendaciones en una gran parte de los recursos y mejorar la puntuación segura, use la corrección rápida.
+
+Esta operación le permitirá seleccionar los recursos a los que desea aplicar la corrección e iniciar una acción correctiva que configurará la configuración en su nombre.
+
+La corrección rápida está disponible con carácter general para los clientes de hoy en día como parte de la página de recomendaciones de Security Center.
+
+Vea qué recomendaciones tiene habilitada la corrección rápida en la [guía de referencia para recomendaciones de seguridad](recommendations-reference.md).
+
+
+### <a name="scan-container-images-for-vulnerabilities-preview"></a>Examinar imágenes de contenedor para detectar vulnerabilidades (versión preliminar)
+
+Ahora Azure Security Center puede examinar imágenes de contenedor en Azure Container Registry para detectar vulnerabilidades.
+
+El análisis de imágenes funciona mediante el análisis del archivo de imagen del contenedor y la comprobación de la existencia de alguna vulnerabilidad conocida (con la tecnología Qualys).
+
+El propio análisis se desencadena automáticamente al insertar nuevas imágenes de contenedor en Azure Container Registry. Las vulnerabilidades detectadas se verán como recomendaciones de Security Center y se incluirán en la puntuación segura de Azure junto con información sobre cómo aplicarles revisiones para reducir la superficie expuesta a los ataques que permitían.
+
+
+### <a name="additional-regulatory-compliance-standards-preview"></a>Estándares de cumplimiento normativo adicionales (versión preliminar)
+
+En el panel de cumplimiento normativo se ofrece información sobre la postura de cumplimiento basado en las evaluaciones de Security Center. En el panel se muestra cómo el entorno cumple los controles y requisitos designados por estándares normativos específicos y pruebas comparativas del sector, y proporciona recomendaciones prescriptivas para abordar estos requisitos.
+
+Por lo tanto, el panel de cumplimiento normativo ha admitido cuatro estándares integrados:  Azure CIS 1.1.0, PCI-DSS, ISO 27001, y SOC-TSP. Ahora anunciamos la versión preliminar pública de estándares admitidos adicionales: NIST SP 800-53 R4, SWIFT CSP CSCF v2020, Canada Federal PBMM y UK Official junto con UK NHS. También lanzamos una versión actualizada de Azure CIS 1.1.0, que cubre más controles del estándar y la mejora de la extensibilidad.
+
+[Obtenga más información sobre cómo personalizar el conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
+
+
+### <a name="threat-protection-for-azure-kubernetes-service-preview"></a>Protección contra amenazas para Azure Kubernetes Service (versión preliminar)
+
+Kubernetes se convierte rápidamente en el nuevo estándar para implementar y administrar software en la nube. Pocas personas tienen una amplia experiencia con Kubernetes y muchos solo se centran en la ingeniería y administración generales y pasan por alto el aspecto de seguridad. El entorno de Kubernetes debe configurarse cuidadosamente para que sea seguro, asegurándose de que no se deja abierta ninguna puerta expuesta a ataques de contenedor para los atacantes. Security Center está expandiendo su compatibilidad en el espacio del contenedor a uno de los servicios en crecimiento más rápido de Azure: Azure Kubernetes Service (AKS).
+
+Las nuevas capacidades de esta versión preliminar pública incluyen:
+
+- **Detección y visibilidad**: detección continua de instancias de AKS administradas dentro de las suscripciones registradas de Security Center.
+- **Recomendaciones de puntuación segura**: elementos procesables para ayudar a los clientes a cumplir los procedimientos recomendados de seguridad de AKS como parte de la puntuación segura del cliente, como "El control de acceso basado en roles debe usarse para restringir el acceso a un clúster de servicio de Kubernetes".
+- **Detección de amenazas**: análisis basados en host y en clúster, como "Se ha detectado un contenedor con privilegios".
+
+
+### <a name="virtual-machine-vulnerability-assessment-preview"></a>Evaluación de vulnerabilidades de máquinas virtuales (versión preliminar)
+
+Las aplicaciones que se instalan en máquinas virtuales a menudo pueden tener vulnerabilidades que podrían provocar una infracción de la máquina virtual. Estamos anunciando que el nivel estándar de Security Center incluye una evaluación de vulnerabilidades integrada para máquinas virtuales sin precio adicional. La evaluación de vulnerabilidades, con la tecnología de Qualys en la versión preliminar pública, le permitirá examinar continuamente todas las aplicaciones instaladas en una máquina virtual para encontrar aplicaciones vulnerables y presentar las conclusiones en la experiencia del portal de Security Center. Security Center se encarga de todas las operaciones de implementación para que no sea necesario ningún trabajo adicional por parte del usuario. En adelante, tenemos previsto proporcionar opciones de evaluación de vulnerabilidades para satisfacer las necesidades empresariales únicas de nuestros clientes.
+
+[Más información acerca de evaluaciones de vulnerabilidades para Azure Virtual Machines](security-center-vulnerability-assessment-recommendations.md).
+
+
+### <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Advanced Data Security para servidores SQL Server en Azure Virtual Machines (versión preliminar)
+
+La compatibilidad de Azure Security Center para la protección contra amenazas y la evaluación de vulnerabilidades en las bases de SQL que se ejecutan en máquinas virtuales IaaS está ahora en versión preliminar.
+
+[Evaluación de vulnerabilidades](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver la postura de seguridad como parte de la puntuación segura de Azure e incluye los pasos para resolver problemas de seguridad y mejorar las defensas de su base de datos.
+
+[Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detecta actividades anómalas que indican intentos inusuales y potencialmente perjudiciales de acceder a su servidor SQL Server o de aprovechar sus vulnerabilidades. Supervisa de forma constante la base de datos en busca de actividad sospechosa y proporciona alertas de seguridad sobre patrones de acceso a la base de datos anómalos para que pueda tomar medidas. Las alertas proporcionan detalles de la actividad sospechosa y recomiendan acciones para investigar y mitigar la amenaza.
+
+
+### <a name="support-for-custom-policies-preview"></a>Compatibilidad con directivas personalizadas (versión preliminar)
+
+Azure Security Center admite ahora directivas personalizadas (en versión preliminar).
+
+Nuestros clientes han estado intentando ampliar su cobertura de evaluaciones de seguridad actual en Security Center con sus propias evaluaciones de seguridad basadas en las directivas que crean en Azure Policy. Gracias a la compatibilidad con las directivas personalizadas, ahora es posible.
+
+Estas nuevas directivas formarán parte de la experiencia de recomendaciones de Security Center, la puntuación segura y el panel de normas de cumplimiento normativo. Con la compatibilidad con las directivas personalizadas, ahora puede crear una iniciativa personalizada en Azure Policy y, a continuación, agregarla como una directiva en Security Center y visualizarla como una recomendación.
+
+
+### <a name="extending-azure-security-center-coverage-with-platform-for-community-and-partners"></a>Ampliación de la cobertura de Azure Security Center con la plataforma para la comunidad y los asociados
+
+Use Security Center para recibir recomendaciones no solo de Microsoft, sino también de soluciones existentes de asociados como Check Point, Tenable y CyberArk con muchas más integraciones.  El flujo de incorporación simple de Security Center puede conectar las soluciones existentes a Security Center, lo que permite ver las recomendaciones de seguridad en un único lugar, ejecutar informes unificados y aprovechar todas las funcionalidades de Security Center con las recomendaciones integradas y de asociados. También puede exportar las recomendaciones de Security Center a productos de asociados.
+
+[Más información sobre Intelligent Security Association.](https://www.microsoft.com/security/partnerships/intelligent-security-association)
+
+
+
+### <a name="advanced-integrations-with-export-of-recommendations-and-alerts-preview"></a>Integraciones avanzadas con la exportación de recomendaciones y alertas (versión preliminar)
+
+Con el fin de habilitar escenarios de nivel empresarial sobre Security Center, ahora es posible consumir alertas y recomendaciones de Security Center en otros lugares, excepto el Azure Portal o la API. Estos se pueden exportar directamente a un centro de eventos y áreas de trabajo de Log Analytics. Estos son algunos de los flujos de trabajo que puede crear en torno a estas nuevas capacidades:
+
+- Con la exportación al área de trabajo de Log Analytics, puede crear paneles personalizados con Power BI.
+- Con la exportación al centro de eventos, podrá exportar alertas y recomendaciones de Security Center a los SIEM de terceros, a una solución de terceros en tiempo real o a Azure Data Explorer.
+
+
+### <a name="onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview"></a>Incorporación de servidores locales a Security Center desde Windows Admin Center (versión preliminar)
+
+Windows Admin Center es un portal de administración para los servidores de Windows que no están implementados en Azure y que ofrecen varias funcionalidades de administración de Azure, como copias de seguridad y actualizaciones del sistema. Recientemente hemos agregado una capacidad para incorporar estos servidores que no son de Azure para que ASC los proteja directamente de la experiencia de Windows Admin Center.
+
+Con esta nueva experiencia, los usuarios van a incorporar un servidor de WAC a Azure Security Center y habilitar la visualización de las alertas y recomendaciones de seguridad directamente en la experiencia de Windows Admin Center.
+
+
+## <a name="september-2019"></a>Septiembre de 2019
+
+### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>Administrar reglas con mejoras de controles de aplicación adaptables
+
+Se ha mejorado la experiencia de administración de reglas para máquinas virtuales mediante controles de aplicación adaptables. Los controles de aplicación adaptables de Azure Security Center ayudan a controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales. Además de una mejora general en la administración de reglas, una nueva ventaja le permite controlar qué tipos de archivo se protegerán cuando agregue una nueva regla.
+
+[Más información acerca de los controles de aplicación adaptables](security-center-adaptive-application.md).
+
+
+### <a name="control-container-security-recommendation-using-azure-policy"></a>Controlar la recomendación de seguridad del contenedor mediante Azure Policy
+
+La recomendación de Azure Security Center para corregir vulnerabilidades en la seguridad de los contenedores ahora puede habilitarse o deshabilitarse a través de Azure Policy.
+
+Para ver las directivas de seguridad habilitadas, en Security Center abra la página Directiva de seguridad.
+
+
+## <a name="august-2019"></a>Agosto de 2019
+
+### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Acceso a máquina virtual Just-in-Time (JIT) para Azure Firewall 
+
+El acceso a máquina virtual Just-in-Time (JIT) para Azure Firewall ya está disponible con carácter general. Úselo para proteger sus entornos protegidos con Azure Firewall además de los entornos protegidos con NSG.
+
+El acceso de máquina virtual JIT reduce la exposición a los ataques volumétricos de red al proporcionar acceso controlado a las máquinas virtuales solo cuando sea necesario, mediante el uso de las reglas de NSG y Azure Firewall.
+
+Al habilitar JIT para las máquinas virtuales, se crea una directiva que determina los puertos que se van a proteger, cuánto tiempo deben permanecer abiertos los puertos y las direcciones IP aprobadas desde donde se puede tener acceso a estos puertos. Esta directiva le ayuda a mantener el control de lo que los usuarios pueden hacer cuando solicitan acceso.
+
+Las solicitudes se registran en el registro de actividad de Azure para que pueda supervisar y auditar fácilmente el acceso. La página Just-in-Time también le ayuda a identificar rápidamente las máquinas virtuales existentes que tienen habilitado JIT y las máquinas virtuales en las que se recomienda JIT.
+
+[Más información acerca de Azure Firewall](https://docs.microsoft.com/azure/firewall/overview).
+
+
+### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>Corrección de un solo clic para impulsar la postura de seguridad (versión preliminar)
+
+La puntuación segura es una herramienta que le ayuda a evaluar la postura de seguridad de las cargas de trabajo. Revisa las recomendaciones de seguridad y les asigna una prioridad, para que usted sepa qué recomendaciones realizar primero. De esta manera, puede encontrar las vulnerabilidades de seguridad más graves para dar prioridad a la investigación.
+
+Con el fin de simplificar la corrección de configuraciones incompletas de seguridad y ayudarle a mejorar rápidamente su puntuación segura, hemos agregado una nueva funcionalidad que le permite corregir una recomendación en una gran parte de los recursos con un solo clic.
+
+Esta operación le permitirá seleccionar los recursos a los que desea aplicar la corrección e iniciar una acción correctiva que configurará la configuración en su nombre.
+
+Vea qué recomendaciones tiene habilitada la corrección rápida en la [guía de referencia para recomendaciones de seguridad](recommendations-reference.md).
+
+
+### <a name="cross-tenant-management"></a>Administración entre inquilinos
+
+Security Center admite ahora escenarios de administración entre inquilinos como parte de Azure Lighthouse. Esto le permite obtener visibilidad y administrar la postura de seguridad de varios inquilinos en Security Center. 
+
+[Más información sobre las experiencias de administración entre inquilinos](security-center-cross-tenant-management.md).
+
+
+## <a name="july-2019"></a>Julio de 2019
+
+### <a name="updates-to-network-recommendations"></a>Actualizaciones de recomendaciones sobre redes
+
+Azure Security Center (ASC) ha lanzado nuevas recomendaciones de redes y ha mejorado algunas existentes. Ahora, el uso de Security Center garantiza una mayor protección de la red para los recursos. 
+
+[Más información sobre las recomendaciones de redes](recommendations-reference.md#recs-network).
+
+
+## <a name="june-2019"></a>Junio de 2019
+
+### <a name="adaptive-network-hardening---generally-available"></a>Protección de redes adaptable: disponible con carácter general
+
+Una de las superficies de ataque más importantes para las cargas de trabajo que se ejecutan en la nube pública son las conexiones hacia y desde la red pública de Internet. Nuestros clientes saben que es difícil saber qué reglas del grupo de seguridad de red (NSG) deben estar en vigor para asegurarse de que las cargas de trabajo de Azure solo están disponibles para los intervalos de origen necesarios. Con esta característica, Security Center aprende los patrones de conectividad y el tráfico de red de las cargas de trabajo de Azure y proporciona recomendaciones de reglas de NSG, para las máquinas virtuales orientadas a Internet. Esto ayuda a nuestro cliente a configurar mejor las directivas de acceso a la red y limitar su exposición a los ataques. 
+
+[Más información sobre la protección de red adaptable](security-center-adaptive-network-hardening.md).

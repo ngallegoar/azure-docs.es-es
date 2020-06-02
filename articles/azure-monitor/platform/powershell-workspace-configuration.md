@@ -5,43 +5,49 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/19/2019
-ms.openlocfilehash: 2584cedceab1386cbab9c72bb4b510eebe2122bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/26/2020
+ms.openlocfilehash: a03fcf5748eaa215aa90b70dbd11e788e8beb3e4
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054706"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860977"
 ---
-# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Administre el área de trabajo de Log Analytics en Azure Monitor con PowerShell
+# <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Crear y configurar el área de trabajo de Log Analytics en Azure Monitor con PowerShell
+En este artículo se proporcionan dos ejemplos de código que muestran cómo crear y configurar un área de trabajo de Log Analytics en Azure Monitor.  
 
-Puede usar los [cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para realizar varias funciones en un área de trabajo de Log Analytics en Azure Monitor desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
-
-* Crear un área de trabajo
-* Agregar o quitar una solución
-* Importar y exportar búsquedas guardadas
-* Crear un grupo de equipos
-* Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
-* Recopilar contadores de rendimiento en equipos Linux y Windows
-* Recopilar eventos de Syslog en equipos Linux
-* Recopilar eventos de registros de eventos de Windows
-* Recopilar registros de eventos personalizados
-* Adición del agente de Log Analytics a una máquina virtual de Azure
-* Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
-
-Este artículo proporciona dos ejemplos de código que muestran algunas de las funciones que puede realizar desde PowerShell.  Puede consultar la [referencia de cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para otras funciones.
 
 > [!NOTE]
 > Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en los cmdlets.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Estos ejemplos funcionan con la versión 1.0.0 o posterior del módulo Az.OperationalInsights.
 
+## <a name="create-workspace"></a>Creación del espacio de trabajo
+El script de ejemplo siguiente crea un área de trabajo sin configuración de origen de datos. 
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Creación y configuración de un área de trabajo de Log Analytics
-El siguiente ejemplo de script muestra cómo:
+```powershell
+$ResourceGroup = "my-resource-group"
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$Location = "westeurope"
+
+# Create the resource group if needed
+try {
+    Get-AzResourceGroup -Name $ResourceGroup -ErrorAction Stop
+} catch {
+    New-AzResourceGroup -Name $ResourceGroup -Location $Location
+}
+
+# Create the workspace
+New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
+```
+
+## <a name="create-workspace-and-configure-data-sources"></a>Crear área de trabajo y configurar orígenes de datos
+
+En el ejemplo de script de ejemplo siguiente se crea un área de trabajo y se configuran varios orígenes de datos. Estos orígenes de datos solo son necesarios si va a supervisar máquinas virtuales mediante el [agente de Log Analytics](log-analytics-agent.md).
+
+Este script realiza las siguientes funciones:
 
 1. Crear un área de trabajo
 2. Enumerar las soluciones disponibles
@@ -57,10 +63,19 @@ El siguiente ejemplo de script muestra cómo:
 12. Recopilar registros personalizados
 
 ```powershell
-
-$ResourceGroup = "oms-example"
+$ResourceGroup = "my-resource-group"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
 $Location = "westeurope"
+
+# Create the resource group if needed
+try {
+    Get-AzResourceGroup -Name $ResourceGroup -ErrorAction Stop
+} catch {
+    New-AzResourceGroup -Name $ResourceGroup -Location $Location
+}
+
+# Create the workspace
+New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List of solutions to enable
 $Solutions = "Security", "Updates", "SQLAssessment"
@@ -196,81 +211,13 @@ En el ejemplo anterior, regexDelimiter se definió como "\\n" para la nueva lín
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> donde + es + o un - <br> donde zzzz es la compensación de tiempo | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> La T es una letra T literal | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
-## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configuración de Log Analytics para enviar diagnósticos de Azure
-Para la supervisión de recursos de Azure sin agente, los recursos necesitan tener Diagnósticos de Azure habilitado y configurado para escribir en un área de trabajo de Log Analytics. Este método envía los datos directamente al área de trabajo y no requiere que los datos se escriban en una cuenta de almacenamiento. Los recursos admitidos son los siguientes:
-
-| Tipo de recurso | Registros | Métricas |
-| --- | --- | --- |
-| Puertas de enlace de aplicaciones    | Sí | Sí |
-| Cuentas de Automation     | Sí | |
-| Cuentas de Batch          | Sí | Sí |
-| Data Lake Analytics     | Sí | |
-| Data Lake Store         | Sí | |
-| Elastic SQL Pool        |     | Sí |
-| Espacio de nombres del Centro de eventos     |     | Sí |
-| IoT Hubs                |     | Sí |
-| Key Vault               | Sí | |
-| Equilibradores de carga          | Sí | |
-| Logic Apps              | Sí | Sí |
-| Grupos de seguridad de red | Sí | |
-| Azure Cache for Redis             |     | Sí |
-| Servicios de búsqueda         | Sí | Sí |
-| Espacio de nombres de Service Bus   |     | Sí |
-| SQL (v12)               |     | Sí |
-| Sitios web               |     | Sí |
-| Granjas de servidores web        |     | Sí |
-
-Para obtener información detallada sobre las métricas disponibles, consulte las [métricas admitidas con Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
-
-Para obtener información detallada sobre los registros disponibles, consulte [Servicios admitidos y esquema de los registros de recursos](../../azure-monitor/platform/diagnostic-logs-schema.md).
-
-```powershell
-$workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
-
-$resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
-
-Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
-```
-
-También puede usar el cmdlet anterior para recopilar registros de recursos que se encuentran en distintas suscripciones. El cmdlet funciona en suscripciones distintas porque se proporciona tanto el identificador del recurso que crea los registros como del área de trabajo a la que se envían los registros.
-
-
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuración del área de trabajo de Log Analytics para recopilar los diagnósticos de Azure desde el almacenamiento
-Para recopilar datos de registro desde una instancia en ejecución de un servicio en la nube clásico o un clúster de Service Fabric, tiene que escribir primero los datos en Azure Storage. El área de trabajo de Log Analytics se puede configurar para recopilar los registros de la cuenta de almacenamiento. Los recursos admitidos son los siguientes:
-
-* Servicios en la nube clásicos (roles web y de trabajo)
-* Clústeres de Service Fabric
-
-El ejemplo siguiente muestra cómo:
-
-1. Enumerar las cuentas de almacenamiento existentes y las ubicaciones desde las que el área de trabajo indexará los datos
-2. Crear una configuración para leer desde una cuenta de almacenamiento
-3. Actualizar la configuración recién creada para indizar datos desde ubicaciones adicionales
-4. Eliminar la configuración recién creada
-
-```powershell
-# validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
-$workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
-
-# Update these two lines with the storage account resource ID and the storage account key for the storage account you want the workspace to index
-$storageId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
-$key = "abcd=="
-
-# List existing insights
-Get-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name
-
-# Create a new insight
-New-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -StorageAccountResourceId $storageId -StorageAccountKey $key -Tables @("WADWindowsEventLogsTable") -Containers @("wad-iis-logfiles")
-
-# Update existing insight
-Set-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
-
-# Remove the insight
-Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight"
-
-```
-
-También puede usar el script anterior para recopilar registros de cuentas de almacenamiento que se encuentran en distintas suscripciones. El script funciona en suscripciones distintas porque se proporciona tanto el identificador del recurso de cuenta de almacenamiento como la clave de acceso correspondiente. Cuando se cambia la clave de acceso, hay que actualizar los datos del almacenamiento para que tenga la nueva clave.
+## <a name="troubleshooting"></a>Solución de problemas
+Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:
+1. Si proporciona el mismo nombre de área de trabajo, grupo de recursos, suscripción y región que en el área de trabajo eliminado, se recuperará el área de trabajo, incluidos los datos, la configuración y los agentes conectados.
+2. Si usa el mismo nombre de área de trabajo, pero un grupo de recursos, una suscripción o una región diferentes, obtendrá un error *El nombre del área de trabajo "nombre del área de trabajo" no es único* o causa *conflicto*. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:
+   * [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) el área de trabajo
+   * [Eliminación permanente del área de trabajo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)
+   * Crear una nueva área de trabajo con el mismo nombre
 
 
 ## <a name="next-steps"></a>Pasos siguientes

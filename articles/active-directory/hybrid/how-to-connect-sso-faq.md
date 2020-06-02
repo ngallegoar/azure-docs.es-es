@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feea0266b3a724f3d85944073a47e260277cc362
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72025681"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860025"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -37,7 +37,7 @@ SSO de conexión directa es una característica gratuita y no es necesario usar 
 
 **P: ¿Está disponible el inicio de sesión único de conexión directa en la [nube de Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) y en la [nube de Microsoft Azure Government?](https://azure.microsoft.com/features/gov/)**
 
-No. El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
+El SSO de conexión directa está disponible para la nube de Azure Government. Para más información, consulte [Consideraciones al respecto de la identidad híbrida para Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
 **P: ¿Qué aplicaciones aprovechan la funcionalidad de parámetro `domain_hint` o `login_hint` del inicio de sesión único de conexión directa?**
 
@@ -54,7 +54,7 @@ Además, no es necesaria la intervención del usuario para iniciar sesión cuand
 | Nombre de la aplicación | La dirección URL de la aplicación que se va a usar |
 | -- | -- |
 | SharePoint Online | https:\//contoso.sharepoint.com |
-| Portal de Azure | https:\//portal.azure.com/contoso.com |
+| Azure Portal | https:\//portal.azure.com/contoso.com |
 
 En las tablas anteriores, reemplace "contoso.com" por el nombre de dominio para obtener las direcciones URL de aplicación correctas para el inquilino.
 
@@ -74,9 +74,9 @@ Puede usar tanto Azure AD Join como SSO de conexión directa en el inquilino. Es
 
 Sí, en este escenario se necesita la versión 2.1 o posterior del [cliente para unirse al área de trabajo](https://www.microsoft.com/download/details.aspx?id=53554).
 
-**P: ¿Cómo puedo implementar la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC`?**
+**P: ¿Cómo puedo implementar la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSO`?**
 
-Es importante implementar con frecuencia la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC` (que representa a Azure AD) creada en el bosque local de AD.
+Es importante implementar con frecuencia la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSO` (que representa a Azure AD) creada en el bosque local de AD.
 
 >[!IMPORTANT]
 >Se recomienda implementar la clave de descifrado de Kerberos al menos cada 30 días.
@@ -101,7 +101,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
    >[!NOTE]
    >La cuenta de administrador de dominio usada no puede ser miembro del grupo Usuarios protegidos. De lo contrario, la operación presentará un error.
 
-   2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC` en este bosque de AD concreto y la actualiza en Azure AD.
+   2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSO` en este bosque de AD concreto y la actualiza en Azure AD.
    3. Repita los pasos anteriores para cada bosque de AD en el que haya configurado la característica.
 
    >[!IMPORTANT]
@@ -145,7 +145,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
    4. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
    5. Llame a `Get-AzureADSSOStatus | ConvertFrom-Json`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
 
-   **Paso 3. Elimine manualmente la cuenta de equipo `AZUREADSSOACCT` de cada bosque de AD que encuentre en la lista.**
+   **Paso 3. Elimine manualmente la cuenta de equipo `AZUREADSSO` de cada bosque de AD que encuentre en la lista.**
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
 title: Datos que se recopilan al abrir un caso para Microsoft Azure Automation | Microsoft Docs
-description: En este artículo se describe parte de la información que debe recopilar antes de abrir un caso para Azure Automation con el soporte técnico de Microsoft Azure.
+description: En este artículo se describe la información que debe recopilar antes de abrir un caso para Azure Automation en el Soporte técnico de Microsoft Azure.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: e1d5d791a58f301991819b41757b9021f6e30fc0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81679399"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684846"
 ---
-# <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Datos que se recopilan al abrir un caso para Microsoft Azure Automation
+# <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Datos que se recopilan cuando se abre un caso para Microsoft Azure Automation
 
 En este artículo se describe parte de la información que debe recopilar antes de abrir un caso para Azure Automation con el soporte técnico de Microsoft Azure. Esta información no es necesaria para abrir el caso. Sin embargo, puede ayudar a Microsoft a resolver el problema con más rapidez. Además, es posible que el ingeniero de soporte técnico le pida estos datos después de abrir el caso.
 

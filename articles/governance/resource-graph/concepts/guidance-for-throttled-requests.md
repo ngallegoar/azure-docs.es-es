@@ -1,14 +1,14 @@
 ---
 title: Guía para solicitudes limitadas
 description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
-ms.date: 12/02/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229740"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682049"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -23,7 +23,7 @@ En este artículo se describen cuatro áreas y patrones relacionados con la crea
 
 ## <a name="understand-throttling-headers"></a>Descripción de los encabezados de limitación
 
-Azure Resource Graph asigna un número de cuota para cada usuario basado en una ventana de tiempo. Por ejemplo, un usuario puede enviar como máximo 15 consultas dentro de cada ventana de 5 segundos sin que se vea limitado. El valor de la cuota se determina según varios factores y está sujeto a cambios.
+Azure Resource Graph asigna un número de cuota para cada usuario en función de una ventana de tiempo. Por ejemplo, un usuario puede enviar como máximo 15 consultas dentro de cada ventana de 5 segundos sin que se vea limitado. El valor de la cuota se determina según varios factores y está sujeto a cambios.
 
 En cada respuesta de consulta, Azure Resource Graph agrega dos encabezados de limitación:
 

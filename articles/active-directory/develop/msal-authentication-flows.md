@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/30/2020
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050509"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772138"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -151,7 +151,7 @@ Al usar flujo de código de dispositivo, la aplicación obtiene los tokens a tra
 
 En el diagrama anterior:
 
-1. Cada vez que se requiera autenticación del usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a Internet) para ir a una dirección URL (por ejemplo, `https://microsoft.com/devicelogin`). Luego, se le pide al usuario que especifique el código y el usuario pasa por una experiencia de autenticación normal, como peticiones de consentimiento y autenticación multifactor, si es necesario.
+1. Cada vez que se requiera autenticación del usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a Internet) para ir a una dirección URL (por ejemplo, `https://microsoft.com/devicelogin`). Luego, se le pide al usuario que especifique el código, y el usuario pasa por una experiencia de autenticación normal, como peticiones de consentimiento y [autenticación multifactor](../authentication/concept-mfa-howitworks.md), si es necesario.
 
 2. Tras una autenticación correcta, la aplicación de línea de comandos recibe los tokens necesarios a través de un canal posterior y los usa para realizar las llamadas a la API web que necesita.
 
@@ -182,7 +182,7 @@ IWA es para las aplicaciones escritas para las plataformas .NET Framework, .NET 
 
 IWA no omite la autenticación multifactor. Si se ha configurado la autenticación multifactor, podría producirse un error en IWA si se requiere un desafío de autenticación multifactor. La autenticación multifactor requiere la interacción del usuario.
 
-No se puede controlar cuándo el proveedor de identidades solicita que se realice la autenticación en dos fases. Esto lo hace el administrador de inquilinos. Normalmente, la autenticación en dos factores se requiere al iniciar sesión desde un país o región diferente, cuando no está conectado a través de una VPN a una red corporativa y, a veces, incluso cuando se conecta a través de una VPN. Azure AD usa la inteligencia artificial para aprender continuamente si se requiere la autenticación en dos fases. Si IWA produce un error, debe revertir a una [solicitud interactiva de usuario] (#interactive).
+No se puede controlar cuándo el proveedor de identidades solicita que se realice la autenticación en dos fases. Esto lo hace el administrador de inquilinos. Normalmente, la autenticación en dos fases se requiere al iniciar sesión desde un país o región diferente, cuando no está conectado a través de una VPN a una red corporativa y, a veces, incluso cuando se conecta a través de una VPN. Azure AD usa la inteligencia artificial para aprender continuamente si se requiere la autenticación en dos fases. Si IWA produce un error, debe revertir a una [solicitud interactiva de usuario] (#interactive).
 
 La autoridad que se pasa al construir la aplicación cliente pública debe ser una de las siguientes:
 - Con inquilino (del tipo `https://login.microsoftonline.com/{tenant}/` donde `tenant` es el GUID que representa el identificador del inquilino o un dominio asociado con el inquilino).
@@ -232,4 +232,4 @@ Aparte de la [las restricciones de la autenticación integrada de Windows](#inte
 
 ### <a name="azure-ad-b2c-specifics"></a>Información específica sobre Azure AD B2C
 
-Para más información sobre el uso de MSAL.NET y Azure AD B2C, consulte [Credenciales de contraseña de propietario de recursos (ROPC) con Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
+Para obtener más información sobre el uso de ROPC en MSAL.NET y Azure AD B2C, consulte [Credenciales de contraseña de propietario de recursos con Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).

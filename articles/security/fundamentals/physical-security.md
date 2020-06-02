@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726722"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774060"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Instalaciones de Azure, entornos locales y seguridad física
 En este artículo se describe lo que hace Microsoft para proteger la infraestructura de Azure.
@@ -28,7 +28,7 @@ En este artículo se describe lo que hace Microsoft para proteger la infraestruc
 ## <a name="datacenter-infrastructure"></a>Infraestructura de centros de datos
 Azure está formada por una [infraestructura de centros de datos distribuida globalmente](https://azure.microsoft.com/global-infrastructure/) que da soporte a miles de servicios en línea y abarca más de 100 instalaciones de alta seguridad en todo el mundo.
 
-La infraestructura está diseñada para acercar las aplicaciones a usuarios de todo el mundo. De este modo, mantiene la residencia de los datos y ofrece a los clientes opciones muy completas de cumplimiento normativo y resistencia. Azure tiene 52 regiones en todo el mundo y está disponible en 140 países o regiones.
+La infraestructura está diseñada para acercar las aplicaciones a usuarios de todo el mundo. De este modo, mantiene la residencia de los datos y ofrece a los clientes opciones muy completas de cumplimiento normativo y resistencia. Azure tiene 58 regiones en todo el mundo y está disponible en 140 países o regiones.
 
 Una región es un conjunto de centros de datos que están conectados entre sí mediante una red masiva y resiliente. De forma predeterminada, la red incluye distribución de contenido, equilibrio de carga, redundancia y cifrado. Con más regiones globales que ningún otro proveedor de servicios en la nube, Azure la flexibilidad de implementar aplicaciones donde sea necesario.
 

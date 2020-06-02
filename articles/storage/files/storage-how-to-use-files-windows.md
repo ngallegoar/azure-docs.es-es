@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231771"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773107"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -80,7 +80,7 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 Para usar un recurso compartido de archivos de Azure con Windows, debe montarlo, lo que significa asignarle una letra de unidad o una ruta de acceso a un punto de montaje, o acceder a él mediante su [ruta de acceso UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-A diferencia de otros recursos compartidos de SMB con los que pueda haber interactuado, como los que están hospedados en un servidor de Windows, un servidor de Linux Samba o un dispositivo NAS, los recursos compartidos de archivos de Azure no admiten actualmente la autenticación Kerberos con la identidad de Active Directory (AD) o Azure Active Directory (AAD), si bien es una característica [en la que estamos trabajando](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). En su lugar, debe acceder a su recurso compartido de archivos de Azure con la clave de la cuenta de almacenamiento que lo contiene. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esta solución no es suficiente para su carga de trabajo, [Azure File Sync](storage-sync-files-planning.md) puede solucionar mientras tanto la falta de compatibilidad con la autenticación Kerberos y las listas ACL hasta que dicha compatibilidad esté disponible públicamente.
+En este artículo se usa la clave de la cuenta de almacenamiento para tener acceso al recurso compartido de archivos. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esto no es suficiente para la carga de trabajo, se puede usar [Azure File Sync](storage-sync-files-planning.md), o bien se puede usar la [autenticación basada en identidad a través de SMB](storage-files-active-directory-overview.md).
 
 Un patrón común para elevar y desplazar aplicaciones de línea de negocio (LOB) que esperan un recurso compartido de archivos de SMB es usar un recurso compartido de archivos de Azure como alternativa a ejecutar un servidor de archivos de Windows dedicado en una máquina virtual de Azure. Un aspecto importante que se debe tener en cuenta para migrar correctamente una aplicación de línea de negocio para usar un recurso compartido de archivos de Azure es que muchas de estas aplicaciones se ejecutan en el contexto de una cuenta de servicio dedicada con permisos de sistema limitados y no en la cuenta administrativa de la máquina virtual. Por lo tanto, debe asegurarse de montar o guardar las credenciales del recurso compartido de archivos de Azure desde el contexto de la cuenta de servicio y no de la cuenta administrativa.
 
@@ -186,7 +186,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![Captura de pantalla del menú desplegable "Conectar a unidad de red"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Seleccione la letra de unidad y escriba la ruta de acceso UNC; el formato de esta ruta es `<storageAccountName>.file.core.windows.net/<fileShareName>`. Por ejemplo: `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Seleccione la letra de unidad y escriba la ruta de acceso UNC; el formato de esta ruta es `\\<storageAccountName>.file.core.windows.net\<fileShareName>`. Por ejemplo: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![Captura de pantalla del cuadro de diálogo "Conectar a unidad de red"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

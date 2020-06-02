@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419449"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860833"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -37,7 +37,7 @@ La vista de supervisión predeterminada es una lista de ejecuciones de la canali
 | Duration | Duración de ejecución (HH) |
 | Desencadenado por | El nombre del desencadenador que inició la canalización |
 | Status | **Error**, **Correcto**, **En curso**, **Cancelado** o **En cola** |
-| anotaciones | Etiquetas filtrables asociadas a una canalización  |
+| Anotaciones | Etiquetas filtrables asociadas a una canalización  |
 | Parámetros | Parámetros para la ejecución de la canalización (nombre/pares de valor) |
 | Error | Si se ha producido un error en la canalización, el error de ejecución |
 | Ejecutar identificador | Identificador de la ejecución de canalización |
@@ -95,8 +95,8 @@ Alterne si las ejecuciones de la canalización van a estar en orden descendente 
 | Nombre de la canalización | Filtre por el nombre de la canalización. |
 | Hora de inicio de la ejecución |  Determine el intervalo de tiempo de las ejecuciones de la canalización mostradas. Las opciones incluyen filtros rápidos para las **últimas 24 horas**, la **última semana** y los **últimos 30 días**, o bien puede seleccionar una fecha y hora personalizadas. |
 | Estado de ejecución | Filtrar ejecuciones por estado: **Correcto**, **Error**, **En cola**, **Cancelado** o **En curso**. |
-| anotaciones | Filtre por etiquetas aplicadas a cada canalización. |
-| Ejecuciones | Filtre si desea ver canalizaciones nuevamente ejecutadas. |
+| Anotaciones | Filtre por etiquetas aplicadas a cada canalización |
+| Ejecuciones | Filtre si desea ver canalizaciones nuevamente ejecutadas |
 
 ![Opciones para filtrar](media/monitor-visually/filter.png)
 
@@ -132,6 +132,21 @@ También puede ver el historial de repetición de ejecuciones de una ejecución 
 
 ![Ver el historial de ejecuciones de una canalización](media/monitor-visually/rerun-history-image2.png)
 
+## <a name="monitor-consumption"></a>Supervisión del consumo
+
+Para ver los recursos utilizados por una ejecución de canalización, haga clic en el icono de consumo junto a la ejecución. 
+
+![Supervisión del consumo](media/monitor-visually/monitor-consumption-1.png)
+
+Al hacer clic en el icono, se abre un informe de consumo de recursos usados por esa canalización. 
+
+![Supervisión del consumo](media/monitor-visually/monitor-consumption-2.png)
+
+Puede conectar estos valores a la [calculadora de precios de Azure](https://azure.microsoft.com/pricing/details/data-factory/) para calcular el costo de la ejecución de la canalización. Para más información sobre los precios de Azure Data Factory, consulte [Descripción de los precios](pricing-concepts.md).
+
+> [!NOTE]
+> Estos valores devueltos por la calculadora de precios son una estimación. No refleja el importe exacto en el que se le facturará Azure Data Factory 
+
 ## <a name="gantt-views"></a>Vistas de Gantt
 
 Use las vistas de Gantt para visualizar rápidamente las canalizaciones y ejecuciones de actividad.
@@ -155,7 +170,7 @@ Seleccione el icono de **información** de la esquina inferior izquierda. Despu�
 
 Puede generar alertas en función de métricas admitidas en Data Factory. Seleccione **Supervisar** > **Alertas y métricas**, en la página de supervisión de Data Factory, para empezar.
 
-![Página de supervisión de Data Factory](media/monitor-visually/alerts01.png)
+![Página de supervisión de Data Factory](media/monitor-visually/start-page.png)
 
 Si desea una demostración y una introducción de siete minutos de esta característica, vea el siguiente vídeo:
 
@@ -165,31 +180,31 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
 1.  Seleccione **Nueva regla de alertas** para crear una nueva alerta.
 
-    ![Botón Nueva regla de alertas](media/monitor-visually/alerts02.png)
+    ![Botón Nueva regla de alertas](media/monitor-visually/new-alerts.png)
 
 1.  Especifique el nombre de la regla y seleccione la gravedad de la alerta.
 
-    ![Cuadros del nombre de la regla y de la gravedad](media/monitor-visually/alerts03.png)
+    ![Cuadros del nombre de la regla y de la gravedad](media/monitor-visually/name-and-severity.png)
 
 1.  Seleccione los criterios de la alerta.
 
-    ![Cuadro para los criterios de destino](media/monitor-visually/alerts04.png)
+    ![Cuadro para los criterios de destino](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista de criterios](media/monitor-visually/alerts05.png)
+    ![Lista de criterios](media/monitor-visually/add-criteria-2.png)
 
 1.  Configure la lógica de la alerta. Puede crear una alerta de la métrica seleccionada para todas las canalizaciones y actividades correspondientes. También puede seleccionar un tipo de actividad, nombre de actividad, nombre de canalización o tipo de error determinados.
 
-    ![Opciones para configurar la lógica de alerta](media/monitor-visually/alerts06.png)
+    ![Opciones para configurar la lógica de alerta](media/monitor-visually/alert-logic.png)
 
 1.  Configure las notificaciones push, por correo electrónico, SMS o voz de la alerta. Cree un grupo de acciones para las notificaciones de alerta o elija uno existente.
 
-    ![Opciones para configurar notificaciones](media/monitor-visually/alerts07.png)
+    ![Opciones para configurar notificaciones](media/monitor-visually/configure-notification-1.png)
 
-    ![Opciones para agregar una notificación](media/monitor-visually/alerts08.png)
+    ![Opciones para agregar una notificación](media/monitor-visually/configure-notification-2.png)
 
 1.  Cree la regla de alertas.
 
-    ![Opciones para crear una regla de alertas](media/monitor-visually/alerts09.png)
+    ![Opciones para crear una regla de alertas](media/monitor-visually/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

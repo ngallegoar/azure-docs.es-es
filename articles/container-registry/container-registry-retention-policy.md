@@ -3,18 +3,20 @@ title: Directiva para conservar los manifiestos sin etiquetar
 description: Aprenda a habilitar una política de retención en Azure Container Registry para la eliminación automática de manifiestos sin etiqueta después de un período definido.
 ms.topic: article
 ms.date: 10/02/2019
-ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74454818"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683446"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Establecimiento de una directiva de retención para manifiestos sin etiqueta
 
 Azure Container Registry ofrece la opción de establecer una *directiva de retención* para los manifiestos de imagen almacenados que no tienen etiquetas asociadas (*manifiestos sin etiqueta*). Cuando se habilita una directiva de retención, los manifiestos sin etiqueta del registro se eliminan automáticamente después de un número de días establecido. Esta característica evita que el registro se llene con artefactos que no son necesarios y ayuda a ahorrar en los costos de almacenamiento. Si el atributo `delete-enabled` de un manifiesto sin etiqueta se establece en `false`, no se puede eliminar el manifiesto y no se aplica la directiva de retención.
 
 Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ejecutar los ejemplos de comando de este artículo. Si quiere usarla de forma local, necesitará la versión 2.0.74 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli].
+
+Una directiva de retención es una característica de los registros de contenedor **Premium**. Para obtener información sobre los niveles de servicio de registro, consulte [SKU de Azure Container Registry](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar y se [aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
@@ -24,7 +26,6 @@ Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para ej
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* Solo los registros de contenedor **Premium** pueden configurarse con una directiva de retención. Para obtener información acerca de los niveles de servicio de registro, consulte [SKU de Azure Container Registry](container-registry-skus.md).
 * Solo puede establecer una directiva de retención para manifiestos sin etiqueta.
 * Actualmente la directiva de retención se aplica solo a los manifiestos que no están etiquetados *después* de habilitar esa directiva. Los manifiestos no etiquetados existentes en el registro no están sujetos a la directiva. Para eliminar los manifiestos sin etiquetar existentes, consulte los ejemplos que aparecen en [Eliminar imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
 

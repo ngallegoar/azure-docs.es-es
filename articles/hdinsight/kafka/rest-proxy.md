@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 04/03/2020
+ms.openlocfilehash: 5e46e50da67559f69302357804f6f98fee70d4ad
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611013"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773311"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interacción con clústeres de Apache Kafka en Azure HDInsight mediante un proxy de REST
 
@@ -42,6 +42,9 @@ Para las solicitudes al punto de conexión proxy REST, las aplicaciones cliente 
 > [!NOTE]
 > Consulte [Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md) para más información sobre los grupos de seguridad de AAD. Para obtener más información sobre cómo funcionan los tokens de OAuth, consulte [Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
+## <a name="kafka-rest-proxy-with-network-security-groups"></a>Proxy REST de Kafka con grupos de seguridad de red
+Si aporta su propia red virtual y controla el tráfico de red con grupos de seguridad de red, permita el tráfico **entrante** en el puerto **9400**, además del puerto 443. Esto garantizará que el proxy REST de Kafka sea accesible.
+
 ## <a name="prerequisites"></a>Prerrequisitos
 
 1. Registrar una aplicación con Azure AD. Las aplicaciones cliente que escriba para interactuar con el proxy de REST de Kafka usarán el identificador y el secreto de la aplicación para autenticarse en Azure.
@@ -55,6 +58,8 @@ Para las solicitudes al punto de conexión proxy REST, las aplicaciones cliente 
     ![Comprobación de la pertenencia](./media/rest-proxy/rest-proxy-membergroup.png)
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>Creación de un clúster de Kafka con el proxy de REST habilitado
+
+En los pasos siguientes se usa Azure Portal. Para ver un ejemplo con la CLI de Azure, consulte [Creación de un clúster para el proxy REST de Apache Kafka con la CLI de Azure](tutorial-cli-rest-proxy.md).
 
 1. Durante el flujo de trabajo de creación del clúster de Kafka, en la pestaña **Seguridad y redes**, active la opción **Habilitar proxy REST de Kafka**.
 

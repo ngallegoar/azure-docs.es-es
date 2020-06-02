@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: 105279940546c8e5b40d1d8378b35f85af1ea98b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8b0d83be0ae464563a06c9307303ee7a5af527f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099553"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779776"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -134,10 +134,10 @@ Cada evento se programa una cantidad mínima de tiempo en el futuro en función 
 
 ### <a name="event-scope"></a>Ámbito actual     
 Los eventos programados se entregan a:
- - Máquinas virtuales independientes
- - Todas las máquinas virtuales de un servicio en la nube.      
- - Todas las máquinas virtuales de un conjunto de disponibilidad.      
- - Todas las máquinas virtuales de un grupo de selección de ubicación de conjunto de escalado.         
+ - Máquinas virtuales independientes.
+ - Todas las máquinas virtuales de un servicio en la nube.     
+ - Todas las máquinas virtuales de un conjunto de disponibilidad.     
+ - Todas las máquinas virtuales de un grupo de selección de ubicación del conjunto de escalado (incluido Batch).       
 
 Por ello, debería revisar el campo `Resources` del evento para identificar cuáles son las máquinas virtuales que se verán afectadas. 
 

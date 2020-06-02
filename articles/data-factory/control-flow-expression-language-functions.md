@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 1ce6da555bc8777bdb9671df1567f06227b74b6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9870b239ca0501e63df3d800b8e4847cb0f390ac
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192806"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860943"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 
@@ -64,6 +64,11 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ## <a name="examples"></a>Ejemplos
+
+### <a name="complex-expression-example"></a>Ejemplo de expresión compleja
+En el ejemplo siguiente se muestra un ejemplo complejo que hace referencia a un subcampo profundo de la salida de la actividad. Para hacer referencia a un parámetro de canalización que se evalúa como un subcampo, use la sintaxis [] en lugar del operador punto (.) (como en el caso de subfield1 y subfield2)
+
+@activity('{activityName}').output.{subfield1}.{subfield2}[pipeline().parameters.subfield3].{subfield4}
 
 ### <a name="a-dataset-with-a-parameter"></a>Un conjunto de datos con un parámetro
 En el ejemplo siguiente, BlobDataset toma un parámetro llamado **path**. Su valor se usa para establecer un valor para la propiedad **folderPath** mediante la expresión: `dataset().path`. 
@@ -910,7 +915,7 @@ Este ejemplo convierte una marca de tiempo a la zona horaria especificada:
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-Y devuelve este resultado: `"2018-01-01T00:00:00.0000000"`
+Y devuelve este resultado: `"2018-01-01T00:00:00Z"`
 
 *Ejemplo 2*
 

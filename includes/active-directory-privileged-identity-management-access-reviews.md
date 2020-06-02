@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67476244"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868108"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Creación de una o varias revisiones de acceso
 
@@ -36,13 +36,14 @@ ms.locfileid: "67476244"
     ![Ámbito de los usuarios para revisar la pertenencia a rol de](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
+    > - Los roles seleccionados aquí incluyen [roles permanentes y elegibles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
 
-    Si va a crear una revisión de acceso de los roles de Azure AD, a continuación se muestra un ejemplo de la lista de revisión de pertenencia.
+    Si va a crear una revisión de acceso de los **roles de Azure AD**, a continuación se muestra un ejemplo de la lista de revisión de pertenencia.
 
     ![Panel para la revisión de pertenencia que muestra los roles de Azure AD que puede seleccionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Si va a crear una revisión de acceso de los roles de recursos de Azure, a continuación se muestra un ejemplo de la lista de revisión de pertenencia.
+    Si va a crear una revisión de acceso de los **roles de recursos de Azure**, la imagen a continuación muestra un ejemplo de la lista de revisión de pertenencia.
 
     ![Panel para la revisión de pertenencia que muestra los recursos de Azure que puede seleccionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 

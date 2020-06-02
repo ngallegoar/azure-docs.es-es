@@ -1,5 +1,6 @@
 ---
 title: Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Instrucciones para desarrolladores y escenarios para el acceso condicional de Azure AD y la plataforma de identidad de Microsoft.
 services: active-directory
 keywords: ''
@@ -7,28 +8,28 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 03/16/2020
+ms.date: 05/18/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535900"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771084"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
 La característica de acceso condicional en Azure Active Directory (Azure AD) ofrece una de las varias maneras que hay para proteger la aplicación y un servicio. El acceso condicional permite que los desarrolladores y clientes empresariales protejan los servicios de diversas formas, entre las que se incluyen las siguientes:
 
-* Multi-Factor Authentication
+* [Autenticación multifactor](../authentication/concept-mfa-howitworks.md)
 * Autorización para que solo los dispositivos inscritos en Intune accedan a servicios específicos
 * Restricción de ubicaciones de usuario e intervalos IP
 
-Para más información sobre las funcionalidades completas del acceso condicional, consulte [Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Para obtener más información sobre las funcionalidades completas del acceso condicional, consulte el artículo [¿Qué es el acceso condicional?](../conditional-access/overview.md)
 
 Para desarrolladores que compilan aplicaciones para Azure AD, este artículo muestra cómo se puede usar el acceso condicional y también proporciona información sobre el impacto de acceder a los recursos sobre los que no se tiene control, y que pueden tener directivas de acceso condicional aplicadas. Este artículo explora además las implicaciones del acceso condicional en el flujo en el nombre de otra persona, aplicaciones web, el acceso a Microsoft Graph y las llamadas a las API.
 
@@ -126,7 +127,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 En Web API 1, se captura el error `error=interaction_required` y el desafío `claims` se envía de vuelta a la aplicación de escritorio. En ese momento, la aplicación de escritorio puede realizar una llamada `acquireToken()` nueva y anexa el desafío `claims` como un parámetro de cadena de solicitud adicional. Esta solicitud nueva requiere que el usuario realice la autenticación multifactor y, luego, envíe el token nuevo de vuelta a la API web 1 y complete el flujo "en nombre de".
 
-Para probar el escenario, consulte el [ejemplo de código .NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Muestra cómo pasar el desafío de notificaciones de vuelta desde API web 1 a la aplicación nativa y construye una solicitud nueva dentro de la aplicación cliente.
+Para probar el escenario, consulte el [ejemplo de código .NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph#handling-required-interactions-with-the-user-dynamic-consent-mfa-etc-). Muestra cómo pasar el desafío de notificaciones de vuelta desde API web 1 a la aplicación nativa y construye una solicitud nueva dentro de la aplicación cliente.
 
 ## <a name="scenario-app-accessing-multiple-services"></a>Escenario: Aplicación que accede a varios servicios
 
@@ -175,7 +176,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 La aplicación debe capturar `error=interaction_required`. Luego, la aplicación puede usar `acquireTokenPopup()` o `acquireTokenRedirect()` en el mismo recurso. Se obliga al usuario a realizar la autenticación multifactor. Una vez que el usuario completa la autenticación multifactor, la aplicación recibe un token de acceso nuevo para el recurso solicitado.
 
-Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA de JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Este ejemplo de código usa la directiva de acceso condicional y la API web que registró anteriormente con un SPA de JS para mostrar el escenario. Muestra cómo controlar de forma adecuada el desafío de notificaciones y obtener un token de acceso que se puede usar para la API web. De manera alternativa, revise el [ejemplo de código Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) general para información sobre un SPA de Angular
+Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA de JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). Este ejemplo de código usa la directiva de acceso condicional y la API web que registró anteriormente con un SPA de JS para mostrar el escenario. Muestra cómo controlar de forma adecuada el desafío de notificaciones y obtener un token de acceso que se puede usar para la API web. De manera alternativa, revise el [ejemplo de código Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) general para información sobre un SPA de Angular
 
 ## <a name="see-also"></a>Consulte también
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abf5d0d4aeeb18a11f50220e982448d41a9ac1b4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79138950"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773209"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator
 
@@ -62,6 +62,9 @@ En un dispositivo iOS:
 - **Al pulsar el icono de la cuenta**, la cuenta se abre con una vista de pantalla completa. Si ve **Inicio de sesión en el teléfono habilitado**, significa que se ha configurado para iniciar sesión sin contraseña. Si ve la opción **Habilitar inicio de sesión en el teléfono**, púlsela para activar el inicio de sesión en el teléfono.
 - **Si ya ha usado la aplicación para la comprobación de dos fases**, puede pulsar el icono de la cuenta, que se expandirá a una vista de pantalla completa de la cuenta. A continuación, pulse **Habilitar inicio de sesión en el teléfono**, para activar el inicio de sesión en el teléfono.
 - **Si no encuentra su cuenta profesional o educativa** en la pantalla **Cuentas** de la aplicación, significa que aún no la ha agregado a la aplicación. Agregue su cuenta profesional o educativa siguiendo los pasos descritos en el artículo Adición de una cuenta profesional o educativa.
+
+> [!NOTE]
+> En Authenticator en iOS, no se admite una combinación de registro de dispositivos y autenticación basada en certificados. Como solución alternativa, el usuario debe registrar el dispositivo manualmente mediante la configuración de Authenticator antes de iniciar sesión.
 
 Después de activar el inicio de sesión en el teléfono, puede iniciar sesión solo con la aplicación Microsoft Authenticator.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 625d9d5c5ecf095d4acbff625754b2065f184536
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227220"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860620"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -149,7 +149,7 @@ Esta es la consulta de subárbol que carga datos en una tabla de subárbol.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<ruta a los datos de blob\>** : si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster de Hadoop de HDInsight, *\<ruta de acceso a datos de blob\>* debe tener el formato *"wasb://\<directorio de este contenedor>/\<nombre del archivo de blob>* . El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *\<ruta de acceso a datos de blob\>* debería tener el formato *"wasb://\<nombre del contenedor>\<nombre de la cuenta de almacenamiento>.blob.core.windows.net/\<nombre de archivo de blob>"* .
+* **\<ruta a los datos de blob\>** : si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster de Hadoop de HDInsight, *\<ruta de acceso a datos de blob\>* debe tener el formato *"wasb://\<directorio de este contenedor>/\<nombre del archivo de blob>* . El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *\<ruta de acceso a datos de blob\>* debería tener el formato *"wasb://\<nombre del contenedor>@\<nombre de la cuenta de almacenamiento>.blob.core.windows.net/\<nombre de archivo de blob>"* .
 
   > [!NOTE]
   > Los datos blob que se van a cargar en la tabla de subárbol tienen que estar en el contenedor adicional o predeterminado de la cuenta de almacenamiento para el clúster de Hadoop. De lo contrario, la consulta *LOAD DATA* genera un error indicando que no puede obtener acceso a los datos.

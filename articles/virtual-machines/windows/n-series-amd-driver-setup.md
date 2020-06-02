@@ -8,16 +8,20 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 63114bdf60c1feb2b6cb1092ef78397efdc5b666
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865752"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799880"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows
 
-Para aprovechar las funcionalidades de GPU de las nuevas máquinas virtuales de la serie NVv4 de Azure que ejecutan Windows, deben instalarse controladores de GPU de AMD. La extensión del controlador AMD estará disponible en las próximas semanas. En este artículo se describen sistemas operativos compatibles, controladores y pasos de instalación y verificación manuales.
+Para aprovechar las funcionalidades de GPU de las nuevas máquinas virtuales de la serie NVv4 de Azure que ejecutan Windows, deben instalarse controladores de GPU de AMD. La [extensión de controladores de GPU de AMD](../extensions/hpccompute-amd-gpu-windows.md) instala los controladores de GPU de AMD en una VM de la serie NVv4. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controladores de GPU de AMD](../extensions/hpccompute-amd-gpu-windows.md) para conocer los sistemas operativos compatibles y los pasos de implementación.
+
+Si decide instalar manualmente los controladores de GPU de AMD, este artículo proporciona pasos de instalación y verificación, controladores y los sistemas operativos compatibles.
+
+Solo los controladores de GPU publicados por Microsoft se admiten en VM NVv4. NO instale controladores de GPU desde ningún otro origen.
 
 Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaño de máquinas virtuales para GPU Windows](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -34,13 +38,9 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
 
 1. Conéctese mediante Escritorio remoto a cada máquina virtual de la serie NVv4.
 
-2. Si es un cliente de la versión preliminar de NVv4, detenga la máquina virtual y espere a que cambie al estado Detenido (desasignado).
+2. Descargue e instale el controlador más reciente.
 
-3. Inicie la máquina virtual y descargue la versión más reciente de [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Ejecute "amdcleanuputility-x64.exe" para desinstalar el controlador existente. NO use ninguna utilidad de limpieza existente que se haya instalado con el controlador anterior.  
-
-4. Descargue e instale el controlador más reciente.
-
-5. Reinicie la máquina virtual.
+3. Reinicie la máquina virtual.
 
 ## <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
 

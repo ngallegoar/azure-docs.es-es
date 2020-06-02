@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: e3af10e5e9b56b537fedf0af7ffa7ddb37030c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5ba8d7b2d78440401e29344361538c3650ba48
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189188"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779178"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -79,6 +79,17 @@ Se recomienda aplicar los siguientes procedimientos recomendados:
 
 * Entienda cómo optimizar y dar forma a los datos JSON, así como las limitaciones actuales de la versión preliminar, al leer [Cómo dar forma a JSON para la entrada y la consulta](./time-series-insights-update-how-to-shape-events.md).
 
+* Use la ingesta de streaming solo para los datos recientes y casi en tiempo real, no se admite el streaming de datos históricos.
+
+#### <a name="historical-data-ingestion"></a>Ingesta de datos históricos
+
+Actualmente no se admite el uso de la canalización de streaming para importar datos históricos en Azure Time Series Insights (versión preliminar). Si necesita importar datos pasados a su entorno, siga estas instrucciones:
+
+* No transmita datos en directo e históricos en paralelo. La ingesta de datos desordenados provocará un rendimiento degradado de las consultas.
+* Para obtener el mejor rendimiento, ingiera los datos históricos de manera ordenada en el tiempo.
+* Manténgase dentro de los límites de rendimiento de ingesta que se indican a continuación.
+* Deshabilite el almacenamiento intermedio si los datos son más antiguos que el período de retención de almacenamiento intermedio.
+
 ### <a name="ingress-scale-and-preview-limitations"></a>Escala de entrada y limitaciones de la versión preliminar
 
 A continuación se describen las limitaciones de entrada de la versión preliminar de Azure Time Series Insights.
@@ -101,7 +112,7 @@ De forma predeterminada, la versión preliminar de Time Series Insights puede in
  
 * **Ejemplo 1:**
 
-    Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Usan una instancia de IoT Hub con cuatro particiones como origen de eventos de Time Series Insights.
+    Contoso Shipping tiene 100.000 dispositivos que emiten un evento tres veces por minuto. El tamaño de un evento es de 200 bytes. Usan una instancia de IoT Hub con cuatro particiones como origen de eventos de Time Series Insights.
 
     * La tasa de ingesta para su entorno de Time Series Insights sería: **100 000 dispositivos * 200 bytes/evento * (3/60 evento/segundo) = 1 MBps**.
     * La tasa de ingesta por partición sería de 0,25 MBps.

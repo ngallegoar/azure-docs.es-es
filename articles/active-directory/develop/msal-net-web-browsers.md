@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4e62536b610595c7a53eb8333f06f147e628dec7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230628"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772053"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso de exploradores web (MSAL.NET)
 
@@ -32,7 +32,7 @@ Es importante entender que al adquirir un token de forma interactiva, el conteni
 
 - La contraseña (si se escribe una) nunca se almacena en la aplicación, ni en la biblioteca de autenticación.
 - Permite redireccionar a otros proveedores de identidades (por ejemplo, iniciar sesión con una cuenta educativa o una cuenta personal con MSAL, o con una cuenta de redes sociales con Azure AD B2C).
-- Permite al servicio de token de seguridad controlar el acceso condicional, por ejemplo, haciendo que el usuario realice la autenticación multifactor (MFA) durante la fase de autenticación (mediante la escritura de un pin de Windows Hello, o una llamada al teléfono, o en una aplicación de autenticación en el teléfono). En los casos en los que la autenticación multifactor requerida aún no está configurada, el usuario puede configurarla en el momento justo en el mismo cuadro de diálogo.  El usuario escribe su número de teléfono móvil y se le guía para instalar una aplicación de autenticación y escanear una etiqueta QR para agregar la cuenta. Esta interacción orientada por servidor es una gran experiencia.
+- Permite al servicio de token de seguridad controlar el acceso condicional, por ejemplo, haciendo que el usuario realice la [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md) durante la fase de autenticación (mediante la escritura de un pin de Windows Hello, o una llamada al teléfono, o en una aplicación de autenticación en el teléfono). En los casos en los que la autenticación multifactor requerida aún no esté configurada, el usuario puede configurarla en el mismo momento en el mismo cuadro de diálogo.  El usuario escribe su número de teléfono móvil y se le guía para instalar una aplicación de autenticación y escanear una etiqueta QR para agregar la cuenta. Esta interacción orientada por servidor es una gran experiencia.
 - Permite al usuario cambiar la contraseña en este mismo cuadro de diálogo cuando la contraseña ha expirado (para ello, proporciona campos adicionales para la contraseña anterior y la nueva contraseña).
 - Permite la personalización de marca del inquilino o de la aplicación (imágenes) controlada por el administrador de inquilinos o propietario de la aplicación de Azure AD.
 - Permite a los usuarios dar su consentimiento para que la aplicación acceda a los recursos o ámbitos en su nombre justo después de la autenticación.
@@ -98,8 +98,7 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 
 ### <a name="linux-and-mac"></a>Linux y MAC
 
-En Linux, MSAL.NET abrirá el explorador predeterminado del sistema operativo mediante la herramienta xdg-open. Para solucionar problemas, ejecute la herramienta desde un terminal; por ejemplo, `xdg-open "https://www.bing.com"`.  
-En Mac, el explorador se abre invocando `open <url>`.
+En Linux, MSAL.NET abrirá el explorador predeterminado del sistema operativo mediante la herramienta xdg-open. Para solucionar problemas, ejecute la herramienta desde un terminal, por ejemplo: `xdg-open "https://www.bing.com"`. En Mac, el explorador se abre invocando `open <url>`.
 
 ### <a name="customizing-the-experience"></a>Personalización de la experiencia
 

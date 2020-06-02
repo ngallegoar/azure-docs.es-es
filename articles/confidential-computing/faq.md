@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: e9cb691ef60f612672078a9ef84db904c79cbc87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb821d00a168e3b8f0636b93696376dc8b5d492e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189452"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772905"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Preguntas frecuentes de computación confidencial de Azure
 
@@ -23,41 +23,45 @@ Si su problema con Azure no se trata en este artículo, visite los foros de Azur
 
 ## <a name="confidential-computing-virtual-machines"></a>Máquinas virtuales de computación confidencial<a id="vm-faq"></a>
 
-1. **¿Cómo puede empezar a implementar máquinas virtuales de la serie DCsv2?**
+**¿Cómo puedo implementar VM de la serie DCsv2 en Azure?**
 
-   Estas son algunas formas de implementar una máquina virtual DCsv2:
+Estas son algunas formas de implementar una máquina virtual DCsv2:
    - Uso de una [plantilla de Azure Resource Manager](../virtual-machines/windows/template-description.md)
    - En [Azure Portal](https://portal.azure.com/#create/hub)
-   - En la plantilla de solución de Marketplace [Azure confidential compute (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview). La plantilla de solución de Marketplace le ayudará a restringir un cliente a los escenarios admitidos (regiones, imágenes, disponibilidad, cifrado de disco). 
+   - En la plantilla de solución de Marketplace [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview). La plantilla de solución de Marketplace le ayudará a restringir un cliente a los escenarios admitidos (regiones, imágenes, disponibilidad, cifrado de disco). 
 
-1. **¿Funcionarán todas las imágenes de sistema operativo con la computación confidencial de Azure?**
+**¿Funcionarán todas las imágenes de sistema operativo con la computación confidencial de Azure?**
 
-   No. Las máquinas virtuales solo se pueden implementar en máquinas virtuales de generación 2. Ofrecemos compatibilidad con la generación 2 para Ubuntu Server 18.04, Ubuntu Server 16.04 y Windows Server 2016 Datacenter. Obtenga más información sobre las máquinas virtuales de generación 2 en [Linux](../virtual-machines/linux/generation-2.md) y [Windows](../virtual-machines/windows/generation-2.md)
+No. Las máquinas virtuales solo se pueden implementar en máquinas operativas de generación 2 con Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter y Windows Server 2016 Datacenter. Obtenga más información sobre las máquinas virtuales de generación 2 en [Linux](../virtual-machines/linux/generation-2.md) y [Windows](../virtual-machines/windows/generation-2.md)
 
-1. **Las máquinas virtuales de DCsv2 aparecen atenuadas en el portal y no puedo seleccionar ninguna**.
+**Las máquinas virtuales de DCsv2 aparecen atenuadas en el portal y no puedo seleccionar ninguna**.
 
-   En función de la burbuja de información que se encuentra junto a la máquina virtual, hay que realizar diferentes acciones:
-    -   **UnsupportedGeneration**: cambie la generación de la imagen de máquina virtual a "Gen2".
-    -   **NotAvailableForSubscription**: la región todavía no está disponible para su suscripción. Seleccione una región disponible.
-    -   **InsufficientQuota**: [cree una solicitud de soporte técnico para aumentar la cuota](../azure-portal/supportability/per-vm-quota-requests.md). Las suscripciones de evaluación gratuita no tienen cuota de máquinas virtuales de computación confidencial. 
+En función de la burbuja de información que se encuentra junto a la máquina virtual, hay que realizar diferentes acciones:
+   -    **UnsupportedGeneration**: cambie la generación de la imagen de máquina virtual a "Gen2".
+   -    **NotAvailableForSubscription**: la región todavía no está disponible para su suscripción. Seleccione una región disponible.
+   -    **InsufficientQuota**: [cree una solicitud de soporte técnico para aumentar la cuota](../azure-portal/supportability/per-vm-quota-requests.md). Las suscripciones de evaluación gratuita no tienen cuota de máquinas virtuales de computación confidencial. 
 
-1. **Las máquinas virtuales de DCsv2 no aparecen cuando intento buscarlas en el selector de tamaño del portal**.
+**Las máquinas virtuales de DCsv2 no aparecen cuando intento buscarlas en el selector de tamaño del portal**.
 
-   Asegúrese de que ha seleccionado una región disponible. Asegúrese también de seleccionar "Borrar todos los filtros" en el selector de tamaño. 
+Asegúrese de haber seleccionado una [región disponible](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Asegúrese también de seleccionar "Borrar todos los filtros" en el selector de tamaño. 
 
-1. **¿Cuál es la diferencia entre las máquinas virtuales de la serie DCsv2 y la serie DC?**
+**Recibo un error de implementación de plantilla de Azure Resource Manager: "No se pudo completar la operación porque se superó la cuota de Núcleos de familia DCsv2 estándar aprobada"**
 
-   Las máquinas virtuales de la serie DC se ejecutan en procesadores Intel de 6 núcleos anteriores con Intel SGX. Estos tienen menos memoria total y menos EPC (enclave Page Cage) y están disponibles en menos regiones. Estas máquinas virtuales solo están disponibles en el Este de EE. UU. y Oeste de Europa en dos tamaños: Standard_DC2s y Standard_DC4s. No entrarán en disponibilidad general y solo se pueden implementar en la instancia de Marketplace [Confidential Compute DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) (Máquina virtual de la serie DC de computación confidencial [versión preliminar]).
+[cree una solicitud de soporte técnico para aumentar la cuota](../azure-portal/supportability/per-vm-quota-requests.md). Las suscripciones de evaluación gratuita no tienen cuota de máquinas virtuales de computación confidencial. 
 
-1. **¿Las máquinas virtuales de DCsv2 están disponibles globalmente?**
+**¿Cuál es la diferencia entre las máquinas virtuales de la serie DCsv2 y la serie DC?**
 
-   No, estas máquinas virtuales solo están disponibles en regiones seleccionadas. Active la [página de productos por regiones](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para ver las últimas regiones disponibles. 
+Las VM de la serie DC se ejecutan en procesadores Intel de 6 núcleos anteriores con Intel SGX y tienen menos memoria total, menos memoria caché de páginas de enclave (EPC), y solo están disponibles en dos regiones (Este de EE. UU. y Europa Occidental en tamaños Standard_DC2s y Standard_DC4s). No hay planes para que estas VM estén disponibles con carácter general y no se recomiendan para su uso en producción. Para implementar estas VM, use la instancia de Marketplace [Confidential Compute DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview).
 
-1. **¿Cómo instalo el SDK de Open Enclave?**
+**¿Las máquinas virtuales de DCsv2 están disponibles globalmente?**
+
+No. En este momento, estas máquinas virtuales solo están disponibles en regiones seleccionadas. Active la [página de productos por regiones](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para ver las últimas regiones disponibles. 
+
+**Cómo instalar el SDK Open Enclave en las máquinas virtuales DCsv2?**
    
-   Para obtener instrucciones sobre cómo instalar el SDK de OE en una máquina, ya sea en Azure o de forma local, siga las instrucciones del [GitHub del SDK de Open Enclave](https://github.com/openenclave/openenclave).
+Para obtener instrucciones sobre cómo instalar el SDK OE en una máquina en Azure o local, siga las instrucciones del [SDK Open Enclave en GitHub](https://github.com/openenclave/openenclave).
      
-   También puede consultar el GitHub del SDK de Open Enclave para obtener instrucciones de instalación específicas del sistema operativo.
-     - [Instalación del SDK de OE en Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
-     - [Instalación del SDK de OE en Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
-     - [Instalación del SDK de OE en Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)
+También puede consultar el SDK Open Enclave en GitHub para obtener instrucciones de instalación específicas del sistema operativo:
+   - [Instalación del SDK de OE en Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
+   - [Instalación del SDK de OE en Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
+   - [Instalación del SDK de OE en Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)

@@ -1,48 +1,81 @@
 ---
-title: 'Registro de aplicaciones de página única: plataforma de identidad de Microsoft | Azure'
+title: Registro de aplicaciones de página única (SPA) | Azure
+titleSuffix: Microsoft identity platform
 description: Aprenda a compilar una aplicación de página única (registro de la aplicación).
 services: active-directory
-author: navyasric
+author: hahamil
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: nacanuma
+ms.date: 05/19/2020
+ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 6f690a8b3436a45d434ccad2bbaa7d2a1b0b76aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882155"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682397"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
-En esta página se explican los detalles del registro de la aplicación para una aplicación de página única (SPA).
+Para registrar una aplicación de página única (SPA) en la Plataforma de identidad de Microsoft, complete los pasos siguientes. Los pasos de registro difieren entre MSAL.js 1.0, que admite el flujo de concesión implícita, y MSAL.js 2.0, que admite el flujo de código de autorización con PKCE.
 
-Siga los pasos para [registrar una nueva aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md) y seleccione las cuentas admitidas para la aplicación. El escenario de SPA puede admitir la autenticación con cuentas de su organización o cuentas de cualquier organización y personales de Microsoft.
+## <a name="create-the-app-registration"></a>Creación del registro de aplicaciones
 
-A continuación, obtenga información sobre los aspectos específicos del registro de una aplicación que se aplican a las aplicaciones de página única.
+Tanto para las aplicaciones basadas en MSAL.js 1.0 como 2.0, empiece por completar los pasos siguientes para crear el registro de aplicación inicial.
 
-## <a name="register-a-redirect-uri"></a>Registrar un URI de redireccionamiento
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si su cuenta tiene acceso a varios inquilinos, seleccione el filtro **Directorio + suscripción** en el menú superior y, a continuación, seleccione el inquilino que debe contener el registro de aplicación que va a crear.
+1. Busque y seleccione **Azure Active Directory**.
+1. En **Administrar**, seleccione **Registros de aplicaciones**.
+1. Seleccione **Nuevo registro**, escriba un **Nombre** para la aplicación y elija los **Tipos de cuenta admitidos** para la aplicación. **NO** escriba un **URI de redirección**. Para obtener una descripción de los distintos tipos de cuenta, consulte [Registro de una aplicación nueva mediante Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Seleccione **Registrar** para crear el registro de aplicación.
 
-El flujo implícito envía los tokens en un redirección a la aplicación de página única que se ejecuta en un explorador web. Por lo tanto, es importante registrar un URI de redirección donde la aplicación pueda recibir los tokens. Asegúrese de que el URI de redirección coincida exactamente con el URI de la aplicación.
+Después, configure el registro de la aplicación con un **URI de redirección** para especificar a dónde la Plataforma de identidad de Microsoft debe redirigir al cliente, junto con los tokens de seguridad. Siga los pasos adecuados para la versión de MSAL.js que usa en la aplicación:
 
-En [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2083908), vaya a la aplicación registrada. En la página **Autenticación** de la aplicación, seleccione la plataforma **Web**. Escriba el valor del URI de redirección de la aplicación en el campo **URI de redirección**.
+- [MSAL.js 2.0 con flujo de código de autenticación](#redirect-uri-msaljs-20-with-auth-code-flow) (recomendado)
+- [MSAL.js 1.0 con flujo implícito](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="enable-the-implicit-flow"></a>Habilitar el flujo implícito
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirección: MSAL.js 2.0 con flujo de código de autenticación
 
-En la misma página de **Autenticación**, en **Configuración avanzada**, también debe habilitar la opción **Concesión implícita**. Si la aplicación solo inicia la sesión de los usuarios y obtiene tokens de identificador, basta con activar la casilla **Tokens de id.** .
+Siga estos pasos para agregar un URI de redirección para una aplicación que use MSAL.js 2.0 o posterior. MSAL.js 2.0 o posterior admite el flujo de código de autorización con PKCE y CORS en respuesta a [restricciones de cookies de terceros en el explorador](reference-third-party-cookies-spas.md). El flujo de concesión implícita no se admite en MSAL.js 2.0 o posterior.
 
-Si la aplicación también necesita obtener tokens de acceso para llamar a las API, asegúrese de activar también la casilla **Tokens de acceso**. Para más información, consulte los [tokens de identificador](./id-tokens.md) y los [tokens de acceso](./access-tokens.md).
+1. En Azure Portal, seleccione el registro de la aplicación que creó anteriormente en [Creación del registro de aplicaciones](#create-the-app-registration).
+1. En **Administrar**, seleccione **Autenticación** y luego seleccione **Agregar una plataforma**.
+1. En **Aplicaciones web**, seleccione el icono **Aplicación de página única**.
+1. En **URI de redirección**, escriba un [URI de redirección](reply-url.md). **NO** seleccione ninguna de las casillas en **Concesión implícita**.
+1. Seleccione **Configurar** para terminar de agregar el URI de redirección.
 
-## <a name="api-permissions"></a>Permisos de API
+Ya ha completado el registro de aplicación de la aplicación de página única (SPA) y ha configurado un URI de redirección al que se redirigirá al cliente y se enviarán los tokens de seguridad. Al configurar el URI de redirección con el icono **Aplicación de página única** en el panel **Agregar una plataforma**, el registro de aplicación se configura para admitir el flujo de código de autorización con PKCE y CORS.
 
-Las aplicaciones de página única pueden llamar a las API en nombre del usuario con sesión iniciada. Tienen que solicitar permisos delegados. Para más detalles, consulte [Adición de permisos para acceder a las API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirección: MSAL.js 1.0 con flujo implícito
+
+Siga estos pasos para agregar un URI de redirección para una aplicación de página única que usa MSAL.js 1.3 o anterior y el flujo de concesión implícita. Las aplicaciones que usan MSAL.js 1.3 o anterior no admiten el flujo de código de autenticación.
+
+1. En Azure Portal, seleccione el registro de la aplicación que creó anteriormente en [Creación del registro de aplicaciones](#create-the-app-registration).
+1. En **Administrar**, seleccione **Autenticación** y luego seleccione **Agregar una plataforma**.
+1. En **Aplicaciones web**, seleccione el icono **Aplicación de página única**.
+1. En **URI de redirección**, escriba un [URI de redirección](reply-url.md).
+1. Habilite el **Flujo implícito**:
+    - Si los usuarios pueden iniciar sesión en la aplicación, seleccione **Tokens de id.**
+    - Si la aplicación también necesita llamar a una API web protegida, seleccione **Tokens de acceso**. Para obtener más información sobre estos tipos de token, consulte [Tokens de id.](id-tokens.md) y [Tokens de acceso](access-tokens.md).
+1. Seleccione **Configurar** para terminar de agregar el URI de redirección.
+
+Ya ha completado el registro de aplicación de la aplicación de página única (SPA) y ha configurado un URI de redirección al que se redirigirá al cliente y se enviarán los tokens de seguridad. Al seleccionar uno o ambos entre **Tokens de id.** y **Tokens de acceso**, ha habilitado el flujo de concesión implícita.
+
+## <a name="note-about-authorization-flows"></a>Nota sobre los flujos de autorización
+
+De forma predeterminada, un registro de aplicación creado mediante la configuración de la plataforma de aplicaciones de página única habilita el flujo de código de autorización. Para aprovechar este flujo, la aplicación debe usar MSAL.js 2.0 o posterior.
+
+Como se mencionó anteriormente, las aplicaciones de página única que usan MSAL.js 1.3 están restringidas al flujo de concesión implícita. Los [procedimientos recomendados de OAuth 2.0](v2-oauth2-auth-code-flow.md) actuales indican el uso del flujo de código de autorización en lugar del flujo implícito para las aplicaciones de página única. Contar con tokens de actualización de duración limitada también ayuda a que la aplicación se adapte a las [limitaciones de privacidad de cookies de los exploradores modernos](reference-third-party-cookies-spas.md), como ITP de Safari.
+
+Cuando todas sus aplicaciones de página única en producción representadas por un registro de aplicación usen MSAL.js 2.0 y el flujo de código de autorización, desactive la configuración de concesión implícita del panel **Autenticación** del registro de aplicación en Azure Portal. Sin embargo, las aplicaciones que usen MSAL.js 1.x y el flujo implícito pueden seguir funcionando si deja el flujo implícito habilitado (activado).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+A continuación, configure el código de la aplicación para que use el registro de aplicación que creó en los pasos anteriores:.
 
 > [!div class="nextstepaction"]
 > [Configuración del código de la aplicación](scenario-spa-app-configuration.md)

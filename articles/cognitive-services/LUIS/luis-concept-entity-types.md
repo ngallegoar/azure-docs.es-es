@@ -2,13 +2,13 @@
 title: 'Tipos de entidades: LUIS'
 description: Una entidad extrae datos de una expresión de usuario en tiempo de ejecución de predicción. Un propósito _opcional_ y secundario es impulsar la predicción de la intención o de otras entidades usando la entidad como una característica.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: 9d8afd5a660b3af5556256835486e984d7d657bc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585647"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682176"
 ---
 # <a name="extract-data-with-entities"></a>Extracción de datos con entidades
 
@@ -16,11 +16,11 @@ Una entidad extrae datos de una expresión de usuario en tiempo de ejecución de
 
 Existen varios tipos de entidades:
 
-* [Entidad con aprendizaje automático](reference-entity-machine-learned-entity.md)
-* Sin aprendizaje automático usada como [característica](luis-concept-feature.md) obligatoria: para coincidencias de texto exactas, coincidencias de patrones o detecciones por entidades precompiladas
+* [Entidad de aprendizaje automático](reference-entity-machine-learned-entity.md):Esta es la entidad principal. Debe diseñar el esquema con este tipo de entidad antes de usar otras entidades.
+* Las entidades sin aprendizaje automático se usan como [característica](luis-concept-feature.md) obligatoria: para coincidencias de texto exactas, coincidencias de patrones o detecciones por entidades precompiladas
 * [Pattern.any](#patternany-entity): para extraer texto de forma libre, como títulos de libros de un [patrón](reference-entity-pattern-any.md)
 
-Las entidades con aprendizaje automático proporcionan la gama más amplia de opciones de extracción de datos. Las entidades sin aprendizaje automático funcionan por coincidencia de texto y se usan como [característica obligatoria](#design-entities-for-decomposition) para una entidad con aprendizaje automático o intención.
+Las entidades de aprendizaje automático proporcionan la gama más amplia de opciones de extracción de datos. Las entidades sin aprendizaje automático funcionan por coincidencia de texto y se usan como [característica obligatoria](#design-entities-for-decomposition) para una entidad de aprendizaje automático o intención.
 
 ## <a name="entities-represent-data"></a>Las entidades representan datos
 
@@ -51,18 +51,26 @@ Considere las cuatro expresiones siguientes:
 |--|--|--|--|
 |Ayuda|help|-|No hay nada que extraer.|
 |Send something|sendSomething|-|No hay nada que extraer. El modelo no tiene una característica obligatoria para extraer `something` en este contexto y no se ha indicado ningún destinatario.|
-|Send Bob a present|sendSomething|`Bob`, `present`|El modelo extrae `Bob` agregando una característica obligatoria de entidad precompilada `personName`. Se ha usado una entidad con aprendizaje automático para extraer `present`.|
-|Send Bob a box of chocolates|sendSomething|`Bob`, `box of chocolates`|Las entidades con aprendizaje automático han extraído los dos fragmentos importantes de datos, `Bob` y `box of chocolates`.|
+|Send Bob a present|sendSomething|`Bob`, `present`|El modelo extrae `Bob` agregando una característica obligatoria de entidad precompilada `personName`. Se ha usado una entidad de aprendizaje automático para extraer `present`.|
+|Send Bob a box of chocolates|sendSomething|`Bob`, `box of chocolates`|Las entidades de aprendizaje automático han extraído los dos fragmentos importantes de datos, `Bob` y `box of chocolates`.|
 
 ## <a name="design-entities-for-decomposition"></a>Diseño de entidades para la descomposición
 
-Las entidades con aprendizaje automático permiten diseñar el esquema de la aplicación para la descomposición, mediante la división de un concepto grande en subentidades.
+Las entidades de aprendizaje automático permiten diseñar el esquema de la aplicación para la descomposición, mediante la división de un concepto grande en subentidades.
 
 El diseño de la descomposición permite a LUIS devolver un grado profundo de resolución de la entidad a la aplicación cliente. Esto permite a la aplicación cliente centrarse en reglas de negocios y dejar a LUIS la resolución de datos.
 
-Una entidad con aprendizaje automático se desencadena en función del contexto aprendido a través de expresiones de ejemplo.
+Una entidad de aprendizaje automático se desencadena en función del contexto aprendido a través de expresiones de ejemplo.
 
-Las [**entidades con aprendizaje automático**](tutorial-machine-learned-entity.md) son los extractores de nivel superior. Las subentidades son entidades secundarias de las entidades con aprendizaje automático.
+Las [**entidades de aprendizaje automático**](tutorial-machine-learned-entity.md) son los extractores de nivel superior. Las subentidades son entidades secundarias de las entidades de aprendizaje automático.
+
+## <a name="effective-machine-learned-entities"></a>Entidades de aprendizaje automático eficaces
+
+Para compilar las entidades de aprendizaje automático de forma eficaz:
+
+* El etiquetado debe ser coherente en todas las intenciones. Esto incluye incluso las expresiones que proporcione en la intención **None** que incluyan esta entidad. De lo contrario, el modelo no podrá determinar las secuencias de forma eficaz.
+* Si tiene una entidad de aprendizaje automático con subentidades, asegúrese de que los distintos órdenes y variantes de la entidad y las subentidades se presenten en las expresiones etiquetadas. Las expresiones etiquetadas de ejemplo deben incluir todas las formas válidas e incluir entidades que aparecen y que están ausentes, y que también se reordenan dentro de la expresión.
+* Debe evitar sobreajustar las entidades a un conjunto muy fijo. El **sobreajuste** tiene lugar cuando el modelo no está bien generalizado, y es un problema común en los modelos de Machine Learning. Esto implica que la aplicación no funcionaría correctamente con datos nuevos. A su vez, debe variar las expresiones etiquetadas de ejemplo para que la aplicación pueda generalizar más allá de los ejemplos limitados que proporcione. Debe variar las distintas subentidades con cambios suficientes para que el modelo piense más en el concepto en lugar de solo en los ejemplos mostrados.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -73,7 +81,7 @@ Las [**entidades con aprendizaje automático**](tutorial-machine-learned-entity.
 
 ## <a name="types-of-entities"></a>Tipos de entidades
 
-Una subentidad de un elemento primario debe ser una entidad con aprendizaje automático. La subentidad puede utilizar una entidad sin aprendizaje automático como [característica](luis-concept-feature.md).
+Una subentidad de un elemento primario debe ser una entidad de aprendizaje automático. La subentidad puede utilizar una entidad sin aprendizaje automático como [característica](luis-concept-feature.md).
 
 Elija la entidad en función de cómo se deben extraer los datos y cómo se deben representar una vez que se extraen.
 
@@ -85,6 +93,15 @@ Elija la entidad en función de cómo se deben extraer los datos y cómo se debe
 |[**Creada previamente**](luis-reference-prebuilt-entities.md)|Ya entrenado para extraer un tipo específico de datos, como la dirección URL o el correo electrónico. Algunas de estas entidades precompiladas se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto.|
 |[**Expresión regular**](reference-entity-regular-expression.md)|Usa una expresión regular para la **coincidencia de texto exacta**.|
 
+
+## <a name="extraction-versus-resolution"></a>Extracción frente a resolución
+
+Las entidades extraen los datos a medida que estos aparecen en la expresión. Las entidades no cambian ni resuelven los datos. La entidad no proporcionará ninguna resolución así el texto sea un valor válido para la entidad o no.
+
+Hay formas de aportar resolución a la extracción, pero debe tener en cuenta que esto limita la capacidad de la aplicación para ser inmune a las variaciones y los errores.
+
+Las entidades de lista y las entidades de expresión regular (coincidencia de texto) se pueden usar como [características obligatorias](luis-concept-feature.md#required-features) de una subentidad y esto sirve como filtro para la extracción. Debe usar esto con cuidado para no entorpecer la capacidad de predicción de la aplicación.
+
 ## <a name="extracting-contextually-related-data"></a>Extracción de datos relacionados contextualmente
 
 Una expresión puede contener dos o más apariciones de una entidad en la que el significado de los datos se basa en el contexto dentro de la expresión. Un ejemplo es una expresión para reservar un vuelo que tiene dos ubicaciones geográficas, origen y destino.
@@ -93,7 +110,7 @@ Una expresión puede contener dos o más apariciones de una entidad en la que el
 
 Las dos ubicaciones deben extraerse de forma que la aplicación cliente conozca el tipo de cada ubicación para completar el billete.
 
-Para extraer el origen y el destino, cree dos subentidades como parte de la entidad con aprendizaje automático de pedido de billetes. Para cada una de las subentidades, cree una característica obligatoria que usa geographyV2.
+Para extraer el origen y el destino, cree dos subentidades como parte de la entidad de aprendizaje automático de pedido de billetes. Para cada una de las subentidades, cree una característica obligatoria que usa geographyV2.
 
 <a name="using-component-constraints-to-help-define-entity"></a>
 <a name="using-subentity-constraints-to-help-define-entity"></a>
@@ -124,5 +141,5 @@ Aprenda conceptos sobre las buenas [expresiones](luis-concept-utterance.md).
 
 Vea [Add entities](luis-how-to-add-entities.md) (Agregar entidades) para obtener más información sobre cómo agregar entidades a la aplicación de LUIS.
 
-Consulte [Tutorial: Extraiga los datos estructurados de la expresión del usuario con entidades con aprendizaje automático en Language Understanding (LUIS)](tutorial-machine-learned-entity.md) para obtener información sobre cómo extraer datos estructurados de una expresión mediante la entidad con aprendizaje automático.
+Consulte [Tutorial: Extracción de datos estructurados de una expresión de usuario con entidades con aprendizaje automático en Language Understanding (LUIS)](tutorial-machine-learned-entity.md) para obtener información sobre cómo extraer datos estructurados de una expresión mediante la entidad de aprendizaje automático.
 

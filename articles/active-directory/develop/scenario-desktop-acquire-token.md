@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 24567461ee8a87fc9dbd1c5fb4eba5e34d458f7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c439c118e242f3561593aa0c8fe9a88b3b07a4a9
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097768"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771849"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -419,9 +419,9 @@ Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio
 
 - La autenticación integrada de Windows solo es útil para usuarios *federados*, es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados*, no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
 - IWA es para aplicaciones escritas para las plataformas .NET Framework, .NET Core y Plataforma universal de Windows (UPW).
-- IWA no omite la autenticación multifactor (MFA). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
+- IWA no omite [la autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
   > [!NOTE]
-  > Esto es complicado. IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no es quien controla si el proveedor de identidades solicita que se realice MFA, sino el administrador de inquilinos. Por lo que se ha observado, MFA se requiere al iniciar sesión desde otro país, cuando no se está conectado a través de VPN a una red corporativa y, a veces, incluso cuando se está. No espere un conjunto determinista de reglas. Azure AD usa inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, recurra a un mensaje de usuario como la autenticación interactiva o el flujo de código de dispositivo.
+  > Esto es complicado. IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no es quien controla si el proveedor de identidades solicita que se realice MFA, sino el administrador de inquilinos. Por lo que se ha observado, MFA se requiere al iniciar sesión desde otro país o región, cuando no se está conectado a través de VPN a una red corporativa y, a veces, incluso cuando se está. No espere un conjunto determinista de reglas. Azure AD usa inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, recurra a un mensaje de usuario como la autenticación interactiva o el flujo de código de dispositivo.
 
 - La autoridad pasada en `PublicClientApplicationBuilder` debe ser:
   - Con inquilino con formato `https://login.microsoftonline.com/{tenant}/`, donde `tenant` es el GUID que representa el identificador de inquilino o un dominio asociado al inquilino.
@@ -592,7 +592,7 @@ Este flujo aún no se admite en Python de MSAL.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-Este flujo no se aplica a MacOS.
+Este flujo no se aplica a macOS.
 
 ---
 
@@ -615,7 +615,7 @@ También puede adquirir un token proporcionando el nombre de usuario y la contra
 
 También se aplican las restricciones siguientes:
 
-- El flujo de nombre de usuario y contraseña no es compatible con el acceso condicional ni la autenticación multifactor. Por eso, si la aplicación se ejecuta en un inquilino de Azure AD donde el administrador de inquilinos exige autenticación multifactor, no se puede usar este flujo. Muchas organizaciones hacen eso.
+- El flujo de nombre de usuario y contraseña no es compatible con el acceso condicional ni la autenticación multifactor. Como consecuencia, si la aplicación se ejecuta en un inquilino de Azure AD donde el administrador de inquilinos requiere la autenticación multifactor, no se puede usar este flujo. Muchas organizaciones hacen eso.
 - Solo funciona para las cuentas profesionales y educativas (no MSA).
 - El flujo está disponible en el escritorio de .NET y .NET Core, pero no en UWP.
 
@@ -1146,7 +1146,7 @@ if not result:
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-Este flujo no se aplica a MacOS.
+Este flujo no se aplica a macOS.
 
 ---
 

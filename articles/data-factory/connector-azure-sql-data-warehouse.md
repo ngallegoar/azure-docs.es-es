@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/25/2020
-ms.openlocfilehash: e469a38f4730eb0f9d8debe71bde9a56dd152028
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: bfae651dabab9c3ecebc10bbdb553b1d52e3a79a
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146396"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872951"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics (antes Azure SQL Data Warehouse) mediante Azure Data Factory 
 
@@ -624,9 +624,9 @@ La instrucción COPY es compatible con esta configuración:
       5. `skipLineCount` se deja como valor predeterminado o se establece en 0.
       6. `compression` puede ser **sin compresión** o **GZip**.
 
-3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True.
+3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True y `wildcardFilename` tiene que ser `*`. La instrucción COPY recupera todos los archivos de la carpeta y todas sus subcarpetas, y omite las carpetas ocultas y los archivos que comienzan por un subrayado (_) o un punto (.), a menos que se especifique explícitamente en la ruta de acceso. 
 
-4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` y `additionalColumns` no se especifican.
+4. `wildcardFolderPath` , `wildcardFilename` (excepto de `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd` y `additionalColumns` no se especifican.
 
 Esta configuración de la instrucción COPY es compatible con `allowCopyCommand` en la actividad de copia:
 

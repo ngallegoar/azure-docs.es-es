@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612068"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873033"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lectura de entradas en cualquier formato mediante deserializadores personalizados
 
@@ -112,7 +112,7 @@ message MessageBodyProto {
 }
 ```
 
-La ejecución de `protoc.exe` desde el paquete NuGet **Google.Protobuf.Tools** genera un archivo. CS con la definición. El archivo generado no se muestra aquí.
+La ejecución de `protoc.exe` desde el paquete NuGet **Google.Protobuf.Tools** genera un archivo. CS con la definición. El archivo generado no se muestra aquí. Debe asegurarse de que la versión de Protobuf Nuget que usa en el proyecto Stream Analytics coincide con la versión de Protobuf que se usó para generar la entrada. 
 
 El siguiente fragmento de código es la implementación del deserializador, suponiendo que el archivo generado se incluye en el proyecto. Esta implementación es simplemente un contenedor fino sobre el archivo generado.
 

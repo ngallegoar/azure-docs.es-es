@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: febdb708c637ac322c0ca884eae627da9bd5904c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf05532f81d70d4d7b09de2ccbf9807273a85330
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530400"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799587"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Introducción a Azure Multi-Factor Authentication en una organización
 
@@ -32,7 +32,7 @@ Así pues, ¿cómo puede activar su organización MFA incluso de forma gratuita 
 
 Los clientes que usen las ventajas gratuitas de Azure AD pueden emplear [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md) para habilitar la autenticación multifactor en su entorno.
 
-## <a name="office-365-business-premium-e3-or-e5"></a>Office 365 Empresa Premium, E3 o E5
+## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Empresa, E3 o E5
 
 En el caso de los clientes con Office 365, hay dos opciones:
 
@@ -43,7 +43,7 @@ En el caso de los clientes con Office 365, hay dos opciones:
 
 Para clientes con Azure AD Premium P1 o licencias similares que incluyen esta funcionalidad, como Enterprise Mobility + Security E3, Microsoft 365 F1 o Microsoft 365 E3: 
 
-Utilice el [acceso condicional de Azure AD](../conditional-access/overview.md) si desea solicitar la autenticación multifactor a los usuarios en determinados escenarios o eventos, lo que le permitirá adaptarse a los requisitos empresariales.
+Utilice el [acceso condicional de Azure AD](../authentication/tutorial-enable-azure-mfa.md) si desea solicitar la autenticación multifactor a los usuarios en determinados escenarios o eventos, lo que le permitirá adaptarse a los requisitos empresariales.
 
 ## <a name="azure-ad-premium-p2"></a>Azure AD Premium P2
 

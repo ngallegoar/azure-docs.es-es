@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672649"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771203"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -76,7 +76,7 @@ Una vez emitido, un PRT es válido durante 14 días y se renueva continuamente s
 Dos componentes principales de Windows usan un PRT:
 
 * **Complemento CloudAP de Azure AD**: durante el inicio de sesión de Windows, el complemento CloudAP de Azure AD solicita un PRT a Azure AD mediante las credenciales proporcionadas por el usuario. También almacena en caché el PRT para permitir el inicio de sesión almacenado en caché cuando el usuario no tiene acceso a una conexión de Internet.
-* **Complemento WAM de Azure AD**: cuando los usuarios intentan acceder a las aplicaciones, el complemento WAM de Azure AD usa el PRT para permitir el inicio de sesión único en Windows 10. El complemento WAM de Azure AD usa el PRT para solicitar tokens de acceso y actualización para las aplicaciones en las que las solicitudes de tokens dependen de WAM. También permite el inicio de sesión único en los exploradores mediante la inserción del PRT en las solicitudes del explorador. El inicio de sesión único en el explorador en Windows 10 se admite en Microsoft Edge (de forma nativa) y en Chrome (mediante la extensión Windows 10 Accounts u Office Online).
+* **Complemento WAM de Azure AD**: cuando los usuarios intentan acceder a las aplicaciones, el complemento WAM de Azure AD usa el PRT para permitir el inicio de sesión único en Windows 10. El complemento WAM de Azure AD usa el PRT para solicitar tokens de acceso y actualización para las aplicaciones en las que las solicitudes de tokens dependen de WAM. También permite el inicio de sesión único en los exploradores mediante la inserción del PRT en las solicitudes del explorador. El inicio de sesión único en el explorador en Windows 10 se admite en Microsoft Edge (de forma nativa) y en Chrome (mediante la extensión [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) u [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)).
 
 ## <a name="how-is-a-prt-renewed"></a>¿Cómo se renueva un PRT?
 
