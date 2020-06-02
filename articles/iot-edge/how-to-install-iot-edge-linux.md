@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: kgremban
-ms.openlocfilehash: fb86ee9ce956917f8da44146e58a4775e0ba639f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 947f224426b3a70c39cbf94ee888c5c353b3993b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535908"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857336"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian
 
@@ -284,7 +284,7 @@ Examine los registros del demonio:
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Ejecute una comprobación automatizada para detectar los errores de configuración y red más comunes:
+Ejecute la [herramienta para la solución de problemas](troubleshoot.md#run-the-check-command) para consultar los errores de configuración y redes más comunes:
 
 ```bash
 sudo iotedge check

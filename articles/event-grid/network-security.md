@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300599"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857052"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Seguridad de red para recursos de Azure Event Grid
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Event Grid: 
@@ -92,10 +92,9 @@ En la tabla siguiente se describen los distintos estados de la conexión del pun
 Para que la publicación se realice correctamente, el estado de conexión del punto de conexión privado debe **aprobarse**. Si se rechaza una conexión, no se puede aprobar mediante Azure Portal. La única posibilidad es eliminar la conexión y crear una nueva en su lugar.
 
 ## <a name="pricing-and-quotas"></a>Precios y cuotas
-Los **puntos de conexión privados** solo están disponibles con dominios y temas de nivel Premium. Event Grid permite crear hasta 64 conexiones del punto de conexión privado por tema o dominio. Para actualizar del nivel Básico al nivel Premium, consulte el artículo [Actualización del plan de tarifa](update-tier.md).
+Los **puntos de conexión privados** están disponible en los niveles Básico y Premium de Event Grid. Event Grid permite crear hasta 64 conexiones del punto de conexión privado por tema o dominio. 
 
 La característica **Firewall de IP** está disponible en los niveles Básico y Premium de Event Grid. Permitimos crear hasta 16 reglas de firewall de IP por tema o dominio.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede configurar el firewall de IP para el recurso de Event Grid con el fin de restringir el acceso a través de Internet público desde únicamente un conjunto seleccionado de direcciones IP o intervalos de direcciones IP. Para obtener instrucciones paso a paso, consulte [Configuración del firewall de IP](configure-firewall.md).

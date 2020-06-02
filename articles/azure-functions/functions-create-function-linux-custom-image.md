@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbd42668a0a1821e0ab7a6edc8ad05c79bfebe7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82165729"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123580"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 
@@ -295,17 +295,24 @@ Con la imagen implementada en la aplicación de funciones en Azure, ya puede inv
 
     # <a name="portal"></a>[Portal](#tab/portal)
 
-    1. Inicie sesión en Azure Portal y, a continuación, busque la aplicación de funciones. Para ello, escriba el nombre de esta en el cuadro de **búsqueda** en la parte superior de la página. En los resultados, seleccione el recurso **App Service**.
+    1. Inicie sesión en Azure Portal, busque y seleccione **Aplicación de funciones**.
 
-    1. En el panel de navegación izquierdo, en **Funciones (solo lectura)** , seleccione el nombre de la función.
+    1. Seleccione la función que quiera comprobar.
 
-    1. En el panel de detalles, seleccione **</> Obtener la dirección URL de la función**:
+    1. En el panel de navegación izquierdo, seleccione **Funciones**y, a continuación, seleccione la función que quiera comprobar.
+
+        ![Comando Obtener la dirección URL de la función en Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![Comando Obtener la dirección URL de la función en Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+    1. Seleccione **Obtener la dirección URL de la función**.
 
-    1. En el menú emergente, seleccione **valor predeterminado (clave de función)** y, a continuación, **Copiar**. La clave es la cadena de caracteres que sigue a `?code=`.
+        ![Comando Obtener la dirección URL de la función en Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
-        ![Copia de la dirección URL de la función desde Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+    
+    1. En la ventana emergente, seleccione **predeterminada (clave de función)** y, a continuación, copie la dirección URL en el portapapeles. La clave es la cadena de caracteres que sigue a `?code=`.
+
+        ![Comando Obtener la dirección URL de la función en Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > Dado que la aplicación de función se implementa como un contenedor, no se pueden realizar cambios en el código de la función en el portal. En su lugar, debe actualizar el proyecto en la imagen local, insertar de nuevo la imagen en el registro y, a continuación, volver a implementarlo en Azure. Puede configurar la implementación continua en una sección posterior.
@@ -340,11 +347,11 @@ Con la imagen implementada en la aplicación de funciones en Azure, ya puede inv
 
     ---
 
-1. Pegue la dirección URL de la función en la barra de direcciones del explorador y agregue el parámetro `&name=Azure` al final de esta dirección URL. Ahora debería aparecer un texto del tipo "Hello Azure" en el explorador.
+1. Pegue la dirección URL de la función en la barra de direcciones del explorador y agregue el parámetro `&name=Azure` al final de esta dirección URL. Debería aparecer un texto del tipo "Hello Azure" en el explorador.
 
     ![Respuesta de la función en el explorador.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. Para probar la autorización, quite el parámetro code= de la dirección URL y compruebe que no obtiene ninguna respuesta de la función.
+1. Para probar la autorización, quite el parámetro `code=` de la dirección URL y compruebe que no obtiene ninguna respuesta de la función.
 
 
 ## <a name="enable-continuous-deployment-to-azure"></a>Habilitar implementación continua en Azure

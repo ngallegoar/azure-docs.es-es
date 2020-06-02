@@ -1,22 +1,22 @@
 ---
-title: API de suministro de SaaS v2 | Azure Marketplace
-description: En este artículo se explica cómo crear y administrar una oferta de SaaS en AppSource y Azure Marketplace mediante las API de suministro v2 asociadas.
+title: API de suministro de SaaS v2 en el marketplace comercial de Microsoft
+description: Aprenda a crear y administrar una oferta de SaaS en Microsoft AppSource y Azure Marketplace mediante las API de suministro v2.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275771"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854192"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>API de suministro de SaaS, versión 2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>API de suministro de SaaS v2 en el marketplace comercial de Microsoft
 
-En este artículo se describen las API que permiten a los partners vender sus aplicaciones de SaaS en AppSource Marketplace y Azure Marketplace. Estas API son un requisito para las ofertas de SaaS que permiten transacciones en AppSource y Azure Marketplace.
+En este artículo se describen las API de suministro que permiten a los partners vender sus aplicaciones de SaaS en Microsoft AppSource y Azure Marketplace. Estas API son necesarias para las ofertas de SaaS comercializables.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Administrar el ciclo de vida de la suscripción a SaaS
 

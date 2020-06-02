@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231227"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007550"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -138,8 +138,6 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 La página **Etiquetado con asistencia de ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Al principio del proyecto de etiquetado, las imágenes se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de las imágenes son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
 
-Esta característica está disponible para las tareas de clasificación de imágenes (de varias clases o de varias etiquetas).  
-
 Seleccione *Habilitar el etiquetado con asistencia de ML* y especifique una GPU para habilitar el etiquetado con asistencia, que consta de dos fases:
 * Agrupación en clústeres
 * Etiquetado previo
@@ -150,13 +148,15 @@ Como las etiquetas finales se siguen basando en la entrada del etiquetador, a ve
 
 ### <a name="clustering"></a>Agrupación en clústeres
 
-Después de que se envía un determinado número de etiquetas, el modelo de Machine Learning empieza a agrupar imágenes similares.  Estas imágenes similares se presentan a los etiquetadores en la misma pantalla, para acelerar el etiquetado manual. La agrupación en clústeres es especialmente útil cuando el etiquetador está viendo una cuadrícula de 4, 6 o 9 imágenes. 
+Después de que haber enviado un determinado número de etiquetas, el modelo de Machine Learning empezará a agrupar imágenes similares.  Estas imágenes similares se presentan a los etiquetadores en la misma pantalla, para acelerar el etiquetado manual. La agrupación en clústeres es especialmente útil cuando el etiquetador está viendo una cuadrícula de 4, 6 o 9 imágenes. 
 
 Una vez que se ha entrenado un modelo de Machine Learning con los datos etiquetados manualmente, el modelo se trunca a su última capa totalmente conectada. A continuación, las imágenes sin etiquetar pasan a través del modelo truncado en un proceso comúnmente conocido como "incrustación" o "caracterización". El proceso incrusta cada imagen en un espacio de alta dimensión definido por esta capa de modelo. Las imágenes que son vecinos más próximos en el espacio se usan para las tareas de agrupación en clústeres. 
 
+La fase de agrupación en clústeres no aparece para los modelos de detección de objetos.
+
 ### <a name="prelabeling"></a>Etiquetado previo
 
-Después de enviar más etiquetas de imagen, se usa un modelo de clasificación para predecir las etiquetas de las imágenes.  Ahora el etiquetador ve las páginas que contienen etiquetas previstas ya presentes en cada imagen.  La tarea es, en este caso, de revisión de estas etiquetas y de corrección de cualquier imagen con etiqueta incorrecta antes de enviar la página.  
+Después de haber enviado un número suficiente de etiquetas de imagen, se usará un modelo de clasificación para predecir las etiquetas de imagen. O bien, se utilizará un modelo de detección de objetos para predecir los rectángulos de selección. Ahora el etiquetador ve las páginas que contienen etiquetas previstas ya presentes en cada imagen. También se muestran cuadros de predicción para la detección de objetos. La tarea siguiente consiste en revisar estas predicciones y corregir cualquier imagen que se haya etiquetado incorrectamente antes de enviar la página.  
 
 Una vez que se ha entrenado un modelo de Machine Learning con los datos etiquetados manualmente, el modelo se evalúa en un conjunto de pruebas de imágenes etiquetadas manualmente para determinar su precisión en una variedad de distintos umbrales de confianza. Este proceso de evaluación se usa para determinar un umbral de confianza por encima del cual el modelo es lo suficientemente preciso como para mostrar las etiquetas previas. A continuación, el modelo se evalúa con datos sin etiquetar. Las imágenes con predicciones más confiables que este umbral se usan para la etiquetado previo.
 

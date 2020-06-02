@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260945"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871263"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Cómo registrar eventos en Azure Event Hubs en Azure API Management
 Azure Event Hubs es un servicio de introducción de datos altamente escalable que permite la introducción de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Event Hubs actúa como la "puerta principal" de una canalización de eventos y, una vez que los datos se recopilan en un centro de eventos, se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes/almacenamiento. Event Hubs desacopla la producción de un flujo de eventos desde el consumo de los eventos, para que los consumidores de eventos pueden tener acceso a los eventos según su propia programación.
@@ -34,9 +34,9 @@ Ahora que tiene un centro de eventos, el siguiente paso es configurar un [regist
 
 Los registradores de API Management se configuran mediante la [API de REST de API Management](https://aka.ms/apimapi). Para ver ejemplos detallados de solicitudes, consulte [cómo crear registradores](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Configuración de directivas log-to-eventhubs
+## <a name="configure-log-to-eventhub-policies"></a>Configuración de directivas log-to-eventhub
 
-Una vez que el registrador está configurado en la administración de API, puede configurar las directivas de log-to-eventhubs para registrar los eventos oportunos. La directiva log-to-eventhubs puede utilizarse en la sección de las directivas de entrada o de salida.
+Una vez que el registrador está configurado en API Management, puede configurar la directiva log-to-eventhub para registrar los eventos oportunos. La directiva log-to-eventhub puede usarse en la sección de las directivas de entrada o de salida.
 
 1. Vaya a la instancia de APIM.
 2. Seleccione la pestaña API.
@@ -49,15 +49,32 @@ Una vez que el registrador está configurado en la administración de API, puede
 9. En la ventana de la derecha, seleccione **Advanced policies** >  (Directivas avanzadas) **Log to EventHub** (Registro en EventHub). Esta acción inserta la plantilla de declaración de directiva `log-to-eventhub`.
 
 ```xml
-<log-to-eventhub logger-id ='logger-id'>
-  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+<log-to-eventhub logger-id="logger-id">
+    @{
+        return new JObject(
+            new JProperty("EventTime", DateTime.UtcNow.ToString()),
+            new JProperty("ServiceName", context.Deployment.ServiceName),
+            new JProperty("RequestId", context.RequestId),
+            new JProperty("RequestIp", context.Request.IpAddress),
+            new JProperty("OperationName", context.Operation.Name)
+        ).ToString();
+    }
 </log-to-eventhub>
 ```
-Reemplace `logger-id` con el valor que utilizó para `{new logger name}` en la dirección URL para crear el registrador en el paso anterior.
+Reemplace `logger-id` con el valor que utilizó para `{loggerId}` en la dirección URL de la solicitud para crear el registrador en el paso anterior.
 
-Puede usar cualquier expresión que devuelva una cadena como valor para el elemento `log-to-eventhub`. En este ejemplo, se registra una cadena que contiene la fecha y la hora, el nombre del servicio, el identificador de la solicitud, la dirección IP de la solicitud y el nombre de la operación.
+Puede usar cualquier expresión que devuelva una cadena como valor para el elemento `log-to-eventhub`. En este ejemplo, se registra una cadena en formato JSON que contiene la fecha y la hora, el nombre del servicio, el identificador de la solicitud, la dirección IP de la solicitud y el nombre de la operación.
 
 Haga clic en **Guardar** para guardar la configuración de la directiva actualizada. En el momento de guardarla, la directiva se activa y los eventos se registran en el centro de eventos designado.
+
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Vista previa del registro en Event Hubs mediante Azure Stream Analytics
+
+Puede obtener una vista previa del registro en Event Hubs mediante [consultas de Azure Stream Analytics](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+
+1. Desde Azure Portal, busque el centro de eventos al que el registrador envía eventos. 
+2. En **Características**, seleccione la pestaña **Procesar datos**.
+3. En la tarjeta **Habilitar conclusiones en tiempo real de eventos**, seleccione **Explorar**.
+4. Debe poder obtener una vista previa del registro en la pestaña **Vista previa de entrada**. Si los datos que se muestran no están actualizados, seleccione **Actualizar** para ver los eventos más recientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de Azure Event Hubs

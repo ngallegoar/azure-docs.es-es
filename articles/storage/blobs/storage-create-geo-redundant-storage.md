@@ -1,30 +1,30 @@
 ---
 title: 'Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage'
 titleSuffix: Azure Storage
-description: Use el almacenamiento con redundancia geográfica con acceso de lectura para lograr la alta disponibilidad para los datos de la aplicación.
+description: Use el almacenamiento con redundancia geográfica con acceso de lectura (RA-GZRS) para garantizar una alta disponibilidad de los datos de la aplicación.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606023"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856134"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
 Este tutorial es la primera parte de una serie. En él, aprenderá a conseguir una alta disponibilidad de los datos de aplicación en Azure.
 
-Cuando haya terminado este tutorial, tendrá una aplicación de consola que carga un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md) (RA-GRS) y lo recupera.
+Cuando haya terminado este tutorial, tendrá una aplicación de consola que carga y recupera un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy.md) (RA-GZRS).
 
-RA-GRS funciona mediante la replicación de transacciones de una región primaria en una región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación usa el patrón [disyuntor](/azure/architecture/patterns/circuit-breaker) para determinar a qué punto de conexión conectarse y cambia automáticamente entre los puntos de conexión a medida que se simulan errores y recuperaciones.
+La redundancia geográfica en Azure Storage replica de forma asincrónica las transacciones de una región primaria en una región secundaria que está a cientos de kilómetros de distancia. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación de consola usa el patrón [disyuntor](/azure/architecture/patterns/circuit-breaker) para determinar el punto de conexión al que debe conectarse, además de cambiar automáticamente de un punto de conexión a otro durante la simulación de errores y recuperaciones.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -64,25 +64,24 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 Una cuenta de almacenamiento proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de Azure Storage.
 
-Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográfica con acceso de lectura:
+Siga estos pasos para crear una cuenta de almacenamiento que proporcione redundancia geográfica con acceso de lectura (RA-GZRS):
 
-1. Seleccione el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2. Seleccione **Almacenamiento** en la página **Nuevo**.
-3. Seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola** en **Destacados**.
+1. Seleccione el botón **Crear un recurso** en Azure Portal.
+2. Seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola** en la página **Nuevo**.
 4. Rellene el formulario de la cuenta de almacenamiento con la siguiente información, como se muestra en la siguiente imagen y seleccione **Crear**:
 
-   | Configuración       | Valor sugerido | Descripción |
+   | Configuración       | Valor de ejemplo | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nombre** | mystorageaccount | Valor único para la cuenta de almacenamiento |
-   | **Modelo de implementación** | Resource Manager  | Resource Manager contiene las características más recientes.|
-   | **Tipo de cuenta** | StorageV2 | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
-   | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
-   |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
-   |**Ubicación** | Este de EE. UU. | Elija una ubicación. |
+   | **Suscripción** | *Mi suscripción* | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.azure.com/Subscriptions). |
+   | **ResourceGroup** | *myResourceGroup* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
+   | **Nombre** | *mystorageaccount* | Un nombre único para la cuenta de almacenamiento. |
+   | **Ubicación** | *Este de EE. UU.* | Elija una ubicación. |
+   | **Rendimiento** | *Estándar* | El rendimiento estándar es una buena opción para el escenario de ejemplo. |
+   | **Tipo de cuenta** | *StorageV2* | Se recomienda utilizar una cuenta de almacenamiento v2 con fines de uso general. Para más información sobre las cuentas de almacenamiento de Azure, vea [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md). |
+   | **Replicación**| *Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS)* | La región primaria ofrece redundancia de zona, se replica en una región secundaria y tiene habilitado el acceso de lectura a la región secundaria. |
+   | **Nivel de acceso**| *Acceso frecuente* | Use el nivel de acceso frecuente para los datos a los que se accede de manera habitual. |
 
-![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
@@ -173,7 +172,7 @@ Instale las dependencias necesarias. Para ello, abra un símbolo del sistema, va
 
 En Visual Studio, presione **F5** o seleccione **Iniciar** para iniciar la depuración de la aplicación. Visual Studio restaura automáticamente los paquetes NuGet que falten, si se ha configurado; consulte el artículo sobre la [instalación y la reinstalación de paquetes con la restauración de paquetes](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para más información.
 
-Se inicia una ventana en la consola y la aplicación comienza a ejecutarse. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación se comprueba para garantizar que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
+Se inicia una ventana en la consola y la aplicación comienza a ejecutarse. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación hace comprobaciones para garantizar que la imagen se haya replicado en el punto de conexión secundario con RA-GZRS. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
 
 ![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +180,7 @@ En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para ejecutar la aplicación en un terminal o un símbolo del sistema, vaya al directorio **circuitbreaker.py** y escriba `python circuitbreaker.py`. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación se comprueba para garantizar que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
+Para ejecutar la aplicación en un terminal o un símbolo del sistema, vaya al directorio **circuitbreaker.py** y escriba `python circuitbreaker.py`. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación hace comprobaciones para garantizar que la imagen se haya replicado en el punto de conexión secundario con RA-GZRS. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
 
 ![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -343,9 +342,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la primera parte de la serie, aprendió a lograr una alta disponibilidad para una aplicación con las cuentas de almacenamiento RA-GRS.
+En la primera parte de la serie, ha aprendido a hacer que una aplicación proporcione una alta disponibilidad mediante las cuentas de almacenamiento RA-GZRS.
 
-Vaya a la segunda parte de la serie para aprender a simular un error y obligar a la aplicación a utilizar el punto de conexión de RA-GRS secundario.
+Vaya a la segunda parte de la serie para aprender a simular un error y forzar la aplicación a utilizar el punto de conexión secundario con RA-GZRS.
 
 > [!div class="nextstepaction"]
-> [Simulación de un error al leer desde la región principal](storage-simulate-failure-ragrs-account-app.md)
+> [Simulación de un error al leer desde la región principal](simulate-primary-region-failure.md)

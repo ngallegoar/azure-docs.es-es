@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configuración de implementaciones de valor controlado para Azure Linux Virtual Machines'
-description: En este tutorial, aprenderá a configurar una canalización de implementación continua (CD) que actualiza un grupo de máquinas virtuales de Azure mediante la estrategia de implementación azul-verde.
+title: 'Tutorial: Configuración de implementaciones controladas para Azure Linux Virtual Machines'
+description: En este tutorial, aprenderá a configurar una canalización de implementación continua (CD). Esta canalización actualiza un grupo de máquinas virtuales Linux en Azure con la estrategia de implementación azul-verde.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,69 +12,81 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b1a57245434bb188ffaab56a8891b4b0ee27f044
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a98989ed48e515cafeca27ae492c83efca6002c4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82120553"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871596"
 ---
-# <a name="tutorial---configure-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación azul-verde para Azure Linux Virtual Machines
+# <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación azul-verde para Azure Linux Virtual Machines
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infraestructura como servicio (IaaS): configuración de CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS: configuración de CI/CD 
-Azure Pipelines ofrece un conjunto completo de herramientas de automatización de CI/CD para implementaciones en máquinas virtuales. Desde Azure Portal puede configurar directamente una canalización de entrega continua para una máquina virtual de Azure. Este documento contiene los pasos asociados a la configuración de una canalización de CI/CD que emplea la estrategia azul-verde para implementaciones de varias máquinas. También puede echar un vistazo a otras estrategias, como [Rolling](https://aka.ms/AA7jlh8) (Gradual) y [Canary](https://aka.ms/AA7jdrz) (Valor controlado), que se admiten de forma predeterminada en Azure Portal. 
+Azure Pipelines ofrece un conjunto completo de herramientas de automatización de CI/CD para las implementaciones en máquinas virtuales. En Azure Portal, se puede configurar directamente una canalización de entrega continua para una máquina virtual de Azure.
 
- 
- **Configuración de CI/CD en máquinas virtuales**
+En este artículo, se muestra cómo configurar una canalización de CI/CD que utiliza la estrategia azul-verde para la implementación de varias máquinas. Azure Portal también admite otras estrategias, como [gradual](https://aka.ms/AA7jlh8) y [controlada](https://aka.ms/AA7jdrz).
 
-Se pueden agregar máquinas virtuales como destino en un [grupo de implementación](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) y se pueden destinar para actualizaciones de varias máquinas. Tras la implementación, la vista del **historial de implementación** del grupo de implementación permiten realizar un seguimiento desde la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación. 
- 
-  
-**Implementaciones azul-verde**: Las implementaciones azul-verde reducen el tiempo de inactividad, ya que tienen un entorno en espera idéntico. Siempre hay uno de los entornos activo. Mientras se prepara para una nueva versión, puede realizar la fase final de las pruebas en el entorno verde. Una vez que el software esté funcionando en el entorno Green, cambie el tráfico para que todas las solicitudes entrantes vayan a este (el entorno Blue estará inactivo).
-Puede configurar implementaciones Blue-Green en sus "**máquinas virtuales**" con la opción de entrega continua de Azure Portal. 
+### <a name="configure-cicd-on-virtual-machines"></a>Configuración de CI/CD en máquinas virtuales
 
-Este es el tutorial paso a paso.
+Las máquinas virtuales se pueden agregar como destinos a un [grupo de implementación](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Posteriormente, se pueden establecer como destino para las actualizaciones de varias máquinas. Después de efectuar la implementación en las máquinas, vea el **historial de implementación** para un grupo de implementación. Esta vista le permite hacer un seguimiento de la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación.
 
-1. Inicie sesión en Azure Portal y vaya a una máquina virtual. 
-2. En el panel de la izquierda de la máquina virtual, vaya **Entrega continua**. A continuación, haga clic en **Configurar**. 
+### <a name="blue-green-deployments"></a>Implementaciones azul-verde
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. En el panel de configuración, haga clic en **Organización de Azure DevOps** para seleccionar una cuenta existente o crear una. A continuación, seleccione el proyecto en el que desea configurar la canalización.  
+Las implementaciones azul-verde reducen el tiempo de inactividad, ya que tienen un entorno en espera idéntico. Solo hay un entorno activo en cada momento.
 
+Mientras se prepara para una nueva versión, puede realizar la fase final de las pruebas en el entorno verde. Una vez que el software funcione en el entorno verde, cambie el tráfico para que todas las solicitudes entrantes vayan a este. El entorno azul está inactivo.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. Un grupo de implementación es un conjunto lógico de máquinas de destino de implementación que representan los entornos físicos; por ejemplo, "Dev", "Test", "UAT" y "Production". Puede crear un grupo de implementación o seleccionar uno existente. 
-5. Seleccione la canalización de compilación que publica el paquete que se va a implementar en la máquina virtual. Tenga en cuenta que el paquete publicado debe tener un script de implementación _deploy.ps1_ o _deploy.sh_ en la carpeta `deployscripts` de la raíz del paquete. La canalización de Azure DevOps ejecutará este script en tiempo de ejecución.
-6. Seleccione la estrategia de implementación que prefiera. Seleccione **Blue-Green** (Azul-verde).
-7. Agregue una etiqueta "blue" (azul) o "green" (verde) a las máquinas virtuales que van a formar parte de las implementaciones azul-verde. Si la máquina virtual es para un rol en espera, se debe etiquetar como "green" (verde), de lo contrario "blue" (azul).
-![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+Puede configurar implementaciones azul-verde en sus "máquinas virtuales" con la opción de entrega continua de Azure Portal. A continuación, se incluyen los pasos detallados:
 
-8. Haga clic en **Aceptar** para configurar la canalización de entrega continua. Ahora, tendrá una canalización de entrega continua configurada para implementarla en la máquina virtual.
-![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+1. Inicie sesión en Azure Portal y desplácese hasta una máquina virtual.
+1. En el panel de la izquierda de la configuración de la máquina virtual, seleccione **Entrega continua**. A continuación, seleccione **Configurar**.
 
+   ![Panel de entrega continua con el botón Configurar](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-9. Haga clic en **Editar** la canalización de versión en Azure DevOps para ver la configuración de la canalización. La canalización consta de tres fases. La primera es una fase de grupo de implementación y se implementa en las máquinas virtuales que tengan la etiqueta _green_ (verde) (máquinas virtuales en espera). En la segunda fase, la canalización se detiene y espera la intervención manual para reanudar la ejecución. Una vez que un usuario se ha asegurado de que la implementación es estable, puede redirigir el tráfico a las máquinas virtuales con la etiqueta _green_ (verde) y reanudar la ejecución de la canalización, que, a partir de ese momento, intercambiará las etiquetas _blue_ (azul) y _green_ (verde) en las máquinas virtuales. De esta forma se asegura de que las máquinas virtuales que tengan una versión anterior de la aplicación se etiqueten como _green_ (verde) y se implementen en la siguiente ejecución de la canalización.
-![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+1. En el panel de configuración, haga clic en **Organización de Azure DevOps** para seleccionar una cuenta o crear una. Después, seleccione el proyecto en el que desea configurar la canalización.  
 
+   ![Panel de entrega continua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-10. La tarea para ejecutar el script de implementación ejecutará de forma predeterminada el script de implementación _deploy.ps1_ o _deploy.sh_ de la carpeta `deployscripts` del directorio raíz del paquete publicado. Asegúrese de que la canalización de compilación seleccionada lo publica en la carpeta raíz del paquete.
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. Un grupo de implementación es un conjunto lógico de máquinas de destino de implementación que representan los entornos físicos. Por ejemplo, Dev, Test, UAT y Production. Puede crear un grupo de implementación o seleccionar uno existente.
+1. Seleccione la canalización de compilación que publica el paquete que se va a implementar en la máquina virtual. Tenga en cuenta que el paquete publicado debe tener un script de implementación llamado deploy.ps1 o deploy.sh en la carpeta deployscripts de la carpeta raíz del paquete. La canalización ejecuta este script de implementación.
+1. En **Deployment strategy** (Estrategia de implementación), seleccione **Blue-Green** (Azul-Verde).
+1. Agregue una etiqueta "blue" (azul) o "green" (verde) a las máquinas virtuales que van a formar parte de las implementaciones azul-verde. Si la máquina virtual es para un rol en espera, etiquétela como "green" (verde). De lo contrario, etiquétela como "blue" (azul).
 
+   ![Panel de entrega continua, con el valor azul-verde elegido como estrategia de implementación](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
+1. Seleccione **Aceptar** para configurar la canalización de entrega continua que va a implementar en la máquina virtual.
 
+   ![La canalización azul-verde](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+
+1. Se muestran los detalles de la implementación de la máquina virtual. Puede seleccionar el vínculo para ir a la canalización de versión en Azure DevOps. En la canalización de versión, seleccione **Editar** para ver la configuración de canalización. La canalización tiene estas tres fases:
+
+   1. Esta fase es una fase de grupo de implementación. Las aplicaciones se implementan en máquinas virtuales en espera, las cuales se etiquetan como "verdes".
+   1. En esta fase, la canalización se detiene y espera una intervención manual para reanudar la ejecución. Los usuarios pueden reanudar la ejecución de la canalización una vez que hayan asegurado manualmente la estabilidad de la implementación en las máquinas virtuales etiquetadas como "verdes".
+   1. Esta fase intercambia las etiquetas "azul" y "verde" en las máquinas virtuales. Esto garantiza que las máquinas virtuales con versiones anteriores de la aplicación se etiqueten ahora como "verdes". Durante la siguiente ejecución de la canalización, las aplicaciones se implementarán en estas máquinas virtuales.
+
+      ![El panel Grupo de implementación de la tarea Implementación azul-verde](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+
+1. La tarea Execute Deploy Script (Ejecutar script de implementación) ejecuta de forma predeterminada el script de implementación deploy.ps1 or deploy.sh. El script se encuentra en la carpeta deployscripts de la carpeta raíz del paquete publicado. Asegúrese de que la canalización de compilación seleccionada publica la implementación en la carpeta raíz del paquete.
+
+   ![Panel Artefactos, que muestra el script deploy.sh en la carpeta deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Otras estrategias de implementación
-- [Configuración de la estrategia de implementación gradual](https://aka.ms/AA7jlh8)
-- [Configuración de la estrategia de implementación de valor controlado](https://aka.ms/AA7jdrz)
 
-## <a name="azure-devops-project"></a>Proyecto de Azure DevOps 
-Empezar a usar Azure nunca fue tan fácil.
- 
-Con DevOps Projects, empiece a ejecutar la aplicación en cualquier servicio de Azure en tan solo tres pasos: seleccione un idioma para la aplicación, un entorno de ejecución y un servicio de Azure.
- 
-[Más información](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Recursos adicionales 
-- [Implementación en máquinas virtuales de Azure con un proyecto de DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+- [Configuración de la estrategia de implementación gradual](https://aka.ms/AA7jlh8)
+- [Configuración de la estrategia de implementación controlada](https://aka.ms/AA7jdrz)
+
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Se puede comenzar a utilizar Azure fácilmente. En Azure DevOps Projects, puede empezar a ejecutar su aplicación en cualquier servicio de Azure con solo tres pasos. Para ello, seleccione:
+
+- Un idioma de la aplicación
+- Un entorno de ejecución
+- Un servicio de Azure
+
+[Más información](https://azure.microsoft.com/features/devops-projects/).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+- [Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
 - [Implementación continua de una aplicación en un conjunto de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

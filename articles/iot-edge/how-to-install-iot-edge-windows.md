@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113453"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856740"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -193,17 +193,21 @@ Examine los registros de servicio de los últimos 5 minutos. Si acaba de instala
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Ejecute una comprobación automatizada para detectar los errores de configuración y red más comunes.
+Ejecute la [herramienta para la solución de problemas](troubleshoot.md#run-the-check-command) para consultar los errores de configuración y redes más comunes.
 
 ```powershell
 iotedge check
 ```
 
-Enumere los módulos en ejecución. Después de una instalación nueva, el único módulo que debería en ejecución es **edgeAgent**. Después de [implementar los módulos de IoT Edge](how-to-deploy-modules-portal.md) por primera vez, el otro módulo del sistema, **edgeHub**, se iniciará también en el dispositivo.
+Hasta que implemente el primer módulo en IoT Edge en el dispositivo, el módulo del sistema **$edgeHub** no se implementará en el dispositivo. Como resultado, la comprobación automatizada devolverá un error para la comprobación de conectividad de `Edge Hub can bind to ports on host`. Este error se puede omitir a menos que se produzca después de implementar un módulo en el dispositivo.
+
+Por último, enumere los módulos en ejecución:
 
 ```powershell
 iotedge list
 ```
+
+Después de una instalación nueva, el único módulo que debería en ejecución es **edgeAgent**. Después de [implementar los módulos de IoT Edge](how-to-deploy-modules-portal.md) por primera vez, el otro módulo del sistema, **edgeHub**, se iniciará también en el dispositivo.
 
 ## <a name="manage-module-containers"></a>Administración de contenedores de módulo
 

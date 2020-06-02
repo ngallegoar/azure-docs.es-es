@@ -1,23 +1,21 @@
 ---
 title: Comunicación segura con proxy inverso de Azure Service Fabric
 description: Configure el proxy inverso para habilitar la comunicación segura de un extremo a otro en una aplicación de Azure Service Fabric.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617108"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858530"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conexión a un servicio seguro con el proxy inverso
 
 En este artículo se explica cómo establecer una conexión segura entre el proxy inverso y los servicios, lo que crea un canal seguro de un extremo a otro. Para más información sobre el proxy inverso, consulte [Proxy inverso en Azure Service Fabric](service-fabric-reverseproxy.md)
 
-La conexión a servicios seguros solo se admite cuando se configura el proxy inverso para escuchar en HTTPS. En este artículo se da por supuesto que este es el caso.
-Consulte [Configuración del proxy inverso en Azure Service Fabric](service-fabric-reverseproxy-setup.md) para configurar el proxy inverso en Service Fabric.
+> [!IMPORTANT]
+> La conexión a servicios seguros solo se admite cuando se configura el proxy inverso para escuchar en HTTPS. En este artículo se da por supuesto que este es el caso. Consulte [Configuración del proxy inverso en Azure Service Fabric](service-fabric-reverseproxy-setup.md) para configurar el proxy inverso en Service Fabric.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Establecimiento de una conexión segura entre el proxy inverso y los servicios 
 
@@ -183,7 +181,7 @@ Luego, reenvía los datos del certificado de cliente en un encabezado HTTP perso
 Si el cliente no presenta un certificado, el proxy inverso reenvía un encabezado vacío y deja que el servicio gestione el caso.
 
 > [!NOTE]
-> El proxy inverso es un simple reenviador. No validará en modo alguno el certificado del cliente.
+> El proxy inverso actúa únicamente como servicio de reenvío. No validará en modo alguno el certificado del cliente.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

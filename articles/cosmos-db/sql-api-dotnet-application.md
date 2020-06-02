@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c7e164420b02be35069103ac06238d56449eb7ef
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78274071"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996729"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desarrollar una aplicación web ASP.NET Core MVC con Azure Cosmos DB mediante el SDK de .NET
 
@@ -189,15 +189,27 @@ Primero, vamos a agregar una clase que contenga la lógica para conectarse a Azu
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. Abra el archivo *Startup.cs* en la solución y reemplace el método `ConfigureServices` por:
+1. Abra el archivo *Startup.cs* en la solución y agregue el siguiente método **InitializeCosmosClientInstanceAsync**, que lee la configuración e inicializa el cliente.
 
-    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
 
-    El código de este paso inicializa el cliente en función de la configuración como una instancia singleton que se va a insertar mediante la [inserción de dependencias en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+1. En el mismo archivo, reemplace el método `ConfigureServices` por:
 
-1. En el mismo archivo, agregue el siguiente método **InitializeCosmosClientInstanceAsync**, que lee la configuración e inicializa el cliente.
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
-   [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+   El código de este paso inicializa el cliente en función de la configuración como una instancia singleton que se va a insertar mediante la [inserción de dependencias en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+
+   Y asegúrese de cambiar el controlador MVC predeterminado a `Item`, editando las rutas en el método `Configure` del mismo archivo:
+
+   ```csharp
+    app.UseEndpoints(endpoints =>
+          {
+                endpoints.MapControllerRoute(
+                   name: "default",
+                   pattern: "{controller=Item}/{action=Index}/{id?}");
+          });
+   ```
+
 
 1. Defina la configuración en el archivo *appsettings.json* del proyecto, tal y como se muestra en el siguiente fragmento de código:
 

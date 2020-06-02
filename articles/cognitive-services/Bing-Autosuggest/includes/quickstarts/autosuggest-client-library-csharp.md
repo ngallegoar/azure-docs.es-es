@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: ac46eb0119ac95cf09e48823686a6c563d8d4d4a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 3793f57a6c3dff04f678e629b2903ab216611f75
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887367"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82975079"
 ---
 Introducción a la biblioteca cliente de Bing Autosuggest para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
@@ -23,16 +23,12 @@ Use la biblioteca cliente de Bing Autosuggest para .NET para obtener sugerencias
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+* Suscripción a Azure. Si aún no tiene una suscripción a Azure, [puede crear una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-
-## <a name="setting-up"></a>Instalación
-
-### <a name="create-an-azure-resource"></a>Creación de un recurso de Azure
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-### <a name="create-an-environment-variable"></a>Creación de una variable de entorno
+## <a name="create-environment-variables"></a>Creación de variables de entorno
 
 >[!NOTE]
 > Los puntos de conexión de los recursos creados que no son de prueba usan desde el 1 de julio de 2019 el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
@@ -40,12 +36,11 @@ Use la biblioteca cliente de Bing Autosuggest para .NET para obtener sugerencias
 Con la clave y el punto de conexión del recurso que ha creado, cree dos variables de entorno para la autenticación:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: la clave de recurso para autenticar las solicitudes.
-* `AUTOSUGGEST_ENDPOINT`: el punto de conexión del recurso para enviar solicitudes de API. Tendrá el siguiente aspecto: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `AUTOSUGGEST_ENDPOINT`: el punto de conexión del recurso para enviar solicitudes de API. Debería ser parecido a este: `https://<your-custom-subdomain>.api.cognitive.microsoft.com`. 
 
 Siga las instrucciones adecuadas para su sistema operativo.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
+### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
@@ -54,7 +49,7 @@ setx AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 
 Después de agregar la variable de entorno, reinicie la ventana de la consola.
 
-#### <a name="linux"></a>[Linux](#tab/linux)
+### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -63,7 +58,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 Después de agregar la variable de entorno, ejecute `source ~/.bashrc` desde la ventana de consola para que los cambios surtan efecto.
 
-#### <a name="macos"></a>[macOS](#tab/unix)
+### <a name="macos"></a>[macOS](#tab/unix)
 
 Edite `.bash_profile` y agregue la variable de entorno:
 
@@ -75,7 +70,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 Después de agregar la variable de entorno, ejecute `source .bash_profile` desde la ventana de consola para que los cambios surtan efecto.
 ***
 
-### <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
+## <a name="create-a-new-c-application"></a>Creación de una aplicación de C#
 
 Cree una nueva aplicación de consola de .NET Core en el IDE o editor que prefiera. 
 
@@ -111,7 +106,7 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-En la clase `Program`, cree variables para el punto de conexión y la clave de Azure del recurso. Si ha creado la variable de entorno después de haber iniciado la aplicación, deberá cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a la variable.
+En la clase `Program`, cree variables para el punto de conexión y la clave de Azure del recurso. Si ha creado la variable de entorno después de haber iniciado la aplicación, tendrá que cerrar y volver a abrir el editor, el IDE o el shell que lo ejecuta para acceder a la variable.
 
 ```csharp
 private const string key_var = "AUTOSUGGEST_SUBSCRIPTION_KEY";
@@ -133,7 +128,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
+## <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
 Dentro del directorio de aplicaciones, instale la biblioteca cliente de Bing Autosuggest para .NET con el siguiente comando:
 
@@ -150,7 +145,7 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 * [Autenticar el cliente](#authenticate-the-client)
 * [Envío de una solicitud de sugerencias automáticas](#send-an-autosuggest-request)
 
-## <a name="authenticate-the-client"></a>Autenticar el cliente
+### <a name="authenticate-the-client"></a>Autenticar el cliente
 
 > [!NOTE]
 > En este inicio rápido se da por supuesto que ha [creado una variable de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para la clave de Bing Autosuggest, denominada `AUTOSUGGEST_SUBSCRIPTION_KEY`, y una para el punto de conexión denominada `AUTOSUGGEST_ENDPOINT`.
@@ -170,7 +165,7 @@ async static Task RunQuickstart()
 }
 ```
 
-## <a name="send-an-autosuggest-request"></a>Envío de una solicitud de sugerencias automáticas
+### <a name="send-an-autosuggest-request"></a>Envío de una solicitud de sugerencias automáticas
 
 En el mismo método, utilice el método [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) para enviar una consulta a Bing. Itere sobre la respuesta de [Suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) e imprima la primera sugerencia.
 
@@ -208,10 +203,10 @@ dotnet run
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él.
+Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él:
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Eliminación de un grupo de recursos en Azure Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources).
+* [Eliminación de un grupo de recursos en la CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

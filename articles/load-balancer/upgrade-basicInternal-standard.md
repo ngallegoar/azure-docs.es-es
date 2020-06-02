@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 960897abca67bf2a43c4c056b8dfa8cce0119faa
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770385"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871591"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Actualización de Azure Load Balancer interno sin necesidad de conexión de salida
-[Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) ofrece un amplio conjunto de funcionalidades y alta disponibilidad gracias a la redundancia de zona. Para más información acerca de la SKU de Load Balancer, consulte la [tabla de comparación](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 En este artículo se presenta un script de PowerShell que crea una instancia de Standard Load Balancer con la misma configuración que la instancia básica de Load Balancer junto con la migración del tráfico desde la instancia básica hasta la estándar.
 
@@ -31,12 +31,24 @@ Existe un script de Azure PowerShell que hace lo siguiente:
 ### <a name="caveatslimitations"></a>Advertencias y limitaciones
 
 * El script solo admite la actualización de Load Balancer interno si no se requiere ninguna conexión de salida. Si necesita [conexión de salida](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguna de las máquinas virtuales, vea esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obtener instrucciones. 
+* La instancia de Load Balancer básica debe estar en el mismo grupo de recursos que las NIC y VM de back-end.
 * Si se crea la instancia de Standard Load Balancer en una región diferente, no podrá asociar las máquinas virtuales existentes de la región antigua a la instancia de Standard Load Balancer recién creada. Para solucionar esta limitación, asegúrese de crear una nueva máquina virtual en la nueva región.
 * Si Load Balancer no tiene ninguna configuración de IP de front-end ni grupo de back-end, es probable que se produzca un error al ejecutar el script. Asegúrese de que no están vacíos.
 
+## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Cambio del método de asignación de IP a Estática para la configuración de IP de front-end (ignore este paso si ya es estática)
+
+1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, su instancia básica de Load Balancer.
+
+2. En **Configuración**, seleccione **Configuración de IP de front-end** y seleccione la primera configuración de IP de front-end. 
+
+3. Para **Asignación**, seleccione **Estática**.
+
+4. Repita el paso 3 para todas las configuraciones de IP de front-end de la instancia básica de Load Balancer.
+
+
 ## <a name="download-the-script"></a>Descarga del script
 
-Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
+Descargue el script de migración de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0).
 ## <a name="use-the-script"></a>Uso del script
 
 Dispone de dos opciones en función de sus preferencias y de la configuración del entorno de PowerShell local:

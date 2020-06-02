@@ -4,12 +4,12 @@ description: Aprenda a conectar Azure Functions a una cola de Azure Storage medi
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c32f98fc1b3de98592f8e7ceb43c17aa8a9049f7
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: bb5db5858a65759c6cf20789da9cb5bfca761b1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673453"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125862"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conexión de Azure Functions a Azure Storage mediante Visual Studio Code
 
@@ -50,13 +50,13 @@ En el [artículo de inicio rápido anterior](functions-create-first-function-vs-
 
 ## <a name="register-binding-extensions"></a>Registro de extensiones de enlace
 
-Dado que está utilizando un enlace de salida de Queue Storage, debe tener la extensión de enlaces de Storage instalada antes de ejecutar el proyecto. 
+Dado que está utilizando un enlace de salida de Queue Storage, para poder ejecutar el proyecto debe tener instalada la extensión de enlaces de Storage. 
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
 El proyecto se ha configurado para usar [conjuntos de extensiones](functions-bindings-register.md#extension-bundles), que instalan automáticamente un conjunto predefinido de paquetes de extensiones. 
 
-Los conjuntos de extensiones se habilitan en el archivo host.json en la raíz del proyecto, que tiene un aspecto similar al siguiente:
+El uso de conjuntos de extensiones se habilita en el archivo host.json en la raíz del proyecto, que tiene un aspecto similar al siguiente:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -188,7 +188,7 @@ Ahora, es el momento de volver a publicar la aplicación de función actualizada
 
 1. En Visual Studio Code, presione F1 para abrir la paleta de comandos. En la paleta de comandos, busque y seleccione `Azure Functions: Deploy to function app...`.
 
-1. Elija la aplicación de funciones que creó en el primer artículo. Dado que se está volviendo a implementar el proyecto en la misma aplicación, seleccione **Implementar** para descartar la advertencia sobre la sobrescritura de archivos.
+1. Elija la aplicación de funciones que creó en el primer artículo. Dado que va a volver a implementar el proyecto en la misma aplicación, seleccione **Implementar** para descartar la advertencia sobre la sobrescritura de archivos.
 
 1. Una vez finalizada la implementación, puede usar nuevamente cURL o un explorador para probar la función que ha vuelto a implementar. Como antes, adjunte la cadena de consulta `&name=<yourname>` a la dirección URL, como en el ejemplo siguiente:
 
@@ -200,7 +200,7 @@ Ahora, es el momento de volver a publicar la aplicación de función actualizada
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En Azure, los *recursos* son aplicaciones de función, funciones o cuentas de almacenamiento, entre otros. Se agrupan en *grupos de recursos*, y se puede eliminar todo el contenido de un grupo si se elimina el grupo.
+En Azure, los *recursos* son aplicaciones de funciones, funciones o cuentas de almacenamiento, entre otros. Se agrupan en *grupos de recursos* y se puede eliminar todo el contenido de un grupo si este se elimina.
 
 Ha creado recursos para completar estas guías de inicio rápido. Se le pueden facturar por estos recursos, dependiendo del [estado de la cuentade los ](https://azure.microsoft.com/account/) y [precios de los servicios](https://azure.microsoft.com/pricing/). Si ya no necesita los recursos, aquí se indica cómo eliminarlos:
 

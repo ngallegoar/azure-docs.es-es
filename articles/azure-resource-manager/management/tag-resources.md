@@ -2,13 +2,13 @@
 title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 05/06/2020
+ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255131"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864494"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -591,7 +591,9 @@ Se aplican las siguientes limitaciones a las etiquetas:
 * Los nombres de etiqueta no pueden contener estos caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Actualmente las zonas de Azure DNS y los servicios de Traffic Manager tampoco permiten el uso de espacios en la etiqueta.
+   > Actualmente, las zonas de Azure DNS y los servicios de Traffic Manager tampoco permiten el uso de espacios en la etiqueta.
+   >
+   > Azure Front Door no admite el uso de `#` en el nombre de la etiqueta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: 3d55e37078d7bbbcd84684f43ef12810ef01e10e
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 04/27/2020
+ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627762"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857646"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformación con Azure Databricks
 
@@ -153,6 +153,9 @@ En la nueva canalización, la mayoría de las opciones se han configurado autom�
 1. Compruebe que los **parámetros de canalización** coinciden con los que aparecen en la siguiente captura de pantalla: ![Parámetros de canalización](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Conéctese a sus conjuntos de datos.
+
+    >[!NOTE]
+    >En los conjuntos de archivos de siguientes, la ruta de acceso del archivo se ha especificado automáticamente en la plantilla. Si se requiere algún cambio, asegúrese de especificar la ruta de acceso para el **contenedor** y el **directorio** en caso de error de conexión.
 
    - **SourceAvailabilityDataset**: para comprobar si los datos de origen están disponibles.
 

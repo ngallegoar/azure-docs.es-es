@@ -124,6 +124,10 @@
           href: storage-files-enable-soft-delete.md
         - name: Administración del almacenamiento en nubes independientes de Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Cambió del modo en que se replican los datos
+          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Iniciación de una conmutación por error de la cuenta
+          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Administración de la redundancia de datos
           items:
             - name: Cambió del modo en que se replican los datos
@@ -136,6 +140,24 @@
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Iniciación de la conmutación por error de la cuenta
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Authenticate
+      items:
+        - name: Habilitación de autenticación y autorización locales
+          items:
+            - name: Introducción a Active Directory Domain Services
+              href: storage-files-identity-auth-active-directory-enable.md
+            - name: Habilitación de la autenticación de Active Directory Domain Services
+              href: storage-files-identity-ad-ds-enable.md
+            - name: Asignación de permisos
+              href: storage-files-identity-ad-ds-assign-permissions.md
+            - name: Configuración de permisos
+              href: storage-files-identity-ad-ds-configure-permissions.md
+            - name: Montar el recurso compartido de archivos
+              href: storage-files-identity-ad-ds-mount-file-share.md
+            - name: Actualización de contraseña
+              href: storage-files-identity-ad-ds-update-password.md
+        - name: "Habilitación de autenticación y autorización en Azure\_AD\_DS"
+          href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Supervisión
       items:
         - name: Supervisión de Azure File Sync
@@ -188,10 +210,6 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Requerir transferencia segura
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: "Habilitación de autenticación y autorización en\_AD"
-          href: storage-files-identity-auth-active-directory-enable.md
-        - name: "Habilitación de autenticación y autorización en Azure\_AD\_DS"
-          href: storage-files-identity-auth-active-directory-domain-service-enable.md
         - name: Habilitación de la conexión TLS segura para el cliente de Azure Storage
           href: ../common/storage-security-tls.md
     - name: Transferencia

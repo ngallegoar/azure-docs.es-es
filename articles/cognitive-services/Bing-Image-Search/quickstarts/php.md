@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fffe56986a3b3a64910678d19321e2d04b8fcc55
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 50ce929904df7d4cf4e6ee83d77a9ad16c5f8cff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478568"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118874"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y PHP
 
@@ -29,19 +29,19 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [PHP 5.6.x o posterior](https://php.net/downloads.php).
+* [PHP 5.6.x o posterior](https://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Para más información, consulte [Precios de Cognitive Services: API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Creación e inicialización de la aplicación
 
-Para ejecutar esta aplicación, siga estos pasos.
+Para ejecutar esta aplicación, siga estos pasos:
 
-1. Asegúrese de que la compatibilidad segura con HTTP está habilitada en el archivo `php.ini`. En Windows, este archivo se encuentra en `C:\windows`.
+1. Asegúrese de que la compatibilidad segura con HTTP está habilitada en el archivo `php.ini`. En el caso de Windows, este archivo se encuentra en *C:\windows*.
 2. Cree un nuevo proyecto de PHP en su IDE o editor favorito.
-3. Defina el punto de conexión de API, la clave de suscripción y el término de búsqueda. El punto de conexión puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+3. Defina el punto de conexión de API, la clave de suscripción y el término de búsqueda. El punto de conexión puede ser el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -138,9 +138,9 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 
 ## <a name="see-also"></a>Consulte también
 
-* [¿Qué es Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) de Bing Search API. 
-* [Obtención de una clave de acceso de Cognitive Services gratis](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [¿Qué es Bing Image Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
+* [Detalles de precios de las API Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [Obtención de una clave de acceso gratuita de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
+* [Referencia de la API Bing Image Search](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

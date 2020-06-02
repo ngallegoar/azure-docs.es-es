@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603412"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926938"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Invitación en masa a usuarios de colaboración de Azure AD B2B
 
@@ -29,6 +29,27 @@ Si usas la colaboración de Azure Active Directory (Azure AD) B2B para trabajar 
 
 Antes de comenzar, si no tiene una cuenta de Azure Active Directory, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## <a name="understand-the-csv-template"></a>Nociones sobre la plantilla CSV
+
+Descargue y rellene la plantilla CSV de carga masiva para ayudarle a invitar correctamente a los usuarios invitados de Azure AD de forma masiva. La plantilla CSV que descargue podría parecerse a este ejemplo:
+
+![Hoja de cálculo para la carga y notas que explican el propósito y los valores de cada fila y columna](media/tutorial-bulk-invite/understand-template.png)
+
+### <a name="csv-template-structure"></a>Estructura de la plantilla CSV
+
+Las filas de una plantilla CSV descargada son las siguientes:
+
+- **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Email address to invite [inviteeEmail] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
+
+### <a name="additional-guidance"></a>Instrucciones adicionales
+
+- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar, o no se podrá procesar la carga.
+- Las columnas necesarias se enumeran en primer lugar.
+- No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
+- Se recomienda que descargue la versión más reciente de la plantilla CSV tan a menudo como sea posible.
+
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita dos o más cuentas de correo electrónico de prueba a las que poder enviar las invitaciones. Las cuentas deben estar fuera de su organización. Puede usar cualquier tipo de cuenta, incluidas las cuentas sociales como las direcciones de gmail.com o outlook.com.
@@ -38,11 +59,11 @@ Necesita dos o más cuentas de correo electrónico de prueba a las que poder env
 1. Inicie sesión en Azure Portal con una cuenta que sea la del administrador de usuarios de la organización.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
 3. En **Administrar**, seleccione **Usuarios** > **Invitar en bloque**.
-4. En la página **Invitar usuarios en bloque**, seleccione **Descargar** para obtener un archivo .csv válido con las propiedades de la invitación.
+4. En la página **Invitar usuarios en bloque**, seleccione **Descargar** para obtener una plantilla .csv válida con las propiedades de la invitación.
 
     ![Botón de descarga de invitación en bloque](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Abra el archivo .csv y agregue una línea por cada usuario invitado. Los valores obligatorios son:
+5. Abra la plantilla .csv y agregue una línea por cada usuario invitado. Los valores obligatorios son:
 
    * **Dirección de correo electrónico para enviar la invitación**: el usuario que recibirá una invitación.
 

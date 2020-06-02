@@ -3,12 +3,12 @@ title: Ver datos en directo (versión preliminar) con Azure Monitor para contene
 description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79216560"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872117"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 
@@ -42,7 +42,7 @@ Para suspender el desplazamiento automático y controlar el comportamiento del p
 >Se recomienda suspender o pausar el desplazamiento automático solo durante un breve período de tiempo mientras se soluciona un problema. Estas solicitudes pueden afectar la disponibilidad y limitación de la API de Kubernetes en el clúster. 
 
 >[!IMPORTANT]
->Durante el funcionamiento de esta característica, no se almacenan datos de forma permanente. Toda la información capturada durante la sesión se elimina al cerrar el explorador o salir de ella. Los datos solo permanecen presentes para su visualización en el período de cinco minutos de la característica de métricas; también se eliminan las métricas con una antigüedad superior a cinco minutos. El búfer de datos en directo (vista preliminar) se consulta dentro de los límites de uso de memoria razonables (debe ser más específico aquí, ¿qué es razonable?). 
+>Durante el funcionamiento de esta característica, no se almacenan datos de forma permanente. Toda la información capturada durante la sesión se elimina al cerrar el explorador o salir de ella. Los datos solo permanecen presentes para su visualización en el período de cinco minutos de la característica de métricas; también se eliminan las métricas con una antigüedad superior a cinco minutos. El búfer de datos en directo (vista preliminar) se consulta dentro de los límites de uso de memoria razonables.
 
 ## <a name="view-logs"></a>Ver registros
 

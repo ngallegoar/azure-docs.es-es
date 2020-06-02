@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure? | Microsoft Docs
-description: Información general sobre el control de acceso basado en rol (RBAC) para los recursos de Azure. Use as asignaciones de roles para controlar el acceso a los recursos de Azure.
+title: ¿Qué es el control de acceso basado en rol de Azure (RBAC)?
+description: Obtenga información general del control de acceso basado en rol de Azure (Azure RBAC). Use as asignaciones de roles para controlar el acceso a los recursos de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,31 +14,31 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686488"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996490"
 ---
-# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?
+# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>¿Qué es el control de acceso basado en rol de Azure (RBAC)?
 
-La administración de acceso de los recursos en la nube es una función importantísima para cualquier organización que use la nube. El control de acceso basado en rol (RBAC) ayuda a administrar quién puede acceder a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas pueden acceder.
+La administración de acceso de los recursos en la nube es una función importantísima para cualquier organización que use la nube. El control de acceso basado en rol (Azure RBAC) ayuda a administrar quién tiene acceso a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas puede acceder.
 
-RBAC es un sistema de autorización basado en [Azure Resource Manager](../azure-resource-manager/management/overview.md) que proporciona administración de acceso específico a los recursos de Azure.
+Azure RBAC es un sistema de autorización basado en [Azure Resource Manager](../azure-resource-manager/management/overview.md) que proporciona administración de acceso específico a los recursos de Azure.
 
-## <a name="what-can-i-do-with-rbac"></a>¿Qué puedo hacer con RBAC?
+## <a name="what-can-i-do-with-azure-rbac"></a>¿Qué puedo hacer con Azure RBAC?
 
-Estos son algunos ejemplos de lo que puede hacer con RBAC:
+Estos son algunos ejemplos de lo que puede hacer con Azure RBAC:
 
 - Permitir que un usuario administre las máquinas virtuales de una suscripción y que otro usuario administre las redes virtuales
 - Permitir que un grupo de DBA administre bases de datos SQL en una suscripción
 - Permitir que un usuario administre todos los recursos de un grupo de recursos, como las máquinas virtuales, los sitios web y las subredes
 - Permitir que una aplicación acceda a todos los recursos de un grupo de recursos
 
-## <a name="how-rbac-works"></a>Funcionamiento de RBAC
+## <a name="how-azure-rbac-works"></a>Funcionamiento de Azure RBAC
 
-La manera en que se controla el acceso a los recursos mediante RBAC es mediante las asignaciones de roles. Este es un concepto clave que es necesario entender: se trata de cómo se aplican los permisos. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito.
+La forma en que se controla el acceso a los recursos mediante Azure RBAC es mediante las asignaciones de roles. Este es un concepto clave que es necesario entender: se trata de cómo se aplican los permisos. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito.
 
 ### <a name="security-principal"></a>Entidad de seguridad
 
@@ -64,9 +64,9 @@ Azure incluye varios [roles integrados](built-in-roles.md) que puede usar. A con
 - [Lector](built-in-roles.md#reader): puede ver los recursos existentes de Azure.
 - [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator): permite administrar el acceso de los usuarios a los recursos de Azure.
 
-Los demás roles integrados permiten la administración de recursos específicos de Azure. Por ejemplo, el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) permite al usuario crear y administrar máquinas virtuales. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados para los recursos de Azure](custom-roles.md).
+Los demás roles integrados permiten la administración de recursos específicos de Azure. Por ejemplo, el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) permite al usuario crear y administrar máquinas virtuales. Si los roles integrados no satisfacen las necesidades específicas de la organización, puede crear [roles personalizados de Azure](custom-roles.md) propios.
 
-Azure tiene operaciones de datos que le permiten conceder acceso a los datos dentro de un objeto. Por ejemplo, si un usuario tiene acceso para leer datos de una cuenta de almacenamiento, puede leer los blobs o mensajes en esa cuenta de almacenamiento. Para más información, consulte [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md).
+Azure tiene operaciones de datos que le permiten conceder acceso a los datos dentro de un objeto. Por ejemplo, si un usuario tiene acceso para leer datos de una cuenta de almacenamiento, puede leer los blobs o mensajes en esa cuenta de almacenamiento. Para más información, consulte [Descripción de definiciones de roles de Azure](role-definitions.md).
 
 ### <a name="scope"></a>Ámbito
 
@@ -90,21 +90,21 @@ El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ej
 
 ![Asignación de roles para controlar el acceso](./media/overview/rbac-overview.png)
 
-Puede crear asignaciones de roles mediante Azure Portal, la CLI de Azure, Azure PowerShell, los SDK de Azure o las API de REST. Puede tener hasta **2000** asignaciones de roles en cada suscripción y **500** asignaciones de roles en cada grupo de administración. Para crear y quitar las asignación de roles, debe tener el permiso `Microsoft.Authorization/roleAssignments/*`. Este permiso se concede a través de los roles [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
+Puede crear asignaciones de roles mediante Azure Portal, la CLI de Azure, Azure PowerShell, los SDK de Azure o las API de REST. Puede tener hasta **2000** asignaciones de roles en cada suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Puede tener un máximo de **500** asignaciones de roles en cada grupo de administración. Para crear y quitar las asignación de roles, debe tener el permiso `Microsoft.Authorization/roleAssignments/*`. Este permiso se concede a través de los roles [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Asignaciones de varios roles
 
-Por tanto, ¿qué ocurre si tiene varias asignaciones de roles que se superponen? RBAC es un modelo de suma, por lo que los permisos efectivos son la suma de sus asignaciones de rol. Considere el ejemplo siguiente, donde a un usuario se le concede el rol Colaborador en el ámbito de la suscripción y el rol Lector en un grupo de recursos. La suma de los permisos de Colaborador y los permisos de Lector es realmente el rol Colaborador del grupo de recursos. Por consiguiente, en este caso, la asignación del rol Lector no tiene ningún impacto.
+Por tanto, ¿qué ocurre si tiene varias asignaciones de roles que se superponen? Azure RBAC es un modelo de suma, por lo que los permisos efectivos son la suma de sus asignaciones de rol. Considere el ejemplo siguiente, donde a un usuario se le concede el rol Colaborador en el ámbito de la suscripción y el rol Lector en un grupo de recursos. La suma de los permisos de Colaborador y los permisos de Lector es realmente el rol Colaborador del grupo de recursos. Por consiguiente, en este caso, la asignación del rol Lector no tiene ningún impacto.
 
 ![Asignaciones de varios roles](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Asignaciones de denegación
 
-Anteriormente, RBAC era un modelo solo de permiso sin denegación, pero ahora RBAC admite asignaciones de denegación de manera limitada. De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo, entidad de servicio o identidad administrada en un ámbito determinado con el fin de denegar el acceso. Una asignación de roles define un conjunto de acciones que están *permitidas*, mientras que una asignación de denegación define un conjunto de acciones *no permitidas*. En otras palabras, denegar asignaciones impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Las asignaciones de denegación tienen prioridad sobre las asignaciones de roles. Para más información, consulte [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md).
+Anteriormente, Azure RBAC era un modelo solo de permiso sin denegación, pero ahora Azure RBAC admite asignaciones de denegación de manera limitada. De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo, entidad de servicio o identidad administrada en un ámbito determinado con el fin de denegar el acceso. Una asignación de roles define un conjunto de acciones que están *permitidas*, mientras que una asignación de denegación define un conjunto de acciones *no permitidas*. En otras palabras, denegar asignaciones impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Las asignaciones de denegación tienen prioridad sobre las asignaciones de roles. Para más información, consulte [Descripción de las asignaciones de denegación de Azure](deny-assignments.md).
 
-## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Cómo determina RBAC si un usuario tiene acceso a un recurso
+## <a name="how-azure-rbac-determines-if-a-user-has-access-to-a-resource"></a>Cómo determina Azure RBAC si un usuario tiene acceso a un recurso
 
-Los siguientes son los pasos de alto nivel que RBAC usa para determinar si tiene acceso a un recurso en el plano de administración. Esto resulta útil para saber si está intentando solucionar un problema de acceso.
+Los siguientes son los pasos de alto nivel que Azure RBAC usa para determinar si tiene acceso a un recurso en el plano de administración. Esto resulta útil para saber si está intentando solucionar un problema de acceso.
 
 1. Un usuario (o entidad de servicio) adquiere un token de Azure Resource Manager.
 
@@ -128,7 +128,7 @@ Los siguientes son los pasos de alto nivel que RBAC usa para determinar si tiene
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure mediante Azure Portal](check-access.md)
-- [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
-- [Descripción de los distintos roles en Azure](rbac-and-directory-admin-roles.md)
+- [Inicio rápido: Visualización del acceso que tiene un usuario a los recursos de Azure](check-access.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md)
+- [Descripción de los distintos roles](rbac-and-directory-admin-roles.md)
 - [Plataforma de adopción de la nube: Administración del acceso a recursos de Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

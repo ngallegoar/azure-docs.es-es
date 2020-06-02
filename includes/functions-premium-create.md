@@ -5,29 +5,21 @@ services: functions
 author: jeffhollan
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: fca8c3b0b1bd4d22720a6d15313e297d05b7fac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c53486bf3368039f172c7a13420e2291dd9c9892
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76021007"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122733"
 ---
-1. Abrir Azure Portal desde [https://portal.azure.com](https://portal.azure.com)
+1. En el menú de Azure Portal o en la página **Principal**, seleccione **Crear un recurso**.
 
-1. Seleccionar el botón **Crear un recurso**
+1. En la página **Nuevo**, seleccione **Compute** > **Function App**.
 
-    ![Crear el recurso](./media/functions-create-function-app-portal/function-app-create-resource.png)
-
-1. Seleccione **Proceso** > **Aplicación de funciones**.
-
-    ![Creación de una aplicación de función en Azure Portal](./media/functions-premium-create/function-app-create-start.png)
-
-1. Use la configuración de Function App especificada en la tabla debajo de la imagen.
-
-    ![Aspectos básicos](./media/functions-premium-create/function-app-create-basics.png)
+1. En la página **Básico**, utilice la configuración de la aplicación de funciones como se especifica en la tabla siguiente:
 
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ | ---------------- | ----------- |
@@ -38,28 +30,32 @@ ms.locfileid: "76021007"
     | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET** para funciones de C# y F#. |
     |**Región**| Región preferida | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
 
-    Seleccione el botón **Siguiente: Hospedaje >** .
+    ![Página Datos básicos](./media/functions-premium-create/function-app-create-basics.png)
 
-1. Escriba la siguiente configuración para el hospedaje.
-
-    ![Hospedaje](./media/functions-premium-create/function-app-premium-create-hosting.png)
+1. Seleccione **Siguiente: Hospedaje**. En la página **Hospedaje**, escriba la siguiente configuración:
 
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ | ---------------- | ----------- |
     | **[Cuenta de almacenamiento](../articles/storage/common/storage-account-create.md)** |  Nombre único globalmente |  Cree una cuenta de almacenamiento que use la aplicación de función. Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. También puede usar una cuenta existente que debe cumplir los [requisitos de la cuenta de almacenamiento](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     |**Sistema operativo**| Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
-    | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | En Tipo de plan, seleccione **Premium (versión preliminar)** y seleccione los valores predeterminados para *Plan de Windows* y las selecciones de *SKU y tamaño*. |
+    | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Plan de hospedaje que define cómo se asignan los recursos a la Function App. Seleccione **Premium** y, a continuación, seleccione los valores predeterminados de **Plan de Windows** y **SKU y tamaño**. |
 
-    Seleccione el botón **Siguiente: Supervisión >** .
+    ![Página Hospedaje](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
-1. Escriba la siguiente configuración para la supervisión.
-
-    ![Supervisión](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
+1. Seleccione **Siguiente: Supervisión**. En la página **Supervisión**, escriba la siguiente configuración:
 
     | Configuración      | Valor sugerido  | Descripción |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Valor predeterminado | Crea un recurso de Application Insights con el mismo *nombre de aplicación* en la región más cercana que lo admita. Si expande esta configuración, puede cambiar el valor de **Nuevo nombre de recurso**  o elegir otro valor en **Ubicación** en la [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) donde desee almacenar los datos. |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Valor predeterminado | Crea un recurso de Application Insights con el mismo *nombre de aplicación* en la región más cercana que lo admita. Si expande esta configuración, puede cambiar el valor de **Nuevo nombre de recurso**  o elegir otro valor en **Ubicación** en la [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) para almacenar los datos. |
 
-    Seleccione **Revisar y crear** para revisar las selecciones de configuración de la aplicación.
+    ![Página Supervisión](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
-1. Seleccione **Crear** para aprovisionar e implementar la aplicación de función.
+1. Seleccione **Revisar y crear** para revisar las selecciones de configuración de la aplicación.
+
+1. En la página **Revisar y crear**, revise la configuración y, a continuación, seleccione **Crear** para aprovisionar e implementar la aplicación de función.
+
+1. Seleccione el icono **Notificaciones** de la esquina superior derecha del portal y observe el mensaje **Implementación correcta**.
+
+1. Seleccione **Ir al recurso** para ver la nueva aplicación de función. También puede seleccionar **Anclar al panel**. Dicho anclaje facilita la vuelta a este recurso de aplicación de función desde el panel.
+
+    ![Notificación de implementación](./media/functions-premium-create/function-app-create-notification2.png)

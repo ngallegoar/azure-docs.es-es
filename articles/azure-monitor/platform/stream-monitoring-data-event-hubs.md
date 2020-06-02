@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733099"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854623"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmisión de datos de supervisión de Azure a un centro de eventos
 Azure Monitor proporciona una solución completa de supervisión de pila para aplicaciones y servicios en Azure, en otras nubes y locales. Asimismo, se puede usar Azure Monitor para analizar esos datos y aprovecharlos en diferentes escenarios de supervisión, aunque es posible que deba enviarlos a otras herramientas de supervisión de su entorno. El método más efectivo en la mayoría de los casos para transmitir datos de supervisión a herramientas externas, es usar [Azure Event Hubs](/azure/event-hubs/). En este artículo se proporciona una breve descripción de cómo puede transmitir datos de supervisión desde diferentes orígenes a un centro de eventos y vínculos a instrucciones detalladas.

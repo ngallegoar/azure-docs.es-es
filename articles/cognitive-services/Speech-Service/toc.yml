@@ -390,7 +390,7 @@
           href: voice-assistants.md
     - name: Comandos personalizados (versión preliminar)
       items:
-        - name: ¿Qué es la aplicación Comandos personalizados?
+        - name: ¿Qué es Comandos personalizados?
           href: custom-commands.md
         - name: Guías de inicio rápido
           items:
@@ -454,6 +454,18 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: Reconocimiento de palabras clave personalizadas
           href: speech-devices-sdk-create-kws.md
+- name: Speaker Recognition
+  items:
+    - name: Información general
+      items:
+        - name: ¿Qué es Speaker Recognition?
+          href: speaker-recognition-overview.md
+    - name: Referencia
+      items:
+        - name: API de REST
+          items:
+            - name: API REST de Reconocimiento de voz
+              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hospedaje
   items:
     - name: Documentación de hospedaje

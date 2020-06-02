@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico Canada Federal PBMM
 description: Asignación de controles de los ejemplos de plano técnico Canada Federal PBMM. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545247"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005714"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de Canada Federal PBMM
 
@@ -57,8 +57,8 @@ Tener solo un propietario de la suscripción de Azure no permite la redundancia 
 
 - Debe designar un máximo de tres propietarios para la suscripción
 - Debe haber más de un propietario asignado a su suscripción
-- Auditar las máquinas virtuales Windows en las que el grupo Administradores contenga algún miembro especificado
-- Auditar las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
+- Mostrar los resultados de la auditoría de las máquinas virtuales Windows en las que el grupo Administradores contenga algún miembro especificado
+- Mostrar los resultados de las auditorías de las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
 - Implementar los requisitos para auditar las máquinas virtuales Windows en las que el grupo Administradores contenga algún miembro especificado
 - Implementar los requisitos para auditar las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
 
@@ -68,8 +68,8 @@ Azure implementa el [control de acceso basado en rol](../../../../role-based-acc
 
 - Debe designar un máximo de tres propietarios para la suscripción
 - Debe haber más de un propietario asignado a su suscripción
-- Auditar las máquinas virtuales Windows en las que el grupo Administradores contenga algún miembro especificado
-- Auditar las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
+- Mostrar los resultados de la auditoría de las máquinas virtuales Windows en las que el grupo Administradores contenga algún miembro especificado
+- Mostrar los resultados de las auditorías de las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
 - Implementar los requisitos para auditar las máquinas virtuales Windows en las que el grupo Administradores contenga algún miembro especificado
 - Implementar los requisitos para auditar las máquinas virtuales Windows en las que el grupo Administradores no contenga todos los miembros especificados
 
@@ -85,7 +85,7 @@ La funcionalidad de detección y clasificación de datos de seguridad avanzada d
 
 Este plano técnico le ayuda a supervisar y controlar el acceso remoto mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para supervisar que la depuración remota de la aplicación Azure App Service está desactivada. El plano técnico también asigna definiciones de directiva que auditan las máquinas virtuales Linux que permiten conexiones remotas desde cuentas sin contraseñas. Además, el plano técnico asigna una definición de Azure Policy que le ayuda a supervisar el acceso sin restricciones a las cuentas de almacenamiento. La supervisión de estos indicadores puede ayudarle a garantizar que los métodos de acceso remoto cumplan con la directiva de seguridad.
 
-- \[Versión preliminar\]: auditoría de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - \[Versión preliminar\]: implementación de los requisitos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 - Se debe desactivar la depuración remota para aplicaciones de API
@@ -107,7 +107,7 @@ Los datos de registro que recopila Azure Monitor se almacenan en un área de tra
 Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las configuraciones del registro de eventos y auditoría. La supervisión de estas configuraciones puede proporcionar un indicador del error del sistema de auditoría o de una configuración incorrecta, y le ayudarán a tomar medidas correctivas.
 
 - Auditar la configuración de diagnóstico
-- Auditar configuración de auditoría de SQL en el nivel de servidor
+- La auditoría de SQL Server debe estar habilitada
 - La seguridad avanzada de datos debe estar habilitada en las instancias administradas
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 
@@ -131,7 +131,7 @@ Este plano técnico ayuda a garantizar que los eventos del sistema se registran 
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 - Auditar la configuración de diagnóstico
-- Auditar configuración de auditoría de SQL en el nivel de servidor
+- La auditoría de SQL Server debe estar habilitada
 - La seguridad avanzada de datos debe estar habilitada en las instancias administradas
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - Implementación de Advanced Data Security en los servidores de SQL Server
@@ -167,8 +167,8 @@ Este proyecto ayuda a restringir y controlar el acceso con privilegios mediante 
 
 Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) que auditan las máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña o que tengan permisos incorrectos establecidos en el archivo de contraseñas. Este proyecto también asigna definiciones de directiva que auditan la configuración del tipo de cifrado de contraseña en las máquinas virtuales Windows. La supervisión de estos indicadores le ayuda a asegurarse de que los autenticadores del sistema cumplen con la directiva de identificación y autenticación de la organización.
 
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
+- \[Versión preliminar\]: mostrar los resultados de la auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
 
@@ -176,11 +176,11 @@ Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md)
 
 Este proyecto ayuda a exigir contraseñas seguras mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las máquinas virtuales Windows que no exigen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva de contraseñas de la organización.
 
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
-- \[Versión preliminar\]: auditoría de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
+- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquina virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
@@ -217,10 +217,9 @@ El nivel estándar de denegación de servicio distribuido (DDoS) de Azure propor
 Este proyecto le ayuda a administrar y controlar el límite del sistema mediante la asignación de una definición de [Azure Policy](../../../policy/overview.md) que supervisa las recomendaciones de protección del grupo de seguridad de red en Azure Security Center. Azure Security Center analiza los patrones de tráfico de las máquinas virtuales de Internet y proporciona recomendaciones de reglas de grupo de seguridad de red para reducir la superficie potencial de ataque.
 Además, este proyecto también asigna definiciones de directiva que supervisan las cuentas de almacenamiento, las aplicaciones y los puntos de conexión desprotegidos. Los puntos de conexión y las aplicaciones que no están protegidos por firewall y las cuentas de almacenamiento con acceso sin restricciones pueden permitir el acceso no deseado a la información contenida en el sistema de información.
 
-- Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet
+- Las recomendaciones de protección de red adaptable se deben aplicar en las máquinas virtuales accesibles desde Internet
 - Debe restringirse el acceso a través de un punto de conexión accesible desde Internet
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
-- Se deben proteger las reglas de NSG para las aplicaciones web en IaaS
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>Protección de límites SC-7 (3) | Puntos de acceso
 
@@ -239,7 +238,7 @@ El acceso a máquinas virtuales Just-In-Time (JIT) bloquea el tráfico entrante 
 Este proyecto le ayuda a proteger la confidencialidad y la integridad de la información transmitida mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que le facilitan la supervisión del mecanismo criptográfico implementado para los protocolos de comunicaciones. Asegurar que las comunicaciones están correctamente cifradas puede ayudarle a satisfacer los requisitos de su organización o a proteger la información frente a la divulgación y la modificación no autorizadas.
 
 - Acceso a API App solo a través de HTTPS
-- Auditoría de los servidores web de Windows que no estén usando los protocolos de comunicación segura
+- Muestra de los resultados de la auditoría de los servidores web de Windows que no estén usando protocolos de comunicación segura.
 - Implementación de los requisitos para auditar los servidores web de Windows que no estén usando los protocolos de comunicación segura
 - Acceso a Function App solo a través de HTTPS
 - Solo se deben habilitar las conexiones seguras a Redis Cache

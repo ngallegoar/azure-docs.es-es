@@ -3,12 +3,12 @@ title: Introducción a Azure Advisor
 description: Utilice Azure Advisor para optimizar las implementaciones de Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74048073677cdf0f9f57d84469959a84e78cd6c7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443091"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854437"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -24,7 +24,7 @@ Con Advisor, puede:
 
 Puede acceder a Advisor mediante [Azure Portal](https://aka.ms/azureadvisordashboard). Inicie sesión en el [portal](https://portal.azure.com), busque **Asesor** en el menú de navegación o búsquelo en el menú **Todos los servicios**.
 
-El panel de Advisor muestra recomendaciones personalizadas para todas las suscripciones.  Puede aplicar filtros para mostrar las recomendaciones para determinadas suscripciones y tipos de recursos.  Las recomendaciones se dividen en cuatro categorías: 
+El panel de Advisor muestra recomendaciones personalizadas para todas las suscripciones.  Puede aplicar filtros para mostrar las recomendaciones para determinadas suscripciones y tipos de recursos.  Las recomendaciones se dividen en cinco categorías: 
 
 * **Alta disponibilidad**: para garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Para obtener más información, consulte las [recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md).
 * **Seguridad**: ayuda a detectar amenazas y vulnerabilidades que podrían dar lugar a infracciones de seguridad. Para obtener más información, consulte las [recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md).

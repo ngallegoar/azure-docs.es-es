@@ -11,6 +11,8 @@
       href: virtual-machines-availability-set-supportability.md
 - name: Guía para la implementación de máquinas virtuales
   items:
+    - name: "Actualización a SLES\_15\_SP1"
+      href: linux-upgrade-suse-15sp1.md
     - name: Nuevas implementaciones de máquina virtual
       items:
         - name: Linux

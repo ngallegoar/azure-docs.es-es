@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559774"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870039"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -90,7 +90,10 @@ La tabla siguiente proporciona la lista de los atributos necesarios para definir
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Propiedades de la autodependencia de ventana de saltos de tamaño constante
 
-En los escenarios en los que el desencadenador no debe continuar a la siguiente ventana hasta que se haya completado correctamente la ventana anterior, cree una autodependencia. Un desencadenador de dependencia automática que depende del éxito de las ejecuciones anteriores durante la hora anterior tendrá las propiedades siguientes:
+En los escenarios en los que el desencadenador no debe continuar a la siguiente ventana hasta que se haya completado correctamente la ventana anterior, cree una autodependencia. Un desencadenador de autodependencia que depende del éxito de sus propias ejecuciones anteriores durante la hora anterior tendrá las propiedades que se indican en el código siguiente.
+
+> [!NOTE]
+> Si la canalización desencadenada se basa en la salida de las canalizaciones en las ventanas desencadenadas previamente, se recomienda usar solo la autodependencia del desencadenador de la ventana de saltos de tamaño constante. Para limitar ejecuciones de desencadenador paralelas, defina la simultaneidad de desencadenador máxima.
 
 ```json
 {

@@ -8,21 +8,21 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: e2ee959fb6fc7e8454919c71cfa20e2bb9055dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c475787eafde4ba847b292df57e4b0d18cfe5d0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393862"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196049"
 ---
-# <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carga de datos de imágenes en la nube con Azure Storage
+# <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carga de datos de imagen en la nube con Azure Storage
 
 Este tutorial es la primera parte de una serie. En este tutorial se muestra cómo implementar una aplicación web que usa la biblioteca de cliente de Azure Blob Storage para cargar imágenes en una cuenta de almacenamiento. Cuando haya terminado, tendrá una aplicación web que almacena y muestra imágenes desde Azure Storage.
 
-# <a name="net-v12-sdk"></a>[\.SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 ![Aplicación para el cambio de tamaño de las imágenes en .NET.](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[SDK de Node.js, versión 10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 ![Aplicación para el cambio de tamaño de las imágenes en Node.js V10.](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -37,7 +37,7 @@ En la primera parte de la serie, se aprende a:
 > * Configuración de aplicaciones
 > * Interactuar con la aplicación web
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará una suscripción de Azure. Cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de comenzar.
 
@@ -111,7 +111,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 La aplicación web proporciona un espacio de hospedaje para el código de la aplicación de ejemplo que se implementó desde el repositorio de ejemplo de GitHub. Cree una [aplicación web](../../app-service/overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp).  
 
-En el siguiente comando, reemplace `<web_app>` por un nombre único. Los caracteres válidos son `a-z`, `0-9` y `-`. Si `<web_app>` no es único, recibirá el mensaje de error: *Ya existe un sitio web `<web_app>` con el nombre especificado.* La dirección URL predeterminada de la aplicación web es `https://<web_app>.azurewebsites.net`.  
+En el siguiente comando, reemplace `<web_app>` por un nombre único. Los caracteres válidos son `a-z`, `0-9` y `-`. Si el valor de `<web_app>` no es único, recibirá el mensaje de error: Ya existe un *sitio web con el nombre especificado `<web_app>`.* La dirección URL predeterminada de la aplicación web es `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
 webapp="<web_app>"
@@ -121,7 +121,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Implementación de la aplicación de ejemplo desde el repositorio de GitHub
 
-# <a name="net-v12-sdk"></a>[\.SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 App Service admite varias maneras de implementar contenido en una aplicación web. En este tutorial, se implementa la aplicación web desde un [repositorio de ejemplo público de GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure la implementación de GitHub local en la aplicación web con el comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
@@ -133,7 +133,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# <a name="nodejs-v10-sdk"></a>[SDK de Node.js, versión 10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 App Service admite varias maneras de implementar contenido en una aplicación web. En este tutorial, se implementa la aplicación web desde un [repositorio de ejemplo público de GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure la implementación de GitHub local en la aplicación web con el comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
 ```azurecli-interactive
@@ -146,7 +146,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## <a name="configure-web-app-settings"></a>Configurar aplicaciones web
 
-# <a name="net-v12-sdk"></a>[\.SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 La aplicación web de ejemplo usa las [API de Azure Storage para .NET](/dotnet/api/overview/azure/storage) para cargar imágenes. Las credenciales de la cuenta de Storage se establecen en la configuración de aplicación de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -158,7 +158,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# <a name="nodejs-v10-sdk"></a>[SDK de Node.js, versión 10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 
 La aplicación web de ejemplo usa la [biblioteca de cliente de Azure Storage](https://github.com/Azure/azure-storage-js) para solicitar tokens de acceso, que se usan para cargar imágenes. Las credenciales de la cuenta de almacenamiento que usa el SDK de Storage se establecen en la configuración de aplicación de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -176,7 +176,7 @@ Una vez que la aplicación web está implementada y configurada, puede probar la
 
 Para probar la aplicación web, vaya a la dirección URL de la aplicación publicada. La dirección URL predeterminada de la aplicación web es `https://<web_app>.azurewebsites.net`.
 
-# <a name="net-v12-sdk"></a>[\.SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 Seleccione la región **Upload photos** (Cargar fotos) para especificar y cargar un archivo, o bien arrastre un archivo a dicha región. La imagen desaparece si se carga correctamente. La sección **Miniaturas generadas** permanecerá vacía hasta que la probemos más adelante en este tema.
 
@@ -218,7 +218,7 @@ En la tarea anterior se usan las clases y los métodos siguientes:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [Constructor StorageSharedKeyCredential (cadena, cadena)](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# <a name="nodejs-v10-sdk"></a>[SDK de Node.js, versión 10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 
 Seleccione **Elegir archivo** para seleccionar un archivo y, a continuación, haga clic en **Cargar imagen**. La sección **Miniaturas generadas** permanecerá vacía hasta que la probemos más adelante en este tema. 
 
@@ -304,7 +304,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com). En el menú izquierd
 
 Compruebe que la imagen se muestra en el contenedor.
 
-![Azure Portal mostrando el contenedor de imágenes](media/storage-upload-process-images/figure13.png)
+![Azure Portal muestra el contenedor de imágenes](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Prueba de la vista de miniaturas
 
@@ -316,10 +316,10 @@ Elija un archivo mediante el selector de archivos y seleccione **Cargar**.
 
 Vuelva a la aplicación para comprobar que la imagen cargada en el contenedor **thumbnails** está visible.
 
-# <a name="net-v12-sdk"></a>[\.SDK de .NET, versión 12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 ![Aplicación para el cambio de tamaño de las imágenes de .NET mostrando una imagen nueva](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[SDK de Node.js, versión 10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 ![Aplicación para el cambio de tamaño de las imágenes de Node.js V10 mostrando una imagen nueva](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

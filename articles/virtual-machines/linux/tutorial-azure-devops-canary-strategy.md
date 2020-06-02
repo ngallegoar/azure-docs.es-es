@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configuración de implementaciones de valor controlado para Azure Linux Virtual Machines'
-description: En este tutorial, aprenderá a configurar una canalización de implementación continua (CD) que actualiza un grupo de máquinas virtuales Linux de Azure mediante la estrategia de implementación de valor controlado.
+description: En este tutorial, aprenderá a configurar una canalización de implementación continua (CD). Esta canalización actualiza un grupo de máquinas virtuales Linux en Azure con la estrategia de implementación controlada.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,65 +12,80 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b51b4aed85f737e436565ce8ba1ab4a295714734
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0fb26896b79fb23bb0f784c0f23aa3af0593c22
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82120533"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871857"
 ---
-# <a name="tutorial---configure-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación de valor controlado para Azure Linux Virtual Machines
+# <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación controlada para Azure Linux Virtual Machines
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infraestructura como servicio (IaaS): configuración de CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS: configuración de CI/CD 
-Azure Pipelines ofrece un conjunto completo de herramientas de automatización de CI/CD para implementaciones en máquinas virtuales. Desde Azure Portal puede configurar directamente una canalización de entrega continua para una máquina virtual de Azure. Este documento contiene los pasos asociados a la configuración de una canalización de CI/CD que emplea la estrategia de valor controlado para implementaciones de varias máquinas. También puede echar un vistazo a otras estrategias, como [Rolling](https://aka.ms/AA7jlh8) (Gradual) y [Blue-Green](https://aka.ms/AA83fwu) (Azul-verde), que se admiten de forma predeterminada en Azure Portal. 
+Azure Pipelines ofrece un conjunto completo de herramientas de automatización de CI/CD para las implementaciones en máquinas virtuales. En Azure Portal, se puede configurar directamente una canalización de entrega continua para una máquina virtual de Azure.
 
+En este artículo, se muestra cómo configurar una canalización de CI/CD que utiliza la estrategia controlada para la implementación de varias máquinas. Azure Portal también admite otras estrategias, como [gradual](https://aka.ms/AA7jlh8) y [azul-verde](https://aka.ms/AA83fwu).
 
-**Configuración de CI/CD en máquinas virtuales**
+### <a name="configure-cicd-on-virtual-machines"></a>Configuración de CI/CD en máquinas virtuales
 
-Se pueden agregar máquinas virtuales como destino en un [grupo de implementación](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) y se pueden destinar para actualizaciones de varias máquinas. Tras la implementación, el **historial de implementación** del grupo de implementación permite realizar un seguimiento desde la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación. 
- 
-  
-**Implementaciones de valor controlado**: las implementaciones de valor controlado reducen el riesgo, ya que implementan el cambio gradualmente en un pequeño subconjunto de usuarios. A medida que vaya ganando confianza con la nueva versión, puede empezar a usarla en más servidores de la infraestructura y enrutar más usuarios a ella. Puede configurar implementaciones de valor controlado en las máquinas virtuales con la opción de entrega continua de Azure Portal. Este es el tutorial paso a paso. 
-1. Inicie sesión en Azure Portal y vaya a una máquina virtual. 
-2. En el panel de la izquierda de la máquina virtual, vaya al menú  **Entrega continua** . Haga clic en **Configurar**. 
+Las máquinas virtuales se pueden agregar como destinos a un [grupo de implementación](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Posteriormente, se pueden establecer como destino para las actualizaciones de varias máquinas. Después de efectuar la implementación en las máquinas, vea el **historial de implementación** para un grupo de implementación. Esta vista le permite hacer un seguimiento de la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación.
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. En el panel de configuración, haga clic en **Organización de Azure DevOps** para seleccionar una cuenta existente o crear una. A continuación, seleccione el proyecto en el que desea configurar la canalización.  
+### <a name="canary-deployments"></a>Implementaciones controladas
 
+Las implementaciones controladas reducen el riesgo, ya que implementan los cambios gradualmente en un pequeño subconjunto de usuarios. A medida que va ganando confianza con la nueva versión, puede usarla en más servidores de la infraestructura y enrutar más usuarios a ella.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. Un grupo de implementación es un conjunto lógico de máquinas de destino de implementación que representan los entornos físicos; por ejemplo, "Dev", "Test", "UAT" y "Production". Puede crear un grupo de implementación o seleccionar uno existente. 
-5. Seleccione la canalización de compilación que publica el paquete que se va a implementar en la máquina virtual. Tenga en cuenta que el paquete publicado debe tener un script de implementación _deploy.ps1_ o _deploy.sh_ en la carpeta `deployscripts` de la raíz del paquete. La canalización de Azure DevOps ejecutará este script de implementación en tiempo de ejecución.
-6. Seleccione la estrategia de implementación que prefiera. Seleccione **Canary** (Valor controlado).
-7. Agregue la etiqueta "canary" a las máquinas virtuales que forman parte de las implementaciones de valor controlado y la etiqueta "prod" a las que lo hacen después de que la implementación de valor controlado se haya realizado correctamente. Las etiquetas le ayudan a dirigirse solo a las máquinas virtuales que tienen un rol concreto.
-![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
+Puede configurar implementaciones controladas en sus "máquinas virtuales" con la opción de entrega continua de Azure Portal. A continuación, se incluyen los pasos detallados:
 
-8. Haga clic en **Aceptar** en el cuadro de diálogo para configurar la canalización de entrega continua. Ahora, tendrá una canalización de entrega continua configurada para implementarla en la máquina virtual.
-![AzDevOps_canary_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
+1. Inicie sesión en Azure Portal y desplácese hasta una máquina virtual.
+1. En el panel de la izquierda de la configuración de la máquina virtual, seleccione **Entrega continua**. A continuación, seleccione **Configurar**.
 
+   ![Panel de entrega continua con el botón Configurar](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-9. Haga clic en **Editar** la canalización de versión en Azure DevOps para ver la configuración de la canalización. La canalización consta de tres fases. La primera es una fase de grupo de implementación y se implementa en las máquinas virtuales que tengan la etiqueta _canary_ (valor controlado). En la segunda fase, la canalización se detiene y espera la intervención manual para reanudar la ejecución. Una vez que un usuario está seguro de que la implementación de valor controlado es estable, puede reanudar la ejecución de la canalización y, seguidamente, se ejecutará la tercera fase, en la que se implementa en las máquinas virtuales con la etiqueta _prod_ (producción). ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
+1. En el panel de configuración, haga clic en **Organización de Azure DevOps** para seleccionar una cuenta o crear una. Después, seleccione el proyecto en el que desea configurar la canalización.  
 
-10. Antes de reanudar la ejecución de la canalización, asegúrese de que al menos una máquina virtual esté etiquetada como _prod_ (producción). En la tercera fase de la canalización, la aplicación se implementará solo en las máquinas virtuales que tengan la etiqueta _prod_ (producción).
+   ![Panel de entrega continua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-11. La tarea para ejecutar el script de implementación ejecutará de forma predeterminada el script de implementación _deploy.ps1_ o _deploy.sh_ de la carpeta "deployscripts" del directorio raíz del paquete publicado. Asegúrese de que la canalización de compilación seleccionada lo publica en la carpeta raíz del paquete. 
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. Un grupo de implementación es un conjunto lógico de máquinas de destino de implementación que representan los entornos físicos. Por ejemplo, Dev, Test, UAT y Production. Puede crear un grupo de implementación o seleccionar uno existente.
+1. Seleccione la canalización de compilación que publica el paquete que se va a implementar en la máquina virtual. Tenga en cuenta que el paquete publicado debe tener un script de implementación llamado deploy.ps1 o deploy.sh en la carpeta deployscripts de la carpeta raíz del paquete. La canalización ejecuta este script de implementación.
+1. En **Deployment strategy** (Estrategia de implementación), seleccione **Canary** (Valor controlado).
+1. Agregue una etiqueta "controlada" a las máquinas virtuales que van a formar parte de las implementaciones controladas. Agregue una etiqueta "prod" a las máquinas virtuales que formen parte de las implementaciones realizadas después de que la implementación controlada se realice correctamente. Las etiquetas le ayudan a dirigirse solo a las máquinas virtuales que tienen un rol específico.
 
+   ![Panel de entrega continua, con la opción Valor controlada elegida como estrategia de implementación](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
 
+1. Seleccione **Aceptar** para configurar la canalización de entrega continua que va a implementar en la máquina virtual.
 
+   ![La canalización controlada](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
+
+1. Se muestran los detalles de la implementación de la máquina virtual. Puede seleccionar el vínculo para ir a la canalización de versión en Azure DevOps. En la canalización de versión, seleccione **Editar** para ver la configuración de canalización. La canalización tiene estas tres fases:
+
+   1. Esta fase es una fase de grupo de implementación. Las aplicaciones se implementan en las máquinas virtuales etiquetadas como "controladas".
+   1. En esta fase, la canalización se detiene y espera una intervención manual para reanudar la ejecución.
+   1. De nuevo, esta es una fase de grupo de implementación. La actualización se implementa ahora en las máquinas virtuales etiquetadas como "prod".
+
+      ![El panel Grupo de implementación de la tarea Implementación controlada](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
+
+1. Antes de reanudar la ejecución de la canalización, asegúrese de que al menos una máquina virtual esté etiquetada como "prod". En la tercera fase de la canalización, las aplicaciones se implementarán solo en las máquinas virtuales que tengan la etiqueta "prod".
+
+1. La tarea Execute Deploy Script (Ejecutar script de implementación) ejecuta de forma predeterminada el script de implementación deploy.ps1 or deploy.sh. El script se encuentra en la carpeta deployscripts de la carpeta raíz del paquete publicado. Asegúrese de que la canalización de compilación seleccionada publica la implementación en la carpeta raíz del paquete.
+
+   ![Panel Artefactos, que muestra el script deploy.sh en la carpeta deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Otras estrategias de implementación
 - [Configuración de la estrategia de implementación gradual](https://aka.ms/AA7jlh8)
-- [Configuración de la estrategia de implementación azul-verde ](https://aka.ms/AA83fwu)
+- [Configuración de la estrategia de implementación azul-verde](https://aka.ms/AA83fwu)
 
-## <a name="azure-devops-project"></a>Proyecto de Azure DevOps 
-Empezar a usar Azure nunca fue tan fácil.
- 
-Con DevOps Projects, empiece a ejecutar la aplicación en cualquier servicio de Azure en tan solo tres pasos: seleccione un idioma para la aplicación, un entorno de ejecución y un servicio de Azure.
- 
-[Más información](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Recursos adicionales 
-- [Implementación en máquinas virtuales de Azure con un proyecto de DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Se puede comenzar a utilizar Azure fácilmente. En Azure DevOps Projects, puede empezar a ejecutar su aplicación en cualquier servicio de Azure con solo tres pasos. Para ello, seleccione:
+
+- Un idioma de la aplicación
+- Un entorno de ejecución
+- Un servicio de Azure
+
+[Más información](https://azure.microsoft.com/features/devops-projects/).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+- [Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
 - [Implementación continua de una aplicación en un conjunto de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

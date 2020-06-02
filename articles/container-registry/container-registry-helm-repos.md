@@ -3,12 +3,12 @@ title: Almacenamiento de gráficos de Helm
 description: Información sobre cómo almacenar gráficos de Helm para las aplicaciones de Kubernetes mediante repositorios en Azure Container Registry
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: cf9f9667438519443f857e43c0bbc94d6c239e0a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583343"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857617"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Inserción y extracción de gráficos de Helm en Azure Container Registry
 
@@ -32,6 +32,7 @@ Puede usar Helm 3 o Helm 2 para hospedar gráficos de Helm en Azure Container 
 
 * En la mayoría de los escenarios, se recomienda usar el flujo de trabajo de Helm 3 con comandos nativos `helm chart` para administrar gráficos como artefactos OCI.
 * A partir de Helm 3, los comandos [az acr helm][az-acr-helm] se admiten para la compatibilidad con el formato de los gráficos y el cliente de Helm 2. Actualmente no se planea el desarrollo futuro de estos comandos. Consulte la [Hoja de ruta del producto](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
+* Los gráficos de Helm 2 no se pueden ver ni administrar desde Azure Portal.
 
 ## <a name="use-the-helm-3-client"></a>Uso del cliente de Helm 3
 

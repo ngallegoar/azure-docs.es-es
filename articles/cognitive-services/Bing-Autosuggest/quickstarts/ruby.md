@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: eac1f53d35f8175da814dba6172edc12f9e1a063
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e9b990f7e79fe0d70a213db5739153fe1e558f3c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238941"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930206"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API REST Bing Autosuggest y Ruby
 
-Use este inicio rápido para empezar a realizar llamadas a la API Bing Autosuggest y obtener la respuesta JSON. Esta sencilla aplicación de Ruby envía una consulta de búsqueda parcial a la API y devuelve sugerencias para búsquedas. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Siga este inicio rápido para aprender a realizar llamadas a la API Bing Autosuggest y a leer la respuesta JSON. Esta sencilla aplicación de Ruby envía una consulta de búsqueda parcial a la API y devuelve sugerencias para búsquedas. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -38,7 +38,7 @@ Use este inicio rápido para empezar a realizar llamadas a la API Bing Autosugge
     require 'json'
     ```
 
-2. Cree variables para el host de API y la ruta de acceso, el [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) y la consulta de búsqueda parcial. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+2. Cree variables para el host y la ruta de acceso de la API, el [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) y una consulta de búsqueda parcial. Use el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,7 +48,7 @@ Use este inicio rápido para empezar a realizar llamadas a la API Bing Autosugge
     query = 'sail'
     ```
 
-3. Cree una cadena de parámetros; para ello, anexe al código de mercado el parámetro `?mkt=` y anexe a la consulta el parámetro `&q=`. A continuación, construya el URI de solicitud mediante la combinación del host de API, la ruta de acceso y la cadena de parámetros.
+3. Cree una cadena de parámetros; para ello, anexe al código de mercado el parámetro `mkt=` y anexe a la consulta el parámetro `q=`. A continuación, construya el URI de solicitud mediante la combinación del host de API, la ruta de acceso y la cadena de parámetros.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query

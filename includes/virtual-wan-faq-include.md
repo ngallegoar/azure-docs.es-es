@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204667"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006461"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -49,7 +49,7 @@ Hay dos opciones para agregar servidores DNS para los clientes de P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>En el caso de la red privada virtual de usuario (de punto a sitio), ¿cuántos clientes se admiten?
 
-Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. Las unidades de escalado de 1 a 3 admiten 500 conexiones, las unidades de escalado de 4 a 6 admiten 1000 conexiones, las unidades de escalado de 7 a 12 admiten 5000 conexiones y las unidades de escalado de 13 a 20 admiten hasta 10 000 conexiones. Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Aunque se pueden tener 500 conexiones*2 por cada puerta de enlace, no significa que se pueda planear para 1 000 en lugar de para 500 para esta unidad de escalado, ya que las instancias podrían necesitar mantenimiento y, durante este tiempo, la conectividad de las 500 adicionales se vería interrumpida si se sobrepasa el número recomendado de conexiones.
+Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. Las unidades de escalado de 1 a 3 admiten 500 conexiones, las unidades de escalado de 4 a 6 admiten 1000 conexiones, las unidades de escalado de 7 a 12 admiten 5000 conexiones y las unidades de escalado de 13 a 20 admiten hasta 10 000 conexiones. Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Aunque se pueden tener 500 conexiones*2 por cada puerta de enlace, no significa que se pueda planear para 1 000 en lugar de para 500 para esta unidad de escalado, ya que las instancias podrían necesitar mantenimiento y, durante este tiempo, la conectividad de las 500 adicionales se vería interrumpida si se sobrepasa el número recomendado de conexiones. Además, asegúrese de planear el tiempo de inactividad en caso de que decida escalar o reducir verticalmente en la unidad de escalado o cambiar la configuración de punto a sitio en la puerta de enlace de VPN.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>¿Cuál es la diferencia entre una puerta de enlace de Azure Virtual Network (VPN Gateway) y una instancia de VPN Gateway de Azure Virtual WAN?
 
@@ -190,8 +190,8 @@ El rendimiento total de VPN de un concentrador es de hasta 20 Gbps en función 
 Vaya a instancia de VPN Gateway de un centro del portal y haga clic en la unidad de escalado para cambiarla a la configuración adecuada.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>¿Azure Virtual WAN permite al dispositivo local usar varias ISP en paralelo o es siempre un solo túnel VPN?
+Las soluciones en dispositivos locales pueden aplicar directivas de tráfico para dirigir el tráfico entre varios túneles en Azure.
 
-Una conexión que entra en una VPN de Virtual WAN siempre es un túnel activo/activo (para proporcionar resistencia en la misma región o centro) que usa un vínculo disponible en la rama. Este vínculo puede ser un vínculo de ISP en la rama local. La instancia "VPNSite" de Virtual WAN proporciona la capacidad de agregar información del vínculo al sitio. Si tiene varios ISP en la rama y cada uno de ellos proporcionó un vínculo, esa información se puede configurar en la información del sitio VPN de Azure. Sin embargo, administrar la conmutación por error en ISP en la rama es completamente una operación de red centrada en la rama.
 
 ### <a name="what-is-global-transit-architecture"></a>¿Qué es la arquitectura de tránsito global?
 

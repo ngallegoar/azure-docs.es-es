@@ -4,15 +4,15 @@ description: En este artículo se describe cómo realizar copias de seguridad y 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 02ca7f268f2998d3b7d73ab9fc00bbd688b5f50c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582526"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871301"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -24,7 +24,7 @@ Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Ana
 > 
 
 > [!NOTE]
-> Si la cuenta de almacenamiento está en una región diferente, la configuración del firewall debe estar establecida para permitir el acceso desde **todas las redes**. No se admiten opciones de firewall configuradas para redes seleccionadas con direcciones IP que estén en la lista de permitidos ni para permitir una excepción de servicios de Microsoft de confianza.
+> Si la cuenta de almacenamiento está en otra región, configure el firewall de la cuenta de almacenamiento para permitir el acceso desde **Redes seleccionadas**. En el **intervalo de direcciones** del firewall, especifique el intervalo de direcciones IP para la región en la que se encuentra el servidor de Analysis Services. Se admite la configuración del firewall de la cuenta de almacenamiento para permitir el acceso desde todas las redes, aunque es preferible elegir Redes seleccionadas y especificar un intervalo de direcciones IP. Para más información, consulte [Preguntas frecuentes acerca de la conectividad de red](analysis-services-network-faq.md#backup-and-restore).
 
 Las copias de seguridad se guardan con una extensión .abf. Para los modelos tabulares en memoria, se almacenan los datos y los metadatos del modelo. Para los modelos tabulares de consulta directa, solo se almacenan los metadatos del modelo. Las copias de seguridad se pueden comprimir y cifrar, según las opciones que elija.
 

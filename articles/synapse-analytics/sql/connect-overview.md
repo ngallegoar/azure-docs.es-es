@@ -9,21 +9,24 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9748b0354ce09752296fb7d736e09af716f19351
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420879"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198513"
 ---
 # <a name="connect-to-synapse-sql"></a>Conexión a Synapse SQL
 Conéctese a la funcionalidad de Synapse SQL en Azure Synapse Analytics.
 
 ## <a name="supported-tools-for-sql-on-demand-preview"></a>Herramientas compatibles con SQL a petición (versión preliminar)
 
-La herramienta totalmente compatible es Azure Data Studio (versión preliminar).
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) es totalmente compatible a partir de la versión 1.18.0. SSMS es parcialmente compatible a partir de la versión 18.5, que solo se puede usar para establecer conexión y realizar consultas.
 
-SQL Server Management Studio se admite parcialmente a partir de la versión 18.4. Hay un número limitado de características como la conexión y la realización de consultas.
+> [!NOTE]
+> Si el inicio de sesión de AAD tiene una conexión abierta durante más de una hora en el momento de la ejecución de la consulta, se producirá un error en todas las consultas que usen AAD, lo que incluye la realización de consultas en el almacenamiento mediante el paso a través de AAD y las instrucciones que interactúan con AAD (como CREATE EXTERNAL PROVIDER). Esto afecta a todas las herramientas que mantienen las conexiones abiertas, como en el editor de consultas de SSMS y ADS. Las herramientas que abren conexiones nuevas para ejecutar una consulta, como Synapse Studio, no resultan afectadas.
+
+> Para mitigar este problema, puede reiniciar SSMS, o bien conectarse y desconectarse en ADS. 
 
 ## <a name="find-your-server-name"></a>Búsqueda del nombre de servidor
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 039a52c9ab0bfc460116e48086c854f4d7e8efb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77919675"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996965"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics para Ruby
 
@@ -31,7 +31,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 > [!NOTE]
 > Este inicio rápido solo se aplica a Text Analytics 2.1. Actualmente, no hay disponible ninguna biblioteca de cliente v3 para Ruby.
 
-[Documentación de referencia](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Paquete (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Paquete (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
@@ -83,7 +83,7 @@ El objeto de respuesta es una lista que contiene la información de análisis pa
 
 ## <a name="code-examples"></a>Ejemplos de código
 
-Estos fragmentos de código muestran cómo hacer lo siguiente con la biblioteca cliente de Text Analytics para Python:
+Estos fragmentos de código muestran cómo hacer lo siguiente con la biblioteca cliente de Text Analytics para Ruby:
 
 * [Autenticar el cliente](#authenticate-the-client)
 * [Análisis de sentimiento](#sentiment-analysis)

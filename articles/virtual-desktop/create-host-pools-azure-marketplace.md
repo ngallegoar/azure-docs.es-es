@@ -1,162 +1,188 @@
 ---
-title: 'Grupo host de Windows Virtual Desktop en Azure Marketplace: Azure'
-description: Creación de un grupo host de Windows Virtual Desktop con Azure Marketplace.
+title: Grupo de hosts de Windows Virtual Desktop en Azure Portal
+description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure Portal.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d5165b160ffc196416052a56aaa0d93c05db56bc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9effbe29917c774279b6e9d203f44d5ad5c72e2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222292"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121055"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
+# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
-En este tutorial, aprenderá cómo crear un grupo de hosts dentro de un inquilino de Windows Virtual Desktop con una oferta de Microsoft Azure Marketplace.
-
-Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
-
-Las tareas de este tutorial incluyen:
-
-> [!div class="checklist"]
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Los artículos que cree con la versión Fall 2019 de Windows Virtual Desktop no se podrán administrar desde Azure Portal.
 >
-> * Crear un grupo de hosts en Windows Virtual Desktop.
-> * Crear un grupo de recursos con máquinas virtuales en una suscripción de Azure.
-> * Unir las máquinas virtuales al dominio de Active Directory.
-> * Registrar las máquinas virtuales con Windows Virtual Desktop.
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Los grupos de hosts son una colección de una o varias máquinas virtuales (VM) idénticas en entornos de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
+
+Este artículo le guía en el proceso de configuración para crear un grupo de hosts para un entorno de Windows Virtual Desktop mediante Azure Portal. El método que se ofrece proporciona una interfaz de usuario basada en explorador para crear un grupo de hosts en Windows Virtual Desktop, crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Azure Active Directory (AD) y registrar las máquinas virtuales en Windows Virtual Desktop.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Un inquilino en Virtual Desktop. Un [tutorial](tenant-setup-azure-active-directory.md) anterior crea un inquilino.
-* [Módulo de PowerShell para Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/)
+Deberá especificar los siguientes parámetros para crear un grupo de hosts:
 
-Cuando tenga este módulo, ejecute el siguiente cmdlet para iniciar sesión en su cuenta:
+- El nombre de la imagen de máquina virtual
+- Configuración de VM
+- Las propiedades de proceso y red
+- Las propiedades del grupo de hosts de Windows Virtual Desktop
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+También deberá saber lo siguiente:
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+- Dónde está el origen de la imagen que quiere usar. ¿Está en Azure Gallery o es una imagen personalizada?
+- Sus credenciales de unión un dominio.
 
-Inicie sesión en [Azure Portal](https://portal.azure.com).
+Asegúrese también de que ha registrado el proveedor de recursos Microsoft.DesktopVirtualization. Si aún no lo ha hecho, vaya a **Suscripciones**, seleccione el nombre de su suscripción y, a continuación, **Proveedores de recursos de Azure**.
 
-## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Ejecución de la oferta de Azure Marketplace para aprovisionar un nuevo grupo de hosts
+Cuando se crea un grupo de hosts de Windows Virtual Desktop con la plantilla de Azure Resource Manager, se puede crear una máquina virtual desde una imagen de Azure Gallery, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 
-Para ejecutar la oferta de Azure Marketplace para aprovisionar un nuevo grupo de hosts:
+Si aún no tiene una suscripción a Azure, asegúrese de [crear una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar a seguir estas instrucciones.
 
-1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
-1. Escriba **Windows Virtual Desktop** en la ventana de búsqueda de Marketplace.
-1. Seleccione **Windows Virtual Desktop - Provision a host pool** (Windows Virtual Desktop: aprovisionar un grupo de hosts) y seleccione **Crear**.
+## <a name="begin-the-host-pool-setup-process"></a>Inicio del proceso de configuración del grupo de hosts
 
-Después, siga las instrucciones de la sección siguiente para escribir la información de las pestañas adecuadas.
+Para empezar a crear el grupo de hosts:
 
-### <a name="basics"></a>Aspectos básicos
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
 
-En la pestaña **Aspectos básicos**, haga lo siguiente:
+2. Escriba **Windows Virtual Desktop** en la barra de búsqueda y, luego, busque y seleccione **Windows Virtual Desktop** en Servicios.
 
-1. Seleccione una opción en **Suscripción**.
-1. En **Grupo de recursos**, seleccione **Crear nuevo** y proporcione un nombre para el nuevo grupo de recursos.
-1. Seleccione una **región**.
-1. Escriba un nombre para el grupo de hosts que sea un nombre único dentro del inquilino de Windows Virtual Desktop.
-1. Seleccione **Desktop type** (Tipo de escritorio). Si selecciona **Personal**, cada usuario que se conecte a este grupo de hosts se asignará permanentemente a una máquina virtual.
-1. Especifique los usuarios que pueden iniciar sesión en los clientes de Windows Virtual Desktop y tener acceso a un escritorio. Use una lista separada por comas. Por ejemplo, si quiere asignar acceso a `user1@contoso.com` y `user2@contoso.com`, escriba *`user1@contoso.com,user2@contoso.com`* .
-1. En **Service metadata location** (Ubicación de metadatos de servicio), seleccione la misma ubicación que la red virtual que tenga conectividad con el servidor de Active Directory.
+3. En la página de información general de **Windows Virtual Desktop**, seleccione **Create a host pool** (Crear un grupo de hosts).
 
-   >[!IMPORTANT]
-   >Si va a usar una solución pura de Azure Active Directory Domain Services (Azure AD DS) y Azure Active Directory (Azure AD), asegúrese de implementar el grupo host en la misma región que Azure AD DS para evitar los errores de unión al dominio y de credenciales.
+4. En la pestaña **Basics** (Aspectos básicos), seleccione la suscripción correcta en los detalles del proyecto.
 
-1. Seleccione **Siguiente: Configure virtual machines** (Configuración de máquinas virtuales).
+5. Seleccione **Create new** (Crear nuevo) para crear un grupo de recursos o seleccione un grupo de recursos existente en el menú desplegable.
 
-### <a name="configure-virtual-machines"></a>Configuración de máquinas virtuales
+6. Escriba un nombre único para el grupo de hosts.
 
-En la pestaña **Configure virtual machines** (Configuración de las máquinas virtuales):
+7. En el campo "Location" (Ubicación), en el menú desplegable, seleccione la región en la que quiere crear el grupo de hosts.
+   
+   La geografía de Azure asociada a las regiones seleccionadas es donde se almacenarán los metadatos de este grupo de hosts y sus objetos relacionados. Asegúrese de elegir las regiones dentro de la geografía en la que quiere que se almacenen los metadatos del servicio.
 
-1. Acepte los valores predeterminados o personalice el número y tamaño de las máquinas virtuales.
+     ![Captura de pantalla de Azure Portal que muestra el campo "Location" (Ubicación) con la ubicación East US (Este de EE. UU.) seleccionada. Junto al campo aparece texto que dice que los metadatos se almacenarán en el este de EE. UU.](media/portal-location-field.png)
+
+8. En "Host pool type" (Tipo de grupo de hosts), seleccione si el grupo de hosts será **Personal** o **Pooled** (Agrupado).
+
+    - Si elige **Personal**, seleccione **Automatic** (Automático) o **Direct** (Directo) en el campo Assignment Type (Tipo de asignación).
+
+      ![Captura de pantalla del menú desplegable del campo "Assignment Type" (Tipo de asignación). El usuario ha seleccionado "Automatic" (Automático).](media/assignment-type-field.png)
+
+9. Si elige **Pooled** (Agrupado), escriba la siguiente información:
+
+     - En **Max session limit** (Límite máximo de sesiones), escriba el número máximo de usuarios entre los que desea que se equilibre la carga en un solo host de sesión.
+     - En **Load balancing algorithm** (Algoritmo de equilibrio de carga), elija equilibrio de carga en amplitud o equilibrio de carga en profundidad, según el patrón de uso.
+
+       ![Captura de pantalla del campo "Assignment Type" (Tipo de asignación) con "Pooled" (Agrupado) seleccionado. El usuario está desplazando el cursor sobre "Breadth-first" (Equilibrio de carga en amplitud) en el menú desplegable "Load Balancing" (Equilibrio de carga).](media/pooled-assignment-type.png)
+
+10. Seleccione **Siguiente: VM details** (Detalles de VM).
+
+11. Si ya ha creado las máquinas virtuales y quiere usarlas con el nuevo grupo de hosts, seleccione **No**. Si quiere crear máquinas virtuales y registrarlas en el nuevo grupo de hosts, seleccione **Yes** (Sí).
+
+Ahora que ha completado la primera parte, vamos a pasar a la siguiente parte del proceso de configuración en el que se crea la máquina virtual.
+
+## <a name="virtual-machine-details"></a>Detalles de máquina virtual
+
+Ahora que hemos recorrido la primera parte, tendrá que configurar la máquina virtual.
+
+Para configurar la máquina virtual en el proceso de configuración del grupo de hosts:
+
+1. En "Resource Group" (Grupo de recursos), elija el grupo de recursos donde quiere crear las máquinas virtuales. Puede ser un grupo de recursos diferente al que usó para el grupo de hosts.
+
+2. Elija la **región de la máquina virtual** donde quiere crear las máquinas virtuales. Puede ser igual o diferente a la región seleccionada para el grupo de hosts.
+
+3. A continuación, elija el tamaño de la máquina virtual que quiere crear. Puede mantener el tamaño predeterminado tal cual o seleccionar **Change Size** (Cambiar tamaño) para cambiar el tamaño. Si selecciona **Change Size** (Cambiar tamaño), en la ventana que aparece, elija el tamaño de la máquina virtual adecuado para su carga de trabajo.
+
+4. En "Number of VMs" (Número de máquinas virtuales), proporcione el número de máquinas virtuales que quiere crear para el grupo de hosts.
 
     >[!NOTE]
-    >Si el tamaño de máquina virtual específico que busca no aparece en el selector, es porque aún no se ha incorporado a la herramienta Azure Marketplace. Para solicitar un tamaño de máquina virtual, cree una solicitud o vote por una existente en el [foro de UserVoice de Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >En el proceso de configuración se pueden crear hasta 400 máquinas virtuales al configurar el grupo de hosts y cada proceso de configuración de máquina virtual crea cuatro objetos en el grupo de recursos. Dado que en el proceso de creación no se comprueba la cuota de suscripción, asegúrese de que el número de máquinas virtuales que especifique se encuentre dentro de los límites de la máquina virtual y de la API de Azure en el grupo de recursos y la suscripción. Después de terminar de crear el grupo de hosts, puede agregar más máquinas virtuales.
 
-1. Escriba un prefijo para los nombres de las máquinas virtuales. Por ejemplo, si escribe el nombre *prefijo*, las máquinas virtuales se llamarán **prefijo-0**, **prefijo-1** y así sucesivamente.
-1. Seleccione **Siguiente: Configuración de máquina virtual**.
+5. A continuación, proporcione un **prefijo de nombre** para asignar un nombre a las máquinas virtuales que crea el proceso de configuración. El sufijo será `-` y los números comienzan a partir de 0.
 
-### <a name="virtual-machine-settings"></a>Configuración de máquina virtual
+6. A continuación, elija la imagen que debe usarse para crear la máquina virtual. Puede elegir entre **Gallery** (Galería) o **Storage Blob**.
 
-En la pestaña **Configuración de máquina virtual**:
+    - Si elige **Gallery** (Galería), seleccione una de las imágenes recomendadas en el menú desplegable:
 
-1. En **Origen de la imagen**, seleccione el origen y escriba la información adecuada para encontrarla y almacenarla. Las opciones difieren en el almacenamiento de blobs, la imagen administrada y la galería.
+      - Sesión múltiple de Windows 10 Enterprise, versión 1909 + Office 365 ProPlus - Gen 1
+      - Sesión múltiple de Windows 10 Enterprise, versión 1909 - Gen 1
+      - Windows Server 2019 Datacenter - Gen 1
 
-   Si decide no usar discos administrados, seleccione la cuenta de almacenamiento que contiene el archivo *.vhd*.
-1. Escriba el nombre principal de usuario y la contraseña. Esta cuenta debe ser la cuenta de dominio que unirá las máquinas virtuales al dominio de Active Directory. Este mismo nombre de usuario y contraseña se creará en las máquinas virtuales como una cuenta local. Puede restablecer estas cuentas locales más adelante.
+     Si no ve la imagen que quiere, seleccione **Browse all images and disks** (Examinar todas las imágenes y discos), lo que le permite seleccionar otra imagen de la galería o una imagen proporcionada por Microsoft y otros anunciantes.
 
-   >[!NOTE]
-   > Si va a unir sus máquinas virtuales a un entorno de Azure AD DS, asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores de controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-   >
-   > La cuenta también forma parte del dominio administrado de Azure AD DS o del inquilino de Azure AD. Las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio.
+     ![Captura de pantalla de Marketplace que muestra una lista de imágenes de Microsoft.](media/marketplace-images.png)
 
-1. Seleccione la **red virtual** que tenga conectividad con el servidor de Active Directory y, después, elija una subred donde se hospedarán las máquinas virtuales.
-1. Seleccione **Siguiente: Información de Windows Virtual Desktop**.
+     También puede ir a **My Items** (Mis elementos) y elegir una imagen personalizada que ya haya cargado.
 
-### <a name="windows-virtual-desktop-tenant-information"></a>Información del inquilino de Windows Virtual Desktop
+     ![Captura de pantalla de la pestaña "My Items" (Mis elementos).](media/my-items.png)
 
-En la pestaña **Windows Virtual Desktop tenant information** (Información del inquilino de Windows Virtual Desktop):
+    - Si elige **Storage Blob**, puede aprovechar su propia imagen creada mediante Hyper-V o en una máquina virtual de Azure. Todo lo que tiene que hacer es escribir la ubicación de la imagen en el blob de almacenamiento como un URI.
 
-1. En **Nombre de grupo de inquilinos de Windows Virtual Desktop**, escriba el nombre del grupo de inquilinos que contiene su inquilino. A menos que se le haya proporcionado un nombre de grupo de inquilinos específico, deje el valor predeterminado.
-1. En **Nombre de inquilino de Windows Virtual Desktop**, escriba el nombre del inquilino donde se creará este grupo de hosts.
-1. Especificar el tipo de credenciales que desea usar para autenticarse como propietario de RDS del inquilino de Windows Virtual Desktop. Escriba el nombre principal de usuario o la entidad de servicio y una contraseña.
+7. Elija qué tipo de discos del sistema operativo quiere que usen las máquinas virtuales: SSD estándar, SSD Premium o HDD estándar.
 
-   Si completó el [tutorial Creación de entidades de servicio y asignaciones de roles con PowerShell](./create-service-principal-role-powershell.md), seleccione **serviceprincipal**.
+8. En "Network and security" (Red y seguridad), seleccione la red virtual y la subred en la que quiere colocar las máquinas virtuales creadas. Asegúrese de que la red virtual pueda conectarse al controlador de dominio, ya que tendrá que unir al dominio las máquinas virtuales que se encuentran dentro de la red virtual. Luego, seleccione si quiere o no una dirección IP pública para las máquinas virtuales. Se recomienda seleccionar **No**, ya que una dirección IP privada es más segura.
 
-1. En **Entidad de servicio**, para **Id. de inquilino de Azure AD**, escriba la cuenta de administrador de inquilinos para la instancia de Azure AD que contiene la entidad de servicio. Solo se admiten entidades de servicio con credenciales de contraseña.
-1. Seleccione **Siguiente: Review + create** (Revisar y crear).
+9. Seleccione el tipo de grupo de seguridad que desee: **Basic** (Básico), **Advanced** (Avanzado) o **None** (Ninguno).
 
-## <a name="complete-setup-and-create-the-virtual-machine"></a>Finalización de la instalación y creación de la máquina virtual
+    Si selecciona **Basic** (Básico), tendrá que decidir si quiere abrir algún puerto de entrada. Si selecciona **Yes** (Sí), elija de la lista de puertos estándar a los que permitir conexiones entrantes.
 
-En **Revisar y crear**, revise la información de configuración. Si necesita cambiar algo, vuelva y realice los cambios. Cuando esté listo, seleccione **Crear** para implementar el grupo de hosts.
+    >[!NOTE]
+    >Para mayor seguridad, se recomienda no abrir puertos de entrada públicos.
 
-Según cuántas máquinas virtuales esté creando, este proceso puede tardar 30 minutos o más en completarse.
+    ![Captura de pantalla de la página del grupo de seguridad que muestra una lista de los puertos disponibles en un menú desplegable.](media/available-ports.png)
+    
+    Si elige **Advanced** (Avanzado), seleccione un grupo de seguridad de red existente que ya haya configurado.
 
->[!IMPORTANT]
-> Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host.
->
-> Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar el acceso de máquina virtual Just-in-Time. Para más información, consulte [Protección de los puertos de administración con acceso Just-in-Time](../security-center/security-center-just-in-time.md).
+10. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. También puede agregar una unidad organizativa determinada en la que quiera que estén las máquinas virtuales.
 
-## <a name="optional-assign-additional-users-to-the-desktop-application-group"></a>(Opcional) Asignación de usuarios adicionales al grupo de aplicaciones de escritorio
+11. En "Administrator account" (Cuenta de administrador), escriba las credenciales del administrador de dominio de Active Directory de la red virtual que ha seleccionado.
 
-Una vez que Azure Marketplace termine de crear el grupo, puede asignar más usuarios al grupo de aplicaciones de escritorio. Si no desea agregar más, omita esta sección.
+12. Seleccione **Workspace** (Área de trabajo).
 
-Para asignar usuarios al grupo de aplicaciones de escritorio:
+Ahora, estamos preparados para iniciar la siguiente fase de configuración del grupo de hosts: registro del grupo de aplicaciones en un área de trabajo.
 
-1. Abra una ventana de PowerShell.
+## <a name="workspace-information"></a>Información del área de trabajo
 
-1. Ejecute el siguiente comando para iniciar sesión en el entorno de Windows Virtual Desktop.
+El proceso de configuración del grupo de hosts crea un grupo de aplicaciones de escritorio de forma predeterminada. Para que el grupo de hosts funcione según lo previsto, debe publicar este grupo de aplicaciones en usuarios o grupos de usuarios, y debe registrar el grupo de aplicaciones en un área de trabajo. 
 
-   ```powershell
-   Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-   ```
+Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
 
-1. Agregue usuarios al grupo de aplicaciones de escritorio con este comando:
+1. Seleccione **Sí**.
 
-   ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
-   ```
+   Si selecciona **No**, puede registrar el grupo de aplicaciones más adelante, pero se recomienda realizar el registro del área de trabajo tan pronto como pueda para que el grupo de hosts funcione correctamente.
 
-   El nombre principal de usuario debe coincidir con la identidad del usuario en Azure AD, por ejemplo, *user1@contoso.com* . Si desea agregar varios usuarios, ejecute el comando para cada usuario.
+2. A continuación, elija si quiere crear un área de trabajo o seleccionar entre las áreas de trabajo existentes. Solo las áreas de trabajo creadas en la misma ubicación que el grupo de hosts se pueden registrar en el grupo de aplicaciones.
 
-Los usuarios que ha agregado al grupo de aplicaciones de escritorio pueden iniciar sesión en Windows Virtual Desktop con clientes de Escritorio remoto compatibles y ver un recurso de escritorio de sesión.
+3. Opcionalmente, puede seleccionar **Tags** (Etiquetas).
 
-Estos son los clientes compatibles actualmente:
+    Aquí puede agregar etiquetas para poder agrupar los objetos con metadatos y así facilitar las tareas para los administradores.
 
-* [Cliente de Escritorio remoto para Windows 7 y Windows 10](connect-windows-7-and-10.md)
-* [Cliente web de Windows Virtual Desktop](connect-web.md)
+4. Seleccione **Revisar y crear** cuando haya terminado. 
+
+     >[!NOTE]
+     >El proceso de validación "Review + create" (Revisar y crear) no comprueba si la contraseña cumple los estándares de seguridad o si la arquitectura es correcta, por lo que deberá confirmar si hay algún problema con cualquiera de estos aspectos. 
+
+5. Revise la información sobre la implementación para asegurarse de que todo es correcto. Seleccione **Crear** cuando haya terminado. Esta acción inicia el proceso de implementación, que crea los objetos siguientes:
+
+     - El nuevo grupo de hosts.
+     - Un grupo de aplicaciones de escritorio.
+     - Un área de trabajo, si decidió crearla.
+     - Si ha decidido registrar el grupo de aplicaciones de escritorio, el registro se completará.
+     - Máquinas virtuales, si ha decidido crearlas, que se unen al dominio y se registran en el nuevo grupo de hosts.
+     - Un vínculo de descarga de una plantilla de administración de recursos de Azure basada en la configuración.
+
+Y ya está.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha realizado un grupo de host y ha asignado usuarios para tener acceso al escritorio. Puede rellenar el grupo de host con programas RemoteApp. Para más información sobre cómo administrar las aplicaciones en Windows Virtual Desktop, consulte este tutorial:
+Ahora que ha creado un grupo de hosts, puede rellenarlo con programas de RemoteApp. Para más información sobre cómo administrar aplicaciones en Windows Virtual Desktop, avance al siguiente tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Administración de grupos de aplicaciones](./manage-app-groups.md)

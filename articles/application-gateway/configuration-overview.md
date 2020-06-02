@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632187"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856060"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -101,18 +101,18 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
 
    Puede crear una UDR para enviar el tráfico 0.0.0.0/0 directamente a Internet. 
 
-  **Escenario 3**: UDR para kubenet de Azure Kubernetes Service
+  **Escenario 3**: UDR para Azure Kubernetes Service con kubenet
 
-  Si usa kubenet con Azure Kubernetes Service (AKS) y el Controlador de entrada de Application Gateway (AGIC), debe configurar una tabla de rutas para permitir que el tráfico enviado a los pods se redirija al nodo correcto. Esto no será necesario si usa Azure CNI. 
+  Si usa kubenet con Azure Kubernetes Service (AKS) y el Controlador de entrada de Application Gateway (AGIC), necesitará una tabla de rutas para permitir que el tráfico enviado a los pods desde Application Gateway se redirija al nodo correcto. Esto no será necesario si usa Azure CNI. 
 
-   Para configurar la tabla de rutas de modo que kubenet funcione, siga estos pasos:
+  Para usar la tabla de rutas para que kubenet funcione, siga estos pasos:
 
-  1. Cree un recurso de tabla de rutas en Azure. 
-  2. Una vez creado, vaya a la página **Rutas**. 
-  3. Agregue una ruta nueva:
+  1. Vaya al grupo de recursos creado por AKS (el nombre del grupo de recursos debe comenzar por "MC_").
+  2. Busque la tabla de rutas creada por AKS en ese grupo de recursos. La tabla de rutas se debe rellenar con la siguiente información:
      - El prefijo de dirección debe ser el intervalo IP de los pods a los que quiere acceder en AKS. 
-     - El siguiente tipo de salto debe ser **Aplicación virtual**. 
-     - La siguiente dirección de salto debe ser la dirección IP del nodo que hospeda los pods en el intervalo IP definido en el campo del prefijo de dirección. 
+     - El siguiente tipo de salto debe ser Aplicación virtual. 
+     - La dirección del próximo salto debe ser la dirección IP del nodo que hospeda los pods.
+  3. Asocie esta tabla de rutas a la subred de Application Gateway. 
     
   **Escenarios incompatibles de v2**
 

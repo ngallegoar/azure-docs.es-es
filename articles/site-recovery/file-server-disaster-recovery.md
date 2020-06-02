@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75980300"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858752"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -30,7 +30,7 @@ El objetivo de un sistema de uso compartido de archivos distribuido y abierto es
 DFSR utiliza un algoritmo de compresión que se conoce como compresión diferencial remota (RDC), que se puede usar para actualizar los archivos de forma eficaz a través de una red con ancho de banda limitado. Detecta las inserciones, eliminaciones y reorganizaciones de datos en los archivos. DFSR está habilitado para replicar solo los bloques de archivo modificados cuando se actualizan los archivos. También hay entornos de servidor de archivos en los que se realizan copias de seguridad diarias en intervalos fuera de horas punta, lo que responde a las necesidades de la recuperación ante desastres. DFSR no está implementado.
 
 El diagrama siguiente muestra el entorno de servidor de archivos con DFSR implementado.
-                
+        
 ![Arquitectura de DFSR](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 En el diagrama anterior, varios servidores de archivos, llamados miembros, participan activamente en la replicación de archivos a través de un grupo de replicación. El contenido de la carpeta replicada estará disponible para todos los clientes que envíen solicitudes a cualquiera de los miembros, incluso en el caso de que uno de los miembros esté desconectado.
@@ -57,19 +57,19 @@ El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su ent
 |Entorno  |Recomendación  |Puntos que se deben tener en cuenta |
 |---------|---------|---------|
 |Entorno de servidor de archivos con o sin DFSR|   [Uso de Site Recovery para la replicación](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery no es compatible con los clústeres de discos compartidos ni con el almacenamiento conectado a la red (NAS). Si su entorno usa estas configuraciones, utilice cualquiera de los demás enfoques según corresponda. <br> Site Recovery no es compatible con SMB 3.0. La máquina virtual replicada incorpora los cambios solo cuando se actualizan los cambios realizados en los archivos en la ubicación original de los archivos.<br>  Site Recovery ofrece un proceso de replicación de datos casi sincrónico y, por lo tanto, en caso de que se produzca un escenario de conmutación por error no planeada, podría producirse una pérdida de datos y podrían aparecer problemas de falta de coincidencia de USN.
-|Entorno de servidor de archivos con DFSR     |  [Extensión de DFSR a una máquina virtual de IaaS de Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR funciona correctamente en entornos con el ancho de banda muy restringido. Este enfoque requiere una máquina virtual de Azure activa y en ejecución todo el tiempo. Debe tener en cuenta el costo de la máquina virtual en la planeación.         |
+|Entorno de servidor de archivos con DFSR     |  [Extensión de DFSR a una máquina virtual de IaaS de Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |    DFSR funciona correctamente en entornos con el ancho de banda muy restringido. Este enfoque requiere una máquina virtual de Azure activa y en ejecución todo el tiempo. Debe tener en cuenta el costo de la máquina virtual en la planeación.         |
 |Máquina virtual de IaaS de Azure     |     File Sync    |     Si utiliza File Sync en un escenario de recuperación ante desastres, durante la conmutación por error debe realizar acciones manuales para asegurarse de que los recursos compartidos de archivos están accesibles para el equipo cliente de forma transparente. File Sync requiere que el puerto 445 esté abierto en el equipo cliente.     |
 
 
 ### <a name="site-recovery-support"></a>Compatibilidad de Site Recovery
 Dado que la replicación de Site Recovery no depende de la aplicación, se espera que estas recomendaciones sirvan también para los escenarios siguientes.
 
-| Source    |En un sitio secundario    |En Azure
+| Source  |En un sitio secundario  |En Azure
 |---------|---------|---------|
-|Azure| -|Sí|
-|Hyper-V|   Sí |Sí
-|VMware |Sí|   Sí
-|Servidor físico|   Sí |Sí
+|Azure|  -|Sí|
+|Hyper-V|  Sí  |Sí
+|VMware  |Sí|  Sí
+|Servidor físico|  Sí  |Sí
  
 
 > [!IMPORTANT]
@@ -97,7 +97,7 @@ Azure Files puede utilizarse para reemplazar totalmente o complementar los servi
 
 Los pasos siguientes describen brevemente el uso de File Sync:
 
-1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información consulte [Recuperación ante desastres y conmutación por error forzada (versión preliminar) en Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Cree un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implementación de File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) en el servidor de archivos de Azure.
 4. Crear un grupo de sincronización. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure. Un grupo de sincronización también debe contener un punto de conexión de servidor, que representa una ruta de acceso en un servidor Windows.
@@ -146,7 +146,7 @@ Para integrar File Sync con Site Recovery:
 
 Siga estos pasos para utilizar File Sync:
 
-1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura (recomendado) para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información consulte [Recuperación ante desastres y conmutación por error forzada (versión preliminar) en Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura (recomendado) para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Cree un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implemente File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) en el servidor de archivos local.
 4. Crear un grupo de sincronización. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure. Un grupo de sincronización también debe contener un punto de conexión de servidor, que representa una ruta de acceso en el servidor Windows local.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e73686629de8481f6a37e5bfafc9b723206b4853
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4ba54736abe335b53a3b8c6733063efcb34ea29a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351029"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856831"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -84,7 +84,7 @@ Siga estos pasos para adquirir la capacidad reservada:
    |**Suscripción**  | La suscripción que se usa para pagar la reserva de Azure Storage. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes: <br/><br/>  Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P): Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. <br/><br/> Suscripción individual con tarifas de pago por uso (números de la oferta: MS-AZR-0003P o MS-AZR-0023P): en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.    |
    | **Región** | La región donde está en vigor la reserva. |
    | **Nivel de acceso** | El nivel de acceso donde está en vigor la reserva. Entre las opciones se incluyen *Frecuente*, *Esporádico* o *De archivo*. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](storage-blob-storage-tiers.md). |
-   | **Redundancia** | La opción de redundancia para la reserva. Entre las opciones se incluyen *LRS*, *ZRS*, *GRS* y *RA-GZRS*. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md). |
+   | **Redundancia** | La opción de redundancia para la reserva. Entre las opciones se incluyen *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS* y *RA-GZRS*. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md). |
    | **Frecuencia de facturación** | Indica la frecuencia con la que se factura la cuenta para la reserva. Entre las opciones se incluyen *Mensual* o *Por adelantado*. |
    | **Tamaño** | La región donde está en vigor la reserva. |
    |**Término**  | Un año o tres años.   |

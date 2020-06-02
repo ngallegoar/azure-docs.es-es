@@ -1,41 +1,43 @@
 ---
-title: Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar)
+title: Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 titleSuffix: Azure Storage
-description: Azure Storage admite la conmutación por error de la cuenta (versión preliminar) en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible.
+description: Azure Storage admite la conmutación por error de la cuenta en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7340f419912324e488dc38e5aa0d884b150a44b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176386"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857775"
 ---
-# <a name="disaster-recovery-and-account-failover-preview"></a>Recuperación ante desastres y conmutación por error de la cuenta (versión preliminar)
+# <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
 Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén disponibles. Sin embargo, es posible que se produzcan interrupciones en el servicio. Si la aplicación requiere resistencia, Microsoft recomienda usar el almacenamiento con redundancia geográfica para que los datos se copien en una segunda región. Además, los clientes deben tener implementado un plan de recuperación ante desastres para controlar una interrupción del servicio regional. Parte importante de un plan de recuperación ante desastres es preparar la conmutación por error en el punto de conexión secundario ante la eventualidad de que el punto de conexión principal deje de estar disponible.
 
-Azure Storage admite la conmutación por error de la cuenta (versión preliminar) en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible. La conmutación por error actualiza el punto de conexión secundario para convertirlo en el principal de la cuenta de almacenamiento. Una vez finalizada la conmutación por error, los clientes pueden empezar a escribir en el nuevo punto de conexión principal.
+Azure Storage admite la conmutación por error de la cuenta en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible. La conmutación por error actualiza el punto de conexión secundario para convertirlo en el principal de la cuenta de almacenamiento. Una vez finalizada la conmutación por error, los clientes pueden empezar a escribir en el nuevo punto de conexión principal.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+La conmutación por error de la cuenta está disponible para los tipos de cuenta de uso general v1 y v2 y de Blob Storage con implementaciones de Azure Resource Manager. La conmutación por error de la cuenta se admite para todas las regiones públicas, pero no está disponible en las nubes soberanas o nacionales en este momento.
 
-En este artículo se describen los conceptos y el proceso que implica la conmutación por error de una cuenta y se analiza cómo preparar la cuenta de almacenamiento para la recuperación con el menor impacto en el cliente. Para aprender a iniciar la conmutación por error de una cuenta en Azure Portal o PowerShell, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta (versión preliminar)](storage-initiate-account-failover.md).
+En este artículo se describen los conceptos y el proceso que implica la conmutación por error de una cuenta y se analiza cómo preparar la cuenta de almacenamiento para la recuperación con el menor impacto en el cliente. Para aprender a iniciar la conmutación por error de una cuenta en Azure Portal o PowerShell, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta](storage-initiate-account-failover.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Elección de la opción de redundancia correcta
 
-Azure Storage mantiene varias copias de la cuenta de almacenamiento para garantizar su durabilidad y alta disponibilidad. La opción de redundancia que elija para la cuenta depende del grado de resistencia que necesita. Para protegerse contra interrupciones regionales, elija el almacenamiento con redundancia geográfica, ya sea con o sin la opción de acceso de lectura desde la región secundaria:  
+Azure Storage mantiene varias copias de la cuenta de almacenamiento para garantizar su durabilidad y alta disponibilidad. La opción de redundancia que elija para la cuenta depende del grado de resistencia que necesita. Para protegerse contra interrupciones regionales, configure la cuenta para el almacenamiento con redundancia geográfica, ya sea con o sin la opción de acceso de lectura desde la región secundaria:  
 
-El **almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)** copia los datos de manera asincrónica en dos regiones geográficas separadas por al menos cientos de kilómetros. Si se produce una interrupción en la región primaria, la región secundaria sirve como origen redundante de los datos. Puede iniciar una conmutación por error para convertir el punto de conexión secundario en el principal.
+El **almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia de zona geográfica (GZRS)** copia los datos de manera asincrónica en dos regiones geográficas separadas por al menos cientos de kilómetros. Si se produce una interrupción en la región primaria, la región secundaria sirve como origen redundante de los datos. Puede iniciar una conmutación por error para convertir el punto de conexión secundario en el principal.
 
-El **almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) (versión preliminar)** ofrece almacenamiento con redundancia geográfica con la ventaja adicional de acceso de lectura en el punto de conexión secundario. Si se produce una interrupción en el punto de conexión principal, las aplicaciones configuradas para RA-GRS y diseñadas para alta disponibilidad pueden seguir leyendo desde el punto de conexión secundario. Microsoft recomienda RA-GRS para obtener la máxima resistencia de las aplicaciones.
+El **almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS)** ofrece almacenamiento con redundancia geográfica con la ventaja adicional del acceso de lectura al punto de conexión secundario. Si se produce una interrupción en el punto de conexión principal, las aplicaciones configuradas para acceso de lectura al secundario y diseñadas para la alta disponibilidad pueden seguir leyendo desde el punto de conexión secundario. Microsoft recomienda RA-GZRS para obtener la máxima disponibilidad y durabilidad de sus aplicaciones.
 
 Para más información sobre la redundancia, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 
@@ -46,15 +48,15 @@ Para más información sobre la redundancia, consulte [Redundancia de Azure Stor
 
 Es importante diseñar la aplicación para lograr alta disponibilidad desde el principio. Consulte estos recursos de Azure para instrucciones sobre cómo diseñar la aplicación y planificar la recuperación ante desastres:
 
-- [Diseño de aplicaciones resistentes de Azure](/azure/architecture/checklist/resiliency-per-service): información general de los conceptos clave para diseñar aplicaciones altamente disponibles en Azure.
-- [Lista de comprobación de disponibilidad](/azure/architecture/checklist/resiliency-per-service): lista de comprobación para verificar que la aplicación implementa los mejores procedimientos recomendados para lograr alta disponibilidad.
-- [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md): instrucciones de diseño para compilar aplicaciones para aprovechar RA-GRS.
+- [Diseño de aplicaciones resistentes de Azure](/azure/architecture/framework/resiliency/app-design): información general de los conceptos clave para diseñar aplicaciones altamente disponibles en Azure.
+- [Lista de comprobación de resistencia](/azure/architecture/checklist/resiliency-per-service): lista de comprobación para verificar que la aplicación implementa los mejores procedimientos recomendados para lograr alta disponibilidad.
+- [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md): instrucciones de diseño para compilar aplicaciones para aprovechar el almacenamiento con redundancia geográfica.
 - [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md): tutorial que muestra cómo compilar una aplicación altamente disponible que cambia entre puntos de conexión de manera automática a medida que se simulan errores y recuperaciones. 
 
 Además, tenga en cuenta estos procedimientos recomendados para mantener la alta disponibilidad de los datos de Azure Storage:
 
 - **Discos:** use [Azure Backup](https://azure.microsoft.com/services/backup/) para crear copias de seguridad de los discos de VM que usan las máquinas virtuales de Azure. Considere también la posibilidad de usar [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger las máquinas virtuales en caso de un desastre regional.
-- **Blobs en bloques:** active la [eliminación temporal](../blobs/storage-blob-soft-delete.md) para proteger contra eliminaciones o sobrescrituras de nivel de objeto o copie los blobs en bloques en otra cuenta de almacenamiento de otra región mediante[AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **Blobs en bloques:** active la [eliminación temporal](../blobs/storage-blob-soft-delete.md) para proteger contra eliminaciones o sobrescrituras de nivel de objeto o copie los blobs en bloques en otra cuenta de almacenamiento de otra región mediante[AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [biblioteca de movimiento de datos de Azure](storage-use-data-movement-library.md).
 - **Archivos:** use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](/powershell/module/az.storage/) para copiar los archivos en otra cuenta de almacenamiento en una región distinta.
 - **Tablas:** use [AzCopy](storage-use-azcopy.md) para exportar datos de tabla a otra cuenta de almacenamiento en una región distinta.
 
@@ -66,7 +68,7 @@ Microsoft también recomienda diseñar la aplicación para prepararse para la po
 
 ## <a name="understand-the-account-failover-process"></a>Descripción del proceso de conmutación por error de una cuenta
 
-La conmutación por error de una cuenta administrada por el cliente (versión preliminar) le permite conmutar por error toda una cuenta de almacenamiento en la región secundaria si la región primaria deja de estar disponible por cualquier motivo. Cuando se fuerza una conmutación por error en la región secundaria, los clientes pueden empezar a escribir datos en el punto de conexión secundario una vez que se completa la conmutación por error. Por lo general, la conmutación por error tarda aproximadamente una hora.
+La conmutación por error de una cuenta administrada por el cliente le permite conmutar por error toda una cuenta de almacenamiento en la región secundaria si la región principal deja de estar disponible por cualquier motivo. Cuando se fuerza una conmutación por error en la región secundaria, los clientes pueden empezar a escribir datos en el punto de conexión secundario una vez que se completa la conmutación por error. Por lo general, la conmutación por error tarda aproximadamente una hora.
 
 ### <a name="how-an-account-failover-works"></a>Funcionamiento de la conmutación por error de una cuenta
 
@@ -82,12 +84,12 @@ El cliente inicia la conmutación por error de la cuenta en el punto de conexió
 
 ![El cliente inicia la conmutación por error de la cuenta en el punto de conexión secundario](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
 
-El acceso de escritura se restaura para las cuentas de GRS y RA-GRS una vez que la entrada DNS se actualiza y las solicitudes se dirigen al nuevo punto de conexión principal. Los puntos de conexión de servicio de almacenamiento existentes para blobs, tablas, colas y archivos no cambian después de la conmutación por error.
+El acceso de escritura se restaura para las cuentas con redundancia geográfica una vez que la entrada DNS se actualiza y las solicitudes se dirigen al nuevo punto de conexión principal. Los puntos de conexión de servicio de almacenamiento existentes para blobs, tablas, colas y archivos no cambian después de la conmutación por error.
 
 > [!IMPORTANT]
-> Una vez que se completa la conmutación por error, la cuenta de almacenamiento se configura para que use la redundancia local en el nuevo punto de conexión principal. Para reanudar la replicación en el nuevo punto de conexión secundario, configure la cuenta para que vuelva a usar el almacenamiento con redundancia geográfica (ya sea RA-GRS o GRS).
+> Una vez que se completa la conmutación por error, la cuenta de almacenamiento se configura para que use la redundancia local en el nuevo punto de conexión principal. Para reanudar la replicación en el nuevo punto de conexión secundario, vuelva a configurar la cuenta para la redundancia geográfica.
 >
-> Tenga en cuenta que convertir una cuenta LRS en una cuenta RA-GRS o GRS supone un costo. Este costo se aplica a la actualización de la cuenta de almacenamiento de la nueva región primaria para usar RA-GRS o GRS después de una conmutación por error.  
+> Tenga en cuenta que convertir una cuenta LRS en una cuenta con redundancia geográfica supone un costo. Este costo se aplica a la actualización de la cuenta de almacenamiento de la nueva región principal después de una conmutación por error.  
 
 ### <a name="anticipate-data-loss"></a>Previsión de la pérdida de datos
 
@@ -104,7 +106,7 @@ Como procedimiento recomendado, diseñe la aplicación para que pueda usar la ho
 
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Precaución al conmutar por recuperación en la región primaria original
 
-Después de conmutar por error desde la región primaria a la secundaria, la cuenta de almacenamiento se configura con redundancia local en la nueva región primaria. Puede configurar la cuenta para usar la redundancia geográfica nuevamente si la actualiza para que use GRS o RA-GRS. Cuando la cuenta se vuelve a configurar para usar la redundancia geográfica después de una conmutación por error, la nueva región primaria empieza de inmediato a copiar los datos en la nueva región secundaria, que antes de la conmutación por error original era la primaria. Sin embargo, puede pasar un tiempo antes de que los datos existentes en la región primaria se copien totalmente en la nueva región secundaria.
+Después de conmutar por error desde la región primaria a la secundaria, la cuenta de almacenamiento se configura con redundancia local en la nueva región primaria. Después, puede volver a configurar la cuenta para la redundancia geográfica. Cuando la cuenta se vuelve a configurar para usar la redundancia geográfica después de una conmutación por error, la nueva región primaria empieza de inmediato a copiar los datos en la nueva región secundaria, que antes de la conmutación por error original era la primaria. Sin embargo, puede pasar un tiempo antes de que los datos existentes en la región primaria se copien totalmente en la nueva región secundaria.
 
 Una vez que la cuenta de almacenamiento se vuelve a configurar para la redundancia geográfica, es posible iniciar otra conmutación por error desde la nueva región primaria de vuelta a la nueva secundaria. En este caso, la región primaria original antes de la conmutación por error vuelve a serlo y se configura para usar la redundancia local. Todos los datos de la región primaria posterior a la conmutación por error (la región secundaria original) se pierden. Si la mayoría de los datos de la cuenta de almacenamiento nunca se ha copiado en la nueva región secundaria antes de la conmutación por recuperación, podría ocurrir una pérdida de datos importante.
 
@@ -112,33 +114,27 @@ Para evitar que suceda esto, compruebe el valor de la propiedad **Hora de últim
 
 ## <a name="initiate-an-account-failover"></a>Iniciación de una conmutación por error de la cuenta
 
-Puede iniciar la conmutación por error de una cuenta desde Azure Portal, PowerShell, la CLI de Azure o la API de proveedor de recursos de Azure Storage. Para más información sobre cómo iniciar una conmutación por error, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta (versión preliminar)](storage-initiate-account-failover.md).
+Puede iniciar la conmutación por error de una cuenta desde Azure Portal, PowerShell, la CLI de Azure o la API de proveedor de recursos de Azure Storage. Para más información sobre cómo iniciar una conmutación por error, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta](storage-initiate-account-failover.md).
 
-## <a name="about-the-preview"></a>Acerca de la versión preliminar
+## <a name="additional-considerations"></a>Consideraciones adicionales
 
-La conmutación por error de una cuenta está disponible en versión preliminar para todos los clientes que usan GRS o RA-GRS con implementaciones de Azure Resource Manager. Se admiten los tipos de cuenta de Uso general v1, Uso general v2 y Cuenta de Blob Storage. La conmutación por error de una cuenta está disponible actualmente en todas las regiones públicas. La conmutación por error de una cuenta no está disponible en las nubes soberanas/nacionales en estos momentos.
+Revise las consideraciones adicionales que se describen en esta sección para entender cómo las aplicaciones y los servicios pueden verse afectados cuando se fuerza una conmutación por error.
 
-La versión preliminar está pensada para usos distintos del de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
+### <a name="storage-account-containing-archived-blobs"></a>Cuenta de almacenamiento que contiene blobs archivados
 
-### <a name="additional-considerations"></a>Consideraciones adicionales
+Las cuentas de almacenamiento que contienen blobs archivados admiten la conmutación por error de la cuenta. Una vez completada la conmutación por error, todos los blobs archivados deben rehidratarse en un nivel en línea para que la cuenta se pueda configurar para la redundancia geográfica.
 
-Revise las consideraciones adicionales que se describen en esta sección para entender cómo las aplicaciones y los servicios pueden verse afectados cuando se fuerza una conmutación por error durante el período de versión preliminar.
-
-#### <a name="storage-account-containing-archived-blobs"></a>Cuenta de almacenamiento que contiene blobs archivados
-
-Las cuentas de almacenamiento que contienen blobs archivados admiten la conmutación por error de la cuenta. Una vez que la conmutación por error está completa, para volver a convertir la cuenta en GRS o RA-GRS es preciso volver a hidratar antes todos los blobs archivados a un nivel en línea.
-
-#### <a name="storage-resource-provider"></a>Proveedor de recursos de Storage
+### <a name="storage-resource-provider"></a>Proveedor de recursos de Storage
 
 Una vez que se completa la conmutación por error, los clientes pueden volver a leer y escribir los datos de Azure Storage datos en la nueva región primaria. Sin embargo, el proveedor de recursos de Azure Storage no realiza la conmutación por error, por lo que las operaciones de administración de recursos deben seguir teniendo lugar en la región primaria. Si la región primaria no está disponible, no podrá realizar operaciones de administración en la cuenta de almacenamiento.
 
 Dado que el proveedor de recursos de Azure Storage no realiza la conmutación por error, la propiedad [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) devolverá la ubicación principal original después de que se complete la conmutación por error.
 
-#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
+### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Las máquinas virtuales (VM) de Azure no conmutan por error como parte de la conmutación por error de una cuenta. Si la región primaria deja de estar disponible y se realiza la conmutación por error en la región secundaria, deberá volver a crear cualquier máquina virtual después de la operación. También hay una potencial pérdida de datos asociada a la conmutación por error de la cuenta. Microsoft recomienda la siguiente guía para [alta disponibilidad](../../virtual-machines/windows/manage-availability.md) y [recuperación ante desastres](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md), que es específica para máquinas virtuales de Azure.
 
-#### <a name="azure-unmanaged-disks"></a>Discos no administrados de Azure
+### <a name="azure-unmanaged-disks"></a>Discos no administrados de Azure
 
 Como procedimiento recomendado, Microsoft aconseja convertir los discos no administrados en discos administrados. Sin embargo, si necesita conmutar por error una cuenta que contiene discos no administrados conectados a máquinas virtuales de Azure, deberá apagar la máquina virtual antes de iniciar la conmutación por error.
 
@@ -155,30 +151,28 @@ Los discos no administrados se almacenan como blobs en páginas en Azure Storage
 
 Recuerde que los datos almacenados en un disco temporal se pierden cuando se apaga la máquina virtual.
 
-### <a name="unsupported-features-and-services"></a>Características y servicios no admitidos
+## <a name="unsupported-features-and-services"></a>Características y servicios no admitidos
 
-Las siguientes características y servicios no son compatibles con la conmutación por error de una cuenta en la versión preliminar:
+Las siguientes características y servicios no son compatibles con la conmutación por error de una cuenta:
 
 - Azure File Sync no admite la conmutación por error de una cuenta de almacenamiento. No se debe realizar la conmutación por error de las cuentas de almacenamiento que contienen recursos compartidos de archivos de Azure y que se usan como puntos de conexión de nube en Azure File Sync. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas.
 - Actualmente, no se admiten cuentas de almacenamiento ADLS Gen2 (cuantas que tienen el espacio de nombres jerárquico habilitado).
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
 - No se puede conmutar por error una cuenta de almacenamiento que contenga contenedores habilitados por la [Directiva de inmutabilidad de gusanos](../blobs/storage-blob-immutable-storage.md). Las directivas de retención legal o retención basada en tiempo desbloqueada o bloqueada impiden la conmutación por error para mantener el cumplimiento.
-- Una vez completada la conmutación por error, las siguientes características dejarán de funcionar si estaban habilitadas originalmente: [Suscripciones a eventos](../blobs/storage-blob-event-overview.md), [Fuente de cambios](../blobs/storage-blob-change-feed.md), [Directivas de ciclo de vida](../blobs/storage-lifecycle-management-concepts.md) y [Registro de Storage Analytics](storage-analytics-logging.md).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia de datos como alternativa a la conmutación por error
 
-Si la cuenta de almacenamiento está configurada para RA-GRS es porque tiene acceso de lectura a los datos con el punto de conexión secundario. Si prefiere no realizar la conmutación por error en caso de que se produzca una interrupción en la región primaria, puede usar herramientas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [biblioteca de movimiento de datos de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar datos de la cuenta de almacenamiento que se encuentra en la región secundaria a otra cuenta de almacenamiento en una región no afectada. Luego puede apuntar sus aplicaciones a esa cuenta de almacenamiento para obtener disponibilidad de lectura y escritura.
+Si la cuenta de almacenamiento está configurada para el acceso de lectura al secundario, puede diseñar la aplicación para que lea desde el punto de conexión secundario. Si prefiere no realizar la conmutación por error en caso de que se produzca una interrupción en la región primaria, puede usar herramientas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [biblioteca de movimiento de datos de Azure](../common/storage-use-data-movement-library.md) para copiar datos de la cuenta de almacenamiento que se encuentra en la región secundaria a otra cuenta de almacenamiento en una región no afectada. Luego puede apuntar sus aplicaciones a esa cuenta de almacenamiento para obtener disponibilidad de lectura y escritura.
 
 > [!CAUTION]
 > Una conmutación por error de cuenta no debe usarse como parte de la estrategia de migración de datos.
 
-
 ## <a name="microsoft-managed-failover"></a>Conmutación por error administrada por Microsoft
 
-En casos extremos en los que se pierde una región debido a un desastre importante, Microsoft puede iniciar una conmutación por error regional. En este caso, no se requieren acciones por su parte. No tendrá acceso de escritura a la cuenta de almacenamiento hasta que se complete la conmutación por error administrada por Microsoft. Las aplicaciones pueden leer de la región secundaria si la cuenta de almacenamiento está configurada para RA-GRS. 
+En casos extremos en los que se pierde una región debido a un desastre importante, Microsoft puede iniciar una conmutación por error regional. En este caso, no se requieren acciones por su parte. No tendrá acceso de escritura a la cuenta de almacenamiento hasta que se complete la conmutación por error administrada por Microsoft. Las aplicaciones pueden leer de la región secundaria si la cuenta de almacenamiento está configurada para RA-GRS o RA-GZRS.
 
 ## <a name="see-also"></a>Consulte también
 
-- [Initiate an account failover (preview)](storage-initiate-account-failover.md) (Iniciación de la conmutación por error de una cuenta [versión preliminar])
-- [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 
+- [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md)
+- [Iniciación de la conmutación por error de una cuenta](storage-initiate-account-failover.md)
+- [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md)

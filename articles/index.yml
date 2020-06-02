@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 3bae82ca96497d91dab9d158fe26bed9cd8d0467
-  ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+  ms.openlocfilehash: 5d8dfc5c51ab6a56823a4984a7788b3cce98e7e1
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84171198"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84230062"
 highlightedContent:
   items:
   - title: Guía de introducción para desarrolladores de Azure
@@ -359,19 +359,13 @@ productDirectory:
     azureCategories:
     - blockchain
     url: blockchain/service/index.yml
-  - title: Azure Blockchain Tokens (versión preliminar)
-    summary: Defina, cree y administre fácilmente tokens basados en el libro de contabilidad
-    imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
-    azureCategories:
-    - blockchain
-    url: blockchain/tokens/index.yml
   - title: Azure Blockchain Workbench (versión preliminar)
     summary: Cree fácilmente prototipos de aplicaciones de cadena de bloques en la nube
     imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
     azureCategories:
     - blockchain
     url: blockchain/workbench/index.yml
-  - title: Azure Cosmos DB
+  - title: Azure Cosmos DB
     summary: Base de datos multimodelo distribuida globalmente para cualquier escala
     imageSrc: https://static.docs.com/ui/media/product/azure/cosmos-db.svg
     azureCategories:
@@ -605,7 +599,7 @@ productDirectory:
     - hybrid
     - databases
     url: azure-sql/index.yml
-  - title: Azure SQL Database
+  - title: Azure SQL Database
     summary: SQL administrado e inteligente en la nube
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
@@ -726,6 +720,12 @@ productDirectory:
     azureCategories:
     - devops
     url: https://docs.microsoft.com/azure/devops/test/
+  - title: Acciones de GitHub para Azure
+    summary: Compile, pruebe e implementar cualquier aplicación de GitHub en Azure
+    imageSrc: ./media/index/github-actions-icon.svg
+    azureCategories:
+    - devops
+    url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
   - title: Azure Active Directory (AD)
     summary: Sincronice los directorios locales y habilite el inicio de sesión único
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg

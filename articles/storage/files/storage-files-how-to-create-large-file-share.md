@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537685"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858584"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
@@ -26,8 +26,9 @@ Cuando se habilitan recursos compartidos de archivos de gran tamaño en la cuent
 
 ## <a name="restrictions"></a>Restricciones
 
-Por ahora, solo puede usar el almacenamiento con redundancia local (LRS) o el almacenamiento con redundancia de zona (ZRS) en cuentas habilitadas para recursos compartidos de archivos de gran tamaño. No puede usar el almacenamiento con redundancia de zona geográfica (GZRS), el almacenamiento con redundancia geográfica (GRS) ni el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
-La habilitación de recursos compartidos de archivos grandes en una cuenta es un proceso irreversible. Después de habilitarlos, no podrá convertir la cuenta a GZRS, GRS o RA-GRS.
+Por ahora, solo puede usar el almacenamiento con redundancia local (LRS) o el almacenamiento con redundancia de zona (ZRS) en cuentas habilitadas para recursos compartidos de archivos de gran tamaño. No puede usar el almacenamiento con redundancia de zona geográfica (GZRS), el almacenamiento con redundancia geográfica (GRS), el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) ni el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS).
+
+La habilitación de recursos compartidos de archivos grandes en una cuenta es un proceso irreversible. Después de habilitarlos, no podrá convertir la cuenta a GZRS, GRS, RA-GRS o RA-GZRS.
 
 ## <a name="create-a-new-storage-account"></a>Creación de una cuenta de almacenamiento nueva
 
@@ -68,7 +69,7 @@ En primer lugar, [instale la versión más reciente de la CLI de Azure](https://
 Para crear una cuenta de almacenamiento que tenga habilitados recursos compartidos de archivos grandes, use el siguiente comando. Reemplace `<yourStorageAccountName>`, `<yourResourceGroup>` y `<yourDesiredRegion>` por su información.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -79,13 +80,13 @@ En primer lugar, [instale la versión más reciente de PowerShell](https://docs.
 Para crear una cuenta de almacenamiento que tenga habilitados recursos compartidos de archivos grandes, use el siguiente comando. Reemplace `<yourStorageAccountName>`, `<yourResourceGroup>` y `<yourDesiredRegion>` por su información.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Habilitación de recursos compartidos de archivos grandes en una cuenta existente
 
-También puede habilitar recursos compartidos de archivos grandes en las cuentas existentes. En este caso, no podrá convertirlos a GZRS, GRS o RA-GRS. La habilitación de recursos compartidos de archivos grandes es irreversible en esta cuenta de almacenamiento.
+También puede habilitar recursos compartidos de archivos grandes en las cuentas existentes. En este caso, no podrá convertirlos a GZRS, GRS, RA-GRS o RA-GZRS. La habilitación de recursos compartidos de archivos grandes es irreversible en esta cuenta de almacenamiento.
 
 ### <a name="portal"></a>Portal
 

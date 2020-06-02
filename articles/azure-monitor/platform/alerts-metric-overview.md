@@ -4,12 +4,12 @@ description: Obtenga información general acerca de lo que puede hacer con las a
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397973"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855044"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -26,7 +26,7 @@ Supongamos que ha creado una regla de alerta de métrica de umbral estático sim
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Average
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. [Las agregaciones de tiempo compatibles](metrics-charts.md#changing-aggregation) son Min, Max, Avg, Total y Count): Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -43,7 +43,7 @@ Supongamos que ha creado una regla de alerta de métrica simple de umbrales din�
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: Dinámica
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total y Count): Average
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. [Las agregaciones de tiempo compatibles](metrics-charts.md#changing-aggregation) son Min, Max, Avg, Total y Count): Average
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/28/2019
-ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/05/2020
+ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662491"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871248"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Azure Monitor
 
@@ -34,8 +34,8 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * La solución SQL Health Check requiere que esté instalada una versión compatible de .NET Framework 4.6.2 en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y Azure Monitor, usan el agente de MMA.  
-* La solución es compatible con las versiones 2012, 2014 y 2016 de SQL Server.
-* Un área de trabajo de Log Analytics para agregar la solución SQL Health Check desde Azure Marketplace en Azure Portal.  Para instalar la solución, debe ser administrador o colaborador en la suscripción de Azure.
+* La solución admite las versiones de SQL Server 2012, 2014, 2016, 2017 y 2019.
+* Un área de trabajo de Log Analytics para agregar la solución SQL Health Check desde Azure Marketplace en Azure Portal. Para instalar la solución, debe ser administrador o colaborador en la suscripción de Azure.
 
   > [!NOTE]
   > Después de agregar la solución, el archivo AdvisorAssessment.exe se agrega a servidores con agentes. Los datos de configuración se leen y, luego, se envían a Azure Monitor en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.

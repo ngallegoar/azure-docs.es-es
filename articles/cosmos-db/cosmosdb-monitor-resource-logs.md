@@ -5,14 +5,14 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: b0f3d63b716092190e08c09578f5b08e177bb437
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b1a507c54c6a6555fc945dd35ee6e54d37d49bfd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583867"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857573"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Supervisión de datos de Azure Cosmos DB mediante la configuración de diagnóstico en Azure
 
@@ -73,6 +73,40 @@ Para obtener información detallada sobre cómo crear una configuración de diag
 
 ## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Solución de problemas con las consultas de diagnóstico
 
+1. Cómo puedo consultar las operaciones que tardan más de 3 milisegundos en ejecutarse:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by clientIpAddress_s, TimeGenerated
+   ```
+
+1. Cómo puedo consultar el agente de usuario que ejecuta las operaciones:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by OperationName, userAgent_s
+   ```
+
+1. Cómo puedo consultar las operaciones de larga duración:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | project TimeGenerated , duration_s 
+   | summarize count() by bin(TimeGenerated, 5s)
+   | render timechart
+   ```
+    
+1. Cómo puedo obtener estadísticas de clave de partición para evaluar el sesgo entre las tres primeras particiones de la cuenta de base de datos:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   ```
+
 1. ¿Cómo puedo obtener los cargos de solicitud para las consultas costosas?
 
    ```Kusto
@@ -96,6 +130,22 @@ Para obtener información detallada sobre cómo crear una configuración de diag
    | where TimeGenerated >= ago(2h) 
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
+
+1. Cómo puedo obtener todas las consultas que consumen más de 100 RU/s unidas con datos de **DataPlaneRequests** y **QueryRunTimeStatistics**.
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+   | project activityId_g, requestCharge_s
+   | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+   ) on $left.activityId_g == $right.activityId_g
+   | order by requestCharge_s desc
+   | limit 100
+   ```
+
 1. ¿Cómo puedo obtener la distribución de distintas operaciones?
 
    ```Kusto
@@ -151,11 +201,36 @@ Para obtener información detallada sobre cómo crear una configuración de diag
 
 1. ¿Cómo puedo obtener las estadísticas de clave de partición para evaluar el sesgo entre las tres primeras particiones de la cuenta de base de datos?
 
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-    | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-    ```
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
+   ```
+
+1. ¿Cómo puedo obtener latencias de replicación P99 o P50 en las operaciones, los cargos de solicitud o la longitud de la respuesta?
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   | where TimeGenerated >= ago(2d)
+   | summarize
+   percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s),
+   percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s),
+   percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s),
+   count()
+   by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
+   ```
+ 
+1. ¿Cómo se obtienen los registros Controlplane?
+ 
+   Recuerde activar la marca como se describe en el artículo [Deshabilitar el acceso de escritura de metadatos basado en claves](audit-control-plane-logs.md#disable-key-based-metadata-write-access) y ejecutar las operaciones mediante Azure PowerShell, la CLI o ARM.
+ 
+   ```Kusto  
+   AzureDiagnostics 
+   | where Category =="ControlPlaneRequests"
+   | summarize by OperationName 
+   ```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

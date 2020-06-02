@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: e18abf5d8e26dba7a48bd1deb7d53102b9971690
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28266471fb1e440a45e412ee889e0706cfc2ce49
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184289"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870093"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 
@@ -23,7 +23,13 @@ Este artículo explica cómo administrar los niveles de coherencia en Azure Cosm
 
 El [nivel de coherencia predeterminado](consistency-levels.md) es el que los clientes usan de forma predeterminada.
 
-### <a name="cli"></a>CLI
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Para ver o modificar el nivel de coherencia predeterminado, inicie sesión en Azure Portal. Busque la cuenta de Azure Cosmos y abra el panel **Coherencia predeterminada**. Seleccione el nivel de coherencia que desee como el nuevo valor predeterminado y, a continuación, seleccione **Guardar**. Azure Portal también proporciona una visualización de los diferentes niveles de coherencia con notas musicales. 
+
+![Menú de coherencia en Azure Portal](./media/how-to-manage-consistency/consistency-settings.png)
+
+# <a name="cli"></a>[CLI](#tab/cli)
 
 Cree una cuenta de Cosmos con coherencia de sesión y, después, actualice la coherencia predeterminada.
 
@@ -35,7 +41,7 @@ az cosmosdb create --name $accountName --resource-group $resourceGroupName --def
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Cree una cuenta de Cosmos con coherencia de sesión y, después, actualice la coherencia predeterminada.
 
@@ -49,11 +55,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
   -Name $accountName -DefaultConsistencyLevel "Strong"
 ```
 
-### <a name="azure-portal"></a>Azure Portal
-
-Para ver o modificar el nivel de coherencia predeterminado, inicie sesión en Azure Portal. Busque la cuenta de Azure Cosmos y abra el panel **Coherencia predeterminada**. Seleccione el nivel de coherencia que desee como el nuevo valor predeterminado y, a continuación, seleccione **Guardar**. Azure Portal también proporciona una visualización de los diferentes niveles de coherencia con notas musicales. 
-
-![Menú de coherencia en Azure Portal](./media/how-to-manage-consistency/consistency-settings.png)
+---
 
 ## <a name="override-the-default-consistency-level"></a>Invalidación del nivel de coherencia predeterminado
 
@@ -62,7 +64,9 @@ Los clientes pueden invalidar el nivel de coherencia predeterminado establecido 
 > [!TIP]
 > La coherencia solo se puede **relajar** en el nivel de solicitud. Para pasar de una coherencia más débil a una más fuerte, actualice la coherencia predeterminada para la cuenta de Cosmos.
 
-### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>SDK de .NET V2
+### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>SDK para .NET
+
+# <a name="net-sdk-v2"></a>[SDK de .NET V2](#tab/dotnetv2)
 
 ```csharp
 // Override consistency at the client level
@@ -74,7 +78,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>SDK de .NET v3
+# <a name="net-sdk-v3"></a>[SDK de .NET V3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
@@ -86,8 +90,11 @@ var response = await client.GetContainer(databaseName, containerName)
         new PartitionKey(itemPartitionKey),
         requestOptions);
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="override-default-consistency-java-async"></a>SDK asincrónico para Java
+### <a name="java-sdk"></a><a id="override-default-consistency-java"></a>SDK de Java
+
+# <a name="java-async-sdk"></a>[SDK asincrónico para Java](#tab/javaasync)
 
 ```java
 // Override consistency at the client level
@@ -101,13 +108,14 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a name="java-sync-sdk"></a><a id="override-default-consistency-java-sync"></a>SDK sincrónico para Java
+# <a name="java-sync-sdk"></a>[SDK sincrónico para Java](#tab/javasync)
 
 ```java
 // Override consistency at the client level
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
+---
 
 ### <a name="nodejsjavascripttypescript-sdk"></a><a id="override-default-consistency-javascript"></a>SDK para Node.js/JavaScript/TypeScript
 
@@ -137,7 +145,9 @@ Uno de los niveles de coherencia de Azure Cosmos DB es *Sesión*. Este es el n
 
 Para administrar los tokens de sesión manualmente, obtenga el token de sesión de la respuesta y establézcalos por cada solicitud. Si no tiene la necesidad de administrar manualmente los tokens de sesión, no es necesario que utilice estos ejemplos. El SDK realiza el seguimiento de los tokens de sesión automáticamente. Si no establece el token de sesión manualmente, el SDK usa el token de sesión más reciente de forma predeterminada.
 
-### <a name="net-sdk-v2"></a><a id="utilize-session-tokens-dotnet"></a>SDK de .NET V2
+### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>SDK para .NET
+
+# <a name="net-sdk-v2"></a>[SDK de .NET V2](#tab/dotnetv2)
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -150,7 +160,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>SDK de .NET v3
+# <a name="net-sdk-v3"></a>[SDK de .NET V3](#tab/dotnetv3)
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -161,8 +171,11 @@ ItemRequestOptions options = new ItemRequestOptions();
 options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="utilize-session-tokens-java-async"></a>SDK asincrónico para Java
+### <a name="java-sdk"></a><a id="utilize-session-tokens-java"></a>SDK de Java
+
+# <a name="java-async-sdk"></a>[SDK asincrónico para Java](#tab/javaasync)
 
 ```java
 // Get session token from response
@@ -184,7 +197,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a name="java-sync-sdk"></a><a id="utilize-session-tokens-java-sync"></a>SDK sincrónico para Java
+# <a name="java-sync-sdk"></a>[SDK sincrónico para Java](#tab/javasync)
 
 ```java
 // Get session token from response
@@ -196,6 +209,7 @@ RequestOptions options = new RequestOptions();
 options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
+---
 
 ### <a name="nodejsjavascripttypescript-sdk"></a><a id="utilize-session-tokens-javascript"></a>SDK para Node.js/JavaScript/TypeScript
 

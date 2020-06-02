@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 1c7bd97de4e46e1c8da467840006fe2520851caf
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 34d64db9caefd26adc91471ed67e528a6e3196dc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80238862"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199836"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con Node.js
 
-Use este documento de inicio rápido para comenzar a solicitar los resultados de búsqueda de la instancia de Bing Custom Search. Si bien esta aplicación está escrita en JavaScript, Bing Custom Search API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
+Use este inicio rápido para aprender cómo solicitar los resultados de búsqueda de la instancia de Bing Custom Search. Si bien esta aplicación está escrita en JavaScript, Bing Custom Search API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Una instancia de Bing Custom Search. Consulte [Quickstart: Creación de la primera instancia de Bing Custom Search](quick-start.md) para obtener más información.
+- Una instancia de Bing Custom Search. Para más información, consulte [Inicio rápido: Creación de la primera instancia de Bing Custom Search](quick-start.md).
 
-- [Node.js](https://www.nodejs.org/)
+- [El entorno de tiempo de ejecución de JavaScript para Node.js](https://www.nodejs.org/).
 
 - La [biblioteca de solicitudes de JavaScript](https://github.com/request/request).
 
@@ -33,7 +33,7 @@ Use este documento de inicio rápido para comenzar a solicitar los resultados de
 
 ## <a name="create-and-initialize-the-application"></a>Creación e inicialización de la aplicación
 
-1. Cree un archivo JavaScript en el editor o el IDE que prefiera y agregue una instrucción `require()` para la biblioteca de solicitudes. Cree variables para la clave de suscripción, el identificador de configuración personalizada y un término de búsqueda. 
+- Cree un archivo JavaScript en el editor o el IDE que prefiera y agregue una instrucción `require()` para la biblioteca de solicitudes. Cree variables para la clave de suscripción, el identificador de configuración personalizada y un término de búsqueda.
 
     ```javascript
     var request = require("request");
@@ -45,7 +45,7 @@ Use este documento de inicio rápido para comenzar a solicitar los resultados de
 
 ## <a name="send-and-receive-a-search-request"></a>Envío y recepción de una solicitud de búsqueda 
 
-1. Cree una variable para almacenar la información que se va a enviar en la solicitud. Construya la dirección URL de solicitud anexando el término de búsqueda al parámetro de consulta `q=`, y el identificador de configuración personalizada de la instancia de la búsqueda a `customconfig=`. Separe los parámetros con un carácter `&`. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+1. Cree una variable para almacenar la información que se va a enviar en la solicitud. Construya la dirección URL de solicitud anexando el término de búsqueda al parámetro de consulta `q=`, y el identificador de configuración personalizada de la instancia de la búsqueda al parámetro `customconfig=`. Separe los parámetros con un carácter de "y" comercial (`&`). Puede usar el punto de conexión global en el código siguiente, o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```javascript
     var info = {

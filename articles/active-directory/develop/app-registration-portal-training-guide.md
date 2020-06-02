@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154600"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889987"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nueva experiencia de los registros de aplicaciones de Azure Portal
 
-La nueva experiencia de [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de Azure Portal presenta numerosas mejoras. Si está familiarizado con la experiencia del Portal de registro de aplicaciones (apps.dev.microsoft.com) para registrar o administrar aplicaciones convergentes, lo que se conoce como la "experiencia anterior", esta guía de aprendizaje lo ayudará a comenzar a usar la nueva experiencia.
+La nueva experiencia de [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de Azure Portal presenta numerosas mejoras. Si está familiarizado con el portal de registro de aplicaciones (apps.dev.microsoft.com) para registrar o administrar aplicaciones, lo que se menciona aquí como la "experiencia anterior", esta guía lo ayudará a comenzar a usar la nueva experiencia.
 
 ## <a name="whats-not-changing"></a>¿Qué no va a cambiar?
 
@@ -37,7 +37,7 @@ La nueva experiencia de [Registros de aplicaciones](https://go.microsoft.com/fwl
 
 ## <a name="key-changes"></a>Cambios clave
 
--   En la experiencia anterior, las aplicaciones se registraban de forma predeterminada como aplicaciones convergentes que admiten todas las cuentas de organización (varios inquilinos), así como las cuentas personales de Microsoft. Esto no se pudo modificar a través de la experiencia anterior, lo que dificultaba la creación de aplicaciones que solo admitían las cuentas de organización (ya sean multiinquilino o de un solo inquilino).
+-   En la experiencia anterior, las aplicaciones se registraban de forma predeterminada como aplicaciones *convergentes* que admiten todas las cuentas de organización (multiinquilino), así como las cuentas personales de Microsoft. Esto no se pudo modificar a través de la experiencia anterior, lo que dificultaba la creación de aplicaciones que solo admitían las cuentas de organización (ya sean multiinquilino o de un solo inquilino).
     La nueva experiencia permite registrar aplicaciones que admiten todas esas opciones. [Más información sobre los tipos de aplicaciones](active-directory-v2-registration-portal.md)
 
 -   En la nueva experiencia, si su cuenta de Microsoft personal también está en un inquilino de Azure AD, verá tres pestañas, una con todas las aplicaciones del inquilino, otra con las aplicaciones propias del inquilino y una última con las aplicaciones de su cuenta personal. Por lo tanto, si cree que faltan aplicaciones registradas con su cuenta de Microsoft personal, consulte la pestaña de **aplicaciones de su cuenta personal**.
@@ -52,28 +52,23 @@ La nueva experiencia de [Registros de aplicaciones](https://go.microsoft.com/fwl
 
 ## <a name="new-app-registration"></a>Nuevo registro de aplicaciones
 
-En la experiencia anterior, para registrar una aplicación convergente solo era necesario proporcionar un nombre. Las aplicaciones que se crearon se registraron como aplicaciones convergentes que admiten todo el directorio organizativo (varios inquilinos), así como las cuentas personales de Microsoft.  Esto no se pudo modificar a través de la experiencia anterior, lo que dificultaba la creación de aplicaciones que solo admitían las cuentas de organización (ya sean multiinquilino o de un solo inquilino). [Más información sobre los tipos de cuenta admitidos](v2-supported-account-types.md)
+En la experiencia anterior, para registrar una aplicación solo era necesario proporcionar un nombre. Las aplicaciones que se crearon se registraron como aplicaciones *convergentes* que admiten todos los directorios organizativos (multiinquilino), así como las cuentas personales de Microsoft.  Esto no se pudo modificar a través de la experiencia anterior, lo que dificultaba la creación de aplicaciones que solo admitían cuentas de la organización (ya sean de un solo inquilino o multiinquilino). [Más información sobre los tipos de cuenta admitidos](v2-supported-account-types.md)
 
 En la nueva experiencia, debe proporcionar un nombre para la aplicación y elegir los tipos de cuenta admitidos. También puede proporcionar un identificador URI de redirección.
 Si proporciona un URI de redirección, tendrá que especificar si es de tipo web o público (nativo/móvil y escritorio). Para más información sobre cómo registrar una aplicación mediante la nueva experiencia de registros de aplicaciones, consulte esta [guía de inicio rápido](quickstart-register-app.md).
 
 ## <a name="app-management-page"></a>Página Administración de la aplicación
 
-La experiencia antigua tenía una sola página de administración de aplicaciones para las aplicaciones convergentes con las siguientes secciones: Propiedades, Secretos de aplicación, Plataformas, Propietarios, Permisos de Microsoft Graph, Perfil y Opciones avanzadas.
+La experiencia antigua tenía una sola página de administración de aplicaciones con las siguientes secciones: Propiedades, Secretos de aplicación, Plataformas, Propietarios, Permisos de Microsoft Graph, Perfil y Opciones avanzadas.
 
-La nueva experiencia de Azure Portal representa estas características en páginas independientes. Aquí es donde puede encontrar la funcionalidad equivalente:
+La nueva experiencia de Azure Portal presenta estas características en páginas independientes. Aquí es donde puede encontrar la funcionalidad equivalente:
 
--   Propiedades: el nombre y el identificador de la aplicación se encuentra en la página de información general.
-
--   Secretos de aplicación se encuentra en la página Certificados y secretos.
-
--   La configuración de plataformas está en la página Autenticación.
-
--   Los permisos de Microsoft Graph están en la página Permisos de API junto con otros permisos.
-
--   La funcionalidad Perfil está en la página Personalización de marca.
-
--   Opciones avanzadas: la compatibilidad del SDK de Live está en la página Autenticación.
+- Propiedades: el nombre y el identificador de la aplicación se encuentra en la página de información general.
+- Secretos de aplicación se encuentra en la página Certificados y secretos.
+- La configuración de plataformas está en la página Autenticación.
+- Los permisos de Microsoft Graph están en la página Permisos de API junto con otros permisos.
+- La funcionalidad Perfil está en la página Personalización de marca.
+- Opciones avanzadas: la compatibilidad del SDK de Live está en la página Autenticación.
 
 ## <a name="application-secretscertificates--secrets"></a>Secretos de aplicación/Certificados y secretos
 
@@ -111,7 +106,7 @@ Hay una nueva interfaz de usuario para las propiedades que anteriormente solo se
 
 -   Las opciones Ámbitos definidos con esta API (oauth2Permissions) y Aplicaciones cliente autorizadas (preAuthorizedApplications) se pueden configurar a través de la página Exponer una API. Para más información sobre cómo configurar una aplicación para que sea una API web y exponer permisos o ámbitos, consulte esta [guía de inicio rápido](quickstart-configure-app-expose-web-apis.md).
 
--   La opción Dominio del publicador (que se muestra a los usuarios en la [petición de consentimiento de la aplicación](application-consent-experience.md)) se encuentra en la página Personalización de marca. Para más información sobre cómo configurar un dominio de publicador, consulte este [artículo sobre procedimientos](howto-configure-publisher-domain.md).
+-   La opción Dominio del publicador (que se muestra a los usuarios en la [petición de consentimiento de la \'aplicación](application-consent-experience.md)) se encuentra en la página Personalización de marca. Para más información sobre cómo configurar un dominio de publicador, consulte este [artículo sobre procedimientos](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -125,3 +120,7 @@ La nueva experiencia tiene las siguientes limitaciones:
 
    > [!NOTE]
    > Si es usuario de una cuenta personal de Microsoft en el inquilino de Azure AD y el administrador de inquilinos tiene acceso restringido a Azure Portal, puede obtener acceso denegado. Sin embargo, si entró a través del acceso directo escribiendo Registros de aplicaciones en la barra de búsqueda o anclándolo, podrá acceder a la nueva experiencia.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para empezar a trabajar con la nueva experiencia de registro de aplicaciones, consulte el artículo [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md).

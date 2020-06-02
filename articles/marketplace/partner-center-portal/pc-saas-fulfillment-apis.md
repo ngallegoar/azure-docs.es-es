@@ -1,26 +1,25 @@
 ---
-title: API de suministro de SaaS | Azure Marketplace
-description: Presenta las versiones de las API de suministro que le permiten integrar su ofertas SaaS con Azure Marketplace.
+title: API de suministro de SaaS en el marketplace comercial de Microsoft
+description: Introducción a las API de suministro que le permiten integrar su ofertas de SaaS en Microsoft AppSource y Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275737"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858091"
 ---
-# <a name="saas-fulfillment-apis"></a>API de suministro de SaaS
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API de suministro de SaaS en el marketplace comercial de Microsoft
 
-Las API de suministro de SaaS permiten que fabricantes de software independientes (ISV) integren sus aplicaciones SaaS con Azure Marketplace. Estas API permiten a las aplicaciones de ISV participar en todos los canales de comercio: directo, dirigidos por asociados (revendedor) y sobre el terreno.  Son un requisito para mostrar ofertas de SaaS que permiten transacciones en Azure Marketplace.
+Las API de suministro de SaaS permiten que fabricantes de software independientes (ISV) integren sus aplicaciones SaaS con Microsoft AppSource y Azure Marketplace. Estas API permiten a las aplicaciones de ISV participar en todos los canales de comercio: directo, dirigidos por asociados (revendedor) y sobre el terreno. Son necesarios para mostrar las ofertas de SaaS comercializables en Microsoft AppSource y Azure Marketplace.
 
 > [!WARNING]
 > La versión actual de esta API es la versión 2, que se debe usar para todas las nuevas ofertas de SaaS.  La versión 1 de la API está en desuso y se mantiene para proporcionar soporte a las ofertas existentes.
-
 
 ## <a name="business-model-support"></a>Compatibilidad con el modelo de negocio
 

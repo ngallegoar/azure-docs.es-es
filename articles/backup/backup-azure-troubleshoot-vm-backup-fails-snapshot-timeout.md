@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677404"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864409"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -44,6 +44,8 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Causa 4: [No se han establecido las opciones de configuración del agente de máquina virtual (para máquinas virtuales Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+**Causa 5: [La solución de control de aplicaciones está bloqueando IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed: la máquina virtual está en un estado de aprovisionamiento con errores
 
@@ -200,8 +202,16 @@ Si requiere el registro detallado para waagent, siga estos pasos:
 
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>No se han establecido las opciones de configuración del agente de máquina virtual (para máquinas virtuales Linux)
 
-Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. Las opciones del archivo de configuración **Extensions.Enable** y **Provisioning.Agent** se deben establecer en **y** para que la copia de seguridad funcione.
+Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. Las opciones del archivo de configuración **Extensions.Enable** deben definirse como **y**, mientras que **Provisioning.Agent** debe definirse como **auto** para que la copia de seguridad funcione.
 Para obtener una lista completa de las opciones del archivo de configuración del agente de máquina virtual, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>.
+
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La solución de control de aplicaciones está bloqueando IaaSBcdrExtension.exe
+
+Si ejecuta [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (u otra solución de control de aplicaciones) y las reglas se basan en el publicador o en la ruta de acceso, pueden bloquear la ejecución de **IaaSBcdrExtension.exe**.
+
+#### <a name="solution"></a>Solución
+
+Excluya la ruta de acceso `/var/lib` o el ejecutable **IaaSBcdrExtension.exe** de AppLocker (u otro software de control de aplicaciones).
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas
 

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76844894"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004467"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Preguntas más frecuentes sobre Azure Spatial Anchors
 
@@ -49,6 +49,10 @@ Para más información, consulte [Introducción a Azure Spatial Anchors](overvie
 
 **R:** Los delimitadores están aislados por la cuenta de Azure. Solo las aplicaciones con permiso de acceso a su cuenta podrán acceder a los delimitadores dentro de la cuenta.
 
+**P: ¿Cómo almacena los datos Azure Spatial Anchors?**
+
+**R:** Todos los datos se almacenan cifrados con una clave de cifrado de datos administrados por Microsoft.
+
 **P: ¿Qué información acerca de un entorno se transmite y almacena en el servicio cuando se usa Azure Spatial Anchors? ¿Se transmiten y almacenan imágenes del entorno?**
 
 **R.** : Al crear o localizar delimitadores, se procesan imágenes del entorno en el dispositivo en un formato derivado. Este formato derivado se transmite al servicio y se almacena en él.
@@ -59,7 +63,6 @@ Azure Spatial Anchors se adhiere a los [Términos del acuerdo de servicio de Azu
 
 ![Un entorno y su nube de puntos dispersos derivada](./media/sparse-point-cloud.png)
 *Figura 1: Un entorno y su nube de puntos dispersos derivada*
-
 
 **P: ¿Hay alguna manera de enviar información de diagnóstico a Microsoft?**
 

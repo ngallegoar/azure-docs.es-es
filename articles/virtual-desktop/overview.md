@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261727"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929832"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -67,8 +67,8 @@ Está previsto agregar compatibilidad con los siguientes sistemas operativos, as
 
 |SO|Licencia necesaria|
 |---|---|
-|Sesión múltiple de Windows 10 Enterprise o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Sesión múltiple de Windows 10 Enterprise o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licencia de acceso de cliente (CAL) de RDS con Software Assurance|
 
 Su infraestructura necesita cumplir los siguientes requisitos para ser compatible con Windows Virtual Desktop:
@@ -98,9 +98,12 @@ Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben ten
 |prod.warmpath.msftcloudes.com|443|Tráfico de agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Activación de Windows|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Soporte técnico de Azure Portal|AzureCloud|
 
 >[!IMPORTANT]
->Se recomienda usar las etiquetas de servicio en lugar de las direcciones URL en la mayoría de los casos para evitar problemas de servicio. Es esencial desbloquear estas direcciones URL para una implementación confiable de Windows Virtual Desktop. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de Windows Virtual Desktop y no incluyen direcciones URL para otros servicios como Azure Active Directory.
+>Windows Virtual Desktop ahora admite la etiqueta FQDN. Para más información, consulte [Uso de Azure Firewall para proteger las implementaciones de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
+>
+>Se recomienda usar etiquetas FQDN o etiquetas de servicio, en lugar de las direcciones URL, para evitar problemas de servicio. Las direcciones URL y etiquetas de la lista solo corresponden a sitios y recursos de Windows Virtual Desktop. No incluyen direcciones URL para otros servicios como Azure Active Directory.
 
 En la tabla siguiente se enumeran las direcciones URL opcionales a las que pueden tener acceso las máquinas virtuales de Azure:
 
@@ -180,20 +183,22 @@ Windows Virtual Desktop no es compatible con imágenes de los sistemas operativo
 
 Las opciones de automatización y de implementación disponibles dependen del sistema operativo y la versión que elija, tal como se muestra en la tabla siguiente: 
 
-|Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|Actualizaciones del agente de Windows Virtual Desktop|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Sesión múltiple de Windows 10, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|No|Automático|
-|Windows 10 Enterprise, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Windows 10 Enterprise, versión 1809|Sí|Sí|No|No|Automático|
-|Windows 7 Enterprise|Sí|Sí|No|No|Manual|
-|Windows Server 2019|Sí|Sí|No|No|Automático|
-|Windows Server 2016|Sí|Sí|Sí|Sí|Automático|
-|Windows Server 2012 R2|Sí|Sí|No|No|Automático|
+|Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Sesión múltiple de Windows 10, versión 1903|Sí|Sí|Sí|Sí|
+|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|No|
+|Windows 10 Enterprise, versión 1903|Sí|Sí|Sí|Sí|
+|Windows 10 Enterprise, versión 1809|Sí|Sí|No|No|
+|Windows 7 Enterprise|Sí|Sí|No|No|
+|Windows Server 2019|Sí|Sí|No|No|
+|Windows Server 2016|Sí|Sí|Sí|Sí|
+|Windows Server 2012 R2|Sí|Sí|No|No|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar, deberá crear un inquilino. Para más información sobre cómo crear un inquilino, siga con el tutorial de creación de inquilinos.
+Si usa Windows Virtual Desktop Fall 2019, puede empezar a trabajar con el tutorial de [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+Si usa Windows Virtual Desktop Spring 2020, deberá crear un grupo de hosts. Vaya al siguiente tutorial para comenzar.
 
 > [!div class="nextstepaction"]
-> [Creación de un inquilino en Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md)

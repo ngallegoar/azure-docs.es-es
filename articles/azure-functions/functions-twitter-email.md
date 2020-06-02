@@ -4,21 +4,21 @@ description: Creación de una función que se integre con Azure Logic Apps y Azu
 author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190306"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116456"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
 Azure Functions se integra con Azure Logic Apps en el diseñador de Logic Apps. Esta integración permite usar la capacidad de proceso de Azure Functions en las orquestaciones con otros servicios de Azure y de terceros. 
 
-En este tutorial se muestra cómo utilizar Functions con Logic Apps y Cognitive Services en Azure para ejecutar el análisis de opiniones de entradas de Twitter. Una función desencadenada por HTTP clasifica los tweets en verde, amarillo o rojo en función de la puntuación de la opinión. Se envía un correo electrónico cuando se detecta una opinión deficiente. 
+En este tutorial se muestra cómo utilizar Azure Functions con Logic Apps y Cognitive Services en Azure para ejecutar el análisis de opiniones de entradas de Twitter. Una función desencadenada por HTTP clasifica los tweets en verdes, amarillos o rojos, en función de la puntuación de la opinión. Se envía un correo electrónico cuando se detecta una opinión deficiente. 
 
 ![imagen de los dos primeros pasos de una aplicación en el diseñador de Logic Apps](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -74,21 +74,21 @@ Cognitive Services APIs están disponibles en Azure como recursos individuales. 
 
 ## <a name="create-the-function-app"></a>Crear la aplicación de función
 
-Functions proporciona una excelente manera de descargar tareas de procesamiento en un flujo de trabajo de aplicaciones lógicas. Este tutorial utiliza una función desencadenada por HTTP de Cognitive Services para procesar las puntuaciones de opinión de los tweet y devolver un valor de clasificación.  
+Azure Functions proporciona una excelente manera de descargar tareas de procesamiento en un flujo de trabajo de aplicaciones lógicas. Este tutorial utiliza una función desencadenada por HTTP para procesar las puntuaciones de opinión de los tweet procedentes de Cognitive Services y devolver un valor de clasificación.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>Crear una función desencadenada mediante HTTP  
+## <a name="create-an-http-trigger-function"></a>Creación de una función desencadenada por HTTP  
 
-1. Expanda su instancia de Function App y haga clic en el botón **+** , que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal**.
+1. En el menú de la izquierda de la ventana **Funciones**, seleccione **Funciones** y, a continuación, seleccione **Agregar** en el menú superior.
 
-    ![Página de inicio rápido de Functions en Azure Portal](media/functions-twitter-email/05-function-app-create-portal.png)
+2. En la ventana **Nueva función**, seleccione **Desencadenador de HTTP**.
 
-2. Luego, seleccione **Webhook y API** y haga clic en **Crear**. 
+    ![Elegir la función de desencadenador de HTTP](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![Elija el desencadenador HTTP](./media/functions-twitter-email/06-function-webhook.png)
+3. En la página **Nueva función**, seleccione **Crear función**.
 
-3. Reemplace el contenido del archivo `run.csx` con el código siguiente y, luego, haga clic en **Guardar**:
+4. En la nueva función de desencadenador de HTTP, seleccione **Código y prueba** en el menú de la izquierda, reemplace el contenido del archivo `run.csx` por el código siguiente y, a continuación, seleccione **Guardar**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -123,11 +123,12 @@ Functions proporciona una excelente manera de descargar tareas de procesamiento 
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
+
     El código de la función devuelve una clasificación de color basada en la puntuación de la opinión recibida en la solicitud. 
 
-4. Para probar la función, haga clic en **Probar** a la derecha para expandir la pestaña de pruebas. Escriba un valor de `0.2` en el **Cuerpo de la solicitud** y, a continuación, haga clic en **Ejecutar**. Devuelve un valor **RED** (rojo) en el cuerpo de la respuesta. 
+5. Para probar la función, seleccione **Test** en el menú superior. En la pestaña **Entrada**, escriba un valor de `0.2` en el **Cuerpo** y, a continuación, seleccione **Ejecutar**. Se devuelve un valor de **ROJO** en el **Contenido de respuesta HTTP** en la pestaña **salida**. 
 
-    ![Prueba de la función en Azure Portal](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Definir la configuración del proxy":::
 
 Ahora, tiene una función que clasifica las puntuaciones de opinión. A continuación, cree una aplicación lógica que integre la función con la API de Twitter y Cognitive Services. 
 
@@ -187,7 +188,7 @@ Ahora la aplicación está conectada a Twitter. A continuación, va a conectar a
 
     ![Nuevo paso y Agregar una acción](media/functions-twitter-email/12-connection-settings.png)
 
-4. Luego, escriba **Tweet Text** (Texto del tweet) en el cuadro de texto y haga clic en **Nuevo paso**.
+4. Luego, escriba **Texto del tweet** en el cuadro de texto y haga clic en **Nuevo paso**.
 
     ![Especificación del texto que se va a analizar](media/functions-twitter-email/13-analyze-tweet-text.png)
 
@@ -215,7 +216,7 @@ Ahora, la función se desencadena cuando se envía una puntuación de opiniones 
 
 ## <a name="add-email-notifications"></a>Agregar notificaciones por correo electrónico
 
-La última parte del flujo de trabajo consiste en desencadenar el envío de un correo electrónico cuando la opinión obtiene una puntuación _RED_ (rojo). Este tema utiliza un conector de Outlook.com. Puede realizar pasos similares para utilizar un conector de Gmail o de Office 365 Outlook.   
+La última parte del flujo de trabajo consiste en desencadenar el envío de un correo electrónico cuando la opinión obtiene una puntuación _RED_ (rojo). Este artículo utiliza un conector de Outlook.com. Puede realizar pasos similares para utilizar un conector de Gmail o de Office 365 Outlook.   
 
 1. En el diseñador de Logic Apps, haga clic en **Nuevo paso** > **Agregar una condición**. 
 

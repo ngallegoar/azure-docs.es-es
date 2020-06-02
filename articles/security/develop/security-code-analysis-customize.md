@@ -2,7 +2,7 @@
 title: Personalización de las tareas de análisis de código de seguridad de Microsoft
 titleSuffix: Azure
 description: En este artículo se describe la personalización de las tareas en la extensión Análisis de código de seguridad de Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77499999"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871873"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configuración y personalización de las tareas de compilación
 
@@ -91,7 +91,8 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 ![Configuración de la tarea de compilación de Credential Scanner](./media/security-tools/3-taskdetails.png)
 
 Las opciones disponibles incluyen:
-
+  - **Nombre para mostrar**: Nombre de la tarea de Azure DevOps. El valor predeterminado es Run Credential Scanner (Ejecutar el escáner de credenciales).
+  - **Versión principal de la herramienta**: Los valores disponibles incluyen **CredScan V2**, **CredScan V1**. Se recomienda a los clientes que usen la versión **CredScan V2**.
   - **Formato de salida**: entre los valores disponibles se incluyen **TSV**, **CSV**, **SARIF** y **PREfast**.
   - **Versión de la herramienta**: recomendamos que seleccione **Más reciente**.
   - **Examinar carpeta**: carpeta del repositorio que se va a examinar.
@@ -105,7 +106,7 @@ Las opciones disponibles incluyen:
   - **Opciones de control** > **Ejecutar esta tarea**: especifica cuándo se ejecutará la tarea. Seleccione **Condiciones personalizadas** para especificar condiciones más complejas.
   - **Versión**: versión de la tarea de compilación en Azure DevOps. Esta opción no se usa con frecuencia.
 
-Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones del detector de credenciales (CredScan) de YAML](yaml-configuration.md#credential-scanner-task).
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones del detector de credenciales de YAML](yaml-configuration.md#credential-scanner-task).
 
 ## <a name="microsoft-security-risk-detection-task"></a>Tarea de Microsoft Security Risk Detection
 

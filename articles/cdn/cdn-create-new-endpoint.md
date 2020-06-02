@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN | Microsoft Docs'
+title: 'Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN'
 description: En esta guía de inicio rápido se describe cómo crear un perfil y un punto de conexión de CDN nuevos para habilitar Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -12,82 +12,76 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/24/2018
+ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e11e6e4cc0194991b322d591049d7156b9979c45
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254060"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996241"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
-En esta guía de inicio rápido se describe cómo habilitar Azure Content Delivery Network (CDN) mediante la creación de un perfil de CDN y un punto de conexión de CDN nuevos. Una vez haya creado un perfil y un punto de conexión, puede iniciar la entrega de contenido a sus clientes.
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+En este inicio rápido se habilita Azure Content Delivery Network (CDN) mediante la creación de un perfil de CDN, que es una colección de uno o varios puntos de conexión de CDN. Una vez haya creado un perfil y un punto de conexión, puede iniciar la entrega de contenido a sus clientes.
 
-## <a name="prerequisites"></a>Prerequisites
-Para los fines de esta quía de inicio rápido, debe haber creado una cuenta de almacenamiento llamada *mystorageacct123* que se utiliza para el nombre de host de origen. Para más información, consulte [Integración de una cuenta de Azure Storage con Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Una cuenta de Azure Storage denominada *cdnstorageacct123*, que se usa para el nombre de host de origen. Para completar este requisito, consulte [Integración de una cuenta de Azure Storage en Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+
 Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## <a name="create-a-new-cdn-endpoint"></a>Crear un nuevo extremo de CDN
 
-Después de crear un perfil de CDN, puede usarlo para crear un punto de conexión.
+Después de crear un perfil de CDN, se usa para crear un punto de conexión.
 
-1. En Azure Portal, seleccione en el panel el perfil de CDN que creó. Si no lo encuentra, seleccione **Todos los servicios** y, a continuación, seleccione **Perfiles de CDN**. En la página **Perfiles de CDN**, seleccione el perfil que desea utilizar. 
+1. En Azure Portal, seleccione en el panel el perfil de CDN que creó. Si no lo encuentra, puede abrir el grupo de recursos en que lo creó, o bien use la barra de búsqueda de la parte superior del portal, escriba el nombre del perfil y seleccione el perfil en los resultados.
    
-    Aparece la página del perfil de CDN.
-
-2. Seleccione el **punto de conexión**.
+1. En la página del perfil de CDN, seleccione **+ Punto de conexión**.
    
     ![Perfil de CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
     Aparecerá el panel **Agregar un punto de conexión**.
 
-3. Para la configuración de los puntos de conexión, utilice los valores especificados en la tabla siguiente:
+3. Escriba los siguientes valores de configuración:
 
     | Configuración | Value |
     | ------- | ----- |
-    | **Nombre** | Escriba *my-endpoint-123* para el nombre de host del punto de conexión. Este nombre debe ser único globalmente; si ya está en uso, puede especificar otro diferente. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _&lt;nombre del punto de conexión&gt;_ .azureedge.net.|
+    | **Nombre** | Escriba *my-endpoint-123* como nombre de host del punto de conexión. Este nombre debe ser único globalmente en Azure; si ya está en uso, escriba otro. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _&lt;NombreDePuntoDeConexión&gt;_ .azureedge.net.|
     | **Tipo de origen** | Seleccione **Storage**. | 
-    | **Nombre de host de origen** | Escriba *mystorageacct123.blob.core.windows.net* para el nombre de host. Este nombre debe ser único globalmente; si ya está en uso, puede especificar otro diferente. |
+    | **Nombre de host de origen** | Seleccione en la lista desplegable el nombre de host de la cuenta de Azure Storage que va a usar como, por ejemplo *cdnstorageacct123.blob.core.windows.net*. |
     | **Ruta de acceso de origen** | déjelo en blanco. |
-    | **Encabezado del host de origen** | Deje el valor generado de forma predeterminada. |  
+    | **Encabezado del host de origen** | Deje el valor predeterminado (que es el nombre de host de la cuenta de almacenamiento). |  
     | **Protocolo** | Deje las opciones **HTTP** y **HTTPS** predeterminadas seleccionadas. |
     | **Puerto de origen** | Deje los valores de puerto predeterminados. | 
     | **Optimizado para** | Deje la selección predeterminada **Entrega web general**. |
 
     ![Agregar punto de conexión](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
-3. Seleccione **Agregar** para crear el nuevo punto de conexión.
-   
-   Una vez creado el punto de conexión, aparece en la lista de puntos de conexión del perfil.
+3. Seleccione **Agregar** para crear el nuevo punto de conexión. Una vez creado el punto de conexión, aparece en la lista de puntos de conexión del perfil.
     
    ![Punto de conexión de CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Dado que se tarda un tiempo en que el registro se propague, el punto de conexión no estará disponible para su uso de forma inmediata: 
-   - En los perfiles de **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en 10 minutos. 
-   - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
-   - En los perfiles **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**, la propagación se completa normalmente en 90 minutos. 
+   El tiempo que tarda el punto de conexión en propagarse depende del plan de tarifa que se seleccionó al crear el perfil. **Akamai estándar** normalmente finaliza en un minuto, **Microsoft estándar** en 10 minutos y **Verizon estándar** y **Verizon premium** en un máximo de 90 minutos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en un grupo de recursos. Guarde estos recursos si desea continuar con los [Pasos siguientes](#next-steps) y aprender cómo agregar un dominio personalizado al punto de conexión. No obstante, si no cree que vaya a necesitar estos recursos en el futuro, puede eliminarlos mediante la eliminación del grupo de recursos y así evitar cargos adicionales:
 
-1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y, a continuación, seleccione **my-resource-group-123**.
+1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y después **CDNQuickstart-rg**.
 
-2. En la página **Grupo de recursos**, seleccione **Eliminar grupo de recursos**, escriba *my-resource-group-123* en el cuadro de texto y, a continuación, seleccione **Eliminar**.
-
-    Esta acción eliminará el grupo de recursos, el perfil y el punto de conexión que creó en esta guía de inicio rápido.
+2. En la página **Grupo de recursos**, seleccione **Eliminar grupo de recursos**, escriba *CDNQuickstart-rg* en el cuadro de texto y, después, seleccione **Eliminar**. Esta acción elimina el grupo de recursos, el perfil y el punto de conexión que ha creado en este inicio rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información acerca de cómo agregar un dominio personalizado al punto de conexión de CDN, consulte el tutorial siguiente:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Uso de la red CDN para el contenido estático del servidor desde una aplicación web](cdn-add-to-web-app.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Adición de un dominio personalizado a un punto de conexión de Azure CDN](cdn-map-content-to-custom-domain.md)
-
-

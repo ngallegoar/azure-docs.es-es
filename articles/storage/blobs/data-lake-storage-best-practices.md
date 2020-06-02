@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72299663"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857881"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Al diseñar un sistema con Data Lake Storage Gen2 o cualquier otro servicio en l
 
 ### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres
 
-La alta disponibilidad (HA) y la recuperación ante desastres (DR) se pueden combinar en algunas ocasiones, aunque cada una de ellas sigue una estrategia ligeramente diferente en lo que respecta a los datos. Data Lake Storage Gen2 ya controla la replicación 3x en segundo plano para proteger frente a los errores de hardware localizados. Además, otras opciones de replicación, como el almacenamiento con redundancia de zona o el GZRS (versión preliminar), mejoran la alta disponibilidad. Por su parte, el almacenamiento con redundancia geográfica y el almacenamiento con redundancia geográfica con acceso de lectura mejoran la recuperación ante desastres. Cuando se crea un plan de alta disponibilidad, si se produce una interrupción del servicio, la carga de trabajo necesita acceder a los datos más recientes lo más rápidamente posible mediante el traslado a una instancia replicada de manera independiente localmente o en una nueva región.
+La alta disponibilidad (HA) y la recuperación ante desastres (DR) se pueden combinar en algunas ocasiones, aunque cada una de ellas sigue una estrategia ligeramente diferente en lo que respecta a los datos. Data Lake Storage Gen2 ya controla la replicación 3x en segundo plano para proteger frente a los errores de hardware localizados. Además, otras opciones de replicación, como ZRS o GZRS, mejoran la alta disponibilidad, mientras que GRS y RA-GRS mejoran la DR. Cuando se crea un plan de alta disponibilidad, si se produce una interrupción del servicio, la carga de trabajo necesita acceder a los datos más recientes lo más rápidamente posible mediante el traslado a una instancia replicada de manera independiente localmente o en una nueva región.
 
 En una estrategia de recuperación ante desastres, para estar preparados para el improbable caso de un error grave en una región, también es importante tener los datos replicados en una región diferente con la replicación de almacenamiento con redundancia geográfica y almacenamiento con redundancia geográfica con acceso de lectura. También debe tener en cuenta los requisitos en casos extremos como, por ejemplo, datos dañados donde quiere crear instantáneas periódicas a las que revertir. Según la importancia y el tamaño de los datos, considere la posibilidad de disponer de instantáneas delta graduales de períodos de 1, 6 y 24 horas, según las tolerancias al riesgo.
 

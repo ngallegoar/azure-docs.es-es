@@ -4,14 +4,14 @@ description: Explica cómo configurar opciones adicionales para la memoria cach�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7938fcc0819fc3e5e0762cc8c3c2931594ed1c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195067"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871415"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configuración de valores adicionales de Azure HPC Cache
 
@@ -42,13 +42,15 @@ Para obtener más información sobre la configuración de MTU en redes virtuales
 ## <a name="configure-root-squash"></a>Configuración de squash raíz
 <!-- linked from troubleshoot -->
 
-La opción **Habilitar squash raíz** controla el modo en que Azure HPC Cache permite el acceso a la raíz. Squash raíz ayuda a evitar el acceso al nivel de raíz desde clientes no autorizados.
+La opción **Habilitar squash raíz** controla cómo Azure HPC Cache trata las solicitudes del usuario raíz en las máquinas cliente.
 
-Esta opción permite a los usuarios controlar el acceso raíz a nivel de la caché, lo que puede ayudar a compensar la configuración de ``no_root_squash`` necesaria para los sistemas NAS usados como destinos de almacenamiento. (Obtenga más información acerca de los [requisitos previos de destino de almacenamiento de NFS](hpc-cache-prereqs.md#nfs-storage-requirements)). También puede mejorar la seguridad cuando se usa con destinos de almacenamiento de blobs de Azure.
+Cuando está habilitada la opción de squash raíz, los usuarios raíz de un cliente se asignan automáticamente al usuario "nadie" al enviar solicitudes mediante Azure HPC Cache. También impide que las solicitudes de cliente usen bits de permiso set-UID.
+
+Si se deshabilita la opción de squash raíz, una solicitud del usuario raíz del cliente (UID 0) se pasa a un sistema de almacenamiento de NFS de back-end como raíz. Esta configuración podría permitir un acceso a archivos inadecuado.
+
+Definir la opción de squash raíz en la memoria caché puede ayudar a compensar la configuración de ``no_root_squash`` necesaria en los sistemas NAS que se usan como destinos de almacenamiento. (Obtenga más información acerca de los [requisitos previos de destino de almacenamiento de NFS](hpc-cache-prereqs.md#nfs-storage-requirements)). También puede mejorar la seguridad cuando se usa con destinos de almacenamiento de blobs de Azure.
 
 El valor predeterminado es **Sí**. (Las memorias caché creadas antes de abril de 2020 podrían tener la configuración predeterminada **No**).
-
-Cuando está habilitada, esta característica también impide el uso de los bits de permiso set-UID en las solicitudes de cliente a la memoria caché.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Visualización de instantáneas de destinos de almacenamiento de blobs
 

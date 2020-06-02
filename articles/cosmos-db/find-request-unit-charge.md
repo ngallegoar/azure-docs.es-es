@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5420b9b765fffcf7b4ccd6775d05795b1b13871
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77585907"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872234"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
 
@@ -40,7 +40,8 @@ Actualmente, puede buscar el cargo de solicitud solo en Azure Portal para una co
 ![Captura de pantalla del cargo de solicitud de una consulta SQL en Azure Portal](./media/find-request-unit-charge/portal-sql-query.png)
 
 ### <a name="use-the-net-sdk"></a>Uso del SDK de .NET
-### <a name="net-v2-sdk"></a>SDK de .NET V2
+
+# <a name="net-sdk-v2"></a>[SDK de .NET V2](#tab/dotnetv2)
 
 Los objetos devueltos desde el [SDK de .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exponen una propiedad `RequestCharge`:
 
@@ -75,13 +76,15 @@ while (query.HasMoreResults)
 }
 ```
 
-### <a name="net-v3-sdk"></a>SDK de .NET V3
+# <a name="net-sdk-v3"></a>[SDK de .NET V3](#tab/dotnetv3)
 
 Los objetos que se devuelven desde el [SDK de .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exponen una propiedad `RequestCharge`:
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 Para más información, consulte [Inicio rápido: Cree una aplicación web .NET con una cuenta de SQL API en Azure Cosmos DB](create-sql-api-dotnet.md).
+
+---
 
 ### <a name="use-the-java-sdk"></a>Uso del SDK de Java
 

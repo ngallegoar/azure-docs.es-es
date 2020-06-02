@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228372"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853504"
 ---
 # <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
@@ -24,7 +24,7 @@ En este artículo de procedimientos se aprende a crear una cuenta de almacenamie
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -152,8 +152,8 @@ Para crear una cuenta de almacenamiento de uso general v2 con otra opción de re
 |Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
 |Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
 |Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
-|Almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)    |Standard_GZRS         |
-|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) (versión preliminar)    |Standard_RAGZRS         |
+|Almacenamiento con redundancia de zona geográfica (GZRS)    |Standard_GZRS         |
+|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -195,8 +195,8 @@ Para crear una cuenta de almacenamiento de uso general v2 con otra opción de re
 |Almacenamiento con redundancia de zona (ZRS)     |Standard_ZRS         |
 |Almacenamiento con redundancia geográfica (GRS)     |Standard_GRS         |
 |Almacenamiento con redundancia geográfica con acceso de lectura (GRS)     |Standard_RAGRS         |
-|Almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)    |Standard_GZRS         |
-|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) (versión preliminar)    |Standard_RAGZRS         |
+|Almacenamiento con redundancia de zona geográfica (GZRS)    |Standard_GZRS         |
+|Almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Plantilla](#tab/template)
 

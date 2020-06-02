@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411431"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864256"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Aunque las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar drásticamente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -108,7 +108,7 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>Uso de dimensiones y comandos de agregación efectivos para resúmenes y uniones
+### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Uso de dimensiones y comandos de agregación efectivos para resúmenes y uniones
 
 Aunque algunos comandos de agregación, como [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction) y [avg()](/azure/kusto/query/avg-aggfunction), tienen un impacto bajo en la CPU debido a su lógica, otros son más complejos e incluyen heurística y estimaciones que les permiten ejecutarse de forma eficaz. Por ejemplo, [dcount()](/azure/kusto/query/dcount-aggfunction) usa el algoritmo HyperLogLog para proporcionar una estimación próxima para distinguir el recuento de grandes conjuntos de datos sin contar realmente cada valor; las funciones de percentil realizan aproximaciones similares mediante el algoritmo de percentil de clasificación más próximo. Algunos de los comandos incluyen parámetros opcionales para reducir su impacto. Por ejemplo, la función [makeset()](/azure/kusto/query/makeset-aggfunction) tiene un parámetro opcional para definir el tamaño máximo del conjunto, lo que afecta significativamente a la CPU y la memoria.
 

@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 1a760b4cedad5e43a2ef9f186162675aaf6d5ea5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234186"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864341"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Sin embargo, si el contenedor es pequeño, probablemente no tenga suficientes pa
 Si el contenedor puede aumentar a unas cuantas particiones físicas, debe asegurarse de elegir una clave de partición que minimice las consultas entre particiones. El contenedor necesitará más de unas cuantas particiones físicas cuando se cumpla alguna de las siguientes condiciones:
 
 * El contenedor tiene aprovisionadas más de 30 000 RU.
-* El contenedor tiene almacenados más de 100 GB de datos.
+* El contenedor almacenará más de 100 GB de datos.
 
 ## <a name="using-item-id-as-the-partition-key"></a>Uso del id. de elemento como clave de partición
 

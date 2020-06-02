@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282450"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872440"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
 
@@ -41,7 +41,7 @@ El servicio Import/Export usa los siguientes componentes:
 * **Herramienta WAImportExport**: se trata de una herramienta de línea de comandos que realiza las siguientes acciones:
   * Prepara las unidades de disco que se envían para la importación.
   * Facilita la copia de los datos en la unidad.
-  * Cifra los datos en la unidad con AES 128 bits de BitLocker. Se puede usar un protector de clave externa para proteger la clave de BitLocker.
+  * Cifra los datos en la unidad con AES 256 bits de BitLocker. Se puede usar un protector de clave externa para proteger la clave de BitLocker.
   * Genera los archivos del diario de unidad que se usan durante la creación de la importación.
   * Ayuda a identificar los números de unidades necesarias para los trabajos de exportación.
 
@@ -131,7 +131,7 @@ El servicio Azure Import/Export permite copiar datos en todas las cuentas de alm
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 
-Los datos de la unidad se deben cifrar con AES 128 bits de BitLocker Drive Encryption. Este cifrado protege los datos mientras se encuentren en tránsito.
+Los datos de la unidad se deben cifrar con AES 256 bits de BitLocker Drive Encryption. Este cifrado protege los datos mientras se encuentren en tránsito.
 
 Para los trabajos de importación, las unidades se cifran de dos maneras.  
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b5fec8bbc0db78454b080a411702014bd96f7db9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4df49b4e68769a907423c4edef9f8820df4d20b7
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76887690"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006468"
 ---
 ## <a name="locate-a-cloud-spatial-anchor"></a>Búsqueda de un anclaje espacial de la nube
 
@@ -12,6 +12,9 @@ Una de las principales razones para usar Azure Spatial Anchors es poder localiza
 - Busque delimitadores por identificador.
 - Busque los delimitadores conectados a un delimitador ubicado previamente. [Aquí](/azure/spatial-anchors/concepts/anchor-relationships-way-finding/) puede obtener información sobre las relaciones de los delimitadores.
 - Busque un delimitador mediante la [relocalización general](/azure/spatial-anchors/concepts/coarse-reloc/).
+
+> [!NOTE]
+> Cada vez que se encuentra un delimitador, Azure Spatial Anchors intenta usar los datos de entorno recopilados para aumentar la información visual del delimitador. Si tiene problemas para encontrar un delimitador, puede ser útil crear uno y, a continuación, colocarlo varias veces en diferentes ángulos y condiciones de iluminación.
 
 Si va a buscar anclajes espaciales en la nube por identificador, querrá almacenar el identificador de anclaje espacial de la nube en el servicio back-end de la aplicación y hacer que todos los dispositivos que puedan autenticarse correctamente en él puedan acceder a él. For ver un ejemplo de esto, consulte [Tutorial: Uso compartido de Spatial Anchors entre dispositivos](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
 

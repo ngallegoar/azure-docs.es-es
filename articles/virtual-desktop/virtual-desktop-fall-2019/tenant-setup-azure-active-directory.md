@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94128c69f227ceff51968354048ec6610e3d7c4c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613931"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124404"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop
 
@@ -152,6 +152,8 @@ New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinition
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener una guía más detallada, consulte la [ruta de aprendizaje de Windows Virtual Desktop](https://docs.microsoft.com/learn/paths/m365-wvd/).
 
 Una vez que haya creado su inquilino, tendrá que crear una entidad de servicio en Azure Active Directory y asignarle un rol dentro de Windows Virtual Desktop. La entidad de servicio le permitirá implementar correctamente la oferta de Azure Marketplace de Windows Virtual Desktop para crear un grupo host. Para más información acerca de los grupos host, continúe con el tutorial de creación de un grupo host en Windows Virtual Desktop.
 

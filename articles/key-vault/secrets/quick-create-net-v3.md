@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: bdc686284711fb39e6cedb18aea4d1f5c9d1d318
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 056dc7bbe29c3c963818ee2fca626be4e2be9645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421449"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983489"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET (SDK v3)
 
@@ -38,7 +38,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [SDK de .NET Core 2.1 o posterior](https://dotnet.microsoft.com/download/dotnet-core/2.1).
+* [SDK de .NET Core 3.1 o posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
 
 En este inicio rápido se supone que está ejecutando `dotnet`, la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) y comandos de Windows en un terminal de Windows (como [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6) o [Azure Cloud Shell](https://shell.azure.com/)).
@@ -99,12 +99,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-La manera más sencilla de autenticar una aplicación .NET basada en la nube es con una identidad administrada. Consulte [Uso de identidades administradas de App Service para acceder a Azure Key Vault](../general/managed-identity.md) para más información. Sin embargo, para simplificar, en este inicio rápido se va a crear una aplicación de consola de .NET. La autenticación de una aplicación de escritorio con Azure requiere el uso de una entidad de servicio y una directiva de control de acceso.
+La manera más sencilla de autenticar una aplicación .NET basada en la nube es con una identidad administrada. Consulte [Uso de identidades administradas de App Service para acceder a Azure Key Vault](../general/managed-identity.md) para más información. 
+
+Sin embargo, en aras de la simplicidad, en este inicio rápido se crea una aplicación de consola .NET, que requiere el uso de una entidad de servicio y una directiva de control de acceso. La entidad de servicio requiere un nombre único con el formato "http://&lt;my-unique-service-principle-name&gt;".
 
 Cree una entidad de servicio con el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) de la CLI de Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 Esta operación devolverá una serie de pares clave-valor. 
