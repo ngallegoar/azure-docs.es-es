@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131207"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124591"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -58,7 +58,7 @@ En el caso de las cuentas de pago, el campo `Url` apunta actualmente a una direc
 En las próximas semanas lo cambiaremos y volverá a la dirección URL del [sitio web de Video Indexer](https://www.videoindexer.ai/) en todas las cuentas (de prueba y de pago).
 
     No use las direcciones URL internas; debe usar las [API públicas de Video Indexer](https://api-portal.videoindexer.ai/).
-* Si va a insertar direcciones URL de Video Indexer en las aplicaciones y no apuntan al [sitio web de Video Indexer](https://www.videoindexer.ai/) ni al [punto de conexión de Video Indexer](https://api.videoindexer.ai), sino que lo hacen a un punto de conexión regional (por ejemplo, `https://wus2.videoindexer.ai`), vuelva a generar las direcciones URL.
+* Si va a insertar direcciones URL de Video Indexer en las aplicaciones y no apuntan al [sitio web de Video Indexer](https://www.videoindexer.ai/) ni al punto de conexión de Video Indexer (`https://api.videoindexer.ai`), sino que lo hacen a un punto de conexión regional (por ejemplo, `https://wus2.videoindexer.ai`), vuelva a generar las direcciones URL.
 
    Para ello, haga lo siguiente:
 
@@ -121,7 +121,8 @@ Cuando el punto de conexión de streaming está deshabilitado, Video Indexer mos
 
 ### <a name="error-handling-improvement"></a>Mejora en el control de errores
 
-Ahora, si un vídeo se indexa de forma activa, se devolverá el código de estado 409 desde las API [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) (Volver a indexar el vídeo) y [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) (Actualizar índice de vídeo), para evitar que se invaliden por accidente los cambios de volver a indexar.
+Ahora, si un vídeo se indexa de forma activa, se devolverá el código de estado 409 desde las API [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) (Volver a indexar el vídeo) y [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) (Actualizar índice de vídeo), para evitar que se invaliden por accidente los cambios de volver a indexar.
+
 
 ## <a name="november-2019"></a>Noviembre de 2019
  
