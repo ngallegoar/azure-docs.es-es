@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758850"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021303"
 ---
 # <a name="spatial-queries"></a>Consultas espaciales
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 Hay tres modos de recopilación de incidencias:
 
-* **Más cercano:** en este modo, solo se indicará la incidencia más cercana.
-* **Cualquiera:** opte por este modo si todo lo que quiere saber es *si* un rayo incidirá en algo, pero no le importa en qué. Esta consulta puede ser considerablemente más económica de evaluar, pero también tiene pocas aplicaciones.
-* **Todos:** en este modo, se registran todas las incidencias del rayo, ordenadas por distancia. No utilice este modo a menos que realmente necesite más que la primera incidencia. Limite el número de incidencias mostradas con la opción `MaxHits`.
+* **`Closest`:** en este modo, solo se indicará la incidencia más cercana.
+* **`Any`:** opte por este modo si todo lo que quiere saber es *si* un rayo incidirá en algo, pero no le importa en qué. Esta consulta puede ser considerablemente más económica de evaluar, pero también tiene pocas aplicaciones.
+* **`All`:** en este modo, se registran todas las incidencias del rayo, ordenadas por distancia. No utilice este modo a menos que realmente necesite más que la primera incidencia. Limite el número de incidencias mostradas con la opción `MaxHits`.
 
 Para excluir objetos de forma selectiva de la consideración de proyecciones de rayo, se puede usar el componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md).
 
@@ -106,11 +106,11 @@ El resultado de una consulta de proyección de rayo es una matriz de incidencias
 
 Una incidencia tiene las siguientes propiedades:
 
-* **HitEntity:** [entidad](../../concepts/entities.md) en la que ha incidido.
-* **SubPartId:** *submalla* en la que ha incidido en [MeshComponent](../../concepts/meshes.md). Puede usarse para la indexación en `MeshComponent.UsedMaterials` y para la búsqueda del [material](../../concepts/materials.md) en ese punto.
-* **HitPosition:** posición de espacio mundial donde el rayo se intersecó con el objeto.
-* **HitNormal:** normal de la superficie de espacio mundial de la malla en la posición de la intersección.
-* **DistanceToHit:** distancia desde la posición inicial del rayo hasta la incidencia.
+* **`HitEntity`:** [entidad](../../concepts/entities.md) en la que ha incidido.
+* **`SubPartId`:** *submalla* en la que ha incidido en [MeshComponent](../../concepts/meshes.md). Puede usarse para la indexación en `MeshComponent.UsedMaterials` y para la búsqueda del [material](../../concepts/materials.md) en ese punto.
+* **`HitPosition`:** posición de espacio mundial donde el rayo se intersecó con el objeto.
+* **`HitNormal`:** normal de la superficie de espacio mundial de la malla en la posición de la intersección.
+* **`DistanceToHit`:** distancia desde la posición inicial del rayo hasta la incidencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
