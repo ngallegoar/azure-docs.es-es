@@ -3,19 +3,19 @@ title: Descripción de los resultados de ML automatizado
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo ver y entender los gráficos y las métricas de cada una de las ejecuciones de aprendizaje automático automatizado.
 services: machine-learning
-author: RachelKellam
-ms.author: rakellam
-ms.reviewer: sgilley
+author: aniththa
+ms.author: anumamah
+ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7827349166ce55b1604f949f1d78a1ddce7c5e0
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237004"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116019"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Descripción de los resultados de aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

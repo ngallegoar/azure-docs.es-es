@@ -4,12 +4,12 @@ description: Aprenda a agregar un enlace de salida para conectar las funciones d
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74849214"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235368"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conexión de las funciones a Azure Storage mediante Visual Studio
 
@@ -23,7 +23,7 @@ La mayoría de los enlaces requieren una cadena de conexión almacenada que se u
 
 Antes de empezar este artículo, debe realizar lo siguiente: 
 
- - Complete la [parte 1 del inicio rápido de Visual Studio](./functions-create-first-function-vs-code.md). 
+ - Complete la [parte 1 del inicio rápido de Visual Studio](./functions-create-your-first-function-visual-studio.md). 
 
 - Inicio de sesión en la suscripción de Azure desde Visual Studio.
 

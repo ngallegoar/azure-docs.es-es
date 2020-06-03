@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685507"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265257"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Uso del Agente de identidad (versión preliminar) para la administración de credenciales
 
@@ -100,7 +100,7 @@ La autenticación de SSH requiere que el hash esté disponible en Azure AD DS.
 
 En la configuración del agente de identidad, las aplicaciones personalizadas y los clientes que se conectan a la puerta de enlace se pueden actualizar para adquirir primero el token de OAuth que necesitan. Puede seguir los pasos que aparecen en este [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) para adquirir el token con la información siguiente:
 
-*   URI del recurso de OAuth: https://hib.azurehdinsight.net 
+*   URI del recurso de OAuth: `https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Permiso: (nombre: Cluster.ReadWrite; id.: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 

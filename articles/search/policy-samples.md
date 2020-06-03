@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas en Azure Cognitive Search
 description: Se enumeran las definiciones de directivas integradas de Azure Policy en Azure Cognitive Search. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-samples
-ms.openlocfilehash: fe8ed12f85dcd0dedbec5369ed9ad6dcf4e4628a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ea7b52ae508f1bf1a331d7e5adff4c9628bcf209
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658954"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234865"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-search"></a>Definiciones de directivas integradas de Azure Policy en Azure Cognitive Search
 

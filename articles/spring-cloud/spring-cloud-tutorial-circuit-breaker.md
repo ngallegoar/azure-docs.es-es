@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: e5fbb14477275ca329243797b75550cfe92077b6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701555"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248862"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Uso del panel de Circuit Breaker con Azure Spring Cloud
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) se usa con frecuencia para agregar varias secuencias de métricas [Hystrix](https://github.com/Netflix/Hystrix), de modo que las secuencias se puedan supervisar en una sola vista mediante el panel de Hystrix. En este tutorial se muestra cómo usarlas en Azure Spring Cloud.
@@ -59,7 +59,7 @@ Una vez que todas las aplicaciones se estén ejecutando y sean reconocibles, acc
 Compruebe el uso de puntos de conexión públicos o puntos de conexión de prueba privados.
 
 ### <a name="using-public-endpoints"></a>Uso de puntos de conexión públicos
-Acceda a Hystrix-Turbine con la ruta de acceso `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` desde el explorador.  En la siguiente ilustración se muestra el panel de Hystrix que se ejecuta en esta aplicación.
+Acceda a Hystrix-Turbine con la ruta de acceso `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` desde el explorador.  En la siguiente ilustración se muestra el panel de Hystrix que se ejecuta en esta aplicación.
 
 ![Panel de Hystrix](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 

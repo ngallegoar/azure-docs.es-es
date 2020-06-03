@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 47978317b1ae914e952b764def854d8a011293e0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772138"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266617"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -43,7 +43,7 @@ En función de cómo se compile el cliente, puede usar uno o varios de los flujo
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flujo de código de autorización](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Flujo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Flujo de OIDC híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Flujo de OIDC híbrido](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[Redención de token de actualización](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | Token de actualización | x | x | x| |
 |[Flujo en nombre de](v2-oauth2-on-behalf-of-flow.md) | de la aplicación Twitter| x| x| x| |
 |[Flujo de código de dispositivo](v2-oauth2-device-code.md) | | x| x| x| |

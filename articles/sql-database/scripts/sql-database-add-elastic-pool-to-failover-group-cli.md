@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 2d6f18e373327b758e766dffba341c080622301f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061931"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022784"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Use la CLI para agregar un grupo elástico de Azure SQL Database a un grupo de conmutación por error
 
@@ -61,4 +61,4 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure/overview).
 
-Encontrará más ejemplos de scripts de la CLI de Azure de SQL Database en los [scripts de la CLI de Azure de Azure SQL Database](../sql-database-cli-samples.md).
+Encontrará más ejemplos de scripts de la CLI de Azure de SQL Database en los [scripts de la CLI de Azure de Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

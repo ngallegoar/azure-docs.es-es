@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a852ddc68a6f51e677e5ff2e641ada25f4bf0105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 581efde3128294a326bdfd08e622a8dcabe5784d
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70101359"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232647"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -280,7 +280,7 @@ Estos procedimientos recomendados son el resultado de cientos de implementacione
 
 - Las redes virtuales en las que se implementa la aplicación de SAP no tienen acceso a Internet.
 - Las máquinas virtuales de base de datos se ejecutan en la misma red virtual que la capa de aplicación.
-- Las máquinas virtuales dentro de la red virtual tienen una asignación estática de la dirección IP privada. Para más información, consulte [Tipos de direcciones IP y métodos de asignación en Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
+- Las máquinas virtuales dentro de la red virtual tienen una asignación estática de la dirección IP privada. Para más información, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../../../virtual-network/public-ip-addresses.md).
 - Las restricciones de enrutamiento a y desde las máquinas virtuales de DBMS *no* se establecen con firewalls instalados en las máquinas virtuales de DBMS locales. En su lugar, el enrutamiento del tráfico se define mediante [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - Para separar y aislar el tráfico a la máquina virtual de DBMS, asigne diferentes NIC a la máquina virtual. Cada NIC recibe una dirección IP diferente y cada NIC se asigna a una subred de red virtual diferente. Cada subred tiene diferentes reglas de NSG. El aislamiento o la separación del tráfico de red es una medida para el enrutamiento. No se usa para establecer cuotas para el rendimiento de la red.
 

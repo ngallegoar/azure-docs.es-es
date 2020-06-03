@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: 46dd7949dde1890035053a7a985f2f1d921e141e
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737902"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266668"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure
 
@@ -149,11 +149,11 @@ az monitor diagnostic-settings create  \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-### <a name="configure-diagnostic-settings-using-rest-api"></a>Creación de configuraciones de diagnóstico mediante API REST
+## <a name="configure-diagnostic-settings-using-rest-api"></a>Creación de configuraciones de diagnóstico mediante API REST
 
 Consulte [Configuración de diagnóstico](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) para crear o actualizar configuraciones de diagnóstico mediante la [API REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
-### <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Creación de configuraciones de diagnóstico mediante una plantilla de Resource Manager
+## <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Creación de configuraciones de diagnóstico mediante una plantilla de Resource Manager
 
 Consulte [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](diagnostic-settings-template.md) para crear o actualizar la configuración de diagnóstico con una plantilla de Resource Manager.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: a665c3c27cca03a084896895ae51c56732ceb7b6
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461782"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237672"
 ---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -51,7 +51,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear una interfa
 
 ## <a name="ip-addresses"></a>Direcciones IP 
 
-En Azure se pueden asignar estos tipos de [direcciones IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) a una NIC:
+En Azure se pueden asignar estos tipos de [direcciones IP](../articles/virtual-network/public-ip-addresses.md) a una NIC:
 
 - **Direcciones IP públicas**: se usan para la comunicación entrante y saliente [sin traducción de direcciones de red (NAT)] con Internet y otros recursos de Azure no conectados a una red virtual. La asignación de una dirección IP pública a una NIC es opcional. Las direcciones IP públicas tienen un cargo nominal y se puede usar un número máximo de ellas por suscripción.
 - **Direcciones IP privadas**: se usan para la comunicación dentro de una red virtual, una red local e Internet (con NAT). Debe asignar al menos una dirección IP privada a una máquina virtual. Para más información acerca de NAT en Azure, lea [Información sobre las conexiones salientes en Azure](../articles/load-balancer/load-balancer-outbound-connections.md).

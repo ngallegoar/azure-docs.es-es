@@ -7,12 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614679"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234690"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -48,9 +48,9 @@ Puede usarlos para implementar y administrar una colección de máquinas virtual
 Para más información, consulte los [tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Las instancias de máquina virtual se unen detrás de una instancia de [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), que está asociada a una [dirección IP pública](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) y una etiqueta DNS.  Cuando aprovisiona un clúster con un *&lt;nombreclúster&gt;* , el nombre DNS, *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com* es la etiqueta DNS asociada con el equilibrador de carga delante del conjunto de escalado.
+Las instancias de máquina virtual se unen detrás de una instancia de [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), que está asociada a una [dirección IP pública](../virtual-network/public-ip-addresses.md) y una etiqueta DNS.  Cuando aprovisiona un clúster con un *&lt;nombreclúster&gt;* , el nombre DNS, *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com* es la etiqueta DNS asociada con el equilibrador de carga delante del conjunto de escalado.
 
-Las máquinas virtuales en un clúster solo tienen [direcciones IP privadas](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  El tráfico de administración y el tráfico del servicio se enrutan a través del equilibrador de carga orientado al público.  El tráfico de red se enruta a estas máquinas a través de las reglas NAT (los clientes se conectan a instancias o nodos específicos) o las reglas de equilibrio de carga (el tráfico se dirige a las máquinas virtuales en round robin).  Un equilibrador de carga tiene una dirección IP pública asociada con un nombre DNS en el formato: *&lt;nombreclúster&gt;.&lt; ubicación&gt;.cloudapp.azure.com*.  Una dirección IP pública es otro recurso de Azure en el grupo de recursos.  Si define varios tipos de nodo en un clúster, se crea un equilibrador de carga para cada conjunto de escalado o tipo de nodo. O bien, puede configurar un solo equilibrador de carga para varios tipos de nodo.  El tipo de nodo principal tiene la etiqueta DNS *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com*, otros tipos de nodos tienen la etiqueta DNS *&lt;nombreclúster&gt;-&lt;tiponodo&gt;.&lt;ubicación&gt;.cloudapp.azure.com*.
+Las máquinas virtuales en un clúster solo tienen [direcciones IP privadas](../virtual-network/private-ip-addresses.md).  El tráfico de administración y el tráfico del servicio se enrutan a través del equilibrador de carga orientado al público.  El tráfico de red se enruta a estas máquinas a través de las reglas NAT (los clientes se conectan a instancias o nodos específicos) o las reglas de equilibrio de carga (el tráfico se dirige a las máquinas virtuales en round robin).  Un equilibrador de carga tiene una dirección IP pública asociada con un nombre DNS en el formato: *&lt;nombreclúster&gt;.&lt; ubicación&gt;.cloudapp.azure.com*.  Una dirección IP pública es otro recurso de Azure en el grupo de recursos.  Si define varios tipos de nodo en un clúster, se crea un equilibrador de carga para cada conjunto de escalado o tipo de nodo. O bien, puede configurar un solo equilibrador de carga para varios tipos de nodo.  El tipo de nodo principal tiene la etiqueta DNS *&lt;nombreclúster&gt;.&lt;ubicación&gt;.cloudapp.azure.com*, otros tipos de nodos tienen la etiqueta DNS *&lt;nombreclúster&gt;-&lt;tiponodo&gt;.&lt;ubicación&gt;.cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Cuentas de almacenamiento
 Cada tipo de nodo de clúster es compatible con una [cuenta de almacenamiento de Azure](/azure/storage/common/storage-introduction) y discos administrados.

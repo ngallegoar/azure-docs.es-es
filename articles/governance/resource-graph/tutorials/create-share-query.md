@@ -3,12 +3,12 @@ title: 'Tutorial: Administración de consultas en Azure Portal'
 description: En este tutorial, creará una consulta de Resource Graph y la compartirá con otras personas en Azure Portal.
 ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83637763"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148028"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Creación y uso compartido de una consulta de Azure Resource Graph en Azure Portal
 
@@ -44,7 +44,7 @@ Puede visualizar y tener acceso a las consultas privadas solo desde la cuenta qu
 
    Seleccione **Ejecutar consulta** para ver los resultados de la consulta en el panel inferior.
 
-   Para obtener más información acerca de esta consulta, consulte [Ejemplos: conteo de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obtener más información acerca de esta consulta, consulte [Ejemplos: conteo de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-os).
 
 
 1. Seleccione **Guardar** o **Guardar como**, escriba **Count VMs by OS** como nombre, deje el tipo como **Consulta privada** y después seleccione **Guardar** en la parte inferior del panel **Guardar consulta**. El título de la pestaña cambia de **Consulta 1** a **Count VMs by OS**.
@@ -76,7 +76,7 @@ Para crear una nueva consulta compartida, siga estos pasos:
     
    Seleccione **Ejecutar consulta** para ver los resultados de la consulta en el panel inferior.
 
-   Para obtener más información acerca de esta consulta, consulte [Ejemplos: conteo de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obtener más información acerca de esta consulta, consulte [Ejemplos: conteo de máquinas virtuales por tipo de sistema operativo](../samples/starter.md#count-os).
 
 1. Seleccione **Guardar** o **Guardar como**.
 

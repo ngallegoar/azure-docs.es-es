@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: a41dcc9c7ec86f41c64a69ea1aba762b960b2633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283028"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265206"
 ---
 # <a name="getting-started-with-ai-enrichment"></a>Introducción al enriquecimiento con IA
 
@@ -102,7 +102,7 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 
 1. Defina el [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). La colección *Fields* (Campos) incluye campos de los datos de origen. También debe simular campos adicionales para contener valores generados para el contenido creado durante el enriquecimiento.
 
-1. Defina el [indexador](https://docs.microsoft.com/rest/api/searchservice/create-skillset) que hace referencia al origen de datos, conjunto de aptitudes e índice.
+1. Defina el [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) que hace referencia al origen de datos, conjunto de aptitudes e índice.
 
 1. Dentro del indexador, agregue *outputFieldMappings*. En esta sección, la salida se asigna desde el conjunto de aptitudes (en el paso 3) a los campos de entrada del esquema de índice (en el paso 4).
 

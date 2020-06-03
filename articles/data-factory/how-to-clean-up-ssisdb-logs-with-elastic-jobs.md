@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 02952c3baea5d9089061b10f2429be57a9322398
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 8d15ab5f08b7f9f5bc4824aec8980ed4b711ae1d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606173"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020292"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database
 
@@ -25,7 +25,7 @@ En este artículo se describe cómo usar trabajos de Azure Elastic Database para
 
 Trabajos de Elastic Database es un servicio de Azure que facilita la automatización y ejecución de trabajos en una base de datos o un grupo de bases de datos. Puede programar, ejecutar y supervisar estos trabajos mediante Azure Portal, Transact-SQL, PowerShell o las API REST. Use un trabajo de Elastic Database para desencadenar el procedimiento almacenado para la limpieza del registro una vez o según una programación. Puede elegir el intervalo de programación en función del uso de recursos de SSISDB para evitar la carga intensiva de la base de datos.
 
-Para más información, consulte [Administración de grupos de bases de datos con trabajos de Elastic Database](../sql-database/elastic-jobs-overview.md).
+Para más información, consulte [Administración de grupos de bases de datos con trabajos de Elastic Database](../azure-sql/database/elastic-jobs-overview.md).
 
 Las secciones siguientes describen cómo desencadenar el procedimiento almacenado `[internal].[cleanup_server_retention_window_exclusive]`, que elimina los registros de SSISDB que están fuera del intervalo de retención establecido por el administrador.
 
@@ -33,7 +33,7 @@ Las secciones siguientes describen cómo desencadenar el procedimiento almacenad
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-Los siguientes scripts de PowerShell de ejemplo crean un nuevo trabajo elástico para desencadenar el procedimiento almacenado para la limpieza del registro de SSISDB. Para más información, consulte [Creación de un agente de trabajos elásticos mediante PowerShell](../sql-database/elastic-jobs-powershell.md).
+Los siguientes scripts de PowerShell de ejemplo crean un nuevo trabajo elástico para desencadenar el procedimiento almacenado para la limpieza del registro de SSISDB. Para más información, consulte [Creación de un agente de trabajos elásticos mediante PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
 
 ### <a name="create-parameters"></a>Creación de parámetros
 
@@ -41,7 +41,7 @@ Los siguientes scripts de PowerShell de ejemplo crean un nuevo trabajo elástico
 # Parameters needed to create the Job Database
 param(
 $ResourceGroupName = $(Read-Host "Please enter an existing resource group name"),
-$AgentServerName = $(Read-Host "Please enter the name of an existing Azure SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
+$AgentServerName = $(Read-Host "Please enter the name of an existing logical SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
 $SSISDBLogCleanupJobDB = $(Read-Host "Please enter a name for the Job Database to be created in the given SQL Server"),
 # The Job Database should be a clean,empty,S0 or higher service tier. We set S0 as default.
 $PricingTier = "S0",
@@ -52,7 +52,7 @@ $SSISDBLogCleanupAgentName = $(Read-Host "Please enter a name for your new Elast
 # Parameters needed to create the job credential in the Job Database to connect to SSISDB
 $PasswordForSSISDBCleanupUser = $(Read-Host "Please provide a new password for SSISDBLogCleanup job user to connect to SSISDB database for log cleanup"),
 # Parameters needed to create a login and a user in the SSISDB of the target server
-$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target Azure SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
+$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target logical SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
 $SSISDBServerAdminUserName = $(Read-Host "Please enter the target server admin username for SQL authentication"),
 $SSISDBServerAdminPassword = $(Read-Host "Please enter the target server admin password for SQL authentication"),
 $SSISDBName = "SSISDB",
@@ -191,7 +191,7 @@ Los siguientes scripts de Transact-SQL de ejemplo crean un nuevo trabajo elásti
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. Conceda los permisos adecuados para la base de datos SSISDB. El catálogo de SSISDB debe tener los permisos adecuados para que el procedimiento almacenado ejecute la limpieza del registro de SSISDB correctamente. Para ver una guía detallada, consulte [Administración de inicios de sesión](../sql-database/sql-database-manage-logins.md).
+4. Conceda los permisos adecuados para la base de datos SSISDB. El catálogo de SSISDB debe tener los permisos adecuados para que el procedimiento almacenado ejecute la limpieza del registro de SSISDB correctamente. Para ver una guía detallada, consulte [Administración de inicios de sesión](../azure-sql/database/logins-create-manage.md).
 
     ```sql
     -- Connect to the master database in the target server including SSISDB 
