@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 1db23bb1176a41b4b9bac548b737fbd13fbe82c4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203319"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685217"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restauración masiva de usuarios eliminados en Azure Active Directory
 
@@ -36,7 +36,7 @@ Las filas de una plantilla CSV descargada son las siguientes:
 
 - **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
 - **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Object ID [objectId] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
-- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe eliminar la fila de ejemplos y reemplazarla por sus propias entradas.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
 
 ### <a name="additional-guidance"></a>Instrucciones adicionales
 
@@ -51,11 +51,11 @@ Las filas de una plantilla CSV descargada son las siguientes:
 1. En Azure AD, seleccione **Usuarios** > **Usuarios eliminados**.
 1. En la página **Usuarios eliminados**, seleccione **Restauración masiva** para cargar un archivo .csv válido de las propiedades de los usuarios que se van a restaurar.
 
-   ![Selección del comando de restauración masiva en la página Usuarios eliminados](./media/users-bulk-restore/bulk-restore.png)
+    ![Selección del comando de restauración masiva en la página Usuarios eliminados](./media/users-bulk-restore/bulk-restore.png)
 
 1. Abra la plantilla CSV y agregue una línea por cada usuario que quiera restaurar. El único valor necesario es **ObjectID**. A continuación, guarde el archivo.
 
-   ![Selección de un archivo .csv local en el que se indican los usuarios que quiere agregar](./media/users-bulk-restore/upload-button.png)
+    :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Selección de un archivo .csv local en el que se indican los usuarios que quiere agregar":::
 
 1. En la página **Restauración masiva**, en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo y hacer clic en **Enviar**, comienza su validación.
 1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente**. Si hay errores, debe corregirlos para poder enviar el trabajo.

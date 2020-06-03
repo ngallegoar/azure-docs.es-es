@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 0ede0f5d74ceb5ce79cdfc095b3ffeccd96a1b3b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606143"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84230133"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -104,7 +104,7 @@ En los artículos [Centro de datos virtual de Azure: una perspectiva de red](htt
 >El tráfico que fluye entre una red virtual hub y otra spoke mediante [emparejamiento de redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) supone [costos](https://azure.microsoft.com/pricing/details/virtual-network/) adicionales. Según estos costos, puede que deba plantearse la opción de asumir compromisos entre la ejecución de un diseño de red hub-and-spoke estricto y la ejecución de varias [puertas de enlace de Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) que conecta a los "radios" para omitir el emparejamiento de redes virtuales. Sin embargo, las puertas de enlace de Azure ExpressRoute también generan [costos](https://azure.microsoft.com/pricing/details/vpn-gateway/) adicionales. También puede incurrir en costos adicionales por el software de terceros que usa para el registro, la auditoría y la supervisión del tráfico de red. En función de los costos derivados del intercambio de datos mediante el emparejamiento de redes virtuales, por una parte, y de los costos que generan las puertas de enlace de Azure ExpressRoute adicionales y las licencias de software adicionales, por otra, puede que deba plantearse la microsegmentación dentro de una red virtual con el uso de subredes como unidad de aislamiento en lugar de utilizar redes virtuales.
 
 
-Para obtener información general sobre los distintos métodos para asignar direcciones IP, consulte [Tipos de direcciones IP y métodos de asignación en Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+Para obtener información general sobre los distintos métodos para asignar direcciones IP, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../../../virtual-network/public-ip-addresses.md). 
 
 Para máquinas virtuales que ejecutan SAP HANA, debe trabajar con direcciones IP estáticas asignadas. La razón es que algunos atributos de configuración de HANA hacen referencia a direcciones IP.
 

@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 05b0b132f45e1cc7fbb136c46a7596f480941178
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416240"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682991"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -57,7 +57,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MinReplicaSetSize|int, el valor predeterminado es 0|estática|MinReplicaSetSize para BackupRestoreService |
 |PlacementConstraints|string, el valor predeterminado es "".|estática|    PlacementConstraints para el servicio BackupRestore |
 |SecretEncryptionCertThumbprint|string, el valor predeterminado es "".|Dinámica|Huella digital del certificado X509 de cifrado de secretos |
-|SecretEncryptionCertX509StoreName|string, el valor predeterminado es "My"|    Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
+|SecretEncryptionCertX509StoreName|string, el valor recomendado es "My" (no predeterminado) |    Dinámica|    Indica qué certificado se va a usar para cifrar y descifrar el nombre de las credenciales en el almacén de certificados X509 que usa el servicio Backup Restore |
 |TargetReplicaSetSize|Int, el valor predeterminado es 0|estática| TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager

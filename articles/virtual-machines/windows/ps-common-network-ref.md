@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 8cf6d59d93a1b26d79911fc9fa9251ea3d0689ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78aac1e49b23cf7fd294314f335aa429e8458639
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098448"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233365"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos comunes de PowerShell para Azure Virtual Network
 
@@ -31,7 +31,7 @@ Algunas de las variables podrían serle útiles si ejecuta más de uno de los co
 | ---- | ------- |
 | Crear configuraciones de subred |$subnet1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>Una red típica podría tener una subred para un [equilibrador de carga accesible desde Internet](../../load-balancer/load-balancer-internet-overview.md) y una subred independiente para un [equilibrador de carga interno](../../load-balancer/load-balancer-internal-overview.md). |
 | Creación de una red virtual |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
-| Prueba para un nombre de dominio único |[Test-AzDnsAvailability](https://docs.microsoft.com/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Puede especificar un nombre de dominio DNS para un [recurso de dirección IP pública](../../virtual-network/virtual-network-ip-addresses-overview-arm.md), lo que crea una asignación para nombrededominio.ubicación.cloudapp.azure.com en la dirección IP pública de los servidores DNS que administra Azure. El nombre solo puede contener letras, números y guiones. El primer y último carácter debe ser una letra o un número y el nombre de dominio debe ser único dentro de su ubicación de Azure. Si se devuelve **True** , significa que el nombre propuesto es único globalmente. |
+| Prueba para un nombre de dominio único |[Test-AzDnsAvailability](https://docs.microsoft.com/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Puede especificar un nombre de dominio DNS para un [recurso de dirección IP pública](../../virtual-network/public-ip-addresses.md), lo que crea una asignación para nombrededominio.ubicación.cloudapp.azure.com en la dirección IP pública de los servidores DNS que administra Azure. El nombre solo puede contener letras, números y guiones. El primer y último carácter debe ser una letra o un número y el nombre de dominio debe ser único dentro de su ubicación de Azure. Si se devuelve **True** , significa que el nombre propuesto es único globalmente. |
 | Crear una dirección IP pública |$pip = [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) -Name "myPublicIp" -ResourceGroupName $myResourceGroup -DomainNameLabel "myDNS" -Location $location -AllocationMethod Dynamic<BR><BR>La dirección IP pública utiliza el nombre de dominio que probó anteriormente y la emplea la configuración de front-end del equilibrador de carga. |
 | Crear una configuración de direcciones IP de front-end |$frontendIP = [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) -Name "myFrontendIP" -PublicIpAddress $pip<BR><BR>La configuración de front-end incluye la dirección IP pública que creó anteriormente para el tráfico de red entrante. |
 | Creación de un grupo de direcciones de back-end |$beAddressPool = [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>Proporciona direcciones internas para el back-end del equilibrador de carga al que se accede mediante una interfaz de red. |
