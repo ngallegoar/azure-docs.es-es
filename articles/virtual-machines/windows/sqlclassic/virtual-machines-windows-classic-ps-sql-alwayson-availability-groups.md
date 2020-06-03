@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75978156"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014866"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "75978156"
 > * [Portal de Azure clásico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Antes de comenzar, considere que ahora puede completar esta tarea en un modelo de Azure Resource Manager. Se recomienda el modelo de Azure Resource Manager para las implementaciones nuevas. Consulte [Grupos de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Antes de comenzar, considere que ahora puede completar esta tarea en un modelo de Azure Resource Manager. Se recomienda el modelo de Azure Resource Manager para las implementaciones nuevas. Consulte [Grupos de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
 
 > [!IMPORTANT]
 > Se recomienda que las implementaciones más recientes usen el modelo Resource Manager. Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../../azure-resource-manager/management/deployment-models.md). Este artículo trata del modelo de implementación clásico.
@@ -481,7 +481,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Descargue **CreateAzureFailoverCluster.ps1** de [Create Failover Cluster for AlwaysOn Availability Groups in Windows Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creación del clúster de conmutación por error para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de conmutación por error. Para información sobre cómo Clústeres de conmutación por error de Windows interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Descargue **CreateAzureFailoverCluster.ps1** de [Create Failover Cluster for AlwaysOn Availability Groups in Windows Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creación del clúster de conmutación por error para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de conmutación por error. Para información sobre cómo Clústeres de conmutación por error de Windows interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Cambie al directorio de trabajo y cree el clúster de conmutación por error con el script descargado.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -567,4 +567,4 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 ## <a name="next-steps"></a>Pasos siguientes
 Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-int-listener.md).
 
-Para más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

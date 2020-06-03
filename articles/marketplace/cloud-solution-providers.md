@@ -1,24 +1,24 @@
 ---
-title: Proveedores de soluciones en la nube | Azure Marketplace
-description: Los publicadores ya pueden comercializar sus ofertas a través del canal de asociados de Proveedor de soluciones en la nube de Microsoft (CSP).
+title: 'Proveedor de soluciones en la nube: Marketplace comercial de Microsoft'
+description: Obtenga información sobre cómo vender sus ofertas a través del canal de partners del programa Proveedor de soluciones en la nube (CSP) de Microsoft en el marketplace comercial.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b962610c585df288a9cb3297ed8e09c8abc5ac0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160654"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798152"
 ---
-# <a name="cloud-solution-providers"></a>Proveedores de soluciones en la nube
+# <a name="cloud-solution-provider-program"></a>Programa Proveedor de soluciones en la nube
 
-Las ofertas de software pueden llegar a millones de clientes de Microsoft cualificados a los que atienden los asociados del programa Proveedor de soluciones en la nube (CSP), además de la disponibilidad pública de las ofertas a través de los [escaparates web de Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+En este artículo se explica cómo configurar una oferta para que esté disponible en el programa Proveedor de soluciones en la nube (CSP). Además de publicar sus ofertas a través de [escaparates web del marketplace comercial](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), también puede vender a través del programa CSP para llegar a millones de clientes cualificados de Microsoft a los que presta servicios el programa.
 
-Los publicadores configuran las ofertas para su disponibilidad en el programa CSP en función de la participación, tanto para una oferta nueva como existente, lo que permite que los asociados vendan los productos y creen conjuntos de soluciones para los clientes.
+Puede configurar ofertas nuevas o existentes para su disponibilidad en el programa CSP en función de la participación, lo que permite que los partners de CSP vendan sus productos y creen conjuntos de soluciones para los clientes.
 
 Los publicadores son los responsables de ofrecer soporte break-fix a los clientes finales y de proporcionar un mecanismo para que los asociados del programa CSP y los clientes se pongan en contacto con usted para obtener soporte técnico. Un procedimiento recomendado es ofrecer a los asociados del programa CSP documentación de usuario, aprendizaje y notificaciones sobre el mantenimiento o la interrupción del servicio (según corresponda), de modo que los asociados del programa CSP estén equipados para responder a solicitudes de soporte técnico de nivel 1 por parte de los clientes.  
 
@@ -66,7 +66,7 @@ Para autorizar a los asociados, haga clic en **Select CSP Partners** (Selecciona
 
 Puede aplicar filtros de búsqueda, como **País**, **Competencia** o **Aptitud**.
 
-![Filtros de país, competencia y aptitud para la búsqueda de asociados](media/marketplace-publishers-guide/csp-add-resellers.png)
+![Filtros de país o región, competencia y aptitud para la búsqueda de partners](media/marketplace-publishers-guide/csp-add-resellers.png)
 
 Una vez que elija la lista de asociados, seleccione **Agregar**.
 
@@ -105,7 +105,7 @@ Si autorizó a un asociado del programa CSP y ese asociado ya revendió el produ
 
 Si hay un asociado del programa CSP que todavía no vende su producto a los clientes y quiere quitar el CSP una vez que se publique la oferta, siga estas instrucciones:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://partner.microsoft.com/support/v2/?stage=1). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.
@@ -127,7 +127,7 @@ Use esta sección para navegar entre las tres opciones de revendedor de CSP.
 
 Si la oferta es actualmente **Opción 1: cualquier asociado del programa CSP** y quisiera navegar a cualquiera de las otras dos opciones, use estas instrucciones para crear una solicitud:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://partner.microsoft.com/support/v2/?stage=1). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.
@@ -145,7 +145,7 @@ Si la oferta es actualmente **Opción 1: cualquier asociado del programa CSP** y
 
 Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP que selecciono** y quisiera navegar a la **Opción 1: cualquier asociado del programa CSP**, use estas instrucciones para crea una solicitud:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://partner.microsoft.com/support/v2/?stage=1). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.
@@ -158,7 +158,7 @@ Si la oferta es actualmente **Opción 2: asociados específicos del programa CSP
 
  Si la oferta es actualmente **Opción 2: asociados específicos en el programa CSP que selecciono** y quisiera navegar a la **Opción 3: ningún asociado del programa CSP**, solo podrá navegar a esa opción si los asociados del programa CSP a los que autorizó anteriormente todavía no revenden la oferta a los clientes finales. Use estas instrucciones para crear una solicitud:
 
-1. Vaya a la [página de solicitud de soporte técnico](https://partner.microsoft.com/support/v2/?stage=1). Los primeros menús desplegables se rellenan automáticamente.
+1. Vaya a la [página de solicitud de soporte técnico](https://aka.ms/marketplacepublishersupport). Los primeros menús desplegables se rellenan automáticamente.
 
    > [!NOTE]
    > No cambie las selecciones de menú desplegable rellenadas previamente.
@@ -195,4 +195,4 @@ Visite la [Guía de publicación de Azure Marketplace y AppSource](https://docs.
 
 Para más información sobre los servicios GTM de Marketplace, consulte [Servicios de comercialización](https://partner.microsoft.com/reach-customers/gtm).
 
-Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear y configurar la oferta.
+Inicie sesión en el [Centro de Partners](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para crear y configurar la oferta.

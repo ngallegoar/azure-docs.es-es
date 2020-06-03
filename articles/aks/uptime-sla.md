@@ -4,12 +4,13 @@ description: Obtenga información sobre la oferta opcional de acuerdo de nivel d
 services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683209"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299560"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
@@ -25,18 +26,6 @@ Los clientes todavía pueden crear un número ilimitado de clústeres gratuitos 
 ## <a name="sla-terms-and-conditions"></a>Términos y condiciones del acuerdo de nivel de servicio
 
 El acuerdo de nivel de servicio de tiempo de actividad es una característica de pago y se habilita para cada clúster. El precio del acuerdo de nivel de servicio de tiempo de actividad viene determinado por el número de clústeres discretos, no por el tamaño de los clústeres individuales. Puede ver los [Detalles de precios de los acuerdos de nivel de servicio de tiempo de actividad](https://azure.microsoft.com/pricing/details/kubernetes-service/) para obtener más información.
-
-## <a name="region-availability"></a>Disponibilidad regional
-
-El acuerdo de nivel de servicio de tiempo de actividad está disponible en las siguientes regiones:
-
-* Este de Australia
-* Centro de Canadá
-* Este de EE. UU.
-* Este de EE. UU. 2
-* Centro-sur de EE. UU.
-* Sudeste de Asia
-* Oeste de EE. UU. 2
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

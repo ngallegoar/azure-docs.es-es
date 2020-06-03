@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 9df08151e4af6e82a775b3ee99dab88134a2f032
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82784102"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014710"
 ---
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -17,9 +17,9 @@ Después de habilitar la integración de Azure Key Vault, puede habilitar el cif
 
 Hay varias formas de cifrado que puede aprovechar:
 
-* [Cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Copias de seguridad cifradas](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Cifrado de nivel de columna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [Copias de seguridad cifradas](/sql/relational-databases/backup-restore/backup-encryption)
+* [Cifrado de nivel de columna (CLE)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
 
 Los siguientes scripts de Transact-SQL proporcionan ejemplos para cada una de estas áreas.
 
@@ -146,4 +146,4 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 Para más información sobre cómo usar estas características de cifrado, vea [Uso de la administración extensible de claves con las características de cifrado de SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Para otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [Información general de SQL Server en Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](../articles/azure-sql/virtual-machines/windows/create-sql-vm-portal.md). Para otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [Información general de SQL Server en Azure Virtual Machines](../articles/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

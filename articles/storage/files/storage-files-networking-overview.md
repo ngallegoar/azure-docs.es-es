@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067163"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296534"
 ---
 # <a name="azure-files-networking-considerations"></a>Consideraciones de redes para Azure Files 
 Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
@@ -51,7 +51,7 @@ Azure Files admite los siguientes mecanismos para tunelizar el tráfico entre lo
 
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): Una puerta de enlace de VPN es un tipo específico de puerta de enlace de red virtual que se usa para enviar tráfico cifrado entre una red virtual de Azure y una ubicación alternativa (por ejemplo, en un entorno local) a través de Internet. Una instancia de Azure VPN Gateway es un recurso de Azure que se puede implementar en un grupo de recursos junto con una cuenta de almacenamiento u otros recursos de Azure. Las puertas de enlace de VPN exponen dos tipos de conexión distintos:
     - Las conexiones de puerta de enlace de [VPN de punto a sitio](../../vpn-gateway/point-to-site-about.md), que son conexiones VPN entre Azure y un cliente individual. Esta solución es especialmente útil para los dispositivos que no forman parte de la red local de su organización, como los trabajadores remotos que quieren montar su recurso compartido de archivos de Azure desde casa, una cafetería o un hotel mientras viajan. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. Para simplificar la implementación de una conexión VPN P2S, consulte [Configuración de una VPN de punto a sitio (P2S) en Windows para su uso con Azure Files](storage-files-configure-p2s-vpn-windows.md) y [Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files](storage-files-configure-p2s-vpn-linux.md).
-    - Las [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), que son conexiones VPN entre Azure y la red de su organización. Una conexión de VPN de sitio a sitio le permite configurar una conexión VPN una vez, para un servidor VPN o un dispositivo hospedado en la red de su organización, en lugar de hacerlo para cada dispositivo cliente que necesite tener acceso al recurso compartido de archivos de Azure. Para simplificar la implementación de una conexión VPN S2S, consulte [Configuración de una VPN de sitio a sitio (S2S) para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
+    - Las [VPN de sitio a sitio](../../vpn-gateway/design.md#s2smulti), que son conexiones VPN entre Azure y la red de su organización. Una conexión de VPN de sitio a sitio le permite configurar una conexión VPN una vez, para un servidor VPN o un dispositivo hospedado en la red de su organización, en lugar de hacerlo para cada dispositivo cliente que necesite tener acceso al recurso compartido de archivos de Azure. Para simplificar la implementación de una conexión VPN S2S, consulte [Configuración de una VPN de sitio a sitio (S2S) para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), que permite crear una ruta definida entre Azure y la red local que no atraviesa Internet. Como ExpressRoute proporciona una ruta de acceso dedicada entre el centro de recursos local y Azure, ExpressRoute puede resultar útil cuando se tiene en cuenta el rendimiento de la red. ExpressRoute también es una buena opción cuando la directiva o los requisitos normativos de la organización requieren una ruta de acceso determinista a los recursos en la nube.
 
 Con independencia del método de tunelización que use para acceder a los recursos compartidos de archivos de Azure, necesita un mecanismo para asegurarse de que el tráfico a su cuenta de almacenamiento atraviese el túnel en lugar de la conexión a Internet normal. Técnicamente es posible enrutarlo al punto de conexión público de la cuenta de almacenamiento; sin embargo, para ello es necesario codificar de forma rígida todas las direcciones IP de los clústeres de almacenamiento de Azure en una región, ya que las cuentas de almacenamiento pueden moverse entre los clústeres de almacenamiento en cualquier momento. También es necesario actualizar en todo momento las asignaciones de direcciones IP, ya que continuamente se agregan nuevos clústeres.

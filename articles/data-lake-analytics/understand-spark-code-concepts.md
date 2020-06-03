@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a384db9c3c0b4beee6063fd503abadcb4c6b5158
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74424009"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016957"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Descripción del código de Apache Spark para los desarrolladores de U-SQL
 
@@ -183,7 +183,7 @@ U-SQL también ofrece una serie de otros conceptos y características, como cons
 
 ### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Consultas federadas en bases de datos o tablas externas de SQL Server
 
-U-SQL proporciona tablas externas y de origen de datos, así como consultas directas en Azure SQL Database. Aunque Spark no ofrece las mismas abstracciones de objeto, proporciona un [conector de Spark para Azure SQL Database](../sql-database/sql-database-spark-connector.md) que se puede usar para consultar bases de datos SQL.
+U-SQL proporciona tablas externas y de origen de datos, así como consultas directas en Azure SQL Database. Aunque Spark no ofrece las mismas abstracciones de objeto, proporciona un [conector de Spark para Azure SQL Database](../azure-sql/database/spark-connector.md) que se puede usar para consultar bases de datos SQL.
 
 ### <a name="u-sql-parameters-and-variables"></a>Parámetros y variables de U-SQL
 

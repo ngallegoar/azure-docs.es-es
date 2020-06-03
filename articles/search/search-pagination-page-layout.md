@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 93f1da7db3962994611f70fc145d0e9b62cd4f26
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801780"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167866"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
 
@@ -126,8 +126,6 @@ Con el nuevo comportamiento:
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
   Tenga en cuenta que el término *bowl of chips* no aparece como resultado porque no coincide con la frase completa.
-  
-* Se puede especificar el tamaño de fragmento devuelto. El tamaño del fragmento se especifica en forma de número de caracteres (el máximo es de 1000 caracteres).
 
 Al escribir código de cliente que implementa el resaltado de aciertos, tenga en cuenta este cambio. Debe saber que esto no le afectará, a menos que cree un servicio de búsqueda completamente nuevo.
 

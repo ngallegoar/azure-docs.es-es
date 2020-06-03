@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bdacee476fbc25154fe225700730f1b8f7f872ec
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677982"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682285"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
@@ -25,7 +25,7 @@ El punto de conexión de la Plataforma de identidad de Microsoft (versión 2.0) 
 
 ## <a name="the-basics"></a>Conceptos básicos
 
-Debe registrar cada aplicación que usa el punto de conexión de la Plataforma de identidad de Microsoft en el nuevo [portal de Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908). El proceso de registro de la aplicación recopila y asigna algunos valores a la aplicación:
+Debe registrar cada aplicación que usa el punto de conexión de la Plataforma de identidad de Microsoft en [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de Azure Portal. El proceso de registro de la aplicación recopila y asigna algunos valores a la aplicación:
 
 * Un **identificador de la aplicación (cliente)** que identifica la aplicación de manera única.
 * Un **URI de redirección** que puede usarse para dirigir las respuestas de nuevo a la aplicación
@@ -42,13 +42,19 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplicaciones de una página (JavaScript)
 
-Muchas aplicaciones modernas tienen un front-end de aplicación de una página escrito principalmente en JavaScript. A menudo, se escribe mediante un marco como Angular, React o Vue. El punto de conexión de la Plataforma de identidad de Microsoft admite estas aplicaciones a través del uso del [flujo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
+Muchas aplicaciones modernas tienen un front-end de aplicación de página única escrito principalmente en JavaScript, a menudo con un marco como Angular, React o Vue. El punto de conexión de la Plataforma de identidad de Microsoft admite estas aplicaciones a través del [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-En este flujo, la aplicación recibe tokens directamente del punto de conexión de autorización de la Plataforma de identidad de Microsoft, sin necesidad de realizar ningún intercambio de servidor a servidor. Toda la lógica de autenticación y el control de sesiones tiene lugar por completo en el cliente de JavaScript, sin redireccionamientos de página adicionales.
+En este flujo, la aplicación recibe un código del punto de conexión `authorize` de la Plataforma de identidad de Microsoft, y lo canjea por tokens y tokens de actualización mediante solicitudes web entre sitios. El token de actualización expira cada 24 horas, y la aplicación debe solicitar otro código.
 
-![Muestra el flujo de autenticación implícita](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Flujo de código para aplicaciones SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
-Para ver este escenario en acción, pruebe uno de los ejemplos de código de aplicación de una única página en nuestra sección de [introducción a la Plataforma de identidad de Microsoft](v2-overview.md#getting-started).
+Para ver este escenario en acción, consulte nuestro [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización](tutorial-v2-javascript-auth-code.md).
+
+### <a name="authorization-code-flow-vs-implicit-flow"></a>Flujo de código de autorización frente a flujo implícito
+
+Durante la mayor parte de la historia de OAuth 2.0, el [flujo implícito](v2-oauth2-implicit-grant-flow.md) ha sido la manera recomendada de compilar aplicaciones de página única. Con la eliminación de las [cookies de terceros](reference-third-party-cookies-spas.md) y la [mayor atención](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) a los problemas de seguridad relacionados con el flujo implícito, hemos pasado al flujo de código de autorización para aplicaciones de página única.
+
+Para garantizar la compatibilidad de la aplicación en Safari y otros exploradores que tienen en cuenta la privacidad, ya no se recomienda utilizar el flujo implícito y, en su lugar, se recomienda el flujo de código de autorización.
 
 ## <a name="web-apps"></a>Aplicaciones web
 
@@ -77,7 +83,8 @@ Puede confirmar la identidad del usuario mediante la validación del token de id
 
 Para ver este escenario en acción, pruebe uno de los ejemplos de código de inicio de sesión de aplicaciones web en la sección de [introducción a la Plataforma de identidad de Microsoft](v2-overview.md#getting-started).
 
-Además del inicio de sesión sencillo, una aplicación web de servidor podría tener la necesidad de acceder a otros servivio web, como una API de REST. En este caso, la aplicación de servidor web participa en un flujo combinado de OpenID Connect y OAuth 2.0, mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md). Para más información sobre este escenario, lea acerca de cómo [comenzar con aplicaciones web y API web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+Además del inicio de sesión sencillo, una aplicación web de servidor podría tener la necesidad de acceder a otros servivio web, como una API de REST. En este caso, la aplicación de servidor web participa en un flujo combinado de OpenID Connect y OAuth 2.0, mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md). Para más información sobre este escenario, lea acerca de cómo [comenzar con aplicaciones web y API web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+
 
 ## <a name="web-apis"></a>API web
 
@@ -120,3 +127,7 @@ En este flujo, la aplicación interactúa directamente con el punto de conexión
 ![Muestra el flujo de autenticación de la aplicación de demonio](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Para compilar una aplicación demonio, consulte la [documentación de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) en nuestra sección de introducción o pruebe una [aplicación de ejemplo de .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que está familiarizado con los tipos de aplicaciones compatibles con la Plataforma de identidad de Microsoft, obtenga más información sobre [OAuth 2.0 y OpenID Connect](active-directory-v2-protocols.md) para comprender los componentes de protocolo que usan los distintos escenarios.

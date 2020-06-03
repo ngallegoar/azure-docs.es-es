@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590900"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310842"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Cifrado de datos en reposo de Traductor
 
@@ -45,7 +45,7 @@ Siga estos pasos para habilitar las claves administradas por el cliente para Tra
 2. Habilite la identidad administrada en Azure Portal y agregue la información de las claves administradas por el cliente.
 3. Cree un área de trabajo en Traductor personalizado y asocie esta información de suscripción.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
 
