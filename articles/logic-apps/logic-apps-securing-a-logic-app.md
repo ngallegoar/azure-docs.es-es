@@ -5,23 +5,23 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/04/2020
-ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 8fe53b7a27c922462f9134bc78ff648aca3aca62
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870556"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715552"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
-Para controlar el acceso y proteger los datos en Azure Logic Apps, puede configurar la seguridad en estas áreas:
+Para controlar el acceso y proteger los datos confidenciales en Azure Logic Apps, puede configurar la seguridad en estas áreas:
 
 * [Acceso a desencadenadores de solicitud](#secure-triggers)
 * [Acceso a las operaciones de las aplicaciones lógicas](#secure-operations)
 * [Acceso a las entradas y salidas del historial de ejecución](#secure-run-history)
 * [Acceso a las entradas de parámetros](#secure-action-parameters)
-* [Acceso a los servicios y sistemas invocados desde aplicaciones lógicas](#secure-requests)
+* [Acceso a los servicios y sistemas invocados desde aplicaciones lógicas](#secure-outbound-requests)
 
 <a name="secure-triggers"></a>
 
@@ -32,8 +32,9 @@ Si la aplicación lógica usa un desencadenador basado en solicitudes que recibe
 Algunas opciones que permiten proteger el acceso a este tipo de desencadenador son:
 
 * [Generación de firmas de acceso compartido](#sas)
+* [Habilitación de Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth)
 * [Direcciones IP entrantes restringidas](#restrict-inbound-ip-addresses)
-* [Incorporación de Azure Active Directory, OAuth u otra medida de seguridad](#add-authentication)
+* [Adición de Azure Active Directory Open Authentication (Azure AD OAuth) u otro tipo de seguridad](#add-authentication)
 
 <a name="sas"></a>
 
@@ -76,7 +77,7 @@ Para generar una nueva clave de acceso de seguridad en cualquier momento, use la
 
 Si comparte la dirección URL del punto de conexión de un desencadenador basado en solicitudes con otras partes, puede generar direcciones URL de devolución de llamada con claves específicas y fechas de expiración. De esta forma puede acumular claves fácilmente o restringir el acceso para desencadenar la aplicación lógica en función de un determinado intervalo de tiempo. Para especificar una fecha de expiración para una dirección URL, use la [API REST de Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers); por ejemplo:
 
-``` http
+```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
@@ -88,11 +89,100 @@ En el cuerpo, incluya la propiedad `NotAfter` mediante una cadena de fecha de JS
 
 Al generar o enumerar direcciones URL de devolución de llamada para desencadenadores basados en solicitudes, puede especificar qué clave se va a usar para firmar la dirección URL. Para generar una dirección URL firmada por una clave específica, use la [API REST de Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers); por ejemplo:
 
-``` http
+```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
 En el cuerpo, incluya la propiedad `KeyType` como `Primary` o `Secondary`. Esta propiedad devuelve una dirección URL firmada por una clave de seguridad especificada.
+
+<a name="enable-oauth"></a>
+
+### <a name="enable-azure-active-directory-oauth"></a>Habilitación de Azure Active Directory OAuth
+
+Si la aplicación lógica se inicia con un desencadenador de solicitud, puede habilitar [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar las llamadas entrantes al desencadenador de solicitud. Antes de habilitar esta autenticación, tenga en cuenta los siguientes aspectos:
+
+* La aplicación lógica está limitada a un número máximo de directivas de autorización. Cada directiva de autorización también tiene un número máximo de [notificaciones](../active-directory/develop/developer-glossary.md#claim). Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Una directiva de autorización debe incluir al menos la notificación de **Emisor**, que tiene un valor que comienza con `https://sts.windows.net/` como identificador del emisor de Azure AD.
+
+* Una llamada entrante a la aplicación lógica solo puede usar un esquema de autorización, ya sea Azure AD OAuth o [firmas de acceso compartido (SAS)](#sas).
+
+* Los tokens de OAuth solo son compatibles con el desencadenador de solicitud, y estos
+
+* solo admiten esquemas de autorización de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens).
+
+Para habilitar Azure AD OAuth, siga estos pasos a fin de agregar una o varias directivas de autorización a la aplicación lógica.
+
+1. En [Azure Portal](https://portal.microsoft.com), busque y abra la aplicación lógica en el Diseñador de aplicación lógica.
+
+1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Autorización**. Una vez que se abra el panel Autorización, seleccione **Agregar directiva**.
+
+   ![Selección de "Autorización" > "Agregar directiva"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Proporcione información sobre la directiva de autorización; puede especificar los [tipos de notificaciones](../active-directory/develop/developer-glossary.md#claim) y los valores que espera la aplicación lógica en el token de autenticación presentado por cada llamada entrante al desencadenador de solicitud:
+
+   ![Proporcionar información de la directiva de autorización](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Propiedad | Obligatorio | Descripción |
+   |----------|----------|-------------|
+   | **Nombre de directiva** | Sí | El nombre que quiere usar para la directiva de autorización. |
+   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza con el identificador de emisor de Azure AD `https://sts.windows.net/`. Para obtener más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
+   |||
+
+1. Para agregar otra notificación, seleccione una de estas opciones:
+
+   * Para agregar otro tipo de notificaciones, seleccione **Add standard claim** (Agregar notificación estándar), seleccione el tipo de notificación y especifique su valor.
+
+   * Para agregar su propia notificación, seleccione **Add custom claim** (Agregar notificación personalizada) y especifique su valor.
+
+1. Para agregar otra directiva de autorización, seleccione **Agregar directiva**. Repita los pasos anteriores para configurar la directiva.
+
+1. Cuando finalice, seleccione **Guardar**.
+
+Ahora la aplicación lógica está configurada para usar Azure AD OAuth y autorizar las solicitudes entrantes. Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de autenticación, Azure Logic Apps compara las notificaciones del token con las de cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
+
+Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autorización que requiere dos tipos de notificaciones: emisor y audiencia. Este [token de acceso](../active-directory/develop/access-tokens.md) descodificado de ejemplo incluye ambos tipos de notificaciones:
+
+```json
+{
+   "aud": "https://management.core.windows.net/",
+   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+   "iat": 1582056988,
+   "nbf": 1582056988,
+   "exp": 1582060888,
+   "_claim_names": {
+      "groups": "src1"
+   },
+   "_claim_sources": {
+      "src1": {
+         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+    }
+   },
+   "acr": "1",
+   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+   "amr": [
+      "rsa",
+      "mfa"
+   ],
+   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+   "appidacr": "2",
+   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+   "family_name": "Sophia Owen",
+   "given_name": "Sophia Owen (Fabrikam)",
+   "ipaddr": "167.220.2.46",
+   "name": "sophiaowen",
+   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+   "puid": "1003000000098FE48CE",
+   "scp": "user_impersonation",
+   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "unique_name": "SophiaOwen@fabrikam.com",
+   "upn": "SophiaOwen@fabrikam.com",
+   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+   "ver": "1.0"
+}
+```
 
 <a name="restrict-inbound-ip"></a>
 
@@ -115,13 +205,13 @@ Junto con la Firma de acceso compartido (SAS), es posible que quiera especificar
 Si quiere que la aplicación lógica solo se desencadene como aplicación lógica anidada, en la lista **Direcciones IP entrantes permitidas**, seleccione **Cualquier otra aplicación lógica**. Esta opción escribe una matriz vacía en el recurso de la aplicación lógica. De este modo, solo las llamadas del servicio de Logic Apps (las aplicaciones lógicas principales) pueden desencadenar la aplicación lógica anidada.
 
 > [!NOTE]
-> Independientemente de la dirección IP, de todos modos puede ejecutar una aplicación lógica que tiene un desencadenador basado en solicitud mediante el uso de `/triggers/<trigger-name>/run` a través de la API REST de Azure o de API Management. Sin embargo, este escenario sigue requiriendo la autenticación con la API REST de Azure. Todos los eventos aparecen en el registro de auditoría de Azure. Asegúrese de establecer las directivas de control de acceso como corresponda.
+> Independientemente de la dirección IP, de todos modos puede ejecutar una aplicación lógica que tiene un desencadenador basado en solicitud mediante el uso de `/triggers/<trigger-name>/run` a través de la API REST de Azure o de API Management. Sin embargo, en este escenario aún se necesita la [autenticación](../active-directory/develop/authentication-scenarios.md) con la API REST de Azure. Todos los eventos aparecen en el registro de auditoría de Azure. Asegúrese de establecer las directivas de control de acceso como corresponda.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager
 
-Si [automatiza las implementaciones de aplicaciones lógicas mediante una plantilla de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede especificar los intervalos IP mediante la sección `accessControl` con la sección `triggers` en la definición de recursos de la aplicación lógica; por ejemplo:
+Si [automatiza la implementación de las aplicaciones lógicas mediante plantillas de Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede especificar los intervalos de direcciones IP en formato *x.x.x.x/x* o *x.x.x.x-x.x.x.x*; para ello, use la sección `accessControl` e incluya las secciones `triggers` y `actions` en la definición de recursos de la aplicación lógica, por ejemplo:
 
-``` json
+```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
@@ -137,20 +227,24 @@ Si [automatiza las implementaciones de aplicaciones lógicas mediante una planti
          },
          "apiVersion": "2016-06-01",
          "properties": {
-            "definition": {<workflow-definition>},
-            "parameters": {},
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
             "accessControl": {
                "triggers": {
                   "allowedCallerIpAddresses": [
                      {
                         "addressRange": "192.168.12.0/23"
-                     },
-                     {
-                        "addressRange": "2001:0db8::/64"
                      }
                   ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses:" : []
                }
-            }
+            },
+            "endpointsConfiguration": {}
          }
       }
    ],
@@ -160,9 +254,9 @@ Si [automatiza las implementaciones de aplicaciones lógicas mediante una planti
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>Incorporación de Azure Active Directory OAuth u otra medida de seguridad
+### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Adición de Azure Active Directory Open Authentication u otro tipo de seguridad
 
-Para agregar más protocolos de autorización a la aplicación lógica, considere la posibilidad de usar el servicio de [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio le permite exponer su aplicación lógica como API y le ofrece una supervisión enriquecida, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Para autorizar el acceso a este punto de conexión, puede usar [Azure Active Directory, OAuth](#azure-active-directory-oauth-authentication), el [certificado del cliente](#client-certificate-authentication) u otros estándares de seguridad para autorizar el acceso a ese extremo. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y también hace cualquier transformación o restricción necesaria en el proceso. Para permitir que solo API Management desencadene la aplicación lógica, puede usar la configuración del intervalo IP entrante de la aplicación lógica.
+Para agregar más protocolos de [autenticación](../active-directory/develop/authentication-scenarios.md) a la aplicación lógica, considere la posibilidad de usar el servicio [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio le permite exponer su aplicación lógica como API y le ofrece una supervisión enriquecida, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Para autorizar el acceso a este punto de conexión, puede usar [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), el [certificado del cliente](#client-certificate-authentication) u otros estándares de seguridad. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y también hace cualquier transformación o restricción necesaria en el proceso. Para permitir que solo API Management desencadene la aplicación lógica, puede usar la configuración del intervalo IP entrante de la aplicación lógica.
 
 <a name="secure-operations"></a>
 
@@ -190,9 +284,9 @@ Para controlar el acceso a las entradas y salidas del historial de ejecución de
 
   Esta opción le permite proteger el acceso al historial de ejecución en función de las solicitudes de un intervalo de direcciones IP específico.
 
-* [Oculte los datos del historial de ejecución mediante ofuscación](#obfuscate).
+* [Protección de los datos del historial de ejecución mediante ofuscación](#obfuscate).
 
-  En muchos desencadenadores y acciones, puede ocultar las entradas, salidas o ambas del historial de ejecución de una aplicación lógica.
+  En muchos desencadenadores y acciones, puede proteger las entradas, las salidas, o ambas, en el historial de ejecución de una aplicación lógica.
 
 <a name="restrict-ip"></a>
 
@@ -255,17 +349,17 @@ Si [automatiza las implementaciones de aplicaciones lógicas mediante una planti
 
 <a name="obfuscate"></a>
 
-### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Oculte los datos del historial de ejecución mediante ofuscación.
+### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Protección del historial de ejecución mediante ofuscación
 
-En muchos desencadenadores y acciones, esta configuración oculta las entradas, salidas o ambas del historial de ejecución de una aplicación lógica. Algunas [consideraciones que se deben tener en cuenta](#obfuscation-considerations) al usar esta configuración para proteger los datos son:
+Muchos desencadenadores y acciones cuentan con una configuración para proteger las entradas, las salidas, o ambas, en el historial de ejecución de una aplicación lógica. Antes de usar esta configuración para proteger los datos, [hay algunos aspectos que se deben tener en cuenta](#obfuscation-considerations).
 
-#### <a name="hide-inputs-and-outputs-in-the-designer"></a>Ocultar las entradas y salidas en el diseñador
+#### <a name="secure-inputs-and-outputs-in-the-designer"></a>Protección de entradas y salidas en el diseñador
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
    ![Abrir la aplicación lógica en el Diseñador de aplicación lógica](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. En el desencadenador o la acción donde quiera ocultar los datos confidenciales, seleccione los puntos suspensivos ( **...** ) y, a continuación, seleccione **Configuración**.
+1. En el desencadenador o la acción donde quiera proteger los datos confidenciales, seleccione los puntos suspensivos ( **...** ) y, luego, elija **Configuración**.
 
    ![Abrir configuración de desencadenador o acción](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
@@ -293,7 +387,7 @@ En muchos desencadenadores y acciones, esta configuración oculta las entradas, 
 
 <a name="secure-data-code-view"></a>
 
-#### <a name="hide-inputs-and-outputs-in-code-view"></a>Ocultar las entradas y las salidas en la vista Código
+#### <a name="secure-inputs-and-outputs-in-code-view"></a>Protección de entradas y salidas en la vista Código
 
 En la definición de desencadenador o acción subyacente, agregue o actualice la matriz `runtimeConfiguration.secureData.properties` con uno de estos valores o con ambos:
 
@@ -322,19 +416,19 @@ Algunas [consideraciones que se deben tener en cuenta](#obfuscation-consideratio
 
 <a name="obfuscation-considerations"></a>
 
-#### <a name="considerations-when-hiding-inputs-and-outputs"></a>Consideraciones a la hora de ocultar las entradas y salidas
+#### <a name="considerations-when-securing-inputs-and-outputs"></a>Consideraciones a la hora de proteger las entradas y salidas
 
 * Cuando se ocultan las entradas o las salidas de un desencadenador o una acción, Logic Apps no envía los datos protegidos a Azure Log Analytics. Además, no se pueden agregar [propiedades con seguimiento](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) al desencadenador o acción para su supervisión.
 
 * La [API de Logic Apps para controlar el historial del flujo de trabajo](https://docs.microsoft.com/rest/api/logic/) no devuelve salidas protegidas.
 
-* Para ocultar las salidas de una acción que oculta las entradas u oculta explícitamente las salidas, active de forma manual las **Salidas seguras** en esa acción.
+* Para proteger las salidas de una acción que oculta las entradas o explícitamente las salidas, active de forma manual **Salidas seguras** en esa acción.
 
 * Asegúrese de activar las **Entradas seguras** o las **Salidas seguras** en las acciones de nivel inferior en las que espera que el historial de ejecución oculte los datos.
 
   **Configuración de las salidas seguras**
 
-  Al activar manualmente las **Salidas seguras** en un desencadenador o una acción, Logic Apps protege estas salidas en el historial de ejecución. Si una acción de nivel inferior usa explícitamente estas salidas protegidas como entradas, Logic Apps oculta las entradas de esta acción en el historial de ejecución, pero *no habilita* la opción de **Entradas seguras** de la acción.
+  Al activar manualmente **Salidas seguras** en un desencadenador o una acción, Logic Apps oculta estas salidas en el historial de ejecución. Si una acción de nivel inferior usa explícitamente estas salidas protegidas como entradas, Logic Apps oculta las entradas de esta acción en el historial de ejecución, pero *no habilita* la opción de **Entradas seguras** de la acción.
 
   ![Salidas seguras como entradas y repercusión descendente en la mayoría de las acciones](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
@@ -344,7 +438,7 @@ Algunas [consideraciones que se deben tener en cuenta](#obfuscation-consideratio
 
   **Opción Entradas seguras**
 
-  Al activar manualmente las **Entradas seguras** en un desencadenador o una acción, Logic Apps protege estas entradas en el historial de ejecución. Si en una acción de nivel inferior se usan de forma explícita las salidas visibles de ese desencadenador o acción como entradas, Logic Apps oculta las entradas de esta acción de nivel inferior en el historial de ejecución, pero *no habilita* las **Entradas seguras** en esta acción y no oculta las salidas de la acción.
+  Al activar manualmente **Entradas seguras** en un desencadenador o una acción, Logic Apps oculta estas entradas en el historial de ejecución. Si en una acción de nivel inferior se usan de forma explícita las salidas visibles de ese desencadenador o acción como entradas, Logic Apps oculta las entradas de esta acción de nivel inferior en el historial de ejecución, pero *no habilita* las **Entradas seguras** en esta acción y no oculta las salidas de la acción.
 
   ![Entradas seguras y repercusión descendente en la mayoría de las acciones](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
@@ -358,7 +452,7 @@ Algunas [consideraciones que se deben tener en cuenta](#obfuscation-consideratio
 
 Si implementa en entornos diferentes, considere la posibilidad de parametrizar los valores de la definición de flujo de trabajo que varían en función de esos entornos. De este modo, puede evitar los datos incluidos en el código mediante una [plantilla de Azure Resource Manager ](../azure-resource-manager/templates/overview.md) para implementar la aplicación lógica, proteger los datos confidenciales definiendo parámetros seguros y pasar dichos datos como entradas separadas mediante los [parámetros de la plantilla](../azure-resource-manager/templates/template-parameters.md) con un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md).
 
-Por ejemplo, si autentica acciones HTTP con [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), puede definir y ocultar los parámetros que aceptan el identificador de cliente y el secreto de cliente utilizados para la autenticación. Para definir estos parámetros para la aplicación lógica, use la sección `parameters` dentro de la definición de flujo de trabajo de la aplicación lógica y Resource Manager para la implementación. Para ocultar los valores de parámetros que no quiera mostrar al editar la aplicación lógica o visualizar el historial de ejecución, defina los parámetros con el tipo `securestring` o `secureobject` y use la codificación necesaria. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación. Para tener acceso a estos valores de parámetro durante el tiempo de ejecución, use la expresión `@parameters('<parameter-name>')` dentro de la definición del flujo de trabajo. Esta expresión solo se evalúa en tiempo de ejecución y se describe con el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
+Por ejemplo, si autentica acciones HTTP con [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), puede definir y ocultar los parámetros que aceptan el identificador de cliente y el secreto de cliente utilizados para la autenticación. Para definir estos parámetros para la aplicación lógica, use la sección `parameters` dentro de la definición de flujo de trabajo de la aplicación lógica y Resource Manager para la implementación. Para proteger los valores de parámetros que no quiera mostrar al editar la aplicación lógica o visualizar el historial de ejecución, defina los parámetros con el tipo `securestring` o `secureobject` y use la codificación necesaria. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación. Para tener acceso a estos valores de parámetro durante el tiempo de ejecución, use la expresión `@parameters('<parameter-name>')` dentro de la definición del flujo de trabajo. Esta expresión solo se evalúa en tiempo de ejecución y se describe con el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Si usa un parámetro en el encabezado o el cuerpo de una solicitud, ese parámetro se puede ver al visualizar el historial de ejecución de la aplicación lógica y la solicitud HTTP saliente. Asegúrese de definir también las directivas de acceso al contenido según corresponda. También puede usar la [ofuscación](#obfuscate) para ocultar entradas y salidas en el historial de ejecución. Los encabezados de autorización nunca son visibles a través de entradas o salidas. Por lo tanto, si aquí se usa un secreto, no se podrá recuperar.
@@ -366,7 +460,7 @@ Por ejemplo, si autentica acciones HTTP con [Azure Active Directory OAuth](#azur
 Para más información, consulte las secciones siguientes en este tema:
 
 * [Parámetros protegidos en las definiciones de flujo de trabajo](#secure-parameters-workflow)
-* [Ocultamiento de los datos del historial de ejecución mediante ofuscación](#obfuscate)
+* [Protección del historial de ejecución mediante ofuscación](#obfuscate)
 
 Si [automatiza la implementación de aplicaciones lógicas con plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede definir [parámetros de plantilla](../azure-resource-manager/templates/template-parameters.md) protegidos, que se evalúan en la implementación, mediante los tipos `securestring` y `secureobject`. Para definir parámetros de plantilla, use la sección `parameters` de nivel superior de la plantilla, que es independiente y diferente de la sección `parameters` de la definición de flujo de trabajo. Para proporcionar valores para los parámetros de plantilla, use un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente.
 
@@ -562,7 +656,7 @@ Esta plantilla de ejemplo tiene varias definiciones de parámetros seguros que u
 }
 ```
 
-<a name="secure-requests"></a>
+<a name="secure-outbound-requests"></a>
 
 ## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Acceso a servicios y sistemas invocados desde aplicaciones lógicas
 
@@ -570,7 +664,7 @@ Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de
 
 * Incorporación de la autenticación en las solicitudes salientes.
 
-  Cuando trabaja con un desencadenador o acción basados en HTTP que realiza llamadas salientes, como HTTP, HTTP + Swagger o webhook, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede usar estos tipos de autenticación:
+  Cuando trabaja con un desencadenador o acción basados en HTTP que realiza llamadas salientes, como HTTP, HTTP + Swagger o webhook, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede seleccionar estos tipos de autenticación:
 
   * [Autenticación básica](#basic-authentication)
 
@@ -602,7 +696,7 @@ Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de
 
 ## <a name="add-authentication-to-outbound-calls"></a>Incorporación de la autenticación en las llamadas salientes
 
-Los extremos HTTP y HTTPS admiten varios tipos de autenticación. Según el desencadenador o la acción que se usa para realizar llamadas o solicitudes salientes que tienen acceso a estos extremos, puede seleccionar entre distintos rangos de tipos de autenticación. Para asegurarse de que protege la información confidencial que controla la aplicación lógica, use los parámetros seguros y codifique los datos según sea necesario. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Acceso a las entradas de parámetro](#secure-action-parameters).
+Los extremos HTTP y HTTPS admiten varios tipos de autenticación. Según el desencadenador o la acción que se usa para realizar llamadas o solicitudes salientes que tienen acceso a estos extremos, puede seleccionar entre distintos rangos de tipos de autenticación. Para asegurarse de que protege la información confidencial que administra la aplicación lógica, use parámetros seguros y codifique los datos según sea necesario. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Acceso a las entradas de parámetro](#secure-action-parameters).
 
 > [!NOTE]
 > En el Diseñador de aplicación lógica, la propiedad **Autenticación** puede estar oculta en algunos desencadenadores y acciones en los que puede especificar el tipo de autenticación. Para que la propiedad se muestre en estos casos, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Autenticación**. Para obtener más información, consulte [Autenticación del acceso con la identidad administrada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
@@ -629,7 +723,7 @@ Si la opción [Básica](../active-directory-b2c/secure-rest-api.md) está dispon
 | **Contraseña** | `password` | Sí | <*contraseña*> | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||||
 
-Al usar [parámetros protegidos](#secure-action-parameters) para controlar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para tener acceso a estos valores de parámetro en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `Basic` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
+Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `Basic` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
 
 ```json
 "HTTP": {
@@ -660,7 +754,7 @@ Si la opción [Certificado de cliente](../active-directory/authentication/active
 | **Contraseña** | `password`| No | <*contraseña-archivo-pfx*> | La contraseña para acceder al archivo PFX |
 |||||
 
-Al usar [parámetros protegidos](#secure-action-parameters) para controlar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para tener acceso a estos valores de parámetro en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ClientCertificate` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
+Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ClientCertificate` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
 
 ```json
 "HTTP": {
@@ -688,9 +782,9 @@ Para obtener más información acerca de cómo proteger los servicios mediante l
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-oauth-authentication"></a>Autenticación de Azure Active Directory OAuth
+### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-Si la opción [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) está disponible, especifique estos valores de propiedad:
+En los desencadenadores de solicitud, puede usar [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autenticar las llamadas entrantes después de [configurar directivas de autorización de Azure AD](#enable-oauth) en la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth**, especifique estos valores de propiedad:
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
@@ -705,7 +799,7 @@ Si la opción [Active Directory OAuth](../active-directory/develop/about-microso
 | **Contraseña** | `password` | Sí, pero solo para el tipo de credencial de "Certificado". | <*contraseña-archivo-pfx*> | La contraseña para acceder al archivo PFX |
 |||||
 
-Al usar [parámetros protegidos](#secure-action-parameters) para controlar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para tener acceso a estos valores de parámetro en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ActiveDirectoryOAuth`, el tipo de credencial `Secret` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
+Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ActiveDirectoryOAuth`, el tipo de credencial `Secret` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
 
 ```json
 "HTTP": {
@@ -752,7 +846,7 @@ En el desencadenador o la acción que admite la autenticación sin formato, espe
 | **Valor** | `value` | Sí | <*valor de encabezado de autorización*> | Valor del encabezado de autorización que se va a usar para la autenticación. |
 ||||||
 
-Al usar [parámetros protegidos](#secure-action-parameters) para controlar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para tener acceso a estos valores de parámetro en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `Raw` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
+Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `Raw` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
 
 ```json
 "HTTP": {
@@ -773,7 +867,7 @@ Al usar [parámetros protegidos](#secure-action-parameters) para controlar y pro
 
 ### <a name="managed-identity-authentication"></a>Autenticación de identidad administrada
 
-Si la opción [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible, la aplicación lógica puede usar la identidad asignada por el sistema o una identidad *única* creada manualmente y asignada por el usuario para autenticar el acceso a los recursos de otros inquilinos de Azure Active Directory (Azure AD) sin iniciar sesión. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Si la opción [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible, la aplicación lógica puede usar la identidad asignada por el sistema o una identidad *única* asignada por el usuario creada de forma manual para autenticar el acceso a otros recursos que están protegidos por Azure Active Directory (Azure AD) sin iniciar la sesión. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Para que la aplicación lógica pueda usar una identidad administrada, siga los pasos descritos en [Autenticación de acceso a los recursos de Azure con identidades administradas en Azure Logic Apps](../logic-apps/create-managed-service-identity.md). En estos pasos se habilita la identidad administrada en la aplicación lógica y se configura el acceso de dicha identidad al recurso de Azure de destino.
 
@@ -785,10 +879,10 @@ Si la opción [identidad administrada](../active-directory/managed-identities-az
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticación** | `type` | Sí | **Identidad administrada** <br>or <br>`ManagedServiceIdentity` | Tipo de autenticación que se debe usar. |
    | **Identidad administrada** | `identity` | Sí | * **Identidad administrada asignada por el sistema** <br>or <br>`SystemAssigned` <p><p>* <*nombre de identidad asignado por el usuario*> | Identidad administrada que se debe usar. |
-   | **Audiencia** | `audience` | Sí | <*Id-recurso-destino*> | El Id. de recurso para el recurso de destino al que quiere obtener acceso. <p>Por ejemplo, `https://storage.azure.com/` hace que los tokens de acceso para la autenticación sean válidos para todas las cuentas de almacenamiento. Sin embargo, también puede especificar una dirección URL de servicio raíz, como `https://fabrikamstorageaccount.blob.core.windows.net` para una cuenta de almacenamiento específica. <p>**Nota**: La propiedad **Audiencia** puede estar oculta en algunos desencadenadores o acciones. Para que la propiedad sea visible, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Público**. <p><p>**Importante**: Asegúrese de que el identificador de este recurso de destino *coincide exactamente* con el valor esperado en Azure AD, incluida toda barra diagonal necesaria al final. Por lo tanto, el Id. de recurso de `https://storage.azure.com/` para todas las cuentas de Azure Blob Storage requiere una barra diagonal final. Sin embargo, el Id. de recurso de una cuenta de almacenamiento específica no requiere una barra diagonal final. Para buscar estos Id. de recursos, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Audiencia** | `audience` | Sí | <*Id-recurso-destino*> | El Id. de recurso para el recurso de destino al que quiere obtener acceso. <p>Por ejemplo, `https://storage.azure.com/` hace que los [tokens de acceso](../active-directory/develop/access-tokens.md) para la autenticación sean válidos con todas las cuentas de almacenamiento. Sin embargo, también puede especificar una dirección URL de servicio raíz, como `https://fabrikamstorageaccount.blob.core.windows.net` para una cuenta de almacenamiento específica. <p>**Nota**: La propiedad **Audiencia** puede estar oculta en algunos desencadenadores o acciones. Para que la propiedad sea visible, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Público**. <p><p>**Importante**: Asegúrese de que el identificador de este recurso de destino *coincide exactamente* con el valor esperado en Azure AD, incluida toda barra diagonal necesaria al final. Por lo tanto, el Id. de recurso de `https://storage.azure.com/` para todas las cuentas de Azure Blob Storage requiere una barra diagonal final. Sin embargo, el Id. de recurso de una cuenta de almacenamiento específica no requiere una barra diagonal final. Para buscar estos Id. de recursos, consulte [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   Al usar [parámetros protegidos](#secure-action-parameters) para controlar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para tener acceso a estos valores de parámetro en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ManagedServiceIdentity` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
+   Al usar [parámetros protegidos](#secure-action-parameters) para administrar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para acceder a estos valores de parámetros en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ManagedServiceIdentity` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:
 
    ```json
    "HTTP": {

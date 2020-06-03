@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595231"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837886"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -257,32 +257,6 @@ Todas las regiones de Azure ahora admiten discos SSD estándar.
 **¿Azure Backup está disponible al usar SSD estándar?**
 Sí, Azure Backup ya está disponible.
 
-**¿Cómo creo discos SSD estándar?**
-Puede crear discos SSD estándar mediante plantillas de Azure Resource Manager, el SDK, PowerShell o la CLI. A continuación se muestran los parámetros necesarios de la plantilla de Resource Manager para crear discos SSD estándar:
-
-* La *apiVersion* para Microsoft.Compute se debe establecer en `2018-04-01` (o posterior)
-* Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
-
-El siguiente ejemplo muestra la sección *properties.storageProfile.osDisk* de una máquina virtual que usa un disco SSD estándar:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-Para obtener un ejemplo de plantilla completa de cómo crear un disco SSD estándar con una plantilla, consulte [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/) (Creación de una máquina virtual a partir de una imagen de Windows con discos de datos SSD estándar).
-
-**¿Puedo convertir mis discos existentes a SSD estándar?**
-Sí, puede hacerlo. Consulte [Conversión de almacenamiento de Azure Managed Disks de estándar a premium, y viceversa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para conocer las directrices generales de la conversión de Managed Disks. Y utilice el siguiente valor para actualizar el tipo de disco a SSD estándar.
--AccountType StandardSSD_LRS
-
 **¿Cuál es la ventaja de utilizar discos SSD estándar en lugar de unidades de disco duro?**
 Los discos SSD estándar ofrecen una mejor latencia, coherencia, disponibilidad y confiabilidad en comparación con los discos HDD. Debido a esto, las cargas de trabajo de las aplicaciones se ejecutan mucho mejor. Tenga en cuenta que los discos SSD Premium son la solución recomendada para la mayoría de las cargas de trabajo producción con uso intensivo de E/S.
 
@@ -332,9 +306,9 @@ Sí
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks y Storage Service Encryption
 
-**¿Está habilitado el servicio Storage Service Encryption de forma predeterminada al crear un disco administrado?**
+**¿Está habilitado el cifrado del lado servidor de forma predeterminada cuando se crea un disco administrado?**
 
-Sí.
+Sí. Los discos administrados se cifran con el cifrado del lado servidor con las claves administrada por la plataforma. 
 
 **¿El volumen de arranque está cifrado de forma predeterminada en un disco administrado?**
 
@@ -342,30 +316,27 @@ Sí. De forma predeterminada, se cifran todos los discos administrados, incluido
 
 **¿Quién administra las claves de cifrado?**
 
-Microsoft administra las claves de cifrado.
+Microsoft administra las claves administradas por la plataforma. También puede usar y administrar sus propias claves almacenadas en Azure Key Vault. 
 
-**¿Puedo deshabilitar Storage Service Encryption para Managed Disks?**
+**¿Puedo deshabilitar el cifrado del lado servidor de mis discos administrados?**
 
 No.
 
-**¿Storage Service Encryption está solo disponible en determinadas regiones?**
+**¿El cifrado del lado servidor solo está disponible en regiones específicas?**
 
-No. Está en todas las regiones donde esté disponible Managed Disks. Managed Disks está disponible en todas las regiones públicas y Alemania. También está disponible en China, sin embargo, solo para las claves administradas por Microsoft, no para las claves administradas por el cliente.
+No. El cifrado del lado servidor con las claves administradas por el cliente y la plataforma está disponible en todas las regiones donde Managed Disks está disponible. 
 
-**¿Cómo averiguo si mi disco administrado está cifrado?**
+**¿Azure Site Recovery admite el cifrado del lado servidor con la clave administrada por el cliente para escenarios de recuperación ante desastres locales a Azure y Azure en Azure?**
 
-Puede averiguar la hora de creación de un disco administrado desde Azure Portal, la CLI de Azure y PowerShell. Si la hora es posterior al 9 de junio de 2017, el disco está cifrado.
+Sí. 
 
-**¿Cómo puedo cifrar mis discos existentes que se crearon antes del 10 de junio de 2017?**
+**¿Puedo realizar una copia de seguridad de Managed Disks cifrado con el cifrado del lado servidor con la clave administrada por el cliente mediante el servicio de Azure Backup?**
 
-A partir del 10 de junio de 2017 los nuevos datos escritos en los discos administrados existentes se cifran automáticamente. También tenemos previsto cifrar los datos existentes y el cifrado se realizará de forma asincrónica en segundo plano. Si debe cifrar ahora los datos existentes, cree una copia del disco. Los discos nuevos se cifrarán.
-
-* [Copia de discos administrados mediante la CLI de Azure](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copia de discos administrados mediante PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Sí.
 
 **¿Están cifradas las imágenes e instantáneas administradas?**
 
-Sí. Todas las instantáneas e imágenes administradas creadas después del 9 de junio de 2017 se cifran automáticamente. 
+Sí. Todas las instantáneas e imágenes administradas se cifran automáticamente. 
 
 **¿Puedo convertir máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento o que se hayan cifrado previamente en discos administrados?**
 
@@ -484,6 +455,6 @@ Se admite el almacenamiento en caché del host de solo de lectura y de lectura y
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 
-Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta. Puede publicar una pregunta al final de este artículo en los comentarios. Para ponerse en contacto con el equipo de Azure Storage y otros miembros de la Comunidad sobre este artículo, use el [foro de Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) de MSDN.
+Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta. Puede publicar una pregunta al final de este artículo en los comentarios. Para ponerse en contacto con el equipo de Azure Storage y otros miembros de la Comunidad sobre este artículo, use el MSDN [Página de preguntas y respuestas de Microsoft sobre Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Para solicitar características, envíe sus solicitudes e ideas al [foro de comentarios de Azure Storage](https://feedback.azure.com/forums/217298-storage).

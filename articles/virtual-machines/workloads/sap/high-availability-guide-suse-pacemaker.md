@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2020
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 1dc5cf055e6fee72cb6d73b3c4c5c76eefb037d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811578"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800180"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -598,6 +598,9 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 sudo crm configure property stonith-timeout=900
 sudo crm configure property stonith-enabled=true
 </code></pre>
+
+> [!TIP]
+>El agente de barrera de Azure requiere conectividad saliente a los punto de conexión públicos como se documenta, junto con las posibles soluciones, en [Conectividad del punto de conexión público para las máquinas virtuales que usan el ILB estándar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## <a name="default-pacemaker-configuration-for-sbd"></a>Configuración predeterminada de Pacemaker para SBD
 

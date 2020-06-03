@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4f0d702a213c4c34024c043edc50d25e6696cbc1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610945"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849695"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -103,12 +103,13 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 * Availability Zones se admite actualmente para determinadas regiones. Consulte el principio de este documento. 
 * Las [limitaciones del servicio Azure Private Link][private-link-service] aplican a los clústeres privados.
 * No se pueden usar los nodos virtuales de un clúster privado para poner en marcha Azure Container Instances (ACI) en una red virtual de Azure privada.
-* No se admite de serie la integración de Azure DevOps con clústeres privados.
+* No se admiten agentes hospedados por Microsoft en Azure DevOps con clústeres privados. Considere la posibilidad de usar [agentes autohospedados][devops-agents]. 
 * En el caso de los clientes que necesitan habilitar Azure Container Registry para trabajar con instancias privadas de AKS, la red virtual de Container Registry debe estar emparejada con la red virtual del clúster del agente.
 * Actualmente no hay compatibilidad con Azure Dev Spaces.
 * No se admite la conversión de clústeres de AKS existentes en clústeres privados.
 * La eliminación o modificación del punto de conexión privado en la subred del cliente hará que el clúster deje de funcionar. 
 * Actualmente no existe compatibilidad con los datos en directo de Azure Monitor para contenedores.
+* El contrato de nivel de servicio de tiempo de actividad no se admite actualmente.
 
 
 <!-- LINKS - internal -->
@@ -120,4 +121,4 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops

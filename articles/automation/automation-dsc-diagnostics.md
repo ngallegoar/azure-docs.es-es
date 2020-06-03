@@ -1,6 +1,6 @@
 ---
-title: Reenvío de datos de informes de Azure Automation State Configuration a registros de Azure Monitor
-description: En este artículo se muestra cómo enviar datos de los informes de Desired State Configuration (DSC) desde Azure Automation State Configuration a registros de Azure Monitor para ofrecer mayor información y administración.
+title: Integración con registros de Azure Monitor
+description: En este artículo se indica cómo enviar datos de los informes de Desired State Configuration desde Azure Automation State Configuration a registros de Azure Monitor.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b0ee75c39ba87503f150ffb72b7ab95aaf83999
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f7e24e1b4546c76348e61e3c2736fcfe4b66410d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996050"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836947"
 ---
-# <a name="forward-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reenvío de datos de informes de State Configuration a registros de Azure Monitor
+# <a name="integrate-with-azure-monitor-logs"></a>Integración con registros de Azure Monitor
 
 Azure Automation State Configuration conserva los datos de estado del nodo durante 30 días. Puede enviar los datos de estado del nodo al área de trabajo de Log Analytics si prefiere conservar esos datos durante un período más largo. El estado de cumplimiento se puede ver en Azure Portal, o con PowerShell, tanto para los nodos como para los recursos de DSC individuales en las configuraciones de los nodos. 
 
@@ -29,7 +29,6 @@ Los registros de Azure Monitor proporcionan mayor visibilidad operativa para los
 - Usar vistas personalizadas y consultas de búsqueda para visualizar los resultados de runbook, el estado del trabajo de runbook y otras métricas o indicadores clave relacionados.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -192,15 +191,14 @@ Diagnósticos de Azure Automation crea dos categorías de registros en los regis
 | ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |El GUID que es el identificador de correlación del informe de cumplimiento. |
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general, consulte [Azure Automation State Configuration](automation-dsc-overview.md).
-- Para empezar a trabajar, consulte [Introducción a State Configuration de Azure Automation](automation-dsc-getting-started.md).
-- Para obtener información acerca de la compilación de configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en State Configuration de Azure Automation](automation-dsc-compile.md).
-- Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+- Para obtener información general, vea [Información general de Azure Automation State Configuration](automation-dsc-overview.md).
+- Para dar los primeros pasos, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
+- Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en Azure Automation State Configuration](automation-dsc-compile.md).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Implementación continua mediante State Configuration de Azure Automation y Chocolatey](automation-dsc-cd-chocolatey.md).
+- Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, vea [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para aprender a crear diferentes consultas de búsqueda y a revisar los registros de Automation State Configuration con los registros de Azure Monitor, consulte [Búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 - Para obtener más información sobre los registros de Azure Monitor y los orígenes de recopilación de datos, consulte [Introducción a la recopilación de datos de almacenamiento en los registros de Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).

@@ -1,17 +1,17 @@
 ---
 title: Administración de conexiones en Azure Automation
-description: Los activos de conexión en Azure Automation contienen la información necesaria para conectarse a una aplicación o a un servicio externo desde un runbook o una configuración de DSC. En este artículo se explican los detalles de las conexiones y cómo trabajar con ellas en la creación de texto y de gráficos.
+description: En este artículo se explica cómo administrar las conexiones de Azure Automation a aplicaciones o servicios externos y cómo trabajar con ellas en runbooks.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1a50c5d3d6e068054cfc8381b220d38471a7eb6c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996572"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837134"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Administración de conexiones en Azure Automation
 
@@ -141,7 +141,7 @@ Puede agregar una actividad para el cmdlet `Get-AutomationConnection` interno a 
 
 ![agregar a lienzo](media/automation-connections/connection-add-canvas.png)
 
-La imagen siguiente muestra un ejemplo de cómo usar un objeto de conexión en un runbook gráfico. Este ejemplo utiliza el conjunto de datos `Constant value` para la actividad `Get RunAs Connection`, que usa un objeto de conexión para la autenticación. Aquí se usa un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow), debido a que el parámetro `ServicePrincipalCertificate` establecido espera un solo objeto.
+La imagen siguiente muestra un ejemplo de cómo usar un objeto de conexión en un runbook gráfico. Este ejemplo utiliza el conjunto de datos `Constant value` para la actividad `Get RunAs Connection`, que usa un objeto de conexión para la autenticación. Aquí se usa un [vínculo de canalización](automation-graphical-authoring-intro.md#use-links-for-workflow), debido a que el parámetro `ServicePrincipalCertificate` establecido espera un solo objeto.
 
 ![obtener conexiones](media/automation-connections/automation-get-connection-object.png)
 

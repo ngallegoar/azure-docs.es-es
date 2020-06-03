@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: a6002ed173ca5358df4257f4c8b41c88bcf60ad8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0703e7cd44a79dd45680e19c8f5f3232be840823
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418388"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826186"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servicios vinculados en Azure Data Factory
 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
 > * [Versión 1](v1/data-factory-create-datasets.md)
 > * [Versión actual](concepts-linked-services.md)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113160"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845753"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -245,9 +245,9 @@ En esta sección, configurará el servidor VPN para utilizar la autenticación R
     b. En **Secreto compartido**, seleccione **Cambiar** y agregue la contraseña secreta compartida que creó y anotó anteriormente.
 
     c. En el cuadro **Tiempo de espera (segundos)** , escriba el valor **30**.  
-    El valor de tiempo es necesario para dar tiempo suficiente para completar el segundo factor de autenticación.
+    El valor de tiempo es necesario para dar tiempo suficiente para completar el segundo factor de autenticación. Algunas VPN o regiones requieren una configuración de tiempo de espera superior a 30 segundos para impedir que los usuarios reciban varias llamadas telefónicas. Si los usuarios experimentan este problema, aumente el valor de **Tiempo de espera (segundos)** en incrementos de 30 segundos hasta que no se reproduzca el problema.
 
-    ![Ventana Agregar servidor de RADIUS que configura el tiempo de espera](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Ventana Agregar servidor de RADIUS que configura el tiempo de espera](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Seleccione **Aceptar**.
 

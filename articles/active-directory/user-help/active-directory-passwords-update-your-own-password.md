@@ -8,19 +8,19 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062666"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828413"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 
-Si alguna vez ha olvidado su contraseña en el trabajo o en el centro educativo, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y restablecer su contraseña, es preciso que el administrador active esta característica.
+Si alguna vez ha olvidado su contraseña en el trabajo o en el centro educativo, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y [restablecer su contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register), es preciso que el administrador active esta característica.
 
 Si conoce la contraseña pero desea cambiarla, consulte las secciones [Para cambiar la contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de este artículo.
 

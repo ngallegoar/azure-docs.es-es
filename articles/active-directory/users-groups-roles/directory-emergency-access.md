@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74028128"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816189"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -44,7 +44,7 @@ Cree dos o más cuentas de acceso de emergencia. Estas deben ser cuentas que est
 Al configurarlas, deben cumplirse los siguientes requisitos:
 
 - Las cuentas de acceso de emergencia no se deberían asociar a ningún usuario individual de la organización. Asegúrese de que las cuentas no están conectadas a ningún teléfono móvil suministrado por un empleado, ni a tokens de hardware que viajen con empleados individuales ni con otras credenciales específicas de un empleado. Esta precaución debe incluir también los casos en los que un empleado individual pueda no estar disponible cuando se necesiten las credenciales. Es importante garantizar que todos los dispositivos registrados se almacenen en una ubicación conocida y segura que tenga varias formas de comunicarse con Azure AD.
-- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure MFA sería un mecanismo diferente.  Sin embargo, si Azure MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros.
+- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure MFA sería un mecanismo diferente.  Sin embargo, si Azure MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros a través de [Controles personalizado](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
 - El dispositivo o la credencial no deben expirar ni estar en el ámbito de una limpieza automatizada debido a la falta de uso.  
 - Debe convertir la asignación del rol de Administrador global en permanente para las cuentas de acceso de emergencia. 
 

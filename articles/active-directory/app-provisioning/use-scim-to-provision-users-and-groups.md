@@ -2,28 +2,23 @@
 title: Desarrollo de un punto de conexión SCIM para el aprovisionamiento de usuarios en aplicaciones desde Azure AD
 description: System for Cross-domain Identity Management (SCIM) normaliza el aprovisionamiento automático de usuarios. Aprenda a desarrollar un punto de conexión SCIM, integre la API de SCIM con Azure Active Directory y comience a automatizar el aprovisionamiento de usuarios y grupos en las aplicaciones en la nube.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fbdf947eb36e1591cc9da52a85e389be63c8535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297681"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826662"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Creación de un punto de conexión de SCIM y configuración del aprovisionamiento de usuarios con Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
 Como desarrollador de aplicaciones, puede usar la API de administración de usuarios del sistema para la administración de identidades entre dominios (SCIM) para habilitar el aprovisionamiento automático de usuarios y grupos entre la aplicación y Azure AD. En este artículo se describe cómo crear un punto de conexión de SCIM e integrarlo con el servicio de aprovisionamiento de Azure AD. La especificación SCIM proporciona un esquema de usuario común para el aprovisionamiento. Cuando se usa junto con estándares de federación como SAML u OpenID Connect, SCIM ofrece a los administradores una solución de un extremo a otro basada en estándares para la administración del acceso.
 
@@ -810,7 +805,7 @@ Las solicitudes de Azure Active Directory incluyen un token de portador de OAuth
 
 En el token, el emisor se identifica mediante una notificación de ISS; por ejemplo, `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. En este ejemplo, la dirección base del valor de notificación, `https://sts.windows.net`, identifica a Azure Active Directory como el emisor, mientras que el segmento de la dirección relativa, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, es un identificador único del inquilino de Azure Active Directory para el que se emitió el token.
 
-La audiencia del token será el identificador de la plantilla de aplicación de la aplicación en la galería. Cada una de las aplicaciones registradas en un solo inquilino puede recibir la misma notificación `iss` con solicitudes SCIM. El identificador de la plantilla de aplicación de cada aplicación de la galería es distinto. Póngase en contacto con [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) si tiene alguna pregunta sobre el identificador de plantilla de aplicación de una aplicación de la galería. El identificador de la plantilla de aplicación para todas las aplicaciones personalizadas es _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_.
+La audiencia del token será el identificador de la plantilla de aplicación de la aplicación en la galería. Cada una de las aplicaciones registradas en un solo inquilino puede recibir la misma notificación `iss` con solicitudes SCIM. El identificador de la plantilla de aplicación para todas las aplicaciones personalizadas es _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. El token generado por el servicio de aprovisionamiento de Azure AD solo se debe usar para realizar pruebas. No se debe usar en entornos de producción.
 
 En el código de ejemplo, las solicitudes se autentican mediante el paquete Microsoft.AspNetCore.Authentication.JwtBearer. El código siguiente exige que las solicitudes a cualquiera de los puntos de conexión del servicio se autentiquen mediante el token de portador emitido por Azure Active Directory para un inquilino concreto:
 
@@ -1200,8 +1195,8 @@ La especificación SCIM no define un esquema específico de SCIM para la autenti
 [!NOTE] No se recomienda dejar en blanco el campo de token en la interfaz de usuario de la aplicación personalizada de la configuración de aprovisionamiento de Azure AD. El token generado está disponible principalmente para fines de prueba.
 
 **Flujo de concesión de código de autorización OAuth:** el servicio de aprovisionamiento admite la [concesión de código de autorización](https://tools.ietf.org/html/rfc6749#page-24). Después de enviar la solicitud para publicar la aplicación en la galería, nuestro equipo trabajará con usted para recopilar la información siguiente:
-*  Dirección URL de autorización: una dirección URL del cliente para obtener la autorización del propietario del recurso a través de la redirección del agente de usuario. Se redirige al usuario a esta dirección URL para autorizar el acceso. 
-*  Dirección URL de intercambio de token: una dirección URL por parte del cliente para intercambiar una concesión de autorización para un token de acceso, normalmente con autenticación del cliente.
+*  Dirección URL de autorización: una dirección URL del cliente para obtener la autorización del propietario del recurso a través de la redirección del agente de usuario. Se redirige al usuario a esta dirección URL para autorizar el acceso. Tenga en cuenta que esta dirección URL no es actualmente configurable por inquilino.
+*  Dirección URL de intercambio de token: una dirección URL por parte del cliente para intercambiar una concesión de autorización para un token de acceso, normalmente con autenticación del cliente. Tenga en cuenta que esta dirección URL no es actualmente configurable por inquilino.
 *  Identificador de cliente: el servidor de autorización emite al cliente registrado un identificador de cliente, que es una cadena única que representa la información de registro que proporciona el cliente.  El identificador de cliente no es un secreto; se expone al propietario del recurso y **no debe** usarse solo para la autenticación del cliente.  
 *  Secreto del cliente: un secreto generado por el servidor de autorización. Debe ser un valor único conocido solo para el servidor de autorización. 
 
@@ -1225,10 +1220,6 @@ Para ayudar a impulsar el reconocimiento y la demanda de nuestra integración co
 * **Documentación técnica.** Cree un artículo en el centro de ayuda o documentación técnica sobre cómo pueden empezar los clientes. [Ejemplo: Integración de Envoy + Microsoft Azure Active Directory.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
 * **Comunicación al cliente.** Avise a los clientes de la nueva integración a través de la comunicación al cliente (boletines mensuales, campañas por correo electrónico, notas de la versión del producto). 
-
-### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Permiso para que las direcciones IP usadas por el servicio de aprovisionamiento de Azure AD realicen solicitudes SCIM
-
-Determinadas aplicaciones permiten el tráfico de entrada a su aplicación. Para que el servicio de aprovisionamiento de Azure AD funcione según lo previsto, se tienen que permitir las direcciones IP usadas. Para obtener una lista de direcciones IP para cada etiqueta o región de servicio, consulte el archivo JSON [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Puede descargar y programa estas direcciones IP en el firewall según sea necesario. Los intervalos IP reservados para el aprovisionamiento de Azure AD se pueden encontrar en "AzureActiveDirectoryDomainServices".
 
 ## <a name="related-articles"></a>Artículos relacionados
 

@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97605b0cdc7ac6368b21e9427f64e4bca7e35d4a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226780"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815951"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -21,7 +21,7 @@ Azure actualiza periódicamente su plataforma para mejorar la confiabilidad, el 
 Las actualizaciones raramente afectan a las máquinas virtuales hospedadas. Cuando las actualizaciones tienen algún efecto, Azure elige el método menos agresivo en las actualizaciones:
 
 - Si la actualización no requiere un reinicio, la máquina virtual se pone en pausa mientras se actualiza el host, o bien se migra directamente a un host ya actualizado. 
-- Si el mantenimiento requiere un reinicio, se notifica al usuario el mantenimiento planeado. Asimismo, Azure proporciona un período de tiempo en el que puede iniciar el mantenimiento a la hora que le sea más conveniente. La ventana de mantenimiento de autoservicio normalmente es de 30 días, a menos que el mantenimiento sea urgente. Azure está invirtiendo en tecnologías para reducir los casos en los que el mantenimiento planificado de la plataforma requiere el reinicio de la máquina virtual. Para obtener instrucciones sobre la administración del mantenimiento planeado, vea Control de las notificaciones de mantenimiento planeado mediante la [CLI](maintenance-notifications-cli.md) de Azure, [PowerShell](maintenance-notifications-powershell.md) o el [portal](maintenance-notifications-portal.md).
+- Si el mantenimiento requiere un reinicio, se notifica al usuario el mantenimiento planeado. Asimismo, Azure proporciona un período de tiempo en el que puede iniciar el mantenimiento a la hora que le sea más conveniente. El período de mantenimiento de autoservicio es normalmente de 35 días, a menos que el mantenimiento sea urgente. Azure está invirtiendo en tecnologías para reducir los casos en los que el mantenimiento planificado de la plataforma requiere el reinicio de la máquina virtual. Para obtener instrucciones sobre la administración del mantenimiento planeado, vea Control de las notificaciones de mantenimiento planeado mediante la [CLI](maintenance-notifications-cli.md) de Azure, [PowerShell](maintenance-notifications-powershell.md) o el [portal](maintenance-notifications-portal.md).
 
 En esta página se describe cómo Azure realiza ambos tipos de mantenimiento. Para obtener más información sobre eventos no planeados (interrupciones), vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./windows/manage-availability.md) o el artículo correspondiente para [Linux](./linux/manage-availability.md).
 
@@ -37,11 +37,11 @@ La mayor parte del mantenimiento sin impacto pone en pausa la máquina virtual d
 
 El mantenimiento de conservación de memoria funciona para más del 90 por ciento de las máquinas virtuales de Azure. No funciona para las series H, M, N y G. Azure usa cada vez más las tecnologías de migración en vivo y mejora el mecanismo de mantenimiento que conserva la memoria para así reducir la duración de la pausa.  
 
-Estas operaciones de mantenimiento que no requieren un reinicio se aplican por dominio de error cada vez. También se detienen si reciben señales de estado de advertencia. 
+Estas operaciones de mantenimiento que no requieren un reinicio se aplican por dominio de error cada vez. También se detienen si reciben señales de estado de advertencia de las herramientas de supervisión de la plataforma. 
 
 Estos tipos de actualizaciones pueden afectar a algunas aplicaciones. Cuando la máquina virtual se migra en vivo a otro host, es posible que algunas cargas de trabajo sensibles sufran una pequeña degradación del rendimiento en los pocos minutos anteriores a la pausa de la máquina virtual. Para preparar el mantenimiento de la máquina virtual y reducir el impacto durante el mantenimiento de Azure, intente [usar Scheduled Events para Windows](./windows/scheduled-events.md) o [Linux](./linux/scheduled-events.md) para estas aplicaciones. 
 
-También hay una característica en la versión preliminar pública, control de mantenimiento, que puede ayudar a administrar el mantenimiento que no requiere un reinicio. Debe usar instancias de [Azure Dedicated Host](./linux/dedicated-hosts.md) o una [máquina virtual aislada](../security/fundamentals/isolation-choices.md). El control de mantenimiento ofrece la opción de omitir las actualizaciones de la plataforma y aplicarlas a la hora que elija durante un período sucesivo de 35 días. Para obtener más información, consulte [Control de las actualizaciones con el control de mantenimiento y la CLI de Azure](maintenance-control-cli.md).
+Para un mayor control sobre todas las actividades de mantenimiento, incluidas las actualizaciones sin impacto y sin reinicio, puede usar la característica de control de mantenimiento. Debe usar instancias de [Azure Dedicated Host](./linux/dedicated-hosts.md) o una [máquina virtual aislada](../security/fundamentals/isolation-choices.md). El control de mantenimiento ofrece la opción de omitir todas las actualizaciones de la plataforma y aplicarlas a la hora que elija durante un período sucesivo de 35 días. Para obtener más información, consulte [Control de las actualizaciones con el control de mantenimiento y la CLI de Azure](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Migración en vivo

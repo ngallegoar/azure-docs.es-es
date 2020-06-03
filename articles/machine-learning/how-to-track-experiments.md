@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79296972"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835737"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Supervisión de métricas y ejecuciones de experimentos de Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Las siguientes métricas se pueden agregar a una ejecución durante el entrenami
 |Listas|Función:<br>`run.log_list(name, value, description='')`<br><br>Ejemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registra una lista de valores en la ejecución con el nombre especificado.|
 |Row|Función:<br>`run.log_row(name, description=None, **kwargs)`<br>Ejemplo:<br>run.log_row("Y over X", x=1, y=0.4) | Al usar *log_row* se crea una métrica de varias columnas, tal y como se describe en los argumentos kwargs. Cada parámetro con nombre genera una columna con el valor especificado.  Se puede llamar una vez a *log_row* para registrar una tupla arbitraria, o varias veces en un bucle para generar una tabla completa.|
 |Tabla|Función:<br>`run.log_table(name, value, description='')`<br><br>Ejemplo:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registra un objeto de diccionario en la ejecución con el nombre especificado. |
-|Imágenes|Función:<br>`run.log_image(name, path=None, plot=None)`<br><br>Ejemplo:<br>`run.log_image("ROC", plot=plt)` | Registra una imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
+|Imágenes|Función:<br>`run.log_image(name, path=None, plot=None)`<br><br>Ejemplo:<br>`run.log_image("ROC", plot=plt)` | Registra una imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen PNG o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
 |Etiquetar una ejecución|Función:<br>`run.tag(key, value=None)`<br><br>Ejemplo:<br>run.tag("selected", "yes") | Etiqueta la ejecución con una clave de cadena y un valor de cadena opcional.|
 |Cargar archivo o directorio|Función:<br>`run.upload_file(name, path_or_stream)`<br> <br> Ejemplo:<br>run.upload_file("best_model.pkl", "./model.pkl") | Carga un archivo en el registro de ejecución. Las ejecuciones capturan automáticamente el archivo en el directorio de salida especificado, cuyo valor predeterminado es "./outputs" para la mayoría de tipos de ejecución.  Use upload_file solo cuando sea necesario cargar archivos adicionales o no se especifique un directorio de salida. Se recomienda agregar `outputs` al nombre, para que se cargue en el directorio de salida. Puede enumerar todos los archivos que están asociados con este registro de ejecución por el parámetro `run.get_file_names()` invocado.|
 
@@ -52,6 +52,7 @@ Las siguientes métricas se pueden agregar a una ejecución durante el entrenami
 Si quiere realizar un seguimiento del experimento o supervisarlo, debe agregar código para iniciar el registro al enviar la ejecución. Las siguientes son formas de desencadenar el envío de ejecución:
 * __Run.start_logging__: agrega funciones de registro al script de entrenamiento e inicia una sesión de registro interactiva en el experimento especificado. **start_logging** crea una ejecución interactiva para su uso en escenarios como los cuadernos. Todas las métricas que se registran durante la sesión se agregan al registro de ejecución en el experimento.
 * __ScriptRunConfig__: agrega funciones de registro al script de entrenamiento y carga la carpeta del script completo con la ejecución.  **ScriptRunConfig** es una clase para configurar las ejecuciones del script. Con esta opción, puede agregar código de supervisión para recibir una notificación al finalizar o para obtener un widget visual para supervisar.
+* __El registro del diseñador__: añada funciones de registro a una canalización de diseño de arrastrar y soltar mediante el módulo __Ejecución de script de Python__. Agregue el código Python a los experimentos del diseñador de registros. 
 
 ## <a name="set-up-the-workspace"></a>Configuración del área de trabajo
 Antes de agregar el registro y enviar un experimento, debe configurar el área de trabajo.
@@ -103,8 +104,33 @@ En este ejemplo se amplía el modelo sklearn Ridge básico anterior. Se realiza 
 
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
+## <a name="option-3-log-designer-experiments"></a>Opción 3: Experimentos del diseñador de registros
 
+Use el módulo __Ejecución de script de Python__ para agregar lógica de registro a los experimentos del diseñador. Puede registrar cualquier valor mediante este flujo de trabajo, pero es especialmente útil registrar las métricas del módulo __Evaluar modelo__ para realizar un seguimiento del rendimiento del modelo en diferentes ejecuciones.
 
+1. Conecte un modulo __Ejecución de script de Python__ a la salida del módulo __evaluar modelo__.
+
+    ![Conecte el módulo de ejecución de script de Python a el módulo evaluar el modelo](./media/how-to-track-experiments/designer-logging-pipeline.png)
+
+1. Pegue el código siguiente en el editor de código__Ejecución de script de Python__ para registrar el error absoluto medio para el modelo entrenado:
+
+    ```python
+    # dataframe1 contains the values from Evaluate Model
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+        from azureml.core import Run
+
+        run = Run.get_context()
+
+        # Log the mean absolute error to the current run to see the metric in the module detail pane.
+        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log the mean absolute error to the parent run to see the metric in the run details page.
+        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+    
+        return dataframe1,
+    ```
 
 ## <a name="manage-a-run"></a>Administración de ejecuciones
 

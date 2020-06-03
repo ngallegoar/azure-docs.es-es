@@ -11,19 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6189e2bc6c3c8f28b767902b525b03cb72968bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2377ca4b929200ecd0a3a7de01dd3a58be6b7863
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80652893"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845447"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS
 
 Use la sección Autenticación de IIS del Servidor Azure Multi-Factor Authentication (MFA) para habilitar y configurar la autenticación de IIS para la integración con aplicaciones web de Microsoft IIS. El Servidor Azure MFA instala un complemento que puede filtrar las solicitudes realizadas al servidor web IIS para agregar Azure Multi-Factor Authentication. El complemento IIS proporciona compatibilidad para la autenticación basada en formularios y la autenticación HTTP de Windows integrada. También se pueden configurar IP de confianza para eximir direcciones IP internas de la autenticación en dos fases.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre. Cuando se usa Azure Multi-Factor Authentication basado en la nube, no hay ninguna alternativa al complemento de IIS proporcionado por el servidor de Azure Multi-Factor Authentication (MFA). En su lugar, use el proxy de aplicación web (WAP) con Servicios de federación de Active Directory (AD FS) o el proxy de aplicación de Azure Active Directory.
 
 ![Autenticación de IIS en el Servidor MFA](./media/howto-mfaserver-iis/iis.png)
 

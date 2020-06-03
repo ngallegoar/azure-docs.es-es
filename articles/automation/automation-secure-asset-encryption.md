@@ -1,6 +1,6 @@
 ---
-title: Cifrado de recursos protegidos en Azure Automation
-description: Azure Automation protege los recursos seguros mediante varios niveles de cifrado. De forma predeterminada, el cifrado se realiza mediante claves administradas por Microsoft. Los clientes pueden configurar sus cuentas de automatización para usar claves administradas por el cliente para el cifrado. En este artículo se describen los detalles de ambos modos de cifrado y cómo se puede cambiar entre los dos.
+title: Cifrado de recursos seguros en Azure Automation
+description: En este artículo se proporcionan conceptos para configurar la cuenta de Automation para usar el cifrado.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,18 +9,19 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604814"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830130"
 ---
-# <a name="encrypt-secure-assets-in-azure-automation"></a>Cifrado de recursos protegidos en Azure Automation
+# <a name="encryption-of-secure-assets-in-azure-automation"></a>Cifrado de recursos seguros en Azure Automation
 
 Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se protegen en Azure Automation mediante varios niveles de cifrado. En función de la clave de nivel superior utilizada para el cifrado, hay dos modelos de cifrado:
--    Usando claves administradas por Microsoft
--    Usando claves administradas por el cliente
+
+- Usando claves administradas por Microsoft
+- Uso de claves que administra
 
 ## <a name="microsoft-managed-keys"></a>Claves administradas por Microsoft
 
@@ -28,26 +29,24 @@ De forma predeterminada, la cuenta de Azure Automation usa claves de cifrado adm
 
 Cada recurso seguro se cifra y se almacena en Azure Automation con una clave única(clave de cifrado de datos) que se genera para cada cuenta de Automation. Estas claves se cifran y almacenan en Azure Automation con otra clave única que se genera para cada cuenta, denominada clave de cifrado de cuenta (AEK). Estas claves de cifrado de cuenta se cifran y almacenan en Azure Automation mediante claves administradas por Microsoft. 
 
-## <a name="customer-managed-keys-with-key-vault-preview"></a>Claves administradas por el cliente con Key Vault (versión preliminar)
+## <a name="keys-that-you-manage-with-key-vault-preview"></a>Claves que se administra con Key Vault (versión preliminar)
 
 Puede administrar el cifrado de recursos seguros para su cuenta de Automation con sus propias claves. Cuando especifica una clave administrada por el cliente en el nivel de la cuenta de Automation, esa clave se usa para proteger y controlar el acceso a la clave de cifrado de cuenta para la cuenta de Automation. Esta, a su vez, se usa para cifrar y descifrar todos los recursos seguros. Las claves administradas por el cliente ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También puede auditar las claves de cifrado que se usan para proteger los recursos seguros.
 
 Use Azure Key Vault para almacenar las claves administradas por el cliente. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas.  Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 
-## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Habilitación de las claves administradas por el cliente para una cuenta de Automation
+## <a name="use-of-customer-managed-keys-for-an-automation-account"></a>Uso de las claves administradas por el cliente para una cuenta de Automation
 
-Al habilitar el cifrado con claves administradas por el cliente para una cuenta de Automation, Azure Automation encapsula la clave de cifrado de la cuenta con la clave administrada por el cliente en el almacén de claves asociado. La habilitación de claves administradas por el cliente no afecta al rendimiento, y la cuenta se cifra con la nueva clave inmediatamente sin retraso alguno.
+Al usar el cifrado con claves administradas por el cliente para una cuenta de Automation, Azure Automation encapsula la clave de cifrado de la cuenta con la clave administrada por el cliente en el almacén de claves asociado. La habilitación de claves administradas por el cliente no afecta al rendimiento, y la cuenta se cifra con la nueva clave inmediatamente sin retraso alguno.
 
 Las cuentas de Automation nuevas siempre se cifran mediante claves administradas por Microsoft. No es posible habilitar claves administradas por el cliente en el momento en que se crea la cuenta. Las claves administradas por el cliente se almacenan en Azure Key Vault, y el almacén de claves se debe aprovisionar con directivas de acceso que concedan permisos de clave a la identidad administrada que está asociada a la cuenta de Automation. La identidad administrada solo está disponible después de crear la cuenta de almacenamiento.
 
 Al modificar la clave que se usa para el cifrado de recursos seguros de Azure Automation habilitando o deshabilitando las claves administradas por el cliente, actualizando la versión de la clave o especificando una clave diferente, el cifrado de la clave de cifrado de cuenta cambia, pero los recursos seguros de su cuenta de Azure Storage no tienen que volver a cifrarse.
 
-En las tres secciones siguientes se describe la mecánica para habilitar las claves administradas por el cliente para una cuenta de Automation. 
-
 > [!NOTE] 
 > Para habilitar las claves administradas por el cliente, tiene que realizar llamadas a la API REST de Azure Automation con la versión de API 2020-01-13-preview.
 
-### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Requisitos previos para el uso de claves administradas por el cliente en Azure Automation
+### <a name="prerequisites-for-using-customer-managed-keys-in-azure-automation"></a>Requisitos previos para el uso de claves administradas por el cliente en Azure Automation
 
 Antes de habilitar las claves administradas por el cliente para una cuenta de Automation, debe asegurarse de que se cumplen los siguientes requisitos previos:
 
@@ -56,7 +55,7 @@ Antes de habilitar las claves administradas por el cliente para una cuenta de Au
  - Solo se admiten claves RSA con para el cifrado de Azure Automation. Para obtener más información acerca de las claves, consulte [Información acerca de claves, secretos y certificados de Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - La cuenta de Automation y el almacén de claves pueden estar en distintas suscripciones, pero deben estar en el mismo inquilino de Azure Active Directory.
 
-### <a name="assign-an-identity-to-the-automation-account"></a>Asignación de una identidad a la cuenta de Automation
+### <a name="assignment-of-an-identity-to-the-automation-account"></a>Asignación de una identidad a la cuenta de Automation
 
 Para usar las claves administradas por el cliente con una cuenta de Automation, la cuenta de Automation debe autenticarse en el almacén de claves que contiene las claves administradas por el cliente. Azure Automation usa identidades administradas asignadas por el sistema para autenticar la cuenta con Azure Key Vault. Para más información sobre las identidades administradas, consulte el artículo sobre [Qué son las identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -93,7 +92,7 @@ La identidad asignada por el sistema para la cuenta de Automation se devuelve en
 }
 ```
 
-### <a name="configure-the-key-vault-access-policy"></a>Configuración de la directiva de acceso de Key Vault
+### <a name="configuration-of-the-key-vault-access-policy"></a>Configuración de la directiva de acceso de Key Vault
 
 Una vez que se asigna una identidad administrada a la cuenta de Automation, se configura el acceso al almacén de claves que contiene las claves administradas por el cliente. Azure Automation requiere **get**, **recover**, **wrapKey** y **UnwrapKey** en las claves administradas por el cliente.
 
@@ -178,21 +177,20 @@ Respuesta de muestra
 }
 ```
 
-## <a name="manage-customer-managed-keys-lifecycle"></a>Ciclo de vida de administración de las claves administradas por el cliente
-
-### <a name="rotate-customer-managed-keys"></a>Rotación de claves administradas por el cliente
+## <a name="rotation-of-a-customer-managed-key"></a>Rotación de una clave administrada por el cliente
 
 Las claves administradas por el cliente se pueden rotar en Azure Key Vault según las directivas de cumplimiento. Cuando la clave rota, hay que actualizar la cuenta de Automation para usar el nuevo identificador URI de la clave.
 
 La rotación de la clave no desencadena un nuevo cifrado de los recursos seguros en la cuenta de Automation. No se requiere ninguna acción adicional.
 
-### <a name="revoke-access-to-customer-managed-keys"></a>Revocación del acceso a las claves administradas por el cliente
+## <a name="revocation-of-access-to-a-customer-managed-key"></a>Revocación del acceso de una clave administrada por el cliente
 
 Para revocar el acceso a las claves administradas por el cliente, use PowerShell o la CLI de Azure. Para más información, consulte la referencia de [PowerShell para Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/) o la referencia de la [CLI para Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revocación del acceso bloquea de manera eficaz el acceso a todos los recursos seguros de la cuenta de Automation, ya que Azure Automation no puede acceder a la clave de cifrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
-- [Recursos de certificados en Azure Automation](shared-resources/certificates.md)
-- [Recursos de credenciales en Azure Automation](shared-resources/credentials.md)
-- [Recursos de variables en Azure Automation](shared-resources/variables.md)
+- Para comprender Azure Key Vault, vea [¿Qué es Azure Key Vault?](../key-vault/general/overview.md).
+- Para trabajar con certificados, vea [Administración de certificados en Azure Automation](shared-resources/certificates.md).
+- Para manipular las credenciales, vea [Administración de credenciales en Azure Automation](shared-resources/credentials.md).
+- Para usar variables de automatización, [Administración de variables en Azure Automation](shared-resources/variables.md).
+- Para obtener ayuda al trabajar con conexiones, vea [Administración de conexiones en Azure Automation](automation-connections.md).

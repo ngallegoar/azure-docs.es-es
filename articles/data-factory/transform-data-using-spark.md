@@ -9,13 +9,13 @@ author: nabhishek
 ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
-ms.date: 05/31/2018
-ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418854"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849219"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -65,13 +65,13 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 | description           | Texto que describe para qué se usa la actividad.  | No       |
 | type                  | Para la actividad de Spark, el tipo de actividad es HDInsightSpark. | Sí      |
 | linkedServiceName     | Nombre del servicio vinculado de HDInsight Spark en el que se ejecuta el programa de Spark. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
-| SparkJobLinkedService | El servicio vinculado de Azure Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark.  Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. El valor de esta propiedad solo puede ser un servicio vinculado de Azure Storage. | No       |
+| SparkJobLinkedService | El servicio vinculado de Azure Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark. En este caso solo se admiten servicios vinculados a **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** y **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. El valor de esta propiedad solo puede ser un servicio vinculado de Azure Storage. | No       |
 | rootPath              | Contenedor de blobs de Azure y la carpeta que contiene el archivo de Spark. El nombre del archivo distingue mayúsculas de minúsculas. Vea la sección sobre la estructura de carpetas (sección siguiente) para obtener más información sobre la estructura de esta carpeta. | Sí      |
 | entryFilePath         | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. El archivo de entrada debe ser un archivo de Python o un archivo .jar. | Sí      |
 | className             | Clase principal de Spark o Java de la aplicación.      | No       |
 | argumentos             | Lista de argumentos de línea de comandos del programa de Spark. | No       |
 | proxyUser             | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | No       |
-| sparkConfig           | Especifique valores para propiedades de configuración de Spark indicados en el tema [Spark Configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | No       |
+| sparkConfig           | Especifique valores para las propiedades de configuración de Spark indicadas en el tema: [Spark Configuration - Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | No       |
 | getDebugInfo          | Especifica si se copian los archivos de registro de Spark en el almacenamiento de Azure que usa el clúster de HDInsight que especifica sparkJobLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | No       |
 
 ## <a name="folder-structure"></a>Estructura de carpetas

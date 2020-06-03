@@ -1,6 +1,6 @@
 ---
 title: Corrección de servidores de Azure Automation State Configuration no conformes
-description: Cómo volver a aplicar las configuraciones a petición en los servidores donde ha variado el estado de configuración
+description: En este artículo se indica cómo volver a aplicar las configuraciones a petición en los servidores donde ha variado el estado de configuración.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: f871b406793e455c857ca14c83434c9ed3e004df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993833"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836862"
 ---
-# <a name="remediate-noncompliant-dsc-servers"></a>Corrección de servidores DSC no conformes
+# <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Corrección de servidores de Azure Automation State Configuration no conformes
 
 Cuando los servidores se registran con Azure Automation State Configuration, el modo de configuración se establece en `ApplyOnly`, `ApplyandMonitor`o `ApplyAndAutoCorrect`. Si el modo no está establecido en `ApplyAndAutoCorrect`, los servidores que dejan de ser conformes permanecen en ese estado de no conformidad hasta que se corrigen manualmente.
 
@@ -25,7 +25,7 @@ En este documento se proporcionan scripts de ejemplo de esta característica que
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Corrección de variación en máquinas virtuales Windows con PowerShell
 
-Si necesita instrucciones detalladas acerca de cómo usar la característica "Comando de ejecución" en máquinas virtuales Windows, consulte la página de documentación [Ejecución de scripts de PowerShell en una máquina virtual Windows con el comando Ejecutar](/azure/virtual-machines/windows/run-command).
+Puede corregir el desfase de las máquinas virtuales de Windows mediante la característica de comando `Run`. Vea [Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar](/azure/virtual-machines/windows/run-command).
 
 Para hacer que un nodo de Azure Automation State Configuration descargue la configuración más reciente y la aplique, use el cmdlet [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
 
@@ -35,14 +35,13 @@ Update-DscConfiguration -Wait -Verbose
 
 ## <a name="correct-drift-of-linux-virtual-machines"></a>Corrección de variación en máquinas virtuales Linux
 
-Actualmente, no existe una funcionalidad similar para los servidores Linux.
-La única opción es repetir el proceso de registro.
-En el caso de los nodos de Azure, puede corregir esta variación en Azure Portal o mediante los cmdlets del módulo Az. Para más información sobre este proceso, consulte [Incorporación de máquinas para realizar la administración con Automation State Configuration](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
-En el caso de los nodos híbridos, puede corregir esta variación con los scripts de Python incluidos.
-Consulte el [repositorio de PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
+En el caso de las máquinas virtuales Linux, no tiene la opción de usar el comando `Run`. Solo puede corregir el desfase de estas máquinas repitiendo el proceso de registro. 
+
+En el caso de los nodos de Azure, puede corregir esta variación en Azure Portal o mediante los cmdlets del módulo Az. Los detalles sobre este proceso se documentan en [Habilitar una máquina virtual mediante Azure Portal](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
+
+En el caso de los nodos híbridos, puede corregir este desfase con los scripts de Python incluidos. Vea [Realizar operaciones de DSC desde el equipo Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-- Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Implementación continua mediante State Configuration de Azure Automation y Chocolatey](automation-dsc-cd-chocolatey.md).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, vea [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).

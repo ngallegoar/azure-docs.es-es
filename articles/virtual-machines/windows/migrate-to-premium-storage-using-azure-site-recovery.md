@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 071596557de00c9dfb2afaa5751d9331c21ada99
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: ee6800d2d0f589c43c96b240a74a86db488e0b46
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866269"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827801"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -62,7 +62,7 @@ Estos son los requisitos de Azure para este escenario de migración:
 * Una red virtual de Azure a la que se conectarán las máquinas virtuales cuando se creen en la conmutación por error. La red virtual de Azure debe estar en la misma región en que se ejecuta Site Recovery.
 * Una cuenta de almacenamiento estándar de Azure para almacenar los registros de replicación. Puede ser la misma que para los discos de máquina virtual que se migran.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Comprender los componentes del escenario de migración relevantes de la sección anterior.
 * Planear el tiempo de inactividad, para lo que se debe conocer la [conmutación por error en Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -79,10 +79,10 @@ Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre 
    >Anteriormente, Backup y Site Recovery formaban parte de [OMS Suite](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
 1. Especifique la región en la que se van a replicar las máquinas virtuales. A efectos de la migración en la misma región, seleccione la región donde están máquinas virtuales de origen y las cuentas de almacenamiento de origen. 
 
-### <a name="step-2-choose-your-protection-goals"></a>Paso 2: Elección de objetivos de protección 
+### <a name="step-2-choose-your-protection-goals"></a>Paso 2: Selección de los objetivos de protección 
 
 1. En la máquina virtual en la que desea instalar el servidor de configuración, abra [Azure Portal](https://portal.azure.com).
-2. Vaya a **Almacenes de Recovery Services** > **Configuración** > **Site Recovery** > **Paso 1: Preparación de infraestructura** > **Objetivo de protección**.
+2. Vaya a **Almacenes de Recovery Services** > **Configuración** > **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
 
    ![Desplazamiento al panel Objetivo de protección][2]
 
@@ -184,7 +184,7 @@ Cuando la replicación inicial haya finalizado, ejecute una conmutación por err
 
 El estado de la conmutación por error de prueba se puede ver en **Configuración** > **Trabajos** > *nombreDeSuPlanDeConmutaciónPorError*. En el panel, verá un desglose de los pasos y los resultados correctos o con errores. Si se produce un error en la conmutación por error de prueba en cualquier paso, seleccione el paso para comprobar el mensaje de error. 
 
-### <a name="step-9-run-a-failover"></a>Paso 9: Ejecución de una conmutación por error
+### <a name="step-9-run-a-failover"></a>Paso 9: Ejecución de la conmutación por error
 
 Después de realizada la conmutación por error de prueba, ejecute una conmutación por error para migrar los discos a Premium Storage y replicar las instancias de máquinas virtuales. Siga los pasos detallados de [Ejecución de la conmutación por error](../../site-recovery/site-recovery-failover.md#run-a-failover). 
 
@@ -195,8 +195,8 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
 ## <a name="post-migration-steps"></a>Pasos posteriores a la migración
 
 1. **Configure máquinas virtuales replicadas en el conjunto de disponibilidad, si procede**. Site Recovery no admite la migración de máquinas virtuales junto con el conjunto de disponibilidad. Dependiendo de la implementación de la máquina virtual replicada, realice una de las siguientes acciones:
-   * En el caso de una máquina virtual creada mediante el modelo de implementación clásico: agregue la máquina virtual al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../linux/classic/configure-availability-classic.md).
-   * En el caso de una máquina virtual creada mediante el modelo de implementación de Resource Manager: guarde la configuración de la máquina virtual y, después, elimine las máquinas virtuales y vuelva a crearlas en el conjunto de disponibilidad. Para ello, use el script que encontrará en [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Establecimiento del conjunto de disponibilidad de máquinas virtuales de Azure Resource Manager). Antes de ejecutar este script, compruebe sus limitaciones y planee el tiempo de inactividad.
+   * Para una VM creada con el modelo de implementación clásica: agregue la VM al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../linux/classic/configure-availability-classic.md).
+   * Para una VM creada con el modelo de implementación de Resource Manager: guarde la configuración de la VM y, después, elimine y vuelva a crear las VM en el conjunto de disponibilidad. Para ello, use el script que encontrará en [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Establecimiento del conjunto de disponibilidad de máquinas virtuales de Azure Resource Manager). Antes de ejecutar este script, compruebe sus limitaciones y planee el tiempo de inactividad.
 
 2. **Elimine las máquinas virtuales y los discos antiguos**. Asegúrese de que los discos Premium sean coherentes con los discos de origen y que las nuevas máquinas virtuales realizan la misma función que las máquinas virtuales de origen. Elimine la máquina virtual y los discos de las cuentas de almacenamiento de origen en Azure Portal. Si hay un problema en el que el disco no se elimina aunque haya eliminado la máquina virtual, consulte [Troubleshoot storage resource deletion errors](storage-resource-deletion-errors.md) (Solución de errores de eliminación de recursos de almacenamiento).
 
@@ -205,7 +205,7 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
 ## <a name="troubleshooting"></a>Solución de problemas
 
 * [Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Foro de Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [Página de preguntas y respuestas sobre Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: b9b72fb9e80c588eb3e6642d0228bffa50b35c6e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679234"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844512"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creación de una cuenta de Azure Remote Rendering
 
@@ -81,9 +81,12 @@ Ahora se supone que tiene una cuenta de almacenamiento. Vaya a ella en el portal
 
 ![IAM de la cuenta de almacenamiento](./media/azure-add-role-assignment.png)
 
-* El primer rol que se va a asignar es el de **Propietario**, como se muestra en la captura de pantalla anterior. 
-* Seleccione **Cuenta de Remote Rendering** en la lista desplegable ***Asignar acceso a**.
+* El primer rol que se va a asignar es el de **Propietario**, como se muestra en la captura de pantalla anterior.
+* Seleccione la cuenta **Remote Rendering** en la lista desplegable de **Asignar acceso a**.
 * Seleccione la suscripción y la cuenta de Remote Rendering en las últimas listas desplegables.
+
+> [!WARNING]
+> En caso de que la cuenta de Remote Rendering no aparezca en la lista, consulte la [sección de solución de problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Repita la adición de nuevos roles dos veces más para las selecciones correspondientes en la lista desplegable **Rol**:
 * **Colaborador de la cuenta de almacenamiento**

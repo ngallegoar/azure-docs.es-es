@@ -4,21 +4,21 @@ description: Aprenda a implementar un modelo tabular en un servidor de Azure Ana
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73572876"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697594"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementación de un modelo de Visual Studio
 
 Una vez que ha creado un servidor en su suscripción de Azure, está listo para implementar una base de datos de modelo tabular en él. Puede usar Visual Studio con proyectos de Analysis Services para compilar e implementar un proyecto de modelo tabular en el que está trabajando. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesitará lo siguiente:
 
@@ -55,11 +55,15 @@ Eso es todo.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si se produce un error al implementar los metadatos, es probable que sea porque Visual Studio no se pudo conectar al servidor. Asegúrese de poder conectarse al servidor mediante SSMS. A continuación, asegúrese de que la propiedad de Servidor de implementación del proyecto es correcta.
+Si se produce un error al implementar los metadatos, es probable que sea porque Visual Studio no se pudo conectar al servidor. Asegúrese de que puede conectarse al servidor mediante SQL Server Management Studio (SSMS). A continuación, asegúrese de que la propiedad de Servidor de implementación del proyecto es correcta.
 
 Si se produce un error al realizar una implementación en una tabla, es probable que sea porque el servidor no pudo conectarse a un origen de datos. Si el origen de datos es local en la red de su organización, asegúrese de instalar una [puerta de enlace de datos local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que tiene el modelo tabular implementado en el servidor, está listo para conectarse a él. Puede [conectarse a él con SQL Server Management Studio (SSMS)](analysis-services-manage.md) para administrarlo. Además, puede [conectarse a él mediante una herramienta cliente](analysis-services-connect.md) como Power BI, Power BI Desktop o Excel y empezar a crear informes.
+Ahora que tiene el modelo tabular implementado en el servidor, está listo para conectarse a él. Puede [conectarse a él con SQL Server Management Studio (SSMS)](analysis-services-manage.md) para administrarlo. Además, puede [conectarse a él mediante una herramienta cliente](analysis-services-connect.md) como Power BI, Power BI Desktop o Excel y empezar a crear informes.   
+
+Para obtener información sobre métodos de implementación avanzada, consulte [Implementación de la solución de modelo tabular](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
+
+
 

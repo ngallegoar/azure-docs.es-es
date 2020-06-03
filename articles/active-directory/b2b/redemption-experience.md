@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585902"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826101"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -42,9 +42,9 @@ Como alternativa a la invitación por correo electrónico, puede darle al invita
 
 > [!IMPORTANT]
 > El vínculo directo debe ser específico del inquilino. En otras palabras, debe incluir un identificador de inquilino o dominio comprobado de manera que el invitado se puede autenticar en el inquilino donde se encuentra la aplicación compartida. Una dirección URL típica, como https://myapps.microsoft.com, no funcionará para un invitado, ya que redirige al inquilino principal para la autenticación. Estos son algunos ejemplos de vínculos directos con el contexto del inquilino:
- > - Panel de acceso de aplicaciones: https://myapps.microsoft.com/?tenantid=&lt;Id. de inquilino&gt; 
- > - Panel de acceso de aplicaciones para un dominio comprobado: https://myapps.microsoft.com/&lt;dominio comprobado&gt;
- > - Azure Portal: https://portal.azure.com/&lt;Id. de inquilino&gt;
+ > - Panel de acceso de aplicaciones: `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Panel de acceso de aplicaciones para un dominio comprobado: `https://myapps.microsoft.com/<;verified domain>`
+ > - Azure Portal: `https://portal.azure.com/<tenant id>`
  > - Aplicación individual: consulte cómo usar un [vínculo de inicio de sesión en directo](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 En algunos casos se recomienda el correo electrónico de invitación en lugar del vínculo directo. Si estos casos especiales son importantes para su organización, se recomienda que invite a los usuarios mediante métodos que aún envíen el correo electrónico de invitación:

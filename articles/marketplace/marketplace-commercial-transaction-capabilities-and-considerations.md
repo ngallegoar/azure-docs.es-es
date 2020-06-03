@@ -1,5 +1,5 @@
 ---
-title: Capacidades de transacción de marketplace comercial
+title: Capacidades de transacción de marketplace comercial de Microsoft
 description: En este artículo se describen las consideraciones de precios, facturación y pago de la opción de transacción de marketplace comercial.
 author: dsindona
 ms.service: marketplace
@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 4aeae69dd50e8c233a1903f6f2c7bd7795b8d7b9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857220"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800043"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -165,7 +165,7 @@ Normalmente, los clientes compran con contrato Enterprise o mediante contrato de
 
 Para obtener más información y las directivas legales, consulte el [contrato del publicador](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (disponible en el Centro de partners).
 
-Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://partner.microsoft.com/support/v2/?stage=1).
+Para obtener ayuda si tiene preguntas sobre facturación, póngase en contacto con el [equipo de soporte técnico para publicadores de Marketplace comercial](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Requisitos de las transacciones
 

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791772"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697566"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -37,10 +37,11 @@ Después de crear una cuenta de Azure Cosmos DB en su suscripción a Azure, pued
 > Para obtener información sobre el procedimiento recomendado para administrar las cargas de trabajo que tienen claves de partición que requieren límites más altos para el almacenamiento o el rendimiento, consulte [Crear una clave de partición sintética ](synthetic-partition-keys.md).
 >
 
-Un contenedor de Cosmos (o una base de datos de rendimiento compartido) debe tener un rendimiento mínimo de 400 RU. A medida que crece el contenedor, el rendimiento mínimo admitido también depende de los factores siguientes:
+Un contenedor de Cosmos (o una base de datos de rendimiento compartido) debe tener un rendimiento mínimo de 400 RU/s. A medida que crece el contenedor, el rendimiento mínimo admitido también depende de los factores siguientes:
 
-* El rendimiento mínimo que se puede establecer en un contenedor depende del rendimiento máximo que se haya aprovisionado alguna vez en el contenedor. Por ejemplo, si el rendimiento aumentó a 10 000 RU, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU.
-* El rendimiento mínimo en una base de datos de rendimiento compartido depende del número total de contenedores que ha creado alguna vez en una base de datos de rendimiento compartido, medido en 100 RU por contenedor. Por ejemplo, si ha creado cinco contenedores dentro de una base de datos de rendimiento compartido, el rendimiento debe ser de 500 RU como mínimo.
+* Rendimiento máximo que se ha aprovisionado en algún momento en el contenedor. Por ejemplo, si el rendimiento aumentó a 50 000 RU/s, el rendimiento más bajo que se puede aprovisionar sería de 500 RU/s.
+* Es decir, el almacenamiento actual en GB del contenedor. Por ejemplo, si el contenedor cuenta con 100 GB de almacenamiento, el rendimiento más bajo que se puede aprovisionar sería de 1000 RU/s.
+* El rendimiento mínimo en una base de datos de rendimiento compartido depende del número total de contenedores que ha creado alguna vez en una base de datos de rendimiento compartido, medido en 100 RU/s por contenedor. Por ejemplo, si ha creado cinco contenedores dentro de una base de datos de rendimiento compartido, el rendimiento debe ser de 500 RU/s como mínimo.
 
 El rendimiento actual y mínimo de un contenedor o una base de datos se puede recuperar desde Azure Portal o los SDK. Para obtener más información, consulte [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). 
 
@@ -112,7 +113,7 @@ En función de la API que use, un elemento de Azure Cosmos puede representar un 
 | Longitud máxima del valor de propiedad de la cadena | Ningún límite práctico |
 | Longitud máxima del valor de propiedad numérico | IEEE754 de doble precisión de 64 bits |
 
-No hay ninguna restricción en las cargas de elementos, como el número de propiedades o la profundidad de anidamiento, excepto para las restricciones de longitud en los valores de identificador y de la clave de partición, y la restricción de tamaño general de 2 MB. Es posible que deba configurar la directiva de indexación para contenedores con estructuras de elementos grandes o complejas a fin de reducir el consumo de RU. Consulte [Modelar elementos en Cosmos DB](how-to-model-partition-example.md) para obtener un ejemplo real y los patrones para administrar elementos de gran tamaño.
+No hay ninguna restricción en las cargas de elementos, como el número de propiedades o la profundidad de anidamiento, salvo las restricciones de longitud en los valores de identificador y clave de partición y la restricción de tamaño general de 2 MB. Es posible que deba configurar la directiva de indexación para contenedores con estructuras de elementos grandes o complejas a fin de reducir el consumo de RU. Consulte [Modelar elementos en Cosmos DB](how-to-model-partition-example.md) para obtener un ejemplo real y los patrones para administrar elementos de gran tamaño.
 
 ## <a name="per-request-limits"></a>Límites por solicitud
 
@@ -140,7 +141,16 @@ Cosmos DB admite la ejecución de desencadenadores durante las escrituras. El se
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Límites del rendimiento aprovisionado de escalabilidad automática
 
-Consulte este artículo sobre [escalabilidad automática](provision-throughput-autoscale.md#autoscale-limits) para obtener información sobre los límites de almacenamiento y rendimiento con escalabilidad automática.
+Consulte este artículo sobre [escalabilidad automática](provision-throughput-autoscale.md#autoscale-limits) y las [preguntas frecuentes](autoscale-faq.md#lowering-the-max-rus) para obtener una explicación más detallada de los límites de almacenamiento y rendimiento con escalabilidad automática.
+
+| Resource | Límite predeterminado |
+| --- | --- |
+| Número máximo de RU/s a los que el sistema se puede escalar |  `Tmax`, el número máximo de RU/s de escalabilidad automática establecido por el usuario|
+| Número mínimo de RU/s a los que el sistema se puede escalar | `0.1 * Tmax`|
+| RU/s actuales a los que se escala el sistema  |  `0.1*Tmax <= T <= Tmax`, en función del uso|
+| Número mínimo de RU/s facturables por hora| `0.1 * Tmax` <br></br>La facturación se realiza por hora, de modo que se le cobra el número máximo de RU/s a los que se escaló el sistema durante esa hora, o `0.1*Tmax`, lo que sea más alto. |
+| Valor mínimo del número máximo de RU/s de escalabilidad automática para un contenedor  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` redondeado a los 1000 RU/s más cercanos. |
+| Valor mínimo del número máximo de RU/s de escalabilidad automática para una base de datos  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))` redondeado a los 1000 RU/s más cercanos. <br></br>Nota: Si la base de datos tiene más de 25 contenedores, el sistema incrementa el valor mínimo de número máximo de RU/s de escalabilidad automática en 1000 RU/s por cada contenedor adicional. Por ejemplo, si tiene 30 contenedores, el valor más bajo de número máximo de RU/s de escalabilidad automática que puede establecer es 9000 RU/s (para un escalado entre 900 y 9000 RU/s).
 
 ## <a name="sql-query-limits"></a>Límites de la consulta SQL
 
@@ -178,7 +188,7 @@ En la tabla siguiente se enumeran los límites de la prueba de encontrará en [P
 
 | Resource | Límite predeterminado |
 | --- | --- |
-| Duración de la prueba | 30 días (se puede renovar cualquier número de veces) |
+| Duración de la prueba | 30 días (se puede solicitar una nueva prueba después de su expiración) <br> Después de la expiración, se elimina la información almacenada. |
 | Número máximo de contenedores por suscripción (API, Gremlin y Table API) | 1 |
 | Número máximo de contenedores por suscripción (API de MongoDB) | 3 |
 | Rendimiento máximo por contenedor | 5000 |

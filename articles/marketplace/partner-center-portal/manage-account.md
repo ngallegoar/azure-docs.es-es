@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 54b45825f2322dc127d5db818b7abe52e4a98967
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208404"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800220"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
 
@@ -64,7 +64,7 @@ En la sección de información de contacto, puede ver el **nombre para mostrar d
 
 #### <a name="payout-account"></a>Cuenta de pago
 
-Una cuenta de pago es la cuenta bancaria a la que se envían los ingresos de sus ventas. Esta cuenta bancaria debe estar en el mismo país en el que se ha registrado su cuenta del Centro de partners.
+Una cuenta de pago es la cuenta bancaria a la que se envían los ingresos de sus ventas. Esta cuenta bancaria debe estar en el mismo país o región en el que se ha registrado su cuenta del Centro de partners.
 
 Para configurar la cuenta de pago:
 
@@ -80,21 +80,21 @@ Para configurar la cuenta de pago:
 
 Revise el estado actual de su perfil fiscal y confirme que aparece el **Tipo de entidad** y la **Información de certificado fiscal** correctos. Seleccione **Editar** para actualizar o rellenar los formularios necesarios.
 
-Para establecer el estado fiscal, debe especificar el país de residencia y la ciudadanía, y rellenar los formularios fiscales adecuados asociados a su país o región.
+Para establecer el estado fiscal, debe especificar el país o región de residencia y la ciudadanía, y rellenar los formularios fiscales adecuados asociados a su país o región.
 
-Independientemente de su país de residencia o ciudadanía, debe rellenar los formularios fiscales de los Estados Unidos para vender ofertas mediante Microsoft. Los asociados que cumplen determinados requisitos de residencia de los Estados Unidos deben rellenar un formulario IRS W-9. El resto de asociados de fuera de Estados Unidos deben rellenar un formulario de IRS W-8. Puede rellenar estos formularios en línea a medida que completa su perfil fiscal.
+Independientemente de su país o región de residencia o ciudadanía, debe rellenar los formularios fiscales de los Estados Unidos para vender ofertas mediante Microsoft. Los asociados que cumplen determinados requisitos de residencia de los Estados Unidos deben rellenar un formulario IRS W-9. El resto de asociados de fuera de Estados Unidos deben rellenar un formulario de IRS W-8. Puede rellenar estos formularios en línea a medida que completa su perfil fiscal.
 
 No es necesario tener el número de identificación fiscal individual (ITIN) de Estados Unidos para recibir pagos de Microsoft o para reclamar beneficios del tratado fiscal.
 
 Puede completar y enviar los formularios fiscales electrónicamente desde el Centro de partners. En la mayoría de los casos, no es necesario imprimir y enviar por correo ningún formulario.
 
-Los distintos países y regiones tienen requisitos fiscales diferentes. El importe exacto que debe pagar en impuestos dependerá de los países y regiones en los que desea vender sus ofertas. Microsoft remite las ventas y el impuesto sobre el consumo en su nombre en algunos países. Estos países se identificarán durante el proceso de publicación de la oferta. En otros países, según donde esté registrado, puede que tenga que remitir las ventas y los impuestos sobre el consumo directamente ante la autoridad fiscal local. Además, los ingresos por ventas que recibe pueden estar sujetos a impuestos como ingresos. Le recomendamos encarecidamente que se ponga en contacto con la autoridad pertinente del país o región que mejor le pueda ayudar a determinar la información fiscal adecuada para sus transacciones de ventas de Microsoft.
+Los distintos países y regiones tienen requisitos fiscales diferentes. El importe exacto que debe pagar en impuestos dependerá de los países y regiones en los que desea vender sus ofertas. Microsoft remite las ventas y el impuesto sobre el consumo en su nombre en algunos países o regiones. Estos países o regiones se identificarán durante el proceso de publicación de la oferta. En otros países o regiones, según donde esté registrado, puede que tenga que remitir las ventas y los impuestos sobre el consumo directamente ante la autoridad fiscal local. Además, los ingresos por ventas que recibe pueden estar sujetos a impuestos como ingresos. Le recomendamos encarecidamente que se ponga en contacto con la autoridad pertinente del país o región que mejor le pueda ayudar a determinar la información fiscal adecuada para sus transacciones de ventas de Microsoft.
 
 ##### <a name="withholding-rates"></a>Tasas de retención
-La información que envíe en las declaraciones de impuestos determinará la tasa de retención fiscal adecuada. La tasa de retención se aplica solo a las ventas que se realizan en Estados Unidos. Las ventas realizadas en ubicaciones fuera de Estados Unidos no están sujetas a retenciones. Las tasas de retención varían, pero para la mayoría de los desarrolladores que están registrados fuera de Estados Unidos, la tasa predeterminada es del 30 %. Podrá reducir esta tasa si su país ha firmado con Estados Unidos un tratado tributario por ingresos especial.
+La información que envíe en las declaraciones de impuestos determinará la tasa de retención fiscal adecuada. La tasa de retención se aplica solo a las ventas que se realizan en Estados Unidos. Las ventas realizadas en ubicaciones fuera de Estados Unidos no están sujetas a retenciones. Las tasas de retención varían, pero para la mayoría de los desarrolladores que están registrados fuera de Estados Unidos, la tasa predeterminada es del 30 %. Podrá reducir esta tasa si su país o región ha firmado con Estados Unidos un tratado tributario por ingresos.
 
 ##### <a name="tax-treaty-benefits"></a>Beneficios por tratado tributario
-Si reside fuera de Estados Unidos, puede aprovechar los beneficios por tratados tributarios. Estos beneficios varían de un país a otro y puede que le permitan reducir el importe de los impuestos que retiene Microsoft. Puede reclamar los beneficios por tratado tributario rellenando la Parte II del formulario W-8BEN. Es recomendable que se ponga en contacto con los recursos adecuados de su país o región para determinar si estos beneficios se le pueden aplicar.
+Si reside fuera de Estados Unidos, puede aprovechar los beneficios por tratados tributarios. Estos beneficios varían según el país o la región, y puede que le permitan reducir el importe de los impuestos que retiene Microsoft. Puede reclamar los beneficios por tratado tributario rellenando la Parte II del formulario W-8BEN. Es recomendable que se ponga en contacto con los recursos adecuados de su país o región para determinar si estos beneficios se le pueden aplicar.
 
 [Más información sobre detalles fiscales para desarrolladores de aplicaciones y juegos de Windows y editores de Azure Marketplace](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
@@ -117,7 +117,7 @@ La configuración de administración de dispositivos se aplica solo a la publica
 
 Los identificadores únicos globales (GUID) son números de referencia exclusivos (con 32 dígitos hexadecimales) que se pueden utilizar para realizar el seguimiento del uso de Azure. 
 
-Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
+Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://aka.ms/StoragePartners) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
 
 Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan.
 
@@ -134,7 +134,7 @@ Para más información, consulte [Tracking Azure customer usage with GUIDs FAQ](
 
 Si va a publicar una oferta de [Dynamics 365 for Customer Engagement y Power Apps](./create-new-customer-engagement-offer.md) o [Dynamics 365 for Operations](./create-new-operations-offer.md) tendrá que rellenar el **perfil de facturación**.
 
-La dirección de facturación se rellena previamente a partir de la entidad legal y puede actualizarla más adelante. Los campos Impuestos y CIF son opcionales.  No se puede editar el nombre del país ni el de la empresa.
+La dirección de facturación se rellena previamente a partir de la entidad legal y puede actualizarla más adelante. Los campos Impuestos y CIF son opcionales.  No se puede editar el nombre del país o región y el nombre de la empresa.
 
 ## <a name="multi-user-account-management"></a>Administración de cuentas multiusuario
 

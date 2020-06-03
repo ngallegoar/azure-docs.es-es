@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 088a87f4c4eb200cfeecff1d2513fefdb0088a38
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877395"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827054"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -162,7 +162,7 @@ Ahora debería ver todo el tráfico pasando a través del proxy. Si tiene proble
 
 La mejor manera de identificar y solucionar problemas de conectividad del conector es realizar una captura de red cuando se inicia el servicio de conector. Estas son algunas sugerencias rápidas sobre cómo capturar y filtrar seguimientos de red.
 
-Puede usar la herramienta de supervisión que prefiera. En este artículo, hemos usado Analizador de mensajes de Microsoft. Puede [descargarlo de Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+Puede usar la herramienta de supervisión que prefiera. En este artículo, hemos usado Analizador de mensajes de Microsoft.
 
 Los ejemplos siguientes son específicos del Analizador de mensajes pero los principios se pueden aplicar a cualquier herramienta de análisis.
 
@@ -204,4 +204,4 @@ Si ve otros códigos de respuesta, como 407 o 502, el proxy requiere autenticaci
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-connectors.md)
-* Si tiene problemas de conectividad con los conectores, plantee una pregunta en el [foro de Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) o cree una incidencia para nuestro equipo de soporte técnico.
+* Si tiene problemas de conectividad con los conectores, plantee una pregunta en la [Página de preguntas y respuestas de Microsoft sobre Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) o cree una incidencia para nuestro equipo de soporte técnico.

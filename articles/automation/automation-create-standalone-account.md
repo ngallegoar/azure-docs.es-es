@@ -1,20 +1,20 @@
 ---
 title: Creación de una cuenta independiente de Azure Automation
-description: En este artículo se le guía en la creación, la prueba y el uso de la autenticación de la entidad de seguridad en Azure Automation.
+description: En este artículo se indica cómo crear una cuenta de Azure Automation independiente y una cuenta de ejecución clásica.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 72a40363edf0e83eea26ee697ce992226da0db4f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392286"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837100"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
-En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation del portal para evaluar y obtener información acerca de Automation sin usar soluciones de administración o integración adicionales con registros de Azure Monitor. Puede agregar estas soluciones de administración o realizar la integración con registros de Azure Monitor para disfrutar de una supervisión avanzada de los trabajos de runbook en cualquier momento en el futuro.
+En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation del portal para evaluar y obtener información acerca de Automation sin usar características de administración o integración adicionales con registros de Azure Monitor. Puede agregar características de administración o realizar la integración con registros de Azure Monitor para disfrutar de una supervisión avanzada de los trabajos de runbook en cualquier momento en el futuro.
 
 Con una cuenta de Automation, podrá autenticar runbooks mediante la administración de recursos en Azure Resource Manager o en el modelo de implementación clásica. Una cuenta de Automation puede administrar los recursos de todas las regiones y suscripciones de un inquilino determinado.
 
@@ -35,9 +35,7 @@ Para crear o actualizar una cuenta de Automation y completar las tareas que se d
 
 Si no es miembro de la instancia de Active Directory de la suscripción antes de que le asignen el rol de administrador global o de coadministrador de dicha suscripción, se le agregará a Active Directory como invitado. En este caso, aparecerá este mensaje en el panel Agregar cuenta de Automation: `You do not have permissions to create.`.
 
-Si a un usuario se le asigna primero el rol de administrador global o de coadministrador, se le puede quitar de la instancia de Active Directory de la suscripción. Si desea asignarle de nuevo el rol de usuario, puede hacerlo en Active Directory.
-
-Para comprobar los roles de usuario:
+Si a un usuario se le asigna primero el rol de administrador global o de coadministrador, se le puede quitar de la instancia de Active Directory de la suscripción. Si desea asignarle de nuevo el rol de usuario, puede hacerlo en Active Directory. Para comprobar los roles de usuario:
 
 1. En Azure Portal, vaya al panel Azure Active Directory.
 1. Seleccione **Usuarios y grupos**.
@@ -83,8 +81,6 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
 
 1. Para seguir el progreso de creación de la cuenta de Automation, en el menú, seleccione **Notificaciones**.
 
-### <a name="resources-included"></a>Recursos incluidos
-
 Una vez que se crea la cuenta de Automation, se también varios recursos automáticamente. Una vez creados, estos runbooks se pueden eliminar de forma segura, en caso de que no se desee conservarlos. Las cuentas de ejecución pueden utilizarse para autenticarse con la cuenta en un runbook y deben conservarse a menos que se cree otra o que ya no sean necesarias. La siguiente tabla resume los recursos de la cuenta de ejecución.
 
 | Resource | Descripción |
@@ -105,9 +101,9 @@ Las cuentas de ejecución clásicas ya no se crean de forma predeterminada al cr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información acerca de la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
-* Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
-* Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
-* Para empezar a trabajar con runbooks de Python 2, consulte este artículo sobre el [primer runbook de Python 2](automation-first-runbook-textual-python2.md).
+* Para obtener más información sobre la creación de runbooks gráficos, vea [Creación de runbooks gráficos en Azure Automation](automation-graphical-authoring-intro.md).
+* Para empezar a trabajar con runbooks de PowerShell, vea [Tutorial: Creación de un runbook de PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Tutorial: Creación de un runbook de flujo de trabajo de PowerShell](learn/automation-tutorial-runbook-textual.md).
+* Para empezar a trabajar con runbooks de Python 2, vea [Tutorial: Creación de un runbook de Python 2](learn/automation-tutorial-runbook-textual-python2.md).
 * Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

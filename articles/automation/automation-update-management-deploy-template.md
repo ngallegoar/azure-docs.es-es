@@ -1,34 +1,34 @@
 ---
-title: Uso de plantillas de Azure Resource Manager para incorporar Update Management | Microsoft Docs
-description: Puede usar una plantilla de Azure Resource Manager para incorporar la solución Update Management de Azure Automation.
+title: Habilitación de Update Management mediante una plantilla de Azure Resource Manager | Microsoft Docs
+description: En este artículo se indica cómo usar una plantilla de Azure Resource Manager para habilitar Update Management.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165797"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830998"
 ---
-# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Incorporación de la solución Update Management con una plantilla de Azure Resource Manager
+# <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitación de Update Management mediante una plantilla de Azure Resource Manager
 
-Puede usar [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para habilitar la solución Update Management de Azure Automation en un grupo de recursos. En este artículo se proporciona una plantilla de ejemplo que automatiza lo siguiente:
+Puede usar una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para habilitar la característica de Update Management de Azure Automation en un grupo de recursos. En este artículo se proporciona una plantilla de ejemplo que automatiza lo siguiente:
 
 * La creación de un área de trabajo de Log Analytics en Azure Monitor.
 * El registro de una cuenta de Azure Automation.
 * La vinculación de la cuenta de Automation al área de trabajo de Log Analytics si aún no está vinculada.
-* La incorporación de la solución Update Management de Azure Automation.
+* Habilitar Update Management.
 
-La plantilla no automatiza la incorporación de una o varias máquinas virtuales de Azure o que no son de Azure.
+La plantilla no automatiza la habilitación de una o varias máquinas virtuales de Azure o que no son de Azure.
 
-Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementada en una región admitida de la suscripción, no se vinculan. El área de trabajo aún no tiene implementada la solución Update Management. Con esta plantilla se crea correctamente el vínculo y se implementa la solución Update Management. 
+Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementada en una región admitida de la suscripción, no se vinculan. El área de trabajo aún no tiene Update Management habilitado. Con esta plantilla se crea correctamente el vínculo y se implementa Update Management para máquinas virtuales. 
 
 >[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
+>El usuario **nxautomation** habilitado como parte de Update Management en Linux solo ejecuta runbooks firmados.
 
 ## <a name="api-versions"></a>Versiones de API
 
@@ -241,10 +241,9 @@ Es importante comprender los detalles de configuración siguientes si no está f
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que tiene implementada la solución Update Management, puede habilitar las máquinas virtuales para la administración, revisar las evaluaciones de las actualizaciones e implementar las actualizaciones para someterlas a cumplimiento.
-
-- Desde la [cuenta de Azure Automation](automation-onboard-solutions-from-automation-account.md) para una o varias máquinas de Azure y manualmente para máquinas que no son de Azure.
-
-- Para una sola máquina virtual de Azure desde la página de la máquina virtual en Azure Portal. Este escenario está disponible para las VM [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) y [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management).
-
-- Para [varias máquinas virtuales de Azure](manage-update-multi.md), selecciónelas en la página **Máquinas virtuales** de Azure Portal. 
+* Para usar Update Management para máquinas virtuales, consulte [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
+* Si ya no necesita el área de trabajo de Log Analytics, consulte las instrucciones en [Desvinculación de un área de trabajo de una cuenta de Automation para Update Management](automation-unlink-workspace-update-management.md).
+* Para eliminar máquinas virtuales de Update Management, consulte [Eliminación de una máquina virtual desde Update Management](automation-remove-vms-from-update-management.md).
+* Para solucionar los errores de Update Management generales, consulte [Solución de problemas de Update Management](troubleshoot/update-management.md).
+* Para solucionar problemas con el agente de Windows Update, consulte [Solución de problemas del agente de actualización de Windows](troubleshoot/update-agent-issues.md).
+* Para solucionar problemas con el agente de actualización de Linux, consulte [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).

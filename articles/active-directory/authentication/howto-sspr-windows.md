@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 95d1ffec6a849cb97a6151717c3e30dc362b1403
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743349"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826611"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedimientos: Habilitar el restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows
 
@@ -30,7 +30,7 @@ En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede permitir qu
 - Se sabe que algunos proveedores de credenciales de terceros provocan problemas con esta característica.
 - Se sabe que la deshabilitación de UAC mediante la modificación de la [clave del registro EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) provoca problemas.
 - Esta característica no funciona para las redes con la autenticación de red 802.1x implementada y la opción "Realizar inmediatamente antes de que el usuario inicie sesión". Para las redes con la autenticación de red 802.1X implementada se recomienda usar la autenticación del equipo para habilitar esta característica.
-- Los equipos unidos a Azure AD híbrido deben tener una línea de visión de conectividad de red a un controlador de dominio para usar las nuevas credenciales en caché de contraseña y actualización.
+- Los equipos unidos a Azure AD híbrido deben tener una línea de visión de conectividad de red a un controlador de dominio para usar las nuevas credenciales en caché de contraseña y actualización. Esto significa que los dispositivos deben estar en la red interna de la organización o en una VPN con acceso de red a un controlador de dominio local. 
 - Si se usa una imagen, antes de ejecutar sysprep, asegúrese de que se borra la caché web para la cuenta predefinida de administrador antes de realizar el paso de CopyProfile. Puede encontrar más información sobre este paso en el artículo de soporte técnico [Rendimiento deficiente cuando se usa el perfil de usuario predeterminado personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Se sabe que los valores siguientes interfieren con la capacidad de usar y restablecer contraseñas en dispositivos Windows 10
     - Si en versiones de Windows 10 anteriores a la 1809 la directiva requiere Ctrl+Alt+Del, no funcionará el vínculo **Restablecer contraseña**.

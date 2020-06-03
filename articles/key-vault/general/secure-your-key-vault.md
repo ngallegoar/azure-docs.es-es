@@ -2,20 +2,20 @@
 title: 'Protección del acceso a un almacén de claves: Azure Key Vault | Microsoft Docs'
 description: Administración de los permisos de acceso para Azure Key Vault, claves y secretos. Trata sobre el modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves.
 services: key-vault
-author: amitbapat
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ambapat
-ms.openlocfilehash: 0ae1b26bb2e01d388f3f91d94134bb9723a5a305
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427692"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827529"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -135,7 +135,7 @@ Los tres roles de equipo necesitan tener acceso a otros recursos junto con los p
 
 Para más información sobre cómo implementar certificados, claves de acceso y secretos mediante programación, vea estos recursos:
 - Obtenga más información sobre cómo [implementar certificados en máquinas virtuales desde una instancia de Key Vault administrada por un cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) (entrada de blog).
-- Descargue los [ejemplos de cliente de Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45343). En este contenido se ilustra cómo usar un certificado de arranque para autenticarse en Azure AD con la finalidad de acceder a un almacén de claves.
+- Vea los [ejemplos de cliente de Azure Key Vault](https://docs.microsoft.com/samples/browse/?term=Key%20Vault). En este contenido se ilustra cómo usar un certificado de arranque para autenticarse en Azure AD con la finalidad de acceder a un almacén de claves.
 
 Puede conceder la mayoría de los permisos de acceso mediante Azure Portal. Para conceder permisos pormenorizados, puede usar Azure PowerShell o la CLI de Azure.
 
@@ -233,4 +233,4 @@ Para más información acerca del registro de uso para Key Vault, consulte [Regi
 
 Para más información acerca del uso de claves y secretos con Azure Key Vault, consulte [Información acerca de claves, secretos y certificados](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
-Si le queda alguna duda acerca de Key Vault, visite los [foros](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Si le queda alguna duda acerca de Key Vault, visite la [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

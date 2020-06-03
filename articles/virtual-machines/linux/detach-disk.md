@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c827a19fd2b3e946154a3ee0acf6dddc6ad45a0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74036365"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830011"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Desconexión de un disco de datos de una máquina virtual Linux
 
@@ -106,12 +106,10 @@ El disco permanece en el almacenamiento pero ya no está acoplado a una máquina
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desconexión de un disco de datos mediante el portal
 
 1. En el menú de la izquierda, seleccione **Máquinas virtuales**.
-2. Seleccione la máquina virtual que tiene el disco de datos que quiere desconectar y haga clic en **Detener** para desasignar la máquina virtual.
-3. En el panel de la máquina virtual, seleccione **Discos**.
-4. En la parte superior del panel **Discos**, seleccione **Editar**.
-5. En el panel **Discos**, en el extremo derecho del disco de datos que quiere desasociar, haga clic en el ![imagen del botón Desasociar](./media/detach-disk/detach.png) botón de desasociación.
-5. Una vez que haya quitado el disco, haga clic en Guardar, en la parte superior del panel.
-6. En el panel de la máquina virtual, haga clic en **Información general** y, luego, en el botón **Iniciar** de la parte superior del panel para reiniciar la máquina virtual.
+1. En la hoja de la máquina virtual, seleccione **Discos**.
+1. En la parte superior de la hoja **Discos**, seleccione **Editar**.
+1. En la hoja **Discos**, en el extremo derecho del disco de datos que desea desconectar, haga clic en el botón de desconexión ![imagen del botón de desconexión](./media/detach-disk/detach.png).
+1. Después de quitar el disco, haga clic en **Guardar** en la parte superior de la hoja.
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 

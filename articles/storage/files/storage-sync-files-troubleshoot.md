@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 39106f863352061cdaa583bde96f50d3f91a07e9
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801323"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836522"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
 
 Este artículo está diseñado para ayudarle a solucionar problemas que podrían producirse con la implementación de Azure File Sync. Se describe cómo recopilar registros importantes del sistema si es necesario investigar los problemas en mayor profundidad. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
-1. [Foro de Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+1. [Página de preguntas y respuestas de Microsoft sobre Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
@@ -161,7 +161,7 @@ Este error se produce si se alcanza el límite de puntos de conexión de servido
 Este error se produce si otro punto de conexión de servidor ya está sincronizando la ruta de acceso del punto de conexión del servidor especificada. Azure File Sync no admite varios puntos de conexión de servidor que sincronizan el mismo directorio o volumen.
 
 <a id="-2160590967"></a>**Falla la creación de puntos de conexión de servidor, con este error: "MgmtServerJobFailed" (Código de error: -2160590967 o 0x80c80077)**  
-Este error se produce si la ruta de acceso del punto de conexión del servidor contiene archivos en niveles huérfanos. Si se ha quitado recientemente un punto de conexión del servidor, espere hasta que se haya completado la limpieza de los archivos en niveles huérfanos. Un id. de evento 6662 se registra en el registro de eventos de telemetría una vez iniciada la limpieza de los archivos en niveles huérfanos. Un id. de evento 6661 se registra una vez completada la limpieza de los archivos en niveles huérfanos, y un punto de conexión del servidor puede volver a crearse mediante la ruta de acceso. Si se produce un error en la creación del punto de conexión del servidor una vez registrado un id. de evento 6661, elimine los archivos en niveles huérfanos mediante los pasos descritos en la sección [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+Este error se produce si la ruta de acceso del punto de conexión del servidor contiene archivos en niveles huérfanos. Si se ha quitado recientemente un punto de conexión del servidor, espere hasta que se haya completado la limpieza de los archivos en niveles huérfanos. Un id. de evento 6662 se registra en el registro de eventos de telemetría una vez iniciada la limpieza de los archivos en niveles huérfanos. Un id. de evento 6661 se registra una vez completada la limpieza de los archivos en niveles huérfanos, y un punto de conexión del servidor puede volver a crearse mediante la ruta de acceso. Si se produce un error en la creación del punto de conexión del servidor después de que se haya completado la limpieza de los archivos en capas o si no se encuentra el id. de evento 6661 en el registro de eventos de telemetría debido a la sustitución de registro de eventos, quite los archivos en niveles huérfanos mediante los pasos descritos en la sección [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 
 <a id="-2134347757"></a>**Falla la eliminación de puntos de conexión de servidor, con este error: "MgmtServerJobExpired" (Código de error: -2134347757 o 0x80c87013)**  
 Este problema se produce si el servidor está sin conexión o no tiene conectividad de red. Si el servidor ya no está disponible, anule el registro del servidor en el portal, lo que eliminará los puntos de conexión de servidor. Para eliminar los puntos de conexión de servidor, siga los pasos que se describen en [Anular el registro de un servidor de Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

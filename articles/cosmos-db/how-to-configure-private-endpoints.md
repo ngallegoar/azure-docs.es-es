@@ -4,14 +4,14 @@ description: Aprenda a configurar Azure Private Link para acceder a una cuenta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/14/2020
 ms.author: thweiss
-ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270696"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697887"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configuración de Azure Private Link para una cuenta de Azure Cosmos
 
@@ -22,9 +22,6 @@ Private Link permite a los usuarios obtener acceso a una cuenta de Azure Cosmos 
 Puede conectarse a una cuenta de Azure Cosmos configurada con Private Link mediante el método de aprobación automático o manual. Para obtener más información, consulte la sección [flujo de trabajo de aprobación](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) de la documentación de Private Link. 
 
 En este artículo se describen los pasos para crear un punto de conexión privado. Se da por supuesto que usa el método de aprobación automático.
-
-> [!NOTE]
-> Actualmente, la compatibilidad con puntos de conexión privados solo está disponible para el modo de conexión de puerta de enlace. En el modo directo, está disponible como una característica en vista previa.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Creación de un punto de conexión privado mediante Azure Portal
 
@@ -643,21 +640,15 @@ Puede seguir los mismos pasos al quitar una región. Después de quitar la regi�
 
 Al usar Private Link con una cuenta de Azure Cosmos se aplican las siguientes limitaciones:
 
-* Al usar Private Link con una cuenta de Azure Cosmos mediante conexión de modo directo, solo puede usar el protocolo TCP. Aún no se admite el protocolo HTTP.
-
-* Actualmente, la compatibilidad con puntos de conexión privados solo está disponible para el modo de conexión de puerta de enlace. En el modo directo, está disponible como una característica en vista previa.
+* Al usar Private Link con una cuenta de Azure Cosmos mediante conexión de modo directo, solo puede usar el protocolo TCP. Actualmente no se admite el protocolo HTTP.
 
 * Cuando se usa la API de Azure Cosmos DB para las cuentas de MongoDB, solo se admite un punto de conexión privado para las cuentas en el servidor versión 3.6 (es decir, las cuentas que usan el punto de conexión con el formato `*.mongo.cosmos.azure.com`). Private Link no se admite para cuentas en el servidor versión 3.2 (es decir, cuentas que usan el punto de conexión con el formato `*.documents.azure.com`). Para usar Private Link, debe migrar las cuentas anteriores a la nueva versión.
 
-* Al usar la API de Azure Cosmos DB para las cuentas de MongoDB que tienen Private Link, no puede usar herramientas como Robo 3T, Studio 3T y Mongoose. El punto de conexión puede tener compatibilidad con Private Link solo si se especifica el parámetro `appName=<account name>`. Un ejemplo es `replicaSet=globaldb&appName=mydbaccountname`. Dado que estas herramientas no pasan el nombre de la aplicación en la cadena de conexión al servicio, no puede usar Private Link. Sin embargo, todavía puede tener acceso a estas cuentas con controladores de SDK con la versión 3.6.
+* Cuando se usa una cuenta de la API de Azure Cosmos DB para MongoDB con Private Link, es posible que algunas herramientas o bibliotecas no funcionen, ya que quitan automáticamente el parámetro `appName` de la cadena de conexión. Este parámetro es necesario para conectarse a la cuenta mediante un punto de conexión privado. Algunas herramientas, como Visual Studio Code, no quitan este parámetro de la cadena de conexión y, por lo tanto, son compatibles.
 
-* No puede mover ni eliminar una red virtual si contiene Private Link.
+* Debe concederse a un administrador de red al menos el permiso `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` en el ámbito de la cuenta de Azure Cosmos para crear puntos de conexión privados aprobados automáticamente.
 
-* No puede eliminar una cuenta de Azure Cosmos si está asociada a un punto de conexión privado.
-
-* No puede conmutar por error una cuenta de Azure Cosmos a una región que no esté asignada a todos los puntos de conexión privados conectados a esta cuenta.
-
-* Debe concederse a un administrador de red al menos el permiso "*/PrivateEndpointConnectionsApproval" en el ámbito de la cuenta de Azure Cosmos para crear puntos de conexión privados aprobados automáticamente.
+* El modo directo no se admite actualmente en las regiones de Azure basadas en China.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitaciones de la integración de la zona DNS privada
 

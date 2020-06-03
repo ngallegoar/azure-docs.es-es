@@ -1,6 +1,6 @@
 ---
-title: 'Datos de configuración a escala: Azure Automation'
-description: Aprenda a configurar datos a escala para la configuración de estado en Azure Automation.
+title: Configurar datos a gran escala para Azure Automation State Configuration
+description: En este artículo se explica cómo configurar los datos a gran escala para Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 644ea1c00af7e71ff56852298fff18e5293c137b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbd721bc54ce2de6b7923b0f582c53ffc7da1a73
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585570"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837032"
 ---
-# <a name="configuration-data-at-scale"></a>Datos de configuración a escala
+# <a name="configure-data-at-scale-for-azure-automation-state-configuration"></a>Configurar datos a gran escala para Azure Automation State Configuration
 
 > Se aplica a: Windows PowerShell 5.1
 
@@ -51,6 +51,6 @@ Para probar Datum, visite la [Galería de PowerShell](https://www.powershellgall
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general sobre la configuración de estado deseado de Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Recursos de DSC](/powershell/scripting/dsc/resources/resources)
-- [Configuración del administrador de configuración local](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Para comprender DSC de PowerShell, vea [Información general sobre Desired State Configuration de PowerShell](/powershell/scripting/dsc/overview/overview).
+- Obtenga información sobre los recursos de DSC de PowerShell en [Recursos de DSC](/powershell/scripting/dsc/resources/resources).
+- Para obtener información detallada sobre la configuración de Configuration Manager, vea [Configuración de Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).

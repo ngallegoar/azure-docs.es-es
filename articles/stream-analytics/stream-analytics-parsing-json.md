@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d68c36e7d6603cb8cdc906ad2a0280094e6e0e5
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77484594"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698258"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Análisis de datos JSON y AVRO en Azure Stream Analytics
 
@@ -19,7 +19,8 @@ Azure Stream Analytics admite eventos de procesamiento en formatos de datos CSV,
 
 >[!NOTE]
 >Los archivos de AVRO creados mediante la captura del centro de eventos usan un formato específico que requiere que se utilice la característica *deserializador personalizado*. Para más información, consulte [Lectura de entradas en cualquier formato mediante deserializadores personalizados de .NET](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
-
+>
+>La deserialización de AVRO de Stream Analytics no admite el tipo de asignación. Stream Analytics no puede leer los blobs de captura de EventHub porque la captura de EventHub usa asignaciones.
 
 
 ## <a name="record-data-types"></a>Tipos de datos de registro

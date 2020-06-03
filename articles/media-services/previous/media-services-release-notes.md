@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: edea04e15fe5b844654f250a22a05a753f0df123
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474833"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836403"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 
@@ -573,7 +573,7 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[foro de MSDN de Azure Media Services]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Microsoft Q&A question page for Azure Media Services]: https://docs.microsoft.com/answers/topics/azure-media-services.html
 [Referencia de la API de REST de Azure Media Services]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Metadatos de entrada]: https://msdn.microsoft.com/library/azure/dn783120.aspx

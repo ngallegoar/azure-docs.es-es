@@ -1,14 +1,14 @@
 ---
 title: Uso de Shared Image Gallery para crear un grupo personalizado
-description: Cree un grupo de Batch con Shared Image Gallery para aprovisionar imágenes personalizadas para los nodos de ejecución que contienen el software y los datos que se necesitan para la aplicación. Las imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de Batch.
-ms.topic: article
-ms.date: 08/28/2019
-ms.openlocfilehash: 1a26aaecc5da0ef348b720919b04d86f8fcfbc70
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+description: Las imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de Batch.
+ms.topic: conceptual
+ms.date: 05/22/2020
+ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743579"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844495"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Uso de Shared Image Gallery para crear un grupo personalizado
 
@@ -24,50 +24,51 @@ El uso de una imagen de Shared Image le ahorra tiempo a la hora de preparar los 
 
 El uso de una imagen de Shared Image configurada para su escenario puede proporcionar varias ventajas:
 
-* **Uso de las mismas imágenes en todas las regiones.** Puede crear réplicas de imágenes de Shared Image en distintas regiones para que todos los grupos usen la misma imagen.
-* **Configuración del sistema operativo (SO).** La configuración del disco de sistema operativo de la imagen se puede personalizar.
-* **Preinstalar las aplicaciones.** Preinstalar las aplicaciones en el disco del sistema operativo es más eficaz y menos propenso a errores que instalar las aplicaciones después de aprovisionar los nodos de ejecución con una tarea de inicio.
-* **Copia de grandes cantidades de datos una vez.** Convierta en estáticos parte de los datos de la imagen de Shared Image administrada copiándolos en los discos de datos de una imagen administrada. Solo debe hacerse una vez y los datos estarán disponibles para cada nodo del grupo.
-* **Aumento de los grupos a tamaños más grandes.** Con Shared Image Gallery puede crear grupos más grandes con sus imágenes personalizadas junto con más réplicas de Shared Image.
-* **Mejor rendimiento que la imagen personalizada.** Mediante el uso de imágenes de Shared Image, el tiempo que tarda el grupo en alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la VM es hasta un 30 % más breve.
-* **Control de versiones y agrupación de imágenes para facilitar su administración.** La definición de la agrupación de imágenes contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve e información acerca del uso de la imagen. La agrupación de imágenes permite una administración más sencilla de las imágenes. Para más información, consulte [Definiciones de imagen](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Uso de las mismas imágenes en todas las regiones.** Puede crear réplicas de imágenes de Shared Image en distintas regiones para que todos los grupos usen la misma imagen.
+- **Configuración del sistema operativo (SO).** La configuración del disco de sistema operativo de la imagen se puede personalizar.
+- **Preinstalar las aplicaciones.** Preinstalar las aplicaciones en el disco del sistema operativo es más eficaz y menos propenso a errores que instalar las aplicaciones después de aprovisionar los nodos de ejecución con una tarea de inicio.
+- **Copia de grandes cantidades de datos una vez.** Convierta en estáticos parte de los datos de la imagen de Shared Image administrada copiándolos en los discos de datos de una imagen administrada. Solo debe hacerse una vez y los datos estarán disponibles para cada nodo del grupo.
+- **Aumento de los grupos a tamaños más grandes.** Con Shared Image Gallery puede crear grupos más grandes con sus imágenes personalizadas junto con más réplicas de Shared Image.
+- **Mejor rendimiento que la imagen personalizada.** Mediante el uso de imágenes de Shared Image, el tiempo que tarda el grupo en alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la VM es hasta un 30 % más breve.
+- **Control de versiones y agrupación de imágenes para facilitar su administración.** La definición de la agrupación de imágenes contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve e información acerca del uso de la imagen. La agrupación de imágenes permite una administración más sencilla de las imágenes. Para más información, consulte [Definiciones de imagen](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]
 > Debe autenticarse mediante Azure AD. Si usa shared-key-auth, obtendrá un error de autenticación.  
 
-* **Una cuenta de Azure Batch** Para crear una cuenta de Batch, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
+- **Una cuenta de Azure Batch** Para crear una cuenta de Batch, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-* **Una imagen de Shared Image Gallery**. Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados. Para más información, consulte [Preparación de una imagen administrada](#prepare-a-managed-image).
+- **Una imagen de Shared Image Gallery**. Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
 
 > [!NOTE]
-> La imagen de Shared Image debe estar en la misma suscripción que la cuenta de Batch. La imagen de Shared Image puede estar en distintas regiones, siempre que tenga réplicas en la misma región que la cuenta de Batch.
+> La imagen de Shared Image debe estar en la misma suscripción que la cuenta de Batch. La imagen puede estar en distintas regiones, siempre que tenga réplicas en la misma región que la cuenta de Batch.
 
-## <a name="prepare-a-managed-image"></a>Preparación de una imagen administrada
+## <a name="prepare-a-custom-image"></a>Preparación de una imagen personalizada
 
 En Azure, puede preparar una imagen administrada a partir de:
 
-* Instantáneas del sistema operativo y los discos de datos de una máquina virtual de Azure
-* Una máquina virtual de Azure generalizada con discos administrados
-* Un disco duro virtual local generalizado cargado en la nube
+- Instantáneas del sistema operativo y los discos de datos de una máquina virtual de Azure
+- Una máquina virtual de Azure generalizada con discos administrados
+- Un disco duro virtual local generalizado cargado en la nube
 
-Para escalar grupos de Batch de forma confiable con una imagen personalizada se recomienda crear una imagen administrada *solo* con el primer método: instantáneas de los discos de la máquina virtual. Consulte los siguientes pasos para preparar la máquina virtual, tomar una instantánea y crear una imagen a partir de ella.
+> [!NOTE]
+> Actualmente, Batch solo admite imágenes compartidas generalizadas. En este momento no se puede crear un grupo de imágenes personalizado a partir de una imagen compartida especializada.
+
+Consulte los siguientes pasos para preparar la máquina virtual, tome una instantánea y cree una imagen a partir de ella.
 
 ### <a name="prepare-a-vm"></a>Preparación de la máquina virtual
 
 Si va a crear una máquina virtual para la imagen, use una imagen propia de Azure Marketplace admitida por Batch como imagen base para la imagen administrada. Solo pueden usarse imágenes propias como imagen base. Para obtener una lista completa de las referencias de imagen de Azure Marketplace compatibles con Azure Batch, consulte la operación [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> No se puede usar una imagen de terceros que tenga licencias adicionales y términos de compra como imagen base. Para información sobre estas imágenes de Marketplace, consulte las instrucciones para las máquinas virtuales [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-).
+> No se puede usar una imagen de terceros que tenga licencias adicionales y términos de compra como imagen base. Para información sobre estas imágenes de Marketplace, consulte las instrucciones para las máquinas virtuales [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
 
-* Asegúrese de que la máquina virtual se crea con un disco administrado. Se trata de la configuración de almacenamiento predeterminada cuando se crea una máquina virtual.
-* No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.
-* Cuando usa los discos de datos incluidos, debe montar y dar formato a los discos desde una máquina virtual para usarlos.
-* Asegúrese de que la imagen del sistema operativo base que proporcione usa la unidad temporal predeterminada. El agente de nodo de Batch actualmente espera la unidad temporal predeterminada.
-* Una vez que la máquina virtual está en ejecución, conéctese a ella a través de RDP (para Windows) o SSH (para Linux). Instale el software necesario o copie los datos deseados.  
+- Asegúrese de que la máquina virtual se crea con un disco administrado. Se trata de la configuración de almacenamiento predeterminada cuando se crea una máquina virtual.
+- No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.
+- Cuando usa los discos de datos incluidos, debe montar y dar formato a los discos desde una máquina virtual para usarlos.
+- Asegúrese de que la imagen del sistema operativo base que proporcione usa la unidad temporal predeterminada. El agente de nodo de Batch actualmente espera la unidad temporal predeterminada.
+- Una vez que la máquina virtual está en ejecución, conéctese a ella a través de RDP (para Windows) o SSH (para Linux). Instale el software necesario o copie los datos deseados.  
 
 ### <a name="create-a-vm-snapshot"></a>Creación de una instantánea de máquina virtual
 
@@ -212,10 +213,11 @@ Use los pasos siguientes para crear un grupo a partir de una imagen compartida e
 
 Si tiene previsto crear un grupo con cientos o miles de VM o más mediante una imagen de Shared Image, use la siguiente guía.
 
-* **Números de réplicas de Shared Image Gallery.**  Para cada grupo con hasta 600 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear un grupo con 3000 VM, debe mantener al menos cinco réplicas de la imagen. Siempre se recomienda mantener más réplicas que las indicadas por los requisitos mínimos para un mejor rendimiento.
+- **Números de réplicas de Shared Image Gallery.**  Para cada grupo con hasta 600 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear un grupo con 3000 VM, debe mantener al menos cinco réplicas de la imagen. Siempre se recomienda mantener más réplicas que las indicadas por los requisitos mínimos para un mejor rendimiento.
 
-* **Tiempo de espera del cambio de tamaño.** Si el grupo contiene un número de nodos fijo (no se escala automáticamente), aumente la propiedad `resizeTimeout` del grupo en función de su tamaño. Por cada 1000 VM, el tiempo de espera del cambio de tamaño recomendado es de al menos 15 minutos. Por ejemplo, el tiempo de espera del cambio de tamaño recomendado para un grupo con 2000 VM es de al menos 30 minutos.
+- **Tiempo de espera del cambio de tamaño.** Si el grupo contiene un número de nodos fijo (no se escala automáticamente), aumente la propiedad `resizeTimeout` del grupo en función de su tamaño. Por cada 1000 VM, el tiempo de espera del cambio de tamaño recomendado es de al menos 15 minutos. Por ejemplo, el tiempo de espera del cambio de tamaño recomendado para un grupo con 2000 VM es de al menos 30 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
+- Para obtener información general detallada sobre Batch, consulte [Recursos y flujo de trabajo del servicio de Batch](batch-service-workflow-features.md).
+- Obtenga información sobre [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).

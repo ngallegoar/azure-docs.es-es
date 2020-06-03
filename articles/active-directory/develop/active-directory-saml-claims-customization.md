@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 87a9632ec2433b8698e3ae3761ba733aa6bc63a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd99934ca74736c1f80bd47d701120398437e27a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885691"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845328"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -169,9 +169,9 @@ Para agregar una condición de notificaciones:
 
 El orden en que se agregan las condiciones es importante. Azure AD evalúa las condiciones de arriba a abajo para decidir qué valor se va a emitir en la notificación. 
 
-Por ejemplo, Britta Simon es un usuario invitado en el inquilino de Contoso. Pertenece a otra organización que también usa Azure AD. Dada la siguiente configuración para la aplicación de Fabrikam, cuando Britta intenta iniciar sesión en Fabrikam, Azure AD evaluará las condiciones como se indica a continuación.
+Por ejemplo, Britta Simon es un usuario invitado en el suscriptor de Contoso. Pertenece a otra organización que también usa Azure AD. Dada la siguiente configuración para la aplicación de Fabrikam, cuando Britta intenta iniciar sesión en Fabrikam, Azure AD evaluará las condiciones como se indica a continuación.
 
-En primer lugar, Azure AD comprueba si el tipo de usuario de Britta es `All guests`. Como, esto es así Azure AD asigna el origen de la notificación a `user.extensionattribute1`. En segundo lugar, Azure AD comprueba si el tipo de usuario de Britta es `AAD guests`, ya que esto también se cumple Azure AD asigna el origen de la notificación a `user.mail`. Por último, la notificación se emite con el valor `user.email` para Britta.
+En primer lugar, Azure AD comprueba si el tipo de usuario de Britta es `All guests`. Como, esto es así Azure AD asigna el origen de la notificación a `user.extensionattribute1`. En segundo lugar, Azure AD comprueba si el tipo de usuario de Britta es `AAD guests`, ya que esto también se cumple, Azure AD asigna el origen de la notificación a `user.mail`. Por último, la notificación se emite con valor de `user.mail` para Britta.
 
 ![Configuración condicional de notificaciones](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

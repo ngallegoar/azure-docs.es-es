@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 401f8239cded04b6342b706242e970e39118d73d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77483761"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827172"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -36,7 +36,7 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 ![Inicio de sesión único de conexión directa](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->El inicio de sesión único de conexión directa necesita que el dispositivo del usuario esté **unido al dominio** únicamente, pero no se usa en dispositivos [unidos a Azure AD](../devices/concept-azure-ad-join.md) o [unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). El inicio de sesión único en unido a Azure AD y unido a Azure AD híbrido funciona según el [token de actualización principal](../devices/concept-primary-refresh-token.md).
+>El inicio de sesión único de conexión directa necesita que el dispositivo del usuario esté **unido al dominio** únicamente, pero no se usa en dispositivos [unidos a Azure AD](../devices/concept-azure-ad-join.md) o [unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). El inicio de sesión único (SSO) en dispositivos registrados en Azure AD unido, Azure AD híbrido unido y Azure AD funciona según el [token de actualización principal](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Ventajas principales
 

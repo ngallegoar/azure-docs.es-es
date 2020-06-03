@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407176"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826475"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
 A continuación se indican algunas de las preguntas más frecuentes sobre todos los aspectos relacionados con el restablecimiento de contraseñas.
 
-Si tiene alguna pregunta general sobre Azure Active Directory (Azure AD) y el autoservicio de restablecimiento de contraseña (SSPR) y no encuentra ninguna respuesta aquí, puede pedir ayuda a la comunidad en los [foros de Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). La comunidad está formada por ingenieros, jefes de producto, MVP y profesionales de TI.
+Si tiene alguna pregunta general sobre Azure Active Directory (Azure AD) y el autoservicio de restablecimiento de contraseña (SSPR) y no encuentra ninguna respuesta aquí, puede pedir ayuda a la comunidad en la[Página de preguntas y respuestas de Microsoft sobre Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). La comunidad está formada por ingenieros, jefes de producto, MVP y profesionales de TI.
 
 Estas preguntas más frecuentes se dividen en las siguientes secciones:
 

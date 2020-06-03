@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c03df8fb0cd8f5f092450ebe4c66266d2ff4293
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237148"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816359"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -51,7 +51,6 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 |Intel MPI Library||
 |Azure CLI ||
 |Ejemplos de Azure Machine Learning ||
-|Motor EDAT de Azure Machine Learning ||
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
@@ -68,9 +67,8 @@ Las siguientes herramientas y entornos están instalados en la instancia de proc
 |Anaconda Python||
 |Jupyter y extensiones||
 |Jupyterlab y extensiones||
-|Visual Studio Code ||
-[SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>desde PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
-|Otros paquetes de PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
+[SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>desde PyPI|Incluye la mayoría de los paquetes adicionales de azureml.  Para ver la lista completa, [abra una ventana de terminal en la instancia de proceso](how-to-run-jupyter-notebooks.md#terminal) y ejecute <br/> `conda list -n azureml_py36 azureml*` |
+|Otros paquetes de PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Paquetes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Paquetes de aprendizaje profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |Paquetes de ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
@@ -116,7 +114,7 @@ Puede realizar las siguientes acciones:
 
 * Crear de una instancia de proceso. Especifique el nombre, el tipo de VM de Azure, incluidas las GPU (tenga en cuenta que el tipo de VM no puede cambiarse después de la creación), habilite o deshabilite el acceso SSH y, si lo desea, configure las opciones de red virtual. También puede crear una instancia directamente desde cuadernos integrados, Azure Portal, plantilla de Resource Manager o SDK de Azure Machine Learning. La cuota de núcleos dedicados por región que se aplica a la creación de instancias de proceso se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning.
 * Actualice la pestaña instancias de proceso
-* Iniciar, detener y reiniciar una instancia de proceso.
+* Iniciar, detener y reiniciar una instancia de proceso. Detenga la máquina virtual cuando no esté utilizándola para reducir los costos. A continuación, inícielo de nuevo cuando lo necesite.
 * Eliminar una instancia de proceso.
 
 Para cada instancia de proceso del área de trabajo, puede:

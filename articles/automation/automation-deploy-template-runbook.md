@@ -1,29 +1,25 @@
 ---
-title: Implementación de una plantilla de Azure Resource Manager en un runbook de Azure Automation
-description: Procedimiento para implementar una plantilla de Azure Resource Manager almacenada en Azure Storage desde un runbook
+title: Implementación de una plantilla de Azure Resource Manager en un runbook de Azure Automation PowerShell
+description: En este artículo se indica cómo implementar una plantilla de Azure Resource Manager almacenada en Azure Storage desde un runbook de PowerShell.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, azure automation
-ms.openlocfilehash: 1bf381499ac31fafc8aaeef2b4ee488cfa1aa5c1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994698"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837083"
 ---
-# <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementación de una plantilla de Azure Resource Manager en un runbook de Azure Automation PowerShell
+# <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implementación de una plantilla de Azure Resource Manager en un runbook de PowerShell
 
-Puede escribir un [runbook de Azure Automation PowerShell](automation-first-runbook-textual-powershell.md) que implemente un recurso de Azure mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-create-first-template.md).
-
-Al hacerlo, puede automatizar la implementación de los recursos de Azure. Puede mantener las plantillas de Resource Manager en una ubicación central segura como Azure Storage.
+Puede escribir un [runbook de Azure Automation PowerShell](automation-first-runbook-textual-powershell.md) que implemente un recurso de Azure mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-create-first-template.md). El uso de la plantilla le permite utilizar Azure Automation y Azure Storage para automatizar la implementación de los recursos de Azure. Puede mantener las plantillas de Resource Manager en una ubicación central segura como Azure Storage.
 
 En este artículo, crearemos un runbook de PowerShell que use una plantilla de Resource Manager almacenada en [Azure Storage](../storage/common/storage-introduction.md) para implementar una nueva cuenta de Azure Storage.
 
 ## <a name="prerequisites"></a>Prerrequisitos
-
-Para completar este tutorial, necesitará los siguientes elementos:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o [suscribirse para obtener una cuenta gratuita](https://azure.microsoft.com/free/).
 * [Cuenta de Automation](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
@@ -231,15 +227,10 @@ Puede ver que se ha creado la nueva cuenta de almacenamiento ejecutando el sigui
 Get-AzStorageAccount
 ```
 
-## <a name="summary"></a>Resumen
-
-Eso es todo. Ahora puede usar Azure Automation y Azure Storage con las plantillas de Resource Manager para implementar todos los recursos de Azure.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre las plantillas de Resource Manager, consulte [Información general de Azure Resource Manager](../azure-resource-manager/management/overview.md).
 * Para empezar a trabajar con Azure Storage, consulte [Introducción a Azure Storage](../storage/common/storage-introduction.md).
-* Para encontrar otros runbooks útiles de Azure Automation, consulte [Galerías de módulos y runbooks de Azure Automation](automation-runbook-gallery.md).
+* Para encontrar otros runbooks útiles de Azure Automation, vea [Utilizar runbooks y módulos en Azure Automation](automation-runbook-gallery.md).
 * Para encontrar otras plantillas útiles de Resource Manager, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
-* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

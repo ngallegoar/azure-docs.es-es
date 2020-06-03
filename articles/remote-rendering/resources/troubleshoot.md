@@ -5,16 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792622"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844578"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
 En esta página se enumeran los problemas comunes que interfieren con Azure Remote Rendering y las maneras de resolverlos.
+
+## <a name="cant-link-storage-account-to-arr-account"></a>No se puede vincular la cuenta de almacenamiento a la cuenta de ARR
+
+A veces, durante la [vinculación de una cuenta de almacenamiento](../how-tos/create-an-account.md#link-storage-accounts) la cuenta de Remote Rendering no aparece en la lista. Para corregir este problema, vaya a la cuenta de ARR en el Azure Portal y seleccione **Identidad** en el grupo de **Configuración** de la izquierda. Asegúrese de que **estado** se estableció **Encendido**.
+![Depurador de fotograma de Unity](./media/troubleshoot-portal-identity.png)
 
 ## <a name="client-cant-connect-to-server"></a>El cliente no se puede conectar al servidor
 
@@ -150,7 +155,7 @@ Cambie el *tipo de compilación* de la solución Unity a **Depuración**. Al pro
 ### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Errores de compilación al compilar ejemplos de Unity para HoloLens 2
 
 Detectamos errores falsos al intentar compilar los ejemplos de Unity (quickstart, ShowCaseApp, …) para HoloLens 2. Visual Studio notifica que no puede copiar algunos archivos, aunque están ahí. Si ve este problema:
-* Quite todos los archivos temporales de Unity del proyecto y vuelva a intentarlo.
+* Quite todos los archivos temporales de Unity del proyecto y vuelva a intentarlo. Es decir, cierre Unity, elimine la *biblioteca* y carpetas *obj* temporales del directorio del proyecto, y cargue o cree el proyecto de nuevo.
 * Asegúrese de que los proyectos se encuentran en un directorio en el disco con una ruta de acceso razonablemente corta, ya que el paso de copia a veces parece tener problemas con nombres de archivo largos.
 * Si eso no ayuda, podría deberse a que MS Sense interfiere con el paso de copia. Para configurar una excepción, ejecute este comando del Registro desde la línea de comandos (requiere derechos de administrador):
     ```cmd

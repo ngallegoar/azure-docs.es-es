@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1224aef044c558147f4c7234f6514d0de2f09e0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ca3f4b1e1061b0ca86cc836849499b83ee055fe
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143994"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826526"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -256,7 +256,7 @@ Azure AD Connect requiere el permiso de Active Directory **Restablecer contrase�
 
 ## <a name="azure-ad-forums"></a>Foros de Azure AD
 
-Si tiene alguna pregunta general sobre Azure AD y el autoservicio de restablecimiento de contraseña, puede pedir ayuda a la comunidad en los [foros de Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). La comunidad está formada por ingenieros, jefes de producto, MVP y profesionales de TI.
+Si tiene alguna pregunta general sobre Azure AD y el autoservicio de restablecimiento de contraseña puede pedir ayuda a la comunidad en la [Página de preguntas y respuesta de Microsoft para Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). La comunidad está formada por ingenieros, jefes de producto, MVP y profesionales de TI.
 
 ## <a name="contact-microsoft-support"></a>Consultar al soporte técnico de Microsoft
 

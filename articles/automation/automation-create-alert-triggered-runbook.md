@@ -1,16 +1,16 @@
 ---
 title: Uso de una alerta para desencadenar un runbook de Azure Automation
-description: Aprenda a desencadenar un runbook para que se ejecute cuando se genere una alerta de Azure.
+description: En este artículo se indica cómo desencadenar un runbook para que se ejecute cuando se genere una alerta de Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: eb7a1cc0cb589fa3d2fe605913d47be4444516e8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996864"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837117"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
@@ -191,9 +191,8 @@ Las alertas usan grupos de acciones, que son colecciones de acciones que la aler
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre cómo iniciar un runbook de Automation mediante webhooks, consulte [Inicio de un runbook de Azure Automation con un webhook](automation-webhooks.md).
-* Para más información acerca de diferentes maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).
-* Para aprender a crear una alerta de registro de actividad, consulte [Creación de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* Para iniciar un runbook con un webhook, vea [Iniciar un runbook desde un webhook](automation-webhooks.md).
+* Para descubrir diferentes maneras de iniciar un runbook, vea [Iniciar un runbook](automation-starting-a-runbook.md).
+* Para crear una alerta de registro de actividad, vea [Creación de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Para aprender a crear una alerta casi en tiempo real, consulte [Creación de una regla de alertas en Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

@@ -1,22 +1,22 @@
 ---
-title: 'Soluciones integradas: Azure Marketplace'
-description: Soluciones integradas en Azure Marketplace y Microsoft AppSource
+title: Publicación de una solución integrada - Marketplace comercial de Microsoft
+description: Conozca los requisitos y los pasos para publicar soluciones integradas en Microsoft AppSource y Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 835aa0192dc37032a76bf3863dc1a4ac0109bb22
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: a2bce05288d0085306a59f3ff5ee62939941bbaf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160569"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800616"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicación de una solución integrada
 
-En una única oferta de conjunto de productos, una solución integrada combina tecnologías de soluciones puntuales de proveedores de software con la implementación y el soporte técnico de un partner de servicios. El partner de servicios anuncia la oferta en Microsoft AppSource o Azure Marketplace como un [servicio de consultoría](./consulting-services.md).
+Este artículo se explica el proceso y los requisitos generales para la publicación de una solución integrada para el marketplace comercial. En una única oferta de conjunto de productos, una solución integrada combina tecnologías de soluciones puntuales de proveedores de software con la implementación y el soporte técnico de un partner de servicios. El partner de servicios anuncia la oferta en Microsoft AppSource o Azure Marketplace como un [servicio de consultoría](./consulting-services.md).
 
 Las soluciones integradas tienen por objeto abordar una necesidad o un escenario específico del cliente. Los proveedores comienzan por comprender los desafíos del sector o los puntos débiles. Después, integran dos o más de las mejores tecnologías para crear una experiencia de implementación repetible y homogénea para los clientes. Los proveedores ponen rápidamente a los clientes en marcha. Ofrecen un único punto de contacto al cliente, que aporta la personalización, la consultoría y el soporte técnico relevantes para la solución. El resultado es una solución integrada, que incluye tecnología y servicios.
 
@@ -52,7 +52,7 @@ Para obtener información general sobre el programa de soluciones integradas, ve
 
 ## <a name="submit-a-nomination"></a>Enviar una nominación
 
-Los partners que quieran participar en el programa deben identificar a otros partners con los que quieran trabajar. Deben completar el [formulario de nominación de soluciones integradas](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx). El equipo del programa de soluciones integradas revisa la nominación y realiza un seguimiento durante los 10 días laborables siguientes. También facilita la aprobación e indica los pasos siguientes.
+Los partners que quieran participar en el programa deben identificar a otros partners con los que quieran trabajar. Deben completar el [Formulario de nominación de soluciones integradas](https://aka.ms/AA5qicu). El equipo del programa de soluciones integradas revisa la nominación y realiza un seguimiento durante los 10 días laborables siguientes. También facilita la aprobación e indica los pasos siguientes.
 
 ## <a name="develop-an-integrated-solution"></a>Desarrollo de una solución integrada
 
@@ -84,8 +84,8 @@ Una vez aprobada la nominación, utilice los recursos del programa vinculados pa
 
     Use estos recursos en el proceso de desarrollo:
 
-    * [Guía de discusión para el taller de decisiones empresariales](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-business-workshop.pptx)
-    * [Guía de discusión para el taller de decisiones técnicas](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-technical-workshop.pptx)
+    * [Guía de discusión para el taller de decisiones empresariales](https://aka.ms/AA5qicx)
+    * [Guía de discusión para el taller de decisiones técnicas](https://aka.ms/AA5qid1)
     * [Vídeo de Inicio rápido: Talleres de soluciones integradas](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Identifique un jefe de proyectos multipartner para dirigir el plan de proyecto y la escala de tiempo resultantes de los talleres técnicos y empresariales.
@@ -98,8 +98,8 @@ Una vez aprobada la nominación, utilice los recursos del programa vinculados pa
 
     * Nombre de la solución combinada.
     * Descripción de la solución integrada. Siga los [procedimientos recomendados para su inclusión en las listas de ofertas](./gtm-offer-listing-best-practices.md).
-    * Lanzamiento de una página a los clientes. Utilice la [plantilla de buscapersonas](https://assetsprod.microsoft.com/mpn/integrated-solutions-customer-one-pager-template.pptx).
-    * Presentación del cliente. Utilice la [plantilla de presentación](https://assetsprod.microsoft.com/mpn/customer-presentation-template.pptx).
+    * Lanzamiento de una página a los clientes. Utilice la [plantilla de buscapersonas](https://aka.ms/AA5s08a).
+    * Presentación del cliente. Utilice la [plantilla de presentación](https://aka.ms/AA5s7ql).
     * Logotipo de la solución combinada.
 
 ## <a name="publish-your-integrated-solution"></a>Publicación de la solución integrada

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: f91ee5654b4add37d3cce4f875be1f9c2b398ab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259500"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836420"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
@@ -193,4 +193,4 @@ Compruebe que el tipo de inicio del servicio de proveedor de VSS está estableci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita más ayuda, puede publicar su pregunta en el [foro de Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Contamos con una comunidad activa y uno de nuestros ingenieros puede ayudarle.
+Si necesita más ayuda, puede publicar su pregunta en la [Página de preguntas y respuestas de Microsoft sobre Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). Contamos con una comunidad activa y uno de nuestros ingenieros puede ayudarle.

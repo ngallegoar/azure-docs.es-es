@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792724"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845803"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Blob Storage para administrar clientes potenciales de Marketplace comercial
 
@@ -74,9 +74,9 @@ ms.locfileid: "82792724"
 Cuando esté listo para configurar la información de administración de clientes potenciales de la oferta en el portal de publicación, siga estos pasos:
 
 1. Vaya a la página **Configuración de la oferta** de su oferta.
-2. Seleccione **Conectar** en la sección Administración de clientes potenciales.
+2. En la sección **Clientes potenciales**, seleccione **Conectar**.
 
-    ![Conectar oferta](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Clientes potenciales":::
 
 3. En la ventana emergente Detalles de conexión, seleccione **Blob de Azure** como destino de clientes potenciales.
 

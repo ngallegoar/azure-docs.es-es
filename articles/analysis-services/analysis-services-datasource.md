@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71df537535003fe23902949c70b086a30a6b5049
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77461664"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698142"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -87,7 +87,7 @@ Para conectarse a los orígenes de datos locales desde un servidor de Azure Anal
 
 ## <a name="understanding-providers"></a>Descripción de los proveedores
 
-Cuando crea proyectos de modelos tabulares 1400 y superiores en Visual Studio, no se especifica un proveedor de datos de forma predeterminada al conectarse a un origen de datos mediante **Get Data**. Los modelos tabulares 1400 y posteriores usan conectores de [Power Query](/power-query/power-query-what-is-power-query) para administrar conexiones, consultas de datos y mashups entre el origen de datos y Analysis Services. A veces se hace referencia a ellos como conexiones de origen de datos *estructuradas* en los que la configuración de las propiedades de conexión se establece automáticamente. Sin embargo, puede habilitar orígenes de datos heredados. Cuando está habilitado, puede usar el **Asistente para la importación de tablas** para conectarse a ciertos orígenes de datos admitidos tradicionalmente en modelos tabulares 1200 y modelos inferiores como orígenes de datos *heredados* o del *proveedor*. Cuando se especifica como un origen de datos del proveedor, puede especificar un proveedor de datos determinado y otras propiedades de conexión avanzadas. Por ejemplo, puede conectarse a un almacenamiento de datos de SQL Server local o incluso a una instancia de Azure SQL Database como un origen de datos heredado. Después, puede seleccionar el proveedor de datos MSOLEDBSQL de OLE DB Driver for SQL Server. En este caso, la selección de un proveedor de datos de OLE DB puede proporcionar un rendimiento mejorado en el conector de Power Query. 
+Cuando crea proyectos de modelos tabulares 1400 y superiores en Visual Studio, no se especifica un proveedor de datos de forma predeterminada al conectarse a un origen de datos mediante **Get Data**. Los modelos tabulares 1400 y posteriores usan conectores de [Power Query](/power-query/power-query-what-is-power-query) para administrar conexiones, consultas de datos y mashups entre el origen de datos y Analysis Services. A veces se hace referencia a ellos como conexiones de origen de datos *estructuradas* en los que la configuración de las propiedades de conexión se establece automáticamente. Sin embargo, puede habilitar orígenes de datos heredados para un proyecto de modelo en Visual Studio. Cuando está habilitado, puede usar el **Asistente para la importación de tablas** para conectarse a ciertos orígenes de datos admitidos tradicionalmente en modelos tabulares 1200 y modelos inferiores como orígenes de datos *heredados* o del *proveedor*. Cuando se especifica como un origen de datos del proveedor, puede especificar un proveedor de datos determinado y otras propiedades de conexión avanzadas. Por ejemplo, puede conectarse a un almacenamiento de datos de SQL Server local o incluso a una instancia de Azure SQL Database como un origen de datos heredado. Después, puede seleccionar el proveedor de datos MSOLEDBSQL de OLE DB Driver for SQL Server. En este caso, la selección de un proveedor de datos de OLE DB puede proporcionar un rendimiento mejorado en el conector de Power Query. 
 
 Cuando se usa el Asistente para la importación de tablas en Visual Studio, las conexiones a cualquier origen de datos requieren un proveedor de datos. Se selecciona un proveedor de datos predeterminado. Puede cambiarlo si es necesario. El tipo de proveedor que elija puede depender del rendimiento, de si el modelo usa el almacenamiento en memoria o DirectQuery, y de en qué plataforma de Analysis Services implementa el modelo.
 
@@ -107,7 +107,7 @@ Al igual que con los proyectos de modelos tabulares 1200, use el **Asistente par
 
 
 ## <a name="impersonation"></a>Suplantación
-En algunos casos, puede ser necesario especificar otra cuenta de suplantación. La cuenta de suplantación se puede especificar en Visual Studio o SSMS.
+En algunos casos, puede ser necesario especificar otra cuenta de suplantación. La cuenta de suplantación se puede especificar en Visual Studio o SQL Server Management Studio (SSMS).
 
 Para orígenes de datos locales:
 

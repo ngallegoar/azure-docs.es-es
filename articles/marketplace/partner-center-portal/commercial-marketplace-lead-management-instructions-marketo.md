@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789885"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849191"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Uso de Marketo para administrar clientes potenciales de marketplace comercial
 
@@ -71,9 +71,9 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Seleccione la oferta y vaya a la pestaña **Configuración de la oferta**.
 
-1. En la sección **Administración de clientes potenciales**, seleccione **Conectar**. 
+1. En la sección **Clientes potenciales**, seleccione **Conectar**.
 
-    ![Botón Conectar de la sección Administración de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Clientes potenciales":::
 
 1. En la ventana emergente **Detalles de la conexión**, seleccione **Marketo** como **destino de clientes potenciales**.
 

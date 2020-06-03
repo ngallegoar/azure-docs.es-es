@@ -1,17 +1,17 @@
 ---
 title: Indexación en Azure Cosmos DB
 description: Conozca el funcionamiento de la indexación en Azure Cosmos DB, y cómo se admiten los diferentes tipos de índices como los compuestos, espaciales o de intervalo.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: thweiss
-ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.date: 05/21/2020
+ms.author: tisande
+ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273246"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849797"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexación en Azure Cosmos DB: introducción
 
@@ -98,10 +98,14 @@ El **índice de rangos** se basa en una estructura de árbol ordenada. El tipo d
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- Coincidencias de prefijo de cadena (la palabra clave CONTAINS no utilizará el índice de rango):
+- Funciones del sistema de cadena:
 
    ```sql
-   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
+
+   ```sql
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
 - Consultas `ORDER BY`:

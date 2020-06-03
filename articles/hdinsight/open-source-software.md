@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 65f21450f194175af37c6c198468978392cee462
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd32d176b3e8821236f39dd1677d6dbe78b40adb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195169"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836080"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Compatibilidad de software de código abierto en Azure HDInsight
 
@@ -40,7 +40,7 @@ Como usuario del clúster, puede instalar o usar en la carga de trabajo cualquie
 > [!WARNING]  
 > Los componentes proporcionados con el clúster de HDInsight son totalmente compatibles. Soporte técnico de Microsoft ayuda a aislar y a solucionar problemas relacionados con estos componentes.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. El soporte técnico de Microsoft podría solucionar el problema. También podría sugerirle que consulte los canales disponibles para las tecnologías de código abierto donde se concentran los conocimientos más amplios sobre cada tecnología. Hay diversos sitios de la comunidad que se pueden usar, por ejemplo, el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) y [Stack Overflow](https://stackoverflow.com).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. El soporte técnico de Microsoft podría solucionar el problema. También podría sugerirle que consulte los canales disponibles para las tecnologías de código abierto donde se concentran los conocimientos más amplios sobre cada tecnología. Hay diversos sitios de la comunidad que se pueden usar, Algunos ejemplos son [Página de preguntas y respuestas de Microsoft sobre HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) y [Stack Overflow](https://stackoverflow.com).
 >
 > Los proyectos de Apache también tienen sitios de proyecto en el [sitio web de Apache](https://apache.org). Un ejemplo es [Hadoop](https://hadoop.apache.org/).
 

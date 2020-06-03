@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726403"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831881"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Uso del almacenamiento de blobs desde iOS
 
@@ -133,8 +133,8 @@ Para confirmar que esto funciona, examine el [Explorador de Microsoft Azure Stor
 
 De manera predeterminada, los permisos de un contenedor se configuran para el acceso **Privado** . Sin embargo, los contenedores proporcionan varias opciones diferentes para acceder a ellos:
 
-- **Privado**: el propietario de la cuenta es el único que puede leer los datos del contenedor y de los blobs.
-- **Blob**: los datos de los blobs de este contenedor se pueden leer a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
+- **Privada**: el propietario de la cuenta es el único que puede leer los datos del contenedor y de los blobs.
+- **Blob**: Los datos de blob dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
 - **Contenedor**: los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 
 En el ejemplo siguiente se muestra cómo crear un contenedor con permiso de acceso de **Contenedor** que permita el acceso público, de solo lectura, a todos los usuarios de Internet:
@@ -224,12 +224,12 @@ En el ejemplo siguiente se muestra cómo enumerar todos los blobs en un contened
 - **prefix** : puede especificar el prefijo que se va a usar para la lista de blobs. Solo se enumerarán los blobs que comiencen por dicho prefijo.
 - **useFlatBlobListing**: como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata), aunque Blob service es un esquema plano de almacenamiento, puede crear una jerarquía virtual asignando a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas. Esta característica estará disponible próximamente. Por el momento, este valor debe ser **SÍ**.
 - **blobListingDetails** : puede especificar qué elementos desea incluir al enumerar los blobs
-  - _AZSBlobListingDetailsNone_: solo muestra los blobs confirmados y no devuelve los metadatos de blob.
-  - _AZSBlobListingDetailsSnapshots_: muestra los blobs confirmados y las instantáneas de blob.
-  - _AZSBlobListingDetailsMetadata_: recupera los metadatos de cada blob que se devuelve.
-  - _AZSBlobListingDetailsUncommittedBlobs_: muestra los blobs confirmados y sin confirmar.
-  - _AZSBlobListingDetailsCopy_: incluye las propiedades de copia en la lista.
-  - _AZSBlobListingDetailsAll_: muestra todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles. Además, se devuelven todos los metadatos y estados de copia de dichos blobs.
+  - _AZSBlobListingDetailsNone_: se enumeran solo los blobs confirmados y no se devuelven los metadatos de los blobs.
+  - _AZSBlobListingDetailsSnapshots_: se enumeran los blobs confirmados y las instantáneas de los blobs.
+  - _AZSBlobListingDetailsMetadata_: se recuperan los metadatos de los blobs que se devuelven en la lista.
+  - _AZSBlobListingDetailsUncommittedBlobs_: se enumeran los blobs confirmados y sin confirmar.
+  - _AZSBlobListingDetailsCopy_: se incluyen propiedades de copia en la lista.
+  - _AZSBlobListingDetailsAll_: se enumeran todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles y se devuelven todos los metadatos y estados de copia de dichos blobs.
 - **maxResults** : el número máximo de resultados que se devuelven para esta operación. Utilice -1 para no establecer un límite.
 - **completionHandler** : el bloque de código que se ejecutará con los resultados de la operación de lista.
 
@@ -392,7 +392,7 @@ Ahora que ha aprendido cómo utilizar Blob Storage de iOS, siga estos vínculos 
 - [Biblioteca de cliente de Azure Storage para iOS](https://github.com/azure/azure-storage-ios)
 - [Documentación de referencia de iOS de Azure Storage](https://azure.github.io/azure-storage-ios/)
 - [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog del equipo de Azure Storage](https://blogs.msdn.com/b/windowsazurestorage)
+- [Blog del equipo de Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 
-Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o en [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en la [Página de preguntas y respuestas](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) o en [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Si quiere sugerir características nuevas para Azure Storage, publíquelas en la página de [comentarios sobre Azure Storage](https://feedback.azure.com/forums/217298-storage/).

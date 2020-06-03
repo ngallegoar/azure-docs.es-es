@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2619af2959aa7d475c3e6bab9c8db55212ed0af4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582970"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845957"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 
@@ -48,6 +48,10 @@ Puede agregar un máximo de 900 nombres de dominio administrados. Si quiere conf
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adición de subdominios de un dominio personalizado
 
 Si desea agregar un nombre de dominio de tercer nivel, como "europe.contoso.com", a su directorio, primero debe agregar y comprobar el dominio de segundo nivel, como contoso.com. Azure AD verificará automáticamente el subdominio. Para ver que el subdominio que ha agregado se ha verificado, actualice la lista de dominios en el explorador.
+
+Nota:
+
+Si ya ha agregado un dominio de contoso.com a un inquilino de Azure AD, también puede Agregar el subdominio europe.contoso.com a un segundo inquilino de Azure AD. Al agregar el subdominio, se le pedirá que agregue un registro TXT en el proveedor de hospedaje DNS.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Qué hacer si se cambia el registrador DNS del nombre de dominio personalizado
 

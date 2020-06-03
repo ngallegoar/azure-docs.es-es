@@ -1,6 +1,6 @@
 ---
-title: 'Conversión de configuraciones en recursos compuestos para la configuración del estado: Azure Automation'
-description: Aprenda a convertir configuraciones en recursos compuestos para la configuración del estado en Azure Automation.
+title: Conversión configuraciones en recursos compuestos para Azure Automation State Configuration
+description: En este artículo se explica cómo convertir configuraciones en recursos compuestos para Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a39b038d31d1b4a614ff0acf7df2586706bb0404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3a49fac5600e6338d5fb56281a3360f0abaa39a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585523"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836981"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Conversión de configuraciones en recursos compuestos
 
@@ -57,6 +57,6 @@ Para probar la automatización de la creación de recursos compuestos para DSC, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general sobre la configuración de estado deseado de Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Recursos de DSC](/powershell/scripting/dsc/resources/resources)
-- [Configuración del administrador de configuración local](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Para comprender DSC de PowerShell, vea [Información general sobre Desired State Configuration de PowerShell](/powershell/scripting/dsc/overview/overview).
+- Obtenga información sobre los recursos de DSC de PowerShell en [Recursos de DSC](/powershell/scripting/dsc/resources/resources).
+- Para obtener información detallada sobre la configuración de Configuration Manager, vea [Configuración de Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).
