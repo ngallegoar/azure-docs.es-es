@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7bdcccee3270f9d2b611682a9a59505158a494d2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204865"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774385"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Directiva de soporte técnico de Red Hat OpenShift en Azure
 
@@ -28,7 +28,9 @@ Ciertas configuraciones de los clústeres de la versión 4 de Red Hat OpenShift
 * No modifique la versión del clúster de OpenShift.
 * No quite ni modifique el registro de servicios de Red Hat OpenShift en Azure (pods mdsd).
 * No quite ni modifique el secreto de extracción del clúster "arosvc.azurecr.io".
-* Todas las máquinas virtuales del clúster deben tener acceso de salida a Internet, al menos a los puntos de conexión de Azure Resource Manager (ARM) y del registro de servicios (Geneva).
+* Todas las máquinas virtuales del clúster deben tener acceso directo de salida a Internet, al menos a los puntos de conexión de Azure Resource Manager (ARM) y del registro de servicios (Geneva).  No se admite ningún tipo de proxy HTTPS.
+* No modifique la configuración de DNS de la red virtual del clúster. Se debe usar la resolución de Azure DNS predeterminada.
+* No invalide ninguno de los objetos MachineConfig del clúster (por ejemplo, la configuración de kubelet) de ningún modo.
 * El servicio Red Hat OpenShift en Azure accede al clúster a través del servicio Private Link.  No quite ni modifique el acceso al servicio.
 * No se admiten nodos de ejecución que no sean de Red Hat Enterprise Linux CoreOS. Por ejemplo, no puede usar un nodo de proceso de Red Hat Enterprise Linux.
 
@@ -66,3 +68,11 @@ La versión 4 de Red Hat OpenShift en Azure admite instancias de nodo de trabaj
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+
+### <a name="master-nodes"></a>Nodos maestros
+
+|Serie|Size|vCPU|Memoria: GiB|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|

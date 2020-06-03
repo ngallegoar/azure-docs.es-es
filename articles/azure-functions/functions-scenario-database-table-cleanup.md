@@ -4,12 +4,12 @@ description: Use Azure Functions para programar una tarea que se conecte a Azure
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18e310559cb0b88aac53b1020172847968616f97
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366823"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020343"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
@@ -21,13 +21,13 @@ Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia p
 
 + Complete los pasos del artículo [Creación de la primera función mediante Visual Studio](functions-create-your-first-function-visual-studio.md) para crear una aplicación de funciones local que tenga como destino la versión 2.x o una posterior del entorno en tiempo de ejecución. También debe haber publicado el proyecto en una aplicación de función en Azure.
 
-+ En este artículo se realiza una demostración de un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla **SalesOrderHeader** de la base de datos AdventureWorksLT de ejemplo. Para crear la base de datos de ejemplo AdventureWorksLT, efectúe los pasos indicados en el artículo [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started-portal.md).
++ En este artículo se realiza una demostración de un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla **SalesOrderHeader** de la base de datos AdventureWorksLT de ejemplo. Para crear la base de datos de ejemplo AdventureWorksLT, efectúe los pasos indicados en el artículo [Creación de una base de datos de Azure SQL en Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
 + Debe agregar una [regla de firewall de nivel de servidor](../sql-database/sql-database-get-started-portal-firewall.md) para la dirección IP pública del equipo que usa para seguir este inicio rápido. Esta regla debe ser capaz de acceder a la instancia de la base de datos SQL desde el equipo local.  
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Deberá obtener la cadena de conexión de la base de datos que creó una vez concluidos los pasos de [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started-portal.md).
+Deberá obtener la cadena de conexión de la base de datos que creó una vez concluidos los pasos de [Creación de una base de datos de Azure SQL en Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 

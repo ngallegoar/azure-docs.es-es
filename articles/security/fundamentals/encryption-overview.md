@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454652"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012983"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -28,7 +28,7 @@ Este artículo proporciona información general sobre cómo se usa el cifrado en
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 
-Los datos en reposo incluyen información que se encuentra en el almacenamiento persistente en un medio físico, en cualquier formato digital. El medio puede incluir archivos de medios ópticos o magnéticos, datos archivados y copias de seguridad de datos. Microsoft Azure ofrece una variedad de soluciones de almacenamiento de datos para satisfacer diferentes necesidades, incluidos el almacenamiento de tablas, blobs y archivos, así como el almacenamiento en disco. Microsoft también proporciona cifrado para proteger [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) y Azure Data Lake.
+Los datos en reposo incluyen información que se encuentra en el almacenamiento persistente en un medio físico, en cualquier formato digital. El medio puede incluir archivos de medios ópticos o magnéticos, datos archivados y copias de seguridad de datos. Microsoft Azure ofrece una variedad de soluciones de almacenamiento de datos para satisfacer diferentes necesidades, incluidos el almacenamiento de tablas, blobs y archivos, así como el almacenamiento en disco. Microsoft también proporciona cifrado para proteger [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) y Azure Data Lake.
 
 El cifrado de datos en reposo está disponible para los servicios a través de los modelos en la nube de software como servicio (SaaS), plataforma como servicio (PaaS) e infraestructura como servicio (IaaS). En este artículo se resumen las opciones de cifrado de Azure y se proporcionan recursos para ayudarle a usarlas.
 
@@ -85,11 +85,11 @@ Por último, también puede usar la biblioteca cliente de Azure Storage para Jav
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Cifrado de datos en reposo con Azure SQL Database
 
-[Azure SQL Database](../../sql-database/sql-database-technical-overview.md) es un servicio de base de datos relacional de uso general de Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database admite el cifrado de servidor a través de la característica Cifrado de datos transparente (TDE) y el cifrado de cliente a través de la característica Always Encrypted.
+[Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) es un servicio de base de datos relacional de uso general de Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database admite el cifrado de servidor a través de la característica Cifrado de datos transparente (TDE) y el cifrado de cliente a través de la característica Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>Cifrado de datos transparente
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) y [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) y [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
 
 TDE protege los archivos de registro y los datos con los algoritmos de cifrado de AES y el estándar de cifrado de datos triple (3DES). El cifrado del archivo de base de datos se realiza en el nivel de página. Las páginas en una base de datos cifrada se cifran antes de que se escriban en disco y se descifran cuando se leen en la memoria. TDE ahora está habilitado de forma predeterminada en las bases de datos de Azure SQL recién creadas.
 

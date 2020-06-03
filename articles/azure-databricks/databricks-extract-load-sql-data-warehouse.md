@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382736"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018725"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -370,7 +370,7 @@ Como se mencionó anteriormente, el conector de Azure Synapse usa Azure Blob Sto
    > [!NOTE]
    > Este ejemplo utiliza la marca `forward_spark_azure_storage_credentials`, que hace que Azure Synapse acceda a los datos desde Blob Storage mediante una clave de acceso. Este es el único método admitido de autenticación.
    >
-   > Si Azure Blob Storage está restringido para seleccionar redes virtuales, Azure Synapse requiere [Managed Service Identity en lugar de las claves de acceso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Esto provocará el error de solicitud no autorizada para realizar operación.
+   > Si Azure Blob Storage está restringido para seleccionar redes virtuales, Azure Synapse requiere [Managed Service Identity en lugar de las claves de acceso](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Esto provocará el error de solicitud no autorizada para realizar operación.
 
 6. Conéctese a la instancia de SQL Database y compruebe que aparece la base de datos denominada **SampleTable**.
 

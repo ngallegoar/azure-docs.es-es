@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo desarrollar funciones con JavaScri
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51d8c951958dc5fb4b26e92337f96e7a5c758999
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234964"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996608"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -572,9 +572,6 @@ Cuando el destino es la versión 2.x del sistema en tiempo de ejecución de Func
 El archivo `.funcignore` generado se usa para indicar qué archivos se excluyen cuando se publica un proyecto en Azure.  
 
 Los archivos de TypeScript (TS) se transpilan en archivos de JavaScript (.js) en el directorio de salida `dist`. Las plantillas de TypeScript usan el parámetro [`scriptFile`](#using-scriptfile) en `function.json` para indicar la ubicación del archivo .js correspondiente en la carpeta `dist`. La ubicación de salida se establece mediante la plantilla con el parámetro `outDir` en el archivo `tsconfig.json`. Si cambia esta configuración o el nombre de la carpeta, el entorno de ejecución no podrá encontrar el código que se ejecutará.
-
-> [!NOTE]
-> En la versión 1.x de sistema en tiempo de ejecución de Functions existe compatibilidad experimental con TypeScript. La versión experimental transpila los archivos de TypeScript en archivos de JavaScript cuando se invoca la función. En la versión 2.x, esta compatibilidad experimental se ha sustituido por el método controlado mediante herramienta que realiza la transpilación antes de que se inicialice el host y durante el proceso de implementación.
 
 La manera en que desarrolle e implemente de forma local a partir de un proyecto de TypeScript depende de la herramienta de desarrollo.
 

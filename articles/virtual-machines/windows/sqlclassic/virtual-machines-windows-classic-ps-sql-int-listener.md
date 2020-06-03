@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f05e1d46485b337acbd9390441359e086067db74
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75978169"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014829"
 ---
 # <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configuración de un agente de escucha ILB para grupos de disponibilidad en máquinas virtuales con SQL Server de Azure
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "75978169"
 > [!IMPORTANT]
 > Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [Azure Resource Manager y el modelo clásico](../../../azure-resource-manager/management/deployment-models.md). Este artículo trata sobre el uso del modelo de implementación clásico. Se recomienda que las implementaciones más recientes usen el modelo Resource Manager.
 
-Para configurar un agente de escucha para un grupo de disponibilidad AlwaysOn en el modelo de Resource Manager, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Para configurar un agente de escucha para un grupo de disponibilidad AlwaysOn en el modelo de Resource Manager, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones que usen varias redes virtuales. En los procedimientos descritos en este artículo se supone que ya tiene [configurado un grupo de disponibilidad](../classic/portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
 

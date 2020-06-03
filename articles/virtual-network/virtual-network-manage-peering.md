@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
-ms.author: anavin
-ms.openlocfilehash: 0f01ea47a01c700580e8c3172d1b445a098c164f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: altambaw
+ms.openlocfilehash: 452cef0a65dd9c994b5d010676e402013b195ed3
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187501"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300654"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -121,7 +121,7 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
 - Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas. Cuando empareja redes virtuales en distintas suscripciones, ambas suscripciones pueden estar asociadas al mismo inquilino de Azure Active Directory o a uno diferente. Si todavía no tiene un inquilino de AD, puede [crear uno](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). El soporte técnico para realizar emparejamientos entre redes virtuales de las suscripciones asociadas a diferentes inquilinos de Azure Active Directory no está disponible en el portal. Puede usar la CLI, PowerShell o plantillas.
 - Las redes virtuales que empareje deben tener espacios de direcciones IP que no se solapen.
 - Una vez que una red virtual se ha emparejado con otra red virtual, no se pueden agregar rangos de direcciones al espacio de direcciones de una red virtual ni pueden eliminarse de este. Para agregar o quitar rangos de direcciones, elimine el emparejamiento, agregue o quite los rangos de direcciones y, a continuación, vuelva a crear el emparejamiento. Para agregar rangos de direcciones a las redes virtuales o quitarlos, consulte [Manage virtual networks](manage-virtual-network.md) (Administrar redes virtuales).
-- Es posible emparejar dos redes virtuales implementadas mediante el Administrador de recursos, o bien una red virtual implementada mediante el Administrador de recursos con una red virtual implementada mediante el modelo de implementación clásica. No se pueden emparejar dos redes virtuales creadas mediante el modelo de implementación clásica. Si no está familiarizado con los modelos de implementación de Azure, vea el artículo de [descripción de los modelos de implementación de Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puede usar [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar dos redes virtuales creadas mediante el modelo de implementación clásica.
+- Es posible emparejar dos redes virtuales implementadas mediante el Administrador de recursos, o bien una red virtual implementada mediante el Administrador de recursos con una red virtual implementada mediante el modelo de implementación clásica. No se pueden emparejar dos redes virtuales creadas mediante el modelo de implementación clásica. Si no está familiarizado con los modelos de implementación de Azure, vea el artículo de [descripción de los modelos de implementación de Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puede usar [VPN Gateway](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar dos redes virtuales creadas mediante el modelo de implementación clásica.
 - Cuando se emparejan dos redes virtuales creadas mediante el Administrador de recursos, debe configurarse un emparejamiento para cada red virtual en el emparejamiento. Vea uno de los tipos siguientes de estado de emparejamiento: 
   - *Iniciado:* Cuando se crea el emparejamiento a la segunda red virtual desde la primera red virtual, el estado de emparejamiento es *Iniciado*. 
   - *Conectado:* Cuando se crea el emparejamiento desde la segunda red virtual a la primera red virtual, el estado de emparejamiento es *Conectado*. Si consulta el estado de emparejamiento de la primera red virtual, verá que ha cambiado de *Iniciado* a *Conectado*. El emparejamiento no se habrá establecido correctamente mientras el estado de ambos emparejamientos de red virtual no sea *Conectado*.

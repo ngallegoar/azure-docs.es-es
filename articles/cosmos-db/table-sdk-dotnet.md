@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984987"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168155"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Table API .NET de Azure Cosmos DB: descarga y notas de la versión
 
@@ -39,40 +39,40 @@ ms.locfileid: "80984987"
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="212"></a><a name="2.1.2"/>2.1.2
+### <a name="212"></a><a name="2.1.2"></a>2.1.2
 
 * Corrección de errores
 
-### <a name="210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
 
 * Corrección de errores
 
-### <a name="200"></a><a name="2.0.0"/>2.0.0
+### <a name="200"></a><a name="2.0.0"></a>2.0.0
 
 * Compatibilidad con escrituras de varias regiones agregada
 * Se corrigieron las dependencias del paquete NuGet en Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
-### <a name="113"></a><a name="1.1.3"/>1.1.3
+### <a name="113"></a><a name="1.1.3"></a>1.1.3
 
 * Se corrigieron las dependencias de Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB del paquete de NuGet.
 * Correcciones de errores en la serialización de tablas cuando se configura JsonConvert.DefaultSettings.
 
-### <a name="111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"></a>1.1.1
 
 * Se agregó validación para ETAG con formato incorrecto en el modo directo.
 * Se corrigió el error de consulta LINQ en modo de puerta de enlace.
 * Las API sincrónicas ahora se ejecutan en el grupo de subprocesos con SynchronizationContext.
 
-### <a name="110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 
 * Incorporación de TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism y TableQueryContinuationTokenLimitInKb a TableRequestOptions
 * Correcciones de errores
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 
 * Versión de disponibilidad general
 
-### <a name="090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
+### <a name="090-preview"></a><a name="0.1.0-preview"></a>0.9.0-preview
 
 * Versión preliminar inicial
 

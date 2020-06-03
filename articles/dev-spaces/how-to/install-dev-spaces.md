@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Obtenga información sobre el proceso de habilitación de Azure Dev Spaces en un clúster de AKS y la instalación de las herramientas de cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: 3666eeb995c73615c522200a3619d785814ea0b5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873517"
+ms.locfileid: "83996268"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Habilitación de Azure Dev Spaces en un clúster de AKS e instalación de las herramientas de cliente
 
@@ -60,24 +60,6 @@ Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup'
 
 El comando anterior quita Azure Dev Spaces del clúster *MyAKS* de *MyResourceGroup*. Los espacios de nombres creados con Azure Dev Spaces se conservan junto con sus cargas de trabajo, pero las nuevas cargas de trabajo de esos espacios de nombres no se instrumentan con Azure Dev Spaces. Además, si reinicia los pods existentes instrumentados con Azure Dev Spaces, pueden aparecer errores. Esos pods deben volver a implementarse sin herramientas de Azure Dev Spaces. Para quitar Azure Dev Spaces por completo del clúster, elimine todos los pods de todos los espacios de nombres en los que se haya habilitado Azure Dev Spaces.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-azure-portal"></a>Habilitación o eliminación de Azure Dev Spaces con Azure Portal
-
-Para poder habilitar Dev Spaces mediante Azure Portal, necesitará lo siguiente:
-* Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][az-portal-create-account].
-* [Un clúster de AKS][create-aks-portal] en una [región admitida][supported-regions].
-
-Para habilitar Azure Dev Spaces mediante Azure Portal:
-1. Inicie sesión en [Azure Portal][az-portal].
-1. Vaya al clúster de AKS.
-1. Seleccione el elemento de menú *Dev Spaces*.
-1. Cambie *Enable Dev Spaces* (Habilitar Dev Spaces) a *Sí* y haga clic en *Guardar*.
-
-![Habilitar Dev Spaces en Azure Portal](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
-
-Al habilitar Azure Dev Spaces mediante Azure Portal **no** se instalan herramientas de cliente para Azure Dev Spaces.
-
-Para quitar Azure Dev Spaces del clúster de AKS, cambie *Habilitar Dev Spaces* a *No* y haga clic en *Guardar*. Los espacios de nombres creados con Azure Dev Spaces se conservan junto con sus cargas de trabajo, pero las nuevas cargas de trabajo de esos espacios de nombres no se instrumentan con Azure Dev Spaces. Además, si reinicia los pods existentes instrumentados con Azure Dev Spaces, pueden aparecer errores. Esos pods deben volver a implementarse sin herramientas de Azure Dev Spaces. Para quitar Azure Dev Spaces por completo del clúster, elimine todos los pods de todos los espacios de nombres en los que se haya habilitado Azure Dev Spaces.
-
 ## <a name="install-the-client-side-tools"></a>Instalación de las herramientas de cliente
 
 Puede usar las herramientas de cliente de Azure Dev Spaces para interactuar con Dev Spaces en un clúster de AKS desde la máquina local. Hay varias maneras de instalar las herramientas de cliente:
@@ -94,7 +76,6 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 > [Desarrollo en equipo en Azure Dev Spaces][team-development-qs]
 
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
-[create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-qs]: ../quickstart-team-development.md

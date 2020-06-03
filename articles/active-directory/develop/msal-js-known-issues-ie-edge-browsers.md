@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 05/18/2020
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5ae2dee68ec0da8e8a00d4f01583461462bc196c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696102"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772087"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer y Microsoft Edge (MSAL.js)
 
@@ -50,7 +50,7 @@ Use las soluciones que tiene a continuación.
 
 #### <a name="other-workarounds"></a>Otras soluciones
 Asegúrese de que su problema solo se produce en la versión específica del explorador Microsoft Edge y de que funciona en los otros exploradores antes de adoptar estas soluciones alternativas.  
-1. Como primer paso para solucionar estos problemas, asegúrese de que el dominio de la aplicación y cualquier otro sitio involucrado en las redirecciones del flujo de autenticación, se agreguen como sitios de confianza en la configuración de seguridad del explorador, para que pertenezcan a la misma zona de seguridad.
+1. Como primer paso para solucionar estos problemas, asegúrese de que el dominio de la aplicación y cualquier otro sitio involucrado en las redirecciones del flujo de autenticación se agreguen como sitios de confianza en la configuración de seguridad del explorador, para que pertenezcan a la misma zona de seguridad.
 Para hacerlo, siga estos pasos:
     - Abra **Internet Explorer** y haga clic en la **configuración** (icono con forma de engranaje) en la esquina superior derecha.
     - A continuación, seleccione **Opciones de Internet**.
@@ -63,7 +63,7 @@ Tenga en cuenta que esto no solucionará el problema de exploración de InPrivat
 
 ## <a name="issues-due-to-popup-blockers"></a>Problemas debidos a los bloqueadores de ventanas emergentes
 
-Hay casos en que las ventanas emergentes se bloquean en IE o Microsoft Edge; por ejemplo, cuando aparece una segunda ventana emergente durante la autenticación multifactor. Recibirá una alerta en el explorador para permitir la ventana emergente una vez o siempre. Si elige permitir, el explorador abre automáticamente la ventana emergente y se devuelve un identificador `null`. Como resultado, la biblioteca no tiene un controlador para la ventana y no hay forma de cerrar la ventana emergente. Este problema no ocurre en Chrome cuando le solicita que permita las ventanas emergentes, porque no abre automáticamente las ventanas emergentes.
+Hay casos en que las ventanas emergentes se bloquean en IE o Microsoft Edge; por ejemplo, cuando aparece una segunda ventana emergente durante la [autenticación multifactor](../authentication/concept-mfa-howitworks.md). Recibirá una alerta en el explorador para permitir la ventana emergente una vez o siempre. Si elige permitir, el explorador abre automáticamente la ventana emergente y se devuelve un identificador `null`. Como resultado, la biblioteca no tiene un controlador para la ventana y no hay forma de cerrar la ventana emergente. Este problema no ocurre en Chrome cuando le solicita que permita las ventanas emergentes, porque no abre automáticamente las ventanas emergentes.
 
 Como **solución**, los desarrolladores deberán permitir ventanas emergentes en IE y Microsoft Edge antes de comenzar a usar la aplicación para evitar este problema.
 

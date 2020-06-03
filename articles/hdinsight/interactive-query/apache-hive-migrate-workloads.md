@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 14849dd1f68f281009808d1bd1dc1cae62927ab4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 003ee13220e9e8aae252e1a976d579beac870052
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594243"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015019"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0
 
@@ -34,7 +34,7 @@ Una de las ventajas de Hive es la capacidad de exportar los metadatos a una base
 Las tablas ACID de HDInsight 3.6 y HDInsight 4.0 reconocen los valores delta ACID de forma diferente. La única acción necesaria antes de efectuar una migración es ejecutar una compactación principal en cada tabla ACID en el clúster de HDInsight 3.6. Para más información sobre la compactación, consulte el [manual del lenguaje Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact).
 
 ### <a name="2-copy-sql-database"></a>2. Copiar la base de datos SQL
-Cree una nueva copia de la instancia externa de Hive Metastore. Si se usa un metastore de Hive externo, una de las formas seguras y sencillas de realizar una copia de dicho metastore es [restaurar la base de datos](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) con un nombre distinto mediante la función de restauración de datos de SQL Database.  Consulte [Uso de repositorios de metadatos externos en Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para más información acerca de cómo adjuntar una instancia externa de Metastore a un clúster de HDInsight.
+Cree una nueva copia de la instancia externa de Hive Metastore. Si se usa un metastore de Hive externo, una de las formas seguras y sencillas de realizar una copia de dicho metastore es [restaurar la base de datos](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) con un nombre distinto mediante la función de restauración de datos de SQL Database.  Consulte [Uso de repositorios de metadatos externos en Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para más información acerca de cómo adjuntar una instancia externa de Metastore a un clúster de HDInsight.
 
 ### <a name="3-upgrade-metastore-schema"></a>3. Actualizar el esquema de metastore
 Una vez que la **copia** del metastore de Hive ha finalizado, ejecute un script de actualización de esquema en [Acción de script](../hdinsight-hadoop-customize-cluster-linux.md) en el clúster de HDInsight 3.6 existente para actualizar el metastore de Hive nuevo al esquema de Hive 3. (Para este paso no es necesario que el nuevo metastore esté conectado a un clúster). Esto permite adjuntar la base de datos como metastore de Hive de HDInsight 4.0.

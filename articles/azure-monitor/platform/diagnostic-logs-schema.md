@@ -4,12 +4,12 @@ description: Conozca el esquema de los eventos y servicios admitidos para los re
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7b51417814e74cc7e3559029c9af8c35cbf6f2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128465"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016362"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servicios, esquemas y categorías admitidos en los registros de recursos de Azure
 
@@ -76,7 +76,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Recovery Services | [Modelo de datos para Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../../search/search-traffic-analytics.md) |
 | Azure Service Bus |[Registros de Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Registro de Azure SQL Database](../../sql-database/sql-database-metrics-diag-logging.md) |
+| SQL Database | [Registro de Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registros de trabajo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Esquema de registro de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Esquema no disponible. |
@@ -84,7 +84,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 
-Es posible que algunas categorías solo se admitan para tipos específicos de recursos. Esta es una lista de todos los que están disponibles de algún modo.  Por ejemplo, las categorías Microsoft.Sql/servers/databases no están disponibles para todos los tipos de bases de datos. Para más información, consulte la [información sobre el registro de diagnóstico de SQL Database](../../sql-database/sql-database-metrics-diag-logging.md). 
+Es posible que algunas categorías solo se admitan para tipos específicos de recursos. Esta es una lista de todos los que están disponibles de algún modo.  Por ejemplo, las categorías Microsoft.Sql/servers/databases no están disponibles para todos los tipos de bases de datos. Para más información, consulte la [información sobre el registro de diagnóstico de SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 |Tipo de recurso|Category|Nombre para mostrar de categoría|
 |---|---|---|
