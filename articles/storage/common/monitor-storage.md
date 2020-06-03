@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: c8125001b5960a0bf770e8e015ad757a277629ea
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684892"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267620"
 ---
 # <a name="monitor-azure-storage"></a>Supervisión de Azure Storage
 
@@ -407,4 +407,3 @@ No. Azure Compute admite las métricas en discos. Para obtener más información
 - Para ver una referencia de los registros y las métricas creados por Azure Storage, consulte [Referencia de datos de supervisión de Azure Storage](monitor-storage-reference.md).
 - Para obtener más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Para obtener más información sobre la migración de métricas, consulte [Migración de las métricas de Azure Storage](./storage-metrics-migration.md).
-

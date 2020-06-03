@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 375dac3fffc1a49cc3d10999c4969a7365dfb49c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232383"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193437"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migración de un almacén HDFS local a Azure Storage con Azure Data Box
 
@@ -239,7 +239,7 @@ Ejecute este comando para aplicar permisos a los datos que ha copiado en la cuen
 
 Antes de mover los datos a un dispositivo Data Box, deberá descargar algunos scripts auxiliares, asegurarse de que los datos están organizados de modo que quepan en un dispositivo Data Box y excluir los archivos innecesarios.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Descarga de scripts auxiliares y configuración del nodo perimetral para ejecutarlos
 

@@ -3,12 +3,12 @@ title: Escalado vertical de un tipo de nodo de Azure Service Fabric
 description: Aprenda a escalar un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998938"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674227"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Escalado vertical del tipo de nodo principal de un clúster de Service Fabric
 En este artículo, se explica cómo se escala verticalmente el tipo de nodo principal de un clúster Service Fabric aumentando los recursos de las máquinas virtuales. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -22,7 +22,7 @@ En este artículo, se explica cómo se escala verticalmente el tipo de nodo prin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Actualización del tamaño y el sistema operativo de las máquinas virtuales del tipo de nodo principal
+## <a name="process-to-upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Proceso de actualización del tamaño y el sistema operativo de las VM del tipo de nodo principal
 Este es el proceso para actualizar el tamaño de máquina virtual y el sistema operativo de las máquinas virtuales del tipo de nodo principal.  Después de la actualización, las máquinas virtuales del tipo de nodo principal son de tamaño D4_V2 Estándar y ejecutan Windows Server 2016 Datacenter con contenedores.
 
 > [!WARNING]
@@ -41,43 +41,126 @@ Este es el proceso para actualizar el tamaño de máquina virtual y el sistema o
 10. Elimine el estado de nodo de los nodos del clúster.  Si el nivel de durabilidad del conjunto de escalado anterior era Silver o Gold, el sistema realiza automáticamente este paso.
 11. Si ha implementado la aplicación con estado en un paso anterior, compruebe que la aplicación está operativa.
 
+## <a name="set-up-the-test-cluster"></a>Configuración del clúster de prueba
+
+Para empezar, descargue los dos conjuntos de archivos que se necesitarán para este tutorial, la [plantilla]() y los [parámetros]() de antes y la [plantilla]() y los [parámetros]() de después.
+
+A continuación, inicie sesión en la cuenta de Azure.
+
 ```powershell
-# Variables.
-$groupname = "sfupgradetestgroup"
-$clusterloc="southcentralus"  
-$subscriptionID="<your subscription ID>"
-
 # sign in to your Azure account and select your subscription
-Login-AzAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId "<your subscription ID>"
+```
 
-# Create a new resource group for your deployment and give it a name and a location.
-New-AzResourceGroup -Name $groupname -Location $clusterloc
+Este tutorial le guía por el escenario de creación de un certificado autofirmado. Para usar un certificado existente de Azure Key Vault, omita el paso siguiente y, en su lugar, refleje los pasos descritos en [Uso de un certificado existente para implementar el clúster](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
 
-# Deploy the two node type cluster.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.json" -Verbose
+### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generación de un certificado autofirmado e implementación del clúster
 
-# Connect to the cluster and check the cluster health.
-$ClusterName= "sfupgradetest.southcentralus.cloudapp.azure.com:19000"
-$thumb="F361720F4BD5449F6F083DDE99DC51A86985B25B"
+En primer lugar, asigne las variables que necesitará para la implementación del clúster de Service Fabric. Ajuste los valores de `resourceGroupName`, `certSubjectName`, `parameterFilePath` y `templateFilePath` para su entorno y cuenta específicos:
 
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+```powershell
+# Assign deployment variables
+$resourceGroupName = "sftestupgradegroup"
+$certOutputFolder = "c:\certificates"
+$certPassword = "Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$certSubjectName = "sftestupgrade.southcentralus.cloudapp.azure.com"
+$templateFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.parameters.json"
+```
+
+> [!NOTE]
+> Asegúrese de que la ubicación `certOutputFolder` existe en el equipo local antes de ejecutar el comando para implementar un nuevo clúster de Service Fabric.
+
+A continuación, abra el archivo *Deploy-2NodeTypes-2ScaleSets.parameters.json* y ajuste los valores para `clusterName` y `dnsName` para que se correspondan con los valores dinámicos que establezca en PowerShell, y guarde los cambios.
+
+A continuación, implemente el clúster de prueba de Service Fabric:
+
+```powershell
+# Deploy the initial test cluster
+New-AzServiceFabricCluster `
+    -ResourceGroupName $resourceGroupName `
+    -CertificateOutputFolder $certOutputFolder `
+    -CertificatePassword $certPassword `
+    -CertificateSubjectName $certSubjectName `
+    -TemplateFile $templateFilePath `
+    -ParameterFile $parameterFilePath
+```
+
+Una vez finalizada la implementación, busque el archivo *.pfx* (`$certPfx`) en la máquina local e impórtelo al almacén de certificados:
+
+```powershell
+cd c:\certificates
+$certPfx = ".\sftestupgradegroup20200312121003.pfx"
+
+Import-PfxCertificate `
+     -FilePath $certPfx `
+     -CertStoreLocation Cert:\CurrentUser\My `
+     -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
+```
+
+La operación devolverá la huella digital del certificado, que usará para conectarse al nuevo clúster y comprobar su estado de mantenimiento.
+
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Conexión al nuevo clúster y comprobación del estado de mantenimiento
+
+Conéctese al clúster y asegúrese de que todos los nodos tengan un estado correcto (reemplazando las variables `clusterName` y `thumb` del clúster):
+
+```powershell
+# Connect to the cluster
+$clusterName = "sftestupgrade.southcentralus.cloudapp.azure.com:19000"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+
+Connect-ServiceFabricCluster `
+    -ConnectionEndpoint $clusterName `
+    -KeepAliveIntervalInSec 10 `
     -X509Credential `
     -ServerCertThumbprint $thumb  `
     -FindType FindByThumbprint `
     -FindValue $thumb `
     -StoreLocation CurrentUser `
-    -StoreName My 
+    -StoreName My
 
+# Check cluster health
 Get-ServiceFabricClusterHealth
+```
 
-# Deploy a new scale set into the primary node type.  Create a new load balancer and public IP address for the new scale set.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.json" -Verbose
+Estamos listos para comenzar el procedimiento de actualización.
 
-# Check the cluster health again. All 15 nodes should be healthy.
+## <a name="upgrade-the-primary-node-type-vms"></a>Actualización de las VM del tipo de nodo principal
+
+Después de decidir actualizar las VM del tipo de nodo principal, agregue un nuevo conjunto de escalado al tipo de nodo principal de modo que el tipo de nodo principal tenga ahora dos conjuntos de escalado. Se han proporcionado archivos [plantilla](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) y [parámetros](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) de ejemplo para mostrar los cambios necesarios. Las VM del nuevo conjunto de escalado son de tamaño D4_V2 Estándar y ejecutan Windows Server 2016 Datacenter con contenedores. Se agregan también un nuevo equilibrador de carga y una dirección IP pública con el nuevo conjunto de escalado. 
+
+Para buscar el nuevo conjunto de escalado en la plantilla, busque el recurso "Microsoft.Compute/virtualMachineScaleSets" nombrado por el parámetro vmNodeType2Name. El nuevo conjunto de escalado se agrega al tipo de nodo principal con el valor properties->virtualMachineProfile->extensionProfile->extensions->properties->settings->nodeTypeRef.
+
+### <a name="deploy-the-updated-template"></a>Implementar la plantilla actualizada
+
+Ajuste `parameterFilePath` y `templateFilePath` según sea necesario y, a continuación, ejecute el comando siguiente:
+
+```powershell
+# Deploy the new scale set into the primary node type along with a new load balancer and public IP
+$templateFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
+```
+
+Una vez finalizada la implementación, vuelva a comprobar el estado del clúster y asegúrese de que todos los nodos (del conjunto de escalado original y del nuevo) tengan un estado correcto.
+
+```powershell
 Get-ServiceFabricClusterHealth
+```
 
+## <a name="migrate-nodes-to-the-new-scale-set"></a>Migración de nodos al nuevo conjunto de escalado
+
+Estamos preparados para empezar a deshabilitar los nodos del conjunto de escalado original. A medida que estos nodos se inhabilitan, los servicios del sistema y los nodos de inicialización se migran a las VM del nuevo conjunto de escalado porque también está marcado como tipo de nodo principal.
+
+```powershell
 # Disable the nodes in the original scale set.
 $nodeNames = @("_NTvm1_0","_NTvm1_1","_NTvm1_2","_NTvm1_3","_NTvm1_4")
 
@@ -85,36 +168,36 @@ Write-Host "Disabling nodes..."
 foreach($name in $nodeNames){
     Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
 }
+```
 
-Write-Host "Checking node status..."
-foreach($name in $nodeNames){
- 
-    $state = Get-ServiceFabricNode -NodeName $name 
+Use Service Fabric Explorer para supervisar la migración de los nodos de inicialización al nuevo conjunto de escalado y la progresión de los nodos del conjunto de escalado original del estado *Desactivando* a *Deshabilitado*.
 
-    $loopTimeout = 50
+> [!NOTE]
+> La operación de deshabilitación puede tardar algún tiempo en completarse en todos los nodos del conjunto de escalado original. Para garantizar la coherencia de los datos, solo se puede cambiar un nodo de inicialización a la vez. Cada cambio de nodo de inicialización requiere una actualización de clúster. Por lo tanto, para reemplazar un nodo de inicialización, se requieren dos actualizaciones de clúster (para la adición y eliminación de nodos). La actualización de los cinco nodos de inicialización en este escenario de muestra dará como resultado diez actualizaciones de clúster.
 
-    do{
-        Start-Sleep 5
-        $loopTimeout -= 1
-        $state = Get-ServiceFabricNode -NodeName $name
-        Write-Host "$name state: " $state.NodeDeactivationInfo.Status
-    }
+## <a name="remove-the-original-scale-set"></a>Quitar el conjunto de escalado original
 
-    while (($state.NodeDeactivationInfo.Status -ne "Completed") -and ($loopTimeout -ne 0))
-    
+Una vez completada la operación de deshabilitación, quite el conjunto de escalado.
 
-    if ($state.NodeStatus -ne [System.Fabric.Query.NodeStatus]::Disabled)
-    {
-        Write-Error "$name node deactivation failed with state" $state.NodeStatus
-        exit
-    }
-}
+```powershell
+# Remove the original scale set
+$scaleSetName = "NTvm1"
 
-# Remove the scale set
-$scaleSetName="NTvm1"
-Remove-AzVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+Remove-AzVmss `
+    -ResourceGroupName $resourceGroupName `
+    -VMScaleSetName $scaleSetName `
+    -Force
+
 Write-Host "Removed scale set $scaleSetName"
+```
 
+En Service Fabric Explorer, los nodos quitados (y, por tanto, el *estado de mantenimiento del clúster*) presentarán ahora un estado de *error*.
+
+## <a name="remove-the-old-load-balancer-and-update-dns-settings"></a>Eliminación el equilibrador de carga anterior y actualización de la configuración de DNS
+
+Ahora, podemos quitar los recursos relacionados con el tipo de nodo principal anterior, empezando por el equilibrador de carga y la antigua dirección IP pública. 
+
+```powershell
 $lbname="LB-sfupgradetest-NTvm1"
 $oldPublicIpName="PublicIP-LB-FE-0"
 $newPublicIpName="PublicIP-LB-FE-2"
@@ -131,16 +214,28 @@ Remove-AzLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 
 # Remove the old public IP
 Remove-AzPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+```
 
+A continuación, actualizamos la configuración de DNS de la nueva dirección IP pública para reflejar la configuración de la dirección IP pública del tipo de nodo principal anterior.
+
+```powershell
 # Replace DNS settings of Public IP address related to new Primary Node Type with DNS settings of Public IP address related to old Primary Node Type
 $PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
+```
 
+Una vez más, compruebe el estado del clúster.
+
+```powershell
 # Check the cluster health
 Get-ServiceFabricClusterHealth
+```
 
+Por último, quite el estado de nodo de cada uno de los nodos relacionados. Si el nivel de durabilidad del conjunto de escalado anterior era Silver o Gold, esto ocurrirá automáticamente.
+
+```powershell
 # Remove node state for the deleted nodes.
 foreach($name in $nodeNames){
     # Remove the node from the cluster
@@ -148,6 +243,8 @@ foreach($name in $nodeNames){
     Write-Host "Removed node state for node $name"
 }
 ```
+
+Ahora se ha actualizado el tipo de nodo principal del clúster. Verifique que las aplicaciones implementadas funcionen correctamente y que el estado del clúster sea correcto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre la [incorporación de un tipo de nodo a un clúster](virtual-machine-scale-set-scale-node-type-scale-out.md)
