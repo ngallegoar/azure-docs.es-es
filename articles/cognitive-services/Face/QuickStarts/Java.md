@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 59c121f09858114cecfaeb45e257315d1ab92935
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 241aad3e9bf78d587c7f31d8046de171bd2638b3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403421"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263999"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
@@ -248,7 +248,7 @@ Compile el código y ejecútelo. Una respuesta correcta mostrará datos de las c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado una sencilla aplicación de consola de Java que usa llamadas REST a Azure API Face para detectar caras en una imagen y devolver sus atributos. A continuación, obtenga información sobre cómo hacer más cosas con esta funcionalidad en una aplicación Android.
+En este inicio rápido, ha creado una sencilla aplicación de consola de Java que usa llamadas REST a Azure API Face para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información sobre los escenarios admitidos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación de una aplicación Android para detectar y enmarcar caras](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

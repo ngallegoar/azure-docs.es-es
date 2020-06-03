@@ -4,12 +4,12 @@ description: En este tutorial se detalla la copia de seguridad de servidores Win
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 560a4907fc812aae027ad9e1a1c262fc994c0da9
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222472"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295548"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -23,7 +23,7 @@ Puede utilizar Azure Backup para proteger su servidor Windows Server de daños, 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en https://portal.azure.com.
+Inicie sesión en Azure Portal en <https://portal.azure.com>.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 

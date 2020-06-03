@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: c04280bf1cffea08204e1ea5ab54dbb87c23cf9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0bc1890fd5ca9c045caa6325f474e85f1b85622
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193214"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022255"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Uso del clúster de Spark en HDInsight para leer y escribir datos en Azure SQL Database
 
@@ -23,13 +23,13 @@ Aprenda a conectar un clúster de Apache Spark en Azure HDInsight con una instan
 
 * Clúster de Spark en Azure HDInsight.  Siga las instrucciones de [Creación de un clúster de Apache Spark en HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Azure SQL Database. Siga las instrucciones de [Creación de una base de datos en Azure SQL Database](../../sql-database/sql-database-get-started-portal.md). Asegúrese de crear una base de datos con los datos y el esquema del ejemplo **AdventureWorksLT**. Además, asegúrese de crear una regla de firewall a nivel de servidor para permitir que la dirección IP del cliente acceda a la base de datos SQL en el servidor. Las instrucciones para agregar la regla de firewall están disponibles en el mismo artículo. Una vez que haya creado la base de datos en Azure SQL Database, asegúrese de tener los siguientes valores a mano. Los necesitará para conectarse a la base de datos desde un clúster de Spark.
+* Azure SQL Database. Siga las instrucciones de [Creación de una base de datos en Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Asegúrese de crear una base de datos con los datos y el esquema del ejemplo **AdventureWorksLT**. Además, asegúrese de crear una regla de firewall a nivel de servidor para permitir que la dirección IP del cliente acceda a la base de datos SQL en el servidor. Las instrucciones para agregar la regla de firewall están disponibles en el mismo artículo. Una vez que haya creado la base de datos en Azure SQL Database, asegúrese de tener los siguientes valores a mano. Los necesitará para conectarse a la base de datos desde un clúster de Spark.
 
     * Nombre del servidor que hospeda la instancia de Azure SQL Database.
     * Nombre de la instancia de Azure SQL Database.
     * Nombre de usuario y contraseña del administrador de Azure SQL Database.
 
-* SQL Server Management Studio (SSMS). Siga las instrucciones de [Azure SQL Database: uso de SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos](../../sql-database/sql-database-connect-query-ssms.md).
+* SQL Server Management Studio (SSMS). Siga las instrucciones de [Azure SQL Database: uso de SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos](../../azure-sql/database/connect-query-ssms.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter Notebook
 
