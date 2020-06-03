@@ -3,12 +3,12 @@ title: Obtención de los cambios del recurso
 description: Aprenda los métodos para identificar cuándo un recurso se cambió, obtener una lista de las propiedades que cambiaron y evaluar las diferencias.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: d53148f302d82a7563520036f327406ca4a86040
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9e233ebbdd1d70d483af44eacf12cc924deaafac
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681058"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167169"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
@@ -25,8 +25,7 @@ La detección y los detalles de cambios son de utilidad para los siguientes esce
 - Mantener actualizada una base de datos de administración de configuración, conocida como una CMDB. En lugar de actualizar todos los recursos y sus conjuntos de propiedad completos según una frecuencia programada, obtener solo lo que cambió.
 - Comprender qué otras propiedades podrían haber cambiado cuando un recurso puede cambió de estado de cumplimiento. La evaluación de estas propiedades adicionales puede proporcionar información sobre otras propiedades que quizás tengan que administrarse a través de una definición de Azure Policy.
 
-En este artículo se muestra cómo recopilar esta información a través del SDK del Resource Graph. Para ver esta información en Azure Portal, consulte Azure Policy [Historial de cambios](../../policy/how-to/determine-non-compliance.md#change-history-preview) o [Historial de cambios](../../../azure-monitor/platform/activity-log-view.md#azure-portal) del Registro de actividad de Azure.
-Para obtener detalles sobre los cambios en sus aplicaciones desde el nivel de infraestructura hasta la implementación de aplicaciones, consulte el artículo sobre el [uso de Application Change Analysis (versión preliminar)](../../../azure-monitor/app/change-analysis.md) en Azure Monitor.
+En este artículo se muestra cómo recopilar esta información a través del SDK del Resource Graph. Para ver esta información en Azure Portal, consulte Azure Policy [Historial de cambios](../../policy/how-to/determine-non-compliance.md#change-history) o [Historial de cambios](../../../azure-monitor/platform/activity-log-view.md#azure-portal) del Registro de actividad de Azure. Para obtener detalles sobre los cambios en sus aplicaciones desde el nivel de infraestructura hasta la implementación de aplicaciones, consulte el artículo sobre el [uso de Application Change Analysis (versión preliminar)](../../../azure-monitor/app/change-analysis.md) en Azure Monitor.
 
 > [!NOTE]
 > Los detalles de cambio en Resource Graph son para las propiedades de Resource Manager. Para realizar un seguimiento de los cambios dentro de una máquina virtual, consulte las opciones [Seguimiento de cambios](../../../automation/automation-change-tracking.md) o Azure Policy [Configuración de invitado para VM](../../policy/concepts/guest-configuration.md) de Azure Automation.

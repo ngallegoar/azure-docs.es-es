@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66a53840d6002731910baf63a331a79a6f654078
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771286"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167968"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK de Table API de Azure Cosmos DB para Python: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -38,10 +38,10 @@ ms.locfileid: "76771286"
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Versión de disponibilidad general
 
-### <a name="0371"></a><a name="0.37.1"/>0.37.1
+### <a name="0371"></a><a name="0.37.1"></a>0.37.1
 * SDK de versión preliminar
 
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada

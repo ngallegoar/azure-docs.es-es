@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: twooley
-ms.openlocfilehash: c9451afaefdd220b5f87d4650c7844f06926b03a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e591a6c1fbf91bb034ec57673f79c549bbec4672
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75933435"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170093"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Actualización del dispositivo de la serie StorSimple 8000
 > [!NOTE]
@@ -84,22 +84,22 @@ Si debe aplicar actualizaciones en modo de mantenimiento, recibirá una alerta a
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>Paso 1: Conexión a la consola serie <a name="step1">
+### <a name="step-1-connect-to-the-serial-console"></a>Paso 1: Conexión a la consola serie <a name="step1"></a>
 En primer lugar, utilice una aplicación como PuTTY para tener acceso a la consola serie. El siguiente procedimiento explica cómo usar PuTTY para conectarse a la consola serie.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Paso 2: Acceso al modo de mantenimiento <a name="step2">
+### <a name="step-2-enter-maintenance-mode"></a>Paso 2: Acceso al modo de mantenimiento <a name="step2"></a>
 Una vez esté conectado a la consola, mire a ver si hay actualizaciones que se deban instalar y active el modo de mantenimiento para hacerlo.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates-a-namestep3"></a>Paso 3: Instalación de las actualizaciones <a name="step3">
+### <a name="step-3-install-your-updates"></a>Paso 3: Instalación de las actualizaciones <a name="step3"></a>
 A continuación, instale las actualizaciones.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Paso 4: Salir del modo de mantenimiento <a name="step4">
+### <a name="step-4-exit-maintenance-mode"></a>Paso 4: Salir del modo de mantenimiento <a name="step4"></a>
 Por último, salga del modo de mantenimiento.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

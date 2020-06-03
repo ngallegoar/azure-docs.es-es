@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: b46c9f8b0cad74f3a4e9be8903270a60993c01f4
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 42443cac199c4ba9a5df25e13393bb2103cb340e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585897"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205082"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Cómo instalar un controlador de entrada de Application Gateway (AGIC) con una nueva instancia de Application Gateway
 
@@ -66,7 +66,7 @@ Siga los pasos que se indican a continuación para crear un [objeto de entidad d
     }
     EOF
     ```
-    Para implementar un clúster con **RBAC** habilitado, establezca el campo `aksEnabledRBAC` como `true`
+    Para implementar un clúster con **RBAC** habilitado, establezca el campo `aksEnableRBAC` como `true`
 
 ## <a name="deploy-components"></a>Implementación de componentes
 En este paso se agregarán los siguientes componentes a la suscripción:

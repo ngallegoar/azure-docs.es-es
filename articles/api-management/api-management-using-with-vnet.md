@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2020
 ms.author: apimpm
-ms.openlocfilehash: 92473dc7553286867a33100d7328dd0320d55823
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: references_regions
+ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799935"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300100"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -265,7 +266,7 @@ Las direcciones IP se dividen según el **entorno de Azure**. Cuando se permiten
 | Azure Government| Departamento de Defensa del este de EE. UU| 52.181.32.192|
 
 ## <a name="related-content"></a><a name="related-content"> </a>Contenido relacionado
-* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/design.md#s2smulti)
 * [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Uso de API Inspector para hacer un seguimiento de las llamadas en Azure API Management](api-management-howto-api-inspector.md)
 * [Preguntas más frecuentes acerca de Virtual Network](../virtual-network/virtual-networks-faq.md)

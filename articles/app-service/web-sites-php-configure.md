@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/13/2020
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 208f4f7b4c2d8562d5237a40f52e4774ea5c5606
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0605249ea0602b33e144fce8d0a77439c2077a2f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272481"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170756"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configuración de PHP en Azure App Service
 
@@ -132,7 +132,7 @@ En lugar del tiempo de ejecución de PHP, App Service puede usar un tiempo de ej
 10. En la parte inferior, haga clic en **Actualizar** para terminar de agregar la asignación de controlador.
 11. Haga clic en **Guardar** para guardar los cambios.
 
-<a name="composer" />
+<a name="composer"></a>
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>Procedimientos: Habilitar la automatización de Composer en Azure
 

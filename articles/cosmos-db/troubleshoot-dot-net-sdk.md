@@ -8,12 +8,12 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e389df7cfe0e228030d2d0f730fc5e671ad4c052
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 55c462795b29cd678a5fd7816211bce720d554e1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927639"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170365"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cosmos DB
 
@@ -94,7 +94,7 @@ Si la aplicación está implementada en [Azure Virtual Machines sin una direcci�
 * Agregue el punto de conexión de servicio de Azure Cosmos DB a la subred de la red virtual de Azure Virtual Machines. Para obtener más información, consulte [puntos de conexión de servicio de red virtual de Azure](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
     Cuando se habilita el punto de conexión de servicio, las solicitudes ya no se envían desde una dirección IP pública a Azure Cosmos DB. En su lugar, se envían la red virtual y la identidad de la subred. Este cambio puede producir caídas de firewall si solo se permiten direcciones IP públicas. Si usa un firewall, cuando se habilite el punto de conexión de servicio, agregue una subred al firewall mediante las [ACL de Virtual Network](../virtual-network/virtual-networks-acl.md).
-* Asigne una [dirección IP pública a la VM de Azure](../load-balancer/load-balancer-outbound-connections.md#assignilpip).
+* Asigne una [dirección IP pública a la VM de Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="http-proxy"></a>Proxy HTTP
 Si usa un Proxy HTTP, asegúrese de que pueda admitir el número de conexiones configuradas en el SDK de `ConnectionPolicy`.
