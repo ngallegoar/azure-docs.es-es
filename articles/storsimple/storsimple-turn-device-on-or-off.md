@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2906c947e24bf5053760e9b83429ae7c6ecd3f4
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228132"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170127"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activación o desactivación del dispositivo StorSimple serie 8000
 
@@ -86,12 +86,12 @@ Una interrupción o una pérdida de energía puede apagar un dispositivo StorSim
 * [Dispositivo solo con gabinete principal](#8100)
 * [Dispositivo con gabinete EBOD](#8600)
 
-### <a name="device-with-primary-enclosure-only-a-name8100"></a>Dispositivo solo con gabinete principal <a name="8100">
+### <a name="device-with-primary-enclosure-only"></a>Dispositivo solo con gabinete principal <a name="8100"></a>
 El sistema puede funcionar de manera normal si se produce una pérdida de energía en uno de sus sistemas de alimentación. Sin embargo, para garantizar la alta disponibilidad del dispositivo, restaure la energía del sistema de alimentación tan pronto como sea posible.
 
 Si hay un corte o una interrupción en la energía en ambos sistemas de alimentación, el sistema se apagará de manera ordenada y controlada. Cuando se restaura la energía, el sistema se enciende automáticamente.
 
-### <a name="device-with-ebod-enclosure-a-name8600"></a>Dispositivo con gabinete EBOD <a name="8600">
+### <a name="device-with-ebod-enclosure"></a>Dispositivo con gabinete EBOD <a name="8600"></a>
 #### <a name="power-loss-on-one-power-supply"></a>Pérdida de energía en un sistema de alimentación
 El sistema puede funcionar de manera normal si se produce una pérdida de energía en el gabinete principal o en el gabinete EBOD. Sin embargo, para garantizar la alta disponibilidad del dispositivo, restaure la energía del sistema de alimentación tan pronto como sea posible.
 
@@ -140,7 +140,7 @@ Puede ser necesario apagar un dispositivo StorSimple activo si debe trasladarlo,
 * [Dispositivo con gabinete principal](#8100a)
 * [Dispositivo con gabinete EBOD](#8600a)
 
-### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo con gabinete principal <a name="8100a">
+### <a name="device-with-primary-enclosure"></a>Dispositivo con gabinete principal <a name="8100a"></a>
 Para apagar el dispositivo de manera ordenada y controlada, use Azure Portal o Windows PowerShell para StorSimple. 
 
 > [!IMPORTANT]
@@ -152,7 +152,7 @@ Para apagar el dispositivo de manera ordenada y controlada, use Azure Portal o W
 
 Después de acceder a Windows PowerShell para StorSimple o a Azure Portal, siga los pasos para [apagar un dispositivo de StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo con gabinete EBOD <a name="8600a">
+### <a name="device-with-ebod-enclosure"></a>Dispositivo con gabinete EBOD <a name="8600a"></a>
 > [!IMPORTANT]
 > Antes de apagar el gabinete principal y el gabinete EBOD, asegúrese de que todos los componentes del dispositivo funcionen bien. En Azure Portal, vaya a **Dispositivos** > **Monitor** > **Hardware health** (Mantenimiento de hardware) y compruebe que todos los componentes tienen un estado correcto.
 

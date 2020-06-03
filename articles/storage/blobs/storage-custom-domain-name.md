@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82f3f26ae5c70c9660a44ce50a90de79340bc1c2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370481"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195247"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 
@@ -25,7 +25,7 @@ Puede asignar un dominio personalizado a un punto de conexión del servicio de b
 > [!NOTE] 
 > Esta asignación solo funciona para subdominios (por ejemplo: `www.contoso.com`). Si desea que su punto de conexión web esté disponible en el dominio raíz (por ejemplo: `contoso.com`), tendrá que usar Azure CDN. Para obtener instrucciones, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. Dado que va a ir a esa sección de este artículo para activar el dominio raíz de su dominio personalizado, el paso de dicha sección para habilitar el HTTPS es opcional. 
 
-<a id="enable-http" />
+<a id="enable-http"></a>
 
 ## <a name="map-a-custom-domain-with-only-http-enabled"></a>Asignación de un dominio personalizado en el que solo HTTP está habilitado
 
@@ -33,7 +33,7 @@ Este enfoque es más sencillo, pero solo permite el acceso HTTP. Si la cuenta de
 
 Para habilitar el acceso HTTPS, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. 
 
-<a id="map-a-domain" />
+<a id="map-a-domain"></a>
 
 ### <a name="map-a-custom-domain"></a>Asignación de un dominio personalizado
 
@@ -50,7 +50,7 @@ Si no le preocupa que el dominio no disponible durante un breve período para su
 
 :heavy_check_mark: Paso 4: Prueba de un dominio personalizado.
 
-<a id="endpoint" />
+<a id="endpoint"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Paso 1: Obtención del nombre de host del punto de conexión del almacenamiento 
 
@@ -71,7 +71,7 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
   
    Deje este valor para más adelante.
 
-<a id="create-cname-record" />
+<a id="create-cname-record"></a>
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Paso 2: Creación de un registro de nombres canónicos (CNAME) con su proveedor de dominios
 
@@ -91,7 +91,7 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
       
    - El nombre de host que obtuvo en la sección [Obtención del nombre de host de un punto de conexión del almacenamiento](#endpoint) de este mismo artículo. 
 
-<a id="register" />
+<a id="register"></a>
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Paso 3: Registro de su dominio personalizado en Azure
 
@@ -117,7 +117,7 @@ Para confirmar que el dominio personalizado se haya asignado al punto de conexi�
 
 Por ejemplo, para acceder a un formulario web del contenedor *myforms* en el subdominio personalizado *photos.contoso.com*, debe usar el siguiente identificador URI: `http://photos.contoso.com/myforms/applicationform.htm`.
 
-<a id="zero-down-time" />
+<a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Asignación de un dominio personalizado sin tiempo de inactividad
 
@@ -136,7 +136,7 @@ Si el dominio admite actualmente una aplicación con un acuerdo de nivel de serv
 
 :heavy_check_mark: Paso 5: Prueba de un dominio personalizado.
 
-<a id="endpoint-2" />
+<a id="endpoint-2"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Paso 1: Obtención del nombre de host del punto de conexión del almacenamiento 
 
@@ -295,7 +295,7 @@ Para quitar un registro de dominio personalizado, use el cmdlet de PowerShell [S
   ```
 ---
 
-<a id="enable-https" />
+<a id="enable-https"></a>
 
 ## <a name="map-a-custom-domain-with-https-enabled"></a>Asignación de un dominio personalizado con HTTPS habilitado
 

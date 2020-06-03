@@ -3,12 +3,12 @@ title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683216"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205048"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -75,7 +75,7 @@ El **ámbito** de la asignación incluye todos los contenedores de recursos secu
 ## <a name="policy-definition-id"></a>Identificador de la definición de directiva
 
 Este campo debe ser el nombre de la ruta de acceso completa de una definición de directiva o una definición de iniciativa.
-`policyDefinitionId` es una cadena y no una matriz. Se recomienda que, si a menudo se asignan varias directivas, se use una [iniciativa](./definition-structure.md#initiatives) en su lugar.
+`policyDefinitionId` es una cadena y no una matriz. Se recomienda que, si a menudo se asignan varias directivas, se use una [iniciativa](./initiative-definition-structure.md) en su lugar.
 
 ## <a name="parameters"></a>Parámetros
 

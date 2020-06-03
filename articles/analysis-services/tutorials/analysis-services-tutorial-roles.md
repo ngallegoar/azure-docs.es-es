@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454261"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016396"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configuración de los roles de administrador del servidor y de usuario
 
@@ -59,7 +59,7 @@ En las tareas restantes, para la conexión y la administración el servidor se u
     ![Conectar en SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Se recomienda elegir Active Directory - Universal compatible con MFA. Este tipo de autenticación es compatible con la [autenticación no interactiva y multifactor](../../sql-database/sql-database-ssms-mfa-authentication.md). 
+    > Se recomienda elegir Active Directory - Universal compatible con MFA. Este tipo de autenticación es compatible con la [autenticación no interactiva y multifactor](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
 
 3. Expanda el **Explorador de objetos** para ver objetos de servidor. Haga clic con el botón derecho para ver las propiedades del servidor.
    

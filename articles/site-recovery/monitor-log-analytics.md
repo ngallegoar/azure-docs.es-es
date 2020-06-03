@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131189"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300797"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Supervisión de Site Recovery con registros de Azure Monitor
 
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurar alertas: ejemplos
 
-Puede configurar alertas de Site Recovery basadas en datos de Azure Monitor. [Obtenga más información](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) sobre cómo configurar alertas de registro. 
+Puede configurar alertas de Site Recovery basadas en datos de Azure Monitor. [Obtenga más información](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) sobre cómo configurar alertas de registro. 
 
 > [!NOTE]
 > Algunos de los ejemplos usan **replicationProviderName_s** establecido en **A2A**. Esto establece alertas en las VM de Azure que se replican en una región secundaria de Azure. En estos ejemplos, puede reemplazar **A2A** con **InMageAzureV2** si quiere establecer alertas para VM de VMware locales o para servidores físicos replicados en Azure.

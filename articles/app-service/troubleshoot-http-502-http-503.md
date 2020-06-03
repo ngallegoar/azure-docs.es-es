@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9345b6fb28aa282e85f1167f6f2531e5f990e3a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688322"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170807"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en Azure App Service
 "502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación hospedada en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Este artículo le ayuda a solucionar estos errores.
@@ -38,7 +38,7 @@ El procedimiento de solución de problemas se puede dividir en tres tareas disti
 
 [App Service](overview.md) ofrece diversas opciones en cada paso.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observación y supervisión del comportamiento de la aplicación
 #### <a name="track-service-health"></a>Seguimiento del estado del servicio
@@ -62,7 +62,7 @@ Para más información, consulte:
 * [Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
 * [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2. Recopilación de datos
 #### <a name="use-the-diagnostics-tool"></a>Uso de la herramienta de diagnósticos
@@ -86,7 +86,7 @@ Otra característica útil de Kudu es que, en caso de que la aplicación inicie 
 
 Para obtener más información sobre las características disponibles en Kudu, consulte [Herramientas en línea de Azure Websites que debe conocer](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3. Mitigación del problema
 #### <a name="scale-the-app"></a>Escalar la aplicación
