@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: e1ebc0257082ecfacc708352ba0a68e38e10717f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 05/12/2020
+ms.openlocfilehash: fea444f2e864683d6350e1c08872ec574a36852c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607799"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646009"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -29,9 +29,6 @@ Por ejemplo, puede calcular valores con funciones matemáticas, como la función
 ||||
 
 Para buscar funciones [según su propósito general](#ordered-by-purpose), utilice las siguientes tablas. O bien, para obtener información detallada acerca de cada función, consulte la [lista alfabética](#alphabetical-list).
-
-> [!NOTE]
-> En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional. Por ejemplo, consulte [getFutureTime()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Funciones en expresiones
 
@@ -51,8 +48,7 @@ Estas son algunas otras formas generales en que puede usar funciones en expresio
 | 1. Obtenga el resultado de *functionName*. </br>2. Dado que el resultado es un objeto con la propiedad *propertyName*, obtenga el valor de la propiedad. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
 |||
 
-Por ejemplo, la función `concat()` puede tomar dos o más valores de cadena como parámetros. Esta función combina esas cadenas en una cadena.
-Puede pasar literales de cadena, por ejemplo, "Sophia" y "Owen" para obtener una cadena combinada, "SophiaOwen":
+Por ejemplo, la función `concat()` puede tomar dos o más valores de cadena como parámetros. Esta función combina esas cadenas en una cadena. Puede pasar literales de cadena, por ejemplo, "Sophia" y "Owen" para obtener una cadena combinada, "SophiaOwen":
 
 ```json
 "customerName": "@concat('Sophia', 'Owen')"
@@ -66,7 +62,13 @@ O bien, puede obtener valores de cadena de los parámetros. En este ejemplo se u
 
 En cualquier de los casos, ambos ejemplos asignan el resultado a la propiedad `customerName`.
 
-Estas son las funciones disponibles ordenadas por su uso general, o bien puede ver las funciones [por orden alfabético](#alphabetical-list).
+A continuación, se indican algunas notas sobre las funciones de las expresiones:
+
+* Los parámetros de función se evalúan de izquierda a derecha.
+
+* En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional. Por ejemplo, consulte [getFutureTime()](#getFutureTime).
+
+Las siguientes secciones organizan las funciones por su uso general, o bien puede examinarlas [por orden alfabético](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
@@ -2270,8 +2272,7 @@ Y devuelve este resultado: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 ### <a name="if"></a>if
 
-Comprueba si una expresión es true o false.
-En función del resultado, devuelve un valor especificado.
+Comprueba si una expresión es true o false. En función del resultado, devuelve un valor especificado. Los parámetros se evalúan de izquierda a derecha.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
@@ -3744,7 +3745,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo especificada, pero a partir del primer día del mes en la marca de hora cero |
 ||||
 
-*Ejemplo*
+*Ejemplo 1*
 
 Este ejemplo devuelve el inicio del mes de esta marca de tiempo:
 
@@ -3753,6 +3754,16 @@ startOfMonth('2018-03-15T13:30:30Z')
 ```
 
 Y devuelve este resultado: `"2018-03-01T00:00:00.0000000Z"`
+
+*Ejemplo 2*
+
+En este ejemplo se devuelve el inicio del mes en el formato especificado para esta marca de tiempo:
+
+```
+startOfMonth('2018-03-15T13:30:30Z', 'yyyy-MM-dd')
+```
+
+Y devuelve este resultado: `"2018-03-01"`
 
 <a name="startswith"></a>
 
@@ -3985,8 +3996,7 @@ Asimismo, devuelven estos resultados:
 
 ### <a name="ticks"></a>ticks
 
-Devuelve el valor de la propiedad `ticks` de una marca de tiempo especificada.
-Un *tick* es un intervalo de 100 nanosegundos.
+Devuelve el número de pasos, que son intervalos de 100 nanosegundos, desde el 1 de enero de 0001 a las 12:00:00 de la noche (o DateTime.Ticks en C#) hasta la marca de tiempo especificada. Para más información, consulte este tema: [Propiedad DateTime.Ticks (sistema)](https://docs.microsoft.com/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
 
 ```
 ticks('<timestamp>')

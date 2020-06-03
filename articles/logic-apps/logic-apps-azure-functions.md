@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605909"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714583"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Llamada a funciones de Azure desde Azure Logic Apps
 
@@ -200,7 +200,7 @@ Cuando quiera desencadenar una aplicación lógica desde dentro de una función 
 
 ## <a name="enable-authentication-for-azure-functions"></a>Habilitar la autenticación de Azure Functions
 
-Para autenticar el acceso a los recursos de otros inquilinos de Azure Active Directory (Azure AD) sin tener que iniciar sesión ni proporcionar credenciales o secretos, la aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocido como Managed Service Identity o MSI). Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Para autenticar fácilmente el acceso a otros recursos que están protegidos por Azure Active Directory (Azure AD) sin tener que iniciar sesión ni proporcionar credenciales o secretos, la aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocida como Managed Service Identity o MSI). Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 Si configura la aplicación lógica para que use la identidad administrada asignada por el sistema o una identidad asignada por el usuario creada de forma manual, las funciones de Azure de la aplicación lógica también pueden usar la misma identidad para la autenticación. Para más información sobre la compatibilidad de la autenticación con Azure Functions en aplicaciones lógicas, consulte [Agregar autenticación a llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 

@@ -1,15 +1,15 @@
 ---
-title: 'Creación de dependencias de tareas para ejecutar tareas: Azure Batch'
+title: Creación de dependencias de tareas para ejecutar tareas
 description: Cree tareas que dependan de la finalización de otras para procesar grandes cargas de trabajo de macrodatos similares y de estilo MapReduce en Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42cf24758c64f107723ae0907db08bd4b757a15a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116492"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726390"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas
 
@@ -68,7 +68,7 @@ Hay tres escenarios de dependencia de tareas básicos que puede usar en Azure Ba
 |:---:| --- | --- |
 |  [Uno a uno](#one-to-one) |*taskB* depende de *taskA* <p/> Se programará que *taskB* no se ejecute hasta que *taskA* se haya completado correctamente |![Diagrama: dependencia de la tarea uno a uno][1] |
 |  [Uno a varios](#one-to-many) |*taskC* depende de*taskA* y *taskB*. <p/> Se programará que *taskC* no se ejecute hasta que *taskA* y *taskB* se hayan completado correctamente |![Diagrama: dependencia de la tarea uno a varios][2] |
-|  [Intervalo de id. de tarea](#task-id-range) |*taskD* depende de una serie de tareas <p/> Se programará que *taskD* no se ejecute hasta que las tareas con los identificadores del *1* al *10* se hayan completado correctamente. |![Diagrama: dependencia de intervalo de id. de tarea][3] |
+|  [Intervalo de id. de tarea](#task-id-range) |*taskD* depende de una serie de tareas <p/> Se programará que *taskD* no se ejecute hasta que las tareas con los identificadores del *1* al *10* se hayan completado correctamente. |![Diagrama: Dependencia de intervalo de id. de tarea][3] |
 
 > [!TIP]
 > Puede crear relaciones de **varios a varios**, por ejemplo, donde las tareas C, D, E y F dependan de las tareas A y B. Esto es útil, por ejemplo, en escenarios de preprocesamiento en paralelo donde las tareas que siguen en la cadena dependen de la salida de varias tareas que preceden en la cadena.

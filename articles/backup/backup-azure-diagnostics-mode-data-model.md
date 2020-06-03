@@ -3,12 +3,12 @@ title: Modelo de datos de registros de Azure Monitor
 description: En este artículo, obtendrá información acerca de los detalles del modelo de datos de Log Analytics de Azure Monitor para los datos de Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183694"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83707996"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -48,7 +48,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece esta alerta |
 | OperationName |Texto |Nombre de la operación actual, por ejemplo, Alerta |
 | Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado a la alerta (fue ProtectedServerUniqueId_s en V1)|
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido asociado a la alerta |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
@@ -80,7 +80,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el element
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece este elemento de copia de seguridad |
 | OperationName |Texto |Nombre de la operación, por ejemplo, BackupItem |
 | Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Resource |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
+| Recurso |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador de recurso para el que se recopilan datos, por ejemplo, el identificador de recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para los datos que se recopilan |
@@ -103,7 +103,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia
 | BackupManagementServerUniqueId_s |Texto | Campo para identificar de forma única el servidor de administración de copia de seguridad mediante el que se protege el elemento de copia de seguridad, si procede. |
 | Category |Texto |Este campo representa la categoría de datos de diagnóstico insertada en Log Analytics; es AzureBackupReport |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: BackupItemAssociation |
-| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado al elemento de copia de seguridad (fue ProtectedServerUniqueId_s en V1) |
 | VaultUniqueId_s |Texto |Identificador único del almacén que contiene el elemento de copia de seguridad. |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
@@ -145,7 +145,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: Job |
 | Category |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedServerUniqueId_s |Texto |Identificador único del servidor protegido asociado al trabajo. |
 | ProtectedContainerUniqueId_s |Texto | Identificador único del contenedor protegido donde se ejecuta el trabajo. |
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido. |
@@ -180,7 +180,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con las direct
 | BackupManagementType_s |Texto ||Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto ||Este campo representa el nombre de la operación actual: Policy |
 | Category |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Resource |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva. |
 | PolicyName_s |Texto ||Nombre de la directiva definida |
 | BackupFrequency_s |Texto ||Frecuencia con la que se ejecutan las copias de seguridad, por ejemplo, a diario o semanalmente |
@@ -228,7 +228,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de directivas con var
 | BackupManagementType_s |Texto ||Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto ||Este campo representa el nombre de la operación actual: PolicyAssociation |
 | Category |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Resource |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva. |
 | VaultUniqueId_s |Texto ||Identificador exclusivo del almacén al que pertenece esta directiva. |
 | BackupManagementServerUniqueId_s |Texto |v2 |Campo para identificar de forma única el servidor de administración de copia de seguridad mediante el que se protege el elemento de copia de seguridad, si procede.        |
@@ -272,7 +272,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacen
 | BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: Storage |
 | Category |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedServerUniqueId_s |Texto |Identificador exclusivo del servidor protegido para el que se calcula el almacenamiento. |
 | VaultUniqueId_s |Texto |Identificador exclusivo del almacén para el que se calcula el almacenamiento. |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
@@ -311,7 +311,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacé
 | State_s |Texto |Estado actual del objeto del almacén por ejemplo, Active o Deleted |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: Vault |
 | Category |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | VaultUniqueId_s |Texto |Identificador exclusivo del almacén. |
 | VaultName_s |Texto |Nombre del almacén |
 | AzureDataCenter_s |Texto |Centro de datos donde se encuentra el almacén |
@@ -463,7 +463,9 @@ A continuación se muestran algunos ejemplos que le ayudarán a escribir consult
 ## <a name="v1-schema-vs-v2-schema"></a>Esquema v1 frente a esquema V2
 Anteriormente, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de VM de Azure se enviaban a una tabla de Azure Diagnostics en un esquema denominado ***esquema V1***. Posteriormente, se agregaron nuevas columnas para admitir otros escenarios y cargas de trabajo, y los datos de diagnóstico se insertaron en un nuevo esquema denominado ***esquema V2***. 
 
-Por motivos de compatibilidad con versiones anteriores, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de VM de Azure se envían actualmente a la tabla de Azure Diagnostics en el esquema V1 y V2 (con el esquema v1 ahora en una ruta de degradación). Puede identificar qué registros de Log Analytics son del esquema V1 filtrando los registros para SchemaVersion_s=="v1" en las consultas de registro.
+Por motivos de compatibilidad con versiones anteriores, los datos de diagnóstico para el agente de Azure Backup y la copia de seguridad de VM de Azure se envían actualmente a la tabla de Azure Diagnostics en el esquema V1 y V2 (con el esquema v1 ahora en una ruta de degradación). Puede identificar qué registros de Log Analytics son del esquema V1 filtrando los registros para SchemaVersion_s=="v1" en las consultas de registro. 
+
+Vea la tercera columna "Descripción" del [modelo de datos](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) descrito arriba para identificar las columnas que pertenecen solo al esquema V1.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

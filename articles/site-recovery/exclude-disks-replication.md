@@ -3,12 +3,12 @@ title: Exclusión de discos de una replicación con Azure Site Recovery
 description: Cómo excluir discos de una replicación en Azure con Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236508"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740531"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclusión de discos de una recuperación ante desastres
 
@@ -24,9 +24,9 @@ En este artículo se describe cómo excluir discos de una replicación durante u
 
 Se pueden excluir discos de una replicación según se indica en la tabla.
 
-**De Azure a Azure** | **VMware a Azure** | **Hyper-V en Azure** 
---- | --- | ---
-Sí (usar PowerShell) | Sí | Sí 
+**De Azure a Azure** | **VMware a Azure** | **Hyper-V en Azure** | **Servidor físico en Azure**
+--- | --- | --- | ---
+Sí | Sí | Sí | Sí
 
 ## <a name="exclude-limitations"></a>Limitaciones de exclusión
 
@@ -35,7 +35,7 @@ Sí (usar PowerShell) | Sí | Sí
 **Tipos de disco** | Se pueden excluir los discos básicos de la replicación.<br/><br/> No se pueden excluir los discos dinámicos ni de sistema operativo. Los discos temporales se excluyen de forma predeterminada. | Se pueden excluir los discos básicos de la replicación.<br/><br/> No se pueden excluir los discos dinámicos ni de sistema operativo. | Se pueden excluir los discos básicos de la replicación.<br/><br/> No se pueden excluir los discos del sistema operativo. Se recomienda no excluir discos dinámicos. Site Recovery no puede identificar qué disco VHS es básico o dinámico en la máquina virtual invitada. Si no se excluyen todos los discos del volumen dinámico dependientes, el disco dinámico protegido aparecerá como erróneo en la máquina virtual de conmutación por error y no se podrá acceder a los datos de ese disco.
 **Disco en fase de replicación** | No se puede excluir un disco que se está replicando.<br/><br/> Deshabilite y vuelva a habilitar la replicación de la máquina virtual. |  No se puede excluir un disco que se está replicando. |  No se puede excluir un disco que se está replicando.
 **Servicio Mobility (VMware)** | No es relevante. | Solo se pueden excluir discos en máquinas virtuales que ya tengan instalado el servicio Mobility.<br/><br/> Esto significa que hay que instalar el servicio Mobility manualmente en las máquinas virtuales de las que se quiera excluir discos. No se puede usar el mecanismo de instalación de inserción, porque instala el servicio Mobility solo después de habilitar la replicación. | No es relevante.
-**Agregar o quitar** | Se pueden agregar y quitar discos en máquinas virtuales de Azure con discos administrados. | Una vez habilitada la replicación, no se pueden agregar ni quitar discos. Deshabilite y vuelva a habilitar la replicación para agregar un disco. | Una vez habilitada la replicación, no se pueden agregar ni quitar discos. Deshabilite y vuelva a habilitar la replicación.
+**Agregar o quitar** | Puede agregar discos administrados en máquinas virtuales de Azure con replicación habilitada con discos administrados. No se pueden quitar discos en máquinas virtuales de Azure con replicación habilitada. | Una vez habilitada la replicación, no se pueden agregar ni quitar discos. Deshabilite y vuelva a habilitar la replicación para agregar un disco. | Una vez habilitada la replicación, no se pueden agregar ni quitar discos. Deshabilite y vuelva a habilitar la replicación.
 **Conmutación por error** | Si una aplicación necesita un disco que se ha excluido, después de la conmutación por error debe crear el disco manualmente para que la aplicación replicada se pueda ejecutar.<br/><br/> También puede crear el disco durante la conmutación por error de la máquina virtual, integrando Azure Automation en un plan de recuperación. | Si excluye un disco que una aplicación necesita, créelo manualmente en Azure después de la conmutación por error. | Si excluye un disco que una aplicación necesita, créelo manualmente en Azure después de la conmutación por error.
 **Conmutación por recuperación local: discos creados manualmente** | No es relevante. | **Máquinas virtuales Windows**: Los discos creados manualmente en Azure no conmutan por recuperación. Por ejemplo, si se conmutan por error tres discos, y se crean dos discos directamente en una máquina virtual de Azure, solo conmutarán por recuperación los tres discos que conmutaron por error.<br/><br/> **Máquinas virtuales Linux**: Los discos creados manualmente en Azure conmutan por recuperación. Por ejemplo, si se conmutan por error tres discos, y se crean dos discos directamente en una máquina virtual de Azure, los cinco discos conmutarán por recuperación. No se pueden excluir discos creados manualmente de la conmutación por recuperación. | Los discos creados manualmente en Azure no conmutan por recuperación. Por ejemplo, si se conmutan por error tres discos, y se crean dos discos directamente en una máquina virtual de Azure, solo conmutarán por recuperación los tres discos que conmutaron por error.
 **Conmutación por recuperación local: discos excluidos** | No es relevante. | Si se conmuta por recuperación a la máquina original, la configuración de disco de máquina virtual de conmutación por recuperación no incluye los discos excluidos. Los discos que se excluyeron de la replicación de VMware a Azure no estarán disponibles en la máquina virtual de conmutación por recuperación. | Cuando la conmutación por recuperación se realiza en la ubicación de Hyper-V original, la configuración de disco de máquina virtual de conmutación por recuperación es la misma que la del disco de máquina virtual de origen inicial. Los discos que se excluyeron de la replicación del sitio de Hyper-V a Azure estarán disponibles en la máquina virtual de conmutación por recuperación.

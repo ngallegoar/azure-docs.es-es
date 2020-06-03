@@ -3,12 +3,12 @@ title: Exploración de registros de seguimiento de .NET en Application Insights
 description: Busque registros generados por Seguimiento, NLog o Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcd21286a547e0b0a6b5b93e8b05921e8e8cc1e2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234792"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647905"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
@@ -182,7 +182,9 @@ Por ejemplo, puede:
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="how-do-i-do-this-for-java"></a>¿Cómo se puede hacer para Java?
-Utilice los [adaptadores de registro de Java](../../azure-monitor/app/java-trace-logs.md).
+En la instrumentación sin código de Java (recomendado) donde los registros se recopilan de forma predefinida, use el [agente Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+Si usa el SDK de Java, utilice los [adaptadores de registro de Java](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>No aparece la opción de Application Insights en el menú contextual del proyecto
 * Asegúrese de que Developer Analytics Tools está instalado en el equipo de desarrollo. En Visual Studio, en **Herramientas** > **Extensiones y actualizaciones**, busque **Developer Analytics Tools**. Si no se encuentra en la pestaña **Instalado**, abra la pestaña **En línea** e instálelo.

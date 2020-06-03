@@ -4,12 +4,12 @@ description: Aprenda a configurar un clúster en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 94f84beee2d7a76e48ac1470a0ce0b387929cc08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe5ce13d9db8f2bc2231f87de7e602e63d239bfa
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474177"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725153"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -49,6 +49,8 @@ Cuando el estado se muestre como Registrado, actualice el registro del proveedor
 az provider register --namespace Microsoft.ContainerService
 ```
 
+### <a name="new-clusters"></a>Nuevos clústeres
+
 Configure el clúster para que use Ubuntu 18.04 cuando se cree el clúster. Use la marca `--aks-custom-headers` para establecer Ubuntu 18.04 como sistema operativo predeterminado.
 
 ```azure-cli
@@ -56,6 +58,17 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-
 ```
 
 Si desea crear un clúster de Ubuntu 16.04 normal, puede hacerlo omitiendo la etiqueta `--aks-custom-headers` personalizada.
+
+### <a name="existing-clusters"></a>Clústeres existentes
+
+Configure un grupo de nodos nuevo para usar Ubuntu 18.04. Use la marca `--aks-custom-headers` para establecer Ubuntu 18.04 como sistema operativo predeterminado para ese grupo de nodos.
+
+```azure-cli
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
+```
+
+Si quiere crear un grupo de nodos normal de Ubuntu 16.04, puede hacerlo si omite la etiqueta `--aks-custom-headers` personalizada.
+
 
 ## <a name="custom-resource-group-name"></a>Nombre del grupo de recursos personalizado
 
@@ -67,9 +80,9 @@ Para especificar su propio nombre de grupo de recursos, instale la versión de l
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-El proveedor de recursos de Azure crea automáticamente el grupo de recursos secundario en su propia suscripción. Tenga en cuenta que solo puede especificar el nombre del grupo de recursos personalizado cuando se crea el clúster. 
+El proveedor de recursos de Azure crea automáticamente el grupo de recursos secundario en su propia suscripción. Solo puede especificar el nombre del grupo de recursos personalizado al crear el clúster. 
 
-Mientras trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede realizar lo siguiente:
+Cuando trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede:
 
 - Especificar un grupo de recursos existente para el grupo de recursos del nodo.
 - Especificar otra suscripción para el grupo de recursos del nodo.

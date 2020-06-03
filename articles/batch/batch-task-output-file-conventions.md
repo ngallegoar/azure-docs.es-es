@@ -1,15 +1,15 @@
 ---
-title: 'Almacenamiento de datos de salida en Azure Storage con la biblioteca de convenciones de archivo para .NET: Azure Batch'
+title: Almacenamiento de datos de salida en Azure Storage con la biblioteca de convenciones de archivo
 description: Aprenda a usar la biblioteca de convenciones de archivo para .NET de Azure Batch para guardar las salidas de trabajos y tareas de Batch en Azure Storage, y ver las salidas en Azure Portal.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8dea7f503536a4eb2b0c36db7b3d35b70eb8a67
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232707"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726339"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET
 
@@ -104,7 +104,7 @@ El parámetro `kind` del método [TaskOutputStorage](/dotnet/api/microsoft.azure
 Estos tipos de salidas le permiten especificar qué tipo de salidas se deben mostrar cuándo se realiza una consulta a Batch relacionada con las salidas guardadas de una tarea dada. En otras palabras, cuando muestra las salidas de una tarea, puede filtrar la lista por uno de los tipos de salida. Por ejemplo, "dame la salida *preview* de la tarea *109*". Aparece más información sobre la presentación y recuperación de salidas en la sección Recuperación de salidas más adelante en el artículo.
 
 > [!TIP]
-> La variante de salida también determina en qué lugar de Azure Portal aparece un archivo determinado. Los archivos categorizados como *TaskOutput* aparecen en **Archivos de salida de tarea**, y los archivos *TaskLog*, en **Registros de tareas**.
+> El tipo de salida también determina dónde se mostrará un determinado archivo en Azure Portal: Los archivos clasificados como *TaskOutput* aparecen en **Task output files** (Archivos de salida de la tarea), y los archivos *TaskLog* en **Task logs** (Registros de tareas).
 
 ### <a name="store-job-outputs"></a>Almacenamiento de salidas de trabajos
 

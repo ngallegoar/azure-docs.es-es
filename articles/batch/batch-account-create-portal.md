@@ -1,21 +1,21 @@
 ---
 title: Creación de una cuenta en Azure Portal
 description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejecutar cargas de trabajo paralelas a gran escala en la nube
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9349ed74111565f68a088cda95c8defcd79f7e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cccef176e3e5ba0f4774a5897f082c4847a4005
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113228"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800250"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
 Aprenda a crear una cuenta de Azure Batch en [Azure Portal][azure_portal] y seleccione las propiedades de la cuenta más adecuadas para su escenario de proceso. Aprenda dónde encontrar importantes propiedades de cuenta, como teclas de acceso y direcciones URL de la cuenta.
 
-Para más información acerca de los escenarios y las cuentas de Batch, consulte la [descripción de las características](batch-api-basics.md).
+Para obtener información sobre los escenarios y las cuentas de Batch, vea [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md).
 
 ## <a name="create-a-batch-account"></a>Crear una cuenta de Batch
 
@@ -39,7 +39,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
     d. **Ubicación**: región de Azure en la que se va a crear la cuenta de Batch. Solo se muestran como opciones las regiones admitidas por su suscripción y grupo de recursos.
 
-    e. **Cuenta de almacenamiento**: una cuenta de Azure Storage opcional que asocia a su cuenta de Batch. Para que el rendimiento sea óptimo, se recomienda una cuenta de almacenamiento de uso general v2. Para conocer todas las opciones de la cuenta de almacenamiento de Batch, consulte la [introducción a las características de Batch](batch-api-basics.md#azure-storage-account). En el portal, seleccione una cuenta de almacenamiento existente o cree una.
+    e. **Cuenta de almacenamiento**: una cuenta de Azure Storage opcional que asocia a su cuenta de Batch. Para que el rendimiento sea óptimo, se recomienda una cuenta de almacenamiento de uso general v2. Para conocer todas las opciones de la cuenta de almacenamiento de Batch, consulte la [introducción a las características de Batch](accounts.md#azure-storage-accounts). En el portal, seleccione una cuenta de almacenamiento existente o cree una.
 
       ![Crear una cuenta de almacenamiento][storage_account]
 
@@ -52,6 +52,9 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 ## <a name="view-batch-account-properties"></a>Visualización de propiedades de la cuenta de Batch
 
 Una vez creada la cuenta, selecciónela para acceder a su configuración y propiedades. Con las opciones del menú izquierdo puede acceder a todas las propiedades y a la configuración de la cuenta.
+
+> [!NOTE]
+> El nombre de la cuenta de Batch es su identificador y no se puede cambiar. Si necesita cambiar el nombre de una cuenta de Batch, debe eliminar la cuenta y crear una nueva con el nombre que quiera.
 
 ![Página de la cuenta de Batch en Azure Portal][account_blade]
 
@@ -136,7 +139,7 @@ Además de usar Azure Portal, las cuentas de Batch se pueden crear y administrar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de los conceptos y las características del servicio de Batch, consulte la [descripción de las características de Batch](batch-api-basics.md). El artículo describe los principales recursos de Batch como grupos, nodos de proceso, trabajos y tareas, y proporciona información general acerca de las características del servicio específicas para las cargas de trabajo de proceso a gran escala.
+* Obtenga información sobre el [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 * Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Batch, consulte la [biblioteca de cliente de Batch para .NET](quick-run-dotnet.md) o [Python](quick-run-python.md). Estas guías de inicio rápido le guían a través de una aplicación de ejemplo que usa el servicio de Batch para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Azure Storage para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
 
 [azure_portal]: https://portal.azure.com

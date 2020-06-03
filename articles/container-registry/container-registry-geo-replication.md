@@ -3,14 +3,14 @@ title: Replicación geográfica de un registro
 description: Introducción a la creación y administración de un registro de contenedor de Azure con replicación geográfica, que permite que el registro atienda varias regiones con réplicas regionales de varios maestros.
 author: stevelas
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74456446"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711574"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -63,9 +63,9 @@ Al usar la característica de replicación geográfica de Azure Container Regist
 
 Configurar la replicación geográfica es tan fácil como hacer clic en las regiones de un mapa. También puede administrar la replicación geográfica mediante herramientas como los comandos [az acr replication](/cli/azure/acr/replication) de la CLI de Azure, o implementar un registro habilitado para la replicación geográfica con una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
-La replicación geográfica es una característica que solo está disponible para [registros Premium](container-registry-skus.md). Si el registro no es Premium, puede cambiarlo de Básico y Estándar a Premium en [Azure Portal](https://portal.azure.com):
+La replicación geográfica es una característica de los [registros Premium](container-registry-skus.md). Si el registro no es Premium, puede cambiarlo de Básico y Estándar a Premium en [Azure Portal](https://portal.azure.com):
 
-![Cambiar las SKU en Azure Portal](media/container-registry-skus/update-registry-sku.png)
+![Cambio de los niveles de servicio en Azure Portal](media/container-registry-skus/update-registry-sku.png)
 
 Para configurar la replicación geográfica del registro Premium, inicie sesión en Azure Portal en https://portal.azure.com.
 
@@ -92,9 +92,11 @@ ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>Consideraciones sobre el uso de un registro con replicación geográfica
 
 * Cada región de un registro con replicación geográfica es independiente una vez configurada. Los Acuerdos de Nivel de Servicio de Azure Container Registry se aplican a cada región con replicación geográfica.
-* Al insertar o extraer imágenes de un registro con replicación geográfica, Azure Traffic Manager en segundo plano envía la solicitud al registro ubicado en la región más cercana a usted.
+* Al insertar o extraer imágenes de un registro con replicación geográfica, Azure Traffic Manager en segundo plano envía la solicitud al registro ubicado en la región más cercana a usted en cuanto a latencia de red.
 * Después de insertar una imagen o una actualización de etiqueta en la región más cercana, Azure Container Registry tarda un rato en replicar los manifiestos y las capas en el resto de regiones que participan. Las imágenes más grandes tardan más en replicarse que las más pequeñas. Las imágenes y etiquetas se sincronizan entre las regiones de replicación con un modelo de coherencia final.
-* Para administrar flujos de trabajo que dependen de actualizaciones de inserción a la replicación geográfica, se recomienda configurar [webhooks](container-registry-webhook.md) para responder a los eventos de inserción. Puede configurar webhooks regionales dentro de un registro con replicación geográfica para realizar un seguimiento de los eventos de inserción a medida que se completan en las regiones con replicación geográfica.
+* Para administrar flujos de trabajo que dependen de actualizaciones de inserción para un registro con replicación geográfica, se recomienda configurar [webhooks](container-registry-webhook.md) para responder a los eventos de inserción. Puede configurar webhooks regionales dentro de un registro con replicación geográfica para realizar un seguimiento de los eventos de inserción a medida que se completan en las regiones con replicación geográfica.
+* Para prestar servicio a los blobs que representan capas de contenido, Azure Container Registry usa puntos de conexión de datos. Puede habilitar [puntos de conexión de datos dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para el registro en cada una de las regiones con replicación geográfica del registro. Estos puntos de conexión permiten la configuración de reglas de acceso de firewall con ámbito estricto.
+* Si configura un [vínculo privado](container-registry-private-link.md) para el registro mediante puntos de conexión privados de una red virtual, los puntos de conexión de datos dedicados de cada una de las regiones con replicación geográfica se habilitan de forma predeterminada. 
 
 ## <a name="delete-a-replica"></a>Eliminación de una réplica
 
@@ -105,12 +107,15 @@ Para eliminar una réplica en Azure Portal:
 1. Vaya a Azure Container Registry y seleccione **Replicaciones**.
 1. Seleccione el nombre de una réplica y, luego, **Eliminar**. Confirme que quiere eliminar la réplica.
 
-> [!NOTE]
-> No se puede eliminar la réplica del registro de la *región principal* del registro, es decir, la ubicación donde se creó este. Solo se puede eliminar la réplica principal si se elimina el propio registro.
+Para usar la CLI de Azure para eliminar una réplica de *myregistry* en la región Este de EE. UU.:
+
+```azurecli
+az acr replication delete --name eastus --registry myregistry
+```
 
 ## <a name="geo-replication-pricing"></a>Precios de la replicación geográfica
 
-La replicación geográfica es una característica de la [SKU Premium](container-registry-skus.md) de Azure Container Registry. Cuando replica un registro en las áreas indicadas, se aplica la tarifa del registro Premium para cada región.
+La replicación geográfica es una característica del [nivel de servicio Premium](container-registry-skus.md) de Azure Container Registry. Cuando replica un registro en las áreas indicadas, se aplica la tarifa del registro Premium para cada región.
 
 En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó réplicas en el Este de EE. UU., Centro de Canadá y Oeste de Europa. Por ello, pagaría cuatro veces al mes la tarifa Premium y sin tener ninguna configuración o administración adicional. Ahora, cada región extrae sus imágenes de forma local, lo que mejora el rendimiento y la confiabilidad sin tener que aplicar ninguna tarifa de salida de red desde las regiones del Oeste de EE. UU., Canadá y el Este de EE. UU.
 

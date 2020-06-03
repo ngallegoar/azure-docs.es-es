@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233912"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735878"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -41,11 +41,14 @@ Azure Backup Server hereda gran parte de la funcionalidad de copia de seguridad 
 
 El primer paso para que funcione Azure Backup Server es configurar un equipo con Windows Server. El servidor puede estar en Azure o en el entorno local.
 
+* Para proteger las cargas de trabajo locales, el servidor MABS debe ubicarse en el entorno local.
+* Para proteger las cargas de trabajo de máquinas virtuales de Azure, el servidor MABS debe estar ubicado en Azure y se debe ejecutar como una máquina virtual de Azure.
+
 ### <a name="using-a-server-in-azure"></a>Uso de un servidor en Azure
 
 Al elegir un servidor para ejecutar Azure Backup Server, se recomienda comenzar con una imagen de la galería de Windows Server 2016 Datacenter o Windows Server 2019 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada en Azure, incluso si nunca ha usado Azure antes. Los requisitos mínimos recomendados para la máquina virtual servidor deben ser: Standard_A4_v2 con cuatro núcleos y 8 GB de RAM.
 
-La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
+La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. La [matriz de protección de MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) ayuda a explicar estos matices. Lea este artículo completamente antes de implementar la máquina.
 
 ### <a name="using-an-on-premises-server"></a>Uso de un servidor local
 
@@ -196,7 +199,7 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
 
     ![Requisitos previos de Microsoft Azure Backup2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    La ubicación temporal es un requisito para hacer copias de seguridad en Azure. Asegúrese de que la ubicación temporal sea al menos el 5% de los datos cuya copia de seguridad se planea hacer en la nube. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para obtener más información acerca de los grupos de almacenamiento, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    La ubicación temporal es un requisito para hacer copias de seguridad en Azure. Asegúrese de que la ubicación temporal sea al menos el 5% de los datos cuya copia de seguridad se planea hacer en la nube. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para más información sobre los grupos de almacenamiento, consulte [Preparación del almacenamiento de datos](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 5. Proporcione una contraseña segura para las cuentas de usuario locales con permisos restringidos y haga clic en **Next**(Siguiente).
 
     ![Requisitos previos de Microsoft Azure Backup2](./media/backup-azure-microsoft-azure-backup/security-screen.png)

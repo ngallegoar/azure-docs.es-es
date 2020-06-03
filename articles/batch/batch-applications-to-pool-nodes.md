@@ -1,16 +1,16 @@
 ---
 title: Copia de aplicaciones y datos en nodos de grupo
 description: Obtenga información sobre cómo copiar aplicaciones y datos en nodos de grupo.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115591"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726832"
 ---
-# <a name="copying-applications-and-data-to-pool-nodes"></a>Copia de aplicaciones y datos en nodos de grupo
+# <a name="copy-applications-and-data-to-pool-nodes"></a>Copia de aplicaciones y datos en nodos de grupo
 
 Azure Batch admite varias maneras de copiar datos y aplicaciones en nodos de proceso para que estén disponibles para su uso mediante tareas. Es posible que los datos y las aplicaciones sean necesarios para ejecutar todo el trabajo y, por tanto, deben instalarse en cada nodo. Algunos pueden ser necesarios solo para una tarea específica, o deben instalarse para el trabajo, pero no es necesario que estén en cada uno de los nodos. Batch dispone de herramientas para cada uno de estos escenarios.
 

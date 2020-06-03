@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738055"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834584"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -100,6 +100,10 @@ No, Site Recovery no requiere conectividad a Internet. Sin embargo, requiere acc
 Sí, se puede replicar la aplicación y mantener también la configuración de recuperación ante desastres en un grupo de recursos independiente.
 
 Por ejemplo, si la aplicación tiene la aplicación, la base de datos y la web de cada nivel en un grupo de recursos independiente, debe seleccionar el [asistente de replicación](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tres veces para proteger todos los niveles. Site Recovery replicará estos tres niveles en tres grupos de recursos diferentes.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>¿Puedo mover cuentas de almacenamiento entre grupos de recursos?
+
+No, se trata de un escenario no admitido. Pero si mueve accidentalmente cuentas de almacenamiento a otro grupo de recursos y elimina el grupo de recursos original, puede crear un nuevo grupo de recursos con el mismo nombre que el antiguo y luego mover la cuenta de almacenamiento a este grupo de recursos.
 
 ## <a name="replication-policy"></a>Directiva de replicación
 
@@ -311,4 +315,4 @@ Sí, se admite tanto el cifrado en tránsito como el [cifrado en reposo de Azure
 
 - [Revise los requisitos de recuperación ante desastres entre regiones de Azure](azure-to-azure-support-matrix.md).
 - [Configure la replicación de Azure a Azure](azure-to-azure-tutorial-enable-replication.md).
-- Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+- Si tiene alguna pregunta después de leer este artículo, publíquela en la [Página de preguntas y respuestas de Microsoft para Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

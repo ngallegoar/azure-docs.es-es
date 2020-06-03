@@ -1,14 +1,14 @@
 ---
 title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
-ms.date: 04/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 395c70309ceca6e38f9f62522d80fb588821b886
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182589"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684229"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -115,11 +115,11 @@ También es posible que no disponga de acceso para iniciar sesión en la VM dire
 
 Para empezar, siga los mismos pasos de la sección anterior para ver los detalles de cumplimiento de directivas.
 
-En la vista del panel **Detalles de cumplimiento**, haga clic en el vínculo **Último recurso evaluado**.
+En la vista del panel Detalles de cumplimiento, haga clic en el vínculo **Último recurso evaluado**.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Ver detalles de la definición de auditIfNotExists" border="false":::
 
-La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina. En la columna **Motivo**, se muestra una frase en la que se describe el motivo por el que la Asignación de invitado _no es compatible_. Por ejemplo, si audita directivas de contraseñas, la columna **Motivo** mostraría un texto que incluye el valor actual de cada configuración.
+La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina. En la columna **Motivo**, se muestra una frase que describe el motivo por el que Asignación de invitado es _No compatible_. Por ejemplo, si audita directivas de contraseñas, la columna **Motivo** mostraría un texto que incluye el valor actual de cada configuración.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Ver detalles de cumplimiento" border="false":::
 

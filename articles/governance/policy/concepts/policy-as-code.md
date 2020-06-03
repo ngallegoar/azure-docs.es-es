@@ -1,14 +1,14 @@
 ---
 title: Diseño de flujos de trabajo de directiva como código
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187739"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684269"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
 
@@ -17,7 +17,7 @@ A medida que avanza en el recorrido con el gobierno en la nube, querrá cambiar 
 - Infraestructura como código: Práctica de tratar el contenido que define los entornos, desde plantillas de Resource Manager, pasando por definiciones de Azure Policy, hasta Azure Blueprints, como código fuente.
 - DevOps: Unión de personas, procesos y productos para hacer posible la entrega continua de valor a los usuarios finales.
 
-La directiva como código es la combinación de estas ideas. En esencia, mantenga las definiciones de directivas en el control de código fuente y, cada vez que se realice un cambio, pruebe y valide ese cambio. Sin embargo, eso no debe ser el alcance de la implicación de las directivas con la infraestructura como código ni DevOps.
+La directiva como código es la combinación de estas ideas. Básicamente, mantenga las definiciones de directivas en el control de código fuente y, cada vez que se realice un cambio, pruebe y valide ese cambio. Sin embargo, eso no debe ser el alcance de la implicación de las directivas con la infraestructura como código ni DevOps.
 
 El paso de validación también debe ser un componente de otros flujos de trabajo de integración continua o implementación continua. Entre los ejemplos se incluye la implementación de un entorno de aplicación o una infraestructura virtual. Al hacer que la validación de Azure Policy sea un componente temprano del proceso de compilación e implementación, los equipos de operaciones y de aplicaciones detectan si sus cambios cumplen o no, mucho antes de que sea demasiado tarde y estén intentando implementar en producción.
 
@@ -87,7 +87,7 @@ Al igual que las definiciones de directiva, al agregar o actualizar una iniciati
 
 Una vez que la automatización ha tomado las definiciones de directivas o de iniciativas recién creadas o actualizadas, y ha realizado la actualización del objeto en Azure, es el momento de probar los cambios realizados. La directiva o las iniciativas a las que pertenece deben asignarse a los recursos del entorno más alejado de producción. Este entorno suele ser _Dev_.
 
-La asignación debe utilizar [enforcementMode](./assignment-structure.md#enforcement-mode) en _disabled_ para que la creación de recursos y las actualizaciones no se bloqueen, pero que los recursos existentes sigan siendo auditados para el cumplimiento de la definición de directiva actualizada. Incluso con enforcementMode, se recomienda que el ámbito de asignación sea un grupo de recursos o una suscripción que se use específicamente para validar directivas.
+La asignación debe utilizar [enforcementMode](./assignment-structure.md#enforcement-mode) en _disabled_ para que la creación de recursos y las actualizaciones no se bloqueen, pero que los recursos existentes sigan siendo auditados para el cumplimiento de la definición de directiva actualizada. Incluso con enforcementMode, se recomienda que el ámbito de asignación sea un grupo de recursos o una suscripción específica para validar directivas.
 
 > [!NOTE]
 > Aunque el modo de cumplimiento es útil, no es un sustituto para probar exhaustivamente la definición de una directiva en varias condiciones. La definición de la directiva se debe probar con las llamadas API de REST `PUT` y `PATCH`, recursos compatibles y no compatibles, y casos extremos, como una propiedad que falte en el recurso.
@@ -99,7 +99,7 @@ Una vez implementada la asignación, use el SDK de directivas para [obtener los 
 Si la validación de la asignación cumple las expectativas, el paso siguiente es validar la corrección.
 Las directivas que usan [deployIfNotExists](./effects.md#deployifnotexists) o [modify](./effects.md#modify) se pueden convertir en una tarea de corrección y corregir los recursos desde un estado no compatible.
 
-El primer paso para hacerlo es conceder a la asignación de directiva la asignación de roles definida en la definición de la directiva. Esta asignación de roles permite que la identidad administrada de la asignación de directivas tenga suficientes derechos para realizar los cambios necesarios para que el recurso sea compatible.
+El primer paso para corregir recursos es conceder a la asignación de directiva la asignación de roles definida en la definición de la directiva. Esta asignación de roles permite que la identidad administrada de la asignación de directivas tenga suficientes derechos para realizar los cambios necesarios para que el recurso sea compatible.
 
 Una vez que la asignación de directiva tiene los derechos adecuados, use el SDK de directivas para desencadenar una tarea de corrección con respecto a un conjunto de recursos que se sabe que no son compatibles. Se deben completar tres pruebas en estas tareas corregidas antes de continuar:
 
@@ -111,7 +111,7 @@ Probar los resultados de la evaluación de la directiva actualizada y el entorno
 
 ### <a name="update-to-enforced-assignments"></a>Actualizar a asignaciones aplicadas
 
-Una vez completadas todas las validaciones, actualice la asignación para utilizar **enforcementMode** en _enabled_. Este cambio debe realizarse inicialmente en el mismo entorno alejado de producción. Una vez que se valida que ese entorno funciona según lo previsto, se debe definir el ámbito del cambio para que incluya el siguiente entorno y así sucesivamente hasta que la directiva se implemente en los recursos de producción.
+Una vez completadas todas las validaciones, actualice la asignación para utilizar **enforcementMode** en _enabled_. Se recomienda realizar este cambio inicialmente en el mismo entorno alejado de producción. Una vez que se valida que ese entorno funciona según lo previsto, se debe definir el ámbito del cambio para que incluya el siguiente entorno, y así sucesivamente, hasta que la directiva se implemente en los recursos de producción.
 
 ## <a name="process-integrated-evaluations"></a>Procesamiento de evaluaciones integradas
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801015"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738825"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -201,9 +201,9 @@ Consulte también la [información sobre las limitaciones](./../../azure-monitor
 En un grupo de acciones puede tener un número limitado de acciones de SMS.
 
 > [!NOTE]
-> Si la interfaz de usuario del grupo de acciones de Azure Portal no le permite seleccionar el código de país, significa que no se admite SMS en su país.  Si el código de país no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país se agregue. Mientras tanto, como solución alternativa, haga que el grupo de acciones llame al webhook de un proveedor de SMS de terceros con soporte técnico en su país.  
+> Si la interfaz de usuario del grupo de acciones de Azure Portal no permite seleccionar el código de país o región, no se admite SMS para el país o región.  Si el código de país o región no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país o región se agregue. Mientras tanto, como solución alternativa, haga que el grupo de acciones llame a un webhook de un proveedor de SMS de terceros con soporte en el país o región.  
 
-Los precios de los países admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Los precios de los países o regiones admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
   
 
 ### <a name="voice"></a>Voz
@@ -212,9 +212,9 @@ Consulte el artículo [Información sobre las limitaciones](./../../azure-monito
 En un grupo de acciones puede tener un número limitado de acciones de voz.
 
 > [!NOTE]
-> Si la interfaz de usuario del grupo de acciones de Azure Portal no le permite seleccionar el código de país, significa que no se admiten llamadas de voz en su país. Si el código de país no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país se agregue.  Mientras tanto, como solución alternativa, haga que el grupo de acciones llame al webhook de un proveedor de llamadas de voz de terceros con soporte técnico en su país.  
+> Si la interfaz de usuario del grupo de acciones de Azure Portal no permite seleccionar el código de país o región, no se admiten llamadas de voz en el país o región. Si el código de país o región no está disponible, puede votar en [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice) para que el país o región se agregue.  Mientras tanto, como solución alternativa, haga que el grupo de acciones llame a un webhook de un proveedor de llamadas de voz de terceros con soporte en el país o región.  
 
-Los precios de los países admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Los precios de los países o regiones admitidos se muestran en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
 Los webhooks se reintentan utilizando las siguientes reglas. La llamada de webhook se vuelve a intentar un máximo de 2 veces cuando se devuelven los siguientes códigos de estado HTTP: 408, 429, 503, 504 o el punto de conexión HTTP no responda. El primer reintento se produce transcurridos 10 segundos. El segundo reintento se produce transcurridos 100 segundos. Después de dos errores, ningún grupo de acciones llamará al punto de conexión durante 30 minutos. 

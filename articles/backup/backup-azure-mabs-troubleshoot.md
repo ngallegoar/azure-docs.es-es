@@ -4,12 +4,12 @@ description: Solucionar problemas de instalación, registro de Azure Backup Serv
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 7a1cac63ba6497b8580c83fe2b666b020701283a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3d27b6d96dfd6c815cedc6194e6bb6e8a101dec2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81688046"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735928"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -38,7 +38,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Copia de seguridad | La réplica es incoherente | Compruebe que está activada la opción para habilitar esa coherencia automática en el Asistente para nuevo grupo de protección. Para obtener más información acerca de las causas de la incoherencia de réplica y sugerencias relevantes, vea el artículo [La réplica es incoherente](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2006/cc161593(v=technet.10)).<br> <ol><li> En el caso de una copia de seguridad de BMR o estado del sistema, compruebe si Windows Server Backup está instalado en el servidor protegido.</li><li> Compruebe si hay problemas relacionados con el espacio en el grupo de almacenamiento de DPM en DPM o Microsoft Azure Backup Server, y asigne almacenamiento según sea necesario.</li><li> Compruebe el estado del Servicio de instantáneas de volumen en el servidor protegido. Si se encuentra en un estado deshabilitado, configúrelo para que se inicie manualmente. Inicie el servicio en el servidor. A continuación, vuelva a la consola de DPM o Microsoft Azure Backup Server y comience la sincronización con el trabajo de comprobación de coherencia.</li></ol>|
+| Copia de seguridad | La réplica es incoherente | Compruebe que está activada la opción para habilitar esa coherencia automática en el Asistente para nuevo grupo de protección. Para más información sobre las opciones de replicación y las comprobaciones de coherencia, consulte [este artículo](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019).<br> <ol><li> En el caso de una copia de seguridad de BMR o estado del sistema, compruebe si Windows Server Backup está instalado en el servidor protegido.</li><li> Compruebe si hay problemas relacionados con el espacio en el grupo de almacenamiento de DPM en DPM o Microsoft Azure Backup Server, y asigne almacenamiento según sea necesario.</li><li> Compruebe el estado del Servicio de instantáneas de volumen en el servidor protegido. Si se encuentra en un estado deshabilitado, configúrelo para que se inicie manualmente. Inicie el servicio en el servidor. A continuación, vuelva a la consola de DPM o Microsoft Azure Backup Server y comience la sincronización con el trabajo de comprobación de coherencia.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>No se pudo crear el punto de recuperación en línea
 
@@ -84,8 +84,8 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
 | Configurar grupos de protección | DPM no pudo enumerar el componente de la aplicación en el equipo protegido (nombre del equipo protegido). | Seleccione **Actualizar** en la pantalla de interfaz de usuario para configurar el grupo de protección en el nivel de origen de datos o el componente correspondiente. |
-| Configurar grupos de protección | No se puede configurar la protección. | Si el servidor protegido es un servidor SQL Server, compruebe si se han proporcionado permisos de rol sysadmin para la cuenta del sistema (NTAuthority\System) en el equipo protegido, tal como se describe en [este artículo](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757977(v=sc.12)).
-| Configurar grupos de protección | No hay suficiente espacio disponible en el grupo de almacenamiento para este grupo de protección. | Los discos que se agregan al grupo de almacenamiento [no deben contener ninguna partición](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)). Elimine los volúmenes existentes en los discos. A continuación, agréguelos al grupo de almacenamiento.|
+| Configurar grupos de protección | No se puede configurar la protección. | Si el servidor protegido es un servidor SQL Server, compruebe si se han proporcionado permisos de rol sysadmin para la cuenta del sistema (NTAuthority\System) en el equipo protegido, tal como se describe en [este artículo](https://docs.microsoft.com/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
+| Configurar grupos de protección | No hay suficiente espacio disponible en el grupo de almacenamiento para este grupo de protección. | Los discos que se agregan al grupo de almacenamiento [no deben contener ninguna partición](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Elimine los volúmenes existentes en los discos. A continuación, agréguelos al grupo de almacenamiento.|
 | Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: No se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. | **Causa:**<br/>Este error se produce bajo tres condiciones: cuando está habilitada la configuración de seguridad, cuando intenta reducir la duración de retención por debajo de los valores mínimos especificados anteriormente y cuando se encuentra en una versión no admitida. (Las versiones no admitidas son las anteriores a la versión 2.0.9052 de Microsoft Azure Backup Server y a la actualización 1 de Azure Backup Server.) <br/>**Acción recomendada:**<br/> Para continuar con las actualizaciones relacionadas con la directiva, establezca el período de retención por encima del período mínimo especificado. (El período de retención mínimo es de siete días para diario, cuatro semanas para semanal, tres semanas para mensual o un año para anual.) <br><br>Si lo desea, otro enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server para aprovechar todas las actualizaciones de seguridad. |
 
 ## <a name="backup"></a>Copia de seguridad

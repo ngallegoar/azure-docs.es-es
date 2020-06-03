@@ -4,12 +4,12 @@ description: En este artículo se describe cómo usar el Explorador de Backup pa
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160996"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715212"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Supervisión de las copias de seguridad con el Explorador de Backup
 
@@ -30,6 +30,7 @@ Estas funcionalidades se proporcionan de forma integrada a través de la integra
 > * El Explorador de Backup no se admite actualmente en las nubes nacionales.
 > * Actualmente no se admite la personalización de la plantilla del Explorador de Backup.
 > * No se recomienda escribir automatizaciones personalizadas en los datos de Azure Resource Graph.
+> * En la actualidad, el Explorador de Backup permite supervisar copias de seguridad en un máximo de 1000 suscripciones (entre inquilinos).
 
 ## <a name="get-started"></a>Introducción
 

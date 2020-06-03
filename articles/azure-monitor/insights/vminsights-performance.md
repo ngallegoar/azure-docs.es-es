@@ -5,17 +5,23 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: a50ba39777e6a9d3d609e584c0c7d872f2a65f35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/31/2020
+ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283725"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684381"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Cómo representar el rendimiento en gráficos con Azure Monitor para VM
 
 Azure Monitor para VM incluye un conjunto de gráficos de rendimiento que tienen como destino varios indicadores clave de rendimiento (KPI) para ayudarle a determinar el rendimiento de una máquina virtual. Los gráficos muestran el uso de los recursos durante un período de tiempo para que pueda identificar cuellos de botella, anomalías, o cambiar a una perspectiva en la que se muestre cada máquina a fin de ver el uso de los recursos en función de la métrica seleccionada. Aunque hay varios elementos a tener en cuenta cuando se trata del rendimiento, Azure Monitor para VM supervisa los indicadores de rendimiento clave del sistema operativo relacionados con la utilización del procesador, la memoria, el adaptador de red y los discos. El rendimiento complementa la característica de supervisión de mantenimiento y ayuda a exponer los problemas que indican un posible error en el componente del sistema. Además, es compatible con la optimización y los ajustes para lograr la eficiencia, así como con el planeamiento de capacidad.  
+
+## <a name="limitations"></a>Limitaciones
+A continuación, se indican las limitaciones en la recopilación del rendimiento con Azure Monitor para VM.
+
+- No hay **memoria disponible** para las máquinas virtuales que ejecutan Red Hat Linux (RHEL) 6. Esta métrica se calcula a partir de **MemAvailable**, que se introdujo en la [versión del kernel 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- Las métricas solo están disponibles para discos de datos de máquinas virtuales Linux que usan la familia del sistema de archivos EXT (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspectiva de varias VM de Azure Monitor
 

@@ -2,13 +2,13 @@
 title: Implementación de recursos con la API de REST y plantilla
 description: Use Azure Resource Manager y la API REST de Resource Manager para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 9cdb7b668e5170917b41ef49639bd9a17e538766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/20/2020
+ms.openlocfilehash: d7865ac6f9b2bb176ea5308e326dec0741a80962
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153240"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723126"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Implementación de recursos con las plantillas de Azure Resource Manager y la API REST de Resource Manager
 
@@ -20,27 +20,35 @@ Puede incluir la plantilla en el cuerpo de solicitud o vincularla a un archivo. 
 
 La implementación puede tener como destino un grupo de administración, una suscripción de Azure o un grupo de recursos. En la mayoría de los casos, la implementación tendrá como destino un grupo de recursos. Use las implementaciones en un grupo de recursos o en una suscripción para aplicar directivas y asignaciones de roles en el ámbito especificado. También puede usar las implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en él. Según el ámbito de la implementación, usará comandos diferentes.
 
-Para implementar en un **grupo de recursos**, use [Deployments - Create](/rest/api/resources/deployments/createorupdate). La solicitud se envía a:
+* Para implementar en un **grupo de recursos**, use [Deployments - Create](/rest/api/resources/deployments/createorupdate). La solicitud se envía a:
 
-```HTTP
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
-```
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  ```
 
-Para implementar en una **suscripción**, use [Deployments - Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La solicitud se envía a:
+* Para implementar en una **suscripción**, use [Deployments - Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La solicitud se envía a:
 
-```HTTP
-PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
-```
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  ```
 
-Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
+  Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
-Para implementar en un **grupo de administración**, use [Deployments - Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La solicitud se envía a:
+* Para implementar en un **grupo de administración**, use [Deployments - Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La solicitud se envía a:
 
-```HTTP
-PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
-```
+  ```HTTP
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  ```
 
-Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+  Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+
+* Para implementar en un **inquilino**, use [Implementaciones: Crear o actualizar en el ámbito del inquilino](/rest/api/resources/deployments/createorupdateattenantscope). La solicitud se envía a:
+
+  ```HTTP
+  PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  ```
+
+  Para más información sobre las implementaciones a nivel de inquilino, consulte [Creación de recursos en el nivel de inquilino](deploy-to-tenant.md).
 
 Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 
@@ -51,7 +59,7 @@ Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 1. Si no tiene un grupo de recursos existente, puede crear uno. Especifique el identificador de la suscripción, el nombre del nuevo grupo de recursos y la ubicación que necesita para la solución. Para obtener más información, consulte [Crear un grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-10-01
    ```
 
    Con un cuerpo de la solicitud como:
@@ -70,7 +78,7 @@ Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 1. Para implementar una plantilla, especifique el identificador de suscripción, el nombre del grupo de recursos y el nombre de la implementación en el URI de solicitud.
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-10-01
    ```
 
    En el cuerpo de solicitud, proporcione un vínculo al archivo de plantilla y parámetros. Para más información sobre el archivo de parámetro, consulte [Creación de un archivo de parámetros de Resource Manager](parameter-files.md).
@@ -184,7 +192,7 @@ Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 1. Para obtener el estado de la implementación de la plantilla, use [Deployments - Get](/rest/api/resources/deployments/get).
 
    ```HTTP
-   GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes

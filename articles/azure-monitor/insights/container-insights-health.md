@@ -2,20 +2,20 @@
 title: Supervisión del estado del clúster de Kubernetes con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede ver y analizar el estado de los clústeres de AKS y que no es AKS con Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 12/01/2019
-ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/18/2020
+ms.openlocfilehash: 94fdb6388134eae326ed5a8e46fbd3d13f8da2d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843997"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649580"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Descripción del estado del clúster de Kubernetes con Azure Monitor para contenedores
 
 Con Azure Monitor para contenedores, supervisa y notifica el estado de mantenimiento de los componentes de infraestructura administrados y todos los nodos que se ejecutan en cualquier clúster de Kubernetes compatible con Azure Monitor para contenedores. Esta experiencia se extiende más allá del estado de mantenimiento del clúster calculado e incluido en la [vista de varios clústeres](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), donde ahora se puede saber si uno o más nodos del clúster tienen restricciones de recursos, o si un nodo o pod no está disponible, lo que podría afectar a una aplicación en ejecución en el clúster basada en las métricas seleccionadas.
 
 >[!NOTE]
->La característica Estado está en versión preliminar pública en este momento.
+>La característica Health pasará a una versión preliminar privada a finales de junio de 2020. Para información adicional, revise los siguientes [anuncio de actualizaciones de Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 >
 
 Para obtener información acerca de cómo habilitar Azure Monitor para contenedores, consulte el artículo sobre [incorporación de Azure Monitor para contenedores](container-insights-onboard.md).
@@ -23,7 +23,7 @@ Para obtener información acerca de cómo habilitar Azure Monitor para contenedo
 >[!NOTE]
 >Para admitir clústeres de AKS Engine, compruebe que cumplen con lo siguiente:
 >- Está usando la versión más reciente del [cliente de HELM](https://helm.sh/docs/using_helm/).
->- La versión de agente en contenedor es *microsoft/oms:ciprod11012019*. Para actualizar el agente, consulte [Actualización del agente en un clúster de Kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>- La versión de agente en contenedor es *microsoft/oms:ciprod11012019*. Para actualizar el agente, consulte [Actualización del agente en un clúster de Kubernetes](container-insights-manage-agent.md#how-to-upgrade-the-azure-monitor-for-containers-agent).
 >
 
 ## <a name="overview"></a>Información general

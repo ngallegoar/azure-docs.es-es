@@ -1,15 +1,15 @@
 ---
-title: 'Aprovisionamiento de un grupo en una red virtual: Azure Batch | Microsoft Docs'
+title: Aprovisionamiento de un grupo en una red virtual
 description: Cómo crear un grupo de Batch en una red virtual de Azure para que los nodos de proceso puedan comunicarse de manera segura con otras máquinas virtuales en la red, como un servidor de archivos.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111902"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797519"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -49,13 +49,13 @@ Una vez que haya creado la red virtual y le haya asignado una subred, puede crea
 
 Es posible que en su organización se requiera redirigir (forzar) el tráfico vinculado con Internet desde la subred a la ubicación local con fines de inspección y registro. Es posible que haya habilitado la tunelización forzada para las subredes de la red virtual.
 
-Para asegurarse de que sus nodos de proceso del grupo de Azure Batch funcionan en una red virtual que tiene habilitada la tunelización forzada, debe agregar las siguientes [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) a esa subred:
+Para asegurarse de que los nodos de ejecución del grupo de Azure Batch funcionan en una red virtual con la tunelización forzada habilitada, debe agregar las siguientes [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) (UDR) para esa subred:
 
-* El servicio Batch debe comunicarse con los nodos de proceso de grupo para programar tareas. Para permitir esta comunicación, agregue una ruta definida por el usuario para cada dirección IP utilizada por el servicio Batch en la región donde existe su cuenta de Batch. Para más información sobre cómo obtener la lista de direcciones IP del servicio Batch, consulte [Etiquetas de servicio en un entorno local](../virtual-network/service-tags-overview.md). Las direcciones IP del servicio Batch se asociarán a la etiqueta de servicio `BatchNodeManagement` (o la variante regional que coincida con la región de la cuenta de Batch).
+* El servicio Batch debe comunicarse con los nodos de proceso de grupo para programar tareas. Para habilitar esta comunicación, agregue una ruta definida por el usuario para cada dirección IP usada por el servicio Batch en la región donde existe la cuenta de Batch. Para más información sobre cómo obtener la lista de direcciones IP del servicio Batch, consulte [Etiquetas de servicio en un entorno local](../virtual-network/service-tags-overview.md).
 
 * Asegúrese de que el tráfico saliente hacia Azure Storage (en concreto, las direcciones URL del formulario `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, y `<account>.blob.core.windows.net`) no está bloqueado mediante el dispositivo de red local.
 
-Cuando se agregueuna ruta definida por el usuario, defina la ruta para cada prefijo de dirección IP de Batch relacionada y establezca **Tipo de próximo salto** en **Internet**. Vea el ejemplo siguiente:
+Cuando agregue una ruta definida por el usuario, defina la ruta de cada prefijo de dirección IP de Batch relacionado y establezca **Tipo del próximo salto** en **Internet**. Vea el ejemplo siguiente:
 
 ![Ruta definida por el usuario](./media/batch-virtual-network/user-defined-route.png)
 
@@ -64,5 +64,5 @@ Cuando se agregueuna ruta definida por el usuario, defina la ruta para cada pref
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
-- Para más información sobre cómo crear una ruta definida por el usuario, consulte [Creación de una ruta definida por el usuario - Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).
+- Obtenga información sobre el [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
+- Para obtener más información sobre la creación de una ruta definida por el usuario, vea [Creación de una ruta definida por el usuario - Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).

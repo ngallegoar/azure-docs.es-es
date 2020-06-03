@@ -1,15 +1,15 @@
 ---
-title: Ejecución de Linux en nodos de proceso de máquinas virtuales - Azure Batch | Microsoft Docs
+title: Ejecución de Linux en nodos de proceso de máquinas virtuales
 description: Obtenga información acerca de cómo procesar las cargas de trabajo de proceso paralelas en grupos de máquinas virtuales de Linux en el servicio Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31e7a9558590ee3c6943e7a50c67c93f713908c7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cd8a39556fb0aec0ddbf6c8e639281d7329228a4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993824"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726611"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionamiento de nodos de proceso de Linux en grupos de Batch
 
@@ -21,7 +21,7 @@ Puede usar el servicio Azure Batch para ejecutar cargas de trabajo de proceso pa
 >
 
 ## <a name="virtual-machine-configuration"></a>Configuración de la máquina virtual
-Cuando crea un grupo de nodos de proceso en el servicio Batch, tiene dos opciones para seleccionar el sistema operativo y el tamaño de nodo: configuración de Cloud Services y configuración de la máquina virtual.
+Cuando crea un grupo de nodos de proceso en el servicio Batch, tiene dos opciones para seleccionar el sistema operativo y el tamaño de nodo: configuración de Cloud Services y configuración de Virtual Machine.
 
 **Configuración de Cloud Services** proporciona *solo* nodos de proceso de Windows. Los tamaños de nodos de proceso disponibles se muestran en [Tamaño Cloud Services](../cloud-services/cloud-services-sizes-specs.md) y los sistemas operativos disponibles se enumeran en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Al crear un grupo que contiene nodos de Azure Cloud Services, debe especificar el tamaño del nodo y la familia del SO, que se describen en los artículos mencionados anteriormente. Para los grupos de nodos de proceso de Windows, la mayoría de las veces se utilizan Cloud Services.
 
@@ -57,7 +57,7 @@ El agente de nodo del servicio Batch es un programa que se ejecuta en cada nodo 
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Cree un grupo de Linux: Python de Batch
+## <a name="create-a-linux-pool-batch-python"></a>Crear un grupo de Linux: Python de Batch
 El fragmento de código siguiente muestra un ejemplo de cómo usar la [biblioteca cliente de Microsoft Azure Batch para Python][py_batch_package] a fin de crear un grupo de nodos de proceso del servidor de Ubuntu. Puede encontrar la documentación de referencia del módulo de Batch para Python en el [paquete azure.batch][py_batch_docs] (sección Lea los documentos).
 
 En este fragmento de código, se crea una [ImageReference][py_imagereference] explícitamente y se especifica cada una de sus propiedades (publicador, oferta, SKU, versión). Pero en el código de producción se recomienda usar el método [list_supported_images][py_list_supported_images] para determinar y seleccionar entre las combinaciones disponibles de SKU de agentes de nodo e imágenes en tiempo de ejecución.
@@ -141,7 +141,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id=image.node_agent_sku_id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Cree un grupo de Linux: .NET de Batch
+## <a name="create-a-linux-pool-batch-net"></a>Crear un grupo de Linux: .NET de Batch
 El fragmento de código siguiente muestra un ejemplo de cómo utilizar la biblioteca cliente [.NET de Batch][nuget_batch_net] para crear un grupo de nodos de proceso del servidor de Ubuntu. Puede encontrar la [documentación de referencia de .NET de Batch][api_net] en docs.microsoft.com.
 
 El fragmento de código siguiente usa el método [PoolOperations][net_pool_ops].[ListSupportedImages][net_list_supported_images] para seleccionar en la lista de combinaciones de SKU de imágenes de Marketplace y agentes de nodo admitidas actualmente. Esta técnica es deseable porque la lista de combinaciones admitidas puede cambiar de vez en cuando. Normalmente, se agregan las combinaciones admitidas.

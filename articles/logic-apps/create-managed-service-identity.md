@@ -1,21 +1,21 @@
 ---
 title: Autenticación con identidades administradas
-description: Acceder a los recursos de otros inquilinos de Azure Active Directory sin iniciar sesión con credenciales o secretos mediante el uso de una identidad administrada
+description: Acceda a recursos protegidos por Azure Active Directory sin iniciar sesión con credenciales ni secretos mediante una identidad administrada
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 82710a66cdf7874c745070e49b2c7aff7bc8816d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73f3e7561b97574c4603e480b972eaf2a9a1ed48
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77117430"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708047"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
-Para obtener acceso a los recursos en otros inquilinos de Azure Active Directory (Azure AD) y autenticar su identidad sin iniciar sesión, su aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocida como Managed Service Identity o MSI), en lugar de credenciales o secretos. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos.
+Para acceder fácilmente a otros recursos protegidos por Azure Active Directory (Azure AD) y autenticar la identidad sin iniciar sesión, la aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocida como Managed Service Identity o MSI), en lugar de credenciales o secretos. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos.
 
 Azure Logic Apps admite identidades administradas tanto [*asignadas por el sistema*](../active-directory/managed-identities-azure-resources/overview.md) como [*asignadas por el usuario*](../active-directory/managed-identities-azure-resources/overview.md). Su aplicación lógica puede usar la identidad asignada por el sistema o una *sola* identidad asignada por el usuario, que puede compartir en un grupo de aplicaciones lógicas, pero no ambas. Actualmente, solo [las acciones y los desencadenadores integrados específicos](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) admiten identidades administradas y conexiones o conectores no administrados, tales como:
 

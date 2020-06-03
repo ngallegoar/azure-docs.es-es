@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509251"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683560"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,7 @@ az aks update \
 En el ejemplo anterior se actualiza el escalado automático del clúster en el único grupo de nodos de *myAKSCluster* a un mínimo de *1* y un máximo de *5* nodos.
 
 > [!NOTE]
-> No se puede establecer un número mínimo de nodos que sea mayor que el establecido para el grupo de nodos. Por ejemplo, si actualmente tiene el mínimo establecido en *1*, no se puede actualizar a *3*.
+El escalador automático del clúster toma sus decisiones de escalado en función de los recuentos mínimo y máximo establecidos en cada grupo de nodos, pero no los aplica. Por ejemplo, si se establece un recuento mínimo de 5 cuando el recuento de nodos actual es 3, no se escala inmediatamente el grupo hasta 5. Si cambia el recuento mínimo en el grupo de nodos a un valor superior al número actual de nodos, se respeta este nuevo límite si hay suficientes pods que no se pueden programar que requieren 2 nuevos nodos adicionales y desencadenan un evento del escalador automático. Cuando sucede esto, se respeta el nuevo límite de recuento mínimo para el escalador automático del clúster.
 
 Supervise el rendimiento de las aplicaciones y los servicios y ajuste la cantidad de nodos del escalado automático de clústeres para que coincida con el rendimiento necesario.
 
