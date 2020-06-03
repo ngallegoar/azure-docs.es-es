@@ -2,19 +2,19 @@
 title: Configuración de recursos para la implementación de un modelo de ML en Azure SQL Edge
 description: En la primera parte de este tutorial de tres partes de Azure SQL Edge para predecir impurezas de mineral de hierro, instalará el software necesario y configurará los recursos de Azure necesarios para implementar un modelo de aprendizaje automático en Azure SQL Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: c74e402fa1faa883b1e456f11a8d9d7b1e750d27
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 30c024aafc1cf8f479de77107b7f0aaaa262d47c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772852"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235077"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instalación del software y configuración de recursos para el tutorial
 

@@ -9,16 +9,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d4fa61f8290f3bf9e2f065ec841fa94d8ecaaac1
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195628"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267212"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integración de varios recursos del Lector inmersivo
 
-En la [introducción](./overview.md), se indica lo que es el Lector inmersivo y cómo implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, alumnos de idiomas y alumnos con diferencias de aprendizaje. En el [inicio rápido de Node. js](./quickstart-nodejs.md), ha aprendido a usar el Lector inmersivo con un solo recurso. En este tutorial se explica cómo integrar varios recursos del Lector inmersivo en la misma aplicación. En este tutorial, aprenderá a:
+En la [introducción](./overview.md), se indica lo que es el Lector inmersivo y cómo implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, alumnos de idiomas y alumnos con diferencias de aprendizaje. En el [inicio rápido de Node. js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs), ha aprendido a usar el Lector inmersivo con un solo recurso. En este tutorial se explica cómo integrar varios recursos del Lector inmersivo en la misma aplicación. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear varios recursos del Lector inmersivo en un grupo de recursos existente
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Siga el [inicio rápido](./quickstart-nodejs.md) para crear una aplicación web que inicie el Lector inmersivo con NodeJS. En ese inicio rápido, se configura un único recurso del Lector inmersivo. En este tutorial trabajaremos a partir de esto.
+* Siga el [inicio rápido](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para crear una aplicación web que inicie el Lector inmersivo con NodeJS. En ese inicio rápido, se configura un único recurso del Lector inmersivo. En este tutorial trabajaremos a partir de esto.
 
 ## <a name="create-the-immersive-reader-resources"></a>Creación de recursos del Lector inmersivo
 

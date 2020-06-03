@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 786b4141ed83121dce069b45ce7ddcd91bb3b00e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757193"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020802"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
@@ -154,7 +154,7 @@ En este escenario, Traffic Manager está conectado a las puertas de enlace de ap
 
 En este escenario, Load Balancer distribuye conexiones desde el nivel web hasta las bases de datos dentro de un clúster de alta disponibilidad.
 
-Si el clúster de base de datos de alta disponibilidad usa SQL Server AlwaysOn, consulte [Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) para ver las instrucciones paso a paso.
+Si el clúster de base de datos de alta disponibilidad usa SQL Server AlwaysOn, consulte [Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) para ver las instrucciones paso a paso.
 
 Para más información cómo configurar un equilibrador de carga interno, consulte [Creación de un equilibrador de carga interno en Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
