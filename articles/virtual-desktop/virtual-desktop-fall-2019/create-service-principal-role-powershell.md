@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f87f5387fc97e3b697488b266cb2c3981409294
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613871"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117721"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
@@ -116,4 +116,4 @@ Una vez iniciada la sesión, pruebe algunos cmdlets de PowerShell en Windows Vir
 Una vez que ha creado la entidad de servicio y le ha asignado un rol en el inquilino de Windows Virtual Desktop, puede usarla para crear un grupo host. Para más información acerca de los grupos host, continúe con el tutorial de creación de un grupo host en Windows Virtual Desktop.
 
  > [!div class="nextstepaction"]
- > [Creación de un grupo host con Azure Marketplace](../create-host-pools-azure-marketplace.md)
+ > [Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace-2019.md)

@@ -11,16 +11,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: dc4a2f83f59ab94d1bff8a005b37124f2822c72b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 45acac646fece808065d12081bdc28eff92a1b79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209424"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119344"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitación del registro para servicios web de Azure Machine Learning Studio (clásico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 En este documento se proporciona información sobre la funcionalidad de registro de los servicios web de Machine Learning Studio (clásico). El registro ofrece información adicional, más allá de un número de error y un mensaje, que puede ayudar a solucionar problemas con las llamadas a las API de Machine Learning Studio (clásico).  
 
