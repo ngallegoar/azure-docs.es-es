@@ -6,14 +6,14 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780504"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849032"
 ---
-# <a name="getting-paid-in-commercial-marketplace"></a>Recepción de pagos en el marketplace comercial
+# <a name="getting-paid-in-the-commercial-marketplace"></a>Recepción de pagos en el Marketplace comercial
 
 Esta es información importante sobre cómo recibir el pago por las ofertas, los complementos y los ingresos publicitarios.
 
@@ -30,7 +30,7 @@ Los honorarios de Store se aplican a todas las ventas de ofertas que reciba el M
 
 ## <a name="price-tiers"></a>Franjas de precio
 
-Las franjas de precio seleccionadas establecen el precio de venta en todos los países en los que quiere distribuir su oferta. También puede usar funciones de precios adicionales, como elegir precios diferentes para distintos mercados.
+Las franjas de precio seleccionadas establecen el precio de venta en todos los países o regiones en los que decida distribuir su oferta. También puede usar funciones de precios adicionales, como elegir precios diferentes para distintos mercados.
 
 Puede ofrecer su aplicación de forma gratuita, o puede elegir un precio que los clientes deben pagar para adquirir su oferta. Las franjas de precio comienzan en los 0,99 USD, con incrementos adicionales (1,09 USD, 1,19 USD, etc.). Los incrementos entre las franjas de precio aumentan a medida que el precio es mayor.
 
@@ -43,17 +43,15 @@ También tiene la opción de especificar el precio que quiera de forma libre en 
 
 Tenga en cuenta que el precio que seleccione puede incluir impuestos de ventas o al valor añadido que los clientes deben pagar. Para más información, consulte [Información sobre impuestos para los publicadores de Marketplace comercial](tax-details-paid-transactions.md).
 
-
 ## <a name="payout-reporting"></a>Informes de pago
 
 Puede obtener acceso a los detalles sobre la información de pago y descargar informes en el **Resumen de pago** del [Centro de partners](https://partner.microsoft.com/dashboard). Para más información sobre lo que se muestra aquí y cómo clasificamos el dinero que gana, consulte [Introducción al resumen de pagos](payout-summary-overview.md).
 
-
 ## <a name="payout-time-frame"></a>Plazo de tiempo para el pago
 
-Los pagos se realizan mensualmente (siempre que se cumpla el umbral de pago aplicable y no haya retenido el pago tal y como se describe a continuación). Normalmente enviaremos todos los pagos cuyo vencimiento sea en un mes específico antes del día 15 de ese mes. Tenga en cuenta que los pagos suelen tardar entre 3 y 10 días laborables adicionales para llegar a su cuenta de pago. Para conocer los detalles, consulte [Umbrales de pago, métodos e intervalos de tiempo](payment-thresholds-methods-timeframes.md).
+Los pagos se realizan mensualmente (siempre que se cumpla el umbral de pago aplicable y que no se haya retenido el pago, tal y como se describe a continuación). Normalmente enviaremos todos los pagos cuyo vencimiento sea en un mes específico antes del día 15 de ese mes. Tenga en cuenta que los pagos suelen tardar entre 3 y 10 días laborables adicionales para llegar a su cuenta de pago. Para conocer los detalles, consulte [Umbrales de pago, métodos e intervalos de tiempo](payment-thresholds-methods-timeframes.md).
 
-##  <a name="payout-hold-status"></a>Estado de retención de pagos
+## <a name="payout-hold-status"></a>Estado de retención de pagos
 
 De forma predeterminada, enviaremos pagos mensualmente, como se describió anteriormente. No obstante, tiene la opción de retener los pagos de un programa, lo que nos impediría enviar pagos a su cuenta. Si decide retener los pagos, se siguen registrando los ingresos que genera y se le proporcionan los detalles en el **Resumen de pagos**. Pero no se le envía ningún pago a la cuenta hasta que quite la retención.
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e529144198d0c635e74955e98d47dd46ac4fb733
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614185"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657249"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificación y diagnóstico de problemas
 
@@ -139,6 +139,7 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 
 |Código numérico|Código de error|Solución propuesta|
 |---|---|---|
+|1322|ConnectionFailedNoMappingOfSIDinAD|El usuario no es miembro de Azure Active Directory. Siga las instrucciones del [Centro de administración de Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para agregarlas.|
 |3|UnauthorizedAccess|El usuario que intentó ejecutar el cmdlet de PowerShell administrativo no tiene permisos para hacerlo o ha escrito incorrectamente el nombre de usuario.|
 |1000|TenantNotFound|El nombre de inquilino especificado no coincide con ningún inquilino existente. Revise el nombre de inquilino para ver si hay errores tipográficos e inténtelo de nuevo.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|Un inquilino no se puede eliminar si contiene objetos. Elimine primero los grupos de hosts de la sesión e inténtelo de nuevo.|
@@ -160,6 +161,7 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 
 |Código numérico|Código de error|Solución propuesta|
 |---|---|---|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|El usuario no es miembro de Azure Active Directory. Siga las instrucciones del [Centro de administración de Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para agregarlas.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|El host de sesión no está unido correctamente a Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Las conexiones no se pudieron establecer porque el host de sesión no está disponible. Compruebe el estado del host de sesión.|
 |-2146233088|ConnectionFailedClientDisconnect|Si ve este error con frecuencia, asegúrese de que el equipo del usuario está conectado a la red.|

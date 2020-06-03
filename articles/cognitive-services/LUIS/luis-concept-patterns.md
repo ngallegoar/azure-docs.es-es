@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 86f4eab266aabccd25e1269e1942e535f6af5436
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591850"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683907"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones.
@@ -36,14 +36,14 @@ Si una aplicación tiene entre 10 y 20 expresiones con distintas longitudes de o
 Los patrones solucionan las situaciones siguientes:
 
 * La puntuación de la intención es baja.
-* La intención correcta no es la puntuación más alta, pero se acerca demasiado a ella. 
+* La intención correcta no es la puntuación más alta, pero se acerca demasiado a ella.
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Los patrones no son una garantía de intención
 Los patrones emplean una combinación de tecnologías de predicción. Establecer una intención para una expresión de plantilla en un patrón no es una garantía de la predicción de la intención, pero es un buen indicio.
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Los patrones no mejoran la detección de entidades de aprendizaje automático.
+## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Los patrones no mejoran la detección de entidades de aprendizaje automático.
 
 La única finalidad de un patrón es ayudar a la predicción de intenciones y roles. La entidad _pattern.any_ se usa para extraer entidades de forma libre. Si bien los patrones usan entidades, un patrón no ayuda a detectar una entidad de aprendizaje automático.
 

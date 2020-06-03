@@ -2,13 +2,13 @@
 title: 'Expresiones de ejemplo correctas: LUIS'
 description: Las expresiones son datos proporcionados por el usuario que la aplicación necesita interpretar. Recopile frases que crea que los usuarios pueden escribir. Incluya expresiones que signifiquen lo mismo, pero que se construyan de forma diferente tanto en longitud de palabras como en el orden de las palabras.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592872"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685276"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -84,7 +84,7 @@ Establezca la configuración de la versión a través del portal LUIS, en la sec
 
 ### <a name="word-forms"></a>Formas de las palabras
 
-Normalizar las **formas de las palabras** omite las diferencias en las palabras que se expanden más allá de la raíz. Por ejemplo, las palabras `run`, `running`y `runs` cambian en función del tiempo verbal.
+Normalizar las **formas de las palabras** omite las diferencias en las palabras que se expanden más allá de la raíz.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

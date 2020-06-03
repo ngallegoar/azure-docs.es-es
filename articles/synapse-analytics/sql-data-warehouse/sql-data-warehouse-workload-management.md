@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: dd867d4aa9a9ef5ed73e78a46826a8cd5239039b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 23ede806b627ad0f77e325ab391d37347f4bb29f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744221"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650452"
 ---
 # <a name="what-is-workload-management"></a>¿Qué es la administración de cargas de trabajo?
 
@@ -38,13 +38,13 @@ La capacidad de rendimiento de un almacén de datos viene determinada por las [u
 
 ## <a name="workload-management-concepts"></a>Conceptos sobre la administración de cargas de trabajo
 
-En el pasado, con SQL Analytics en Azure Synapse, el rendimiento de las consultas se administrada mediante [clases de recursos](resource-classes-for-workload-management.md).  Clases de recursos permitidas para asignar memoria a una consulta basada en la pertenencia a roles.  El desafío principal con las clases de recursos es que, una vez que se configura, no hay ninguna gobernanza ni capacidad para controlar la carga de trabajo.  
+Antes, con Synapse SQL de Azure Synapse, el rendimiento de las consultas se administrada mediante [clases de recursos](resource-classes-for-workload-management.md).  Clases de recursos permitidas para asignar memoria a una consulta basada en la pertenencia a roles.  El desafío principal con las clases de recursos es que, una vez que se configura, no hay ninguna gobernanza ni capacidad para controlar la carga de trabajo.  
 
 Por ejemplo, conceder una pertenencia a roles de usuario ad hoc a smallrc permitía que el usuario consumiera el 100 % de la memoria del sistema.  Con las clases de recursos, no hay ninguna manera de reservar y garantizar que los recursos estén disponibles para las cargas de trabajo críticas.
 
 La administración de cargas de trabajo del grupo de SQL de Synapse en Azure Synapse consta de tres conceptos de alto nivel: [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md), [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Aislamiento de la carga de trabajo](sql-data-warehouse-workload-isolation.md).  Estas funcionalidades proporcionan más control sobre cómo la carga de trabajo usa los recursos del sistema.
 
-La clasificación de la carga de trabajo es el concepto de asignar una solicitud a un grupo de cargas de trabajo y establecer los niveles de importancia.  Históricamente, esta asignación se realizaba a través de la pertenencia a roles mediante [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Esto se puede hacer ahora a través de [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  La capacidad de clasificación proporciona un conjunto más completo de opciones, como la etiqueta, la sesión y el tiempo para clasificar las solicitudes.
+La clasificación de la carga de trabajo es el concepto de asignar una solicitud a un grupo de cargas de trabajo y establecer los niveles de importancia.  Históricamente, esta asignación se realizaba a través de la pertenencia a roles mediante [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Esta acción puede hacerse ahora a través de [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  La capacidad de clasificación proporciona un conjunto más completo de opciones, como la etiqueta, la sesión y el tiempo para clasificar las solicitudes.
 
 La importancia de la carga de trabajo influye en el orden en el que una solicitud obtiene acceso a los recursos.  En un sistema ocupado, una solicitud con mayor importancia tiene el primer acceso a los recursos.  La importancia también puede garantizar el acceso ordenado a los bloqueos.
 

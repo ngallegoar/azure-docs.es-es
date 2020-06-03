@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e725df5c875f23d82da1fda19bcdf28db548fc8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c8b66e42c5719203eb0f195a5b61e81da8b187e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426628"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658122"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conexión a SQL de Synapse con Visual Studio y SSDT
 > [!div class="op_single_selector"]
@@ -28,20 +28,19 @@ ms.locfileid: "81426628"
 
 Use Visual Studio para consultar el grupo de SQL mediante Azure Synapse Analytics. Este método usa la extensión SQL Server Data Tools (SSDT) de Visual Studio 2019. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Herramientas compatibles con SQL a petición (versión preliminar)
-
-Visual Studio actualmente no es compatible con SQL a petición (versión preliminar). Sin embargo, Azure Data Studio (versión preliminar) es una herramienta totalmente compatible. SQL Server Management Studio es parcialmente compatible con la versión 18.4 y tiene características limitadas, como las conexiones y las consultas.
+> [!NOTE]
+> SQL a petición (versión preliminar) no es compatible con SSDT.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Para usar este tutorial, debe contar con los siguientes componentes:
 
 * Un grupo de SQL existente. Si no tiene una, consulte [Creación de un grupo de SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para completar este requisito previo.
 * SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga este componente. Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* El nombre del servidor SQL completo. Para encontrarlo, consulte [Conexión al grupo de SQL](connect-overview.md).
+* El nombre del servidor SQL completo. Para encontrar este nombre de servidor, consulte [Conexión al grupo de SQL](connect-overview.md).
 
 ## <a name="1-connect-to-sql-pool"></a>1. Conexión al grupo de SQL
 1. Abra Visual Studio 2019.
-2. Abra el Explorador de objetos de SQL Server. Para ello, seleccione **Ver** > **Explorador de objetos de SQL Server**.
+2. Abra el Explorador de objetos de SQL Server; para ello, seleccione **Ver** > **Explorador de objetos de SQL Server**.
    
     ![Explorador de objetos de SQL Server](./media/get-started-visual-studio/open-ssdt.png)
 3. Haga clic en el botón **Agregar SQL Server** .
@@ -71,7 +70,7 @@ Ahora que se ha establecido una conexión a la base de datos, podrá escribir un
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Ejecuta la consulta. Para hacerlo, haga clic en la flecha verde o use la combinación de teclas `CTRL`+`SHIFT`+`E`.
+4. Ejecute la consulta al hacer clic en la flecha verde o use el siguiente acceso directo: `CTRL`+`SHIFT`+`E`.
    
     ![Ejecutar consulta](./media/get-started-visual-studio/run-query.png)
 5. Consulte los resultados de la consulta. En este ejemplo, la tabla FactInternetSales tiene 60398 filas.

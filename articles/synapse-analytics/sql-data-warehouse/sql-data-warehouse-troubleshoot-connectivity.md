@@ -11,46 +11,46 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408206"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650490"
 ---
-# <a name="troubleshooting-connectivity-issues"></a>Solución de problemas de conectividad
+# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Solución de problemas de conectividad en el grupo de Synapse SQL
 
-En este artículo se enumeran las técnicas de solución de problemas comunes en torno a la conexión a la base de datos de SQL Analytics.
+En este artículo se enumeran las técnicas de solución de problemas comunes en torno a la conexión de una base de datos de grupo de SQL.
 
 ## <a name="check-service-availability"></a>Comprobación de la disponibilidad del servicio
 
-Compruebe si el servicio está disponible. En Azure Portal, vaya a la instancia del grupo de SQL de Synapse al que está intentando conectarse. En el panel de índice izquierdo, haga clic en **Diagnosticar y solucionar problemas**.
+Compruebe si el servicio está disponible. En Azure Portal, vaya al grupo de SQL al que está intentando conectarse. En el panel de índice izquierdo, haga clic en **Diagnosticar y solucionar problemas**.
 
 ![Selección de Resource Health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-El estado de su grupo de SQL de Synapse se mostrará aquí. Si el servicio no se muestra como **disponible**, consulte más pasos.
+El estado de su grupo de SQL se mostrará aquí. Si el servicio no se muestra como **disponible**, consulte más pasos.
 
 ![El servicio está disponible](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Si Resource Health muestra que la instancia del grupo de SQL de Synapse está en pausa o se está escalando, siga las instrucciones para reanudarla.
+Si Resource Health muestra que la instancia del grupo de SQL está en pausa o se está escalando, siga las instrucciones para reanudarla.
 
 ![Servicio pausado](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Aquí puede encontrar información adicional sobre Resource Health.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Comprobación de la operación de pausa o escalado
 
-Compruebe el portal para ver si su instancia del grupo de SQL de Synapse está en pausa o se está escalando.
+Compruebe en el portal si su instancia del grupo de SQL está en pausa o se está escalando.
 
 ![Servicio en pausa](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Si ve el servicio está en pausa o escalado, compruebe que no es durante la programación de mantenimiento. En el portal, en la página *Información general* del grupo de SQL de Synapse, verá la programación de mantenimiento elegida.
+Si ve el servicio está en pausa o escalado, compruebe que no es durante la programación de mantenimiento. En el portal, en la página *Información general* del grupo de SQL, verá la programación de mantenimiento elegida.
 
 ![Información general de la programación de mantenimiento](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-En caso contrario, consulte al Administrador de TI para comprobar que este mantenimiento no es un evento programado. Para reanudar la instancia de SQL Analytics, siga [estos pasos](pause-and-resume-compute-portal.md).
+En caso contrario, consulte al Administrador de TI para comprobar que este mantenimiento no es un evento programado. Para reanudar la instancia del grupo de SQL, siga [estos pasos](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Comprobación de la configuración de firewall
 
-La base de datos de SQL Analytics se comunica a través del puerto 1433.   Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433. Puede encontrar información adicional sobre las configuraciones de firewall [aquí](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+La base de datos del grupo de SQL se comunica a través del puerto 1433.  Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433. Puede encontrar información adicional sobre las configuraciones de firewall [aquí](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Comprobación de la configuración del punto de conexión de servicio o red virtual
 
@@ -60,7 +60,7 @@ Si recibe los errores 40914 y 40615, consulte la [descripción del error y la re
 
 ### <a name="software"></a>Software
 
-Asegúrese de usar las herramientas más recientes para conectarse al grupo de SQL de Synapse:
+Asegúrese de usar las herramientas más recientes para conectarse al grupo de SQL:
 
 - SSMS
 - Azure Data Studio
@@ -105,7 +105,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemas de conexión intermitente
 
-Compruebe si experimenta mucha carga en el servidor con un gran número de solicitudes en cola. Es posible que deba escalar verticalmente el grupo de SQL de Synapse para obtener recursos adicionales.
+Compruebe si experimenta mucha carga en el servidor con un gran número de solicitudes en cola. Es posible que deba escalar verticalmente el grupo de SQL para obtener recursos adicionales.
 
 ## <a name="common-error-messages"></a>Mensajes comunes de error
 

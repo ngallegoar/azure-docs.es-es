@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ef7d06dfb074a3453f5589284cbdaf079c48d111
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933776"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655323"
 ---
-# <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento estándar (manual) en Azure Cosmos DB
 
-En este artículo se explica cómo aprovisionar el rendimiento en una base de datos de Azure Cosmos DB. Puede aprovisionar el rendimiento de un único [contenedor](how-to-provision-container-throughput.md), o bien de una base de datos y compartir el rendimiento entre los contenedores que se incluyen en ella. Para saber cuándo se debe usar el rendimiento de nivel de contenedor y de nivel de base de datos, consulte el artículo [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). Para aprovisionar el rendimiento en el nivel de base de datos, se puede usar Azure Portal o los SDK de Azure Cosmos DB.
+En este artículo se explica cómo aprovisionar el rendimiento en una base de datos de Azure Cosmos DB. Puede aprovisionar el rendimiento de un único [contenedor](how-to-provision-container-throughput.md), o bien de una base de datos y compartir el rendimiento entre los contenedores que se incluyen en ella. Para saber cuándo se debe usar el rendimiento de nivel de contenedor y de nivel de base de datos, consulte el artículo [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). Para aprovisionar el rendimiento en el nivel de base de datos, se puede usar Azure Portal o los SDK de Azure Cosmos DB.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionamiento del rendimiento mediante Azure Portal
 
@@ -48,7 +48,7 @@ Para crear una base de datos con capacidad de procesamiento compartida, consulte
 
 ### <a name="all-apis"></a><a id="dotnet-all"></a>Todas las API
 
-### <a name="net-v2-sdk"></a>SDK de .NET V2
+# <a name="net-sdk-v2"></a>[SDK para .NET V2](#tab/dotnetv2)
 
 ```csharp
 //set the throughput for the database
@@ -63,12 +63,16 @@ await client.CreateDatabaseIfNotExistsAsync(
     options);
 ```
 
-### <a name="net-v3-sdk"></a>SDK de .NET V3
+# <a name="net-sdk-v3"></a>[SDK para .NET V3](#tab/dotnetv3)
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
+---
+
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Cassandra API
-Se pueden ejecutar comandos similares a través de cualquier controlador compatible con CQL. 
+
+Se pueden ejecutar comandos similares a través de cualquier controlador compatible con CQL.
+
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
@@ -80,5 +84,6 @@ Consulte los siguientes artículos para obtener más información sobre el rendi
 
 * [Escalado global del rendimiento aprovisionado](scaling-throughput.md)
 * [Aprovisionamiento del rendimiento en contenedores y bases de datos](set-throughput.md)
-* [How to provision throughput for a container](how-to-provision-container-throughput.md) (Aprovisionamiento del rendimiento de un contenedor)
+* [Aprovisionamiento del rendimiento estándar (manual) en un contenedor de Azure Cosmos](how-to-provision-container-throughput.md)
+* [Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o contenedor de Azure Cosmos DB](how-to-provision-autoscale-throughput.md)
 * [Rendimiento y unidades de solicitud en Azure Cosmos DB](request-units.md)

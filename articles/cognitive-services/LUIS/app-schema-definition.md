@@ -3,12 +3,12 @@ title: Definición de esquemas de la aplicación
 description: La aplicación de LUIS se representa en formato `.json` o `.lu` e incluye todas las intenciones, las entidades, las expresiones de ejemplo, las características y la configuración.
 ms.topic: reference
 ms.date: 05/05/2020
-ms.openlocfilehash: 21b58f79ffd2baf553c6f8b07daa84473e620f77
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599296"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684349"
 ---
 # <a name="app-schema-definition"></a>Definición del esquema de la aplicación
 

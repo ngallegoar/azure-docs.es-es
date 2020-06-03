@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790990"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847827"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Uso de un punto de conexión HTTPS para administrar clientes potenciales de marketplace comercial
 
@@ -229,8 +229,9 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Seleccione la oferta y vaya a la pestaña **Configuración de la oferta**.
 
-1. En la sección **Administración de clientes potenciales**, seleccione **Conectar**. 
-    ![Botón Conectar de administración de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+1. En la sección **Clientes potenciales**, seleccione **Conectar**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Clientes potenciales":::
 
 1. En la ventana emergente **Detalles de conexión**, seleccione **Punto de conexión HTTPS** como **Destino de clientes potenciales**. Pegue la dirección URL de HTTP POST del flujo que creó siguiendo los pasos anteriores en el campo **Dirección URL del punto de conexión HTTPS**.
     ![Detalles de la conexión: Correo electrónico de contacto](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)

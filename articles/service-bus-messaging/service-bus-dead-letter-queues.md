@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6630d96c90a221a6b0374f2e4758748a77ad0610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158915"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647828"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
@@ -50,14 +50,13 @@ Como el agente mueve el mensaje, se agregan dos propiedades a dicho mensaje dado
 
 Las aplicaciones pueden definir sus propios códigos para la propiedad `DeadLetterReason`, pero el sistema establece los valores siguientes.
 
-| Condición | DeadLetterReason | DeadLetterErrorDescription |
-| --- | --- | --- |
-| Siempre |HeaderSizeExceeded |Se superó la cuota de tamaño de esta transmisión. |
-| !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |El mensaje expiró y se consideró fallido. |
-| SubscriptionDescription.RequiresSession |El identificador de sesión es null. |La entidad habilitada por sesión no permite un mensaje cuyo identificador de sesión es null. |
-| !cola de mensajes fallidos | MaxTransferHopCountExceeded | Número máximo de saltos permitidos al reenviar contenido entre colas. El valor se establece en 4. |
-| Mensajes fallidos explícitos de aplicación |Especificado por la aplicación |Especificado por la aplicación |
+| DeadLetterReason | DeadLetterErrorDescription |
+| --- | --- |
+|HeaderSizeExceeded |Se superó la cuota de tamaño de esta transmisión. |
+|TTLExpiredException |El mensaje expiró y se consideró fallido. Consulte la sección [Se supera el valor de TimeToLive](#exceeding-timetolive) para obtener más información. |
+|El identificador de sesión es null. |La entidad habilitada por sesión no permite un mensaje cuyo identificador de sesión es null. |
+|MaxTransferHopCountExceeded | Número máximo de saltos permitidos al reenviar contenido entre colas. El valor se establece en 4. |
+| MaxDeliveryCountExceededExceptionMessage | El mensaje no se pudo usar después de que transcurriera el número máximo de intentos de entrega. Para obtener más información, consulte la sección [Se supera el valor de MaxDeliveryCount](#exceeding-maxdeliverycount). |
 
 ## <a name="exceeding-maxdeliverycount"></a>Superación de MaxDeliveryCount
 

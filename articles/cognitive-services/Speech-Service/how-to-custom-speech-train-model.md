@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77137765"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722633"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entrenamiento de un modelo de Habla personalizada
 
@@ -42,7 +42,7 @@ El primer paso para entrenar un modelo es cargar los datos de entrenamiento. Use
 2. Vaya a **Speech-to-text &gt; Custom Speech &gt; Training** (Conversión de voz a texto &gt; Habla personalizada &gt; Aprendizaje).
 3. Haga clic en **Train model** (Entrenar modelo).
 4. A continuación, asigne a su entrenamiento un **nombre** y una **descripción**.
-5. En el menú desplegable **Scenario and Baseline model** (Escenario y modelo de línea de base), seleccione el escenario que mejor se adapte a su dominio. Si no está seguro de qué escenario elegir, seleccione **General**. El modelo de línea de base es el punto de partida para el entrenamiento. Si no tiene una preferencia, puede usar el último.
+5. En el menú desplegable **Scenario and Baseline model** (Escenario y modelo de línea de base), seleccione el escenario que mejor se adapte a su dominio. Si no está seguro de qué escenario elegir, seleccione **General**. El modelo de línea de base es el punto de partida para el entrenamiento. El modelo más reciente suele ser la mejor opción.
 6. En la página **Select training data** (Seleccionar datos de entrenamiento), elija uno o varios conjuntos de datos de audio + transcripción con la etiqueta humana que quiera usar para el entrenamiento.
 7. Una vez finalizado el entrenamiento, puede elegir realizar pruebas de precisión en el modelo recién entrenado. Este paso es opcional.
 8. Seleccione **Create** (Crear) para generar el modelo personalizado.

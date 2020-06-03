@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.author: aschhab
-ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116696"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727002"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
-Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones FIFO (primero en entrar, primero en salir) y de solicitud-respuesta. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
-
-## <a name="first-in-first-out-fifo-pattern"></a>Patrón FIFO (primero en entrar, primero en salir)
-Para realizar una garantía FIFO en Service Bus, use sesiones. Service Bus no prescribe con respecto a la naturaleza de la relación entre los mensajes, y tampoco define un modelo en particular para determinar dónde comienza o termina una secuencia de mensajes.
+Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
 
 > [!NOTE]
 > El nivel Básico de Service Bus no admite sesiones. Los niveles Estándar y Premium admiten sesiones. Para conocer las diferencias entre estos niveles, consulte [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+
+## <a name="first-in-first-out-fifo-pattern"></a>Patrón FIFO (primero en entrar, primero en salir)
+Para realizar una garantía FIFO en Service Bus, use sesiones. Service Bus no prescribe con respecto a la naturaleza de la relación entre los mensajes, y tampoco define un modelo en particular para determinar dónde comienza o termina una secuencia de mensajes.
 
 Cualquier remitente puede crear una sesión al enviar mensajes en un tema o una cola si se establece la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) en algún identificador definido por la aplicación que sea único para la sesión. En el nivel de protocolo AMQP 1.0, este valor se asigna a la propiedad *group-id*.
 
@@ -95,7 +95,7 @@ La definición de recuento de entregas por mensaje en el contexto de las sesione
 ## <a name="request-response-pattern"></a>Patrón de solicitud-respuesta
 El [patrón de solicitud-respuesta](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) es un modelo de integración bien establecido que permite a la aplicación remitente enviar una solicitud y proporciona una manera de que el receptor envíe correctamente una respuesta a la aplicación remitente. Normalmente, este patrón necesita una cola o un tema de corta duración a los que la aplicación envíe respuestas. En este escenario, las sesiones proporcionan una solución alternativa sencilla con semántica comparable. 
 
-Varias aplicaciones pueden enviar sus solicitudes a una única cola de solicitudes, con un parámetro de encabezado específico establecido para identificar de forma única a la aplicación remitente. La aplicación receptora puede procesar las solicitudes que entran en la cola y enviar respuestas en una cola habilitada para sesiones, de forma que el identificador de sesión se establece en el identificador único que el remitente había enviado en el mensaje de solicitud. La aplicación que envió la solicitud puede recibir luego mensajes en un identificador de sesión específico y procesar correctamente las respuestas.
+Varias aplicaciones pueden enviar sus solicitudes a una única cola de solicitudes, con un parámetro de encabezado específico establecido para identificar de forma única a la aplicación remitente. La aplicación receptora puede procesar las solicitudes que entran en la cola y enviar respuestas en una cola habilitada para sesiones, de forma que el identificador de sesión se establezca en el identificador único que el remitente había enviado en el mensaje de solicitud. La aplicación que envió la solicitud puede recibir luego mensajes en un identificador de sesión específico y procesar correctamente las respuestas.
 
 > [!NOTE]
 > La aplicación que envía las solicitudes iniciales debe conocer el identificador de sesión y usar `SessionClient.AcceptMessageSession(SessionID)` para bloquear la sesión en la que se espera la respuesta. Se recomienda usar un GUID que identifique de forma única la instancia de la aplicación como un identificador de sesión. No debe haber ningún controlador de sesión ni `AcceptMessageSession(timeout)` en la cola para garantizar que las respuestas estén disponibles para que las bloqueen y procesen destinatarios específicos.

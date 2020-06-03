@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: b85846419ce5f6cd4093e198d83240817c95754a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 3c922675619fc877d9d97a43b69a15f5ca4f393e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983064"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849117"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Creación de una oferta de SaaS en marketplace comercial
 
@@ -120,7 +120,7 @@ Publique la oferta para los clientes con un vínculo a una evaluación gratuita 
 
 #### <a name="contact-me"></a>Ponerse en contacto conmigo
 
-Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información acerca de cómo configurar CRM, consulte [Conexión de administración de clientes potenciales](#connect-lead-management).
+Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para obtener más información acerca de cómo configurar el sistema CRM, vea [Clientes potenciales](#customer-leads).
 
 #### <a name="example-marketplace-offer-listing"></a>Descripción de la oferta de Marketplace de ejemplo
 
@@ -140,7 +140,7 @@ Para obtener más información, consulte [Versión de prueba de la oferta en el 
 - [Procedimientos técnicos recomendados](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Información general](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, asegúrese de que el bloqueador de elementos emergentes está desactivado)
 
-### <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
+### <a name="customer-leads"></a>Clientes potenciales
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
@@ -227,28 +227,13 @@ Especifique los detalles que se muestran en Marketplace, lo que incluye descripc
 - **Palabras clave de búsqueda**: Escriba un máximo de tres palabras clave de búsqueda que los clientes puedan usar para buscar su oferta en los marketplaces.
 - **Instrucciones para las Tareas iniciales**  (obligatorio): Se explica cómo configurar y empezar a usar la aplicación para los clientes potenciales.  Este tutorial de inicio rápido puede contener vínculos a documentación en línea más detallada. En este campo se puede escribir hasta 3000 caracteres de texto.
 
-#### <a name="description"></a>**Descripción**
+#### <a name="description"></a>Descripción
 
-Este campo es obligatorio. Elementos que debe incluir en  **Descripción**:
+Este campo es obligatorio.
 
-* Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción.  
-* Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.  
-* No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona.  
-* Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas.
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-Los componentes principales de la propuesta de valor deben incluir lo siguiente:
-
-* Descripción del producto
-* Tipo de usuario que se beneficia del producto
-* Necesidad o preocupación del cliente que aborda el producto.
-
-Para que la descripción de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato.
-
-![Uso del editor de texto enriquecido](./media/rich-text-editor.png)
-
-| <center>Cambiar el formato de texto | <center>Agregar viñetas o numeración | <center>Agregar o quitar sangría del texto |
-| --- | --- | --- |
-| <center>![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png) |  <center>![Uso del editor de texto enriquecido para agregar listas](./media/text-editor4.png) |  <center>![Uso del editor de texto enriquecido para aplicar sangría](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="links"></a>Vínculos
 
@@ -355,7 +340,7 @@ Esta página permite configurar los mercados en los que estará disponible este 
 
 #### <a name="markets-optional"></a>Mercados (opcional)
 
-Todos los planes debe estar disponible al menos en un mercado. Seleccione **Editar mercados** y seleccione la casilla de la ubicación del mercado en la que desea que este plan esté disponible. En esta página se incluyen un cuadro de búsqueda y una opción para seleccionar los países con "Impuesto remitido", en los que Microsoft remite de los impuestos de uso y ventas en su nombre.
+Todos los planes debe estar disponible al menos en un mercado. Seleccione **Editar mercados** y seleccione la casilla de la ubicación del mercado en la que desea que este plan esté disponible. En esta página se incluyen un cuadro de búsqueda y una opción para seleccionar los países o regiones con "Impuestos remitidos", en los que Microsoft remite de los impuestos de uso y ventas en su nombre.
 
 Si ya se ha establecido los precios del plan en dólares de Estados Unidos (USD) y agrega otra ubicación del mercado, el precio del nuevo mercado se calculará en función de los tipos de cambio actuales. Revise el precio de cada mercado antes de la publicación. Vea los precios mediante el vínculo "Exportar precios (xlsx)" después de guardar los cambios.
 

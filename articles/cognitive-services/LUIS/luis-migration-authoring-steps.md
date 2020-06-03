@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c28e6c1edf4188cf3ea80c14565785dcf1dcbba
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78194652"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653815"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Pasos para migrar al recurso de creación de Azure
 
 En el portal de Language Understanding (LUIS), migre todas las aplicaciones que posee para usar el recurso de creación de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **De manera opcional**, haga una copia de seguridad de las aplicaciones desde la lista de aplicaciones del portal de LUIS; para ello, exporte cada aplicación o use la [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) de exportación.
 * **Opcionalmente**, guarde la lista del colaborador de cada aplicación. Se puede enviar un correo electrónico a todos los colaboradores como parte del proceso de migración.
@@ -97,8 +97,8 @@ El proceso de migración está disponible si es el propietario de cualquier apli
 
 1. Antes de acceder a las aplicaciones, seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.
 
-    ![Seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
-
+    > [!div class="mx-imgBorder"]
+    > ![Seleccione la suscripción y el recurso de creación de LUIS para ver las aplicaciones que puede crear.](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
 ## <a name="app-contributor-begins-the-migration-process"></a>El colaborador de la aplicación comienza el proceso de migración
 

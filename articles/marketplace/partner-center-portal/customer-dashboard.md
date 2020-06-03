@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 4d9dc0315a5c87ed67390e8edb23d44ee55f242b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: dcb9f554b214813439ab8753cf21e7d11a0fba56
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732774"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872567"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Panel Cliente de los análisis de marketplace comercial
 
@@ -52,9 +52,9 @@ Hay tres **tipos de clientes**: nuevos, existentes y perdidos.
 
 ### <a name="customer-by-geography"></a>Clientes por geografía
 
-En el gráfico **Clientes por geografía** se muestran los recuentos de todos los clientes y los clientes adquiridos durante el intervalo de fechas seleccionado y que se asignan en función del país del cliente. El tono del color de claro a oscuro del mapa representa el número de clientes de bajo a alto. Haga clic en un registro de la tabla para acercar un país.
+En el gráfico **Clientes por geografía** se muestran los recuentos de todos los clientes y los clientes adquiridos durante el intervalo de fechas seleccionado y que se asignan en función del país o región del cliente. El tono del color de claro a oscuro del mapa representa el número de clientes de bajo a alto. Haga clic en un registro de la tabla para acercar un país o región.
 
-En el mapa térmico se muestra el número de clientes y el porcentaje por país de clientes. Puede mover el mapa para ver la ubicación exacta y hacer zoom en una ubicación específica. Este mapa tiene una cuadrícula complementaria que le permite ver el porcentaje de clientes por ubicación, así como los clientes que se agregaron recientemente a esa ubicación.
+En el mapa térmico se muestra el número de clientes y el porcentaje por país o región del cliente. Puede mover el mapa para ver la ubicación exacta y hacer zoom en una ubicación específica. Este mapa tiene una cuadrícula complementaria que le permite ver el porcentaje de clientes por ubicación, así como los clientes que se agregaron recientemente a esa ubicación.
 
 ### <a name="customer-trends"></a>Tendencias de clientes
 
@@ -98,6 +98,8 @@ En la tabla **Detalles del cliente** se muestra una lista numerada de los primer
 - Los datos se pueden extraer en un archivo TSV si el recuento de los registros es inferior a 1000.
 - Si el número de registros es superior a 1000, los datos exportados se colocarán de forma asincrónica en una página de descargas durante los próximos 30 días.
 - Pueden aplicarse filtros a la tabla para mostrar solo los datos que le interesen. Los datos se pueden filtrar por nombre de empresa, identificador de cliente, identificador de suscripción de Marketplace, tipo de licencia de Azure, fecha de adquisición, fecha de pérdida, correo electrónico del cliente, país/estado/ciudad/código postal del cliente, idioma del cliente, etc.
+- Cuando un cliente protegido adquiere una oferta, la información de **Customer Detailed Data** (Datos detallados del cliente) se enmascara (************).
+- Los detalles de la dimensión del cliente, como el nombre de la empresa, el nombre del cliente y el correo electrónico del cliente, están en el nivel de identificador de la organización, no en el nivel de transacción de Azure Marketplace o AppSource.
 
 ### <a name="customer-page-filters"></a>Filtros de la página Clientes
 

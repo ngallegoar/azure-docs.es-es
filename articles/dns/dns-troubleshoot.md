@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: b5e1624bf852256f6e8fb0b616258f932c5a8998
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27d192a50a13437b755e7cc0db8a7dbcc4fee2f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76939026"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833405"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guía de solución de problemas de Azure DNS
 
 En este artículo se proporciona información para solucionar problemas para preguntas que se plantean con frecuencia sobre Azure DNS.
 
-Si estos pasos no resuelven el problema, también puede buscar o publicar su problema en nuestro [foro de soporte técnico de la comunidad en MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). O bien, puede abrir una solicitud de soporte técnico de Azure.
+Si estos pasos no resuelven el problema, también puede buscar o publicar su incidencia en nuestra [página de preguntas y respuestas de Microsoft Q&A para obtener soporte técnico de la comunidad](https://docs.microsoft.com/answers/topics/azure-virtual-network.html). O bien, puede abrir una solicitud de soporte técnico de Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>No puedo crear una zona DNS

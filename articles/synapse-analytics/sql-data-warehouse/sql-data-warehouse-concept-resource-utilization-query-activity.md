@@ -11,20 +11,20 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416213"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653018"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervisión del uso de recursos y la actividad de consultas en Azure Synapse Analytics
 
-Azure Synapse Analytics proporciona una experiencia de supervisión enriquecida dentro de Azure Portal que expone la información relacionada con la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Azure Monitor (registros) con Log Analytics para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma de análisis con SQL Analytics.
+Azure Synapse Analytics proporciona una experiencia de supervisión enriquecida dentro de Azure Portal que expone la información relacionada con la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Azure Monitor (registros) con Log Analytics para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma de análisis con Synapse SQL.
 
 ## <a name="resource-utilization"></a>Utilización de recursos
 
-En Azure Portal para SQL Analytics hay disponibles las métricas siguientes. Estas métricas se exponen a través de [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
+En Azure Portal para Synapse SQL hay disponibles las métricas siguientes. Estas métricas se exponen a través de [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
 
 | Nombre de la métrica             | Descripción                                                  | Tipo de agregación |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -54,13 +54,13 @@ Aspectos que se deben tener en cuenta al visualizar métricas y establecer alert
 
 ## <a name="query-activity"></a>Actividad de consultas
 
-Para brindar una experiencia de programación al supervisar SQL Analytics mediante T-SQL, el servicio proporciona un conjunto de vistas de administración dinámica (DMV). Estas vistas resultan útiles para la solución de problemas y la identificación activas de cuellos de botella de rendimiento con la carga de trabajo.
+Para brindar una experiencia de programación al supervisar Synapse SQL mediante T-SQL, el servicio proporciona un conjunto de vistas de administración dinámica (DMV). Estas vistas resultan útiles para la solución de problemas y la identificación activas de cuellos de botella de rendimiento con la carga de trabajo.
 
 Para ver la lista de las DMV que se aplican al SQL de Synapse, vea esta [documentación](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico 
 
-Las métricas y los registros se pueden exportar a Azure Monitor, específicamente al componente de [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), y se puede acceder a ellos mediante programación a través de las [consultas de registros](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). La latencia de registro de SQL Analytics es aproximadamente de entre 10 y 15 minutos. Para más detalles sobre los factores que afectan a la latencia, consulte la siguiente documentación.
+Las métricas y los registros se pueden exportar a Azure Monitor, específicamente al componente de [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), y se puede acceder a ellos mediante programación a través de las [consultas de registros](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). La latencia del registro para Synapse SQL es de entre 10 y 15 minutos. Para más detalles sobre los factores que afectan a la latencia, consulte la siguiente documentación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

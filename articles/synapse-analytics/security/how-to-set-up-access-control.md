@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d02cd12552b3664dd7acaae0142fc939ee57f5f6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591988"
+ms.locfileid: "83660087"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar)
 
@@ -119,7 +119,7 @@ Los usuarios de cada rol deben completar los siguientes pasos:
 | 3 | Crear un grupo de Spark | SÍ [1] | SÍ [1] | No  |
 | 4 | Leer el archivo Parquet con una instancia de Notebook | SÍ | SÍ | No |
 | 5 | Crear una canalización desde la instancia de Notebook y desencadenar la canalización para ejecutarse ahora | SÍ | No | No |
-| 6 | Crear un grupo de SQL y ejecutar un script de SQL como &quot;SELECT 1&quot; | SÍ [1] | No | SÍ [1] |
+| 6 | Crear un grupo de SQL y ejecutar un script de SQL como &quot;SELECT 1&quot; | SÍ [1] | No | SÍ [1] |
 
 > [!NOTE]
 > [1] Para crear grupos de SQL o Spark, el usuario debe tener como mínimo el rol de Colaborador en el área de trabajo de Synapse.

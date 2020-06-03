@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0b272a8c8ce81fc40585014e5930f5d7b1b5f2c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e9731b869b20c7d8cfc3b1e234711c818a2b7422
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427592"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744250"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -22,34 +22,11 @@ En este artículo, aprenderá a escribir una consulta con SQL a petición (versi
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de leer el resto de este artículo, consulte los artículos siguientes:
-
-- [Primera configuración](query-data-storage.md#first-time-setup)
-- [Requisitos previos](query-data-storage.md#prerequisites)
+El primer paso consiste en **crear una base de datos** con un origen de datos que haga referencia a la cuenta de almacenamiento de [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Luego, se inicializan los objetos, para lo que hay que ejecutar un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Este script de instalación creará los orígenes de datos, las credenciales con ámbito de base de datos y los formatos de archivo externos que se usan en estos ejemplos.
 
 ## <a name="dataset"></a>Dataset
 
-Puede consultar los archivos d Parquet de la misma manera en que lee archivos CSV. La única diferencia es que el parámetro FILEFORMAT debe establecerse en PARQUET. En los ejemplos de este artículo se muestran los detalles de la lectura de archivos de Parquet.
-
-> [!NOTE]
-> No es necesario especificar columnas en la cláusula OPENROWSET WITH al leer los archivos de Parquet. SQL a petición utilizará los metadatos en el archivo de Parquet y enlazará las columnas por nombre.
-
-Se usará la carpeta *parquet/taxi* para las consultas de ejemplo. Contiene los datos de NYC Taxi - Yellow Taxi Trip Records de julio de 2016 a junio de 2018.
-
-Los datos se particionan por año y mes, y la estructura de carpetas es la siguiente:
-
-- año=2016
-  - mes=6
-  - …
-  - mes=12
-- año=2017
-  - mes=1
-  - …
-  - mes=12
-- año=2018
-  - mes=1
-  - …
-  - mes=6
+En este ejemplo se usa el conjunto de datos [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Puede consultar los archivos Parquet de la misma manera en que [lee archivos CSV](query-parquet-files.md). La única diferencia es que el parámetro `FILEFORMAT` debe establecerse en `PARQUET`. En los ejemplos de este artículo se muestran los detalles de la lectura de archivos de Parquet.
 
 ## <a name="query-set-of-parquet-files"></a>Consulta de conjunto de archivos de Parquet
 
@@ -57,23 +34,24 @@ Solo puede especificar las columnas de interés al consultar los archivos de Par
 
 ```sql
 SELECT
-        YEAR(pickup_datetime),
-        passenger_count,
+        YEAR(tpepPickupDateTime),
+        passengerCount,
         COUNT(*) AS cnt
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) WITH (
-        pickup_datetime DATETIME2,
-        passenger_count INT
+        tpepPickupDateTime DATETIME2,
+        passengerCount INT
     ) AS nyc
 GROUP BY
-    passenger_count,
-    YEAR(pickup_datetime)
+    passengerCount,
+    YEAR(tpepPickupDateTime)
 ORDER BY
-    YEAR(pickup_datetime),
-    passenger_count;
+    YEAR(tpepPickupDateTime),
+    passengerCount;
 ```
 
 ## <a name="automatic-schema-inference"></a>Inferencia automática del esquema
@@ -86,13 +64,13 @@ En el ejemplo siguiente se muestran las funcionalidades de inferencia automátic
 > No es necesario especificar columnas en la cláusula OPENROWSET WITH al leer los archivos de Parquet. En dicho caso, el servicio de consulta de SQL a petición utilizará los metadatos en el archivo de Parquet y enlazará las columnas por nombre.
 
 ```sql
-SELECT
-    COUNT_BIG(*)
-FROM
+SELECT TOP 10 *
+FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
-    ) AS nyc;
+    ) AS nyc
 ```
 
 ### <a name="query-partitioned-data"></a>Consulta de datos con particiones
@@ -104,27 +82,25 @@ El conjunto de datos que se proporciona en este ejemplo se divide (particiona) e
 
 ```sql
 SELECT
-    nyc.filepath(1) AS [year],
-    nyc.filepath(2) AS [month],
-    payment_type,
-    SUM(fare_amount) AS fare_total
-FROM
+        YEAR(tpepPickupDateTime),
+        passengerCount,
+        COUNT(*) AS cnt
+FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet',
+        BULK 'puYear=*/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
-    ) AS nyc
+    ) nyc
 WHERE
     nyc.filepath(1) = 2017
     AND nyc.filepath(2) IN (1, 2, 3)
-    AND pickup_datetime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
+    AND tpepPickupDateTime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
 GROUP BY
-    nyc.filepath(1),
-    nyc.filepath(2),
-    payment_type
+    passengerCount,
+    YEAR(tpepPickupDateTime)
 ORDER BY
-    nyc.filepath(1),
-    nyc.filepath(2),
-    payment_type;
+    YEAR(tpepPickupDateTime),
+    passengerCount;
 ```
 
 ## <a name="type-mapping"></a>Asignación de tipos

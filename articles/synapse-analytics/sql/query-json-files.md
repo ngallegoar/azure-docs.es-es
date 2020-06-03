@@ -6,26 +6,23 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0db022ff4fdf092c2286d2da333df2ea23406569
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 7a8c9083ecbadbf63cf0ac65dc1803b478e939fe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692715"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873401"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de archivos JSON con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
-En este artículo, aprenderá a escribir una consulta con SQL a petición (versión preliminar) en Azure Synapse Analytics. El objetivo de la consulta es leer archivos JSON.
+En este artículo, aprenderá a escribir una consulta con SQL a petición (versión preliminar) en Azure Synapse Analytics. El objetivo de la consulta es leer archivos JSON. Los formatos admitidos se enumeran en [OPENROWSET](develop-openrowset.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de leer el resto de este artículo, consulte los siguientes artículos:
-
-- [Primera configuración](query-data-storage.md#first-time-setup)
-- [Requisitos previos](query-data-storage.md#prerequisites)
+El primer paso es **crear una base de datos** en la que se ejecutarán las consultas. Luego, se inicializan los objetos, para lo que hay que ejecutar un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Este script de instalación creará los orígenes de datos, las credenciales con ámbito de base de datos y los formatos de archivo externos que se usan en estos ejemplos.
 
 ## <a name="sample-json-files"></a>Archivos JSON de ejemplo
 
@@ -56,7 +53,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/book1.json',
+        BULK 'json/books/book1.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -81,7 +79,8 @@ SELECT
     jsonContent
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -104,7 +103,8 @@ SELECT
     jsonContent
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
@@ -126,7 +126,8 @@ SELECT
     j.*
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
+        BULK 'json/books/*.json',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',

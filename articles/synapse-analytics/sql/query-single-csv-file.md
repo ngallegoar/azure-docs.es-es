@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 41c4a8940cc49a3859a2511f0de65d0019817078
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427560"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836556"
 ---
 # <a name="query-csv-files"></a>Consulta de archivo CSV
 
@@ -29,10 +29,7 @@ A continuación se abordan todas las variaciones anteriores.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de leer el resto de este artículo, consulte los siguientes artículos:
-
-- [Primera configuración](query-data-storage.md#first-time-setup)
-- [Requisitos previos](query-data-storage.md#prerequisites)
+El primer paso es **crear la base de datos** en la que se crearán las tablas. Luego, se inicializan los objetos, para lo que hay que ejecutar un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Este script de instalación creará los orígenes de datos, las credenciales con ámbito de base de datos y los formatos de archivo externos que se usan en estos ejemplos.
 
 ## <a name="windows-style-new-line"></a>Nueva línea al estilo de Windows
 
@@ -45,8 +42,9 @@ Vista previa del archivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -72,7 +70,8 @@ Vista previa del archivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
@@ -99,7 +98,8 @@ Vista previa del archivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
+        BULK 'csv/population-unix-hdr/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
@@ -126,7 +126,8 @@ Vista previa del archivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
+        BULK 'csv/population-unix-hdr-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
@@ -158,7 +159,8 @@ Vista previa del archivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
+        BULK 'csv/population-unix-hdr-escape/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
@@ -176,7 +178,7 @@ WHERE
 ```
 
 > [!NOTE]
-> Esta consulta produciría un error si no se especificara ESCAPECHAR, ya que la coma en "Slov,enia" se trataría como delimitador de campos en lugar de como parte del nombre del país. "Slov,enia" se trataría como dos columnas. Por lo tanto, la fila en particular tendría una columna más que las demás filas y una columna más de la definida en la cláusula WITH.
+> Esta consulta produciría un error si no se especificara ESCAPECHAR, ya que la coma en "Slov,enia" se trataría como delimitador de campos en lugar de como parte del nombre del país o región. "Slov,enia" se trataría como dos columnas. Por lo tanto, la fila en particular tendría una columna más que las demás filas y una columna más de la definida en la cláusula WITH.
 
 ## <a name="tab-delimited-files"></a>Archivos delimitados por tabulaciones
 
@@ -189,7 +191,8 @@ Vista previa del archivo:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
+        BULK 'csv/population-unix-hdr-tsv/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
@@ -219,14 +222,15 @@ La consulta siguiente devuelve el número de nombres de país distintos incluido
 SELECT
     COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
 WITH (
-    --[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
+    --[country_code] VARCHAR (5),
+    [country_name] VARCHAR (100) 2
     --[year] smallint,
     --[population] bigint
 ) AS [r]

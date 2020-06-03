@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912142"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683961"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal
 
@@ -55,22 +55,8 @@ Para registrarse como proveedor de recursos de emparejamiento en su suscripción
     > ![Registro completado](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Crear un PeerAsn
-Puede crear un recurso de PeerAsn para asociar un número de sistema autónomo (ASN) con una suscripción a Azure. Puede asociar varios ASN a una suscripción al crear un **PeerAsn** para cada ASN que necesite asociar.
+Como proveedor de servicios de Internet o proveedor de intercambio de Internet, puede crear un recurso de PeerAsn para asociar un número de sistema autónomo (ASN) con una suscripción a Azure. Puede asociar varios ASN a una suscripción al navegar a la [página Associate a Peer ASN](https://go.microsoft.com/fwlink/?linkid=2129592) (Asociar un ASN del mismo nivel) por cada ASN que necesite asociar.
 
-1. Haga clic en **Crear un recurso** > **Ver todo**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Buscar un PeerAsn](./media/peerasn-seeall.png)
-
-1. Busque *PeerAsn* en el cuadro de búsqueda y presione *Entrar* en el teclado. En los resultados, haga clic en el recurso **PeerAsn**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Abrir PeerAsn](./media/peerasn-launch.png)
-
-1. Una vez que se haya abierto **PeerAsn**, haga clic en **Crear**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Crear un PeerAsn](./media/peerasn-create.png)
 
 1. En la página **Asociar un ASN del mismo nivel**, en la pestaña **Aspectos básicos**, rellene los campos como se muestra a continuación.
 
@@ -118,4 +104,4 @@ Actualmente no se admite la eliminación de un PeerAsn. Si necesita eliminar un 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para más información, vea las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).

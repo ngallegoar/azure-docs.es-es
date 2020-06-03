@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 152168bbadd5815659bc5f70c91bd2a28f5e049d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57e13f3ed619fa88f29397fe44b783bd3650f636
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481966"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759173"
 ---
 # <a name="monitor-identity-and-access"></a>Supervisión de la identidad y el acceso
 
@@ -58,7 +58,7 @@ Todas las recomendaciones de identidad y acceso están disponibles en dos contro
 
 Habilitar MFA requiere [permisos de inquilino de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
-- Si tiene una edición Premium de AD, habilite MFA mediante el [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+- Si tiene una edición Premium de AD, habilite MFA mediante el [acceso condicional](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 
 - Los usuarios de la edición gratuita de AD pueden habilitar los **valores predeterminados de seguridad** en Azure Active Directory como se describe en la [documentación de AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) pero la recomendación de Security Center para que habilite MFA seguirá apareciendo.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399703"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650618"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
@@ -24,6 +24,8 @@ ms.locfileid: "81399703"
 La característica de conversión de voz en texto del servicio de voz, también conocida como reconocimiento de voz, permite la transcripción en tiempo real de las secuencias de audio en texto. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar este texto como una entrada de comando, así como manipularlo. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office. Funciona sin problemas con las ofertas de servicio de <a href="./speech-translation.md" target="_blank">traducción<span class="docon docon-navigate-external x-hidden-focus"></span></a> y <a href="./text-to-speech.md" target="_blank">conversión de texto en voz<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto, consulte [Idiomas admitidos](language-support.md#speech-to-text).
 
 De forma predeterminada, el servicio de conversión de voz en texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados. La personalización es útil para abordar el ruido ambiente o el vocabulario específico del sector.
+
+Con texto de referencia adicional como entrada, el servicio de conversión de voz a texto también habilita la funcionalidad de [evaluación de la pronunciación](rest-speech-to-text.md#pronunciation-assessment-parameters) para evaluar la pronunciación de la voz y proporcionar a los hablantes información sobre la precisión y la fluidez del audio hablado. Con la evaluación de la pronunciación, los estudiantes de idiomas pueden practicar, obtener comentarios instantáneos y mejorar su pronunciación para poder hablar y realizar presentaciones con confianza. Los educadores pueden utilizar la funcionalidad para evaluar la pronunciación de varios hablantes en tiempo real. Actualmente, la característica es compatible con el inglés de Estados Unidos y está relacionada con las evaluaciones de voz realizadas por expertos.
 
 > [!NOTE]
 > Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API, hemos creado guías para que le ayuden a migrar al servicio de voz.
@@ -39,6 +41,8 @@ El servicio de conversión de voz a texto está disponible a través del [SDK de
 
 Si prefiere usar el servicio REST de voz a texto, consulte [API REST](rest-speech-to-text.md).
 
+ - [Inicio rápido: Evaluación de la pronunciación con entrada de referencias](rest-speech-to-text.md#pronunciation-assessment-parameters)
+
 ## <a name="tutorials-and-sample-code"></a>Tutoriales y ejemplo de código
 
 Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
@@ -49,6 +53,7 @@ Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejem
 
 - [Ejemplos de conversión de voz a texto (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Ejemplos de transcripción de Azure Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+- [Ejemplos de evaluación de pronunciación (REST)](rest-speech-to-text.md#pronunciation-assessment-parameters)
 
 ## <a name="customization"></a>Personalización
 

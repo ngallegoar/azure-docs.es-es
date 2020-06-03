@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d47829d32ed0b7ded545c73748cda1019d94bde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590677"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721299"
 ---
 ### <a name="container-repositories-and-images"></a>Repositorios e imágenes de contenedor
 
@@ -62,7 +62,7 @@ Los siguientes contenedores de versión preliminar están disponibles públicame
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Versión preliminar pública "validada" (registro de contenedor: `containerpreview.azurecr.io`)
 
-Los siguientes contenedores de la versión preliminar validada se hospedan en el registro de versiones preliminares de contenedores y requieren una aplicación para acceder a ellos. Para más información, consulte [Proceso de validación de Cognitive Services](../../cognitive-services-gating-process.md).
+Los siguientes contenedores de la versión preliminar validada se hospedan en el registro de versiones preliminares de contenedores y requieren una aplicación para acceder a ellos. Consulte los siguientes artículos de contenedor para obtener más información.
 
 | Servicio | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |--|--|--|

@@ -9,12 +9,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.author: diberry
-ms.openlocfilehash: 02610e647e2138cbf52f86c22107feec2d61273b
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604961"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673448"
 ---
 Cognitive Services proporciona dos servicios de procesamiento de lenguaje natural, [Language Understanding](../luis/what-is-luis.md) y [QnA Maker](../qnamaker/overview/overview.md), cada uno con un propósito diferente. Sepa cuándo usar cada servicio y cómo se complementan entre sí.
 
@@ -37,6 +37,9 @@ Si el bot de chat recibe el texto `How do I get to the Human Resources building 
 |LUIS|**Determina la intención del usuario** del texto: el servicio no devuelve la respuesta a la pregunta. Por ejemplo, este texto se clasifica como coincidencia con el intento de `FindLocation`.<br>|
 |QnA Maker|**Devuelve la respuesta a la pregunta** desde una base de conocimiento personalizada. Por ejemplo, este texto se determina como una pregunta con la respuesta de texto estático `Get on the #9 bus and get off at Franklin street`.|
 |||
+
+> [!div class="mx-imgBorder"]
+> ![Infografía para determinar cuándo se debe usar LUIS y cuándo utilizar QnA Maker](./luis-qna-maker-together-decision.png)
 
 ## <a name="when-do-you-use-luis"></a>¿Cuándo se usa LUIS?
 
@@ -70,7 +73,7 @@ Puede presentar esta respuesta de terceros al usuario para la que la valide. Una
 
 Si el bot de chat necesita más información de la que proporciona el servicio, para continuar con un árbol de decisión, use ambos servicios y procese ambas respuestas en la aplicación cliente.
 
-Use la herramienta de la **[CLI de Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** de la plataforma de bot para ayudar a crear un proceso de trabajo con ambos servicios. Esta herramienta crea una aplicación principal de LUIS de intenciones que envía entre LUIS y QnA Maker como aplicaciones secundarias.
+Use la herramienta de la **[CLI de Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** de la plataforma de bot para ayudar a crear un proceso de trabajo con ambos servicios. Esta herramienta crea una aplicación principal de LUIS de intenciones que envía entre LUIS y QnA Maker como aplicaciones secundarias. [Más información](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) sobre la integración con LUIS, QnA Maker y Bot Framework.
 
 Use el ejemplo del creador de Bot **NLP con Dispatch**, en [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) o [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch) para implementar este tipo de bot de chat.
 

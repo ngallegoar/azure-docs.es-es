@@ -5,12 +5,12 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 description: Obtenga información sobre cómo actualizar las herramientas de línea de comandos de Azure Dev Spaces, la extensión de Visual Studio Code y la extensión de Visual Studio.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231396"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873478"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Procedimiento para actualizar las herramientas de Azure Dev Spaces
 
@@ -35,11 +35,9 @@ az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group>
 
 Una vez instalada, la extensión se actualiza automáticamente. Es posible que deba volver a cargar la extensión para usar las nuevas características. En Visual Studio Code, abra el panel **Extensiones**, elija las extensiones de **Azure Dev Spaces** y elija **Volver a cargar**.
 
-## <a name="update-the-visual-studio-extension"></a>Actualización de la extensión de Visual Studio
+## <a name="update-visual-studio"></a>Actualización de Visual Studio
 
-Al igual que con otras extensiones y actualizaciones, Visual Studio le notificará cuando haya una actualización disponible para Visual Studio Tools para Kubernetes, que incluye Azure Dev Spaces. Busque un icono de marca en la parte superior derecha de la pantalla.
-
-Para actualizar las herramientas de Visual Studio, elija el elemento de menú **Herramientas > Extensiones y actualizaciones** y, en el lado izquierdo, elija **Actualizaciones**. Busque **Visual Studio Tools para Kubernetes** y elija el botón **Actualizar**.
+Azure Dev Spaces forma parte de la carga de trabajo de desarrollo de Azure y se incluye en todas las actualizaciones de Visual Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

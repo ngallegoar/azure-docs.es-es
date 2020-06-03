@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 9fcf14bf42fc843a126fea269038087ee7fb0c6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1242aa0e6c8255d778da55b0e574f3d12f61c381
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382043"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872028"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -22,7 +22,7 @@ Si tiene algún problema al usar Azure Dev Spaces, cree un [problema en el repos
 
 Para solucionar problemas de forma más eficaz, puede ser útil crear registros más detallados para su revisión.
 
-Para la extensión de Visual Studio, establezca la variable de entorno `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` en 1. Asegúrese de reiniciar Visual Studio para que la variable de entorno surta efecto. Una vez habilitados, los registros detallados se escribirán en su directorio `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
+Para Visual Studio, establezca la variable de entorno `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` en 1. Asegúrese de reiniciar Visual Studio para que la variable de entorno surta efecto. Una vez habilitados, los registros detallados se escribirán en su directorio `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
 En la CLI, puede generar más información durante la ejecución del comando mediante el uso del conmutador `--verbose`. También puede examinar registros más detallados en `%TEMP%\Azure Dev Spaces`. En un equipo Mac, para encontrar el directorio *TEMP* hay que ejecutar `echo $TMPDIR` desde una ventana de terminal. En un equipo Linux, el directorio *TEMP* es normalmente `/tmp`. Además, compruebe que el registro está habilitado en el [archivo de configuración de la CLI de Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 30ca03633b9b0788235439204a3c1926fe6b6a6b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a07c419ecaa0cb0ec05c7c392a4d5ed9b0bfa491
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427064"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747408"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -153,7 +153,7 @@ Para usar el resultado almacenado en caché, la forma de la consulta de solicitu
 
 ## <a name="example"></a>Ejemplo
 
-En este ejemplo se usa una consulta de tipo TPCDS que encuentra a los clientes que gastan más dinero en el catálogo que en las tiendas. También identifica los clientes preferidos y su país de origen.   La consulta implica seleccionar los primeros 100 registros del resultado de la instrucción UNION de tres instrucciones sub-SELECT que implican SUM() y GROUP BY.
+En este ejemplo se usa una consulta de tipo TPCDS que encuentra a los clientes que gastan más dinero en el catálogo que en las tiendas. También identifica los clientes preferidos y su país o región de origen.   La consulta implica seleccionar los primeros 100 registros del resultado de la instrucción UNION de tres instrucciones sub-SELECT que implican SUM() y GROUP BY.
 
 ```sql
 WITH year_total AS (

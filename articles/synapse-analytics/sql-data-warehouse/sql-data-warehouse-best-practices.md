@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4462bf0fc2057922340eb01cb8c786dbc63ce290
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: ce1121a4a006e4208c76193a38262d4309e67584
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745358"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834448"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Procedimientos recomendados para el grupo de SQL de Synapse en Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -180,7 +180,7 @@ Consulte también [Clases de recursos para la administración de cargas de traba
 
 Consulte también el artículo [Solución de problemas](sql-data-warehouse-troubleshoot.md) para más información sobre problemas comunes y soluciones.
 
-Si no encontró lo que busca en este artículo, pruebe a usar la "búsqueda de documentos" en la parte izquierda de esta página para buscar todos los documentos de Azure Synapse.  El [foro de Azure Synapse](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) es un lugar para publicar preguntas para otros usuarios y al grupo de producto de Azure Synapse. Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  
+Si no encontró lo que busca en este artículo, pruebe a usar la "búsqueda de documentos" en la parte izquierda de esta página para buscar todos los documentos de Azure Synapse.  En la [página de preguntas y respuestas de Microsoft para Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) puede publicar preguntas para otros usuarios y para el grupo del producto de Azure Synapse. Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  
 
 Si prefiere formular sus preguntas en Stack Overflow, también tenemos un [foro de Stack Overflow acerca de Azure Synapse](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

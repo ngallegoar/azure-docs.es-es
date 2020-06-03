@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676934"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659235"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 
@@ -30,11 +30,13 @@ Cuanto más sepa el recurso del grupo de SQL acerca de los datos, más rápido p
 
 El optimizador de consultas del grupo de SQL está basado en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente.
 
-Por ejemplo, si el optimizador estima que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
+Por ejemplo, si el optimizador considera que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Creación automática de estadísticas
 
-El grupo de SQL analizará las consultas entrantes de los usuarios para buscar las estadísticas que faltan cuando la opción AUTO_CREATE_STATISTICS de la base de datos esté establecida en `ON`.  Si faltan estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales del predicado de consulta o en la condición de combinación. Esta función se usa para mejorar las estimaciones de cardinalidad del plan de consulta.
+El grupo de SQL analizará las consultas entrantes de los usuarios para buscar las estadísticas que faltan cuando la opción AUTO_CREATE_STATISTICS de la base de datos esté establecida en `ON`.  Si faltan estadísticas, el optimizador de consultas crea las estadísticas en columnas individuales del predicado de consulta o en la condición de combinación. 
+
+Esta función se usa para mejorar las estimaciones de cardinalidad del plan de consulta.
 
 > [!IMPORTANT]
 > Actualmente, la creación automática de estadísticas está activada de forma predeterminada.
@@ -101,7 +103,9 @@ Una de las primeras preguntas que se deben formular para la solución de problem
 
 No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o se produce un cambio material en la distribución de valores para una columna, *entonces* es el momento de actualizar las estadísticas.
 
-No hay disponible una vista de administración dinámica para determinar si los datos de la tabla han cambiado desde la última vez que se actualizaron las estadísticas. Conocer la antigüedad de sus estadísticas puede proporcionarle parte de la totalidad de la imagen. Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.
+No hay disponible una vista de administración dinámica para determinar si los datos de la tabla han cambiado desde la última vez que se actualizaron las estadísticas. Conocer la antigüedad de sus estadísticas puede proporcionarle parte de la totalidad de la imagen. 
+
+Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.
 
 > [!NOTE]
 > Recuerde que, si hay un cambio material en la distribución de valores para una columna, debe actualizar las estadísticas independientemente de la última vez que se actualizaran.
@@ -137,9 +141,11 @@ Las **columnas de fecha** en un almacenamiento de datos, por ejemplo, normalment
 
 Es posible que las estadísticas en una columna de género de una tabla de clientes no necesiten actualizarse nunca. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos.
 
-No obstante, si el almacén de datos contiene solo un género y un nuevo requisito da como resultado varios géneros, tiene que actualizar las estadísticas en la columna de género. Para obtener más información, consulte el artículo [Estadísticas](/sql/relational-databases/statistics/statistics).
+No obstante, si el almacén de datos contiene solo un género y un nuevo requisito da como resultado varios géneros, tiene que actualizar las estadísticas en la columna de género. 
 
-### <a name="implementing-statistics-management"></a>Implementación de administración de estadísticas
+Para obtener más información, consulte el artículo [Estadísticas](/sql/relational-databases/statistics/statistics).
+
+### <a name="implement-statistics-management"></a>Implementación de la administración de estadísticas
 
 A menudo resulta conveniente extender el proceso de carga de datos para garantizar que las estadísticas están actualizadas al final de la carga. La carga de datos se produce cuando las tablas cambian su tamaño o la distribución de los valores con mayor frecuencia. Por lo tanto, el proceso de carga es un lugar lógico para implementar algunos procesos de administración.
 
@@ -275,6 +281,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 #### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Utilizar un procedimiento almacenado para crear estadísticas de todas las columnas de una base de datos
 
 Un grupo de SQL no tiene un procedimiento almacenado del sistema equivalente a sp_create_stats en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
+
 El ejemplo siguiente le ayudará a empezar a trabajar con el diseño de la base de datos. Puede adaptarlo a sus necesidades:
 
 ```sql
@@ -418,7 +425,9 @@ Por ejemplo:
 UPDATE STATISTICS dbo.table1;
 ```
 
-Es fácil usar la instrucción UPDATE STATISTICS. Solo tiene que recordar que se actualizan *todas* las estadísticas de la tabla, por lo que se pide más trabajo del necesario. Si el rendimiento no es un problema, este método es la forma más fácil y completa de garantizar que las estadísticas están actualizadas.
+Es fácil usar la instrucción UPDATE STATISTICS. Solo tiene que recordar que se actualizan *todas* las estadísticas de la tabla, por lo que se pide más trabajo del necesario. 
+
+Si el rendimiento no es un problema, este método es la forma más fácil y completa de garantizar que las estadísticas están actualizadas.
 
 > [!NOTE]
 > Al actualizar todas las estadísticas de una tabla, un grupo de SQL realiza un análisis para crear muestras de la tabla para cada objeto de estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
@@ -501,7 +510,9 @@ DBCC SHOW_STATISTICS() muestra los datos contenidos en un objeto de estadística
 - Vector de densidad
 - Histograma
 
-El encabezado contiene los metadatos sobre las estadísticas. El histograma muestra la distribución de valores en la primera columna de clave del objeto de estadísticas. El vector de densidad mide la correlación entre las columnas. Un grupo de SQL calcula las estimaciones de cardinalidad con cualquiera de los datos en el objeto de estadísticas.
+El encabezado contiene los metadatos sobre las estadísticas. El histograma muestra la distribución de valores en la primera columna de clave del objeto de estadísticas. 
+
+El vector de densidad mide la correlación entre las columnas. Un grupo de SQL calcula las estimaciones de cardinalidad con cualquiera de los datos en el objeto de estadísticas.
 
 #### <a name="show-header-density-and-histogram"></a>Mostrar el encabezado, la densidad y el histograma
 
@@ -555,7 +566,11 @@ Las estadísticas se crean por cada columna concreta en un conjunto de datos det
 
 ### <a name="why-use-statistics"></a>¿Por qué usar estadísticas?
 
-Cuanto más sepa SQL a petición (versión preliminar) acerca de los datos, más rápido puede ejecutar consultas en ellos. La recopilación de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. El optimizador de consultas de SQL a petición está basado en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente. Por ejemplo, si el optimizador estima que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
+Cuanto más sepa SQL a petición (versión preliminar) acerca de los datos, más rápido puede ejecutar consultas en ellos. La recopilación de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. 
+
+El optimizador de consultas de SQL a petición está basado en el costo. Compara el costo de varios planes de consulta y elige el menor de ellos. En la mayoría de los casos, elige el plan que se ejecutará más rápidamente. 
+
+Por ejemplo, si el optimizador estima que la fecha en que se filtra la consulta devolverá una fila, se elegirá un plan. Si estima que la fecha seleccionada devolverá 1 millón de filas, devolverá un plan diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Creación automática de estadísticas
 
@@ -570,9 +585,11 @@ La creación automática de estadísticas se realiza de forma sincrónica, por l
 
 ### <a name="manual-creation-of-statistics"></a>Creación manual de estadísticas
 
-SQL a petición le permite crear estadísticas de forma manual. En el caso de los archivos CSV, debe crear las estadísticas manualmente, ya que la creación automática de estadísticas no está activada para los archivos CSV. Consulte los siguientes ejemplos para obtener instrucciones sobre cómo crear estadísticas manualmente.
+SQL a petición le permite crear estadísticas de forma manual. En el caso de los archivos CSV, debe crear las estadísticas manualmente, ya que la creación automática de estadísticas no está activada para los archivos CSV. 
 
-### <a name="updating-statistics"></a>Actualización de estadísticas
+Consulte los siguientes ejemplos para obtener instrucciones sobre cómo crear estadísticas manualmente.
+
+### <a name="update-statistics"></a>Actualizar estadísticas
 
 Los cambios en los datos de los archivos, así como la eliminación y adición de archivos, producen cambios en la distribución de datos y hace que las estadísticas no estén actualizadas. En ese caso, es necesario actualizar las estadísticas.
 
@@ -592,7 +609,7 @@ Si el número de filas ha cambiado significativamente o hay un cambio material e
 > [!NOTE]
 > Recuerde que, si hay un cambio material en la distribución de valores para una columna, debe actualizar las estadísticas independientemente de la última vez que se actualizaran.
 
-### <a name="implementing-statistics-management"></a>Implementación de administración de estadísticas
+### <a name="implement-statistics-management"></a>Implementación de la administración de estadísticas
 
 Debería extender la canalización de datos para asegurarse de que las estadísticas se actualizan cuando los datos se modifican de forma significativa mediante la adición, eliminación o modificación de archivos.
 
@@ -611,6 +628,8 @@ En los siguientes ejemplos se muestra cómo usar diversas opciones de creación 
 
 > [!NOTE]
 > En este momento, solo puede crear estadísticas de columna única.
+>
+> El nombre del procedimiento sp_create_file_statistics se cambiará por sp_create_openrowset_statistics. El rol de servidor público tiene concedido el permiso ADMINISTER BULK OPERATIONS mientras que el rol de base de datos público tiene permisos EXECUTE en sp_create_file_statistics y sp_drop_file_statistics. Esto podría cambiar en el futuro.
 
 El procedimiento almacenado siguiente se emplea para crear estadísticas:
 
@@ -695,6 +714,9 @@ Para actualizar las estadísticas, debe quitarlas y crearlas. El procedimiento a
 ```sql
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
+
+> [!NOTE]
+> El nombre del procedimiento sp_drop_file_statistics se cambiará por sp_drop_openrowset_statistics. El rol de servidor público tiene concedido el permiso ADMINISTER BULK OPERATIONS mientras que el rol de base de datos público tiene permisos EXECUTE en sp_create_file_statistics y sp_drop_file_statistics. Esto podría cambiar en el futuro.
 
 Argumentos: [@stmt =] N“statement_text”: especifica la misma instrucción Transact-SQL que se usa al crear las estadísticas.
 

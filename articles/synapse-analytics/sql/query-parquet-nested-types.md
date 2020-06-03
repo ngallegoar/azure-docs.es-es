@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a1e3d3c7494aa75b3f6d481d12135316791772d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 82edee84317b5d542bf65e29514286f96c18bbcc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427580"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744239"
 ---
 # <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de tipos anidados de Parquet con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -22,12 +22,9 @@ En este artículo, aprenderá a escribir una consulta con SQL a petición (versi
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de leer el resto de este artículo, consulte los siguientes artículos:
+El primer paso es **crear una base de datos** con un origen de datos que haga referencia. Luego, se inicializan los objetos, para lo que hay que ejecutar un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Este script de instalación creará los orígenes de datos, las credenciales con ámbito de base de datos y los formatos de archivo externos que se usan en estos ejemplos.
 
-- [Primera configuración](query-data-storage.md#first-time-setup)
-- [Requisitos previos](query-data-storage.md#prerequisites)
-
-## <a name="project-nested-or-repeated-data"></a>Proyección de datos anidados o repetidos
+## <a name="project-nested-or-repeated-data"></a>Proyección de datos anidados o repetidos de proyecto
 
 La siguiente consulta lee el archivo *justSimpleArray.parquet*. Proyecta todas las columnas del archivo de Parquet, incluidos los datos anidados o repetidos.
 
@@ -36,7 +33,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
@@ -50,7 +48,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/structExample.parquet',
+        BULK 'parquet/nested/structExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     )
     WITH (
@@ -80,7 +79,8 @@ SELECT
     JSON_VALUE(SimpleArray, '$[2]') AS ThirdElement
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```
@@ -93,7 +93,8 @@ SELECT
     JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/mapExample.parquet',
+        BULK 'parquet/nested/mapExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
 ```

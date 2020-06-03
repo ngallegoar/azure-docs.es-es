@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9c4f08b143ab4a0d3e780f68f8d5ab823d4eae12
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 13e149c45c720a5da6b051b7ce9581d74c64fa35
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745371"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834482"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Procedimientos recomendados de desarrollo para el grupo de SQL de SYNAPSE
 
@@ -99,7 +99,7 @@ Los índices de almacén de columnas agrupadas son una de las maneras más efica
 
 Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  La calidad de segmento se puede medir por el número de filas de un grupo de filas comprimido.  
 
-Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) del artículo [Indexación de tablas](sql-data-warehouse-tables-index.md)  
+Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) del artículo sobre [Indexación de tablas](sql-data-warehouse-tables-index.md).  
 
 Como es importante que los segmentos de almacén de columnas sean de una buena calidad, es conveniente usar identificadores de usuario que se encuentren en la clase de recursos grande o mediana para cargar los datos. El uso de [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) inferiores significa que desea asignar una clase de recurso mayor para el usuario que realiza la carga.
 
@@ -107,7 +107,7 @@ Dado que las tablas de almacén de columnas, generalmente, no insertan datos en 
 
 Para una tabla con menos de 60 millones de filas, podría no tener sentido el índice de almacén de columnas.  Pero tampoco molesta.  
 
-Además, si divide los datos, recuerde que cada parte deberá tener 1 millón de filas para beneficiarse de un índice de almacén de columnas agrupadas.  Si una tabla tiene 100 particiones, deberá tener al menos 6 mil millones de filas para beneficiarse del almacén de columnas agrupadas (60 distribuciones *100 particiones* 1 millón de filas).  
+Además, si divide los datos, recuerde que cada parte deberá tener 1 millón de filas para beneficiarse de un índice de almacén de columnas agrupadas.  Si una tabla tiene 100 particiones, tendrá que tener al menos 6 mil millones de filas para beneficiarse de un almacén de columnas agrupadas (60 distribuciones *100 particiones* 1 millón de filas).  
 
 Si la tabla no tiene 6 mil millones de filas en este ejemplo, reduzca el número de particiones o considere la posibilidad de usar una tabla de apilamiento en su lugar.  También puede experimentar para ver si consigue un mejor rendimiento con una tabla de apilamiento con índices secundarios, en lugar de con una tabla de almacén de columnas.
 
@@ -120,7 +120,7 @@ Consulte también [Indexación de tablas](sql-data-warehouse-tables-index.md), [
 
 Si no encuentra lo que busca en este artículo, pruebe a usar la "búsqueda de documentos" en la parte izquierda de esta página para buscar todos los documentos de Azure Synapse.  
 
-El [foro de Azure Synapse](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) es un lugar para publicar preguntas para otros usuarios y al grupo de productos de Azure Synapse.  Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  
+En la [página de preguntas y respuestas de Microsoft para Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) puede publicar preguntas para otros usuarios y para el grupo del producto de Azure Synapse.  Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  
 
 Si prefiere formular sus preguntas en Stack Overflow, también tenemos un [foro de Stack Overflow sobre Azure SQL Data Warehouse](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

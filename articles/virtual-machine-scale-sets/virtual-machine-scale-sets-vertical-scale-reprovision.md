@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 69c613de02b9601966cae2d36c13428ca6c7becc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121004"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827273"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales
 
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Para más información sobre cómo crear alertas, consulte los artículos siguientes:
 
-* [Ejemplos de inicio rápido de PowerShell de Azure Monitor](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](../azure-monitor/platform/cli-samples.md)
+* [Ejemplos de PowerShell de Azure Monitor](../azure-monitor/samples/powershell-samples.md)
+* [Ejemplos de la CLI multiplataforma de Azure Monitor](../azure-monitor/samples/cli-samples.md)
 
 ## <a name="summary"></a>Resumen
 

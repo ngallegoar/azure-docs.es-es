@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402061"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725540"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Habla personalizada?
 
@@ -37,9 +37,11 @@ Este diagrama resalta las partes que componen el [portal de Habla personalizada]
 
 4. [Evalúe la precisión](how-to-custom-speech-evaluate-data.md): evalúe la precisión del modelo de conversión de voz a texto. El [portal de Habla personalizada](https://speech.microsoft.com/customspeech) proporcionará una *tasa de errores de palabras*, que puede utilizarse para determinar si se necesita más entrenamiento. Si está satisfecho con la precisión, puede usar directamente las API del servicio de voz. Si desea mejorar la precisión en una media relativa del 5 al 20 %, use la pestaña **Entrenamiento** del portal para cargar datos de entrenamiento adicionales, como transcripciones con etiqueta humana y texto relacionado.
 
-5. [Entrene el modelo](how-to-custom-speech-train-model.md): mejore la precisión del modelo de conversión de voz a texto uniendo transcripciones escritas (de 10 a 1000 horas) y texto relacionado (< 200 MB) a datos de prueba de audio. Estos datos ayudan a entrenar el modelo de conversión de voz a texto. Después del entrenamiento, vuelva a probar; si le satisface el resultado, ya puede implementar el modelo.
+5. [Mejore la precisión](how-to-custom-speech-improve-accuracy.md): elija estratégicamente datos de entrenamiento adicionales para mejorar la calidad del modelo de conversión de voz a texto según su escenario.
 
-6. [Implemente el modelo](how-to-custom-speech-deploy-model.md): cree un punto de conexión personalizado para el modelo de conversión de voz a texto y úselo en sus aplicaciones, herramientas o productos.
+6. [Entrene el modelo](how-to-custom-speech-train-model.md): mejore la precisión del modelo de conversión de voz a texto uniendo transcripciones escritas (de 10 a 1000 horas) y texto relacionado (< 200 MB) a datos de prueba de audio. Estos datos ayudan a entrenar el modelo de conversión de voz a texto. Después del entrenamiento, vuelva a probar; si le satisface el resultado, ya puede implementar el modelo.
+
+7. [Implemente el modelo](how-to-custom-speech-deploy-model.md): cree un punto de conexión personalizado para el modelo de conversión de voz a texto y úselo en sus aplicaciones, herramientas o productos.
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 

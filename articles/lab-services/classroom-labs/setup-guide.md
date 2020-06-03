@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 5c2ea38dfa799239adde158506e1359fb84adcc4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878109"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650523"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guía de configuración del laboratorio educativo
 
@@ -127,7 +127,12 @@ Una vez que comprenda los requisitos del laboratorio de la clase, está listo pa
    - [Habilitación del apagado automático al desconectar](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Las programaciones, las cuotas y el apagado automático no se aplican a la máquina virtual de plantilla. Como resultado, debe asegurarse de que apaga la máquina virtual de plantilla cuando no la use. De lo contrario, sigue incurriendo en costos. Además, de forma predeterminada, cuando se crea un laboratorio, la máquina virtual de la plantilla se inicia automáticamente. Asegúrese de terminar de configurar el laboratorio inmediatamente y de apagar la máquina virtual de plantilla.
+        > Las programaciones y las cuotas no se aplican a la máquina virtual de plantilla, pero sí se aplica la configuración de apagado automático. 
+        > 
+        > Al crear un laboratorio, se crea la máquina virtual de plantilla, pero no se inicia. Puede iniciarla, conectarse a ella e instalar cualquier software necesario para el laboratorio y, a continuación, publicarla. Al publicar la máquina virtual de plantilla, se apagará automáticamente si el usuario no lo ha hecho. 
+        > 
+        > Las máquinas virtuales de plantilla incurren en un **costo** al ejecutarse, por lo que debe asegurarse de que la máquina virtual de la plantilla se cierre cuando no sea necesario que se esté ejecutando. 
+
 
 1. **Use el panel.** Para obtener instrucciones, consulte [Uso del panel del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 

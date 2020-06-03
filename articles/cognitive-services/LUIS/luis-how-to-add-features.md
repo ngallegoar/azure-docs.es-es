@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 12445ec5b14f4c274e471bf1b061a3b221664d20
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592311"
+ms.locfileid: "83654077"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Uso de características para aumentar la señal de la lista de palabras
 
@@ -49,8 +49,23 @@ Revise los [conceptos](luis-concept-feature.md) para comprender cuándo y por qu
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
+
 > [!Note]
 > Puede eliminar o desactivar una lista de frases desde la barra de herramientas contextual de la página **ML Features**.
+
+## <a name="global-phrase-list-applies-to-entire-app"></a>La lista de frases globales se aplica a toda la aplicación
+
+Una lista de frases debe aplicarse a la intención o entidad a la que se pretende ayudar, pero puede haber ocasiones en las que se debe aplicar una lista de frases a toda la aplicación como característica **global**.
+
+En la página de características de aprendizaje automático, seleccione la lista de frases y, a continuación, seleccione **Hacerlo global** en la barra de herramientas contextual superior.
+
+## <a name="model-as-a-feature"></a>Modelo como característica
+
+Una entidad puede ser una [característica para una intención o entidad](luis-concept-feature.md).
+
+Para agregar una entidad como una característica para una intención, seleccione la intención en la página de intenciones y, a continuación, seleccione la opción **+ Agregar característica** situada sobre la barra de herramientas contextual. La lista incluirá todas las listas de frases y entidades que se pueden aplicar como características.
+
+Para agregar una entidad como una característica a otra entidad, puede agregar la característica en la página de detalles de la intención mediante la [paleta de entidades](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) o puede [agregar la característica](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) en la página de detalles de la entidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

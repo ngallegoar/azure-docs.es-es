@@ -1,5 +1,5 @@
 ---
-title: Creación de una nueva oferta de servicio administrado en Marketplace comercial
+title: Creación de una nueva oferta de servicio administrado en el Marketplace comercial de Microsoft
 description: Cómo crear una oferta de servicio administrado para la lista de Azure Marketplace mediante el portal de Marketplace comercial en el Centro de partners.
 author: JnHs
 ms.author: jenhayes
@@ -7,57 +7,61 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: c82c3e0b6e6d11ccc33bf8556b06aeb04a6d37b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147905"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847726"
 ---
-# <a name="create-a-new-managed-service-offer"></a>Creación de una nueva oferta de servicio administrado
+# <a name="create-a-managed-service-offer"></a>Creación de una oferta de servicio administrado
 
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de servicios administrados de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones que se indican en [Publicación de una oferta de servicios administrados en Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) para administrar las ofertas en Cloud Partner Portal.
+Servicio administrado ofrece ayuda para habilitar escenarios de [Azure Lighthouse](../../lighthouse/overview.md). Cuando un cliente acepta una oferta de servicio administrado, puede incorporar recursos para la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa de marketplace comercial.
 
-Servicio administrado ofrece ayuda para habilitar escenarios de [Azure Lighthouse](../../lighthouse/overview.md). Cuando un cliente acepta una oferta de servicio administrado, puede incorporar recursos para la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
-
-Para empezar a crear ofertas de Servicio administrado, asegúrese de que primero [crea una cuenta del Centro de partners](./create-account.md) y después abre el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la página **Información general** seleccionada. Debe tener un [nivel de competencia de plataforma en la nube Silver o Gold](https://partner.microsoft.com/membership/cloud-platform-competency) o ser un [MSP experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar una oferta de servicio administrado.
-
-![Panel de Marketplace comercial en el Centro de partners](./media/new-offer-overview.png)
-
->[!Note]
-> Una vez publicada una oferta, las modificaciones de esta realizadas en el Centro de partners solo se actualizarán en el sistema y en los escaparates después de volver a publicarla. Asegúrese de enviar la oferta para su publicación después de realizar los cambios.
+Debe tener un [nivel de competencia de plataforma en la nube Silver o Gold](https://partner.microsoft.com/membership/cloud-platform-competency) o ser un [MSP experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar una oferta de servicio administrado.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
-Seleccione el botón **+ Nueva oferta** y, a continuación, seleccione el elemento de menú **Servicio administrado**. Aparecerá el cuadro de diálogo **Nueva oferta**.
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+2. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
+3. En la página Información general, seleccione **+ Nueva oferta** > **Servicio administrado**.
 
-### <a name="offer-id-and-alias"></a>Identificador y alias de la oferta
+    ![Muestra el menú de navegación izquierdo.](./media/new-offer-managed-service.png)
 
-- **Id. de oferta**: Identificador único para cada oferta de su cuenta. Este identificador será visible para los clientes en la dirección URL de la oferta de Marketplace. Este identificador solo puede contener caracteres alfanuméricos en minúsculas (puede incluir guiones y guiones bajos, pero no espacios en blanco), se limita a 50 caracteres y no se puede cambiar después de seleccionar **Crear**.  Por ejemplo, si escribe *test-offer-1* aquí, la dirección URL de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+>[!NOTE]
+>Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
-- **Alias de la oferta**: nombre que se usa para hacer referencia a la oferta desde el Centro de partners. Este nombre no se usará en Marketplace y es diferente del nombre de la oferta y otros valores que se mostrarán a los clientes. Este valor no se puede cambiar después de seleccionar **Crear**.
+## <a name="new-offer"></a>Nueva oferta
 
-Una vez que escriba el **identificador** y el **alias de la oferta**, seleccione **Crear**. Después podrá trabajar en todas las partes de la oferta.
+Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
+
+* Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
+* Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
+
+Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
+
+* Este nombre no se usa en Marketplace y es diferente del nombre de la oferta y de otros valores que se muestran a los clientes.
+* El alias de la oferta no se puede cambiar después de seleccionar **Crear**.
+
+Seleccione **Crear** para generar la oferta y continuar.
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
-En la página **Configuración de la oferta** se solicita la siguiente información. Después de completar estos campos, asegúrese de seleccionar **Guardar**.
-
-## <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
+### <a name="customer-leads"></a>Clientes potenciales
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Tenga en cuenta que, según las [directivas de certificación de servicios administrados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), se requiere un **Destino de clientes potenciales**. Con esta acción se creará un registro en el sistema CRM cada vez que un cliente implemente la oferta.
+Según las [directivas de certificación de servicios administrados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), se requiere un **Destino de clientes potenciales**. Con esta acción se creará un registro en el sistema CRM cada vez que un cliente implemente la oferta.
 
 Para obtener más información, consulte [Introducción a la administración de clientes potenciales](./commercial-marketplace-get-customer-leads.md).
 
-No olvide **guardar** la página antes de pasar a la siguiente sección.
+Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="properties"></a>Propiedades
 
-La página **Propiedades** le permite definir las categorías que se usan para agrupar su oferta en Marketplace y los contratos legales que dan soporte a la oferta. Después de completar esta página, seleccione **Guardar**.
+Esta página le permite definir las categorías que se usan para agrupar su oferta en el marketplace y los contratos legales que respaldan la oferta.
 
 ### <a name="category"></a>Category
 
@@ -67,12 +71,14 @@ Seleccione un mínimo de una y un máximo de cinco categorías, que se utilizar�
 
 Proporcione sus propios términos y condiciones legales en el campo **Términos y condiciones**. También puede proporcionar la dirección URL donde se pueden encontrar los términos y condiciones. Los clientes deberán aceptar estos términos para poder probar la oferta.
 
+Seleccione **Guardar borrador** antes de continuar.
+
 ## <a name="offer-listing"></a>Descripción de la oferta
 
-La página **Descripción de la oferta** le permite definir los detalles de Marketplace (nombre de la oferta, descripción, imágenes etc.) para cada oferta.
+Esta página le permite definir los detalles del marketplace (como el nombre de la oferta, la descripción y las imágenes) para su oferta.
 
 > [!NOTE]
-> No es necesario que el contenido del anuncio de la oferta (por ejemplo, la descripción, los documentos, las capturas de pantallas, los términos de uso, etc.) esté en inglés siempre que la descripción de la oferta empiece por la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la oferta.
+> No es necesario que la oferta (por ejemplo, la descripción, los documentos, las capturas de pantallas y los términos de uso) esté en inglés si la descripción de la oferta comienza por la frase "Esta aplicación solo está disponible en [idioma distinto del inglés]". También es aceptable proporcionar una *dirección URL de vínculo útil* para ofrecer contenido en un idioma distinto del que se usa en el contenido del anuncio de la oferta.
 
 ### <a name="name"></a>Nombre
 
@@ -88,35 +94,11 @@ Proporcione una descripción más larga de la oferta (hasta 256 caracteres). Est
 
 ### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3.000 caracteres). Esta descripción se mostrará a los clientes en la información general de la lista de Marketplace. Incluya una propuesta de valor de la oferta, los beneficios clave, las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación y todas las divulgaciones necesarias.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Algunos consejos para escribir la descripción:  
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. Incluya los siguientes elementos en la propuesta de valor:
-  - Descripción de la oferta.
-  - Tipo de usuario que se beneficia de la oferta.
-  - Necesidad o preocupación del cliente que aborda la oferta.
-- Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.  
-- No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona.  
-- Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas.
-
-Para que la descripción de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato.
-
-![Uso del editor de texto enriquecido](./media/text-editor2.png)
-
-Siga las instrucciones siguientes para usar el editor de texto enriquecido:
-
-- Para cambiar el formato del contenido, resalte el texto al que quiera dar formato y seleccione un estilo de texto, como se muestra aquí:
-
-     ![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png)
-
-- Para agregar una lista con viñetas o numerada al texto, use las opciones siguientes:
-
-     ![Uso del editor de texto enriquecido para agregar listas](./media/text-editor4.png)
-
-- Para agregar o quitar la sangría del texto, use las opciones siguientes:
-
-     ![Uso del editor de texto enriquecido para aplicar sangría](./media/text-editor5.png)
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="privacy-policy-link"></a>Vínculo de la directiva de privacidad
 
@@ -138,12 +120,19 @@ Si tiene sitios web de soporte técnico para **clientes globales de Azure** o **
 
 En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG.
 
->[!Note]
+>[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
 #### <a name="marketplace-logos"></a>Logotipos de Marketplace
 
-Se requieren cuatro tamaños de logotipo: **Pequeño (40 x 40)** , **Medio (90 x 90)** , **Grande (115 x 115)** y **Ancho (255 x 155)** . Siga estas instrucciones para los logotipos:
+Proporcione el logotipo de la oferta en cuatro tamaños de píxel:
+
+- **Pequeño (40 x 40)**
+- **Medio (90 x 90)**
+- **Grande (115 x 115)**
+- **Ancho (255 x 115)**
+
+Siga estas instrucciones para los logotipos:
 
 - El diseño de Azure tiene una paleta de colores simple. Utilice pocos colores primarios y secundarios en el logotipo.
 - Los colores del tema del portal son el blanco y el negro. No use estos colores como fondo de los logotipos. Use un color que haga que su logotipo destaque en el portal. Nosotros recomendamos usar colores primarios simples.
@@ -164,6 +153,8 @@ Opcionalmente, puede agregar hasta cinco vídeos que muestren la oferta. Estos v
 
 - [Procedimientos recomendados la descripción de ofertas en Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
+Seleccione **Guardar borrador** antes de continuar.
+
 ## <a name="preview"></a>Vista previa
 
 Antes de publicar su oferta en la oferta de Marketplace más amplia, primero deberá ponerla a disposición de un público preliminar limitado. Esto le permite confirmar cómo se muestra la oferta en Azure Marketplace antes de ponerla a disposición de los clientes. Los equipos de soporte técnico y de ingeniería de Microsoft también podrán ver su oferta durante este período de versión preliminar.
@@ -171,6 +162,8 @@ Antes de publicar su oferta en la oferta de Marketplace más amplia, primero deb
 Para definir el público preliminar, escriba los identificadores de suscripción de Azure en la sección **Público preliminar**. Puede escribir hasta 10 identificadores de suscripción manualmente o cargar un archivo .csv con hasta 100 identificadores de suscripción.
 
 Los clientes asociados con estas suscripciones podrán ver la oferta en Azure Marketplace antes de que se publique. Asegúrese de incluir sus propias suscripciones aquí para poder obtener la versión preliminar de la oferta.
+
+Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="plan-overview"></a>Información general del plan
 
@@ -237,18 +230,20 @@ Para cada **Autorización**, deberá proporcionar la siguiente información. Pue
 
 Una vez que haya completado todas las secciones del plan, puede seleccionar **+ Crear nuevo plan** tantas veces como necesite para crear planes adicionales. Cuando finalice, seleccione **Guardar**.
 
+Seleccione **Guardar borrador** antes de continuar.
+
 ## <a name="publish"></a>Publicar
 
 ### <a name="submit-offer-to-preview"></a>Envío de la oferta para tener una versión preliminar
 
-Una vez que haya completado todas las secciones necesarias de la oferta, seleccione **Publicar** en la esquina superior derecha del portal. Se le redirigirá a la página **Review and publish** (Revisar y publicar).
+Una vez que haya completado todas las secciones necesarias de la oferta, seleccione **Revisar y publicar** en la esquina superior derecha del portal.
 
 Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
-  - *No iniciada*: significa que la sección no se ha modificado y se debe completar.
-  - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
-  - *Completa*: significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+  - **No iniciada**: la sección no se ha modificado y se debe completar.
+  - **Incompleta**: la sección tiene errores que deben corregirse o se requiere más información. Vuelva a las secciones y actualícelas.
+  - **Completa**: la sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccionar **Transmitir** la oferta para publicar la oferta para el público (o si es una oferta privada, al público privado).
 

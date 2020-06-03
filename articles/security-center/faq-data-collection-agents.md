@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436195"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849049"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
@@ -49,6 +49,22 @@ Las máquinas virtuales Linux o Windows de IaaS son aptas si:
 - El estado de la máquina virtual es en ejecución.
 - El [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) de Windows o Linux está instalado.
 - La máquina virtual no se utiliza como dispositivo, es decir, firewall de aplicaciones web o de próxima generación.
+
+
+## <a name="where-is-the-default-log-analytics-workspace-created"></a>¿Dónde se crea el área de trabajo Log Analytics predeterminada?
+
+La ubicación del área de trabajo predeterminada depende de la región de Azure:
+
+- En el caso de las máquinas virtuales de Estados Unidos y de Brasil, la ubicación del área de trabajo es Estados Unidos
+- En el caso de las máquinas virtuales de Canadá, la ubicación del área de trabajo es Canadá
+- En el caso de las máquinas virtuales de Europa, la ubicación del área de trabajo es Europa
+- En el caso de las máquinas virtuales del Reino Unido, la ubicación del área de trabajo es el Reino Unido
+- En el caso de las máquinas virtuales de Asia Oriental y el Asia Pacífico, la ubicación del área de trabajo es Asia
+- En el caso de las máquinas virtuales de Corea, la ubicación del área de trabajo es Corea
+- En el caso de las máquinas virtuales de la India, la ubicación del área de trabajo es la India
+- En el caso de las máquinas virtuales de Japón, la ubicación del área de trabajo es Japón
+- En el caso de las máquinas virtuales de China, la ubicación del área de trabajo es China
+- En el caso de las máquinas virtuales de Australia, la ubicación del área de trabajo es Australia
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>¿Puedo eliminar las áreas de trabajo predeterminadas creadas por Security Center?

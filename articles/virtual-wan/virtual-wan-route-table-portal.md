@@ -1,5 +1,5 @@
 ---
-title: 'Virtual WAN: Creación de una tabla de rutas de concentrador virtual en NVA: Portal de Azure'
+title: 'Virtual WAN: Creación de una tabla de rutas de concentrador virtual en NVA: Azure Portal'
 description: Tabla de rutas de concentrador virtual de Virtual WAN para dirigir el tráfico a un dispositivo virtual de red con el portal.
 services: virtual-wan
 author: cherylmc
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 740a2174933e37e2737de0daa56e4b1670ecf55f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402939"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773175"
 ---
-# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Cree una tabla de rutas de concentrador de Virtual WAN para dispositivos virtuales de red: Portal de Azure
+# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Cree una tabla de rutas de concentrador de Virtual WAN para dispositivos virtuales de red: Azure Portal
 
 En este artículo se muestra cómo dirigir el tráfico desde una rama (sitio local) conectada al centro de conectividad Virtual WAN hacia una red virtual de radio a través de una Aplicación virtual de red (NVA).
 
@@ -76,6 +76,9 @@ Actualice el concentrador con una tabla de rutas de concentrador. Use los valore
 3. Haga clic en los puntos suspensivos **...** y luego, en **Editar concentrador virtual**.
 4. En la página **Editar concentrador virtual**, desplácese hacia abajo y marque la casilla **Usar tabla para el enrutamiento**.
 5. En la columna **Si el prefijo de destino es**, agregue los espacios de direcciones. En la columna **Enviar al próximo salto**, agregue la dirección IP privada de interfaz con red NVA de la red perimetral.
+>[!NOTE]
+>La red NVA de la red perimetral es aplicable al centro local.
+>
 6. Haga clic en **Confirmar** para actualizar el recurso del centro de conectividad con la configuración de la tabla de rutas.
 
 ## <a name="5-create-the-vnet-connections"></a><a name="connections"></a>5. Creación de las conexiones de red virtual

@@ -6,15 +6,15 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427140"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702103"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Creación, desarrollo y mantenimiento de cuadernos de Azure Synapse Studio (versión preliminar)
 
@@ -55,12 +55,12 @@ Hay varias maneras de agregar una nueva celda a un cuaderno.
 
 ### <a name="set-a-primary-language"></a>Definición del lenguaje principal
 
-Los cuadernos de Azure Synapse Studio admiten cuatro lenguajes de spark:
+Los cuadernos de Azure Synapse Studio admiten cuatro lenguajes de Apache Spark:
 
-* pyspark (python)
-* spark (Scala)
-* sparkSQL
-* Spark.NET (C#)
+* pySpark (Python)
+* Spark (Scala)
+* SparkSQL
+* .NET para Apache Spark (C#)
 
 Desde la lista desplegable de la barra de comandos superior, puede establecer el lenguaje principal para las nuevas celdas que se agreguen.
 
@@ -75,9 +75,9 @@ Para usar varios lenguajes en un cuaderno, puede especificar el comando magic de
 |%%pyspark| Python | Ejecute una consulta de **Python** en SparkContext.  |
 |%%spark| Scala | Ejecute una consulta de **Scala** en SparkContext.  |  
 |%%sql| SparkSQL | Ejecute una consulta de **SparkSQL** en SparkContext.  |
-|%%csharp | Spark.NET C# | Ejecute una consulta de **Spark.NET C#** en SparkContext. |
+|%%csharp | .NET para Spark C# | Ejecute una consulta de **.NET para Spark C#** en Spark Context. |
 
-La imagen siguiente es un ejemplo de cómo se puede escribir una consulta de PySpark con el comando magic **%%pyspark** o una consulta de SparkSQL con el comando magic **%%sql** en un cuaderno de **Spark (Scala)** . Tenga en cuenta que el lenguaje principal del cuaderno está establecido en Scala.
+La imagen siguiente es un ejemplo de cómo se puede escribir una consulta de PySpark con el comando magic **%%pyspark** o una consulta de SparkSQL con el comando magic **%%sql** en un cuaderno de **Spark (Scala)** . Tenga en cuenta que el lenguaje principal del cuaderno está establecido en pySpark.
 
    ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
@@ -118,7 +118,7 @@ Las características de IntelliSense tienen distintos niveles de madurez para di
 |PySpark (Python)|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Spark (Scala)|Sí|Sí|Sí|Sí|-|-|-|Sí|
 |SparkSQL|Sí|Sí|-|-|-|-|-|-|
-|Spark.NET (C#)|Sí|-|-|-|-|-|-|-|
+|.NET para Spark ( C# )|Sí|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formato de celdas de texto con botones de la barra de herramientas
 
@@ -390,5 +390,8 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) en Azure Synapse Analytics mediante herramientas web](../quickstart-apache-spark-notebook.md)
+- [Qué es Apache Spark en Azure Synapse Analytics](apache-spark-overview.md)
+- [Uso de .NET para Apache Spark con Azure Synapse Analytics](spark-dotnet.md)
 - [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

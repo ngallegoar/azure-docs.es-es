@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f0cc0cd7233d0c16cae8389fcddd50a16cf96bd2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383622"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683642"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Conversión de las clases de recursos en grupos de cargas de trabajo
 
@@ -38,7 +38,7 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Los grupos de cargas de trabajo operan según el porcentaje de recursos generales del sistema.  
 
-Dado que los grupos de cargas de trabajo operan en función del porcentaje de recursos generales del sistema, a medida que se escala y se reduce verticalmente, se cambia el porcentaje de recursos asignados a las clases de recursos estáticos en relación con los recursos generales del sistema.  Por ejemplo, staticrc40 en Dw1000c y asigna el 9,6 % de los recursos generales del sistema.  En DW2000c, se asigna el 19,2 %.  Este modelo es parecido si se quiere escalar verticalmente para la simultaneidad o si se quieren asignar más recursos por solicitud.
+Dado que los grupos de cargas de trabajo operan en función del porcentaje de recursos generales del sistema, a medida que se escala y se reduce verticalmente, se cambia el porcentaje de recursos asignados a las clases de recursos estáticos en relación con los recursos generales del sistema.  Por ejemplo, staticrc40 en DW1000c asigna el 19,2 % de los recursos generales del sistema.  En DW2000c, se asigna el 9,6 %.  Este modelo es parecido si se quiere escalar verticalmente para la simultaneidad o si se quieren asignar más recursos por solicitud.
 
 ## <a name="create-workload-group"></a>Creación de un grupo de cargas de trabajo
 

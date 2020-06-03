@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3dc111fe62cbae857f3369165ba29cf40e90342
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426392"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834992"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Procedimientos recomendados para grupos de SQL en Azure Synapse Analytics
 
@@ -144,7 +144,7 @@ Para obtener instrucciones adicionales, consulte los artículos [Tablas temporal
 
 Los índices de almacén de columnas agrupadas son una de las maneras más eficaces para almacenar datos en el grupo de SQL.  De forma predeterminada, las tablas del grupo de SQL se crean como almacén de columnas agrupadas.  Para conseguir el máximo rendimiento de las consultas en las tablas de almacén de columnas, es importante la calidad de los segmentos.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  
 
-La calidad de los segmentos se puede medir por el número de filas en un grupo de filas comprimido. Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) del artículo [Indexación de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)  
+La calidad de los segmentos se puede medir por el número de filas en un grupo de filas comprimido. Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) del artículo sobre [Indexación de tablas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 Como es importante que los segmentos de almacén de columnas sean de una buena calidad, es conveniente usar identificadores de usuario que se encuentren en la clase de recursos grande o mediana para cargar los datos. El uso de [unidades de almacenamiento de datos](resource-consumption-models.md) inferiores significa que desea asignar una clase de recurso mayor para el usuario que realiza la carga.
 
@@ -193,7 +193,7 @@ Los grupos de SQL tiene varias DMV que sirven para supervisar la ejecución de c
 
 Consulte también el artículo sobre [Solución de problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para conocer los problemas comunes y sus soluciones.
 
-Si necesita información que no esté incluida en este artículo, use la "búsqueda de documentación" en el lado izquierdo de esta página para buscar en todos los documentos del grupo de SQL.  El [foro del grupo de SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) es un lugar para plantear preguntas a otros usuarios y al grupo de productos del grupo de SQL.  
+Si necesita información que no se proporciona en este artículo, busque en la [página de preguntas y respuestas de Microsoft para Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) donde puede plantear preguntas a otros usuarios y al grupo de productos del grupo de SQL.  
 
 Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  Si prefiere formular sus preguntas en Stack Overflow, también hay disponible un [foro de Stack Overflow acerca del grupo de Azure SQL](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

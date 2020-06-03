@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/29/2020
 ms.author: aschhab
-ms.openlocfilehash: 49748006baf779e6aea4322068ca3bd07a03a0a3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209407"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647861"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -43,11 +43,11 @@ Los siguientes términos se utilizan en este artículo:
 
 -  *Alias*: el nombre para una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. El uso de un alias garantiza que la cadena de conexión permanecerá sin modificación cuando se desencadene la conmutación por error.
 
--  *Espacio de nombres principal o secundario*: los espacios de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
+-  *Espacio de nombres principal o secundario*: los espacio de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
 
--  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociados con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican.
+-  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociadas con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican.
 
--  *Conmutación por error*: El proceso de activación del espacio de nombres secundario.
+-  *Conmutación por error*: el proceso de activación del espacio de nombres secundario.
 
 ## <a name="setup"></a>Configurar
 
@@ -145,6 +145,43 @@ La SKU de Service Bus Premium es compatible con [Availability Zones](../availabi
 Solo puede habilitar Availability Zones en los espacios de nombres nuevos mediante Azure Portal. Service Bus no admite la migración de espacios de nombres existentes. No se puede deshabilitar la redundancia de zona después de habilitarla en el espacio de nombres.
 
 ![3][]
+
+## <a name="private-endpoints"></a>Puntos de conexión privados
+En esta sección se proporcionan consideraciones adicionales cuando se usa la recuperación ante desastres geográfica con espacios de nombres que utilizan puntos de conexión privados. Para obtener información sobre el uso de puntos de conexión privados con Service Bus en general, consulte [Integración de Azure Service Bus con Azure Private Link](private-link-service.md).
+
+### <a name="new-pairings"></a>Nuevos emparejamientos
+Si intenta crear un emparejamiento entre un espacio de nombres principal con un punto de conexión privado y un espacio de nombres secundario sin un punto de conexión privado, se producirá un error en el emparejamiento. El emparejamiento solo se realizará correctamente si los espacios de nombres principal y secundario tienen puntos de conexión privados. Se recomienda utilizar las mismas configuraciones en los espacios de nombres principal y secundario y en las redes virtuales en las que se creen los puntos de conexión privados. 
+
+> [!NOTE]
+> Al intentar emparejar el espacio de nombres principal con un punto de conexión privado y el espacio de nombres secundario, el proceso de validación solo comprueba si existe un punto de conexión privado en el espacio de nombres secundario. No comprueba si el punto de conexión funciona ahora o después de la conmutación por error. Es su responsabilidad asegurarse de que el espacio de nombres secundario con el punto de conexión privado funcionará según lo esperado después de la conmutación por error.
+>
+> Para probar que las configuraciones del punto de conexión privado son iguales, envíe una solicitud [Get queues](/rest/api/servicebus/queues/get) al espacio de nombres secundario desde fuera de la red virtual y compruebe que recibe un mensaje de error del servicio.
+
+### <a name="existing-pairings"></a>Emparejamientos existentes
+Si ya existe un emparejamiento entre el espacio de nombres principal y el secundario, se producirá un error en la creación del punto de conexión privado en el espacio de nombres principal. Para resolverlo, cree primero un punto de conexión privado en el espacio de nombres secundario y, a continuación, cree uno para el espacio de nombres principal.
+
+> [!NOTE]
+> Aunque se permite el acceso de solo lectura al espacio de nombres secundario, no se permiten las actualizaciones de las configuraciones de punto de conexión privado. 
+
+### <a name="recommended-configuration"></a>Configuración recomendada
+Al crear una configuración de recuperación ante desastres para la aplicación y Service Bus, debe crear puntos de conexión privados para los espacios de nombres de Service Bus principal y secundario en las redes virtuales que hospeden las instancias principales y secundarias de la aplicación.
+
+Supongamos que tiene dos redes virtuales, VNET-1 y VNET-2, y estos espacios de nombres principal y secundario: ServiceBus-Namespace1-Primary, ServiceBus-Namespace2-Secondary. Debe seguir estos pasos: 
+
+- En ServiceBus-Namespace1-Primary, cree dos puntos de conexión privados que usen subredes de VNET-1 y VNET-2.
+- En ServiceBus-Namespace2-Secondary, cree dos puntos de conexión privados que usen las mismas subredes de VNET-1 y VNET-2. 
+
+![Puntos de conexión privados y redes virtuales](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
+
+
+La ventaja de este enfoque es que la conmutación por error puede producirse en el nivel de aplicación independiente del espacio de nombres de Service Bus. Considere los casos siguientes: 
+
+**Conmutación por error solo de la aplicación:** en este caso, la aplicación no existirá en VNET-1, sino que se moverá a VNET-2. Como ambos puntos de conexión privados están configurados tanto en VNET-1 como en VNET-2 para los espacios de nombres principal y secundario, la aplicación funcionará. 
+
+**Conmutación por error solo del espacio de nombres de Service Bus**: en este caso, dado que los dos puntos de conexión privados están configurados en ambas redes virtuales para los espacios de nombres principal y secundario, la aplicación funcionará. 
+
+> [!NOTE]
+> Para obtener instrucciones sobre la recuperación ante desastres con localización geográfica de una red virtual, consulte [Virtual Network: continuidad del negocio](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

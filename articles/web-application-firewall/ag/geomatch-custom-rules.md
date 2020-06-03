@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
-ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76960385"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744300"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Reglas personalizadas de Geomatch (vista previa)
 
@@ -23,11 +23,11 @@ Para crear una regla personalizada de filtrado geográfico, simplemente seleccio
 > [!IMPORTANT]
 > Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="country-codes"></a>Códigos de país
+## <a name="countryregion-codes"></a>Códigos de país o región
 
-Si usa el operador Geomatch, los selectores pueden ser cualquiera de los siguientes códigos de país de dos dígitos. 
+Si usa el operador Geomatch, los selectores pueden ser cualquiera de los siguientes códigos de país o región de dos dígitos. 
 
-|Código de país | Nombre del país |
+|Código de país o región | Nombre del país o región |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emiratos Árabes Unidos|

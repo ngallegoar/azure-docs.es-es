@@ -12,16 +12,16 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: ed8dd902ac490b4e6a0f172029bf3ffa1d44acee
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251850"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653051"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autenticación en Azure Synapse Analytics
 
-Aprenda sobre la autenticación en SQL Analytics en Azure Synapse mediante la autenticación de Azure Active Directory (AAD) o SQL Server.
+Aprenda sobre la autenticación de Synapse SQL en Azure Synapse con la autenticación de Azure Active Directory (AAD) o SQL Server.
 
 Para conectarse a un grupo de SQL, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.  
 
@@ -80,7 +80,7 @@ Actualmente los usuarios de Azure Active Directory no se muestran en el Explorad
 
 ### <a name="find-the-details"></a>Búsqueda de los detalles
 
-* Los pasos para configurar y usar la autenticación de Azure Active Directory son casi idénticos para Azure SQL Database y SQL Analytics en Azure Synapse. Siga los pasos detallados del tema [Conexión a SQL Database o al grupo de SQL mediante la autenticación de Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* Los pasos para configurar y usar la autenticación de Azure Active Directory son casi idénticos para Azure SQL Database y Synapse SQL en Azure Synapse. Siga los pasos detallados del tema [Conexión a SQL Database o al grupo de SQL mediante la autenticación de Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Cree roles de base de datos personalizados y agrégueles usuarios. A continuación, conceda permisos específicos a los roles. Para obtener más información, consulte [Introducción a los permisos de los motores de bases de datos](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Pasos siguientes

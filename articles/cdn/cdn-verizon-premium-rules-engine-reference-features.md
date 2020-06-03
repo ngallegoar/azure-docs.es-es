@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2d4090934a940809fe75ad70e0650eb1c9353f1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253499"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872712"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Características del motor de reglas de Azure CDN de Verizon Premium
 
@@ -20,150 +20,9 @@ En este tema se muestran descripciones detalladas de las características dispon
 
 La tercera parte de una regla es la característica. Una característica define el tipo de acción que se aplica al tipo de solicitud que se identifica con un conjunto de condiciones de coincidencia.
 
-## <a name="access-features"></a>Características de acceso
 
-Estas características están diseñadas para controlar el acceso al contenido.
+Para obtener las características más recientes, consulte la [documentación del motor de reglas de Verizon](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions).
 
-Nombre | Propósito
------|--------
-[Denegar acceso (403)](#deny-access-403) | Determina si todas las solicitudes se rechazan con una respuesta 403-Prohibido.
-[Autenticación de token](#token-auth) | Determina si se aplica una solicitud de autenticación basada en tokens a una solicitud.
-[Código de denegación de autenticación de tokens](#token-auth-denial-code) | Determina el tipo de respuesta que se devolverá al usuario cuando se deniega una solicitud debido a la autenticación basada en tokens.
-[Ignorar mayúsculas y minúsculas en URL de autenticación de tokens](#token-auth-ignore-url-case) | Determina si las comparaciones de URL realizadas por la autenticación basada en tokens distinguen mayúsculas de minúsculas.
-[Parámetro de autenticación de tokens](#token-auth-parameter) | Determina si debe cambiarse el parámetro de cadena de consulta de autenticación basada en tokens.
-
-## <a name="caching-features"></a>Características de almacenamiento en caché
-
-Estas características están diseñadas para personalizar cuándo y cómo se almacena el contenido en caché.
-
-Nombre | Propósito
------|--------
-[Parámetros de ancho de banda](#bandwidth-parameters) | Determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) están activos.
-[Limitación de ancho de banda](#bandwidth-throttling) | Limita el ancho de banda de la respuesta proporcionada por el punto de presencia (POP).
-[Omisión de la memoria caché](#bypass-cache) | Determina si la solicitud debe omitir el almacenamiento en caché.
-[Tratamiento de encabezados Cache-Control](#cache-control-header-treatment) | Controla la generación de encabezados `Cache-Control` mediante el punto de presencia cuando está activa la característica externa de antigüedad máxima.
-[Cadena de consulta de clave de caché](#cache-key-query-string) | Determina si la clave de caché incluye o excluye los parámetros de cadena de consulta asociados a una solicitud.
-[Reescritura de clave de caché](#cache-key-rewrite) | Reescribe la clave de caché asociada a una solicitud.
-[Relleno de la memoria caché completa](#complete-cache-fill) | Determina lo que ocurre cuando una solicitud tiene como resultado un error de caché parcial en un punto de presencia.
-[Comprimir tipos de archivo](#compress-file-types) | Define los formatos de los archivos que se van a comprimir en el servidor.
-[Max-Age interna predeterminada](#default-internal-max-age) | Determina el intervalo predeterminado de antigüedad máxima del punto de presencia en la revalidación de caché del servidor de origen.
-[Tratamiento del encabezado Expires](#expires-header-treatment) | Controla la generación de encabezados `Expires` mediante un punto de presencia cuando está activa la característica externa de antigüedad máxima.
-[Max-Age externa](#external-max-age) | Determina el intervalo de antigüedad máxima para el explorador en la revalidación de caché del punto de presencia.
-[Forzar Max-Age interna](#force-internal-max-age) | Determina el intervalo de antigüedad máxima del punto de presencia en la revalidación de caché del servidor de origen.
-[Compatibilidad de H.264 (descarga progresiva de HTTP)](#h264-support-http-progressive-download) | Determina los tipos de formatos de archivo H.264 que pueden usarse para transmitir contenido en streaming.
-[Respetar la solicitud de no almacenar en caché](#honor-no-cache-request) | Determina si las solicitudes de no almacenar en caché de un cliente HTTP se reenvían al servidor de origen.
-[Ignorar la opción de no almacenar en caché de origen](#ignore-origin-no-cache) | Determina si la CDN ignora determinadas directivas procedentes de un servidor de origen.
-[Ignorar intervalos que no se puedan satisfacer](#ignore-unsatisfiable-ranges) | Determina la respuesta que se devolverá a los clientes cuando una solicitud genere un código de estado "416 - No se puede satisfacer el intervalo solicitado".
-[Max-Stale interna](#internal-max-stale) | Controla cuánto tiempo después de la hora de expiración normal puede atenderse un recurso almacenado en caché desde un punto de presencia cuando este no puede volver a validar el recurso almacenado en caché con el servidor de origen.
-[Uso compartido de caché parcial](#partial-cache-sharing) | Determina si una solicitud puede generar contenido almacenado parcialmente en caché.
-[Prevalidar el contenido guardado en caché](#prevalidate-cached-content) | Determina si el contenido almacenado en caché es apto para la revalidación temprana antes de que expire su período de vida.
-[Actualizar archivos de caché de cero bytes](#refresh-zero-byte-cache-files) | Determina cómo controlan los puntos de presencia la solicitud de un cliente HTTP para un recurso de la caché de 0 bytes.
-[Establecer códigos de estado almacenables en caché](#set-cacheable-status-codes) | Define el conjunto de códigos de estado que puede dar lugar a contenido almacenado en caché.
-[Entrega de contenido obsoleto en caso de error](#stale-content-delivery-on-error) | Determina si se entrega el contenido almacenado en caché cuando se produce un error durante la revalidación de caché o al recuperar el contenido solicitado desde el servidor de origen del cliente.
-[Obsoleto durante revalidación](#stale-while-revalidate) | Mejora el rendimiento al permitir que los puntos de presencia sirvan un cliente obsoleto para el solicitante mientras se lleva a cabo la revalidación.
-
-## <a name="comment-feature"></a>Característica de comentario
-
-Esta característica está diseñada para proporcionar información adicional dentro de una regla.
-
-Nombre | Propósito
------|--------
-[Comment](#comment) | Permite agregar una nota en una regla.
-
-## <a name="header-features"></a>Características de encabezado
-
-Estas características están diseñadas para agregar, modificar o eliminar encabezados de la solicitud o respuesta.
-
-Nombre | Propósito
------|--------
-[Encabezado de respuesta Age](#age-response-header) | Determina si se incluye un encabezado de respuesta Age en la respuesta enviada al solicitante.
-[Depurar encabezados de respuesta de la caché](#debug-cache-response-headers) | Determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug que proporciona información sobre la directiva de caché del recurso solicitado.
-[Modificar encabezado de solicitud de cliente](#modify-client-request-header) | Sobrescribe, agrega o elimina un encabezado en una solicitud.
-[Modificar encabezado de respuesta de cliente](#modify-client-response-header) | Sobrescribe, agrega o elimina un encabezado en una respuesta.
-[Establecer encabezado personalizado de IP de cliente](#set-client-ip-custom-header) | Permite que la dirección IP del cliente solicitante se agregue a la solicitud como encabezado de solicitud personalizado.
-
-## <a name="logging-features"></a>Características de registro
-
-Estas características están diseñadas para personalizar los datos almacenados en archivos de registro sin procesar.
-
-Nombre | Propósito
------|--------
-[Campo de registro personalizado 1](#custom-log-field-1) | Determina el formato y el contenido que se asigna al campo de registro personalizado en un archivo de registro sin procesar.
-[Cadena de consulta del registro](#log-query-string) | Determina si una cadena de consulta se almacena con la dirección URL en los registros de acceso.
-
-
-<!---
-## Optimize
-
-These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
-
-Name | Purpose
------|--------
-Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
-Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-### Edge Optimizer
-**Purpose:** Determines whether Edge Optimizer can be applied to a request.
-
-If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
-
-- The requested content must use an edge CNAME URL.
-- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Value|Result
--|-
-Enabled|Indicates that the request is eligible for Edge Optimizer processing.
-Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
-
-**Default Behavior:** Disabled
-
-
-### Edge Optimizer - Instantiate Configuration
-**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Key information:
-
-- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
-- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
-- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
-
-If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
-
-**Default Behavior:** Site configurations are inactive by default.
---->
-
-## <a name="origin-features"></a>Características de origen
-
-Estas características están diseñadas para controlar la forma en que la red CDN se comunica con un servidor de origen.
-
-Nombre | Propósito
------|--------
-[Número máximo de solicitudes de conexión persistente](#maximum-keep-alive-requests) | Define el número máximo de solicitudes de conexión persistente antes de cerrarse.
-[Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenvían desde un punto de presencia a un servidor de origen.
-
-## <a name="specialty-features"></a>Características de especialidad
-
-Estas características ofrecen funcionalidades avanzadas que solo deben utilizar los usuarios avanzados.
-
-Nombre | Propósito
------|--------
-[Métodos HTTP almacenables en caché](#cacheable-http-methods) | Determina el conjunto de métodos HTTP adicionales que pueden almacenarse en caché en la red.
-[Tamaño del cuerpo de solicitud almacenable en caché](#cacheable-request-body-size) | Define el umbral que determina si una respuesta POST se puede almacenar en caché.
-[Variable USER](#user-variable) | Solo para uso interno.
-
-## <a name="url-features"></a>Características URL
-
-Estas características permiten reescribir una solicitud o redirigirla a una dirección URL diferente.
-
-Nombre | Propósito
------|--------
-[Seguir redireccionamientos](#follow-redirects) | Determina si las solicitudes se pueden redirigir al nombre de host definido en el encabezado Ubicación que devuelve el servidor de origen de un cliente.
-[Redirección de direcciones URL](#url-redirect) | Redirige las solicitudes a través del encabezado Ubicación.
-[Reescritura de direcciones URL](#url-rewrite)  | Reescribe la dirección URL de la solicitud.
 
 ## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Referencia de las características del motor de reglas de Azure CDN de Verizon Premium
 
@@ -338,7 +197,7 @@ Para replicar el comportamiento de almacenamiento en caché de cadenas de consul
 
 El siguiente ejemplo de uso de esta característica proporciona una solicitud de ejemplo y la clave de caché predeterminada:
 
-- **Solicitud de ejemplo:** http://wpc.0001.&lt ;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Solicitud de ejemplo:** http://wpc.0001.&lt;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clave de caché predeterminada:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Include
@@ -1416,9 +1275,6 @@ Esta característica incluye los criterios de coincidencia que deben cumplirse p
 **Propósito**: Solo para uso interno.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
-
-</br>
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Referencia del motor de reglas](cdn-verizon-premium-rules-engine-reference.md)

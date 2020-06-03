@@ -9,14 +9,14 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 05/14/2020
 ms.author: aschhab
-ms.openlocfilehash: 9601689bbce9566b52664058911e9c45647152d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdd3540248c5210e2f6fc47f439641c007a793d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116825"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647812"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configuración de reglas de firewall de IP para Azure Service Bus
 De forma predeterminada, los espacios de nombres de Service Bus son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -50,10 +50,13 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
 2. En el menú de la izquierda, seleccione la opción **Redes**. De forma predeterminada, está seleccionada la opción **Todas las redes**. El espacio de nombres de Service Bus acepta conexiones desde cualquier dirección IP. Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
     ![Firewall: opción Todas las redes seleccionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
-1. Elija la opción **Redes seleccionadas** en la parte superior de la página. En la sección **Firewall**, haga lo siguiente:
+1. Elija la opción **Redes seleccionadas** en la parte superior de la página. En la sección **Firewall**, siga estos pasos:
     1. Seleccione la opción **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres. 
     2. En **Intervalo de direcciones**, escriba una dirección IPv4 específica o un intervalo de direcciones IPv4 en notación CIDR. 
     3. Especifique si quiere **permitir que los servicios de confianza de Microsoft omitan este firewall**. 
+
+        > [!WARNING]
+        > Si elige la opción **Redes seleccionadas** y no especifica ninguna dirección IP o un intervalo de direcciones, el servicio permitirá el tráfico desde todas las redes. 
 
         ![Firewall: opción Todas las redes seleccionada](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. Espere unos minutos hasta que la confirmación se muestre en las notificaciones de Azure Portal.

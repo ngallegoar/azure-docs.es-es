@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 911172bd6ef9c08419e74828657c8bdb2f8d1b30
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4b72f94548a5222fcb950141e983007efde7fe4e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930648"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871195"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -392,6 +392,7 @@ La opción **Permitir servicios de Microsoft de confianza...** también permite 
 | Tareas de Azure Container Registry | Microsoft.ContainerRegistry/registries | ACR Tasks puede acceder a las cuentas de almacenamiento al compilar imágenes de contenedor. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite el acceso a las cuentas de almacenamiento a través del tiempo de ejecución de ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Permite el acceso a las cuentas de almacenamiento a través de Data Share. |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que los datos de un centro de IoT se escriban en almacenamiento de blobs. [Más información](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite a las aplicaciones lógicas acceder a las cuentas de almacenamiento. [Más información](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Servicio Azure Machine Learning | Microsoft.MachineLearningServices      | Las áreas de trabajo autorizadas de Azure Machine Learning escriben los resultados del experimento, los modelos y los registros en Blob Storage y leen los datos. [Más información](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Permite importar y exportar los datos de instancias de SQL Database específicas mediante PolyBase. [Más información](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: a6ea53e098a002e902d6ee6632f08dd7f2b63ca5
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: f48a54f2f220d83720d4a3233e2fb97a9efa64ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811666"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654672"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
@@ -40,7 +40,7 @@ La Puntuación de seguridad se basa en el número de recomendaciones de Security
 |**Acceso a Function App solo a través de HTTPS**|Habilite el acceso "Solo HTTPS" para las aplicaciones de funciones. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.<br>(Directiva relacionada: Acceso a Function App solo a través de HTTPS).|Media|**S**|Aplicación de función|
 |**Las máquinas virtuales accesibles desde Internet deben estar protegidas con grupos de seguridad de red**|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.<br>(Directiva relacionada: las máquinas virtuales accesibles desde Internet deben estar protegidas con grupos de seguridad de red)|Alta, media|N|Máquina virtual|
 |**El reenvío de IP en la máquina virtual debe estar deshabilitado**|Deshabilite el reenvío de IP. Cuando el reenvío de IP está habilitado en el adaptador de red de una máquina virtual, la máquina puede recibir tráfico dirigido a otros destinos. El reenvío de IP rara vez es necesario (por ejemplo, cuando se usa la máquina virtual como una aplicación virtual de red) y, por lo tanto, el equipo de seguridad de red debe revisarlo.<br>(Directiva relacionada [versión preliminar]: El reenvío de IP en la máquina virtual debe estar deshabilitado).|Media|N|Máquina virtual|
-|**El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales**|Aplique el control de acceso de máquina virtual (VM) Just-In-Time (JIT) para bloquear de forma permanente el acceso a los puertos seleccionados y permitir que los usuarios autorizados los abran mediante JIT y solo durante una periodo de tiempo limitado.<br>(Directiva relacionada: El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales).|Alto|N|Máquina virtual|
+|**Los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time**.|Aplique el control de acceso de máquina virtual (VM) Just-In-Time (JIT) para bloquear de forma permanente el acceso a los puertos seleccionados y permitir que los usuarios autorizados los abran mediante JIT y solo durante una periodo de tiempo limitado.<br>(Directiva relacionada: los puertos de administración de las máquinas virtuales deben protegerse con el control de acceso de red Just-In-Time)|Alto|N|Máquina virtual|
 |**Se deben cerrar los puertos de administración en las máquinas virtuales**|Proteja el grupo de seguridad de red de las máquinas virtuales para restringir el acceso a los puertos de administración.<br>(Directiva relacionada: Se deben cerrar los puertos de administración en las máquinas virtuales).|Alto|N|Máquina virtual|
 |**Se debe habilitar la transferencia segura a las cuentas de almacenamiento**|Habilite la transferencia segura para las cuentas de almacenamiento. La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.<br>(Directiva relacionada: Se debe habilitar la transferencia segura a las cuentas de almacenamiento).|Alto|**S**|Cuenta de almacenamiento|
 |**Las subredes deben estar asociadas con un grupo de seguridad de red.**|Habilite los grupos de seguridad de red para controlar el acceso a la red de los recursos implementados en las subredes.<br>(Directiva relacionada: las subredes deben estar asociadas con un grupo de seguridad de red.<br>Esta directiva está deshabilitada de forma predeterminada)|Alta, media|N|Subnet|
@@ -64,9 +64,9 @@ La Puntuación de seguridad se basa en el número de recomendaciones de Security
 
 |Recomendación|Descripción y directiva relacionada|severity|¿Está habilitada la corrección rápida? ([Más información](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Tipo de recurso|
 |----|----|----|----|----|
-|**Acceso a la aplicación web solo a través de HTTPS**|Limite el acceso a las aplicaciones web únicamente a HTTPS.<br>(Directiva relacionada: )|Media|N|App Service|
-|**Acceso a Function App solo a través de HTTPS**|Limitar el acceso de Function Apps únicamente a través de HTTPS<br>(Directiva relacionada: )|Media|N|App Service|
-|**Acceso a API App solo a través de HTTPS**|Limitar el acceso de API Apps únicamente a través de HTTPS.<br>(Directiva relacionada: )|Media|N|App Service|
+|**Acceso a la aplicación web solo a través de HTTPS**|Habilite el acceso "Solo HTTPS" para aplicaciones web. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.<br>(Directiva relacionada: Acceso a la aplicación web solo a través de HTTPS).|Media|**S**|App Service|
+|**Acceso a Function App solo a través de HTTPS**|Habilite el acceso "Solo HTTPS" para las aplicaciones de funciones. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.<br>(Directiva relacionada: Acceso a Function App solo a través de HTTPS).|Media|**S**|App Service|
+|**Acceso a API App solo a través de HTTPS**|Limitar el acceso de API Apps únicamente a través de HTTPS.<br>(Directiva relacionada: solo se debería acceder a la API App a través de HTTPS)|Media|N|App Service|
 |**Recomendación de desactivación de la depuración remota para aplicaciones web**|Desactive la depuración para aplicaciones web si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una instancia de Web App.<br>(Directiva relacionada: Recomendación de desactivación de la depuración remota para aplicaciones web).|Bajo|**S**|App Service|
 |**Recomendación de desactivación de la depuración remota para Function App**|Desactive la depuración para Function App si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una instancia de Function App.<br>(Directiva relacionada: Recomendación de desactivación de la depuración remota para Function App).|Bajo|**S**|App Service|
 |**Se debe desactivar la depuración remota para aplicaciones de API**|Desactive la depuración para las aplicaciones de API si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una aplicación de API.<br>(Directiva relacionada: Se debe desactivar la depuración remota para aplicaciones de API).|Bajo|**S**|App Service|

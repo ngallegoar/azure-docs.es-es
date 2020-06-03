@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8e263d29bc71ac76c374eeda78e5250a0af2095
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191029"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744786"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes y composición de consultas en Azure Cognitive Search
 
@@ -26,9 +26,9 @@ Un conjunto de aptitudes es un recurso reutilizable en Azure Cognitive Search qu
 
 Un conjunto de aptitudes tiene tres propiedades:
 
-+   ```skills```, una colección sin ordenar de aptitudes para los que la plataforma determina la secuencia de ejecución en función de las entradas necesarias para cada aptitud.
-+   ```cognitiveServices```, la clave de Cognitive Services necesaria para la facturación de las aptitudes cognitivas invocadas.
-+   ```knowledgeStore```, la cuenta de almacenamiento en la que se proyectarán los documentos enriquecidos.
++    ```skills```, una colección sin ordenar de aptitudes para los que la plataforma determina la secuencia de ejecución en función de las entradas necesarias para cada aptitud.
++    ```cognitiveServices```, la clave de Cognitive Services necesaria para la facturación de las aptitudes cognitivas invocadas.
++    ```knowledgeStore```, la cuenta de almacenamiento en la que se proyectarán los documentos enriquecidos.
 
 
 
@@ -36,7 +36,7 @@ Los conjuntos de aptitudes se crean en JSON. Puede compilar conjuntos de aptitud
 
 ### <a name="enrichment-tree"></a>Árbol de enriquecimiento
 
-Para imaginar cómo un conjunto de aptitudes enriquece gradualmente el documento, veremos primero el aspecto del documento antes de cualquier enriquecimiento. La salida del descifrado de documentos depende del origen de datos y del modo de análisis específico seleccionado. Este es también el estado del documento desde el que las [asignaciones de campo](search-indexer-field-mappings.md) pueden originar contenido al agregar datos al índice de búsqueda.
+Para tener idea de cómo un conjunto de aptitudes enriquece gradualmente el documento, veremos primero el aspecto del documento antes de enriquecerlo. La salida del descifrado de documentos depende del origen de datos y del modo de análisis específico seleccionado. Este es también el estado del documento desde el que las [asignaciones de campo](search-indexer-field-mappings.md) pueden originar contenido al agregar datos al índice de búsqueda.
 ![Almacén de conocimiento en un diagrama de canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Almacén de conocimiento en un diagrama de canalización")
 
 Una vez que un documento se encuentra en la canalización de enriquecimiento, se representa como un árbol de contenido y enriquecimientos asociados. Como salida del descifrado de documentos, se crea una instancia de este árbol. El formato de árbol de enriquecimiento permite que la canalización de enriquecimiento adjunte metadatos incluso a tipos de datos primitivos; no es un objeto JSON válido, pero se puede proyectar en un formato JSON válido. En la tabla siguiente se muestra el estado de un documento que entra en la canalización de enriquecimiento:
@@ -54,14 +54,14 @@ En el resto de este documento, se asume que estamos trabajando con el [ejemplo d
 
 ### <a name="context"></a>Context
 Cada aptitud requiere un contexto. Un contexto determina:
-+   El número de veces que se ejecuta la aptitud, basado en los nodos seleccionados. En el caso de valores de contexto de colección de tipos, agregar ```/*``` al final hará que se invoque la aptitud una vez para cada instancia de la colección. 
-+   Dónde se agregan las salidas de la aptitud en el árbol de enriquecimiento. Las salidas siempre se agregan al árbol como elementos secundarios del nodo de contexto. 
-+   La forma de las entradas. En el caso de colecciones de varios niveles, el establecimiento del contexto en la colección primaria afectará a la forma de la entrada de la aptitud. Por ejemplo, si tiene un árbol de enriquecimiento con una lista de países, cada uno de ellos enriquecido con una lista de estados que contiene una lista de códigos postales.
++    El número de veces que se ejecuta la aptitud, basado en los nodos seleccionados. En el caso de valores de contexto de colección de tipos, agregar ```/*``` al final hará que se invoque la aptitud una vez para cada instancia de la colección. 
++    Dónde se agregan las salidas de la aptitud en el árbol de enriquecimiento. Las salidas siempre se agregan al árbol como elementos secundarios del nodo de contexto. 
++    La forma de las entradas. En el caso de colecciones de varios niveles, el establecimiento del contexto en la colección primaria afectará a la forma de la entrada de la aptitud. Por ejemplo, si tiene un árbol de enriquecimiento con una lista de países o regiones, cada uno de ellos enriquecido con una lista de estados que contiene una lista de códigos postales.
 
 |Context|Entrada|Forma de la entrada|Invocación de la aptitud|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Una lista de todos los códigos postales del país |Una vez por país |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Una lista de todos los códigos postales del estado | Una vez por combinación de país y estado|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Una lista de todos los códigos postales del país o región |Una vez por país o región |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Una lista de todos los códigos postales del estado | Una vez por combinación de país o región y estado|
 
 ### <a name="sourcecontext"></a>SourceContext
 
@@ -77,7 +77,7 @@ En el diagrama anterior se describe el selector con el que trabaja en función d
 
 ## <a name="generate-enriched-data"></a>Generación de datos enriquecidos 
 
-Ahora vamos a examinar paso a paso el conjunto de aptitudes de reseñas de hotel. Puede seguir el [tutorial](knowledge-store-connect-powerbi.md) para crear el conjunto de aptitudes o [ver](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) el conjunto de aptitudes. Qué vamos a ver:
+Ahora vamos a examinar paso a paso el conjunto de aptitudes de reseñas de hotel. Puede seguir el [tutorial](knowledge-store-connect-powerbi.md) para crear o [ver](https://github.com/Azure-Samples/azure-search-postman-samples/) el conjunto de aptitudes. Qué vamos a ver:
 
 * Cómo evoluciona el árbol de enriquecimiento con la ejecución de cada aptitud. 
 * Cómo funcionan el contexto y las entradas para determinar el número de veces que se ejecuta una aptitud. 

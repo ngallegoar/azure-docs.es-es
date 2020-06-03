@@ -2,14 +2,14 @@
 title: Cambios de punto de conexión para predicciones en la versión 3 de la API
 description: Se cambiaron las API v3 del punto de conexión para la predicción de consultas. Use esta guía para aprender a migrar a la versión 3 de las API de punto de conexión.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81530392"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849338"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
@@ -73,16 +73,9 @@ La versión 2 de Prediction API no entrará en desuso durante un mínimo de 9 m
 
 ### <a name="changes-by-slot-name-and-version-name"></a>Cambios por nombre de ranura y nombre de versión
 
-Se cambió el formato para la llamada HTTP al punto de conexión v3.
+[Se cambió el formato para la llamada HTTP al punto de conexión v3.](developer-reference-resource.md#rest-endpoints)
 
 Si quiere realizar una consulta por visión, primero debe [publicarla a través de la API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con `"directVersionPublish":true`. Consulte el punto de conexión que hace referencia al Id. de versión en lugar del nombre de la ranura.
-
-|VERSIÓN DE LA API PARA PREDICCIONES|METHOD|URL|
-|--|--|--|
-|V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
-|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valores válidos para `SLOT-NAME`|
 |--|
@@ -290,4 +283,4 @@ La API v2 no entrará en desuso durante un mínimo de 9 meses después del lanz
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use la documentación de la API v3 para actualizar las llamadas REST existentes al [punto de conexión](https://aka.ms/luis-api-v3) de LUIS.
+Use la documentación de la API v3 para actualizar las llamadas REST existentes al [punto de conexión](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) de LUIS.

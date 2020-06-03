@@ -7,30 +7,35 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5a00fc44021278a8b910cf454b43b0bae2c3a1f9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d217e6d49f33db099d54e6521073c56ec146c0b8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427744"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660103"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conexión a su área de trabajo de Azure Synapse mediante vínculos privados (versión preliminar)
 
 En este artículo se explica cómo crear un punto de conexión privado a su área de trabajo de Azure Synapse. Para obtener más información, consulte [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
 
-## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Paso 1: Apertura del área de trabajo de Azure Synapse en Azure Portal
+## <a name="step-1-register-network-resource-provider"></a>Paso 1: Registro del proveedor de recursos de red
+
+Si todavía no lo ha hecho, registre el proveedor de recursos de red. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. Elija *Microsoft.Network* en la lista de proveedores de recursos al [efectuar el registro](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Si el proveedor de recursos de red ya está registrado, continúe con el paso 2.
+
+
+## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Paso 2: Apertura del área de trabajo de Azure Synapse en Azure Portal
 
 Seleccione **Conexiones de punto de conexión privado** en **Seguridad** y, a continuación, seleccione **+ Punto de conexión privado**.
 ![Apertura del área de trabajo de Azure Synapse en Azure Portal](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
 
-## <a name="step-2-select-your-subscription-and-region-details"></a>Paso 2: Selección de los detalles de su suscripción y área de trabajo.
+## <a name="step-3-select-your-subscription-and-region-details"></a>Paso 3: Selección de los detalles de su suscripción y área de trabajo.
 
 En la pestaña **Básico** de la ventana **Crear un punto de conexión privado**, elija su **Suscripción** y **Grupo de recursos**. Asigne un **Nombre** al punto de conexión privado que desea crear. Seleccione la **Región** en la que desea crear el punto de conexión privado.
 
 Los puntos de conexión privados se crean en una subred. La suscripción, el grupo de recursos y la región seleccionados filtran las subredes de puntos de conexión privados. Seleccione **Siguiente: Recurso >** cuando haya terminado.
 ![Selección de los detalles de suscripción y región](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
 
-## <a name="step-3-select-your-azure-synapse-workspace-details"></a>Paso 3: Selección de los detalles del área de trabajo de Azure Synapse
+## <a name="step-4-select-your-azure-synapse-workspace-details"></a>Paso 4: Selección de los detalles del área de trabajo de Azure Synapse
 
 Seleccione **Conectarse a un recurso de Azure en mi directorio** en la pestaña **Recurso**. Seleccione la **Suscripción** que contiene el área de trabajo de Azure Synapse. El **Tipo de recurso** para crear puntos de conexión privados en un área de trabajo de Azure Synapse es *Microsoft.Synapse/workspaces*.
 

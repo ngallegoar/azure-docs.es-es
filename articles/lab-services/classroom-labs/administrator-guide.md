@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce9f8ee592c1fb2f7ac98339bbd14ce57440bc1a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183473"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815713"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean laboratorios educativos que están incluidos en la cuenta de laboratorio. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -179,11 +179,12 @@ Cuando los administradores o creadores de laboratorios crean un laboratorio educ
 | ---- | ----- | ------ | ------------- |
 | Pequeña| <ul><li>2 núcleos</li><li>3,5 GB de RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para la línea de comandos, apertura de navegador web, servidores web de poco tráfico, bases de datos pequeñas o medianas. |
 | Media | <ul><li>4 núcleos</li><li>7 GB de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
-| Mediano (virtualización anidada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.  Este tamaño admite la virtualización anidada. |
-| grande | <ul><li>8 núcleos</li><li>32 GB de RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes.  Este tamaño admite la virtualización anidada. |
+| Mediano (virtualización anidada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.
+| grande | <ul><li>8 núcleos</li><li>16 GB de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes.  Este tamaño admite la virtualización anidada. |
+| Grande (virtualización anidada) | <ul><li>8 núcleos</li><li>16 GB de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. |
 | GPU pequeña (visualización) | <ul><li>6 núcleos</li><li>56 GB de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
 | GPU pequeña (proceso) | <ul><li>6 núcleos</li><li>56 GB de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamaño es más adecuado para aplicaciones de proceso intensivo, como la inteligencia artificial y el aprendizaje profundo. |
-| GPU mediana (visualización) | <ul><li>12 núcleos</li><li>112 GB de RAM</li></ul>  | [Standard_NC12](https://docs.microsoft.com/azure/virtual-machines/nc-series) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
+| GPU mediana (visualización) | <ul><li>12 núcleos</li><li>112 GB de RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
 
 ## <a name="manage-identity"></a>Administración de identidades
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5ebd9b05b2dea9e04d4c9745c13d692ea88fcb8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218826"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680430"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Pruebas por lotes con 1 000 expresiones en el portal de LUIS
 
@@ -24,7 +24,7 @@ Las pruebas por lotes validan la versión entrenada activa para medir la precisi
 
 ## <a name="group-data-for-batch-test"></a>Agrupación de datos para pruebas por lotes
 
-Es importante que las expresiones utilizadas para las pruebas por lotes sean nuevas en LUIS. Si tiene un conjunto de datos de expresiones, divida las expresiones en tres conjuntos: expresiones de ejemplo agregadas a una intención, expresiones recibidas desde el punto de conexión publicado y expresiones utilizadas para las pruebas por lotes de LUIS después de su entrenamiento. 
+Es importante que las expresiones utilizadas para las pruebas por lotes sean nuevas en LUIS. Si tiene un conjunto de datos de expresiones, divida las expresiones en tres conjuntos: expresiones de ejemplo agregadas a una intención, expresiones recibidas desde el punto de conexión publicado y expresiones utilizadas para las pruebas por lotes de LUIS después de su entrenamiento.
 
 ## <a name="a-data-set-of-utterances"></a>Un conjunto de datos de expresiones
 
@@ -35,7 +35,7 @@ Envíe un archivo por lotes de expresiones, conocido como *conjunto de datos*, p
 |*Ninguna expresión duplicada|
 |1000 expresiones o menos|
 
-*Los duplicados se consideran coincidencias exactas de cadena; no se crea el token de ninguna coincidencia primero. 
+*Los duplicados se consideran coincidencias exactas de cadena; no se crea el token de ninguna coincidencia primero.
 
 ## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas en las pruebas por lotes
 
@@ -46,7 +46,7 @@ Todas las entidades personalizadas del modelo aparecen en el filtro de entidades
 
 ## <a name="batch-file-format"></a>Formato del archivo por lotes
 
-El archivo por lotes está compuesto de expresiones. Cada expresión debe tener una predicción de intenciones esperada junto con todas las [entidades de aprendizaje automático](luis-concept-entity-types.md#types-of-entities) que espera detectar. 
+El archivo por lotes está compuesto de expresiones. Cada expresión tiene que tener una predicción de intenciones esperada junto con todas las [entidades de aprendizaje automático](luis-concept-entity-types.md#types-of-entities) que espera detectar.
 
 ## <a name="batch-syntax-template-for-intents-with-entities"></a>Plantilla de sintaxis de lotes para intenciones con entidades
 
@@ -57,7 +57,7 @@ Use la plantilla siguiente para iniciar el archivo por lotes:
   {
     "text": "example utterance goes here",
     "intent": "intent name goes here",
-    "entities": 
+    "entities":
     [
         {
             "entity": "entity name 1 goes here",
@@ -74,7 +74,7 @@ Use la plantilla siguiente para iniciar el archivo por lotes:
 ]
 ```
 
-El archivo por lotes usa las propiedades **startPos** y **endPos** para tener en cuenta el inicio y el final de una entidad. Los valores se basan en cero y no pueden empezar ni terminar en un espacio. Esto es diferente de los registros de consultas que usan las propiedades startIndex y endIndex. 
+El archivo por lotes usa las propiedades **startPos** y **endPos** para tener en cuenta el inicio y el final de una entidad. Los valores se basan en cero y no pueden empezar ni terminar en un espacio. Esto es diferente de los registros de consultas que usan las propiedades startIndex y endIndex.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
@@ -97,7 +97,7 @@ Si no quiere probar entidades, incluya la propiedad `entities` y establezca el v
 
 ## <a name="common-errors-importing-a-batch"></a>Errores comunes al importar un lote
 
-Estos son algunos de los errores comunes: 
+Estos son algunos de los errores comunes:
 
 > * Más de 1000 expresiones
 > * Un objeto JSON de expresiones que no tiene una propiedad de entidades. La propiedad puede ser una matriz vacía.
@@ -112,7 +112,7 @@ LUIS realiza un seguimiento del estado de la última prueba de cada conjunto de 
 
 ## <a name="batch-test-results"></a>Resultados de la prueba por lotes
 
-El resultado de las pruebas por lotes es un gráfico de dispersión, que se conoce como una matriz de error. Este gráfico es una comparación de cuatro vías de las expresiones del archivo por lotes y de las intenciones y las entidades de predicción del modelo actual. 
+El resultado de las pruebas por lotes es un gráfico de dispersión, que se conoce como una matriz de error. Este gráfico es una comparación de cuatro vías de las expresiones del archivo por lotes y de las intenciones y las entidades de predicción del modelo actual.
 
 Los puntos de datos de las secciones **Falso positivo** y **Falso negativo** indican errores, que deben investigarse. Si todos los puntos de datos están en las secciones **Verdadero positivo** y **Verdadero negativo**, la precisión de la aplicación es perfecta en este conjunto de datos.
 
@@ -124,13 +124,13 @@ Este gráfico le ayuda a encontrar expresiones que LUIS predice incorrectamente 
 
 ## <a name="errors-in-the-results"></a>Errores en los resultados
 
-Los errores de la prueba por lotes indican intenciones de que su predicción no se ha realizado según se indica en el archivo por lotes. Los errores se indican en las dos secciones de color rojo del gráfico. 
+Los errores de la prueba por lotes indican intenciones de que su predicción no se ha realizado según se indica en el archivo por lotes. Los errores se indican en las dos secciones de color rojo del gráfico.
 
-La sección de falso positivo indica que una expresión coincidía con una intención o entidad cuando no debería ser así. La sección de falso positivo indica que una expresión coincidía con una intención o entidad cuando no debería ser así. 
+La sección de falso positivo indica que una expresión coincidía con una intención o entidad cuando no debería ser así. La sección de falso positivo indica que una expresión coincidía con una intención o entidad cuando no debería ser así.
 
 ## <a name="fixing-batch-errors"></a>Corrección de errores de lotes
 
-Si hay errores en las pruebas por lotes, puede agregar más expresiones a una intención o etiquetar más expresiones con al entidad para ayudar a LUIS a realizar la discriminación entre intenciones. Si ha agregado expresiones y las ha etiquetado y aún obtiene errores de predicción en las pruebas por lotes, considere la adición de una característica [lista de frases](luis-concept-feature.md) con un vocabulario específico de dominios para ayudar a LUIS a aprender más rápido. 
+Si hay errores en las pruebas por lotes, puede agregar más expresiones a una intención o etiquetar más expresiones con al entidad para ayudar a LUIS a realizar la discriminación entre intenciones. Si ha agregado expresiones y las ha etiquetado y aún obtiene errores de predicción en las pruebas por lotes, considere la adición de una característica [lista de frases](luis-concept-feature.md) con un vocabulario específico de dominios para ayudar a LUIS a aprender más rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

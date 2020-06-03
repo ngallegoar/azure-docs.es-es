@@ -1,52 +1,52 @@
 ---
-title: Solución Start/Stop VMs during off-hours
-description: Esta solución de administración de máquinas virtuales inicia y detiene las máquinas virtuales de Azure según una programación y realiza una supervisión proactiva desde los registros de Azure Monitor.
+title: Introducción a la característica Start/Stop VMs during off-hours de Azure Automation
+description: En este artículo se describe la característica Start/Stop VMs during off-hours, que inicia o detiene las máquinas virtuales según una programación y las supervisa de forma proactiva desde los registros de Azure Monitor.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e2f23f4045f0326ffea14ddeb4d588261872188f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207605"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743701"
 ---
-# <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
+# <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
-La solución **Start/Stop VMs during off-hours** inicia o detiene las máquinas virtuales de Azure. Inicia o detiene las máquinas en las programaciones definidas por el usuario, proporciona información mediante los registros de Azure Monitor y envía mensajes de correo electrónico, si se desea, mediante [grupos de acciones](../azure-monitor/platform/action-groups.md). La solución admite tanto máquinas virtuales clásicas como Azure Resource Manager para la mayoría de los escenarios. 
+La característica Start/Stop VMs during off-hours inicia o detiene las máquinas virtuales de Azure habilitadas. Inicia o detiene las máquinas en las programaciones definidas por el usuario, proporciona información mediante los registros de Azure Monitor y envía mensajes de correo electrónico, si se desea, mediante [grupos de acciones](../azure-monitor/platform/action-groups.md). La característica se puede habilitar en la mayoría de los escenarios tanto en máquinas virtuales clásicas como de Azure Resource Manager. 
 
-Esta solución usa el cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar las máquinas virtuales. Usa [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para detener las máquinas virtuales.
+Esta característica usa el cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar las máquinas virtuales. Usa [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para detener las máquinas virtuales.
 
 > [!NOTE]
-> La solución **Start/Stop VMs during off-hours** se ha actualizado para admitir las versiones de los módulos de Azure más recientes disponibles. La versión actualizada de esta solución, disponible en Marketplace, no es compatible con los módulos de AzureRM porque hemos migrado de los módulos de AzureRM a los de Az.
+> La característica Start/Stop VMs during off-hours se ha actualizado para admitir las versiones de los módulos de Azure más recientes disponibles. La versión actualizada de esta característica, disponible en Marketplace, no es compatible con los módulos de AzureRM porque hemos migrado de los módulos de AzureRM a los de Az.
 
-La solución proporciona una opción de automatización descentralizada de bajo costo para los usuarios que desean optimizar sus costos de máquinas virtuales. Con esta solución, es posible:
+La característica proporciona una opción de automatización descentralizada de bajo costo para los usuarios que quieran optimizar sus costos de máquinas virtuales. Puede usar la característica para:
 
 - [Programar el inicio y la detención de las máquinas virtuales](automation-solution-vm-management-config.md#schedule).
-- Programar el inicio y la detención de las máquinas virtuales [mediante etiquetas de Azure](automation-solution-vm-management-config.md#tags) (no se admite en las máquinas virtuales clásicas).
+- Programar el inicio y la detención de las máquinas virtuales en orden ascendente [mediante etiquetas de Azure](automation-solution-vm-management-config.md#tags). Esta actividad no se admite en máquinas virtuales del modelo clásico.
 - Detener automáticamente las máquinas virtuales si se detecta un [bajo uso de la CPU](automation-solution-vm-management-config.md#cpuutil).
 
-Las siguientes son limitaciones a la solución actual:
+Las siguientes son limitaciones de la característica actual:
 
 - Administra máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation.
 - Está disponible en Azure y Azure Government para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de Azure Government no admiten la funcionalidad de correo electrónico en este momento.
 
-## <a name="solution-prerequisites"></a>Requisitos previos de la solución
+## <a name="prerequisites"></a>Prerrequisitos
 
-Los runbooks para esta solución funcionan con una [cuenta de ejecución de Azure](automation-create-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
+Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](automation-create-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
-Se recomienda usar una cuenta de Automation independiente para la solución **Start/stop VMs during off-hours**. Las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La solución no se actualiza al mismo ritmo y es posible que no funcione con las versiones más recientes de los cmdlets que usa. Se recomienda probar las actualizaciones del módulo en una cuenta de prueba de Automation antes de importarlas en su cuenta de producción de Automation.
+Se recomienda usar otra cuenta de Automation para trabajar con máquinas virtuales habilitadas para la característica Start/Stop VMs during off-hours. Las versiones del módulo de Azure se actualizan con frecuencia y puede que sus parámetros cambien. La característica no se actualiza al mismo ritmo y es posible que no funcione con versiones más recientes de los cmdlets que usa. Se recomienda probar las actualizaciones del módulo en una cuenta de prueba de Automation antes de importarlas a su(s) cuenta(s) de producción de Automation.
 
-## <a name="solution-permissions"></a>Permisos de la solución
+## <a name="permissions"></a>Permisos
 
-Debe tener determinados permisos para implementar la solución **Start/Stop VMs during off-hours**. Los permisos son diferentes si la solución usa una cuenta de Automation y el área de trabajo de Log Analytics creada previamente o si la solución crea una cuenta y un área de trabajo durante la implementación. 
+Para habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales, debe tener determinados permisos. Los permisos son diferentes según si la característica usa una cuenta de Automation o un área de trabajo de Log Analytics creadas previamente o se crean unas nuevas. 
 
-No tiene que configurar los permisos si es colaborador de la suscripción o administrador global del inquilino de Azure Active Directory. Si no tiene estos derechos o necesita configurar un rol personalizado, asegúrese de que dispone de los permisos que se describen a continuación.
+Si es colaborador de la suscripción y administrador global del inquilino de Azure Active Directory, no tiene que configurar permisos. Si no tiene estos derechos o necesita configurar un rol personalizado, asegúrese de que dispone de los permisos que se describen a continuación.
 
 ### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>Permisos para la cuenta de Automation y área de trabajo de Log Analytics ya existentes
 
-Para implementar la solución **Start/Stop VMs during off-hours** en una cuenta de Automation y un área de trabajo de Log Analytics existentes, el usuario que implementa la solución requiere los siguientes permisos en el grupo de recursos. Para obtener más información sobre los roles, consulte [Roles personalizados en los recursos de Azure](../role-based-access-control/custom-roles.md).
+Para permitir la característica Start/Stop VMs during off-hours en las máquinas virtuales mediante una cuenta Automation y un área de trabajo de Log Analytics existentes, necesita los siguientes permisos en el ámbito del grupo de recursos. Para obtener más información sobre los roles, consulte [Roles personalizados en los recursos de Azure](../role-based-access-control/custom-roles.md).
 
 | Permiso | Ámbito|
 | --- | --- |
@@ -71,12 +71,10 @@ Para implementar la solución **Start/Stop VMs during off-hours** en una cuenta 
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Permisos para una cuenta de Automation y un área de trabajo de Log Analytics nuevas
 
-Puede implementar la solución **Start/stop VMs during off-hours** en una cuenta de Automation y un área de trabajo de Log Analytics nuevas. En este caso, el usuario que implementa la solución necesita los permisos definidos en la sección anterior, así como los definidos en esta. 
-
-El usuario que implementa la solución necesita los siguientes roles:
+Puede habilitar la característica Start/Stop VMs during off-hours en las máquinas virtuales mediante una cuenta de Automation y un área de trabajo de Log Analytics nuevas. En este caso, necesita los permisos definidos en la sección anterior, así como los definidos en esta. También necesita los siguientes roles:
 
 - Coadministrador de la suscripción. Este rol es necesario para crear la cuenta de ejecución clásica si va a administrar máquinas virtuales clásicas. Las [cuentas de ejecución clásicas](automation-create-standalone-account.md#create-a-classic-run-as-account) ya no se crean de forma predeterminada.
-- Miembro del rol Desarrollador de aplicaciones de [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](manage-runas-account.md#permissions).
+- Pertenencia al rol de desarrollador de aplicaciones de [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obtener más información sobre cómo configurar las cuentas de ejecución, consulte [Permisos para configurar cuentas de ejecución](manage-runas-account.md#permissions).
 - Colaborador de la suscripción o los siguientes permisos.
 
 | Permiso |Ámbito|
@@ -85,19 +83,18 @@ El usuario que implementa la solución necesita los siguientes roles:
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription |
-| Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
+| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |
 
-## <a name="solution-components"></a>Componentes de soluciones
+## <a name="components"></a>Componentes
 
-La **solución Start/stop VMs during off-hours** incluye runbooks, programaciones e integración preconfigurados con registros de Azure Monitor. Puede usar estos elementos para personalizar el inicio y el apagado de las máquinas virtuales de modo que se adapten a sus necesidades empresariales.
+La característica Start/Stop VMs during off-hours incluye runbooks, programaciones e integración preconfigurados con registros de Azure Monitor. Puede usar estos elementos para personalizar el inicio y el apagado de las máquinas virtuales de modo que se adapten a sus necesidades empresariales.
 
 ### <a name="runbooks"></a>Runbooks
 
-En la tabla siguiente se enumeran los runbooks que la solución implementa en la cuenta de Automation. NO realice cambios en el código del runbook. En su lugar, escriba un runbook que aporte una nueva funcionalidad.
+En la tabla siguiente se enumeran los runbooks que la característica implementa en la cuenta de Automation. NO realice cambios en el código del runbook. En su lugar, escriba un runbook que aporte una nueva funcionalidad.
 
 > [!IMPORTANT]
 > No ejecute directamente ningún runbook cuyo nombre tenga anexado **child**.
@@ -134,7 +131,7 @@ En la tabla siguiente se enumeran las variables creadas en su cuenta de Automati
 |External_AutoStop_Threshold | El umbral de la regla de alerta de Azure especificada en la variable `External_AutoStop_MetricName`. Los valores de porcentaje oscilan entre 1 y 100.|
 |External_AutoStop_TimeAggregationOperator | El operador de agregación de tiempo aplicado al tamaño de la ventana seleccionada para evaluar la condición. Los valores aceptables son `Average`, `Minimum`, `Maximum`, `Total` y `Last`.|
 |External_AutoStop_TimeWindow | El tamaño de la ventana en la que Azure analiza la métrica seleccionada para desencadenar una alerta. Este parámetro acepta la entrada en formato timespan. Los valores posibles son de 5 minutos a 6 horas.|
-|External_EnableClassicVMs| Valor que especifica si la solución tiene como destino las máquinas virtuales clásicas. El valor predeterminado es True. Establezca esta variable en False para las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure. Las máquinas virtuales clásicas requieren una [cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).|
+|External_EnableClassicVMs| Valor que especifica si la característica tiene como destino las máquinas virtuales clásicas. El valor predeterminado es True. Establezca esta variable en False para las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure. Las máquinas virtuales clásicas requieren una [cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).|
 |External_ExcludeVMNames | Lista separada por comas de los nombres de máquina virtual que se van a excluir, limitado a 140. Si agrega más de 140 máquinas virtuales a esta lista separada por comas, las establecidas para excluirse pueden iniciarse o detenerse accidentalmente.|
 |External_Start_ResourceGroupNames | Lista separada por comas de uno o varios grupos de recursos destinados a las acciones de inicio.|
 |External_Stop_ResourceGroupNames | Lista separada por comas de uno o varios grupos de recursos destinados a las acciones de detención.|
@@ -164,50 +161,50 @@ No se deben habilitar todas las programaciones, ya que ello podría crear accion
 |Sequenced-StopVM | 1:00 AM (UTC), todos los viernes | Ejecuta el runbook **Sequenced_StopStop_Parent** con el valor del parámetro `Stop` establecido en todos los viernes a la hora especificada. Detiene secuencialmente (de forma ascendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStop** definida por las variables adecuadas. Para más información sobre los valores de etiqueta y las variables de recurso, consulte [Runbooks](#runbooks). Habilite la programación relacionada, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (hora UTC), todos los lunes | Ejecuta el runbook **SequencedStopStart_Parent** con un valor de parámetro de detención `Start` cada lunes a la hora determinada. Inicia secuencialmente (de forma descendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStart** definida por las variables adecuadas. Para más información sobre los valores de etiqueta y los recursos de variables, consulte [Runbooks](#runbooks). Habilite la programación relacionada, **Sequenced-StopVM**.
 
-## <a name="use-of-the-solution-with-classic-vms"></a>Uso de la solución con máquinas virtuales clásicas
+## <a name="use-the-feature-with-classic-vms"></a>Uso de la característica con máquinas virtuales clásicas
 
-Si usa la solución **Start/stop VMs during off-hours** para máquinas virtuales clásicas, Automation procesa todas las máquinas virtuales secuencialmente por cada servicio en la nube. Las máquinas virtuales se siguen procesando en paralelo entre diferentes servicios en la nube. 
+Si usa la característica Start/Stop VMs during off-hours con máquinas virtuales clásicas, Automation procesa todas las máquinas virtuales en orden por cada servicio en la nube. Las máquinas virtuales se siguen procesando en paralelo entre diferentes servicios en la nube. 
 
-Para usar esta solución con máquinas virtuales clásicas, necesita una cuenta de ejecución clásica, que no se crea de forma predeterminada. Para obtener instrucciones sobre cómo crear una cuenta de ejecución clásica, consulte [Creación de una cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).
+Para usar la característica con máquinas virtuales clásicas, necesita una cuenta de ejecución clásica, que no se crea de forma predeterminada. Para obtener instrucciones sobre cómo crear una cuenta de ejecución clásica, consulte [Creación de una cuenta de ejecución clásica](automation-create-standalone-account.md#create-a-classic-run-as-account).
 
 Si tiene más de 20 máquinas virtuales por cada servicio en la nube, estas son algunas recomendaciones:
 
 * Cree varias programaciones con el runbook primario **ScheduledStartStop_Parent** y especifique 20 máquinas virtuales por programación. 
 * En las propiedades de la programación, use el parámetro `VMList` para especificar los nombres de las máquinas virtuales como una lista separada por comas. 
 
-De lo contrario, si el trabajo de Automation para esta solución se ejecuta durante más de tres horas, se descargará temporalmente o se detendrá debido al límite de tiempo de [distribución equilibrada](automation-runbook-execution.md#fair-share).
+De lo contrario, si el trabajo de Automation con esta característica se ejecuta durante más de tres horas, se descarga temporalmente o se detiene debido al límite de [distribución equilibrada](automation-runbook-execution.md#fair-share).
 
-Las suscripciones de CSP de Azure solo admiten el modelo de Azure Resource Manager. Los servicios que no son de Azure Resource Manager no están disponibles en el programa. Cuando se ejecuta la **solución Start/stop VMs during off-hours**, es posible que reciba errores, ya que tiene cmdlets para administrar los recursos clásicos. Para más información sobre CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Si usa una suscripción de CSP, debe establecer la variable [External_EnableClassicVMs](#variables) en False después de la implementación.
+Las suscripciones de CSP de Azure solo admiten el modelo de Azure Resource Manager. Los servicios que no son de Azure Resource Manager no están disponibles en el programa. Cuando se ejecuta la característica Start/Stop VMs during off-hours, es posible que reciba errores, ya que contiene cmdlets para administrar los recursos clásicos. Para más información sobre CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Si usa una suscripción de CSP, debe establecer la variable [External_EnableClassicVMs](#variables) en False después de la implementación.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="enable-the-solution"></a>Habilitar la solución
+## <a name="enable-the-feature"></a>Habilitar la característica
 
-Para empezar a usar la solución, siga los pasos que se describen en la [Habilitación de la solución Start/Stop VMs](automation-solution-vm-management-enable.md).
+Para empezar a usar la característica, siga los pasos que se describen en [Habilitación de la solución Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md).
 
-## <a name="view-the-solution"></a>Visualización de la solución
+## <a name="view-the-feature"></a>Visualización de la característica
 
-Use uno de los siguientes mecanismos para acceder a la solución después de haberla habilitado:
+Use uno de los siguientes mecanismos para acceder a la característica habilitada:
 
-* En la cuenta de Automation, seleccione **Start/Stop VM** en **Recursos relacionados**. En la página Start/Stop VM, seleccione **Manage the solution** (Administrar la solución), en el lado derecho de la página, en la sección **Administración de soluciones Start/Stop VM**.
+* En la cuenta de Automation, seleccione **Start/Stop VM** en **Recursos relacionados**. En la página Start/Stop VM, seleccione **Manage the solution** (Administrar la solución), en la sección **Manage Start/Stop VM Solutions** (Administrar soluciones Start/Stop VM).
 
-* Vaya al área de trabajo de Log Analytics vinculada a su cuenta de Automation. Después de seleccionar el área de trabajo, elija **Soluciones** en el panel izquierdo. En la página Soluciones, seleccione la solución **Start-Stop-VM[área de trabajo]** de la lista.  
+* Vaya al área de trabajo de Log Analytics vinculada a su cuenta de Automation. Después de seleccionar el área de trabajo, elija **Soluciones** en el panel izquierdo. En la página Soluciones, seleccione **Start-Stop-VM[workspace]** en la lista.  
 
-Al seleccionar la solución se muestra la página de la solución **Start-Stop-VM[workspace]** . En ella puede examinar detalles importantes, como el icono **StartStopVM**. Al igual que en el área de trabajo de Log Analytics, este icono muestra un número y una representación gráfica de los trabajos de runbook de la solución que se han iniciado y han finalizado correctamente.
+Al seleccionar la característica se muestra la página Start-Stop-VM[workspace]. En ella puede examinar detalles importantes, como el icono **StartStopVM**. Al igual que en el área de trabajo de Log Analytics, este icono muestra un número y una representación gráfica de los trabajos de runbook de la característica que se han iniciado y han terminado correctamente.
 
-![Página de la solución Update Management de Automation](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
+![Página Update Management de Automation](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-Puede realizar más análisis de los registros de trabajos. Para ello, solo debe hacer clic en el icono del anillo. El panel de la solución muestra el historial de trabajos y las consultas de búsqueda de registros predefinidas. Cambie al portal avanzado de Log Analytics para realizar búsquedas basadas en sus consultas de búsqueda.
+Puede realizar más análisis de los registros de trabajos. Para ello, solo debe hacer clic en el icono del anillo. El panel muestra el historial de trabajos y las consultas de búsqueda de registros predefinidas. Cambie al portal avanzado de Log Analytics para realizar búsquedas basadas en sus consultas de búsqueda.
 
-## <a name="update-the-solution"></a>Actualización de la solución
+## <a name="update-the-feature"></a>Actualización de la característica
 
-Si ha implementado una versión anterior de esta solución, debe eliminarla de la cuenta antes de implementar una versión actualizada. Siga los pasos para [quitar la solución](#remove-the-solution) y luego siga los pasos para [implementarla](automation-solution-vm-management-enable.md).
+Si ha implementado una versión anterior de la característica Start/Stop VMs during off-hours, debe eliminarla de la cuenta antes de implementar una versión actualizada. Siga los pasos para [quitar la característica](#remove-the-feature) y luego siga los pasos para [habilitarla](automation-solution-vm-management-enable.md).
 
-## <a name="remove-the-solution"></a>Eliminación de la solución
+## <a name="remove-the-feature"></a>Quitar la característica
 
-Si decide que ya no necesita usar la solución, puede eliminarla de la cuenta de Automation. La eliminación de la solución solo quita los runbooks. No elimina las programaciones ni las variables que se crearon cuando se agregó la solución. Quite estos recursos manualmente si no los está usando con otros runbooks.
+Si decide que ya no necesita usar la característica, puede eliminarla de la cuenta de Automation. Al eliminar la característica, solo se quitan los runbooks asociados. No se eliminan las programaciones ni las variables que se crearon cuando se agregó la característica. 
 
-Para eliminar la solución:
+Para eliminar Start/Stop VMs during off-hours:
 
 1. En su cuenta de Automation, seleccione **Área de trabajo vinculada**, en **Recursos relacionados**.
 
@@ -215,24 +212,24 @@ Para eliminar la solución:
 
 3. Haga clic en **Soluciones** en **General**. 
 
-4. En la página Soluciones, seleccione la solución **Start-Stop-VM[Workspace]** . 
+4. En la página Soluciones, seleccione **Start-Stop-VM[workspace]** . 
 
-5. En la página **VMManagementSolution[Workspace]** , en el menú, seleccione **Eliminar**.<br><br> ![Eliminación de la solución de administración de máquinas virtuales](media/automation-solution-vm-management/vm-management-solution-delete.png)
+5. En la página VMManagementSolution[Workspace], en el menú, seleccione **Eliminar**.<br><br> ![Eliminación de la característica de administración de máquinas virtuales](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
-6. En la ventana **Eliminar solución**, confirme que desea eliminar la solución.
+6. En la ventana Eliminar solución, confirme que quiere eliminar la característica.
 
-7. Mientras se comprueba la información y se elimina la solución, puede realizar un seguimiento de su progreso en **Notificaciones**, elegido en el menú. Cuando comience el proceso para eliminar la solución, se le devuelve a la página Soluciones.
+7. Mientras se comprueba la información y se elimina la característica, puede hacer un seguimiento del progreso en **Notificaciones**, una opción del menú. Después del proceso de eliminación, se le devuelve a la página Soluciones.
 
-No se eliminarán la cuenta de Automation ni el área de trabajo de Log Analytics como parte de este proceso. Si no desea conservar el área de trabajo Log Analytics, debe eliminarla manualmente de Azure Portal:
+8. En este proceso no se elimina la cuenta de Automation ni el área de trabajo de Log Analytics. Si no desea conservar el área de trabajo Log Analytics, debe eliminarla manualmente de Azure Portal:
 
-1. Busque **Áreas de trabajo de Log Analytics** y selecciónelo.
+    1. Busque **Áreas de trabajo de Log Analytics** y selecciónelo.
 
-2. En la página Área de trabajo de Log Analytics, seleccione el área de trabajo.
+    2. En la página Área de trabajo de Log Analytics, seleccione el área de trabajo.
 
-3. Seleccione **Eliminar** en el menú de la página de configuración del área de trabajo.
+    3. Seleccione **Delete** (Eliminar) en el menú.
 
-4. Si no desea conservar los [componentes de la solución](#solution-components) de la cuenta de Azure Automation, puede eliminarlos manualmente.
+    4. Si no quiere conservar los [componentes de la característica](#components) de la cuenta de Azure Automation, puede eliminarlos manualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Habilite](automation-solution-vm-management-enable.md) la solución **Start/Stop during off-hours** para las máquinas virtuales de Azure.
+Para habilitar la característica en las máquinas virtuales de su entorno, consulte [Habilitación de Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md).

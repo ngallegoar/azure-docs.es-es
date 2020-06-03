@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 74465bddb57c14af4d02c1d3bfdc46f3ac25bef3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 611ab503dfea44e8287e95cf607ce6af3b447d1f
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878551"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815798"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalación y ejecución de contenedores de Face (versión preliminar)
 
@@ -37,6 +37,8 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
+
+Rellene y envíe el [formulario de solicitud](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. 
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 

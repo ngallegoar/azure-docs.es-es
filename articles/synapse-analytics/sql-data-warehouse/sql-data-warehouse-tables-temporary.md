@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5f10b987fa8783084b14774b9bce5e857f3c59c4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408044"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650480"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Tablas temporales en el grupo de SQL de Synapse
 Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión. 
@@ -29,11 +29,11 @@ Solo son visibles para la sesión en la que se crearon y se eliminan automática
 
 Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.
 
-Las tablas temporales son útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. Con SQL Analytics, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
+Las tablas temporales son útiles al procesar datos, especialmente durante la transformación, en la que los resultados intermedios son transitorios. En el grupo de SQL, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
 
 ## <a name="temporary-tables-in-sql-pool"></a>Tablas temporales en el grupo de SQL
 
-En el recurso de grupo de SQL, las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.
+En el recurso de grupo de SQL, las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local, en lugar de en el remoto.
 
 ### <a name="create-a-temporary-table"></a>Creación de una tabla temporal
 
@@ -233,5 +233,5 @@ Además, no se pueden crear vistas en tablas temporales.  Solo se pueden crear t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el desarrollo de tablas, consulte el artículo [Diseño de tablas mediante los recursos de SQL Analytics](sql-data-warehouse-tables-overview.md).
+Para obtener más información sobre el desarrollo de tablas, consulte el artículo [Diseño de tablas mediante los recursos de SQL de Synapse](sql-data-warehouse-tables-overview.md).
 

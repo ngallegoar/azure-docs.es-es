@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: e416501cb3c532b3ba0a262442b35b236875a463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273291"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655337"
 ---
-# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento en un contenedor de Azure Cosmos
+# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento estándar (manual) de un contenedor de Azure Cosmos
 
-En este artículo se explica cómo aprovisionar el rendimiento de un contenedor (colección, grafo, tabla) en Azure Cosmos DB. Puede aprovisionar el rendimiento de un único contenedor o [aprovisionar el de una base de datos](how-to-provision-database-throughput.md) y compartirlo entre los contenedores incluidos en ella. Para aprovisionar el rendimiento de un contenedor, use Azure Portal, la CLI de Azure o los SDK de Azure Cosmos DB.
+En este artículo se explica cómo aprovisionar el rendimiento estándar (manual) de un contenedor (colección, grafo, tabla) en Azure Cosmos DB. Puede aprovisionar el rendimiento de un único contenedor o [aprovisionar el de una base de datos](how-to-provision-database-throughput.md) y compartirlo entre los contenedores incluidos en ella. Para aprovisionar el rendimiento de un contenedor, use Azure Portal, la CLI de Azure o los SDK de Azure Cosmos DB.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -49,7 +49,8 @@ Para crear un contenedor con capacidad de procesamiento dedicada, consulte:
 > Use los SDK de Cosmos de la API de SQL para aprovisionar el rendimiento de todas las API de Cosmos DB, excepto Cassandra API.
 
 ### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>API de MongoDB y versiones de SQL, Gremlin y Table API
-### <a name="net-v2-sdk"></a>SDK de .NET V2
+
+# <a name="net-sdk-v2"></a>[SDK para .NET V2](#tab/dotnetv2)
 
 ```csharp
 // Create a container with a partition key and provision throughput of 400 RU/s
@@ -63,9 +64,11 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 400 });
 ```
 
-### <a name="net-v3-sdk"></a>SDK de .NET V3
+# <a name="net-sdk-v3"></a>[SDK para .NET V3](#tab/dotnetv3)
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
+
+---
 
 ## <a name="javascript-sdk"></a>SDK de JavaScript
 
@@ -120,5 +123,6 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 
 Consulte los siguientes artículos para aprender sobre el aprovisionamiento del rendimiento en Azure Cosmos DB:
 
-* [Aprovisionamiento del rendimiento en una base de datos](how-to-provision-database-throughput.md)
+* [Aprovisionamiento del rendimiento estándar (manual) en una base de datos](how-to-provision-database-throughput.md)
+* [Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos](how-to-provision-autoscale-throughput.md)
 * [Rendimiento y unidades de solicitud en Azure Cosmos DB](request-units.md)

@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: bda817712faf1f54287e880dc62ef2b08273ff42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253397"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872501"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referencia del motor de reglas de Azure CDN de Verizon Premium
 
@@ -26,20 +26,62 @@ El motor de reglas está diseñado para ser la entidad de certificación final s
 - Proteger o denegar las solicitudes de contenido confidencial.
 - Redirigir solicitudes.
 - Almacenar datos de registro personalizados.
+## <a name="key-concepts"></a>Conceptos clave
+A continuación se describen los conceptos clave para configurar el motor de reglas.
+### <a name="draft"></a>Borrador
+Un borrador de una directiva consta de una o varias reglas para identificar las solicitudes y el conjunto de acciones que se aplicarán a ellas. Un borrador es un trabajo en curso que permite actualizaciones de configuración frecuentes sin que ello afecte al tráfico del sitio. Cuando el borrador esté listo para finalizarse, debe convertirse en una directiva de solo lectura.
 
-## <a name="terminology"></a>Terminología
+### <a name="rule"></a>Regla
+Una regla identifica uno o más tipos de solicitudes y el conjunto de acciones que se les aplicará.
 
-Una regla se define mediante el uso de [**expresiones condicionales**](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md), [**coincidencias**](cdn-verizon-premium-rules-engine-reference-match-conditions.md) y [**características**](cdn-verizon-premium-rules-engine-reference-features.md). Estos elementos se resaltan en la siguiente ilustración:
+Consta de: 
 
- ![Condición de coincidencia de red CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-terminology.png)
+- Un conjunto de expresiones condicionales que definen la lógica a través de la cual se identifican las solicitudes.
+- Un conjunto de condiciones de coincidencia que definen los criterios que se usan para identificar las solicitudes.
+- Un conjunto de características que definen cómo la red CDN controlará las solicitudes anteriores.
+Estos elementos se identifican en la siguiente ilustración.
 
+![Flujo de trabajo de implementación de directivas](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+
+### <a name="policy"></a>Directiva
+Una directiva, que consta de un conjunto de reglas de solo lectura, proporciona los medios para:
+
+- Crear, almacenar y administrar varias variantes de las reglas
+- Revertir a una versión implementada previamente
+- Preparar reglas específicas de eventos por adelantado (por ejemplo, una regla que redirija el tráfico como resultado de un mantenimiento de origen del cliente)
+
+> [!NOTE]
+> Aunque solo se permite una directiva por entorno, se pueden implementar directivas según sea necesario.
+
+### <a name="deploy-request"></a>Solicitud de implementación
+Una solicitud de implementación proporciona un procedimiento simple y simplificado a través del cual se puede aplicar rápidamente una directiva al entorno de ensayo o de producción. Se proporciona un historial de las solicitudes de implementación para facilitar el seguimiento de los cambios aplicados a esos entornos.
+
+> [!NOTE]
+> Solo las solicitudes que no superan nuestro sistema de validación automatizada y detección de errores requerirán revisión y aprobación manual.
+
+### <a name="rule-precedence"></a>Prioridad de la regla
+Las reglas contenidas en una directiva se procesan normalmente en el orden en que se enumeran (es decir, de arriba abajo). Si la solicitud coincide con las reglas en conflicto, la última regla que se va a procesar tendrá prioridad.
+
+### <a name="policy-deployment-workflow"></a>Flujo de trabajo de implementación de directivas
+A continuación se muestra el flujo de trabajo a través del cual se puede aplicar una directiva al entorno de producción o de ensayo.
+
+![Flujo de trabajo de implementación de directivas](./media/cdn-verizon-premium-rules-engine-reference/policy-deployment-workflow.png)
+
+|Paso |Descripción |
+|---------|---------|
+|[Crear borrador](https://docs.vdms.com/cdn/index.html#HRE/AdministeringDraftsandRules.htm#Create)    |    Un borrador se compone de un conjunto de reglas que definen cómo la red CDN debe controlar las solicitudes para el contenido.     |
+|Bloquear borrador   |     Una vez finalizado un borrador, se debe bloquear y convertir en una directiva de solo lectura.    |
+|[Enviar solicitud de implementación](https://docs.vdms.com/cdn/index.html#HRE/DeployRequest.htm)   |   <br> Una solicitud de implementación permite aplicar una directiva en el tráfico de prueba o de producción.</br> <br>Envíe una solicitud de implementación al entorno de ensayo o de producción.</br>     |
+|Implementar revisión de solicitud   |    <br>Una solicitud de implementación se somete a una validación automatizada y a la detección de errores.</br><br>Aunque la mayoría de las solicitudes de implementación se aprueban automáticamente, se requiere una revisión manual en las directivas más complejas.</br>   |
+|Implementación de directiva ([Ensayo](https://docs.vdms.com/cdn/index.html#HRE/Environment.htm#Staging))   |  <br> Tras la aprobación de una solicitud de implementación en el entorno de ensayo, se aplicará una directiva al entorno de ensayo. Este entorno permite probar una directiva con el tráfico ficticio del sitio.</br><br>Cuando la directiva esté lista para aplicarse al tráfico del sitio activo, se debe enviar una nueva solicitud de implementación para el entorno de producción.</br>      |
+|Implementación de directiva ([Producción](https://docs.vdms.com/cdn/index.html#HRE/Environment.htm#Producti))   |  Tras la aprobación de una solicitud de implementación en el entorno de producción, se aplicará una directiva al entorno de producción. Este entorno permite que una directiva actúe como la autoridad final para determinar cómo la red CDN debe controlar el tráfico real.     |
 ## <a name="syntax"></a>Sintaxis
 
 La manera en que se tratarán los caracteres especiales varía según la forma en la que una condición de coincidencia o función administra los valores de texto. Una condición de coincidencia o función puede interpretar el texto de una de las siguientes maneras:
 
-1. [**Valores literales**](#literal-values)
-2. [**Valores de carácter comodín**](#wildcard-values)
-3. [**Expresiones regulares**](#regular-expressions)
+- [**Valores literales**](#literal-values)
+- [**Valores de carácter comodín**](#wildcard-values)
+- [**Expresiones regulares**](#regular-expressions)
 
 ### <a name="literal-values"></a>Valores literales
 
@@ -66,12 +108,14 @@ Las expresiones regulares definen un patrón que se busca dentro de un valor de 
 Carácter especial | Descripción
 ------------------|------------
 \ | Una barra diagonal inversa aplica el escape al carácter que le sigue, lo que hace que ese carácter se trate como un valor literal en lugar de tomar el significado de su expresión regular. Por ejemplo, la sintaxis siguiente aplica el escape a un asterisco: `\*`
-% | El significado de un símbolo de porcentaje depende de su uso.<br/><br/> `%{HTTPVariable}`: esta sintaxis identifica una variable HTTP.<br/>`%{HTTPVariable%Pattern}`: esta sintaxis utiliza un símbolo de porcentaje para identificar una variable HTTP y se usa como delimitador.<br />`\%`: el escape de un símbolo de porcentaje permite que se use como valor literal o para indicar la codificación de la dirección URL (p. ej., `\%20`).
+% | El significado de un símbolo de porcentaje depende de su uso.<br/><br/> `%{HTTPVariable}`: esta sintaxis identifica una variable HTTP.<br/>`%{HTTPVariable%Pattern}`: esta sintaxis utiliza un símbolo de porcentaje para identificar una variable HTTP y se usa como delimitador.<br />`\%`: El escape de un símbolo de porcentaje permite que se use como valor literal o para indicar la codificación de la dirección URL (p. ej., `\%20`).
 \* | Un asterisco permite que el carácter anterior coincida con cero o más veces.
 Space | Normalmente, un carácter de espacio se trata como un carácter literal.
 'valor' | Las comillas simples se tratan como caracteres literales. Un conjunto de comillas simples no tiene un significado especial.
 
 Coincidencias de coincidencia y características que admiten expresiones regulares, excepto los patrones definidos por las expresiones compatibles con Perl.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

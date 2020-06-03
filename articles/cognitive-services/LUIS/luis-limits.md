@@ -3,12 +3,12 @@ title: 'Límites: LUIS'
 description: En este artículo contiene los límites conocidos de Language Understanding (LUIS) de Azure Cognitive Services. LUIS tiene varias áreas de límites. El límite de modelo controla las intenciones, las entidades y las características de LUIS. Los límites de cuota se basan en el tipo de clave. La combinación de teclado controla el sitio web de LUIS.
 ms.topic: reference
 ms.date: 05/06/2020
-ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593246"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684610"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-limits), que controla las intenciones, las entidades y las características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS.
@@ -28,7 +28,7 @@ Si la aplicación supera los límites de modelo de LUIS, puede usar una aplicaci
 | Entidades externas | sin límites |
 | [Intenciones][intents]|500 por aplicación: 499 intenciones personalizadas y la intención _Ninguno_ necesaria.<br>La aplicación [basada en la distribución](https://aka.ms/dispatch-tool) tiene 500 orígenes de distribución correspondientes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Elemento principal: 50, elemento secundario: 20 000 elementos. El nombre canónico es *Máximo de caracteres predeterminado. Los valores de los sinónimos no tienen ninguna restricción de longitud. |
-| [Entidades con aprendizaje automático y roles](./luis-concept-entity-types.md):<br> compuesta,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, el que sea que alcance primero el usuario. Un rol cuenta como una entidad para los fines de este límite. Un ejemplo es una composición con una entidad sencilla que tiene dos roles: 1 compuesta + 1 simple + 2 roles = 4 de las 330 entidades.<br>Las subentidades se pueden anidar hasta en 5 niveles.|
+| [Entidades de aprendizaje automático y roles](./luis-concept-entity-types.md):<br> compuesta,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, el que sea que alcance primero el usuario. Un rol cuenta como una entidad para los fines de este límite. Un ejemplo es una composición con una entidad sencilla que tiene dos roles: 1 compuesta + 1 simple + 2 roles = 4 de las 330 entidades.<br>Las subentidades se pueden anidar hasta en 5 niveles.|
 |Modelo como característica| El número máximo de modelos que se pueden usar como característica para un modelo específico es de 10 modelos. El número máximo de listas de frases utilizadas como característica para un modelo específico es de 10 listas de frases.|
 | [Versión preliminar: entidades de lista dinámica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1 K por solicitud de punto de conexión de predicción de consulta|
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
@@ -53,7 +53,7 @@ Los nombres de objeto deben ser únicos al compararse con otros objetos del mism
 |Objetos|Restricciones|
 |--|--|
 |Intención, entidad|Todos los nombres de intenciones y entidades deben ser únicos en una versión de una aplicación.|
-|Componentes de la entidad de ML|Todos los componentes de una entidad de aprendizaje automático (entidades secundarias) deben ser únicos, dentro de esa entidad, para los componentes del mismo nivel.|
+|Componentes de la entidad de ML|Todos los componentes de una entidad de aprendizaje automático (entidades secundarias) tienen que ser únicos, dentro de esa entidad, para los componentes del mismo nivel.|
 |Características | Todas las características con nombre, como las listas de frases, deben ser únicas dentro de una versión de una aplicación.|
 |Roles de entidad|Todos los roles de una entidad o de un componente de una entidad deben ser únicos cuando están en el mismo nivel de entidad (primario, secundario, terciario, etc.).|
 

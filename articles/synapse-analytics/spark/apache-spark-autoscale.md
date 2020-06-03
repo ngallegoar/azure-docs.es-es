@@ -8,12 +8,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591971"
+ms.locfileid: "83644870"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escalabilidad automática de grupos de Apache Spark de Azure Synapse Analytics
 
@@ -74,4 +74,4 @@ Los trabajos en ejecución se seguirán ejecutando y se completarán. Los trabaj
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Guía de inicio rápido para configurar un nuevo grupo de Spark [Creación de un grupo de Spark](..\quickstart-create-apache-spark-pool.md)
+Guía de inicio rápido para configurar un nuevo grupo de Spark [Creación de un grupo de Spark](../quickstart-create-apache-spark-pool-portal.md)

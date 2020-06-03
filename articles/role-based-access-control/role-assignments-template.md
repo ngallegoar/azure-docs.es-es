@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: baf309a93f8ba976cb6511c05ba5032ad07a0fc9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735630"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874052"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager
 
@@ -358,6 +358,15 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 A continuación se muestra un ejemplo de la asignación del rol de colaborador a una nueva entidad de servicio de identidad administrada después de implementar la plantilla.
 
 ![Asignación de roles para una nueva entidad de servicio de identidad administrada](./media/role-assignments-template/role-assignment-template-msi.png)
+
+## <a name="remove-a-role-assignment"></a>Eliminación de una asignación de rol
+
+En RBAC de Azure, para quitar el acceso a un recurso de Azure, se quita la asignación de roles. Una asignación de roles no se puede quitar mediante una plantilla. Para quitar una asignación de roles, hay que usar otras herramientas como:
+
+- [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
+- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
+- [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment)
+- [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

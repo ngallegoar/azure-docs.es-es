@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: b342c4319064bd00681c914585e541ab0bc3e17e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 954562f3f88276b5aef7dbd4e2237d180a4c2e40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585664"
+ms.locfileid: "83653927"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicación de la aplicación activa y entrenada en un punto de conexión de almacenamiento provisional o de producción
 
@@ -57,7 +57,7 @@ Por ejemplo, para una aplicación creada en [www.luis.ai](https://www.luis.ai), 
 Después de seleccionar la ranura, configure las opciones de publicación para realizar lo siguiente:
 
 * análisis de opiniones
-* Corrección ortográfica: solo punto de conexión de predicción V2
+* [Corrección ortográfica](luis-tutorial-bing-spellcheck.md): solo punto de conexión de predicción v2
 * Preparación para la voz
 
 Después de la publicación, esta configuración estará disponible para su revisión en la página de **configuración de publicación** de la sección **Administrar**. La configuración se puede cambiar en cada publicación. Si cancela una publicación, también se cancelarán los cambios realizados durante la misma.
@@ -78,7 +78,7 @@ No tiene que proporcionar una clave de Text Analytics y no se carga ningún cost
 
 Los datos de opinión son una puntuación entre 1 y 0 que indica el valor de opinión positiva (más cercano a 1) o negativa (más cercano a 0) de los datos. La etiqueta de opinión de `positive`, `neutral` y `negative` es por referencia cultural admitida. Actualmente, solo se admites etiquetas de opinión en inglés.
 
-Para obtener más información acerca de la respuesta del punto de conexión JSON con análisis de sentimiento, consulte [Análisis de sentimiento](luis-concept-data-extraction.md#sentiment-analysis).
+Para obtener más información acerca de la respuesta del punto de conexión JSON con análisis de sentimiento, consulte [Análisis de sentimiento](luis-reference-prebuilt-sentiment.md).
 
 ## <a name="spelling-correction"></a>Corrección ortográfica
 

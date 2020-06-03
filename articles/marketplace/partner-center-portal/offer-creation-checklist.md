@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281347"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850018"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista de comprobación de creación de ofertas de SaaS
 
@@ -58,7 +58,7 @@ La página de configuración de la oferta es donde puede optar por diferentes ca
 | Canales  | Opcional. Valor predeterminado: No habilitado para el canal CSP (revendedor).  |
 | Versión de prueba | Opcional. Valor predeterminado: No hay ninguna versión de prueba habilitada.  |
 | Tipo de versión de prueba | Requerido si se habilita una versión de prueba. Valor predeterminado: Ninguno seleccionado. Opciones: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
-| Administración de clientes potenciales: conexión a un sistema CRM | Requerido si se vende a través de Microsoft o si la oferta incluye "Ponerse en contacto conmigo". Valor predeterminado: ningún sistema CRM conectado. Opciones de CRM: tabla de Azure, blob de Azure, Dynamics CRM Online, punto de conexión HTTPS, Marketo, Salesforce  |
+| Clientes potenciales: conexión a un sistema CRM | Requerido si se vende a través de Microsoft o si la oferta incluye "Ponerse en contacto conmigo". Valor predeterminado: ningún sistema CRM conectado. Opciones de CRM: tabla de Azure, blob de Azure, Dynamics CRM Online, punto de conexión HTTPS, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Página de propiedades
 

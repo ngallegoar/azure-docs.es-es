@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e49e4d5debe63b99039bbafbc14f7788367314f3
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 159e15a6be59991fba574e72dcaf2ed740fb10c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678848"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846190"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure mediante Azure Portal
 
@@ -32,7 +32,28 @@ Si lo prefiere, puede completar esta guía mediante [PowerShell](howto-legacy-di
 
 ### <a name="convert-a-legacy-direct-peering"></a><a name=create></a>Conversión de un emparejamiento directo heredado
 
-Puede convertir conexiones de emparejamiento heredadas mediante un recurso de **emparejamiento**.
+Como proveedor de servicios de Internet, puede convertir las conexiones de emparejamiento directo heredadas mediante la [creación de un emparejamiento]( https://go.microsoft.com/fwlink/?linkid=2129593).
+
+1. En la página **Create a Peering** (Crear un emparejamiento), en la pestaña **Basics** (Aspectos básicos), rellene los cuadros como se muestra aquí:
+
+    > [!div class="mx-imgBorder"] 
+    > ![Registro de Peering Service](./media/setup-basics-tab.png)
+
+*    Seleccione su suscripción a Azure.
+
+* En Resource group (Grupo de recursos), puede seleccionar un grupo de recursos existente en la lista desplegable o crear un grupo en Create new (Crear nuevo). En este ejemplo se va a crear un grupo de recursos.
+
+* Name (Nombre) corresponde al nombre del recurso y puede ser el que prefiera.
+
+* El valor de Region (Región) se selecciona automáticamente si se elige un grupo de recursos existente. Si ha elegido crear un grupo de recursos, también debe elegir la región de Azure en la que quiere que resida el recurso.
+
+>[!NOTE]
+>La región donde reside un grupo de recursos es independiente de la ubicación en la que quiere crear el emparejamiento con Microsoft. No obstante, se recomienda organizar los recursos de emparejamiento en grupos de recursos que residan en las regiones más cercanas de Azure. Por ejemplo, para los emparejamientos de Ashburn, puede crear un grupo de recursos en Este de EE. UU. o Este de EE. UU. 2.
+
+* Seleccione su ASN en el cuadro **Peer ASN** (ASN del mismo nivel).
+
+>[!IMPORTANT] 
+>Solo puede elegir un ASN con el valor de ValidationState como aprobado antes de enviar una solicitud de emparejamiento. Si acaba de enviar la solicitud de PeerAsn, espere 12 horas aproximadamente a que el estado de la asociación de ASN sea "aprobado". Si el ASN seleccionado está pendiente de validación, verá un mensaje de error. Si no ve el ASN que debe elegir, compruebe que haya seleccionado la suscripción correcta. Si es así, compruebe si ya ha creado PeerAsn con **[Associate Peer ASN to Azure subscription (Asociar ASN del mismo nivel a suscripción de Azure)](https://go.microsoft.com/fwlink/?linkid=2129592)** .
 
 #### <a name="launch-the-resource-and-configure-basic-settings"></a>Inicio de un recurso y configuración de las opciones básicas
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 357687a80325554c7dbb28eae6e42d946bb012dc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8b73a6bf2c8b853d9e3e939b6c8ff6fc05ac7021
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614097"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657263"
 ---
 # <a name="connect-with-the-web-client"></a>Conexión con el cliente web
 
@@ -39,7 +39,10 @@ Aunque debería funcionar cualquier explorador compatible con HTML5, oficialment
 
 ## <a name="access-remote-resources-feed"></a>Acceso remoto a la fuente de recursos
 
-En un explorador, vaya al [cliente web de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient) e inicie sesión con su cuenta de usuario.
+En un explorador, vaya al cliente web de Windows Virtual Desktop en <https://rdweb.wvd.microsoft.com/webclient> e inicie sesión con su cuenta de usuario.
+
+>[!NOTE]
+>En cambio, si usa la versión de primavera de 2020 de Windows Virtual Desktop con integración con Azure Resource Manager, conecte los recursos en <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 >[!NOTE]
 >Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Windows Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.

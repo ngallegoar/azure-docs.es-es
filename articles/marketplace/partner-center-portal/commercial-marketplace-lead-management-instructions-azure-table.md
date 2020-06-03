@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791024"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848028"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Table Storage para administrar clientes potenciales de marketplace comercial
 
@@ -182,8 +182,9 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Vaya a la página **Configuración de la oferta** de su oferta.
 
-1. Seleccione **Conectar** en la sección **Administración de clientes potenciales**.
-     ![Administración de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+1. En la sección **Clientes potenciales**, seleccione **Conectar**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Clientes potenciales":::
 
 1. En la ventana emergente **Detalles de la conexión**, seleccione **Azure Table** como **destino de clientes potenciales**. 
      ![Administración de clientes potenciales, detalles de la conexión](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

@@ -11,18 +11,18 @@ ms.date: 04/30/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 546945d70554adbb28f19a3153faa67495e55f04
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607762"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653028"
 ---
 # <a name="synapse-sql-recommendations"></a>Recomendaciones de SQL de Synapse
 
 En este artículo se describen las recomendaciones de SQL de Synapse atendidas mediante Azure Advisor.  
 
-SQL Analytics proporciona recomendaciones para garantizar que la carga de trabajo de almacenamiento de datos está optimizado de forma coherente para el rendimiento. Las recomendaciones están totalmente integradas con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para ofrecerle los procedimientos recomendados directamente en [Azure Portal](https://aka.ms/Azureadvisor). SQL Analytics recopila las recomendaciones de telemetría y superficies de la carga de trabajo activa diariamente. Los escenarios de recomendaciones admitidas se describen a continuación junto con instrucciones sobre cómo aplicar las acciones recomendadas.
+Synapse SQL proporciona recomendaciones para garantizar que la carga de trabajo de almacenamiento de datos esté optimizada de forma coherente para el rendimiento. Las recomendaciones están totalmente integradas con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para ofrecerle los procedimientos recomendados directamente en [Azure Portal](https://aka.ms/Azureadvisor). Synapse SQL recopila las recomendaciones de telemetría y superficies de la carga de trabajo activa diariamente. Los escenarios de recomendaciones admitidas se describen a continuación junto con instrucciones sobre cómo aplicar las acciones recomendadas.
 
 [Compruebe sus recomendaciones](https://aka.ms/Azureadvisor) ya mismo. 
 

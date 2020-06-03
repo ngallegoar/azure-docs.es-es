@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 05/19/2020
+ms.openlocfilehash: 16b44b3a4496e98f8b6b643bf76aa5aa7ce593c6
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839154"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849100"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Creación de una aplicación de Power BI para Microsoft AppSource
 
@@ -62,7 +62,7 @@ Se incluyen vínculos para realizar operaciones en esta oferta en función de la
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
-### <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
+### <a name="customer-leads"></a>Clientes potenciales
 
 Al publicar la oferta en Marketplace con el Centro de partners, debe conectarla a un sistema de administración de relaciones con clientes (CRM). Esto le permite recibir información de contacto del cliente en cuanto alguien expresa interés en el producto o lo usa.
 
@@ -161,32 +161,11 @@ Proporcione una breve descripción de la oferta. Puede tener una longitud de has
 
 ### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3000 caracteres). Se muestra a los clientes en la información general de la lista de Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Incluya uno o varios de los siguientes elementos en la descripción:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Valor y beneficios principales que proporciona la oferta
-- Asociaciones de categoría o de sector, o ambas
-- Oportunidades de compra desde la aplicación
-- Cualquier divulgación necesaria
-
-Estas son algunas sugerencias para escribir la descripción:
-
-- Describa claramente la propuesta de valor de la oferta en las primeras frases de la descripción. Incluya los siguientes elementos:
-  - Descripción de la oferta.
-  - Tipo de usuario que se beneficia de la oferta.
-  - Necesidades o problemas del cliente que aborda la oferta.
-- Recuerde que estas primeras frases podrían mostrarse en los resultados de la búsqueda.
-- No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona la oferta.
-- Intente usar un vocabulario específico del sector o palabras relacionadas con las ventajas.
-
-Para que la descripción de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato.
-
-![Uso del editor de texto enriquecido](./media/rich-text-editor.png)
-
-| <center>Cambiar el formato de texto | <center>Agregar viñetas o numeración | <center>Agregar o quitar sangría del texto |
-| --- | --- | --- |
-| <center>![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png) |  <center>![Uso del editor de texto enriquecido para agregar listas](./media/text-editor4.png) |  <center>![Uso del editor de texto enriquecido para aplicar sangría](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="search-keywords"></a>Palabras clave de búsqueda
 

@@ -10,18 +10,16 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7a54d1d644d1069957db7f94d6f5e261e1a8dfb2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417023"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747548"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
-Las vistas materializadas del grupo de SQL de Synapse proporcionan un método con poco mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
-
-Las vistas materializadas del grupo de SQL proporcionan un método con poco mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
+Las vistas materializadas del grupo de Synapse SQL proporcionan un método con poco mantenimiento para que las consultas analíticas complejas puedan tener un rendimiento rápido sin cambiar la consulta. En este artículo se describe la guía general sobre el uso de vistas materializadas.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vistas materializadas frente a vistas estándar
 
@@ -117,7 +115,7 @@ Opciones para reducir el número de vistas materializadas:
 
 - Elimine las vistas materializadas que tienen poco uso o que ya no son necesarias.  Una vista materializada deshabilitada no se mantiene, pero sigue incurriendo en el costo de almacenamiento.  
 
-- Combine las vistas materializadas creadas en las mismas o similares tablas base, incluso si sus datos no se superponen.  La combinación de las vistas materializadas podría dar como resultado una vista de tamaño mayor que la suma de las vistas independientes, pero el costo de mantenimiento de las vistas debería reducirse.  Por ejemplo:
+- Combine las vistas materializadas creadas en las mismas o similares tablas base, incluso si sus datos no se superponen.  La combinación de las vistas materializadas podría generar una vista de tamaño mayor que la suma de las vistas independientes, pero el costo de mantenimiento de las vistas debería reducirse.  Por ejemplo:
 
 ```sql
 
@@ -161,7 +159,7 @@ Las vistas materializadas permiten cambios en los datos de las tablas base.  Los
 
 ## <a name="example"></a>Ejemplo
 
-En este ejemplo se usa una consulta de tipo TPCDS que encuentra a los clientes que gastan más dinero en el catálogo que en las tiendas e identifica los clientes preferidos y su país de origen.   La consulta implica seleccionar los primeros 100 registros del resultado de la instrucción UNION de tres instrucciones sub-SELECT que implican SUM() y GROUP BY.
+En este ejemplo se usa una consulta de tipo TPCDS que encuentra a los clientes que gastan más dinero en el catálogo que en las tiendas e identifica los clientes preferidos y su país o región de origen.   La consulta implica seleccionar los primeros 100 registros del resultado de la instrucción UNION de tres instrucciones sub-SELECT que implican SUM() y GROUP BY.
 
 ```sql
 WITH year_total AS (

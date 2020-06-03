@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a079f42f63e232c21a52bd108b34c3b022dcee5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176097"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869726"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -275,7 +275,7 @@ Azure File Sync no interopera con el Sistema de cifrado de archivos NTFS (NTFS E
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 
 > [!NOTE]
-> El servicio Azure File Sync quitará la compatibilidad con TLS 1.0 y 1.1 en agosto de 2020. Todas las versiones compatibles del agente de Azure File Sync ya usan TLS 1.2 de forma predeterminada. El uso de una versión anterior de TLS podría producirse si TLS 1.2 estaba deshabilitado en el servidor o se utiliza un proxy. Si usa un proxy, se recomienda que compruebe la configuración del proxy. Las regiones del servicio Azure File Sync agregadas después del 1 de mayo de 2020 solo admitirán TLS 1.2 y la compatibilidad con TLS 1.0 y 1.1 se quitará de las regiones existentes en agosto de 2020.  Para más información, consulte la [guía para la solución de problemas](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
+> El servicio Azure File Sync quitará la compatibilidad con TLS 1.0 y 1.1 a partir del 1 de agosto de 2020. Todas las versiones compatibles del agente de Azure File Sync ya usan TLS 1.2 de forma predeterminada. El uso de una versión anterior de TLS podría producirse si TLS 1.2 estaba deshabilitado en el servidor o se utiliza un proxy. Si usa un proxy, se recomienda que compruebe la configuración del proxy. Las regiones del servicio Azure File Sync agregadas después del 1 de mayo de 2020 solo admitirán TLS 1.2 y la compatibilidad con TLS 1.0 y 1.1 se quitará de las regiones existentes el 1 de agosto de 2020.  Para más información, consulte la [guía para la solución de problemas](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
 
 El agente de Azure File Sync se comunica con su servicio de sincronización del almacenamiento y el recurso compartido de archivos de Azure mediante los protocolos REST y FileREST de Azure File Sync, ambos usan siempre HTTPS sobre el puerto 443. Azure File Sync no envía solicitudes sin cifrar a través de HTTP. 
 

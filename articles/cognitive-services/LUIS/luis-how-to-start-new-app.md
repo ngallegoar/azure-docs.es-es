@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585630"
+ms.locfileid: "83653906"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creación de una aplicación de LUIS en el portal de LUIS
 Hay un par de formas de crear aplicaciones de LUIS. Puede crear una aplicación de LUIS en el portal de LUIS o a través de las [API](developer-reference-resource.md) de creación de LUIS.
@@ -45,10 +45,10 @@ Puede crear una aplicación con las API de creación de dos maneras:
 
 ## <a name="create-new-app-in-luis"></a>Creación de una aplicación en LUIS
 
-1. En la página **Mis aplicaciones**, seleccione su suscripción y el recurso de creación y luego **+ Create** (+Crear). Si usa una clave de evaluación gratuita, aprenda a [crear un recurso de creación](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. En la página **Mis aplicaciones**, seleccione su **suscripción** y el **recurso de creación** y luego **+ Create** (+ Crear). Si usa una clave de evaluación gratuita, aprenda a [crear un recurso de creación](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
-    ![Lista de aplicaciones de LUIS](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![Lista de aplicaciones de LUIS](./media/create-app-in-portal.png)
 
 1. En el cuadro de diálogo, escriba el nombre de la aplicación, por ejemplo, `Pizza Tutorial`.
 
@@ -64,7 +64,7 @@ Puede crear una aplicación con las API de creación de dos maneras:
     > [!div class="mx-imgBorder"]
     > ![Lista de intentos con la intención None creada sin intenciones de ejemplo.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>Otras acciones disponibles
+## <a name="other-actions-available-on-my-apps-page"></a>Otras acciones disponibles en la página Aplicaciones
 
 La barra de herramientas de contexto ofrece otras acciones:
 

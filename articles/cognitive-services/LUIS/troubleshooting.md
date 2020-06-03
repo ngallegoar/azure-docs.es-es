@@ -4,12 +4,12 @@ description: Este artículo contiene respuestas a las preguntas más frecuentes 
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592855"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835009"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -333,4 +333,4 @@ Videos:
 
 Para obtener más información sobre LUIS, consulte los siguientes recursos:
 * [Preguntas de Stack Overflow con etiquetas de LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Foro MSDN de Language Understanding Intelligent Services (LUIS)](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [La página de preguntas y respuestas de Microsoft para Language Understanding Intelligent Services (LUIS) en MSDN](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)

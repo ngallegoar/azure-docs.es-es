@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929135"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745462"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protección de los activos de Azure CDN con autenticación por tokens
 
@@ -33,7 +33,7 @@ La autenticación por tokens es un mecanismo que permite impedir que Azure Conte
 
 La autenticación por tokens verifica que un sitio de confianza genere las solicitudes, para lo que se requiere que contengan un valor de token con información codificada sobre el solicitante. El contenido solo se proporciona al solicitante cuando la información codificada cumple los requisitos; de lo contrario, las solicitudes se deniegan. Puede configurar los requisitos mediante el uso de uno o varios de los siguientes parámetros:
 
-- País: permitir o denegar las solicitudes que se originan en los países o regiones especificados con su [código de país](/previous-versions/azure/mt761717(v=azure.100)).
+- País o región: permitir o denegar las solicitudes que se originan en los países o regiones especificados con su [código de país o región](/previous-versions/azure/mt761717(v=azure.100)).
 - Dirección URL: permitir solo las solicitudes que coinciden con el recurso o la ruta de acceso especificados.
 - Host: permitir o denegar las solicitudes que usan los hosts especificados en el encabezado de la solicitud.
 - Origen de referencia: permitir o denegar las solicitudes procedentes del origen de referencia especificado.
@@ -120,11 +120,11 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Solo permite solicitudes que se originen en uno o más países o regiones especificados. Se deniegan las solicitudes originadas en los demás países o regiones. Utilice un [código ISO 3166 de país](/previous-versions/azure/mt761717(v=azure.100)) de dos letras para cada país, sepárelos con una coma y no agregue espacios. Por ejemplo, si solo desea permitir el acceso desde Estados Unidos y Francia, escriba `US,FR`.</td>
+      >    <td>Solo permite solicitudes que se originen en uno o más países o regiones especificados. Se deniegan las solicitudes originadas en los demás países o regiones. Utilice un [código ISO 3166 de país o región](/previous-versions/azure/mt761717(v=azure.100)) de dos letras para cada país o región, sepárelos con una coma y no agregue espacios. Por ejemplo, si solo desea permitir el acceso desde Estados Unidos y Francia, escriba `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Deniega solicitudes que se originan en uno o más países o regiones especificados. Se permiten las solicitudes originadas en todos los demás países o regiones. La implementación es la misma que con el parámetro <b>ec_country_allow</b>. Si hay un código de país en los parámetros <b>ec_country_allow</b> y <b>ec_country_deny</b>, el parámetro <b>ec_country_allow</b> tiene prioridad.</td>
+      >    <td>Deniega solicitudes que se originan en uno o más países o regiones especificados. Se permiten las solicitudes originadas en todos los demás países o regiones. La implementación es la misma que con el parámetro <b>ec_country_allow</b>. Si hay un código de país o región en los parámetros <b>ec_country_allow</b> y <b>ec_country_deny</b>, el parámetro <b>ec_country_allow</b> tiene prioridad.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -195,7 +195,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
    - PHP
    - Perl
    - Java
-   - Python 
+   - Python    
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Precios de las características y los proveedores de Azure CDN
 

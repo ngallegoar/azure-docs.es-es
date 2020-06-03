@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606898"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744158"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protección contra amenazas en Azure Security Center
 
@@ -29,7 +29,10 @@ La protección contra amenazas de Azure Security Center proporciona defensas com
 
 * **Protección contra amenazas para capas de servicios de Azure**: capa de red de Azure, capa de administración de Azure (Azure Resource Manager) (versión preliminar) y Azure Key Vault (versión preliminar)
 
-Tanto si Security Center genera una alerta, como si la recibe de un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Azure Sentinel (o a un SIEM de terceros) o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md). 
+Tanto si Security Center genera una alerta, como si la recibe de un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Azure Sentinel, a cualquier SIEM de terceros o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md). 
+
+> [!NOTE]
+> Las alertas de orígenes diferentes pueden tardar un tiempo distinto en aparecer. Por ejemplo, las alertas que requieren un análisis del tráfico de red pueden tardar más en aparecer que las alertas relacionadas con procesos sospechosos que se ejecutan en máquinas virtuales.
 
 > [!TIP]
 > Para habilitar las funcionalidades de protección contra amenazas de Security Center, debe aplicar el plan de tarifa estándar a la suscripción que contiene las cargas de trabajo aplicables.
@@ -44,20 +47,12 @@ Tanto si Security Center genera una alerta, como si la recibe de un producto de 
 
 Azure Security Center se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Security Center presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
 
-* **ATP de Microsoft Defender** <a name="windows-atp"></a>: Security Center amplía sus plataformas de protección de carga de trabajo en la nube mediante la integración con Protección contra amenazas avanzada (ATP) de Microsoft defender. Esta integración ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión.
+* **Advanced Threat Protection (ATP) de Microsoft Defender** <a name="windows-atp"></a>: Security Center amplía sus plataformas de protección de carga de trabajo en la nube mediante la integración con Advanced Threat Protection (ATP) de Microsoft Defender. Esta integración ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión.
 
     > [!IMPORTANT]
     > El sensor de Microsoft Defender ATP se habilita automáticamente en los servidores Windows que usan Security Center.
 
     Cuando Microsoft Defender ATP detecta una amenaza, desencadena una alerta. La alerta se muestra en el panel de Security Center. En el panel, puede dinamizar hasta la consola de Microsoft Defender ATP para realizar una investigación detallada y descubrir el alcance del ataque. Para más información sobre Microsoft Defender ATP, consulte [Incorporación de servidores al servicio Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
-
-* **Análisis de volcado de bloqueo** <a name="windows-dump"></a>: cuando se bloquea el software, un volcado de memoria captura una parte de la memoria en el momento del bloqueo.
-
-    Un bloqueo puede deberse a malware o contener malware. Para evitar que lo detecten los productos de seguridad, diversas formas de malware usan ataques sin archivos, lo que evita tener que escribir en el disco o cifrar los componentes de software escritos en el disco. Este tipo de ataque es difícil de detectar con los enfoques tradicionales basados en disco.
-
-    Sin embargo, mediante el análisis de la memoria, puede detectar este tipo de ataque. Mediante el análisis de la memoria del volcado de memoria, Security Center puede detectar las técnicas que está utilizando el ataque. Por ejemplo, el ataque podría estar intentando aprovechar vulnerabilidades del software, acceder a datos confidenciales y persistir clandestinamente dentro de una máquina en peligro. Security Center realiza este trabajo con un impacto mínimo en el rendimiento de los hosts.
-
-    Para obtener detalles de las alertas de análisis de volcado de memoria, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-windows).
 
 * **La detección de ataques con archivos** <a name="windows-fileless"></a>: ataques de archivos destinados a los puntos de conexión son habituales. Para evitar que se detecten, los ataques sin archivos insertan cargas malintencionadas en la memoria. Las cargas del atacante se conservan dentro de la memoria de los procesos en peligro y realizan una amplia variedad de actividades malintencionadas.
 
@@ -173,7 +168,7 @@ Advanced Threat Protection para Azure Storage está actualmente disponible solo 
 
 Este servicio está disponible en todas las nubes públicas y en las nubes de la administración pública de EE. UU., pero no en otras regiones de nubes soberanas o de Azure Government.
 
-Para obtener más información, incluida una evaluación gratuita de 30 días, consulte la [página de precios de Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Para más información, incluida una evaluación gratuita de 30 días, consulte la [página de precios de Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para más información, consulte:
 

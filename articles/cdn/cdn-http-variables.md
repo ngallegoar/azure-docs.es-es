@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: b9ced5d4a81effcd73e0243d09bb83ed0fe7667c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253703"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747649"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
 Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta y solicitudes HTTP. Estos metadatos pueden usarse después para alterar una solicitud o respuesta de forma dinámica. El uso de las variables HTTP se restringe a las siguientes características del motor de reglas:
@@ -40,7 +40,7 @@ En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve u
 | Ciudad (solicitante) | %{geo_city} | Indica la ciudad del solicitante. | Los Angeles |
 | Continente (solicitante) | %{geo_continent} | Indica el continente del solicitante mediante su abreviatura. <br />Los valores válidos son: <br />AF: África<br />AS: Asia<br />EU: Europa<br />N/D: Norteamérica<br />OC: Oceanía<br />SA: Sudamérica<br /><br />**En desuso**: %{virt_dst_continent}. <br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_continent}. <br />Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable.| N/D |
 | Valor de la cookie | %{cookie_Cookie} | Devuelve el valor correspondiente a la clave de cookie identificada por el término Cookie. | Ejemplo de uso: <br />%{cookie__utma}<br /><br />Valor de ejemplo:<br />111662281.2.10.1222100123 |
-| País (solicitante) | %{geo_country} | Indica el país de origen del solicitante mediante su código de país. <br />**En desuso**: %{virt_dst_country}. <br /><br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_country}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | US |
+| País o región (solicitante) | %{geo_country} | Indica el país o región de origen del solicitante mediante su código de país o región. <br />**En desuso**: %{virt_dst_country}. <br /><br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_country}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | US |
 | Área de mercado designada (solicitante) | %{geo_dma_code} |Indica el mercado de medios del solicitante mediante su código de región. <br /><br />Este campo solo es aplicable a las solicitudes que se originan en los Estados Unidos.| 745 |
 | Método de solicitud HTTP | %{request_method} | Indica el método de solicitud HTTP. | GET |
 | Código de estado HTTP | %{status} | Indica el código de estado HTTP de la respuesta. | 200 |

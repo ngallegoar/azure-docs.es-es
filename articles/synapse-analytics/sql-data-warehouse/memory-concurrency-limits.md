@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632681"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636405"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Límites de memoria y simultaneidad de Azure Synapse Analytics
 
@@ -77,7 +77,7 @@ Con la introducción de los [grupos de cargas de trabajo](sql-data-warehouse-wor
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valores máximos de simultaneidad para clases de recursos
 
-Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Analytics en Azure Synapse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](sql-data-warehouse-workload-importance.md) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
+Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, Synapse SQL realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en función de la importancia y las ranuras de simultaneidad. Las consultas esperan en la cola hasta que haya suficientes ranuras de simultaneidad disponibles. La [importancia](sql-data-warehouse-workload-importance.md) y las ranuras de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
 
 **Clases de recursos estáticos**
 

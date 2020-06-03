@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176148"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873592"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
@@ -80,7 +80,7 @@ Cuando ejecute una infraestructura en Azure, automatice las copias de seguridad 
 
 Antes de implementar el programador de la instantánea de recurso compartido, tenga en cuenta la frecuencia de la instantánea de recurso compartido y la configuración de retención para evitar gastos innecesarios.
 
-Las instantáneas de recurso compartido solo proporcionan protección a nivel de archivo. Recuerde que las instantáneas de recurso compartido no previenen eliminaciones que se hayan producido por errores involuntarios en un recurso compartido de archivos o en una cuenta de almacenamiento. Le recomendamos que bloquee la cuenta de almacenamiento o el grupo de recursos para protegerlos de eliminaciones accidentales.
+Las instantáneas de recurso compartido solo proporcionan protección a nivel de archivo. Recuerde que las instantáneas de recurso compartido no previenen eliminaciones que se hayan producido por errores involuntarios en un recurso compartido de archivos o en una cuenta de almacenamiento. Para impedir la eliminación accidental de una cuenta de almacenamiento, puede [habilitar la eliminación temporal](storage-files-prevent-file-share-deletion.md) o bloquear la cuenta de almacenamiento o el grupo de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Trabajo con instantáneas de recurso compartido en:

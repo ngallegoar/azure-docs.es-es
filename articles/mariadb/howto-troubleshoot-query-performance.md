@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530060"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834312"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Uso de EXPLAIN para solucionar problemas relacionados con el rendimiento de consultas en Azure Database for MariaDB
 **EXPLAIN** es una herramienta útil a la hora de optimizar consultas. Las instrucciones de EXPLAIN se pueden usar para obtener información sobre cómo se ejecutan las instrucciones SQL. La salida siguiente muestra un ejemplo de la ejecución de una instrucción de EXPLAIN.
@@ -166,4 +166,4 @@ Ahora EXPLAIN muestra como MariaDB puede usar un índice combinado para evitar u
 El uso de EXPLAIN y de distintos tipos de índice puede aumentar el rendimiento significativamente. El hecho de tener un índice en la tabla no significa necesariamente que MariaDB pueda usarlo para sus consultas. Valide siempre sus suposiciones con EXPLAIN y optimice las consultas con índices.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para buscar respuestas de otros usuarios a sus preguntas o publicar una nueva pregunta o respuesta, visite el [foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Para encontrar respuestas de otros usuarios a las preguntas que más le interesan o publicar una nueva pregunta o respuesta, visite la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb97a2d848441a153db47b41644a6226e9d75782
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79135877"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747745"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configure una directiva de WAF de filtrado geográfico para Front Door
 
@@ -52,7 +52,7 @@ Para crear un perfil de Front Door siga las instrucciones que se describen en [I
 
 ## <a name="define-geo-filtering-match-condition"></a>Definición de la condición de coincidencia del filtrado geográfico
 
-Cree una condición de coincidencia de ejemplo que selecciona las solicitudes que no proceden de "EE.UU.", utilizando [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) en los parámetros al crear una condición de coincidencia. Se proporcionan códigos de país de dos letras a la asignación de país en [¿Qué es el filtrado geográfico en un dominio para Azure Front Door?](waf-front-door-geo-filtering.md).
+Cree una condición de coincidencia de ejemplo que selecciona las solicitudes que no proceden de "EE.UU.", utilizando [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) en los parámetros al crear una condición de coincidencia. Se proporcionan códigos de país o región de dos letras para la asignación de país o región en [¿Qué es el filtrado geográfico en un dominio para Azure Front Door?](waf-front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ed2638cfe4ab7e849e428729ccd17ffdeb6314af
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086358"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834958"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Procedimientos recomendados de desarrollo para SQL de Synapse
 En este artículo se describen la guía y los procedimientos recomendados a medida que desarrolla una solución de almacenamiento de datos. 
@@ -154,7 +154,7 @@ Por lo tanto, conseguirá un mejor rendimiento. Para obtener más información, 
 
 Si los datos en el almacenamiento no tienen particiones, considere la posibilidad de crear particiones para usar estas funciones en la optimización de las consultas que están dirigidas a esos archivos.
 
-Cuando [consulte las tablas de Spark con particiones](develop-storage-files-spark-tables.md) de SQL a petición, la consulta tendrá como destino automático solo los archivos necesarios.
+Cuando [consulte las tablas externas de Apache Spark para Azure Synapse con particiones](develop-storage-files-spark-tables.md) desde SQL a petición, automáticamente la consulta tendrá como destino solo los archivos necesarios.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Uso de CETAS para mejorar el rendimiento de las consultas y las combinaciones
 
@@ -166,7 +166,7 @@ Cuando CETAS genera archivos Parquet, las estadísticas se crean automáticament
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Si necesita información que no esté incluida en este artículo, use la "búsqueda de documentación" en el lado izquierdo de esta página para buscar en todos los documentos del grupo de SQL.  El [foro del grupo de SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) es un lugar para plantear preguntas a otros usuarios y al grupo de productos del grupo de SQL.  
+Si necesita información que no esté incluida en este artículo, use la "búsqueda de documentación" en el lado izquierdo de esta página para buscar en todos los documentos del grupo de SQL.  En la [página de preguntas y respuestas de Microsoft para el grupo de SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) puede plantear preguntas a otros usuarios y al grupo de productos del grupo de SQL.  
 
 Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  Si prefiere formular sus preguntas en Stack Overflow, también hay disponible un [foro de Stack Overflow acerca del grupo de Azure SQL](https://stackoverflow.com/questions/tagged/azure-sqldw).
  
