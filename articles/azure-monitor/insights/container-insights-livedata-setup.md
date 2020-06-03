@@ -3,12 +3,13 @@ title: Configuración de datos en directo (versión preliminar) de Azure Monitor
 description: En este artículo se describe cómo configurar la vista en tiempo real de los registros de contenedor (stdout/stderr) y eventos sin usar kubectl con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: references_regions
+ms.openlocfilehash: ec75cc0a014b8a4f8c9b9d89a5bdca93936eb68a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234516"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196035"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Cómo configurar la característica de datos en directo (versión preliminar)
 

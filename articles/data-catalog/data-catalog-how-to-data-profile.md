@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 698da509be2f375925459bbdd4a35d21c6ff4407
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68950220"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171232"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Creación de perfiles de datos de orígenes de datos en Azure Data Catalog
 
@@ -45,7 +45,7 @@ Incluir los perfiles de datos al registrar lo recursos de datos ayuda a los usua
 > También puede agregar documentación a un recurso para describir cómo se pueden integrar los datos en una aplicación. Consulte [Documentación de los orígenes de datos](data-catalog-how-to-documentation.md).
 >
 
-<a name="howto"/>
+<a name="howto"></a>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Cómo incluir un perfil de datos al registrar un origen de datos
 
