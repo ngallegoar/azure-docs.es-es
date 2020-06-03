@@ -3,16 +3,16 @@ title: 'Tutorial: Administración de gobernanza de etiquetas'
 description: En este tutorial, usará el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
 ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759067"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142272"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Administración de la gobernanza de etiquetas con Azure Policy
 
-Las [etiquetas](../../../azure-resource-manager/management/tag-resources.md) son una parte fundamental de la organización de los recursos de Azure en una taxonomía. Cuando se siguen [procedimientos recomendados para la administración de etiquetas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), las etiquetas pueden ser la base para aplicar las directivas empresariales con Azure Policy o para realizar el [seguimiento de los costos con Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+Las [etiquetas](../../../azure-resource-manager/management/tag-resources.md) son una parte fundamental de la organización de los recursos de Azure en una taxonomía. Cuando se siguen [procedimientos recomendados para la administración de etiquetas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), las etiquetas pueden ser la base para aplicar las directivas empresariales con Azure Policy o para realizar el [seguimiento de los costos con Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#tag-shared-resources).
 Independientemente de cómo o por qué use las etiquetas, es importante que pueda agregar, cambiar y quitar rápidamente estas etiquetas en los recursos de Azure. Para ver si el recurso de Azure admite el etiquetado, consulte [Compatibilidad de etiqueta](../../../azure-resource-manager/management/tag-support.md).
 
 El efecto [Modify](../concepts/effects.md#modify) de Azure Policy está diseñado para ayudar en la gobernanza de las etiquetas, sin importar la fase de gobernanza de los recursos en la que se encuentre. **Modify** sirve de ayuda en las siguientes circunstancias:

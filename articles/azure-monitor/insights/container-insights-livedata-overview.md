@@ -3,12 +3,13 @@ title: Ver datos en directo (versión preliminar) con Azure Monitor para contene
 description: En este artículo se describe la vista en tiempo real de los registros de Kubernetes, eventos y métricas de pod sin usar kubectl en Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: references_regions
+ms.openlocfilehash: 80bf3e50ac63ae9b48d6f3b314bc52bcb209072f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872117"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196057"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Cómo ver los registros de Kubernetes, eventos y métricas de pods en tiempo real
 

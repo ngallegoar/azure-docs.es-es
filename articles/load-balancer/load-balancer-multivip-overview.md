@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f911b36d4f38d9b769cf34e4e2326ed1cb52da80
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771264"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022818"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
@@ -146,7 +146,7 @@ El destino del flujo de entrada es la dirección IP de front-end en la interfaz 
 
 Observe que este ejemplo no cambia el puerto de destino. Aunque se trata de un escenario de IP flotante, Azure Load Balancer también admite la definición de una regla para volver a escribir el puerto de destino back-end y para que sea diferente del puerto de destino front-end.
 
-El tipo de regla de dirección IP flotante es el fundamento de varios modelos de configuración del equilibrador de carga. Un ejemplo que está disponible actualmente es la configuración [SQL AlwaysOn con varios agentes de escucha](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Con el tiempo, se documentarán varios de estos escenarios.
+El tipo de regla de dirección IP flotante es el fundamento de varios modelos de configuración del equilibrador de carga. Un ejemplo que está disponible actualmente es la configuración [SQL AlwaysOn con varios agentes de escucha](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) . Con el tiempo, se documentarán varios de estos escenarios.
 
 ## <a name="limitations"></a>Limitaciones
 

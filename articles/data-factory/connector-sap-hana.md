@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: ac351e688eba274c989b4b475c6d61607b9ea5c1
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890612"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219302"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -299,7 +299,7 @@ Al copiar datos desde SAP HANA, se usan las siguientes asignaciones de tipos de 
 | timestamp          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
-### <a name="sap-hana-sink"></a>Receptor de SAP HANA
+## <a name="sap-hana-sink"></a>Receptor de SAP HANA
 
 Actualmente, el conector de SAP HANA no se admite como receptor, aunque puede usar el conector ODBC genérico con el controlador de SAP HANA para escribir datos en SAP HANA. 
 

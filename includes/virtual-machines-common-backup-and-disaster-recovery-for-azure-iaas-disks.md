@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77179125"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124306"
 ---
 En este artículo se explica cómo planear la copia de seguridad y recuperación ante desastres (DR) de discos y máquinas virtuales (VM) IaaS en Azure. En este documento se tratan los discos administrados y los no administrados.
 
@@ -231,7 +231,7 @@ En el caso de las máquinas virtuales con varios discos, debe copiar todas las i
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server en una máquina virtual tiene su propia funcionalidad integrada para realizar copias de seguridad de la base de datos de SQL Server en Azure Blob Storage o en un recurso compartido de archivos. Si la cuenta de almacenamiento es almacenamiento con redundancia geográfica o almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a las copias de seguridad en el centro de datos secundaria de la cuenta de almacenamiento en caso de desastre, con las mismas restricciones descritas anteriormente. Para más información, consulte [Copias de seguridad y restauración para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). Además de la copia de seguridad y restauración, los [grupos de disponibilidad AlwaysOn de SQL Server](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) pueden conservar réplicas secundarias de las bases de datos. Esta posibilidad reduce considerablemente el tiempo de recuperación ante desastres.
+SQL Server en una máquina virtual tiene su propia funcionalidad integrada para realizar copias de seguridad de la base de datos de SQL Server en Azure Blob Storage o en un recurso compartido de archivos. Si la cuenta de almacenamiento es almacenamiento con redundancia geográfica o almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a las copias de seguridad en el centro de datos secundaria de la cuenta de almacenamiento en caso de desastre, con las mismas restricciones descritas anteriormente. Para más información, consulte [Copias de seguridad y restauración para SQL Server en máquinas virtuales de Azure](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Además de la copia de seguridad y restauración, los [grupos de disponibilidad AlwaysOn de SQL Server](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) pueden conservar réplicas secundarias de las bases de datos. Esta posibilidad reduce considerablemente el tiempo de recuperación ante desastres.
 
 ## <a name="other-considerations"></a>Otras consideraciones
 

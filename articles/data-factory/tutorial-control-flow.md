@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 77fa8f72d4d4d929d15859fde71f112de1ddd14e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418735"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022119"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -48,7 +48,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * Cuenta de Azure Storage. Usará el almacenamiento de blobs como almacén de datos de origen. Si no dispone de una, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 * Explorador de Azure Storage Para instalar esta herramienta, consulte [Explorador de Azure Storage](https://storageexplorer.com/).
-* Azure SQL Database. Usará la base de datos como un almacén de datos receptor. Si aún no tiene ninguna instancia de Azure SQL Database, consulte [Creación de una base de datos en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* Azure SQL Database. Usará la base de datos como un almacén de datos receptor. Si aún no tiene ninguna instancia de Azure SQL Database, consulte [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. En este artículo se utiliza Visual Studio 2019.
 * SDK de Azure para .NET. Descargue e instale el [SDK de Azure para .NET](https://azure.microsoft.com/downloads/).
 

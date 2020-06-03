@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 999a181a812157a3e408d3e95b3e7fc00e29ecea
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744079"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118385"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (versión preliminar para área de trabajo)
 
@@ -32,13 +32,6 @@ A. Azure Synapse es una plataforma de datos integrada para BI, IA e inteligencia
 - Supervisar y optimizar rápidamente, reaccionar y depurar los eventos que ocurren en las actividades del área de trabajo en cualquier nivel.
 - Administrar los metadatos entre los motores. Cree una tabla de Spark y estará disponible automáticamente en las bases de datos de Azure Synapse.
 - Interactuar con los datos a través de una experiencia de usuario unificada. Synapse Studio ofrece macrodatos a los desarrolladores, ingenieros de datos, DBA, analistas de datos y científicos de datos en la misma plataforma.
-
-### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>P: ¿Cómo puedo empezar a usar Azure Synapse Analytics?
-
-A. Para empezar a usar Azure Synapse Analytics, [registre el proveedor de recursos de Azure Synapse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types), para lo que debe seleccionar *Microsoft.Synapse* en la lista de proveedor de recursos. Luego, cree un [área de trabajo de Synapse](https://portal.azure.com) (es gratis) y cree en ella los recursos que desee. Puede seguir uno de nuestros tutoriales de inicio rápido, como el de [creación de un grupo de Synapse SQL](quickstart-create-sql-pool-portal.md) o el de [creación de un área de trabajo](quickstart-create-workspace.md), que le guiará por un caso de uso simple. También puede buscar cuadernos de ejemplo y scripts SQL en nuestro [repositorio](https://github.com/Azure-Samples/Synapse). Si necesita conectarse a un conjunto de datos público, cree un nuevo servicio vinculado con los siguientes atributos:
-
-- azure_storage_account_name = "azureopendatastorage"
-- azure_storage_sas_token = "" (write **""** )
 
 ### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>P: ¿Cuáles son los componentes principales de Azure Synapse Analytics?
 

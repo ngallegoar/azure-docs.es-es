@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688317"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170773"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
 Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -39,7 +39,7 @@ El procedimiento de solución de problemas se puede dividir en tres tareas disti
 
 [App Service](overview.md) ofrece diversas opciones en cada paso.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observación y supervisión del comportamiento de la aplicación
 #### <a name="track-service-health"></a>Seguimiento del estado del servicio
@@ -84,7 +84,7 @@ Cada aplicación de App Service proporciona un punto de conexión de administrac
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) es una extensión de sitio de supervisión de rendimiento que está también disponible. Para usar Application Insights, recompile el código con un SDK. También puede instalar una extensión que proporcione acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle. Para más información, consulte [Supervisar el rendimiento de aplicaciones web](../azure-monitor/app/web-monitor-performance.md).
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2. Recopilación de datos
 App Service ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. La información se divide en diagnósticos del servidor web y diagnósticos de aplicaciones.
@@ -139,7 +139,7 @@ Otra característica útil de Kudu es que, en caso de que la aplicación inicie 
 
 Para más información sobre las características disponibles en Kudu, vea [Herramientas en línea de Azure Websites que debe conocer](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3. Mitigación del problema
 #### <a name="scale-the-app"></a>Escalar la aplicación
