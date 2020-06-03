@@ -1,18 +1,18 @@
 ---
-title: Administración de cuentas de ejecución de Azure Automation
-description: En este artículo se describe cómo administrar las cuenta de ejecución con PowerShell o desde el portal.
+title: Administración de una cuenta de ejecución de Azure Automation
+description: En este artículo se describe cómo administrar la cuenta de ejecución con PowerShell o desde Azure Portal.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: d77fc756530115ff828c79a3b444c1152ffe5c5a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d85eac7af71f03be384b8fa9d9603525c0807dac
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608684"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770795"
 ---
-# <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
+# <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
 Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar los recursos de Azure con los cmdlets de Azure. Cuando crea una cuenta de ejecución, se crea un nuevo usuario de la entidad de servicio en Azure Active Directory (AD) y se asigna el rol Colaborador a este usuario en el nivel de suscripción.
 
@@ -53,11 +53,11 @@ La cuenta de ejecución de Azure clásico realiza las siguientes tareas.
 >[!NOTE]
 >Las cuentas de ejecución de Azure clásico ya no se crean de forma predeterminada a la vez que se crea una cuenta de Automation. Esta cuenta se crea individualmente siguiendo los pasos que se describen más adelante en este artículo.
 
-## <a name="run-as-account-permissions"></a><a name="permissions"></a>Permisos de las cuentas de ejecución
+## <a name="obtain-run-as-account-permissions"></a><a name="permissions"></a>Obtención de permisos de las cuentas de ejecución
 
 En esta sección se definen los permisos para las cuentas de ejecución normales y las cuentas de ejecución clásicas.
 
-### <a name="permissions-to-configure-run-as-accounts"></a>Permisos para configurar cuentas de ejecución
+### <a name="get-permissions-to-configure-run-as-accounts"></a>Obtención de permisos para configurar cuentas de ejecución
 
 Para crear o actualizar una cuenta de ejecución, debe tener los permisos y privilegios específicos. Un administrador de aplicaciones en Azure Active Directory y un propietario en una suscripción pueden completar todas las tareas. En una situación en la que tenga separación de funciones, la siguiente tabla muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
 
@@ -83,11 +83,11 @@ Para comprobar que se ha corregido la situación causante del mensaje de error:
 3. Elija su nombre y, a continuación, seleccione **Perfil**. 
 4. Asegúrese de que el valor del atributo **Tipo de usuario**  en el perfil de usuario no esté establecido en **Invitado**.
 
-### <a name="permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Permisos para configurar cuentas de ejecución clásicas
+### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obtención de permisos para configurar cuentas de ejecución clásicas
 
 Para configurar o renovar las cuentas de ejecución clásicas, debe tener el rol Coadministrador en el nivel de suscripción. Para más información sobre los permisos de suscripción clásicos, consulte [Administradores de la suscripción clásica de Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
-## <a name="creating-a-run-as-account-in-azure-portal"></a>Creación de una cuenta de ejecución en Azure Portal
+## <a name="create-a-run-as-account-in-azure-portal"></a>Creación de una cuenta de ejecución en Azure Portal
 
 Realice los pasos que se describen a continuación para actualizar su cuenta de Azure Automation en Azure Portal. Cree las cuentas de ejecución y de ejecución clásica de forma individual. Si no es necesario administrar los recursos clásicos, basta con crear la cuenta de ejecución de Azure.
 
@@ -99,7 +99,7 @@ Realice los pasos que se describen a continuación para actualizar su cuenta de 
 6. En función de la cuenta que le interese, use el panel **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**. Después de revisar la información general, haga clic en **Crear**.
 6. Mientras Azure crea la cuenta de ejecución, se puede seguir el progreso en **Notificaciones** en el menú. También se muestra un banner que indica que se está creando la cuenta. El proceso puede tardar unos minutos en completarse.
 
-## <a name="creating-a-run-as-account-using-powershell"></a>Creación de una cuenta de ejecución con PowerShell
+## <a name="create-a-run-as-account-using-powershell"></a>Creación de una cuenta de ejecución con PowerShell
 
 En la lista siguiente se proporcionan los requisitos para crear una cuenta de ejecución en PowerShell. Estos requisitos se aplican a ambos tipos de cuentas de ejecución.
 
@@ -126,7 +126,7 @@ En esta sección se proporciona un script de PowerShell para crear una cuenta de
 * Cree una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado emitido por su entidad de certificación (CA) empresarial.
 * Creación de una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado autofirmado en la nube de Azure Government.
 
-El script usa varios cmdlets de Azure Resource Manager para crear recursos. Para los cmdlets y los permisos que necesitan, consulte [Permisos para configurar cuentas de ejecución](#permissions-to-configure-run-as-accounts).
+El script usa varios cmdlets de Azure Resource Manager para crear recursos. Para saber los cmdlets y permisos que se necesitan, consulte [Obtención de permisos para configurar cuentas de ejecución](#get-permissions-to-configure-run-as-accounts).
 
 Guarde el script en el equipo con el nombre de archivo **New-RunAsAccount.ps1**.
 
@@ -237,7 +237,7 @@ if (!(($AzureRmProfileVersion.Major -ge 3 -and $AzureRmProfileVersion.Minor -ge 
 
 
 Connect-AzAccount -Environment $EnvironmentName
-$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId
+$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId | Set-AzContext
 
 # Create a Run As account by using a service principal
 $CertifcateAssetName = "AzureRunAsCertificate"
@@ -299,7 +299,7 @@ if ($CreateClassicRunAsAccount) {
     CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
     # Populate the ConnectionFieldValues
-    $SubscriptionName = $subscription.Subscription.Name
+    $SubscriptionName = $subscription.Name
     $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
     # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
@@ -349,7 +349,7 @@ Si creó una cuenta de ejecución clásica con un certificado público de empres
 
 Si creó una cuenta de ejecución clásica con un certificado público autofirmado (archivo **.cer**), el script la crea y la guarda en la carpeta de archivos temporales del equipo. Se puede encontrar en el perfil de usuario `%USERPROFILE%\AppData\Local\Temp`, que usó para ejecutar la sesión de PowerShell.
 
-## <a name="deleting-a-run-as-or-classic-run-as-account"></a>Eliminación de una cuenta de ejecución o una cuenta de ejecución clásica
+## <a name="delete-a-run-as-or-classic-run-as-account"></a>Eliminación de una cuenta de ejecución o de ejecución clásica
 
 En esta sección se describe cómo eliminar una cuenta de ejecución o una cuenta de ejecución clásica. Al realizar esta acción, la cuenta de Automation se conserva. Después de eliminar la cuenta, puede volver a crearla en Azure Portal.
 
@@ -369,7 +369,7 @@ En esta sección se describe cómo eliminar una cuenta de ejecución o una cuent
 
    ![Nueva creación de la cuenta de ejecución de Automation](media/manage-runas-account/automation-account-create-runas.png)
 
-## <a name="renewing-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovación de un certificado autofirmado
+## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovación de un certificado autofirmado
 
 El certificado autofirmado que creó para la cuenta de ejecución expira un año después de la fecha de creación. En algún momento antes de que expire su cuenta de ejecución, debe renovar el certificado. Se puede renovar en cualquier momento antes de que expire. 
 
@@ -397,7 +397,7 @@ Realice los pasos siguientes para renovar el certificado autofirmado.
 
 1. Mientras se está renovando el certificado, puede seguir el progreso desde el menú, en **Notificaciones**.
 
-## <a name="setting-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Configuración de la renovación automática de certificados con un runbook de Automation
+## <a name="set-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Configuración de la renovación automática de certificados con un runbook de Automation
 
 Para renovar los certificados automáticamente, puede usar un runbook de Automation. Este script en [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) habilita esta funcionalidad en la cuenta de Automation.
 
@@ -432,7 +432,7 @@ Para probar el proceso de renovación de inmediato, realice los pasos siguientes
 5. Después de la prueba, edite el runbook y quite el carácter de comentario que agregó en el paso 1.
 6. Publique el runbook.
 
-## <a name="limiting-run-as-account-permissions"></a><a name="limiting-run-as-account-permissions"></a>Limitación de los permisos de las cuentas de ejecución
+## <a name="limit-run-as-account-permissions"></a>Limitación de permisos de cuentas de ejecución
 
 Para controlar la orientación de Automation hacia los recursos de Azure, puede ejecutar el script [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8). Este script cambia la entidad de servicio de la cuenta de ejecución existente para crear y usar una definición de rol personalizada. Este rol tiene permisos para todos los recursos excepto para [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
@@ -466,7 +466,7 @@ Puede permitir que Azure Automation compruebe si Key Vault y la entidad de servi
 
 Puede usar el script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) en el Galería de PowerShell para asignar sus permisos de la cuenta de ejecución a KeyVault. Consulte [Concesión de acceso a una instancia de Key Vault para las aplicaciones](../key-vault/general/group-permissions-for-apps.md) para obtener más detalles sobre cómo establecer permisos en Key Vault.
 
-## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Solución de problemas de configuración incorrecta de las cuentas de ejecución
+## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Solución de problemas de configuración incorrecta de las cuentas de ejecución
 
 Puede que algunos elementos de configuración necesarios para la cuenta de ejecución o la cuenta de ejecución clásica se hayan eliminado o no se hayan creado correctamente durante la configuración inicial. Algunos errores de configuración posibles son:
 
@@ -489,5 +489,5 @@ Rápidamente puede resolver estos problemas de la cuenta de ejecución con solo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md).
-* Para más información sobre los certificados y los servicios de Azure, consulte [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+* [Objetos de aplicación y de entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md).
+* [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

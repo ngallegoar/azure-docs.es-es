@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de State Configuration de Azure Automation
-description: En este artículo se ofrece información sobre la solución de problemas de State Configuration de Azure Automation.
+description: En este artículo se explica cómo solucionar problemas de State Configuration de Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6e057f5c9525f3b4ca373897c865990eb29835c0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652804"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681378"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Solución de problemas con State Configuration de Azure Automation
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Solución de problemas de State Configuration de Azure Automation
 
-En este artículo se proporciona información sobre la solución de problemas que surgen al compilar o implementar configuraciones en State Configuration de Azure Automation.
-
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente siguiendo los pasos indicados en [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
+En este artículo se proporciona información sobre la solución de problemas que surgen al compilar o implementar configuraciones en State Configuration de Azure Automation. Para obtener información general sobre la característica State Configuration, consulte [Introducción a State Configuration](../automation-dsc-overview.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnóstico de problemas
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Este problema se debe a un certificado que no es válido o ha expirado. Consulte [Expiración y repetición del registro del certificado](../automation-dsc-onboarding.md#re-registering-a-node).
+Este problema se debe a un certificado que no es válido o ha expirado. Consulte [Nuevo registro de un nodo](../automation-dsc-onboarding.md#re-register-a-node).
 
 Este problema también puede deberse a una configuración de proxy que no permite el acceso a * **.azure-automation.net**. Para obtener más información, vea [Configuración de redes privadas](../automation-dsc-overview.md#network-planning). 
 
@@ -239,11 +236,11 @@ Ha usado una credencial en una configuración, pero no ha proporcionado el valor
 
 Asegúrese de pasar el valor adecuado de `ConfigurationData` para establecer `PSDscAllowPlainTextPassword` en True para cada configuración de nodo mencionada en la configuración. Consulte [Compilación de configuraciones de DSC en Azure Automation State Configuration](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Escenario: error de procesamiento de la extensión al realizar la incorporación desde una extensión DSC
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Escenario: error de procesamiento de la extensión al habilitar una máquina desde una extensión DSC
 
 ### <a name="issue"></a>Problema
 
-Al realizar la incorporación mediante una extensión DSC, se produce un error que contiene lo siguiente:
+Al habilitar una máquina mediante una extensión DSC, se produce un error que contiene lo siguiente:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ Este error suele producirse cuando se asigna al nodo un nombre de configuración
 ### <a name="resolution"></a>Solución
 
 * Asegúrese de que asigna al nodo un nombre que coincida exactamente con el nombre del servicio.
-* Puede elegir no incluir el nombre de configuración del nodo, lo que da lugar a la incorporación del nodo, pero no a la asignación de una configuración del nodo.
+* Puede elegir no incluir el nombre de configuración del nodo, lo que da lugar a la habilitación del nodo, pero no a la asignación de una configuración del nodo.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Escenario: error "Se produjeron uno o más errores" al registrar un nodo con PowerShell
 
@@ -274,10 +271,10 @@ Este error se produce cuando se intenta registrar un nodo en una suscripción in
 
 ### <a name="resolution"></a>Solución
 
-Trate el nodo entre suscripciones como si se hubiera definido para una nube independiente o local. Registre el nodo mediante una de estas opciones de incorporación:
+Trate el nodo entre suscripciones como si se hubiera definido para una nube independiente o local. Registre el nodo mediante una de estas opciones para habilitar las máquinas:
 
-* Windows: [Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [Máquinas físicas y virtuales Linux locales o en una nube que no sea Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Windows: [Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux: [Máquinas físicas y virtuales Linux locales o en una nube que no sea Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Escenario: mensaje de error: "Error en el aprovisionamiento"
 
@@ -295,7 +292,7 @@ Este mensaje se produce cuando hay un problema de conectividad entre el nodo y A
 
 ### <a name="resolution"></a>Solución
 
-Determine si el nodo está en una red virtual privada (VPN) o si tiene otros problemas para conectarse a Azure. Consulte [Solución de problemas de errores al incorporar soluciones](onboarding.md).
+Determine si el nodo está en una red virtual privada (VPN) o si tiene otros problemas para conectarse a Azure. Vea [Solución de incidencias en la implementación de características](onboarding.md).
 
 ## <a name="scenario-failure-with-a-general-error-when-applying-a-configuration-in-linux"></a><a name="failure-linux-temp-noexec"></a>Escenario: error general al aplicar una configuración en Linux
 

@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 054f1449d6f06225633bf0647cac93ca42f2b59b
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929016"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652039"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Especificaciones técnicas de Azure Stack Edge
 
-Los componentes de hardware del dispositivo de Microsoft Azure Stack Edge se adhieren a las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen las fuentes de alimentación, la capacidad de almacenamiento, los revestimientos y los estándares medioambientales. 
+Los componentes de hardware del dispositivo de Microsoft Azure Stack Edge se adhieren a las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen las fuentes de alimentación, la capacidad de almacenamiento, los revestimientos y los estándares medioambientales.
 
 ## <a name="compute-memory-specifications"></a>Especificaciones de memoria y proceso
 
@@ -28,15 +28,13 @@ El dispositivo de Azure Stack Edge tiene las siguientes especificaciones de proc
 | CPU    | Dos CPU de 10 núcleos                     |
 | Memoria              | 128 GB de RAM                  |
 
-
 ## <a name="fpga-specifications"></a>Especificaciones de FPGA
 
-Se incluye una matriz de puertas programables (FPGA) en cada dispositivo de Azure Stack Edge que permite escenarios de Machine Learning (ML). 
+Se incluye una matriz de puertas programables (FPGA) en cada dispositivo de Azure Stack Edge que permite escenarios de Machine Learning (ML).
 
 | Especificación           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
-
+| FPGA   | Intel Arria 10 <br> Los modelos de redes neuronales profundas (DNN) disponibles son los mismos que los [que admiten las instancias FPGA en la nube](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de la fuente de alimentación
 
@@ -48,6 +46,11 @@ El dispositivo de Azure Stack Edge tiene dos fuentes de alimentación de 100-240
 | Frecuencia               | 50/60 Hz                   |
 | Selección del intervalo de voltaje | Intervalo automático: 100-240 V CA |
 | Conectable en funcionamiento           | Sí                        |
+
+### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Especificaciones de los cables de alimentación de Azure Stack Edge por región
+
+El dispositivo Azure Stack Edge necesita un cable de alimentación que variará en función de la región de Azure.
+Para conocer las especificaciones técnicas de todos los cables de alimentación compatibles, consulte [especificaciones de cables de alimentación de Azure Stack Edge por región](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
@@ -133,7 +136,6 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 |    Sector energético             |    N.º de Reglamento de la Comisión (UE) 617/2013                                                                                                                                                                                        |
 |    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
 
-
 ### <a name="operating-temperature-de-rating-specifications"></a>Especificaciones de reducción de temperatura de funcionamiento
 
 |     Reducción de temperatura de funcionamiento     |     Intervalo de temperatura ambiente                                                         |
@@ -141,7 +143,6 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 |    Hasta 35 °C (95 °F)                       |    La temperatura máxima se reduce en 1 °C/300 m (1 °F/547 pies) por encima de los 950 m (3117 pies).    |
 |    35  C a 40  C (95  F a 104  F)            |    La temperatura máxima se reduce en 1 °C/175 m (1 °F/319 pies) por encima de los 950 m (3117 pies).    |
 |    40  C a 45  C (104  F a 113  F)           |    La temperatura máxima se reduce en 1 °C/125 m (1 °F/228 pies) por encima de los 950 m (3117 pies).    |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

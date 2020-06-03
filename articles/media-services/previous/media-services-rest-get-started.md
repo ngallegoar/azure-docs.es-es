@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46d00df4970a7268c9856de6d7c090f2deffc7ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76773681"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654525"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST  
 
@@ -817,7 +817,7 @@ La propiedad **Path** devuelta contiene la dirección URL de SAS.
 Una vez establecidos AccessPolicy y Locator, puede descargar archivos mediante las API de REST de Azure Storage.  
 
 > [!NOTE]
-> Debe agregar el nombre de archivo para el archivo que desea descargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Debe agregar el nombre de archivo para el archivo que desea descargar en el valor **Path** del localizador recibido en la sección anterior. ¿Por ejemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4`? . . .
 
 Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 

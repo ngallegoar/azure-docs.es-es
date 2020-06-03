@@ -1,25 +1,25 @@
 ---
-title: Creación de configuraciones de DSC en Azure Automation State Configuration mediante recursos compuestos
-description: Obtenga información sobre cómo componer configuraciones mediante recursos compuestos en Azure Automation State Configuration.
+title: Composición de configuraciones DSC
+description: En este artículo se indica cómo componer configuraciones con recursos compuestos en State Configuration de Azure Automation.
 keywords: powershell dsc, configuración de estado deseado, powershell dsc azure, recursos compuestos
 services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993772"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835077"
 ---
-# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>Creación de configuraciones de DSC en Azure Automation State Configuration mediante recursos compuestos
+# <a name="compose-dsc-configurations"></a>Composición de configuraciones DSC
 
 Cuando debe administrar un recurso con más de una configuración de estado deseado (DSC), la mejor opción es usar [recursos compuestos](/powershell/scripting/dsc/resources/authoringresourcecomposite). Un recurso compuesto es una configuración anidada y parametrizada que se usa como recurso de DSC dentro de otra configuración. Este uso le permite crear configuraciones complejas, así como administrar y compilar individualmente los recursos compuestos subyacentes.
 
 Azure Automation permite la [importación y compilación de recursos compuestos](automation-dsc-compile.md). Una vez que haya importado los recursos compuestos en su cuenta de Automation, podrá usar Azure Automation State Configuration a través de la característica **State Configuration (DSC)** en Azure Portal.
 
-## <a name="composing-a-configuration-from-composite-resources"></a>Creación de una configuración a partir de recursos compuestos
+## <a name="compose-a-configuration"></a>Composición de una configuración
 
 Para poder asignar una configuración realizada desde recursos compuestos en Azure Portal, debe componerla. La composición usa **Configuración de Compose** en la página State Configuration (DSC) mientras se encuentra en la pestaña **Configuraciones** o **Configuraciones compiladas**.
 
@@ -34,15 +34,17 @@ Para poder asignar una configuración realizada desde recursos compuestos en Azu
 1. En el paso **Parámetros**, el parámetro de cada recurso compuesto se expone para que puedan proporcionarse valores. Si un parámetro tiene una descripción, se muestra junto al campo de parámetro. Si un parámetro es de tipo `PSCredential`, el menú desplegable proporciona una lista de objetos **Credential** en la cuenta de Automation actual. También hay disponible una opción **+ Agregar una credencial**. Una vez que se hayan proporcionado todos los parámetros necesarios, haga clic en **Guardar y compilar**.
    ![Captura de pantalla del paso de parámetros de la página Configuración de Compose](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-Una vez que se guarde la nueva configuración, se envía para la compilación. El estado del trabajo de compilación puede verse como cualquier configuración importada. Para más información, consulte [Visualización de un trabajo de compilación](automation-dsc-getting-started.md#view-a-compilation-job).
+## <a name="submit-the-configuration-for-compilation"></a>Envío de la configuración para su compilación
+
+Una vez que se guarde la nueva configuración, se envía para la compilación. Puede ver el estado del trabajo de compilación igual que con cualquier configuración importada. Para más información, consulte la sección sobre [visualización de un trabajo de compilación](automation-dsc-getting-started.md#view-a-compilation-job).
 
 Una vez que la compilación finalice correctamente, la nueva configuración aparece en la pestaña **Configuraciones compiladas**. A continuación, puede asignar la configuración a un nodo administrado, siguiendo los pasos descritos en [Reasignación de un nodo a una configuración de nodo diferente](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para empezar a trabajar, consulte [Introducción a State Configuration de Azure Automation](automation-dsc-getting-started.md).
-- Para aprender a incorporar nodos, consulte [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](automation-dsc-onboarding.md).
-- Para obtener información acerca de la compilación de configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en State Configuration de Azure Automation](automation-dsc-compile.md).
-- Para la referencia de cmdlets de PowerShell, consulte [Cmdlets de State Configuration de Azure Automation](/powershell/module/azurerm.automation/#automation).
+- Para aprender a habilitar nodos, consulte el artículo sobre [habilitación de State Configuration de Azure Automation](automation-dsc-onboarding.md).
+- Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en State Configuration de Azure Automation](automation-dsc-compile.md).
+- Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Para ver un ejemplo del uso de State Configuration de Azure Automation en una canalización de implementación continua, consulte [Implementación continua mediante State Configuration de Azure Automation y Chocolatey](automation-dsc-cd-chocolatey.md).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

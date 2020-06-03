@@ -12,12 +12,12 @@ ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3e12cc078326e98df5f42e36fcaddd56bf0c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099114"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993702"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación de Azure AD
 
@@ -53,19 +53,19 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Momento de la última autenticación del usuario. Consulte las especificaciones de Open ID Connect| JWT        |           |  |
 | `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
-| `home_oid`                 | Para los usuarios invitados, identificador de objeto del usuario en el inquilino del usuario principal.| JWT        |           | |
+| `home_oid`                 | Para los usuarios invitados, el identificador de objeto del usuario en el inquilino del usuario principal.| JWT        |           | |
 | `sid`                      | Identificador de sesión que se usa para el cierre de cada sesión de usuario. | JWT        |  Cuentas personal y de Azure AD.   |         |
 | `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido a los dispositivos administrados que pueden verificar el tipo de dispositivo|
-| `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario      | JWT        |           |         |
-| `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario   | JWT        |           |        |
+| `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario.      | JWT        |           |         |
+| `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario.   | JWT        |           |        |
 | `enfpolids`                | Identificadores de las directivas en vigor. Lista de los identificadores de las directivas que se evaluaron para el usuario actual | JWT |  |  |
 | `vnet`                     | Información del especificador de la red virtual | JWT        |           |      |
 | `fwd`                      | Dirección IP.| JWT    |   | Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual) |
-| `ctry`                     | País del usuario | JWT |  | Azure AD devuelve la notificación opcional `ctry` si existe y el valor de la notificación es un código de país estándar de dos letras, como FR, JP, SZ, etc. |
-| `tenant_ctry`              | País del inquilino de los recursos | JWT | | |
+| `ctry`                     | País o región del usuario | JWT |  | Azure AD devuelve la notificación opcional `ctry` si existe, y el valor de la notificación es un código de país o región estándar de dos letras, como FR, JP, SZ, etc. |
+| `tenant_ctry`              | País o región del inquilino de recursos | JWT | | |
 | `xms_pdl`             | Ubicación de datos preferida   | JWT | | En los inquilinos multigeográficos, la ubicación de datos preferida es el código de tres letras que muestra la región geográfica en la que se encuentra el usuario. Para más información, vea la [documentación de Azure AD Connect acerca de la ubicación de datos preferida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Por ejemplo: `APC` para Asia Pacífico. |
-| `xms_pl`                   | Idioma preferido del usuario  | JWT ||El idioma preferido del usuario, si se establece. Se origina desde su inquilino principal, en escenarios de acceso de invitado. Con formato LL-CC ("en-us"). |
-| `xms_tpl`                  | Idioma preferido del inquilino| JWT | | El idioma preferido del inquilino de recursos, si se establece. Con formato LL ("en"). |
+| `xms_pl`                   | Idioma preferido del usuario  | JWT ||Idioma preferido del usuario, si se establece. Se origina desde su inquilino principal, en escenarios de acceso de invitado. Con formato LL-CC ("en-us"). |
+| `xms_tpl`                  | Idioma preferido del inquilino| JWT | | Idioma preferido del inquilino de recursos, si se establece. Con formato LL ("en"). |
 | `ztdid`                    | Identificador de implementación sin interacción | JWT | | La identidad del dispositivo usada en [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). |
 | `email`                    | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | MSA, Azure AD | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, únicamente en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|
 | `groups`| Formato opcional de las notificaciones de grupo |JWT, SAML| |Se usa junto con la configuración de GroupMembershipClaims en el [manifiesto de la aplicación](reference-app-manifest.md), que se debe establecer también. Para más información, vea las [notificaciones de grupo](#configuring-groups-optional-claims) abajo. Para más información sobre las notificaciones de grupo, vea [Cómo configurar notificaciones de grupo](../hybrid/how-to-connect-fed-group-claims.md)
@@ -85,7 +85,6 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0 de Azu
 | `pwd_exp`     | Tiempo de expiración de la contraseña        | Fecha y hora a la que expira la contraseña. |       |
 | `pwd_url`     | Cambiar dirección URL de contraseña             | Dirección URL que el usuario puede visitar para cambiar la contraseña.   |   |
 | `in_corp`     | Dentro de red corporativa        | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye.   |  En función de la configuración de las [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips) de MFA.    |
-| `nickname`    | Alias                        | Nombre adicional para el usuario. El alias es independiente del nombre o el apellido. Requiere el ámbito `profile`.|
 | `family_name` | Apellido                       | Proporciona el apellido del usuario según está definido en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y Azure AD. Requiere el ámbito `profile`.   |
 | `given_name`  | Nombre                      | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y Azure AD.  Requiere el ámbito `profile`. |
 | `upn`         | Nombre principal del usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse con datos de clave. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. Requiere el ámbito `profile`.|
@@ -361,7 +360,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 ## <a name="optional-claims-example"></a>Ejemplo de notificaciones opcionales
 
 En esta sección, conocerá un escenario para ver cómo puede usar la característica de notificaciones opcionales para su aplicación.
-Hay varias opciones disponibles para actualizar las propiedades de configuración de identidad de la aplicación y así habilitar y configurar las notificaciones opcionales:
+Hay varias opciones disponibles para actualizar las propiedades de una configuración de identidad de la aplicación y así habilitar y configurar las notificaciones opcionales:
 
 - Puede usar la interfaz de usuario de **Configuración del token** (consulte el ejemplo siguiente).
 - Puede usar el **Manifiesto** (consulte el ejemplo a continuación). Lea primero el documento [Manifiesto de aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) para una introducción al manifiesto.

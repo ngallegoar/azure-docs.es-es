@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd49d11061a345b396d300c2356645a2acd5b4c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588129"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702110"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,9 +95,11 @@ Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente pa
 
 Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El proceso se crea dentro de la región de su área de trabajo y es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
 
-Proceso Azure Machine Learning Compute para distribuir el proceso de entrenamiento en un clúster de nodos de proceso de CPU o GPU de la nube. Para más información sobre los tamaños de máquina virtual que incluyen GPU, consulte [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Proceso Azure Machine Learning Compute para distribuir el proceso de entrenamiento en un clúster de nodos de proceso de CPU o GPU de la nube. Para más información sobre los tamaños de máquina virtual que incluyen GPU, consulte [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Proceso de Azure Machine Learning tiene límites predeterminados, como el número de núcleos que se pueden asignar. Para más información, consulte [Administración y solicitud de cuotas para recursos de Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
+
+También puede optar por usar máquinas virtuales de prioridad baja para ejecutar algunas cargas de trabajo o todas ellas. Estas máquinas virtuales no tienen una disponibilidad garantizada y se pueden reemplazar mientras están en uso. Un trabajo reemplazado se reinicia, no se reanuda.  Las máquinas virtuales de prioridad baja tienen tarifas con descuento en comparación con las máquinas virtuales normales; vea [Planeamiento y administración de los costos de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost).
 
 > [!TIP]
 > Por lo general, los clústeres pueden escalar verticalmente hasta 100 nodos, siempre y cuando tenga la cuota suficiente para el número de núcleos necesarios. De forma predeterminada, los clústeres se configuran con la comunicación entre nodos del clúster habilitada para, por ejemplo, permitir trabajos de MPI. No obstante, puede escalar los clústeres a miles de nodos simplemente [generando una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y solicitando la inclusión en la lista blanca de su suscripción, área de trabajo o un clúster específico para deshabilitar la comunicación entre nodos. 

@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743658"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653786"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -40,8 +40,7 @@ La copia de seguridad de las máquinas virtuales de Azure precisa que se muevan 
 
 Ahora puede usar [puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para realizar copias de seguridad de los datos de forma segura desde los servidores de una red virtual al almacén de Recovery Services. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el almacén, por lo que no es necesario exponer las redes virtuales a ninguna dirección IP pública. Los puntos de conexión privados se pueden usar para realizar copias de seguridad y restaurar las bases de datos de SQL y SAP HANA que se ejecutan dentro de las máquinas virtuales de Azure. También se puede usar para los servidores locales mediante el agente de MARS.
 
->[!NOTE]
-> Actualmente, esta característica se encuentra en versión preliminar limitada. Rellene [esta encuesta](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) y [envíenos un correo electrónico](mailto:azbackupnetsec@microsoft.com) si tiene interés en usar puntos de conexión privados para Azure Backup. La posibilidad de utilizar esta característica está sujeta a la aprobación del servicio Azure Backup.
+Obtenga más información sobre los puntos de conexión privados para Azure Backup [aquí](https://docs.microsoft.com/azure/backup/private-endpoints).
 
 ## <a name="encryption-of-data-in-transit-and-at-rest"></a>Cifrado de datos en tránsito y en reposo
 

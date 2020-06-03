@@ -1,6 +1,6 @@
 ---
 title: Administración de variables en Azure Automation
-description: Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Azure Automation.  En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos.
+description: En este artículo se explica cómo trabajar con variables en runbooks y configuraciones DSC.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bf7840daad02f679cad4c3b798d2add02c863a15
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82651963"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744983"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Administración de variables en Azure Automation
 
@@ -34,9 +34,6 @@ Azure Automation almacena cada variable cifrada de forma segura. Al crear una va
 
 >[!NOTE]
 >Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Azure Automation almacena la clave en la instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, Azure Automation carga la clave desde Key Vault y después la usa para cifrar el recurso. 
-
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="variable-types"></a>Tipos de variables
 
@@ -191,7 +188,7 @@ En un runbook gráfico, puede agregar actividades para los cmdlets internos `Get
 
 ![Adición de una variable al lienzo](../media/variables/runbook-variable-add-canvas.png)
 
-La imagen siguiente muestra las actividades de ejemplo para actualizar una variable con un valor simple en un runbook gráfico. En este ejemplo, la actividad para `Get-AzVM` recupera una única máquina virtual de Azure y guarda el nombre del equipo en una variable de cadena de Automation existente. No importa si el [vínculo es una canalización o una secuencia](../automation-graphical-authoring-intro.md#links-and-workflow), ya que el código solo espera un único objeto en la salida.
+La imagen siguiente muestra las actividades de ejemplo para actualizar una variable con un valor simple en un runbook gráfico. En este ejemplo, la actividad para `Get-AzVM` recupera una única máquina virtual de Azure y guarda el nombre del equipo en una variable de cadena de Automation existente. No importa si el [vínculo es una canalización o una secuencia](../automation-graphical-authoring-intro.md#use-links-for-workflow), ya que el código solo espera un único objeto en la salida.
 
 ![Establecimiento de una variable simple](../media/variables/runbook-set-simple-variable.png)
 
@@ -199,4 +196,4 @@ La imagen siguiente muestra las actividades de ejemplo para actualizar una varia
 
 * Para más información sobre los cmdlets que se usan para acceder a las variables, consulte [Administración de módulos en Azure Automation](modules.md).
 * Para información general sobre los runbooks, consulte [Ejecución de un runbook en Azure Automation](../automation-runbook-execution.md).
-* Para más información sobre las configuraciones de DSC, consulte [Introducción a State Configuration](../automation-dsc-overview.md).
+* Para más información sobre las configuraciones DSC, vea [Introducción a State Configuration de Azure Automation](../automation-dsc-overview.md).

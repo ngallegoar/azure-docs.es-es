@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7d64b8914fa0b109dfc662a97a7f84d94e3491ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7fbe27845164eb7711d3531173fb440c5a3570f4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789715"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849149"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configuración de la administración de clientes potenciales en Salesforce
 
@@ -70,9 +70,9 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. Seleccione la oferta y vaya a la pestaña **Configuración de la oferta**.
 
-1. En la sección **Administración de clientes potenciales**, seleccione **Conectar**. 
+1. En la sección **Clientes potenciales**, seleccione **Conectar**.
 
-    ![Botón Conectar de la sección Administración de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png" alt-text="Clientes potenciales":::
 
 1. En la ventana emergente **Detalles de la conexión**, seleccione **Salesforce** como **Destino de clientes potenciales** y, en el campo **Identificador de la organización**, pegue el valor `oid` del formulario web para clientes potenciales que creó.
 

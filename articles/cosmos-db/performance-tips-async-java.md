@@ -1,28 +1,35 @@
 ---
-title: Sugerencias de rendimiento de Azure Cosmos DB para Async Java
-description: Conozca las opciones de configuración de cliente para mejorar el rendimiento de las bases de datos de Azure Cosmos.
-author: SnehaGunda
+title: Sugerencias de rendimiento para el SDK asincrónico de Azure Cosmos DB para Java v2
+description: Conozca las opciones de configuración de cliente para mejorar el rendimiento de las bases de datos de Azure Cosmos para el SDK asincrónico para Java v2.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: sngun
-ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 461602aee6d88f8d8f829fcf89e3433a8185e34d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549182"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658949"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Sugerencias de rendimiento para Azure Cosmos DB y Async Java
+# <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Sugerencias de rendimiento para el SDK asincrónico de Azure Cosmos DB para Java v2
 
 > [!div class="op_single_selector"]
-> * [Async Java](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
+> * [SDK para Java v4](performance-tips-java-sdk-v4-sql.md)
+> * [SDK asincrónico para Java v2](performance-tips-async-java.md)
+> * [SDK sincrónico para Java v2](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB es una base de datos distribuida rápida y flexible que se escala sin problemas con una latencia y un rendimiento garantizados. No es necesario realizar cambios de arquitectura importantes ni escribir código complejo para escalar la base de datos con Azure Cosmos DB. Escalar y reducir verticalmente es tan sencillo como realizar una única llamada API o una llamada al método SDK. Sin embargo, como el acceso a Azure Cosmos DB se realiza mediante llamadas de red, puede realizar optimizaciones en el lado cliente para conseguir un rendimiento máximo al usar el [SDK de Async Java para SQL](sql-api-sdk-async-java.md).
+> [!IMPORTANT]  
+> *No* se trata de la versión del SDK de Azure Cosmos DB para Java más reciente. Debe actualizar el proyecto al [SDK de Azure Cosmos DB para Java v4](sql-api-sdk-java-v4.md) y luego leer la [guía de sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4. Siga las instrucciones que se indican en la guía [Migración al SDK de Azure Cosmos DB para Java v4](migrate-java-v4-sdk.md) y la guía [Reactor frente a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para realizar la actualización. 
+> 
+> Las sugerencias de rendimiento de este artículo son solo para el SDK asincrónico de Azure Cosmos DB para Java v2. Consulte [Notas de la versión](sql-api-sdk-async-java.md) del SDK asincrónico de Azure Cosmos DB para Java v2, el [repositorio de Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) y la [guía de solución de problemas](troubleshoot-java-async-sdk.md) del SDK de Azure Cosmos DB para Java v2 asincrónico para más información.
+>
+
+Azure Cosmos DB es una base de datos distribuida rápida y flexible que se escala sin problemas con una latencia y un rendimiento garantizados. No es necesario realizar cambios de arquitectura importantes ni escribir código complejo para escalar la base de datos con Azure Cosmos DB. Escalar y reducir verticalmente es tan sencillo como realizar una única llamada API o una llamada al método SDK. Sin embargo, como el acceso a Azure Cosmos DB se realiza mediante llamadas de red, puede realizar optimizaciones en el lado cliente para conseguir un rendimiento máximo al usar el [SDK asincrónico de Azure Cosmos DB para Java v2](sql-api-sdk-async-java.md).
 
 Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la base de datos?", tenga en cuenta las opciones siguientes:
 
@@ -31,7 +38,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 * **Modo de conexión: uso del modo directo**
 <a id="direct-connection"></a>
     
-    El modo en que un cliente se conecta a Azure Cosmos DB tiene implicaciones importantes sobre el rendimiento, especialmente en términos de la latencia en el lado cliente. *ConnectionMode* es una opción de configuración clave disponible para configurar el cliente *ConnectionPolicy*. Para el SDK de Async Java, las dos opciones de ConnectionModes disponibles son:  
+    El modo en que un cliente se conecta a Azure Cosmos DB tiene implicaciones importantes sobre el rendimiento, especialmente en términos de la latencia en el lado cliente. *ConnectionMode* es una opción de configuración clave disponible para configurar el cliente *ConnectionPolicy*. En el caso del SDK asincrónico de Azure Cosmos DB para Java v2, los dos modos de conexión disponibles son:  
       
     * [Puerta de enlace (valor predeterminado)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
     * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
@@ -39,7 +46,9 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     El modo de puerta de enlace se admite en todas las plataformas de SDK y es la opción predeterminada configurada. Si las aplicaciones se ejecutan dentro de una red corporativa con restricciones de firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el puerto HTTPS estándar y un único punto de conexión. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen o escriben datos en Azure Cosmos DB. Por este motivo, el modo directo ofrece mejor rendimiento debido al número menor de saltos de red.
 
     *ConnectionMode* se configura durante la construcción de la instancia de *DocumentClient* con el parámetro *ConnectionPolicy*.
-    
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-connectionpolicy"></a>SDK asincrónico para Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
+
     ```java
         public ConnectionPolicy getConnectionPolicy() {
           ConnectionPolicy policy = new ConnectionPolicy();
@@ -61,7 +70,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 ## <a name="sdk-usage"></a>Uso del SDK
 * **Instalación del SDK más reciente**
 
-    Los SDK de Azure Cosmos DB se mejoran constantemente para proporcionar el mejor rendimiento. Consulte las páginas del [SDK de Azure Cosmos DB](sql-api-sdk-async-java.md) para determinar las mejoras de los SDK y las revisiones más recientes.
+    Los SDK de Azure Cosmos DB se mejoran constantemente para proporcionar el mejor rendimiento. Consulte las páginas de [Notas de la versión](sql-api-sdk-async-java.md) del SDK asincrónico de Azure Cosmos DB para Java v2 para determinar el SDK más reciente y revisar las mejoras.
 
 * **Uso de un cliente de Azure Cosmos DB singleton para aumentar la duración de la aplicación**
 
@@ -71,9 +80,9 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 * **Optimización de ConnectionPolicy**
 
-    De forma predeterminada, las solicitudes del modo directo de Cosmos DB se realizan sobre TCP cuando se usa el SDK de Async Java. Internamente, el SDK usa una arquitectura de modo directo especial para administrar dinámicamente los recursos de red y obtener el mejor rendimiento.
+    De forma predeterminada, las solicitudes del modo directo de Cosmos DB se realizan sobre TCP cuando se usa el SDK asincrónico de Azure Cosmos DB para Java v2. Internamente, el SDK usa una arquitectura de modo directo especial para administrar dinámicamente los recursos de red y obtener el mejor rendimiento.
 
-    En el SDK de Async Java, el modo directo es la mejor opción para mejorar el rendimiento de la base de datos con la mayoría de las cargas de trabajo. 
+    En el SDK asincrónico de Azure Cosmos DB para Java v2, el modo directo es la mejor opción para mejorar el rendimiento de la base de datos con la mayoría de las cargas de trabajo. 
 
     * ***Introducción al modo directo***
 
@@ -106,7 +115,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     * ***Sugerencias de programación para el modo directo***
 
-        Consulte el artículo [Solución de problemas del SDK de Async Java](troubleshoot-java-async-sdk.md) de Azure Cosmos DB como base de referencia para resolver cualquier problema del SDK de Async Java.
+        Consulte el artículo [Solución de problemas](troubleshoot-java-async-sdk.md) del SDK asincrónico de Azure Cosmos DB para Java v2 como base de referencia para resolver cualquier problema del SDK.
 
         Algunas sugerencias de programación importantes al usar el modo directo:
 
@@ -114,14 +123,14 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
         + **Llevar a cabo las cargas de trabajo de proceso intensivo en un subproceso dedicado**: por motivos similares a la sugerencia anterior, es mejor colocar las operaciones como el procesamiento de datos complejos en un subproceso independiente. Una solicitud que extrae datos de otro almacén de datos (por ejemplo, si el subproceso emplea Azure Cosmos DB y almacenes de datos de Spark simultáneamente) puede experimentar una mayor latencia y se recomienda generar un subproceso adicional que espere una respuesta del otro almacén de datos.
 
-            + Netty administra la E/S de red subyacente en el SDK de Async Java; consulte [Sugerencias para evitar patrones de codificación que bloquean los subprocesos de E/S de Netty](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
+            + Netty administra la E/S de red subyacente en el SDK asincrónico de Azure Cosmos DB para Java v2; consulte [Sugerencias para evitar patrones de codificación que bloquean los subprocesos de E/S de Netty](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
 
         + **Modelado de datos**: el Acuerdo de Nivel de Servicio de Azure Cosmos DB supone que el tamaño del documento es inferior a 1 KB. La optimización del modelo de datos y la programación para favorecer un tamaño de documento más pequeño normalmente dará lugar a una disminución de la latencia. Si va a necesitar almacenamiento y recuperación de documentos de más de 1 KB, el enfoque recomendado es vincular los documentos a datos de Azure Blob Storage.
 
 
 * **Ajuste de consultas paralelas en colecciones particionadas**
 
-    El SDK de Java asincrónico para SQL de Azure Cosmos DB admite consultas paralelas que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte [ejemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) relacionados para trabajar con los SDK. Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales.
+    El SDK asincrónico de Azure Cosmos DB para Java v2 admite consultas en paralelo que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte [ejemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) relacionados para trabajar con los SDK. Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales.
 
     * ***Ajuste de setMaxDegreeOfParallelism\:***
     
@@ -159,9 +168,11 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 * **Use el programador adecuado (evite el robo de subprocesos de E/S Eventloop de Netty)**
 
-    El SDK de Async Java usa [Netty](https://netty.io/) para la E/S sin bloqueo. El SDK usa un número fijo de subprocesos de E/S Eventloop de Netty (tantos como núcleos de CPU tenga su máquina) para ejecutar operaciones de E/S. El observable que devuelve la API emite el resultado en uno de los subprocesos de E/S Eventloop de Netty compartidos. Así que es importante no bloquear dichos subprocesos. Realizar trabajos que hacen un uso elevado de CPU o bloquear operaciones en el subproceso de E/S Eventloop de Netty puede provocar un interbloqueo o reducir el rendimiento del SDK de manera considerable.
+    El SDK asincrónico de Azure Cosmos DB para Java v2 usa [Netty](https://netty.io/) para la E/S sin bloqueo. El SDK usa un número fijo de subprocesos de E/S Eventloop de Netty (tantos como núcleos de CPU tenga su máquina) para ejecutar operaciones de E/S. El observable que devuelve la API emite el resultado en uno de los subprocesos de E/S Eventloop de Netty compartidos. Así que es importante no bloquear dichos subprocesos. Realizar trabajos que hacen un uso elevado de CPU o bloquear operaciones en el subproceso de E/S Eventloop de Netty puede provocar un interbloqueo o reducir el rendimiento del SDK de manera considerable.
 
     Por ejemplo, el código siguiente ejecuta un trabajo que hace un uso elevado de CPU en el subproceso de E/S Eventloop de Netty:
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-noscheduler"></a>SDK asincrónico para Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -178,6 +189,8 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     ```
 
     Tras recibir el resultado, si quiere realizar sobre él un trabajo que hace un uso elevado de CPU, debe evitar hacerlo sobre un subproceso de E/S Eventloop de Netty. En su lugar, proporcione su propio programador para suministrar su propio subproceso para ejecutar su trabajo.
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>SDK asincrónico para Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
 
     ```java
     import rx.schedulers;
@@ -198,7 +211,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     Según el tipo del trabajo, debe usar el programador de RxJava existente adecuado para su trabajo. Obtenga más información aquí [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-    Para obtener más información, vea el SDK de Async Java en la [página de GitHub](https://github.com/Azure/azure-cosmosdb-java).
+    Para más información, consulte la [página de GitHub](https://github.com/Azure/azure-cosmosdb-java) del SDK asincrónico de Azure Cosmos DB para Java v2.
 
 * **Deshabilitación del registro de Netty**
 
@@ -258,6 +271,8 @@ Para otras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instruccion
 
     La directiva de indexación de Azure Cosmos DB le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación (setIncludedPaths y setExcludedPaths). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas. Por ejemplo, en el siguiente código se muestra cómo excluir una sección completa de los documentos (también conocido como subárbol) de la indexación mediante el comodín "*".
 
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-indexing"></a>SDK asincrónico para Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
+
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
     numberIndex.set("precision", -1);
@@ -282,6 +297,8 @@ Para otras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instruccion
     La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de predicados, la naturaleza de los predicados, el número de UDF y el tamaño del conjunto de datos de origen influyen en el costo de operaciones de consulta.
 
     Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir el número de unidades de solicitud usadas por estas operaciones. También puede examinar la propiedad RequestCharge equivalente en ResourceResponse\<T> o FeedResponse\<T>.
+
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-requestcharge"></a>SDK asincrónico para Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
 
     ```Java
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,

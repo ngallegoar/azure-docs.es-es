@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 65139e0842679f59733c34be838d4aad7f3c63e4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791007"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847960"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configuración de la administración de clientes potenciales para Dynamics 365 Customer Engagement
 
@@ -172,9 +172,9 @@ El paso final es permitir que el usuario que ha creado escriba los clientes pote
 Para configurar la información de administración de clientes potenciales de la oferta en el portal de publicación, siga estos pasos:
 
 1. Vaya a la página **Configuración de la oferta** de su oferta.
-1. Seleccione **Conectar** en la sección **Administración de clientes potenciales**.
+1. En la sección **Clientes potenciales**, seleccione **Conectar**.
 
-    ![Botón Conectar de la sección Administración de clientes potenciales](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Clientes potenciales":::
 
 1. En la ventana emergente Detalles de la conexión, seleccione **Dynamics 365 Customer Engagement** como destino de clientes potenciales.
 

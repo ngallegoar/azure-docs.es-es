@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: d264ead87e7fa638830bf25fdb07983b164334b7
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421326"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698665"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acceso a Azure Cosmos DB desde redes virtuales (VNET)
 
@@ -23,6 +23,10 @@ De forma predeterminada, la cuenta de Azure Cosmos DB es accesible desde Interne
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 Estas son algunas preguntas frecuentes acerca de cómo configurar el acceso desde las redes virtuales:
+
+### <a name="are-notebooks-and-mongo-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>¿Actualmente Notebook y el shell de Mongo son compatibles con las cuentas habilitadas para Virtual Network?
+
+En este momento, no se admite la integración del [shell de Mongo en el Explorador de datos de Cosmos DB](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) y el [servicio Jupyter Notebook](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks) con el acceso a la red virtual. Actualmente se encuentra en desarrollo activo.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>¿Puedo especificar un punto de conexión de servicio de red virtual y una directiva de control de acceso de IP en una cuenta de Azure Cosmos? 
 

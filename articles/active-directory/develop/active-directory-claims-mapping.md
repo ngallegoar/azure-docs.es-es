@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871208"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737510"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -275,7 +275,7 @@ Establezca el elemento Source (Origen) en uno de los valores siguientes:
 - "application": los datos de la notificación son una propiedad en la entidad de servicio de la aplicación (cliente). 
 - "resource": los datos de la notificación son una propiedad en la entidad de servicio del recurso.
 - "audience": los datos de la notificación son una propiedad en la entidad de servicio que es la audiencia del token (la entidad de servicio de recurso o cliente).
-- “company”: los datos de la notificación son una propiedad en el objeto Company del inquilino del recurso.
+- "company": los datos de la notificación son una propiedad en el objeto Company del inquilino del recurso.
 - "transformation": los datos de la notificación proceden de la transformación de notificaciones (vea la sección "Transformación de notificaciones" de este mismo artículo).
 
 Si el origen es una transformación, debe incluirse también el elemento **TransformationID** en la definición de esta notificación.
@@ -319,7 +319,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | extensionattribute14 | Atributo de extensión 14 |
 | Usuario | extensionattribute15 | Atributo de extensión 15 |
 | Usuario | othermail | Otro correo |
-| Usuario | country | Country |
+| Usuario | country | País/región |
 | Usuario | city | City |
 | Usuario | state | State |
 | Usuario | jobtitle | Puesto |
@@ -328,9 +328,9 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | application, resource, audience | displayname | Display Name (Nombre para mostrar) |
 | application, resource, audience | objected | ObjectID |
 | application, resource, audience | etiquetas | Etiqueta de entidad de servicio |
-| Compañía | tenantcountry | País del inquilino |
+| Compañía | tenantcountry | País o región del inquilino |
 
-**TransformationID:** el elemento TransformationID solo debe indicarse si el elemento Source está establecido en “transformation”.
+**TransformationID:** el elemento TransformationID solo debe indicarse si el elemento Source está establecido en "transformation".
 
 - Este elemento debe coincidir con el elemento ID de la entrada de transformación en la propiedad **ClaimsTransformation** que define cómo se generan los datos de esta notificación.
 
@@ -478,7 +478,7 @@ En este ejemplo se crea una directiva que quita el conjunto de notificaciones b�
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Ejemplo: creación y asignación de una directiva que incluye EmployeeID y TenantCountry como notificaciones en los tokens emitidos para una entidad de servicio
 
-En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a los tokens emitidos para entidades de servicio vinculadas. EmployeeID se emite como tipo de notificación de nombre en los tokens SAML y JWT. TenantCountry se emite como tipo de notificación de país en los tokens SAML y JWT. En este ejemplo se sigue incluyendo el conjunto de notificaciones básicas en los tokens.
+En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a los tokens emitidos para entidades de servicio vinculadas. EmployeeID se emite como tipo de notificación de nombre en los tokens SAML y JWT. TenantCountry se emite como tipo de notificación de país o región en los tokens SAML y JWT. En este ejemplo se sigue incluyendo el conjunto de notificaciones básicas en los tokens.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
    1. Ejecute el siguiente comando para crear la directiva:  

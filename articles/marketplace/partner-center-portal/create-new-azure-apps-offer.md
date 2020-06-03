@@ -6,17 +6,17 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 22d6c37b59488633394d7f3ed5ca5b0c78371e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790694"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848794"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
-En este artículo se explican los pasos y las consideraciones para crear una oferta de aplicación de Azure en Marketplace comercial. Antes de crear una oferta de aplicación de Azure, debe estar familiarizado con estos conceptos. 
+En este artículo se explican los pasos y las consideraciones para crear una oferta de aplicación de Azure en Marketplace comercial. Antes de crear una oferta de aplicación de Azure, debe estar familiarizado con estos conceptos.
 
 Antes de publicar una nueva oferta de aplicación de Azure, [cree una cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) y asegúrese de que su cuenta esté inscrita en el programa de Marketplace comercial.
 
@@ -128,20 +128,20 @@ Para información sobre los requisitos de publicación de cada plan de aplicaci�
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
-La página **Offer setup** (Configuración de la oferta) es donde puede configurar una versión de prueba y la administración de clientes potenciales de la oferta. 
+La página **Offer setup** (Configuración de la oferta) es donde puede configurar una versión de prueba y la administración de clientes potenciales de la oferta.
 
 ### <a name="test-drive"></a>Versión de prueba
 
-Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de "probarla antes de comprarla", lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. [Más información sobre las versiones de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de «probar antes de comprar», lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. [Más información sobre las versiones de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-Para habilitar una versión de prueba durante un período de tiempo fijo, active la casilla **Habilitación de una versión de prueba**. Para eliminar la versión de prueba de la oferta, desactive esta casilla. Configure el entorno de la versión de prueba en la sección [Configuración técnica de la versión de prueba](#test-drive-technical-configuration) más adelante en este tema.
+Para habilitar una versión de prueba durante un período de tiempo determinado, seleccione la casilla **Habilitar una versión de prueba**. Para eliminar la versión de prueba de la oferta, desactive esta casilla. Configure el entorno de la versión de prueba en la sección [Configuración técnica de la versión de prueba](#test-drive-technical-configuration) más adelante en este tema.
 
 Para más información, consulte [Versión de prueba de la oferta en Marketplace comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive). También puede leer sobre los [procedimientos recomendados de la versión de prueba](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) y descargar el [PDF de información general de las versiones de prueba ](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (asegúrese de que el bloqueador de elementos emergentes está desactivado).
 
 >[!Note]
 >Dado que todas las aplicaciones de Azure se implementan mediante una plantilla de Azure Resource Manager, el único tipo de versión de prueba disponible para una aplicación de Azure es una [versión de prueba basada en Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-## <a name="lead-management"></a>Administración de clientes potenciales
+### <a name="customer-leads"></a>Clientes potenciales
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -174,26 +174,19 @@ El nombre que escriba aquí se mostrará a los clientes como el título de la de
 
 #### <a name="search-results-summary"></a>Resumen de los resultados de la búsqueda
 
-Proporcione una descripción breve de la oferta (100 caracteres como máximo), que se puede usar en los resultados de búsqueda.
+Proporcione una breve descripción de la oferta (hasta 100 caracteres). Esta descripción se puede usar en los resultados de búsqueda.
 
 #### <a name="long-summary"></a>Resumen largo
 
-Proporcione una descripción más larga de la oferta (hasta 256 caracteres). Esta descripción se puede usar en los resultados de búsqueda.
+Proporcione una descripción más larga de la oferta, hasta 256 caracteres. Esta descripción se puede usar en los resultados de búsqueda.
 
 #### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3.000 caracteres). Esta descripción se mostrará a los clientes en la información general de la lista. Incluya una propuesta de valor de la oferta, los beneficios clave, las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación y todas las divulgaciones necesarias.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Estas son algunas sugerencias para escribir la descripción:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-* Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. Incluya los siguientes elementos:
-  * Descripción de la oferta.
-  * Tipo de usuario que se beneficia de la oferta.
-  * Necesidades o problemas del cliente que resuelve la oferta.
-* Recuerde que las primeras frases podrían mostrarse en los resultados del motor de búsqueda.
-* No se base exclusivamente en las características y funcionalidades para vender la oferta. En su lugar, céntrese en el valor que proporciona la oferta.
-* Use palabras específicas del sector o basadas en las ventajas.
-* Considere el uso de etiquetas HTML para formatear la descripción y hacer que sea más atractiva.
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="search-keywords"></a>Palabras clave de búsqueda
 
@@ -316,7 +309,7 @@ Si tiene más de un plan del mismo tipo y los paquetes son idénticos entre ello
 
 El plan debe estar disponible al menos en una región de Azure.
 
-Seleccione la opción **Azure global** para que el plan esté disponible para los clientes de todas las regiones globales de Azure que tengan la integración de Marketplace comercial. Para obtener más información, consulte [Disponibilidad geográfica y soporte técnico de moneda](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Seleccione la opción **Azure global** para que el plan esté disponible para los clientes de todas las regiones globales de Azure que tengan la integración de marketplace comercial. Para obtener más información, consulte [Disponibilidad geográfica y soporte técnico de moneda](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
 Seleccione la opción **Azure Government** para que el plan esté disponible en la región de [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). Esta región proporciona acceso controlado para los clientes de entidades tribales, locales, estatales o federales de Estados Unidos, así como para los asociados aptos para abastecerlas. Como publicador, es responsable de los controles de cumplimiento, las medidas de seguridad y los procedimientos recomendados. Azure Government usa redes y centros de datos aislados físicamente (ubicados solo en Estados Unidos).
 
@@ -380,7 +373,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 #### <a name="markets"></a>Mercados
 
-Todos los planes debe estar disponible al menos en un mercado. Seleccione la casilla de la ubicación del mercado en la que desea que este plan esté disponible. Se incluyen un cuadro de búsqueda y un botón para seleccionar los países con "Impuesto remitido", en los que Microsoft remite de los impuestos de uso y ventas en su nombre, que sirven de ayuda.
+Todos los planes debe estar disponible al menos en un mercado. Seleccione la casilla de la ubicación del mercado en la que desea que este plan esté disponible. Se incluyen un cuadro de búsqueda y un botón para seleccionar los países o regiones con "Impuesto remitido", en los que Microsoft remite de los impuestos de uso y ventas en su nombre, que sirven de ayuda.
 
 Si ya se ha establecido los precios del plan en dólares de Estados Unidos (USD) y agrega otra ubicación del mercado, el precio del nuevo mercado se calculará en función de los tipos de cambio actuales. Revise siempre el precio de cada mercado antes de la publicación. Los precios se pueden consultar mediante el vínculo "Exportar precios (xlsx)" después de guardar los cambios.
 
@@ -534,7 +527,7 @@ Describa la experiencia de la versión de prueba.
 
 * **Descripción** (obligatoria): describa la versión de prueba, lo que se demostrará, los objetivos con los que experimentará el usuario, las características que se van a explorar y cualquier información de interés que ayude al usuario a determinar si debe adquirir la oferta. En este campo se puede escribir hasta 3000 caracteres de texto. 
 * **Información de acceso** (obligatorio para las versiones de prueba de Azure Resource Manager y aplicaciones lógicas): explique lo que un cliente necesita saber para acceder a esta versión de prueba y usarla. se muestra un escenario para usar la oferta y exactamente lo que el cliente debe saber para acceder a las características en la versión de prueba. En este campo se puede escribir hasta 10 000 caracteres de texto.
-* **Manual del usuario:** (obligatorio): tutorial detallado de la experiencia con la versión de prueba. Debe abarcar exactamente lo que desee que el cliente aprenda al usar la versión de prueba y puede servir como referencia para las preguntas que puedan surgirle. El archivo debe estar en formato PDF y hay que asignarle un nombre (255 caracteres como máximo) después de cargarlo.
+* **Manual del usuario** (obligatorio): tutorial detallado de la experiencia con la versión de prueba. Debe abarcar exactamente lo que desee que el cliente aprenda al usar la versión de prueba y puede servir como referencia para las preguntas que puedan surgirle. El archivo debe estar en formato PDF y hay que asignarle un nombre (255 caracteres como máximo) después de cargarlo.
 * **Vídeos: Agregar vídeos** (opcional): se pueden cargar vídeos en YouTube o Vimeo y hacer referencia a ellos aquí con un vínculo o una imagen en miniatura (533 × 324 píxeles) para que los clientes puedan ver toda la información que pueda ayudarles a conocer mejor la versión de prueba, incluida la forma de usar correctamente las características de la oferta y comprender los escenarios que destacan sus ventajas.
   * **Nombre** (se requiere)
   * **Dirección** (solo YouTube o Vimeo; obligatorio).

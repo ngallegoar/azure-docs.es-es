@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 05/14/2020
+ms.openlocfilehash: 0bf5559590b66400fc4fc4dc27ea88c3522effb1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77484793"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646622"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>¿Cuáles son las configuraciones de nodos predeterminadas y recomendadas para Azure HDInsight?
 
@@ -24,9 +24,9 @@ En este artículo se tratan las configuraciones de nodos predeterminadas y recom
 
 En las tablas siguientes se indican los tamaños de máquina virtual predeterminados y recomendados para clústeres de HDInsight.  Esta información es necesaria para entender qué tamaños de VM se deben usar al crear scripts de PowerShell o la CLI de Azure para implementar clústeres de HDInsight.
 
-Si necesita más de 32 nodos de trabajo en un clúster, seleccione un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM. 
+Si necesita más de 32 nodos de trabajo en un clúster, seleccione un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 
-Los únicos tipos de clúster que tienen discos de datos son los clústeres Kafka y HBase con la característica Escrituras aceleradas habilitada. HDInsight admite los tamaños de disco P30 y S30 en estos escenarios.
+Los únicos tipos de clúster que tienen discos de datos son los clústeres Kafka y HBase con la característica Escrituras aceleradas habilitada. HDInsight admite los tamaños de disco P30 y S30 en estos escenarios. Para el resto de los tipos de clúster, HDInsight proporciona espacio en disco administrado con el clúster. A partir del 11/07/2019, el tamaño del disco administrado de cada nodo del clúster recién creado es de 128 GB. Esto no se puede cambiar.
 
 En la tabla siguiente se resumen las especificaciones de todos los tipos de máquina virtual mínimos recomendados que se usan en este documento.
 
@@ -42,7 +42,7 @@ En la tabla siguiente se resumen las especificaciones de todos los tipos de máq
 | Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 
-Para más detalles sobre las especificaciones de cada tipo de máquina virtual, consulte los siguientes documentos:
+Para ver más información sobre las especificaciones de cada tipo de máquina virtual, consulte los siguientes documentos:
 
 * [Tamaños de máquina virtual de uso general: serie Dv2 1-5](../virtual-machines/dv2-dsv2-series.md)
 * [Tamaños de máquina virtual optimizada para memoria: serie Dv2 11-15](../virtual-machines/dv2-dsv2-series-memory.md)

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891275"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648312"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
 
@@ -399,15 +399,15 @@ El tipo `EventGridEvent` define solo las propiedades de nivel superior; la propi
 
 Para empezar a recibir solicitudes HTTP de Event Grid, cree una suscripción a Event Grid que especifique la dirección URL de punto de conexión que invoca la función.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
-Para las funciones que desarrolle en Azure Portal con el desencadenador de Event Grid, seleccione **Agregar suscripción a Event Grid**.
+En el caso de las funciones que se desarrollen en Azure Portal con el desencadenador de Event Grid, seleccione **Integración** y, después, elija **Desencadenador de Event Grid** y seleccione **Crear suscripción de Event Grid**.
 
-![Creación de una suscripción en el portal](media/functions-bindings-event-grid/portal-sub-create.png)
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Conectar una suscripción de eventos nueva para desencadenar en el portal.":::
 
-Al seleccionar este vínculo, el portal abre la página **Crear suscripción de eventos** con la dirección URL del punto de conexión preinstalada.
+Al seleccionar este vínculo, el portal abre la página **Crear suscripciones de eventos** con el punto de conexión del desencadenador actual ya definido.
 
-![Dirección URL del punto de conexión automáticamente rellenada](media/functions-bindings-event-grid/endpoint-url.png)
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Crear una suscripción de eventos con el punto de conexión de función ya definido" :::
 
 Para obtener más información sobre cómo crear suscripciones mediante el Azure Portal, consulte [Creación de eventos personalizados: Azure Portal](../event-grid/custom-event-quickstart-portal.md) en la documentación de Event Grid.
 

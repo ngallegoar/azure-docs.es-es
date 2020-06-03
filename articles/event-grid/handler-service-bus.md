@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 201d3203d845ce84207d103750709fe2ff93f022
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c9e1c9aa664065371595ed34a3af28330bd7e0db
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596324"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798879"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Service Bus** es uno de ellos. 
@@ -69,6 +69,97 @@ Si utiliza un **tema o cola de Service Bus** como controlador de eventos para ev
 Cuando se envía un evento a una cola o un tema de Service Bus como un mensaje asincrónico, el valor de `messageid` del mensaje asincrónico es el **id. del evento**.
 
 El id. de evento se mantendrá cuando se vuelva a entregar el evento, para que pueda evitar entregas duplicadas; para ello, active la **detección de duplicados** en la entidad de Service Bus. Le recomendamos que habilite la duración de la detección de duplicados en la entidad Service Bus para que sea el período de vida (TTL) del evento o la duración máxima de reintentos, lo que sea más largo.
+
+## <a name="rest-examples-for-put"></a>Ejemplos de REST (para PUT)
+
+### <a name="service-bus-queue"></a>Cola de Service Bus
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "ServiceBusQueue",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-queue---delivery-with-managed-identity"></a>Cola de Service Bus: entrega con identidad administrada
+
+```json
+{
+    "properties": {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "ServiceBusQueue",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/queues/<SERVICE BUS QUEUE NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-topic"></a>Tema de Service Bus
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "ServiceBusTopic",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="service-bus-topic---delivery-with-managed-identity"></a>Tema de Service Bus: entrega con identidad administrada
+
+```json
+{
+    "properties": 
+    {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "ServiceBusTopic",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<SERVICE BUS NAMESPACE NAME>/topics/<SERVICE BUS TOPIC NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo [Controladores de eventos](event-handlers.md) para obtener una lista de controladores de eventos compatibles. 

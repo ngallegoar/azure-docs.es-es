@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd405513f8bdef09e6d3ab996fc2c04bd397db13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73496488"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659446"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Incorporación de la búsqueda de texto completo a datos de blob de Azure mediante Azure Cognitive Search
 
@@ -58,6 +58,11 @@ Mediante la ejecución de un indexador de blobs en un contenedor, puede extraer 
 ### <a name="indexing-blob-metadata"></a>Indexación de metadatos de blob
 
 Una práctica común que permite ordenar fácilmente blobs con cualquier tipo de contenido consiste en indexar los metadatos personalizados y las propiedades de sistema de cada uno de los blobs. De esta manera, la información de todos los blobs se indexa con independencia del tipo de documento y se almacena en un índice en el servicio de búsqueda. Con el nuevo índice, puede continuar con la ordenación, filtrado y búsqueda por facetas en todo el contenido de Blob Storage.
+
+> [!NOTE]
+> Las etiquetas del índice de blobs se indexan de forma nativa mediante el servicio Blob Storage y se exponen para su consulta. Si los atributos de clave y valor de los blobs requieren funcionalidad de indexación y filtrado, se deben aprovechar las etiquetas del índice de blobs en lugar de los metadatos.
+>
+> Para más información sobre el índice de blobs, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](../storage/blobs/storage-manage-find-blobs.md).
 
 ### <a name="indexing-json-blobs"></a>Indexación de blobs JSON
 Es posible configurar indexadores para extraer el contenido estructurado que se encuentra en los blobs que contienen JSON. Un indexador puede leer blobs JSON y analizar el contenido estructurado en los campos correspondientes de un documento de búsqueda. Los indexadores también pueden tomar blobs que contienen una matriz de objetos JSON y asignar cada elemento a un documento de búsqueda independiente. Puede establecer un modo de análisis que se aplique al tipo de objeto JSON creado por el indexador.

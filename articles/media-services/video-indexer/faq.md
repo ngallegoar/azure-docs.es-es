@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767200"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652187"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Preguntas más frecuentes sobre Video Indexer
 
@@ -99,6 +99,10 @@ Para obtener detalles, vea los artículos sobre la personalización de los model
 Sí. Presione el botón **Editar el vídeo** de la pantalla de la biblioteca o el botón **Abrir en el editor** de la pantalla del reproductor para ir a la pestaña **Proyectos**. Puede crear un proyecto nuevo y agregar más vídeos de la biblioteca para editarlos a la vez. Una vez que haya terminado, puede representar el vídeo y descargarlo. 
 
 Si quiere obtener información sobre el nuevo vídeo, puede indexarlo con Video Indexer y aparecerá en la biblioteca con su información.
+
+### <a name="can-i-index-multiple-audio-streams-or-channels"></a>¿Puedo indexar varios canales o secuencias de audio?
+
+Si hay varias secuencias de audio, Video Indexer toma la primera que encuentra y procesa solo esa. En cualquier secuencia de audio que procesa Video Indexer, toma los distintos canales (si los hay) y los procesa como mono. En el caso de la manipulación de secuencias/canales, puede usar comandos ffmpeg en el archivo antes de indexarlo.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>¿Qué es el Acuerdo de Nivel de Servicio para Video Indexer?
 

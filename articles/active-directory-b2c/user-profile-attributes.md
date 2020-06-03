@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e921f0a40f53b1d08831047d1cb89ca26de41402
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057291"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738565"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
@@ -35,10 +35,10 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 - Si el atributo se puede usar en un flujo de usuario.
 - Si el atributo se puede usar en un [perfil técnico de Azure AD](active-directory-technical-profile.md) de una directiva personalizada, y en qué sección (&lt;InputClaims&gt;, &lt;OutputClaims&gt;o &lt;PersistedClaims&gt;).
 
-|Nombre     |Tipo     |Descripción|Portal de Azure|Flujos de usuario|Directiva personalizada|
+|Nombre     |Tipo     |Descripción|Azure Portal|Flujos de usuario|Directiva personalizada|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Si la cuenta de usuario está habilitada o deshabilitada: **true** si la cuenta está habilitada; en caso contrario, **false**.|Sí|No|Persistente, salida|
-|ageGroup        |String|El grupo de edad del usuario. Valores posibles: null, Undefined, Minor, Adult y NotAdult.|Sí|No|Persistente, salida|
+|ageGroup        |String|Grupo de edad del usuario. Valores posibles: null, Undefined, Minor, Adult y NotAdult.|Sí|No|Persistente, salida|
 |alternativeSecurityId ([Identidades](manage-user-accounts-graph-api.md#identities-property))|String|Una única identidad de usuario del proveedor de identidades externo.|No|No|Entrada, persistente, salida|
 |alternativeSecurityIds ([Identidades](manage-user-accounts-graph-api.md#identities-property))|Colección de identidades de seguridad alternativa|Una colección de identidades de usuario de proveedores de identidades externos.|No|No|Persistente, salida|
 |city            |String|La ciudad en la que se encuentra el usuario. La longitud máxima es 128.|Sí|Sí|Persistente, salida|
@@ -54,7 +54,7 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 |jobTitle        |String|El puesto del usuario. La longitud máxima es 128.|Sí|Sí|Persistente, salida|
 |immutableId     |String|Un identificador que se usa normalmente para los usuarios migrados desde Active Directory local.|No|No|Persistente, salida|
 |legalAgeGroupClassification|String|La clasificación de grupo de edad legal. Valor de solo lectura que se calcula en función de las propiedades ageGroup y consentProvidedForMinor. Valores permitidos: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult y adult.|Sí|No|Persistente, salida|
-|legalCountry<sup>1</sup>  |String|El país para fines legales.|No|No|Persistente, salida|
+|legalCountry<sup>1</sup>  |String|País o región para fines legales.|No|No|Persistente, salida|
 |mail            |String|La dirección SMTP del usuario, por ejemplo, "bob@contoso.com". Solo lectura.|No|No|Persistente, salida|
 |mailNickName    |String|El alias de correo electrónico del usuario. La longitud máxima es 64.|No|No|Persistente, salida|
 |mobile (mobilePhone) |String|EL número de teléfono móvil principal del usuario. La longitud máxima es 64.|Sí|No|Persistente, salida|
@@ -79,7 +79,7 @@ En la tabla siguiente se enumeran los atributos de [tipo de recurso de usuario](
 |surname         |String|Los apellidos del usuario. La longitud máxima es 64.|Sí|Sí|Persistente, salida|
 |telephoneNumber (primera entrada de businessPhones)|String|El número de teléfono principal del lugar de trabajo del usuario.|Sí|No|Persistente, salida|
 |userPrincipalName    |String|El nombre principal de usuario (UPN) del usuario. El UPN es un nombre de inicio de sesión del estilo de Internet del usuario basado en el estándar de Internet RFC 822. El dominio debe encontrarse en la colección de dominios comprobados del inquilino. Esta propiedad es necesaria cuando se crea una cuenta. El valor es inmutable.|No|No|Entrada, persistente, salida|
-|usageLocation   |String|Es necesario para los usuarios a los que se asignarán licencias debido al requisito legal de comprobar la disponibilidad de los servicios en los países. No acepta valores NULL. Un código de país o región de dos letras (norma ISO 3166). Ejemplos: "US", "JP" y "GB".|Sí|No|Persistente, salida|
+|usageLocation   |String|Es necesario para los usuarios a los que se asignarán licencias debido al requisito legal de comprobar la disponibilidad de los servicios en los países o regiones. No acepta valores NULL. Código de país o región de dos letras (norma ISO 3166). Ejemplos: "US", "JP" y "GB".|Sí|No|Persistente, salida|
 |userType        |String|Un valor de cadena que se puede usar para clasificar tipos de usuario en el directorio. El valor debe ser Miembro. Solo lectura.|Solo lectura|No|Persistente, salida|
 |userState (externalUserState)<sup>2</sup>|String|Solo para la cuenta de Azure AD B2B; indica si la invitación está en el estado PendingAcceptance o Accepted.|No|No|Persistente, salida|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Muestra la marca de tiempo del cambio más reciente de la propiedad UserState.|No|No|Persistente, salida|

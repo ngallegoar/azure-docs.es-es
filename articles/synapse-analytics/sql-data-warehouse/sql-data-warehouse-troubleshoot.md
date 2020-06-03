@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas
-description: Solución de problemas de Azure Synapse Analytics.
+title: Solución de problemas de Synapse SQL
+description: Solucione problemas de Synapse SQL en Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 973d2339db1e55f2cca45025f2d678e5126f4317
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6f697cf205af9bdfaadfe20e123bcf0b4935c90f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743673"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829994"
 ---
-# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Solución de problemas de SQL Analytics en Azure Synapse
+# <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Solución de problemas de Synapse SQL en Azure Synapse Analytics
 
-En este artículo figuran las preguntas habituales sobre la solución de problemas.
+En este artículo se enumeran incidencias de solución de problemas en Synapse SQL.
 
 ## <a name="connecting"></a>Connecting
 
@@ -80,6 +80,6 @@ Para obtener más ayuda en la búsqueda de soluciones para su problema, aquí ti
 * [Solicitud de función](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Creación de una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Foro de MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+* [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 * [Foro Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

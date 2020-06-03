@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8902c3147bbe142fc58d4e2c3fa83601c8ccbba3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5b83b0687db72c78a0c7788933acf07f5cb9e0ed
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203541"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679326"
 ---
-# <a name="bulk-import-group-members-in-azure-active-directory"></a>Importación masiva de los miembros del grupo en Azure Active Directory
+# <a name="bulk-add-group-members-in-azure-active-directory"></a>Adición masiva de miembros de un grupo en Azure Active Directory
 
 Mediante el portal de Azure Active Directory (Azure AD), puede agregar una gran cantidad de miembros a un grupo mediante el uso de un archivo de valores separados por comas (CSV) para importar dichos miembros de forma masiva.
 
@@ -35,8 +35,8 @@ Descargue y rellene la plantilla CSV de carga masiva para agregar correctamente 
 Las filas de una plantilla CSV descargada son las siguientes:
 
 - **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
-- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre de elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones. En el caso de los cambios de pertenencia a grupos, puede elegir qué identificador usar: identificador de objeto de miembro o nombre principal de usuario.
-- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe eliminar la fila de ejemplos y reemplazarla por sus propias entradas.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones. En el caso de los cambios de pertenencia a grupos, puede elegir qué identificador usar: identificador de objeto de miembro o nombre principal de usuario.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
 
 ### <a name="additional-guidance"></a>Instrucciones adicionales
 
@@ -57,7 +57,7 @@ Las filas de una plantilla CSV descargada son las siguientes:
 
 1. Abra el archivo CSV y agregue una línea para cada miembro del grupo que quiera importar al grupo (los valores necesarios son **Id. de objeto de miembro** o **Nombre principal del usuario)** . A continuación, guarde el archivo.
 
-   ![El archivo CSV contiene los nombres y los identificadores de los miembros que se importarán](./media/groups-bulk-import-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="El archivo CSV contiene los nombres y los identificadores de los miembros que se importarán":::.
 
 1. En la página **Importación masiva de los miembros del grupo**, en **Cargar archivo CSV**, vaya al archivo. Al seleccionar el archivo CSV, comienza su validación.
 1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente** en la página de importación en bloque. Si hay errores, debe corregirlos para poder enviar el trabajo.

@@ -13,12 +13,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92acb1a475fbd41bfb7351d73c61db866ce2bbc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c1c03a407315fc4f1b3eb967531e2800fc7497f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154940"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738054"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -30,7 +30,7 @@ La característica de acceso condicional en Azure Active Directory (Azure AD) o
 * Autorización para que solo los dispositivos inscritos en Intune accedan a servicios específicos
 * Restricción de ubicaciones de usuario e intervalos IP
 
-Para más información sobre las funcionalidades completas del acceso condicional, consulte [Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Para obtener más información sobre las funcionalidades completas del acceso condicional, consulte el artículo [¿Qué es el acceso condicional?](../conditional-access/overview.md)
 
 Para desarrolladores que compilan aplicaciones para Azure AD, este artículo muestra cómo se puede usar el acceso condicional y también proporciona información sobre el impacto de acceder a los recursos sobre los que no se tiene control, y que pueden tener directivas de acceso condicional aplicadas. Este artículo explora además las implicaciones del acceso condicional en el flujo en el nombre de otra persona, aplicaciones web, el acceso a Microsoft Graph y las llamadas a las API.
 
@@ -49,7 +49,7 @@ En concreto, los escenarios siguientes requieren código para controlar los "des
 * Aplicaciones de una sola página que usan ADAL.js
 * Aplicaciones web que llaman a un recurso
 
-Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Para averiguar cómo configurar una directiva de acceso condicional, consulte [Inicio rápido: Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../conditional-access/app-based-mfa.md).
+Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Si quiere obtener más información sobre cómo configurar una directiva de acceso condicional, consulte [Directivas de acceso condicional habituales](../conditional-access/concept-conditional-access-policy-common.md).
 
 Según el escenario, un cliente empresarial puede aplicar y quitar directivas de acceso condicional en cualquier momento. Con el fin de que la aplicación siga funcionando cuando se aplica una directiva nueva, es necesario implementar el control de "desafíos". En los ejemplos siguientes se ilustra el control de desafíos.
 

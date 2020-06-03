@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03e26c344284541116a5b98bc330804b71a64e28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944829"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833782"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -203,7 +203,7 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
 ## <a name="troubleshooting"></a>Solución de problemas
 
 * [Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Foro de Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [Página de preguntas y respuestas de Microsoft sobre Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

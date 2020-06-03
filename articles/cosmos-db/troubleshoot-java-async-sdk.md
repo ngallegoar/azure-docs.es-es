@@ -1,22 +1,35 @@
 ---
-title: Diagnosticar y solucionar problemas del SDK de Java Async de Azure Cosmos DB
-description: Use características como registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas de Azure Cosmos DB.
-author: moderakh
+title: Diagnóstico y solución de problemas del SDK de Java v2 asincrónico de Azure Cosmos DB
+description: Use características como el registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas de Azure Cosmos DB en el SDK de Java v2 asincrónico.
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 04/30/2019
-ms.author: moderakh
+ms.date: 05/11/2020
+ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65519978"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651889"
 ---
-# <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Solución de problemas al usar el SDK de Java Async con las cuentas de la API de SQL de Azure Cosmos DB
+# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Solución de problemas con el uso del SDK de Java v2 asincrónico de Azure Cosmos DB con cuentas de SQL API
+
+> [!div class="op_single_selector"]
+> * [SDK de Java v4](troubleshoot-java-sdk-v4-sql.md)
+> * [SDK de Java v2 asincrónico](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
+> [!IMPORTANT]
+> *No* se trata de la versión de SDK de Java de Azure Cosmos DB más reciente. Debe actualizar el proyecto al [SDK de Java v4 de Azure Cosmos DB](sql-api-sdk-java-v4.md) y, luego, leer la [guía de solución de problemas](troubleshoot-java-sdk-v4-sql.md) del SDK de Java v4 de Azure Cosmos DB. Siga las instrucciones que se indican en la guía [Migración al SDK de Java v4 de Azure Cosmos DB](migrate-java-v4-sdk.md) y la guía [Reactor frente a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para realizar la actualización. 
+>
+> Este artículo trata solo sobre la solución de problemas con el SDK de Java v2 de Azure Cosmos DB. Consulte las [notas de la versión](sql-api-sdk-async-java.md) del SDK de Java v2 de Azure Cosmos DB, el [repositorio de Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) y las [sugerencias de rendimiento](performance-tips-async-java.md) para más información.
+>
+
 En este artículo se tratan problemas comunes, soluciones alternativas, pasos de diagnóstico y herramientas al usar el [SDK de Java Async](sql-api-sdk-async-java.md) con las cuentas de la API de SQL de Azure Cosmos DB.
 El SDK de Java Async proporciona la representación lógica del lado cliente para acceder a la API de SQL de Azure Cosmos DB. En este artículo se describen herramientas y enfoques para ayudarle si surge algún problema.
 
@@ -73,13 +86,16 @@ Consulte también las indicaciones de [Límite de conexiones en una máquina hos
 Si usa un Proxy HTTP, asegúrese de que pueda admitir el número de conexiones configuradas en el SDK de `ConnectionPolicy`.
 En caso contrario, se encontrará con problemas de conexión.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Patrón de codificación no válido: bloquea el subproceso de E/S de Netty
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Patrón de codificación no válido: bloqueo del subproceso de E/S de Netty
 
 El SDK usa la biblioteca de E/S de [Netty](https://netty.io/) para comunicarse con Azure Cosmos DB. El SDK tiene API asincrónicas y usa API de E/S de Netty sin bloqueo. El trabajo de E/S del SDK se realiza en subprocesos de E/S de Netty. El número de subprocesos de E/S de Netty está configurado para ser el mismo que el número de núcleos de CPU de la máquina de la aplicación. 
 
 Los subprocesos de E/S de Netty solo están diseñados para usarse con trabajos de E/S de Netty sin bloqueos. El SDK devuelve el resultado de la invocación de la API en uno de los subprocesos de E/S de Netty al código de la aplicación. Si la aplicación realiza una operación de larga duración después de recibir los resultados en el subproceso de Netty, puede que el SDK no tenga suficientes subprocesos de E/S para realizar su trabajo de E/S interno. Este tipo de codificación de aplicación puede producir un rendimiento bajo, alta latencia y errores de `io.netty.handler.timeout.ReadTimeoutException`. La solución consiste en cambiar el subproceso cuando se sabe que la operación tarda tiempo.
 
 Por ejemplo, eche un vistazo en el siguiente fragmento de código. Puede realizar un trabajo de larga duración que tarda más de unos milisegundos en el subproceso de Netty. En ese caso, podrá entrar en un estado donde ningún subproceso de E/S de Netty está presente para procesar el trabajo de E/S. Como resultado, recibirá un error ReadTimeoutException.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>SDK de Java v2 asincrónico (Maven com.microsoft.azure::azure-cosmosdb)
+
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -131,13 +147,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   La solución consiste en cambiar el subproceso en el que realiza el trabajo que lleva tiempo. Defina una instancia singleton del programador para la aplicación.
-   ```java
+La solución consiste en cambiar el subproceso en el que realiza el trabajo que lleva tiempo. Defina una instancia singleton del programador para la aplicación.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>SDK de Java v2 asincrónico (Maven com.microsoft.azure::azure-cosmosdb)
+
+```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
-   ```
-   Es posible que necesite realizar trabajo que lleva tiempo, por ejemplo, trabajo computacionalmente intensivo o E/S de bloqueo. En este caso, cambie el subproceso a un trabajador proporcionado por el objeto `customScheduler` con la API `.observeOn(customScheduler)`.
+```
+Es posible que necesite realizar trabajo que lleva tiempo, por ejemplo, trabajo computacionalmente intensivo o E/S de bloqueo. En este caso, cambie el subproceso a un trabajador proporcionado por el objeto `customScheduler` con la API `.observeOn(customScheduler)`.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>SDK de Java v2 asincrónico (Maven com.microsoft.azure::azure-cosmosdb)
+
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);

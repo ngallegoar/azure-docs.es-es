@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/27/2020
-ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188777"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798111"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -41,7 +41,7 @@ Al diseñar flujos de datos de asignación, puede hacer una prueba unitaria de c
 
 Un entorno Integration Runtime con más núcleos aumenta el número de nodos en los entornos de proceso de Spark y proporciona más capacidad de procesamiento para leer, escribir y transformar los datos. Los flujos de datos de ADF usan Spark para el motor de proceso. El entorno de Spark funciona muy bien en recursos optimizados para memoria.
 * Pruebe un clúster **optimizado para proceso** si quiere que la velocidad de procesamiento sea mayor que la velocidad de entrada.
-* Pruebe un clúster **optimizado para memoria** si desea almacenar en caché más datos en memoria. La optimización para memoria es ligeramente más cara por núcleo que la optimización para proceso, pero es probable que se produzcan velocidades de transformación más rápidas.
+* Pruebe un clúster **optimizado para memoria** si desea almacenar en caché más datos en memoria. La optimización para memoria es ligeramente más cara por núcleo que la optimización para proceso, pero es probable que se produzcan velocidades de transformación más rápidas. Si experimenta errores de memoria insuficiente al ejecutar los flujos de datos, cambie a una configuración de Azure IR optimizada para memoria.
 
 ![Nuevo IR](media/data-flow/ir-new.png "Nuevo IR")
 
@@ -140,6 +140,10 @@ Por ejemplo, si tiene una lista de archivos de datos de julio de 2019 que desea 
 ```DateFiles/*_201907*.txt```
 
 Mediante el uso de caracteres comodín, la canalización solo contendrá una actividad de Data Flow. Esto funcionará mejor que una búsqueda contra el almacén de blobs que luego itera en todos los archivos coincidentes con una operación ForEach que incluya una actividad de ejecución de Data Flow.
+
+La canalización For Each en modo paralelo generará varios clústeres mediante la puesta en marcha de los clústeres de trabajo para cada actividad de flujo de datos ejecutada. Esto puede producir una limitación del servicio de Azure con una gran cantidad de ejecuciones simultáneas, pero el uso de ejecución de Data Flow dentro de For Each con un conjunto secuencial en la canalización evitará la limitación y el agotamiento de los recursos. Esto obligará a Data Factory a ejecutar cada uno de los archivos en un flujo de datos de forma secuencial.
+
+Se recomienda que, si se usa For Each con un flujo de datos en secuencia, utilice el valor de TTL en Azure Integration Runtime. Esto se debe a que cada archivo incurrirá en un tiempo de inicio de clúster completo de 5 minutos dentro del iterador.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optimización de CosmosDB
 

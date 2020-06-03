@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187892"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773141"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluciones en máquinas virtuales de Azure
 
@@ -39,7 +39,7 @@ az vm list-skus
     --output table
 ```
 
-A partir de abril de 2020, estas SKU están disponibles en las siguientes regiones y zonas de disponibilidad:
+A partir de mayo de 2020, estas SKU están disponibles en las siguientes regiones y zonas de disponibilidad:
 
 ```output
 Name              Locations      AZ_a
@@ -86,7 +86,7 @@ Siga un tutorial de inicio rápido para implementar una máquina virtual de la s
   
 - **Cambio de tamaño**: debido a su hardware especializado, solo se puede cambiar el tamaño de las instancias de computación confidencial dentro de la misma familia de tamaño. Por ejemplo, una máquina virtual de la serie DCsv2 solo se puede cambiar de un tamaño de serie DCsv2 a otro. No se admite el cambio de un tamaño de computación no confidencial a un tamaño de computación confidencial.  
 
-- **Imagen**: para proporcionar compatibilidad con Intel Software Guard Extension (Intel SGX) en instancias de proceso confidenciales, todas las implementaciones deben ejecutarse en imágenes de generación 2. La computación confidencial de Azure admite cargas de trabajo que se ejecutan en Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2 y Windows Server 2016 Gen 2. Lea acerca de la [compatibilidad de con las máquinas virtuales de generación 2 en Azure](../virtual-machines/linux/generation-2.md) para obtener más información sobre los escenarios admitidos y no admitidos. 
+- **Imagen**: para proporcionar compatibilidad con Intel Software Guard Extension (Intel SGX) en instancias de proceso confidenciales, todas las implementaciones deben ejecutarse en imágenes de generación 2. La computación confidencial de Azure admite cargas de trabajo que se ejecutan en Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 y Windows Server 2016 Gen 2. Lea acerca de la [compatibilidad de con las máquinas virtuales de generación 2 en Azure](../virtual-machines/linux/generation-2.md) para obtener más información sobre los escenarios admitidos y no admitidos. 
 
 - **Almacenamiento**: los discos de datos de la máquina virtual de computación confidencial de Azure y nuestros discos del sistema operativo efímeros se encuentran en discos de NVMe. Las instancias solo admiten discos SSD Premium y SSD estándar, no SSD Ultra ni HDD estándar. El tamaño de máquina virtual **DC8_v2** no es compatible con Premium Storage. 
 
@@ -100,15 +100,15 @@ La computación confidencial de Azure no admite la redundancia de zona a través
 
 ## <a name="deploying-via-an-azure-resource-manager-template"></a>Implementación mediante una plantilla de Azure Resource Manager 
 
-Azure Resource Manager es el servicio de implementación y administración para Azure. Proporciona una capa de administración que le permite crear, actualizar y eliminar recursos de su suscripción de Azure. Se usan las características de administración, como el control de acceso, la auditoría y las etiquetas, para proteger y organizar los recursos después de la implementación.
+Azure Resource Manager es el servicio de implementación y administración para Azure. Proporciona una capa de administración que le permite crear, actualizar y eliminar recursos de su suscripción de Azure. Puede usar las características de administración, como el control de acceso, la auditoría y las etiquetas, para proteger y organizar los recursos después de la implementación.
 
 Para información acerca de las plantillas de Azure Resource Manager, consulte [Información general de la implementación de plantillas](../azure-resource-manager/templates/overview.md).
 
-Para implementar una máquina virtual de la serie DCsv2 en una plantilla de ARM, utilizará el [recurso de máquina virtual](../virtual-machines/windows/template-description.md). Debe asegurarse de que especifica las propiedades correctas para **vmSize** y para **imageReference**.
+Para implementar una máquina virtual de la serie DCsv2 en una plantilla de Azure Resource Manager, utilizará el [recurso de máquina virtual](../virtual-machines/windows/template-description.md). Asegúrese de que especifica las propiedades correctas para **vmSize** y para **imageReference**.
 
 ### <a name="vm-size"></a>Tamaño de VM
 
-Especifique uno de los siguientes tamaños en la plantilla de ARM del recurso de máquina virtual. Esta cadena se coloca como **vmSize** en las **propiedades**.
+Especifique uno de los siguientes tamaños en la plantilla de Azure Resource Manager del recurso de máquina virtual. Esta cadena se coloca como **vmSize** en las **propiedades**.
 
 ```json
   [
@@ -124,6 +124,12 @@ Especifique uno de los siguientes tamaños en la plantilla de ARM del recurso de
 En **Propiedades**, también tendrá que hacer referencia a una imagen en **storageProfile**. Use *solo una* de las siguientes imágenes para su valor de **imageReference**.
 
 ```json
+      "2019-datacenter-gensecond": {
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sku": "2019-datacenter-gensecond",
+        "version": "latest"
+      },
       "2016-datacenter-gensecond": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
@@ -146,7 +152,7 @@ En **Propiedades**, también tendrá que hacer referencia a una imagen en **stor
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-En este artículo ha aprendido sobre las calificaciones y las configuraciones necesarias para crear una máquina virtual de computación confidencial. Ahora puede visitar Azure Marketplace para implementar una máquina virtual de la serie DCsv2.
+En este artículo ha aprendido sobre las calificaciones y las configuraciones necesarias para crear una máquina virtual de computación confidencial. Ahora puede visitar Microsoft Azure Marketplace para implementar una máquina virtual de la serie DCsv2.
 
 > [!div class="nextstepaction"]
 > [Implementación de una máquina virtual de la serie DCsv2 en Azure Marketplace](quick-create-marketplace.md)

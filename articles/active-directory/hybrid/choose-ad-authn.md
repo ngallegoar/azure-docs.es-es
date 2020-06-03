@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206738"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758136"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -92,7 +92,7 @@ Detalles sobre las preguntas de decisión:
 
 * **Escenarios avanzados**. Si las organizaciones lo eligen, es posible usar información detallada de identidades con informes de Azure AD Identity Protection con Azure AD Premium P2. Por ejemplo, el informe de credenciales filtradas. Windows Hello para empresas tiene [requisitos específicos cuando se usa la sincronización de hash de contraseñas](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) requiere sincronización de hash de contraseñas para aprovisionar a los usuarios con sus credenciales corporativas en el dominio administrado.
 
-    Las organizaciones que requieren una autenticación multifactor con sincronización de hash de contraseñas tienen que usar la autenticación multifactor o los [controles personalizados de acceso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview) de Azure AD. Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación.
+    Las organizaciones que requieren una autenticación multifactor con sincronización de hash de contraseñas tienen que usar Azure Multi-Factor Authentication o los [controles personalizados de acceso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Esas organizaciones no pueden usar métodos de autenticación multifactor de terceros o locales que se basen en la federación.
 
 > [!NOTE]
 > El acceso condicional de Azure AD requiere licencias de [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).

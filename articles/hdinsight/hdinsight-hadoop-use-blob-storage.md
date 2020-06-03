@@ -8,40 +8,40 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 220e73536a892e798139ca54913e09e097c22432
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655187"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
 Puede almacenar datos en [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)o [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). O puede usar una combinación de estas opciones. Estas opciones de almacenamiento permiten eliminar de forma segura clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario.
 
-Apache Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Storage como el sistema de archivos predeterminado. Además, con HDInsight 3.6, puede seleccionar o bien Azure Storage, o Azure Data Lake Storage Gen 1 o Azure Data Lake Storage Gen 2 como el sistema de archivos predeterminado, con algunas excepciones. Para más información sobre la compatibilidad con el uso de Data Lake Store Gen 1 como almacenamiento predeterminado y como almacenamiento vinculado, consulte [Disponibilidades de los clústeres de HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Storage como el sistema de archivos predeterminado. Además, con HDInsight 3.6, puede seleccionar o bien Azure Storage, o Azure Data Lake Storage Gen 1 o Azure Data Lake Storage Gen 2 como el sistema de archivos predeterminado, con algunas excepciones. Para más información sobre la compatibilidad con el uso de Data Lake Store Gen 1 como almacenamiento predeterminado y como almacenamiento vinculado, consulte [Disponibilidad de los clústeres de HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-En este artículo, aprenderá cómo funciona Azure Storage con clústeres de HDInsight. Para más información sobre cómo funciona Data Lake Storage Gen 1 con clústeres de HDInsight, consulte [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md) (Uso de Azure Data Lake Store con clústeres de Azure HDInsight). Consulte [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) para obtener información sobre la creación de un clúster de HDInsight.
+En este artículo, aprenderá cómo funciona Azure Storage con clústeres de HDInsight. Para más información sobre cómo funciona Data Lake Storage Gen 1 con clústeres de HDInsight, consulte el artículo [Uso de Data Lake Storage Gen1 con clústeres de Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md). Consulte [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) para obtener información sobre la creación de un clúster de HDInsight.
 
 > [!IMPORTANT]  
 > El tipo de cuenta de almacenamiento **BlobStorage** solo puede usarse como almacenamiento secundario para los clústeres de HDInsight.
 
 | Tipo de cuenta de almacenamiento | Servicios admitidos | Niveles de rendimiento admitidos |Sin niveles de rendimiento admitidos| Niveles de acceso admitidos |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (uso general v2)  | Blob     | Estándar                    |Premium| Frecuente, esporádico, archivo\*   |
-| Storage (uso general v1)   | Blob     | Estándar                    |Premium| N/D                    |
+| StorageV2 (uso general v2)  | Blob     | Estándar                    |Premium| Frecuente, esporádico, archivo\*   |
+| Storage (uso general v1)   | Blob     | Estándar                    |Premium| N/D                    |
 | BlobStorage                    | Blob     | Estándar                    |Premium| Frecuente, esporádico, archivo\*   |
 
 No se recomienda usar el contenedor de blobs predeterminado para almacenar datos empresariales. Conviene eliminar el contenedor de blobs predeterminado después de cada uso para reducir los costos de almacenamiento. El contenedor predeterminado contiene los registros del sistema y de la aplicación. Asegúrese de recuperar los registros antes de eliminar el contenedor.
 
-No se permite compartir un contenedor de blobs como el sistema de archivos predeterminado entre varios clústeres.
+No se permite compartir un contenedor de blobs como sistema de archivos predeterminado entre varios clústeres.
 
 > [!NOTE]  
 > El nivel de acceso de archivo es un nivel sin conexión que tiene una latencia de recuperación de varias horas y no se recomienda para su uso con HDInsight. Para más información, consulte [Nivel de acceso de archivo](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="access-files-from-within-cluster"></a>Acceso a los archivos desde dentro del clúster
 
-Existen varias maneras de acceder a los archivos de Data Lake Storage desde un clúster de HDInsight. El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:* ) y acceso cifrado con TLS (con *wasbs*). Se recomienda usar *wasbs* siempre que sea posible, incluso cuando se acceda a datos que se encuentren en la misma región de Azure.
+Existen varias maneras de acceder a los archivos de Data Lake Storage desde un clúster de HDInsight. El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:* ) y acceso cifrado con TLS (con *wasbs*). Se recomienda usar *WASBS* siempre que sea posible, aunque se acceda a datos que se encuentren en la misma región de Azure.
 
 * **Con el nombre completo**. Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
 
@@ -65,9 +65,9 @@ Existen varias maneras de acceder a los archivos de Data Lake Storage desde un c
 
 ### <a name="data-access-examples"></a>Ejemplos de acceso a datos
 
-Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `CONTAINERNAME` y `STORAGEACCOUNT` por los valores pertinentes.
+Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) al nodo principal del clúster. En los ejemplos se usan los tres esquemas de URI. Reemplace `CONTAINERNAME` y `STORAGEACCOUNT` por los valores pertinentes.
 
-#### <a name="a-few-hdfs-commands"></a>Algunos comandos hdfs
+#### <a name="a-few-hdfs-commands"></a>Algunos comandos HDFS
 
 1. Crear un archivo en el almacenamiento local.
 
@@ -83,7 +83,7 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
     hdfs dfs -mkdir /sampledata3/
     ```
 
-1. Copia de datos del almacenamiento local al almacenamiento de clúster.
+1. Copiar datos del almacenamiento local al almacenamiento de clúster.
 
     ```bash
     hdfs dfs -copyFromLocal testFile.txt  wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
@@ -91,7 +91,7 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
     hdfs dfs -copyFromLocal testFile.txt  /sampledata3/
     ```
 
-1. Enumerar el contenido del directorio en el almacenamiento de clúster.
+1. Mostrar el contenido del directorio en el almacenamiento de clúster.
 
     ```bash
     hdfs dfs -ls wasbs://CONTAINERNAME@STORAGEACCOUNT.blob.core.windows.net/sampledata1/
@@ -100,11 +100,11 @@ Los ejemplos se basan en una [conexión SSH](./hdinsight-hadoop-linux-use-ssh-un
     ```
 
 > [!NOTE]  
-> Al trabajar con blobs fuera de HDInsight, la mayoría de las utilidades no reconocen el formato WASB y en su lugar, espera un formato básico de ruta de acceso, como `example/jars/hadoop-mapreduce-examples.jar`.
+> Al trabajar con blobs fuera de HDInsight, la mayoría de las utilidades no reconocen el formato WASB y, en su lugar, espera un formato básico de ruta de acceso, como `example/jars/hadoop-mapreduce-examples.jar`.
 
 #### <a name="creating-a-hive-table"></a>Creación de una tabla de Hive
 
-Con fines de ilustración, se muestran tres ubicaciones de archivos. En la ejecución real, use solo una de las entradas `LOCATION`.
+A efectos ilustrativos, se muestran tres ubicaciones de archivos. En la ejecución real, use solo una de las entradas `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -125,7 +125,7 @@ LOCATION '/example/data/';
 
 ## <a name="access-files-from-outside-cluster"></a>Acceso a los archivos desde fuera del clúster
 
-Microsoft proporciona las siguientes herramientas para trabajar con Azure Storage:
+Microsoft ofrece las siguientes herramientas para trabajar con Azure Storage:
 
 | Herramienta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
@@ -138,27 +138,27 @@ Microsoft proporciona las siguientes herramientas para trabajar con Azure Storag
 
 * Para identificar la ruta de acceso completa al almacén predeterminado configurado, vaya a:
 
-    **HDFS** > **Configs** y escriba `fs.defaultFS` en el cuadro de entrada de filtro.
+    **HDFS** > **Configs** (Configuraciones) y escriba `fs.defaultFS` en el cuadro de entrada de filtro.
 
-* Para comprobar si el almacén wasb está configurado como el almacenamiento secundario, vaya a:
+* Para comprobar si el almacén WASB está configurado como almacenamiento secundario, vaya a:
 
-    **HDFS** > **Configs** y escriba `blob.core.windows.net` en el cuadro de entrada de filtro.
+    **HDFS** > **Configs** (Configuraciones) y escriba `blob.core.windows.net` en el cuadro de entrada de filtro.
 
 Para obtener la ruta de acceso mediante la API REST de Ambari, consulte [Obtención del almacenamiento predeterminado](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
 
 ## <a name="blob-containers"></a>Contenedores de blobs
 
-Para usar blobs, en primer lugar debe crear una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md). Como parte de este paso, especifique una región de Azure donde se crea la cuenta de almacenamiento. El clúster y la cuenta de almacenamiento deben ubicarse en la misma región. La base de datos de SQL Server de la metastore de Hive y la base de datos de SQL Server de la metastore de Apache Oozie tienen que encontrarse en la misma región.
+Para usar blobs, debe crear antes una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md). Como parte de este paso, especifique una región de Azure donde se crea la cuenta de almacenamiento. El clúster y la cuenta de almacenamiento deben ubicarse en la misma región. La base de datos de SQL Server de la metastore de Hive y la base de datos de SQL Server de la metastore de Apache Oozie tienen que encontrarse en la misma región.
 
 Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un contenedor de su cuenta de Azure Storage. Este contenedor puede ser un blob existente que se creó fuera de HDInsight. O puede tratarse de un contenedor que se cree para un clúster de HDInsight.
 
-El contenedor de blobs predeterminado almacena información específica del clúster, como registros y el historial de trabajos. No comparta un contenedor de blobs predeterminado con varios clústeres de HDInsight. Esta acción podría dañar el historial de trabajos. Se recomienda usar un contenedor diferente para cada clúster. Coloque los datos compartidos en una cuenta de almacenamiento vinculada especificada para todos los clústeres apropiados, en lugar de en la cuenta de almacenamiento predeterminada. Para más información acerca de cómo configurar cuentas de almacenamiento vinculadas, consulte el artículo de [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Sin embargo, puede volver a usar un contenedor de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. En el caso de los clústeres de HBase, para conservar el esquema y los datos de tabla de HBase se puede crear un nuevo clúster de HBase mediante el contenedor de blobs predeterminado que usaba un clúster de HBase eliminado
+El contenedor de blobs predeterminado almacena información específica del clúster, como los registros y el historial de trabajos. No comparta un contenedor de blobs predeterminado con varios clústeres de HDInsight. Esta acción podría dañar el historial de trabajos. Se recomienda usar un contenedor diferente para cada clúster. Coloque los datos compartidos en una cuenta de almacenamiento vinculada especificada para todos los clústeres apropiados, en lugar de en la cuenta de almacenamiento predeterminada. Para más información sobre cómo configurar cuentas de almacenamiento vinculadas, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Aunque puede volver a usar un contenedor de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. En el caso de los clústeres de HBase, para conservar el esquema y los datos de tabla de HBase se puede crear un nuevo clúster de HBase mediante el contenedor de blobs predeterminado que usaba un clúster de HBase eliminado
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 ## <a name="use-additional-storage-accounts"></a>Uso de cuentas de almacenamiento adicionales
 
-Al crear un clúster de HDInsight, se especifica la cuenta de Azure Storage a la que quiere asociarlo. Además, puede agregar cuentas de almacenamiento adicionales desde la misma suscripción de Azure o desde otras diferentes durante el proceso de creación. O una vez creado un clúster. Para obtener instrucciones sobre cómo agregar más cuentas de almacenamiento, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Al crear un clúster de HDInsight, se especifica la cuenta de Azure Storage a la que quiere asociarlo. Además, puede agregar cuentas de almacenamiento adicionales de la misma suscripción de Azure o de diferentes suscripciones de Azure durante el proceso de creación o después de que se haya creado un clúster. Para obtener instrucciones sobre cómo agregar cuentas de almacenamiento adicionales, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > No se admite el uso de una cuenta de almacenamiento adicional en una ubicación diferente a la del clúster de HDInsight.
@@ -172,6 +172,6 @@ Para más información, consulte:
 * [Introducción a Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Introducción a Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Carga de datos en HDInsight](hdinsight-upload-data.md)
-* [Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
+* [Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos con HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
 * [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
-* [Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

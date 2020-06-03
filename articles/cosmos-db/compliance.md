@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5a35ec10d7d9bc60bbbf28ee85c83c838108050b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527374"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747366"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Cumplimiento de Azure Cosmos DB 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB está disponible en todas las regiones de Azure. Microsoft pone 
 
 * La nube **pública de Azure**, que está disponible globalmente.
 
-* **Azure China 21Vianet** está disponible gracias a una exclusiva asociación entre Microsoft y 21Vianet, uno de los proveedores de acceso a Internet más importantes del país.
+* **Azure China 21Vianet** está disponible gracias a una exclusiva asociación entre Microsoft y 21Vianet, uno de los proveedores de acceso a Internet más importantes del país o región.
 
 * **Azure Alemania** proporciona servicios bajo un modelo de administrador de datos que garantiza que los datos de los clientes permanecen en Alemania bajo el control de T-Systems International GmbH, una subsidiaria de Deutsche Telekom, que actúa como administrador de datos para Alemania.
 

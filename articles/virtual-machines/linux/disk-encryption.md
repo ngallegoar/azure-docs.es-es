@@ -7,20 +7,23 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 027efd268ee80fbaf921b42d09cc424c8e8483ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a27f37f9c69dcadd1234faf67e23eaaa46d33f7a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136930"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651061"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Cifrado del lado servidor de Azure Managed Disks
 
-Los discos administrados de Azure cifran automáticamente los datos de forma predeterminada cuando se guardan en la nube. El cifrado del lado servidor protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. Los datos de los discos administrados de Azure se cifran de forma transparente mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, y son compatibles con FIPS 140-2.   
+Los discos administrados de Azure cifran automáticamente los datos de forma predeterminada cuando se guardan en la nube. El cifrado del lado servidor (SSE) protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. 
 
-El cifrado no afecta al rendimiento de los discos administrados. No hay ningún coste adicional por el cifrado.
+Los datos de los discos administrados de Azure se cifran de forma transparente mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, y son compatibles con FIPS 140-2. Para más información sobre de los módulos criptográficos subyacentes en los discos administrados de Azure, consulte [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
-Para más información sobre de los módulos criptográficos subyacentes en los discos administrados de Azure, consulte [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+El cifrado no afecta al rendimiento de los discos administrados y no implica ningún coste adicional. 
+
+> [!NOTE]
+> Los discos temporales no son discos administrados ni están cifrados por SSE; para obtener más información sobre los discos temporales, consulte [Introducción a los discos administrados de Azure: roles de disco](managed-disks-overview.md#disk-roles).
 
 ## <a name="about-encryption-key-management"></a>Información sobre la administración de claves de cifrado
 
@@ -75,11 +78,11 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
 - Solo se admiten las [claves RSA "suaves" y "fuertes"](../../key-vault/keys/about-keys.md) con un tamaño de 2048, sin incluir ninguna otra clave ni tamaño.
 - Los discos creados a partir de imágenes personalizadas que están cifradas con cifrado del lado servidor y las claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente y deben estar en la misma suscripción.
 - Las instantáneas creadas a partir de discos que están cifrados con cifrado del lado servidor y claves administradas por el cliente deben cifrarse con las mismas claves administradas por el cliente.
-- Las imágenes personalizadas cifradas con cifrado del lado servidor y claves administradas por el cliente no se pueden usar en la galería de imágenes compartidas.
 - Todos los recursos relacionados con las claves administradas por el cliente (instancias de Azure Key Vault, conjuntos de cifrado de disco, máquinas virtuales, discos e instantáneas) deben estar en la misma suscripción y región.
 - Los discos, las instantáneas y las imágenes cifrados con claves administradas por el cliente no se pueden trasladar a otra suscripción.
 - Si usa Azure Portal para crear el conjunto de cifrado de disco, no puede usar instantáneas por ahora.
 - Los discos administrados cifrados mediante claves administradas por el cliente tampoco se pueden cifrar con Azure Disk Encryption.
+- Para obtener información sobre el uso de claves administradas por el cliente con galerías de imágenes compartidas, consulte [Versión preliminar: uso de claves administradas por el cliente para el cifrado de imágenes](../image-version-encryption.md).
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configuración de Azure Key Vault y DiskEncryptionSet
@@ -128,8 +131,6 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
         desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
     
         az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-    
-        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
         ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Creación de una máquina virtual con una imagen de Marketplace, cifrado del sistema operativo y de los discos de datos con claves administradas por el cliente
@@ -233,7 +234,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Cifrado del lado servidor frente a Azure Disk Encryption
 
-[Azure Disk Encryption para máquinas virtuales y conjuntos de escalado de máquinas virtuales](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) aprovecha la característica [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) de Windows y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para cifrar los discos administrados con claves administradas por el cliente dentro de la máquina virtual invitada.  El cifrado del lado servidor con claves administradas por el cliente mejora en ADE al permitir el uso de cualquier tipo de sistema operativo y de imágenes para las máquinas virtuales mediante el cifrado de datos en el servicio Storage.
+[Azure Disk Encryption para máquinas virtuales y conjuntos de escalado de máquinas virtuales](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) aprovecha la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para cifrar los discos administrados con claves administradas por el cliente dentro de la máquina virtual invitada.  El cifrado del lado servidor con claves administradas por el cliente mejora en ADE al permitir el uso de cualquier tipo de sistema operativo y de imágenes para las máquinas virtuales mediante el cifrado de datos en el servicio Storage.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

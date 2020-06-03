@@ -8,18 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 258bddec85e4ab182ff0b07c49cdc93f92264f95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: legacy
+ms.openlocfilehash: 1b72be91ee11ef7003e225fe830a59ea42310ac6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084471"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656687"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
 Se puede crear un recurso de imagen administrado a partir de una máquina virtual (VM) generalizada que se almacena como un disco administrado o como un disco no administrado en una cuenta de almacenamiento. A partir de ese momento, la imagen se puede utilizar para crear varias máquinas virtuales. Para obtener información sobre cómo se facturan las imágenes administradas, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
- 
+Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cuando se intenta crear más de 20 máquinas virtuales simultáneamente, desde una misma imagen administrada, se pueden producir tiempos de espera de aprovisionamiento debido a las limitaciones de rendimiento de almacenamiento de un solo VHD. Para crear más de 20 máquinas virtuales simultáneamente, use una imagen de [Instancias de Shared Image Gallery](shared-image-galleries.md) configurada con una réplica por cada 20 implementaciones simultáneas de máquina virtual.
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
 

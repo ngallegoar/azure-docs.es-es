@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112208"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725302"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -48,6 +48,18 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 >
 >Consulte [este artículo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para obtener más información sobre cómo actualizar Azure AD Connect a la versión más reciente.
 
+## <a name="15300"></a>1.5.30.0.
+
+### <a name="release-status"></a>Estado de la versión
+07/05/2020: publicado para descarga.
+
+### <a name="fixed-issues"></a>Problemas corregidos
+Esta compilación de revisiones corrige un problema por el que los dominios no seleccionados se seleccionaban de forma incorrecta en la interfaz de usuario del asistente si solo se seleccionaban contenedores secundarios.
+
+
+>[!NOTE]
+>Esta versión incluye la nueva API de punto de conexión de sincronización de Azure AD Connect V2.  Actualmente, este nuevo punto de conexión V2 se encuentra en versión preliminar pública.  Se requiere esta versión o una posterior para usar la nueva API de punto de conexión V2.  Sin embargo, el punto de conexión V2 no se habilita simplemente mediante la instalación de esta versión. Seguirá usando el punto de conexión V1, a menos que habilite el punto de conexión V2.  Debe seguir los pasos descritos en [API de punto de conexión de sincronización de Azure AD Connect V2 (versión preliminar pública)](how-to-connect-sync-endpoint-api-v2.md) para habilitarlo y participar en la versión preliminar pública.  
+
 ## <a name="15290"></a>1.5.29.0
 
 ### <a name="release-status"></a>Estado de la versión
@@ -70,7 +82,10 @@ Esta compilación de revisión corrige un problema en la compilación 1.5.20.0 
 09/04/2020: publicado para descarga.
 
 ### <a name="fixed-issues"></a>Problemas corregidos
-Esta compilación de revisiones corrige un problema con la compilación 1.5.18.0 si tiene habilitada la característica de filtrado de grupos y usa mS-DS-ConsistencyGuid como delimitador de origen.
+- Esta compilación de revisiones corrige un problema con la compilación 1.5.18.0 si tiene habilitada la característica de filtrado de grupos y usa mS-DS-ConsistencyGuid como delimitador de origen.
+- Se corrigió un problema en el módulo de PowerShell de ADSyncConfig, en el que la invocación del comando DSACLS usado en todos los cmdlets de permisos Set-ADSync* daba lugar a uno de los siguientes errores:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
 > Si ha clonado la regla de sincronización **In from AD - Group Join** pero no la regla de sincronización **In from AD - Group Common** y planea actualizar, complete los pasos siguientes como parte de la actualización:
@@ -1324,7 +1339,6 @@ Ha cambiado el nombre de Azure AD Sync a Azure AD Connect.
 **Nuevas características de la versión preliminar:**
 
 * [Reescritura de usuarios](how-to-connect-preview.md#user-writeback)
-* [Escritura diferida de grupos](how-to-connect-preview.md#group-writeback)
 * [Escritura diferida de dispositivos](how-to-connect-device-writeback.md)
 * [Extensiones de directorio](how-to-connect-preview.md)
 

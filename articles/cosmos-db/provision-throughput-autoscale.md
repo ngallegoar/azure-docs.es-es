@@ -1,101 +1,89 @@
 ---
-title: Creación de contenedores y bases de datos de Azure Cosmos en el rendimiento aprovisionado de escalabilidad automática
-description: Obtenga información sobre las ventajas, los casos de uso y la manera de aprovisionar los contenedores y bases de datos de Azure Cosmos en el rendimiento aprovisionado de escalabilidad automática.
+title: Creación de contenedores y bases de datos de Azure Cosmos en modo Escalabilidad automática
+description: Obtenga información sobre las ventajas, los casos de uso y la manera de aprovisionar los contenedores y bases de datos de Azure Cosmos en el modo Escalabilidad automática.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 81a13dcb7955a7d46f485416bf9b7e4e7be4d9ac
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/11/2020
+ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791721"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655810"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-with-autoscale-provisioned-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con el rendimiento aprovisionado de escalabilidad automática
+# <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 
-Azure Cosmos DB le permite configurar los contenedores con rendimiento aprovisionado estándar (manual) o rendimiento aprovisionado de escalabilidad automática. En este artículo se describen las ventajas y los casos de uso de la escalabilidad automática.
+Azure Cosmos DB le permite establecer el rendimiento aprovisionado estándar (manual) o de escalabilidad automática en las bases de datos y contenedores. En este artículo se describen las ventajas y los casos de uso del rendimiento aprovisionado con escalabilidad automática. 
 
-> [!NOTE]
-> Puede [habilitar la Escalabilidad automática solo para bases de datos y contenedores nuevos](#create-db-container-autoscale). No está disponible para las bases de datos y los contenedores existentes.
+El rendimiento aprovisionado con escalabilidad automática es adecuado para cargas de trabajo críticas que tienen patrones de tráfico variables o imprevisibles y requieren SLA para el alto rendimiento y la escala. 
 
-Además del aprovisionamiento estándar de rendimiento, ahora puede configurar contenedores de Azure Cosmos con el rendimiento aprovisionado de escalabilidad automática. Los contenedores y las bases de datos configurados en el rendimiento aprovisionado de escalabilidad automática **escalarán de forma automática e instantánea el rendimiento aprovisionado en función de las necesidades de la aplicación sin que ello afecte a la disponibilidad, la latencia, la capacidad de proceso o el rendimiento de la carga de manera global**.
+Con la escalabilidad automática, Azure Cosmos DB **escala automáticamente y de forma instantánea el rendimiento (RU/s)** de la base de datos o el contenedor en función del uso, sin afectar a la disponibilidad, la latencia o el rendimiento de la carga de trabajo. 
 
-Al configurar contenedores y bases de datos en la escalabilidad automática, debe especificar que el rendimiento máximo de `Tmax` no se supere. Después, los contenedores pueden escalar su capacidad de proceso de manera que `0.1*Tmax < T < Tmax`. En otras palabras, los contenedores y las bases de datos se escalan de forma instantánea en función de las necesidades de la carga de trabajo, desde un mínimo del 10 % del valor máximo de capacidad de proceso configurado hasta dicho valor máximo. Puede cambiar el valor del rendimiento máximo (`Tmax`) en una base de datos o un contenedor de Escalabilidad automática en cualquier momento. Con la opción Escalabilidad automática, ya no es aplicable el rendimiento mínimo de 400 RU/s por contenedor o base de datos.
+## <a name="benefits-of-autoscale"></a>Ventajas del escalado automático
 
-El sistema permite el funcionamiento dentro del límite de almacenamiento calculado para el rendimiento máximo especificado en el contenedor o la base de datos. Si se supera el límite de almacenamiento, la capacidad máxima de proceso se ajusta automáticamente a un valor superior. Cuando se usa el rendimiento de nivel de base de datos con la escalabilidad automática, el número de contenedores permitidos en una base de datos se calcula de la siguiente manera: `0.001*TMax`. Por ejemplo, si aprovisiona 20 000 RU/s en modo Escalabilidad automática, la base de datos puede tener 20 contenedores.
+Las bases de datos y los contenedores de Azure Cosmos que se han configurado con rendimiento aprovisionado con escalabilidad automática tienen las ventajas siguientes:
 
-## <a name="benefits-of-autoscale-provisioned-throughput"></a><a id="autoscale-benefits"></a> Ventajas del rendimiento aprovisionado de escalabilidad automática
+* **Simple:** La escalabilidad automática elimina la complejidad de la administración de RU/s con scripting personalizado y del escalado manual de la capacidad. 
 
-Los contenedores de Azure Cosmos configurados con escalabilidad automática tienen las ventajas siguientes:
+* **Escalable:** Las bases de datos y los contenedores escalan automáticamente el rendimiento aprovisionado según sea necesario. No hay ninguna interrupción en las conexiones de cliente ni en las aplicaciones y no afectan a los SLA de Azure Cosmos DB.
 
-* **Simple:** los contenedores con escalabilidad automática quitan la complejidad de administrar el rendimiento aprovisionado (RU) y la capacidad manualmente para varios contenedores.
+* **Rentable:** La escalabilidad automática ayuda a optimizar el uso de RU/s y el costo por uso mediante la reducción vertical cuando no está en uso. Solo paga por los recursos que necesitan las cargas de trabajo por hora.
 
-* **Escalable:** los contenedores con escalabilidad automática escalan sin problemas el rendimiento aprovisionado según sea necesario. No hay ninguna interrupción en las conexiones de cliente ni en las aplicaciones y no afectan a los contratos de nivel de usuario existentes.
+* **Alta disponibilidad:** Las bases de datos y los contenedores que usan la escalabilidad automática usan el mismo back-end de Azure Cosmos DB distribuido globalmente, tolerante a errores y de alta disponibilidad para garantizar la durabilidad de los datos y la alta disponibilidad.
 
-* **Rentable:** al usar contenedores configurados con escalabilidad automática, solo paga por los recursos que las cargas de trabajo necesitan por hora.
+## <a name="use-cases-of-autoscale"></a>Casos de uso de la escalabilidad automática
 
-* **Alta disponibilidad:** los contenedores con escalabilidad automática usan el mismo back-end distribuido globalmente, tolerante a errores y de alta disponibilidad para garantizar la durabilidad de los datos y la alta disponibilidad.
+Los casos de uso de la escalabilidad automática incluyen:
 
-## <a name="use-cases-of-autoscale-provisioned-throughput"></a><a id="autoscale-usecases"></a> Casos de uso del rendimiento aprovisionado de escalabilidad automática
+* **Cargas de trabajo impredecibles o variables:** cuando las cargas de trabajo tienen picos variables o imprevisibles en su uso, la escalabilidad automática ayuda a escalar y reducir verticalmente en función del uso. Entre los ejemplos se incluyen sitios web minoristas que tienen diferentes patrones de tráfico en función de la estacionalidad, cargas de trabajo de IOT que tienen picos en varias ocasiones durante el día, aplicaciones de línea de negocio que tienen su uso máximo varias veces al mes o al año y muchos más. Con la escalabilidad automática, ya no es necesario aprovisionar manualmente para los casos de capacidad máxima o media. 
 
-Los casos de uso de los contenedores de Azure Cosmos configurados con escalabilidad automática incluyen:
+* **Aplicaciones nuevas:** Si va a desarrollar una nueva aplicación y no está seguro del rendimiento (RU/s) que necesita, la escalabilidad automática le ayuda a empezar a trabajar. Puede empezar con un punto de entrada de escalabilidad automática de 400 a 4 000 RU/s, supervisar el uso y determinar las RU/s correctas a lo largo del tiempo.
 
-* **Cargas de trabajo de variables:** cuando se ejecuta una aplicación que se usa poco con un uso máximo de una a pocas horas al día, o varias veces al año. Entre los ejemplos se incluyen las aplicaciones para recursos humanos, presupuestos e informes operativos. En estos escenarios, se pueden usar los contenedores configurados con escalabilidad automática y ya no es necesario el aprovisionamiento manual para una capacidad máxima o media.
+* **Aplicaciones usadas con poca frecuencia:** Si tiene una aplicación que solo se usa durante unas horas varias veces al día, la semana o el mes, como un sitio web, un blog o una aplicación de bajo volumen, la escalabilidad automática ajusta la capacidad para administrar el pico de uso y la reduce verticalmente cuando finaliza. 
 
-* **Cargas de trabajo imprevisibles:** cuando se ejecutan cargas de trabajo en las que se usa la base de datos a lo largo del día, pero también picos de actividad que son difíciles de predecir. Un ejemplo incluye un sitio de tráfico que experimenta un aumento de actividad cuando el pronóstico meteorológico cambia. Los contenedores configurados con escalabilidad automática ajustan la capacidad para satisfacer las necesidades de la carga máxima de la aplicación y la reducen verticalmente cuando se supera el pico de actividad.
+* **Cargas de trabajo de desarrollo y pruebas:** si usted o su equipo usan bases de datos y contenedores de Azure Cosmos durante las horas de trabajo, pero no las necesitan por las noches o los fines de semana, la escalabilidad automática ayuda a ahorrar costos al reducirse verticalmente al mínimo cuando no hay uso. 
 
-* **Aplicaciones nuevas:** si está implementando una nueva aplicación y no está seguro del rendimiento aprovisionado (es decir, el número de RU) que necesita. Con los contenedores configurados con escalabilidad automática, puede escalar automáticamente según las necesidades de capacidad y los requisitos de la aplicación.
+* **Cargas de trabajo o consultas de producción programadas:** si tiene una serie de solicitudes, operaciones o consultas programadas que desea ejecutar durante períodos de inactividad, puede hacerlo fácilmente con la escalabilidad automática. Cuando necesite ejecutar la carga de trabajo, el rendimiento se escalará automáticamente al necesario y se reducirá verticalmente después. 
 
-* **Aplicaciones usadas con poca frecuencia:** si tiene una aplicación que solo se usa durante unas horas varias veces al día, la semana o el mes, como un sitio de aplicación, web o blog de bajo volumen.
+La creación de una solución personalizada para estos problemas no solo requiere una cantidad enorme de tiempo, sino que también presenta complejidad en la configuración y el código de la aplicación. La escalabilidad automática permite los escenarios anteriores de forma integrada y elimina la necesidad de un escalado personalizado o manual de la capacidad. 
 
-* **Bases de datos de desarrollo y pruebas:** si tiene desarrolladores que usan contenedores durante el horario laboral, pero no los necesitan por la noche ni los fines de semana. Con los contenedores configurados con escalabilidad automática, se reducen verticalmente al mínimo cuando no están en uso.
+## <a name="how-autoscale-provisioned-throughput-works"></a>Cómo funciona el rendimiento aprovisionado de escalabilidad automática
 
-* **Cargas de trabajo o consultas de producción programadas:** si tiene una serie de solicitudes, operaciones o consultas programadas en un solo contenedor, y si hay períodos de inactividad en los que desea ejecutar con un rendimiento absoluto bajo, ahora puede hacerlo fácilmente. Cuando se envía una consulta o una solicitud programada a un contenedor configurado con escalabilidad automática, este se escalará verticalmente de forma automática en la medida necesaria y ejecutará la operación.
+Al configurar contenedores y bases de datos con escalabilidad automática, se especifica el rendimiento máximo `Tmax` requerido. Azure Cosmos DB escala el rendimiento `T` en intervalos de `0.1*Tmax <= T <= Tmax`. Por ejemplo, si establece el rendimiento máximo en 20 000 RU/s, el rendimiento se escalará entre 2 000 y 20 000 RU/s. Dado que el escalado es automático e instantáneo, puede consumir en cualquier momento hasta el valor de `Tmax` aprovisionado sin ningún retraso. 
 
-Las soluciones a los problemas anteriores no solo requieren una cantidad enorme de tiempo de implementación, sino que también presentan complejidad en la configuración o el código, y suelen requerir la intervención manual para abordarlos. La escalabilidad automática habilita los escenarios anteriores desde el principio, de modo que ya no es necesario preocuparse por estos problemas.
+Cada hora, se le facturará el mayor rendimiento `T` al que se escaló el sistema en dicha hora.
 
-## <a name="comparison--standard-manual-vs-autoscale-provisioned-throughput"></a>Comparación: rendimiento aprovisionado estándar (manual) frente a rendimiento aprovisionado de escalabilidad automática
+El punto de entrada para el rendimiento máximo de la escalabilidad automática, `Tmax`, comienza en 4 000 RU/s, que se escalan entre 400 y 4 000 RU/s. Puede establecer `Tmax` en incrementos de 1 000 RU/s y cambiar el valor en cualquier momento.  
 
-|  | Contenedores configurados con rendimiento aprovisionado estándar  | Contenedores configurados con rendimiento aprovisionado de escalabilidad automática |
-|---------|---------|---------|
-| **Rendimiento aprovisionado** | Aprovisionada manualmente. | Escalado automático e instantáneo en función de los patrones de uso de la carga de trabajo. |
-| **Limitación de velocidad de las solicitudes o las operaciones (429)**  | Puede ocurrir si el consumo supera la capacidad aprovisionada. | No ocurrirá si el rendimiento consumido se encuentra dentro de la capacidad máxima de proceso elegida con escalabilidad automática.   |
-| **Planificación de capacidad** |  Debe realizar un planeamiento inicial de la capacidad y aprovisionar el rendimiento necesario. |    No tiene que preocuparse por el planeamiento de la capacidad. El sistema se encarga automáticamente del planeamiento y la administración de la capacidad. |
-| **Precios** | RU/s por hora aprovisionadas manualmente. | En el caso de las cuentas de una sola región de escritura, se paga por el rendimiento que se usa cada hora, con la tarifa de RU/s por hora de Escalabilidad automática. <br/><br/>En el caso de las cuentas con varias regiones de escritura, no se aplica ningún cargo adicional por Escalabilidad automática. Paga por el rendimiento que se usa por hora con la misma tarifa de RU/s por hora de la arquitectura multimaestro. |
-| **Adecuado para los tipos de carga de trabajo** |  Cargas de trabajo predecibles y estables|   Cargas de trabajo impredecibles y variables  |
-
-## <a name="create-a-database-or-a-container-with-autoscale"></a><a id="create-db-container-autoscale"></a> Creación de una base de datos o un contenedor con escalabilidad automática
-
-Puede configurar Escalabilidad automática para bases de datos o contenedores nuevos mientras los crea a través de Azure Portal. Siga los pasos que se indican a continuación para crear una base de datos o un contenedor nuevos, habilite Escalabilidad automática y especifique el rendimiento máximo (RU/s).
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [explorador de Azure Cosmos DB](https://cosmos.azure.com/).
-
-1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos**.
-
-1. Seleccione **Nuevo contenedor**. Escriba un nombre para la base de datos, el contenedor y una clave de partición. En **Rendimiento**, seleccione la opción **Escalabilidad automática** y elija el rendimiento máximo (RU/s) que la base de datos o el contenedor no podrá superar cuando se use la opción Escalabilidad automática.
-
-   ![Creación de un contenedor y configuración del rendimiento de Escalabilidad automática](./media/provision-throughput-autoscale/create-container-autoscale-mode.png)
-
-1. Seleccione **Aceptar**.
-
-Para crear una base de datos de rendimiento compartida con escalabilidad automática, seleccione la opción de **Rendimiento de la base de datos de aprovisionamiento**.
+## <a name="enable-autoscale-on-existing-resources"></a>Habilitación de la escalabilidad automática en recursos existentes ##
+Use [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar la escalabilidad automática en una base de datos o un contenedor existentes. Puede cambiar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual) en cualquier momento. Consulte esta [documentación](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obtener más información.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Límites de rendimiento y almacenamiento para Escalabilidad automática
 
-En la tabla siguiente se muestran los límites de rendimiento y almacenamiento máximos para distintas opciones en escalabilidad automática:
+Para cualquier valor de `Tmax`, la base de datos o el contenedor pueden almacenar un total de `0.01 * Tmax GB`. Una vez alcanzada esta cantidad de almacenamiento, el número máximo de RU/s se incrementará automáticamente en función del nuevo valor del almacenamiento, sin que ello afecte a la aplicación. 
 
-|Límite de rendimiento máximo  |Límite de almacenamiento máximo  |
-|---------|---------|
-|4000 RU/s  |   50 GB    |
-|20 000 RU/s  |  200 GB  |
-|100 000 RU/s    |  1 TB   |
-|500 000 RU/s    |  5 TB  |
+Por ejemplo, si comienza con un máximo de 50 000 RU/s (que se escalan entre 5 000 y 50 000 RU/s), puede almacenar hasta 500 GB de datos. Si supera los 500 GB: por ejemplo, el almacenamiento es ahora de 600 GB, el nuevo número máximo será de 60 000 RU/s (que se escalan entre 6 000 y 60 000 RU/s).
+
+Si usa el rendimiento de nivel de base de datos con escalabilidad automática, puede hacer que los primeros 25 contenedores compartan un número máximo de 4 000 RU/s de escalabilidad automática (que se escalan entre 400 y 4 000 RU/s), siempre que no supere los 40 GB de almacenamiento. Consulte esta [documentación](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) para obtener más información.
+
+## <a name="comparison--containers-configured-with-manual-vs-autoscale-throughput"></a>Comparación: contenedores configurados con rendimiento manual frente a la escalabilidad automática
+Para más información, consulte esta [documentación](how-to-choose-offer.md) sobre cómo elegir entre el rendimiento estándar (manual) y la escalabilidad automática.  
+
+|| Contenedores con rendimiento estándar (manual)  | Contenedores con rendimiento de escalabilidad automática |
+|---------|---------|---------|
+| **Rendimiento aprovisionado (RU/s)** | Aprovisionada manualmente. | Escalado automático e instantáneo en función de los patrones de uso de la carga de trabajo. |
+| **Limitación de velocidad de las solicitudes o las operaciones (429)**  | Puede ocurrir si el consumo supera la capacidad aprovisionada. | No ocurrirá si utiliza RU/s dentro del intervalo de rendimiento de escalabilidad automática que ha establecido.    |
+| **Planificación de capacidad** |  Debe realizar un planeamiento de la capacidad y aprovisionar el rendimiento exacto que necesita. |    El sistema se encarga automáticamente del planeamiento y la administración de la capacidad. |
+| **Precios** | Se paga por las RU/s aprovisionadas manualmente, con la [tarifa de RU/s estándar (manual) por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Se paga por hora por el número mayor de RU/s a las que se ha escalado verticalmente el sistema en dicha hora. <br/><br/> En el caso de las cuentas de una sola región de escritura, se paga por las RU/s utilizadas en una hora, con la [tarifa de RU/s por hora de la escalabilidad automática](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>En el caso de las cuentas con varias regiones de escritura, no se aplica ningún cargo adicional por Escalabilidad automática. Se paga por el rendimiento que se usa por hora con la misma [tarifa de RU/s por hora de la arquitectura multimaestro](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Adecuado para los tipos de carga de trabajo** |  Cargas de trabajo predecibles y estables|   Cargas de trabajo impredecibles y variables  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Revise las [preguntas más frecuentes sobre Escalabilidad automática](autoscale-faq.md).
-* Más información sobre las [particiones lógicas](partition-data.md).
-* Obtenga más información sobre el [aprovisionamiento del rendimiento de un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
-* Obtenga más información sobre el [aprovisionamiento del rendimiento de una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
+* Obtenga información acerca de cómo [elegir entre el rendimiento manual y de escalabilidad automática](how-to-choose-offer.md).
+* Obtenga información sobre el [aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos](how-to-provision-autoscale-throughput.md).
+* Más información sobre la [creación de particiones](partition-data.md) en Azure Cosmos DB.
+
+

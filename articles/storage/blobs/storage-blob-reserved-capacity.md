@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ba54736abe335b53a3b8c6733063efcb34ea29a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856831"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259208"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -35,7 +35,7 @@ Puede comprar capacidad reservada de Azure Storage en unidades de 100 TB y 1 P
 
 La capacidad reservada de Azure Storage está disponible en una suscripción única o para varias suscripciones (ámbito compartido). Cuando el ámbito es de una suscripción única, el descuento por reserva se aplica a la suscripción seleccionada únicamente. Cuando el ámbito es de varias suscripciones, el descuento de la reserva se comparte entre esas suscripciones según el contexto de facturación del cliente.
 
-Al comprar la capacidad reservada de Azure Storage, puede usar la reserva para los datos de blobs en bloques y de Azure Data Lake Storage Gen2. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específico de la suscripción. Una reserva no se puede dividir entre varias suscripciones.
+Al comprar la capacidad reservada de Azure Storage, puede usar la reserva para los datos de blobs en bloques y de Azure Data Lake Storage Gen2. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específico de la suscripción.
 
 Una reserva de Azure Storage solo cubre la cantidad de datos que se almacenan en una suscripción o un grupo de recursos compartidos. Los cargos iniciales por transferencia de datos, ancho de banda, operaciones y eliminación no se incluyen en la reserva. En cuanto se compra una reserva, los cargos de capacidad que coincidan con los atributos de reserva se cobran según las tarifas de descuento en lugar de las tarifas de pago por uso. Para más información sobre las reservas de Azure, consulte [¿Qué es Azure Reservations?](/azure/billing/billing-save-compute-costs-reservations).
 

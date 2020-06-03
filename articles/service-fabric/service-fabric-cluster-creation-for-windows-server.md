@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 9133a7087285aa6e01a2431bf1a65dfa3c6f8857
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189103"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827971"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server. Los clústeres tradicionales de Service Fabric en Azure están disponibles como un servicio administrado, mientras que los clústeres independientes son de autoservicio. Para más información sobre las diferencias, consulte [Comparación de clústeres de Service Fabric de Azure e independientes](./service-fabric-deploy-anywhere.md).
@@ -25,7 +25,7 @@ Este artículo le guía por los pasos para crear un clúster independiente de Se
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Soporte técnico para el paquete de Service Fabric para Windows Server
-* Pregunte a la comunidad sobre el paquete independiente de Service Fabric para Windows Server en el [foro de Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
+* Pregunte a la comunidad sobre el paquete independiente de Service Fabric para Windows Server en la [página de preguntas y respuestas de Microsoft sobre Azure Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
 * Abra una incidencia para obtener [soporte técnico profesional para Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Más información sobre el soporte técnico profesional de Microsoft[aquí](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * También puede obtener soporte técnico para este paquete como parte del [soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
 * Para más información, consulte [Opciones de soporte técnico de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).

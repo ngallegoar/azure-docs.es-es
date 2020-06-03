@@ -1,15 +1,15 @@
 ---
 title: Límites y cuotas del servicio
 description: Obtenga información sobre las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115829"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780001"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -132,10 +132,10 @@ Los grupos de Batch en la configuración de máquina virtual implementada en una
 Estos recursos se asignan en la suscripción que contiene la red virtual proporcionada al crear el grupo de Batch. Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si tiene previsto realizar grandes implementaciones de grupos en una red virtual, compruebe las cuotas de suscripción para estos recursos. Si es necesario, solicite un aumento en Azure Portal seleccionando **Ayuda y soporte técnico**.
 
 
-## <a name="related-topics"></a>Temas relacionados
+## <a name="next-steps"></a>Pasos siguientes
 * [Creación de una cuenta de Azure Batch con Azure Portal](batch-account-create-portal.md)
-* [Información general de las características de Azure Batch](batch-api-basics.md)
-* [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
+* Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
+* Conozca los [límites, las cuotas y las restricciones de suscripción y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

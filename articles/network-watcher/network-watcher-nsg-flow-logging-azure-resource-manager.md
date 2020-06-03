@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 7b7580843bc5ad90ebc394c41e81f4d16f51ccb1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891465"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701765"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configuración de registros de flujo de NSG a partir de una plantilla de Azure Resource Manager
 
@@ -110,7 +110,7 @@ A continuación se muestran dos ejemplos de plantillas completas para configurar
 ```
 
 > [!NOTE]
-> * El nombre del recurso tiene el formato "Recurso primario/Recurso secundario". En este caso, el recurso primario es la instancia regional de Network Watcher (formato: NetworkWatcher_<RegionName>. Ejemplo: NetworkWatcher_centraluseuap)
+> * El nombre del recurso tiene el formato "Parent Resource_Child resource". En este caso, el recurso primario es la instancia regional de Network Watcher (formato: NetworkWatcher_NombreDeRegión. Ejemplo: NetworkWatcher_centraluseuap)
 > * targetResourceId es el id. de recurso del NSG de destino
 > * storageId es el id. de recurso de la cuenta de almacenamiento de destino
 
@@ -160,9 +160,14 @@ Puede guardar cualquiera de las plantillas de ejemplo anteriores de forma local 
 
 Para implementar la plantilla, ejecute el siguiente comando en PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
+
+> [!NOTE]
+> Los comandos anteriores implementan un recurso en el grupo de recursos NetworkWatcherRG y no en el grupo de recursos que contiene NSG.
 
 
 ## <a name="verifying-your-deployment"></a>Comprobación de la implementación

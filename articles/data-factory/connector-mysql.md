@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8467bbe1512e45342b86ff62d51a3f66b3096f03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418140"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635790"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -38,7 +38,7 @@ Este conector de MySQL es compatible con las actividades siguientes:
 
 Puede copiar datos desde la base de datos MySQL en cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-En concreto, este conector MySQL es compatible con las **versiones 5.6 y 5.7** de MySQL.
+En concreto, este conector MySQL admite las **versiones 5.6, 5.7 y 8.0** de MySQL.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

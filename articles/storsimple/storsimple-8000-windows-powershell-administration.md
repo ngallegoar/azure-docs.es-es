@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35be2e0b7b5a24261cd8ee15b1964b953c1a3327
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277103"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747723"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar Windows PowerShell para StorSimple para administrar su dispositivos
 
@@ -105,11 +105,11 @@ Puede elegir entre las siguientes opciones:
      > [!NOTE]
      > Esta es la opción preferida si ha olvidado la contraseña del administrador de dispositivos y no se puede conectar a través de la opción 1 o 2.
 
-4. **Cambiar idioma** : esta opción le permite cambiar el idioma para mostrar en la interfaz de Windows PowerShell. Los idiomas admitidos son inglés, japonés, ruso, francés, coreano de Corea del Sur, español, italiano, alemán, chino y portugués (Brasil).
+4. **Cambiar idioma** : esta opción le permite cambiar el idioma para mostrar en la interfaz de Windows PowerShell. Los idiomas admitidos son inglés, japonés, ruso, francés, coreano de Corea del Sur, español, italiano, alemán, chino y portugués.
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Conectarse remotamente a StorSimple con Windows PowerShell para StorSimple
 
-Puede usar la conexión remota de Windows PowerShell para conectarse al dispositivo StorSimple. Cuando se conecta de este modo, no verá un menú. (Verá un menú solo si utiliza la consola en serie del dispositivo para conectarse. La conexión remota remite directamente al equivalente de "opción 1 – acceso total” en la consola en serie). Con la conexión remota de Windows PowerShell, se conecta a un espacio de ejecución específico. También puede especificar el idioma de visualización.
+Puede usar la conexión remota de Windows PowerShell para conectarse al dispositivo StorSimple. Cuando se conecta de este modo, no verá un menú. (Verá un menú solo si utiliza la consola en serie del dispositivo para conectarse. La conexión remota remite directamente al equivalente de "opción 1 – acceso total" en la consola serie). Con la conexión remota de Windows PowerShell, se conecta a un espacio de ejecución específico. También puede especificar el idioma de visualización.
 
 El idioma de visualización es independiente del idioma que se configura mediante la opción **Cambiar idioma** en el menú de la consola en serie. Remote PowerShell seleccionará automáticamente la configuración regional del dispositivo desde el que se conecta si no es especifica uno.
 

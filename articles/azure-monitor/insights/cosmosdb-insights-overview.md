@@ -1,21 +1,21 @@
 ---
-title: Supervisión de Azure Cosmos DB con Azure Monitor para Cosmos DB (versión preliminar) | Microsoft Docs
+title: Supervisión de Azure Cosmos DB con Azure Monitor para Cosmos DB | Microsoft Docs
 description: En este artículo se describe la característica Azure Monitor para Cosmos DB que proporciona a los administradores de Cosmos DB una comprensión rápida de los problemas de uso y rendimiento de sus cuentas de Cosmos DB.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/27/2019
-ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/11/2020
+ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250673"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797591"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Exploración de Azure Monitor para Azure Cosmos DB (versión preliminar)
+# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Exploración de Azure Monitor para Azure Cosmos DB
 
-Azure Monitor para Azure Cosmos DB (versión preliminar) proporciona una vista del rendimiento general, los errores, la capacidad y el estado operativo de todos los recursos de Azure Cosmos DB en una experiencia interactiva unificada. Este artículo le ayudará a comprender las ventajas de esta nueva experiencia de supervisión y cómo puede modificar y adaptar la experiencia para adaptarla a las necesidades únicas de su organización.   
+Azure Monitor para Azure Cosmos DB proporciona una vista del rendimiento general, los errores, la capacidad y el estado operativo de todos los recursos de Azure Cosmos DB en una experiencia interactiva unificada. Este artículo le ayudará a comprender las ventajas de esta nueva experiencia de supervisión y cómo puede modificar y adaptar la experiencia para adaptarla a las necesidades únicas de su organización.   
 
 ## <a name="introduction"></a>Introducción
 
@@ -44,7 +44,7 @@ Para ver el uso y el rendimiento de las cuentas de almacenamiento en todas las s
 
     ![Cuadro de búsqueda con la palabra "Monitor" y una lista desplegable donde pone Servicios "Monitor" con una imagen de un velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Seleccione **Cosmos DB (versión preliminar)** .
+3. Seleccione **Cosmos DB**.
 
     ![Captura de pantalla del libro de información general de Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -110,7 +110,7 @@ Para expandir o contraer todas las vistas desplegables del libro, seleccione el 
 
 ![Icono de expansión del libro](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Personalización de Azure Monitor para Azure Cosmos DB (versión preliminar)
+## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Personalización de Azure Monitor para Azure Cosmos DB
 
 Puesto que esta experiencia se basa en plantillas de Azure Monitor, tiene la posibilidad de **personalizar** > **editar** y **guardar** una copia de la versión modificada en un libro personalizado. 
 
@@ -124,4 +124,4 @@ Los libros se guardan en un recurso compartido, bien en la sección **Mis inform
 
 * Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications.md) para generar alertas automáticas que ayuden a detectar los problemas.
 
-* Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../app/usage-workbooks.md).
+* Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).

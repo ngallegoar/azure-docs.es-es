@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/19/2020
+ms.openlocfilehash: 5798e3c9c2a345c5cf9d8fd254130b4252a696d8
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857653"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847980"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Creación, configuración y publicación de una oferta de módulo IoT Edge en Azure Marketplace
 
@@ -59,7 +59,7 @@ En esta página se incluyen vínculos para realizar operaciones en esta oferta e
 
 Siga estos pasos para configurar la oferta.
 
-### <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
+### <a name="customer-leads"></a>Clientes potenciales
 
 Al publicar la oferta en Marketplace con el Centro de partners, puede conectarla a un sistema de administración de relaciones con clientes (CRM). Esto le permite recibir información de contacto del cliente en cuanto alguien expresa interés en el producto o lo usa.
 
@@ -146,44 +146,15 @@ Proporcione una descripción más detallada de la oferta. Puede tener una longit
 
 ### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3000 caracteres). Se muestra a los clientes en la información general de la lista de Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Incluya uno o varios de los siguientes elementos en la descripción:
+Las ofertas de módulos IoT Edge deben incluir un párrafo de requisitos mínimos de hardware en la parte inferior de la descripción, de la siguiente manera:
 
-- Valor y beneficios principales que proporciona la oferta
-- Asociaciones de categoría o de sector o ambas
-- Oportunidades de compra desde la aplicación
-- Cualquier divulgación necesaria
+- Requisitos mínimos de hardware: sistema operativo Linux x64 y arm32, 1 GB de RAM y 500 MB de almacenamiento
 
-Las ofertas de módulos IoT Edge deben incluir un párrafo de requisitos mínimos de hardware en la parte inferior de la descripción. Por ejemplo:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-*Requisitos mínimos de hardware: sistema operativo Linux x64 y arm32, 1 GB de RAM y 500 MB de almacenamiento*
-
-Estas son algunas sugerencias para escribir la descripción:
-
-- Describa claramente la propuesta de valor de la oferta en las primeras frases de la descripción. Incluya los siguientes elementos:
-    - Descripción de la oferta.
-    - Tipo de usuario que se beneficia de la oferta.
-    - Necesidades o problemas del cliente que aborda la oferta.
-- Recuerde que estas primeras frases podrían mostrarse en los resultados de la búsqueda.
-- No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona la oferta.
-- Intente usar un vocabulario específico del sector o palabras relacionadas con las ventajas.
-
-Para que la **descripción** de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato. El editor de texto enriquecido le permite agregar números, viñetas, negritas, cursivas y sangrías para que la descripción sea más legible.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Muestra el editor de texto enriquecido." border="false":::
-
-- Para cambiar el formato del contenido, resalte el texto al que quiere dar formato y seleccione un estilo de texto, como se muestra en esta captura de pantalla:
-
-     :::image type="content" source="media/text-editor3.png" alt-text="Muestra el control de estilo de texto en el editor de texto enriquecido." border="false":::
-
-- Para agregar una lista con viñetas o numerada al texto, use las opciones que se muestran en esta captura de pantalla:
-  
-    :::image type="content" source="media/text-editor4.png" alt-text="Ilustra los controles de lista con viñetas o numerada en el editor de texto enriquecido." border="false":::
-
-- Para agregar o quitar la sangría del texto, use las opciones que se muestran en esta captura de pantalla:
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Muestra los controles de sangría en el editor de texto enriquecido." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-url"></a>Dirección URL de la directiva de privacidad
 

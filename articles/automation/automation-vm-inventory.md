@@ -1,51 +1,51 @@
 ---
-title: Administración de una máquina virtual de Azure con la recopilación de inventario | Microsoft Docs
-description: Administración de una máquina virtual con la recopilación de inventario
+title: Administración de la recopilación del inventario de Azure Automation desde máquinas virtuales | Microsoft Docs
+description: En este artículo se explica cómo administrar la recopilación del inventario desde máquinas virtuales.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventario, automatización, cambio, seguimiento
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617376"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830623"
 ---
-# <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
+# <a name="manage-inventory-collection-from-vms"></a>Administración de la recopilación del inventario desde máquinas virtuales
 
 Puede habilitar el seguimiento del inventario para una máquina virtual de Azure desde la página de recursos de esta. Puede recopilar y ver la siguiente información de inventario en los equipos:
 
-- software de Windows (aplicaciones Windows y actualizaciones de Windows), servicios, archivos y claves del registro;
-- archivos y demonios de software de Linux (paquetes).
+- Actualizaciones de Windows, aplicaciones de Windows, servicios, archivos y claves del Registro
+- Paquetes de software, demonios y archivos de Linux
 
-Este método proporciona una interfaz de usuario basada en explorador para instalar y configurar la recopilación de inventario.
+Change Tracking e Inventario de Azure Automation ofrece una interfaz de usuario basada en explorador para instalar y configurar la recopilación de inventario.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
-En este artículo se da por supuesto que tiene una máquina virtual activada para configurar la solución. Si no tiene una máquina virtual de Azure, cree una [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
+En este artículo se presupone que tiene una máquina virtual que habilitar con Change Tracking e Inventario. Si aún no tiene una máquina virtual de Azure, puede [crear una máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Habilitación de la recopilación de inventario desde la página de recursos de la máquina virtual
+## <a name="enable-inventory-collection-from-the-vm-resource-page"></a>Habilitación de la recopilación de inventario desde la página de recursos de la máquina virtual
 
 1. En el panel izquierdo de Azure Portal, seleccione **Máquinas virtuales**.
-2. En la lista de máquinas virtuales, seleccione una máquina virtual.
+2. En la lista de máquinas virtuales, seleccione una máquina.
 3. En el menú **Recurso**, en **Operaciones**, seleccione **Inventario**.
 4. Seleccione un área de trabajo de Log Analytics para almacenar los registros de datos.
     Si no hay áreas de trabajo disponibles para esa región, deberá crear una predeterminada y una cuenta de Automation.
-5. Seleccione **Habilitar** para iniciar la incorporación al equipo.
+5. Para empezar a habilitar el equipo, seleccione **Habilitar**.
 
    ![Vista de las opciones de incorporación](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Una barra de estado le notifica que la solución se está habilitando. Este proceso puede tardar hasta 15 minutos. Durante este tiempo, puede cerrar la ventana o mantenerla abierta, y se le notificará cuando la solución esté habilitada. Puede supervisar el estado de la implementación desde el panel de notificaciones.
+    Una barra de estado le notifica que se está habilitando la característica Change Tracking e Inventario. Este proceso puede tardar hasta 15 minutos. Durante este tiempo, puede cerrar la ventana o mantenerla abierta, y se le notificará cuando la característica esté habilitada. Puede supervisar el estado de la implementación desde el panel de notificaciones.
 
-   ![Vista de la solución de inventario inmediatamente después de la incorporación](./media/automation-vm-inventory/inventory-onboarded.png)
+   ![Visualización del inventario](./media/automation-vm-inventory/inventory-onboarded.png)
 
 Una vez completada la implementación, la barra de estado desaparece. El sistema sigue recopilando datos de inventario y puede que estos aún no se vean. La recopilación de datos puede tardar 24 horas.
 
@@ -57,7 +57,7 @@ De forma predeterminada, el software, los servicios de Windows y los demonios de
 2. Para agregar una nueva configuración de recopilación, vaya a la categoría de configuración que desee agregar seleccionando la pestaña **Registro de Windows**, **Archivos de Windows** o **Archivos de Linux**.
 3. Seleccione la categoría correspondiente y haga clic en **Agregar** en la parte superior de la página.
 
-Las tablas siguientes proporcionan información sobre cada propiedad que se puede configurar para las distintas categorías.
+En las secciones siguientes se ofrece información sobre cada propiedad que se puede configurar para las distintas categorías.
 
 ### <a name="windows-registry"></a>Registro de Windows
 
@@ -110,14 +110,14 @@ Si quiere crear un nuevo grupo de máquinas, haga clic en **+ Crear un grupo de 
 
 ![Crear grupo de máquinas](./media/automation-vm-inventory/create-new-group.png)
 
-## <a name="disconnect-your-virtual-machine-from-management"></a>Interrupción de la administración de la máquina virtual
+## <a name="disconnect-your-vm-from-management"></a>Desconexión de la máquina virtual de la administración
 
-Para dejar de administrar el inventario de la máquina virtual:
+Para quitar la máquina virtual de la administración de Change Tracking e Inventario:
 
-1. En el panel izquierdo de Azure Portal, seleccione **Log Analytics** y, a continuación, el área de trabajo que usó durante la incorporación a la máquina virtual.
+1. En el panel izquierdo de Azure Portal, seleccione **Log Analytics** y elija el área de trabajo que usó al habilitar la máquina virtual para Change Tracking e Inventario.
 2. En la página Log Analytics, abra el menú **Recurso**.
 3. Seleccione **Máquinas virtuales** en **Orígenes de datos del área de trabajo**.
-4. En la lista, seleccione la máquina virtual que desee desconectar. La máquina virtual tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**.
+4. En la lista, seleccione la máquina virtual que quiere desconectar. La máquina tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**.
 
    >[!NOTE]
    >Operations Management Suite (OMS) ahora se conoce como registros de Azure Monitor.
@@ -127,5 +127,6 @@ Para dejar de administrar el inventario de la máquina virtual:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de cómo administrar los cambios de configuración en los archivos y el registro de las máquinas virtuales, consulte [Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md).
-* Para más información sobre cómo administrar Windows y actualizaciones de paquetes en las máquinas virtuales, consulte [Solución Update Management en Azure](../operations-management-suite/oms-solution-update-management.md).
+* Para obtener más información sobre cómo trabajar con la característica, consulte [Administración de Change Tracking e Inventario](change-tracking-file-contents.md).
+* Para más información sobre el seguimiento de cambios de software, consulte [Información general de Change Tracking e Inventario](../log-analytics/log-analytics-change-tracking.md).
+* Para solucionar problemas generales con la característica, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).

@@ -4,12 +4,12 @@ description: Crear alertas del registro de actividad mediante Azure Portal, una 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132403"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744262"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -29,7 +29,7 @@ Cuando cree reglas de alertas, asegúrese de lo siguiente:
 - No hay condición "anyOf" o condiciones anidadas en la configuración de alertas JSON. Básicamente, solo se permite una condición "allOf" sin más condiciones "allOf" o "anyOf".
 - Cuando la categoría es "administrativo", debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Puede usar Azure Portal para crear y modificar las reglas de alertas del registro de actividad. Asimismo, se integra la experiencia con el registro de actividad de Azure para garantizar la creación de alertas sin problemas para eventos específicos de interés.
 
@@ -67,6 +67,11 @@ Use el siguiente procedimiento.
      **Pantalla para agregar criterios**
 
      ![Agregar criterios](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  Para que las reglas sean de alta calidad y efectivas, pedimos que se añada al menos una condición más a las reglas con la señal "todo administrativo". 
+     > Como parte de la definición de la alerta, debe rellenar una de las listas desplegables: "Nivel de evento", "Estado" o "Iniciado por" y así la regla será más específica.
 
      - **Hora del historial**: los eventos disponibles para la operación seleccionada se pueden trazar en las últimas 6, 12 o 24 horas o durante la última semana.
 

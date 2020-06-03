@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 981c6f145f0bf06fbe81234d473b9fbcd2235174
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613981"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836233"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Preguntas más frecuentes acerca de Table API en Azure Cosmos DB
 
@@ -293,7 +293,7 @@ Azure Cosmos DB es un sistema basado en Acuerdos de Nivel de Servicio que ofrece
 Puede proporcionar comentarios de alguna de las siguientes formas:
 
 * [Voz del usuario](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow es la mejor opción para preguntas de programación. Asegúrese de que su pregunta es [relevante](https://stackoverflow.com/help/on-topic) y [proporcione tantos detalles como sea posible, formulando la pregunta de forma clara y responsable](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Pasos siguientes

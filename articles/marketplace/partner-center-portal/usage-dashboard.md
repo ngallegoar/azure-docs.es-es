@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b60475c56b18e81b082e7552fec789b06adeff27
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793013"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746664"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Panel Uso de los análisis de Marketplace comercial de Microsoft
 
@@ -54,7 +54,7 @@ En la tabla de resumen de uso se muestran las horas de uso del cliente para toda
 
 ### <a name="usage-by-geography"></a>Uso por geografía
 
-En el mapa térmico de **uso normalizado por geografía** se muestran las horas de uso asignadas en función del país del cliente. La variación de color del país representa la concentración de uso normalizado. Para volver a la vista original, presione el botón **Inicio** en el mapa.
+En el mapa térmico de **uso normalizado por geografía** se muestran las horas de uso asignadas en función del país o región del cliente. La variación de color del país o región representa la concentración de uso normalizado. Para volver a la vista original, presione el botón **Inicio** en el mapa.
 
 ### <a name="usage-by-offers"></a>Uso por ofertas
 
@@ -92,7 +92,7 @@ En la **tabla de detalles de uso** se muestra una lista numerada de los 1000 re
 - Cada columna de la cuadrícula se puede ordenar.
 - Los datos se pueden extraer a un archivo CSV si el recuento de los registros es inferior a 1000.
 - Si el recuento de registros es superior a 1000, los datos exportados se colocarán de forma asincrónica en una página de descargas que estará disponible durante los próximos 30 días.
-- Se pueden aplicar filtros a los **datos de uso detallados** para mostrar solo los datos que le interesen. Los datos se pueden filtrar por país, canal de ventas, tipo de licencia de Marketplace, tipo de uso, tipo y nombre de la oferta, evaluaciones gratuitas, identificador de la suscripción a Marketplace, identificador de cliente y nombre de la empresa.
+- Se pueden aplicar filtros a los **datos de uso detallados** para mostrar solo los datos que le interesen. Los datos se pueden filtrar por país o región, canal de ventas, tipo de licencia de Marketplace, tipo de uso, tipo y nombre de la oferta, evaluaciones gratuitas, identificador de la suscripción a Marketplace, identificador de cliente y nombre de la empresa.
 
 > [!NOTE]
 > Seleccione **Tipo de uso** en el filtro de página para ver los gráficos de la página en "Vista normalizada" o "Vista sin formato". Para estos gráficos, "Vista normalizada" es la vista predeterminada.

@@ -1,22 +1,22 @@
 ---
-title: Guía de publicación de marketplace comercial
-description: Introducción al marketplace comercial para publicadores de aplicaciones y servicios.
+title: Guía de publicación de marketplace comercial de Microsoft
+description: Información general de marketplace comercial para asociados de Microsoft que desean publicar ofertas en Microsoft AppSource y Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261999"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657859"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>Guía de publicación de marketplace comercial
 
-La guía de publicación de Marketplace se ha diseñado para ayudar a los anunciantes nuevos y existentes a aprender a usar los escaparates [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Microsoft AppSource](https://appsource.microsoft.com). La finalidad es hacer crecer su negocio en colaboración con Microsoft mediante el anuncio de aplicaciones y servicios.
+La guía de publicación se ha diseñado para ayudar a los anunciantes nuevos y existentes a publicar aplicaciones y servicios en los escaparates de marketplace comercial, [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Microsoft AppSource](https://appsource.microsoft.com), para hacer crecer su negocio en colaboración con Microsoft.
 
 >[!Note]
 >Marketplace aquí se refiere a Azure Marketplace y AppSource.  Consulte [Un Marketplace, dos escaparates](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) para obtener más información.

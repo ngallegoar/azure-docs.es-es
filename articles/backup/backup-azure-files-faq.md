@@ -3,16 +3,16 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105648"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836114"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
-En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en la [página de preguntas y respuestas de Microsoft para su debate](https://docs.microsoft.com/answers/topics/azure-backup.html).
 
 Para examinar rápidamente las secciones de este artículo, use los vínculos de la derecha que aparecen debajo de **En este artículo**.
 
@@ -80,9 +80,80 @@ Es posible acceder a todas las instantáneas realizadas por Azure Backup desde e
 
 Consulte la [matriz de compatibilidad](azure-file-share-support-matrix.md) para obtener más información sobre la retención máxima. Azure Backup hace un cálculo en tiempo real del número de instantáneas cuando se escriben los valores de retención al configurar la directiva de copia de seguridad. En cuanto el número de instantáneas correspondientes a los valores de retención definidos supera las 200, el portal mostrará una advertencia que le solicitará que ajuste los valores de retención. Esto es para que no supere el límite del número máximo de instantáneas que admite Azure Files para cualquier recurso compartido de archivos en cualquier momento.
 
-### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share"></a>¿Qué ocurre cuando se cambia la directiva de copia de seguridad de un recurso compartido de archivos de Azure?
+### <a name="what-is-the-impact-on-existing-recovery-points-and-snapshots-when-i-modify-the-backup-policy-for-an-azure-file-share-to-switch-from-daily-policy-to-gfs-policy"></a>¿Cuál es el efecto en las instantáneas y los puntos de recuperación existentes cuando se modifica la Directiva de copia de seguridad de un recurso compartido de archivos de Azure para pasar de la "directiva diaria" a la "directiva GFS"?
 
-Cuando se aplica una nueva directiva en los recursos compartidos de archivos, se siguen las opciones de programación y retención de la nueva directiva. Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva. Si se reduce la retención, se marcan para eliminarse, y se eliminan, en el siguiente trabajo de limpieza.
+Cuando se modifica una directiva de copia de seguridad diaria a la directiva GFS (agregando retención semanal/mensual/anual), el comportamiento es el siguiente:
+
+- **Retención**: Si va a agregar una retención semanal/mensual/anual como parte de la modificación de la directiva, todos los puntos de recuperación futuros creados como parte de la copia de seguridad programada se etiquetarán según la nueva directiva. Todos los puntos de recuperación existentes se seguirán considerando puntos de recuperación diarios y por eso no se etiquetarán como semanal/mensual/anual.
+
+- **Limpieza de instantáneas y puntos de recuperación**:
+
+  - Si se amplía la retención diaria, la fecha de expiración de los puntos de recuperación existentes se actualiza según el valor de retención diaria configurado en la nueva Directiva.
+  - Si se reduce la retención diaria, las instantáneas y los puntos de recuperación existentes se marcan para su eliminación en el siguiente trabajo de ejecución de limpieza según el valor de retención diaria configurado en la nueva directiva y después se eliminan.
+
+Este es un ejemplo de su funcionamiento:
+
+#### <a name="existing-policy-p1"></a>Directiva existente [P1]
+
+|Tipo de retención |Programación |Retención  |
+|---------|---------|---------|
+|Diario    |    Todos los días a las 20:00 horas    |  100 días       |
+
+#### <a name="new-policy-modified-p1"></a>Nueva directiva [P1 modificada]
+
+| Tipo de retención | Programación                       | Retención |
+| -------------- | ------------------------------ | --------- |
+| Diario          | Todos los días a las 21:00 horas              | 50 días   |
+| Semanal         | El domingo a las 21:00 horas              | 3 semanas   |
+| Mensual        | El último lunes a las 21:00 horas         | 1 mes   |
+| Anual         | El tercer domingo de enero a las 21:00 horas | 4 años   |
+
+#### <a name="impact"></a>Impacto
+
+1. La fecha de expiración de los puntos de recuperación existentes se ajustará según el valor de retención diaria de la nueva directiva: es decir, 50 días. Por lo que los puntos de recuperación anteriores a 50 días se marcarán para su eliminación.
+
+2. Los puntos de recuperación existentes no se etiquetarán como semanal/mensual/anual según la nueva directiva.
+
+3. Todas las copias de seguridad futuras se desencadenarán de acuerdo con la nueva programación: es decir, a las 21:00 horas.
+
+4. La fecha de expiración de todos los puntos de recuperación futuros se alineará con la nueva directiva.
+
+>[!NOTE]
+>Los cambios de directiva solo afectarán a los puntos de recuperación creados como parte de la ejecución del trabajo de copia de seguridad programada. En el caso de las copias de seguridad a petición, la retención viene determinada por el valor de **Conservar copia de seguridad hasta** especificado en el momento de realizar la copia de seguridad.
+
+### <a name="what-is-the-impact-on-existing-recovery-points-when-i-modify-an-existing-gfs-policy"></a>¿Cuál es el efecto en los puntos de recuperación existentes cuando se modifica una directiva GFS existente?
+
+Cuando se aplica una nueva directiva en recursos compartidos de archivos, todas las copias de seguridad programadas futuras se realizarán según la programación configurada en la directiva modificada.  La retención de todos los puntos de recuperación existentes se alinea según los nuevos valores de retención configurados. Por lo que, si se amplía la retención, los puntos de recuperación existentes se marcan para que se conserven según la nueva directiva. Si se reduce la retención, se marcan para su limpieza en el siguiente trabajo de limpieza y luego se eliminan.
+
+Este es un ejemplo de su funcionamiento:
+
+#### <a name="existing-policy-p2"></a>Directiva existente [P2]
+
+| Tipo de retención | Programación           | Retención |
+| -------------- | ------------------ | --------- |
+| Diario          | Todos los días a las 20:00 horas | 50 días   |
+| Semanal         | El lunes a las 20:00 horas  | 3 semanas   |
+
+#### <a name="new-policy-modified-p2"></a>Nueva directiva [P2 modificada]
+
+| Tipo de retención | Programación               | Retención |
+| -------------- | ---------------------- | --------- |
+| Diario          | Todos los días a las 21:00 horas     | 10 días   |
+| Semanal         | El lunes a las 21:00 horas      | Dos semanas   |
+| Mensual        | El último lunes a las 21:00 horas | 2 meses  |
+
+#### <a name="impact-of-change"></a>Impacto del cambio
+
+1. La fecha de expiración de los puntos de recuperación diarios existentes se alineará según el nuevo valor de retención diaria, es decir, 10 días. Por lo que los puntos de recuperación diarios anteriores a 10 días se eliminarán.
+
+2. La fecha de expiración de los puntos de recuperación semanales existentes se alineará según el nuevo valor de retención semanal, es decir, dos semanas. Por lo que los puntos de recuperación semanales anteriores a dos semanas se eliminarán.
+
+3. Los puntos de recuperación mensuales solo se crearán como parte de copias de seguridad futuras según la nueva configuración de directiva.
+
+4. La fecha de expiración de todos los puntos de recuperación futuros se alineará con la nueva directiva.
+
+>[!NOTE]
+>Los cambios de directiva solo afectarán a los puntos de recuperación creados como parte de la copia de seguridad programada. En el caso de las copias de seguridad a petición, la retención viene determinada por el valor de **Conservar copia de seguridad hasta** especificado en el momento de realizar la copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,15 +4,15 @@ description: Aprenda a crear una entidad de servicio para automatizar las tareas
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231676"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871174"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 
@@ -110,4 +110,7 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)   
+[Actualización con Logic Apps](analysis-services-refresh-logic-app.md)  
+[Actualización con Azure Automation](analysis-services-refresh-azure-automation.md)  
+[Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)  
+[Automatización de las tareas del conjunto de datos y el área de trabajo de Power BI Premium con entidades de servicio](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

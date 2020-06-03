@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: e0db8edfdfa380697a1d8d7e262a7a84da2fb7d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cda0d79166f355fd7346865f2d42d066a3e3690
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77565543"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757898"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -107,7 +107,7 @@ Las aplicaciones que usan sus propios métodos heredados para autenticarse con A
 
 1. Bloquee la [autenticación heredada si usa AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configure [SharePoint Online y Exchange Online para que usen una autenticación moderna](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Si tiene Azure AD Premium, use [Directivas de acceso condicional](../../active-directory/conditional-access/overview.md) para bloquear la autenticación heredada; de lo contrario, use [valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. Si tiene Azure AD Premium, use directivas de acceso condicional para [bloquear la autenticación heredada](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md). De lo contrario, use [valores predeterminados de seguridad de Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear los puntos de entrada de autenticación no válidos
 
@@ -117,7 +117,7 @@ Al usar los recursos de vulneración de seguridad, debe reducir el impacto de la
 
 Es importante comprender las distintas [experiencias de consentimiento de la aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), los [tipos de permisos y consentimiento](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent), y sus implicaciones en la postura de seguridad de la organización. De forma predeterminada, todos los usuarios de Azure AD pueden conceder acceso a los datos de su organización a las aplicaciones que utilizan la Plataforma de identidad de Microsoft. Aunque permitir que los usuarios den su consentimiento por su cuenta les permite adquirir fácilmente aplicaciones útiles que se integran con Microsoft 365, Azure y otros servicios, puede representar un riesgo si no se utiliza y supervisa con precaución.
 
-Microsoft recomienda [deshabilitar las operaciones futuras de consentimiento del usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) para ayudar a reducir el área expuesta y a mitigar este riesgo. Si el consentimiento del usuario final se deshabilita, se seguirán respetando las concesiones de consentimiento anteriores, pero todas las operaciones de consentimiento futuras tendrá que realizarlas un administrador. Los usuarios pueden solicitar el consentimiento del administrador a través de un [flujo de trabajo de solicitud de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrado o a través de sus propios procesos de soporte técnico. Antes de deshabilitar el consentimiento del usuario final, use nuestras [recomendaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) para planear este cambio en su organización. En el caso de las aplicaciones a las que desea permitir el acceso a todos los usuarios, considere la posibilidad de [conceder consentimiento en nombre de todos los usuarios](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent) y asegúrese de que los usuarios que todavía no hayan dado su consentimiento de forma individual podrán acceder a la aplicación. Si no desea que estas aplicaciones estén disponibles para todos los usuarios en todos los escenarios, use [asignación de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) y [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) para restringir el acceso de los usuarios a las aplicaciones.
+Microsoft recomienda [deshabilitar las operaciones futuras de consentimiento del usuario](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) para ayudar a reducir el área expuesta y a mitigar este riesgo. Si el consentimiento del usuario final se deshabilita, se seguirán respetando las concesiones de consentimiento anteriores, pero todas las operaciones de consentimiento futuras tendrá que realizarlas un administrador. Los usuarios pueden solicitar el consentimiento del administrador a través de un [flujo de trabajo de solicitud de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) integrado o a través de sus propios procesos de soporte técnico. Antes de deshabilitar el consentimiento del usuario final, use nuestras [recomendaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) para planear este cambio en su organización. En el caso de las aplicaciones a las que desea permitir el acceso a todos los usuarios, considere la posibilidad de [conceder consentimiento en nombre de todos los usuarios](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent) y asegúrese de que los usuarios que todavía no hayan dado su consentimiento de forma individual podrán acceder a la aplicación. Si no quiere que estas aplicaciones estén disponibles para todos los usuarios en todos los escenarios, use la [asignación de aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) y el acceso condicional para restringir el acceso de los usuarios a [aplicaciones específicas](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md).
 
 Asegúrese de que los usuarios pueden solicitar la aprobación del administrador para las nuevas aplicaciones a fin de reducir la fricción del usuario, minimizar el volumen de soporte técnico y evitar que los usuarios se registren en las aplicaciones con credenciales que no sean de Azure AD. Una vez que haya regulado las operaciones de consentimiento, los administradores deben auditar los permisos de la aplicación y consentidos con regularidad.
 

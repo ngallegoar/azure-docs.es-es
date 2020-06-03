@@ -2,17 +2,17 @@
 title: Deshabilitamiento de funciones en Azure Functions
 description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functions.
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 11585e92e7d239731b02d06c5093f979cd65cfba
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 04/08/2020
+ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686881"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848746"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
-En este artículo se explica cómo deshabilitar una función de Azure Functions. *Deshabilitar* una función significa hacer que el entorno en tiempo de ejecución omita el desencadenador automático que se ha definido para esa función. Esto le permite evitar que una función específica se ejecute sin detener toda la aplicación de funciones.
+En este artículo se explica cómo deshabilitar una función de Azure Functions. *Deshabilitar* una función implica que el entorno en tiempo de ejecución omita el desencadenador automático que se ha definido para esa función. Esto le permite evitar que una función específica se ejecute sin detener toda la aplicación de funciones.
 
 La forma recomendada de deshabilitar una función es mediante una configuración de aplicación en el formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Puede crear y modificar esta configuración de aplicación de varias maneras. Por ejemplo, puede usar la [CLI de Azure](/cli/azure/) o usar la pestaña **Administrar** de la función en [Azure Portal](https://portal.azure.com). 
 
@@ -39,7 +39,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Uso del portal
 
-También puede usar el conmutador **Estado de la función** en la pestaña **Administrar** de la función. El conmutador funciona mediante la creación y eliminación de la configuración de la aplicación `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
+También puede usar los botones **Habilitar** y **Deshabilitar** de la página de **información general** de la función. Estos botones funcionan mediante la creación y eliminación del valor de configuración de la aplicación `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
 
 ![Conmutador Estado de la función](media/disable-function/function-state-switch.png)
 
@@ -122,9 +122,9 @@ or
 
 En el segundo ejemplo, la función se deshabilita cuando hay una configuración de aplicación que se denomina IS_DISABLED y se establece en `true` o 1.
 
-Puede editar el archivo en Azure Portal o utilizar el conmutador **Estado de la función** en la pestaña **Administrar** de la función. El modificador del portal funciona modificando el archivo *function.json*.
+>[!IMPORTANT]  
+>El portal ahora usa la configuración de la aplicación para deshabilitar las funciones de v1.x. Cuando un valor de configuración de la aplicación entra en conflicto con el archivo function.jason, puede producirse un error. Debe quitar la propiedad `disabled` del archivo function.json para evitar errores. 
 
-![Conmutador Estado de la función](media/disable-function/function-state-switch.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,35 +1,31 @@
 ---
 title: Generación de recomendaciones mediante Apache Mahout en Azure HDInsight
-description: Aprenda a usar la biblioteca de aprendizaje automático de Apache Mahout para generar recomendaciones de películas con HDInsight (Hadoop).
+description: Aprenda a usar la biblioteca de aprendizaje automático de Apache Mahout para generar recomendaciones de películas con HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/03/2020
-ms.openlocfilehash: 33110e9f1d45fcd11e5f4cad1b589ab929a9472d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: ab4c2984bbaef84684432c660baadc78f3ef8e16
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75767643"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656329"
 ---
-# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Generación de recomendaciones de películas mediante Apache Mahout con Apache Hadoop en HDInsight (SSH)
-
-[!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
+# <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Generación de recomendaciones mediante Apache Mahout en Azure HDInsight
 
 Aprenda a usar la biblioteca de aprendizaje automático de [Apache Mahout](https://mahout.apache.org) con HDInsight de Azure para generar recomendaciones de películas con HDInsight.
 
 Mahout es una biblioteca de [aprendizaje automático](https://en.wikipedia.org/wiki/Machine_learning) para Apache Hadoop. Mahout contiene algoritmos para el procesamiento de datos, como filtrado, clasificación y agrupación en clústeres. En este artículo, se usa un motor de recomendaciones para generar recomendaciones de películas que se basan en películas que sus amigos han visto.
 
+Para obtener más información sobre la versión de Mahout en HDInsight, vea [Versiones de HDInsight y componentes de Apache Hadoop](../hdinsight-component-versioning.md).
+
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Un clúster de Apache Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
-
-## <a name="apache-mahout-versioning"></a>Control de versiones de Apache Mahout
-
-Para obtener más información sobre la versión de Mahout en HDInsight, vea [Versiones de HDInsight y componentes de Apache Hadoop](../hdinsight-component-versioning.md).
 
 ## <a name="understanding-recommendations"></a>Descripción de recomendaciones
 

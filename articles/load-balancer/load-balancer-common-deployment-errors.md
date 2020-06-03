@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: 26b4232832589827a09774eb0106c25e5c446eb1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791092"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658644"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Solución de errores comunes de implementación de Azure con Azure Load Balancer
 
@@ -34,6 +34,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 |CannotUseInactiveHealthProbe| No puede tener un sondeo que no lo use ninguna regla configurada para el mantenimiento del conjunto de escalado de máquinas virtuales. Asegúrese de que el sondeo que se está configurando se use activamente. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| No puede tener varios equilibradores de carga del mismo tipo (interno, público). Puede tener un equilibrador de carga público interno como máximo. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | No se admite Basic Load Balancer para conjuntos de escalado de máquinas virtuales de múltiples ubicaciones o para el conjunto de escalado de máquinas virtuales de varias zonas de disponibilidad. Use Standard Load Balancer en su lugar. |
+|MarketplacePurchaseEligibilityFailed | Cambie a la cuenta administrativa correcta para habilitar las compras debido a que la suscripción es un una suscripción EA. Puede leer más [aquí](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
 |ResourceDeploymentFailure| Si el equilibrador de carga está en un estado de error, siga estos pasos para recuperarlo de dicho estado:<ol><li>Vaya a https://resources.azure.com e inicie sesión con las credenciales de Azure Portal.</li><li>Seleccione **Lectura o escritura**.</li><li>A la izquierda, expanda **Suscripciones** y, a continuación, expanda la suscripción con la instancia de Load Balancer que se va a actualizar.</li><li>Expanda **ResourceGroups** y, a continuación, expanda el grupo de recursos con la instancia de Load Balancer que se va a actualizar.</li><li>Seleccione **Microsoft.Network** > **LoadBalancers** y, a continuación, seleccione la instancia de Load Balancer que se va a actualizar, **LoadBalancer_1**.</li><li>En la página para mostrar de**LoadBalancer_1**, seleccione **GET** > **Editar**.</li><li>Actualice el valor de **ProvisioningState** de **Incorrecto** a **Correcto**.</li><li>Seleccione **PUT**.</li></ol>|
 |  |  |
 

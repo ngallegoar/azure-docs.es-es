@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836706"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873504"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -94,7 +94,7 @@ Consulte [Application Gateway subnet size considerations](https://docs.microsoft
 
 Sí. Además de tener varias instancias de una determinada implementación de Application Gateway, puede aprovisionar otro recurso de Application Gateway único para una subred existente que contenga un recurso de Application Gateway diferente.
 
-Una sola subred no admite Application Gateway Standard_v2 y Standard conjuntamente.
+Una sola subred no admite las SKU v1 y v2 de Application Gateway.
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>¿Admite Application Gateway v2 rutas definidas por el usuario?
 

@@ -4,24 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Aprenda la forma en que Azure enruta el tráfico de las redes virtuales y cómo se puede personalizar el enrutamiento de Azure.
 services: virtual-network
 documentationcenter: na
-author: malopMSFT
+author: KumudD
 manager: ''
-editor: v-miegge
-tags: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop
-ms.reviewer: kumud
-ms.openlocfilehash: d9ed11cd00909a104b5ea54463f8a98020837e10
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.author: aldomel
+ms.openlocfilehash: ad0a5fc5940c36aa5d2d6912987b154532bc80a1
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477881"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727124"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -170,7 +167,7 @@ Si se reemplaza el prefijo de dirección 0.0.0.0/0, además del tráfico de sali
 
 Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente. Para más información, consulte la pregunta *¿Por qué hay algunos puertos abiertos en mi puerta de enlace de VPN?* en las [Preguntas más frecuentes sobre VPN Gateway](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
-Para obtener información acerca de las puertas de enlace de redes virtuales y aplicaciones virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Red perimetral entre Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obtener información sobre la implementación al usar puertas de enlace de redes virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="routing-example"></a>Ejemplo de enrutamiento
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4a94b0b84290bbf796e951dfee8b3f35b80036ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89d760e28025f64b8cd8940fc08f06d23c969e12
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183167"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655743"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Línea de base de seguridad de Azure para un único servidor de Azure Database for PostgreSQL
 
@@ -906,7 +906,7 @@ Cómo proporcionar la autenticación de Key Vault con una identidad administrada
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Guía**: El servidor de Azure Database for PostgreSQL admite la autenticación de Azure Active Directory (en versión preliminar) para tener acceso a las bases de datos.  Al crear el servidor de Azure Database for PostgreSQL, se deben proporcionar las credenciales de un usuario administrador. Este administrador se puede usar para crear más usuarios de base de datos.  
+**Guía**: El servidor de Azure Database for PostgreSQL admite la autenticación de Azure Active Directory para tener acceso a las bases de datos.  Al crear el servidor de Azure Database for PostgreSQL, se deben proporcionar las credenciales de un usuario administrador. Este administrador se puede usar para crear más usuarios de base de datos.  
 
 En el caso de Azure Virtual Machines o las aplicaciones web que se ejecutan en Azure App Service y se usan para tener acceso al servidor de Azure Database for PostgreSQL, use Managed Service Identity junto con Azure Key Vault para almacenar y recuperar las credenciales del servidor de Azure Database for PostgreSQL. Asegúrese de que la eliminación temporal de Key Vault esté habilitada.
 

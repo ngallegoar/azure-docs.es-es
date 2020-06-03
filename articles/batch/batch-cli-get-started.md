@@ -1,15 +1,15 @@
 ---
 title: Introducción a la CLI de Azure para Batch
 description: Obtenga una introducción rápida a los comandos de Batch en la CLI de Azure para administrar los recursos del servicio Azure Batch
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117376"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780228"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Administración de recursos de Batch con la CLI de Azure
 
@@ -162,9 +162,9 @@ Las siguientes sugerencias pueden ayudarle cuando esté solucionando problemas d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
-* Para más información sobre los recursos de Batch, consulte [Introducción a Azure Batch para desarrolladores](batch-api-basics.md).
-* Para más información sobre el uso de plantillas de Batch para crear grupos, trabajos y tareas sin escribir código, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch](batch-cli-templates.md).
+* Consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+* Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
+* Aprenda sobre el uso de plantillas de Batch para crear grupos, trabajos y tareas sin escribir código en [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

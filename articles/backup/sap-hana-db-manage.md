@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3705750e32b8b34ed397b8f68f22b0728129266
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480069"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701111"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -68,13 +68,21 @@ Las copias de seguridad se ejecutan según la programación de la directiva. Pue
 
 ### <a name="hana-native-client-integration"></a>Integración de cliente nativo de HANA
 
-Ahora, las copias de seguridad completas a petición desencadenadas desde cualquiera de los clientes nativos de HANA se mostrarán como una copia de seguridad completa en la página **Elementos de copia de seguridad**.
+#### <a name="backup"></a>Copia de seguridad
+
+Las copias de seguridad a petición desencadenadas desde cualquiera de los clientes nativos de HANA (a **Backint**) se mostrarán en la lista de copia de seguridad de la página **Elementos de copia de seguridad**.
 
 ![Última ejecución de copias de seguridad](./media/sap-hana-db-manage/last-backups.png)
 
-Estas copias de seguridad completas ad hoc también se mostrarán en la lista de puntos de restauración para la restauración.
+También puede [supervisar estas copias de seguridad](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) desde la página **Trabajos de copia de seguridad**.
+
+Estas copias de seguridad a petición también se mostrarán en la lista de puntos de restauración para la restauración.
 
 ![Lista de puntos de restauración](./media/sap-hana-db-manage/list-restore-points.png)
+
+#### <a name="restore"></a>Restauración
+
+Las restauraciones desencadenadas a partir de clientes nativos de HANA (mediante **Backint**) para restaurar en la misma máquina pueden [supervisarse](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) desde la página **Trabajos de copia de seguridad**.
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Ejecución de una copia de seguridad del cliente nativo de SAP HANA en una base de datos con Azure Backup habilitado
 
@@ -200,13 +208,13 @@ Para reanudar la protección para una base de datos de SAP HANA:
 
 * En el menú **Directiva de copia de seguridad**, seleccione una directiva y, después, seleccione **Guardar**.
 
-### <a name="upgrading-from-sap-hana-10-to-20"></a>Actualización de SAP HANA 1.0 a 2.0
+### <a name="upgrading-from-sdc-to-mdc"></a>Actualización de SDC a MDC
 
-Obtenga información sobre cómo continuar con la copia de seguridad de una base de datos de SAP HANA [después de actualizar de SAP HANA 1.0 a 2.0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-10-to-20).
+Obtenga información sobre cómo continuar con la copia de seguridad de una base de datos SAP HANA [después de actualizar de SDC a MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
 
-### <a name="upgrading-without-a-sid-change"></a>Actualización sin un cambio de Id. de seguridad
+### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Actualización de SDC a MDC sin un cambio de SID
 
-Obtenga información sobre cómo continuar con la copia de seguridad de una base de datos de SAP HANA cuyo [Id. de seguridad no haya cambiado después de la actualización](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
+Obtenga información sobre cómo continuar con la copia de seguridad de una base de datos SAP HANA cuyo [SID no haya cambiado después de la actualización de SDC a MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Anulación del registro de una instancia de SAP HANA
 

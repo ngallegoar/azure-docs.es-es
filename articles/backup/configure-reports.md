@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c1af9a532b390b428e74957c455988dfd4df3967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184952"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797527"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -18,15 +18,16 @@ Un requisito común para los administradores de copias de seguridad es obtener c
 - Auditoría de copias de seguridad y restauraciones.
 - Identificación de las tendencias clave con diferentes niveles de granularidad.
 
-En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) y [libros de Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
+En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) y [libros de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-- Los informes de Backup s admiten en VM de Azure, SQL en VM de Azure, SAP HANA/ASE en VM de Azure, el agente de Microsoft Azure Recovery Services (MARS), Microsoft Azure Backup Server (MABS) y System Center Data Protection Manager (DPM). Los datos de copia de seguridad del recurso compartido de archivos de Azure no son visibles actualmente en los informes de Backup.
+- Los informes de Backup se admiten en máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, el agente de Microsoft Azure Recovery Services (MARS), Microsoft Azure Backup Server (MABS) y System Center Data Protection Manager (DPM). Los datos de copia de seguridad del recurso compartido de archivos de Azure no son visibles actualmente en los informes de Backup.
 - En las cargas de trabajo de DPM, se admiten los informes de Backup para la versión 5.1.363.0 de DPM y posteriores, y la versión 2.0.9127.0 del agente y posteriores.
 - En las cargas de trabajo de MABS, se admiten los informes de Backup para la versión 13.0.415.0 de MABS y posteriores, y la versión 2.0.9170.0 del agente y posteriores.
 - Los informes de Backup se pueden ver en todos los elementos de copia de seguridad, almacenes, suscripciones y regiones, siempre y cuando sus datos se envíen a un área de trabajo de Log Analytics a la que el usuario tenga acceso. Para ver los informes de un conjunto de almacenes, solo necesita tener acceso de lectura al área de trabajo de Log Analytics a la que los almacenes envían sus datos. No es necesario que tenga acceso a los almacenes individuales.
 - Si es usuario de [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) con acceso delegado a las suscripciones de los clientes, puede usar estos informes con Azure Lighthouse para ver los informes de todos los inquilinos.
+- Actualmente, los datos se pueden ver en Informes de Backup en un máximo de 100 áreas de trabajo de Log Analytics (entre inquilinos).
 - Los datos de los trabajos de copia de seguridad de registros no se muestran actualmente en los informes.
 
 ## <a name="get-started"></a>Introducción
@@ -81,6 +82,9 @@ El informe contiene varias pestañas:
 
    ![Pestaña Uso](./media/backup-azure-configure-backup-reports/usage.png)
 
+> [!NOTE]
+> En el caso de las cargas de trabajo de DPM, los usuarios pueden ver una pequeña diferencia (del orden de 20 MB por servidor DPM) entre los valores de uso mostrados en los informes en comparación con el valor de uso agregado, tal como se muestra en la pestaña Información general del almacén de Recovery Services. Esta diferencia se tiene en cuenta por el hecho de que cada servidor DPM que se está registrando para la copia de seguridad tiene un origen de datos "Metadata" asociado que no aparece como un artefacto para la creación de informes.
+
 - **Trabajos**: Use esta pestaña para ver tendencias de ejecución prolongada de los trabajos, como el número de trabajos con errores por día y las causas principales de los errores de los trabajos. Puede ver esta información en un nivel agregado y en el nivel de elemento de Backup. Seleccione un elemento de Backup determinado en una cuadrícula para ver información detallada sobre cada trabajo que se desencadenó en ese elemento de Backup en el intervalo de tiempo seleccionado.
 
    ![Pestaña Trabajos](./media/backup-azure-configure-backup-reports/jobs.png)
@@ -127,7 +131,7 @@ Los widgets del informe de Backup se basan en consultas de Kusto, que se ejecuta
 
 - La versión anterior de la plantilla de Power BI para la creación de informes, que tiene como origen de los datos una cuenta de Azure Storage, está en una ruta de desuso. Se recomienda comenzar a enviar los datos de diagnóstico del almacén a Log Analytics para ver los informes.
 
-- * Además, el [esquema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) de envío de datos de diagnóstico a una cuenta de almacenamiento o a un área de trabajo de LA también se encuentra en una ruta de degradación. Esto significa que, si ha escrito consultas personalizadas o automatizaciones basadas en el esquema v1, se recomienda actualizar estas consultas para usar el esquema V2 actualmente admitido.
+- Además, el [esquema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) de envío de datos de diagnóstico a una cuenta de almacenamiento o a un área de trabajo de LA también se encuentra en una ruta de degradación. Esto significa que, si ha escrito consultas personalizadas o automatizaciones basadas en el esquema v1, se recomienda actualizar estas consultas para usar el esquema V2 actualmente admitido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

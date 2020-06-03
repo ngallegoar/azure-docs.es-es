@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 508933cbea3e21fdec63907cef73102866732bb1
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 05/21/2020
+ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891004"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780561"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -108,7 +108,7 @@ En el ejemplo siguiente se devuelve el identificador de recurso para el bloqueo 
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-La sintaxis de esta función varía según el nombre de las operaciones de la lista. Cada implementación devuelve valores para el tipo de recurso que admite una operación de la lista. El nombre de la operación debe empezar por `list`. Algunos usos habituales son `listKeys` y `listSecrets`.
+La sintaxis de esta función varía según el nombre de las operaciones de la lista. Cada implementación devuelve valores para el tipo de recurso que admite una operación de la lista. El nombre de la operación debe empezar por `list`. Algunos usos habituales son `listKeys`, `listKeyValue` y `listSecrets`.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -129,6 +129,7 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | Tipo de recurso | Nombre de función |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft.AppConfiguration/configurationStores | ListKeys |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
@@ -201,7 +202,7 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | Microsoft.Network/applicationSecurityGroups | listIpConfigurations |
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
-| Microsoft.OperationalInsights/workspaces | [listKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
@@ -349,6 +350,8 @@ Para obtener el token de SAS, pase un objeto para la hora de expiración. Dicha 
     }
 }
 ```
+
+Para ver un ejemplo de listKeyValue, vea [Inicio rápido: Implementación automatizada de máquina virtual con App Configuration y la plantilla de Resource Manager](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
 
 ## <a name="providers"></a>providers
 

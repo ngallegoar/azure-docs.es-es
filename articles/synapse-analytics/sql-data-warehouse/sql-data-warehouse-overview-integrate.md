@@ -11,23 +11,23 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2f6e091b6e0285bea5fef9e4d0be40faec936c6b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 469fdf19f8c5fa511070f2d809d06829578c2131
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633143"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653730"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integración de otros servicios con un almacenamiento de datos de SQL Analytics
+# <a name="integrate-other-services-with-a-synapse-sql-pool-data-warehouse"></a>Integración de otros servicios con un grupo de Synapse SQL (almacenamiento de datos)
 
-La funcionalidad SQL Analytics de Azure Synapse Analytics permite a los usuarios la integración con muchos de los otros servicios de Azure. Con SQL Analytics puede crear un almacenamiento de datos mediante su recurso de grupo de SQL, que pueden utilizar después varios servicios, entre los que se incluyen:
+La funcionalidad de grupo de SQL en Azure Synapse Analytics permite a los usuarios la integración con muchos de los otros servicios de Azure. Con Synapse SQL puede crear un almacenamiento de datos a través de su recurso de grupo de SQL, que pueden usar después varios servicios, entre los que se incluyen los siguientes:
 
 * Power BI
 * Azure Data Factory
 * Azure Machine Learning
 * Azure Stream Analytics
 
-Para más información sobre los servicios de integración en Azure, consulte el artículo [Asociados de integración](sql-data-warehouse-partner-data-integration.md).
+Para obtener más información sobre los servicios de integración en Azure, revise el artículo [Asociados de integración](sql-data-warehouse-partner-data-integration.md).
 
 ## <a name="power-bi"></a>Power BI
 

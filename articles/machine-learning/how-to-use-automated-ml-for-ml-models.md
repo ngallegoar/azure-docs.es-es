@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257239"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653840"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -159,7 +159,7 @@ Curtosis| La medida de la cantidad de datos en cola de esta columna se compara c
 
 ## <a name="advanced-featurization-options"></a>Opciones avanzadas de caracterización
 
-El aprendizaje automático automatizado ofrece límites de protección de datos y preprocesamiento automáticamente, para ayudarle a identificar y administrar posibles problemas con los datos. 
+El aprendizaje automático automatizado ofrece límites de protección de datos y preprocesamiento automáticamente, para ayudarle a identificar y administrar posibles problemas con los datos, como [el sobreajuste y los datos desequilibrados](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
 
 ### <a name="preprocessing"></a>Preprocessing (Preprocesamiento)
 

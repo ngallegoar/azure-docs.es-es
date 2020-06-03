@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b86a38278ae345fac376958d18912a878a53872b
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789314"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834805"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envío de correos electrónicos y administración de listas de distribución de correo electrónico en SendGrid con Azure Logic Apps
 
@@ -68,7 +68,7 @@ Para obtener detalles técnicos acerca de desencadenadores, acciones y límites,
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Si tiene alguna duda, visite la [Página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes

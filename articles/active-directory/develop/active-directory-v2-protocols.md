@@ -1,5 +1,6 @@
 ---
-title: Protocolos OAuth 2.0 y OpenID Connect - Plataforma de identidad de Microsoft | Azure
+title: Protocolos OAuth 2.0 y OpenID Connect en la plataforma de identidad de Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Una guía a los protocolos OAuth 2.0 y OpenID Connect compatibles con el punto de conexión de la Plataforma de identidad de Microsoft.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 80b93efb58d225c53a64fa044f51145b392460d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0bb7812d75fa3276b52a182f9184e28a21a910ae
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690263"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737493"
 ---
-# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2.0 y OpenID Connect en la Plataforma de identidad de Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolos OAuth 2.0 y OpenID Connect en la plataforma de identidad de Microsoft
 
-El punto de conexión de la Plataforma de identidad de Microsoft para identidad como servicio con los protocolos estándar del sector, OpenID Connect y OAuth 2.0. Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre dos implementaciones cualquiera de estos protocolos. La información que aquí se describe será útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras [bibliotecas de código abierto](reference-v2-libraries.md).
+El punto de conexión de la Plataforma de identidad de Microsoft para la identidad como servicio implementa la autenticación y la autorización con los protocolos estándar del sector, OpenID Connect [OIDC] y OAuth 2.0, respectivamente. Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre dos implementaciones cualquiera de estos protocolos. La información que se describe a continuación le resultará útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras [bibliotecas de código abierto](reference-v2-libraries.md).
 
 ## <a name="the-basics"></a>Conceptos básicos
 
@@ -69,13 +70,13 @@ Para obtener información sobre cómo interactuar con estos puntos de conexión,
 
 ## <a name="tokens"></a>Tokens
 
-La implementación de OAuth 2.0 y OpenID Connect para la Plataforma de identidad de Microsoft hace un uso generalizado de tokens de portador, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con la Plataforma de identidad de Microsoft para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token de portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso no autorizado a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](https://tools.ietf.org/html/rfc6750).
+La implementación de OAuth 2.0 y OpenID Connect para la Plataforma de identidad de Microsoft hace un uso generalizado de los tokens de portador, incluidos los representados como JWT (métodos JSON Web Token). Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con la Plataforma de identidad de Microsoft para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token de portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso no autorizado a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](https://tools.ietf.org/html/rfc6750).
 
 Encontrará más información sobre los distintos tipos de tokens que se usan en el punto de conexión de la Plataforma de identidad de Microsoft en [la referencia de token de punto de acceso de la Plataforma de identidad de Microsoft](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocolos
 
-Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los siguiente tutoriales. Cada uno de ellos corresponde a un escenario de autenticación determinado. Si necesita ayuda para determinar cuál es el flujo correcto para usted, vea [los tipos de aplicaciones que puede compilar con la Plataforma de identidad de Microsoft](v2-app-types.md).
+Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los siguiente tutoriales. Cada uno de ellos corresponde a un escenario de autenticación determinado. Si necesita ayuda para determinar cuál es el flujo correcto para usted, vea [Tipos de aplicaciones que puede compilar con la Plataforma de identidad de Microsoft](v2-app-types.md).
 
 * [Creación de aplicaciones móviles y nativas con OAuth 2.0](v2-oauth2-auth-code-flow.md)
 * [Creación de aplicaciones web con OpenID Connect](v2-protocols-oidc.md)

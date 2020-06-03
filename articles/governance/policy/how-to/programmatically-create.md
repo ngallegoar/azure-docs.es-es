@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas mediante programación
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
-ms.date: 01/31/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231184"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682123"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
@@ -16,7 +16,7 @@ Este artículo le guiará a través de la creación y administración de directi
 
 Para información sobre el cumplimiento, consulte cómo [obtener datos de cumplimiento](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de que se cumplen los siguientes requisitos previos antes de empezar:
 
@@ -133,10 +133,10 @@ Use el procedimiento siguiente para crear una definición de directiva.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
    ```
 
    Sustituya el valor de {subscriptionId} anterior por el identificador de su suscripción o {managementGroupId} por el identificador de su [grupo de administración](../../management-groups/overview.md).
@@ -162,7 +162,7 @@ Utilice el procedimiento siguiente para crear una asignación de directiva y asi
 1. Cree la asignación de directiva con la llamada siguiente:
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
    ```
 
    Reemplace la información de ejemplo de los símbolos &lt;&gt; por sus propios valores.
@@ -207,8 +207,8 @@ Use el procedimiento siguiente para crear una definición de directiva:
 
    Cuando se llama sin parámetros de ubicación, `az policy definition creation` elige de forma predeterminada guardar la definición de directiva en la suscripción seleccionada del contexto de sesiones. Para guardar la definición en una ubicación diferente, use los siguientes parámetros:
 
-   - **--subscription**: se guarda en una suscripción diferente. Requiere un valor de _GUID_ como identificador de suscripción o un valor de _cadena_ como nombre.
-   - **--management-group**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
+   - **subscription**: se guarda en otra suscripción. Requiere un valor de _GUID_ como identificador de suscripción o un valor de _cadena_ como nombre.
+   - **management-group**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
 
 1. Use el siguiente comando para crear una asignación de directiva. Reemplace la información de ejemplo de los símbolos &lt;&gt; por sus propios valores.
 
@@ -216,7 +216,7 @@ Use el procedimiento siguiente para crear una definición de directiva:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   El parámetro **--scope** de `az policy assignment create` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completa. El patrón de **Scope** para cada contenedor es el siguiente. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
+   El parámetro **scope** de `az policy assignment create` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completa. El patrón de **scope** para cada contenedor es el siguiente. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
 
    - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos `/subscriptions/{subID}/resourceGroups/{rgName}`

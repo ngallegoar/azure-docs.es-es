@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/14/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: b825ed513f530733d7552e32206c12422a956b14
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 70f90026e4a67fe1f8b1d5f790aed87652975045
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81766928"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798617"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -43,7 +43,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
 | **Australia Government** |Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
-| **Europa** | Centro de Francia, Sur de Francia, Norte de Alemania, Centro-oeste de Alemania, Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Oeste de Reino Unido, Sur de Reino Unido, Oeste de Europa |Ámsterdam, Ámsterdam2, Copenhague, Dublín, Fráncfort, Ginebra, Londres, Londres2, Marsella, Milán, Múnich, Newport (Gales), Oslo, París, Stavanger, Estocolmo, Zúrich |
+| **Europa** | Centro de Francia, Sur de Francia, Norte de Alemania, Centro-oeste de Alemania, Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Oeste de Reino Unido, Sur de Reino Unido, Oeste de Europa |Ámsterdam, Ámsterdam2, Berlín, Copenhague, Dublín, Fráncfort, Ginebra, Londres, Londres2, Marsella, Milán, Múnich, Newport (Gales), Oslo, París, Stavanger, Estocolmo, Zúrich |
 | **Norteamérica** |Este de EE. UU., oeste de EE. UU., Este de EE. UU. 2, Oeste de EE.UU. 2, centro de EE. UU., Centro-sur de EE. UU.., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y Este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Ciudad de Quebec, Toronto, Vancouver |
 | **Asia** | Este de Asia y Sudeste de Asia | Bangkok, Hong Kong, Hong Kong2, Yakarta, Kuala Lumpur, Singapur, Singapur2, Taipei |
 | **India** | India occidental, India central, India del Sur |Chennai (Madrás), Chennai (Madrás)2, Mumbai (Bombay), Mumbai (Bombay)2 |
@@ -92,8 +92,10 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Compatible |Compatible |Ámsterdam2, Chicago, Frankfurt, Hong Kong, Las Vegas, Londres2, Nueva York, París, San Antonio, Silicon Valley, Tokio, Toronto, Washington DC, Washington DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Compatible |Compatible |Hong Kong, Taipéi |
 | **China Mobile International** |Compatible |Compatible | Singapur |
-| **China Telecom Global** |Compatible |Compatible |RAE de Hong Kong |
+| **China Telecom Global** |Compatible |Compatible |Hong Kong, Hong Kong2 |
 | **China Unicom Global** |Compatible |Compatible | Singapur2 |
+| **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Compatible |Compatible |Taipéi |
+| **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** | Compatible | Compatible | Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Compatible |Compatible |Chicago, Dallas, Montreal, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Chicago, Dublín, Fráncfort, Londres, Londres2, Newport, Nueva York, Osaka, París, Silicon Valley, Silicon Valley2, Singapur2, Tokio, Washington D. C. |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
@@ -132,13 +134,14 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Compatible |Compatible |Melbourne, Perth, Sídney, Sídney2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Compatible |Compatible |Ámsterdam, RAE de Hong Kong, Londres, Los Angeles, Osaka, Singapur, Sídney, Tokio, Washington DC |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Compatible |Compatible |Tokio |
+| **[NTT Global DataCenters EMEA](https://www.ntt.com/en/services/data-center.html)** |Compatible |Compatible |Berlín |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Compatible |Compatible |Osaka |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Compatible |Compatible |Marsella |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Compatible |Compatible |Melbourne, Sidney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Compatible |Compatible |Ámsterdam, Ámsterdam2, Dubái2, Fráncfort, Johannesburgo, Londres, París, RAE de Hong Kong, Sao Paulo, Silicon Valley, Singapur, Sídney, Tokio, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Compatible | Compatible | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Compatible |Compatible |Chicago, Silicon Valley, Washington DC |
-| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Compatible |Compatible |Chicago, RAE de Hong Kong, Londres, Singapur2 |
+| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Compatible |Compatible |Chicago, Hong Kong, Hong Kong2, Londres, Singapur2 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Compatible |Compatible |Seúl |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Compatible |Compatible | Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Compatible |Compatible |Chennai (Madrás), Mumbai (Bombay)2 |
@@ -156,7 +159,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Compatible |Compatible |Melbourne, Singapur, Sidney |
 | **[Telus](https://www.telus.com)** |Compatible |Compatible |Montreal, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Compatible |Compatible |Ciudad del cabo, Johannesburgo |
-| **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | Compatible | Compatible | Kuala Lumpur |
+| **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Compatible | Compatible | Kuala Lumpur |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Compatible |Compatible |Dallas, Los Ángeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Compatible |Compatible |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, RAE de Hong Kong, Londres, Mumbai, Silicon Valley, Singapur, Sídney, Tokio, Toronto, Washington DC |
@@ -188,7 +191,7 @@ Las nubes nacionales de Azure están aisladas entre sí y de los servicios comer
 | **Proveedor de servicios** | **Microsoft Azure** | **Office 365** | **Ubicaciones** |
 | --- | --- | --- | --- |
 | **China Telecom** |Compatible |No compatible |Beijing, Beijing2, Shanghái, Shanghái2 |
-| **China Unicom** | Compatible | No compatible | Beijing2 |
+| **China Unicom** | Compatible | No compatible | Beijing2, Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |Compatible |No compatible |Beijing2, Shanghai2 |
 
 Para obtener más información, consulte [ExpressRoute en China](http://www.windowsazure.cn/home/features/expressroute/).
@@ -211,6 +214,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 * Consulte con el proveedor de conectividad para ver si existe una conexión con cualquiera de los intercambios de la tabla anterior. Puede comprobar los vínculos siguientes para recopilar más información sobre los servicios ofrecidos por proveedores de Exchange. Varios proveedores de conectividad ya están conectados a los intercambios de Ethernet.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
+  * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
   * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)

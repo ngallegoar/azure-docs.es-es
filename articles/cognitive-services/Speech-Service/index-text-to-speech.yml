@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 83bf5f9e623d1d777834e5efdd26fa4cdbc42819
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 8a58079f44fb4d78c2d3f652a5f3b61dae9c8991
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401459"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800814"
 landingContent:
 - title: Acerca de la conversión de texto a voz
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
       url: text-to-speech.md
     - text: Introducción a la síntesis de voz
       url: text-to-speech-basics.md
+    - text: Uso de la CLI de Voz para conversión de texto a voz sin código
+      url: spx-overview.md
   - linkListType: quickstart
     links:
     - text: Síntesis de voz en un altavoz

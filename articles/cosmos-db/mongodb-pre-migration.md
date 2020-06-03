@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791755"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647277"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Pasos previos a la migración para migraciones de datos de MongoDB a la API de Azure Cosmos DB para MongoDB
 

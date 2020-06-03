@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/17/2020
-ms.openlocfilehash: 3847ba008747bd37d55977ec47014bf76a52ad24
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/23/2020
+ms.openlocfilehash: 29c5cdf418c4b7acfc7c3c510c3e76d956268fdf
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789919"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780361"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -37,7 +37,6 @@ Estos son los límites de una definición de aplicación lógica:
 | Longitud de `description` | 256 caracteres | |
 | Máximo de `parameters` | 50 | |
 | Máximo de `outputs` | 10 | |
-||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -144,7 +143,7 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 | Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Solicitud saliente | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Entre los ejemplos de solicitudes salientes se incluyen las llamadas realizadas por desencadenadores HTTP. <p><p>**Sugerencia**: Para las operaciones de ejecución más largas, use un [patrón de sondeo asincrónico](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [bucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Solicitud saliente | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Entre los ejemplos de solicitudes salientes se incluyen las llamadas realizadas por desencadenadores HTTP. <p><p>**Sugerencia**: Para las operaciones de ejecución más largas, use un [patrón de sondeo asincrónico](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [bucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar de forma alternativa los límites de tiempo de espera cuando se llama a otra aplicación lógica que tiene un [punto de conexión al que se puede llamar](logic-apps-http-endpoint.md), puede usar la acción integrada Azure Logic Apps en su lugar, que puede encontrar en el selector de conectores en **Integrado**. |
 | Solicitud entrante | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Algunos ejemplos de solicitudes entrantes son las llamadas recibidas por los desencadenadores de solicitud y los desencadenadores de webhook. <p><p>**Nota**: Para que el autor de llamada original obtenga la respuesta, todos los pasos de la respuesta deben terminar dentro del límite, a menos que llame a otra aplicación lógica como un flujo de trabajo anidado. Para obtener más información, consulte [Llamada, desencadenamiento o anidación de aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
@@ -154,8 +153,8 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 | Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Tamaño del mensaje | 100 MB | 200 MB | Los conectores con etiqueta ISE usan el límite de ISE, no los límites de aquellos que no son ISE. <p><p>Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. |
-| Tamaño del mensaje con fragmentación | 1 GB | 5 GB | Este límite se aplica a las acciones que admiten la fragmentación de forma nativa o que le permiten habilitar la opción de fragmentación en la configuración del entorno de ejecución. <p><p>En el entorno del servicio de integración, el motor de Logic Apps admite este límite, pero los conectores tienen sus propios límites de fragmentación hasta el límite del motor; por ejemplo, consulte la [referencia de API del conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Para más información sobre la fragmentación, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamaño del mensaje | 100 MB | 200 MB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. <p><p>- Los conectores como AS2, X12 y EDIFACT tienen sus propios [límites de mensajes B2B](#b2b-protocol-limits). <br>- Los conectores ISE usan el límite de ISE, no los límites de aquellos que no son ISE. |
+| Tamaño del mensaje con fragmentación | 1 GB | 5 GB | Este límite se aplica a las acciones que admiten la fragmentación de forma nativa o que le permiten habilitar la opción de fragmentación en la configuración del entorno de ejecución. <p><p>Si utiliza ISE, el motor de Logic Apps admite este límite, pero los conectores tienen sus propios límites de fragmentación hasta el límite del motor; por ejemplo, consulte la [referencia de API del conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Para más información sobre la fragmentación, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Límites de caracteres
@@ -177,6 +176,18 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 | Retraso mínimo entre reintentos | 5 segundos | Para cambiar el valor predeterminado, use el [parámetro de directiva de reintentos](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
+<a name="authentication-limits"></a>
+
+### <a name="authentication-limits"></a>Límites de autenticación
+
+Estos son los límites para una aplicación lógica que se inicia con un desencadenador de solicitud y habilita [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar las llamadas entrantes al desencadenador de solicitud:
+
+| Nombre | Límite | Notas |
+| ---- | ----- | ----- |
+| Directivas de autorización de Azure AD | 5 | |
+| Notificaciones por directiva de autorización | 10 | |
+||||
+
 <a name="custom-connector-limits"></a>
 
 ## <a name="custom-connector-limits"></a>Límites de conector personalizado
@@ -196,7 +207,7 @@ Estos son los límites para los conectores personalizados que puede crear a part
 | Nombre | Límite |
 |------|-------|
 | Identidades administradas por aplicación lógica | La identidad asignada por el sistema o una identidad asignada por el usuario |
-| Número de aplicaciones lógicas que tienen una identidad administrada en una suscripción de Azure por región | 250 |
+| Número de aplicaciones lógicas que tienen una identidad administrada en una suscripción de Azure por región | 500 |
 |||
 
 <a name="integration-account-limits"></a>

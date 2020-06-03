@@ -5,23 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597290"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649602"
 ---
-# <a name="azure-firewall-forced-tunneling-preview"></a>Tunelización forzada de Azure Firewall (versión preliminar)
+# <a name="azure-firewall-forced-tunneling"></a>Tunelización forzada de Azure Firewall
 
-Puede configurar Azure Firewall para enrutar todo el tráfico vinculado a Internet a un próximo salto designado, en lugar de ir directamente a Internet. Por ejemplo, puede tener un servidor perimetral local u otra aplicación virtual de red (NVA) para procesar el tráfico de red antes de que pase a Internet.
-
-> [!IMPORTANT]
-> Actualmente, la tunelización forzada de Azure Firewall está en versión preliminar pública.
->
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Al configurar una nueva instancia de Azure Firewall, puede enrutar todo el tráfico vinculado a Internet a un próximo salto designado, en lugar de ir directamente a Internet. Por ejemplo, puede tener un servidor perimetral local u otra aplicación virtual de red (NVA) para procesar el tráfico de red antes de que pase a Internet. Sin embargo, no se puede configurar un firewall existente para la tunelización forzada.
 
 De forma predeterminada, no se permite la tunelización forzada en Azure Firewall para asegurarse de que se cumplen todas sus dependencias de Azure de salida. Las configuraciones de la ruta definida por el usuario (UDR) en *AzureFirewallSubnet* que tienen una ruta predeterminada que no va directamente a Internet están deshabilitadas.
 

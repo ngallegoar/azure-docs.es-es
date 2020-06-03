@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 1167846c399430bd2db2eaa3114628ebb63ce639
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f03d1cfeccf03614fe0a5828a05768a5ae3f56e2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592328"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699652"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configuración de un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural mediante Azure Lab Services
 En este artículo se muestra cómo configurar un laboratorio centrado en el aprendizaje profundo en el procesamiento de lenguaje natural (NLP) mediante Azure Lab Services. El procesamiento de lenguaje natural (NLP) es una forma de inteligencia artificial (AI) que permite a los equipos utilizar la traducción, el reconocimiento de voz y otras capacidades de comprensión de lenguajes.  
@@ -40,7 +40,9 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para crear un laboratorio 
 | ------------ | ------------------ |
 | Tamaño de la máquina virtual | GPU pequeña (proceso) Este tamaño es más adecuado para aplicaciones de proceso intensivo y uso intensivo de la red; por ejemplo, la inteligencia artificial y el aprendizaje profundo. |
 | Imagen de la máquina virtual | [Data Science Virtual Machine para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Esta imagen proporciona marcos y herramientas de aprendizaje profundo para aprendizaje automático y ciencia de datos. Para ver la lista completa de las herramientas instaladas en esta imagen, consulte el siguiente artículo: [¿Qué incluye DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
-| Habilitar la conexión a Escritorio remoto | <p>Esta configuración permitirá a los formadores y alumnos conectarse a sus máquinas virtuales (VM) mediante Escritorio remoto (RDP).</p><p>**Importante**: Al habilitar esta opción, solo se abre el puerto **RDP** en máquinas Linux. Si RDP ya está instalado y configurado en la imagen de máquina virtual, los alumnos pueden conectarse a las máquinas virtuales a través de RDP sin seguir ningún paso adicional. <p>Si la imagen de máquina virtual no tiene RDP instalado y configurado, debe conectarse a la máquina Linux mediante SSH por primera vez e instalar paquetes RDP y GUI para que sea posible conectarse a la máquina Linux mediante RDP más tarde. Para más información, consulte [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../virtual-machines/linux/use-remote-desktop.md). A continuación, publicará la imagen para que los alumnos puedan usar RDP para conectarse a las máquinas virtuales Linux de alumnos.  |
+| Habilitar la conexión a Escritorio remoto | <p>La imagen de Data Science ya está configurada para usar X2Go. De manera que profesores y alumnos pueden conectarse mediante un escritorio remoto de la GUI.  X2Go *no* requiere que esté activada la opción **Habilitar la conexión a escritorio remoto**.  Esta opción solo debe estar activada si decide usar RDP.
+
+>**Importante**: Aunque se recomienda usar X2Go con la imagen de Data Science, si decide usar RDP, tendrá que conectarse a la máquina virtual Linux mediante SSH la primera vez e instalar los paquetes de RDP y de la GUI.  A continuación, el usuario o los alumnos podrán conectarse a la máquina virtual Linux mediante RDP más adelante.  Para obtener más información, consulte [Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services](how-to-enable-remote-desktop-linux.md).
 
 La imagen de Data Science Virtual Machine para Linux proporciona las herramientas y los marcos de aprendizaje profundo necesarios para este tipo de clase. Como resultado, después de la creación de la máquina de plantilla, no es necesario personalizarla más. Se puede publicar para que los alumnos la utilicen. Seleccione el botón **Publicar** en la página de la plantilla para publicarla en el laboratorio.  
 

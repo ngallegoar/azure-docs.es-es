@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627694"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773948"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Enlace de salida de Azure Event Grid para Azure Functions
 
@@ -162,7 +162,53 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-El enlace de salida de Event Grid no está disponible para Python.
+En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Python](functions-reference-python.md) que usa el enlace. Después, envía un evento al tema de Event Grid personalizado, tal y como se especifica en `topicEndpointUri`.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    },
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Este es el ejemplo de Python para enviar un evento a un tema de Event Grid personalizado estableciendo `EventGridOutputEvent`:
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+
+def main(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+```
 
 # <a name="java"></a>[Java](#tab/java)
 

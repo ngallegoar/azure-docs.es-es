@@ -7,16 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207267"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739488"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
-Application Gateway y el firewall de aplicaciones web (WAF) también están disponibles en una SKU Standard_v2 y WAF_v2. La SKU v2 ofrece mejoras de rendimiento y agrega compatibilidad con nuevas características esenciales, como el escalado automático, la redundancia de zona y las IP virtuales estáticas. La nueva SKU v2 sigue admitiendo las características existentes en la SKU Standard y WAF, salvo algunas excepciones que se indican en la sección de [comparación](#differences-with-v1-sku).
+Application Gateway y el firewall de aplicaciones web (WAF) también están disponibles en una SKU Standard_v2 y WAF_v2. La SKU v2 ofrece mejoras de rendimiento y agrega compatibilidad con nuevas características esenciales, como el escalado automático, la redundancia de zona y las IP virtuales estáticas. La nueva SKU v2 sigue admitiendo las características existentes en la SKU Standard y WAF, salvo algunas excepciones que se indican en la sección de [comparación](#differences-from-v1-sku).
 
 La nueva SKU v2 incluye las siguientes mejoras:
 
@@ -132,8 +133,16 @@ Precio total = 267,84 $ + 85,71 $ = 353,55 $
 
 Application Gateway and WAF pueden configurarse para escalarse de dos maneras:
 
-- **Escalado automático**: con el escalado automático habilitado, las SKU v2 de Application Gateway y WAF se escalan o reducen verticalmente en función de los requisitos del tráfico de la aplicación. Este modo ofrece una mayor elasticidad a su aplicación y elimina la necesidad de adivinar el tamaño de la puerta de enlace de aplicaciones o el número de instancias. Este modo también le permite ahorrar costos al no requerir que se ejecute la puerta de enlace a una capacidad máxima de aprovisionamiento para una carga de tráfico máxima prevista. Debe especificar un número de instancias mínimo y opcionalmente máximo. La capacidad mínima garantiza que Application Gateway y WAF v2 no caigan por debajo del número mínimo de instancias especificado, incluso en ausencia de tráfico. Cada instancia cuenta como 10 unidades de capacidad reservada adicionales. Cero significa que no hay capacidad reservada y es por naturaleza estrictamente de escalado automático. Tenga en cuenta que un mínimo de cero instancias adicionales todavía garantiza una alta disponibilidad del servicio que siempre se incluye con el precio fijo. Opcionalmente, también puede especificar un número máximo de instancias, lo que garantiza que Application Gateway no se amplíe más allá del número de instancias especificado. Se le seguirá facturando por la cantidad de tráfico atendido por el servicio Gateway. Los números de instancias pueden oscilar entre 0 y 125. El valor predeterminado para el número máximo de instancias es 20 si no se especifica.
+- **Escalado automático**: con el escalado automático habilitado, las SKU v2 de Application Gateway y WAF se escalan o reducen verticalmente en función de los requisitos del tráfico de la aplicación. Este modo ofrece una mayor elasticidad a su aplicación y elimina la necesidad de adivinar el tamaño de la puerta de enlace de aplicaciones o el número de instancias. Este modo también le permite ahorrar costos al no requerir que se ejecute la puerta de enlace a una capacidad máxima de aprovisionamiento para una carga de tráfico máxima prevista. Debe especificar un número de instancias mínimo y opcionalmente máximo. La capacidad mínima garantiza que Application Gateway y WAF v2 no caigan por debajo del número mínimo de instancias especificado, incluso en ausencia de tráfico. Cada instancia es aproximadamente equivalente a 10 unidades de capacidad reservada adicionales. Cero significa que no hay capacidad reservada y es por naturaleza estrictamente de escalado automático. Opcionalmente, también puede especificar un número máximo de instancias, lo que garantiza que Application Gateway no se amplíe más allá del número de instancias especificado. Solo se le facturará por la cantidad de tráfico que atienda el servicio Gateway. Los números de instancias pueden oscilar entre 0 y 125. El valor predeterminado para el número máximo de instancias es 20 si no se especifica.
 - **Manual**: también puede elegir el modo Manual para que la puerta de enlace no se escale automáticamente. En este modo, si hay más tráfico del que puede asumir Application Gateway o WAF, podría perderse tráfico. Con el modo manual, es obligatorio especificar el número de instancias. El número de instancias puede variar de 1 a 125 instancias.
+
+## <a name="autoscaling-and-high-availability"></a>Escalado automático y alta disponibilidad
+
+Las instancias de Azure Application Gateway siempre se implementan para ofrecer alta disponibilidad. El servicio se ha diseñado a partir de varias instancias que se crean según se configuran (si el escalado automático está deshabilitado) o según lo requiere la carga de la aplicación (si el escalado automático está habilitado). Tenga en cuenta que, desde el punto de vista del usuario, no es necesario que tenga visibilidad de las instancias individuales, ya que tendrá suficiente con ver el servicio Application Gateway en su conjunto. Si una determinada instancia tiene un problema y deja de funcionar, Azure Application Gateway creará una nueva de forma transparente.
+
+Tenga en cuenta que, aunque configure el escalado automático sin establecer ninguna instancia mínima, el servicio seguirá siendo de alta disponibilidad, ya que esta capacidad siempre se incluye con el precio fijo.
+
+Sin embargo, la creación de una nueva instancia puede tardar algún tiempo (aproximadamente seis o siete minutos). Por lo tanto, si no quiere tener que abordar este tiempo de inactividad, puede configurar un recuento de instancias mínimo de 2, idealmente con la compatibilidad con la zona de disponibilidad. De este modo, en circunstancias normales tendrá al menos dos instancias en Azure Application Gateway, por lo que, si una de ellas tuviera un problema, la otra intentará gestionar el tráfico durante el tiempo en que se cree una nueva. Tenga en cuenta que una instancia de Azure Application Gateway puede admitir unas 10 unidades de capacidad, por lo que, en función de la cantidad de tráfico que tenga normalmente, es posible que quiera establecer la configuración de escalado automático de instancia mínima en un valor superior a 2.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparación de características entre SKU v1 y SKU v2
 
@@ -163,7 +172,9 @@ En la tabla siguiente se comparan las características disponibles con cada SKU.
 > [!NOTE]
 > La SKU v2 de escalado automático ahora admite [sondeos de estado predeterminados](application-gateway-probe-overview.md#default-health-probe) para supervisar automáticamente el estado de todos los recursos en su grupo de back-end y resaltar aquellos miembros de back-end que se considere que no están en buen estado. El sondeo de estado predeterminado se configura automáticamente para back-ends que no tienen ninguna configuración de sondeo personalizado. Para obtener más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md).
 
-## <a name="differences-with-v1-sku"></a>Diferencias con la SKU v1
+## <a name="differences-from-v1-sku"></a>Diferencias respecto a la SKU v1
+
+En esta sección se describen las características y limitaciones de la SKU v2 que difieren de la SKU v1.
 
 |Diferencia|Detalles|
 |--|--|

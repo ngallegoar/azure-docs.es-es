@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3e5f99edb8043b563f37a1710c973bf925338db
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189388"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745559"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante Firewall
 
@@ -115,7 +115,8 @@ Cree las reglas de red para configurar correctamente el clúster de HDInsight.
     | Nombre | Protocolo | Direcciones de origen | Etiquetas de servicio | Puertos de destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure una regla de red en la sección Etiquetas de servicio de SQL que le permitirá registrar y auditar el tráfico de SQL. A menos que haya configurado los puntos de conexión de servicio para SQL Server en la subred de HDInsight, el firewall se omitirá. |
-
+    | Rule_8 | TCP | * | Azure Monitor | * | (opcional) Los clientes que piensan usar la característica de escalado automático deben agregar esta regla. |
+    
    ![Título: Especificación de la colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 1. Seleccione **Agregar**.
@@ -188,61 +189,7 @@ Después de configurar correctamente el firewall, puede usar el punto de conexi�
 
 Para usar el punto de conexión público (`https://CLUSTERNAME.azurehdinsight.net`) o el punto de conexión de SSH (`CLUSTERNAME-ssh.azurehdinsight.net`), asegúrese de que dispone de las rutas adecuadas en la tabla de rutas y las reglas del grupo de seguridad de red para evitar la incidencia de enrutamiento asimétrico que se explica [aquí](../firewall/integrate-lb.md). En este caso concreto, debe permitir la dirección IP del cliente en las reglas del grupo de seguridad de red de entrada y también agregarla a la tabla de rutas definida por el usuario con el próximo salto establecido como `internet`. Si el enrutamiento no se configura correctamente, verá un error de tiempo de espera.
 
-## <a name="configure-another-network-virtual-appliance"></a>Configuración de otra aplicación virtual de red
-
-> [!Important]
-> La siguiente información **solo** es necesaria si desea configurar una aplicación virtual de red (NVA) distinta a Azure Firewall.
-
-Las instrucciones anteriores le ayudan a configurar Azure Firewall para restringir el tráfico saliente desde el clúster de HDInsight. Azure Firewall está configurado automáticamente para permitir el tráfico para muchos de los escenarios comunes más importantes. Si usa otra aplicación virtual de red, tendrá que configurar algunas características adicionales. Tenga en cuenta los siguientes factores al configurar la aplicación virtual de red:
-
-* Los servicios compatibles con puntos de conexión de servicio deben configurarse con puntos de conexión de servicio.
-* Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
-* Los puntos de conexión HTTP/HTTPS de FQDN se pueden colocar en el dispositivo NVA.
-* Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar en función de varios calificadores.
-* Asigne la tabla de rutas que creó a la subred de HDInsight.
-
-### <a name="service-endpoint-capable-dependencies"></a>Dependencias compatibles con los puntos de conexión de servicio
-
-| **Punto de conexión** |
-|---|
-| Azure SQL |
-| Azure Storage |
-| Azure Active Directory |
-
-#### <a name="ip-address-dependencies"></a>Dependencias de dirección IP
-
-| **Punto de conexión** | **Detalles** |
-|---|---|
-| \*:123 | Comprobación de reloj NTP. El tráfico se comprueba en varios puntos de conexión en el puerto 123. |
-| Las direcciones IP se publican [aquí](hdinsight-management-ip-addresses.md) | Estas direcciones IP son el servicio HDInsight |
-| Direcciones IP privadas de AAD-DS para clústeres de ESP |
-| \*:16800 para la activación de Windows de KMS |
-| \*12000 para Log Analytics |
-
-#### <a name="fqdn-httphttps-dependencies"></a>Dependencias HTTP/HTTPS de FQDN
-
-> [!Important]
-> La lista siguiente proporciona solo algunos de los FQDN más importantes. Puede obtener FQDN adicionales (principalmente, Azure Storage y Azure Service Bus) para configurar NVA [en este archivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
-
-| **Punto de conexión**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Arquitectura de red virtual de Azure HDInsight](hdinsight-virtual-network-architecture.md)
+* [Configuración de una aplicación virtual de red](./network-virtual-appliance.md)

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
-ms.openlocfilehash: 9b720470ac406ed0730e6243262dcf33d2df169a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/15/2020
+ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233435"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683370"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
@@ -63,13 +63,19 @@ Si quiere generar explícitamente un producto cartesiano completo, utilice la tr
 
 ![Transformación de combinación](media/data-flow/join.png "Join")
 
+### <a name="non-equi-joins"></a>Combinaciones no equivalentes
+
+Para usar un operador condicional como no es igual a (! =) o mayor que (>) en las condiciones de combinación, cambie la lista desplegable de operadores entre las dos columnas. Las combinaciones no equivalentes requieren que al menos uno de los dos flujos se difundan mediante la retransmisión **fija** en la pestaña **Optimizar**.
+
+![Combinación no equivalente](media/data-flow/non-equi-join.png "Combinación no equivalente")
+
 ## <a name="optimizing-join-performance"></a>Optimización del rendimiento de combinación
 
 A diferencia de la unión de combinación en herramientas como SSIS, la transformación Combinación no es una operación de unión de combinación obligatoria. No es necesario ordenar las claves de combinación. La operación de combinación se realiza en función de la operación de combinación óptima en Spark, ya sea una combinación de difusión o del lado de la asignación.
 
 ![Optimización de la transformación de combinación](media/data-flow/joinoptimize.png "Optimización de la combinación")
 
-En las combinaciones, búsquedas y transformaciones Exists, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no un lado. Para elegir manualmente el lado que se va a difundir, seleccione **Fijo**.
+En las combinaciones, búsquedas y transformaciones Exists, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no una parte. Para elegir manualmente la parte que se va a difundir, seleccione **Fijo**.
 
 No se recomienda deshabilitar la difusión a través de la opción **Desactivado** a menos que las combinaciones experimenten errores de tiempo de espera.
 

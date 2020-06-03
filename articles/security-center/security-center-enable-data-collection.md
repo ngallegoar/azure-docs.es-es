@@ -8,15 +8,15 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 843cd74c85c619dbbd2b11a32fccf75d030b5613
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189827"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772971"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
-Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Log Analytics también copia los archivos de volcado de memoria en el área de trabajo.
+Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado.
 
 La recopilación de datos es necesaria para proporcionar visibilidad sobre actualizaciones que faltan, valores de seguridad del sistema operativo mal configurados, estado de la protección de punto de conexión y protección contra amenazas y del mantenimiento. 
 
@@ -223,9 +223,8 @@ Puede desactivar en cualquier momento el aprovisionamiento automático de los re
 
 Cuando el aprovisionamiento automático está deshabilitado (desactivado), no se muestra la sección de configuración del área de trabajo predeterminada.
 
-Si se desactiva el aprovisionamiento automático después de que estuviera anteriormente activado:
--   No se aprovisionarán los agentes en nuevas máquinas virtuales.
--   Security Center deja de recopilar datos del área de trabajo predeterminada.
+Si el aprovisionamiento automático se desactiva después de haber estado anteriormente en los agentes, no se aprovisionará en nuevas máquinas virtuales.
+
  
 > [!NOTE]
 >  La deshabilitación del aprovisionamiento automático no quita el agente de Log Analytics de las máquinas virtuales de Azure en las que se aprovisionó el agente. Para más información acerca de cómo quitar la extensión de OMS, consulte [¿Cómo quito extensiones OMS instaladas por Security Center?](faq-data-collection-agents.md#remove-oms).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4975a5842ef23b54444663f653f43bb8dbd1d2c1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988300"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745979"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorías admitidas en Azure Maps
 

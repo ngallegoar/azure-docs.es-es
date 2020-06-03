@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580680"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701449"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expresiones de transformación de datos en Asignación de Data Flow
 
@@ -59,6 +59,13 @@ ___
 Operador lógico AND. Igual que &&. * ``and(true, false) -> false``  
 * ``true && false -> false``  
 ___
+### <code>array</code>
+<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
+Crea una matriz de elementos. Todos los elementos deben ser del mismo tipo. Si no se especifica ningún elemento, una matriz de cadenas vacías es el valor predeterminado. Igual que un operador de creación [] * ``array('Seattle', 'Washington')``
+* ``['Seattle', 'Washington']``
+* ``['Seattle', 'Washington'][1]``
+* ``'Washington'``
+___
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula un valor inverso de seno. * ``asin(0) -> 0.0``  
@@ -79,6 +86,27 @@ Selecciona un valor de columna por el nombre en la secuencia. Puede pasar un nom
 * ``toLong(byName($debtCol))``  
 * ``toString(byName('Bogus Column'))``  
 * ``toString(byName('Bogus Column', 'DeriveStream'))``  
+___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Seleccione una matriz de columnas por nombre en la secuencia. Puede pasar un nombre de flujo opcional como segundo argumento. Si hay varias coincidencias, se devuelve la primera. Si no hay ninguna coincidencia para una columna, la salida completa es un valor NULL. El valor devuelto requiere una función de conversión de tipos (toDate, toString, etc.).  Los nombres de columna que se conocen en tiempo de diseño deben tratarse simplemente por su nombre. No se admiten entradas calculadas, pero se pueden usar sustituciones de parámetros.
+* ``toString(byNames(['parent', 'child']))``
+* ````
+* ``byNames(['parent']) ? string``
+* ````
+* ``toLong(byNames(['income']))``
+* ````
+* ``byNames(['income']) ? long``
+* ````
+* ``toBoolean(byNames(['foster']))``
+* ````
+* ``toLong(byNames($debtCols))``
+* ````
+* ``toString(byNames(['a Column']))``
+* ````
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ````
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
@@ -119,6 +147,15 @@ ___
 Obtiene todas las columnas de salida de una secuencia. Puede pasar un nombre de flujo opcional como segundo argumento.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
+
+___
+### <code>columns</code>
+<code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Obtiene todas las columnas de salida de una secuencia. Puede pasar un nombre de secuencia opcional como segundo argumento.   
+* ``columns()``
+* ````
+* ``columns('DeriveStream')``
+* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>

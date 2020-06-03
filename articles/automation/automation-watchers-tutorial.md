@@ -1,20 +1,26 @@
 ---
-title: Creación de una tarea de monitor de la cuenta de Azure Automation
-description: Obtenga información acerca de cómo crear una tarea de monitor de la cuenta de Azure Automation para inspeccionar los nuevos archivos que se creen en una carpeta.
+title: Seguimiento de archivos actualizados con una tarea de monitor de Azure Automation
+description: En este artículo se describe cómo crear una tarea de monitor en la cuenta de Azure Automation para inspeccionar los nuevos archivos que se creen en una carpeta.
 services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 1175350e7f9f4db92d7d59eba0cc66ac4bb49f5f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617356"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830589"
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creación de tareas de monitor de Azure Automation para realizar un seguimiento de los cambios de archivo en un equipo local
+# <a name="track-updated-files-with-a-watcher-task"></a>Seguimiento de archivos actualizados con una tarea de monitor
 
 Azure Automation usa una tarea de monitor para buscar eventos y desencadenar acciones con runbooks de PowerShell. La tarea de monitor contiene dos partes, el monitor y la acción. Un runbook de monitor se ejecuta en un intervalo definido en la tarea de monitor y envía los datos a un runbook de acción. 
+
+> [!NOTE]
+> No se admiten tareas de monitor en Azure China 21Vianet.
+
+> [!IMPORTANT]
+> A partir de mayo de 2020, el uso de Azure Logic Apps es la forma admitida de supervisar eventos, programar tareas periódicas y desencadenar acciones. Consulte [Programación y ejecución de tareas, procesos y flujos de trabajo automatizados y periódicos con Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 Este tutorial lo guía en la creación de una tarea de monitor para supervisar cuándo se agrega un nuevo archivo a un directorio. Aprenderá a:
 
@@ -34,9 +40,6 @@ Los siguientes requisitos son necesarios para completar este tutorial:
 * [Cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) donde se ejecuta la tarea de monitor.
 * Runbooks de PowerShell. Los runbooks de flujo de trabajo de PowerShell no son compatibles con las tareas de monitor.
-
-> [!NOTE]
-> No se admiten tareas de monitor en Azure China.
 
 ## <a name="import-a-watcher-runbook"></a>Importar un runbook de monitor
 
@@ -166,5 +169,4 @@ En este tutorial, ha aprendido a:
 Siga este vínculo para más información sobre la creación de runbooks propios.
 
 > [!div class="nextstepaction"]
-> [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
-
+> [Creación de un runbook de PowerShell](learn/automation-tutorial-runbook-textual-powershell.md)

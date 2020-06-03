@@ -1,18 +1,18 @@
 ---
 title: Información general de Change Tracking e Inventario en Azure Automation
-description: Change Tracking e Inventario le ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
+description: En este artículo se describen la característica Change Tracking e Inventario, que ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4f6ae1ad5b0f3904b84d47316c11aa1a67531a28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787182"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835111"
 ---
-# <a name="overview-of-change-tracking-and-inventory"></a>Información general de Change Tracking e Inventario
+# <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
 En este artículo se presenta la solución Change Tracking e Inventario de Azure Automation. Esta característica realiza un seguimiento de los cambios en las máquinas virtuales y la infraestructura de servidor para ayudarle a identificar problemas operativos y ambientales con el software administrado por el administrador de paquetes de distribución. Los elementos cuyo seguimiento realiza Change Tracking e Inventario incluyen: 
 
@@ -195,6 +195,10 @@ Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para trabajar con Change Tracking e Inventario en los runbooks, consulte [Administración de Change Tracking e Inventario](change-tracking-file-contents.md).
-* Para resolver errores con Change Tracking e Inventario, consulte [Solución de problemas de Change Tracking e Inventario](automation-tutorial-troubleshoot-changes.md).
-* Consulte [Búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.
+* Para obtener información detallada sobre cómo trabajar con Change Tracking e Inventario, vea [Administración de Change Tracking e Inventario](change-tracking-file-contents.md).
+* Para habilitar la característica desde un runbook, vea [Habilitación de Change Tracking e Inventario desde un runbook](automation-enable-changes-from-runbook.md).
+* Para habilitar la característica desde una cuenta de Automation, vea [Habilitación de Change Tracking e Inventario desde una cuenta de Automation](automation-enable-changes-from-auto-acct.md).
+* Para habilitar la característica a través de Azure Portal, vea [Habilitación de Change Tracking e Inventario desde Azure Portal](automation-onboard-solutions-from-browse.md).
+* Para habilitar la característica desde una máquina virtual de Azure, vea [Habilitación de Change Tracking e Inventario desde una máquina virtual de Azure](automation-enable-changes-from-vm.md).
+* Si necesita buscar en los registros almacenados en el área de trabajo de Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Para solucionar problemas de la característica, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).

@@ -11,12 +11,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417987"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832799"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Actividad de establecimiento de variables en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,8 +30,8 @@ Propiedad | Descripción | Obligatorio
 name | Nombre de la actividad en la canalización | sí
 description | Texto que describe para qué se usa la actividad | no
 type | Debe establecerse en **SetVariable** | sí
-value | Literal de cadena o valor de objeto de expresión al que se asignará la variable | sí
-variableName | Nombre de la variable que se establecerá en esta actividad | sí
+value | Literal de cadena o valor de objeto de expresión al que se asigna la variable | sí
+variableName | Nombre de la variable que esta actividad establece | sí
 
 ## <a name="incrementing-a-variable"></a>Incremento de una variable
 

@@ -1,41 +1,41 @@
 ---
 title: Administración de Change Tracking e Inventario en Azure Automation
-description: En este artículo se explica cómo utilizar Change Tracking e Inventario para realizar el seguimiento de los cambios en el software y el servicio de Microsoft que se producen en su entorno.
+description: En este artículo se describe cómo utilizar Change Tracking e Inventario para realizar el seguimiento de los cambios en el software y en los servicios de Microsoft en su entorno.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 4b8bf6a3f583e4c17f61e0a46911990ac5cc827c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779304"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830487"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Administración de Change Tracking e Inventario
 
-Al agregar un nuevo archivo o clave del Registro para su seguimiento, Azure Automation lo habilita para la característica [Change Tracking e Inventario](change-tracking.md). En este artículo se incluyen procedimientos para usar esta característica.
+Azure Automation habilita la característica [Change Tracking e Inventario](change-tracking.md) para las máquinas de su entorno. La característica realiza un seguimiento de los cambios en las claves del Registro, archivos, contenidos y similares y pone a disposición del usuario. En este artículo se incluyen procedimientos para usar esta característica.
 
 ## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Habilitación de la característica completa Change Tracking e Inventario
 
-Si ha habilitado la [supervisión de la integridad de los archivos (FIM) de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), puede usar la solución completa Change Tracking e Inventario como se describe a continuación. Este proceso no quita los valores de configuración.
+Si ha habilitado [Supervisión de la integridad de los archivos (FIM) de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), puede usar la característica Change Tracking e Inventario completa en las máquinas, tal y como se describe a continuación. Este proceso no quita los valores de configuración.
 
 > [!NOTE]
 > La habilitación de la solución completa Change Tracking e Inventario puede provocar cargos adicionales. Consulte [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Para quitar la solución de supervisión, desplácese hasta el área de trabajo y búsquela en la [lista de soluciones de supervisión instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en **Eliminar**, según se detalla en [Eliminación de una solución de supervisión](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Para volver a habilitar Change Tracking e Inventario, vaya a la cuenta de Automation y seleccione **Change Tracking** en **Configuration Management** (Administración de configuración).
+3. Para volver a habilitar Change Tracking e Inventario, vaya a la cuenta de Automation y seleccione **Change Tracking** o **Inventario** en **Administración de configuración**.
 4. Elija el área de trabajo de Log Analytics y la cuenta de Automation, confirme la configuración del área de trabajo y haga clic en **Habilitar**.
 
-## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Incorporación de máquinas a la solución Change Tracking e Inventario
+## <a name="enable-machines-for-change-tracking-and-inventory"></a><a name="onboard"></a>Habilitación de máquinas para Change Tracking e Inventario
 
-Para iniciar el seguimiento de cambios, debe habilitar la solución Change Tracking e Inventory en Azure Automation. Las siguientes son las maneras recomendadas y admitidas para incorporar las máquinas a esta característica: 
+Para iniciar el seguimiento de cambios, debe habilitar la solución Change Tracking e Inventory en Azure Automation. Estas son las formas recomendadas y admitidas de habilitar esta característica en las máquinas: 
 
-* [Incorporación desde una máquina virtual](automation-onboard-solutions-from-vm.md)
-* [Incorporación mediante la exploración de varias máquinas](automation-onboard-solutions-from-browse.md)
-* [Incorporación desde la cuenta de Automation](automation-onboard-solutions-from-automation-account.md)
-* [Incorporación en un runbook de Azure Automation](automation-onboard-solutions.md)
+* [Habilitación desde una máquina virtual](automation-onboard-solutions-from-vm.md)
+* [Habilitación desde la exploración de varias máquinas](automation-onboard-solutions-from-browse.md)
+* [Habilitación desde la cuenta de Automation](automation-onboard-solutions-from-automation-account.md)
+* [Habilitación en un runbook de Azure Automation](automation-onboard-solutions.md)
 
 ## <a name="track-files"></a>Seguimiento de archivos
 
@@ -178,6 +178,5 @@ Vamos a usar este ejemplo para describir los pasos para crear alertas sobre un c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre los conceptos básicos de Change Tracking e Inventario, consulte [Introducción a Change Tracking e Inventario](change-tracking.md).
-* Para solucionar problemas de cambios en una VM de Azure, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).
-* Consulte [Búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.
+* Si necesita buscar en los registros almacenados en el área de trabajo de Log Analytics, consulte [Búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Para solucionar problemas de la característica, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).

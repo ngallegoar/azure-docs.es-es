@@ -1,7 +1,6 @@
 ---
-title: Extensión de la CLI
-titleSuffix: Azure Machine Learning
-description: Información acerca de la extensión de la CLI de Azure Machine Learning para la CLI de Azure. La CLI de Azure es una utilidad de la línea de comandos multiplataforma que le permite trabajar con recursos de la nube de Azure. La extensión de Machine Learning permite trabajar con Azure Machine Learning. La CLI de ML crea y administra recursos, como el área de trabajo, los almacenes de datos, los conjuntos de datos, las canalizaciones, los modelos y las implementaciones.
+title: Instalación y uso de la CLI de Azure Machine Learning
+description: Aprenda a instalar y usar la extensión de la CLI de Azure Machine Learning para crear y administrar recursos como el área de trabajo, los almacenes de datos, los conjuntos de datos, las canalizaciones, los modelos y las implementaciones.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618065"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659796"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Use la extensión de la CLI para Azure Machine Learning
+# <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalación y uso de la extensión de la CLI para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 La CLI de Azure Machine Learning es una extensión de la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), una interfaz de la línea de comandos multiplataforma para la plataforma Azure. Esta extensión proporciona comandos para trabajar con Azure Machine Learning. Permite automatizar las actividades de aprendizaje automático. En esta lista se muestran algunas acciones de ejemplo que puede realizar con la extensión de la CLI:

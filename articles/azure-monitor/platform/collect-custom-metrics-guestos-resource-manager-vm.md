@@ -1,28 +1,25 @@
 ---
 title: Recopilación de métricas de máquinas virtuales Windows en Azure Monitor con plantillas
-description: Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
+description: Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 05/04/2020
+ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657374"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650546"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para una máquina virtual Windows
+Los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Azure no se recopilan automáticamente como otras [métricas de la plataforma](../insights/monitor-azure-resource.md#monitoring-data). Instale la [extensión de diagnósticos](diagnostics-extension-overview.md) de Azure Monitor para recopilar métricas del sistema operativo invitado en la base de datos de métricas, de modo que se pueda usar con todas las características de métricas de Azure Monitor, incluidos alertas, gráficos, enrutamiento y acceso casi en tiempo real de una API REST. En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows a la base de datos de métricas mediante una plantilla de Resource Manager. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!NOTE]
+> Para obtener más información sobre la configuración de la extensión de diagnósticos para recopilar métricas del SO invitado mediante Azure Portal, consulte [Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows](diagnostics-extension-windows-install.md).
 
-Con la [extensión Diagnostics](diagnostics-extension-overview.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
-
-En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows al almacén de datos de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar.
-
-Almacenarlas en esta ubicación permite tener acceso a las mismas acciones para las métricas de la plataforma. Las acciones incluyen la generación de alertas casi en tiempo real, la creación de gráficos, el enrutamiento, el acceso desde una API REST y mucho más. Anteriormente, la extensión Diagnostics se escribía en Azure Storage, pero no en el almacén de datos de Azure Monitor.
 
 Si no está familiarizado con las plantillas de Resource Manager, obtenga información sobre las [implementaciones de plantilla](../../azure-resource-manager/management/overview.md) y su estructura y sintaxis.
 

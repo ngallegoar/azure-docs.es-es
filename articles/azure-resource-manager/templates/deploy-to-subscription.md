@@ -2,17 +2,20 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 05/18/2020
+ms.openlocfilehash: 4f8bcbfc6467969c9d8ca8b1511e6e8ffff94b14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605000"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653347"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
-Para simplificar la administración de recursos en su suscripción de Azure, puede definir y asignar [directivas](../../governance/policy/overview.md) o [controles de acceso basado en rol](../../role-based-access-control/overview.md) en la suscripción. Con las plantillas de nivel de suscripción, puede aplicar directivas y asignar roles en la suscripción de forma declarativa. También puede crear grupos de recursos e implementar recursos.
+Para simplificar la administración de recursos, puede implementar recursos en el nivel de la suscripción de Azure. Por ejemplo, puede implementar [directivas ](../../governance/policy/overview.md) y [controles de acceso basados en roles](../../role-based-access-control/overview.md) en su suscripción y esos recursos se aplicarán a toda la suscripción. También puede crear grupos de recursos e implementar recursos en ellos.
+
+> [!NOTE]
+> Puede implementar en 800 grupos de recursos distintos en una implementación de nivel de suscripción.
 
 Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, PowerShell o la API REST. Azure Portal no admite la implementación en el nivel de suscripción.
 
@@ -20,6 +23,7 @@ Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, Po
 
 Puede implementar los siguientes tipos de recursos en el nivel de suscripción:
 
+* [blueprints](/azure/templates/microsoft.blueprint/blueprints)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
 * [implementaciones](/azure/templates/microsoft.resources/deployments): para plantillas anidadas que se implementan en grupos de recursos.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -34,6 +38,7 @@ Puede implementar los siguientes tipos de recursos en el nivel de suscripción:
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [etiquetas](/azure/templates/microsoft.resources/tags)
+* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
 
 ### <a name="schema"></a>Schema
 
@@ -95,11 +100,11 @@ En las implementaciones de nivel de suscripción, hay algunas consideraciones im
 * O bien, use la función [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) para obtener el id. de recurso para recursos implementados en nivel de suscripción.
 
   Por ejemplo, para obtener el identificador de recurso de una definición de directiva, utilice:
-  
+
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
-  
+
   El identificador de recurso devuelto tiene el formato siguiente:
 
   ```json
@@ -128,7 +133,7 @@ En la plantilla siguiente se crea un grupo de recursos vacío.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -159,7 +164,7 @@ Use el [elemento copy](copy-resources.md) con grupos de recursos para crear más
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -177,7 +182,7 @@ Para más información sobre la iteración de recursos, consulte este artículo 
 
 ## <a name="resource-group-and-resources"></a>Grupo de recursos y recursos
 
-Para crear el grupo de recursos e implementar recursos en él, utilice una plantilla anidada. La plantilla anidada define los recursos que se van a implementar en el grupo de recursos. Establezca la plantilla anidada como dependiente del grupo de recursos para asegurarse de que el grupo de recursos existe antes de implementar los recursos.
+Para crear el grupo de recursos e implementar recursos en él, utilice una plantilla anidada. La plantilla anidada define los recursos que se van a implementar en el grupo de recursos. Establezca la plantilla anidada como dependiente del grupo de recursos para asegurarse de que el grupo de recursos existe antes de implementar los recursos. Puede implementar en hasta 800 grupos de recursos.
 
 En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta de almacenamiento en el grupo de recursos.
 
@@ -203,14 +208,14 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -226,7 +231,7 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2017-10-01",
+              "apiVersion": "2019-06-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {
@@ -244,11 +249,11 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
 }
 ```
 
-## <a name="create-policies"></a>Creación de directivas
+## <a name="azure-policy"></a>Azure Policy
 
-### <a name="assign-policy"></a>Asignación de directiva
+### <a name="assign-policy-definition"></a>Asignación de una definición de directiva
 
-En el ejemplo siguiente se asigna una definición de directiva existente a la suscripción. Si la directiva toma parámetros, proporciónelos como un objeto. Si la directiva no toma parámetros, use el objeto vacío predeterminado.
+En el ejemplo siguiente se asigna una definición de directiva existente a la suscripción. Si la definición de directiva toma parámetros, proporciónelos como un objeto. Si la definición de directiva no toma parámetros, use el objeto vacío predeterminado.
 
 ```json
 {
@@ -285,7 +290,7 @@ En el ejemplo siguiente se asigna una definición de directiva existente a la su
 Para implementar esta plantilla con la CLI de Azure, use:
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +317,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>Definición y asignación de directivas
+### <a name="create-and-assign-policy-definitions"></a>Creación y asignación de definiciones de directiva
 
-Puede [definir](../../governance/policy/concepts/definition-structure.md) y asignar una directiva en la misma plantilla.
+Puede [definir](../../governance/policy/concepts/definition-structure.md) y asignar una definición de directiva en la misma plantilla.
 
 ```json
 {
@@ -357,7 +362,7 @@ Puede [definir](../../governance/policy/concepts/definition-structure.md) y asig
 }
 ```
 
-Para crear la definición de directiva en su suscripción y aplicarla a la suscripción, use el siguiente comando de la CLI:
+Para crear la definición de directiva en su suscripción y asignarla a la suscripción, use el siguiente comando de la CLI:
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +378,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprint
+
+### <a name="create-blueprint-definition"></a>Creación de una definición de plano técnico
+
+Puede [crear](../../governance/blueprints/tutorials/create-from-sample.md) una definición de plano técnico a partir de una plantilla.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+Para crear la definición de plano técnico en su suscripción, use el siguiente comando de la CLI:
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+Para implementar esta plantilla con PowerShell, use:
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>Ejemplos de plantillas

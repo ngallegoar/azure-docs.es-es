@@ -8,16 +8,16 @@ ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 8d2e34bcfd180dfeb814dace2a496f3ac593c5bf
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271699"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738615"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comunes con la verificación en dos fases y la cuenta profesional o educativa
 
@@ -101,7 +101,7 @@ Las contraseñas de aplicación reemplazan a las contraseñas normales de las ap
 
 Si usa la verificación en dos pasos con su cuenta profesional o educativa (por ejemplo, alain@contoso.com), lo más probable es que la organización haya decidido que debe usar esta característica de seguridad adicional. Si este es el caso, no hay ninguna manera de desactivarla individualmente. Sin embargo, si usa la verificación en dos pasos con una cuenta personal, como alain@outlook.com, tiene la posibilidad de activar y desactivar la característica. Para instrucciones sobre cómo controlar la verificación en dos fases en sus cuentas personales, consulte [Activar o desactivar la verificación en dos pasos para la cuenta de Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-Si no puede desactivar la comprobación en dos fases, también podría deberse a los valores predeterminados de seguridad que se aplicaron en el nivel de organización. Para más información sobre los valores predeterminados de seguridad, vea [¿Qué son los valores predeterminados de seguridad?](../fundamentals/concept-fundamentals-security-defaults.md)
+Si no puede desactivar la comprobación en dos fases, también podría deberse a los valores predeterminados de seguridad que se aplicaron en el nivel de organización. Para obtener más información sobre los valores predeterminados de seguridad, consulte [¿Qué son los valores predeterminados de seguridad?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>No encuentro una respuesta a mi problema.
 

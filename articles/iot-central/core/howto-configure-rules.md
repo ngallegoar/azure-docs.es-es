@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158487"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659355"
 ---
 # <a name="configure-rules"></a>Configuración de reglas
-
-
 
 *Este artículo se aplica a los administradores, operadores y compiladores.*
 
@@ -37,6 +35,12 @@ En la siguiente captura de pantalla, las condiciones comprueban si la temperatur
 
 ![Condiciones](media/howto-configure-rules/conditions.png)
 
+### <a name="use-a-cloud-property-in-a-value-field"></a>Uso de una propiedad en la nube en un campo de valor
+
+Puede hacer referencia a una propiedad en la nube desde la plantilla de dispositivo en el campo **Valor** de una condición. La propiedad en la nube y el valor de telemetría deben tener tipos similares. Por ejemplo, si **Temperatura** es un valor de tipo Double, solo se mostrarán como opciones en la lista desplegable **Valor** las propiedades en la nube de tipo Double.
+
+Si elige un valor de telemetría de tipo de evento, la lista desplegable **Valor** incluye la opción **Cualquiera**. La opción **Cualquier** significa que la regla se desencadena cuando la aplicación recibe un evento de ese tipo, sea cual sea la carga.
+
 ## <a name="use-aggregate-windowing"></a>Uso de la opción para agregar funciones de ventana
 
 Las reglas evalúan ventanas de tiempo de agregado como, como las ventanas de saltos de tamaño constante. En la captura de pantalla siguiente, la ventana de tiempo es de cinco minutos. Cada cinco minutos, la regla se evalúa en función los últimos cinco minutos de datos. Los datos solo se evalúan una vez en la ventana a la que correspondan.
@@ -49,7 +53,4 @@ Una restricción se aplica a las reglas que se aplican a los módulos de IoT Edg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a configurar una regla en una aplicación de Azure IoT Central puede:
-
-> [!div class="nextstepaction"]
-> [Analizar los datos sobre la marcha](howto-create-analytics.md)
+Ahora que ha aprendido a configurar una regla en su aplicación de Azure IoT Central, puede aprender a [configurar reglas avanzadas](howto-configure-rules-advanced.md) mediante Power Automate o Azure Logic Apps.

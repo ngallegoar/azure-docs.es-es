@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869817"
+ms.locfileid: "83995980"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Java
 
@@ -23,7 +23,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 
 Aunque esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Kit de desarrollo de Java (JDK) 7 o superior
 
@@ -59,9 +59,9 @@ Aunque esta aplicación está escrita en Java, la API es un servicio web RESTful
 
 1. Cree una función llamada `check()` para crear y enviar la solicitud de API. Dentro de esta función, agregue el código especificado en los pasos siguientes. Cree una cadena para los parámetros de solicitud:
 
-   a. Asigne el código de mercado al parámetro `mkt` con el operador `=`. 
+   1. Asigne el código de mercado al parámetro `mkt` con el operador `=`. 
 
-   b. Agregue el parámetro `mode` con el operador `&` y, a continuación, asigne el modo de revisión ortográfica. 
+   1. Agregue el parámetro `mode` con el operador `&` y, a continuación, asigne el modo de revisión ortográfica. 
 
    ```java
    public static void check () throws Exception {

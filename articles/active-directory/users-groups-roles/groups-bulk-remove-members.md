@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3c6e471a8e44236baf9bfc2c8eb6c9d5526d72
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 6d6f3a714174b2b808629e0cb41aba6f393d3410
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203473"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679212"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Eliminación masiva de miembros de un grupo en Azure Active Directory
 
@@ -35,12 +35,12 @@ Descargue y rellene la plantilla CSV de carga masiva para agregar correctamente 
 Las filas de una plantilla CSV descargada son las siguientes:
 
 - **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
-- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones. En el caso de los cambios de pertenencia a grupos, tiene la opción de elegir qué identificador usar: el identificador de objeto de miembro o el nombre principal de usuario.
-- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe eliminar la fila de ejemplos y reemplazarla por sus propias entradas.
+- **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones. En el caso de los cambios de pertenencia a grupos, puede elegir qué identificador usar: identificador de objeto de miembro o nombre principal de usuario.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
 
 ### <a name="additional-guidance"></a>Instrucciones adicionales
 
-- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar o no se podrá procesar la carga.
+- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar, o no se podrá procesar la carga.
 - Las columnas necesarias se enumeran en primer lugar.
 - No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
 - Se recomienda que descargue la versión más reciente de la plantilla CSV tan a menudo como sea posible.
@@ -57,7 +57,7 @@ Las filas de una plantilla CSV descargada son las siguientes:
 
 1. Abra el archivo CSV y agregue una línea para cada miembro del grupo que quiera quitar del grupo (los valores necesarios son Id. de objeto de miembro o Nombre principal del usuario). A continuación, guarde el archivo.
 
-   ![El archivo CSV contiene los nombres y los identificadores de los miembros que se quitarán.](./media/groups-bulk-remove-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="El archivo CSV contiene los nombres y los identificadores de los miembros que se quitarán":::.
 
 1. En la página **Eliminación masiva de los miembros del grupo**, en **Cargue el archivo csv**, vaya al archivo. Al seleccionar el archivo CSV, comienza su validación.
 1. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente** en la página de importación en bloque. Si hay errores, debe corregirlos para poder enviar el trabajo.

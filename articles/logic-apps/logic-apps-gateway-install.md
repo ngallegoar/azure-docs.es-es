@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 12/05/2019
-ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 05/15/2020
+ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673811"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659275"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -68,13 +68,15 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
     > [!TIP]
     > Para minimizar la latencia, puede instalar la puerta de enlace lo más cerca posible del origen de datos o en el mismo equipo, suponiendo que tiene los permisos necesarios.
 
-  * Instale la puerta de enlace en un equipo que esté conectado a Internet por cable, esté siempre activado y no entre al modo de suspensión. De lo contrario, la puerta de enlace no se puede ejecutar, y el rendimiento podría verse afectado en una red inalámbrica.
+  * Instale la puerta de enlace en un equipo local que esté conectado a Internet por cable, esté siempre activado y no entre al modo de suspensión. De lo contrario, la puerta de enlace no se puede ejecutar, y el rendimiento podría verse afectado en una red inalámbrica.
 
   * Si tiene previsto usar la autenticación de Windows, asegúrese de instalar la puerta de enlace en un equipo que sea miembro del mismo entorno de Active Directory que los orígenes de datos.
 
   * La región que seleccione para la instalación de la puerta de enlace es la misma ubicación que debe seleccionar cuando cree posteriormente el recurso de puerta de enlace de Azure para la aplicación lógica. De forma predeterminada, esta región es la misma ubicación de su inquilino de Azure AD que administra su cuenta de Azure. Sin embargo, puede cambiar la ubicación durante la instalación de la puerta de enlace.
 
-  * Si actualiza la instalación de la puerta de enlace a la última versión, desinstale antes la puerta de enlace actual para que la experiencia sea más ordenada.
+  * Si actualiza la instalación de la puerta de enlace, desinstale antes la puerta de enlace actual para que la experiencia sea más ordenada.
+
+    Como procedimiento recomendado, asegúrese de que está usando una versión compatible. Microsoft publica una nueva actualización en la puerta de enlace de datos local todos los meses, y actualmente solo admite las últimas seis versiones para la puerta de enlace de datos local. Si tiene problemas con la versión que está usando, intente [actualizar a la versión más reciente](https://aka.ms/on-premises-data-gateway-installer), ya que es posible que el problema se resuelva en dicha versión.
 
   * La puerta de enlace tiene dos modos: modo estándar y modo personal, que solo se aplica a Power BI. No se puede ejecutar más de una puerta de enlace en el mismo modo en el mismo equipo.
 
@@ -162,11 +164,11 @@ Después de configurar la puerta de enlace principal, cuando vaya a instalar otr
 
 Si tiene que cambiar la ubicación de la puerta de enlace, trasladar la instalación de puerta de enlace a otro equipo, recuperar una puerta de enlace dañada o asumir la propiedad de una puerta de enlace existente, necesitará la clave de recuperación que se le facilitó durante la instalación de puerta de enlace.
 
-1. Ejecute el instalador de puerta de enlace en el equipo que tiene la puerta de enlace existente. Si no tiene el instalador de la puerta de enlace más reciente, [descargue la versión más reciente de la puerta de enlace](https://aka.ms/on-premises-data-gateway-installer).
+> [!NOTE]
+> Antes de restaurar la puerta de enlace en el equipo que tiene la instalación de la puerta de enlace original, primero debe desinstalar la puerta de enlace en dicho equipo. Esta acción desconecta la puerta de enlace original.
+> Si quita o elimina un clúster de puerta de enlace para cualquier servicio en la nube, no podrá restaurar ese clúster.
 
-   > [!NOTE]
-   > Antes de restaurar la puerta de enlace en el equipo que tiene la instalación de la puerta de enlace original, primero debe desinstalar la puerta de enlace en dicho equipo. Esta acción desconecta la puerta de enlace original.
-   > Si quita o elimina un clúster de puerta de enlace para cualquier servicio en la nube, no podrá restaurar ese clúster.
+1. Ejecute el instalador de puerta de enlace en el equipo que tiene la puerta de enlace existente.
 
 1. Cuando se abra el instalador, inicie sesión con la misma cuenta de Azure que se usó para instalar la puerta de enlace.
 
@@ -258,8 +260,6 @@ Estas son algunas formas de hacer coincidir las cuentas de Active Directory loca
 <a name="faq"></a>
 
 ## <a name="faq-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas
-
-Para más información, consulte los temas siguientes:
 
 * [Preguntas más frecuentes sobre la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
 * [Solución de problemas de la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)

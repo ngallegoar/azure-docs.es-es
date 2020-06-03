@@ -8,13 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref
-ms.openlocfilehash: c2800dc361eb274eeef706556e09731da079ccab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611762"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653361"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización en Azure Spatial Anchors
 
@@ -99,7 +98,7 @@ En el caso de las aplicaciones que tienen como destino a usuarios de Azure Acti
     1.  Registre la aplicación en Azure AD como **Aplicación nativa**. Como parte del registro, deberá determinar si la aplicación debe ser multiempresa, así como proporcionar las direcciones URL de redireccionamiento permitidas para la aplicación.
         1.  Cambie a la pestaña **Permisos de API**.
         2.  Seleccione **Agregar un permiso**.
-            1.  Seleccione **Mixed Reality Resource Provider** (Proveedor de recursos de realidad mixta) en la pestaña **API usadas en mi organización**.
+            1.  Seleccione **Microsoft Mixed Reality** (Proveedor de recursos de realidad mixta) en la pestaña **API usadas en mi organización**.
             2.  Seleccione **Permisos delegados**.
             3.  Active la casilla **mixedreality.signin** en **mixedreality**
             4.  Seleccione **Agregar permisos**.
@@ -112,12 +111,12 @@ En el caso de las aplicaciones que tienen como destino a usuarios de Azure Acti
             2.  En el campo **Seleccionar**, escriba el nombre de los usuarios, grupos o aplicaciones a los que quiere asignar acceso.
             3.  Presione **Guardar**.
 2. En el código:
-    1.  Asegúrese de usar el **Id. de aplicación** y el **URI de redirección** de la propia aplicación de Azure AD como parámetros de **Id. de cliente** y **RedirectUri** de ADAL.
+    1.  Asegúrese de usar el **Id. de aplicación** y el **URI de redirección** de la propia aplicación de Azure AD como parámetros de **Id. de cliente** y **RedirectUri** de MSAL.
     2.  Establezca la información del inquilino:
         1.  Si la aplicación admite **Solo mi organización**, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
         2.  Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por **Organizaciones**.
         3.  Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por**Común**.
-    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com". Este "recurso" indicará a Azure AD que la aplicación solicita un token para el servicio de Azure Spatial Anchors.
+    3.  En la solicitud de token, establezca el **ámbito** en "https://sts.mixedreality.azure.com//.default". Este ámbito indicará a Azure AD que la aplicación solicita un token para el servicio de token de seguridad (STS) de Mixed Reality.
 
 De este modo, la aplicación podrá obtener de MSAL un token de Azure AD; dicho token de Azure AD se puede establecer como **authenticationToken** en el objeto de configuración de la sesión en la nube.
 
@@ -185,16 +184,16 @@ El token de acceso de Azure AD se recupera mediante la [biblioteca de MSAL](../
         2.  En el campo **Seleccionar**, escriba el nombre de las aplicaciones que ha creado y a las que quiere asignar acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
     3.  Presione **Guardar**.
 2.  En el código (nota: puede usar el servicio de ejemplo incluido en GitHub):
-    1.  Asegúrese de usar el Id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de Id. de cliente, secreto y RedirectUri de ADAL.
-    2.  Establezca el id. de inquilino en su propio id. de inquilino de Azure AD en el parámetro de autoridad de ADAL.
-    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com".
+    1.  Asegúrese de usar el Id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de Id. de cliente, secreto y RedirectUri de MSAL.
+    2.  Establezca el id. de inquilino en su propio id. de inquilino de Azure AD en el parámetro de autoridad de MSAL.
+    3.  En la solicitud de token, establezca el **ámbito** en "https://sts.mixedreality.azure.com//.default".
 
 Con esto, el servicio back-end puede recuperar un token de Azure AD. A continuación, puede cambiarlo por un token de MR que va a devolver al cliente. El uso de un token de Azure AD para recuperar un token de MR se realiza a través de una llamada de REST. A continuación, se muestra una llamada de ejemplo:
 
 ```
-GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-Host: mrc-auth-prod.trafficmanager.net
+Host: sts.mixedreality.azure.com
 Connection: Keep-Alive
 
 HTTP/1.1 200 OK
@@ -206,7 +205,7 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-El encabezado de autorización tiene el formato siguiente: `Bearer <accoundId>:<accountKey>`
+El encabezado de autorización tiene el formato siguiente: `Bearer <Azure_AD_token>`
 
 Y la respuesta contiene el token de MR en texto sin formato.
 

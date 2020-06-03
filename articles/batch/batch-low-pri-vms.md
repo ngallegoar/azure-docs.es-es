@@ -2,24 +2,24 @@
 title: Ejecución de cargas de trabajo en máquinas virtuales rentables de prioridad baja
 description: Aprenda a aprovisionar máquinas virtuales de prioridad baja para reducir el costo de las cargas de trabajo de Azure Batch.
 author: mscurrell
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ec75dac7e5615cddf942ff7939ea7e95315f8699
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116050"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780199"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Uso de máquinas virtuales de prioridad baja con Batch
 
 Azure Batch ofrece máquinas virtuales (VM) de prioridad baja para reducir el costo de las cargas de trabajo de Batch. Las máquinas virtuales de prioridad baja posibilitan nuevos tipos de cargas de trabajo de Batch al permitir el uso de una elevada capacidad de proceso a un costo muy reducido.
- 
+
 Las máquinas virtuales de prioridad baja aprovechan la capacidad sobrante en Azure. Al especificar máquinas virtuales de prioridad baja en sus grupos, Azure Batch puede usar este excedente cuando esté disponible.
- 
+
 El inconveniente del uso de máquinas virtuales de prioridad baja es que esas máquinas virtuales pueden no estar disponibles para su asignación o pueden reemplazarse en cualquier momento, según la capacidad disponible. Por este motivo, estas máquinas son las más adecuadas para determinados tipos de cargas de trabajo. Use máquinas virtuales de prioridad baja para cargas de trabajo de procesamiento por lotes y asincrónicas en las que el tiempo de finalización del trabajo sea flexible y el trabajo se distribuya entre muchas máquinas virtuales.
- 
+
 Las máquinas virtuales de prioridad baja se ofrecen a un precio considerablemente reducido en comparación con las máquinas virtuales dedicadas. Para más información sobre precios, consulte [Precios de Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
@@ -28,7 +28,6 @@ Las máquinas virtuales de prioridad baja se ofrecen a un precio considerablemen
 > Los grupos de Azure Batch empezarán a admitir máquinas virtuales de Spot unos meses después de que estén disponibles con carácter general, con nuevas versiones de las [API y herramientas de Batch](https://docs.microsoft.com/azure/batch/batch-apis-tools). Cuando las máquinas virtuales de Spot estén disponibles, las máquinas virtuales de prioridad baja quedarán en desuso, si bien seguirán siendo compatibles durante al menos 12 meses si se usan las versiones actuales de la API y las herramientas. Así habrá tiempo suficiente para la migración a máquinas virtuales de Spot. 
 >
 > No se admitirán las máquinas virtuales de Spot en los grupos de [Configuración del servicio en la nube](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration). Para usar máquinas virtuales de Spot, los grupos de servicios en la nube tendrán que migrarse a grupos de [Configuración de máquina virtual](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
-
 
 ## <a name="use-cases-for-low-priority-vms"></a>Casos de uso de máquinas virtuales de prioridad baja
 
@@ -72,8 +71,7 @@ Azure Batch ofrece varias funcionalidades que facilitan el consumo y que se bene
     La cuota para las máquinas virtuales de prioridad baja es mayor que la de las máquinas virtuales dedicadas, ya que las primeras tienen un precio inferior. Para más información, consulte [Límites y cuotas del servicio Batch](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
-> Las máquinas virtuales de prioridad baja no se admiten actualmente para cuentas de Batch creadas en [modo de suscripción de usuario](batch-api-basics.md#account).
->
+> Las máquinas virtuales de prioridad baja no se admiten actualmente para cuentas de Batch creadas en [modo de suscripción de usuario](accounts.md).
 
 ## <a name="create-and-update-pools"></a>Creación y actualización de grupos
 
@@ -183,6 +181,6 @@ Para ver métricas en Azure Portal:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Información general de las características de Batch para desarrolladores](batch-api-basics.md), donde encontrará información esencial para cualquier persona que vaya a utilizar Batch. El artículo contiene información más detallada acerca de los recursos del servicio Batch, como grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Batch.
+* Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 * Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 * Comience a planear la migración de máquinas virtuales de prioridad baja a máquinas virtuales de Spot. Si usa máquinas virtuales de prioridad baja con grupos de **configuración del servicio en la nube**, planee cambiar a grupos de **configuración de máquina virtual**.

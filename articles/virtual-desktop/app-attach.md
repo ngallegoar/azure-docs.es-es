@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a222e5a0602a676872eb8119e565f243f2ecc1b4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612476"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742928"
 ---
 # <a name="set-up-msix-app-attach"></a>Configuración de la asociación de aplicaciones en formato .MSIX
 
 > [!IMPORTANT]
-> La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar pública.
+> La asociación de aplicaciones en formato MSIX está actualmente en versión preliminar privada.
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tema lo guiará a través de la configuración de la asociación de aplicaciones en formato MSIX en un entorno de Windows Virtual Desktop.
@@ -41,7 +41,7 @@ En primer ligar, debe obtener la imagen del sistema operativo que se va a usar p
      >[!NOTE]
      >Para acceder al portal de Windows Insider, debe ser miembro del programa Windows Insider. Para más información sobre el programa Windows Insider, revise la [documentación sobre Windows Insider](/windows-insider/at-home/).
 
-2. Desplácese hasta la sección **Seleccionar edición** y seleccione **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** [Windows 10 Insider Preview Enterprise (FAST), compilación 19035] o posterior.
+2. Desplácese hasta la sección **Seleccionar edición** y seleccione **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** [Windows 10 Insider Preview Enterprise (FAST), compilación 19041] o posterior.
 
 3. Seleccione **Confirmar**, el idioma que quiere usar y, luego, vuelva a seleccionar **Confirmar**.
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+Después de deshabilitar las actualizaciones automáticas, debe habilitar Hyper-V porque va a usar el comando Mount-VHD para agregar al "stage" y Dismount-VHD para quitar del "stage". 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>Este cambio requerirá que se reinicie la máquina virtual.
 
 A continuación, prepare el disco duro virtual de la máquina virtual para Azure y cargue el disco duro virtual resultante en Azure. Para más información, consulte [Preparación y personalización de una imagen de disco duro virtual maestro](set-up-customize-master-image.md).
 
@@ -257,7 +265,7 @@ Antes de actualizar los scripts de PowerShell, asegúrese de que tiene el GUID d
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
@@ -452,4 +460,4 @@ catch [Exception]
 
 Esta característica no se admite actualmente, pero puede preguntarle a la comunidad en [TechCommunity sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-También puede dejar comentarios sobre Windows Virtual Desktop en el [concentrador de comentarios sobre Windows Virtual Desktop](https://aka.ms/MRSFeedbackHub), o bien dejar comentarios sobre la aplicación en formato MSIX y la herramienta de empaquetado en el [concentrador de comentarios sobre la asociación de aplicaciones en formato MSIX](https://aka.ms/msixappattachfeedback) y en el [concentrador de comentarios sobre la herramienta de empaquetado de MSIX](https://aka.ms/msixtoolfeedback).
+También puede dejar comentarios sobre Windows Virtual Desktop en el [Concentrador de comentarios de Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

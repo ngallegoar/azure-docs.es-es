@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: ba67b1cd93bc1c713648f799090e0b2cd77cff1b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d29cf1819d844a8ba5446feeeb725307523fce1b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596384"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800540"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, runbooks de Automation, aplicaciones lógicas como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos. También puede usar cualquier webhook para controlar los eventos. El webhook no necesita estar hospedado en Azure para controlar los eventos. Event Grid solo admite puntos de conexión de webhook HTTPS.
@@ -47,6 +47,27 @@ Use **Logic Apps** para implementar procesos empresariales y así poder procesar
 | [Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) (Tutorial: Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps) | Una aplicación lógica supervisa los cambios realizados en una máquina virtual y envía mensajes de correo electrónico sobre dichos cambios. |
 | [Tutorial: envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps.](publish-iot-hub-events-to-logic-apps.md) | Una aplicación lógica envía un correo electrónico de notificación cada vez que se agrega un dispositivo al centro de IoT. |
 | [Tutorial: respuesta a eventos de Azure Service Bus recibidos a través de Azure Event Grid con Azure Functions y Azure Logic Apps.](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envía mensajes de temas de Service Bus a la aplicación de función y a la aplicación lógica. |
+
+## <a name="rest-example-for-put"></a>Ejemplo de REST (para PUT)
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "WebHook",
+            "properties": 
+            {
+                "endpointUrl": "<WEB HOOK URL>",
+                "maxEventsPerBatch": 1,
+                "preferredBatchSizeInKilobytes": 64
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo [Controladores de eventos](event-handlers.md) para obtener una lista de controladores de eventos compatibles. 

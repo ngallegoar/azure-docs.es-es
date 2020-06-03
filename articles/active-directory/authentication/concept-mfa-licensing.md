@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e74a7ab0c003aaf9d90211484b39f8322cd9c329
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 165b84ee6b124d3f6a04c8db177ef17e32784ff9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77648009"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757422"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Características y licencias de Azure Multi-Factor Authentication
 
@@ -32,9 +32,9 @@ La licencia de Azure Multi-Factor Authentication se puede conseguir de varias ma
 | Si es usuario de | Funcionalidades y casos de uso |
 | --- | --- |
 | EMS o Microsoft 365 E3 y E5 | EMS E3 o Microsoft 365 E3 (que incluye EMS y Office 365) incluyen Azure AD Premium P1. EMS E5 o Microsoft 365 E5 incluyen Azure AD Premium P2. Puede usar las mismas características de acceso condicional que se indican en las siguientes secciones para proporcionar la autenticación multifactor a los usuarios. |
-| Azure AD Premium P1 | Puede usar el [acceso condicional de Azure AD](../conditional-access/overview.md) para solicitar a los usuarios la autenticación multifactor en determinados escenarios o eventos y adaptarse así a los requisitos empresariales. |
+| Azure AD Premium P1 | Puede usar el [acceso condicional de Azure AD](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) para solicitar a los usuarios la autenticación multifactor en determinados escenarios o eventos y adaptarse así a los requisitos empresariales. |
 | Azure AD Premium P2 | Proporciona la opción de seguridad más potente y una experiencia de usuario mejorada. Agrega [acceso condicional basado en riesgos](../conditional-access/howto-conditional-access-policy-risk.md) a las características de Azure AD Premium P1; se adapta a los patrones del usuario y reduce el número de solicitudes de la autenticación multifactor. |
-| Office 365 Empresa Premium, E3 o E5 | Azure Multi-Factor Authentication está o bien habilitado o bien deshabilitado para todos los usuarios, para todos los eventos de inicio de sesión. No se puede habilitar la autenticación multifactor solo para un subconjunto de usuarios o solo en determinados escenarios. La administración se realiza a través del portal de Office 365. Para mejorar la experiencia del usuario, actualice a Azure AD Premium P1 o P2 y use el acceso condicional. Para más información, consulte el artículo sobre la [protección de los recursos de Office 365 con la autenticación multifactor](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). |
+| Office 365 Empresa Premium, E3 o E5 | Azure Multi-Factor Authentication se puede [habilitar por usuario](howto-mfa-userstates.md), o habilitar o deshabilitar para todos los usuarios y todos los eventos de inicio de sesión, mediante los valores predeterminados de seguridad. La administración de Azure Multi-Factor Authentication se realiza a través del portal de Office 365. Para mejorar la experiencia del usuario, actualice a Azure AD Premium P1 o P2 y use el acceso condicional. Para más información, consulte el artículo sobre la [protección de los recursos de Office 365 con la autenticación multifactor](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). |
 | Azure AD Gratis | Puede usar [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-security-defaults.md) para habilitar la autenticación multifactor para todos los usuarios cada vez que se realice una solicitud de autenticación. No tendrá un control pormenorizado de los usuarios o los escenarios habilitados, pero conseguirá ese paso de seguridad adicional.<br /> Incluso cuando no se usan los valores predeterminados de seguridad para habilitar la autenticación multifactor para todos los usuarios, se puede configurar el rol de *administrador global de Azure AD* para usar la autenticación multifactor. Esta característica del nivel de servicio gratuito garantiza que las cuentas de administrador críticas están protegidas por la autenticación multifactor. |
 
 ## <a name="feature-comparison-of-versions"></a>Comparación de características de las versiones
@@ -86,4 +86,6 @@ Si no desea habilitar Azure Multi-Factor Authentication para todos los usuarios 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los costos, consulte [Precios de Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+* Para más información sobre los costos, consulte [Precios de Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+* [¿Qué es el acceso condicional?](../conditional-access/overview.md)
+

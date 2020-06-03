@@ -1,19 +1,19 @@
 ---
 title: Configuración de reglas personalizadas de v2 con PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Información sobre cómo configurar reglas personalizadas del firewall de aplicaciones web v2 con Azure PowerShell. Puede crear reglas propias que se evalúan en cada solicitud que pasa por el firewall.
+description: Obtenga información sobre cómo configurar reglas personalizadas del firewall de aplicaciones web (WAF) v2 con Azure PowerShell. Puede crear reglas propias que se evalúan en cada solicitud que pasa por el firewall.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/16/2019
+ms.date: 05/21/2020
 ms.author: victorh
-ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77471642"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758969"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configuración del Firewall de aplicaciones web V2 en Application Gateway con una regla personalizada con Azure PowerShell
 
@@ -27,7 +27,7 @@ Para ver más ejemplos de reglas personalizadas, consulte [Creación y uso de re
 
 Si quiere ejecutar la instancia de Azure PowerShell de este artículo en un script continuo que puede copiar, pegar y ejecutar, consulte [Ejemplos de Azure PowerShell con Azure Application Gateway](powershell-samples.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="azure-powershell-module"></a>Módulo de Azure PowerShell
 
@@ -136,6 +136,19 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig `
   -WebApplicationFirewallConfig $wafConfig `
   -FirewallPolicy $wafPolicy
+```
+
+## <a name="update-your-waf"></a>Actualización del firewall de aplicaciones web
+
+Después de crear el firewall de aplicaciones web, puede actualizarlo mediante un procedimiento similar al código siguiente:
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

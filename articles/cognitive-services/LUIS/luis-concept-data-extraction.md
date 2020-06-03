@@ -4,17 +4,17 @@ description: Extraiga datos de texto de expresiones con intenciones y entidades.
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 3b6b09fd1066a9caa745cddf30d76e2843c3f56c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589727"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682194"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
 
-Los datos más difíciles de extraer son los datos de aprendizaje automático, porque no son una coincidencia de texto exacta. El proceso de extracción de datos de [entidades](luis-concept-entity-types.md) de aprendizaje automático debe formar parte del [ciclo de creación](luis-concept-app-iteration.md) hasta que esté seguro de que recibirá los datos que espera.
+Los datos más difíciles de extraer son los datos de aprendizaje automático, porque no corresponden a una coincidencia de texto exacta. El proceso de extracción de datos de [entidades](luis-concept-entity-types.md) de aprendizaje automático debe formar parte del [ciclo de creación](luis-concept-app-iteration.md) hasta que esté seguro de que recibirá los datos que espera.
 
 ## <a name="data-location-and-key-usage"></a>Ubicación de los datos y uso de la clave
 LUIS extrae datos de la expresión del usuario en el [punto de conexión](luis-glossary.md#endpoint) publicado. La **solicitud HTTPS** (POST o GET) contiene la expresión, así como algunas configuraciones opcionales como los entornos de producción o de almacenamiento provisional.
@@ -245,7 +245,7 @@ Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como
 
 ## <a name="patternany-entity-data"></a>Datos de la entidad Pattern.any
 
-[Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad. Debe encontrarse la entidad que se usa en el patrón para poder aplicar el patrón. 
+[Pattern.any](reference-entity-pattern-any.md) es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad. Debe encontrarse la entidad que se usa en el patrón para poder aplicar el patrón.
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 Si está configurado el análisis de sentimiento durante la [publicación](luis-how-to-publish-app.md#sentiment-analysis), la respuesta JSON de LUIS incluye el análisis de sentimiento. Obtenga más información sobre el análisis de sentimiento en la documentación de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).

@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 9fd7d6c6d472400afea05ac0cd87321a46dddb37
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779081"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677927"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la seguridad de pods en Azure Kubernetes Service (AKS)
 
@@ -71,14 +71,17 @@ Colabore con el operador del clúster para determinar la configuración de conte
 
 Para limitar el riesgo de exposición de las credenciales en el código de la aplicación, evite el uso de credenciales compartidas o fijas. Las credenciales y las claves no se deberían incluir directamente en el código. Si se exponen estas credenciales, la aplicación se debe actualizar y volver a implementar. Un enfoque mejor es dar a los pods sus propias identidades y formas para autenticarse a sí mismos o recuperar automáticamente las credenciales de un almacén digital.
 
-Los siguientes [proyectos de código abierto de AKS asociados][aks-associated-projects] le permiten autenticar automáticamente los pods o las credenciales de la solicitud y las claves desde un almacén digital:
+### <a name="use-azure-container-compute-upstream-projects"></a>Uso de proyectos ascendentes de proceso de contenedor de Azure
 
-* identidades administradas para los recursos de Azure y
-* [Proveedor de Azure Key Vault para el controlador de CSI del almacén de secretos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+> [!IMPORTANT]
+> El soporte técnico de Azure no admite los proyectos de código abierto de AKS asociados. Se proporcionan para que los usuarios se ocupen por sí mismos de su instalación en los clústeres y recopilen comentarios de nuestra comunidad.
 
-El soporte técnico de Azure no admite los proyectos de código abierto de AKS asociados. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. Estos proyectos no se recomienda para su uso en producción.
+Los siguientes [proyectos de código abierto de AKS asociados][aks-associated-projects] le permiten autenticar automáticamente los pods o las credenciales de la solicitud y las claves desde un almacén digital. Estos proyectos los mantiene el equipo de flujo ascendente de proceso de contenedor de Azure y forman parte de [una lista más amplia de proyectos disponibles para su uso](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support).
 
-### <a name="use-pod-managed-identities"></a>Uso de identidades administradas del pod
+ * [Azure Active Directory Pod Identity][aad-pod-identity]
+ * [Proveedor de Azure Key Vault para el controlador de CSI del almacén de secretos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+
+#### <a name="use-pod-managed-identities"></a>Uso de identidades administradas del pod
 
 Las identidades administradas de los recursos de Azure permiten a un pod autenticarse a sí mismo en cualquier servicio de Azure que lo permita, como Storage o SQL. Se asigna al pod una identidad de Azure que le permite autenticarse en Azure Active Directory y recibir un token digital. Este token digital se puede presentar a otros servicios de Azure que comprueban si el pod está autorizado para acceder al servicio y realizar las acciones necesarias. Este enfoque significa que no es necesario ningún secreto para las cadenas de conexión de base de datos, por ejemplo. El flujo de trabajo simplificado de la identidad administrada del pod se muestra en el diagrama siguiente:
 
@@ -88,7 +91,7 @@ Con una identidad administrada, el código de la aplicación no necesita incluir
 
 Para más información acerca de las identidades de los pods, consulte [Configuración de un clúster de AKS para usar identidades administradas de pods con las aplicaciones][aad-pod-identity].
 
-### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Uso de Azure Key Vault con el controlador de CSI del almacén de secretos
+#### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Uso de Azure Key Vault con el controlador de CSI del almacén de secretos
 
 El uso del proyecto de identidades de pods permite la autenticación en los servicios compatibles de Azure. Para sus propios servicios o aplicaciones sin identidades administradas para recursos de Azure, puede seguir autenticándose mediante credenciales o claves. Se puede utilizar un almacén digital para almacenar el contenido de estos secretos.
 

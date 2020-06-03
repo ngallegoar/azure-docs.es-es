@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 0bd1191c0b92203b100b1713971119ec828352ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478989"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835553"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
@@ -128,5 +128,5 @@ Para obtener más información sobre las opciones de soporte técnico de autoayu
 
 * [Enviarnos sus comentarios y sugerencias](https://feedback.azure.com/forums/266794-support-feedback)
 * Ponerse en contacto con nosotros en [Twitter](https://twitter.com/azuresupport)
-* Obtener ayuda de sus compañeros en los [foros de MSDN](https://social.msdn.microsoft.com/Forums/azure)
+* Obtener ayuda de sus compañeros en la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/products/azure)
 * Obtener más información en [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq)

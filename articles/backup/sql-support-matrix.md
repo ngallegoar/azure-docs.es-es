@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de Azure Backup para la copia de seguridad de SQ
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de SQL Server en VM de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 79a7e30ab9240c489a66b547ff85bea7887131b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79410121"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234244"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -19,7 +19,7 @@ Puede usar Azure Backup para realizar copias de seguridad de bases de datos de S
 **Soporte técnico** | **Detalles**
 --- | ---
 **Implementaciones admitidas** | Se admiten máquinas virtuales de Azure de SQL Marketplace y que no son de Marketplace (SQL Server instalado manualmente).
-**Zonas geográficas admitidas** | Sudeste de Australia (ASE), Este de Australia (AE), Centro de Australia (AC) y Centro de Australia 2 (AC) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Sudeste de Asia (SEA) y Este de Asia (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS), India occidental <br> Japón Oriental (JPE) y Japón Occidental (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este) <br> Norte de Alemania, Centro-oeste de Alemania <br> Norte de Suiza, Oeste de Suiza <br> Centro de Francia <br> Este de China, Norte de China, Norte de China 2 y Este de China 2
+**Regiones admitidas** | Sudeste de Australia (ASE), Este de Australia (AE), Centro de Australia (AC) y Centro de Australia 2 (AC) <br> Sur de Brasil (BRS)<br> Centro de Canadá (CNC) y Este de Canadá (CE)<br> Sudeste de Asia (SEA) y Este de Asia (EA) <br> Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Centro-oeste de EE. UU. (WCUS), Oeste de EE. UU. (WUS); Oeste de EE. UU. 2 (WUS 2) Centro-norte de EE. UU. (NCUS) Centro de EE. UU. (CUS) Centro-sur de EE. UU. (SCUS) <br> Centro de la India (INC), India del Sur (INS), India occidental <br> Japón Oriental (JPE) y Japón Occidental (JPW) <br> Centro de Corea del Sur (KRC), Sur de Corea del Sur (KRS) <br> Norte de Europa (NE) y Oeste de Europa <br> Sur de Reino Unido (UKS) y Oeste de Reino Unido (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (centro), US DoD (este) <br> Norte de Alemania, Centro-oeste de Alemania <br> Norte de Suiza, Oeste de Suiza <br> Centro de Francia <br> Este de China, Norte de China, Norte de China 2 y Este de China 2
 **Sistemas operativos compatibles** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux no se admite actualmente.
 **Versiones admitidas de SQL Server** | SQL Server 2019, SQL Server 2017 tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 y los SP tal como se detalla en la [página de búsqueda del ciclo de vida del producto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versiones de .NET compatibles** | .NET Framework 4.5.2 o posterior instalado en la máquina virtual

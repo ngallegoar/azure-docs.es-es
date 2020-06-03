@@ -1,6 +1,6 @@
 ---
-title: Roles integrados de Azure para Azure RBAC
-description: En este artículo se describen los roles integrados de Azure para el control de acceso basado en roles (RBAC) de Azure. Se enumeran Actions, NotActions, DataActions y NotDataActions.
+title: 'Roles integrados de Azure: Azure RBAC'
+description: En este artículo se describen los roles integrados de Azure para el control de acceso basado en roles (Azure RBAC) de Azure. Se enumeran Actions, NotActions, DataActions y NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0a574ba281a037a06ddda1981ae6fa35b905bca1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545649"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683652"
 ---
 # <a name="azure-built-in-roles"></a>Roles integrados de Azure
 
-El [control de acceso basado en roles (RBAC) de Azure](overview.md) tiene varios roles integrados de Azure que se pueden asignar a usuarios, grupos, entidades de servicio e identidades administradas. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no satisfacen las necesidades específicas de la organización, puede crear [roles personalizados de Azure](custom-roles.md) propios.
+El [control de acceso basado en rol de Azure (Azure RBAC)](overview.md) tiene varios roles integrados de Azure que se pueden asignar a usuarios, grupos, entidades de servicio e identidades administradas. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no satisfacen las necesidades específicas de la organización, puede crear [roles personalizados de Azure](custom-roles.md) propios.
 
-En este artículo se enumeran los roles integrados para los recursos de Azure, que están en constante evolución. Para obtener los últimos roles, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list). Si desea ver los roles de administrador de Azure Active Directory (Azure AD), consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+En este artículo se enumeran los roles integrados de Azure, que están en constante evolución. Para obtener los últimos roles, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list). Si desea ver los roles de administrador de Azure Active Directory (Azure AD), consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="all"></a>All
 
-En la tabla siguiente se proporciona una breve descripción y el identificador único de cada rol integrado. Seleccione el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol. Para obtener información sobre lo que significan estas acciones y cómo se aplican a la administración y a los planos de datos, consulte [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md).
+En la tabla siguiente se proporciona una breve descripción y el identificador único de cada rol integrado. Seleccione el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol. Para obtener información sobre lo que significan estas acciones y cómo se aplican a la administración y a los planos de datos, consulte [Descripción de definiciones de roles de Azure](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -81,7 +81,7 @@ En la tabla siguiente se proporciona una breve descripción y el identificador �
 > | [Emisor de mensajes de datos de la cola de Storage](#storage-queue-data-message-sender) | Agrega mensaje a una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Lector de datos de la cola de Storage](#storage-queue-data-reader) | Lee y enumera los mensajes de la cola y las colas de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
-> | [Lector de datos de Azure Maps (versión preliminar)](#azure-maps-data-reader-preview) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Azure Maps Data Reader](#azure-maps-data-reader) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Colaborador del servicio Search](#search-service-contributor) | Permite administrar los servicios de Búsqueda, pero no acceder a ellos. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Colaborador de plan web](#web-plan-contributor) | Permite administrar los planes web para sitios web, pero no acceder a ellos. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Colaborador de sitio web](#website-contributor) | Permite administrar los sitios web (no planes web), pero no acceder a ellos. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -147,16 +147,16 @@ En la tabla siguiente se proporciona una breve descripción y el identificador �
 > | [Lector de Azure Sentinel](#azure-sentinel-reader) | Lector de Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Respondedor de Azure Sentinel](#azure-sentinel-responder) | Respondedor de Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Colaborador de almacén de claves](#key-vault-contributor) | Le permite administrar almacenes de claves, pero no acceder a ellos. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Administrador de seguridad](#security-admin) | puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Administrador de seguridad](#security-admin) | Vea y actualice los permisos para Security Center. Tiene los mismos permisos que el rol de lector de seguridad, y también puede actualizar la directiva de seguridad y descartar las alertas y las recomendaciones. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Colaborador de evaluación de la seguridad](#security-assessment-contributor) | Permite insertar evaluaciones en Security Center. | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Administrador de seguridad (heredado)](#security-manager-legacy) | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Lector de seguridad](#security-reader) | Puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Lector de seguridad](#security-reader) | Vea los permisos para Security Center. Puede ver las recomendaciones, las alertas, una directiva de seguridad y los estados de seguridad, pero no puede realizar cambios. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a sus máquinas virtuales, así como iniciarlas, reiniciarlas y apagarlas, en su instancia de Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Creador de laboratorio](#lab-creator) | Le permite crear, administrar y eliminar los laboratorios administrados en sus cuentas de Azure Lab. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Supervisión** |  |  |
 > | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | [Depurador de instantáneas de Application Insights](#application-insights-snapshot-debugger) | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Depurador de instantáneas de Application Insights](#application-insights-snapshot-debugger) | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). Si concede el rol Depurador de instantáneas de Application Insights a los usuarios, debe concederlo directamente al usuario. El rol no se reconoce cuando se agrega a un rol personalizado. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Supervisión del publicador de métricas](#monitoring-metrics-publisher) | Permite publicar las métricas de los recursos de Azure. | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
@@ -173,6 +173,7 @@ En la tabla siguiente se proporciona una breve descripción y el identificador �
 > | [Operador del plano técnico](#blueprint-operator) | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Tenga en cuenta que esto solo funciona si la asignación se realiza con una identidad administrada asignada por el usuario. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
 > | [Colaborador de Cost Management](#cost-management-contributor) | Puede ver los costos y administrar la configuración de estos (por ejemplo, presupuestos, exportaciones) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Lector de Cost Management](#cost-management-reader) | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | [Administrador de configuración de jerarquía](#hierarchy-settings-administrator) | Permite a los usuarios editar y eliminar la configuración de jerarquía. | 350f8d15-c687-4448-8ae1-157740a3936d |
 > | [Rol Colaborador de la aplicación administrada](#managed-application-contributor-role) | Permite crear recursos de aplicaciones administradas. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rol de operador de aplicación administrada](#managed-application-operator-role) | Permite leer y realizar acciones en los recursos de aplicación administrada. | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Lector de aplicaciones administradas](#managed-applications-reader) | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -335,7 +336,7 @@ Permite administrar el acceso de usuario a los recursos de Azure.
 > | **Acciones** |  |
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.Authorization/* | Administrar la autorización |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -392,11 +393,11 @@ Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni t
 > | Microsoft.ClassicStorage/storageAccounts/images/read | Devuelve la imagen de la cuenta de almacenamiento. (En desuso. Use "Microsoft.ClassicStorage/storageAccounts/vmImages"). |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Enumera las claves de acceso de las cuentas de almacenamiento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Devuelve la cuenta de almacenamiento con la cuenta especificada. |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -513,7 +514,7 @@ Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a l
 > | Microsoft.Compute/disks/read | Obtiene las propiedades de un disco |
 > | Microsoft.Compute/disks/delete | Elimina el disco |
 > | Microsoft.DevTestLab/schedules/* |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end de una puerta de enlace de aplicaciones. No genera alertas. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end del equilibrador de carga. No genera alertas. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Se une a conjuntos NAT de entrada del equilibrador de carga. No genera alertas. |
@@ -539,12 +540,12 @@ Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a l
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/write | La operación Create Vault crea un recurso de Azure del tipo "almacén" |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -681,10 +682,10 @@ Puede administrar puntos de conexión de CDN, pero no conceder acceso a otros us
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/endpoints/* |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -735,10 +736,10 @@ Puede ver puntos de conexión de CDN, pero no hacer cambios.
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/endpoints/*/read |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -789,10 +790,10 @@ Puede administrar perfiles de CDN y sus puntos de conexión, pero no conceder ac
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/* |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -843,10 +844,10 @@ Puede ver perfiles de CDN y sus puntos de conexión, pero no hacer cambios.
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/*/read |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -895,11 +896,11 @@ Permite administrar las redes clásicas, pero no acceder a ellas.
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.ClassicNetwork/* | Crear y administrar redes clásicas |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -946,12 +947,12 @@ Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no con
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Network/dnsZones/* | Crear y administrar registros y zonas DNS |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -998,12 +999,12 @@ Permite administrar redes, pero no acceder a ellas.
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Network/* | Crear y administrar redes |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1050,12 +1051,12 @@ Le permite administrar perfiles de Traffic Manager, pero no controlar los usuari
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Network/trafficManagerProfiles/* |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1116,12 +1117,12 @@ Puede crear y administrar un clúster de Avere vFXT.
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Se une a una red virtual. No genera alertas. |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Combina un recurso como una cuenta de almacenamiento o una instancia de SQL Database con una subred. No genera alertas. |
 > | Microsoft.Network/networkSecurityGroups/join/action | Se une a un grupo de seguridad de red. No genera alertas. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/*/read |  |
 > | Microsoft.Storage/storageAccounts/* | Crear y administrar cuentas de almacenamiento |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obtiene los recursos del grupo de recursos. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -1274,7 +1275,7 @@ Permite administrar el servicio de copias de seguridad, pero no puede crear alma
 > | Microsoft.RecoveryServices/Vaults/read | La operación Get Vault obtiene un objeto que representa el recurso de Azure del tipo "almacén" |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Crear y administrar identidades registradas |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Crear y administrar el uso del almacén de Recovery Services |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1292,7 +1293,7 @@ Permite administrar el servicio de copias de seguridad, pero no puede crear alma
 > | Microsoft.RecoveryServices/operations/read | La operación devuelve la lista de operaciones de un proveedor de recursos. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtiene el estado de la operación para una operación determinada. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumera todas las intenciones de protección de la copia de seguridad. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1406,7 +1407,7 @@ Permite administrar los servicios de copias de seguridad, excepto la eliminació
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | La operación Obtener contenedores se puede usar para obtener los contenedores registrados para un recurso. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | La operación Registrar contenedor de servicios se puede usar para registrar un contenedor con servicio de recuperación. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1427,7 +1428,7 @@ Permite administrar los servicios de copias de seguridad, excepto la eliminació
 > | Microsoft.RecoveryServices/operations/read | La operación devuelve la lista de operaciones de un proveedor de recursos. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtiene el estado de la operación para una operación determinada. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumera todas las intenciones de protección de la copia de seguridad. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1638,11 +1639,11 @@ Permite administrar cuentas de almacenamiento clásicas, pero no acceder a ellas
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.ClassicStorage/storageAccounts/* | Crear y administrar cuentas de almacenamiento |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1732,9 +1733,9 @@ Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros u
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -1789,7 +1790,7 @@ Permite administrar el servicio Data Box excepto la creación o edición de deta
 > | Microsoft.Databox/locations/regionConfiguration/action | Este método devuelve las configuraciones de la región. |
 > | Microsoft.Databox/locations/validateAddress/action | Valida la dirección de envío y proporciona direcciones alternativas, si existen. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1841,11 +1842,11 @@ Le permite enviar, supervisar y administrar sus propios trabajos, pero no crear 
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | Microsoft.DataLakeAnalytics/accounts/* |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.BigAnalytics/accounts/Delete |  |
 > | Microsoft.BigAnalytics/accounts/TakeOwnership/action |  |
@@ -1965,14 +1966,14 @@ Permite la administración de cuentas de almacenamiento. Proporciona acceso a la
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/diagnosticSettings/* | Crea, actualiza o lee la configuración de diagnóstico de Analysis Server. |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Combina un recurso como una cuenta de almacenamiento o una instancia de SQL Database con una subred. No genera alertas. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/* | Crear y administrar cuentas de almacenamiento |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -2071,6 +2072,7 @@ Lee, escribe y elimina blobs y contenedores de Azure Storage. Para aprender qué
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Eliminar un blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve un blob o una lista de blobs. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | Mueve el blob de una ruta de acceso a otra. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Escribe en un blob. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
@@ -2095,6 +2097,7 @@ Lee, escribe y elimina blobs y contenedores de Azure Storage. Para aprender qué
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -2541,7 +2544,7 @@ Lee y enumera los mensajes de la cola y las colas de Azure Storage. Para aprende
 ## <a name="web"></a>Web
 
 
-### <a name="azure-maps-data-reader-preview"></a>Azure Maps Data Reader (versión preliminar)
+### <a name="azure-maps-data-reader"></a>Azure Maps Data Reader
 
 Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps.
 
@@ -2553,7 +2556,7 @@ Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps.
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.Maps/accounts/data/read | Concede acceso de lectura de datos a una cuenta de Maps. |
+> | Microsoft.Maps/accounts/*/read |  |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -2570,12 +2573,12 @@ Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Maps/accounts/data/read"
+        "Microsoft.Maps/accounts/*/read"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Maps Data Reader (Preview)",
+  "roleName": "Azure Maps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2590,12 +2593,12 @@ Permite administrar los servicios de Búsqueda, pero no acceder a ellos.
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Search/searchServices/* | Crear y administrar servicios de búsqueda |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -2642,11 +2645,11 @@ Permite administrar los planes web para sitios web, pero no acceder a ellos.
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Web/serverFarms/* | Crear y administrar granjas de servidores |
 > | Microsoft.Web/hostingEnvironments/Join/Action | Se une a App Service Environment. |
 > | **NotActions** |  |
@@ -2696,12 +2699,12 @@ Permite administrar los sitios web (no planes web), pero no acceder a ellos.
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/components/* | Crear y administrar componentes de Insights |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Web/certificates/* | Crear y administrar certificados de sitios web |
 > | Microsoft.Web/listSitesAssignedToHostName/read | Obtiene los nombres de sitios asignados al nombre de host. |
 > | Microsoft.Web/serverFarms/join/action |  |
@@ -3095,7 +3098,7 @@ Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta d
 > | Microsoft.Insights/MetricDefinitions/read | Lee definiciones de métricas |
 > | Microsoft.Insights/Metrics/read | Lee métricas |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -3142,12 +3145,12 @@ Permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos 
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Combina un recurso como una cuenta de almacenamiento o una instancia de SQL Database con una subred. No genera alertas. |
 > | **NotActions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
@@ -3247,11 +3250,11 @@ Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anterio
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.DocumentDb/databaseAccounts/* | Crear y administrar cuentas de Azure Cosmos DB |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Combina un recurso como una cuenta de almacenamiento o una instancia de SQL Database con una subred. No genera alertas. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -3301,11 +3304,11 @@ Permite administrar cachés de Redis, pero no acceder a ellas.
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Cache/redis/* | Crear y administrar memorias caché de Redis |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -3352,14 +3355,14 @@ Permite administrar las bases de datos de SQL, pero no acceder a ellas. Además,
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/databases/* | Crear y administrar bases de datos SQL |
 > | Microsoft.Sql/servers/read | Devuelve la lista de servidores u obtiene las propiedades de un servidor específico. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Insights/metrics/read | Lee métricas |
 > | Microsoft.Insights/metricDefinitions/read | Lee definiciones de métricas |
 > | **NotActions** |  |
@@ -3460,17 +3463,17 @@ Permite administrar Instancias administradas de SQL y la configuración de red n
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Network/networkSecurityGroups/* |  |
 > | Microsoft.Network/routeTables/* |  |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Network/virtualNetworks/subnets/* |  |
 > | Microsoft.Network/virtualNetworks/* |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/metrics/read | Lee métricas |
 > | Microsoft.Insights/metricDefinitions/read | Lee definiciones de métricas |
 > | **NotActions** |  |
@@ -3526,10 +3529,10 @@ Permite administrar las directivas relacionadas con seguridad de bases de datos 
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Combina un recurso como una cuenta de almacenamiento o una instancia de SQL Database con una subred. No genera alertas. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
@@ -3567,7 +3570,7 @@ Permite administrar las directivas relacionadas con seguridad de bases de datos 
 > | Microsoft.Sql/servers/read | Devuelve la lista de servidores u obtiene las propiedades de un servidor específico. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Crear y administrar directivas de alerta de seguridad de SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -3650,13 +3653,13 @@ Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/* | Crear y administrar servidores de SQL Server |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Insights/metrics/read | Lee métricas |
 > | Microsoft.Insights/metricDefinitions/read | Lee definiciones de métricas |
 > | **NotActions** |  |
@@ -3895,11 +3898,11 @@ Crea y administra factorías de datos, así como recursos secundarios dentro de 
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.DataFactory/dataFactories/* | Crear y administrar factorías de datos y recursos secundarios dentro de ellos. |
 > | Microsoft.DataFactory/factories/* | Crear y administrar factorías de datos y recursos secundarios dentro de ellos. |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.EventGrid/eventSubscriptions/write | Crea o actualiza una suscripción a eventos. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -4000,9 +4003,9 @@ Permite leer y modificar las configuraciones de clúster de HDInsight.
 > | Microsoft.HDInsight/clusters/configurations/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -4099,14 +4102,15 @@ Un colaborador de Log Analytics puede leer todos los datos de supervisión y edi
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Enumera las claves de acceso de las cuentas de almacenamiento. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.HybridCompute/machines/extensions/write | Instala o actualiza las extensiones de Azure Arc. |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/diagnosticSettings/* | Crea, actualiza o lee la configuración de diagnóstico de Analysis Server. |
 > | Microsoft.OperationalInsights/* |  |
 > | Microsoft.OperationsManagement/* |  |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -4130,6 +4134,7 @@ Un colaborador de Log Analytics puede leer todos los datos de supervisión y edi
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -4161,7 +4166,7 @@ Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, a
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Realiza búsquedas mediante el nuevo motor. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Ejecuta una consulta de búsqueda |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera las claves compartidas del área de trabajo. Estas claves se utilizan para conectar los agentes de Microsoft Operational Insights al área de trabajo. |
 > | **DataActions** |  |
@@ -4258,19 +4263,19 @@ Le permite crear, leer, actualizar, eliminar y administrar las claves de Cogniti
 > | Microsoft.CognitiveServices/* |  |
 > | Microsoft.Features/features/read | Obtiene las características de una suscripción. |
 > | Microsoft.Features/providers/features/read | Obtiene la característica de una suscripción de un proveedor de recursos determinado. |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/diagnosticSettings/* | Crea, actualiza o lee la configuración de diagnóstico de Analysis Server. |
 > | Microsoft.Insights/logDefinitions/read | Lee definiciones de registro |
 > | Microsoft.Insights/metricdefinitions/read | Lee definiciones de métricas |
 > | Microsoft.Insights/metrics/read | Lee métricas |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtiene los resultados de la operación de suscripción. |
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -4378,7 +4383,7 @@ Le permite leer y mostrar las claves de Cognitive Services.
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtiene los resultados de la operación de suscripción. |
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -4588,11 +4593,11 @@ Puede administrar servicios y las API.
 > | **Acciones** |  |
 > | Microsoft.ApiManagement/service/* | Crear y administrar servicio API Management |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -4648,11 +4653,11 @@ Puede administrar el servicio, pero no las API.
 > | Microsoft.ApiManagement/service/updatehostname/action | Configura, actualiza o elimina los nombres de dominio personalizado de un servicio API Management |
 > | Microsoft.ApiManagement/service/write | Creación o actualización de una instancia de servicio de API Management |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario. |
 > | **DataActions** |  |
@@ -4711,11 +4716,11 @@ Acceso de solo lectura al servicio y las API.
 > | Microsoft.ApiManagement/service/*/read | Lectura de instancias del servicio API Management |
 > | Microsoft.ApiManagement/service/read | Lectura de los metadatos de una instancia del servicio API Management |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario. |
 > | **DataActions** |  |
@@ -5031,10 +5036,10 @@ Permite administrar las operaciones de suscripción de eventos de EventGrid.
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos globales por tipo de tema. |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Enumera las suscripciones de eventos regionales. |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos regionales por tipo de tema. |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5133,12 +5138,12 @@ Permite administrar las cuentas de Intelligent Systems, pero no acceder a ellas.
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.IntelligentSystems/accounts/* | Crear y administrar cuentas de sistemas inteligentes |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5187,18 +5192,18 @@ Le permite administrar aplicaciones lógicas, pero no cambiar el acceso a ellas.
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Enumera las claves de acceso de las cuentas de almacenamiento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Devuelve la cuenta de almacenamiento con la cuenta especificada. |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Crea, actualiza o lee la configuración de diagnóstico de Analysis Server. |
 > | Microsoft.Insights/logdefinitions/* | Este permiso es necesario para los usuarios que necesitan acceder a registros de actividades a través del portal. Enumere las categorías de registro del registro de actividad. |
 > | Microsoft.Insights/metricDefinitions/* | Leer definiciones de métrica (lista de tipos de métricas disponibles para un recurso). |
 > | Microsoft.Logic/* | Administra los recursos de Logic Apps. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtiene los resultados de la operación de suscripción. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Web/connectionGateways/* | Crea y administra una puerta de enlace de conexión. |
 > | Microsoft.Web/connections/* | Crea y administra una conexión. |
 > | Microsoft.Web/customApis/* | Crea y administra una API personalizada. |
@@ -5276,7 +5281,7 @@ Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no permite
 > | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtiene los resultados de la operación de suscripción. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Web/connectionGateways/*/read | Lee las puertas de enlace de conexión. |
 > | Microsoft.Web/connections/*/read | Lee las conexiones. |
 > | Microsoft.Web/customApis/*/read | Lee la API personalizada. |
@@ -5343,10 +5348,10 @@ Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuar
 > | Microsoft.ManagedIdentity/userAssignedIdentities/write | Crea una nueva identidad asignada a un usuario o actualiza las etiquetas asociadas a una identidad asignada a un usuario existente. |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Elimina la identidad asignada a un usuario existente. |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5396,10 +5401,10 @@ Le permite leer y asignar identidades asignadas por el usuario.
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5458,10 +5463,10 @@ Colaborador de Azure Sentinel
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtiene los orígenes de datos en un área de trabajo. |
 > | Microsoft.Insights/workbooks/* |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5515,6 +5520,7 @@ Lector de Azure Sentinel
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Comprueba la autorización y la licencia del usuario |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Realiza búsquedas mediante el nuevo motor. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Consulta datos de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Obtiene los servicios vinculados en función del área de trabajo establecida. |
@@ -5525,10 +5531,10 @@ Lector de Azure Sentinel
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtiene los orígenes de datos en un área de trabajo. |
 > | Microsoft.Insights/workbooks/read | Lee un libro. |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5548,6 +5554,7 @@ Lector de Azure Sentinel
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5583,6 +5590,7 @@ Respondedor de Azure Sentinel
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Comprueba la autorización y la licencia del usuario |
 > | Microsoft.SecurityInsights/cases/* |  |
 > | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Realiza búsquedas mediante el nuevo motor. |
@@ -5595,10 +5603,10 @@ Respondedor de Azure Sentinel
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtiene los orígenes de datos en un área de trabajo. |
 > | Microsoft.Insights/workbooks/read | Lee un libro. |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5618,6 +5626,7 @@ Respondedor de Azure Sentinel
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
@@ -5655,11 +5664,11 @@ Le permite administrar almacenes de claves, pero no acceder a ellos.
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.KeyVault/* |  |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Purga un almacén de claves eliminado temporalmente |
 > | Microsoft.KeyVault/hsmPools/* |  |
@@ -5702,7 +5711,7 @@ Le permite administrar almacenes de claves, pero no acceder a ellos.
 
 ### <a name="security-admin"></a>Administrador de seguridad
 
-puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones.
+Vea y actualice los permisos para Security Center. Tiene los mismos permisos que el rol de lector de seguridad, y también puede actualizar la directiva de seguridad y descartar las alertas y las recomendaciones.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5712,13 +5721,13 @@ puede ver las directivas de seguridad, los estados de seguridad, editar las dire
 > | Microsoft.Authorization/policyAssignments/* | Crear y administrar asignaciones de directivas |
 > | Microsoft.Authorization/policyDefinitions/* | Crear y administrar definiciones de directivas |
 > | Microsoft.Authorization/policySetDefinitions/* | Crear y administrar conjuntos de directivas |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 > | Microsoft.operationalInsights/workspaces/*/read | Consulta datos de Log Analytics. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Security/* | Crear y administrar las directivas y los componentes de seguridad |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5812,12 +5821,12 @@ Se trata de un rol heredado. En su lugar, use el Administrador de seguridad.
 > | Microsoft.ClassicCompute/*/read | Leer información de configuración de máquinas virtuales clásicas |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | Escribir configuración de máquinas virtuales clásicas |
 > | Microsoft.ClassicNetwork/*/read | Leer información de configuración acerca de la red clásica |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Security/* | Crear y administrar las directivas y los componentes de seguridad |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -5860,19 +5869,19 @@ Se trata de un rol heredado. En su lugar, use el Administrador de seguridad.
 
 ### <a name="security-reader"></a>Lector de seguridad
 
-Puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios.
+Vea los permisos para Security Center. Puede ver las recomendaciones, las alertas, una directiva de seguridad y los estados de seguridad, pero no puede realizar cambios.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.operationalInsights/workspaces/*/read | Consulta datos de Log Analytics. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Security/*/read | Leer directivas y componentes de seguridad |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -6035,7 +6044,7 @@ Le permite crear, administrar y eliminar los laboratorios administrados en sus c
 > | Microsoft.LabServices/labAccounts/getPricingAndAvailability/action | Obtiene los precios y la disponibilidad de combinaciones de tamaños, zonas geográficas y sistemas operativos para la cuenta de laboratorio. |
 > | Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action | Obtiene el uso y las restricciones de núcleos de esta suscripción. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6092,9 +6101,9 @@ Puede administrar los componentes de Application Insights
 > | Microsoft.Insights/components/* | Crear y administrar componentes de Insights |
 > | Microsoft.Insights/webtests/* | Crear y administrar pruebas web de Insights |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6136,18 +6145,18 @@ Puede administrar los componentes de Application Insights
 
 ### <a name="application-insights-snapshot-debugger"></a>Depurador de instantáneas de Application Insights
 
-Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor).
+Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). Si concede el rol Depurador de instantáneas de Application Insights a los usuarios, debe concederlo directamente al usuario. El rol no se reconoce cuando se agrega a un rol personalizado. 
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6197,7 +6206,7 @@ Puede leer todos los datos de supervisión y editar la configuración de supervi
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/activityLogAlerts/* |  |
-> | Microsoft.Insights/AlertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/AlertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Insights/components/* | Crear y administrar componentes de Insights |
 > | Microsoft.Insights/DiagnosticSettings/* | Crea, actualiza o lee la configuración de diagnóstico de Analysis Server. |
 > | Microsoft.Insights/eventtypes/* | Enumerar eventos del registro de actividades (eventos de administración) de una suscripción. Este permiso es aplicable para el acceso mediante programación y mediante el portal al registro de actividades. |
@@ -6209,12 +6218,15 @@ Puede leer todos los datos de supervisión y editar la configuración de supervi
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Crear y administrar pruebas web de Insights |
 > | Microsoft.Insights/workbooks/* |  |
+> | Microsoft.Insights/privateLinkScopes/* |  |
+> | Microsoft.Insights/privateLinkScopeOperationStatuses/* |  |
+> | Microsoft.OperationalInsights/workspaces/write | Crea una nueva área de trabajo o vincula a un área de trabajo que ya existe proporcionando el identificador de cliente de esta. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Lee, escribe o elimina paquetes de soluciones de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lee, escribe o elimina búsquedas guardadas de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Ejecuta una consulta de búsqueda |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera las claves compartidas del área de trabajo. Estas claves se utilizan para conectar los agentes de Microsoft Operational Insights al área de trabajo. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Lee, escribe o elimina configuraciones de visión de almacenamiento de Log Analytics. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
@@ -6255,6 +6267,9 @@ Puede leer todos los datos de supervisión y editar la configuración de supervi
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/privateLinkScopes/*",
+        "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",
@@ -6287,7 +6302,7 @@ Permite publicar las métricas de los recursos de Azure.
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Insights/Register/Action | Registra el proveedor de Microsoft Insights. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -6334,7 +6349,7 @@ Puede leer todos los datos de supervisión (métricas, registros, etc.). Consult
 > | **Acciones** |  |
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Ejecuta una consulta de búsqueda |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6472,10 +6487,10 @@ Permite crear y administrar trabajos con los runbooks de Automation.
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspende un trabajo de Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/write | Crea un trabajo de Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Obtiene la salida de un trabajo |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6542,12 +6557,12 @@ Los operadores de automatización pueden iniciar, detener, suspender y reanudar 
 > | Microsoft.Automation/automationAccounts/runbooks/read | Obtiene un runbook de Azure Automation |
 > | Microsoft.Automation/automationAccounts/schedules/read | Obtiene un recurso de programación de Azure Automation |
 > | Microsoft.Automation/automationAccounts/schedules/write | Crea o actualiza un recurso de programación de Azure Automation |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Obtiene la salida de un trabajo |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6609,10 +6624,10 @@ Permite leer las propiedades de runbook para poder crear trabajos del runbook.
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Obtiene un runbook de Azure Automation |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6757,7 +6772,7 @@ Permite acceso de lectura a los datos de facturación.
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6806,8 +6821,8 @@ Puede administrar las definiciones del plano técnico, pero no asignarlas.
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Blueprint/blueprints/* | Crea y administra definiciones de plano técnico o artefactos de plano técnico. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6854,8 +6869,8 @@ Puede asignar los planos técnicos publicados existentes, pero no puede crear nu
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Blueprint/blueprintAssignments/* | Crea y administra asignaciones de plano técnico. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -6904,7 +6919,7 @@ Puede ver los costos y administrar la configuración de estos (por ejemplo, pres
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Advisor/configurations/read | Obtener configuraciones |
 > | Microsoft.Advisor/recommendations/read | Lee las recomendaciones |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
@@ -6960,7 +6975,7 @@ Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exp
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Advisor/configurations/read | Obtener configuraciones |
 > | Microsoft.Advisor/recommendations/read | Lee las recomendaciones |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
@@ -7003,6 +7018,48 @@ Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exp
 }
 ```
 
+### <a name="hierarchy-settings-administrator"></a>Administrador de configuración de jerarquía
+
+Permite a los usuarios editar y eliminar la configuración de jerarquía.
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Acciones** |  |
+> | Microsoft.Management/managementGroups/settings/write | Crea o actualiza la configuración de jerarquía del grupo de administración. |
+> | Microsoft.Management/managementGroups/settings/delete | Elimina la configuración de jerarquía del grupo de administración. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to edit and delete Hierarchy Settings",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/350f8d15-c687-4448-8ae1-157740a3936d",
+  "name": "350f8d15-c687-4448-8ae1-157740a3936d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Management/managementGroups/settings/write",
+        "Microsoft.Management/managementGroups/settings/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Hierarchy Settings Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="managed-application-contributor-role"></a>Rol Colaborador de la aplicación administrada
 
 Permite crear recursos de aplicaciones administradas.
@@ -7015,7 +7072,7 @@ Permite crear recursos de aplicaciones administradas.
 > | Microsoft.Solutions/applications/* |  |
 > | Microsoft.Solutions/register/action | Permite registrarse en Solutions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/* |  |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -7104,7 +7161,7 @@ Le permite leer los recursos de una aplicación administrada y solicitar acceso 
 > | --- | --- |
 > | **Acciones** |  |
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -7280,11 +7337,11 @@ Le permite administrar las aplicaciones y cuentas de Application Performance Man
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -7384,7 +7441,7 @@ Los usuarios con derechos para crear o modificar la directiva de recursos pueden
 > | Microsoft.Authorization/policydefinitions/* | Crear y administrar definiciones de directivas |
 > | Microsoft.Authorization/policysetdefinitions/* | Crear y administrar conjuntos de directivas |
 > | Microsoft.PolicyInsights/* |  |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -7430,7 +7487,7 @@ Permite administrar el servicio Site Recovery, excepto la creación de almacenes
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Network/virtualNetworks/read | Obtiene la definición de red virtual |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp es una operación interna que el servicio usa |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp es una operación interna que el servicio usa |
@@ -7452,11 +7509,11 @@ Permite administrar el servicio Site Recovery, excepto la creación de almacenes
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Lee las alertas del almacén de Recovery Services |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | Microsoft.RecoveryServices/vaults/replicationOperationStatus/read | Lee los estados de operación de replicación del almacén. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -7524,7 +7581,7 @@ Permite realizar una conmutación por error o una conmutación por recuperación
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.Network/virtualNetworks/read | Obtiene la definición de red virtual |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp es una operación interna que el servicio usa |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp es una operación interna que el servicio usa |
@@ -7577,10 +7634,10 @@ Permite realizar una conmutación por error o una conmutación por recuperación
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | La operación Token de almacén se puede usar para obtener el token de almacén de las operaciones back-end a nivel de almacén. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -7707,7 +7764,7 @@ Permite visualizar el estado de Site Recovery, pero no realizar otras operacione
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | La operación Token de almacén se puede usar para obtener el token de almacén de las operaciones back-end a nivel de almacén. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -7779,7 +7836,7 @@ Permite crear y administrar solicitudes de soporte técnico.
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -7825,9 +7882,9 @@ Permite administrar etiquetas en las entidades sin proporcionar acceso a las ent
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obtiene los recursos del grupo de recursos. |
 > | Microsoft.Resources/subscriptions/resources/read | Obtiene recursos de una suscripción. |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | Microsoft.Resources/tags/* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -7880,11 +7937,11 @@ Permite administrar los servicios de BizTalk, pero no acceder a ellos.
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.BizTalkServices/BizTalk/* | Crear y administrar los servicios de BizTalk |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -7931,12 +7988,12 @@ Permite administrar colecciones de trabajos de Scheduler, pero no acceder a ella
 > | --- | --- |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/alertRules/* | Creación y administración de una alerta de métricas clásica |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/deployments/* | Creación y administración de una implementación |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Scheduler/jobcollections/* | Crear y administrar colecciones de trabajos |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Support/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |

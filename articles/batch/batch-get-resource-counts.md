@@ -2,14 +2,14 @@
 title: Estados de recuento de tareas y nodos
 description: Realice un recuento del estado de los nodos de ejecución y las tareas de Azure Batch para ayudar a administrar y supervisar las soluciones de Batch.
 ms.date: 09/07/2018
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116101"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780157"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Supervisión de las soluciones de Batch realizando un recuento de las tareas y los nodos por estado
 
@@ -111,12 +111,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Puede usar un patrón similar para REST y otros lenguajes admitidos para obtener los recuentos de nodos de los grupos.
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de los conceptos y las características del servicio de Batch, consulte la [descripción de las características de Batch](batch-api-basics.md). El artículo describe los principales recursos de Batch como los grupos, nodos de proceso, trabajos y tareas, y proporciona información general acerca de las características del servicio.
-
+* Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 * Para obtener información sobre cómo aplicar filtros a las consultas que enumeran los recursos de Batch, consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md).
 
 

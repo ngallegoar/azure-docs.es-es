@@ -2,13 +2,13 @@
 title: Bloqueo de recursos para impedir cambios
 description: Impida que los usuarios actualicen o eliminen recursos de Azure esenciales aplicando un bloqueo para todos los usuarios y roles.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/19/2020
+ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234096"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847674"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -25,13 +25,19 @@ Al diferencia del control de acceso basado en rol, los bloqueos de administraci�
 
 Los bloqueos de Resource Manager solo se aplican a las operaciones que se producen en el plano de la administración, que consta de las operaciones enviadas a `https://management.azure.com`. Los bloqueos no restringen cómo los recursos realizan sus propias funciones. Los cambios de recursos están restringidos, pero no así las operaciones de recursos. Por ejemplo, un bloqueo ReadOnly en una instancia de SQL Database impide que elimine o modifique la base de datos. Pero no le impide crear, actualizar o eliminar datos de la base de datos. Se permiten las transacciones de datos porque esas operaciones no se envían a `https://management.azure.com`.
 
-Aplicar **ReadOnly** puede provocar resultados inesperados, ya que algunas operaciones que no parecen modificar el recurso realmente requieren acciones que el bloqueo ha bloqueado. El bloqueo **ReadOnly** se puede aplicar al recurso o el grupo de recursos que contiene el recurso. Algunos ejemplos comunes de las operaciones que bloquea el bloqueo **ReadOnly** son:
+## <a name="considerations-before-applying-locks"></a>Consideraciones antes de aplicar bloqueos
 
-* Un bloqueo **ReadOnly** en una cuenta de almacenamiento impide que todos los usuarios muestren las claves. La operación de visualización claves se administra mediante solicitudes POST debido a que las claves devueltas están disponibles para las operaciones de escritura.
+Aplicar bloqueos puede provocar resultados inesperados, ya que algunas operaciones que no parecen modificar el recurso realmente requieren acciones que el bloqueo ha bloqueado. Algunos ejemplos comunes de las operaciones los bloqueos bloquean son:
 
-* Un bloqueo **ReadOnly** en un recurso de App Service evita que el Explorador de servidores de Visual Studio muestre los archivos del recurso, ya que esa interacción requiere acceso de escritura.
+* Un bloqueo de solo lectura en una **cuenta de almacenamiento** impide que todos los usuarios muestren las claves. La operación de visualización claves se administra mediante solicitudes POST debido a que las claves devueltas están disponibles para las operaciones de escritura.
 
-* Un bloqueo **ReadOnly** en un grupo de recursos que contiene una máquina virtual impide que todos los usuarios inicien o reinicien la máquina virtual. Estas operaciones requieren una solicitud POST.
+* Un bloqueo de solo lectura en un recurso de **App Service** evita que el Explorador de servidores de Visual Studio muestre los archivos del recurso, ya que esa interacción requiere acceso de escritura.
+
+* Un bloqueo de solo lectura en un **grupo de recursos** que contiene una **máquina virtual impide** que todos los usuarios inicien o reinicien la máquina virtual. Estas operaciones requieren una solicitud POST.
+
+* Un bloqueo de solo lectura en una **suscripción** impide que **Azure Advisor** funcione correctamente. Advisor no puede almacenar los resultados de sus consultas.
+
+* Un bloqueo de no se puede eliminar en el **grupo de recursos** creado por el **Servicio Azure Backup** genera un error en las copias de seguridad. El servicio admite un máximo de 18 puntos de restauración. Cuando está bloqueado, el servicio de copia de seguridad no puede limpiar los puntos de restauración. Para más información, consulte [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="who-can-create-or-delete-locks"></a>Quién puede crear o eliminar bloqueos
 
@@ -56,10 +62,6 @@ Tenga en cuenta que el servicio incluye un vínculo para un **Grupo de recursos 
 Para eliminar todo el contenido para el servicio, incluido el grupo de recursos de infraestructura bloqueado, seleccione **Eliminar** para el servicio.
 
 ![Eliminar servicio](./media/lock-resources/delete-service.png)
-
-## <a name="azure-backups-and-locks"></a>Copias de seguridad y bloqueos de Azure
-
-Si bloquea el grupo de recursos creado por el servicio Azure Backup, las copias de seguridad comenzarán a producir errores. El servicio admite un máximo de 18 puntos de restauración. Con un bloqueo **CanNotDelete**, el servicio de copia de seguridad no puede limpiar los puntos de restauración. Para más información, consulte [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="portal"></a>Portal
 
@@ -238,7 +240,7 @@ En la solicitud, incluya un objeto JSON que especifique las propiedades para el 
     } 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para aprender a organizar de manera lógica los recursos, vea [Uso de etiquetas para organizar sus recursos](tag-resources.md)
+* Para aprender a organizar de manera lógica los recursos, consulte [Uso de etiquetas para organizar sus recursos](tag-resources.md).
 * Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para obtener más información, consulte [¿Qué es Azure Policy?](../../governance/policy/overview.md)
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3e90fa3e3f57c1575a7ab09f9ce6941c13adcd1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789331"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834873"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Administración de proyectos, tareas y recursos de Project Online con Azure Logic Apps
 
@@ -25,7 +25,7 @@ Con Azure Logic Apps y el conector Project Online, puede crear tareas automatiza
 
 Project Online le ayuda a planear, priorizar y administrar proyectos e inversiones de carteras de proyectos, desde prácticamente cualquier lugar en casi todos los dispositivos gracias a sus eficaces funcionalidades de administración de proyectos. Puede usar desencadenadores de Project Online que obtengan respuestas de Project Online y hagan que la salida esté disponible para otras acciones. Puede utilizar acciones en las aplicaciones lógicas para realizar diversas tareas en Project Online. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
@@ -62,7 +62,7 @@ Para obtener detalles técnicos acerca de desencadenadores, acciones y límites,
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Si tiene alguna duda, visite la [Página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes

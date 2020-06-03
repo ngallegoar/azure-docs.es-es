@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 838b759f6b175b478dcd9b0559784975b5d24f70
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 75b71fe9a15b05679ab1b71b13bb0b1f51b7d1d1
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593346"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816155"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalación y ejecución de los contenedores de Read (versión preliminar)
 
@@ -37,6 +37,8 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores:
 |Recurso de Computer Vision |Para poder usar el contenedor, debe tener:<br><br>Un recurso de **Computer Vision** de Azure y la clave de API asociada con el URI del punto de conexión. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
+
+Rellene y envíe el [formulario de solicitud](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 

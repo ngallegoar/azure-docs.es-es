@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686408"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683303"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Transformación Dinamizar en el flujo de datos de asignación
 
@@ -27,7 +27,7 @@ La transformación Dinamizar requiere tres entradas diferentes: las columnas Agr
 
 ### <a name="group-by"></a>Agrupar por
 
-![Opciones de Agrupar por](media/data-flow/pivot2.png "[Opciones Agrupar por")
+![Opciones de Agrupar por](media/data-flow/pivot2.png "Opciones de Agrupar por")
 
 Seleccione las columnas sobre las que se deben agregar las columnas dinamizadas. Los datos de salida agruparán todas las filas con los mismos valores Agrupar por en una fila. La agregación realizada en la columna dinamizada se realizará en cada grupo.
 
@@ -73,7 +73,7 @@ Dinamizar genera nuevos nombres de columna de forma dinámica en función de los
 
 ### <a name="sinking-pivoted-columns"></a>Recepción de columnas dinamizadas
 
-Aunque las columnas dinamizadas son dinámicas, también se pueden escribir en el almacén de datos de destino. Habilite **Permitir el desfase de esquema** en la configuración del receptor. De este modo, podrá escribir columnas que no estén incluidas en los metadatos. No verá los nombres dinámicos nuevos en los metadatos de la columna, pero la opción de desfase del esquema le permitirá el desplazamiento de los datos.
+Aunque las columnas dinamizadas son dinámicas, también se pueden escribir en el almacén de datos de destino. Habilite **Permitir el desfase de esquema** en la configuración del receptor. De este modo, podrá escribir columnas que no estén incluidas en los metadatos. No verá los nombres dinámicos nuevos en los metadatos de la columna, pero la opción de desviación del esquema le permitirá el aterrizaje de los datos.
 
 ### <a name="rejoin-original-fields"></a>Recombinación de los campos originales
 

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de voz a texto
-summary: La característica de conversión de voz en texto del servicio de voz, también conocida como reconocimiento de voz, permite la transcripción en tiempo real y por lotes de secuencias de audio en texto.
+summary: La característica de conversión de voz en texto del servicio de voz, también conocida como reconocimiento de voz, permite la transcripción en tiempo real y por lotes de secuencias de audio en texto. Con la entrada de texto de referencia adicional, también se habilita la valoración de pronunciación en tiempo real y se proporciona a los oradores comentarios sobre la precisión y fluidez del audio hablado.
 metadata:
   title: 'Documentación de voz a texto: tutoriales y referencia de API (Azure Cognitive Services) | Microsoft Docs'
   titleSuffix: Azure Cognitive Services
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: 717c4e0322b48eca0acfacd20ed527a629bd1ff0
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: c1f4b6b43f661251f764e65e5d5378952ab99d10
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "81401404"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800856"
 landingContent:
 - title: Acerca de la conversión de voz en texto
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
       url: batch-transcription.md
     - text: Conceptos básicos del reconocimiento de voz
       url: speech-to-text-basics.md
+    - text: Uso de la CLI de Voz para conversión de voz en texto sin código
+      url: spx-overview.md
   - linkListType: quickstart
     links:
     - text: Reconocimiento de voz con entrada de micrófono
@@ -36,6 +38,8 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Reconocimiento de voz almacenada en Blob Storage
       url: quickstarts/from-blob.md
+    - text: Valoración de la pronunciación con entrada de referencias
+      url: rest-speech-to-text.md#pronunciation-assessment-parameters
 - title: Desarrollo con la conversión de voz a texto
   linkLists:
   - linkListType: how-to-guide

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: d0bb73b58aa23e5f7eb784772acf37b05df463ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09d15877088fb6356419a9d31f8bef3164e76029
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456835"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780599"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Modificación de la configuración de tiempo de espera de inactividad de TCP para Azure Load Balancer
 
@@ -42,6 +42,10 @@ TCP keep-alive funciona en escenarios donde la batería no supone una restricci�
 ![Tiempo de espera TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 Las secciones siguientes describen cómo cambiar la configuración de tiempo de espera de inactividad para los recursos de IP pública y equilibrador de carga.
+
+>[!NOTE]
+> El tiempo de espera de inactividad de TCP no afecta a las reglas de equilibrio de carga en el protocolo UDP.
+
 
 ## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configuración del tiempo de espera de TCP para la IP pública a nivel de instancia en 15 minutos
 

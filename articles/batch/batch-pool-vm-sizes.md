@@ -1,16 +1,15 @@
 ---
 title: Selección de los tamaños de máquina virtual para grupos
 description: Cómo elegir uno de los tamaños de máquina virtual disponibles para los nodos de proceso en grupos de Azure Batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115863"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779150"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -87,5 +86,5 @@ Los grupos de Batch en la configuración de Cloud Services son compatibles con t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
+* Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 * Para más información acerca del uso de tamaños de máquinas virtuales de proceso intensivo, consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md).

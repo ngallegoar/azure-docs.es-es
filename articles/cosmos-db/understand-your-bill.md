@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2b62ee971c2cff84f60bad1be4304631513fed22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186329"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647722"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -208,8 +208,8 @@ Con el nivel Gratis de Azure Cosmos DB, obtendrá en la cuenta las primeras 400
 - Supongamos ahora que en la misma cuenta agregamos otra base de datos o contenedor con 1000 RU/s y 10 GB de almacenamiento.
 - La factura mostrará un cargo por los 1000 RU/s y los 10 GB de almacenamiento. 
 
-### <a name="billing-example---container-or-database-with-autoscale-throughput"></a>Ejemplo de facturación: contenedor o base de datos con rendimiento de escalabilidad automática
-- Supongamos que en una cuenta de nivel Gratis creamos una base de datos o un contenedor con escalabilidad automática habilitada, con un máximo de 4000 RU/s. Este recurso se escalará automáticamente entre 400 y 4000 RU/s. 
+### <a name="billing-example---container-with-autoscale-throughput"></a>Ejemplo de facturación: contenedor con rendimiento de escalabilidad automática
+- Supongamos que en una cuenta de nivel Gratis creamos un contenedor con escalabilidad automática habilitada, con un máximo de 4000 RU/s. Este recurso se escalará automáticamente entre 400 y 4000 RU/s. 
 - Supongamos que, desde la hora 1 a la hora 10, el recurso se sitúa en el mínimo de 400 RU/s. Durante la hora 11, el recurso se escala verticalmente hasta 1000 RU/s y después vuelve a 400 RU/s en la misma hora.
 - En las horas de 1 a 10 se le facturará 0 USD por la capacidad de proceso, ya que las 400 RU/s están cubiertas por el nivel Gratis. 
 - En la hora 11 se le facturará por una cantidad efectiva de 1000 RU/s - 400 RU/s = 600 RU/s, ya que es el valor máximo de RU/s de la hora. Serán 6 unidades de 100 RU/s por la hora, por lo que el costo de capacidad de proceso total de la hora será de 6 unidades * 0,012 USD = 0,072 USD. 

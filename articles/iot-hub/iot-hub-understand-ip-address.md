@@ -7,19 +7,19 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367574"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848235"
 ---
 # <a name="iot-hub-ip-addresses"></a>Direcciones IP de IoT Hub
 
 Los prefijos de dirección IP de los puntos de conexión de IoT Hub se publican periódicamente con la [etiqueta de servicio](../virtual-network/service-tags-overview.md) _AzureIoTHub_.
 
 > [!NOTE]
-> En el caso de los dispositivos que se implementan en redes locales, Azure IoT Hub admite la integración de la conectividad de red virtual con puntos de conexión privados. Para más información, consulte [Compatibilidad de IoT Hub con redes virtuales](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints).
+> En el caso de los dispositivos que se implementan en redes locales, Azure IoT Hub admite la integración de la conectividad de red virtual con puntos de conexión privados. Para más información, consulte [Compatibilidad de IoT Hub con redes virtuales](./virtual-network-support.md).
 
 
 Puede usar estos prefijos de dirección IP para controlar la conectividad entre IoT Hub y los dispositivos o recursos de red para implementar diversos objetivos de aislamiento de red:

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: cb6b99351a5cb995d87b482b7e707a3913fd86f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594964"
+ms.locfileid: "83655249"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticación y autorización para Azure Static Web Apps (versión preliminar)
 
@@ -118,7 +118,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 Para evitar que la plataforma proporcione esta información en futuras solicitudes a aplicaciones individuales, envíe una solicitud a la siguiente dirección URL:
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## <a name="system-folder"></a>Carpeta del sistema
@@ -154,6 +154,11 @@ Puede usar una [regla de ruta](routes.md) para asignar un proveedor predetermina
 }
 ```
 
+### <a name="post-login-redirect"></a>Redireccionamiento posterior al inicio de sesión
+
+Si quiere que un usuario vuelva a una página específica después de iniciar sesión, proporcione una dirección URL en el parámetro de cadena de consulta `post_login_redirect_uri`.
+
+
 ## <a name="logout"></a>Logout
 
 La ruta `/.auth/logout` cierra la sesión de los usuarios en el sitio web. Puede agregar un vínculo a la navegación del sitio para permitir que el usuario cierre la sesión, tal y como se muestra en el ejemplo siguiente.
@@ -170,6 +175,10 @@ Puede usar una [regla de ruta](routes.md) para asignar una ruta descriptiva, com
   "serve": "/.auth/logout"
 }
 ```
+
+### <a name="post-logout-redirect"></a>Redireccionamiento posterior al cierre de sesión
+
+Si quiere que un usuario vuelva a una página específica después de cerrar sesión, proporcione una dirección URL en el parámetro de cadena de consulta `post_logout_redirect_uri`.
 
 ## <a name="block-an-authorization-provider"></a>Bloqueo de un proveedor de autorización
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo proteger el tráfico que fluye den
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: ca0b6d4acd48dde0ea381ab37080fb6af1fb936c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854233"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683195"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -81,7 +81,7 @@ En el ejemplo siguiente se invoca el script:
 * Crea una entidad de servicio de Azure Active Directory (Azure AD) para usarse con el clúster de AKS.
 * Asigna permisos de *colaborador* para la entidad de servicio de clúster de AKS en la red virtual.
 * Crea un clúster de AKS en la red virtual definida y habilita la directiva de red.
-    * Se usa la opción de directiva de red de *Azure*. Para usar Calico como opción de directiva de red, use el parámetro `--network-policy calico`. Nota: Calico se puede usar con `--network-plugin azure` o `--network-plugin kubenet`.
+    * Se usa la opción de directiva de _Red de Azure_. Para usar Calico como opción de directiva de red, use el parámetro `--network-policy calico`. Nota: Calico se puede usar con `--network-plugin azure` o `--network-plugin kubenet`.
 
 Recuerde que en lugar de una entidad de servicio, puede usar una identidad administrada para los permisos. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
@@ -146,7 +146,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Denegación de todo el tráfico entrante a un pod
 
-Antes de definir reglas para permitir el tráfico de red específico, primero cree una directiva de red para denegar todo el tráfico. Esta directiva proporciona un punto de partida para incluir en la lista blanca solo el tráfico deseado. También puede ver claramente que el tráfico se descarta cuando se aplica la directiva de red.
+Antes de definir reglas para permitir el tráfico de red específico, primero cree una directiva de red para denegar todo el tráfico. Esta directiva proporciona un punto inicial para empezar a crear una lista de admisión solo para el tráfico deseado. También puede ver claramente que el tráfico se descarta cuando se aplica la directiva de red.
 
 En lo que respecta al entorno de aplicación de ejemplo y a las reglas de tráfico, vamos a crear un espacio de nombres denominado *development* para ejecutar los pods de ejemplo:
 
@@ -474,9 +474,9 @@ Para más información sobre las directivas, consulte las [directivas de red de 
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/reference/calicoctl/
 [calico-support]: https://www.tigera.io/tigera-products/calico/
-[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
+[calico-logs]: https://docs.projectcalico.org/maintenance/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

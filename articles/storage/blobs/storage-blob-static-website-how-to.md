@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 23a5d2c0e52a22872a8b9a64503d61493018b611
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 020c25dfb17f733359e596100cfd24cfa3f68036
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839171"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648561"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -195,21 +195,19 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-## <a name="find-the-website-url-by-using-the-azure-portal"></a>Búsqueda de la dirección URL del sitio web mediante Azure Portal
+<a id="portal-find-url" />
+
+## <a name="find-the-website-url"></a>Búsqueda de la dirección URL del sitio web
 
 Para ver las páginas de un sitio web desde un explorador, use la dirección URL pública del sitio.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-<a id="portal-find-url" />
 
 En el panel que aparece junto a la página de información general de la cuenta de su cuenta de almacenamiento, seleccione **Sitio web estático**. La dirección URL del sitio aparece en el campo **Punto de conexión principal**.
 
 ![Métrica de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-<a id="cli-find-url" />
 
 Para buscar la dirección URL pública de un sitio web estático, use el siguiente comando:
 
@@ -222,8 +220,6 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 * Reemplace el marcador de posición `<resource-group-name>` por el nombre del grupo de recursos.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-<a id="powershell-find-url" />
 
 Para buscar la dirección URL pública de un sitio web estático, use el siguiente comando:
 

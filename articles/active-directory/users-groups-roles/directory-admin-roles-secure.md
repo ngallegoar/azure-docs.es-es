@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c580a39db97e1ce50c3d244db3023bf422bca08
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 16c87eabec8f09f082c258a439a17b9f3aa79336
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837199"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759037"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -82,7 +82,7 @@ Después de activar Azure AD Privileged Identity Management:
 
 4. Abra Privileged Identity Management en la lista **Todos los servicios** y ánclelo al panel.
 
-A la primera persona que usa PIM en la organización se le asignan los roles de **Administrador de seguridad** y **Administrador de roles con privilegios**. Los administradores de rol con privilegios son los únicos que pueden administrar las asignaciones de roles de directorio de Azure AD de los usuarios. El asistente de seguridad de PIM le guía en la experiencia inicial de detección y asignación. Ahora puede salir del asistente sin realizar ningún cambio adicional.
+Asegúrese de que a la primera persona que usa PIM en la organización se le asignan los roles de **Administrador de seguridad** y **Administrador de roles con privilegios**. Los administradores de rol con privilegios son los únicos que pueden administrar las asignaciones de roles de directorio de Azure AD de los usuarios. El asistente de seguridad de PIM le guía en la experiencia inicial de detección y asignación. Ahora puede salir del asistente sin realizar ningún cambio adicional.
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificación y clasificación de las cuentas que están en roles con privilegios elevados
 

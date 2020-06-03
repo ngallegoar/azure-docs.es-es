@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983472"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683083"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -46,7 +46,7 @@ De forma similar a la clasificación, las tareas de regresión también son una 
 
 A diferencia de la clasificación, donde los valores de salida pronosticados son categóricos, los modelos de regresión predicen valores de salida numéricos basados en predicciones independientes. En la regresión, el objetivo es ayudar a establecer la relación entre esas variables de predicción independientes mediante la estimación de cómo una variable afecta a las otras. Por ejemplo, el precio de un automóvil según características como, el kilometraje de gas, la clasificación de seguridad, etc. Puede encontrar más información y ver un ejemplo en el artículo sobre la [regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md).
 
-Vea ejemplos de regresión y aprendizaje automático automatizado para predicciones en estos cuadernos de Python: [Predicción del rendimiento de la CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb), 
+Vea ejemplos de regresión y aprendizaje automático automatizado para predicciones en estos cuadernos de Python: [Predicción del rendimiento de la CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb), 
 
 ### <a name="time-series-forecasting"></a>Previsión de series temporales
 
@@ -110,7 +110,7 @@ En todos los experimentos de aprendizaje automático automatizado, los datos se 
 
 ### <a name="automatic-preprocessing-standard"></a>Preprocesamiento automático (estándar)
 
-En todos los experimentos de aprendizaje automático automatizado, los datos se escalan y se normalizan automáticamente para ayudar a que los algoritmos funcionen bien.  Durante el entrenamiento del modelo, se aplicará una de las siguientes técnicas de escalado o normalización para todos los modelos.
+En todos los experimentos de aprendizaje automático automatizado, los datos se escalan y se normalizan automáticamente para ayudar a que los algoritmos funcionen bien.  Durante el entrenamiento del modelo, se aplicará una de las siguientes técnicas de escalado o normalización para todos los modelos. Obtenga información sobre cómo autoML ayuda a [prevenir el sobreajuste y los datos desequilibrados](concept-manage-ml-pitfalls.md) en los modelos.
 
 |Escalado&nbsp;&y&nbsp;normalización| Descripción |
 | ------------- | ------------- |
@@ -186,8 +186,19 @@ Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
 | Registro y visualización de la información y las métricas del experimento en la interfaz de usuario | ✓      | ✓     |                               |
 | Límites de protección de datos                                            | ✓      | ✓     |                               |
 
+## <a name="many-models"></a>Many Models 
 
-## <a name="automated-ml-in-azure-machine-learning"></a>Aprendizaje automático automatizado en Azure Machine Learning
+El [Acelerador de soluciones Many Models](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite usar ML automatizado para entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
+
+Por ejemplo, la creación de un modelo __para cada instancia o individual__ en los escenarios siguientes puede dar lugar a resultados mejorados:
+
+* Predicción de ventas para cada tienda individual
+* Mantenimiento predictivo para cientos de pozos petrolíferos
+* Personalización de una experiencia para usuarios individuales
+
+Para obtener más información, vea el [Acelerador de soluciones Many Models](https://aka.ms/many-models) en GitHub.
+
+## <a name="automl-in-azure-machine-learning"></a>AutoML en Azure Machine Learning
 
 Azure Machine Learning ofrece dos experiencias para trabajar con aprendizaje automático automatizado
 

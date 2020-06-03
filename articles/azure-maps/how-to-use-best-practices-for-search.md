@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8d62d7d278323baa0ae49b9e12f46468efb067a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335318"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742767"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedimientos recomendados del servicio Search de Azure Maps
 
@@ -52,7 +52,7 @@ La capacidad de geocodificación de un país o región depende de la disponibili
 
 Para sesgar geográficamente los resultados al área pertinente para el usuario, agregue siempre tantos detalles como sea posible. Puede que quiera especificar algunos tipos de entrada para restringir los resultados de la búsqueda:
 
-* Establezca el parámetro `countrySet`. Puede establecerlo en `US,FR`, por ejemplo. De forma predeterminada, la API busca en todo el mundo, por lo que podría devolver resultados innecesarios. Si la consulta no tiene ningún parámetro `countrySet`, es posible que la búsqueda devuelva resultados inexactos. Por ejemplo, la búsqueda de una ciudad llamada *Bellevue* devuelve resultados de Estados Unidos y Francia porque ambos países tienen una ciudad llamada *Bellevue*.
+* Establezca el parámetro `countrySet`. Puede establecerlo en `US,FR`, por ejemplo. De forma predeterminada, la API busca en todo el mundo, por lo que podría devolver resultados innecesarios. Si la consulta no tiene ningún parámetro `countrySet`, es posible que la búsqueda devuelva resultados inexactos. Por ejemplo, la búsqueda de una ciudad llamada *Bellevue* devuelve resultados de Estados Unidos y Francia porque ambos países o regiones tienen una ciudad llamada *Bellevue*.
 
 * Puede usar los parámetros `btmRight` y `topleft` para establecer el rectángulo delimitador. Estos parámetros restringen la búsqueda a un área específica del mapa.
 
@@ -769,7 +769,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Intervalo de direcciones**: intervalo de puntos de dirección que se interpolan desde el principio y el final de la calle.  
 
-* **Geography**: áreas en un mapa que representan una división administrativa de un territorio, es decir, país, región, estado o ciudad. 
+* **Geography**: áreas en un mapa que representan una división administrativa de un territorio, es decir, país o región, estado o ciudad. 
 
 * **Punto de interés**: puntos de un mapa que merecen atención y pueden ser de interés.
 

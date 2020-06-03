@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 84b68e5aecca11fb72f8cacc7e16701eebd0ae1a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197325"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714056"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -51,27 +51,7 @@ El límite de seguridad de la identidad es el recurso al que está asociada. Por
 - Si la identidad administrada asignada por el sistema no está habilitada, y solo existe una identidad administrada asignada por el usuario, IMDS será la identidad administrada asignada de manera predeterminada a ese único usuario. 
 - Si la identidad administrada asignada por el sistema no está habilitada y existen varias identidades administradas asignadas por el usuario, es necesario especificar una identidad administrada en la solicitud.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>¿Debo usar el punto de conexión de IMDS de las identidades administradas para recursos de Azure, o bien el punto de conexión de la extensión de la máquina virtual?
 
-Cuando se usan identidades administradas para los recursos de Azure con máquinas virtuales, se recomienda usar el punto de conexión IMDS. Azure Instance Metadata Service es un punto de conexión REST al que pueden acceder todas las máquinas virtuales IaaS creadas a través de Azure Resource Manager. 
-
-Algunas de las ventajas de usar las identidades administradas para recursos de Azure sobre IMDS son las siguientes:
-- Todos los sistemas operativos admitidos en IaaS de Azure pueden usar identidades administradas para recursos de Azure en lugar de IMDS.
-- Ya no es necesario instalar una extensión en la máquina virtual para habilitar las identidades administradas para recursos de Azure. 
-- Los certificados que usan las identidades administradas para recursos de Azure ya no están presentes en la máquina virtual.
-- El punto de conexión de IMDS es una dirección IP no enrutable conocida, que solo está disponible desde dentro de la máquina virtual.
-- Se pueden asignar 1000 identidades administradas asignadas por el usuario a una sola máquina virtual. 
-
-Las identidades administradas para la extensión de máquina virtual de los recursos de Azure siguen estando disponibles; sin embargo, ya no se desarrollan nuevas funciones. Se recomienda cambiar para usar el punto de conexión IMDS. 
-
-Algunas de las limitaciones de usar el punto de conexión de la extensión de máquina virtual son las siguientes:
-- Compatibilidad limitada para las distribuciones de Linux: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
-- Solo se pueden asignar 32 identidades administradas asignadas por el usuario a la máquina virtual.
-
-
-Nota: en enero de 2019 dejará de haber soporte técnico para la extensión de máquina virtual de identidades administradas para recursos de Azure. 
-
-Para obtener más información sobre Azure Instance Metadata Service, vea la [documentación de IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>¿Se van a volver a crear automáticamente las identidades administradas si muevo una suscripción a otro directorio?
 
@@ -88,16 +68,7 @@ No. Las identidades administradas no admiten actualmente escenarios entre direct
 - Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
 - Identidad administrada asignada por el usuario: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Además de la asignación de roles [Operador de identidad administrada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sobre la identidad administrada.
 
-### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>¿Cómo se reinicia la extensión de identidades administradas para recursos de Azure?
-Tanto en Windows como en algunas versiones de Linux, si la extensión se detiene, se puede utilizar el siguiente cmdlet para reiniciarla manualmente:
 
-```powershell
-Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
-```
-
-Donde: 
-- El tipo y el nombre de la extensión para Windows es: ManagedIdentityExtensionForWindows
-- El tipo y el nombre de la extensión para Linux es: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -133,12 +104,7 @@ Una vez que se inicia la máquina virtual, la etiqueta puede quitarse con el com
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-### <a name="vm-extension-provisioning-fails"></a>Se produce un error de aprovisionamiento de la extensión de máquina virtual
 
-Se puede producir un error en el aprovisionamiento de la extensión de máquina virtual debido a errores de búsqueda DNS. Reinicie la máquina virtual y vuelva a intentarlo.
- 
-> [!NOTE]
-> Está previsto que la extensión de máquina virtual quede en desuso en enero de 2019. Le recomendamos que pase al uso del punto de conexión IMDS.
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferencia de una suscripción entre directorios de Azure AD
 
@@ -151,4 +117,4 @@ Solución alternativa para identidades administradas en una suscripción que se 
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Movimiento de una identidad administrada asignada por el usuario a otro grupo de recursos o suscripción
 
-Mover una identidad administrada asignada por el usuario a otro grupo de recursos hará que la identidad se interrumpa. Como resultado, los recursos que usen esa identidad (por ejemplo, la máquina virtual) no podrán solicitar tokens. 
+No se admite el movimiento de una identidad administrada asignada por el usuario a otro grupo de recursos.

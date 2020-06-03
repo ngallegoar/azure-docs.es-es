@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: 08dcee28c234183aa2b125d82d046d31d4b50e47
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788860"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744597"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>¿Qué es Video Indexer de Azure Media Services?
 
@@ -34,7 +34,7 @@ Como recordatorio importante, debe cumplir todas las leyes aplicables al uso de 
 
 Antes de cargar un vídeo o una imagen en Video Indexer, debe tener todos los derechos adecuados para usar ese vídeo o imagen, incluidos (cuando lo exija la ley) todos los consentimientos necesarios de las personas (si las hay) que aparecen en ellos, para el uso, el procesamiento y el almacenamiento de sus datos en Video Indexer y Azure. Algunas jurisdicciones pueden imponer requisitos legales especiales sobre la recopilación, el procesamiento en línea y el almacenamiento de determinadas categorías de datos, como los datos biométricos. Antes de usar Video Indexer y Azure para el procesamiento y el almacenamiento de datos sujetos a requisitos legales especiales, debe garantizar el cumplimiento de tales requisitos legales que puedan aplicarse en su caso.
 
-Para información sobre el cumplimiento, la privacidad y la seguridad en Video Indexer, visite el [Centro de confianza](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx) de Microsoft. En lo que respecta a las obligaciones de privacidad y a las prácticas de retención y tratamiento de los datos de Microsoft (incluida la forma de eliminación de los datos), revise la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Con el uso de Video Indexer, acepta estar vinculado por el OST, el DPA y la declaración de privacidad.
+Para información sobre el cumplimiento, la privacidad y la seguridad en Video Indexer, visite el [Centro de confianza](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx) de Microsoft. En lo que respecta a las obligaciones de privacidad y a las prácticas de retención y tratamiento de datos de Microsoft, entre las que se incluye la forma de eliminar los datos, lea la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [términos de Online Services](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Con el uso de Video Indexer, acepta estar vinculado por el OST, el DPA y la declaración de privacidad.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>¿Qué puedo hacer con Video Indexer?
 
@@ -70,8 +70,8 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 
 ### <a name="audio-insights"></a>Información de audio
 
-* **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son: alemán, árabe, chino (mandarín), coreano, español, francés, hindi, inglés, italiano, japonés, portugués (Brasil) y ruso.
-* **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (mandarín), español, francés, inglés, italiano, japonés, portugués (Brasil) y ruso. Si el idioma hablado no se puede identificar con confianza, Video Indexer supone que es inglés. Para obtener más información, vea [Modelo de identificación de idiomas](language-identification-model.md).
+* **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son los siguientes: alemán, árabe, chino (mandarín), coreano, español, francés, hindi, inglés, italiano, japonés, portugués y ruso.
+* **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son los siguientes: alemán, chino (mandarín), español, francés, inglés, italiano, japonés, portugués y ruso. Si el idioma hablado no se puede identificar con confianza, Video Indexer supone que es inglés. Para obtener más información, vea [Modelo de identificación de idiomas](language-identification-model.md).
 * **Identificación y transcripción de voz en varios idiomas** (versión preliminar): identifica automáticamente el idioma hablado en diferentes segmentos del audio. Envía cada segmento del archivo multimedia que se va a transcribir y luego combina la transcripción en una unificada. Para más información, consulte [Identificación y transcripción automáticas del contenido de varios idiomas](multi-language-identification-transcription.md).
 * **Subtítulos (CC)** : crea subtítulos en tres formatos: VTT, TTML y SRT.
 * **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.

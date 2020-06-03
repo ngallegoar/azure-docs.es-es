@@ -13,17 +13,20 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 05/20/2020
 ms.author: shvija
-ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3411b3e138778ca7ca1ffcfe14d8d6e84d76d4e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231328"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726101"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage
 Azure Event Hubs permite capturar automáticamente los datos de streaming de Event Hubs de la cuenta de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Storage Gen1 o Gen2](https://azure.microsoft.com/services/data-lake-store/) que prefiera, con la flexibilidad adicional de especificar un intervalo de tiempo o de tamaño. La configuración de Capture es rápida, su ejecución no tiene costes administrativos y se escala automáticamente con las [unidades de procesamiento](event-hubs-scalability.md#throughput-units) de Event Hubs. El uso de Event Hubs Capture constituye la forma más sencilla de cargar datos de streaming en Azure y permite centrarse en el procesamiento de datos, en lugar de en su captura.
+
+> [!NOTE]
+> La configuración de Event Hubs Capture para usar Azure Data Lake Storage **Gen2** es la misma que la configuración para utilizar una instancia de Azure Blob Storage. Para obtener información, consulte [Configuración de Event Hubs Capture](event-hubs-capture-enable-through-portal.md). 
 
 Event Hubs Capture permite procesar las canalizaciones en tiempo real y las basadas en lotes en la misma transmisión, lo que permite crear soluciones que crecen a la par que sus necesidades. Si ya está creando sistemas basados en lotes pensando en un futuro procesamiento en tiempo real o desea agregar una ruta de acceso inactiva eficaz a una solución en tiempo real existente, Event Hubs Capture facilita el trabajo con datos de streaming.
 
@@ -44,7 +47,7 @@ Event Hubs Capture permite configurar una ventana para controlar la captura. Est
 {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
 ```
 
-Tenga en cuenta que los valores de fecha se rellenan con ceros; un nombre de archivo de ejemplo podría ser:
+Tenga en cuenta que los valores de fecha se rellenan con ceros. Un ejemplo de nombre de archivo podría ser el siguiente:
 
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
@@ -137,7 +140,7 @@ Apache Avro tiene guías de introducción para [Java][Java] y [Python][Python] m
 
 Event Hubs Capture se mide de forma similar a las unidades de procesamiento, por hora. El cargo es directamente proporcional al número de unidades de procesamiento que se adquirieron para el espacio de nombres. A medida que las unidades de procesamiento se incrementan y reducen, las mediciones de Event Hubs Capture aumentan y disminuyen, con el fin de proporcionar un rendimiento coincidente. Los medidores se ejecutan de manera simultánea. Para conocer los precios detallados, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-Observe que Capture no consume la cuota de salida, porque se factura por separado. 
+Capture no consume la cuota de salida, porque se factura por separado. 
 
 ## <a name="integration-with-event-grid"></a>Integración con Event Grid 
 

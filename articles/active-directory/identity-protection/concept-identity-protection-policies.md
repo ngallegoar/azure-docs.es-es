@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a44e32efa3e38cf9c4df7dc00e3189c129db418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72886843"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736507"
 ---
 # <a name="identity-protection-policies"></a>Directivas de Identity Protection
 
@@ -41,7 +41,7 @@ Si se detecta un riesgo, los usuarios pueden realizar el proceso de autenticaci�
 
 ### <a name="custom-conditional-access-policy"></a>Directiva de acceso condicional personalizada
 
-Los administradores también pueden optar por crear una directiva de acceso condicional personalizada que incluya el riesgo de inicio de sesión como una condición de asignación. Puede encontrar más información sobre el acceso condicional en el artículo [¿Qué es el acceso condicional?](../conditional-access/overview.md)
+Los administradores también pueden optar por crear una directiva de acceso condicional personalizada que incluya el riesgo de inicio de sesión como una condición de asignación. Puede encontrar más información sobre el riesgo como una condición en una directiva de acceso condicional en el artículo [Acceso condicional: Condiciones](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk)
 
 ![Directiva de riesgo de inicio de sesión de acceso condicional personalizada](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
 

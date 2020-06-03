@@ -4,21 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Obtenga información sobre las etiquetas de servicio. Las etiquetas de servicio ayudan a minimizar la complejidad de la creación de reglas de seguridad.
 services: virtual-network
 documentationcenter: na
-author: jispar
+author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
-ms.author: jispar
+ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: bfeded391f582ab0ac6f3c15d2086789228f1494
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660587"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263215"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -62,7 +62,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureDataExplorerManagement** | Administración de Azure Data Explorer. | Entrada | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Salida | No | Sí |
 | **AzureDevSpaces** | Azure Dev Spaces. | Salida | No | No |
-| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Nota:* Esta etiqueta cubre los puntos de conexión de Azure Event Grid en Centro y Sur de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2 y Centro de EE. UU. solamente. | Ambos | No | No |
+| **AzureEventGrid** | Azure Event Grid. | Ambos | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Ambos | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* Esta etiqueta presenta dependencia con las etiquetas **AzureActiveDirectory**, **AzureFrontDoor.Frontend** y **AzureFrontDoor.FirstParty**. | Salida | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Salida | No | No |

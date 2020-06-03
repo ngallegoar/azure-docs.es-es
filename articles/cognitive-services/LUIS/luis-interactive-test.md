@@ -2,13 +2,13 @@
 title: Prueba de la aplicación en el portal de LUIS
 description: Use Language Understanding (LUIS) para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/20/2020
+ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591869"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714439"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
 
@@ -42,33 +42,36 @@ La expresión de prueba no debe ser exactamente igual que cualquier expresión d
 
 1. La expresión, su intención superior y la puntuación se agregan a la lista de expresiones bajo el cuadro de texto.
 
-    ![Las pruebas interactivas identifican la intención incorrecta](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Las pruebas interactivas identifican la intención incorrecta](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="inspect-score"></a>Inspeccionar puntuación
+## <a name="inspect-the-prediction"></a>Inspección de la predicción
 
 Puede inspeccionar los detalles del resultado de las pruebas en el panel **Inspeccionar**.
 
 1. Con el panel deslizante **Prueba** abierto, haga clic en **Inspeccionar** para una expresión que quiera comparar.
 
-    ![Seleccione el botón Inspeccionar para ver más detalles acerca de los resultados de la prueba.](./media/luis-how-to-interactive-test/inspect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Seleccione el botón Inspeccionar para ver más detalles acerca de los resultados de la prueba](./media/luis-how-to-interactive-test/inspect.png).
 
-1. Aparece el panel **Inspección**. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
+1. Aparece el panel **Inspección**. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra la predicción de la expresión seleccionada.
 
-    ![El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla parcial del panel Inspeccionar prueba](./media/luis-how-to-interactive-test/inspect-panel.png)
 
-## <a name="correct-top-scoring-intent"></a>Intención de mayor puntuación correcta
+## <a name="add-to-example-utterances"></a>Incorporación a expresiones de ejemplo
 
-1. Si la intención de mayor puntuación es incorrecta, haga clic en el botón **Editar**.
+En el panel de inspección, puede agregar la expresión de prueba a una intención; para ello, seleccione **Incorporación a expresiones de ejemplo**.
 
-1.  En la lista desplegable, seleccione la intención correcta de la expresión.
+## <a name="disable-required-features"></a>Deshabilitar las características necesarias
 
-    ![Seleccionar la intención correcta](./media/luis-how-to-interactive-test/intent-select.png)
+Seleccione esta opción para ver cuál sería la predicción si la característica de la entidad no era necesaria.
+
+Esta opción le ayuda a determinar si la aplicación entrenada está prediciendo correctamente las entidades en función de las características necesarias. La aplicación entrenada puede predecir incorrectamente una entidad aprendida por máquina basada en una etiqueta incorrecta de expresiones de ejemplo o la característica necesaria no coincide con el texto.
 
 ## <a name="view-sentiment-results"></a>Ver los resultados de sentimiento
 
 Si el **análisis de sentimiento** está configurado en la página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)** , los resultados de la prueba incluyen el sentimiento que se encontró en la expresión.
-
-![Imagen del panel Prueba con el análisis de sentimiento](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corregir la intención del patrón coincidente
 
@@ -78,12 +81,14 @@ Si usa [Patrones](luis-concept-patterns.md) y la expresión coincide con un patr
 
 Puede probar la versión activa de la aplicación con la versión del [punto de conexión](luis-glossary.md#endpoint) publicado. En el panel **Inspeccionar**, seleccione **Comparar con el publicado**. Todas las pruebas en el modelo publicado se deducirán del saldo de la cuota de suscripción de Azure.
 
-![Comparar con el publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+> [!div class="mx-imgBorder"]
+> ![Comparar con el publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>Ver el punto de conexión de JSON en el panel Prueba
 Puede ver el punto de conexión de JSON devuelto para la comparación si selecciona la **vista Mostrar JSON**.
 
-![Respuesta JSON publicada](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+> [!div class="mx-imgBorder"]
+> ![Respuesta JSON publicada](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 ## <a name="additional-settings-in-test-panel"></a>Configuración adicional en el panel de pruebas
 

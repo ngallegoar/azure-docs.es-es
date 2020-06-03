@@ -1,239 +1,502 @@
 ---
-title: Planeamiento de directivas de acceso condicional en Azure Active Directory | Microsoft Docs
-description: En este artículo aprenderá a planear directivas de acceso condicional para Azure Active Directory.
+title: Planeamiento de la implementación del acceso condicional de Azure Active Directory
+description: Obtenga información sobre cómo diseñar directivas de acceso condicional e implementarlas de forma eficaz en la organización.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 09/17/2019
+ms.author: baselden
+author: BarbaraSelden
 manager: daveba
-ms.reviewer: martincoetzer
+ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d4ae1c9926c7ea1d18bf5c87fbed837edc2a5d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671833"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641487"
 ---
-# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instrucciones: Planeamiento de la implementación del acceso condicional en Azure Active Directory
+# <a name="plan--a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
-Planear la implementación del acceso condicional es fundamental para asegurarse de que consigue la estrategia de acceso necesaria para las aplicaciones y los recursos de su organización. La mayor parte de la fase de planeamiento de la implementación debe dedicarse al diseño de varias directivas necesarias para conceder o bloquear el acceso a los usuarios según las condiciones de su elección. En este documento se explican los pasos que debe seguir para implementar directivas de acceso condicional seguras y eficaces. Antes de comenzar, asegúrese de que comprende cómo funciona el [acceso condicional](overview.md) y cuándo se debe usar.
+El planeamiento de la implementación del acceso condicional es fundamental para conseguir la estrategia de acceso para las aplicaciones y los recursos de su organización.
 
-## <a name="what-you-should-know"></a>Qué debería saber
+En un mundo que da prioridad a los dispositivos móviles y la nube, los usuarios tienen acceso a los recursos de su organización desde cualquier parte mediante diversos dispositivos y aplicaciones. Como resultado, ya no es suficiente con centrarse en quién puede acceder a un recurso. También debe tener en cuenta dónde se encuentra el usuario, el dispositivo en uso, el recurso al que se tiene acceso, etc. 
 
-Piense en el acceso condicional como un marco que permite controlar el acceso a las aplicaciones y los recursos de su organización, en lugar de como una característica independiente. Por esto, el acceso condicional requiere la configuración de algunas características adicionales. Por ejemplo, puede configurar una directiva que responda a un [nivel de riesgo de inicio de sesión](../identity-protection/howto-identity-protection-configure-risk-policies.md) determinado. Sin embargo, las directivas basadas en un nivel de riesgo de inicio de sesión requieren la habilitación de [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
+El acceso condicional (CA) de Azure Active Directory (Azure AD) analiza señales como el usuario, el dispositivo y la ubicación para automatizar las decisiones y aplicar las directivas de acceso de la organización para el recurso. Puede usar directivas de CA para aplicar controles de acceso como Multi-Factor Authentication (MFA). Las directivas de CA le permiten solicitar a los usuarios MFA cuando sea necesario para la seguridad y dejarles cuando no lo sea.
 
-Si se necesitan otras características, también necesitara las licencias asociadas. Por ejemplo, si bien el acceso condicional es una característica de Azure AD Premium P1, Identity Protection requiere licencia de Azure AD Premium P2.
+![Introducción al acceso condicional](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Hay dos tipos de directivas de acceso condicional: de base de referencia y estándar. Las [directivas de base de referencia](baseline-protection.md) son las directivas de acceso condicional predefinidas. El objetivo de estas directivas es garantizar que al menos tiene el nivel de base de referencia de seguridad habilitado. Directivas de base de referencia. Las directivas de base de referencia están disponibles en todas las versiones de Azure AD y proporcionan solo opciones de personalización limitadas. Si un escenario requiere más flexibilidad, deshabilite la directiva de base de referencia e implemente los requisitos en una directiva personalizada estándar.
+Microsoft proporciona directivas condicionales estándar llamadas [valores predeterminados de seguridad](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) que garantizan un nivel básico de seguridad. Sin embargo, su organización puede necesitar más flexibilidad de la que ofrecen los valores predeterminados de seguridad. Puede usar el acceso condicional para personalizar los valores predeterminados de seguridad con mayor granularidad y configurar nuevas directivas que cumplan sus requisitos.
 
-En una directiva de acceso condicional estándar, puede personalizar toda la configuración para que se ajuste a sus requisitos empresariales. Las directivas estándar requieren licencia de Azure AD Premium P1.
+## <a name="learn"></a>Obtener información
 
->[!NOTE]
-> Se recomienda usar el dispositivo de Azure AD basado en la directiva de acceso condicional para obtener la mejor aplicación después de la autenticación inicial del dispositivo. Esto incluye cerrar sesiones si el dispositivo está fuera de cumplimiento y del flujo de código de dispositivo.
+Antes de comenzar, asegúrese de que comprende cómo funciona el [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) y cuándo se debe usar.
 
-## <a name="draft-policies"></a>Borradores de directivas
+### <a name="benefits"></a>Ventajas
 
-El acceso condicional de Azure Active Directory permite proteger las aplicaciones en la nube en otro nivel. En este nuevo nivel, la manera de acceder a una aplicación en la nube se basa en una evaluación dinámica de la directiva, en lugar de en una configuración de acceso estática. Con una directiva de acceso condicional se define la respuesta (**hacer esto**) a una condición de acceso (**cuando esto suceda**).
+Las ventajas de implementar el acceso condicional son:
 
-![Motivo y respuesta](./media/plan-conditional-access/10.png)
+* Aumento de la productividad. Interrumpa solo a los usuarios con una condición de inicio de sesión como MFA cuando una o varias señales lo garanticen. Las directivas de CA le permiten controlar cuándo se solicita a los usuarios MFA, cuándo se bloquea el acceso y cuándo deben usar un dispositivo de confianza.
 
-Con este modelo de planeamiento puede definir todas las directivas de acceso condicional que quiera implementar. El ejercicio de planeación:
+* Administración del riesgo. La automatización de la evaluación de riesgos con condiciones de directiva significa que los inicios de sesión de riesgo se identifican y corrigen o bloquean. El acoplamiento del acceso condicional con [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), que detecta anomalías y eventos sospechosos, le permite establecer un destino cuando el acceso a los recursos se bloquea o se valida. 
 
-- Le ayuda a hacer un esquema de las respuestas y condiciones de cada directiva.
-- Sirve para crear un catálogo de directivas de acceso condicional bien documentado para la organización. 
+* Control de cumplimiento y gobernanza. El acceso condicional le permite auditar el acceso a las aplicaciones, presentar términos de uso para su consentimiento y restringir el acceso en función de las directivas de cumplimiento.
 
-Puede usar el catálogo para evaluar si su implementación de directivas refleja los requisitos empresariales de su organización. 
+* Administración del coste. Mover las directivas de acceso a Azure AD reduce la dependencia de las soluciones personalizadas o locales para el acceso condicional y sus costos de infraestructura.
 
-Use la siguiente plantilla de ejemplo para crear directivas de acceso condicional para su organización:
+### <a name="license-requirements"></a>Requisitos de licencia
 
-|Cuando *esto* ocurra:|Se debe hacer *esto* otro:|
-|-|-|
-|Intento de acceso:<br>- A una aplicación en la nube *<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Bloquear el acceso a la aplicación|
-|Intento de acceso:<br>- A una aplicación en la nube *<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Conceder acceso con (AND):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
-|Intento de acceso:<br>- A una aplicación en la nube *<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Conceder acceso con (OR):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
+Consulte los [requisitos de licencia de acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
-Como mínimo, **cuando esto ocurra** define la entidad de seguridad (**quién**) que intenta acceder a una aplicación en la nube (**qué**). Si es necesario, también puede incluir el **cómo** se realiza el intento de acceso. En el acceso condicional, los elementos que definen el quién, el qué y el cómo se conocen como condiciones. Para más información, consulte [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](concept-conditional-access-conditions.md) 
+Si se necesitan otras características, también necesitará las licencias asociadas. Para más información, consulte los [precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Con **se debe hacer esto otro** se define la respuesta de la directiva a una condición de acceso. En la respuesta se bloquea o se concede acceso con requisitos adicionales, por ejemplo, la autenticación multifactor (MFA). Para información general completa, consulte [¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?](controls.md)  
+### <a name="prerequisites"></a>Prerrequisitos
 
-La combinación de condiciones con controles de acceso representa una directiva de acceso condicional.
+* Un inquilino de Azure AD activo con Azure AD Premium o una licencia de prueba habilitada. Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-![Motivo y respuesta](./media/plan-conditional-access/51.png)
+* Una cuenta con privilegios de administrador global de acceso condicional.
 
-Para más información, consulte [¿Cuáles son los requisitos para realizar un trabajo de directiva?](best-practices.md#whats-required-to-make-a-policy-work)
+* Un usuario que no sea administrador con una contraseña que conozca, como usuarioDePrueba. Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
-Ahora es un buen momento para decidir sobre la pauta de nomenclatura de las directivas. La pauta de nomenclatura ayuda a encontrar las directivas y a comprender su propósito sin tener que abrirlas en el portal de administrador de Azure. Nombre de la directiva para mostrar:
+* Un grupo del que sea miembro el usuario que no es administrador. Si necesita crear un grupo, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal).
 
-- Un número de secuencia
-- La aplicación en la nube a la que se refiere
-- La respuesta
-- A quién se aplica
-- Cuando se aplica (si procede)
- 
-![Pauta de nomenclatura](./media/plan-conditional-access/11.png)
+### <a name="training-resources"></a>Recursos de aprendizaje
 
-Mientras que un nombre descriptivo le ayuda a mantener una visión general de la implementación del acceso condicional, el número de secuencia es útil si tiene que hacer referencia a una directiva en una conversación. Por ejemplo, si habla con un compañero administrador por teléfono, puede pedirle que abra la directiva EM063 para resolver un problema.
+Los siguientes recursos pueden ser útiles a medida que obtiene información sobre el acceso condicional:
 
-Por ejemplo, el siguiente nombre indica que la directiva requiere autenticación multifactor para los usuarios de marketing de redes externas que usen la aplicación Dynamics CRP:
 
-`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
+**Vídeos**
+* [¿Qué es el acceso condicional?](https://youtu.be/ffMAw2IVO7A)
+* [¿Cómo se implementa el acceso condicional?](https://youtu.be/c_izIRNJNuk)
+* [¿Cómo se implementan las directivas de CA en los usuarios finales?](https://youtu.be/0_Fze7Zpyvc)
+* [Acceso condicional con controles de dispositivos](https://youtu.be/NcONUf-jeS4)
+* [Acceso condicional con Azure MFA](https://youtu.be/Tbc-SU97G-w)
+* [Acceso condicional en Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
+* [Acceso condicional basado en dispositivos](https://in.video.search.yahoo.com/search/video;_ylt=AwrPiBX0yHRcZiMAhFa7HAx.;_ylu=X3oDMTB0N2poMXRwBGNvbG8Dc2czBHBvcwMxBHZ0aWQDBHNlYwNwaXZz?p=conditional+access+videos+microsoft&fr2=piv-web&fr=mcafee)
 
-Además de las directivas activas, también se recomienda implementar directivas deshabilitadas que actúen como [controles de acceso resistentes para escenarios de interrupción/emergencia](../authentication/concept-resilient-controls.md) secundarios. La pauta de nomenclatura para las directivas de contingencia debe incluir algunos elementos más: 
+**Cursos en línea en Pluralsight**
+* [Design Identity Management in Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design) (Diseño de la administración de identidades en Microsoft Azure)
+* [Design Authentication for Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design) (Diseño de la autenticación en Microsoft Azure)
+* [Design Authorization for Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design) (Diseño de la autorización en Microsoft Azure)
 
-- `ENABLE IN EMERGENCY` al principio para resaltar el nombre entre las otras directivas.
-- El nombre de la interrupción a la que se debe aplicar.
-- Un número de secuencia de ordenación para ayudar al administrador a saber en qué orden se deben habilitar las directivas. 
+**P+F**
 
-Por ejemplo, el siguiente nombre indica que esta directiva es la primera de cuatro directivas que debe habilitar en caso de una interrupción de MFA:
+[Preguntas frecuentes sobre el acceso condicional de Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/faqs)
+## <a name="plan-the-deployment-project"></a>Planeamiento del proyecto de implementación
 
-`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+Tenga en cuenta las necesidades de su organización al determinar la estrategia de esta implementación en su entorno.
+### <a name="engage-the-right-stakeholders"></a>Interactuar con las partes interesadas adecuadas
+Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas incorrectas relacionadas con el impacto, los resultados y las responsabilidades. Para evitar estos problemas, [asegúrese de que interactúa con las partes interesadas adecuadas](https://aka.ms/deploymentplans) y que los roles del proyecto están claros.
 
-## <a name="plan-policies"></a>Planeación de directivas
+### <a name="plan-communications"></a>Planeamiento de las comunicaciones
+La comunicación es fundamental para el éxito de cualquier servicio nuevo. Comunique de forma proactiva a los usuarios cómo y cuándo va a cambiar su experiencia, y cómo obtener soporte técnico si tienen cualquier problema.
 
-Al planear la solución de directiva de acceso condicional, determine si necesita crear directivas para lograr los siguientes resultados. 
+### <a name="plan-a-pilot"></a>Planeamiento de un piloto
+Cuando las nuevas directivas estén listas para su entorno, impleméntelas en fases en el entorno de producción. En primer lugar, aplique una directiva a un pequeño conjunto de usuarios en un entorno de prueba y compruebe si la directiva se comporta según lo previsto. Consulte [Procedimientos recomendados para un piloto](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
 
-### <a name="block-access"></a>Bloquear acceso
+> [!NOTE]
+> Para implementar nuevas directivas no específicas en los administradores, excluya todos los administradores. Esto garantiza que los administradores puedan seguir teniendo acceso a la directiva y que realicen cambios o la revoquen si hay un impacto significativo. Valide siempre la directiva con grupos de usuarios más pequeños antes de aplicarla a todos los usuarios.
 
-La opción de bloquear el acceso resulta eficaz por lo siguiente:
+## <a name="understand-ca-policy-components"></a>Descripción de los componentes de la directiva de CA
 
-- Altera el resto de asignaciones de un usuario
-- Tiene la capacidad de bloquear el inicio de sesión en el inquilino a toda la organización
- 
-Si desea bloquear el acceso a todos los usuarios, debe excluir de la directiva a al menos un usuario (normalmente, las cuentas de acceso de emergencia). Para más información, consulte el apartado sobre la [selección de usuarios y grupos](block-legacy-authentication.md#select-users-and-cloud-apps).  
+Las directivas de CA son instrucciones if-then: si se cumple una condición asignada, aplique estos controles de acceso. 
+
+![Introducción al acceso condicional](media/plan-conditional-access/10.png)
+
+Al configurar las directivas de CA, las condiciones se denominan *asignaciones*. Las directivas de CA permiten exigir controles de acceso en las aplicaciones de la organización según determinadas condiciones.
+
+![controles de acceso y asignaciones ](media/plan-conditional-access/ca-policy-access.png)
+
+
+Para obtener más información, consulte [Creación de una directiva de acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies).
+
+Las [asignaciones](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) definen lo siguiente:
+
+* los [usuarios y grupos](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups) que se van a ver afectados por la directiva
+
+* las [aplicaciones o acciones en la nube](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps) a las que se les va a aplicar la directiva 
+
+* las [condiciones](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions) en las que se aplicará la directiva 
+<p>
+
+![pantalla de la creación de la directiva](media/plan-conditional-access/create-policy.png)
+
+La configuración de [controles de acceso](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) determina cómo aplicar una directiva:
+
+* [Conceda o bloquee](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) el acceso a las aplicaciones en la nube.
+
+* Los [controles de sesión](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) permiten limitar las experiencias desde aplicaciones en la nube específicas.
+
+### <a name="ask-the-right-questions-to-build-your-policies"></a>Formular las preguntas adecuadas para crear sus directivas
+
+Las directivas responden a preguntas sobre quién debe tener acceso a los recursos, a qué recursos deben tener acceso y en qué condiciones. Las directivas se pueden diseñar para conceder acceso, o bien para bloquearlo. Asegúrese de formular las preguntas adecuadas sobre lo que está tratando de lograr su directiva. 
+
+Documente las respuestas a las preguntas de cada directiva antes de su creación. 
+
+#### <a name="common-questions-about-assignments"></a>Preguntas habituales sobre las asignaciones
+
+[Usuarios y grupos](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups)
+
+* ¿Qué usuarios y grupos se incluirán o se excluirán de la directiva?
+
+* ¿Incluye esta directiva a todos los usuarios, grupos específicos de usuarios, roles de directorio o usuarios externos?
+
+[Aplicaciones o acciones en la nube](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps)
+
+* ¿A qué aplicaciones se aplicará la directiva?
+
+* ¿Qué acciones del usuario estarán sujetas a esta directiva?
+
+[Condiciones](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions)
+
+* ¿Qué plataformas de dispositivo se incluirán o se excluirán de la directiva?
+
+* ¿Cuáles son las ubicaciones de confianza de la organización?
+
+* ¿Qué ubicaciones se incluirán o excluirán de la directiva?
+
+* ¿Qué tipos de aplicación cliente (explorador, móvil, clientes de escritorio o aplicaciones con métodos de autenticación heredados) se incluirán o excluirán de la directiva?
+
+* ¿Tiene directivas que impulsarían la exclusión de dispositivos unidos a Azure AD o dispositivos híbridos unidos a Azure AD de las directivas? 
+
+* Si usa [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), ¿desea incorporar la protección frente a riesgos de inicio de sesión?
+
+#### <a name="common-questions-about-access-controls"></a>Preguntas habituales sobre los controles de acceso
+
+[Conceder o bloquear ](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) 
+
+¿Desea conceder acceso a los recursos requiriendo una o varias de las siguientes condiciones?
+
+* Requerir MFA
+
+* Requerir que el dispositivo esté marcado como compatible
+
+* Requerir un dispositivo unido a Azure AD híbrido
+
+* Requerir aplicación cliente aprobada
+
+* Requerir la directiva de protección de aplicaciones
+
+[Control de sesión](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session)
+
+¿Desea aplicar cualquiera de los siguientes controles de acceso en las aplicaciones en la nube?
+
+* Utilizar permisos que exige la aplicación
+
+* Utilizar el Control de aplicaciones de acceso condicional
+
+* Aplicar la frecuencia de inicio de sesión
+
+* Utilizar sesiones del explorador persistentes
+
+### <a name="access-token-issuance"></a>Emisión de tokens de acceso
+
+Es importante comprender cómo se emiten los tokens de acceso. 
+
+![Diagrama de emisión de tokens de acceso](media/plan-conditional-access/CA-policy-token-issuance.png)
+
+**En especial, tenga en cuenta que si no se requiere ninguna asignación y no hay ninguna directiva de CA en vigor, el comportamiento predeterminado será emitir un token de acceso**. 
+
+Por ejemplo, considere una directiva en la que:
+
+SI el usuario está en el Grupo 1, fuerce MFA para tener acceso a la Aplicación 1.
+
+Si un usuario que no está en el Grupo 1 intenta tener acceso a la aplicación, no se cumplirá ninguna condición "if" y se emitirá un token. Para excluir a los usuarios del Grupo 1 se requiere una directiva independiente para bloquear a todos los demás usuarios.
+
+## <a name="follow-best-practices"></a>Seguimiento de los procedimientos recomendados
+
+El marco de trabajo de acceso condicional le proporciona una gran flexibilidad de configuración. Sin embargo, una gran flexibilidad también implica revisar cuidadosamente cada directiva de configuración antes de liberarla para evitar resultados no deseados.
+
+### <a name="apply-ca-policies-to-every-app"></a>Aplicar directivas de CA a todas las aplicaciones
+
+Los tokens de acceso se emiten de forma predeterminada si una condición de la directiva de CA no desencadena un control de acceso. Asegúrese de que todas las aplicaciones tienen aplicada al menos una directiva de acceso condicional.
+
+> [!IMPORTANT]
+> Tenga mucho cuidado al usar el bloque y todas las aplicaciones en una sola directiva. Esto podría bloquear a los administradores del portal de administración de Azure y las exclusiones no se pueden configurar para puntos de conexión importantes como Microsoft Graph.
+
+### <a name="minimize-the-number-of-ca-policies"></a>Minimizar el número de directivas de CA
+
+Crear una directiva para cada aplicación no es eficaz y conlleva una administración difícil. El acceso condicional solo aplicará las primeras 195 directivas por usuario. Se recomienda analizar las aplicaciones y agruparlas en aplicaciones que tengan los mismos requisitos de recursos para los mismos usuarios. Por ejemplo, si todas las aplicaciones de Office 365 o todas las aplicaciones de recursos humanos tienen los mismos requisitos para los mismos usuarios, cree una sola directiva e incluya todas las aplicaciones a las que se aplique. 
+
+### <a name="set-up-emergency-access-accounts"></a>Configurar cuentas de acceso de emergencia
+
+Si configura mal una directiva, esto puede bloquear las organizaciones de Azure Portal. Mitigue el impacto de un bloqueo accidental del administrador mediante la creación de dos o más [cuentas de acceso de emergencia](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) en la organización.
+
+* Cree una cuenta de usuario dedicada a la administración de directivas y excluida de todas las directivas.
+
+* Situación excepcional para entornos híbridos:
+
+  * Cree un grupo de seguridad local y sincronícelo con Azure AD. El grupo de seguridad debe contener su cuenta de administración de directivas dedicada. 
+
+   * EXCLUYA este grupo de seguridad de todas las directivas de CA.
+
+   * Cuando se produzca una interrupción del servicio, agregue los demás administradores al grupo local según corresponda y fuerce una sincronización. Esto anima su exención a las directivas de CA.
+
+### <a name="set-up-report-only-mode"></a>Configurar el modo de solo informe
+
+Puede ser difícil predecir el número y los nombres de los usuarios afectados por iniciativas de implementación comunes como, por ejemplo:
+
+* bloqueo de la autenticación heredada
+* requerimiento de MFA
+* implementación de directivas de riesgo de inicio de sesión
+
+El [modo de solo informe](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) permite a los administradores evaluar el impacto de las directivas de CA antes de habilitarlas en su entorno.
+
+Obtenga información sobre cómo [configurar el modo de solo informe en una directiva de acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only).
+
+### <a name="plan-for-disruption"></a>Planear la interrupción
+
+Si se basa en un control de acceso único, como MFA o una ubicación de red, para proteger sus sistemas de TI, usted es susceptible a los errores de acceso si ese control de acceso único no está disponible o está mal configurado. Para reducir el riesgo de bloqueo durante las interrupciones imprevistas, [planee estrategias](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) a fin de adoptarlas para su organización.
+
+### <a name="set-naming-standards-for-your-policies"></a>Establecer pautas de nomenclatura para sus directivas
+
+La pauta de nomenclatura ayuda a encontrar las directivas y a comprender su propósito sin tener que abrirlas en el portal de administrador de Azure. Se recomienda asignar un nombre a la directiva para mostrar:
+
+* Un número de secuencia
+
+* Las aplicaciones en la nube a las que se refiere
+
+* La respuesta
+
+* A quién se aplica
+
+* Cuando se aplica (si procede)
+
+![Pauta de nomenclatura](media/plan-conditional-access/11.png)
+
+**Ejemplo**: Una directiva para requerir MFA para los usuarios de marketing con acceso a la aplicación de Dynamics CRP desde redes externas podría ser:
+
+![Pauta de nomenclatura](media/plan-conditional-access/naming-example.png)
+
+Un nombre descriptivo le ayuda a mantener una visión general de la implementación del acceso condicional. El número de secuencia es útil si necesita hacer referencia a una directiva en una conversación. Por ejemplo, si habla con un administrador por teléfono, puede pedirle que abra la directiva CA01 para resolver una incidencia.
+
+#### <a name="naming-standards-for-emergency-access-controls"></a>Estándares de nomenclatura para controles de acceso de emergencia
+
+Además de las directivas activas, implemente directivas deshabilitadas que actúen como [controles de acceso resistentes para escenarios de interrupción/emergencia](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) secundarios. La pauta de nomenclatura para las directivas de contingencia debe incluir lo siguiente:
+* HABILITAR EN CASO DE EMERGENCIA al principio para resaltar el nombre entre las otras directivas.
+
+* El nombre de la interrupción a la que se debe aplicar.
+
+* Un número de secuencia de ordenación para ayudar al administrador a saber en qué orden se deben habilitar las directivas.
+
+**Ejemplo**
+
+El siguiente nombre indica que esta directiva es la primera de cuatro directivas que debe habilitar en caso de una interrupción de MFA:
+
+EM01 - HABILITAR EN CASO DE EMERGENCIA: Interrupción de MFA [1/4]: Exchange SharePoint: Requerir la unión a Azure AD híbrido para usuarios VIP.
+
+### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Excluya los países desde los que nunca espera un inicio de sesión.
+
+Azure Active Directory permite crear [ubicaciones con nombre](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition). Cree una ubicación con nombre que incluya todos los países desde los que nunca esperaría que se produjera un inicio de sesión. Después, cree una directiva para todas las aplicaciones que bloquee el inicio de sesión desde esa ubicación con nombre. **Asegúrese de excluir a los administradores de esta directiva**.
+
+### <a name="plan-your-policy-deployment"></a>Planear la implementación de la directiva
+
+Cuando las nuevas directivas estén listas para su entorno, asegúrese de revisar cada una de ellas antes de publicarla para evitar resultados no deseados. Consulte la siguiente documentación para comprender información importante sobre cómo se aplican las directivas y cómo evitar incidencias.
+
+* [Qué debería saber](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+
+* [Qué no debería hacer](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+
+## <a name="common-policies"></a>Directivas comunes
+
+Al planear la solución de directiva de CA, determine si necesita crear directivas para lograr los siguientes resultados.
 
 ### <a name="require-mfa"></a>Requerir MFA
 
-Para simplificar la experiencia de inicio de sesión de los usuarios, puede permitirles iniciar sesión en sus aplicaciones en la nube mediante un nombre de usuario y una contraseña. No obstante, suele haber siempre algún escenario en el que se recomienda una forma más sólida de verificar las cuentas. Con una directiva de acceso condicional se puede limitar el requisito de autenticación multifactor a determinados escenarios. 
+Casos de uso comunes para exigir el acceso a MFA:
 
-Casos de uso comunes para exigir la autenticación multifactor para el acceso:
+* [De los administradores](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa)
 
-- [De los administradores](howto-baseline-protect-administrators.md)
-- [A aplicaciones específicas](app-based-mfa.md) 
-- [Desde ubicaciones de red en las que no se confía](untrusted-networks.md).
+* [A aplicaciones específicas](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa)
+
+* [Para todos los usuarios](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa)
+
+* [Desde ubicaciones de red en las que no se confía](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)
+
+* [Para la administración de Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-azure-management)
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Respuesta ante las cuentas en riesgo
 
-Con las directivas de acceso condicional se pueden implementar respuestas automatizadas a inicios de sesión con identidades que pueden suponer un riesgo. La probabilidad de que una cuenta esté en riesgo se expresa mediante niveles. En Identity Protection se calculan dos niveles de riesgo: riesgo de inicio de sesión o de usuario. Para implementar una respuesta ante el riesgo de inicio de sesión, tiene dos opciones:
+Con las directivas de CA se pueden implementar respuestas automatizadas en inicios de sesión de identidades que pueden suponer un riesgo. La probabilidad de que una cuenta esté en riesgo se expresa mediante niveles de riesgo. En Identity Protection se calculan dos niveles de riesgo: riesgo de inicio de sesión o de usuario. Se pueden habilitar las tres directivas predeterminadas siguientes:
 
-- La [condición de riesgo de inicio de sesión](concept-conditional-access-conditions.md#sign-in-risk) de la directiva de acceso condicional
-- La [directiva de riesgo de inicio de sesión](../identity-protection/howto-sign-in-risk-policy.md) de identity Protection 
+* [Exigir a todos los usuarios que se registren en MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
 
-Definir el riesgo de inicio de sesión como condición es el método de preferencia, ya que ofrece más opciones de personalización.
+* [Exigir un cambio de contraseña para los usuarios que son de alto riesgo](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
 
-En Identity Protection, el nivel de riesgo de usuario solo está disponible como [directiva de riesgo del usuario](../identity-protection/howto-user-risk-policy.md). 
-
-Para más información, consulte [¿Qué es Azure Active Directory Identity Protection?](../identity-protection/overview.md) 
+* [Exigir MFA para los usuarios con un riesgo de inicio de sesión medio o alto](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
 
 ### <a name="require-managed-devices"></a>Requerir dispositivos administrados
 
-La proliferación de dispositivos compatibles para acceder a recursos en la nube ayuda a mejorar la productividad de los usuarios. Por otro lado, es posible que no desee que se pueda acceder a determinados recursos del entorno con un nivel de protección desconocido. Para estos recursos en cuestión debe hacer que los usuarios solo puedan acceder a ellos mediante un dispositivo administrado. Para más información, consulte [Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional](require-managed-devices.md). 
+La proliferación de dispositivos compatibles para acceder a recursos en la nube ayuda a mejorar la productividad de los usuarios. Es posible que no desee que dispositivos con un nivel de protección desconocido tengan acceso a determinados recursos del entorno. Para estos recursos, [haga que los usuarios solo puedan acceder a ellos mediante un dispositivo administrado](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
 
 ### <a name="require-approved-client-apps"></a>Requerir aplicaciones cliente aprobadas
 
-Una de las primeras decisiones que deberá tomar para los escenarios en los que se traen dispositivos propios (BYOD), es si necesita administrar todo el dispositivo o solo los datos que en él se encuentran. Los empleados usan dispositivos móviles para tareas personales y profesionales. Mientras se asegura de que los empleados pueden ser productivos, también puede evitar la pérdida de datos. Con el acceso condicional de Azure Active Directory (Azure AD), puede restringir el acceso a las aplicaciones en la nube a las aplicaciones cliente aprobadas que pueden proteger los datos corporativos. Para más información, consulte [Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional](app-based-conditional-access.md).
+Los empleados usan sus dispositivos móviles para tareas personales y profesionales. En el caso de los escenarios de BYOD, debe decidir si desea administrar todo el dispositivo o solo los datos que contenga. Si solo se administran datos y acceso, puede [requerir aplicaciones en la nube aprobadas](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) que puedan proteger los datos corporativos. Por ejemplo, puede requerir que solo se tenga acceso al correo electrónico a través de Outlook Mobile y no a través de un programa de correo genérico.
 
-### <a name="block-legacy-authentication"></a>Bloquear la autenticación heredada
+### <a name="block-access"></a>Bloquear acceso
 
-Azure AD admite varios de los protocolos de autenticación y autorización usados más comúnmente, incluida la autenticación heredada. ¿Cómo se puede evitar que las aplicaciones que usan la autenticación heredada accedan a los recursos del inquilino? La recomendación es simplemente bloquearlas con una directiva de acceso condicional. Si es necesario, puede permitir que solo ciertos usuarios y ubicaciones de red específicas usen aplicaciones basadas en la autenticación heredada. Para más información, consulte [Bloqueo de autenticación heredada a Azure AD con acceso condicional](block-legacy-authentication.md).
+La opción de [bloquear todo el acceso](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-access) resulta eficaz. Se puede usar, por ejemplo, cuando migra una aplicación a Azure AD, pero no está listo para que nadie inicie sesión en ella todavía. Bloquear acceso: 
 
-## <a name="test-your-policy"></a>Prueba de la directiva
+* Altera el resto de asignaciones de un usuario
 
-Antes de implementar una directiva en producción, debe probarla para verificar que se comporta según lo previsto.
+* Tiene la capacidad de bloquear el inicio de sesión en el inquilino a toda la organización
 
-1. Creación de usuarios de prueba
-1. Creación de un plan de pruebas
-1. Configuración de la directiva
-1. Evaluación de un inicio de sesión simulado
-1. Prueba de la directiva
-1. Limpieza
+> [!IMPORTANT]
+> Si crea una directiva para bloquear el acceso a todos los usuarios, asegúrese de excluir las cuentas de acceso de emergencia y considere la posibilidad de excluir a todos los administradores de la directiva.
+
+Otros casos habituales en los que puede bloquear el acceso a los usuarios son:
+
+* [Bloquee algunas ubicaciones de red](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location) para tener acceso a sus aplicaciones en la nube. Puede usar esta directiva para bloquear determinados países de los que sabe que no procede el tráfico.
+
+* Azure AD admite la autenticación heredada. Sin embargo, la autenticación heredada no admite MFA y muchos entornos la requieren para solucionar la seguridad de identidad. En este caso, puede [evitar que las aplicaciones que usan la autenticación heredada](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication) accedan a los recursos del inquilino.
+
+## <a name="build-and-test-policies"></a>Compilación y prueba de directivas
+
+En cada fase de la implementación, asegúrese de que está evaluando que los resultados son los esperados. 
+
+Cuando las nuevas directivas estén listas, impleméntelas en fases en el entorno de producción:
+
+* Comunique los cambios internos a los usuarios finales.
+
+* Empiece por un conjunto de usuarios pequeño y verifique que la directiva se comporta según lo previsto.
+
+* Cuando expanda una directiva para incluir más usuarios, continúe con la exclusión de todos los administradores. La exclusión de los administradores garantiza que alguien tiene acceso a la directiva en caso de que se requieran cambios.
+
+* Aplique una directiva a todos los usuarios solo después de que se haya probado exhaustivamente. Asegúrese de que tiene al menos una cuenta de administrador a la que no se aplica una directiva.
 
 ### <a name="create-test-users"></a>Creación de usuarios de prueba
 
-Para probar una directiva, cree un conjunto de usuarios similar al de su entorno. La creación de usuarios de prueba permite verificar que las directivas funcionan según lo previsto antes de que afecten a usuarios reales y puedan impedir su acceso a aplicaciones y recursos. 
+Cree un conjunto de usuarios de prueba que reflejen los usuarios del entorno de producción. La creación de usuarios de prueba permite verificar que las directivas funcionan según lo previsto antes de que afecten a usuarios reales y puedan impedir su acceso a aplicaciones y recursos.
 
-Algunas organizaciones tienen inquilinos de prueba para este propósito. Sin embargo, puede resultar difícil volver a crear todas las condiciones y las aplicaciones en un inquilino de prueba para probar completamente el resultado de una directiva. 
+Algunas organizaciones tienen inquilinos de prueba para este propósito. Sin embargo, puede resultar difícil volver a crear todas las condiciones y las aplicaciones en un inquilino de prueba para probar completamente el resultado de una directiva.
 
 ### <a name="create-a-test-plan"></a>Creación de un plan de pruebas
 
 El plan de pruebas es importante para tener una comparación entre los resultados previstos y los reales. Antes de probar algo debe tener siempre una previsión. En la siguiente tabla se muestran casos de prueba de ejemplo. Ajuste los escenarios y los resultados previstos en función de la configuración de sus directivas de acceso condicional.
 
-|Directiva |Escenario |Resultado previsto | Resultado |
-|---|---|---|---|
-|[Exigir la autenticación multifactor desde fuera de la oficina](/azure/active-directory/conditional-access/untrusted-networks)|El usuario autorizado inicia sesión en la *aplicación* desde la oficina / una ubicación de confianza|Al usuario no se le solicita autenticación multifactor| |
-|[Exigir la autenticación multifactor desde fuera de la oficina](/azure/active-directory/conditional-access/untrusted-networks)|El usuario autorizado inicia sesión en la *aplicación* desde otro lugar distinto a la oficina / una ubicación de confianza|Al usuario se le solicita autenticación multifactor para iniciar sesión| |
-|[Exigir autenticación multifactor (para administradores)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|El administrador global inicia sesión en la *aplicación*|Al administrador se le solicita autenticación multifactor| |
-|[Inicios de sesión no seguros](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|El usuario inicia sesión en la *aplicación* mediante el [explorador Tor](/azure/active-directory/active-directory-identityprotection-playbook)|Al administrador se le solicita autenticación multifactor| |
-|[Administración de dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|El usuario autorizado intenta iniciar sesión desde un dispositivo autorizado|El acceso se le concede| |
-|[Administración de dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|El usuario autorizado intenta iniciar sesión desde un dispositivo no autorizado|El acceso se le bloquea| |
-|[Cambio de contraseña en caso de riesgo del usuario](/azure/active-directory/identity-protection/howto-user-risk-policy)|El usuario autorizado intenta iniciar sesión con credenciales en riesgo (inicio de sesión de alto riesgo)|Al usuario se le solicita que cambie la contraseña o se le bloquea el acceso (de conformidad con la directiva)| |
+| Directiva| Escenario| Resultado previsto |
+| - | - | - |
+| [Exigir la autenticación multifactor desde fuera de la oficina](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| El usuario autorizado inicia sesión en la aplicación desde la oficina / una ubicación de confianza| Al usuario no se le solicita autenticación multifactor |
+| [Exigir la autenticación multifactor desde fuera de la oficina](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| El usuario autorizado inicia sesión en la aplicación desde otro lugar distinto a la oficina / una ubicación de confianza| Al usuario se le solicita autenticación multifactor para iniciar sesión |
+| [Exigir autenticación multifactor (para administradores)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)| El administrador global inicia sesión en la aplicación| Al administrador se le solicita autenticación multifactor |
+| [Inicios de sesión no seguros](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| El usuario inicia sesión en la aplicación mediante el [explorador Tor](https://microsoft.sharepoint.com/azure/active-directory/active-directory-identityprotection-playbook)| Al administrador se le solicita autenticación multifactor |
+| [Administración de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| El usuario autorizado intenta iniciar sesión desde un dispositivo autorizado| El acceso se le concede |
+| [Administración de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| El usuario autorizado intenta iniciar sesión desde un dispositivo no autorizado| El acceso se le bloquea |
+| [Cambio de contraseña en caso de riesgo del usuario](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| El usuario autorizado intenta iniciar sesión con credenciales en riesgo (inicio de sesión de alto riesgo)| Al usuario se le solicita que cambie la contraseña o se le bloquea el acceso (de conformidad con la directiva) |
 
-### <a name="configure-the-policy"></a>Configuración de la directiva
 
-La administración de las directivas de acceso condicional es una tarea manual. En Azure Portal puede administrar las directivas de acceso condicional en una ubicación central: la página de acceso condicional. Un punto de entrada a la página de acceso condicional es la sección **Seguridad** del panel de navegación de **Active Directory**. 
+ 
 
-![Acceso condicional](media/plan-conditional-access/03.png)
+### <a name="configure-the-test-policy"></a>Configurar la directiva de prueba
 
-Para más información sobre cómo crear directivas de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md). Este artículo de inicio rápido le ayudará a:
+En [Azure Portal](https://portal.azure.com/), configure las directivas de CA en Azure Active Directory > Seguridad > Acceso condicional.
 
-- Familiarizarse con la interfaz de usuario.
-- Obtener una primera idea de cómo funciona el acceso condicional. 
+Si desea obtener más información sobre cómo crear directivas de CA, consulte este ejemplo: [Directiva de CA para solicitar MFA cuando un usuario inicie sesión en Azure Portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Este artículo de inicio rápido le ayudará a:
 
-### <a name="evaluate-a-simulated-sign-in"></a>Evaluación de un inicio de sesión simulado
+* Familiarizarse con la interfaz de usuario
 
-Ahora que ha configurado la directiva de acceso condicional, probablemente quiera saber si funciona según lo previsto. Como primer paso, use la [herramienta de directivas What If](what-if-tool.md) del acceso condicional para simular un inicio de sesión del usuario de prueba. La simulación calcula el impacto que este inicio de sesión tiene en las directivas y genera un informe de simulación.
+* Obtener una primera idea de cómo funciona el acceso condicional
 
->[!NOTE]
-> Aunque una ejecución simulada da la idea del efecto de una directiva de acceso condicional, no reemplaza a una serie de pruebas reales.
+### <a name="enable-the-policy-in-report-only-mode"></a>Habilitar la directiva en modo de solo informe
+
+Para evaluar el impacto de la directiva, empiece por habilitarla en [modo de solo informe](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only). Las directivas de solo informe se evalúan durante el inicio de sesión, pero no se aplican controles de concesión ni de sesión. Una vez que guarde la directiva en modo de solo informe, podrá ver el impacto en los inicios de sesión en tiempo real de los registros de inicio de sesión. En los registros de inicio de sesión, seleccione un evento y vaya a la pestaña Solo informe para ver el resultado de cada directiva de solo informe.
+
+
+![modo de solo informe ](media/plan-conditional-access/report-only-mode.png)
+
+Al seleccionar la directiva, también puede ver cómo se evaluaron las asignaciones y los controles de acceso de la directiva mediante la pantalla Detalles de la directiva. Para que una directiva se aplique a un inicio de sesión, se deben satisfacer cada una de las asignaciones configuradas. 
+
+### <a name="understand-the-impact-of-your-policies-using-the-insights-and-reporting-workbook"></a>Comprender el impacto de las directivas mediante el libro Conclusiones e informes
+
+Puede ver el impacto agregado de las directivas de acceso condicional en el libro Conclusiones e informes. Para tener acceso al libro, necesita una suscripción de Azure Monitor y tendrá que [transmitir los registros de inicio de sesión a un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics). 
+
+### <a name="simulate-sign-ins-using-the-what-if-tool"></a>Simular inicios de sesión mediante la herramienta what-if
+
+Otra manera de validar la directiva de acceso condicional es mediante la [herramienta what-if](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if), que simula las directivas que se aplicarían a un usuario que inicia sesión en circunstancias hipotéticas. Seleccione los atributos de inicio de sesión que desea probar (como usuario, aplicación, plataforma de dispositivo y ubicación) y consulte qué directivas se aplicarían.
+
+> [!NOTE] 
+> Aunque una ejecución simulada da una buena idea del efecto de una directiva de acceso condicional, no reemplaza a una serie de pruebas reales.
 
 ### <a name="test-your-policy"></a>Prueba de la directiva
 
-Ejecute casos de prueba según el plan de pruebas. En este paso se ejecuta una prueba de un extremo a otro de cada directiva con los usuarios de prueba para garantizar que la directiva se comporta correctamente. Utilice los escenarios que creó anteriormente para ejecutar cada prueba.
+Realice cada prueba del plan de pruebas con los usuarios de prueba.
 
-Es importante asegurarse de que se prueban los criterios de exclusión de las directivas. Por ejemplo, puede excluir a un usuario o grupo de una directiva que requiera MFA. Pruebe si a los usuarios excluidos se les solicita MFA, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
+**Asegúrese de que se prueban los criterios de exclusión de las directivas**. Por ejemplo, puede excluir a un usuario o grupo de una directiva que requiera MFA. Pruebe si a los usuarios excluidos se les solicita MFA, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
 
-### <a name="cleanup"></a>Limpieza
+### <a name="roll-back-policies"></a>Revertir las directivas
 
-El proceso de limpieza consta de los siguientes pasos:
+En caso de que necesite revertir las directivas recién implementadas, use una o varias de las siguientes opciones:
 
-1. Deshabilite la directiva.
-1. Elimine los usuarios y grupos asignados.
-1. Elimine los usuarios de prueba.  
+* **Deshabilite la directiva.** Deshabilitar una directiva garantiza que la directiva no se aplica cuando un usuario intente iniciar sesión. Si quiere que se use, siempre puede volver atrás y habilitar la directiva.
 
-## <a name="move-to-production"></a>Paso a producción
+![imagen de la habilitación de la directiva](media/plan-conditional-access/enable-policy.png)
 
-Cuando las nuevas directivas estén listas para su entorno, impleméntelas en fases:
+* **Excluya un usuario o grupo de una directiva.** Si un usuario no puede acceder a la aplicación, puede elegir excluirlo de la directiva.
 
-- Comunique los cambios internos a los usuarios finales.
-- Empiece por un conjunto de usuarios pequeño y verifique que la directiva se comporta según lo previsto.
-- Cuando expanda una directiva para incluir más usuarios, continúe con la exclusión de todos los administradores. La exclusión de los administradores garantiza que alguien tiene acceso a la directiva en caso de que se requieran cambios.
-- Aplique una directiva a todos los usuarios solo si es necesario.
+![excluir usuarios y grupos](media/plan-conditional-access/exclude-users-groups.png)
 
-Como procedimiento recomendado, cree al menos una cuenta de usuario que esté:
+> [!NOTE]
+>  Esta opción debe usarse con moderación, solo en situaciones donde el usuario sea de confianza. El usuario debe agregarse de nuevo a la directiva o grupo n cuanto sea posible.
 
-- Dedicada a la administración de directivas
-- Excluida de todas las directivas
+* **Elimine la directiva.** Si ya no es necesaria, [elimínela](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-## <a name="rollback-steps"></a>Pasos de reversión
+## <a name="manage-access-to-cloud-apps"></a>Administración del acceso a las aplicaciones en la nube
 
-En caso de que necesite revertir las directivas recién implementadas, use una o varias de las siguientes opciones para ello:
+Use las siguientes opciones de administración para controlar y administrar las directivas de CA:
 
-1. **Deshabilitar la directiva**: esto garantiza que la directiva no se aplica cuando un usuario intente iniciar sesión. Si quiere que se use, siempre puede volver atrás y habilitar la directiva.
+![administración-acceso](media/plan-conditional-access/manage-access.png)
 
-   ![Deshabilitar la directiva](media/plan-conditional-access/07.png)
 
-1. **Excluir un usuario o grupo de una directiva**: si un usuario no puede acceder a la aplicación, puede elegir excluirlo de la directiva.
+### <a name="named-locations"></a>Ubicaciones con nombre
 
-   ![Excluir usuarios](media/plan-conditional-access/08.png)
+La condición de ubicación de una directiva de CA le permite asociar la configuración de los controles de acceso a las ubicaciones de red de los usuarios. Gracias a las [ubicaciones con nombre](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition), puede crear agrupaciones lógicas de rangos de direcciones IP o de países y regiones.
 
-   > [!NOTE]
-   > Esta opción debe usarse con moderación, solo en situaciones donde el usuario sea de confianza. El usuario debe agregarse de nuevo a la directiva o grupo n cuanto sea posible.
+### <a name="custom-controls"></a>Controles personalizados
 
-1. **Eliminar la directiva**: si ya no es necesaria, elimínela.
+Los [controles personalizados](https://docs.microsoft.com/azure/active-directory/conditional-access/controls) redirigen a los usuarios a un servicio compatible para satisfacer requisitos de autenticación fuera de Azure AD. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación necesarias y luego se vuelve a redirigir a Azure AD. Azure AD comprueba la respuesta y, si el usuario se autenticó o validó correctamente, seguirá en el flujo de acceso condicional.
+
+### <a name="terms-of-use"></a>Términos de uso
+
+Antes de acceder a determinadas aplicaciones en la nube de su entorno, puede obtener el consentimiento de los usuarios mediante su aceptación de las condiciones de uso (CDU). Siga este [inicio rápido para crear las condiciones de uso](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou).
+
+### <a name="classic-policies"></a>Directivas clásicas
+
+En [Azure Portal](https://portal.azure.com/), encontrará las directivas de CA en Azure Active Directory > Seguridad > Acceso condicional. Es posible que su organización también tenga directivas de CA antiguas que no se hayan creado con esta página. Estas directivas se conocen como directivas clásicas. Se recomienda que [considere la posibilidad de migrar estas directivas clásicas en Azure Portal](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices).
+
+## <a name="troubleshoot-conditional-access"></a>Solución de problemas de acceso condicional
+
+Cuando un usuario tenga una incidencia con una directiva de CA, recopile la siguiente información para facilitar la solución de problemas.
+
+* Nombre principal del usuario
+
+* Nombre para mostrar del usuario
+
+* Nombre del sistema operativo
+
+* Marca de tiempo (aproximado es correcto)
+
+* Aplicación de destino
+
+* Tipo de aplicación cliente (explorador frente a cliente)
+
+* Id. de correlación (este es único para el inicio de sesión)
+
+Si el usuario ha recibido un mensaje con un vínculo Más detalles, podrá recopilar la mayor parte de esta información para usted.
+
+![No se puede obtener el mensaje de error de la aplicación](media/plan-conditional-access/cant-get-to-app.png)
+
+Una vez que haya recopilado la información, consulte los siguientes recursos:
+
+* [Problemas de inicio de sesión con acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access): comprenda los resultados inesperados de inicio de sesión relacionados con el acceso condicional mediante mensajes de error y el registro de inicios de sesión de Azure AD.
+
+* [Uso de la herramienta What-If](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if): comprenda por qué una directiva se ha aplicado o no a un usuario en una circunstancia específica, o bien si una directiva se aplicaría en un estado conocido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [Documentación sobre el acceso condicional de Azure AD](index.yml) para obtener la información general disponible.
+[Más información sobre Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+
+[Más información sobre Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+
+[Administración de directivas de CA con Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta)

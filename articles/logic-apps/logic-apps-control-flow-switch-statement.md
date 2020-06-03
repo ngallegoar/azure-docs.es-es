@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74793239"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834533"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Crear instrucciones switch que controlen las acciones de los flujos de trabajo en función de valores específicos en Azure Logic Apps
 
@@ -23,7 +23,7 @@ Por ejemplo, imagine que desea una aplicación lógica que lleve a cabo pasos di
 > Al igual que todos los lenguajes de programación, la instrucción switch solo admite los operadores de igualdad. Utilice una [instrucción condicional](../logic-apps/logic-apps-control-flow-conditional-statement.md) si necesita otros operadores relacionales, como "mayor que".
 > Para garantizar el comportamiento de ejecución determinístico, los casos tienen que contener un valor único y estático en lugar de expresiones o tokens dinámicos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -121,7 +121,7 @@ Ahora que ha creado una aplicación lógica mediante una instrucción switch, ec
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para enviar características o sugerencias o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes

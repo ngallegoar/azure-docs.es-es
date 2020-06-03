@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312510"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648423"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configuración de TLS de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -168,6 +168,8 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    > El sondeo predeterminado obtiene la clave pública del enlace TLS *predeterminado* en la dirección IP del back-end y compara el valor de la clave pública que recibe con el valor de la clave pública que se proporciona aquí. 
    > 
    > Si usa encabezados de host y de Indicación de nombre de servidor (SNI) en el back-end, es posible que la clave pública recuperada no sea el sitio previsto al que el tráfico fluirá. En caso de duda, visite https://127.0.0.1/ en los servidores back-end para confirmar qué certificado se usa para el enlace TLS *predeterminado*. Utilice la clave pública de dicha solicitud en esta sección. Si usa encabezados de host y SNI en enlaces HTTPS y no recibe una respuesta y un certificado de una solicitud manual de un explorador a https://127.0.0.1/ en los servidores back-end, debe configurar un enlace TLS de forma predeterminada en ellos. Si no lo hace, se producirán errores en los sondeos y el back-end no estará en la lista de permitidos.
+   
+   Para más información sobre SNI en Application Gateway, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](ssl-overview.md).
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer

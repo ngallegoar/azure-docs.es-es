@@ -3,12 +3,12 @@ title: Webhooks para responder a las acciones del registro
 description: Aprenda a usar webhooks para desencadenar eventos cuando tengan lugar acciones de inserción o extracción en uno de los repositorios del registro.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74454364"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685036"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 
@@ -16,9 +16,9 @@ Un registro de contenedor de Azure almacena y administra imágenes privadas de c
 
 Para obtener información detallada sobre las solicitudes de webhook, consulte [Referencia de esquema de webhook de Azure Container Registry](container-registry-webhook-reference.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Registro de contenedor de Azure: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md). Las [SKU de Azure Container Registry](container-registry-skus.md) tienen cuotas de webhooks diferentes.
+* Registro de contenedor de Azure: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md). Los [niveles de servicio de Azure Container Registry](container-registry-skus.md) tienen distintas cuotas de webhooks.
 * CLI de docker: para configurar el equipo local como un host de Docker y tener acceso a los comandos de la CLI de Docker, instale [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook---azure-portal"></a>Creación de webhooks: Azure Portal
@@ -53,7 +53,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ## <a name="test-webhook"></a>Webhook de prueba
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Antes de usar el webhook, puede probarlo con el botón **Ping**. El comando Ping envía una solicitud POST genérica al punto de conexión especificado y registra la respuesta. Mediante la característica de ping puede comprobar que ha configurado correctamente el webhook.
 
@@ -79,7 +79,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ## <a name="delete-webhook"></a>Eliminación del webhook
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Se puede eliminar cada webhook seleccionando uno y, después, con el botón **Eliminar** en Azure Portal.
 
@@ -101,4 +101,4 @@ Para más información sobre el formato y las propiedades de las cargas del even
 
 Además de los eventos de webhook de registro nativos descritos en este artículo, Azure Container Registry puede emitir eventos a Event Grid:
 
-[Guía de inicio rápido: Envío de eventos del registro de contenedor a Event Grid](container-registry-event-grid-quickstart.md)
+[Inicio rápido: Envío de eventos del registro de contenedor a Event Grid](container-registry-event-grid-quickstart.md)

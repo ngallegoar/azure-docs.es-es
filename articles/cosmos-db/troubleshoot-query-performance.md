@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097241"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714566"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 
@@ -200,7 +200,8 @@ Si la expresión se puede traducir en un intervalo de valores de cadena, puede u
 
 Esta es la lista de funciones de cadena comunes que puede utilizar el índice:
 
-- STARTSWITH(str_expr, str_expr)
+- STARTSWITH(str_expr1, str_expr2, bool_expr)  
+- CONTAINS(str_expr, str_expr, bool_expr)
 - LEFT(str_expr, num_expr) = str_expr
 - SUBSTRING(str_expr, num_expr, num_expr) = str_expr, pero solo si el primer valor de num_expr es 0
 
@@ -208,7 +209,6 @@ A continuación se indican algunas funciones del sistema comunes que no usa el �
 
 | **Función del sistema**                     | **Ideas de optimización**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Use Azure Search para buscar texto completo.                        |
 | UPPER/LOWER                             | En lugar de usar la función del sistema para normalizar los datos al realizar comparaciones, puede normalizar el uso de mayúsculas y minúsculas durante la inserción. Una consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se convierte en ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Funciones matemáticas (sin agregados) | Si necesita calcular frecuentemente un valor en la consulta, considere la posibilidad de almacenarlo como propiedad en el documento JSON. |
 

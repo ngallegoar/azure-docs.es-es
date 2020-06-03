@@ -1,26 +1,26 @@
 ---
-title: Habilitar una descripción de Microsoft AppSource y Azure Marketplace mediante Azure Active Directory | Azure
-description: Habilite un tipo de aplicación mediante Azure Active Directory en Azure Marketplace y AppSource para los anunciantes de aplicaciones y servicios.
+title: Integración de su oferta de marketplace comercial de Microsoft con Azure Active Directory
+description: Use Azure Active Directory para autenticar sus ofertas de Microsoft AppSource y Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160620"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658047"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
+# <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre su listado de marketplace comercial con Azure Active Directory
 
- Azure Active Directory (Azure AD) es un servicio de identidad en la nube que permite la autenticación con una cuenta de Microsoft. Azure AD usa marcos estándar del sector. [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ En este artículo se explican los requisitos para la integración de un listado u oferta de marketplace comercial con Azure Active Directory (Azure AD). Azure AD es un servicio de identidad en la nube que usa marcos estándar del sector para habilitar la autenticación con un cuenta de Microsoft. [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Ventajas de Azure AD
 
-Los clientes de Microsoft AppSource y Azure Marketplace usan las experiencias del producto para buscar los catálogos de aplicaciones. Estas acciones requieren que los clientes inicien sesión en el producto. La integración de Azure AD proporciona las ventajas siguientes:
+Los clientes de Microsoft AppSource y Azure Marketplace usan las experiencias del producto para buscar los catálogos de listados de escaparate. Estas acciones requieren que los clientes inicien sesión en el producto. La integración de Azure AD proporciona las ventajas siguientes:
 
 - Involucración más rápida y una experiencia de cliente optimizada
 - Inicio de sesión único (SSO) para millones de usuarios de empresas
@@ -29,7 +29,7 @@ Los clientes de Microsoft AppSource y Azure Marketplace usan las experiencias de
 
 ## <a name="offers-that-require-azure-ad"></a>Ofertas que requieren Azure AD
 
-Las distintas [opciones de aplicaciones y tipos de ofertas](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) para AppSource y Azure Marketplace tienen requisitos distintos para implementarse en Azure AD. Consulte la tabla siguiente para más detalles:
+Las distintas [opciones de listado y tipos de ofertas](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) de marketplace comercial tienen requisitos distintos para implementarse en Azure AD. Consulte la tabla siguiente para más detalles.
 
 | **Tipo de oferta**    | **¿Se requiere el SSO de Azure AD?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|

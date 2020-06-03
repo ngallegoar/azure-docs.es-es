@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b29ceadaaf85e69d1214039fa1b563ed21a77d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10b0f86447436b8bf08874daf472b1223bff7d0a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295184"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737663"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acceso condicional: Bloqueo del acceso por ubicación
 
-Gracias a la condición de ubicación del acceso condicional, podrá controlar el acceso a las aplicaciones en la nube en función de la ubicación de red de un usuario. La condición de ubicación se usa normalmente para bloquear el acceso desde países de donde la organización sabe que no debe provenir el tráfico.
+Gracias a la condición de ubicación del acceso condicional, podrá controlar el acceso a las aplicaciones en la nube en función de la ubicación de red de un usuario. La condición de ubicación se usa normalmente para bloquear el acceso desde países o regiones de los que la organización sabe que no debe provenir el tráfico.
 
 ## <a name="define-locations"></a>Definición de ubicaciones
 

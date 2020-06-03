@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562005"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653639"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Protección de un clúster independiente en Windows mediante certificados X.509
 En este artículo se describe cómo proteger la comunicación entre los diversos nodos de un clúster de Windows independiente. También se describe cómo autenticar a los clientes que se conectan a este clúster mediante certificados X.509. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster y a las aplicaciones implementadas, así como realizar tareas de administración. La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo.  
@@ -248,9 +248,21 @@ Si usa almacenes de emisor, no es necesario realizar ninguna actualización de c
 ## <a name="acquire-the-x509-certificates"></a>Adquisición de certificados X.509
 Para proteger la comunicación en el clúster, primero debe obtener certificados X.509 para los nodos del clúster. Además, para limitar la conexión a este clúster a los equipos o usuarios autorizados, debe obtener e instalar certificados para los equipos cliente.
 
-Para los clústeres que ejecutan cargas de trabajo de producción, use un certificado X.509 firmado por una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) con el fin de proteger el clúster. Para obtener más información sobre cómo obtener estos certificados, consulte [Cómo obtener un certificado](https://msdn.microsoft.com/library/aa702761.aspx).
+Para los clústeres que ejecutan cargas de trabajo de producción, use un certificado X.509 firmado por una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) con el fin de proteger el clúster. Para obtener más información sobre cómo obtener estos certificados, consulte [Cómo obtener un certificado](https://msdn.microsoft.com/library/aa702761.aspx). 
+
+Hay una serie de propiedades que el certificado debe tener para funcionar correctamente:
+
+* El proveedor del certificado debe ser el **proveedor de servicios criptográficos RSA y AES mejorado de Microsoft**.
+
+* Al crear una clave RSA, asegúrese de que la clave es de **2048 bits**.
+
+* La extensión uso de clave tiene un valor de **Firma digital, cifrado de clave (a0)**
+
+* La extensión uso mejorado de clave tiene valores de **autenticación de servidor** (OID: 1.3.6.1.5.5.7.3.1) y **Autenticación de cliente** (OID: (1.3.6.1.5.5.7.3.2)
 
 En los clústeres que se usan con fines de prueba, puede usar un certificado autofirmado.
+
+Para obtener más preguntas, consulte las [preguntas más frecuentes sobre los certificados](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Opcional: Creación de un certificado autofirmado
 Una forma de crear un certificado autofirmado que se puede proteger correctamente es usar el script CertSetup.ps1 de la carpeta del SDK de Service Fabric en el directorio C:\Archivos de programa\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edite este archivo para cambiar el nombre predeterminado del certificado. (Busque el valor CN = CN=ServiceFabricDevClusterCert). Ejecute este script como `.\CertSetup.ps1 -Install`.

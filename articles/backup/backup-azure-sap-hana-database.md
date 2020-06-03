@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: deedd4d2553b3b06f76f698fdb2425a8d3878d23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4183c1eca6b1149c5c61ed77c0ca1101c86f8f4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226112"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745428"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -32,66 +32,61 @@ En este artículo, aprenderá a:
 
 Consulte las secciones sobre [requisitos previos](tutorial-backup-sap-hana-db.md#prerequisites) y [Qué hace el script de registro previo](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) para configurar la base de datos para la copia de seguridad.
 
-### <a name="set-up-network-connectivity"></a>Configurar la conectividad de red
+### <a name="establish-network-connectivity"></a>Establecimiento de conectividad de red
 
-Para todas las operaciones, la máquina virtual de SAP HANA necesita conectividad a las direcciones IP públicas de Azure. Las operaciones de máquinas virtuales (detección de bases de datos, configuración de copias de seguridad o restauración de puntos de recuperación, entre otras) producirán errores en las direcciones IP públicas de Azure.
+En todas las operaciones, una base de datos SAP HANA que se ejecuta en una máquina virtual de Azure necesita conectividad con el servicio Azure Backup, Azure Storage y Azure Active Directory. Esto puede lograrse mediante puntos de conexión privados o si se permite el acceso a las direcciones IP públicas o FQDN necesarios. No permitir la conectividad adecuada con los servicios de Azure necesarios puede provocar errores en operaciones como la detección de bases de datos, la configuración de copias de seguridad, la realización de copias de seguridad y la restauración de datos.
 
-Establezca la conectividad con una de las siguientes opciones:
+En la tabla siguiente se enumeran las distintas alternativas que se pueden usar para establecer la conectividad:
 
-#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Allow the Azure datacenter IP ranges (Permitir los intervalos IP del centro de datos de Azure)
+| **Opción**                        | **Ventajas**                                               | **Desventajas**                                            |
+| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Puntos de conexión privados                 | Permite copias de seguridad a través de direcciones IP privadas dentro de la red virtual  <br><br>   Proporciona un control pormenorizado de la red y el almacén | Incurre en [costos](https://azure.microsoft.com/pricing/details/private-link/) estándar de punto de conexión privado |
+| Etiquetas de servicio de NSG                  | Más fácil de administrar ya que los cambios de intervalo se combinan automáticamente   <br><br>   Sin costos adicionales. | Solo se puede usar con grupos de seguridad de red.  <br><br>    Proporciona acceso a todo el servicio. |
+| Etiquetas de FQDN de Azure Firewall          | Más facilidad de administración, ya que los FQDN necesarios se administran automáticamente | Solo se puede usar con Azure Firewall.                         |
+| Permite el acceso a los FQDN/IP del servicio | Sin costos adicionales.   <br><br>  Funciona con todos los firewalls y dispositivos de seguridad de red | Es posible que sea necesario acceder a un amplio conjunto de direcciones IP o FQDN   |
+| Usar un servidor proxy HTTP                 | Un único punto de acceso a Internet para las máquinas virtuales.                       | Costos adicionales de ejecutar una máquina virtual con el software de proxy.         |
 
-Esta opción permite los [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en el archivo descargado. Para acceder a un grupo de seguridad de red (NSG), use el cmdlet Set-AzureNetworkSecurityRule. Si su lista de destinatarios seguros incluye direcciones IP específicas de una región, también tendrá que actualizar la lista de destinatarios seguros con la etiqueta de servicio de Azure Active Directory (Azure AD) para habilitar la autenticación.
-
-#### <a name="allow-access-using-nsg-tags"></a>Allow access using NSG tags (Permitir el acceso mediante etiquetas de NSG)
-
-Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente a Azure Backup. Además, debe permitir la conectividad para la autenticación y la transferencia de datos mediante [reglas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de Azure AD y Azure Storage. Esto puede realizarse desde Azure Portal o a través de PowerShell.
-
-Para crear una regla mediante el portal:
-
-  1. En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
-  2. En **Configuración**, seleccione **Reglas de seguridad de salida**.
-  3. Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en **Etiqueta de servicio** y de que **Etiqueta de servicio de destino** esté establecida en **AzureBackup**.
-  4. Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
-
-Para crear una regla mediante PowerShell:
-
- 1. Agregue las credenciales de la cuenta de Azure y actualice las nubes nacionales.<br/>
-      `Add-AzureRmAccount`<br/>
-
- 2. Seleccione la suscripción a NSG.<br/>
-      `Select-AzureRmSubscription "<Subscription Id>"`
-
- 3. Seleccione el NSG.<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
-
- 4. Agregue el permiso de la regla de salida para la etiqueta de servicio de Azure Backup.<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
- 5. Agregue el permiso de la regla de salida para la etiqueta de servicio de Storage.<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
- 6. Agregue el permiso de la regla de salida para la etiqueta de servicio de Azure Active Directory.<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
-
- 7. Guarde el NSG.<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-
-**Allow access by using Azure Firewall tags** (Permitir el acceso mediante el uso de etiquetas de Azure Firewall). Si usa Azure Firewall, cree una regla de aplicación mediante la [etiqueta de nombre de dominio completo](https://docs.microsoft.com/azure/firewall/fqdn-tags) AzureBackup. Esto permite el acceso de salida a Azure Backup.
-
-**Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico). Al hacer una copia de seguridad de una base de datos de SAP HANA en una máquina virtual de Azure, la extensión de copia de seguridad de la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
-
-Las opciones de conectividad incluyen las siguientes ventajas y desventajas:
-
-**Opción** | **Ventajas** | **Desventajas**
---- | --- | ---
-Permitir intervalos IP | Sin costos adicionales. | Este escenario es complejo de administrar, ya que los intervalos de direcciones IP cambian con el tiempo. <br/><br/> Proporciona acceso a la totalidad de Azure, no solo a Azure Storage.
-Uso de las etiquetas de servicio de NSG | Más fácil de administrar ya que los cambios de intervalo se combinan automáticamente <br/><br/> Sin costos adicionales. <br/><br/> | Solo se puede usar con grupos de seguridad de red. <br/><br/> Proporciona acceso a todo el servicio.
-Uso de las etiquetas de nombre de dominio completo de Azure Firewall | Más fácil de administrar ya que los nombres de dominio completo se administran automáticamente. | Solo se puede usar con Azure Firewall.
-Usar un servidor proxy HTTP | Se permite un control detallado en el proxy sobre las direcciones URL de almacenamiento. <br/><br/> Un único punto de acceso a Internet para las máquinas virtuales. <br/><br/> No están sujetas a cambios de direcciones IP de Azure. | Costos adicionales de ejecutar una máquina virtual con el software de proxy.
+A continuación se proporcionan más detalles sobre el uso de estas opciones:
 
 #### <a name="private-endpoints"></a>Puntos de conexión privados
 
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+Los puntos de conexión privados permiten conectar de forma segura desde los servidores de una red virtual al almacén de Recovery Services. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual del almacén. El tráfico de red entre los recursos dentro de la red virtual y el almacén viaja a través de la red virtual y un vínculo privado en la red troncal de Microsoft. Esto elimina la exposición de la red pública de Internet. Obtenga más información sobre los puntos de conexión privados para Azure Backup [aquí](https://docs.microsoft.com/azure/backup/private-endpoints).
+
+#### <a name="nsg-tags"></a>Etiquetas de NSG
+
+Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *AzureBackup* para permitir el acceso de salida a Azure Backup. Además de la etiqueta de Azure Backup, también necesita permitir la conectividad para la autenticación y la transferencia de datos mediante la creación de [reglas de NSG](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) similares para *Azure AD* y *Azure Storage*.  En los pasos siguientes se describe el proceso para crear una regla para la etiqueta de Azure Backup:
+
+1. En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
+
+1. En **Configuración**, seleccione **Reglas de seguridad de salida**.
+
+1. Seleccione **Agregar**. Escriba todos los detalles necesarios para crear una nueva regla, como se explica en [Configuración de reglas de seguridad](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Asegúrese de que la opción **Destino** esté establecida en *Etiqueta de servicio* y de que **Etiqueta de servicio de destino** esté establecido en *AzureBackup*.
+
+1. Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
+
+Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar.
+
+#### <a name="azure-firewall-tags"></a>Etiquetas de Azure Firewall
+
+Si usa Azure Firewall, cree una regla de aplicación mediante la [etiqueta de FQDN de Azure Firewall](https://docs.microsoft.com/azure/firewall/fqdn-tags) *AzureBackup*. Esto permite el acceso de salida total a Azure Backup.
+
+#### <a name="allow-access-to-service-ip-ranges"></a>Permitir el acceso a los intervalos de direcciones IP del servicio
+
+Si decide permitir el acceso a las direcciones IP del servicio, vea los intervalos de direcciones IP en el archivo JSON disponible [aquí](https://www.microsoft.com/download/confirmation.aspx?id=56519). Tiene que permitir el acceso a las direcciones IP correspondientes a Azure Backup, Azure Storage y Azure Active Directory.
+
+#### <a name="allow-access-to-service-fqdns"></a>Permitir el acceso a los FQDN del servicio
+
+También puede usar los siguientes FQDN para permitir el acceso a los servicios necesarios desde los servidores:
+
+| Servicio    | Nombres de dominio a los que se va a acceder                             |
+| -------------- | ------------------------------------------------------------ |
+| Azure Backup  | `*.backup.windowsazure.com`                             |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Azure AD      | Permitir el acceso a los FQDN conforme a las secciones 56 y 59 según [este artículo](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+
+#### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico
+
+Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en una máquina virtual de Azure, la extensión de copia de seguridad de la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Use la lista de direcciones IP y FQDN mencionada anteriormente para permitir el acceso a los servicios necesarios. No se admiten servidores proxy autenticados.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -135,6 +130,11 @@ Una directiva de copia de seguridad define cuándo se realizan las copias de seg
 
 * Una directiva se crea en el nivel de almacén.
 * Varios almacenes pueden usar la misma directiva de copia de seguridad, pero debe aplicar la directiva de copia de seguridad a cada almacén.
+
+>[!NOTE]
+>Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos SAP HANA en una máquina virtual de Azure.
+>
+>Modifique la directiva de forma manual según sea necesario.
 
 Especifique la configuración de la directiva como se muestra a continuación:
 

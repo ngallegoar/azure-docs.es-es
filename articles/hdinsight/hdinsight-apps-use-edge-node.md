@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: f6dea00bf3b3e8a58f42da8fd8ad59ccec2dea72
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537804"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834720"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HDInsight
 
@@ -61,7 +61,8 @@ Después de crear un nodo perimetral, puede conectarse a él mediante SSH y ejec
 > [!WARNING]
 > Los componentes personalizados que se instalan en el nodo perimetral reciben un soporte técnico de Microsoft comercialmente razonable. Esto podría suponer que disponga de su ayuda en los problemas que pueda encontrar. O bien, puede remitirse a los recursos de la comunidad para obtener más asistencia. Los siguientes son algunos de los sitios más activos donde puede obtener ayuda de la comunidad de usuarios:
 >
-> * [Foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
+> * [Página de preguntas y respuestas de Microsoft sobre HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Si usa una tecnología de Apache, es posible que encuentre asistencia a través de los sitios de los proyectos de Apache en [https://apache.org](https://apache.org), por ejemplo, en el sitio de [Apache Hadoop](https://hadoop.apache.org/).

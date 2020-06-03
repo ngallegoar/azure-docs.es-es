@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691654"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744773"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Análisis de datos en Azure Data Lake Storage Gen1 con Power BI
 En este artículo se explica cómo usar Power BI Desktop para analizar y visualizar los datos almacenados en Azure Data Lake Storage Gen1.
@@ -81,10 +81,10 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
         ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Crear visualizaciones")
 16. Si selecciona un país o región específicos en los filtros de nivel de página, ahora puede ver el número de conductores de cada ciudad del país o región seleccionados. Por ejemplo, en la pestaña **Visualizaciones**, en **Filtros de nivel de página**, seleccione **Brasil**.
     
-    ![Selección de un país](./media/data-lake-store-power-bi/select-country.png "Selección de un país o región")
+    ![Selección de un país o región](./media/data-lake-store-power-bi/select-country.png "Selección de un país o región")
 17. El gráfico circular se actualiza automáticamente para mostrar los conductores de las ciudades de Brasil.
     
-    ![Conductores de un país](./media/data-lake-store-power-bi/driver-per-country.png "Controladores por país o región")
+    ![Conductores de un país o región](./media/data-lake-store-power-bi/driver-per-country.png "Controladores por país o región")
 18. En el menú **Archivo**, haga clic en **Guardar** para guardar la visualización como archivo de Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicación del informe en el servicio Power BI

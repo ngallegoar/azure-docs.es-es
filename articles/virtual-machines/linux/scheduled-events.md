@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: ee600d7524af27a0e9e2ce0176e7bd4d1f60bc3b
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 7c33f29ab00605f68d41358b79284bf49188fece
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758560"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715875"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -52,7 +52,7 @@ Los eventos programados se entregan a:
 
 - Máquinas virtuales independientes.
 - Todas las máquinas virtuales en un servicio de nube.
-- Todas las máquinas virtuales de un conjunto de disponibilidad.
+- Todas las máquinas virtuales de un conjunto de disponibilidad o zona de disponibilidad. 
 - Todas las máquinas virtuales de un grupo de selección de ubicación de conjunto de escalado. 
 
 Por ello, revise el campo `Resources` del evento para identificar cuáles son las máquinas virtuales que se verán afectadas.

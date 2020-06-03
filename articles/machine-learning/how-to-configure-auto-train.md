@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: El aprendizaje automático automatizado elige un algoritmo y genera un modelo listo para la implementación. Obtenga información sobre las opciones que puede usar para configurar experimentos de aprendizaje automático automatizado.
 author: cartacioS
 ms.author: sacartac
-ms.reviewer: sgilley
+ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c917912e50c864f49abd5afcd28df4633702f0f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993712"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736184"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -123,6 +123,7 @@ Puede especificar conjuntos distintos de entrenamiento y validación directament
 
 Use la opción de configuración `n_cross_validations` para especificar el número de validaciones cruzadas. El conjunto de datos de entrenamiento se dividirá aleatoriamente en `n_cross_validations` iteraciones del mismo tamaño. Durante cada ronda de validación cruzada, una de las iteraciones se usará para la validación del modelo entrenado en las iteraciones restantes. Este proceso se repite durante `n_cross_validations` rondas hasta que cada una se utiliza una vez como conjunto de validación. Se notifican las puntuaciones promedio de todas las rondas de `n_cross_validations` y el modelo correspondiente se puede volver a entrenar en todo el conjunto de datos de entrenamiento.
 
+Obtenga más información sobre cómo AutoML aplica la validación cruzada para [evitar un sobreajuste de los modelos](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Validación de Monte Carlo entre (submuestra aleatoria repetida)
 
 Use `validation_size` para especificar el porcentaje del conjunto de datos de entrenamiento que se debe usar para la validación y use `n_cross_validations` para especificar el número de validaciones cruzadas. Durante cada ronda de validación cruzada, un subconjunto de tamaño `validation_size` se seleccionará aleatoriamente para la validación del modelo entrenado en los datos restantes. Por último, se notifican las puntuaciones promedias de todas las rondas `n_cross_validations` y el modelo correspondiente se puede volver a entrenar en todo el conjunto de datos de entrenamiento. No se admite Monte Carlo para la predicción de series temporales.
@@ -135,7 +136,7 @@ Use un conjunto de datos de validación personalizado si la división aleatoria 
 
 A continuación, determine dónde se va a entrenar el modelo. Un experimento de entrenamiento de aprendizaje automático automatizado se puede ejecutar en las opciones de proceso siguientes:
 * La máquina local, como un escritorio local o un equipo portátil: generalmente, cuando haya un pequeño conjunto de datos y siga en la fase de exploración.
-* Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
+* Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure. 
 
   Visite este [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obtener ejemplos de cuadernos con destinos de proceso locales y remotos.
 
@@ -250,16 +251,26 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 Los modelos de conjunto están habilitados de forma predeterminada y aparecen como las iteraciones de ejecución finales en una ejecución automatizada de aprendizaje automático. Los métodos de conjunto admitidos actualmente son votación y apilamiento. La votación se implementa como un voto blando mediante promedios ponderados y la implementación de apilamiento usa una implementación de dos niveles, donde el primer nivel tiene los mismos modelos que el conjunto de votación y el segundo modelo de nivel se usa para encontrar la combinación óptima de los modelos del primer nivel. Si usa modelos de ONNX **o** tiene habilitada la explicación del modelo, el apilamiento se deshabilitará y solo se utilizará la votación.
 
-Hay varios argumentos predeterminados que se pueden proporcionar como `kwargs` en un objeto `AutoMLConfig` para modificar el comportamiento predeterminado del conjunto de pila.
+Hay varios argumentos predeterminados que se pueden proporcionar como `kwargs` en un objeto `AutoMLConfig` a fin de modificar el comportamiento predeterminado del conjunto.
+
+* `ensemble_download_models_timeout_sec`: Durante la generación de los modelos **VotingEnsemble** y **StackEnsemble**, se descargan varios modelos ajustados de las ejecuciones secundarias anteriores. Si detecta el error `AutoMLEnsembleException: Could not find any models for running ensembling`, es posible que tenga que proporcionar más tiempo para que se descarguen los modelos. El valor predeterminado es de 300 segundos para descargar estos modelos en paralelo y no hay límite máximo de tiempo de expiración. Configure este parámetro con un valor superior a 300 segundos, si se necesita más tiempo. 
+
+  > [!NOTE]
+  >  Si se alcanza el tiempo de expiración y hay modelos descargados, el ensamblado continúa con todos los modelos que ha descargado. No es necesario que se descarguen todos los modelos para finalizar en ese tiempo de expiración.
+
+Los parámetros siguientes solo se aplican a los modelos **StackEnsemble**: 
 
 * `stack_meta_learner_type`: el metaaprendizaje es un modelo entrenado en la salida de los modelos heterogéneos individuales. Los metaaprendizajes predeterminados son `LogisticRegression` para las tareas de clasificación (o `LogisticRegressionCV` si está habilitada la validación cruzada) y `ElasticNet` para las tareas de regresión y predicción (o `ElasticNetCV` si está habilitada la validación cruzada). Este parámetro puede ser una de las cadenas siguientes: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` o `LinearRegression`.
-* `stack_meta_learner_train_percentage`: especifica la proporción del conjunto de entrenamiento (al elegir entrenar y el tipo de validación de entrenamiento) que se va a reservar para entrenar el metaaprendizaje. El valor predeterminado es `0.2`.
+
+* `stack_meta_learner_train_percentage`: especifica la proporción del conjunto de entrenamiento (al elegir entrenar y el tipo de validación de entrenamiento) que se va a reservar para entrenar el metaaprendizaje. El valor predeterminado es `0.2`. 
+
 * `stack_meta_learner_kwargs`: parámetros opcionales que se van a pasar al inicializador del metaaprendizaje. Estos parámetros y tipos de parámetro reflejan los parámetros y tipos de parámetro del constructor del modelo correspondiente y se reenvían a dicho constructor.
 
 En el código siguiente se muestra un ejemplo de cómo especificar el comportamiento del conjunto personalizado en un objeto `AutoMLConfig`.
 
 ```python
 ensemble_settings = {
+    "ensemble_download_models_timeout_sec": 600
     "stack_meta_learner_type": "LogisticRegressionCV",
     "stack_meta_learner_train_percentage": 0.3,
     "stack_meta_learner_kwargs": {
@@ -528,6 +539,7 @@ Para información general sobre cómo se pueden habilitar las explicaciones del 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
++ Obtenga más información sobre [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
 
-Obtenga más información sobre [cómo entrenar un modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md) o [cómo entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md).
++ Obtenga más información sobre [cómo entrenar un modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md) o [cómo entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md).
++ Obtenga información sobre cómo entrenar varios modelos con AutoML en [Acelerador de soluciones de muchos modelos](https://aka.ms/many-models).

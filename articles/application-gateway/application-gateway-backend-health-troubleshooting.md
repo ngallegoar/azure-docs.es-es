@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983847"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648445"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 ==================================================
@@ -203,6 +203,10 @@ Para crear un sondeo personalizado, siga [estos pasos](https://docs.microsoft.co
 
 Más información sobre la [coincidencia del sondeo de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
 
+>[!NOTE]
+> En el caso de todos los mensajes de error relacionados con TLS, para obtener más información sobre el comportamiento de SNI y las diferencias entre las versiones 1 y 2 de la SKU, consulte la página de [información general de TLS](ssl-overview.md).
+
+
 #### <a name="backend-server-certificate-invalid-ca"></a>Entidad de certificación no válida del certificado de servidor back-end
 
 **Mensaje**: The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Whitelist the backend on the application gateway by uploading the root certificate of the server certificate used by the backend. (La entidad de certificación conocida no firma el certificado de servidor utilizado por el back-end. Incluya en la lista de elementos permitidos el back-end en la puerta de enlace de aplicaciones mediante la carga del certificado raíz del certificado de servidor utilizado por el back-end).
@@ -280,7 +284,7 @@ Si la salida no muestra la cadena completa del certificado que se devuelve, vuel
 
 **Mensaje**: The Common Name (CN) of the backend certificate does not match the host header of the probe. [El nombre común (CN) del certificado de back-end no coincide con el encabezado de host del sondeo].
 
-**Causa:** Application Gateway comprueba si el nombre de host especificado en la configuración HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado TLS o SSL del servidor back-end. Este es un comportamiento de la SKU Standard_v2 y WAF_v2. La Indicación de nombre de servidor (SNI) de la SKU Standard y WAF se establece como el nombre de dominio completo en la dirección del grupo back-end.
+**Causa:** Application Gateway comprueba si el nombre de host especificado en la configuración HTTP del back-end coincide con el del nombre común (CN) presentado por el certificado TLS o SSL del servidor back-end. Este es un comportamiento de la SKU Standard_v2 y WAF_v2 (versión 2). La Indicación de nombre de servidor (SNI) de la SKU Standard y WAF (versión 1) se establece como el nombre de dominio completo en la dirección del grupo back-end. Para obtener más información sobre el comportamiento de SNI y las diferencias entre las versiones 1 y 2 de la SKU, consulte la página de [información general sobre la terminación TLS y la TLS de extremo a extremo con Application Gateway](ssl-overview.md).
 
 En la SKU v2, si hay un sondeo predeterminado (no se ha configurado ni asociado un sondeo personalizado), la SNI se establecerá a partir del nombre de host mencionado en la configuración HTTP. O bien, si se menciona "Seleccionar el nombre de host de la dirección de back-end" en la configuración HTTP, donde el grupo de direcciones de back-end contiene un nombre de dominio completo válido, se aplicará esta configuración.
 

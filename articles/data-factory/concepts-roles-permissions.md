@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3955d3b9370a1cd2ee88c27e42b107f5ae0f87c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418327"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833564"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -69,7 +69,7 @@ Estos son algunos ejemplos que muestran lo que se puede lograr con los roles per
 
 - Permitir que un usuario cree, edite o elimine cualquier factoría de datos en un grupo de recursos de Azure Portal.
 
-  Asigne el rol integrado **Colaborador de Data Factory** a nivel del grupo de recursos para el usuario. Si desea permitir el acceso a cualquier factoría de datos en una suscripción, asigne el rol a nivel de suscripción.
+  Asigne el rol integrado **Colaborador de Data Factory** a nivel del grupo de recursos para el usuario. Si quiere permitir el acceso a cualquier factoría de datos en una suscripción, asigne el rol en el nivel de suscripción.
 
 - Permitir que un usuario visualice (lectura) y supervise una factoría de datos, pero que no pueda editarla ni cambiarla.
 

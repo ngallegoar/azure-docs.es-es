@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.openlocfilehash: 909f044fd18ce98577e16d877f174dfa00bc1f3c
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.date: 05/19/2020
+ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270407"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724826"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Introducción al portal de Marketplace comercial en el Centro de partners
 
@@ -26,31 +26,15 @@ Empresas, gobiernos y organizaciones de todos los tamaños buscan en todo moment
 
 El Centro de partners es el centro de la experiencia de un asociado de Microsoft. Para las organizaciones que se lanzan al mercado con Microsoft y aprovechan las ventajas de Marketplace comercial, el Centro de partners es el portal que usan los editores para crear y administrar ofertas, proporcionar versiones de prueba y analizar el rendimiento de las ofertas.
 
-## <a name="migration-from-cloud-partner-portal"></a>Migración desde Cloud Partner Portal
+## <a name="migration-from-the-cloud-partner-portal"></a>Migración desde Cloud Partner Portal
 
-El Centro de partners está evolucionando para integrar mejor todos los aspectos de nuestra relación con los editores de software. Como parte de esta evolución, vamos a migrar [Cloud Partner Portal](https://cloudpartner.azure.com/) al Centro de partners.
+El Centro de partners está evolucionando para integrar mejor todos los aspectos de nuestra relación con los editores de software. Como parte de esta evolución, hemos migrado la administración de ofertas de marketplace comercial de [Cloud Partner Portal](https://cloudpartner.azure.com/) al Centro de partners.
 
-Los editores existentes en Marketplace comercial encontrarán una experiencia de usuario familiar, pero mejorada, que cuenta con una interfaz intuitiva. Las notificaciones del portal y las notificaciones de correo electrónico informarán a los editores de la migración. Los usuarios serán fácilmente dirigidos a la ubicación apropiada. Esta actualización de la experiencia de los asociados no afectará a los clientes.
-
->[!NOTE]
->Actualmente, el Centro de partners admite la creación y la administración de algunos tipos de ofertas, como se indica en la tabla siguiente. Pronto se admitirán más tipos de ofertas, en cuanto migremos toda la administración de ofertas al Centro de partners.
-
-|Tipo de oferta  |Administración de ofertas migrada de Cloud Partner Portal al Centro de partners  |
-|---------|---------|
-|Software como servicio (SaaS)     | Ahora disponible       |
-|Dynamics 365 for Customer Engagement y Power Apps     | Ahora disponible         |
-|Dynamics 365 for Operations     | Ahora disponible        |
-|Dynamics 365 for Business Central     | Ahora disponible        |
-|Aplicación de Azure     | Ahora disponible        |
-|Máquina virtual de Azure     | Disponibilidad general en abril-mayo de 2020        |
-|Contenedor de Azure     | Disponibilidad general en abril-mayo de 2020        |
-|Servicios de consultoría     | Disponibilidad general en abril-mayo de 2020        |
-|Módulo IoT Edge     | Disponibilidad general en abril-mayo de 2020        |
-|Aplicación Power BI    | Disponibilidad general en abril-mayo de 2020        |
+Los editores existentes que anteriormente usaban Cloud Partner Portal encontrarán una experiencia de usuario familiar, mejorada e intuitiva con el Centro de partners. Los usuarios serán fácilmente dirigidos a la ubicación apropiada. Esta actualización de la experiencia de los asociados no afectará a los clientes.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Mejoras en la experiencia del usuario en la publicación y la administración de ofertas
 
-Con la transición al Centro de partners, no solo las nuevas funcionalidades están disponibles para los editores, si no que además pueden disfrutar de las mejoras en la experiencia del usuario.  Para obtener más información, consulte [Preguntas más frecuentes sobre la migración de Cloud Partner Portal al Centro de partners](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-faq).
+Con la transición al Centro de partners, no solo las nuevas funcionalidades están disponibles para los editores, si no que además pueden disfrutar de las mejoras en la experiencia del usuario.  Para obtener más información, consulte [Preguntas más frecuentes sobre la migración de Cloud Partner Portal al Centro de partners](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq).
 
 ### <a name="account-and-user-management-updates"></a>Actualizaciones de cuentas y de administración de usuarios
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ea7fb97b6c97a797ce99878762333833965549d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228412"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698653"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2
 
@@ -23,11 +23,11 @@ DistCp proporciona una variedad de parámetros de línea de comandos y se recomi
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Una cuenta existente de Azure Storage sin las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico**.
-* **Una cuenta de Azure Storage con la característica de Data Lake Storage Gen2 habilitada**. Para obtener instrucciones para crear una, consulte [Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
-* **Un sistema de archivos** creado en la cuenta de almacenamiento con el espacio de nombres jerárquico habilitado.
-* **Clúster de Azure HDInsight** con acceso a una cuenta de almacenamiento con Data Lake Storage Gen2 habilitado. Consulte [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta existente de Azure Storage sin las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico.
+* Una cuenta de Azure Storage con las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico. Para obtener instrucciones sobre cómo crearla, vea [Creación de una cuenta de Azure Storage](../common/storage-account-create.md).
+* Un contenedor creado en la cuenta de almacenamiento con el espacio de nombres jerárquico habilitado.
+* Un clúster de Azure HDInsight con acceso a una cuenta de almacenamiento con la característica de espacio de nombres jerárquico habilitada. Consulte [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Asegúrese de habilitar el Escritorio remoto para el clúster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar DistCp desde un clúster de HDInsight de Linux
 
@@ -37,25 +37,25 @@ Un clúster de HDInsight incluye la utilidad DistCp, que puede utilizarse para c
 
 2. Compruebe si puede acceder a la cuenta existente de uso general V2 (sin el espacio de nombres jerárquico habilitado).
 
-        hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
+        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
 
-    La salida debería proporcionar una lista de contenido en el contenedor.
+   La salida debería proporcionar una lista de contenido en el contenedor.
 
 3. De forma similar, compruebe si puede acceder a la cuenta de almacenamiento con el espacio de nombres jerárquico habilitado desde el clúster. Ejecute el siguiente comando:
 
-        hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
+        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
     La salida debería proporcionar una lista de archivos o carpetas en la cuenta de Data Lake Storage.
 
 4. Utilice DistCp para copiar datos desde WASB a una cuenta de Data Lake Storage.
 
-        hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
     El comando copia el contenido de la carpeta **/example/data/gutenberg/** de Blob Storage a **/myfolder** en la cuenta de Data Lake Storage.
 
 5. Asimismo, utilice DistCp para copiar datos de la cuenta de Data Lake Storage a Blob Storage (WASB).
 
-        hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
 
     El comando copia el contenido de **/myfolder** de la cuenta de Data Lake Store en la carpeta **/example/data/gutenberg/** de WASB.
 
@@ -65,7 +65,7 @@ Dado que la granularidad más baja de DistCp es un único archivo, configurar el
 
 **Ejemplo**
 
-    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>¿Cómo se puede determinar el número de asignadores que se debe usar?
 
@@ -79,7 +79,7 @@ A continuación hay algunas instrucciones que puede usar.
 
 **Ejemplo**
 
-Supongamos que tiene un clúster 4x D14v2s y que intenta transferir 10 TB de datos desde 10 carpetas diferentes. Cada una de las carpetas contiene diferentes cantidades de datos y los tamaños de archivo dentro de cada carpeta son diferentes.
+Supongamos que tiene un clúster 4x D14v2s y que intenta transferir 10 TB de datos desde 10 carpetas diferentes. Cada una de las carpetas contiene diferentes cantidades de datos y los tamaños de archivo dentro de cada carpeta son diferentes.
 
 * **Memoria de YARN total**: en el portal de Ambari determinará que la memoria de YARN es de 96 GB para un nodo D14. Por lo tanto, la memoria de YARN total para el clúster de cuatro nodos es: 
 

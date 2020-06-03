@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2020
-ms.openlocfilehash: 4ede8833fdbdbd57654e6c02147f53e58a17b1de
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.date: 05/07/2020
+ms.openlocfilehash: 8e76f767470b9052b25cd2b2958f3f9e9780881b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887000"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714753"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -84,7 +84,6 @@ Se le cobra en función de la duración del clúster. Si solo hay ocasiones espe
 
 > [!NOTE]  
 > Cuando se elimina un clúster, su instancia de Hive Metastore predeterminada también se elimina. Para conservar Metastore para volver a crear el siguiente clúster, use un repositorio de metadatos externo, como Azure Database u [Apache Oozie](https://oozie.apache.org/).
-<!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Aislamiento de errores de trabajo del clúster
 
@@ -92,40 +91,7 @@ A veces, los errores pueden producirse debido a la ejecución en paralelo de var
 
 ## <a name="quotas"></a>Cuotas
 
-Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, no podrá implementar clústeres nuevos. O bien, escale horizontalmente los clústeres existentes mediante la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener el límite de 30 núcleos en la región Este de EE. UU.
-
-Siga estos pasos para comprobar los núcleos disponibles:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Vaya a la página **información general** para el clúster de HDInsight.
-3. En el menú de la izquierda, seleccione **Límites de cuota**.
-
-   La página muestra el número de núcleos en uso, el número de núcleos disponibles y el total de núcleos.
-
-Si fuera necesario solicitar un aumento de la cuota, siga estos pasos:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Seleccione **Ayuda y soporte técnico** de la parte inferior izquierda de la página.
-1. Seleccione **Nueva solicitud de soporte técnico**.
-1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Fundamentos**, seleccione las opciones siguientes:
-
-   - **Tipo de problema**: **Límites de servicio y suscripción (cuotas)**
-   - **Suscripción**: la suscripción que desea modificar.
-   - **Tipo de cuota**: **HDInsight**
-
-     ![Creación de una solicitud de soporte técnico para aumentar la cuota de núcleos de HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
-
-1. Seleccione **Siguiente: Soluciones >>** .
-1. En la página **Detalles**, escriba una descripción del problema, seleccione su gravedad y método de contacto preferido, y complete los demás campos obligatorios.
-1. Seleccione **Siguiente: Revisar y crear >>** .
-1. En la pestaña **Revisar y crear**, seleccione **Crear**.
-
-> [!NOTE]  
-> Si necesita aumentar la cuota de núcleos de HDInsight en una región privada, [envíe una solicitud de lista de permitidos](https://aka.ms/canaryintwhitelist).
-
-Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
-
-Hay algunos límites de cuota fijos. Por ejemplo, una sola suscripción de Azure puede tener como máximo 10 000 núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Para más información sobre la administración de las cuotas de suscripción, vea [Solicitud de aumento de cuotas](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

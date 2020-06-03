@@ -5,15 +5,15 @@ description: En este artículo se proporciona información general sobre la prot
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 02/04/2020
+ms.date: 05/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 3bc481cfc35ac94699d2795862f1fe8e4decf875
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e01f9ac8966223e11ad218af7bf6fbb2462f28f6
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77026516"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714906"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway-bot-protection-overview"></a>Información general de protección contra bots del firewall de aplicaciones web de Azure en Azure Application Gateway
 
@@ -33,6 +33,33 @@ Puede usar el conjunto de reglas de protección contra bots junto con cualquiera
 ## <a name="ruleset-update"></a>Actualización del conjunto de reglas
 
 La lista del conjunto de reglas de mitigación de bots de direcciones IP no válidas conocidas se actualiza varias veces al día desde la fuente de Inteligencia sobre amenazas de Microsoft para mantenerse sincronizada con los bots. Sus aplicaciones web están protegidas continuamente, incluso cuando cambian los vectores de ataque de los bots.
+
+## <a name="log-example"></a>Ejemplo de registro
+
+A continuación se muestra una entrada de registro de ejemplo para la protección contra bots:
+
+```
+{
+        "timeStamp": "0000-00-00T00:00:00+00:00",
+            "resourceId": "appgw",
+            "operationName": "ApplicationGatewayFirewall",
+            "category": "ApplicationGatewayFirewallLog",
+            "properties": {
+            "instanceId": "vm1",
+                "clientIp": "1.2.3.4",
+                "requestUri": "/hello.php?arg1=aaaaaaabccc",
+                "ruleSetType": "MicrosoftBotProtection",
+                "message": "IPReputationTriggered",
+                "action": "Blocked",
+                "hostname": "example.com",
+                "transactionId": "abc",
+                "policyId": "waf policy 1",
+                "policyScope": "Global",
+                "policyScopeName": "Default Policy",
+                "engine": "Azwaf"
+        }
+    }
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,28 +1,28 @@
 ---
-title: Consulta de registros de Azure Update Management
-description: En este artículo se describe cómo consultar los registros de Update Management en el área de trabajo de Log Analytics.
+title: Consulta de registros de Update Management en Azure Automation
+description: En este artículo se explica cómo consultar los registros de Update Management en el área de trabajo de Log Analytics.
 services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617417"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830776"
 ---
-# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Consulta de registros de actualización para Update Management en registros de Azure Monitor
+# <a name="query-update-management-logs"></a>Consulta de registros de Update Management
 
-Además de los detalles que se proporcionan en la solución de Update Management, puede buscar en los registros almacenados en el área de trabajo de Log Analytics. Desde la página de la solución, en el panel de la izquierda, seleccione **Registros**. Se abre la página Búsqueda de registros.
+Además de los detalles que se proporcionan durante la implementación de Update Management, puede buscar en los registros almacenados en el área de trabajo de Log Analytics. Para buscar los registros desde la cuenta de Automation, seleccione **Update Management** y abra el área de trabajo de Log Analytics asociada a la implementación.
 
-También puede aprender a personalizar las consultas o a usarlas desde diferentes clientes. Consulte [Documentación de Log Analytics Search API](https://dev.loganalytics.io/).
+También se pueden personalizar las consultas de registros o usarlas desde clientes distintos. Consulte [Documentación de Log Analytics Search API](https://dev.loganalytics.io/).
 
-## <a name="update-records"></a>Registros de actualización
+## <a name="query-update-records"></a>Consulta de registros de actualización
 
 Update Management recopila los registros para máquinas virtuales Linux y Windows, y los tipos de datos que aparecen en los resultados de la búsqueda de registros. En las secciones siguientes se describen estos registros.
 
-### <a name="required-updates"></a>Actualizaciones necesarias
+### <a name="query-required-updates"></a>Consulta de actualizaciones necesarias
 
 Se crea un registro con un tipo de `RequiredUpdate` que representa las actualizaciones que necesita un equipo. Estos registros tienen las propiedades de la tabla siguiente:
 
@@ -43,7 +43,7 @@ Se crea un registro con un tipo de `RequiredUpdate` que representa las actualiza
 | UpdateSeverity | Clasificación de gravedad de la vulnerabilidad. Los valores son:<br> *Critical)* (Crítico)<br> *Importante*<br> *Moderado*<br> *Baja* |
 | UpdateTitle | Título de la actualización.|
 
-### <a name="update"></a>Actualizar
+### <a name="query-update-record"></a>Consulta del registro de la actualización
 
 Se crea un registro con un tipo de `Update` que representa las actualizaciones disponibles y su estado de instalación para un equipo. Estos registros tienen las propiedades de la tabla siguiente:
 
@@ -80,7 +80,7 @@ Se crea un registro con un tipo de `Update` que representa las actualizaciones d
 | Resource | Nombre del recurso. | 
 | ResourceType | El tipo de recurso. | 
 
-### <a name="update-agent"></a>Agente de actualización
+### <a name="query-update-agent-record"></a>Consulta del registro de agente de la actualización
 
 Se crea un registro con un tipo de `UpdateAgent` que proporciona detalles del agente de actualización en el equipo. Estos registros tienen las propiedades de la tabla siguiente:
 
@@ -101,7 +101,7 @@ Se crea un registro con un tipo de `UpdateAgent` que proporciona detalles del ag
 | WindowsUpdateAgentVersion | Versión del Agente de Windows Update. |
 | WSUSServer | Errores en el caso de que el agente de Windows Update tenga un problema, para ayudar en la solución de problemas. |
 
-### <a name="update-deployment-status"></a>Estado de implementación de actualizaciones 
+### <a name="query-update-deployment-status-record"></a>Consulta del registro del estado de implementación de la actualización
 
 Se crea un registro con un tipo de `UpdateRunProgress` que proporciona el estado de implementación de actualización de una implementación programada por equipo. Estos registros tienen las propiedades de la tabla siguiente:
 
@@ -133,7 +133,7 @@ Se crea un registro con un tipo de `UpdateRunProgress` que proporciona el estado
 | VMUUID | Identificador único de la máquina virtual. |
 | ResourceId | Identificador único del recurso asociado al registro. |
 
-### <a name="update-summary"></a>Resumen de actualización 
+### <a name="query-update-summary-record"></a>Consulta del registro de resumen de la actualización
 
 Se crea un registro con un tipo de `UpdateSummary` que proporciona el resumen de actualizaciones por equipo. Estos registros tienen las propiedades de la tabla siguiente:
 
@@ -171,7 +171,7 @@ Se crea un registro con un tipo de `UpdateSummary` que proporciona el resumen de
 
 En las secciones siguientes se proporcionan ejemplos de consultas de registros para los registros de actualizaciones recopilados por Update Management.
 
-### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmación de que las máquinas que no son de Azure están incorporadas
+### <a name="confirm-that-non-azure-machines-are-enabled-for-update-management"></a>Confirmación de que las máquinas que no son de Azure están habilitadas para Update Management
 
 Para confirmar que las máquinas conectadas directamente se comunican con los registros de Azure Monitor, ejecute una de las siguientes búsquedas de registros.
 
@@ -197,7 +197,7 @@ En un equipo Windows, puede revisar la siguiente información para comprobar la 
 Si el agente no puede comunicarse con los registros de Azure Monitor y está configurado para comunicarse con Internet mediante un firewall o un servidor proxy, confirme que estos están configurados correctamente. Para aprender a comprobar que un firewall o un servidor proxy estén correctamente configurados, consulte [Configuración de red para el agente Windows](../azure-monitor/platform/agent-windows.md) o [Configuración de red para el agente de Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Si los sistemas Linux están configurados para comunicarse con un servidor proxy o una puerta de enlace de Log Analytics y va a incorporar esta solución, actualice los permisos *proxy.conf* para conceder al grupo omiuser permiso de lectura sobre este archivo mediante la ejecución de los siguientes comandos:
+> Si los sistemas Linux están configurados para comunicarse con un servidor proxy o una puerta de enlace de Log Analytics y va a habilitar Update Management, actualice los permisos `proxy.conf` a fin de conceder al grupo omiuser permiso de lectura sobre el archivo mediante el uso de los comandos siguientes:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Use las búsquedas de registros de los [registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre la actualización.
-* [Cree alertas](automation-tutorial-update-management.md#configure-alerts) para el estado de implementación de actualizaciones.
+* Para obtener más información sobre los registros de Azure Monitor, consulte [Registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Para obtener ayuda con las alertas, consulte [Configuración de alertas](automation-tutorial-update-management.md#configure-alerts).

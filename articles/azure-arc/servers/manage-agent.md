@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/29/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 685c56c7ef270acb416d4b76c6aceb8553e9a07f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581712"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648092"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -28,11 +28,19 @@ El agente de Azure Connected Machine para Windows y Linux se puede actualizar a 
 | Windows | Manualmente<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) |
 
 ### <a name="windows-agent"></a>Agente de Windows
 
-Para actualizar el agente en una máquina Windows a la versión más reciente, el agente está disponible en Microsoft Update y se puede implementar con el proceso existente de administración de actualizaciones de software. También se puede ejecutar manualmente desde el símbolo del sistema, un script u otra solución de automatización, o desde el asistente para la interfaz de usuario ejecutando `AzureConnectedMachine.msi`. 
+El paquete de actualización para el agente de Connected Machine para Windows está disponible en:
+
+* Microsoft Update
+
+* [Catálogo de Microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx)
+
+* [Paquete de Windows Installer con el agente](https://aka.ms/AzureConnectedMachineAgent) del centro de descarga de Microsoft.
+
+El agente se puede actualizar a partir de una variedad de métodos para admitir el proceso de administración de actualizaciones de software. Aparte de en Microsoft Update, también se puede ejecutar manualmente desde el símbolo del sistema, un script u otra solución de automatización, o desde el asistente para la interfaz de usuario ejecutando `AzureConnectedMachine.msi`.
 
 > [!NOTE]
 > * Para actualizar el agente, debe tener permisos de *administrador*.
@@ -60,7 +68,9 @@ El Asistente para la instalación detecta si existe una versión anterior y, a c
 
 ### <a name="linux-agent"></a>Agente Linux
 
-Para actualizar el agente en una máquina Linux a la versión más reciente, participan dos comandos. Un comando para actualizar el índice de paquetes locales con la lista de los paquetes disponibles más recientes de los repositorios, y un comando para actualizar el paquete local. 
+Para actualizar el agente en una máquina Linux a la versión más reciente, participan dos comandos. Un comando para actualizar el índice de paquetes locales con la lista de los paquetes disponibles más recientes de los repositorios, y un comando para actualizar el paquete local.
+
+Puede descargar el paquete de agente más reciente del [repositorio de paquetes](https://packages.microsoft.com/) de Microsoft.
 
 > [!NOTE]
 > Para actualizar el agente, debe tener permisos de acceso *raíz* o una cuenta que tenga derechos elevados que use Sudo.
@@ -171,7 +181,7 @@ Para desconectarse con sus credenciales de sesión iniciada elevadas (interactiv
 
 Este parámetro vuelve a conectar la máquina ya registrada o conectada con Azure Arc para servidores (versión preliminar). Esto puede ser necesario si la máquina se ha desactivado, al menos 45 días, para que su certificado expire. Este parámetro usa las opciones de autenticación proporcionadas para recuperar las credenciales nuevas correspondientes al recurso de Azure Resource Manager que representa a esta máquina.
 
-Este comando requiere privilegios más altos que el rol [incorporación de máquinas conectadas a Azure](overview.md#required-permissions).
+Este comando requiere privilegios más altos que el rol [incorporación de máquinas conectadas a Azure](agent-overview.md#required-permissions).
 
 Para volver a conectar con una entidad de servicio, ejecute el siguiente comando:
 
@@ -207,7 +217,7 @@ Los dos métodos siguientes quitan el agente, pero no quitan la carpeta *C:\Arch
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar desde la línea de comandos
 
 Para desinstalar el agente manualmente desde el símbolo del sistema o para usar un método automatizado, como un script, puede usar el ejemplo siguiente. En primer lugar, debe recuperar el código del producto, que es un GUID que es el identificador principal del paquete de aplicación, del sistema operativo. La desinstalación se realiza mediante la línea de comandos msiexec.exe: `msiexec /x {Product Code}`.
-    
+
 1. Abra el Editor del Registro.
 
 2. En la clave del Registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, busque y copie el GUID del código del producto.

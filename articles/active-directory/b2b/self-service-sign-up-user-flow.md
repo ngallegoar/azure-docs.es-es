@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594734"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712356"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83594734"
 | El registro de autoservicio es la característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-La asociación del flujo de usuario con una aplicación le permite habilitar el registro en esa aplicación. Puede optar por asociar más de una aplicación al flujo de usuario. Una vez asociado el flujo de usuario a una o más aplicaciones, los usuarios que visiten esa aplicación podrán registrarse mediante las opciones configuradas en el flujo de usuario.
+Puede crear flujos de usuario para aplicaciones compiladas por la organización. La asociación del flujo de usuario con una aplicación le permite habilitar el registro en esa aplicación. Puede optar por asociar más de una aplicación al flujo de usuario. Una vez asociado el flujo de usuario a una o más aplicaciones, los usuarios que visiten esa aplicación podrán registrarse y obtener una cuenta de invitado mediante las opciones configuradas en el flujo de usuario.
+
+> [!NOTE]
+> Puede asociar flujos de usuarios a las aplicaciones compiladas por la organización. Los flujos de usuario no se pueden usar para las aplicaciones de Microsoft, como SharePoint o Teams.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -33,9 +36,12 @@ La asociación del flujo de usuario con una aplicación le permite habilitar el 
 
 Azure AD es el proveedor de identidades predeterminado para el registro de autoservicio. Esto significa que los usuarios pueden registrarse de manera predeterminada con una cuenta de Azure AD. Los proveedores de identidades sociales también pueden incluirse en estos flujos de registro para admitir cuentas de Google y Facebook.
 
-- [Incorporación de Google a la lista de proveedores de identidades sociales](google-federation.md)
 - [Incorporación de Facebook a la lista de proveedores de identidades sociales](facebook-federation.md)
- 
+- [Incorporación de Google a la lista de proveedores de identidades sociales](google-federation.md)
+
+> [!NOTE]
+> En la versión preliminar, si un flujo de usuario de registro de autoservicio se asocia a una aplicación y le envía a un usuario una invitación a esa aplicación, el usuario no podrá utilizar una cuenta de Gmail para canjear la invitación. Como solución alternativa, el usuario puede pasar por el proceso de registro de autoservicio. O bien, para canjear la invitación, puede acceder a otra aplicación o usar el portal Mis aplicaciones en https://myapps.microsoft.com.
+
 ### <a name="define-custom-attributes-optional"></a>Definición de atributos personalizados (opcional)
 
 Los atributos de usuario son valores recopilados del usuario durante el registro de autoservicio. Azure AD incluye un conjunto de atributos integrado, pero puede crear atributos personalizados para utilizar en el flujo de usuario. También puede leer y escribir estos atributos mediante Microsoft Graph API. Consulte [Definición de atributos personalizados para flujos de usuario](user-flow-add-custom-attributes.md).

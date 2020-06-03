@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79efe3cef82a166ca6b56dea5cb07f15a5325083
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60640385"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650328"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Uso de DNS dinámico para registrar nombres de host en su propio servidor DNS
 
@@ -61,7 +61,7 @@ then
 fi
 ```
 
-También puede usar el comando `nsupdate` para realizar actualizaciones de DDNS seguras. Por ejemplo, cuando usa un servidor Bind DNS, se [genera](http://linux.yyz.us/nsupdate/)un par de claves pública-privada. El servidor DNS está [configurado](http://linux.yyz.us/dns/ddns-server.html) con la parte pública de la clave, de manera que se puede comprobar la firma en la solicitud. Para proporcionar el par de claves para `nsupdate`, use la opción `-k`. El objetivo es la firma de la solicitud de actualización DDNS.
+También puede usar el comando `nsupdate` para realizar actualizaciones de DDNS seguras. Por ejemplo, cuando usa un servidor Bind DNS, se genera un par de claves pública-privada (`http://linux.yyz.us/nsupdate/`). El servidor DNS está configurado (`http://linux.yyz.us/dns/ddns-server.html`) con la parte pública de la clave, de manera que se puede comprobar la firma en la solicitud. Para proporcionar el par de claves para `nsupdate`, use la opción `-k`. El objetivo es la firma de la solicitud de actualización DDNS.
 
 Si usa un servidor DNS de Windows, puede usar la autenticación Kerberos con el parámetro `-g` en `nsupdate`, pero no está disponible en la versión de `nsupdate` para Windows. Para usar Kerberos, utilice `kinit` para cargar las credenciales. Por ejemplo, puede cargar las credenciales de un [archivo keytab](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html) y `nsupdate -g` extraer las credenciales de la memoria caché.
 

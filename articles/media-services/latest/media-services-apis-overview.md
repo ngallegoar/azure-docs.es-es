@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eacdfe8211c97e75b6609f5e11b681f84ae55846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472091"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648542"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desarrollo con las API de Media Services v3
 
@@ -54,7 +54,7 @@ En la ilustración siguiente, los números representan el flujo de las solicitud
    * URI del recurso de Media Services de REST.
    * Valores de aplicación de Azure AD: el identificador de cliente y el secreto de cliente.
 
-   Para obtener todos los valores necesarios, consulte [Acceso a la API de Azure Media Services con la CLI de Azure](access-api-cli-how-to.md).
+   Para obtener todos los valores necesarios, consulte [Acceso a la API de Azure Media Services](access-api-cli-how-to.md).
 
 2. El token de acceso de Azure AD se envía al nivel intermedio.
 4. El nivel intermedio envía una solicitud a la API de REST de Azure Media Services con el token de Azure AD.
@@ -148,7 +148,7 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 
 ## <a name="see-also"></a>Consulte también
 
-[CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+Para obtener todos los valores necesarios, consulte [Acceso a la API de Azure Media Services](access-api-cli-how-to.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691853"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649802"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
@@ -147,6 +147,16 @@ Las cadenas JSON del registro de escalabilidad automática incluyen los elemento
 | TrackingId | Identificador interno, que se usa con fines de seguimiento. |
 | ResourceId | Identificador de recursos de Azure Resource Manager. |
 | Message | Mensaje informativo, que proporciona detalles sobre la acción de inflado automático. El mensaje contiene el valor anterior y actual de la unidad de procesamiento de un espacio de nombres determinado y lo que desencadenó el inflado de la unidad de rendimiento. |
+
+Este es un evento de escalado automático de ejemplo: 
+
+```json
+{
+    "TrackingId": "fb1b3676-bb2d-4b17-85b7-be1c7aa1967e",
+    "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2020 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name"
+}
+```
 
 ## <a name="kafka-coordinator-logs-schema"></a>Esquema de registros de coordinador de Kafka
 Las cadenas JSON del registro de coordinador de Kafka incluyen los elementos enumerados en la tabla siguiente:

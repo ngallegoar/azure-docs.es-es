@@ -8,14 +8,20 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 061805896203615d7673a006059080e9c4246863
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656374"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657209"
 ---
 # <a name="connect-with-the-web-client"></a>Conexión con el cliente web
+
+>[!IMPORTANT]
+>Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/connect-web-2019.md).
+>
+> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El cliente web le permite acceder a los recursos de Windows Virtual Desktop desde un explorador web sin el largo proceso de instalación.
 
@@ -36,7 +42,10 @@ Aunque debería funcionar cualquier explorador compatible con HTML5, oficialment
 
 ## <a name="access-remote-resources-feed"></a>Acceso remoto a la fuente de recursos
 
-En un explorador, vaya al [cliente web de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient) e inicie sesión con su cuenta de usuario.
+En un explorador, vaya a la versión integrada de Windows Virtual Desktop del cliente web de Azure Resource Manager, en <https://rdweb.wvd.microsoft.com/arm/webclient>, e inicie sesión con su cuenta de usuario.
+
+>[!NOTE]
+>En cambio, si usa la versión de otoño de 2019 de Windows Virtual Desktop sin integración con Azure Resource Manager, conecte los recursos en <https://rdweb.wvd.microsoft.com/webclient>.
 
 >[!NOTE]
 >Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Windows Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.

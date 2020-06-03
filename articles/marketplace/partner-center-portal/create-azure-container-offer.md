@@ -1,25 +1,22 @@
 ---
 title: 'Creación de una oferta de contenedor de Azure: Azure Marketplace'
-description: En este artículo se explica cómo crear y publicar una oferta de contenedor para Azure Marketplace.
+description: Aprenda a crear y publicar una oferta de contenedor para Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
-ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 1a027eb4cb3351934738319f342afac8d8407e6f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791942"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848811"
 ---
 # <a name="create-an-azure-container-offer"></a>Creación de una oferta de contenedor de Azure
 
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de contenedores de Azure de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Oferta de contenedores](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) para Cloud Partner Portal para administrar las ofertas.
-
-En este artículo se explica cómo crear y publicar una oferta de contenedor para Azure Marketplace. Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa marketplace comercial.
+En este artículo se explica cómo crear y publicar una oferta de contenedor para Azure Marketplace. Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -62,18 +59,18 @@ En esta página se muestran diferentes vínculos según el estado actual de la o
 
 Siga estos pasos para configurar la oferta.
 
-### <a name="connect-lead-management--optional"></a>Conexión de administración de clientes potenciales: opcional
+### <a name="customer-leads--optional"></a>Clientes potenciales: opcional
 
 Al publicar la oferta en el marketplace comercial con el Centro de partners, conéctela a un sistema de administración de relaciones con clientes (CRM). Esto le permite recibir información de contacto del cliente en cuanto alguien expresa interés en el producto o lo usa.
 
 1. **Seleccione un destino de clientes potenciales al que quiera que enviemos los clientes potenciales**. El Centro de partners admite los siguientes sistemas CRM:
 
-- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
+   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-> [!NOTE]
-> Si su sistema CRM no aparece en la lista anterior, use [Tabla de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) o [Punto de conexión HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para almacenar los datos del cliente potencial y, a continuación, exporte los datos al sistema CRM.
+   > [!NOTE]
+   > Si su sistema CRM no aparece en la lista anterior, use [Tabla de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) o [Punto de conexión HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) para almacenar los datos del cliente potencial y, a continuación, exporte los datos al sistema CRM.
 
 2. Conecte su oferta al destino de clientes potenciales cuando la publique en el Centro de partners.
 3. Compruebe que la conexión al destino de clientes potenciales está configurada correctamente. Después de publicarla en el Centro de partners, se valida la conexión y se le envía un cliente potencial de prueba. Mientras obtiene una vista previa de la oferta antes de publicarla, también puede probar la conexión de los clientes potenciales tratando de adquirir la oferta en el entorno de versión preliminar.
@@ -149,40 +146,11 @@ Descripción más detallada de la oferta. Puede tener una longitud de hasta 256 
 
 ### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3000 caracteres). Se muestra a los clientes en la información general de la lista de Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Incluya uno o varios de los siguientes elementos en la descripción:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Valor y beneficios principales que proporciona la oferta
-- Asociaciones de categoría o de sector o ambas
-- Oportunidades de compra desde la aplicación
-- Cualquier divulgación necesaria
-
-Estas son algunas sugerencias para escribir la descripción:
-
-- Describa claramente la propuesta de valor de la oferta en las primeras frases de la descripción. Incluya los siguientes elementos:
-  - Descripción de la oferta.
-  - Tipo de usuario que se beneficia de la oferta.
-  - Necesidades o problemas del cliente que aborda la oferta.
-- Recuerde que estas primeras frases podrían mostrarse en los resultados de la búsqueda.
-- No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona la oferta.
-- Intente usar un vocabulario específico del sector o palabras relacionadas con las ventajas.
-
-Para que la **descripción** de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato. El editor de texto enriquecido le permite agregar números, viñetas, negritas, cursivas y sangrías para que la descripción sea más legible.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Muestra el editor de texto enriquecido." border="false" :::
-
-- Use esta lista desplegable para aplicar un estilo de párrafo al texto.
-
-    :::image type="content" source="media/text-editor3.png" alt-text="Muestra el control de estilo de texto en el editor de texto enriquecido." border="false":::
-
-- Use estos iconos para aplicar numeración o viñetas al texto.
-
-     :::image type="content" source="media/text-editor4.png" alt-text="Ilustra los controles de lista con viñetas o numerada en el editor de texto enriquecido." border="false":::
-
-- Use estos iconos para agregar o quitar la sangría del texto.
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Muestra los controles de sangría en el editor de texto enriquecido." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Vínculo de la directiva de privacidad
 

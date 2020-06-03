@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dba0dd4e52913e0998b088fb2ccf90c98f0a89c2
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821494"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017618"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
@@ -333,7 +333,7 @@ Una configuración importante en el seccionamiento del disco es el tamaño de fr
 
 Por ejemplo, si una solicitud de E/S generada por la aplicación es mayor que el tamaño de franja del disco, el sistema de almacenamiento escribe a través de límites de la unidad de franja en más de un disco. Cuando llega el momento para tener acceso a esos datos, tendrá que buscar en las unidades con más de una franja para completar la solicitud. El efecto acumulativo de este comportamiento puede provocar una degradación del rendimiento considerable. Por otro lado, si el tamaño de la solicitud de E/S es menor que el tamaño de franja, y si es aleatoria por naturaleza, las solicitudes de E/S pueden acumularse en el mismo disco, causar un cuello de botella y, en última instancia, degradar el rendimiento de E/S.
 
-Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Premium Storage. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y de 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para más información.
+Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Premium Storage. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y de 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) para más información.
 
 > [!NOTE]
 > Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.

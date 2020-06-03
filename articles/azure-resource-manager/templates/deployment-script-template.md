@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 05/20/2020
 ms.author: jgao
-ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984800"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708013"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
 Aprenda a usar scripts de implementación en plantillas de recursos de Azure. Con un nuevo tipo de recurso denominado `Microsoft.Resources/deploymentScripts`, los usuarios pueden ejecutar scripts de implementación en implementaciones de plantilla y revisar los resultados de la ejecución. Estos scripts se pueden usar para realizar pasos personalizados tales como:
 
 - Adición de usuarios a un directorio
-- Creación de un registro de aplicación
 - Realización de operaciones de plano de datos como, por ejemplo, copiar blobs o una base de datos de inicialización
 - Búsqueda y validación de una clave de licencia
 - Creación de un certificado autofirmado.
@@ -37,14 +36,14 @@ Ventajas del script de implementación:
 El recurso de script de implementación solo está disponible en las regiones donde Azure Container Instances está disponible.  Consulte [Disponibilidad de recursos para Azure Container Instances en las regiones de Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> En el mismo grupo de recursos que se usa para la ejecución de scripts y la solución de problemas, se crean dos recursos de script de implementación, una cuenta de almacenamiento y una instancia de contenedor. Estos recursos los suele eliminar el servicio de scripts cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
+> Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene las opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente la cuenta de almacenamiento, junto con la instancia del contenedor. Normalmente, el servicio de script elimina los dos recursos creados automáticamente cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - **Una identidad administrada asignada por el usuario con el rol de colaborador en el grupo de recursos de destino**. Esta identidad se usa para ejecutar scripts de implementación. Para realizar operaciones fuera del grupo de recursos, debe conceder permisos adicionales. Por ejemplo, asigne la identidad al nivel de suscripción si desea crear un nuevo grupo de recursos.
 
   > [!NOTE]
-  > El motor de scripts de implementación crea una cuenta de almacenamiento y una instancia de contenedor en segundo plano.  Se requiere una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción si la suscripción no ha registrado los proveedores de recursos de la cuenta de almacenamiento de Azure (Microsoft.Storage) y la instancia de contenedor de Azure (Microsoft.ContainerInstance).
+  > El servicio de script crea una cuenta de almacenamiento (a menos que especifique una cuenta de almacenamiento existente) y una instancia de contenedor en segundo plano.  Se requiere una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción si la suscripción no ha registrado los proveedores de recursos de la cuenta de almacenamiento de Azure (Microsoft.Storage) y la instancia de contenedor de Azure (Microsoft.ContainerInstance).
 
   Para crear una identidad, consulte [Creación de una identidad administrada asignada por el usuario mediante Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) o [la CLI de Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) o [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
 
@@ -101,6 +100,13 @@ El código JSON siguiente es un ejemplo.  [Aquí](/azure/templates/microsoft.res
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Detalles de los valores de propiedad:
 - **Identidad**: el servicio de scripts de implementación utiliza una identidad administrada asignada por el usuario para ejecutar los scripts. Actualmente, solo se admiten identidades asignadas por el usuario.
 - **kind**: especifique el tipo de script. Actualmente, se admiten los scripts de Azure PowerShell y de la CLI de Azure. Los valores son **AzurePowerShell** y **AzureCLI**.
 - **forceUpdateTag**: el cambio de este valor entre implementaciones de plantilla obliga a que se vuelva a ejecutar el script de implementación. Utilice la función newGuid() o utcNow() que hay que establecer como defaultValue de un parámetro. Para más información, consulte la sección [Ejecución de un script varias veces](#run-script-more-than-once).
+- **containerSettings**: permite especificar la configuración para personalizar la instancia de contenedor de Azure.  **containerGroupName** es para especificar el nombre del grupo de contenedores.  Si no se especifica, el nombre de grupo se generará automáticamente.
+- **storageAccountSettings**: permite especificar la configuración para usar una cuenta de almacenamiento existente. Si no se especifica, se crea una cuenta de almacenamiento automáticamente. Consulte [Uso de una cuenta de almacenamiento existente](#use-an-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Especifique la versión del módulo que se va a usar. Para una lista de las versiones compatibles de PowerShell y de la CLI, consulte los [requisitos previos](#prerequisites).
 - **arguments**: Especifique los valores de los parámetros. Los valores se separan con espacios.
 - **environmentVariables**: especifique las variables de entorno que se van a pasar al script. Para más información, consulte [Desarrollo de scripts de implementación](#develop-deployment-scripts).
@@ -190,7 +198,7 @@ Además de los scripts en línea, también puede usar archivos de script externo
 
 Para ver un ejemplo, seleccione [aquí](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Los archivos de script externos deben ser accesibles.  Para proteger los archivos de script que se almacenan en cuentas de Azure Storage, consulte [Tutorial: Protección de los artefactos de las implementaciones de plantillas de Azure Resource Manager](./template-tutorial-secure-artifacts.md).
+Los archivos de script externos deben ser accesibles.  Para proteger los archivos de script que se almacenan en cuentas de Azure Storage, consulte [Implementación de una plantilla de Resource Manager privada con el token de SAS](./secure-template-with-sas-token.md).
 
 Tiene la responsabilidad de garantizar la integridad de los scripts a los que hace referencia el script de implementación, ya sea **PrimaryScriptUri** o **SupportingScriptUris**.  Haga referencia solo a scripts en los que confíe.
 
@@ -241,15 +249,17 @@ Las salidas del script de implementación se deben guardar en la ubicación AZ_S
 ### <a name="handle-non-terminating-errors"></a>Control de errores de no terminación
 
 Puede controlar el modo en que PowerShell responde a los errores de no terminación mediante la variable [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) en el script de implementación. El motor de scripts de implementación no establece ni cambia el valor.  A pesar del valor establecido para $ErrorActionPreference, el script de implementación establece el estado de aprovisionamiento de los recursos en *Error* cuando el script encuentra un error.
+) en el script de implementación. El servicio de script no establece ni cambia el valor.  A pesar del valor establecido para $ErrorActionPreference, el script de implementación establece el estado de aprovisionamiento de los recursos en *Error* cuando el script encuentra un error.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Paso de cadenas protegidas al script de implementación
 
 El establecimiento de variables de entorno (EnvironmentVariable) en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values).
 
+El tamaño máximo permitido para las variables de entorno es de 64 KB.
+
 ## <a name="debug-deployment-scripts"></a>Depuración de scripts de implementación
 
-El servicio de scripts crea una [cuenta de almacenamiento](../../storage/common/storage-account-overview.md) y una [instancia de contenedor](../../container-instances/container-instances-overview.md) para la ejecución de scripts. Ambos recursos incluyen el sufijo **azscripts** en los nombres de los recursos.
+El servicio de script crea una [cuenta de almacenamiento](../../storage/common/storage-account-overview.md) (a menos que especifique una cuenta de almacenamiento existente) y una [instancia de contenedor](../../container-instances/container-instances-overview.md) para la ejecución de scripts. Si el servicio de script crea estos recursos automáticamente, ambos recursos tienen el sufijo **azscripts** en los nombres de los recursos.
 
 ![Nombres de recursos del script de implementación de la plantilla de Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,22 +302,53 @@ Para ver el recurso deploymentScripts en el portal, seleccione **Mostrar tipos o
 
 ![Script de implementación de la plantilla de Resource Manager, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>Uso de una cuenta de almacenamiento existente
+
+Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene las opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente la cuenta de almacenamiento, junto con la instancia de contenedor. Requisitos para usar una cuenta de almacenamiento existente:
+
+- Los tipos de cuenta de almacenamiento admitidos son: uso general v2, uso general v1 y FileStorage. Solo FileStorage admite SKU Premium. Para obtener más información, consulte la sección [Tipos de cuentas de almacenamiento](../../storage/common/storage-account-overview.md).
+- Todavía no se admiten las reglas de Firewall de la cuenta de almacenamiento. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../../storage/common/storage-network-security.md).
+- La identidad administrada asignada por el usuario del script de implementación debe tener permisos para administrar la cuenta de almacenamiento, lo que incluye los recursos compartidos de archivos de lectura, creación y eliminación.
+
+Para especificar una cuenta de almacenamiento existente, agregue el siguiente JSON al elemento de propiedad de `Microsoft.Resources/deploymentScripts`:
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+- **storageAccountName**: especifica el nombre de la cuenta de almacenamiento.
+- **storageAccountKey**: especifica una de las claves de cuenta de almacenamiento. Se puede usar la función [`listKeys()`](./template-functions-resource.md#listkeys) para recuperar la clave. Por ejemplo:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
+
+Consulte [Plantillas de ejemplo](#sample-templates) para obtener una muestra de definición de `Microsoft.Resources/deploymentScripts` completa.
+
+Cuando se usa una cuenta de almacenamiento existente, el servicio de script crea un recurso compartido de archivos con un nombre único. Consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources) para obtener información sobre cómo el servicio de script limpia el recurso compartido de archivos.
+
 ## <a name="clean-up-deployment-script-resources"></a>Limpieza de los recursos del script de implementación
 
-El script de implementación crea una cuenta de almacenamiento y una instancia de contenedor que se usan para ejecutar scripts de implementación y almacenar información de depuración. Estos dos recursos se crean en el mismo grupo de recursos que los recursos aprovisionados y el servicio de scripts los eliminará cuando expire el script. Puede controlar el ciclo de vida de estos recursos.  Hasta que se eliminen, se le facturarán ambos recursos. Para obtener información sobre los precios, consulte los [precios de Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) y los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente una cuenta de almacenamiento, junto con una instancia de contenedor. El servicio de script elimina los dos recursos creados automáticamente cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para obtener información sobre los precios, consulte los [precios de Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) y los [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 El ciclo de vida de estos recursos se controla mediante las siguientes propiedades de la plantilla:
 
-- **cleanupPreference**: Preferencia de limpieza cuando la ejecución del script llega a un estado terminal.  Los valores admitidos son:
+- **cleanupPreference**: Preferencia de limpieza cuando la ejecución del script llega a un estado terminal. Los valores admitidos son:
 
-  - **Always**: Elimine los recursos cuando la ejecución del script llegue a un estado terminal. Puesto que el recurso deploymentScripts todavía puede estar presente después de que se limpien los recursos, el script del sistema copiará los resultados de la ejecución del script (por ejemplo, los valores stdout, outputs, return, etc.) en DB antes de que se eliminen los recursos.
-  - **OnSuccess**: Elimine los recursos solo cuando la ejecución del script sea correcta. Todavía puede acceder a los recursos para encontrar la información de depuración.
-  - **OnExpiration**: Elimine los recursos solo cuando la configuración de **retentionInterval** haya expirado. Esta propiedad está deshabilitada actualmente.
+  - **Always**: Elimine los recursos creados automáticamente cuando la ejecución del script llegue a un estado terminal. Si se usa una cuenta de almacenamiento existente, el servicio de script elimina el recurso compartido de archivos creado en la cuenta de almacenamiento. Puesto que el recurso deploymentScripts todavía puede estar presente después de que se limpien los recursos, los servicios de script conservan los resultados de la ejecución del script (por ejemplo, los valores stdout, outputs, return, etc.) antes de que se eliminen los recursos.
+  - **OnSuccess**: Elimine los recursos creados automáticamente solo cuando la ejecución del script sea correcta. Si se usa una cuenta de almacenamiento existente, el servicio de script quita el recurso compartido de archivos solo cuando la ejecución del script se completa correctamente. Todavía puede acceder a los recursos para encontrar la información de depuración.
+  - **OnExpiration**: Elimine los recursos creados automáticamente solo cuando la configuración de **retentionInterval** haya expirado. Si se usa una cuenta de almacenamiento existente, el servicio de script quita el recurso compartido de archivos, pero conserva la cuenta de almacenamiento.
 
 - **retentionInterval**: especifique el intervalo de tiempo que se conservará un recurso de script y tras el que expirará y se eliminará.
 
 > [!NOTE]
-> No se recomienda usar los recursos del script de implementación con otros fines.
+> No se recomienda usar la cuenta de almacenamiento ni la instancia de contenedor que genera el servicio de script para otros fines. Los dos recursos podrían quitarse en función del ciclo de vida del script.
 
 ## <a name="run-script-more-than-once"></a>Ejecución del script más de una vez
 

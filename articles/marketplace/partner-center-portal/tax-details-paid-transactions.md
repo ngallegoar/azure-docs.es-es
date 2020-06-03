@@ -6,12 +6,12 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.date: 05/04/2020
-ms.openlocfilehash: 0276a859fb82f7775aca498d73d1cbf780aaf5fc
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c58f66ac06cca7146a28813406e74932046f6ee4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793030"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746676"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Información sobre impuestos para los publicadores de Marketplace comercial
 
@@ -79,7 +79,7 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Congo (RDC)                      | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Islas Cook                     | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Costa Rica                       | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.  | Precio menos los honorarios de Store                 | Publicador          |
-| Costa de Marfil                    | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
+| Côte d'Ivoire                    | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Croacia                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 25 % de impuestos, menos los honorarios de Store   | Microsoft          |
 | Curazao                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Chipre                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. Los impuestos se restan del precio antes del pago.       | Precio menos el 19 % de impuestos, menos los honorarios de Store  | Microsoft          |
@@ -252,7 +252,7 @@ Para comprender las consideraciones fiscales para la selección de precios, así
 | Vanuatu                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Ciudad del Vaticano                     | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Venezuela                        | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
-| Vietnam                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. [Obtenga más información sobre las consideraciones de impuestos para este país.](#mixed-remittance-countriesregions-for-publishers) | Precio menos los honorarios de Store                 | Publicador          |
+| Vietnam                          | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables. [Obtenga más información sobre las consideraciones de impuestos para este país o región.](#mixed-remittance-countriesregions-for-publishers) | Precio menos los honorarios de Store                 | Publicador          |
 | Wallis y Futuna                | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Yemen                            | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
 | Zambia                           | El precio seleccionado es el precio de venta final e incluye todos los impuestos aplicables.                                                                   | Precio menos los honorarios de Store                 | Publicador          |
@@ -269,7 +269,7 @@ Lo siguiente se aplica solo a los publicadores de Azure Marketplace, con indepen
 
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>Países o regiones de remesas mixtas para publicadores
 
-Algunos partners de facturación de Microsoft pueden recolectar y remitir los impuestos de ventas, uso, bienes y servicios, al valor añadido u otros similares, si los hubiera, aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store en los países o regiones que se enumeran a continuación. En los [informes](payout-summary-overview.md#transaction-history-download-export) que Microsoft pone a su disposición, se identificarán las transacciones para las que un partner de facturación haya recolectados los impuestos de ventas, uso, bienes y servicios, valor añadido u otros similares aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store. A excepción de las transacciones descritas en estos informes, ni Microsoft ni sus proveedores de servicios de facturación remitirán ningún impuesto de ventas, uso, bienes y servicios, valor añadido u otro similar en relación con la adquisición por parte de los clientes de sus aplicaciones o productos en la aplicación en estos países. Usted es responsable de revisar los informes que se le proporcionan, así como de determinar y cumplir sus obligaciones, en caso de haberlas, de registro, recolección y remisión de impuestos en relación con las transacciones que impliquen a sus aplicaciones o los productos en la aplicación.
+Algunos partners de facturación de Microsoft pueden recolectar y remitir los impuestos de ventas, uso, bienes y servicios, al valor añadido u otros similares, si los hubiera, aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store en los países o regiones que se enumeran a continuación. En los [informes](payout-summary-overview.md#transaction-history-download-export) que Microsoft pone a su disposición, se identificarán las transacciones para las que un partner de facturación haya recolectados los impuestos de ventas, uso, bienes y servicios, valor añadido u otros similares aplicables a la adquisición por parte de los clientes de las aplicaciones o productos en la aplicación a través de Store. A excepción de las transacciones descritas en estos informes, ni Microsoft ni sus proveedores de servicios de facturación remitirán ningún impuesto de ventas, uso, bienes y servicios, valor añadido u otro similar en relación con la adquisición por parte de los clientes de sus aplicaciones o productos integrados en la aplicación en estos países o regiones. Usted es responsable de revisar los informes que se le proporcionan, así como de determinar y cumplir sus obligaciones, en caso de haberlas, de registro, recolección y remisión de impuestos en relación con las transacciones que impliquen a sus aplicaciones o los productos en la aplicación.
 
 | Países o regiones de remesas mixtas |
 |------------------------------------|

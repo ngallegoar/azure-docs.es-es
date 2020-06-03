@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5a0f7517d2649ceac45e68c2e7a5d574a7c25d1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228076"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848048"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Azure Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida JSON, lo que permite el archivo de datos y las consultas de latencia baja en datos JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
@@ -72,7 +72,7 @@ Según la clave de partición que elija, es posible que reciba esta _advertencia
 
 Es importante que elija una propiedad de clave de partición que tenga varios valores distintos y le permita distribuir la carga de trabajo uniformemente entre estos valores. Como artefacto natural de creación de particiones, las solicitudes relacionadas con la misma clave de partición están limitadas por el rendimiento máximo de una sola partición. 
 
-El tamaño de almacenamiento para los documentos que pertenecen a la misma clave de partición está limitado a 10 GB. Una clave de partición idónea es la que aparece con frecuencia como filtro en sus consultas y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
+El tamaño de almacenamiento para los documentos que pertenecen a la misma clave de partición está limitado a 20 GB. Una clave de partición idónea es la que aparece con frecuencia como filtro en sus consultas y que tiene suficiente cardinalidad para asegurar que la solución es escalable.
 
 Una clave de partición es también el límite para las transacciones de los procedimientos almacenados y desencadenadores de Azure Cosmos DB. Debe elegir la clave de partición para que los documentos que ocurren juntos en las transacciones compartan el mismo valor de clave de partición. El artículo [Creación de particiones en Azure Cosmos DB](../cosmos-db/partitioning-overview.md) proporciona más detalles acerca de cómo elegir una clave de partición.
 

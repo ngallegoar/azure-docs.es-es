@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e78a6b422f592caa252cb5856fc590a4bed35a7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183098"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83637580"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación en Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la e
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *webapp1*.
-1. Seleccione **Cuentas de cualquier directorio de la organización o cualquier proveedor de identidades**.
+1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino) y cuentas de Microsoft personales (como Skype o Xbox)** .
 1. En **URI de redirección**, seleccione **Web** y escriba `https://jwt.ms` en el cuadro de texto.
 
     El URI de redirección es el punto de conexión al que el servidor de autorización envía al usuario (Azure AD B2C, en este caso) después de completar su interacción con este, y al que se envía un token de acceso o un código de autorización tras una autorización correcta. En una aplicación de producción, suele ser un punto de conexión accesible públicamente donde se ejecuta la aplicación, como `https://contoso.com/auth-response`. Con fines de prueba como este tutorial, puede establecerlo en `https://jwt.ms`, una aplicación web propiedad de Microsoft que muestra el contenido descodificado de un token (el contenido del token nunca sale del explorador). Durante el desarrollo de aplicaciones, puede agregar el punto de conexión en el que la aplicación realiza escuchas localmente, como `https://localhost:5000`. Puede agregar y modificar los URI de redireccionamiento en las aplicaciones registradas en cualquier momento.

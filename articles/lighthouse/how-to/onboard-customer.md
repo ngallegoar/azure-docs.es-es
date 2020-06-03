@@ -1,18 +1,18 @@
 ---
 title: Incorporación de un cliente a la administración de recursos delegados de Azure
 description: Obtenga información sobre cómo incorporar un cliente a la administración de recursos delegados de Azure, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino.
-ms.date: 04/24/2020
+ms.date: 05/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: a6cdfea7e0520aa704e70a12784f7a7ba5d6aa6d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82161115"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871119"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Incorporación de un cliente a la administración de recursos delegados de Azure
 
-En este artículo se explica cómo, como proveedor de servicios, puede incorporar un cliente a la administración de recursos delegados de Azure, lo que permite tener acceso a sus recursos delegados (suscripciones o grupos de recursos) y administrarlos a través de su propio inquilino de Azure Active Directory (Azure AD). Aunque aquí nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](../concepts/enterprise.md) pueden usar el mismo proceso para consolidar su experiencia de administración.
+En este artículo se explica cómo, como proveedor de servicios, puede incorporar un cliente a la administración de recursos delegados de Azure, lo que permite tener acceso a sus recursos delegados (suscripciones o grupos de recursos) y administrarlos a través de su propio inquilino de Azure Active Directory (Azure AD). Aunque aquí nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](../concepts/enterprise.md) pueden usar el mismo proceso para configurar Azure Lighthouse y consolidar su experiencia de administración.
 
 Puede repetir este proceso si está administrando recursos para varios clientes. A continuación, cuando un usuario autorizado inicia sesión en el inquilino, se puede autorizar al usuario en los ámbitos del inquilino del cliente para realizar operaciones de administración sin tener que iniciar sesión en todos los inquilinos de cliente individuales.
 

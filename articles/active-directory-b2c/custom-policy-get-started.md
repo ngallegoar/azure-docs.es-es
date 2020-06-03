@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 856bd6c2a3546a438293e89a0b576e1392d9c6a5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 32ec55a2ed6e0158a05f81067dc834fdc1e6e765
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407285"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738258"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -138,7 +138,7 @@ A continuación, especifique que la aplicación se debe tratar como un cliente p
 
 1. En **Administrar**, seleccione **Autenticación**.
 1. Seleccione **Probar la nueva experiencia** (si se muestra).
-1. En **Configuración avanzada**, habilite **Trate la aplicación como cliente público** (seleccione **Sí**).
+1. En **Configuración avanzada**, habilite **Trate la aplicación como cliente público** (seleccione **Sí**). Asegúrese de que **"allowPublicClient": true** esté establecido en el manifiesto de aplicación. 
 1. Seleccione **Guardar**.
 
 Ahora, conceda permisos al ámbito de la API que expuso anteriormente en el registro de *IdentityExperienceFramework*:

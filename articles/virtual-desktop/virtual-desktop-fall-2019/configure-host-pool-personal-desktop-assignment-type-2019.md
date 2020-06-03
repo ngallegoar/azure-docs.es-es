@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2541e9e10103d66c6c2fb6978c3029d61b813eab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ddfd9346f4a72ceb2e8bf5c336fb3de9b5c8c5c7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614129"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827478"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configuración del tipo de asignación de grupo de host de escritorio personal
 
@@ -75,6 +75,18 @@ Para asignar un usuario a un host de sesión específico, ejecute el siguiente c
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
+
+## <a name="remove-a-user-assignment"></a>Eliminación de una asignación de usuario
+
+Es posible que quiera quitar una asignación de usuario porque el usuario ya no necesite el escritorio personal, haya dejado la empresa, o bien porque quiera volver a usar el escritorio para otro usuario.
+
+En la actualidad, la única manera de quitar la asignación de usuario para un escritorio personal consiste en eliminar completamente el host de sesión. Para quitar el host de sesión, ejecute este cmdlet:
+
+```powershell
+Remove-RdsSessionHost
+```
+
+Si necesita volver a agregar el host de sesión al grupo host de escritorio personal, desinstale Windows Virtual Desktop en ese equipo y, después, siga los pasos descritos en [Creación de un grupo de hosts con PowerShell](create-host-pools-powershell-2019.md) para volver a registrar el host de sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

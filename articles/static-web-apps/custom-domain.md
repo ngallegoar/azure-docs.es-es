@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 10d3e3674aef901ad35dfb6d0b9fd13715aace55
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594944"
+ms.locfileid: "83655245"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configuración de un dominio personalizado en Azure Static Web Apps (versión preliminar)
 
@@ -92,7 +92,7 @@ Si bien la compatibilidad con el dominio raíz no está disponible durante la ve
 
 ## <a name="map-a-wildcard-domain"></a>Asignar un dominio con caracteres comodín
 
-A veces, desea que todo el tráfico que se envía a un subdominio se enrute a otro dominio. Un ejemplo común es asignar todo el tráfico del subdominio a `www.example.com`. De este modo, incluso si alguien escribe `ww.example.com` en lugar de `www.example.com`, la solicitud se envía a `www.example.com`.
+A veces, desea que todo el tráfico que se envía a un subdominio se enrute a otro dominio. Un ejemplo común es asignar todo el tráfico del subdominio a `www.example.com`. De este modo, incluso si alguien escribe `w.example.com` en lugar de `www.example.com`, la solicitud se envía a `www.example.com`.
 
 ### <a name="configure-dns-provider"></a>Configuración del proveedor de DNS
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 07c66b2955f3df1ffae1a0cb0c2b0888bdc790e9
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 4fd7ccc7b6df85397fd547f8e1e48b776f12c0df
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082890"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234512"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creación y administración de máquinas virtuales Windows en Azure mediante C# #
 
@@ -136,7 +136,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 ### <a name="create-the-public-ip-address"></a>Crear la dirección IP pública
 
-Se necesita una [dirección IP pública](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) para la comunicación con la máquina virtual.
+Se necesita una [dirección IP pública](../../virtual-network/public-ip-addresses.md) para la comunicación con la máquina virtual.
 
 Para crear la dirección IP pública de la máquina virtual, agregue este código al método Main:
    

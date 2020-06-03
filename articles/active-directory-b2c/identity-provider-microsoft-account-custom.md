@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c25ce417a17024843de1b9b16f57740de1e9fc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188127"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636974"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta Microsoft mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78188127"
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta Microsoft mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 - Si aún no tiene una cuenta Microsoft, cree una en [https://www.live.com/](https://www.live.com/).
@@ -38,8 +38,8 @@ Para habilitar el inicio de sesión de los usuarios con una cuenta de Microsoft,
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Nuevo registro**.
 1. Escriba el **nombre** de la aplicación. Por ejemplo, *MSAapp1*.
-1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
-1. En **URI de redirección (opcional)** , seleccione **Web** y escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` en el cuadro de texto. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C.
+1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino) y cuentas de Microsoft personales (como Skype o Xbox)** .
+1. En **URI de redirección (opcional)** , seleccione **Web** y escriba `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` en el cuadro de texto. Reemplace `<tenant-name>` por el nombre del inquilino de Azure AD B2C.
 1. Seleccione **Registrar**.
 1. Registre el **Id. de aplicación (cliente)** que se muestra en la página de información general de la aplicación. Lo va a necesitar cuando configure el proveedor de notificaciones en una sección posterior.
 1. Seleccione **Certificates & secrets** (Certificados y secretos)
@@ -208,7 +208,7 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
       "exp": 1562365200,
       "nbf": 1562361600,
       "ver": "1.0",
-      "iss": "https://your-b2c-tenant.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
+      "iss": "https://<tenant-name>.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
       "sub": "20000000-0000-0000-0000-000000000000",
       "aud": "30000000-0000-0000-0000-000000000000",
       "acr": "b2c_1a_signupsigninmsa",

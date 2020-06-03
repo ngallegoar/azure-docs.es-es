@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 6768bc2420008db1e708cdbe3ef70a6146ed8010
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80884839"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835519"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitectura de Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -23,7 +23,7 @@ Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento
 
  Azure Synapse tiene cuatro componentes:
 
-- SQL Analytics: análisis completo basado en T-SQL.
+- SQL de Synapse: análisis completo basado en T-SQL.
 
   - Grupo SQL (pago por DWU aprovisionada): disponible con carácter general.
   - SQL a petición (pago por TB procesados): (versión preliminar).
@@ -39,7 +39,7 @@ Azure Synapse es un servicio de análisis ilimitado que reúne el almacenamiento
 
 ![Arquitectura de SQL de Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Analytics usa una arquitectura basada en nodos. Las aplicaciones se conectan y emiten comandos a un nodo de control, que es el único punto de entrada de SQL Analytics. El nodo de control ejecuta el motor de MPP que optimiza las consultas para el procesamiento en paralelo y, después, pasa las operaciones a los nodos de ejecución para hacer su trabajo en paralelo.
+SQL de Synapse usa una arquitectura basada en nodos. Las aplicaciones se conectan y emiten comandos de T-SQL a un nodo de control, que es el único punto de entrada de SQL de Synapse. El nodo de control ejecuta el motor de MPP que optimiza las consultas para el procesamiento en paralelo y, después, pasa las operaciones a los nodos de ejecución para hacer su trabajo en paralelo.
 
 Los nodos de ejecución almacenan todos los datos del usuario en Azure Storage y ejecutan las consultas en paralelo. El servicio de movimiento de datos (DMS) es un servicio interno de nivel de sistema que mueve datos entre los nodos según sea necesario para ejecutar consultas en paralelo y devolver resultados precisos.
 
@@ -74,7 +74,7 @@ Servicio de movimiento de datos (DMS) es la tecnología de transporte de datos q
 
 ## <a name="distributions"></a>Distribuciones
 
-Una distribución es la unidad básica de almacenamiento y procesamiento de consultas en paralelo que se ejecutan en datos distribuidos. Cuando SQL Analytics ejecuta una consulta, el trabajo se divide en 60 consultas más pequeñas que se ejecutan en paralelo.
+Una distribución es la unidad básica de almacenamiento y procesamiento de consultas en paralelo que se ejecutan en datos distribuidos. Cuando Synapse SQL ejecuta una consulta, el trabajo se divide en 60 consultas más pequeñas que se ejecutan en paralelo.
 
 Cada una de estas 60 consultas más pequeñas se ejecuta en una de las distribuciones de datos. Cada nodo de ejecución administra una o más de las 60 distribuciones. Un grupo de SQL con recursos de proceso máximos tiene una distribución por nodo de proceso. Un grupo de SQL con recursos de proceso mínimos tiene todas las distribuciones en un nodo de proceso.  
 
@@ -119,6 +119,6 @@ Ahora que sabe un poco sobre Azure Synapse, aprenda a [crear un grupo de SQL](cr
 - [Solicitud de función](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Creación de una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - [Foro Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

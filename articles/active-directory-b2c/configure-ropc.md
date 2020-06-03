@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189708"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636410"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -40,7 +40,7 @@ El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un 
 
    A continuación, verá un punto de conexión como en este ejemplo:
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## <a name="register-an-application"></a>Registro de una aplicación
@@ -50,11 +50,11 @@ El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un 
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
 Use su aplicación favorita de desarrollo de API para generar una llamada API y revise la respuesta para depurar el flujo de usuario. Cree una llamada similar a esta con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud POST:
-- Reemplace *\<yourtenant.onmicrosoft.com>* con el nombre del inquilino B2C.
+- Reemplace *\<nombre-inquilino>.onmicrosoft.com>* por el nombre del inquilino B2C.
 - Reemplace *\<B2C_1A_ROPC_Auth >* con el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
 - Reemplace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con el id. de la aplicación desde el registro.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Clave | Value |
 | --- | ----- |
@@ -70,8 +70,8 @@ Use su aplicación favorita de desarrollo de API para generar una llamada API y 
 La solicitud POST real tiene el siguiente aspecto:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -94,7 +94,7 @@ Una respuesta correcta con acceso sin conexión se parece al siguiente ejemplo:
 
 Cree una llamada POST similar a la que se muestra aquí, con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Clave | Value |
 | --- | ----- |

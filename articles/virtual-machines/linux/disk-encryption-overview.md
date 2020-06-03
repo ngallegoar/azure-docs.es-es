@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838865"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655850"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -96,16 +96,26 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 
 Azure Disk Encryption requiere que los módulos dm-crypt y vfat estén presentes en el sistema. Quitar o deshabilitar vfat desde la imagen predeterminada impedirá que el sistema lea el volumen clave y obtenga la clave necesaria para desbloquear los discos en los reinicios posteriores. Los pasos de protección del sistema que quitan el módulo vfat del sistema no se admiten en Azure Disk Encryption. 
 
-Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use un nombre de dispositivo de bloqueo persistente para esta entrada, ya que los nombres de dispositivo con el formato "/ dev/sdX" no son confiables para asociarlos al mismo disco en los distintos reinicios, especialmente después de que se aplica el cifrado. Para obtener más información sobre este comportamiento, consulte: [Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux](troubleshoot-device-names-problems.md)
+Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use la opción "nofail" al crear entradas y elija un nombre de dispositivo de bloque persistente (dado que los nombres de dispositivo en el formato "/dev/sdX" podrían no asociarse al mismo disco en los diferentes reinicios, especialmente después del cifrado; para obtener más información sobre este comportamiento, vea: [Solución de problemas de cambio de nombre de dispositivo de las máquinas virtuales Linux](troubleshoot-device-names-problems.md)).
 
 Asegúrese de que el valor /etc/fstab está configurado correctamente para el montaje. Para configurar estos valores, ejecute el comando mount -a o reinicie la máquina virtual y desencadene el nuevo montaje de ese modo. Cuando haya finalizado, revise la salida del comando lsblk para comprobar que la unidad sigue montada. 
+
 - Si el archivo/etc/fstab no monta la unidad correctamente antes de habilitar el cifrado, Azure Disk Encryption no podrá montarla correctamente.
 - El proceso de Azure Disk Encryption sacará la información de montaje de/etc/fstab y la colocará en su propio archivo de configuración como parte del proceso de cifrado. No se alarme si ve que falta la entrada de/etc/fstab después de que se completa el cifrado de la unidad de datos.
 - Antes de iniciar el cifrado, asegúrese de detener todos los servicios y procesos que se podrían estar escribiendo en los discos de datos montados y deshabilítelos de modo que no se reinicien automáticamente tras un reinicio. Estos podrían mantener los archivos abiertos en estas particiones, lo que impediría que el procedimiento de cifrado los vuelva a montar, provocando un error de cifrado. 
 - Después del reinicio, el proceso de Azure Disk Encryption tardará un tiempo en montar los discos recién cifrados. No estarán disponibles inmediatamente después de un reinicio. El proceso necesita tiempo para iniciar, desbloquear y montar las unidades cifradas antes de que estén disponibles para que otros procesos tengan acceso a ellas. Este proceso puede tardar más de un minuto después del reinicio, dependiendo de las características del sistema.
 
-Un ejemplo de comando que se puede usar para montar los discos de datos y crear las entradas necesarias de /etc/fstab se puede encontrar en el [script de la CLI de requisitos previos de Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started) (líneas 244 a 248) y el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
+Este es un ejemplo de los comandos que se usan para montar los discos de datos y crear las entradas de /etc/fstab necesarias:
 
+```bash
+UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
+UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+mkdir /data0
+mkdir /data1
+echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
+echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
+mount -a
+```
 ## <a name="networking-requirements"></a>Requisitos de red
 
 Para habilitar la característica Azure Disk Encryption, las VM Linux deben cumplir los siguientes requisitos de configuración de puntos de conexión de red:

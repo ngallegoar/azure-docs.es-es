@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f35658a75adb4d4c6c279e45087e741b8117e65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481388"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736490"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 
@@ -143,6 +143,6 @@ Puede usar el mismo certificado para varias aplicaciones. Si un certificado carg
 Cuando un certificado expire, recibirá una advertencia que le indicará que cargue otro certificado. Si se revoca el certificado, los usuarios pueden ver una advertencia de seguridad al acceder a la aplicación. Para actualizar el certificado para una aplicación, vaya a la página **Proxy de aplicación** de la aplicación, seleccione **Certificado** y cargue un certificado nuevo. Si otras aplicaciones no usan el certificado antiguo, se elimina automáticamente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md) en las aplicaciones publicadas con la autenticación de Azure AD.
-* [Habilite el acceso condicional](../conditional-access/overview.md) a las aplicaciones publicadas.
 
+* [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md) en las aplicaciones publicadas con la autenticación de Azure AD.
+* [Acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md) a las aplicaciones en la nube publicadas.

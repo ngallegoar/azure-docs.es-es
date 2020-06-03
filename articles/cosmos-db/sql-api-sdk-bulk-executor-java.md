@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API, SDK y recursos de Java para Bulk Executor'
 description: Obtenga toda la información sobre la API y el SDK de Java para BulkExecutor, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Java para BulkExecutor de Azure Cosmos DB.
-author: milismsft
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
-ms.author: adrianmi
-ms.openlocfilehash: 0030f974a36dc80dc8c4112000aa5934126a2482
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 6fe075d2679ec13217200bc8b0da132e8f4d9b57
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836451"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660445"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca BulkExecutor para Java: Información de descarga
 
@@ -22,8 +22,9 @@ ms.locfileid: "82836451"
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [SDK de Java v4](sql-api-sdk-java-v4.md)
+> * [SDK de Java v2 asincrónico](sql-api-sdk-async-java.md)
+> * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)

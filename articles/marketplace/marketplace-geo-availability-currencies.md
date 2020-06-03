@@ -1,22 +1,22 @@
 ---
-title: Disponibilidad geográfica y compatibilidad con monedas para Marketplace comercial | Azure Marketplace
-description: Disponibilidad geográfica en el marketplace comercial
+title: Disponibilidad geográfica y compatibilidad con monedas para marketplace comercial de Microsoft
+description: Disponibilidad geográfica y compatibilidad con monedas para transacciones en marketplace comercial
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687582"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657875"
 ---
-# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para Marketplace comercial
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para marketplace comercial
 
-Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente y las transacciones se pueden completar en 17 divisas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
+Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente, y las transacciones se pueden completar en 17 divisas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
 
 |   Nombre del país o región               |   ISO-2   |   Moneda   |
 |-------------------------------------|-----------|--------------|
@@ -33,7 +33,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, t
 | Bahréin                             | BH        | USD          |
 | Bangladés                          | BD        | USD          |
 | Barbados                            | BB        | USD          |
-| Belarús                             | BY        | USD          |
+| Bielorrusia                             | BY        | USD          |
 | Bélgica                             | BE        | EUR          |
 | Belice                              | BZ        | USD          |
 | Bermudas                             | BM        | USD          |
@@ -41,7 +41,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, t
 | Bosnia y Herzegovina              | BA        | USD          |
 | Botsuana                            | BW        | USD          |
 | Brasil                              | BR        | BRL\*        |
-| Brunei                              | BN        | USD          |
+| Brunéi                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
 | Camerún                            | CM        | USD          |
 | Canadá                              | CA        | CAD          |
@@ -51,7 +51,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, t
 | China\**                            | CN        | N/D          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
-| Côte d'Ivoire                       | CI        | USD          |
+| Costa de Marfil                       | CI        | USD          |
 | Croacia                             | HR        | EUR          |
 | Curazao                             | CW        | USD          |
 | Chipre                              | CY        | EUR          |
@@ -77,7 +77,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, t
 | Hungría                             | HU        | EUR          |
 | Islandia                             | IS        | EUR          |
 | India                               | IN        | INR          |
-| Indonesia                           | id        | USD          |
+| Indonesia                           | ID        | USD          |
 | Iraq                                | IQ        | USD          |
 | Irlanda                             | IE        | EUR          |
 | Israel                              | IL        | USD          |
@@ -87,7 +87,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, t
 | Jordania                              | JO        | USD          |
 | Kazajistán                          | KZ        | USD          |
 | Kenia                               | KE        | USD          |
-| Corea (Sur)                       | KR        | KRW          |
+| Corea del Sur                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
 | Kirguistán                          | KG        | USD          |
 | Letonia                              | LV        | EUR          |
@@ -102,7 +102,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, t
 | Malta                               | MT        | EUR          |
 | Mauricio                           | MU        | USD          |
 | México                              | MX        | USD          |
-| Moldova                             | MD        | USD          |
+| Moldavia                             | MD        | USD          |
 | Mónaco                              | MC        | EUR          |
 | Mongolia                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
@@ -166,4 +166,4 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, t
 
 \* Para los clientes de Brasil, Marketplace a través de Proveedores de soluciones en la nube (CSP) usa USD.
 
-\** Solo imágenes de máquina virtual con licencias Gratis y BYOL.
+\** Solo imágenes de máquina virtual con licencias Gratis y BYOL.

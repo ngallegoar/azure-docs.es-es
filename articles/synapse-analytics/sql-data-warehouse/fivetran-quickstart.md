@@ -11,16 +11,16 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4cf6c82b330a2672fdde39c3acf156a74cb57e34
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414280"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659983"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Inicio rápido: Fivetran con almacenamiento de datos 
 
-En este inicio rápido se describe cómo configurar un nuevo usuario de Fivetran para que funcione con un almacenamiento de datos de Azure Synapse Analytics aprovisionado con un grupo de SQL. En este artículo se supone que ya tiene un almacenamiento de datos.
+En este inicio rápido se describe cómo configurar un nuevo usuario de Fivetran para que funcione con un almacenamiento de datos de Azure Synapse Analytics aprovisionado con un grupo de SQL. En este artículo se supone que ya tiene un almacenamiento de datos.
 
 ## <a name="set-up-a-connection"></a>Configuración de una conexión
 
@@ -82,5 +82,5 @@ Para conectarse a su almacenamiento de datos desde su cuenta de Fivetran, escrib
 * Host (el nombre del servidor)
 * Puerto
 * Base de datos
-* Usuario (el nombre de usuario debe ser **fivetran\@_server_name_** , donde *server_name* es parte del URI de host de Azure: **_server\_name_.database.windows.net**).
+* Usuario (el nombre de usuario debe ser **fivetran\@_server_name_**, donde *server_name* es parte del URI de host de Azure: **_server\_name_.database.windows.net**).
 * Password.

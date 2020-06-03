@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77145c691f5b2b6364de64e491aac3c84495d464
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69872484"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726135"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -70,6 +70,26 @@ Para más información sobre cómo codificar y descodificar mensajes que se han 
 | correlation-id |Cadena de propiedad en un mensaje de respuesta que normalmente contiene el identificador del mensaje de la solicitud en los patrones de solicitud y respuesta. |Sí|
 | user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. |Sí|
 | iothub-ack |Un generador de mensajes de comentarios. Esta propiedad se usa en los mensajes de nube a dispositivo para solicitar a IoT Hub que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje se completó, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o si se alcanzó el número máximo de entregas) sin que se complete en el dispositivo, y **full**: comentarios positivos y negativos. |Sí|
+
+### <a name="system-property-names"></a>Los nombres de las propiedades del sistema son los siguientes:
+
+Los nombres de las propiedades del sistema varían en función del punto de conexión al que se enrutan los mensajes. Consulte la tabla incluida a continuación para obtener detalles sobre estos nombres.
+
+
+|Nombre de la propiedad del sistema|Event Hubs|Azure Storage|Azure Service Bus|Event Grid|
+|--------------------|----------|-------------|-----------|----------|
+|Id. del mensaje|message-id|messageId|MessageId|message-id|
+|Hora en que se puso en cola Iot Hub|iothub-enqueuedtime|enqueuedTime|iothub-enqueuedtime|iothub-enqueuedtime|
+|Id. de usuario|user-id|userId|UserId|user-id|
+|Id. de dispositivo de conexión|iothub-connection-device-id| connectionDeviceId|iothub-connection-device-id|iothub-connection-device-id|
+|Id. de módulo de conexión|iothub-connection-module-id|connectionModuleId|iothub-connection-module-id|iothub-connection-module-id|
+|Id. de generación de la autenticación de conexión|iothub-connection-auth-generation-id|connectionDeviceGenerationId| iothub-connection-auth-generation-id|iothub-connection-auth-generation-id|
+|Método de autenticación de conexión|iothub-connection-auth-method|connectionAuthMethod|iothub-connection-auth-method|iothub-connection-auth-method|
+|contentType|content-type|contentType|ContentType|iothub-content-type|
+|contentEncoding|content-encoding|contentEncoding|ContentEncoding|iothub-content-encoding|
+|iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime|     |iothub-enqueuedtime|
+|iothub-interface-name|iothub-interface-name|interfaceName|Iothub-interface-name|iothub-interface-name|
+|CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 
 ## <a name="message-size"></a>Tamaño del mensaje
 

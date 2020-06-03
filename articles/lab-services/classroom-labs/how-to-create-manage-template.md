@@ -11,19 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57005bc18d1eda42043236086ebbac69e54cc505
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77539043"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655787"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creación y administración de plantillas educativas en Azure Lab Services
 En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Luego, publique la plantilla si desea que las instancias de la plantilla de máquina virtual estén disponibles para los usuarios del laboratorio. Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla.
 
 En este artículo se describe cómo crear y administrar una plantilla de máquina virtual en un laboratorio educativo de Azure Lab Services. 
+
+> [!NOTE]
+> Al crear un laboratorio, se crea la máquina virtual de plantilla, pero no se inicia. Puede iniciarla, conectarse a ella e instalar cualquier software necesario para el laboratorio y, a continuación, publicarla. Al publicar la máquina virtual de plantilla, se apagará automáticamente si el usuario no lo ha hecho. 
+> 
+> Las máquinas virtuales de plantilla incurren en un **costo** al ejecutarse, por lo que debe asegurarse de que la máquina virtual de la plantilla se cierre cuando no sea necesario que se esté ejecutando. 
+
 
 ## <a name="set-or-update-template-title-and-description"></a>Establecimiento o actualización del título y la descripción de la plantilla
 Use los pasos siguientes para establecer el título y la descripción por primera vez y actualizarlos más adelante. 

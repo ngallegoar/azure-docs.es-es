@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 312e9db594983f85372285bdff415a2d5dc76ed3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984017"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653302"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>¿Qué es IPv6 para Azure Virtual Network?
 
@@ -58,6 +58,7 @@ IPv6 para red virtual de Azure incluye las siguientes características:
     - Distintas configuraciones de front-end opcionales que permiten que un único equilibrador de carga use varias direcciones IP públicas IPv6: el mismo protocolo y puerto de front-end pueden usarse entre las direcciones de front-end.
     - Los puertos IPv6 opcionales se pueden reutilizar en las instancias de back-end mediante la característica de *IP flotante* de las reglas de equilibrio de carga. 
     - Nota: El equilibrio de carga no realiza ninguna traducción de protocolo (sin NAT64). 
+    - Nota: IPv6 solo puede ser de carga equilibrada en la interfaz de red (NIC) principal en máquinas virtuales de Azure. 
 - Compatibilidad con la instancia de [IPv6 interna de Standard Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para crear aplicaciones resistentes de varios niveles en redes virtuales de Azure.   
 - Compatibilidad con la instancia de IPv6 pública de Basic Load Balancer para la compatibilidad con implementaciones heredadas.
 - [Las direcciones IP públicas y los intervalos de direcciones IPv6 reservadas](ipv6-public-ip-address-prefix.md) proporcionan direcciones IPv6 estables y predecibles que facilitan la inclusión en listas blancas de las aplicaciones hospedadas en Azure para su empresa y sus clientes.
@@ -73,10 +74,14 @@ IPv6 para Azure Virtual Network es un conjunto de características básicas que 
 
 ## <a name="limitations"></a>Limitaciones
 La versión actual de IPv6 para Azure Virtual Network tiene las siguientes limitaciones:
-- IPv6 para Azure Virtual Network está disponible en todas las regiones comerciales globales de Azure mediante todos los métodos de implementación.  La implementación en la nube de US Government está limitada temporalmente a la plantilla ARM (JSON), la interfaz de la línea de comandos (CLI) y PowerShell.  La compatibilidad con IPv6 en el portal de la nube de US Government estará disponible en breve.  
+- IPv6 para red virtual de Azure está disponible en todas las regiones comerciales globales de Azure y de la Administración Pública de EE. UU. mediante todos los métodos de implementación.  
 - Las puertas de enlace de ExpressRoute se PUEDEN usar para el tráfico de solo IPv4 en una red virtual con IPv6 habilitado.  La compatibilidad con el tráfico IPv6 está en nuestro plan de desarrollo.   
 - Las puertas de enlace de VPN NO SE PUEDEN usar en una red virtual que tiene IPv6 habilitado, ya sea directamente o emparejadas con "UseRemoteGateway".
 - La plataforma de Azure (AKS, etc.) no admite la comunicación IPv6 para los contenedores.  
+- IPv6 solo puede ser de carga equilibrada en la interfaz de red (NIC) principal en máquinas virtuales de Azure. No se admite el tráfico IPv6 de equilibrio de carga a NIC secundarias.    
+- No se admiten máquinas virtuales o conjuntos de escalado de máquinas virtuales de solo IPv6; cada NIC debe incluir al menos una configuración de IP IPv4. 
+- Al agregar IPv6 a las implementaciones IPv4 existentes, los rangos IPv6 no se pueden agregar a una red virtual con vínculos de navegación de recursos existentes.  
+- El reenvío de DNS para IPv6 es compatible actualmente con DNS público de Azure, pero el DNS inverso todavía no se admite.   
 
 ## <a name="pricing"></a>Precios
 

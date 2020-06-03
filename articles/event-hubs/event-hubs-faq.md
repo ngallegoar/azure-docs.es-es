@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: e8ae3cbbca926a97bf90f4ac1104d4f082b332fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086375"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835621"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -150,9 +150,11 @@ Es recomendable empezar con un número bajo de unidades de procesamiento (TU); p
 No hay **ningún costo** asociado con esta característica. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>¿Cómo se aplican los límites de procesamiento?
-Si el procesamiento total de entrada o la tasa total de eventos de entrada en todos los centros de eventos de un espacio de nombres superan el número total de unidades de procesamiento permitidas, los remitentes quedan sujetos a limitaciones y reciben errores que indican que se superó la cuota de entrada.
+Si el rendimiento total de **entrada** o la tasa total de eventos de entrada en todos centros de eventos de un espacio de nombres superan las asignaciones de unidades de procesamiento agregado, los emisores quedan sujetos a limitaciones y reciben errores que indican que se superó la cuota de entrada.
 
-Si el procesamiento total de salida o la tasa total de eventos de salida en todos los centros de eventos de un espacio de nombres superan el número total de unidades de procesamiento permitidas, los receptores quedan sujetos a limitaciones y reciben errores que indican que se superó la cuota de salida. Las cuotas de entrada y de salida se aplican por separado, por lo que ningún remitente puede provocar que se ralentice el consumo de eventos ni ningún receptor puede impedir que los eventos se envíen a un centro de eventos.
+Si el rendimiento total de **salida** o la tasa total de eventos de salida en todos centros de eventos de un espacio de nombres superan las asignaciones de unidades de procesamiento agregado, los receptores quedan sujetos a limitaciones pero no se generan errores de limitación. 
+
+Las cuotas de entrada y de salida se aplican por separado, por lo que ningún remitente puede provocar que se ralentice el consumo de eventos ni ningún receptor puede impedir que los eventos se envíen a un centro de eventos.
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>¿Hay algún límite en el número de unidades de procesamiento (TU) que se pueden reservar o seleccionar?
 En una oferta multiempresa, las unidades de procesamiento pueden aumentar hasta 40 TU (se pueden seleccionar hasta 20 TU en el portal y generar una incidencia de soporte técnico para elevarlas a 40 TU en el mismo espacio de nombres). Más allá de 40 TU, Event Hubs ofrece el modelo basado en recursos o capacidad denominado **clústeres de Event Hubs dedicado**. Los clústeres dedicados se venden en unidades de capacidad (CU).
@@ -248,7 +250,7 @@ Event Hubs admite dos tipos de [registros de diagnóstico](event-hubs-diagnostic
 
 ### <a name="support-and-sla"></a>SLA y soporte técnico
 
-El soporte técnico para Event Hubs está disponible a través de los [foros de la comunidad](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
+El soporte técnico para Event Hubs está disponible a través de la [página de preguntas y respuestas de Microsoft sobre Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
 
 Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) .
 

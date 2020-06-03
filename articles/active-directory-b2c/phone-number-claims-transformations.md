@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183945"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738768"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definición de transformaciones de notificaciones de número de teléfono en Azure AD B2C
 
@@ -62,8 +62,8 @@ Esta transformación de notificación valida el formato del número de teléfono
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumberString | string |  Notificación de cadena para el número de teléfono. El número de teléfono tiene que estar en formato internacional y estar completo con un signo "+" y un código de país al principio. Si se proporciona la notificación de entrada `country`, el número de teléfono está en formato local (sin el código de país). |
-| InputClaim | country | string | [Opcional] Notificación de cadena para el código de país del número de teléfono en formato ISO3166 (el código de país ISO-3166 de dos letras). |
+| InputClaim | phoneNumberString | string |  Notificación de cadena para el número de teléfono. El número de teléfono tiene que estar en formato internacional y completo con un signo "+" y un código de país o región al principio. Si se proporciona la notificación de entrada `country`, el número de teléfono está en formato local (sin el código de país o región). |
+| InputClaim | country | string | [Opcional] Notificación de cadena para el código de país o región del número de teléfono en formato ISO3166 (código de país o región ISO-3166 de dos letras). |
 | OutputClaim | outputClaim | phoneNumber | Resultado de esta transformación de notificaciones. |
 
 La transformación de notificaciones **ConvertStringToPhoneNumberClaim** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autoafirmado](self-asserted-technical-profile.md) o un [control de visualización](display-controls.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationInvalidPhoneNumber** controlan el mensaje de error que se presenta al usuario.
@@ -113,24 +113,24 @@ El perfil técnico autoafirmado que llama al perfil técnico de validación que 
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-Extrae el código de país y el número nacional de la notificación de entrada y, opcionalmente, produce una excepción si el número de teléfono proporcionado no es válido.
+Extrae el código de país o región y el número nacional de la notificación de entrada y, opcionalmente, produce una excepción si el número de teléfono proporcionado no es válido.
 
 | Elemento | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | string | Notificación de cadena del número de teléfono. El número de teléfono tiene que estar en formato internacional y estar completo con un signo "+" y un código de país al principio. |
+| InputClaim | phoneNumber | string | Notificación de cadena del número de teléfono. El número de teléfono tiene que estar en formato internacional y estar completo con un signo "+" y un código de país o región al principio. |
 | InputParameter | throwExceptionOnFailure | boolean | [Opcional] Parámetro que indica si se produce una excepción cuando el número de teléfono no es válido. El valor predeterminado es False. |
-| InputParameter | countryCodeType | string | [Opcional] Parámetro que indica el tipo de código de país de la notificación de salida. Los valores disponibles son **CallingCode** (el código de llamada internacional de un país, por ejemplo, +1) o **ISO3166** (el código de país ISO-3166 de dos letras). |
+| InputParameter | countryCodeType | string | [Opcional] Parámetro que indica el tipo de código de país o región de la notificación de salida. Los valores disponibles son **CallingCode** (el código de llamada internacional de un país o región, por ejemplo, +1) o **ISO3166** (el código de país o región ISO-3166 de dos letras). |
 | OutputClaim | nationalNumber | string | Notificación de cadena para el número nacional del número de teléfono. |
-| OutputClaim | countryCode | string | Notificación de cadena para el código de país del número de teléfono. |
+| OutputClaim | countryCode | string | Notificación de cadena para el código de país o región del número de teléfono. |
 
 
 Si la transformación de notificaciones **GetNationalNumberAndCountryCodeFromPhoneNumberString** se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) al que llama un [perfil técnico autoafirmado](self-asserted-technical-profile.md) o una [acción de control de visualización](display-controls.md#display-control-actions), los metadatos del perfil técnico autoafirmado **UserMessageIfPhoneNumberParseFailure** controlan el mensaje de error que se presenta al usuario.
 
 ![Diagrama de la ruta de acceso de ejecución del mensaje de error](./media/phone-authentication/assert-execution.png)
 
-Puede usar esta transformación de notificaciones para dividir un número de teléfono completo en el código de país y el número nacional. Si el número de teléfono proporcionado no es válido, puede optar por generar un mensaje de error.
+Puede usar esta transformación de notificaciones para dividir un número de teléfono completo en el código de país o región y el número nacional. Si el número de teléfono proporcionado no es válido, puede optar por generar un mensaje de error.
 
-En el ejemplo siguiente se intenta dividir el número de teléfono en el número nacional y el código de país. Si el número de teléfono es válido, el número nacional invalidará el número de teléfono. Si el número de teléfono no es válido, no se iniciará ninguna excepción y el número de teléfono seguirá teniendo su valor original.
+En el ejemplo siguiente se intenta dividir el número de teléfono en el número nacional y el código de país o región. Si el número de teléfono es válido, el número nacional invalidará el número de teléfono. Si el número de teléfono no es válido, no se iniciará ninguna excepción y el número de teléfono seguirá teniendo su valor original.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">

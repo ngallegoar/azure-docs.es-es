@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670872"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744128"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Análisis de tendencias en Visual Studio
 La herramienta Tendencias de Application Insights muestra cómo los eventos de telemetría importantes de la aplicación web cambian a lo largo del tiempo, lo que ayuda a identificar rápidamente los problemas y las anomalías. Al vincularle a información de diagnóstico más detallada, Tendencias puede ayudarle a mejorar el rendimiento de la aplicación, realizar un seguimiento de las causas de las excepciones y revelar información de los eventos personalizados.
@@ -48,7 +48,7 @@ Para empezar, elija entre uno de los cinco análisis de tendencias comunes, cada
 Estos análisis pregenerados están disponibles más adelante, en el botón **Ver tipos comunes de análisis de telemetría** , situado en la esquina superior izquierda de la ventana Tendencias.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualización de tendencias en la aplicación
-Tendencias de Application Insights crea una visualización de la serie temporal o de la telemetría de su aplicación. Cada visualización de la serie temporal muestra un tipo de telemetría, agrupados por una propiedad de esa telemetría, a lo largo de algún intervalo de tiempo. Por ejemplo, puede ver las solicitudes del servidor, agrupadas por el país en el que se originaron, a lo largo de las últimas 24 horas. En este ejemplo, cada burbuja de la visualización representaría un recuento de las solicitudes del servidor para algún país o región durante una hora.
+Tendencias de Application Insights crea una visualización de la serie temporal o de la telemetría de su aplicación. Cada visualización de la serie temporal muestra un tipo de telemetría, agrupados por una propiedad de esa telemetría, a lo largo de algún intervalo de tiempo. Por ejemplo, puede que quiera ver las solicitudes del servidor, agrupadas por el país o región en el que se han originado, a lo largo de las últimas 24 horas. En este ejemplo, cada burbuja de la visualización representaría un recuento de las solicitudes del servidor para algún país o región durante una hora.
 
 Utilice los controles de la parte superior de la ventana para ajustar los tipos de telemetría que ve. En primer lugar, elija los tipos de telemetría en los que está interesado:
 

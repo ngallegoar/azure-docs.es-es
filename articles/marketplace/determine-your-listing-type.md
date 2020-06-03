@@ -1,18 +1,18 @@
 ---
-title: Determinación de una opción de publicación en los escaparates de Marketplace comercial de Microsoft
-description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación de los asociados que intentan comprender cómo publicar aplicaciones en Microsoft AppSource y Azure Marketplace.
+title: 'Determinación de la opción de publicación: marketplace comercial de Microsoft'
+description: En este artículo se describen los criterios de idoneidad y los requisitos para publicar ofertas en Microsoft AppSource y Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: e91ca0334276dbe9118eb0e40d042f598e8b3c0f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415734"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658063"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 

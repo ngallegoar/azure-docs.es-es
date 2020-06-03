@@ -1,28 +1,25 @@
 ---
-title: Inicio de un runbook de Azure Automation con un webhook
-description: Un webhook que permite a un cliente iniciar un runbook en Azure Automation desde una llamada HTTP.  Este artículo describe cómo crear un webhook y cómo llamar a uno para que inicie un runbook.
+title: Inicio de un runbook de Azure Automation en un webhook
+description: En este artículo se indica cómo usar un webhook para iniciar un runbook en Azure Automation desde una llamada HTTP.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbe43b298c57d266f0b031b5192f25fe3df07c05
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582437"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830504"
 ---
-# <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Inicio de un runbook de Azure Automation con un webhook
+# <a name="start-a-runbook-from-a-webhook"></a>Inicio de un runbook desde un webhook
 
-Un webhook permite que un servicio externo inicie un runbook determinado en Azure Automation mediante una sola solicitud HTTP. Entre los servicios externos se incluyen Azure DevOps Services, GitHub, registros de Azure Monitor y aplicaciones personalizadas. Estos servicios puede usar un webhook para iniciar un runbook sin implementar una solución completa mediante la API de Azure Automation. Puede comparar los webhooks con otros métodos para iniciar un runbook en [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md).
+Un webhook permite que un servicio externo inicie un runbook determinado en Azure Automation mediante una sola solicitud HTTP. Entre los servicios externos se incluyen Azure DevOps Services, GitHub, registros de Azure Monitor y aplicaciones personalizadas. Estos servicios pueden usar un webhook para iniciar un runbook sin tener que implementar la API completa de Azure Automation. Puede comparar los webhooks con otros métodos para iniciar un runbook en [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md).
 
 > [!NOTE]
 > No se admite el uso de un webhook para iniciar un runbook de Python.
 
 ![Información general sobre webhooks](media/automation-webhooks/webhook-overview-image.png)
-
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="webhook-properties"></a>Propiedades de un webhook
 
@@ -240,4 +237,4 @@ La siguiente imagen muestra la solicitud que se envía desde Windows PowerShell 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para aprender a utilizar Azure Automation para tomar medidas relativas a las alertas de Azure, consulte [Uso de una alerta para desencadenar un runbook de Azure Automation](automation-create-alert-triggered-runbook.md).
+* Para desencadenar un runbook a partir de una alerta, consulte [Uso de una alerta para desencadenar un runbook de Azure Automation](automation-create-alert-triggered-runbook.md).

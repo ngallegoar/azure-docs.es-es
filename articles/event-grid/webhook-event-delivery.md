@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 7ae8a21d4ea9216bea13d47ad5ae41f3bc1c2089
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 80efee18ff7cc927ea9029c11aadcf13ad75781a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629773"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747596"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos de webhook
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.
@@ -38,7 +38,7 @@ Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure
    Este mecanismo de autenticación también requiere el punto de conexión de webhook para devolver un código de estado HTTP de 200 para que sepa que se aceptó el objeto POST para el evento de validación antes de se pueda colocar en el modo de validación manual. Es decir, si el punto de conexión devuelve 200, pero no devuelve una respuesta de validación de forma sincrónica, el modo se cambia al modo de validación manual. Si hay una operación GET en la dirección URL de validación dentro de un plazo de cinco minutos, se considera el protocolo de enlace de validación se realizó correctamente.
 
 > [!NOTE]
-> Para la validación no se admite el uso de certificados autofirmados. En su lugar, use un certificado firmado de una entidad de certificación (CA).
+> Para la validación no se admite el uso de certificados autofirmados. En su lugar, use un certificado firmado de una entidad de certificación (CA) comercial.
 
 ### <a name="validation-details"></a>Detalles de la validación
 

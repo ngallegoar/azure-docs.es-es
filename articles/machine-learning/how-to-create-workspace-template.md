@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682754"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681551"
 ---
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
+
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
-
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
 En este artículo aprenderá varias formas de crear un área de trabajo de Azure Machine Learning mediante plantillas de Azure Resource Manager. Una plantilla de Resource Manager facilita la creación de recursos en una única operación coordinada. Una plantilla es un documento JSON que define los recursos que son necesarios para una implementación. También puede especificar los parámetros de implementación. Los parámetros se emplean para proporcionar valores de entrada cuando se usa la plantilla.
 
@@ -85,201 +85,76 @@ En la plantilla de ejemplo siguiente se muestra cómo crear un área de trabajo 
 
 Para obtener más información, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the Azure Machine Learning workspace."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "southcentralus",
-      "allowedValues": [
-        "eastus",
-        "eastus2",
-        "southcentralus",
-        "southeastasia",
-        "westcentralus",
-        "westeurope",
-        "westus2"
-      ],
-      "metadata": {
-        "description": "Specifies the location for all resources."
-      }
-    },
-    "sku":{
-      "type": "string",
-      "defaultValue": "basic",
-      "allowedValues": [
-        "basic",
-        "enterprise"
-      ],
-      "metadata": {
-        "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
-      }
-    },
-    "high_confidentiality":{
-      "type": "string",
-      "defaultValue": "false",
-      "allowedValues": [
-        "false",
-        "true"
-      ],
-      "metadata": {
-        "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
-      }
-    },
-    "encryption_status":{
-      "type": "string",
-      "defaultValue": "Disabled",
-      "allowedValues": [
-        "Enabled",
-        "Disabled"
-      ],
-      "metadata": {
-        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with the customer managed key."
-      }
-    },
-    "cmk_keyvault":{
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the customer managed keyvault Resource Manager ID."
-      }
-    },
-    "resource_cmk_uri":{
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the customer managed keyvault key uri."
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
-    "storageAccountType": "Standard_LRS",
-    "keyVaultName": "[concat('kv',uniqueString(resourceGroup().id))]",
-    "tenantId": "[subscription().tenantId]",
-    "applicationInsightsName": "[concat('ai',uniqueString(resourceGroup().id))]",
-    "containerRegistryName": "[concat('cr',uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2018-07-01",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[variables('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "encryption": {
-          "services": {
-            "blob": {
-              "enabled": true
-            },
-            "file": {
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        },
-        "supportsHttpsTrafficOnly": true
-      }
-    },
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2018-02-14",
-      "name": "[variables('keyVaultName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "tenantId": "[variables('tenantId')]",
-        "sku": {
-          "name": "standard",
-          "family": "A"
-        },
-        "accessPolicies": []
-      }
-    },
-    {
-      "type": "Microsoft.Insights/components",
-      "apiVersion": "2015-05-01",
-      "name": "[variables('applicationInsightsName')]",
-      "location": "[if(or(equals(parameters('location'),'eastus2'),equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
-      "kind": "web",
-      "properties": {
-        "Application_Type": "web"
-      }
-    },
-    {
-      "type": "Microsoft.ContainerRegistry/registries",
-      "apiVersion": "2017-10-01",
-      "name": "[variables('containerRegistryName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard"
-      },
-      "properties": {
-        "adminUserEnabled": true
-      }
-    },
-    {
-      "type": "Microsoft.MachineLearningServices/workspaces",
-      "apiVersion": "2020-01-01",
-      "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-        "[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",
-        "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
-        "[resourceId('Microsoft.ContainerRegistry/registries', variables('containerRegistryName'))]"
-      ],
-      "identity": {
-        "type": "systemAssigned"
-      },
-      "sku": {
-            "tier": "[parameters('sku')]",
-            "name": "[parameters('sku')]"
-      },
-      "properties": {
-        "friendlyName": "[parameters('workspaceName')]",
-        "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
-        "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
-        "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
-        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]",
-         "encryption": {
-                "status": "[parameters('encryption_status')]",
-                "keyVaultProperties": {
-                    "keyVaultArmId": "[parameters('cmk_keyvault')]",
-                    "keyIdentifier": "[parameters('resource_cmk_uri')]"
-                  }
-            },
-        "hbiWorkspace": "[parameters('high_confidentiality')]"
-      }
-    }
-  ]
-}
-```
+> [!IMPORTANT]
+> Hay algunos requisitos específicos que la suscripción debe cumplir antes de usar esta plantilla:
+> * La aplicación __Azure Machine Learning__ debe ser un __colaborador__ para su suscripción de Azure.
+> * Debe tener un almacén Azure Key Vault existente que contenga una clave de cifrado.
+> * Debe tener una directiva de acceso en el almacén Azure Key Vault que conceda el acceso __obtener__, __ajustar__ y __desajustar__ a la aplicación __Azure Cosmos DB__.
+> * El almacén Azure Key Vault debe estar en la misma región en la que se planea crear el área de trabajo de Azure Machine Learning.
 
-Para obtener el identificador del almacén de claves y el URI de clave que necesita esta plantilla, puede usar la CLI de Azure. El siguiente comando obtiene el identificador de Key Vault:
+__Para agregar la aplicación de Azure Machine Learning como un colaborador__, use los comandos siguientes:
 
-```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
-```
+1. Para autenticarse en Azure desde la CLI, use el comando siguiente:
 
-Este comando devuelve un valor similar a `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
+    ```azurecli-interactive
+    az login
+    ```
+    
+    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
 
-Para obtener el URI de la clave administrada por el cliente, use el siguiente comando:
+1. Para obtener el id. de objeto de la aplicación de Azure Machine Learning, use el comando siguiente. El valor puede ser distinto para cada una de las suscripciones de Azure:
 
-```azurecli-interactive
-az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
-```
+    ```azurecli-interactive
+    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
+    ```
 
-Este comando devuelve un valor similar a `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+    Este comando devuelve el id. de objeto, que es un GUID.
+
+1. Para agregar el id. de objeto como colaborador a la suscripción, use el comando siguiente. Reemplace `<object-ID>` por el GUID del paso anterior. Reemplace `<subscription-ID>` por el nombre o id. de la suscripción de Azure:
+
+    ```azurecli-interactive
+    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
+    ```
+
+__Para agregar una clave al almacén Azure Key Vault__, use la información de la sección [Agregar una clave, un secreto o un certificado al almacén de claves](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) del artículo __Administración de Key Vault mediante la CLI de Azure__.
+
+__Para agregar una directiva de acceso al almacén de claves, use los comandos siguientes__:
+
+1. Para obtener el id. de objeto de la aplicación de Azure Cosmos DB, use el comando siguiente. El valor puede ser distinto para cada una de las suscripciones de Azure:
+
+    ```azurecli-interactive
+    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
+    ```
+    
+    Este comando devuelve el id. de objeto, que es un GUID.
+
+1. Para establecer una directiva, use el comando siguiente. Reemplace `<keyvault-name>` por el nombre del almacén Azure Key Vault existente. Reemplace `<object-ID>` por el GUID del paso anterior:
+
+    ```azurecli-interactive
+    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
+    ```
+
+__A fin de obtener los valores__ para `cmk_keyvault` (id. de Key Vault) y los parámetros de `resource_cmk_uri` (URI de clave) necesarios para esta plantilla, siga los pasos siguientes:
+
+1. Para obtener el id. de Key Vault, use el comando siguiente:
+
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    ```
+
+    Este comando devuelve un valor similar a `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`.
+
+1. Para obtener el valor del URI de la clave administrada por el cliente, use el comando siguiente:
+
+    ```azurecli-interactive
+    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    ```
+
+    Este comando devuelve un valor similar a `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
+
+__Plantilla de ejemplo__
+
+:::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
 
 > [!IMPORTANT]
 > Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.

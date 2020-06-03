@@ -1,17 +1,17 @@
 ---
 title: 'Limitaciones: Azure Database for MySQL'
-description: En este artículo se describen las limitaciones de Azure Database for MySQL como el número de conexiones o las opciones de motor de almacenamiento.
+description: En este artículo, se describen limitaciones de Azure Database for MySQL tales como el número de opciones del motor de almacenamiento y de conexión.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cf5c958a0dd9a19e6b976ff36a18c45e062f604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548467"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659934"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -24,19 +24,19 @@ Los valores mínimo y máximo de varios parámetros de servidor populares vienen
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|50|10|50|
-|Básica|2|100|10|100|
-|Uso general|2|300|10|600|
-|Uso general|4|625|10|1250|
-|Uso general|8|1250|10|2\.500|
-|Uso general|16|2\.500|10|5000|
-|Uso general|32|5000|10|10000|
-|Uso general|64|10000|10|20000|
+|Básico|1|50|10|50|
+|Básico|2|100|10|100|
+|De uso general|2|300|10|600|
+|De uso general|4|625|10|1250|
+|De uso general|8|1250|10|2500|
+|De uso general|16|2500|10|5000|
+|De uso general|32|5000|10|10 000|
+|De uso general|64|10 000|10|20 000|
 |Memoria optimizada|2|600|10|800|
-|Memoria optimizada|4|1250|10|2\.500|
-|Memoria optimizada|8|2\.500|10|5000|
-|Memoria optimizada|16|5000|10|10000|
-|Memoria optimizada|32|10000|10|20000|
+|Memoria optimizada|4|1250|10|2500|
+|Memoria optimizada|8|2500|10|5000|
+|Memoria optimizada|16|5000|10|10 000|
+|Memoria optimizada|32|10 000|10|20 000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Demasiadas conexiones
@@ -57,14 +57,14 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|Uso general|2|0|0|16777216|
-|Uso general|4|0|0|33554432|
-|Uso general|8|0|0|67108864|
-|Uso general|16|0|0|134217728|
-|Uso general|32|0|0|134217728|
-|Uso general|64|0|0|134217728|
+|Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|De uso general|2|0|0|16777216|
+|De uso general|4|0|0|33554432|
+|De uso general|8|0|0|67108864|
+|De uso general|16|0|0|134217728|
+|De uso general|32|0|0|134217728|
+|De uso general|64|0|0|134217728|
 |Memoria optimizada|2|0|0|33554432|
 |Memoria optimizada|4|0|0|67108864|
 |Memoria optimizada|8|0|0|134217728|
@@ -77,19 +77,19 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|Uso general|2|524 288|32 768|4 194 304|
-|Uso general|4|524 288|32 768|8388608|
-|Uso general|8|524 288|32 768|16777216|
-|Uso general|16|524 288|32 768|33554432|
-|Uso general|32|524 288|32 768|33554432|
-|Uso general|64|524 288|32 768|33554432|
-|Memoria optimizada|2|524 288|32 768|8388608|
-|Memoria optimizada|4|524 288|32 768|16777216|
-|Memoria optimizada|8|524 288|32 768|33554432|
-|Memoria optimizada|16|524 288|32 768|33554432|
-|Memoria optimizada|32|524 288|32 768|33554432|
+|Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|De uso general|2|524288|32768|4 194 304|
+|De uso general|4|524288|32768|8388608|
+|De uso general|8|524288|32768|16777216|
+|De uso general|16|524288|32768|33554432|
+|De uso general|32|524288|32768|33554432|
+|De uso general|64|524288|32768|33554432|
+|Memoria optimizada|2|524288|32768|8388608|
+|Memoria optimizada|4|524288|32768|16777216|
+|Memoria optimizada|8|524288|32768|33554432|
+|Memoria optimizada|16|524288|32768|33554432|
+|Memoria optimizada|32|524288|32768|33554432|
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -97,19 +97,19 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|Uso general|2|262 144|128|268435455|
-|Uso general|4|262 144|128|536870912|
-|Uso general|8|262 144|128|1073741824|
-|Uso general|16|262 144|128|2147483648|
-|Uso general|32|262 144|128|4294967295|
-|Uso general|64|262 144|128|4294967295|
-|Memoria optimizada|2|262 144|128|536870912|
-|Memoria optimizada|4|262 144|128|1073741824|
-|Memoria optimizada|8|262 144|128|2147483648|
-|Memoria optimizada|16|262 144|128|4294967295|
-|Memoria optimizada|32|262 144|128|4294967295|
+|Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|De uso general|2|262144|128|268435455|
+|De uso general|4|262144|128|536870912|
+|De uso general|8|262144|128|1073741824|
+|De uso general|16|262144|128|2147483648|
+|De uso general|32|262144|128|4294967295|
+|De uso general|64|262144|128|4294967295|
+|Memoria optimizada|2|262144|128|536870912|
+|Memoria optimizada|4|262144|128|1073741824|
+|Memoria optimizada|8|262144|128|2147483648|
+|Memoria optimizada|16|262144|128|4294967295|
+|Memoria optimizada|32|262144|128|4294967295|
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
@@ -117,14 +117,14 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|Uso general|2|16777216|16384|268435455|
-|Uso general|4|16777216|16384|536870912|
-|Uso general|8|16777216|16384|1073741824|
-|Uso general|16|16777216|16384|2147483648|
-|Uso general|32|16777216|16384|4294967295|
-|Uso general|64|16777216|16384|4294967295|
+|Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|De uso general|2|16777216|16384|268435455|
+|De uso general|4|16777216|16384|536870912|
+|De uso general|8|16777216|16384|1073741824|
+|De uso general|16|16777216|16384|2147483648|
+|De uso general|32|16777216|16384|4294967295|
+|De uso general|64|16777216|16384|4294967295|
 |Memoria optimizada|2|16777216|16384|536870912|
 |Memoria optimizada|4|16777216|16384|1073741824|
 |Memoria optimizada|8|16777216|16384|2147483648|
@@ -137,14 +137,14 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
-|Uso general|2|16777216|1024|67108864|
-|Uso general|4|16777216|1024|134217728|
-|Uso general|8|16777216|1024|268435456|
-|Uso general|16|16777216|1024|536870912|
-|Uso general|32|16777216|1024|1073741824|
-|Uso general|64|16777216|1024|1073741824|
+|Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|De uso general|2|16777216|1024|67108864|
+|De uso general|4|16777216|1024|134217728|
+|De uso general|8|16777216|1024|268435456|
+|De uso general|16|16777216|1024|536870912|
+|De uso general|32|16777216|1024|1073741824|
+|De uso general|64|16777216|1024|1073741824|
 |Memoria optimizada|2|16777216|1024|134217728|
 |Memoria optimizada|4|16777216|1024|268435456|
 |Memoria optimizada|8|16777216|1024|536870912|
@@ -154,6 +154,12 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 ### <a name="time_zone"></a>time_zone
 
 Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedimiento almacenado `mysql.az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. Vea los artículos de [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) o de la [CLI de Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) sobre cómo llamar al procedimiento almacenado y establecer las zonas horarias globales o de nivel de sesión.
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MySQL almacena la tabla InnoDB en distintos espacios de tabla en función de la configuración proporcionada durante la creación de la tabla. El [espacio de tablas del sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) es el área de almacenamiento del diccionario de datos de InnoDB. Un [espacio de tablas de archivo por tabla](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contiene datos e índices para una sola tabla de InnoDB y se almacena en el sistema de archivos en su propio archivo de datos. Este comportamiento se controla mediante el parámetro de servidor `innodb_file_per_table`. Si `innodb_file_per_table` se establece en `OFF`, InnoDB crea tablas en el espacio de tablas del sistema. De lo contrario, InnoDB crea tablas en espacios de tabla de archivo por tabla.
+
+Azure Database for MySQL admite **1 TB** como máximo en un solo archivo de datos. Si el tamaño de la base de datos es superior a 1 TB, hay que crear la tabla en el espacio de tabla [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si tiene una sola tabla de tamaño superior a 1 TB, debe usar la tabla de particiones.
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
 
@@ -170,9 +176,9 @@ Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedi
 ## <a name="privilege-support"></a>Compatibilidad de los privilegios
 
 ### <a name="unsupported"></a>No compatible
-- Rol DBA: muchos parámetros de servidor y valores de configuración pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del sistema de administración de bases de datos. Por lo tanto, para mantener la integridad del servicio y SLA en un nivel de producto, no se expone el rol DBA de este servicio. La cuenta de usuario predeterminada, que se crea a la vez que las instancias de base de datos, permite a los usuarios realizar la mayoría de las instrucciones DDL y DML en la instancia de base de datos administrados. 
+- Rol DBA: muchos parámetros y valores de servidor pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del sistema de administración de bases de datos (DBMS). Por lo tanto, para mantener la integridad del servicio y el SLA en un nivel de producto, no se expone el rol DBA en este servicio. La cuenta de usuario predeterminada, que se crea a la vez que las instancias de base de datos, permite a los usuarios realizar la mayoría de las instrucciones DDL y DML en la instancia de base de datos administrada. 
 - Privilegio SUPER: del mismo modo, los [privilegios SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) también están restringidos.
-- DEFINER: Requiere privilegios SUPER para crear y está restringido. Si importa datos mediante una copia de seguridad, quite los comandos `CREATE DEFINER` manualmente o mediante el comando `--skip-definer` durante una operación mysqldump.
+- DEFINER: requiere privilegios SUPER para crear y está restringido. Si importa datos mediante una copia de seguridad, quite los comandos `CREATE DEFINER` manualmente o mediante el comando `--skip-definer` durante una operación mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Compatibilidad de las instrucciones de manipulación de datos
 
@@ -185,11 +191,11 @@ Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedi
 ## <a name="functional-limitations"></a>Limitaciones funcionales
 
 ### <a name="scale-operations"></a>Operaciones de escalado
-- El escalado dinámico a y desde niveles de precios Básico no se admite en este momento.
+- El escalado dinámico hacia y desde planes de tarifa Básico no se admite en este momento.
 - La reducción del tamaño de almacenamiento del servidor no se admite.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
-- La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento. Si quiere actualizar a la siguiente versión principal, realice un [volcado y restáurelo ](./concepts-migrate-dump-restore.md) a un servidor que se haya creado con la nueva versión del motor.
+- La migración automatizada entre versiones principales del motor de base de datos no se admite en este momento. Si quiere actualizar a la siguiente versión principal, realice un [volcado y restáurelo](./concepts-migrate-dump-restore.md) a un servidor que se haya creado con la nueva versión del motor.
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 - Al usar la característica PITR, el nuevo servidor se crea con la misma configuración que el servidor en el que se basa.
@@ -202,7 +208,7 @@ Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedi
 - Consulte [Planes de tarifa](concepts-pricing-tiers.md) para obtener los límites de tamaño de almacenamiento para cada plan de tarifa.
 
 ## <a name="current-known-issues"></a>Problemas conocidos actualmente
-- Instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.
+- La instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Qué está disponible en cada nivel de servicio](concepts-pricing-tiers.md)

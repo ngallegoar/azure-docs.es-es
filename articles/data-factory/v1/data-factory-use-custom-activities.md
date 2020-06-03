@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231548"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020139"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -42,7 +42,7 @@ En el siguiente tutorial se proporcionan instrucciones paso a paso para crear un
 > - No es posible usar una puerta de enlace de administración de datos procedente de una actividad personalizada para acceder a orígenes de datos locales. Actualmente, la [puerta de enlace de administración de datos](data-factory-data-management-gateway.md) solo admite las actividades de copia y de procedimiento almacenado en Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Tutorial: creación de una actividad personalizada
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 * Visual Studio 2012/2013/2015/2017
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/)
 
@@ -372,7 +372,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
     > Establezca la versión 4.5.2 de .NET Framework como la plataforma de destino para el proyecto: haga clic con el botón derecho en el proyecto y en **Propiedades** para establecer el marco de destino. Data Factory no admite actividades personalizadas que se compilaron con versiones de .NET Framework posteriores a la 4.5.2.
 
 11. Inicie el **Explorador de Windows** y vaya a la carpeta **bin\debug** o **bin\release**, según el tipo de compilación.
-12. Cree un archivo ZIP **MyDotNetActivity.zip** que contenga todos los archivos binarios en la \<carpeta del proyecto\>\bin\Debug. Incluya el archivo **MyDotNetActivity.pdb** para ver detalles adicionales, como el número de línea en el código fuente que causó el problema, si hubo un error.
+12. Cree un archivo ZIP **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta \<project folder\>\bin\Debug. Incluya el archivo **MyDotNetActivity.pdb** para ver detalles adicionales, como el número de línea en el código fuente que causó el problema, si hubo un error.
 
     > [!IMPORTANT]
     > Todos los archivos incluidos en el archivo ZIP de la actividad personalizada deben estar en el **nivel superior** ; no debe haber subcarpetas.
@@ -1031,7 +1031,7 @@ El ejemplo de [Azure Data Factory: entorno local](https://github.com/gbrueckl/Az
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
 [batch-get-started]: ../../batch/batch-dotnet-get-started.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

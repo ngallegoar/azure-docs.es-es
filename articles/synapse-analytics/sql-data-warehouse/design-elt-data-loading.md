@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/19/2020
+ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744962"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660009"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estrategias de carga de datos para el grupo de SQL de Synapse
 
@@ -68,7 +68,7 @@ Herramientas y servicios que puede usar para mover datos a Azure Storage:
 
 - El servicio [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) mejora el rendimiento de la red, el rendimiento en general y la capacidad de predicción. ExpressRoute es un servicio que enruta los datos a Azure a través de una conexión privada dedicada. Las conexiones ExpressRoute no enrutan datos a través de la red pública de Internet. Estas conexiones son más fiables y ofrecen velocidades más altas, menores latencias y mayor seguridad que las conexiones habituales a través de Internet.
 - La [utilidad AZCopy](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lleva los datos a Azure Storage a través de la red pública de Internet. Esto funciona si el tamaño de los datos es de menos de 10 TB. Para realizar cargas de forma regular con AZCopy, pruebe la velocidad de la red para ver si es aceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tiene una puerta de enlace que se puede instalar en el servidor local. A continuación, puede crear una canalización para llevar los datos desde el servidor local hasta Azure Storage. Para usar Data Factory con SQL Analytics, consulte la página de [carga de datos para SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tiene una puerta de enlace que se puede instalar en el servidor local. A continuación, puede crear una canalización para llevar los datos desde el servidor local hasta Azure Storage. Para usar Data Factory con el grupo de SQL, vea [Carga de datos para el grupo de SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparar los datos para la carga
 
@@ -88,30 +88,43 @@ Si define tablas externas debe especificar el origen de datos, el formato de los
 
 Al cargar Parquet, la asignación del tipo de datos con SQL es:
 
-| **Tipo de datos de Parquet** | **Tipo de datos de SQL** |
-| :-------------------: | :---------------: |
-|        TINYINT        |      TINYINT      |
-|       SMALLINT        |     SMALLINT      |
-|          int          |        int        |
-|        bigint         |      bigint       |
-|        boolean        |        bit        |
-|        double         |       FLOAT       |
-|         FLOAT         |       real        |
-|        double         |       money       |
-|        double         |    SMALLMONEY     |
-|        string         |       NCHAR       |
-|        string         |     NVARCHAR      |
-|        string         |       char        |
-|        string         |      varchar      |
-|        binary         |      binary       |
-|        binary         |     varbinary     |
-|       timestamp       |       date        |
-|       timestamp       |   smalldatetime   |
-|       timestamp       |     datetime2     |
-|       timestamp       |     datetime      |
-|       timestamp       |       time        |
-|         date          |       date        |
-|        Decimal        |      Decimal      |
+|                         Tipo de Parquet                         |   Tipo lógico de Parquet (anotación)   |  Tipo de datos de SQL   |
+| :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
+|                           BOOLEAN                            |                                       |       bit        |
+|                     BINARY/BYTE_ARRAY                      |                                       |    varbinary     |
+|                            DOUBLE                            |                                       |      FLOAT       |
+|                            FLOAT                             |                                       |       real       |
+|                            INT32                             |                                       |       int        |
+|                            INT64                             |                                       |      bigint      |
+|                            INT96                             |                                       |    datetime2     |
+|                     FIXED_LEN_BYTE_ARRAY                     |                                       |      binary      |
+|                            BINARY                            |                 UTF8                  |     NVARCHAR     |
+|                            BINARY                            |                STRING                 |     NVARCHAR     |
+|                            BINARY                            |                 ENUM                  |     NVARCHAR     |
+|                            BINARY                            |                 UUID                  | UNIQUEIDENTIFIER |
+|                            BINARY                            |                DECIMAL                |     Decimal      |
+|                            BINARY                            |                 JSON                  |  nvarchar(MAX)   |
+|                            BINARY                            |                 BSON                  |  varbinary(max)  |
+|                     FIXED_LEN_BYTE_ARRAY                     |                DECIMAL                |     Decimal      |
+|                          BYTE_ARRAY                          |               INTERVAL                |  varchar(max),   |
+|                            INT32                             |             INT(8, true)              |     SMALLINT     |
+|                            INT32                             |            INT(16,   true)            |     SMALLINT     |
+|                            INT32                             |             INT(32, true)             |       int        |
+|                            INT32                             |            INT(8,   false)            |     TINYINT      |
+|                            INT32                             |            INT(16, false)             |       int        |
+|                            INT32                             |           INT(32,   false)            |      bigint      |
+|                            INT32                             |                 DATE                  |       date       |
+|                            INT32                             |                DECIMAL                |     Decimal      |
+|                            INT32                             |            TIME (MILLIS)             |       time       |
+|                            INT64                             |            INT(64,   true)            |      bigint      |
+|                            INT64                             |           INT(64, false  )            |  decimal(20,0)   |
+|                            INT64                             |                DECIMAL                |     Decimal      |
+|                            INT64                             |         TIME (MICROS / NANOS)         |       time       |
+|                            INT64                             | TIMESTAMP   (MILLIS / MICROS / NANOS) |    datetime2     |
+| [Tipo complejo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LISTA                  |   ntext   |
+| [Tipo complejo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   ntext   |
+
+
 
 Para obtener un ejemplo de creación de objetos externos, consulte el paso [Crear tablas externas](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) en el tutorial de carga.
 

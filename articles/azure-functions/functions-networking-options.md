@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419524"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648835"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -47,15 +47,7 @@ Para obtener más información, consulte [Restricciones de acceso estático de A
 
 ## <a name="private-site-access"></a>El acceso privado a sitios
 
-El acceso privado a sitios se refiere a que la aplicación solo sea accesible desde una red privada, como una red virtual de Azure.
-
-* El acceso privado a sitios está disponible en los planes [Premium](./functions-premium-plan.md), [Consumo](functions-scale.md#consumption-plan) y [App Service](functions-scale.md#app-service-plan) si se han configurado puntos de conexión de servicio.
-    * Los puntos de conexión de servicio se pueden configurar por aplicación en **Características de la plataforma** > **Redes** > **Configurar restricciones de acceso** > **Agregar regla**. Las redes virtuales ahora se pueden seleccionar como un tipo de regla.
-    * Para obtener más información, consulte [puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * Tenga en cuenta que, con los puntos de conexión de servicio, la función todavía tiene acceso de salida completo a Internet, incluso cuando está configurada la integración de red virtual.
-* El acceso privado a sitios también está disponible en una instancia de App Service Environment configurada con un equilibrador de carga interno (ILB). Para obtener más información, consulte [Creación y uso de un equilibrador de carga interno con un App Service Environment](../app-service/environment/create-ilb-ase.md).
-
-Para más información sobre cómo configurar el acceso a un sitio privado, consulte [Establecimiento del acceso a un sitio privado de Azure Functions](functions-create-private-site-access.md).
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ## <a name="virtual-network-integration"></a>Integración de la red virtual
 
@@ -102,9 +94,9 @@ Actualmente, puede usar funciones de desencadenador no HTTP desde una red virtua
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium con desencadenadores de red virtual
 
-Cuando cuenta con un plan Premium, puede conectar funciones de desencadenador no HTTP a los servicios que se ejecutan en una red virtual. Para ello, debe habilitar la compatibilidad con el desencadenador de red virtual para la aplicación de funciones. La configuración de la **compatibilidad del desencadenador de red virtual** se encuentra en [Azure Portal](https://portal.azure.com), en **Configuración de aplicación de funciones**.
+Cuando cuenta con un plan Premium, puede conectar funciones de desencadenador no HTTP a los servicios que se ejecutan en una red virtual. Para ello, debe habilitar la compatibilidad con el desencadenador de red virtual para la aplicación de funciones. La configuración de la **compatibilidad con el desencadenador de red virtual** se encuentra en [Azure Portal](https://portal.azure.com), en **Configuración** > **Configuración del runtime de la función**.
 
-![Alternancia de red virtual](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 También puede habilitar los desencadenadores de red virtual mediante el siguiente comando de la CLI de Azure:
 

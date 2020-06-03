@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API, SDK y recursos de .NET para Bulk Executor'
 description: Obtenga toda la información sobre la API y el SDK de .NET para BulkExecutor, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de .NET para BulkExecutor de Azure Cosmos DB.
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/16/2020
-ms.author: ramkris
-ms.openlocfilehash: 1a8040fc397b526b540ce9343baa985cab49e2b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 23ba8b12651c4de05fd8fb0b2721839beb36a7a6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169402"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660456"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca Bulk Executor para .NET: Información de descarga 
 
@@ -22,8 +22,9 @@ ms.locfileid: "76169402"
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Versión 4 del SDK de Java](sql-api-sdk-java-v4.md)
+> * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
+> * [Versión 2 del SDK de Java sincrónico](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -33,7 +34,7 @@ ms.locfileid: "76169402"
 
 | |  |
 |---|---|
-| **Descripción**| La biblioteca Bulk Executor .NET permite a las aplicaciones cliente realizar operaciones en bloque en las cuentas de Azure Cosmos DB. Esta biblioteca proporciona los espacios de nombres BulkImport, BulkUpdate y BulkDelete. El módulo BulkImport puede ingerir documentos en masa de forma optimizada, de tal forma que la capacidad de proceso aprovisionada para una colección se consuma en el máximo nivel posible. El módulo BulkUpdate puede actualizar en masa los datos existentes en los contenedores de Azure Cosmos como revisiones. El módulo BulkDelete puede eliminar documentos en masa de forma optimizada, de tal forma que el rendimiento aprovisionado para una colección se consuma en el máximo nivel posible.|
+| **Descripción**| La biblioteca Bulk Executor para .NET permite a las aplicaciones cliente realizar operaciones masivas en las cuentas de Azure Cosmos DB. Esta biblioteca proporciona los espacios de nombres BulkImport, BulkUpdate y BulkDelete. El módulo BulkImport puede ingerir documentos en masa de forma optimizada, de tal forma que la capacidad de proceso aprovisionada para una colección se consuma en el máximo nivel posible. El módulo BulkUpdate puede actualizar en masa los datos existentes en los contenedores de Azure Cosmos como revisiones. El módulo BulkDelete puede eliminar documentos en masa de forma optimizada, de tal forma que el rendimiento aprovisionado para una colección se consuma en el máximo nivel posible.|
 |**Descarga del SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca BulkExecutor en GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentación de la API**|[Documentación de referencia de API de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|

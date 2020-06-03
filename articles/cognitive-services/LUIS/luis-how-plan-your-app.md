@@ -2,13 +2,13 @@
 title: 'Planificación de la aplicación: LUIS'
 description: Resuma las intenciones y entidades de aplicación relevantes y cree los planes de aplicación en Language Understanding Intelligent Services (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/14/2020
+ms.openlocfilehash: 3463078309978ae34918f27a9d75c1dabd59ae66
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382302"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654113"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeamiento del esquema de aplicación de LUIS con el dominio de sujeto y la extracción de datos
 
@@ -48,6 +48,30 @@ A la hora de determinar las entidades que va a usar en la aplicación, tenga en 
 
 > [!TIP]
 > LUIS ofrece [entidades pregeneradas](luis-prebuilt-entities.md) para escenarios comunes de usuarios de conversación. Considere la posibilidad de usar entidades pregeneradas como punto de partida para el desarrollo de aplicaciones.
+
+## <a name="resolution-with-intent-or-entity"></a>¿Resolución con intención o entidad?
+
+En muchos casos, especialmente cuando se trabaja con la conversación natural, los usuarios proporcionan una expresión que puede contener más de una función o intención. Para solucionarlo, una regla general consiste en comprender que la representación de la salida se puede realizar en las entidades y en las de intenciones. Esta representación debe ser asignable a las acciones de la aplicación cliente, y no es necesario que se limite a las intenciones.
+
+**Int-ent-ties** es el concepto de que las acciones (que normalmente se entienden como intenciones) también se pueden capturar como entidades y confiar en este formulario en el archivo JSON de salida, donde puede asignarlo a una acción específica. La _negación_ es un uso común para aprovechar esta dependencia tanto en intención como en la entidad para realizar la extracción completa.
+
+Tenga en cuenta las dos expresiones siguientes, que son muy parecidas, pero que tienen resultados diferentes:
+
+|Expresión|
+|--|
+|`Please schedule my flight from Cairo to Seattle`|
+|`Cancel my flight from Cairo to Seattle`|
+
+En lugar de tener dos intenciones independientes, cree una única intención con una entidad de aprendizaje automático `FlightAction`. La entidad de aprendizaje automático debe extraer los detalles de la acción para una programación y una solicitud de cancelación, así como una ubicación de origen o de destino.
+
+La entidad `FlightAction` se estructuraría en el siguiente esquema procesal de la entidad y las subentidades de aprendizaje automático:
+
+* FlightAction
+    * Acción
+    * Origen
+    * Destination
+
+Para ayudar con la extracción, agregue características a las subentidades. Elija las características según el vocabulario que espera ver en las expresiones de usuario y los valores que desea que se devuelvan en la respuesta de predicción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

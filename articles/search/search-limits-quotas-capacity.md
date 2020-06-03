@@ -7,34 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: b54905e201ee7a6dbf4c6837960a6e0b63057ea9
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 05/11/2020
+ms.openlocfilehash: 35cac2c05a8603313bb2bbe1bde3817dc88c6ed2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549051"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682634"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
 Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** u **Optimizado para almacenamiento**.
 
-+ **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. Las solicitudes de indexación y consulta se ejecutan en las réplicas y las particiones que usan otros inquilinos.
++ **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. 
 
 + **Básico** proporciona recursos informáticos dedicados para cargas de trabajo de producción en una escala menor, pero comparte algunas infraestructuras de red con otros inquilinos.
 
-+ **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel. Estándar incluye cuatro niveles: S1, S2, S3 y S3 HD.
++ **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel. Estándar incluye cuatro niveles: S1, S2, S3 y S3 HD. S3 High Density (S3 HD) está diseñado para [multiinquilinato](search-modeling-multitenant-saas-applications.md) y grandes cantidades de índices pequeños (tres mil índices por servicio). S3 HD no proporciona la [característica de indexador](search-indexer-overview.md) y la ingesta de datos debe aprovechar las API que envían datos del origen al índice. 
 
-+ El plan de tarifa **Almacenamiento optimizado** se ejecuta en máquinas dedicadas con más almacenamiento total, ancho de banda de almacenamiento y memoria que el plan **Estándar**. Dicho plan se ofrece en dos niveles: L1 y L2.
-
-> [!NOTE]
-> A partir del 1 de julio, todos los niveles tendrán disponibilidad general, incluido el nivel optimizado para almacenamiento. Puede encontrar más información en la [página de precios](https://azure.microsoft.com/pricing/details/search/).
-
-  S3 High Density (S3 HD) está diseñado para cargas de trabajo específicas: [multiinquilino](search-modeling-multitenant-saas-applications.md) y grandes cantidades de índices pequeños (tres mil índices por servicio). Este nivel no proporciona la [característica de indexador](search-indexer-overview.md). En S3 HD, la ingesta de datos debe aprovechar el enfoque de inserción, mediante llamadas API para insertar los datos del origen en el índice. 
-
-> [!NOTE]
-> Un servicio se aprovisiona en un nivel específico. Saltar niveles para obtener capacidad implica el aprovisionamiento de un nuevo servicio (no hay ninguna actualización local). Para más información, vea [Selección de SKU o plan de tarifa](search-sku-tier.md). Para información sobre cómo ajustar la capacidad dentro de un servicio que ya ha aprovisionado, vea [Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Azure Search](search-capacity-planning.md).
->
++ El plan de tarifa **Almacenamiento optimizado** se ejecuta en máquinas dedicadas con más almacenamiento total, ancho de banda de almacenamiento y memoria que el plan **Estándar**. Este nivel tiene como objetivo índices grandes que cambian con lentitud. Dicho plan se ofrece en dos niveles: L1 y L2.
 
 ## <a name="subscription-limits"></a>Límites de suscripción
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -61,9 +52,6 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 
 <sup>2</sup> Tener muchos elementos en colecciones complejas por documento actualmente provoca un uso elevado del almacenamiento. Este es un problema conocido. Mientras tanto, un límite de 3000 es un límite superior seguro para todos los niveles de servicio. Este límite solo se aplica a las operaciones de indexación que utilizan la versión de API de disponibilidad general más temprana (GA) que admite los campos de tipo complejo (`2019-05-06`) en adelante. Para no interrumpir a los clientes que puedan estar usando versiones preliminares de la API anteriores (que admiten campos de tipo complejo), no aplicaremos este límite para las operaciones de indexación que usan estas versiones preliminares de la API. Tenga en cuenta que no está previsto que las versiones preliminares de la API se usen en escenarios de producción y se recomienda encarecidamente que los clientes pasen a la versión de API de disponibilidad general más reciente.
 
-> [!NOTE]
-> Aunque la capacidad máxima de un índice único suele estar limitada por el almacenamiento disponible, hay límites superiores máximos en el número total de documentos que se pueden almacenar en un solo índice. Este límite es de aproximadamente 24 mil millones de documentos por índice para los servicios de búsqueda Básico, S1, S2 y S3, y 2 mil millones documentos por índice para los servicios de búsqueda de S3HD. Cada elemento de una colección compleja cuenta como documentos independientes para los fines de estos límites.
-
 <a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Límites de documento 
@@ -72,13 +60,16 @@ A partir de octubre de 2018, ya no existen límites de documentos para ningún n
 
 Para determinar si su servicio tiene límites de documento, use la [API de REST de estadísticas del servicio GET](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Los límites de documento se reflejan en la respuesta, con `null` indicando que no hay límites.
 
+> [!NOTE]
+> Aunque no hay ningún límite de documentos impuesto por el servicio, hay un límite de particiones de aproximadamente 24 mil millones de documentos por índice en los servicios de búsqueda Básico, S1, S2 y S3. En el caso de S3 HD, el límite de particiones es de 2 mil millones de documentos por índice. Cada elemento de una colección compleja cuenta como un único documento en lo que respecta a los límites de las particiones.
+
 ### <a name="document-size-limits-per-api-call"></a>Límites de tamaño de documento por llamada API
 
 El tamaño máximo del documento cuando se llama a una API de índice es de aproximadamente 16 megabytes.
 
 El tamaño del documento es de hecho un límite en el tamaño del cuerpo de la solicitud de la API de índice. Dado que se puede pasar un lote de varios documentos a la API de índice de una vez, el límite de tamaño depende en realidad de cuántos documentos estén en el lote. Para un lote con un único documento, el tamaño máximo del documento es de 16 MB de JSON.
 
-Para mantener el tamaño del documento reducido, no olvide excluir los datos no consultables de la solicitud. Las imágenes y otros datos binarios no son consultables directamente y no se deben almacenar en el índice. Para integrar los datos no consultables en los resultados de búsqueda, defina un campo que admita búsqueda que almacene una referencia de dirección URL al recurso.
+Al calcular el tamaño del documento, recuerde tener en cuenta solo los campos que puede usar un servicio de búsqueda. Los datos binarios o de imagen de los documentos de origen deben omitirse en los cálculos.  
 
 ## <a name="indexer-limits"></a>Límites de indexador
 
@@ -105,14 +96,14 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 
 <sup>4</sup> Máximo de 30 habilidades por conjunto de habilidades.
 
-<sup>5</sup> Las cargas de trabajo de búsqueda cognitiva y análisis de imágenes en la indexación de blobs de Azure tienen tiempos de ejecución más cortos que la indexación de texto normal. El análisis de imágenes y el procesamiento de lenguaje natural consumen muchos recursos informáticos y una cantidad desproporcionada de la potencia de procesamiento disponible. Se ha reducido el tiempo de ejecución para que otros trabajos de la cola tengan la oportunidad de ejecutarse.  
+<sup>5</sup> El análisis de imágenes y el enriquecimiento con IA consumen muchos recursos informáticos y una cantidad desproporcionada de la potencia de procesamiento disponible. El tiempo de ejecución de estas cargas de trabajo se ha abreviado para que otros trabajos de la cola tengan más posibilidades de ejecutarse.  
 
 > [!NOTE]
 > Como se indica en el apartado [Límites de índice](#index-limits), los indexadores también aplicarán el límite superior de 3000 elementos en todas las colecciones complejas por documento a partir de la versión de la API de disponibilidad general más reciente que admita tipos complejos (`2019-05-06`) en adelante, lo que significa que si ha creado un indexador con una versión anterior de la API, no estará sujeto a ese límite. Para conservar la máxima compatibilidad, los indexadores que se crearon con una versión anterior de la API y, después, se actualizaron con una versión de la API `2019-05-06`, o posterior, seguirá estando **excluido** de los límites. Los clientes deben ser conscientes del impacto negativo de tener colecciones muy complejas (como se ha indicado anteriormente) y recomendamos encarecidamente que se creen todos los indexadores con la versión de la API de disponibilidad general más reciente.
 
 ## <a name="synonym-limits"></a>Límites de sinónimos
 
-El número máximo de asignaciones de sinónimos permitidas varía según el nivel de precios. Cada regla puede tener hasta 20 expansiones, donde una expansión es un término equivalente. Por ejemplo, dado el término "gato", la asociación con "gatito", "felino" y "felis" (el género de gatos) contaría como 3 expansiones.
+El número máximo de asignaciones de sinónimos varía según el nivel. Cada regla puede tener hasta 20 expansiones, donde una expansión es un término equivalente. Por ejemplo, dado el término "gato", la asociación con "gatito", "felino" y "felis" (el género de gatos) contaría como 3 expansiones.
 
 | Resource | Gratuito | Básica | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
@@ -125,11 +116,11 @@ Cada cliente debe desarrollar las estimaciones de QPS de manera independiente. E
 
 Las estimaciones son más predecibles cuando se calculan en los servicios que se ejecutan en recursos dedicados (niveles Básico y Estándar). Puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Para instrucciones sobre cómo realizar una estimación, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Cognitive Search](search-performance-optimization.md).
 
-En el caso de los niveles de Almacenamiento optimizado, debe esperar un rendimiento más bajo de las consultas y una latencia superior que en los niveles Estándar.  La metodología para calcular el rendimiento de las consultas que experimentará es igual que en los niveles Estándar.
+En el caso de los niveles de Almacenamiento optimizado (L1 y L2), debe esperar un rendimiento más bajo de las consultas y una latencia superior que en los niveles Estándar. 
 
 ## <a name="data-limits-ai-enrichment"></a>Límites de datos (enriquecimiento de inteligencia artificial)
 
-Una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento](cognitive-search-skill-sentiment.md), la [detección de idioma](cognitive-search-skill-language-detection.md) y la [detección de PII](cognitive-search-skill-pii-detection.md) está sujeta a límites de datos. El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
+Una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) que realiza llamadas a un recurso de Text Analytics para el [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), la [extracción de frases clave](cognitive-search-skill-keyphrases.md), el [análisis de sentimiento](cognitive-search-skill-sentiment.md), la [detección de idioma](cognitive-search-skill-language-detection.md) y la [detección de información personal](cognitive-search-skill-pii-detection.md) está sujeta a límites de datos. El tamaño máximo de un registro debe tener menos de 50 000 caracteres según la medición de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si tiene que dividir los datos antes de enviarlos al analizador de opiniones, use la [aptitud División de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limitaciones
 

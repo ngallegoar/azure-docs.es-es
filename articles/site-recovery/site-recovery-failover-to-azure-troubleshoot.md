@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478957"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834737"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -173,4 +173,4 @@ Para resolver el problema:
 - Solucionar problemas de [conexión RDP con una máquina virtual Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Solucionar problemas de [conexión SSH a una máquina virtual Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Si necesita más ayuda, publique la consulta en el [foro de Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) o deje un comentario al final de este documento. Tenemos una comunidad activa que debería poder ayudarle.
+Si necesita más ayuda, publique la consulta en la [página de preguntas y respuestas de Microsoft para Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) o deje un comentario al final de este documento. Tenemos una comunidad activa que debería poder ayudarle.

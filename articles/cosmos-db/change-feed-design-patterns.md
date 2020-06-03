@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: abbf5d79da033a696890566d85bd24bb54577d2c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450358"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715705"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modelos de diseño de la fuente de cambios de Azure Cosmos DB
 
@@ -29,7 +29,7 @@ La fuente de cambios en Azure Cosmos DB le permite crear soluciones eficientes y
 
 ## <a name="event-computing-and-notifications"></a>Procesamiento de eventos y notificaciones
 
-La fuente de cambios de Azure Cosmos DB puede simplificar los escenarios que necesitan desencadenar una notificación o una llamada a una API en función de un evento determinado. Puede usar la [biblioteca de procesos de la fuente de cambios](change-feed-processor.md) para sondear automáticamente el contenedor en busca de cambios y llamar a una API externa cada vez que haya una escritura o una actualización.
+La fuente de cambios de Azure Cosmos DB puede simplificar los escenarios que necesitan desencadenar una notificación o enviar una llamada a una API en función de un evento determinado. Puede usar la [biblioteca de procesos de la fuente de cambios](change-feed-processor.md) para sondear automáticamente el contenedor en busca de cambios y llamar a una API externa cada vez que haya una escritura o una actualización.
 
 También puede desencadenar una notificación de forma selectiva o enviar una llamada a una API en función de criterios específicos. Por ejemplo, si está leyendo desde la fuente de cambios mediante [Azure Functions](change-feed-functions.md), puede colocar la lógica en la función para enviar una notificación solo si se cumple un criterio específico. Aunque el código de Azure Functions se ejecutaría durante cada escritura y actualización, la notificación solo se enviaría si se cumpliesen determinados criterios.
 

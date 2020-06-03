@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1455bc65f175970bb741dab4a56aa0aac58fc59
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438627"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743009"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
 
@@ -166,7 +166,7 @@ A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.-->
+- Copy files to the VM's disk.-->
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>Q. ¿Se pueden usar varias cuentas de almacenamiento con Data Box?
@@ -194,8 +194,8 @@ Una vez que se complete la copia de los datos, siga estos pasos siguientes para 
 3. Enrolle y coloque de forma segura el cable de alimentación que se proporcionó junto con el dispositivo en la parte posterior del mismo.
 4. Envíe al [equipo de operaciones de Azure Data Box](mailto:adbops@microsoft.com) un correo electrónico con el código que guardó antes. Ellos le indicarán dónde y cuándo puede dejar el dispositivo.
 
-### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. ¿Mis dispositivos Data Box cruzarán fronteras internacionales durante el envío?
-A. Todos los dispositivos Data Box se envían desde el mismo país de destino y no cruzarán ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos se pueden enviar desde y hasta cualquier país de la UE. Esto se aplica tanto a los dispositivos de Data Box como a los de Data Box Heavy.
+### <a name="q-will-my-data-box-devices-cross-countryregion-borders-during-shipping"></a>Q. ¿Mis dispositivos Data Box cruzarán fronteras internacionales o regionales durante el envío?
+A. Todos los dispositivos Data Box se envían desde el mismo país o región de destino y no cruzarán ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos se pueden enviar desde y hasta cualquier país o región de la UE. Esto se aplica tanto a los dispositivos de Data Box como a los de Data Box Heavy.
 
 ### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>Q. Realicé el pedido de un Data Box en la zona este de EE. UU. pero recibí un dispositivo que se envió desde una ubicación de la zona oeste de EE. UU. ¿A dónde debo devolver el dispositivo?
 A. Intentamos que el dispositivo Data Box le llegue lo antes posible. A la hora de realizar el envío damos prioridad a los centros de datos más cercanos a la ubicación de la cuenta de almacenamiento, pero podemos enviarlo desde cualquier centro de disponibilidad de Azure que lo tenga disponible en su inventario. El Data Box se debe devolver a la misma ubicación desde la que se envió, que se muestra en la etiqueta de envío.
@@ -221,7 +221,7 @@ A. Si el dispositivo no arranca, vaya a su pedido en Azure Portal. Descargue una
 
 ## <a name="verify-and-upload"></a>Comprobación y carga
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>Q. ¿Cuándo se puede acceder a los datos en Azure una vez que se ha devuelto el dispositivo de Data Box? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>Q. ¿Cuándo puedo acceder a los datos en Azure una vez que se ha devuelto el dispositivo Data Box? 
 A.  Una vez que el estado del pedido de **Copia de datos** indica que se **ha completado**, debería obtener acceso a los datos de inmediato.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. ¿Dónde se encuentran los datos en Azure después de la carga?

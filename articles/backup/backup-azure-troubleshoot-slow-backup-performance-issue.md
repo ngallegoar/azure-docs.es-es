@@ -4,12 +4,12 @@ description: Le proporciona una guía para solucionar problemas que le ayudará 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 5e669a68794a8622bb4a2fa55b206153717fd772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c229bd836029226a1e042de9bfe706654f97dc26
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187909"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658928"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
 
@@ -95,6 +95,8 @@ Los siguientes indicadores pueden ayudarle a entender el cuello de botella y tra
 
 * **La interfaz de usuario muestra el progreso de la transferencia de datos**. La transferencia de datos no ha finalizado. El ancho de banda de la red o el tamaño de datos pueden estar causando retrasos.
 * **La interfaz de usuario no muestra el progreso de la transferencia de datos**. Abra los registros ubicados en "C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Temp" y busque en ellos la entrada FileProvider::EndData. Esta entrada indica que la transferencia de datos ha finalizado y que se está realizando la operación de catálogo. No cancele los trabajos de copia de seguridad. Es preferible que espere hasta que finalice la operación de catálogo. Si el problema persiste, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+Si está intentando realizar una copia de seguridad de discos de gran tamaño, se recomienda usar [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box)] para la primera copia de seguridad (replicación inicial).  Si no puede usar Data Box, los problemas de red transitorios que se produzcan en el entorno durante las transferencias de datos largas a través de la red pueden provocar errores de copia de seguridad.  Para protegerse frente a estos errores, puede agregar algunas carpetas a la copia de seguridad inicial y seguir agregando más carpetas de manera incremental hasta que se haya realizado correctamente la copia de seguridad de todas las carpetas en Azure.  Las copias de seguridad incrementales posteriores serán relativamente más rápidas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 653882db4b62d7731123faf7b177da44dbd74e3f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: abf149d621d283744a71e08ea4ac2199a1994d57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585001"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680959"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Adición de modelos precompilados en escenarios de uso común
 
@@ -40,7 +40,7 @@ LUIS incluye un conjunto de modelos precompilados para agregar rápidamente esce
 
 1. En la página **Intents** (Intenciones), seleccione **Add prebuilt domain intent** (Agregar intención de dominio creado previamente) en la barra de herramientas sobre la lista de intenciones.
 
-1. Seleccione la intención **Utilities.Cancel** en el cuadro de diálogo emergente.
+1. Seleccione una intención en el cuadro de diálogo del elemento emergente.
 
     > [!div class="mx-imgBorder"]
     > ![Agregar una intención creada previamente](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -61,13 +61,24 @@ LUIS incluye un conjunto de modelos precompilados para agregar rápidamente esce
 
 1. Seleccione **Listo**. Después de agregar la entidad, no es necesario entrenar la aplicación.
 
+## <a name="add-a-prebuilt-domain-entity"></a>Incorporación de una entidad de dominio precompilada
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
+1. Seleccione **Entidades** en el lado izquierdo.
+
+1. En la página **Entidades**, seleccione **Agregar entidad de dominio predefinida**.
+
+1. En el cuadro de diálogo **Agregar modelos de dominio predefinido** seleccione la entidad de dominio precompilada.
+
+1. Seleccione **Listo**. Después de agregar la entidad, no es necesario entrenar la aplicación.
+
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publicación para visualizar el modelo precompilado desde el punto de conexión de predicción
 
 La manera más fácil de ver el valor de un modelo precompilado es consultar desde el punto de conexión publicado.
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>Entidades que contienen un token de entidad creada previamente
 
-Si tiene una entidad con aprendizaje automático que necesita una característica obligatoria de una entidad precompilada, agregue un subcomponente a la entidad con aprendizaje automático y, luego, agregue una característica _obligatoria_ de una entidad precompilada.
+Si tiene una entidad de aprendizaje automático que necesita una característica obligatoria de una entidad precompilada, agregue una subentidad a la entidad de aprendizaje automático y, luego, agregue una característica _obligatoria_ de una entidad precompilada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

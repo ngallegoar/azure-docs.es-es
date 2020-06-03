@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451132"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757612"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication
 
@@ -55,7 +55,7 @@ Microsoft proporciona [plantillas de comunicación](https://aka.ms/mfatemplates)
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 
-Azure Multi-Factor Authentication se implementa mediante la aplicación de directivas de acceso condicional. Una [directiva de acceso condicional](../conditional-access/overview.md) puede requerir que los usuarios realicen la autenticación multifactor cuando se cumplen ciertos criterios, por ejemplo:
+Azure Multi-Factor Authentication se implementa mediante la aplicación de directivas de acceso condicional. Una directiva de acceso condicional puede requerir que los usuarios realicen la autenticación multifactor cuando se cumplen ciertos criterios, por ejemplo:
 
 * Todos los usuarios, un usuario específico, el miembro de un grupo o un rol asignado
 * Se accede a una aplicación en la nube específica
@@ -114,7 +114,7 @@ Los administradores pueden elegir los [métodos de autenticación](../authentica
 Se envía una notificación push a la aplicación Microsoft Authenticator del dispositivo móvil. El usuario ve la notificación y selecciona **Aprobar** para completar la comprobación. Las notificaciones push a través de una aplicación móvil proporcionan la opción menos intrusiva para los usuarios. También son la opción más confiable y segura porque usan una conexión de datos en lugar de una de telefonía.
 
 > [!NOTE]
-> Si su organización tiene personal que trabaja en China o que va a viajar allí, el método **notificación a través de aplicación móvil** en **dispositivos Android** no funciona en ese país. Para esos usuarios tiene que haber métodos alternativos disponibles.
+> Si su organización tiene personal que trabaja en China o que va a viajar allí, el método **Notificación a través de aplicación móvil** en **dispositivos Android** no funciona en ese país o región. Para esos usuarios tiene que haber métodos alternativos disponibles.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificación desde aplicación móvil
 
@@ -221,7 +221,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="plan-conditional-access-policies"></a>Planificación de directivas de acceso condicional
 
-Para planificar la estrategia de directiva de acceso condicional, que determinará cuándo se solicitan MFA y otros controles, consulte [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md).
+Para planear la estrategia de directiva de acceso condicional, que determinará cuándo se solicitan MFA y otros controles, consulte [Directivas de acceso condicional habituales](../conditional-access/concept-conditional-access-policy-common.md).
 
 Es importante que evite bloquearse accidentalmente del inquilino de Azure AD. Puede mitigar el efecto de esta falta involuntaria de acceso administrativo si [crea de dos o más cuentas de acceso de emergencia en su inquilino](../users-groups-roles/directory-emergency-access.md) y no las incluye en su directiva de acceso condicional.
 

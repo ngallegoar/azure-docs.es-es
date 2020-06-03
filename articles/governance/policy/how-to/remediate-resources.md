@@ -3,12 +3,12 @@ title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: f4846b6eb1ea03c6706a610cab16ec376d19b060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195237"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849967"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -180,6 +180,10 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 ```
 
 Para obtener otros cmdlets de corrección y ejemplos, consulte el módulo [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights).
+
+### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Creación de una tarea de corrección durante la asignación de la directiva en Azure Portal
+
+Una forma optimizada de crear una tarea de corrección es hacerlo desde Azure Portal durante la asignación de la directiva. Si la definición de la directiva es asignar un efecto **deployIfNotExists** o un efecto **Modify**, el asistente que aparece en la pestaña **Corrección** ofrece una opción _Crear una tarea de corrección_. Si se selecciona esta opción, se crea una tarea de corrección al mismo tiempo que la asignación de la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

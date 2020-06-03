@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 83e657114f4e51775fb73267322a48e362f57b1c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476662"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641694"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -154,3 +154,4 @@ Si bloquea la autenticación heredada con la condición **Otros clientes**, tamb
 - [Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
 - Si todavía no sabe cómo configurar las directivas de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md) para ver un ejemplo.
 - Para más información sobre la compatibilidad con la autenticación moderna, consulte [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 
+- [Cómo configurar una aplicación o dispositivo multifunción para enviar correos electrónicos mediante Office 365 y Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

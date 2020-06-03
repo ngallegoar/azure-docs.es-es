@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 18fa1b60b15b7eef96efa8dcc4fbf9cd7c4dc7f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ec30aafe63259237a89de6597970b908fb969cf
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77473200"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773447"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorización del acceso a Azure App Configuration con Azure Active Directory
 Azure App Configuration admite el uso de Azure Active Directory (Azure AD) para autorizar solicitudes a instancias de App Configuration.  Azure AD permite usar el control de acceso basado en roles (RBAC) para conceder permisos a una entidad de seguridad.  Una entidad de seguridad puede ser un usuario o una [entidad de servicio de aplicación](../active-directory/develop/app-objects-and-service-principals.md).  Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
@@ -33,9 +33,10 @@ Cuando un rol RBAC se asigna a una entidad de seguridad de Azure AD, Azure conce
 ## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Roles de RBAC integrados para Azure App Configuration
 Azure proporciona los siguientes roles de RBAC integrados para autorizar el acceso a los datos de App Configuration con Azure AD y OAuth:
 
-- Propietario de los datos de Azure App Configuration: Use este rol para proporcionar acceso de lectura y escritura a los recursos de App Configuration.
-- Lector de los datos de Azure App Configuration: Use este rol para proporcionar acceso de lectura a los recursos de App Configuration.
-- Colaborador: Use este rol para proporcionar acceso de administrador al servicio sin conceder acceso a los datos almacenados en la instancia de App Configuration.
+- **Propietario de los datos de App Configuration**: use este rol para proporcionar acceso de lectura, escritura o eliminación a los datos de App Configuration. Esto no concede acceso al recurso de App Configuration.
+- **Lector de los datos de App Configuration**: use este rol para proporcionar acceso de lectura a los datos de App Configuration. Esto no concede acceso al recurso de App Configuration.
+- **Colaborador**: use este rol para administrar el recurso de App Configuration. Aunque se puede acceder a los datos de App Configuration mediante las claves de acceso, este rol no concede acceso a los datos mediante Azure AD.
+- **Lector**: use este rol para proporcionar acceso de lectura al recurso de App Configuration. Esto no concede acceso a las claves de acceso del recurso ni a los datos almacenados en App Configuration.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre el uso de [identidades administradas](howto-integrate-azure-managed-service-identity.md) para administrar el servicio App Configuration.

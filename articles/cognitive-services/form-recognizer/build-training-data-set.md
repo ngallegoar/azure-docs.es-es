@@ -9,18 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 71ad7c5dd3ad74082da552cd3c45142bc0c2d624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75380633"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873291"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creación de un conjunto de datos de aprendizaje para un modelo personalizado
 
-Cuando se usa el modelo personalizado de Form Recognizer, puede proporcionar sus propios datos de entrenamiento para que el modelo pueda entrenar según los formularios específicos del sector. Puede entrenar un modelo con cinco formularios rellenados o con un formulario vacío (debe incluir la palabra "empty" [vacío] en el nombre del archivo) más dos formularios rellenados. Incluso si tiene los formularios rellenados suficientes para realizar el entrenamiento, agregar al conjunto de datos de aprendizaje un formulario vacío puede mejorar la precisión del modelo.
+Cuando se usa el modelo personalizado de Form Recognizer, puede proporcionar sus propios datos de entrenamiento para que el modelo pueda entrenar según los formularios específicos del sector. 
 
-Si quiere usar datos de entrenamiento etiquetados manualmente, debe empezar con al menos cinco formularios del mismo tipo. Todavía puede usar formularios sin etiquetar y un formulario vacío en el mismo conjunto de datos.
+Si está realizando el entrenamiento sin etiquetas manuales, puede usar cinco formularios rellenados o un formulario vacío (tiene que incluir la palabra "empty" [vacío] en el nombre del archivo) más dos formularios rellenados. Incluso si tiene los formularios rellenados suficientes, agregar al conjunto de datos de aprendizaje un formulario vacío puede mejorar la precisión del modelo.
+
+Si quiere usar datos de entrenamiento etiquetados manualmente, tiene que empezar con al menos cinco formularios del mismo tipo. Podrá seguir usando formularios sin etiquetar y un formulario vacío además del conjunto de datos requerido.
 
 ## <a name="training-data-tips"></a>Sugerencias sobre los datos de aprendizaje
 
@@ -41,6 +43,8 @@ Asegúrese de que el conjunto de datos de aprendizaje también cumpla con los re
 ## <a name="upload-your-training-data"></a>Carga de los datos de aprendizaje
 
 Una vez que recopila el conjunto de documentos de formularios que usará para el entrenamiento, deberá cargarlo a un contenedor de Azure Blob Storage. Si no sabe cómo crear una cuenta de almacenamiento de Azure con un contenedor, siga el [inicio rápido de Azure Storage para Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Si desea usar datos etiquetados manualmente, también tendrá que cargar los archivos *.labels.json* y *.ocr.json* correspondientes a los documentos de entrenamiento. Puede usar la [herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md) (o su propia interfaz de usuario) para generar estos archivos.
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organización de los datos en subcarpetas (opcional)
 
@@ -69,6 +73,7 @@ Si agrega el contenido siguiente al cuerpo de la solicitud, la API se entrenará
 
 Ahora que aprendió a crear un conjunto de datos de aprendizaje, siga un inicio rápido para entrenar a un modelo personalizado de Form Recognizer y empezar a usarlo en los formularios.
 
-* [Inicio rápido: Entrenamiento de un modelo y extracción de datos de formularios mediante cURL](./quickstarts/curl-train-extract.md).
-* [Inicio rápido: Entrenamiento de un modelo y extracción de datos de formularios mediante la API REST con Python](./quickstarts/python-train-extract.md)
+* [Entrenamiento de un modelo y extracción de datos de formularios mediante cURL](./quickstarts/curl-train-extract.md)
+* [Entrenamiento de un modelo y extracción de datos de formularios mediante la API REST y Python](./quickstarts/python-train-extract.md)
+* [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md)
 * [Entrenamiento con etiquetas mediante la API de REST y Python](./quickstarts/python-labeled-data.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 9c953c43ff119d42cdadcd2aba6e15f69765afc2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201642"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745437"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -475,7 +475,7 @@ En este paso, se establecerá la conectividad con WorkDay y Active Directory en
      > [!NOTE]
      > Esta configuración solo entra en juego para creaciones de cuentas de usuario si el atributo *parentDistinguishedName* no está configurado en las asignaciones de atributos. Esta configuración no se usa para la búsqueda de usuarios o las operaciones de actualización. El subárbol de todo el dominio se encuentra en el ámbito de la operación de búsqueda.
 
-   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
+   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
 
      > [!NOTE]
      > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
@@ -492,7 +492,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize Workday Workers to On Premises Active Directory** (Sincronizar trabajadores de Workday con Active Directory local).
 
-1. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en AD; para ello, debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de Workday". Filtros de ejemplo:
+1. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en AD; para ello, debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "todos los usuarios de Workday". Filtros de ejemplo:
 
    * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1000000 y 2000000 (sin incluir 2000000)
 
@@ -628,7 +628,7 @@ En las secciones siguientes se describen los pasos para configurar el aprovision
      > Ejemplo: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
-   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
+   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
 
    * Haga clic en el botón **Probar conexión**.
 
@@ -640,7 +640,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize Workers to Azure AD** (Sincronizar trabajadores con Azure AD).
 
-2. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en Azure AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de Workday". Filtros de ejemplo:
+2. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en Azure AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "todos los usuarios de Workday". Filtros de ejemplo:
 
    * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1000000 y 2000000
 
@@ -725,7 +725,7 @@ Siga estas instrucciones para configurar la escritura diferida de direcciones de
 
    * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Este valor debería ser similar a `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, donde *contoso4* se reemplaza por el nombre correcto del inquilino y *wd3-impl* se reemplaza por la cadena de entorno correcta (si es necesario).
 
-   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
+   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
 
    * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que la dirección URL y las credenciales de Workday sean válidas en Workday.
 
@@ -735,7 +735,7 @@ En esta sección, va a configurar cómo los atributos de escritura diferida fluy
 
 1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize Azure Active Directory Users to Workday** (Sincronizar usuarios de Azure Active Directory con Workday).
 
-2. En el campo **Ámbito de objeto de origen** tiene la opción de filtrar los conjuntos de usuarios de Azure Active Directory que deben reescribir sus direcciones de correo electrónico en Workday. El ámbito predeterminado es "Todos los usuarios de Azure AD".
+2. En el campo **Ámbito de objeto de origen** tiene la opción de filtrar los conjuntos de usuarios de Azure Active Directory que deben reescribir sus direcciones de correo electrónico en Workday. El ámbito predeterminado es "todos los usuarios de Azure AD".
 
 3. En la sección **Asignaciones de atributos**, actualice el identificador coincidente para indicar el atributo en Azure Active Directory donde se almacena el identificador de trabajo o el identificador de empleado de Workday. Un método de búsqueda de coincidencias conocido consiste en sincronizar el Id. de trabajador de Workday o el Id. de empleado con el atributo extensionAttribute1-15 en Azure AD y, luego, usar dicho atributo en Azure AD para hacer coincidir los usuarios en Workday.
 
@@ -790,7 +790,7 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
   * [Tengo atributos personalizados en Workday y Active Directory. ¿Cómo se puede configurar la solución para que funcione con los atributos personalizados?](#i-have-custom-attributes-in-workday-and-active-directory-how-do-i-configure-the-solution-to-work-with-my-custom-attributes)
   * [¿Puedo aprovisionar la foto de un usuario desde Workday en Active Directory?](#can-i-provision-users-photo-from-workday-to-active-directory)
   * [¿Cómo se pueden sincronizar los números de móvil desde Workday según el consentimiento del usuario para su uso público?](#how-do-i-sync-mobile-numbers-from-workday-based-on-user-consent-for-public-usage)
-  * [¿Cómo puedo dar formato a los nombres para mostrar en AD según los atributos de departamento/país/ciudad del usuario y controlar las variaciones regionales?](#how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances)
+  * [¿Cómo puedo dar formato a los nombres para mostrar en AD según los atributos de departamento/país/ciudad del usuario y administrar las variaciones regionales?](#how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances)
   * [¿Cómo se puede usar SelectUniqueValue para generar valores únicos para el atributo samAccountName?](#how-can-i-use-selectuniquevalue-to-generate-unique-values-for-samaccountname-attribute)
   * [¿Cómo se pueden quitar caracteres con signos diacríticos y convertirlos en caracteres habituales del alfabeto inglés?](#how-do-i-remove-characters-with-diacritics-and-convert-them-into-normal-english-alphabets)
 
@@ -806,9 +806,9 @@ No, el envío de notificaciones por correo electrónico después de completar la
 
 #### <a name="how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password"></a>¿Cómo se puede administrar la entrega de contraseñas para los nuevos contratados y proporcionar un mecanismo para restablecer la contraseña de forma segura?
 
-Uno de los últimos pasos implicados en el nuevo aprovisionamiento de cuentas de AD es la entrega de la contraseña temporal asignada a la cuenta de AD del usuario. Muchas empresas todavía usan el enfoque tradicional de entrega de la contraseña temporal al administrador del usuario, quien, a continuación, la cede al nuevo trabajador contratado/eventual. Este proceso tiene un error de seguridad inherente y existe una opción para implementar un enfoque mejorado mediante funcionalidades de Azure AD.
+Uno de los últimos pasos relacionados con el nuevo aprovisionamiento de cuentas de AD es la entrega de la contraseña temporal asignada a la cuenta de AD del usuario. Muchas empresas todavía usan el enfoque tradicional de entrega de la contraseña temporal al administrador del usuario, quien, a continuación, la cede al nuevo trabajador contratado/eventual. Este proceso tiene un error de seguridad inherente y existe una opción para implementar un enfoque mejorado mediante funcionalidades de Azure AD.
 
-Como parte del proceso de contratación, los equipos de recursos humanos normalmente ejecutan una comprobación en segundo plano y revisan el número de móvil del nuevo contratado. Con la integración del aprovisionamiento de usuarios de Workday en AD, puede basarse en este hecho y lanzar una funcionalidad de autoservicio de restablecimiento de contraseña para el usuario el primer día. Esto se realiza mediante la propagación del atributo "Número de móvil" del empleado recién contratado de Workday a AD y, después, de AD a Azure AD con Azure AD Connect. Una vez que ya existe “Número de móvil” en Azure AD, puede habilitar [Autoservicio de restablecimiento de contraseña (SSPR)](../authentication/howto-sspr-authenticationdata.md) para la cuenta del usuario, para que, desde el primer día, un nuevo contratado pueda usar el número de móvil registrado y verificado para su autenticación.
+Como parte del proceso de contratación, los equipos de recursos humanos normalmente ejecutan una comprobación en segundo plano y revisan el número de móvil del nuevo contratado. Con la integración del aprovisionamiento de usuarios de Workday en AD, puede basarse en este hecho y lanzar una funcionalidad de autoservicio de restablecimiento de contraseña para el usuario el primer día. Esto se realiza mediante la propagación del atributo "Número de móvil" del empleado recién contratado de Workday a AD y, después, de AD a Azure AD con Azure AD Connect. Una vez que ya existe “Número de móvil” en Azure AD, puede habilitar [Autoservicio de restablecimiento de contraseña (SSPR)](../authentication/howto-sspr-authenticationdata.md) para la cuenta del usuario, para que, desde el primer día, un nuevo contratado pueda usar el número de móvil registrado y verificado para su autenticación.
 
 #### <a name="does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer"></a>¿La solución almacena en memoria caché los perfiles de usuario de Workday en la nube de Azure AD o en la capa del agente de aprovisionamiento?
 
@@ -919,7 +919,7 @@ Sí, un agente de aprovisionamiento puede configurarse para controlar varios dom
 * Cambie al directorio que contiene los scripts de registro y ejecute los siguientes comandos reemplazando el parámetro \[Id. de inquilino\] con el valor del identificador del inquilino.
 
   ```powershell
-  cd “C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder”
+  cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder"
   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder\AppProxyPSModule.psd1"
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
@@ -991,7 +991,7 @@ La solución actualmente no permite establecer los atributos binarios como *thum
 * Guarde la asignación de atributos.
 * Borre el estado actual y reinicie la sincronización completa.
 
-#### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>¿Cómo puedo dar formato a los nombres para mostrar en AD según los atributos de departamento/país/ciudad del usuario y controlar las variaciones regionales?
+#### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>¿Cómo puedo dar formato a los nombres para mostrar en AD según los atributos de departamento/país/ciudad del usuario y administrar las variaciones regionales?
 
 Es un requisito común configurar el atributo *displayName* de AD para que también proporcione información sobre el departamento y el país o región del usuario. Por ejemplo, si John Smith trabaja en el departamento de marketing en Estados Unidos, puede que desee que su atributo *displayName* aparezca como *Smith, John (Marketing-EE. UU.)* .
 
@@ -1008,9 +1008,9 @@ Esta es la forma en que puede controlar tales requisitos para construir *CN* o *
   
    Confirme con su equipo de Workday que la expresión de API anterior es válida para la configuración de su inquilino de Workday. Si es necesario, puede modificar los atributos como se describe en la sección [Personalización de la lista de atributos de usuario de Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Del mismo modo, la información de país existente en Workday se recupera con la siguiente expresión XPATH: *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*.
+* Del mismo modo, la información de país o región existente en Workday se recupera con la siguiente expresión XPATH: *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*.
 
-     Hay cinco atributos relacionados con el país que se encuentran disponibles en la sección de la lista de atributos de Workday.
+     Hay cinco atributos relacionados con el país o región que se encuentran disponibles en la sección de la lista de atributos de Workday.
 
      | Atributo de Workday | Expresión de API XPATH |
      | ----------------- | -------------------- |
@@ -1272,7 +1272,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 7. Establezca **Operation** (Operación) en **Get_Workers**.
 
-8.  Haga clic en el vínculo pequeño de **configuración** bajo los paneles de solicitud/respuesta para establecer las credenciales de Workday. Marque **Authentication** (Autenticación) y escriba el nombre de usuario y la contraseña de la cuenta del sistema de integración de Workday. Asegúrese de que el formato del nombre de usuario sea name\@tenant y deje seleccionada la opción **WS-Security UsernameToken**.
+8.    Haga clic en el vínculo pequeño de **configuración** bajo los paneles de solicitud/respuesta para establecer las credenciales de Workday. Marque **Authentication** (Autenticación) y escriba el nombre de usuario y la contraseña de la cuenta del sistema de integración de Workday. Asegúrese de que el formato del nombre de usuario sea name\@tenant y deje seleccionada la opción **WS-Security UsernameToken**.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

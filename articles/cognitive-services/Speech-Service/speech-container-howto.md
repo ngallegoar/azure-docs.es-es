@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1d4fde8dd21911b70d5a1c0f3b23304a3468a2a6
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591034"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816240"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
 
@@ -30,8 +30,8 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 |--|--|--|
 | Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.2.0 |
 | Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.2.0 |
-| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
-| Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
+| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.4.0 |
+| Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.4.0 |
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -47,7 +47,8 @@ Requisitos previos para poder usar los contenedores de Voz:
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
-Rellene y envíe el [formulario de solicitud de contenedores de Cognitive Services](https://aka.ms/cognitivegate) para solicitar acceso al contenedor.
+Rellene y envíe el [formulario de solicitud](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. 
+
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

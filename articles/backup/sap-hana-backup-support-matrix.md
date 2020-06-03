@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de SAP HANA
 description: En este artículo, obtendrá información sobre los escenarios admitidos y las limitaciones al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 8496dc4996cac68535bfe9be30e4b5f72e2d5721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dcbfa67ce69a3dad1c263427ea3a0e34e8cef18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227460"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747348"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de compatibilidad de la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -36,8 +36,14 @@ Azure Backup admite la realización de copias de seguridad de bases de datos de 
 
 ------
 
+>[!NOTE]
+>Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos SAP HANA en una máquina virtual de Azure.
+>
+>Modifique la directiva de forma manual según sea necesario.
+
+
 > [!NOTE]
-> Actualmente no se admiten las operaciones de copia de seguridad y restauración de los clientes nativos de SAP HANA (SAP HANA Studio/Cockpit/DBA Cockpit).
+> Ahora, puede [supervisar los trabajos de copia de seguridad y restauración](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) (en la misma máquina) desencadenados por clientes nativos de HANA (SAP HANA Studio/Cockpit/DBA Cockpit) en Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

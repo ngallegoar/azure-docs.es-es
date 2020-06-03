@@ -1,18 +1,18 @@
 ---
 title: 'Incidencias con JDBC/ODBC y el marco Apache Thrift: Azure HDInsight'
 description: No se pueden descargar conjuntos de datos grandes con JDBC/ODBC y el marco de software Apache Thrift en Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 07/29/2019
-ms.openlocfilehash: 23693dcae2f361b88440ec88ca39fd8ed229d85a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 05/14/2020
+ms.openlocfilehash: a8dcd6ae844810213ed6706002cdb9a31de94f60
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894256"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653584"
 ---
 # <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>No se pueden descargar conjuntos de datos grandes con JDBC/ODBC y el marco de software Apache Thrift en HDInsight
 
@@ -33,7 +33,10 @@ Esta excepción se debe a que el proceso de serialización está intentando usar
 
 ## <a name="resolution"></a>Solución
 
-Aumente el valor de búfer `Kryoserializer`. Agregue una clave denominada `spark.kryoserializer.buffer.max` y establézcala en `2048` en la configuración de spark2 en `Custom spark2-thrift-sparkconf`.
+Aumente el valor de búfer `Kryoserializer`. Agregue una clave denominada `spark.kryoserializer.buffer.max` y establézcala en `2047` en la configuración de spark2 en `Custom spark2-thrift-sparkconf`. Reinicie todos los componentes afectados.
+
+> [!IMPORTANT]
+> El valor de `spark.kryoserializer.buffer.max` debe ser menor que 2048. No se admiten valores fraccionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f0723534d9d2187593cb73f058ffea62473b80a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32c08af129172fb1dbebf1679ea01694e8bd3d1a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235967"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653284"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Especificación del lenguaje fuente para la conversión de voz en texto
 
@@ -166,23 +166,35 @@ speechConfig.endpointId = "The Endpoint ID for your custom model.";
 
 ## <a name="how-to-specify-source-language-in-objective-c"></a>Cómo especificar el lenguaje fuente en Objective-C
 
-El primer paso consiste en crear un `speechConfig`:
+En este ejemplo, el lenguaje fuente se proporciona de forma explícita como un parámetro mediante la construcción `SPXSpeechRecognizer`.
 
 ```Objective-C
-SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:@"YourSubscriptionkey" region:@"YourRegion"];
+SPXSpeechRecognizer* speechRecognizer = \
+    [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"de-DE" audioConfiguration:audioConfig];
 ```
 
-A continuación, especifique el lenguaje fuente del audio con `speechRecognitionLanguage`:
+En este ejemplo, el lenguaje de origen se proporciona mediante `SPXSourceLanguageConfiguration`. Luego, se pasa `SPXSourceLanguageConfiguration` como un parámetro a la construcción `SPXSpeechRecognizer`.
 
 ```Objective-C
-speechConfig.speechRecognitionLanguage = @"de-DE";
+SPXSourceLanguageConfiguration* sourceLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"de-DE"];
+SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig
+                                                                     sourceLanguageConfiguration:sourceLanguageConfig
+                                                                              audioConfiguration:audioConfig];
 ```
 
-Si utiliza un modelo personalizado para el reconocimiento, puede especificar el punto de conexión con `endpointId`:
+En este ejemplo, el lenguaje de origen y el punto de conexión personalizado se proporcionan mediante `SPXSourceLanguageConfiguration`. Luego, se pasa `SPXSourceLanguageConfiguration` como un parámetro a la construcción `SPXSpeechRecognizer`.
 
 ```Objective-C
-speechConfig.endpointId = @"The Endpoint ID for your custom model.";
+SPXSourceLanguageConfiguration* sourceLanguageConfig = \
+        [[SPXSourceLanguageConfiguration alloc]initWithLanguage:@"de-DE"
+                                                     endpointId:@"The Endpoint ID for your custom model."];
+SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig
+                                                                     sourceLanguageConfiguration:sourceLanguageConfig
+                                                                              audioConfiguration:audioConfig];
 ```
+
+>[!Note]
+> Las propiedades `speechRecognitionLanguage` y `endpointId` están en desuso de la clase `SPXSpeechConfiguration` en Objective-C. No se recomienda el uso de estas propiedades y no deben usarse al construir un `SPXSpeechRecognizer`.
 
 ::: zone-end
 

@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 05/21/2020
+ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086392"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758901"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -346,7 +346,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | databaseAccounts | global | 3-31 | Letras minúsculas, números y guiones.<br><br>Comience con una letra minúscula o un número. |
+> | databaseAccounts | global | 3-44 | Letras minúsculas, números y guiones.<br><br>Comience con una letra minúscula o un número. |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -696,6 +696,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | serverfarms | resource group | 1-40 | Caracteres alfanuméricos y guiones. |
 > | sites | global | 2-60 | Contiene caracteres alfanuméricos y guiones.<br><br>No puede comenzar ni terminar con un guion. |
 > | sites/slots | site | 2-59 | Caracteres alfanuméricos y guiones. |
+
+> [!NOTE]
+> Azure Functions tiene las mismas reglas y restricciones de nomenclatura que Microsoft.Web/sites.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

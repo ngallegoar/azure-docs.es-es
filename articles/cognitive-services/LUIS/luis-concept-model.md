@@ -3,12 +3,12 @@ title: 'Diseño con modelos: LUIS'
 description: Language Understanding proporciona varios tipos de modelos. Algunos modelos se puede usar de varias formas.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591886"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683936"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Diseñe con intenciones y modelos de entidad
 
@@ -36,9 +36,9 @@ La siguiente expresión es un **ejemplo positivo** para la intención `OrderBook
 
 ## <a name="entities-extract-data"></a>Las entidades extraen datos
 
-Una entidad representa una unidad de datos que quiere extraer de la expresión. Una entidad con aprendizaje automático es una entidad de nivel superior que contiene subcomponentes, los cuales también son entidades con aprendizaje automático.
+Una entidad representa una unidad de datos que quiere extraer de la expresión. Una entidad de aprendizaje automático es una entidad de nivel superior que contiene subentidades, las cuales también son entidades de aprendizaje automático.
 
-Un ejemplo de una entidad de aprendizaje automático es una orden de boleto de avión. En teoría, se trata de una única transacción con muchas unidades de datos más pequeñas, como la fecha, la hora, la cantidad de puestos, el tipo de asiento (como primera clase o clase económica), la ubicación de origen, la ubicación de destino y la elección de comida.
+Un ejemplo de una entidad de aprendizaje automático es un pedido de billete de avión. En teoría, se trata de una única transacción con muchas unidades de datos más pequeñas, como la fecha, la hora, la cantidad de puestos, el tipo de asiento (como primera clase o clase económica), la ubicación de origen, la ubicación de destino y la elección de comida.
 
 ## <a name="intents-versus-entities"></a>Intenciones frente a entidades
 
@@ -65,11 +65,11 @@ La descomposición del modelo tiene las siguientes partes:
 
 * [intenciones](#intents-classify-utterances);
     * [features](#features)
-* [entidades de aprendizaje automático](reference-entity-machine-learned-entity.md);
-    * subentidades (también entidades con aprendizaje automático)
+* [entidades de aprendizaje automático](reference-entity-machine-learned-entity.md)
+    * subentidades (también entidades de aprendizaje automático)
         * [features](#features)
             * [lista de frases](luis-concept-feature.md)
-            * [entidades sin aprendizaje automático](luis-concept-feature.md) como [expresiones regulares](reference-entity-regular-expression.md), [listas](reference-entity-list.md) y [entidades precompiladas](luis-reference-prebuilt-entities.md)
+            * [entidades sin aprendizaje automático](luis-concept-feature.md) como [expresiones regulares](reference-entity-regular-expression.md), [listas](reference-entity-list.md) y [entidades pregeneradas](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>

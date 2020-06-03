@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: f987d5d9640c3bfef61320df379a68eae2f4712b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/18/2020
+ms.openlocfilehash: 608206ed1c1ffe1015f579d69868385ebd32208c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246342"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660279"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conexión a Azure Database for MySQL con redireccionamiento
 
@@ -19,8 +19,6 @@ En este tema se explica cómo conectar una aplicación del servidor de Azure Dat
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Inicie sesión en [Azure Portal](https://portal.azure.com). Cree un servidor de Azure Database for MySQL con la versión de motor 5.6, 5.7 u 8.0. Para obtener más información, consulte [Creación de un servidor de Azure Database for MySQL con Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creación de un servidor de Azure Database for MySQL con la CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
-
-Actualmente el redireccionamiento solo se admite cuando **SSL está habilitado** en el servidor de Azure Database for MySQL. Para más información sobre cómo configurar SSL, consulte [Uso de SSL con Azure Database for MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
 
 ## <a name="php"></a>PHP
 
@@ -43,8 +41,8 @@ Si usa una versión anterior de la extensión mysqlnd_azure (versión 1.0.0-1.0.
 |**Valor de mysqlnd_azure.enableRedirect**| **Comportamiento**|
 |----------------------------------------|-------------|
 |`off` o `0`|No se usará el redireccionamiento. |
-|`on` o `1`|- Si SSL no está habilitado en el servidor de Azure Database for MySQL, no se realizará ninguna conexión. Se devolverá el siguiente error: *"mysqlnd_azure.enableRedirect está activado, pero la opción SSL no está establecida en la cadena de conexión. El redireccionamiento solo es posible con SSL.".*<br>- Si SSL está habilitado en el servidor MySQL, pero no se admite el redireccionamiento en él, se anulará la primera conexión y se devolverá el siguiente error: *"Conexión anulada porque el redireccionamiento no está habilitado en el servidor MySQL o el paquete de red no cumple el protocolo de redireccionamiento.".*<br>- Si el servidor MySQL admite el redireccionamiento, pero se produjo un error en la conexión redirigida por cualquier motivo, se anula también la primera conexión del proxy. Se devuelve el error de la conexión redirigida.|
-|`preferred` o `2`<br> (valor predeterminado)|- mysqlnd_azure usará el redireccionamiento si es posible.<br>- Si la conexión no usa SSL, el servidor no admite el redireccionamiento o la conexión redirigida no se puede conectar por cualquier motivo no grave mientras la conexión del proxy sigue siendo válida, se revertirá a la primera conexión del proxy.|
+|`on` o `1`|- Si la conexión no usa SSL en el lado del controlador, no se realizará ninguna conexión. Se devolverá el siguiente error: *"mysqlnd_azure.enableRedirect está activado, pero la opción SSL no está establecida en la cadena de conexión. El redireccionamiento solo es posible con SSL.".*<br>- Si se usa SSL en el lado del controlador, pero no se admite el redireccionamiento en el servidor, se anulará la primera conexión y se devolverá el siguiente error: *"Conexión anulada porque el redireccionamiento no está habilitado en el servidor MySQL o el paquete de red no cumple el protocolo de redireccionamiento.".*<br>- Si el servidor MySQL admite el redireccionamiento, pero se produjo un error en la conexión redirigida por cualquier motivo, se anula también la primera conexión del proxy. Se devuelve el error de la conexión redirigida.|
+|`preferred` o `2`<br> (valor predeterminado)|- mysqlnd_azure usará el redireccionamiento si es posible.<br>- Si la conexión no usa SSL en el lado del controlador, el servidor no admite el redireccionamiento o la conexión redirigida no se puede conectar por cualquier motivo no grave mientras la conexión del proxy sigue siendo válida, se revertirá a la primera conexión del proxy.|
 
 En las secciones siguientes del documento se describe cómo instalar la extensión `mysqlnd_azure` mediante PECL y cómo establecer el valor de este parámetro.
 
@@ -54,7 +52,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - PHP PEAR 
 - php-mysql
-- Servidor de Azure Database for MySQL con SSL habilitado.
+- Servidor de Azure Database for MySQL
 
 1. Instale [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) con [PECL](https://pecl.php.net/package/mysqlnd_azure). Se recomienda utilizar la versión 1.1.0+.
 
@@ -92,7 +90,7 @@ En las secciones siguientes del documento se describe cómo instalar la extensi�
 #### <a name="prerequisites"></a>Prerrequisitos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - php-mysql
-- Servidor de Azure Database for MySQL con SSL habilitado.
+- Servidor de Azure Database for MySQL
 
 1. Para determinar si está ejecutando una versión x64 o x86 de PHP, ejecute el siguiente comando:
 

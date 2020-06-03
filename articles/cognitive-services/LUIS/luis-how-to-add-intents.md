@@ -8,23 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: b2cb7494ae3d26fa14bef906b8f5222b9dbc70e1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f282bb0a80226afeb314aac4e8669634327f81d2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584984"
+ms.locfileid: "83654064"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adición de intenciones para determinar la intención de las expresiones del usuario
 
 Agregue [intenciones](luis-concept-intent.md) a la aplicación de LUIS para identificar los grupos de preguntas o comandos que tienen la misma intención.
 
-Las intenciones se administran desde la barra de navegación superior de la sección **Build** (Compilar), desde el panel izquierdo **Intents** (Intenciones).
+En el portal del LUIS, las intenciones se administran desde la barra de navegación superior de la sección **Build** (Compilar), desde el panel izquierdo **Intents** (Intenciones).
 
-## <a name="add-intent"></a>Agregar intención
+## <a name="add-an-intent-to-your-app"></a>Incorporación de una intención a la aplicación
 
 1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
 1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
@@ -34,7 +34,7 @@ Las intenciones se administran desde la barra de navegación superior de la secc
     > [!div class="mx-imgBorder"]
     > ![Adición de intención](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    La intención requiere expresiones de ejemplo.
+    La intención necesita [expresiones de ejemplo](luis-concept-utterance.md) para predecir expresiones en el punto de conexión publicado de la predicción.
 
 ## <a name="add-an-example-utterance"></a>Incorporación de una expresión de ejemplo
 
@@ -51,16 +51,16 @@ Las expresiones de ejemplo son ejemplos de texto de preguntas de los usuarios o 
 
 ## <a name="intent-prediction-errors"></a>Errores de predicción de intenciones
 
-Una expresión de ejemplo en una intención podría tener un error de predicción de intención entre la intención en la que se encuentra actualmente la expresión de ejemplo y la intención determinada durante el entrenamiento.
+Se determina un error de predicción de la intención cuando no se predice la expresión con la aplicación entrenada para ella.
 
-Para encontrar errores de predicción de expresiones y corregirlos, use las opciones Incorrect (Incorrecto) y Unclear (Poco claro) de **Filter** (Filtro) en combinación con la opción **Detailed view** (Vista detallada) de **View** (Vista).
+1. Para encontrar errores de predicción de expresiones y corregirlos, use las opciones Incorrecto y Poco claro de **Filtro**.
 
-![Para encontrar errores de predicción de expresiones y corregirlos, use la opción de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > [!div class="mx-imgBorder"]
+    > ![Para encontrar errores de predicción de expresiones y corregirlos, use la opción de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Cuando se aplican los filtros y la vista, y hay expresiones de ejemplo con errores, la lista de expresiones de ejemplo muestra las expresiones y los problemas.
+1. Para mostrar el valor de puntuación en la página de detalles de la intención, seleccione **Show details intent scores** (Mostrar puntuaciones detalladas de las intenciones) en el menú de opciones **Ver**.
 
-> [!div class="mx-imgBorder"]
-> ![![Cuando se aplican los filtros y la vista, y hay expresiones de ejemplo con errores, la lista de expresiones de ejemplo muestra las expresiones y los problemas.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+    Cuando se aplican los filtros y la vista, y hay expresiones de ejemplo con errores, la lista de expresiones de ejemplo muestra las expresiones y los problemas.
 
 En cada fila se muestra la puntuación de predicción del entrenamiento actual de la expresión de ejemplo y la puntuación del rival más cercano, que es la diferencia entre estas dos puntuaciones.
 

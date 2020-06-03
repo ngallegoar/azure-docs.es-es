@@ -1,19 +1,19 @@
 ---
 title: Notas de la versión del SDK y la API de los procesadores de la fuente de cambios .NET de Azure Cosmos DB
 description: Aprenda todo lo necesario sobre el SDK y la API para los procesadores de fuente de cambios como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios realizados de una versión a otra del SDK para los procesadores de fuente de cambios de .NET.
-author: ealsur
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
-ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619439"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660427"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 
@@ -23,8 +23,9 @@ ms.locfileid: "80619439"
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
+> * [SDK asincrónico para Java v2](sql-api-sdk-async-java.md)
+> * [SDK sincrónico para Java v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)

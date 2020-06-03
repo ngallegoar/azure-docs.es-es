@@ -3,12 +3,12 @@ title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA e
 description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155399"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701012"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -49,9 +49,9 @@ Consulte las secciones relativas a los [requisitos previos](tutorial-backup-sap-
 
 Al ejecutar el script de registro previo, se establecen los permisos necesarios para permitir que Azure realice copias de seguridad de bases de datos de SAP HANA. Puede encontrar más información sobre el script de registro previo [aquí](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>¿Funcionarán las copias de seguridad después de migrar SAP HANA de la versión 1.0 a la 2.0?
+### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>¿Funcionarán las copias de seguridad después de migrar SAP HANA de SDC a MDC?
 
-Consulte [esta sección](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) de la guía de solución de problemas.
+Consulte [esta sección](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) de la guía de solución de problemas.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>¿Se puede configurar la copia de seguridad de Azure HANA en una IP virtual (equilibrador de carga) y no en una máquina virtual?
 
@@ -60,6 +60,18 @@ Actualmente no se tiene la capacidad de configurar la solución en una IP virtua
 ### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Tengo una replicación del sistema SAP HANA (HSR), ¿cómo debo configurar la copia de seguridad para esta configuración?
 
 Los nodos principal y secundario del HSR se tratarán como dos máquinas virtuales individuales no relacionadas. Debe configurar la copia de seguridad en el nodo principal y, cuando se produzca la conmutación errónea, deberá configurar la copia de seguridad en el nodo secundario (que ahora se convierte en el nodo principal). No hay ninguna "conmutación errónea" automática de la copia de seguridad en el otro nodo.
+
+### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>¿Cómo puedo trasladar una copia de seguridad a petición al sistema de archivos local en lugar de al almacén de Azure?
+
+1. Espere a que se complete la copia de seguridad que se está ejecutando actualmente en la base de datos deseada (comprobar en Studio si ha finalizado).
+1. Deshabilite las copias de seguridad de registros y establezca la copia de seguridad del catálogo en **Filesystem** para la base de que desee siguiendo estos pasos:
+1. Haga doble clic en **SYSTEMDB** -> **Configuración** -> **Seleccionar base de datos** -> **Filtro (registro)** .
+    1. Establezca enable_auto_log_backup en **No**.
+    1. Establezca log_backup_using_backint en **False**.
+1. Realice una copia de seguridad a petición de la base de datos deseada y espere a que se completen la copia de seguridad del catálogo y la copia de seguridad completa.
+1. Revierta a la configuración anterior para permitir que las copias de seguridad fluyan al almacén de Azure:
+    1. Establezca enable_auto_log_backup en **Sí**.
+    1. Establezca log_backup_using_backint en **True**.
 
 ## <a name="restore"></a>Restauración
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228084"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701420"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Datos de flujo como entrada en Stream Analytics
 
@@ -134,7 +134,7 @@ La marca de tiempo predeterminada de los eventos de Blob Storage en Stream Analy
 
 Si se carga un blob en un contenedor de cuenta de almacenamiento a las 13:00 y el trabajo Azure Stream Analytics se inicia con la opción *Hora personalizada* a las 13:00 o antes, el blob se recogerá, ya que su hora de modificación está dentro del período de ejecución del trabajo.
 
-Si se inicia un trabajo de Azure Stream Analytics mediante la opción *Ahora* a las 13:00 y se carga un blob en el contenedor de la cuenta de almacenamiento a las 13:01, Azure Stream Analytics recogerá dicho blob.
+Si se inicia un trabajo de Azure Stream Analytics mediante la opción *Ahora* a las 13:00 y se carga un blob en el contenedor de la cuenta de almacenamiento a las 13:01, Azure Stream Analytics recogerá dicho blob. La marca de tiempo asignada a cada blob se basa únicamente en `BlobLastModifiedTime`. La carpeta en la que se encuentra el BLOB no guarda ninguna relación con la marca de tiempo asignada. Por ejemplo, si hay un blob *2019/10-01/00/b1.txt* con un objeto `BlobLastModifiedTime` de 2019-11-11, la marca de tiempo asignada a este blob es 2019-11-11.
 
 Para procesar los datos como un flujo con una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Un trabajo de Stream Analytics extrae datos de entrada de Azure Blob Storage cada segundo si el archivo de blob está disponible. Si el archivo de blob no está disponible, hay un retroceso exponencial con un retraso de tiempo máximo de 90 segundos.
 
@@ -143,7 +143,7 @@ Las entradas con formato CSV requieren una fila de encabezado para definir los c
 > [!NOTE]
 > Stream Analytics no permite agregar contenido a un archivo de blob existente. Stream Analytics solo verá cada archivo una vez y los cambios que se produzcan en él después de que el trabajo lea los datos no se procesan. Se recomienda cargar todos los datos de un archivo de blob a la vez y, a continuación, agregar los eventos más recientes a un archivo de blob diferente y nuevo.
 
-La carga de un gran número de blobs a la vez puede provocar que Stream Analytics omita la lectura de algunos blobs en raras ocasiones. Se recomienda cargar los blobs con al menos dos segundos de diferencia del almacenamiento de blobs. Si esta opción no es factible, puede usar Event Hubs para transmitir grandes volúmenes de eventos. 
+En escenarios en los que se agregan continuamente muchos blobs que Stream Analytics procesa a medida que se agregan, es posible que se omitan algunos blobs en raras ocasiones debido a la granularidad del objeto `BlobLastModifiedTime`. Puede mitigar esto cargando los blobs con al menos dos segundos de diferencia. Si esta opción no es factible, puede usar Event Hubs para transmitir grandes volúmenes de eventos.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Configuración de Blob Storage como entrada de flujo 
 
@@ -157,7 +157,7 @@ En la siguiente tabla se explica cada propiedad de la página **Nueva entrada** 
 | **Clave de cuenta de almacenamiento** | La clave secreta asociada con la cuenta de almacenamiento. Esta opción se rellena automáticamente, a menos que elija proporcionar la configuración de Blob Storage manualmente. |
 | **Contenedor** | Contenedor para la entrada de blob. Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando se carga un blob en el servicio Azure Blob Storage, hay que especificar un contenedor para ese blob. Puede elegir el contenedor **Usar existente** o **Crear nuevo** para crear un contenedor.|
 | **Patrón de ruta de acceso** (opcional) | Ruta de acceso de archivo que sirve para ubicar los blobs dentro del contenedor especificado. Si desea leer los blobs de la raíz del contenedor, no establezca un patrón de ruta de acceso. Dentro de la ruta, puede especificar una o más instancias de las tres variables siguientes: `{date}`, `{time}` o `{partition}`.<br/><br/>Ejemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Ejemplo 2: `cluster1/logs/{date}`<br/><br/>El carácter `*` no es un valor permitido para el prefijo de ruta de acceso. Solo se permiten <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de Blob de Azure</a>. No incluya nombres de contenedor ni nombres de archivo. |
-| **Formato de fecha** (opcional) | Si usa la variable de fecha en la ruta, formato de fecha por el que se organizan los archivos. Ejemplo: `YYYY/MM/DD` |
+| **Formato de fecha** (opcional) | Si usa la variable de fecha en la ruta, formato de fecha por el que se organizan los archivos. Ejemplo: `YYYY/MM/DD` <br/><br/> Cuando la entrada de blob incluye `{date}` o `{time}` en su ruta de acceso, las carpetas se examinan en orden temporal ascendente.|
 | **Formato de hora** (opcional) |  Si usa la variable de hora en la ruta, formato de hora por el que se organizan los archivos. Actualmente, el único valor admitido es `HH` para las horas. |
 | **Clave de partición** | Si la entrada está particionada por una propiedad, puede agregar el nombre de esta propiedad. Las claves de partición son opcionales y se utilizan para mejorar el rendimiento de la consulta si incluye una cláusula PARTITION BY o GROUP BY en esta propiedad. |
 | **Formato de serialización de eventos** | El formato de serialización (JSON, CSV, Avro u [otro [Protobuf, XML, propietario...]](custom-deserializer.md)) del flujo de datos de entrada.  Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales. |

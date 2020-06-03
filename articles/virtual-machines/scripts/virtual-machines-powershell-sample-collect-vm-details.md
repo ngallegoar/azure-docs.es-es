@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: 237081380445f2b2e4168ee3afe9a3ed7544fc89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27e88966759eaa158ffe86efce9905b1709ddbbe
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900198"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848729"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Recopilar detalles sobre todas las máquinas virtuales de una suscripción con PowerShell
 
-Este script crea un csv que contiene el nombre de la máquina virtual, el nombre del grupo de recursos, la región, la red virtual, la subred, la dirección IP privada, el tipo de sistema operativo y la dirección IP pública de las máquinas virtuales de la suscripción proporcionada.
+Este script crea un csv que contiene el nombre de la máquina virtual, el nombre del grupo de recursos, la región, el tamaño de VM, la red virtual, la subred, la dirección IP privada, el tipo de sistema operativo y la dirección IP pública de las máquinas virtuales de la suscripción proporcionada.
 
 Si no tiene una [suscripción a Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -49,7 +49,7 @@ $vms = Get-AzVM
 $publicIps = Get-AzPublicIpAddress 
 $nics = Get-AzNetworkInterface | ?{ $_.VirtualMachine -NE $null} 
 foreach ($nic in $nics) { 
-    $info = "" | Select VmName, ResourceGroupName, Region, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+    $info = "" | Select VmName, ResourceGroupName, Region, VmSize, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
     $vm = $vms | ? -Property Id -eq $nic.VirtualMachine.id 
     foreach($publicIp in $publicIps) { 
         if($nic.IpConfigurations.id -eq $publicIp.ipconfiguration.Id) {
@@ -60,12 +60,13 @@ foreach ($nic in $nics) {
         $info.VMName = $vm.Name 
         $info.ResourceGroupName = $vm.ResourceGroupName 
         $info.Region = $vm.Location 
+        $info.VmSize = $vm.HardwareProfile.VmSize
         $info.VirturalNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
         $info.Subnet = $nic.IpConfigurations.subnet.Id.Split("/")[-1] 
         $info.PrivateIpAddress = $nic.IpConfigurations.PrivateIpAddress 
         $report+=$info 
     } 
-$report | ft VmName, ResourceGroupName, Region, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+$report | ft VmName, ResourceGroupName, Region, VmSize, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
 $report | Export-CSV "$home/$reportName"
 ```
 

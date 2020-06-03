@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8896aba104a99d323b3c39cfaeab6043d1c12f9d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537702"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832017"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -20,7 +20,7 @@ ms.locfileid: "81537702"
 En este artículo se responden las preguntas más frecuentes sobre las características y las funcionalidades de Azure Files, incluido el uso de Azure File Sync con Azure Files. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
 1. La sección Comentarios de este artículo.
-2. [Foro de Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+2. [Página de preguntas y respuestas de Microsoft sobre Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
@@ -170,7 +170,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
     - Puede usar firmas de acceso compartido (SAS) para generar tokens que tengan permisos específicos y que sean válidos para un intervalo de tiempo específico. Por ejemplo, se puede generar un token con acceso de solo lectura a un archivo específico que expire al cabo de 10 minutos. Todos los usuarios que posean dicho token, mientras tenga validez, tendrán acceso de solo lectura al archivo durante esos 10 minutos. Solo se admiten claves de firma de acceso compartido a través de la API de REST o en bibliotecas cliente. Debe montar el recurso compartido de archivos de Azure a través de SMB mediante el uso de las claves de cuenta de almacenamiento.
 
-    - Azure File Sync conserva y replica todas las ACL discrecionales, o DACL, locales o basadas en Active Directory en todos los puntos de conexión de servidor con los que se sincroniza. Dado que Windows Server ya se autentica con Active Directory, Azure File Sync es una opción provisional eficaz hasta que llegue la compatibilidad total con autenticación basada en Active Directory y ACL.
+    - Azure File Sync conserva y replica todas las ACL discrecionales, o DACL, locales o basadas en Active Directory en todos los puntos de conexión de servidor con los que se sincroniza. 
     
     Puede hacer referencia al artículo [Autorización de acceso a Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener una representación completa de todos los protocolos admitidos en los servicios de Azure Storage. 
 

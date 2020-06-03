@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 18f227c1888e0565eebb640fa61ced56dc994865
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632336"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653125"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
@@ -151,6 +151,12 @@ Consulte la [documentación de MariaDB](https://mariadb.com/kb/en/server-system-
 ### <a name="time_zone"></a>time_zone
 
 Las tablas de la zona horaria se pueden rellenar mediante una llamada al procedimiento almacenado `mysql.az_load_timezone` desde una herramienta como la línea de comandos de MySQL o MySQL Workbench. Vea los artículos de [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) o de la [CLI de Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) sobre cómo llamar al procedimiento almacenado y establecer las zonas horarias globales o de nivel de sesión.
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MariaDB almacena la tabla InnoDB en distintos espacios de tabla en función de la configuración proporcionada durante la creación de la tabla. El [espacio de tabla del sistema](https://mariadb.com/kb/en/innodb-system-tablespaces/) es el área de almacenamiento para el diccionario de datos de InnoDB. Un [espacio de tabla de archivo por tabla](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) contiene datos e índices para una sola tabla de InnoDB y se almacena en el sistema de archivos, en su propio archivo de datos. Este comportamiento se controla mediante el parámetro de servidor `innodb_file_per_table`. Si `innodb_file_per_table` se establece en `OFF`, InnoDB crea tablas en el espacio de tabla del sistema. De lo contrario, InnoDB crea tablas en los espacios de tabla de archivo por tabla.
+
+Azure Database for MariaDB admite **1 TB** como máximo en un solo archivo de datos. Si el tamaño de la base de datos es superior a 1 TB, debería crear la tabla en el espacio de tabla [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table). Si tiene una sola tabla de tamaño superior a 1 TB, debería usar la tabla de particiones.
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
 

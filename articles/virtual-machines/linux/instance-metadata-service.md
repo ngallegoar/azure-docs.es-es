@@ -8,186 +8,39 @@ ms.service: virtual-machines-linux
 ms.subservice: monitoring
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 0971b542065972a8f150083245e4ed31e42e2c67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce3463d39b17e7099f85945caa92d1f009b696c0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521622"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649851"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
 Instance Metadata Service (IMDS) de Azure proporciona información sobre instancias de máquina virtual actualmente en ejecución y se puede usar para administrar y configurar las máquinas virtuales.
-La información proporcionada incluye los eventos de SKU, configuración de red y mantenimiento próximos. Para una lista completa de los datos que están disponibles, consulte [API de metadatos](#metadata-apis).
+Esto incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para una lista completa de los datos que están disponibles, consulte [API de metadatos](#metadata-apis). Instance Metadata Service está disponible para las instancias de máquinas virtuales y los conjuntos de escalado de máquinas virtuales. Solo está disponible para ejecutar máquinas virtuales creadas o administradas mediante [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
 
-El servicio de metadatos de instancia de Azure es un punto de conexión REST al que pueden tener acceso todas las máquinas virtuales IaaS creadas a través de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
-El punto de conexión está disponible en una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede tener acceso desde dentro de la máquina virtual.
+Instance Metadata Service de Azure es un punto de conexión REST que está disponible en una dirección IP no enrutable conocida (`169.254.169.254`); solo se puede acceder desde dentro de la máquina virtual.
 
-> [!IMPORTANT]
-> Este servicio está **disponible con carácter general** en todas las regiones de Azure.  Recibe actualizaciones periódicas para exponer información nueva sobre instancias de máquina virtual. En esta página se reflejan las [API de metadatos](#metadata-apis) actualizadas que hay disponibles.
-
-## <a name="service-availability"></a>Disponibilidad del servicio
-
-El servicio está disponible con carácter general en las regiones de Azure. Puede que no todas las versiones de API estén disponibles en todas las regiones de Azure.
-
-Regions                                        | ¿Disponibilidad?                                 | Versiones admitidas
------------------------------------------------|-----------------------------------------------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure China 21Vianet](https://www.azure.cn/)                                            | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-
-La versión 2019-11-01 se está implementando actualmente y puede que no esté disponible en todas las regiones.
-
-Esta tabla cambia cuando hay actualizaciones del servicio o cuando hay nuevas versiones compatibles disponibles.
-
-Para probar el servicio de metadatos de instancia, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](https://portal.azure.com) en las regiones anteriores, y siga los ejemplos siguientes.
-Puede encontrar más ejemplos de cómo consultar IMDS en [Ejemplos de Azure Instance Metadata Service](https://github.com/microsoft/azureimds)
-
-## <a name="usage"></a>Uso
-
-### <a name="versioning"></a>Control de versiones
-
-Instance Metadata Service tiene versiones y es obligatorio especificar la versión de la API en la solicitud HTTP.
-
-Puede ver las versiones más recientes enumeradas en esta [tabla de disponibilidad](#service-availability).
-
-A medida que se agreguen versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos.
-
-Cuando no se especifica ninguna versión, se devuelve un error con una lista de las versiones más recientes que son compatibles.
-
-> [!NOTE]
-> La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
-
-**Solicitud**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance"
-```
-
-**Respuesta**
-
-```json
-{
-    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
-    "newest-versions": [
-        "2018-10-01",
-        "2018-04-02",
-        "2018-02-01"
-    ]
-}
-```
-
-### <a name="using-headers"></a>Uso de encabezados
-
-Al consultar el servicio de metadatos de instancia, debe proporcionar el encabezado `Metadata: true` para asegurarse de que la solicitud no se ha redirigido de manera involuntaria.
-
-### <a name="retrieving-metadata"></a>Recuperar metadatos
-
-Los metadatos de instancia están disponibles para ejecutar máquinas virtuales creadas o administradas mediante [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Para tener acceso a todas las categorías de datos de una instancia de máquina virtual, use la solicitud siguiente:
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
-```
-
-> [!NOTE]
-> Todas las consultas de metadatos de instancia distinguen mayúsculas de minúsculas.
-
-### <a name="data-output"></a>Salida de datos
-
-De forma predeterminada, el servicio de metadatos de instancia devuelve datos en formato JSON (`Content-Type: application/json`). Pero las distintas API devuelven los datos en formatos diferentes si se solicita.
-En la tabla siguiente se muestra una referencia de otros formatos de datos que las API pueden admitir.
-
-API | Formato predeterminado de datos | Otros formatos
---------|---------------------|--------------
-/instance | json | text
-/scheduledevents | json | None
-/attested | json | None
-
-Para acceder a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo:
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
-```
-
-> [!NOTE]
-> Para los nodos hoja, `format=json` no funciona. Para estas consultas, `format=text` debe especificarse explícitamente si el formato predeterminado es JSON.
-
-### <a name="security"></a>Seguridad
+## <a name="security"></a>Seguridad
 
 El punto de conexión del servicio de metadatos de instancia solo es accesible desde la instancia de máquina virtual en ejecución en una dirección IP no enrutable. Además, el servicio rechaza cualquier solicitud que tenga un encabezado `X-Forwarded-For`.
 Las solicitudes tienen que incluir también un encabezado `Metadata: true` para garantizar que la solicitud actual esté dirigida directamente y no como parte de un redireccionamiento accidental.
 
-### <a name="error"></a>Error
+> [!IMPORTANT]
+> Instance Metadata Service no es un canal para datos confidenciales. El punto de conexión está abierto a todos los procesos de la máquina virtual. La información expuesta a través de este servicio se debe considerar como información compartida con todas las aplicaciones que se ejecutan dentro de la máquina virtual.
 
-Si no se encuentra un elemento de datos o hay una solicitud con formato incorrecto, el servicio de metadatos de instancia devuelve errores HTTP estándar. Por ejemplo:
+## <a name="usage"></a>Uso
 
-Código de estado HTTP | Motivo
-----------------|-------
-200 OK |
-400 - Solicitud incorrecta | Falta el encabezado `Metadata: true` o el formato al consultar un nodo hoja
-404 No encontrado | El elemento solicitado no existe
-405 Método no permitido | Solo se admiten solicitudes `GET`
-410 Ya no existe | Reintente después de un tiempo durante un máximo de 70 segundos
-429 Demasiadas solicitudes | La API es compatible actualmente con un máximo de cinco consultas por segundo
-500 Error de servicio     | Vuelva a intentarlo más tarde
+### <a name="accessing-azure-instance-metadata-service"></a>Acceso a Instance Metadata Service de Azure
 
-### <a name="examples"></a>Ejemplos
+Para tener acceso a Instance Metadata Service, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](https://portal.azure.com) y siga los ejemplos de abajo.
+Puede encontrar más ejemplos de cómo realizar consultas en IMDS en la página de [ejemplos de Instance Metadata Service de Azure](https://github.com/microsoft/azureimds).
 
-> [!NOTE]
-> Todas las respuestas de las API son cadenas JSON. Todas las respuestas de ejemplo siguientes se han imprimido correctamente para mejorar la legibilidad.
-
-#### <a name="retrieving-network-information"></a>Recuperación de información de red
-
-**Solicitud**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
-```
-
-**Respuesta**
-
-> [!NOTE]
-> La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
-
-```json
-{
-  "interface": [
-    {
-      "ipv4": {
-        "ipAddress": [
-          {
-            "privateIpAddress": "10.1.0.4",
-            "publicIpAddress": "X.X.X.X"
-          }
-        ],
-        "subnet": [
-          {
-            "address": "10.1.0.0",
-            "prefix": "24"
-          }
-        ]
-      },
-      "ipv6": {
-        "ipAddress": []
-      },
-      "macAddress": "000D3AF806EC"
-    }
-  ]
-}
-
-```
-
-#### <a name="retrieving-public-ip-address"></a>Recuperación de dirección IP pública
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
-```
-
-#### <a name="retrieving-all-metadata-for-an-instance"></a>Recuperación de todos los metadatos para una instancia
+A continuación se muestra el código de ejemplo para recuperar todos los metadatos de una instancia. Para acceder a un origen de datos específico, consulte la sección de [API de metadatos](#metadata-apis). 
 
 **Solicitud**
 
@@ -311,23 +164,73 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 }
 ```
 
-## <a name="metadata-apis"></a>API de metadatos
+### <a name="data-output"></a>Salida de datos
 
-Las siguientes API están disponibles a través del punto de conexión de metadatos:
+De forma predeterminada, el servicio de metadatos de instancia devuelve datos en formato JSON (`Content-Type: application/json`). Pero las distintas API devuelven los datos en formatos diferentes si se solicita.
+En la tabla siguiente se muestra una referencia de otros formatos de datos que las API pueden admitir.
+
+API | Formato predeterminado de datos | Otros formatos
+--------|---------------------|--------------
+/instance | json | text
+/scheduledevents | json | None
+/attested | json | None
+
+Para acceder a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo:
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+```
+
+> [!NOTE]
+> Para los nodos hoja, `format=json` no funciona. Para estas consultas, `format=text` debe especificarse explícitamente si el formato predeterminado es JSON.
+
+### <a name="versioning"></a>Control de versiones
+
+Instance Metadata Service tiene versiones y es obligatorio especificar la versión de la API en la solicitud HTTP.
+
+A continuación se indican las versiones de servicio admitidas: 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15.
+
+Tenga en cuenta que cuando se lanza una nueva versión, se tarda un tiempo en implementarse en todas las regiones. La versión 2019-11-01 se está implementando actualmente y puede que no esté disponible en todas las regiones.
+
+A medida que se agreguen versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos.
+
+Cuando no se especifica ninguna versión, se devuelve un error con una lista de las versiones más recientes que son compatibles.
+
+> [!NOTE]
+> La respuesta es una cadena JSON. En el ejemplo siguiente se indica la condición de error cuando no se especifica la versión, la respuesta aparece con formato de sangría para mejorar la legibilidad.
+
+**Solicitud**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+```
+
+**Respuesta**
+
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2018-10-01",
+        "2018-04-02",
+        "2018-02-01"
+    ]
+}
+```
+
+## <a name="metadata-apis"></a>API de metadatos
+IMDS contiene varias interfaces de API que representan distintos orígenes de datos. 
 
 data | Descripción | Versión de introducción
 -----|-------------|-----------------------
-attested | Consulte [Datos atestiguados](#attested-data) | 2018-10-01
-identity | Identidades administradas de recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Vea [API de instancia](#instance-api). | 2017-04-02
+attested | Consulte [Datos atestiguados](#attested-data) | 2018-10-01
+identity | Consulte el artículo sobre cómo [obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
 
-### <a name="instance-api"></a>API de instancia
+## <a name="instance-api"></a>API de instancia
 
-Las siguientes categorías de procesos están disponibles a través de la API de instancia:
-
-> [!NOTE]
-> Mediante el punto de conexión de metadatos, se accede a las siguientes categorías a través de la instancia y los procesos:
+La API de instancia expone los metadatos importantes de las instancias de máquina virtual, como la máquina virtual, la red y el almacenamiento. Se puede acceder a las siguientes categorías a través de la instancia o el proceso:
 
 data | Descripción | Versión de introducción
 -----|-------------|-----------------------
@@ -347,7 +250,7 @@ publisher | Publicador de la imagen de VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para su máquina virtual | 2017-08-01
 resourceId | El identificador [completo](https://docs.microsoft.com/rest/api/resources/resources/getbyid) del recurso | 2019-03-11
 sku | SKU específica de la imagen de VM | 2017-04-02
-storageProfile | Consulte [Perfil de almacenamiento](#storage-profile) | 2019-06-01
+storageProfile | Consulte [Perfil de almacenamiento](#storage-metadata) | 2019-06-01
 subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/management/tag-resources.md) para su máquina virtual  | 2017-08-01
 tagsList | Etiquetas con formato de matriz de JSON para facilitar el análisis mediante programación  | 2019-06-04
@@ -357,55 +260,7 @@ vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../vir
 vmSize | [Tamaño de VM](sizes.md) | 2017-04-02
 zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la máquina virtual | 2017-12-01
 
-Las siguientes categorías de redes están disponibles a través de la API de instancia:
-
-> [!NOTE]
-> Mediante el punto de conexión de metadatos, se accede a las siguientes categorías a través de la instancia, la red o la interfaz.
-
-data | Descripción | Versión de introducción
------|-------------|-----------------------
-ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02
-ipv4/publicIpAddress | Dirección IPv4 pública de la máquina virtual | 2017-04-02
-subnet/address | Dirección de subred de la máquina virtual | 2017-04-02
-subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02
-ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02
-macAddress | Dirección de MAC de la VM | 2017-04-02
-
-## <a name="attested-data"></a>Datos atestiguados
-
-Parte del escenario que sirve Instance Metadata Service está destinado a garantizar que los datos proporcionados provienen de Azure. Firmamos una parte de esta información para que las imágenes de Marketplace puedan tener la seguridad de que su imagen se ejecuta en Azure.
-
-### <a name="example-attested-data"></a>Datos atestiguados de ejemplo
-
-> [!NOTE]
-> Todas las respuestas de las API son cadenas JSON. Las siguientes respuestas de ejemplo se han impreso correctamente para facilitar su lectura.
-
- **Solicitud**
-
- ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
-
-```
-
-Api-version es un campo obligatorio. Consulte la [sección de disponibilidad del servicio](#service-availability) para ver las versiones de API admitidas.
-Nonce es una cadena opcional de 10 dígitos. Si no se proporciona, IMDS devuelve en su lugar la marca de tiempo UTC actual. Debido al mecanismo de almacenamiento en caché de IMDS, es posible que se devuelva un valor de nonce previamente almacenado en caché.
-
- **Respuesta**
-
-> [!NOTE]
-> La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
-
- ```json
-{
- "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
-}
-```
-
-El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado que se usa para la firma junto con detalles de la máquina virtual como vmld, sku, nonce, subscriptionId y timeStamp para la creación y expiración del documento, y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
-
-## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
-
-### <a name="tracking-vm-running-on-azure"></a>Seguimiento de una máquina virtual que se ejecuta en Azure
+### <a name="sample-1-tracking-vm-running-on-azure"></a>Muestra 1: Seguimiento de una máquina virtual que se ejecuta en Azure
 
 Como proveedor de servicios, es posible que necesite hacer seguimiento de la cantidad de máquinas virtuales que ejecutan su software o que tenga agentes que deban hacer seguimiento de la unicidad de la máquina virtual. Para poder obtener un identificador único para una máquina virtual, use el campo `vmId` del servicio de metadatos de instancia.
 
@@ -421,7 +276,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Ubicación de los contenedores y el dominio de error/actualización basado en particiones de datos
+### <a name="sample-2-placement-of-containers-data-partitions-based-faultupdate-domain"></a>Ejemplo 2: Ubicación de los contenedores y el dominio de error/actualización basado en particiones de datos
 
 Para ciertos escenarios, la ubicación de las distintas réplicas de datos es de máxima importancia. Por ejemplo, para [la ubicación de réplicas de HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) o la ubicación de contenedores a través de un [orquestador](https://kubernetes.io/docs/user-guide/node-selection/) se debe saber en qué `platformFaultDomain` y `platformUpdateDomain` se ejecuta la máquina virtual.
 También puede usar las [zonas de disponibilidad](../../availability-zones/az-overview.md) para las instancias para tomar estas decisiones.
@@ -439,7 +294,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### <a name="getting-more-information-about-the-vm-during-support-case"></a>Obtención de más información sobre la VM durante el caso de soporte técnico
+### <a name="sample-3-getting-more-information-about-the-vm-during-support-case"></a>Ejemplo 3: Obtención de más información sobre la VM durante el caso de soporte técnico
 
 Como proveedor de servicios, es posible que reciba una llamada de soporte técnico en la que le gustaría tener más información sobre la máquina virtual. Pedirle al cliente que comparta los metadatos del equipo puede proporcionar información básica para que el profesional de soporte técnico conozca la variante de máquina virtual en Azure.
 
@@ -539,7 +394,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### <a name="getting-azure-environment-where-the-vm-is-running"></a>Obtención del entorno de Azure donde se está ejecutando la máquina virtual
+### <a name="sample-4-getting-azure-environment-where-the-vm-is-running"></a>Ejemplo 4: Obtención del entorno de Azure donde se está ejecutando la máquina virtual
 
 Azure tiene varias nubes soberanas, como [Azure Government](https://azure.microsoft.com/overview/clouds/government/). En ocasiones, necesitará el entorno de Azure para tomar algunas decisiones acerca del tiempo de ejecución. En el siguiente ejemplo se muestra cómo lograr este comportamiento.
 
@@ -563,145 +418,74 @@ Aquí se muestran las nubes y los valores del entorno de Azure.
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-### <a name="getting-the-tags-for-the-vm"></a>Obtención de las etiquetas para la máquina virtual
+## <a name="network-metadata"></a>Metadatos de red 
 
-Es posible que se hayan aplicado etiquetas a las máquinas virtuales de Azure para organizarlas de forma lógica en una taxonomía. Las etiquetas asignadas a una máquina virtual se pueden recuperar mediante esta solicitud.
+Los metadatos de red forman parte de la API de instancia. Las siguientes categorías de redes están disponibles a través del punto de conexión de red o de instancia.
 
-**Solicitud**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
-```
-
-**Respuesta**
-
-```text
-Department:IT;Environment:Test;Role:WebRole
-```
-
-El campo `tags` es una cadena con las etiquetas delimitadas por puntos y coma. Esto puede ser un problema si se usan puntos y coma en las propias etiquetas. Si se escribe un analizador para extraer las etiquetas mediante programación, debe basarse en el campo `tagsList`, que es una matriz de JSON sin delimitadores y, por tanto, más fácil de analizar.
-
-**Solicitud**
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
-```
-
-**Respuesta**
-
-```json
-[
-  {
-    "name": "Department",
-    "value": "IT"
-  },
-  {
-    "name": "Environment",
-    "value": "Test"
-  },
-  {
-    "name": "Role",
-    "value": "WebRole"
-  }
-]
-```
-
-### <a name="validating-that-the-vm-is-running-in-azure"></a>Validación de que la máquina virtual se ejecuta en Azure
-
-Los proveedores de Marketplace desean asegurarse de que su software tiene licencia para ejecutarse solo en Azure. Si alguien copia el disco duro virtual en un entorno local, debería disponer de la capacidad para detectarlo. Mediante una llamada al servicio de metadatos de instancia, los proveedores pueden obtener datos firmados que garantizan la respuesta únicamente de Azure.
+data | Descripción | Versión de introducción
+-----|-------------|-----------------------
+ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02
+ipv4/publicIpAddress | Dirección IPv4 pública de la máquina virtual | 2017-04-02
+subnet/address | Dirección de subred de la máquina virtual | 2017-04-02
+subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02
+ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02
+macAddress | Dirección de MAC de la VM | 2017-04-02
 
 > [!NOTE]
-> Requiere jq para instalarse.
+> Todas las respuestas de las API son cadenas JSON. Todas las respuestas de ejemplo siguientes se han imprimido correctamente para mejorar la legibilidad.
 
-**Solicitud**
+#### <a name="sample-1-retrieving-network-information"></a>Muestra 1: Recuperación de información de red
 
- ```bash
-  # Get the signature
-   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
-  # Decode the signature
-  base64 -d signature > decodedsignature
-  #Get PKCS7 format
-  openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
-  # Get Public key out of pkc7
-  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
-  #Get the intermediate certificate
-  wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
-  openssl x509 -inform der -in intermediate.cer -out intermediate.pem
-  #Verify the contents
-  openssl smime -verify -in sign.pk7 -inform pem -noverify
- ```
+***Solicitud***
 
- **Respuesta**
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
+```
+
+***Respuesta***
+
+> [!NOTE]
+> La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
 
 ```json
-Verification successful
-{"nonce":"20181128-001617",
-  "plan":
+{
+  "interface": [
     {
-     "name":"",
-     "product":"",
-     "publisher":""
-    },
-"timeStamp":
-  {
-    "createdOn":"11/28/18 00:16:17 -0000",
-    "expiresOn":"11/28/18 06:16:17 -0000"
-  },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-"sku": "RS3-Pro"
+      "ipv4": {
+        "ipAddress": [
+          {
+            "privateIpAddress": "10.1.0.4",
+            "publicIpAddress": "X.X.X.X"
+          }
+        ],
+        "subnet": [
+          {
+            "address": "10.1.0.0",
+            "prefix": "24"
+          }
+        ]
+      },
+      "ipv6": {
+        "ipAddress": []
+      },
+      "macAddress": "000D3AF806EC"
+    }
+  ]
 }
+
 ```
 
-data | Descripción
------|------------
-valor de seguridad | El usuario especificó una cadena opcional con la solicitud. Si no se proporcionó ningún nonce en la solicitud, se devuelve la marca de tiempo UTC actual
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) en una máquina virtual es una imagen de Azure Marketplace que contiene el nombre, producto y editor
-timestamp/createdOn | La marca de tiempo UTC en la que se ha creado el primer documento firmado
-timestamp/expiresOn | La marca de tiempo UTC en la que expira el documento firmado
-vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual.
-subscriptionId | Suscripción de Azure para la máquina virtual publicada con fecha `2019-04-30`
-sku | SKU específica de la imagen de VM, presentada en `2019-11-01`
-
-#### <a name="verifying-the-signature"></a>Comprobación de la firma
-
-Una vez que obtenga la firma anterior, podrá comprobar que esta es de Microsoft. También podrá comprobar el certificado intermedio y la cadena de certificados. Por último, puede comprobar que el identificador de suscripción es correcto.
-
-> [!NOTE]
-> El certificado para la nube pública y la nube soberana serán diferentes.
-
- Nube | Certificado
----------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
-
-Existe un problema conocido con respecto al certificado usado para firmar. Es posible que los certificados no tengan una coincidencia exacta de `metadata.azure.com` para la nube pública. Por lo tanto, la validación de la certificación debe permitir un nombre común de cualquier subdominio `.metadata.azure.com`.
+#### <a name="sample-2-retrieving-public-ip-address"></a>Ejemplo 2: Recuperación de dirección IP pública
 
 ```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 
-# Verify the subject name for the main certificate
-openssl x509 -noout -subject -in signer.pem
-# Verify the issuer for the main certificate
-openssl x509 -noout -issuer -in signer.pem
-#Validate the subject name for intermediate certificate
-openssl x509 -noout -subject -in intermediate.pem
-# Verify the issuer for the intermediate certificate
-openssl x509 -noout -issuer -in intermediate.pem
-# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
-openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
-En aquellos casos en los que el certificado intermedio no se puede descargar debido a restricciones de red durante la validación, es posible anclarlo. No obstante, Azure sustituirá los certificados según el procedimiento PKI estándar. Los certificados anclados deberán actualizarse cuando se produzca la sustitución. Cada vez que se planee un cambio para actualizar el certificado intermedio, se actualizará el blog de Azure y se notificará a los clientes de Azure. Encontrará los certificados intermedios [aquí](https://www.microsoft.com/pki/mscorp/cps/default.htm). Los certificados intermedios para cada una de las regiones pueden ser diferentes.
+## <a name="storage-metadata"></a>Metadatos de almacenamiento
 
-> [!NOTE]
->El certificado intermedio para Azure China 21Vianet será de la entidad de certificación raíz global de DigiCert en lugar de Baltimore.
-Además, si había anclado los certificados intermedios para Azure China como parte del cambio de la entidad de la cadena raíz, los certificados intermedios tendrán que actualizarse.
-
-### <a name="storage-profile"></a>Perfil de almacenamiento
-
-Instance Metadata Service puede proporcionar detalles sobre los discos de almacenamiento asociados a la máquina virtual. Estos datos se pueden encontrar en el punto de conexión instance/compute/storageProfile.
+Los metadatos de almacenamiento forman parte de la API de instancia en el punto de conexión instance/compute/storageProfile.
+Proporciona detalles sobre los discos de almacenamiento asociados a la máquina virtual. 
 
 El perfil de almacenamiento de una máquina virtual se divide en tres categorías: referencia de imagen, disco del sistema operativo y discos de datos.
 
@@ -815,7 +599,193 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 }
 ```
 
-### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Ejemplos de llamadas al servicio de metadatos mediante lenguajes diferentes dentro de la máquina virtual
+## <a name="vm-tags"></a>Etiquetas de máquina virtual
+
+Las etiquetas de máquina virtual se incluyen en la API de instancia en el punto de conexión instance/compute/tags.
+Es posible que se hayan aplicado etiquetas a las máquinas virtuales de Azure para organizarlas de forma lógica en una taxonomía. Las etiquetas asignadas a una máquina virtual se pueden recuperar mediante esta solicitud.
+
+**Solicitud**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+```
+
+**Respuesta**
+
+```text
+Department:IT;Environment:Test;Role:WebRole
+```
+
+El campo `tags` es una cadena con las etiquetas delimitadas por puntos y coma. Esto puede ser un problema si se usan puntos y coma en las propias etiquetas. Si se escribe un analizador para extraer las etiquetas mediante programación, debe basarse en el campo `tagsList`, que es una matriz de JSON sin delimitadores y, por tanto, más fácil de analizar.
+
+**Solicitud**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
+```
+
+**Respuesta**
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "Environment",
+    "value": "Test"
+  },
+  {
+    "name": "Role",
+    "value": "WebRole"
+  }
+]
+```
+
+## <a name="attested-data"></a>Datos atestiguados
+
+Parte del escenario que sirve Instance Metadata Service está destinado a garantizar que los datos proporcionados provienen de Azure. Firmamos una parte de esta información para que las imágenes de Marketplace puedan tener la seguridad de que su imagen se ejecuta en Azure.
+
+### <a name="sample-1-getting-attested-data"></a>Muestra 1: Obtención de datos de atestación
+
+> [!NOTE]
+> Todas las respuestas de las API son cadenas JSON. Las siguientes respuestas de ejemplo se han impreso correctamente para facilitar su lectura.
+
+***Solicitud***
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+
+```
+
+Api-version es un campo obligatorio. Consulte la [sección de uso](#usage) para ver las versiones de API compatibles.
+Nonce es una cadena opcional de 10 dígitos. Si no se proporciona, IMDS devuelve en su lugar la marca de tiempo UTC actual. Debido al mecanismo de almacenamiento en caché de IMDS, es posible que se devuelva un valor de nonce previamente almacenado en caché.
+
+ ***Respuesta***
+
+> [!NOTE]
+> La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
+
+```json
+{
+ "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
+}
+```
+
+El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado que se usa para la firma junto con detalles de la máquina virtual como vmld, sku, nonce, subscriptionId y timeStamp para la creación y expiración del documento, y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
+
+### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Ejemplo 2: Validación de que la máquina virtual se ejecuta en Azure
+
+Los proveedores de Marketplace desean asegurarse de que su software tiene licencia para ejecutarse solo en Azure. Si alguien copia el disco duro virtual en un entorno local, debería disponer de un capacidad para detectarlo. Mediante una llamada al servicio de metadatos de instancia, los proveedores pueden obtener datos firmados que garantizan la respuesta únicamente de Azure.
+
+> [!NOTE]
+> Requiere jq para instalarse.
+
+***Solicitud***
+
+```bash
+  # Get the signature
+   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
+  # Decode the signature
+  base64 -d signature > decodedsignature
+  #Get PKCS7 format
+  openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  # Get Public key out of pkc7
+  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
+  #Get the intermediate certificate
+  wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
+  openssl x509 -inform der -in intermediate.cer -out intermediate.pem
+  #Verify the contents
+  openssl smime -verify -in sign.pk7 -inform pem -noverify
+ ```
+
+ **Respuesta**
+
+```json
+Verification successful
+{"nonce":"20181128-001617",
+  "plan":
+    {
+     "name":"",
+     "product":"",
+     "publisher":""
+    },
+"timeStamp":
+  {
+    "createdOn":"11/28/18 00:16:17 -0000",
+    "expiresOn":"11/28/18 06:16:17 -0000"
+  },
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+"sku": "RS3-Pro"
+}
+```
+
+data | Descripción
+-----|------------
+valor de seguridad | El usuario especificó una cadena opcional con la solicitud. Si no se proporcionó ningún nonce en la solicitud, se devuelve la marca de tiempo UTC actual
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) en una máquina virtual es una imagen de Azure Marketplace que contiene el nombre, producto y editor
+timestamp/createdOn | La marca de tiempo UTC en la que se ha creado el primer documento firmado
+timestamp/expiresOn | La marca de tiempo UTC en la que expira el documento firmado
+vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual.
+subscriptionId | Suscripción de Azure para la máquina virtual publicada con fecha `2019-04-30`
+sku | SKU específica de la imagen de VM, presentada en `2019-11-01`
+
+#### <a name="sample-3-verifying-the-signature"></a>Ejemplo 3: Comprobación de la firma
+
+Una vez que obtenga la firma anterior, podrá comprobar que esta es de Microsoft. También podrá comprobar el certificado intermedio y la cadena de certificados. Por último, puede comprobar que el identificador de suscripción es correcto.
+
+> [!NOTE]
+> El certificado para la nube pública y la nube soberana serán diferentes.
+
+ Nube | Certificado
+---------|-----------------
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+
+Existe un problema conocido con respecto al certificado usado para firmar. Es posible que los certificados no tengan una coincidencia exacta de `metadata.azure.com` para la nube pública. Por lo tanto, la validación de la certificación debe permitir un nombre común de cualquier subdominio `.metadata.azure.com`.
+
+```bash
+
+# Verify the subject name for the main certificate
+openssl x509 -noout -subject -in signer.pem
+# Verify the issuer for the main certificate
+openssl x509 -noout -issuer -in signer.pem
+#Validate the subject name for intermediate certificate
+openssl x509 -noout -subject -in intermediate.pem
+# Verify the issuer for the intermediate certificate
+openssl x509 -noout -issuer -in intermediate.pem
+# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
+openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
+```
+
+En aquellos casos en los que el certificado intermedio no se puede descargar debido a restricciones de red durante la validación, es posible anclarlo. No obstante, Azure sustituirá los certificados según el procedimiento PKI estándar. Los certificados anclados deberán actualizarse cuando se produzca la sustitución. Cada vez que se planee un cambio para actualizar el certificado intermedio, se actualizará el blog de Azure y se notificará a los clientes de Azure. Encontrará los certificados intermedios [aquí](https://www.microsoft.com/pki/mscorp/cps/default.htm). Los certificados intermedios para cada una de las regiones pueden ser diferentes.
+
+> [!NOTE]
+>El certificado intermedio para Azure China 21Vianet será de la entidad de certificación raíz global de DigiCert en lugar de Baltimore.
+Además, si había anclado los certificados intermedios para Azure China como parte del cambio de la entidad de la cadena raíz, los certificados intermedios tendrán que actualizarse.
+
+## <a name="managed-identity-via-metadata-service"></a>Identidad administrada a través de Metadata Service
+El usuario puede habilitar la identidad administrada en una máquina virtual y, a continuación, usar Instance Metadata Service con el fin de pasar el token para acceder a los servicios de Azure. Las aplicaciones que se ejecutan en una máquina virtual ahora pueden solicitar un token desde el punto de Instance Metadata Service de Azure y, después, usar el token para autenticarse en servicios en la nube, incluido el almacén de claves.
+Para ver pasos detallados sobre cómo habilitar esta característica, consulte cómo [adquirir un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+## <a name="scheduled-events-via-metadata-service"></a>Scheduled Events a través de Metadata Service
+Puede obtener el estado de los eventos programados mediante el servicio de metadatos y, a continuación, el usuario puede especificar un conjunto de acciones para ejecutarse en estos eventos.  Consulte la página de [eventos programados](scheduled-events.md) para obtener más información. 
+
+## <a name="regional-availability"></a>Disponibilidad regional
+
+El servicio está **disponible con carácter general** en todas las regiones de Azure. Esto incluye: 
+1. [Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)
+2. [Azure Government](https://azure.microsoft.com/overview/clouds/government/)  
+3. [Azure China 21Vianet](https://www.azure.cn/) 
+4. [Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/) 
+
+## <a name="sample-code-in-different-languages"></a>Código de ejemplo en diferentes lenguajes
+
+Ejemplos de llamadas al servicio de metadatos mediante lenguajes diferentes dentro de la máquina virtual:
 
 Idioma | Ejemplo
 ---------|----------------
@@ -825,14 +795,26 @@ Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
-Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>Preguntas más frecuentes
+## <a name="error-and-debugging"></a>Error y depuración
+
+Si no se encuentra un elemento de datos o hay una solicitud con formato incorrecto, el servicio de metadatos de instancia devuelve errores HTTP estándar. Por ejemplo:
+
+Código de estado HTTP | Motivo
+----------------|-------
+200 OK |
+400 - Solicitud incorrecta | Falta el encabezado `Metadata: true` o el formato al consultar un nodo hoja
+404 No encontrado | El elemento solicitado no existe
+405 Método no permitido | Solo se admiten solicitudes `GET`
+410 Ya no existe | Reintente después de un tiempo durante un máximo de 70 segundos
+429 Demasiadas solicitudes | La API es compatible actualmente con un máximo de cinco consultas por segundo
+500 Error de servicio     | Vuelva a intentarlo más tarde
+
+### <a name="known-issues-and-faq"></a>Problemas conocidos y preguntas más frecuentes
 
 1. Obtengo el error `400 Bad Request, Required metadata header not specified`. ¿Qué significa?
    * El servicio de metadatos de instancia requiere que el encabezado `Metadata: true` se transmita en la solicitud. Transmitir este encabezado en la llamada de REST permite tener acceso al servicio de metadatos de instancia.
@@ -855,8 +837,15 @@ Puppet | https://github.com/keirans/azuremetadata
 10. He actualizado mis etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las máquinas virtuales.
     * Actualmente, las etiquetas para ScaleSets solo se muestran a la máquina virtual durante un reinicio, restablecimiento de imagen o cambio de disco en la instancia.
 
-    ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
+## <a name="support-and-feedback"></a>Asistencia y comentarios
+
+Envíe sus comentarios sobre https://feedback.azure.com.
+Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal en la máquina virtual en la que no obtiene respuesta de metadatos después de reintentos prolongados.
+
+![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre los [eventos programados](scheduled-events.md).
+Más información sobre:
+1.  [Obtener un token de acceso para la máquina virtual](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+2.  [Eventos programados](scheduled-events.md) 

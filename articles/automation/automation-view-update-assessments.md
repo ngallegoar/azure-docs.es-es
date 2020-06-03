@@ -1,18 +1,18 @@
 ---
-title: Visualización de las evaluaciones de actualizaciones de Update Management de Azure Automation
-description: En este artículo se describe cómo ver las evaluaciones de actualizaciones para las implementaciones de actualizaciones.
+title: Visualización de las valoraciones de actualizaciones de Azure Automation
+description: En este artículo se explica cómo ver las valoraciones de actualizaciones para las implementaciones de Update Management.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 321146364897d46a403bdfd6789fcb219179d88c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617393"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830606"
 ---
-# <a name="view-azure-automation-update-management-update-assessments"></a>Visualización de las evaluaciones de actualizaciones de Update Management de Azure Automation
+# <a name="view-update-assessments"></a>Visualización de valoraciones de las actualizaciones
 
 En la cuenta de Azure Automation, seleccione **Update Management** para ver el estado de sus máquinas.
 
@@ -28,7 +28,7 @@ Haga clic en **Actualizaciones que faltan** para ver la lista de actualizaciones
 
 ![Actualizaciones que faltan](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Clasificaciones de actualizaciones
+## <a name="work-with-update-classifications"></a>Trabajo con las clasificaciones de actualizaciones
 
 En las siguientes tablas, se muestran las clasificaciones de las actualizaciones de Update Management admitidas, junto con una definición de cada una de ellas.
 
@@ -64,4 +64,4 @@ Para clasificar las actualizaciones de la versión 6 de Red Hat Enterprise, deb
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de ver las evaluaciones de actualizaciones, puede programar una implementación de actualizaciones siguiendo los pasos descritos en [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
+Para obtener información general, vea [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).

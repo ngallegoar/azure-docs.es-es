@@ -1,15 +1,15 @@
 ---
-title: Instalación de paquetes de aplicación en nodos de proceso
+title: Implementación de paquetes de aplicación en nodos de proceso
 description: Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd5821a7876cc99be41fbb2c5b095b931653c345
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115625"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780307"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -68,7 +68,7 @@ Con los paquetes de aplicación, la tarea de inicio del grupo no tiene que espec
 Puede usar [Azure Portal][portal] o las API de Batch Management para administrar los paquetes de aplicaciones en la cuenta de Batch. En las siguientes secciones, primero se muestra cómo vinculará primero una cuenta de Storage y, después, se analizará la incorporación de paquetes y aplicaciones y su administración con el portal.
 
 ### <a name="link-a-storage-account"></a>Vínculo a una cuenta de Almacenamiento
-Para utilizar paquetes de aplicación, primero se debe vincular una [cuenta de Azure Storage](batch-api-basics.md#azure-storage-account) a su cuenta de Batch. Si aún no ha configurado ninguna cuenta de Storage, Azure Portal muestra una advertencia la primera vez que hace clic en **Aplicaciones** en la cuenta de Batch.
+Para utilizar paquetes de aplicación, primero se debe vincular una [cuenta de Azure Storage](accounts.md#azure-storage-accounts) a su cuenta de Batch. Si aún no ha configurado ninguna cuenta de Storage, Azure Portal muestra una advertencia la primera vez que hace clic en **Aplicaciones** en la cuenta de Batch.
 
 
 
@@ -285,9 +285,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Para más información sobre la configuración del entorno del nodo de proceso, consulte el apartado [Configuración del entorno para las tareas](batch-api-basics.md#environment-settings-for-tasks) de [Información general de las características de Batch](batch-api-basics.md).
-> 
-> 
+> Para más información sobre la configuración del entorno del nodo de proceso, consulte [Configuración del entorno para las tareas](jobs-and-tasks.md#environment-settings-for-tasks). 
 
 ## <a name="update-a-pools-application-packages"></a>Actualización de los paquetes de aplicación de un grupo
 Si un grupo existente ya se ha configurado con un paquete de aplicación, se puede especificar un paquete nuevo para el grupo. Si especifica una nueva referencia de paquete para un grupo, se aplica lo siguiente:

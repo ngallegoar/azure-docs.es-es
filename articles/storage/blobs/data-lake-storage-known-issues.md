@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767962"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642187"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -65,17 +65,15 @@ No se admiten discos de máquina virtual no administrados en cuentas que tengan 
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Compatibilidad del sistema de archivos en los SDK, PowerShell y la CLI de Azure
 
 - Las operaciones de ACL Get y Set no son recursivas actualmente.
-- La compatibilidad de la [CLI de Azure](data-lake-storage-directory-file-acl-cli.md) está en versión preliminar pública.
 
 
 ## <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
 
-* Todavía no se admite la eliminación de instantáneas de blob.  
+Todavía no se admite la eliminación de instantáneas de blob. 
 
 ## <a name="archive-tier"></a>Nivel de archivo
 
 Actualmente hay un error que afecta al nivel de acceso de archivo.
-
 
 ## <a name="blobfuse"></a>Blobfuse
 
@@ -108,6 +106,39 @@ Las aplicaciones de terceros que usan las API REST para funcionar seguirán func
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listas de control de acceso (ACL) y acceso de lectura anónimo
 
 Si se ha concedido [acceso de lectura anónimo](storage-manage-access-to-resources.md) a un contenedor, las ACL no tendrán ningún efecto en ese contenedor o los archivos de ese contenedor.
+
+## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Cuentas de almacenamiento BlockBlobStorage de alto rendimiento
+
+### <a name="diagnostic-logs"></a>Registros de diagnóstico
+
+Los registros de diagnóstico aún no se pueden habilitar mediante Azure Portal. Puede habilitarlos mediante PowerShell. Por ejemplo:
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+### <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
+
+- Las directivas de administración del ciclo de vida todavía no se admiten en cuentas de almacenamiento BlockBlobStorage premium. 
+
+- Los datos no se pueden pasar del nivel Premium a niveles inferiores. 
+
+- La acción **Eliminar blob** no se admite actualmente. 
+
+### <a name="hdinsight-support"></a>Compatibilidad con HDInsight
+
+Al crear un clúster de HDInsight, todavía no se puede seleccionar una cuenta BlockBlobStorage con la característica de espacio de nombres jerárquico habilitada en ella. Sin embargo, puede asociar la cuenta al clúster después de haberla creado.
+
+### <a name="dremio-support"></a>Compatibilidad con Dremio
+
+Dremio todavía no se conecta a una cuenta BlockBlobStorage con la característica de espacio de nombres jerárquico habilitada en ella. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Controlador Windows Azure Storage Blob (WASB) (no compatible con Data Lake Storage Gen2)
 

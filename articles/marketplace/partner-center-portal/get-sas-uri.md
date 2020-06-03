@@ -1,23 +1,20 @@
 ---
-title: Obtención del identificador URI de firma de acceso compartido para la imagen de máquina virtual | Azure Marketplace
-description: En este artículo se explica cómo obtener el identificador URI de firma de acceso compartido (SAS) para cada disco duro virtual (VHD).
+title: URI de Firma de acceso compartido para imágenes de máquina virtual | Azure Marketplace
+description: Genere un URI de Firma de acceso compartido (SAS) para los discos duros virtuales (VHD) en Azure Marketplace.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: c226d35647e4a5a2b1d583dd6328bfb73dae2a1c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732634"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725880"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtención del URI de firma de acceso compartido para la imagen de máquina virtual
-
-> [!IMPORTANT]
-> Estamos trasladando la administración de las ofertas de máquina virtual de Azure de Cloud Partner Portal al Centro de partners. Hasta que se migren las ofertas, siga las instrucciones de [Obtención del identificador URI de firma de acceso compartido para la imagen de máquina virtual](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri) para Cloud Partner Portal para administrar las ofertas.
 
 En este artículo se describe cómo generar un identificador uniforme de recursos (URI) de firma de acceso compartido (SAS) para cada disco duro virtual (VHD).
 

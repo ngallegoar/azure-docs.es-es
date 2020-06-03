@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 9b767caa1041f865d8e15cd57796b186f7a4a6bb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f62f2b5bc01518af29bd1deb17a38e9fe105a4ed
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596274"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800553"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Cola de Storage como controlador de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Queue Storage** es uno de ellos. 
@@ -25,6 +25,121 @@ Consulte el siguiente tutorial para obtener un ejemplo del uso de Queue Storage 
 |Título  |Descripción  |
 |---------|---------|
 | [Guía de inicio rápido: Enrutamiento de eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid](custom-event-to-queue-storage.md) | Describe cómo enviar eventos personalizados a una instancia de Queue Storage. |
+
+## <a name="rest-examples-for-put"></a>Ejemplos de REST (para PUT)
+
+### <a name="storage-queue-as-the-event-handler"></a>Cola de almacenamiento como el controlador de eventos
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "StorageQueue",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>",
+                "queueName": "<QUEUE NAME>"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="storage-queue-as-the-event-handler---delivery-with-managed-identity"></a>Cola de almacenamiento como el controlador de eventos: entrega con identidad administrada
+
+```json
+{
+    "properties": 
+    {
+        "deliveryWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "destination": 
+            {
+                "endpointType": "StorageQueue",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>",
+                    "queueName": "<QUEUE NAME>"
+                }
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema"
+    }
+}
+```
+
+### <a name="storage-queue-as-a-deadletter-destination"></a>Cola de almacenamiento como destino de mensajes fallidos
+
+```json
+{
+    "name": "",
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "StorageQueue",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<DESTINATION STORAGE>",
+                "queueName": "queue1"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema",
+        "deadLetterDestination": 
+        {
+            "endpointType": "StorageBlob",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<DEADLETTER STORAGE>",
+                "blobContainerName": "test"
+            }
+        }
+    }
+}
+```
+
+### <a name="storage-queue-as-a-deadletter-destination---managed-identity"></a>Cola de almacenamiento como destino de mensajes fallidos: identidad administrada
+
+```json
+{
+    "properties": 
+    {
+        "destination": 
+        {
+            "endpointType": "StorageQueue",
+            "properties": 
+            {
+                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<DESTINATION STORAGE>",
+                "queueName": "queue1"
+            }
+        },
+        "eventDeliverySchema": "EventGridSchema",
+        "deadLetterWithResourceIdentity": 
+        {
+            "identity": 
+            {
+                "type": "SystemAssigned"
+            },
+            "deadLetterDestination": 
+            {
+                "endpointType": "StorageBlob",
+                "properties": 
+                {
+                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<DEADLETTER STORAGE>",
+                    "blobContainerName": "test"
+                }
+            }
+        }
+    }
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo [Controladores de eventos](event-handlers.md) para obtener una lista de controladores de eventos compatibles. 

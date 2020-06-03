@@ -1,14 +1,14 @@
 ---
 title: Recurso compartido de archivos de Azure para grupos de Azure Batch
 description: Cómo montar un recurso compartido de archivos de Azure a partir de nodos de proceso en un grupo de Linux o Windows en Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115455"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780285"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Uso de un recurso compartido de archivos con un grupo de Batch
 
@@ -172,6 +172,5 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para información sobre otras opciones de lectura y escritura de datos en Batch, consulte la [introducción a las características de Batch](batch-api-basics.md) and [Trabajo persistente y resultado de la tarea](batch-task-output.md).
-
+* Para obtener información sobre otras opciones de lectura y escritura de datos en Batch, consulte [Trabajo persistente y resultado de la tarea](batch-task-output.md).
 * Consulte también el kit de herramientas [Batch Shipyard](https://github.com/Azure/batch-shipyard), que incluye [recetas de Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes) para implementar sistemas de archivos para cargas de trabajo de contenedor de Batch.

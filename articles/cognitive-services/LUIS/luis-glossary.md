@@ -3,12 +3,12 @@ title: 'Glosario: LUIS'
 description: En el glosario se explican los términos que puede encontrar cuando use el servicio de API de LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589676"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681622"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio LUIS.
@@ -141,7 +141,7 @@ El esquema de entidad es la estructura que se define para las entidades con apre
 
 Una subentidad es una entidad secundaria de una entidad con aprendizaje automático.
 
-### <a name="non-machine-learned-entity"></a>Entidad sin aprendizaje automático
+### <a name="non-machine-learning-entity"></a>Entidad que no es de aprendizaje automático
 
 Una entidad que usa la coincidencia de texto para extraer datos:
 * Entidad de lista
@@ -199,6 +199,10 @@ Un modelo (con aprendizaje automático) es una función que realiza una predicci
 ## <a name="normalized-value"></a>Valor normalizado
 
 Se agregan valores a las entidades de [lista](#list-entity). Cada uno de esos valores puede tener una lista de uno o más sinónimos. En la respuesta solo se devuelve el valor normalizado.
+
+## <a name="overfitting"></a>Sobreajuste
+
+El sobreajuste se produce cuando el modelo se fija solo en los ejemplos específicos y no puede generalizarse bien.
 
 ## <a name="owner"></a>Propietario
 
@@ -260,7 +264,7 @@ La cuota de LUIS es la limitación del nivel de suscripción de Azure. La cuota 
 
 ## <a name="schema"></a>Schema
 
-El esquema incluye las intenciones y entidades junto con las subentidades. Inicialmente, se planea el esquema para iterarse a lo largo del tiempo. El esquema no incluye la configuración, las características o las expresiones de ejemplo de la aplicación. 
+El esquema incluye las intenciones y entidades junto con las subentidades. Inicialmente, se planea el esquema para iterarse a lo largo del tiempo. El esquema no incluye la configuración, las características o las expresiones de ejemplo de la aplicación.
 
 ## <a name="sentiment-analysis"></a>Análisis de sentimiento
 El análisis de sentimiento proporciona valores positivos o negativos de las expresiones que proporciona [Text Analytics](../text-analytics/overview.md).

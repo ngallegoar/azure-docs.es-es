@@ -1,24 +1,22 @@
 ---
-title: 'Creación de soluciones con plantillas de Visual Studio: Azure Batch | Microsoft Docs'
+title: Compilación de soluciones con plantillas de Visual Studio
 description: Descubra cómo las plantillas de proyecto de Visual Studio pueden ayudarlo a implementar y ejecutar cargas de trabajo de proceso intensivo en Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117529"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779508"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Uso de plantillas de proyecto de Visual Studio para empezar a crear soluciones de Batch
 
 Las **plantillas de Visual Studio para el administrador de trabajos**y el **procesador de tareas** para Batch proporcionan código para ayudar a implementar y ejecutar las cargas de trabajo de proceso intensivo en Batch con el mínimo esfuerzo. En este documento se describen estas plantillas y se proporcionan instrucciones para utilizarlas.
 
 > [!IMPORTANT]
-> En este artículo se describe solo información aplicable a estas dos plantillas, y se supone que está familiarizado con el servicio Batch y con los conceptos clave relacionados con él: grupos, nodos de proceso, trabajos y tareas, tareas del administrador de trabajos, variables de entorno y otra información pertinente. Puede encontrar más información en los artículos [Conceptos básicos de Azure Batch](batch-technical-overview.md) e [Información general de las características de Batch para desarrolladores](batch-api-basics.md).
-> 
-> 
+> En este artículo se describe solo información aplicable a estas dos plantillas, y se supone que está familiarizado con el servicio Batch y con los conceptos clave relacionados con él: grupos, nodos de proceso, trabajos y tareas, tareas del administrador de trabajos, variables de entorno y otra información pertinente. Puede encontrar más información en [Conceptos básicos de Azure Batch](batch-technical-overview.md) y [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md). 
 
 ## <a name="high-level-overview"></a>Información general de alto nivel
 Las plantillas del administrador de trabajos y del procesador de tareas pueden utilizarse para crear dos componentes útiles:
@@ -69,7 +67,7 @@ La plantilla del administrador de trabajos ayuda a implementar una tarea del adm
 * Enviar esas tareas para ejecutarlas en Batch.
 
 > [!NOTE]
-> Para obtener más información sobre las tareas del administrador de trabajos, vea [Información general de las características de Batch para desarrolladores](batch-api-basics.md#job-manager-task).
+> Para más información sobre las tareas del administrador de trabajos, consulte [Trabajos y tareas](jobs-and-tasks.md#job-manager-task).
 > 
 > 
 
@@ -188,7 +186,7 @@ Una tarea del administrador de trabajos que se implementa con la plantilla del a
 
 En el caso de errores de tareas del administrador de trabajos, algunas tareas aún pueden haberse agregado al servicio antes de producirse el error. Estas tareas se ejecutarán como normales. Vea la sección "Error del separador de trabajos" más arriba para consultar el análisis de esta ruta de acceso del código.
 
-Toda la información devuelta por las excepciones se escribe en archivos stdout.txt y stderr.txt. Para más información, consulte [Control de errores](batch-api-basics.md#error-handling).
+Toda la información devuelta por las excepciones se escribe en archivos stdout.txt y stderr.txt. Para más información, consulte [Control de errores](error-handling.md).
 
 ### <a name="client-considerations"></a>Consideraciones de cliente
 En esta sección se describen algunos requisitos de implementación de cliente al invocar un administrador de trabajos basado en esta plantilla. Vea [cómo pasar parámetros y variables de entorno desde el código de cliente](#pass-environment-settings) para obtener más información sobre cómo pasar los parámetros y la configuración del entorno.

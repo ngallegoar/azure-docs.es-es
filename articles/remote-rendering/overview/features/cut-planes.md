@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759088"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021371"
 ---
 # <a name="cut-planes"></a>Corte de planos
 
@@ -60,11 +60,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 Las siguientes propiedades se exponen en un componente de plano de corte:
 
-* **Habilitada:** Puede desactivar temporalmente los planos de corte deshabilitando el componente. Los planos de corte deshabilitados no incurren en sobrecarga de representación y tampoco se cuentan para el límite de plano de corte global.
+* `Enabled`: Puede desactivar temporalmente los planos de corte deshabilitando el componente. Los planos de corte deshabilitados no incurren en sobrecarga de representación y tampoco se cuentan para el límite de plano de corte global.
 
-* **Normal:** especifica qué dirección (+X,-X,+Y,-Y,+Z,-Z) se usa como normal del plano. Esta dirección es relativa a la orientación de la entidad propietaria. Mueva y gire la entidad propietaria para obtener la ubicación exacta.
+* `Normal`: especifica qué dirección (+X,-X,+Y,-Y,+Z,-Z) se usa como normal del plano. Esta dirección es relativa a la orientación de la entidad propietaria. Mueva y gire la entidad propietaria para obtener la ubicación exacta.
 
-* **FadeColor** y **FadeLength:**
+* `FadeColor` y `FadeLength`:
 
   Si el valor alfa de *FadeColor* es distinto de cero, los píxeles cercanos al plano de corte se atenuarán hacia la parte RGB de FadeColor. La fuerza del canal alfa determina si se desvanece completamente hacia el color de fundido o solo parcialmente. *FadeLength* define con qué distancia se llevará a cabo esta transición.
 

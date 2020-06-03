@@ -1,6 +1,6 @@
 ---
 title: Administración de programaciones en Azure Automation
-description: Aprenda a crear y administrar una programación en Azure Automation, de modo que pueda iniciar automáticamente un runbook en un momento determinado o en una programación periódica.
+description: En este artículo se explica cómo crear una programación en Azure Automation y cómo trabajar con ella.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,22 +9,22 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4cd6d4236b95a17f404df13e8b50daf989cf6072
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652108"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744975"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Administración de programaciones en Azure Automation
 
 Para programar un runbook en Azure Automation para que se inicie en un momento determinado, vincúlelo a una o más programaciones. Es posible configurar una programación para que se ejecute una vez o según una programación periódica diaria o por hora para los runbooks en Azure Portal. También las puede programar para que se ejecuten una vez a la semana, una vez al mes, en días específicos de la semana o del mes, o bien en un día determinado del mes. Un runbook puede vincularse a varias programaciones y una programación puede tener varios runbooks vinculados a ella.
 
 > [!NOTE]
-> Las programaciones no admiten actualmente las configuraciones de DSC de Azure Automation.
+> Azure Automation admite el horario de verano y lo programa de forma adecuada para las operaciones de automatización.
 
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la última versión mediante [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
+> [!NOTE]
+> Las programaciones no están habilitadas actualmente para las configuraciones de DSC de Azure Automation.
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlets de PowerShell usados para acceder a programaciones
 

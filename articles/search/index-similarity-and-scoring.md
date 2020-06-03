@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9f9cc4c29b117c83595a36c4e28b1edb428c3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254065"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679661"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similitud y puntuación en Azure Cognitive Search
 
@@ -36,7 +36,9 @@ Puede personalizar la forma en que se clasifican los distintos campos mediante l
 
 Un perfil de puntuación es parte de la definición del índice que se compone de campos, funciones y parámetros ponderados. Para obtener más información sobre cómo definir uno, consulte [Perfiles de puntuación](index-add-scoring-profiles.md).
 
-## <a name="scoring-statistics"></a>Estadísticas de puntuación
+<a name="scoring-statistics"></a>
+
+## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Estadísticas de puntuación y sesiones permanentes (vista previa)
 
 Para ofrecer escalabilidad, Azure Cognitive Search distribuye cada índice horizontalmente a través de un proceso de particionamiento, lo que significa que las partes de un índice están físicamente separadas.
 
@@ -45,13 +47,21 @@ De forma predeterminada, la puntuación de un documento se calcula en función d
 Si prefiere calcular la puntuación en función de las propiedades estadísticas de todas las particiones, para hacerlo puede agregar *scoringStatistics=global* como un [parámetro de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents) (o agregar *"scoringStatistics": "global"* como un parámetro del cuerpo de la [solicitud de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
   Content-Type: application/json
-  api-key: [admin key]  
+  api-key: [admin or query key]  
 ```
+El uso de scoringStatistics garantizará que todas las particiones de la misma réplica proporcionen los mismos resultados. Dicho esto, diferentes réplicas pueden ser ligeramente distintas entre sí, ya que siempre se actualizan con los cambios más recientes en el índice. En algunos casos, puede que desee que los usuarios obtengan resultados más coherentes durante una "sesión de consulta". En esos casos, puede proporcionar un `sessionId` como parte de las consultas. El `sessionId` es una cadena única que se crea para hacer referencia a una sesión de usuario única.
+
+```http
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+  Content-Type: application/json
+  api-key: [admin or query key]  
+```
+Siempre y cuando se use el mismo `sessionId`, se intentará en lo posible dirigirse a la misma réplica, lo que aumentará la coherencia de los resultados que verán los usuarios. 
 
 > [!NOTE]
-> Se requiere una clave de API de administración para el parámetro `scoringStatistics`.
+> Reutilizar los mismos valores de `sessionId` repetidamente puede interferir en el equilibrio de carga de las solicitudes entre réplicas y afectar negativamente al rendimiento del servicio de búsqueda. El valor utilizado como sessionId no puede empezar con el carácter "_".
 
 ## <a name="similarity-ranking-algorithms"></a>Algoritmo de clasificación de similitud
 
@@ -59,16 +69,9 @@ Azure Cognitive Search admite dos algoritmos de clasificación de similitud dife
 
 Por ahora, puede especificar el algoritmo de clasificación de similitud que le gustaría usar. Para obtener más información, consulte [Algoritmo de clasificación](index-ranking-similarity.md).
 
-## <a name="watch-this-video"></a>Vea este vídeo
+El siguiente segmento de vídeo avanza rápidamente para mostrar una explicación de cómo funciona el procesamiento de texto en Azure Cognitive Search. Puede ver el vídeo completo para obtener más información.
 
-En este vídeo de 16 minutos, el ingeniero de software Raouf Merouche explica el proceso de indexación, consulta y creación de perfiles de puntuación. Le ofrece una buena idea de lo que está ocurriendo entre bambalinas mientras los documentos se indexan y recuperan.
-
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2-3 minutos de cobertura de la indexación: procesamiento de texto y análisis léxico.
-+ 3-4 minutos de cobertura de la indexación: índices invertidos.
-+ 4-6 minutos de cobertura de las consultas: recuperación y clasificación.
-+ 7 - 16 minutos de cobertura de los perfiles de puntuación.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## <a name="see-also"></a>Consulte también
 

@@ -3,12 +3,12 @@ title: Recuperación de archivos y carpetas desde una copia de seguridad de máq
 description: En este artículo, aprenderá a recuperar archivos y carpetas desde un punto de recuperación de la máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233880"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757983"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -53,7 +53,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
     ![Contraseña generada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. Desde la ubicación de descarga (normalmente, la carpeta Descargas), haga clic con el botón derecho en el archivo ejecutable o el script y ejecútelo con las credenciales del administrador. Cuando se le solicite, escriba la contraseña o péguela de la memoria y presione **Entrar**. Una vez que se escriba la contraseña válida, el script se conecta al punto de recuperación.
+7. Asegúrese de que [tiene la máquina correcta](#selecting-the-right-machine-to-run-the-script) para ejecutar el script. Si la máquina correcta es la misma máquina en la que descargó el script, puede pasar a la sección de descarga. Desde la ubicación de descarga (normalmente, la carpeta *Descargas*), haga clic con el botón derecho en el archivo ejecutable o el script y ejecútelo con las credenciales del administrador. Cuando se le solicite, escriba la contraseña o péguela de la memoria y presione **Entrar**. Una vez que se escriba la contraseña válida, el script se conecta al punto de recuperación.
 
     ![Menú Recuperación de archivos](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -84,6 +84,23 @@ Después de identificar los archivos y copiarlos en una ubicación de almacenami
 Cuando los discos estén desmontados, recibirá un mensaje. Puede tardar unos minutos en actualizarse la conexión para que pueda quitar los discos.
 
 En Linux, cuando se corta la conexión con el punto de recuperación, el sistema operativo no elimina las rutas de acceso de montaje correspondientes automáticamente. Las rutas de acceso de montaje adoptan la forma de volúmenes "huérfanos" y se pueden ver, pero se genera un error al acceder a los archivos o al escribir en ellos. Se pueden quitar manualmente. Cuando el script se ejecuta, este identifica todos los volúmenes existentes desde todos los puntos de recuperación anteriores y los limpia, aunque con consentimiento previo.
+
+## <a name="selecting-the-right-machine-to-run-the-script"></a>Selección de la máquina correcta para ejecutar el script
+
+Si el script se ha descargado correctamente, el siguiente paso consiste en comprobar si la máquina en la que planea ejecutar el script es la correcta. A continuación se indican los requisitos que deben cumplirse en la máquina.
+
+### <a name="original-backed-up-machine-versus-another-machine"></a>Realización de copia de seguridad de la máquina original frente a otra máquina
+
+1. Si la máquina de la que se ha realizado una copia de seguridad es una máquina virtual de disco grande, es decir, el número de discos es superior a 16 discos o cada disco es superior a 4 TB, el script **debe ejecutarse en otra máquina** y [estos requisitos](#file-recovery-from-virtual-machine-backups-having-large-disks) deben cumplirse.
+1. Aunque la máquina de la que se ha realizado una copia de seguridad no sea una máquina virtual de disco grande, en [estos escenarios](#special-configurations) no se puede ejecutar el script en la misma máquina virtual de la que se ha realizado una copia de seguridad.
+
+### <a name="os-requirements-on-the-machine"></a>Requisitos del SO de la máquina
+
+La máquina en la que hay que ejecutar el script debe cumplir [estos requisitos del SO](#system-requirements).
+
+### <a name="access-requirements-for-the-machine"></a>Requisitos de acceso de la máquina
+
+La máquina en la que hay que ejecutar el script debe cumplir [estos requisitos de acceso](#access-requirements).
 
 ## <a name="special-configurations"></a>Configuraciones especiales
 
@@ -125,14 +142,23 @@ Para enumerar todos los volúmenes lógicos, los nombres y sus rutas de acceso e
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command's results>
+lvdisplay <volume-group-name from the pvs commands results>
 ```
+
+El comando ```lvdisplay``` muestra también si los grupos de volúmenes están activos o no. Si el grupo de volúmenes está marcado como inactivo, debe activarse de nuevo para montarlo. Si el grupo de volúmenes se muestra como inactivo, use el siguiente comando para activarlo.
+
+```bash
+#!/bin/bash
+vgchange –a y  <volume-group-name from the pvs commands results>
+```
+
+Cuando el nombre del grupo de volúmenes esté activo, ejecute el comando ```lvdisplay``` una vez más para ver todos los atributos pertinentes.
 
 Para montar los volúmenes lógicos en la ruta de acceso de su elección:
 
 ```bash
 #!/bin/bash
-mount <LV path> </mountpath>
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>Para matrices RAID
@@ -218,8 +244,6 @@ En el caso de Linux, el script requiere los componentes "open-iscsi" e "lshw" pa
 
 El acceso a `download.microsoft.com` es necesario para descargar los componentes que se utilizan para crear un canal seguro entre la máquina donde se ejecuta el script y los datos en el punto de recuperación.
 
-Puede ejecutar el script en cualquier máquina que tenga el mismo sistema operativo (o uno compatible) que la máquina virtual de la que se realiza la copia de seguridad. Consulte la [tabla de sistemas operativos compatibles](backup-azure-restore-files-from-vm.md#system-requirements) para ver cuáles son. Si la máquina virtual de Azure protegida usa espacios de almacenamiento de Windows (para máquinas virtuales Windows de Azure) o matrices LVM/RAID (para máquinas virtuales Linux), no puede ejecutar el archivo ejecutable o script en la misma máquina virtual. En su lugar, ejecútelo en otra máquina que tenga un sistema operativo compatible.
-
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperación de archivos de copias de seguridad de máquinas virtuales con discos de gran tamaño
 
 En esta sección se explica cómo recuperar archivos a partir de copias de seguridad de máquinas virtuales de Azure con más de 16 discos, cada uno con un tamaño superior a 32 TB.
@@ -246,7 +270,7 @@ Dado que el proceso de recuperación de archivos asocia todos los discos de la c
   - En el archivo /etc/iscsi/iscsid.conf, cambie la configuración de:
     - node.conn[0].timeo.noop_out_timeout = 5 a node.conn[0].timeo.noop_out_timeout = 30
 - Tras realizar el cambio anterior, vuelva a ejecutar el script. Con estos cambios, es muy probable que la recuperación de archivos se realice correctamente.
-- Cada vez que el usuario descarga un script, Azure Backup inicia el proceso de preparación del punto de recuperación para su descarga. Con discos de gran tamaño, se tardará un tiempo considerable. Si hay ráfagas sucesivas de solicitudes, la preparación de destino pasará a un espiral de descarga. Por lo tanto, se recomienda descargar un script desde el portal, PowerShell o la CLI, esperar 20-30 minutos (una heurística) y, a continuación, ejecutarlo. En este momento, el destino debería estar listo para conectarse desde el script.
+- Cada vez que el usuario descarga un script, Azure Backup inicia el proceso de preparación del punto de recuperación para su descarga. Con discos de gran tamaño, se tardará un tiempo considerable. Si hay ráfagas sucesivas de solicitudes, la preparación de destino pasará a un espiral de descarga. Por lo tanto, se recomienda descargar un script desde el portal, PowerShell o la CLI, esperar entre 20 y 30 minutos (valor heurístico) y luego ejecutarlo. En este momento, el destino debería estar listo para conectarse desde el script.
 - Después de la recuperación de archivos, asegúrese de volver al portal y haga clic en **Desmontar discos** en los puntos de recuperación en los que no se pudieron montar los volúmenes. En esencia, este paso limpiará cualquier proceso o sesión y aumentará la posibilidad de recuperación.
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -304,6 +328,6 @@ El script proporciona acceso de solo lectura a un punto de recuperación y solo 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Si tiene problemas al restaurar archivos, consulte la sección [Solución de problemas](#troubleshooting).
-- Obtenga información sobre cómo [restaurar archivos mediante PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup).
+- Más información sobre cómo [restaurar archivos mediante PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
 - Obtenga información sobre cómo [restaurar archivos mediante la CLI de Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-files).
 - Una vez restaurada la máquina virtual, obtenga información sobre cómo [administrar copias de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms).

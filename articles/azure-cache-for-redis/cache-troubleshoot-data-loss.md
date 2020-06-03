@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75530908"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699231"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Solución de problemas de pérdida de datos en Azure Cache for Redis
 
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replicación asincrónica
 
-Cualquier instancia de Azure Cache for Redis en el nivel Estándar o Premium se configura con un nodo maestro y al menos una réplica. Los datos se copian desde el maestro a una réplica de forma asincrónica mediante un proceso en segundo plano. En el sitio web [redis.io](https://redis.io/topics/replication) se describe cómo funciona la replicación de datos de Redis en general. En los escenarios en los que los clientes escriben en Redis con frecuencia, se puede producir una pérdida parcial de datos porque se garantiza que esta replicación será instantánea. Por ejemplo, si el maestro deja de estar disponible *después* de que un cliente escriba una clave en él pero *antes* de que el proceso en segundo plano tenga ocasión de enviar esta clave a la réplica, la clave se perderá cuando la réplica tome el control como nuevo maestro.
+Cualquier instancia de Azure Cache for Redis en el nivel Estándar o Premium se configura con un nodo maestro y al menos una réplica. Los datos se copian desde el maestro a una réplica de forma asincrónica mediante un proceso en segundo plano. En el sitio web [redis.io](https://redis.io/topics/replication) se describe cómo funciona la replicación de datos de Redis en general. En los escenarios en los que los clientes escriben en Redis con frecuencia, se puede producir una pérdida parcial de datos porque no se garantiza que esta replicación será instantánea. Por ejemplo, si el maestro deja de estar disponible *después* de que un cliente escriba una clave en él pero *antes* de que el proceso en segundo plano tenga ocasión de enviar esta clave a la réplica, la clave se perderá cuando la réplica tome el control como nuevo maestro.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Pérdida principal o completa de claves
 

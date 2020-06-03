@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 68310f504e94e50be9fbd4ce49055a4b318ab5d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677341"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659503"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -97,6 +97,14 @@ Reinicie los VSS Writers que se encuentran en estado incorrecto. En un símbolo 
 
 * ```net stop serviceName```
 * ```net start serviceName```
+
+Otro procedimiento que puede ayudar es ejecutar el siguiente comando desde un símbolo del sistema con privilegios elevados (como administrador).
+
+```CMD
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
+```
+
+Al agregar esta clave del registro, los subprocesos no se crearán para las instantáneas de blob y se evitará el tiempo de espera.
 
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure: Error al analizar la configuración de la extensión de copia de seguridad
 
@@ -189,7 +197,7 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | **Código de error**: VmNotInDesirableState <br/> **Mensaje de error**:  El estado de la máquina virtual no permite realizar copias de seguridad. |<ul><li>Si la máquina está en un estado transitorio entre **En ejecución** y **Apagar**, espere a que cambie el estado. A continuación, desencadenar el trabajo de copia de seguridad. <li> Si se trata de una VM de Linux y utiliza el módulo de kernel Security-Enhanced Linux, deberá excluir la ruta del agente de Linux de Azure ( **/var/lib/waagent**) de la directiva de seguridad y asegurarse de que la extensión de Backup está instalada.  |
 | El agente de máquina virtual no está en la máquina virtual: <br>Instale los requisitos previos y el agente de máquina virtual. A continuación, reinicie la operación. |Obtenga más información acerca de la [instalación del agente de máquina virtual y de cómo validarla](#vm-agent). |
 | **Código de error**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la creación de un canal de comunicación de red segura. | <ol><li> Abra el Editor del Registro; para ello, ejecute **regedit.exe** en modo elevado. <li> Identifique todas las versiones de .NET Framework presentes en el sistema. Se encuentran en la jerarquía de la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada versión de .NET Framework presente en la clave del Registro, agregue la siguiente clave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| **Código de error**: ExtensionVCRedistInstallationFailure <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | Vaya a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Asegúrese de que el valor de la clave del Registro que permite la instalación del servicio se establezca correctamente. Es decir, establezca el valor **Start** de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** en **3** y no en **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados.  |
+| **Código de error**: ExtensionVCRedistInstallationFailure <br/> **Mensaje de error**: Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | <li> Vaya a `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Asegúrese de que el valor de la clave del Registro que permite la instalación del servicio se establezca correctamente. Es decir, establezca el valor **Start** de **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** en **3** y no en **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados. <br><br><li> Consulte el registro de eventos para comprobar si está observando problemas relacionados con el acceso. Por ejemplo: *Producto: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Error 1401. No se pudo crear la clave: Software\Classes.  Error del sistema 5.  Compruebe que dispone de suficientes derechos de acceso a esa clave o póngase en contacto con el personal de soporte técnico.* <br><br> Asegúrese de que la cuenta de administrador o de usuario tiene permisos suficientes para actualizar la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Proporcione los permisos necesarios y reinicie el agente invitado de Microsoft Azure.<br><br> <li> Si tiene productos antivirus implementados, asegúrese de que tienen las reglas de exclusión correctas para permitir la instalación.    |
 | **Código de error**:  UserErrorRequestDisallowedByPolicy <BR> **Mensaje de error**: Se ha configurado una directiva no válida en la máquina virtual que impide la operación de instantánea. | Si tiene una instancia de Azure Policy que [rige las etiquetas dentro de su entorno](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), considere la posibilidad de cambiar la directiva de un [efecto Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) (Denegar) a un [efecto Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify) (Modificar), o bien cree el grupo de recursos manualmente según el [esquema de nomenclatura requerido por Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 
 ## <a name="jobs"></a>Trabajos

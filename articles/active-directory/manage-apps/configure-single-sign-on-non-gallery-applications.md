@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224928"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758374"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configuración del inicio de sesión único basado en SAML en aplicaciones que no están en la galería
 
@@ -26,7 +26,7 @@ Al [agregar una aplicación de la galería](add-gallery-app.md) o una [aplicaci�
 > [!NOTE]
 > ¿Desea agregar una aplicación de galería? Consulte las instrucciones de configuración paso a paso en la [lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md)
 
-Para configurar un inicio de sesión único de SAML para una aplicación que no esté en la galería sin escribir código, debe tener una suscripción junto con una licencia de Azure AD Premium, y la aplicación debe ser compatible con SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Para configurar un inicio de sesión único de SAML para una aplicación que no esté en la galería sin escribir código, debe tener una suscripción a Azure AD y la aplicación debe ser compatible con SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

@@ -1,30 +1,22 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-ms.date: 04/03/2020
-ms.topic: article
-ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.topic: conceptual
+ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117512"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871359"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
-En este artículo se describe una colección de procedimientos recomendados para usar el servicio de Azure Batch de forma eficaz y eficiente. Estos procedimientos recomendados proceden de nuestra experiencia con Batch y las experiencias de clientes de Batch. Es importante comprender este artículo para evitar los problemas de diseño, posibles problemas de rendimiento y los antipatrones durante el desarrollo para Batch y su uso.
-
-En este artículo, aprenderá lo siguiente:
-
-> [!div class="checklist"]
-> - Cuáles son los procedimientos recomendados.
-> - Por qué debería usar los procedimientos recomendados
-> - Qué puede ocurrir si no consigue seguir el procedimiento recomendado.
-> - Cómo seguir los procedimientos recomendados.
+En este artículo se describe una colección de procedimientos recomendados para usar el servicio de Azure Batch de forma eficaz y eficiente, en función de la experiencia real con Batch. Lea este artículo para evitar los problemas de diseño, posibles problemas de rendimiento y los antipatrones durante el desarrollo para Batch y su uso.
 
 ## <a name="pools"></a>Grupos
 
-Los grupos de Batch son los recursos de proceso para ejecutar trabajos en el servicio de Batch. En las secciones siguientes se proporcionan instrucciones sobre los procedimientos recomendados que se deben seguir al trabajar con grupos de Batch.
+Los [grupos](nodes-and-pools.md#pools) de Batch son los recursos de proceso para ejecutar trabajos en el servicio de Batch. En las secciones siguientes se proporcionan recomendaciones para trabajar con grupos de Batch.
 
 ### <a name="pool-configuration-and-naming"></a>Configuración y nomenclatura de grupos
 
@@ -61,98 +53,121 @@ Los errores de asignación de grupos pueden producirse en cualquier momento dura
 
 ### <a name="unplanned-downtime"></a>Tiempo de inactividad no planeado
 
-Los grupos de Batch pueden experimentar eventos de tiempo de inactividad en Azure. Es importante tenerlo en cuenta al planear y desarrollar el escenario o el flujo de trabajo para Batch.
+Los grupos de Batch pueden experimentar eventos de tiempo de inactividad en Azure. Tenga esto en cuenta al planear y desarrollar el escenario o el flujo de trabajo para Batch.
 
-En caso de que se produzca un error en un nodo, Batch intentará recuperar automáticamente estos nodos de proceso en su nombre. De esta forma se puede desencadenar la reprogramación de cualquier tarea en ejecución en el nodo que se recupera. Consulte [Diseño de reintentos](#designing-for-retries-and-re-execution) para obtener más información sobre las tareas interrumpidas.
+En caso de que se produzca un error en un nodo, Batch intentará recuperar automáticamente estos nodos de proceso en su nombre. De esta forma se puede desencadenar la reprogramación de cualquier tarea en ejecución en el nodo que se recupera. Consulte [Diseño de reintentos](#design-for-retries-and-re-execution) para obtener más información sobre las tareas interrumpidas.
 
-- **Dependencia de la región de Azure** Es aconsejable no depender de una sola región de Azure si tiene una carga de trabajo que depende del tiempo o de la producción. Aunque es poco frecuente, hay problemas que pueden afectar a toda una región. Por ejemplo, si su procesamiento tiene que iniciarse en un momento determinado, considere la posibilidad de escalar verticalmente el grupo de la región principal *justo antes de la hora de inicio*. Si se produce un error en la escala del grupo, puede revertir la escala de un grupo verticalmente en una región (o regiones) de copia de seguridad. Los grupos en varias cuentas de distintas regiones proporcionan una copia de seguridad preparada y de fácil acceso si se produce algún problema con otro grupo. Para más información, consulte [Diseño de la aplicación para una alta disponibilidad](high-availability-disaster-recovery.md).
+### <a name="azure-region-dependency"></a>Dependencia de la región de Azure
+
+Es aconsejable no depender de una sola región de Azure si tiene una carga de trabajo que depende del tiempo o de la producción. Aunque es poco frecuente, hay problemas que pueden afectar a toda una región. Por ejemplo, si su procesamiento tiene que iniciarse en un momento determinado, considere la posibilidad de escalar verticalmente el grupo de la región principal *justo antes de la hora de inicio*. Si se produce un error en la escala del grupo, puede revertir la escala de un grupo verticalmente en una región (o regiones) de copia de seguridad. Los grupos en varias cuentas de distintas regiones proporcionan una copia de seguridad preparada y de fácil acceso si se produce algún problema con otro grupo. Para más información, consulte [Diseño de la aplicación para una alta disponibilidad](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Trabajos
 
-Un trabajo es un contenedor diseñado para contener cientos, miles o incluso millones de tareas.
+Un [trabajo](jobs-and-tasks.md#jobs) es un contenedor diseñado para contener cientos, miles o incluso millones de tareas. Siga estas instrucciones al crear trabajos.
 
-- **Colocación de muchas tareas en un trabajo** El uso de un trabajo para ejecutar una única tarea es ineficaz. Por ejemplo, es más eficaz usar un único trabajo que contenga 1000 tareas en lugar de crear 100 trabajos que contengan 10 tareas cada uno. La ejecución de 1000 trabajos, cada uno con una sola tarea, sería el enfoque menos eficaz, más lento y más costoso.
+### <a name="fewer-jobs-more-tasks"></a>Menos trabajos, más tareas
 
-    No diseñe una solución de Batch que requiera miles de trabajos activos simultáneamente. No hay ninguna cuota de tareas, por lo que la ejecución de tantas tareas en el menor número de trabajos como sea posible utiliza de forma eficaz el [trabajo y las cuotas de programación de trabajos](batch-quota-limit.md#resource-quotas).
+El uso de un trabajo para ejecutar una única tarea es ineficaz. Por ejemplo, es más eficaz usar un único trabajo que contenga 1000 tareas en lugar de crear 100 trabajos que contengan 10 tareas cada uno. La ejecución de 1000 trabajos, cada uno con una sola tarea, sería el enfoque menos eficaz, más lento y más costoso.
 
-- **Vigencia del trabajo** Un trabajo de Batch tiene una vigencia indefinida hasta que se elimine del sistema. El estado de un trabajo designa si este puede aceptar más tareas para la programación. Un trabajo no se mueve automáticamente al estado completado a menos que se termine explícitamente. Esta acción se puede desencadenar automáticamente mediante la propiedad [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) o [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+Por este motivo, asegúrese de no diseñar una solución de Batch que requiera miles de trabajos activos simultáneamente. No hay ninguna cuota de tareas, por lo que la ejecución de tantas tareas en el menor número de trabajos como sea posible utiliza de forma eficaz los [trabajos y las cuotas de programación de trabajos](batch-quota-limit.md#resource-quotas).
+
+### <a name="job-lifetime"></a>Vigencia del trabajo
+
+Un trabajo de Batch tiene una vigencia indefinida hasta que se elimine del sistema. Su estado designa si este puede aceptar más tareas para la programación.
+
+Un trabajo no se mueve automáticamente al estado completado a menos que se termine explícitamente. Esta acción se puede desencadenar automáticamente mediante la propiedad [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) o [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
 
 Hay un [trabajo activo y cuota de programación de trabajo](batch-quota-limit.md#resource-quotas) predeterminados. Los trabajos y las programaciones de trabajos en estado completado no cuentan para esta cuota.
 
 ## <a name="tasks"></a>Tareas
 
-Las tareas son unidades de trabajo individuales que componen un trabajo. El usuario envía las tareas y Batch las programa en nodos de proceso. Hay varias consideraciones de diseño que se deben tener en cuenta al crear y ejecutar tareas. En las siguientes secciones se explican los escenarios comunes y cómo diseñar las tareas para solventar los problemas y ejecutarlas de forma eficaz.
+Las [tareas](jobs-and-tasks.md#tasks) son unidades de trabajo individuales que componen un trabajo. El usuario envía las tareas y Batch las programa en nodos de proceso. Hay varias consideraciones de diseño que se deben tener en cuenta al crear y ejecutar tareas. En las siguientes secciones se explican los escenarios comunes y cómo diseñar las tareas para solventar los problemas y ejecutarlas de forma eficaz.
 
-- **Guardado de los datos de la tarea como parte de la misma**
-    Los nodos de proceso son efímeros por naturaleza. Hay muchas características en Batch, como el autogrupo y el escalado automático, que facilitan la desaparición de los nodos. Cuando los nodos dejan el grupo (debido a un cambio de tamaño o una eliminación del grupo), también se eliminan todos los archivos de dichos nodos. Por este motivo, se recomienda que antes de que se complete una tarea, mueva el resultado fuera del nodo en el que se ejecuta y a un almacén duradero, al igual que, si se produce un error en una tarea, debe mover los registros necesarios para diagnosticar el error a un almacén duradero. Batch tiene compatibilidad integrada con Azure Storage para cargar datos a través de [OutputFiles](batch-task-output-files.md), así como una variedad de sistemas de archivos compartidos, o bien puede realizar la carga usted mismo en sus tareas.
+### <a name="save-task-data"></a>Almacenamiento de datos de tareas
 
-### <a name="task-lifetime"></a>Duración de la tarea
+Los nodos de proceso son efímeros por naturaleza. Hay muchas características en Batch, como el autogrupo y el escalado automático, que facilitan la desaparición de los nodos. Cuando los nodos dejan el grupo (debido a un cambio de tamaño o una eliminación del grupo), también se eliminan todos los archivos de dichos nodos. Por este motivo, una tarea debe mover su salida del nodo en el que se está ejecutando y en un almacén duradero antes de que se complete. Del mismo modo, si se produce un error en una tarea, debe trasladar los registros necesarios para diagnosticar el error en un almacén duradero.
 
-- **Eliminación de las tareas cuando se hayan completado**
-    Elimine las tareas cuando ya no se necesiten o establezca una restricción de tarea [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Si se establece un `retentionTime`, Batch limpia automáticamente el espacio en disco que usa la tarea cuando `retentionTime` expire.
+Batch tiene compatibilidad integrada con Azure Storage para cargar datos a través de [OutputFiles](batch-task-output-files.md), así como una variedad de sistemas de archivos compartidos, o bien puede realizar la carga usted mismo en sus tareas.
 
-    La eliminación de tareas consigue dos cosas. Garantiza que no tiene una acumulación de tareas en el trabajo, lo que dificultaría la consulta y búsqueda de la tarea que le interesa (porque tendría que filtrar las tareas completadas). También limpia los datos de la tarea correspondiente en el nodo (siempre que todavía no se haya llegado al `retentionTime`). Esto garantiza que los nodos no se llenen con los datos de la tarea y se quede sin espacio en disco.
+### <a name="manage-task-lifetime"></a>Administración de la duración de la tarea
 
-### <a name="task-submission"></a>Envío de tareas
+Elimine las tareas cuando ya no se necesiten o establezca una restricción de tarea [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Si se establece un `retentionTime`, Batch limpia automáticamente el espacio en disco que usa la tarea cuando `retentionTime` expire.
 
-- **Envío de un gran número de tareas en una colección**
-    Las tareas se pueden enviar de forma individual o en colecciones. Envíe tareas en [colecciones](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) hasta un máximo de 100 a la vez al realizar el envío masivo de tareas para reducir la sobrecarga y el tiempo de envío.
+La eliminación de tareas consigue dos cosas. Garantiza que no tiene una acumulación de tareas en el trabajo, lo que dificultaría la consulta y la búsqueda de la tarea que le interesa (porque tendría que filtrar por las tareas completadas). También limpia los datos de la tarea correspondiente en el nodo (siempre que todavía no se haya llegado al `retentionTime`). Esto ayuda a garantizar que los nodos no se llenen con los datos de la tarea y se quede sin espacio en disco.
 
-### <a name="task-execution"></a>Ejecución de tareas
+### <a name="submit-large-numbers-of-tasks-in-collection"></a>Envío de un gran número de tareas en la recopilación
 
-- **Elección de las tareas máximas por nodo** Batch admite tareas de sobresuscripción en nodos (que ejecutan más tareas que núcleos tiene un nodo). Depende de usted asegurarse de que las tareas se ajustan a los nodos del grupo. Por ejemplo, su experiencia podría verse degradada si intenta programar ocho tareas, cada una de las cuales consume un 25 % de uso de CPU en un nodo (en un grupo con `maxTasksPerNode = 8`).
+Las tareas se pueden enviar de forma individual o en colecciones. Envíe tareas en [colecciones](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) hasta un máximo de 100 a la vez al realizar el envío masivo de tareas para reducir la sobrecarga y el tiempo de envío.
 
-### <a name="designing-for-retries-and-re-execution"></a>Diseño de reintentos y reejecución
+### <a name="set-max-tasks-per-node-appropriately"></a>Establecimiento del número máximo de tareas por nodo correctamente
+
+Batch admite tareas de sobresuscripción en nodos (que ejecutan más tareas que núcleos tiene un nodo). Depende de usted asegurarse de que las tareas se ajustan a los nodos del grupo. Por ejemplo, su experiencia podría verse degradada si intenta programar ocho tareas, cada una de las cuales consume un 25 % de uso de CPU en un nodo (en un grupo con `maxTasksPerNode = 8`).
+
+### <a name="design-for-retries-and-re-execution"></a>Diseño de reintentos y reejecución
 
 Batch puede reintentar automáticamente las tareas. Hay dos tipos de reintentos: controlados por el usuario e internos. Los reintentos controlados por el usuario los especifica el elemento [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet) de la tarea. Cuando un programa especificado en la tarea sale con un código de salida distinto de cero, la tarea se reintenta hasta el valor del `maxTaskRetryCount`.
 
 Aunque es poco frecuente, se puede reintentar una tarea internamente debido a errores en el nodo de proceso, como no poder actualizar el estado interno o un error en el nodo mientras la tarea se está ejecutando. La tarea se reintentará en el mismo nodo de proceso, si es posible, hasta un límite interno antes de que se desista y se aplace la tarea que Batch va a reprogramar, potencialmente en un nodo de proceso diferente.
 
-- **Creación de tareas durables** Las tareas deben diseñarse para resistir errores y dar cabida al reintento. Esto es especialmente importante para las tareas de larga duración. Para ello, asegúrese de que las tareas generan el mismo resultado único, incluso si se ejecutan más de una vez. Una manera de lograrlo es hacer que las tareas sean de búsqueda de objetivos. Otra manera es asegurarse de que las tareas sean idempotentes (es decir, tendrán el mismo resultado independientemente del número de veces que se ejecuten).
+No hay ninguna diferencia de diseño al ejecutar las tareas en nodos dedicados o en nodos de prioridad baja. Tanto si una tarea se reemplaza mientras se ejecuta en un nodo de prioridad baja como si se interrumpe debido a un error en un nodo dedicado, ambas situaciones se mitigarían diseñando la tarea para resistir el error.
 
-    Un ejemplo común es una tarea de copia archivos en un nodo de proceso. Un enfoque sencillo es una tarea que copia todos los archivos especificados cada vez que se ejecuta, lo que resulta ineficaz y no se ha creado para resistir errores. En su lugar, cree una tarea para asegurarse de que los archivos se encuentran en el nodo de proceso; una tarea que no vuelva a copiar los archivos que ya están presentes. De esta manera, la tarea se retomará en el punto en que se quedó si se interrumpió.
+### <a name="build-durable-tasks"></a>Creación de tareas durables
 
-- **Nodos de prioridad baja** No hay ninguna diferencia de diseño al ejecutar las tareas en nodos dedicados o en nodos de prioridad baja. Tanto si una tarea se reemplaza mientras se ejecuta en un nodo de prioridad baja como si se interrumpe debido a un error en un nodo dedicado, ambas situaciones se mitigarían diseñando la tarea para resistir el error.
+Las tareas deben diseñarse para resistir errores y dar cabida al reintento. Esto es especialmente importante para las tareas de larga duración. Para ello, asegúrese de que las tareas generan el mismo resultado único, incluso si se ejecutan más de una vez. Una manera de lograrlo es hacer que las tareas sean de búsqueda de objetivos. Otra manera es asegurarse de que las tareas sean idempotentes (es decir, tendrán el mismo resultado independientemente del número de veces que se ejecuten).
 
-- **Tiempo de ejecución de tareas** Evite las tareas con un tiempo de ejecución corto. Las tareas que solo se ejecutan durante uno o dos segundos no son ideales. Debe intentar realizar una cantidad significativa de trabajo en una tarea individual (un mínimo de 10 segundos y hasta horas o días). Si cada tarea se está ejecutando durante un minuto (o más), la sobrecarga de programación como una fracción del tiempo de proceso general es pequeña.
+Un ejemplo común es una tarea de copia archivos en un nodo de proceso. Un enfoque sencillo es una tarea que copia todos los archivos especificados cada vez que se ejecuta, lo que resulta ineficaz y no se ha creado para resistir errores. En su lugar, cree una tarea para asegurarse de que los archivos se encuentran en el nodo de proceso; una tarea que no vuelva a copiar los archivos que ya están presentes. De esta manera, la tarea se retomará en el punto en que se quedó si se interrumpió.
+
+### <a name="avoid-short-execution-time"></a>Evitación de un breve tiempo de ejecución
+
+Las tareas que solo se ejecutan durante uno o dos segundos no son ideales. Debe intentar realizar una cantidad significativa de trabajo en una tarea individual (un mínimo de 10 segundos y hasta horas o días). Si cada tarea se está ejecutando durante un minuto (o más), la sobrecarga de programación como una fracción del tiempo de proceso general es pequeña.
+
 
 ## <a name="nodes"></a>Nodos
 
-- **Las tareas de inicio deben ser idempotentes** De forma similar a otras tareas, la tarea de inicio del nodo debe ser idempotente, ya que se volverá a ejecutar cada vez que se inicie el nodo. Una tarea idempotente es simplemente una que genera un resultado coherente cuando se ejecuta varias veces.
+Un [nodo de proceso](nodes-and-pools.md#nodes) es una máquina virtual de Azure o una máquina virtual de servicio en la nube dedicada al proceso de una parte de la carga de trabajo de la aplicación. Siga estas instrucciones al trabajar con nodos.
 
-- **Administración de servicios de larga duración a través de la interfaz de servicios del sistema operativo**
-    A veces, es necesario ejecutar otro agente junto con el agente de Batch en el nodo, por ejemplo, para recopilar datos del nodo y notificarlos. Se recomienda que estos agentes se implementen como servicios del sistema operativo, como un servicio de Windows o un servicio `systemd` de Linux.
+### <a name="idempotent-start-tasks"></a>Tareas de inicio idempotentes
 
-    Al ejecutar estos servicios, no deben realizar bloqueos de archivos en los directorios administrados por Batch del nodo, ya que, de lo contrario, Batch no podrá eliminar dichos directorios debido a los bloqueos de archivos. Por ejemplo, si instala un servicio de Windows en una tarea de inicio, en lugar de iniciar el servicio directamente desde el directorio de trabajo de la tarea de inicio, copie los archivos en otro lugar (si los archivos existen simplemente omita la copia). Instalación del servicio desde dicha ubicación Cuando Batch vuelva a ejecutar la tarea de inicio, eliminará el directorio de trabajo de la tarea de inicio y la volverá a crear. Esto funciona porque el servicio tiene bloqueos de archivos en el otro directorio, no en el directorio de trabajo de la tarea de inicio.
+De forma similar a otras tareas, la [tarea de inicio](jobs-and-tasks.md#start-task) del nodo debe ser idempotente, ya que se volverá a ejecutar cada vez que se inicie el nodo. Una tarea idempotente es simplemente una que genera un resultado coherente cuando se ejecuta varias veces.
 
-- **Evitar la creación de uniones de directorio en Windows** Las uniones de directorios, que a veces se denominan vínculos físicos, son difíciles de tratar durante la limpieza de tareas y trabajos. Use vínculos simbólicos (soft-links) en lugar de vínculos físicos.
+### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Administración de servicios de larga duración a través de la interfaz de servicios del sistema operativo
 
-- **Recopilación de los registros del agente de Batch si hay algún problema** Si observa un problema relacionado con el comportamiento de un nodo o tareas en ejecución en un nodo, se recomienda recopilar los registros del agente de Batch antes de desasignar los nodos en cuestión. Puede recopilar los registros del agente de Batch mediante la API de registros del servicio de Batch de carga. Estos registros se pueden proporcionar como parte de una incidencia de soporte técnico a Microsoft y ayudarán a solucionar los problemas.
+A veces, es necesario ejecutar otro agente junto con el agente de Batch en el nodo. Por ejemplo, puede que desee recopilar datos del nodo y notificarlos. Se recomienda que estos agentes se implementen como servicios del sistema operativo, como un servicio de Windows o un servicio `systemd` de Linux.
 
-## <a name="security"></a>Seguridad
+Al ejecutar estos servicios, no deben realizar bloqueos de archivos en los directorios administrados por Batch del nodo, ya que, de lo contrario, Batch no podrá eliminar dichos directorios debido a los bloqueos de archivos. Por ejemplo, si instala un servicio de Windows en una tarea de inicio, en lugar de iniciar el servicio directamente desde el directorio de trabajo de la tarea de inicio, copie los archivos en otro lugar (o si los archivos existen simplemente omita la copia). Después, instale el servicio desde dicha ubicación. Cuando Batch vuelva a ejecutar la tarea de inicio, eliminará el directorio de trabajo de la tarea de inicio y la volverá a crear. Esto funciona porque el servicio tiene bloqueos de archivos en el otro directorio, no en el directorio de trabajo de la tarea de inicio.
 
-### <a name="security-isolation"></a>Aislamiento de seguridad
+### <a name="avoid-creating-directory-junctions-in-windows"></a>Evitación de la creación de uniones de directorio en Windows
 
-Con respecto al aislamiento, si su escenario requiere aislar los trabajos entre sí, debe aislarlos colocándolos en grupos independientes. Un grupo es el límite de aislamiento de seguridad en Batch y, de forma predeterminada, dos grupos no son visibles ni pueden comunicarse entre sí. Evite el uso de cuentas de Batch independientes como medio de aislamiento.
+Las uniones de directorios, que a veces se denominan vínculos físicos, son difíciles de tratar durante la limpieza de tareas y trabajos. Use vínculos simbólicos (soft-links) en lugar de vínculos físicos.
 
-## <a name="moving"></a>Traslado
+### <a name="collect-the-batch-agent-logs"></a>Recopilación de registros de agente de Batch
 
-### <a name="move-batch-account-across-regions"></a>Traslado de la cuenta de Batch entre regiones
+Si observa un problema relacionado con el comportamiento de un nodo o tareas en ejecución en un nodo, recopile los registros del agente de Batch antes de desasignar los nodos en cuestión. Puede recopilar los registros del agente de Batch mediante la API de registros del servicio de Batch de carga. Estos registros se pueden proporcionar como parte de una incidencia de soporte técnico a Microsoft y ayudarán a solucionar los problemas.
 
-Existen varios escenarios en los que puede que deba mover su cuenta de Batch existente existentes de una región a otra. También puede realizar el traslado a otra región como parte del planeamiento de la recuperación ante desastres.
+## <a name="isolation-security"></a>Seguridad de aislamiento
 
-Las cuentas de Azure Batch no se pueden trasladar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de la cuenta de Batch.  Después, para preparar el recurso en otra región, puede exportar la cuenta de Batch a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región. Después de cargar la plantilla en la nueva región, tendrá que volver a crear los certificados, las programaciones de trabajos y los paquetes de aplicación. Para confirmar los cambios y completar el traslado de la cuenta de Batch, recuerde eliminar la cuenta de Batch original o el grupo de recursos.
+Con respecto al aislamiento, si su escenario requiere aislar los trabajos entre sí, debe hacerlo colocándolos en grupos independientes. Un grupo es el límite de aislamiento de seguridad en Batch y, de forma predeterminada, dos grupos no son visibles ni pueden comunicarse entre sí. Evite el uso de cuentas de Batch independientes como medio de aislamiento.
+
+## <a name="moving-batch-accounts-across-regions"></a>Movimiento de cuentas de Batch entre regiones
+
+Hay escenarios en los que puede resultar útil trasladar una cuenta de Batch existente de una región a otra. También puede realizar el traslado a otra región como parte del planeamiento de la recuperación ante desastres.
+
+Las cuentas de Azure Batch no se pueden trasladar directamente de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de la cuenta de Batch. Después, para preparar el recurso en otra región, puede exportar la cuenta de Batch a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región.
+
+Después de cargar la plantilla en la nueva región, tendrá que volver a crear los certificados, las programaciones de trabajos y los paquetes de aplicación. Para confirmar los cambios y completar el traslado de la cuenta de Batch, recuerde eliminar la cuenta de Batch original o el grupo de recursos.
 
 Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-## <a name="connectivity-to-the-batch-service"></a>Conectividad con el servicio Batch
+## <a name="connectivity"></a>Conectividad
+
+Revise las siguientes instrucciones a la hora de considerar la conectividad en las soluciones de Batch.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Grupos de seguridad de red (NSG) y Rutas definidas por el usuario (UDR)
 
 Al aprovisionar [grupos de Batch en una red virtual](batch-virtual-network.md), asegúrese de seguir las instrucciones sobre el uso de la etiqueta de servicio `BatchNodeManagement`, los puertos, los protocolos y la dirección de la regla.
-Se recomienda encarecidamente el uso de la etiqueta de servicio y no de las direcciones IP del servicio Batch subyacentes, ya que pueden cambiar con el tiempo. El uso de las direcciones IP del servicio Batch puede manifestarse directamente como inestabilidad o interrupciones para los grupos de Batch, ya que el servicio Batch actualiza las direcciones IP usadas a lo largo del tiempo. Si actualmente usa direcciones IP del servicio Batch en las reglas de NSG, se recomienda cambiar al uso de la etiqueta de servicio.
+Se recomienda encarecidamente el uso de la etiqueta de servicio, en lugar de usar las direcciones IP subyacentes del servicio Batch. Esto se debe a que las direcciones IP pueden cambiar con el tiempo. El uso directo de las direcciones IP del servicio Batch puede provocar inestabilidad o interrupciones para los grupos de Batch.
 
-En el caso de las rutas definidas por el usuario, asegúrese de que tiene un proceso implementado para actualizar las direcciones IP del servicio Batch periódicamente en la tabla de rutas, ya que cambian con el tiempo. Para más información sobre cómo obtener la lista de direcciones IP del servicio Batch, vea [Etiquetas de servicio en un entorno local](../virtual-network/service-tags-overview.md). Las direcciones IP del servicio Batch se asociarán a la etiqueta de servicio `BatchNodeManagement`, o la variante regional que coincida con la región de la cuenta de Batch.
+En el caso de las rutas definidas por el usuario (UDR), asegúrese de que tiene un proceso implementado para actualizar las direcciones IP del servicio Batch periódicamente en la tabla de rutas, ya que estas direcciones cambian con el tiempo. Para más información sobre cómo obtener la lista de direcciones IP del servicio Batch, consulte [Etiquetas de servicio de red virtual](../virtual-network/service-tags-overview.md). Las direcciones IP del servicio Batch se asociarán a la etiqueta de servicio `BatchNodeManagement`, o la variante regional que coincida con la región de la cuenta de Batch.
 
 ### <a name="honoring-dns"></a>Respetar DNS
 
@@ -164,3 +179,25 @@ Si las solicitudes reciben respuestas HTTP de nivel 5xx y hay un encabezado "Con
 
 Asegúrese de que los clientes del servicio Batch tienen las directivas de reintento adecuadas para volver a intentar automáticamente las solicitudes, incluso durante el funcionamiento normal y no exclusivamente durante períodos de tiempo de mantenimiento del servicio. Estas directivas de reintento deben abarcar un intervalo de al menos 5 minutos. Se proporcionan capacidades de reintento automático con varios SDK de Batch, como la [clase RetryPolicyProvider de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
 
+## <a name="batch-node-underlying-dependencies"></a>Dependencias subyacentes del nodo Batch
+
+Tenga en cuenta las siguientes dependencias y restricciones al diseñar sus soluciones de Batch.
+
+### <a name="system-created-resources"></a>Recursos creados por el sistema
+
+Azure Batch crea y administra un conjunto de usuarios y grupos en la máquina virtual, que no se deben modificar. Los pasos son los siguientes:
+
+#### <a name="windows"></a>Windows
+
+- Un usuario llamado **PoolNonAdmin**
+- Un grupo de usuarios denominado **WATaskCommon**
+
+#### <a name="linux"></a>Linux
+
+- Un usuario llamado **_azbatch**
+
+### <a name="file-cleanup"></a>Limpieza de archivos
+
+Batch intenta limpiar activamente el directorio de trabajo en el que se ejecutan las tareas, una vez que expira el tiempo de retención. Es [su responsabilidad limpiar](#manage-task-lifetime) cualquier archivo que se escriba fuera de este directorio para evitar llenar el espacio en disco. 
+
+La limpieza automatizada del directorio de trabajo se bloqueará si ejecuta un servicio en Windows desde el directorio de trabajo startTask, debido a que la carpeta todavía está en uso. Esto dará lugar a un rendimiento degradado. Para solucionarlo, cambie el directorio de ese servicio a un directorio independiente que no esté administrado por Batch.

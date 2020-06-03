@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426496"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651938"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics
 
 Azure Stream Analytics admite Azure SQL Database como origen de la entrada de datos de referencia. Puede usar SQL Database como datos de referencia para su trabajo de Stream Analytics en Azure Portal y en Visual Studio con herramientas de Stream Analytics. En este artículo se muestra cómo realizar ambos métodos.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Use los pasos siguientes para agregar Azure SQL Database como un origen de entrada de referencia mediante Azure Portal:
 
@@ -156,16 +156,16 @@ Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure 
  
 2. Cree la consulta delta. 
    
-   Esta consulta recupera todas las filas de la instancia de SQL Database insertadas o eliminadas dentro de una hora de inicio, **\@deltaStartTime**, y de una hora de finalización **\@deltaEndTime**. La consulta delta debe devolver las mismas columnas que la consulta de instantánea, además de la columna **_operation_** . Esta columna define si la fila se inserta o elimina entre **\@deltaStartTime** y **\@deltaEndTime**. Las filas resultantes se marcan como **1** si se insertaron los registros, o como **2** si estos se eliminaron. 
+   Esta consulta recupera todas las filas de la instancia de SQL Database insertadas o eliminadas dentro de una hora de inicio, **\@deltaStartTime**, y de una hora de finalización **\@deltaEndTime**. La consulta delta debe devolver las mismas columnas que la consulta de instantánea, además de la columna **_operation_**. Esta columna define si la fila se inserta o elimina entre **\@deltaStartTime** y **\@deltaEndTime**. Las filas resultantes se marcan como **1** si se insertaron los registros, o como **2** si estos se eliminaron. La consulta también debe agregar un **límite** del lado de SQL Server para asegurarse de que todas las actualizaciones del período delta se capturan adecuadamente. El uso de consultas delta sin **límite** puede devolver un conjunto de resultados de referencia incorrecto.  
 
    En el caso de los registros actualizados, las tablas temporales realiza la contabilidad mediante la captura de una operación de inserción y eliminación. Después, el tiempo de ejecución de Stream Analytics aplicará los resultados de la consulta delta a la instantánea anterior para mantener actualizados los datos de referencia. A continuación, se muestra un ejemplo de consulta delta:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as _watermark_, 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as _watermark_, 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

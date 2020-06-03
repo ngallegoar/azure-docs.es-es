@@ -1,14 +1,14 @@
 ---
 title: Evaluación del efecto de una nueva definición de Azure Policy
 description: Comprenda el proceso que debe seguir al introducir una nueva definición de directiva en el entorno de Azure.
-ms.date: 09/23/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 394f87c0328bce46d4c7177a336a7861991ad0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9844e8435452b388c934c5969898fe01d23fb47
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187756"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684306"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Evaluación del efecto de una nueva definición de Azure Policy
 
@@ -33,8 +33,7 @@ Por esta razón, las definiciones de directiva deben ser tan definidas y centrad
 
 ## <a name="audit-existing-resources"></a>Auditoría de recursos existentes
 
-Antes de considerar la administración de recursos nuevos o actualizados con la nueva definición de directiva, es mejor ver cómo evalúa un subconjunto limitado de recursos existentes, como un grupo de recursos de prueba. Use el [modo de cumplimiento](./assignment-structure.md#enforcement-mode)
-_Deshabilitado_ (DoNotEnforce) en la asignación de directiva para evitar que se desencadene el [efecto](./effects.md) o que se creen las entradas del registro de actividad.
+Antes de considerar la administración de recursos nuevos o actualizados con la nueva definición de directiva, es mejor ver cómo evalúa un subconjunto limitado de recursos existentes, como un grupo de recursos de prueba. Use el [modo de cumplimiento](./assignment-structure.md#enforcement-mode) _Deshabilitado_ (DoNotEnforce) en la asignación de directiva para evitar que se desencadene el [efecto](./effects.md) o que se creen las entradas del registro de actividad.
 
 Este paso le ofrece la oportunidad de evaluar los resultados de cumplimiento de la nueva directiva en los recursos existentes sin afectar al flujo de trabajo. Compruebe que los recursos no compatibles estén marcados en consecuencia (_falso positivo_) y que todos los recursos que espera que sean no compatibles se marquen correctamente.
 Cuando el subconjunto inicial de recursos se valida según lo previsto, amplíe lentamente la evaluación a todos los recursos existentes.

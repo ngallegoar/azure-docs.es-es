@@ -2,13 +2,13 @@
 title: 'Características: LUIS'
 description: Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/14/2020
+ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591903"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742709"
 ---
 # <a name="machine-learning-ml-features"></a>Características de Machine Learning (ML)
 
@@ -38,9 +38,9 @@ Si es necesario que la aplicación LUIS sea capaz de generalizar e identificar l
 Con una lista de frases, LUIS considera el contexto y lo generaliza para identificar los elementos que son similares, pero que no son una coincidencia de texto exacta.
 
 Pasos para utilizar una lista de frases:
-* Empezar con una entidad con aprendizaje automático
+* Empezar con una entidad de aprendizaje automático
     * Incorporación de expresiones de ejemplo
-    * Etiquete con una entidad con aprendizaje automático.
+    * Etiquetado con una entidad de aprendizaje automático
 * Agregar una lista de frases
     * Agregue palabras con significado similar: **no** agregue todas las palabras o frases posibles. En su lugar, agregue algunas palabras o frases a la vez, y vuelva a entrenar y a publicar.
     * Revise y agregue palabras sugeridas.
@@ -54,7 +54,7 @@ Un ejemplo de palabras que pueden necesitar una lista de frases para aumentar su
 Si desea extraer términos médicos:
 * En primer lugar, cree expresiones de ejemplo y etiquete los términos médicos dentro de esas expresiones.
 * A continuación, cree una lista de frases con ejemplos de los términos dentro del dominio del tema. En esta lista de frases se debe incluir el término real que etiquetó y otros términos que describen el mismo concepto.
-* Agregue la lista de frases a la entidad o subentidad que extrae el concepto utilizado en la lista de frases. El escenario más común es un componente (secundario) de una entidad con aprendizaje automático. Si la lista de frases debe aplicarse a todos las intenciones o entidades, marque la lista de frases como lista de frases global. La marca `enabledForAllModels` controla este ámbito del modelo en la API.
+* Agregue la lista de frases a la entidad o subentidad que extrae el concepto utilizado en la lista de frases. El escenario más común es un componente (secundario) de una entidad de aprendizaje automático. Si la lista de frases debe aplicarse a todos las intenciones o entidades, marque la lista de frases como lista de frases global. La marca `enabledForAllModels` controla este ámbito del modelo en la API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -85,12 +85,24 @@ Por ejemplo, si la entidad de dirección de envío n contiene una subentidad de 
     * Dirección postal (subentidad)
     * Ciudad (subentidad)
     * Estado o provincia (subentidad)
-    * País (subentidad)
+    * País o región (subentidad)
     * Código postal (subentidad)
+
+## <a name="nested-subentities-with-features"></a>Subentidades anidadas con características
+
+Una subentidad con aprendizaje automático indica que hay un concepto en la entidad primaria, tanto si ese elemento primario es otra subentidad o la entidad superior. El valor de la subentidad actúa como una característica de su elemento primario.
+
+Una subentidad puede tener tanto una lista de frases como una característica, así como un modelo (otra entidad) como una característica.
+
+Cuando la subentidad tiene una lista de frases, aumentará el vocabulario del concepto, pero no agregará información a la respuesta JSON de la predicción.
+
+Cuando la subentidad tiene una característica de otra entidad, la respuesta JSON incluye los datos extraídos de esa otra entidad.
 
 ## <a name="required-features"></a>Características obligatorias
 
 Se deben encontrar las características que son obligatorias para que se devuelva el modelo desde el punto de conexión de predicción. Use una característica obligatoria si sabe que los datos entrantes deben coincidir con la característica.
+
+Si el texto de la expresión no coincide con la característica requerida, no se extraerá.
 
 **Una característica obligatoria utiliza una entidad sin aprendizaje automático**:
 * Entidad de expresión regular
@@ -106,14 +118,14 @@ Continuando con el ejemplo de la dirección de envío:
     * Nombre de la calle (subentidad)
     * Ciudad (subentidad)
     * Estado o provincia (subentidad)
-    * País (subentidad)
+    * País o región (subentidad)
     * Código postal (subentidad)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Característica obligatoria con entidades precompiladas
 
-La ciudad, el estado y el país suelen ser un conjunto cerrado de listas, lo que significa que no cambian mucho con el tiempo. Estas entidades podrían tener las características recomendadas pertinentes y estas características podrían marcarse como obligatorias. Significa que no se devuelve la dirección de envío completa si no se encuentran las entidades con las características obligatorias.
+La ciudad, el estado y el país o región suelen ser un conjunto cerrado de listas, lo que significa que no cambian mucho con el tiempo. Estas entidades podrían tener las características recomendadas pertinentes y estas características podrían marcarse como obligatorias. Significa que no se devuelve la dirección de envío completa si no se encuentran las entidades con las características obligatorias.
 
-¿Qué ocurre si la ciudad, el estado o el país se encuentran en la expresión, pero en una ubicación o jerga que LUIS no espera? Si desea proporcionar algún procesamiento posterior para ayudar a resolver la entidad, debido a una puntuación de confianza baja de LUIS, no marque la característica como obligatoria.
+¿Qué ocurre si la ciudad, el estado o el país se encuentran en la expresión, pero en una ubicación o una jerga que LUIS no espera? Si desea proporcionar algún procesamiento posterior para ayudar a resolver la entidad, debido a una puntuación de confianza baja de LUIS, no marque la característica como obligatoria.
 
 Otro ejemplo de una característica obligatoria para la dirección de envío es hacer que el número de la calle sea un número [precompilado](luis-reference-prebuilt-entities.md) obligatorio. Esto permite que el usuario pueda escribir "1 Microsoft Way" o "One Microsoft Way". Ambos se resolverán en el número "1" para la subentidad de número de la calle.
 
@@ -121,19 +133,19 @@ Otro ejemplo de una característica obligatoria para la dirección de envío es 
 
 Una [entidad de lista](reference-entity-list.md) se utiliza como una lista de nombres canónicos junto con sus sinónimos. Como característica obligatoria, si la expresión no incluye el nombre canónico o un sinónimo, la entidad no se devuelve como parte del punto de conexión de predicción.
 
-Siguiendo con el ejemplo de la dirección de envío, supongamos que su compañía solo realiza envíos a un conjunto limitado de países. Puede crear una entidad de lista que incluya varias maneras en las que el cliente puede hacer referencia al país. Si LUIS no encuentra una coincidencia exacta en el texto de la expresión, la entidad (que tiene la característica obligatoria de la entidad de lista) no se devuelve en la predicción.
+Siguiendo con el ejemplo de la dirección de envío, supongamos que su empresa solo realiza envíos a un conjunto limitado de países o regiones. Puede crear una entidad de lista que incluya varias maneras en las que el cliente puede hacer referencia al país. Si LUIS no encuentra una coincidencia exacta en el texto de la expresión, la entidad (que tiene la característica obligatoria de la entidad de lista) no se devuelve en la predicción.
 
 |Nombre canónico|Sinónimos|
 |--|--|
 |Estados Unidos|EE. UU.<br>EE. UU.<br>US<br>EE. UU.<br>0|
 
-La aplicación cliente, como un bot de chat, puede formular una pregunta de seguimiento, para que el cliente entienda que la selección del país está limitada y es _obligatoria_.
+La aplicación cliente, como un bot de chat, puede formular una pregunta de seguimiento, para que el cliente entienda que la selección del país o región está limitada y es _obligatoria_.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Característica obligatoria con entidades de expresión regular
 
 Una [entidad de expresión regular](reference-entity-regular-expression.md) utilizada como característica obligatoria proporciona funciones de coincidencia de texto enriquecidas.
 
-Continuando con la dirección de envío, puede crear una expresión regular que capture las reglas de sintaxis de los códigos postales de los países.
+Continuando con la dirección de envío, puede crear una expresión regular que capture las reglas de sintaxis de los códigos postales de los países o regiones.
 
 ## <a name="global-features"></a>Características globales
 

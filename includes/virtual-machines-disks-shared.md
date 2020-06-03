@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3e5beaef7fcc9d407103834e2040957ff32984c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008578"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868095"
 ---
 Los discos compartidos de Azure (versión preliminar) son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
@@ -51,6 +51,10 @@ Entre las aplicaciones populares que se ejecutan en WSFC se incluyen:
 
 Los clústeres de Linux pueden aprovechar administradores de clústeres como [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker se basa en [Corosync](http://corosync.github.io/corosync/), lo que permite las comunicaciones de clúster para las aplicaciones implementadas en entornos de alta disponibilidad. Algunos sistemas de archivos en clúster comunes incluyen [ocfs2](https://oss.oracle.com/projects/ocfs2/) y [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Puede manipular las reservas y los registros mediante utilidades como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) y [sg_persist](https://linux.die.net/man/8/sg_persist).
 
+#### <a name="ubuntu"></a>Ubuntu
+
+Para obtener información sobre cómo configurar la alta disponibilidad de Ubuntu con Corosync y Pacemaker en discos compartidos de Azure, consulte [Discurso de la comunidad de Ubuntu](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+
 ## <a name="persistent-reservation-flow"></a>Flujo de reserva persistente
 
 En el siguiente diagrama se ilustra un ejemplo de aplicación de base de datos en clúster de dos nodos que aprovecha SCSI PR para habilitar la conmutación por error de un nodo a otro.
@@ -81,7 +85,7 @@ El flujo es el siguiente:
 
 Ultra Disks ofrece una limitación adicional, para un total de dos limitaciones. Debido a esto, el flujo de reserva de Ultra Disks puede funcionar tal y como se describe en la sección anterior, o puede limitar y distribuir el rendimiento de manera más pormenorizada.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Imagen de una tabla que muestra el acceso ReadOnly (de solo lectura) o Read/Write (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
 
 ## <a name="ultra-disk-performance-throttles"></a>Limitaciones de rendimiento de Ultra Disks
 
@@ -115,22 +119,16 @@ En los siguientes ejemplos se muestran algunos escenarios en los que se muestra 
 
 A continuación, se presenta un ejemplo de un WSFC de dos nodos mediante volúmenes compartidos en clúster. Con esta configuración, ambas máquinas virtuales tienen acceso de escritura simultáneo al disco, lo que da lugar a que se divida la limitación de lectura y escritura entre las dos máquinas virtuales y a que no se use la limitación de solo lectura.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Ejemplo de disco Ultra de dos nodos en CSV":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Ejemplo de disco Ultra de dos nodos en CSV":::
 
 #### <a name="two-node-cluster-without-cluster-share-volumes"></a>Clúster de dos nodos sin volúmenes compartidos en clúster
 
 A continuación, se presenta un ejemplo de un WSFC de dos nodos que no usa volúmenes compartidos en clúster. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que solo la secundaria use la limitación de solo lectura.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Ejemplo de disco Ultra no CSV de dos nodos en CSV":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Ejemplo de disco Ultra no CSV de dos nodos en CSV":::
 
 #### <a name="four-node-linux-cluster"></a>Clúster Linux de cuatro nodos
 
 A continuación, se proporciona un ejemplo de un clúster Linux de cuatro nodos con un solo escritor y tres lectores de escalabilidad horizontal. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que la limitación de solo lectura se divida entre las máquinas virtuales secundarias.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Ejemplo de limitación en disco Ultra de cuatro nodos":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Ejemplo de limitación en disco Ultra de cuatro nodos":::

@@ -1,26 +1,27 @@
 ---
-title: STARTSWITH en el lenguaje de consulta de Azure Cosmos DB
+title: StartsWith con el lenguaje de consulta de Azure Cosmos DB
 description: Obtenga información acerca de la función del sistema de SQL STARTSWITH en Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c64efb92de00291e6381e30af24e76df2b38aee0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78295715"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847121"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
+
  Devuelve un valor booleano que indica si la primera expresión de cadena empieza con la segunda.  
   
 ## <a name="syntax"></a>Sintaxis
   
 ```sql
-STARTSWITH(<str_expr1>, <str_expr2>)  
+STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])  
 ```  
   
 ## <a name="arguments"></a>Argumentos
@@ -31,22 +32,30 @@ STARTSWITH(<str_expr1>, <str_expr2>)
 *str_expr2*  
    Es una expresión de cadena que se va a comparar con el principio de *str_expr1*.
 
+*bool_expr* Valor opcional para omitir mayúsculas y minúsculas. Cuando se establece en true, STARTSWITH realizará una búsqueda sin distinguir mayúsculas y minúsculas. Si no se especifica, este valor es false.
+
 ## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión condicional.  
   
 ## <a name="examples"></a>Ejemplos
   
-  En el ejemplo siguiente se comprueba si la cadena "abc" empieza por "b" y "a".  
+En el ejemplo siguiente se comprueba si la cadena "abc" empieza por "b" y "A".  
   
 ```sql
-SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  
+SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2, STARTSWITH("abc", "A", true) AS s3
 ```  
   
  El conjunto de resultados es el siguiente:  
   
 ```json
-[{"s1": false, "s2": true}]  
+[
+    {
+        "s1": false,
+        "s2": false,
+        "s3": true
+    }
+]
 ```  
 
 ## <a name="remarks"></a>Observaciones

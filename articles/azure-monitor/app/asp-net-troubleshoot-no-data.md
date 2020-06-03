@@ -2,13 +2,13 @@
 title: 'Solución de problemas cuando no hay datos: Application Insights para .NET'
 description: ¿No ve los datos en Azure Application Insights? Pruebe aquí.
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 05/21/2020
+ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802593"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835145"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solución de problemas cuando no hay datos: Application Insights para .NET/.NET Core
 
@@ -248,9 +248,17 @@ Para obtener más información,
 - [Registro de seguimientos de rendimiento con PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Orígenes de eventos de Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
+## <a name="collect-logs-with-dotnet-trace"></a>Recopilación de registros con dotnet-trace
+
+Un método alternativo de recopilación de registros para la solución de problemas que puede resultar especialmente útil en entornos basados en Linux es [`dotnet-trace`](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-trace)
+
+```bash
+dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
+```
+
 ## <a name="how-to-remove-application-insights"></a>Eliminación de Application Insights
 
 Aprenda a quitar Application Insights en Visual Studio siguiendo los pasos que se indican en el [artículo](../../azure-monitor/app/remove-application-insights.md) sobre la eliminación.
 
 ## <a name="still-not-working"></a>Sigue sin funcionar...
-* [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Página de preguntas y respuestas de Microsoft sobre Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)

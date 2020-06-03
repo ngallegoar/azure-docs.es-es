@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918944"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745793"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Preguntas más frecuentes
 
@@ -56,8 +56,8 @@ A.  Para ver dónde están disponibles actualmente las instancias de Data Box Di
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. ¿En qué regiones puedo almacenar datos con los discos de Data Box?
 A. Data Box Disk se admite en todas las regiones de Estados Unidos, Canadá, Australia, Oeste de Europa y Norte de Europa, Corea y Japón. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
 
-### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>Q. ¿Mi disco de Data Box atravesará fronteras internacionales durante el envío?
-A. Los discos de Data Box se envían desde el mismo país de destino y no cruzan ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los discos se pueden enviar desde y hasta cualquier país de la UE.
+### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>Q. ¿Mi unidad de Data Box Disk atravesará fronteras internacionales o regionales durante el envío?
+A. Las unidades de Data Box Disk se envían desde el mismo país o región de destino y no cruzan ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los discos se pueden enviar desde y hasta cualquier país o región de la UE.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. ¿Con quién debo ponerme en contacto si surge algún problemas con los discos de Data Box?
 A. Si surge algún problema con Data Box Disk, póngase en contacto con el [Soporte técnico de Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -138,7 +138,7 @@ A.  Para acelerar el proceso de copia:
 
 - Cree un VHDx local en el almacenamiento rápido, o bien cree disco duro virtual vacío en la HDD o SSD (más lenta).
 - Móntelo en una máquina virtual.
-- Copie los archivos al disco de la máquina virtual.
+- Copie los archivos en el disco de la máquina virtual.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>Q. ¿Se pueden usar varias cuentas de almacenamiento con los discos de Data Box?
 A.  No. Actualmente, los discos de Data Box solo admiten una cuenta de almacenamiento, general o clásica. Se admiten blobs frecuentes y esporádicos. En la actualidad, solo se admiten las cuentas de almacenamiento de Estados Unidos, Oeste de Europa y Norte de Europa en la nube pública de Azure.

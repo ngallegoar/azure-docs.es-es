@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791483"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744577"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Preguntas comunes y terminología de análisis de marketplace comercial
 
@@ -51,7 +51,7 @@ Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos
 | Ciudad del cliente| Customer| Nombre de ciudad proporcionado por el cliente. La ciudad podría ser diferente de la ciudad de la suscripción a Azure del cliente.||
 | Customer Communication Language (Idioma de comunicación del cliente)  | Customer| Idioma preferido por el cliente para la comunicación.||
 | Customer Company Name (Nombre de la empresa del cliente) | Cliente, pedido | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente de la ciudad de la suscripción a Azure del cliente.|  |
-| Customer Country (País del cliente) | Cliente, pedido | Nombre de país proporcionado por el cliente. El país podría ser diferente del país de la suscripción a Azure del cliente.|  |
+| País o región del cliente | Cliente, pedido | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente.|  |
 | Customer Email (Correo electrónico del cliente)| Customer| Dirección de correo electrónico proporcionada por el cliente final. El correo electrónico podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente.||
 | Customer First Name (Nombre del cliente)| Customer| Nombre proporcionado por el cliente. El nombre podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.| |
 | Customer ID | Cliente, pedido | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias.|  |

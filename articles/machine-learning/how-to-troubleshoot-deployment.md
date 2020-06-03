@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929254"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873379"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solución de problemas con la implementación de Azure Machine Learning, Azure Kubernetes Service y Azure Container Instances
 
@@ -180,6 +180,11 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+## <a name="container-cannot-be-scheduled"></a>No se puede programar el contenedor
+
+Al implementar un servicio en un destino de proceso de Azure Kubernetes Service, Azure Machine Learning intentará programar el servicio con la cantidad de recursos solicitada. Si pasados 5 minutos no hay ningún nodo disponible en el clúster con la cantidad adecuada de recursos disponible, se producirá un error en la implementación con el mensaje `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. Para solucionar este error, se pueden agregar más nodos, cambiar la SKU de los nodos o cambiar los requisitos de recursos de su servicio. 
+
+El mensaje de error suele indicar el recurso del cual se necesita más: por ejemplo, si se ve un mensaje de error que indica `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`, significa que el servicio requiere GPU y que hay 3 nodos en el clúster que no tienen GPU disponibles. Esto se podría solucionar con la incorporación de más nodos si se usa una SKU de GPU, el cambio a una SKU habilitada para GPU si no se estaba usando o el cambio del entorno para que no se necesite GPU.  
 
 ## <a name="service-launch-fails"></a>Error en el inicio del servicio
 

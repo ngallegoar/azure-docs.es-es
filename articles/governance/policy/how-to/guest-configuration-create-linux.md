@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Linux
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024989"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654865"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -31,7 +31,14 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
-La creación de un artefacto de Configuración de invitado, las pruebas automatizadas del artefacto, la creación de una definición de directiva y la publicación de la directiva se pueden automatizar totalmente mediante el módulo de Configuración de invitado en PowerShell. El módulo se puede instalar en una máquina que ejecute Windows, macOS o Linux con PowerShell 6.2 o una versión posterior que se ejecute localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Azure PowerShell de Docker](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+El módulo Configuración de invitado automatiza el proceso de creación de contenido personalizado, entre los que se incluyen lo siguiente:
+
+- Creación de un artefacto de contenido de Configuración de invitado (.zip)
+- Pruebas automatizadas del artefacto
+- Creación de una definición de directiva
+- Publicación de la directiva
+
+El módulo se puede instalar en una máquina que ejecute Windows, macOS o Linux con PowerShell 6.2 o una versión posterior que se ejecute localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Azure PowerShell de Docker](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
 > No se admite la compilación de configuraciones en Linux.
@@ -275,6 +282,14 @@ New-GuestConfigurationPolicy `
 
 La salida del cmdlet devuelve un objeto que contiene el nombre para mostrar de la iniciativa y la ruta de acceso de los archivos de directiva.
 
+> [!Note]
+> El módulo Configuración de invitado más reciente incluye parámetros nuevos:
+> - **Tag** agrega uno o varios filtros de etiquetas a la definición de directiva.
+>   - Vea la sección [Filtrado de directivas de Configuración de invitado mediante etiquetas](#filtering-guest-configuration-policies-using-tags).
+> - **Category** establece el campo de metadatos de categoría en la definición de directiva.
+>   - Si no se incluye el parámetro, la categoría tiene como valor predeterminado Configuración de invitado.
+> Estas características se encuentran actualmente en versión preliminar y requieren la versión 1.20.1 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
+
 Por último, publique las definiciones de directivas con el cmdlet `Publish-GuestConfigurationPolicy`.
 El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los archivos JSON que creó `New-GuestConfigurationPolicy`.
 
@@ -386,6 +401,38 @@ Para publicar una actualización de la definición de la directiva, hay dos camp
 - **contentHash**: el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri**, la extensión no aceptará el paquete de contenido.
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
+
+
+### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrado de directivas de Configuración de invitado mediante etiquetas
+
+> [!Note]
+> Esta característica se encuentra actualmente en versión preliminar y requiere la versión 1.20.1 del módulo Configuración de invitado, que se puede instalar mediante `Install-Module GuestConfiguration -AllowPrerelease`.
+
+De forma opcional, las definiciones de directiva que crean los cmdlets en el módulo Configuración de invitado pueden incluir un filtro para las etiquetas. El parámetro **Tag** de `New-GuestConfigurationPolicy` admite una matriz de tablas hash que contiene entradas de etiquetas individuales. Las etiquetas se agregan a la sección `If` de la definición de directiva y no se pueden modificar mediante una asignación de directiva.
+
+A continuación se muestra un fragmento de código de ejemplo de una definición de directiva que filtra por etiquetas.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content will follow
+    }
+  ]
+}
+```
 
 ## <a name="optional-signing-guest-configuration-packages"></a>Opcional: Firma de paquetes de configuración de invitados
 

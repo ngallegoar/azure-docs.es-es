@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34dbde25106dbb82fb9548ad53f368230f2c728c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226880"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654401"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
@@ -43,6 +43,7 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 
 | Versión de extensión de máquina virtual Linux de Log Analytics | Versión del paquete del agente de Log Analytics | 
 |--------------------------------|--------------------------|
+| 1.13.9 | 1.13.3-3 |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -86,7 +87,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"

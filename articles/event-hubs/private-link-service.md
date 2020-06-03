@@ -7,14 +7,14 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148203"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649902"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integración de Azure Event Hubs con Azure Private Link (versión preliminar)
+# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integración de Azure Event Hubs en Azure Private Link
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
 
 Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio de manera eficaz a su red virtual. Todo el tráfico dirigido al servicio se puede enrutar mediante el punto de conexión privado, por lo que no se necesita ninguna puerta de enlace, dispositivos NAT, conexiones de ExpressRoute o VPN ni direcciones IP públicas. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. Puede conectarse a una instancia de un recurso de Azure, lo que le otorga el nivel más alto de granularidad en el control de acceso.
@@ -23,8 +23,6 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 > [!IMPORTANT]
 > Esta característica solo se admite con el nivel **Dedicado**. Para más información acerca del nivel Dedicado, consulte [Introducción a Event Hubs dedicado](event-hubs-dedicated-overview.md). 
->
-> Esta funcionalidad actualmente está en su **versión preliminar**. 
 
 >[!WARNING]
 > La habilitación de los puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Event Hubs.
@@ -64,7 +62,7 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
 2. En la barra de búsqueda, escriba **Event Hubs**.
 3. En la lista, seleccione el **espacio de nombres** al que desea agregar un punto de conexión privado.
 4. Seleccione la pestaña **Redes** en **Configuración**.
-5. Seleccione la pestaña **Conexiones de puntos de conexión privados (versión preliminar)** en la parte superior de la página. Si no está usando un nivel Dedicado de Event Hubs, verá un mensaje: **Las conexiones de puntos de conexión privados en Event Hubs solo se admiten en los espacios de nombres creados en un clúster dedicado**.
+5. Seleccione la pestaña **Conexiones de puntos de conexión privadas** en la parte superior de la página. Si no está usando un nivel Dedicado de Event Hubs, verá un mensaje: **Las conexiones de puntos de conexión privados en Event Hubs solo se admiten en los espacios de nombres creados en un clúster dedicado**.
 6. Seleccione el botón **+ Punto de conexión privado** en la parte superior de la página.
 
     ![Imagen](./media/private-link-service/private-link-service-3.png)
@@ -244,46 +242,33 @@ Debe comprobar que los recursos de la misma subred del recurso de punto de conex
 
 En primer lugar, cree una máquina virtual siguiendo los pasos que encontrará en [Creación de una máquina virtual Windows en Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 
-En la pestaña **Redes**:
+Haga clic en la pestaña **Redes**: 
 
-1. Especifique una **red virtual** y una **subred**. Puede crear una red virtual o seleccionar una existente. Si selecciona una existente, asegúrese de que la región coincide.
-1. Especifique un recurso de **dirección IP pública**.
-1. En **Grupo de seguridad de red de NIC**, seleccione **Ninguno**.
-1. En **Equilibrio de carga**, seleccione **No**.
+1. Especifique **Red virtual** y **Subred**. Debe seleccionar la instancia de Virtual Network en la que implementó el punto de conexión privado.
+2. Especifique un recurso de **dirección IP pública**.
+3. En **Grupo de seguridad de red de NIC**, seleccione **Ninguno**.
+4. En **Equilibrio de carga**, seleccione **No**.
 
-Abra el símbolo del sistema y ejecute el siguiente comando:
+Conéctese a la máquina virtual, abra la línea de comandos y ejecute el siguiente comando:
 
 ```console
-nslookup <your-event-hubs-namespace-name>.servicebus.windows.net
+nslookup <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
-Si ejecuta el comando de búsqueda ns para resolver la dirección IP de un espacio de nombres de Event Hubs sobre un punto de conexión público, verá un resultado similar al siguiente:
+Debería ver un resultado con el siguiente aspecto. 
 
 ```console
-c:\ >nslookup <your-event-hubs-namespae-name>.servicebus.windows.net
-
 Non-authoritative answer:
-Name:    
-Address:  (public IP address)
-Aliases:  <your-event-hubs-namespace-name>.servicebus.windows.net
-```
-
-Si ejecuta el comando de búsqueda ns para resolver la dirección IP de un espacio de nombres de Event Hubs sobre un punto de conexión privado, verá un resultado similar al siguiente:
-
-```console
-c:\ >nslookup your_event-hubs-namespace-name.servicebus.windows.net
-
-Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address)
-Aliases:  <your-event-hub-name>.servicebus.windows.net
+Name:    <event-hubs-namespace-name>.privatelink.servicebus.windows.net
+Address:  10.0.0.4 (private IP address associated with the private endpoint)
+Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
 ## <a name="limitations-and-design-considerations"></a>Limitaciones y consideraciones de diseño
 
 **Precios**: Para más información sobre los precios, consulte [Precios de Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitaciones**:  El punto de conexión privado de Azure Event Hubs está en versión preliminar pública. Esta característica está disponible en todas las regiones públicas de Azure.
+**Limitaciones**:  Esta característica está disponible en todas las regiones públicas de Azure.
 
 **Número máximo de puntos de conexión privados por espacio de nombres de Event Hubs**: 120.
 

@@ -1,22 +1,22 @@
 ---
-title: Panel Información de marketplace de los análisis de marketplace comercial del Centro de partners
-description: Acceda a un resumen de análisis web de Marketplace, que permite a los editores medir la participación del cliente en escaparates de AppSource y Azure Marketplace.
+title: 'Información de Marketplace: marketplace comercial de Microsoft'
+description: Acceda a un resumen de análisis web de marketplace, que permite medir la involucración del cliente en Microsoft AppSource y Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251714"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745657"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Panel Información de marketplace de los análisis de marketplace comercial
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>Panel de Información de Marketplace en Centro de partners
 
-En este artículo se proporciona información sobre el panel Información de Marketplace del Centro de partners. En este panel se muestra un resumen de los análisis web de Marketplace, que permite a los editores medir la participación del cliente en sus respectivas páginas de detalles de productos en los escaparates de Marketplace de AppSource y Azure Marketplace.
+En este artículo se proporciona información sobre el panel Información de Marketplace del Centro de partners. En este panel se muestra un resumen de los análisis web de Marketplace, que permite a los editores medir la participación del cliente en sus respectivas páginas de detalles de productos en los escaparates de Marketplace de Microsoft AppSource y Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Panel de información de Marketplace
 
@@ -89,7 +89,7 @@ En el mapa térmico siguiente se muestra el recuento de **visitas a la página**
 El mapa térmico incluye las siguientes funcionalidades:
 
 - El mapa térmico cuenta con una cuadrícula complementaria para ver los detalles de las **visitas a la página**, las **llamadas a la acción** y los **visitantes únicos** de una ubicación específica. Si lo prefiere, puede hacer zoom en una ubicación específica.  
-- La **dispersión en países** es el recuento de países desde los que los clientes han comunicado visitas a la página durante el intervalo de fechas seleccionado.
+- La **dispersión en países o regiones** es el recuento de países o regiones desde los que los clientes han comunicado visitas a la página durante el rango de fechas seleccionado.
 - Puede buscar y seleccionar un país en la cuadrícula para ampliar la ubicación en el mapa. Para revertir la vista original, seleccione **Inicio** en el mapa.
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Tendencia de visitas a la página frente a visitantes únicos

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/07/2020
+ms.date: 05/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 4fd01764c183098a8bd78d502eea7ab173fa22cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80293912"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660163"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP
 
@@ -176,7 +176,7 @@ Puede usar el proxy para permitir las llamadas de Pacemaker al punto de conexió
 ### <a name="important-considerations"></a>Consideraciones importantes
 
   - Si ya existe un proxy corporativo, puede enrutar las llamadas salientes a los puntos de conexión públicos a través de él. Las llamadas salientes a puntos de conexión públicos pasarán por el punto de control corporativo.  
-  - Asegúrese de que la configuración del proxy permite la conectividad de salida a la API de administración de Azure: `https://management.azure.com`.  
+  - Asegúrese de que la configuración del proxy permite la conectividad de salida a la API de administración de Azure: `https://management.azure.com` y `https://login.microsoftonline.com`.  
   - Asegúrese de que hay una ruta de las máquinas virtuales al proxy.  
   - El proxy solo controlará las llamadas HTTP/HTTPS. Si se necesita realizar llamadas salientes adicionales a un punto de conexión público a través de diferentes protocolos (como RFC), será necesaria otra solución.  
   - La solución de proxy debe tener una alta disponibilidad para evitar la inestabilidad en el clúster de Pacemaker.  
@@ -219,6 +219,10 @@ Para permitir que Pacemaker se comunique con la API de administración de Azure,
      # Take the cluster out of maintenance mode
      sudo pcs property set maintenance-mode=false
      ```
+
+## <a name="other-solutions"></a>Otras soluciones
+
+Si el tráfico saliente se enruta a través de un firewall de terceros, asegúrese de que la configuración del firewall permita la conectividad de salida a la API de administración de Azure: `https://management.azure.com` y `https://login.microsoftonline.com`.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: b-juche
-ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.date: 05/21/2020
+ms.author: ramakk
+ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667875"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797429"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -36,10 +36,12 @@ Debe entender algunas consideraciones al planear de red de Azure NetApp Files.
 Las características siguientes no se admiten actualmente en Azure NetApp Files: 
 
 * Grupos de seguridad de red (NSG) aplicados a la subred delegada
-* Rutas definidas por el usuario (UDR) con prefijo de dirección como subred de Azure NetApp Files
+* Rutas definidas por el usuario (UDR) aplicadas a la subred delegada
 * Directivas de Azure (por ejemplo, directivas de nomenclatura personalizadas) en la interfaz de Azure NetApp Files
 * Equilibradores de carga para el tráfico de Azure NetApp Files
-* Azure NetApp Files no es compatible con Azure Virtual WAN.
+* Azure Virtual WAN 
+* Puertas de enlace de Virtual Network con redundancia de zona (SKU de puerta de enlace con Az) 
+* Puertas de enlace activa/activa de Virtual Network 
 
 Las siguientes restricciones de red se aplican a Azure NetApp Files:
 
@@ -82,9 +84,10 @@ Si la red virtual está emparejada con otra red virtual, no puede expandir el es
 
 ### <a name="udrs-and-nsgs"></a>UDR y NSG
 
-Las rutas definidas por el usuario (UDR) y los grupos de seguridad de red (NSG) no se admiten en las subredes delegadas de Azure NetApp Files.
+Las rutas definidas por el usuario (UDR) y los grupos de seguridad de red (NSG) no se admiten en las subredes delegadas de Azure NetApp Files. Pero puede aplicar UDR y NSG a otras subredes, incluso dentro de la misma red virtual que la subred delegada en Azure NetApp Files.
 
-Como alternativa, puede aplicar los NSG a otras subredes que permitan o rechacen el tráfico hacia y desde la subred delegada de Azure NetApp Files.  
+* Después, las UDR definen los flujos de tráfico de las demás subredes a la subred delegada de Azure NetApp Files. Esto ayuda a garantizar que esto se alinee con el flujo de tráfico de Azure NetApp Files a las otras subredes mediante las rutas del sistema.  
+* Luego las NSG permiten o deniegan el tráfico hacia la subred delegada de Azure NetApp Files y desde esta. 
 
 ## <a name="azure-native-environments"></a>Entornos nativos de Azure
 

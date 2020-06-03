@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981552"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747528"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -196,7 +196,7 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 
     ![Selección de cuenta de almacenamiento, área de trabajo de Log Analytics y habilitación de Análisis de tráfico](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y reglamentos locales de su país permiten el almacenamiento de datos en la región donde existe el área de trabajo. Si ha establecido intervalos de procesamiento diferentes para NSG diferentes, los datos se recopilarán en distintos intervalos. Por ejemplo: Puede optar por habilitar el intervalo de procesamiento de 10 minutos para redes virtuales críticas y el de una hora para redes virtuales no críticas.
+Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y los reglamentos locales de su país o región permiten el almacenamiento de datos en la región donde existe el área de trabajo. Si ha establecido intervalos de procesamiento diferentes para NSG diferentes, los datos se recopilarán en distintos intervalos. Por ejemplo: Puede optar por habilitar el intervalo de procesamiento de 10 minutos para redes virtuales críticas y el de una hora para redes virtuales no críticas.
 
 También puede configurar el análisis de tráfico mediante el cmdlet [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) de PowerShell en Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 

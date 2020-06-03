@@ -1,22 +1,22 @@
 ---
-title: Administración de actualizaciones para varias máquinas virtuales de Azure
-description: En este artículo se describe cómo administrar actualizaciones para máquinas virtuales de Azure y que no son de Azure.
+title: Administración de actualizaciones de varias máquinas virtuales en Azure Automation
+description: En este artículo se explica cómo administrar las actualizaciones de varias máquinas virtuales.
 services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a878ecf4519a852a9798b320bda26cd490487a4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731992"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834635"
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Administración de actualizaciones para varias máquinas virtuales de Azure
+# <a name="manage-updates-for-multiple-vms"></a>Administración de actualizaciones de varias máquinas virtuales
 
-Puede usar Update Management de Azure Automation para administrar las actualizaciones y las revisiones de las máquinas virtuales Windows y Linux. Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede:
+Puede usar Update Management en Azure Automation para administrar las actualizaciones y las revisiones de las máquinas virtuales Windows y Linux. Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede:
 
-- Incorporar máquinas virtuales.
+- Habilitar máquinas virtuales para Update Management.
 - Evaluar el estado de las actualizaciones disponibles.
 - Programar la instalación de las actualizaciones necesarias.
 - Revisar los resultados de la implementación para comprobar que se han aplicado correctamente las actualizaciones a todas las máquinas virtuales para las cuales se ha habilitado Update Management.
@@ -25,26 +25,24 @@ Para más información sobre los requisitos del sistema de Update Management, ve
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
-* Acceso a un repositorio de actualizaciones para máquinas virtuales Linux incorporadas a Update Management.
+* Una máquina virtual o un equipo que tenga instalado uno de los sistemas operativos admitidos.
+* Acceso a un repositorio de actualizaciones para máquinas virtuales Linux habilitado para Update Management.
 
-## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitación de Update Management en máquinas virtuales de Azure
+## <a name="enable-update-management-for-azure-vms"></a>Habilitación de Update Management en máquinas virtuales de Azure
 
-En Azure Portal, abra su cuenta de Automation y seleccione **Update Management**.
+1. En Azure Portal, abra su cuenta de Automation y seleccione **Update Management**.
 
-Seleccione **Agregar máquina virtual de Azure**.
+2. Seleccione **Agregar máquina virtual de Azure**.
 
-![Pestaña Agregar máquina virtual de Azure](./media/manage-update-multi/update-onboard-vm.png)
+    ![Pestaña Agregar máquina virtual de Azure](./media/manage-update-multi/update-onboard-vm.png)
 
-Seleccione la máquina virtual que desea incorporar.
+3. Elija una máquina virtual que quiera habilitar y seleccione **Habilitar** en **Habilitar Update Management**.
 
-En **Habilitar la administración de actualizaciones**, seleccione **Habilitar** para incorporar la máquina virtual.
+    ![Cuadro de diálogo Habilitar la administración de actualizaciones](./media/manage-update-multi/update-enable.png)
 
-![Cuadro de diálogo Habilitar la administración de actualizaciones](./media/manage-update-multi/update-enable.png)
+    Al finalizar la operación, Update Management está habilitada en la máquina virtual.
 
-Una vez que se completa la incorporación, Update Management está habilitado para su máquina virtual.
-
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitación de Update Management en equipos y máquinas virtuales que no son de Azure
+## <a name="enable-update-management-for-non-azure-vms-and-computers"></a>Habilitación de Update Management en equipos y máquinas virtuales que no son de Azure
 
 El agente de Log Analytics para Windows y Linux debe instalarse en las máquinas virtuales que se ejecutan en la red corporativa o en otro entorno en la nube con el fin de habilitarlos con Update Management. Para obtener información sobre los requisitos del sistema y los métodos admitidos a fin de implementar el agente en máquinas hospedadas fuera de Azure, vea [Información general sobre el agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
@@ -70,11 +68,11 @@ Una vez habilitado Update Management, se abre el panel Update Management. Puede 
 
 ## <a name="collect-data"></a>Recopilación de datos
 
-Los agentes que están instalados en máquinas virtuales y equipos recopilan datos acerca de las actualizaciones. Los agentes envían los datos a Azure Update Management.
+Los agentes que están instalados en máquinas virtuales y equipos recopilan datos sobre las actualizaciones. Los agentes envían los datos a Azure Update Management.
 
 ### <a name="supported-agents"></a>Agentes admitidos
 
-En la tabla siguiente se describen los orígenes conectados compatibles con esta solución:
+En la tabla siguiente se describen los orígenes conectados compatibles con Update Management:
 
 | Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
@@ -117,7 +115,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
 
-- **Actualizar clasificación**: seleccione los tipos de software que se incluirán en la implementación de actualizaciones. Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-view-update-assessments.md#update-classifications). Los tipos de clasificación son:
+- **Actualizar clasificación**: seleccione los tipos de software que se incluirán en la implementación de actualizaciones. Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-view-update-assessments.md#work-with-update-classifications). Los tipos de clasificación son:
   - Actualizaciones críticas
   - Actualizaciones de seguridad
   - Paquetes acumulativos de actualizaciones
@@ -130,11 +128,10 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 - **Actualizaciones para incluir/excluir**: se abre la página Incluir/Excluir. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
-> Es importante saber que las exclusiones invalidan las inclusiones. Por ejemplo, si define una regla de exclusión de `*`, no se instalan revisiones ni paquetes, ya que se excluyen todas. Las revisiones excluidas aparecen todavía como que faltan en la máquina. Para las máquinas Linux, si se incluye un paquete, pero tiene un paquete dependiente que se ha excluido, el paquete no se instala.
+> Es importante saber que las exclusiones tienen prioridad sobre las inclusiones. Por ejemplo, si define una regla de exclusión de `*`, no se instalan revisiones ni paquetes, ya que se excluyen todas. Las revisiones excluidas aparecen todavía como que faltan en la máquina. Para las máquinas Linux, si se incluye un paquete, pero tiene un paquete dependiente que se ha excluido, el paquete no se instala.
 
 > [!NOTE]
-> No puede especificar actualizaciones que se hayan sustituido para incluirlas en la implementación de actualizaciones.
->
+> No puede especificar actualizaciones que se hayan descartado para incluirlas en la implementación de actualizaciones.
 
 - **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, que son 30 minutos después de la hora actual. También puede especificar una hora distinta.
 
@@ -185,4 +182,4 @@ Seleccione **Errores** para ver información detallada sobre los errores de la i
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los registros, salidas y errores de Update Management, vea [Consulta de registros de actualización para Update Management](automation-update-management-query-logs.md).
+* Si necesita buscar registros de actualización, consulte [Consulta de registros de actualización para Update Management en registros de Azure Monitor](automation-update-management-query-logs.md).

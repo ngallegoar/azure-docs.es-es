@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8551e17ddd71e76aca0c85b9768f564ae0e5f049
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 2bc356060bacd1c04ecb3d3dd10b8322ae40b8ba
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679402"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758680"
 ---
 # <a name="materials"></a>Materiales
 
@@ -35,11 +35,15 @@ Las [mallas](meshes.md) tienen una o varias submallas. Cada submalla hace refere
 
 Cuando se modifica un material directamente en el recurso de malla, este cambio afecta a todas las instancias de esa malla. Sin embargo, cambiarlo en el MeshComponent solo afecta a esa instancia de malla. El método más adecuado depende del comportamiento deseado, pero la modificación de un MeshComponent es el enfoque más común.
 
+## <a name="material-de-duplication"></a>Desduplicación de materiales
+
+Durante la conversión, varios materiales con las mismas propiedades y texturas se desduplican automáticamente en un único material. Puede deshabilitar esta característica en la [configuración de conversión](../how-tos/conversion/configure-model-conversion.md), pero se recomienda dejarla para mejorar el rendimiento.
+
 ## <a name="material-classes"></a>Clases Material
 
 Todos los materiales proporcionados por la API se derivan de la clase base `Material`. Su tipo se puede consultar a través de `Material.MaterialSubType` o mediante su conversión directa:
 
-``` cs
+```cs
 void SetMaterialColorToGreen(Material material)
 {
     if (material.MaterialSubType == MaterialType.Color)
@@ -50,14 +54,33 @@ void SetMaterialColorToGreen(Material material)
     }
 
     PbrMaterial pbrMat = material as PbrMaterial;
-    if( pbrMat!= null )
+    if (pbrMat != null)
     {
-        PbrMaterial pbrMaterial = material.PbrMaterial.Value;
-        pbrMaterial.AlbedoColor = new Color4(0, 1, 0, 1);
+        pbrMat.AlbedoColor = new Color4(0, 1, 0, 1);
         return;
     }
 }
 ```
+
+```cpp
+void SetMaterialColorToGreen(ApiHandle<Material> material)
+{
+    if (*material->MaterialSubType() == MaterialType::Color)
+    {
+        ApiHandle<ColorMaterial> colorMaterial = material.as<ColorMaterial>();
+        colorMaterial->AlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+
+    if (*material->MaterialSubType() == MaterialType::Pbr)
+    {
+        ApiHandle<PbrMaterial> pbrMat = material.as<PbrMaterial>();
+        pbrMat->AlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+}
+```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

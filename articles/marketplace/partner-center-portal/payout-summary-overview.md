@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 48644f2f8148a7aa1974be0d7f761e9b3a55612d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82782549"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746198"
 ---
 # <a name="payout-summary-overview"></a>Introducción al resumen de pagos
 
@@ -70,7 +70,7 @@ Esta opción proporciona una descarga de cada artículo de línea que se encuent
 | participantId | Identidad principal del asociado que gana con el programa. |
 | participantIdType | Identificador de programa en los programas de incentivos y el vendedor si es un programa de la tienda y Azure Marketplace. |
 | participantName | Nombre del asociado que gana. |
-| partnerCountryCode | Ubicación o país del asociado que gana. |
+| partnerCountryCode | Ubicación, país o región del asociado que gana. |
 | programName | Nombre del programa de incentivos/tienda. |
 | transactionId | Identificador único de la transacción. |
 | transactionCurrency | Moneda en la que se produjo la transacción original del cliente (no es la moneda de la ubicación del asociado). |
@@ -113,15 +113,15 @@ Esta opción proporciona una descarga de cada artículo de línea que se encuent
 | storeFee | La cantidad retenida por Microsoft como honorarios por hacer que la aplicación o el complemento estén disponibles en el marketplace comercial. |
 | transactionPaymentMethod | Instrumento de pago del cliente usado para la transacción (por ejemplo, tarjeta, facturación del operador móvil y PayPal). |
 | tpan | Red de anuncios de terceros. |
-| customerCountry | País del cliente. |
+| customerCountry | País o región del cliente. |
 | customerCity | Ciudad del cliente. |
 | customerState | Estado del cliente. |
 | customerZip | Código postal del cliente. |
 | TenantID | Identificador del inquilino. |
 | externalReferenceId | Identificador único del programa. |
 | externalReferenceIdLabel | Etiqueta del identificador único. |
-| transactionCountryCode | Código de país en el que se produjo la transacción. |
-| taxCountry | País del cliente. |
+| transactionCountryCode | Código de país o región en el que se ha producido la transacción. |
+| taxCountry | País o región del cliente. |
 | taxState | Estado del cliente. |
 | taxCity | Ciudad del cliente. |
 | taxZipCode | Código postal del cliente. |
@@ -132,7 +132,7 @@ Esta opción proporciona una descarga de cada artículo de línea que se encuent
 | AssetId | Identificador único de los pedidos de cliente del servicio de Marketplace. Representa los artículos de línea de compra. Puede haber varios recursos. |
 | OrderId | Se relaciona con la factura de un cliente. |
 | LineItemId | Línea individual en la factura de un cliente. |
-| Customer Country (País del cliente) | Nombre de país proporcionado por el cliente. Puede ser diferente del país de la suscripción a Azure de un cliente. |
+| País o región del cliente. | Nombre del país o región proporcionado por el cliente. Podría ser diferente del país o región de la suscripción a Azure del cliente. |
 | Customer EmailAddress | Dirección de correo electrónico proporcionada por el cliente. Puede ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente. |
 | SkuId | Identificador de la SKU definida durante la publicación. Una oferta puede tener muchas SKU, pero una SKU solo puede asociarse a una única oferta. |
 

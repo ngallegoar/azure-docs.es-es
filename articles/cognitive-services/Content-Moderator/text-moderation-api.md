@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274017"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685067"
 ---
 # <a name="learn-text-moderation-concepts"></a>Información sobre los conceptos de moderación de texto
 
-Use la moderación de texto asistida por máquina de Content Moderator y las funcionalidades de [revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar el contenido de texto.
+Use los modelos de moderación de texto de Content Moderator para analizar el contenido de texto.
 
-El contenido se bloquea, aprueba o revisa en función de las directivas y los umbrales. Úsela para aumentar la moderación humana de los entornos donde socios, empleados y consumidores generan contenido de texto. Puede tratarse de salas de chat, paneles de discusión, bots de chat, catálogos de comercio electrónico y documentos. 
+Puede bloquear, aprobar o revisar el contenido en función de las directivas y los umbrales (consulte [Revisiones, flujos de trabajo y trabajos](./review-api.md) para aprender a configurar revisiones humanas). Use los modelos de moderación de texto para aumentar la moderación humana de los entornos donde asociados, empleados y consumidores generan contenido de texto. Puede tratarse de salas de chat, paneles de discusión, bots de chat, catálogos de comercio electrónico y documentos. 
 
 La respuesta del servicio incluye la siguiente información:
 
@@ -155,4 +155,4 @@ Content Moderator proporciona una [API de lista de términos](https://westus.dev
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Profundice en la [consola de API de moderación de texto](try-text-api.md) y use los ejemplos de código de la API REST. Consulte también la sección de moderación de texto del [inicio rápido del SDK de .NET](dotnet-sdk-quickstart.md) si está familiarizado con Visual Studio y C#.
+Pruebe las API con la [consola de API de moderación de texto](try-text-api.md). Consulte también [Revisiones, flujos de trabajo y trabajos](./review-api.md) para aprender a configurar revisiones humanas.

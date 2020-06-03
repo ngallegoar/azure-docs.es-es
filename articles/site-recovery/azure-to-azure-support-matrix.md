@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 970046f000a844ce6ee7207ad1bb33f4a327a63d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673805"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848114"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -145,16 +145,17 @@ Debian 8 | 9.28 | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.32 | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.34-azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,31 | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.30 | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.29 | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.23-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.32 | Se admiten todos los kernels de SUSE 12 SP1, SP2, SP3 y SP4.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.34-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,31 | Se admiten todos los kernels de SUSE 12 SP1, SP2, SP3 y SP4.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.29-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.30 | Se admiten todos los kernels de SUSE 12 SP1, SP2, SP3 y SP4.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.29-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.29 | Se admiten todos los kernels de SUSE 12 SP1, SP2, SP3 y SP4.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.23-azure  |
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel admitidas de SUSE Linux Enterprise Server 15 para máquinas virtuales de Azure
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 y 15 SP1 | 9.32 | Se admiten todos los [kernels stock de SUSE 15 y 15](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15).</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 y 15 SP1 | 9.32 | De forma predeterminada, se admiten todos los [kernels incluidos en SUSE 15 y 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
+
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas: Sistema de archivos o almacenamiento de invitado de Linux
 
@@ -178,6 +179,8 @@ Imágenes personalizadas (publicadas de terceros) | Compatible | Se admiten si l
 Máquinas virtuales migradas con Site Recovery | Compatible | Si se migró una máquina virtual de VMware o una física a Azure mediante Site Recovery, deberá desinstalar la versión antigua de Mobility Service que se ejecuta en la máquina y reiniciarla antes de replicarla en otra región de Azure.
 Directivas RBAC | No compatible | Las directivas de control de acceso basado en rol (RBAC) de las máquinas virtuales no se replican en la máquina virtual de conmutación por error en la región de destino.
 Extensiones | No compatible | Las extensiones no se replican en la máquina virtual de conmutación por error en la región de destino. Deben instalarse manualmente después de la conmutación por error.
+Grupos con ubicación por proximidad | No compatible | Las máquinas virtuales que se encuentran dentro de un grupo con ubicación por proximidad no se pueden proteger mediante Site Recovery.
+
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas: acciones de disco
 
@@ -212,9 +215,9 @@ Almacenamiento esporádico y almacenamiento frecuente | No compatible | Los disc
 Espacios de almacenamiento | Compatible |
 Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.
 Cifrado en reposo (CMK) | Compatible | Para los discos administrados se admiten tanto claves de software como HSM
-Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. |
-Azure Disk Encryption (ADE) para sistemas operativos Linux | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. |
-Adición en caliente    | Compatible | La replicación de un disco de datos que se agrega a una máquina virtual de Azure replicada se puede habilitar en máquinas virtuales que usan discos administrados.
+Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. <br/><br/> No se admite el cifrado de volúmenes individuales en un solo disco. |
+Azure Disk Encryption (ADE) para sistemas operativos Linux | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. <br/><br/> No se admite el cifrado de volúmenes individuales en un solo disco. |
+Adición en caliente    | Compatible | La replicación de un disco de datos que se agrega a una máquina virtual de Azure replicada se puede habilitar en máquinas virtuales que usan discos administrados. <br/><br/> Solo se puede agregar un disco a una máquina virtual de Azure a la vez. No se admite la adición paralela de varios discos. |
 Eliminación de disco en caliente    | No compatible | Si quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
 Excluir el disco | Compatible. Debe usar [PowerShell](azure-to-azure-exclude-disks.md) para configurarlo. |    Los discos temporales se excluyen de forma predeterminada.
 Espacios de almacenamiento directo  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
@@ -228,6 +231,7 @@ Almacenamiento en frío y en caliente | No compatible | Los discos de máquina v
 Firewalls de Azure Storage para redes virtuales  | Compatible | Si restringe el acceso de red virtual a las cuentas de almacenamiento, habilite [Permitir servicios de Microsoft de confianza](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | Compatible | Los costos de transacción aumentan considerablemente en comparación con las cuentas de almacenamiento de uso general V1
 Generación 2 (Arranque UEFI) | Compatible
+Discos NVMe | No compatible
 
 >[!IMPORTANT]
 > Para evitar cualquier problema de rendimiento, asegúrese de respetar los objetivos de escalabilidad y rendimiento del disco de la máquina virtual de máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si usa la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento y los discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, respete los objetivos de escalabilidad y rendimiento del disco de las máquinas virtuales de origen.
@@ -270,6 +274,8 @@ Conexión VPN de sitio a sitio en el entorno local<br/><br/>(con o sin ExpressRo
 Conexión de red virtual a red virtual    | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md)
 Puntos de conexión de servicio de red virtual | Compatible | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de que los servicios de Microsoft de confianza pueden acceder a la cuenta de almacenamiento.
 Redes aceleradas | Compatible | Se deben habilitar las redes aceleradas en una máquina virtual de origen. [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Dispositivo de Palo Alto Networks | No compatible | Con los dispositivos de terceros, a menudo hay restricciones impuestas por el proveedor dentro de la máquina virtual. Azure Site Recovery necesita que el agente, las extensiones y la conectividad saliente estén disponibles. Pero el dispositivo no permite que se configure ninguna actividad saliente dentro de la máquina virtual.
+IPv6  | No compatible | Tampoco se admiten configuraciones mixtas que incluyan IPv4 e IPv6. Libere la subred del intervalo IPv6 antes de cualquier operación de Site Recovery.
 
 
 

@@ -7,18 +7,18 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: c7618bd4408f07b70e2f9fffe23e38ba968e7210
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 04de89624dd0e6857e96327bb408cf8700a1f6a2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792401"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848889"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creación de una oferta de Dynamics 365 Business Central
 
 En este artículo se explica cómo crear una nueva oferta de Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) es una sistema de planeación de recursos empresariales (ERP) que controla una amplia gama de procesos empresariales, incluidas las finanzas, las operaciones, la cadena de suministro, la administración de relaciones con el cliente, la administración de proyectos y el comercio electrónico. Los paquetes Premium también admiten el modelo de implementación clásico y la fabricación. Todas las ofertas de Dynamics 365 Business Central deben pasar por nuestro proceso de certificación.
 
-Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa marketplace comercial.
+Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -67,26 +67,26 @@ Presente su oferta a los clientes con un vínculo a una evaluación gratuita pro
 
 #### <a name="contact-me"></a>Ponerse en contacto conmigo
 
-Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información acerca de cómo configurar CRM, consulte [Conexión de administración de clientes potenciales](#connect-lead-management). 
+Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para más información sobre cómo configurar el sistema CRM, consulte [Clientes potenciales](#customer-leads).
 
 ### <a name="test-drive"></a>Versión de prueba
 
-Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de "probarla antes de comprarla", lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. [Más información acerca de las versiones de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de «probar antes de comprar», lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. [Más información sobre las versiones de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-Para habilitar una versión de prueba durante un período de tiempo fijo, seleccione la casilla **Habilitar una versión de prueba**. Para eliminar la versión de prueba de la oferta, desactive esta casilla. Configure el entorno de la versión de prueba en la sección [Configuración técnica de la versión de prueba](#test-drive-technical-configuration) más adelante en este tema.
+Para habilitar una versión de prueba durante un período de tiempo determinado, seleccione la casilla **Habilitar una versión de prueba**. Para eliminar la versión de prueba de la oferta, desactive esta casilla. Configure el entorno de la versión de prueba en la sección [Configuración técnica de la versión de prueba](#test-drive-technical-configuration) más adelante en este tema.
 
-Para obtener más información, consulte [Versión de prueba de la oferta en el marketplace comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+Para más información, consulte [Versión de prueba de la oferta en el Marketplace comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
 
 #### <a name="type-of-test-drive"></a>Tipo de versión de prueba
 
 Seleccione entre las siguientes opciones:
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : una plantilla de implementación que contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure.
-- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft hospeda y mantiene el servicio de la versión de prueba (lo que incluye el aprovisionamiento y la implementación) de un sistema de planeamiento de recursos empresariales Business Central (finanzas, operaciones, cadena de suministros, CRM, etc.).  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft hospeda y mantiene el servicio de la versión de prueba (incluido el aprovisionamiento y la implementación) para un sistema de Customer Engagement (ventas, servicio, servicio de proyecto, el servicio de campo, etc.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft hospeda y mantiene el servicio de la versión de prueba (lo que incluye el aprovisionamiento y la implementación) de un sistema de planeamiento de recursos empresariales Finance and Operations (finanzas, operaciones, fabricación, cadena de suministros, etc.). 
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : Una plantilla de implementación que contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure.
+- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft hospeda y mantiene el servicio de la unidad de prueba (lo que incluye el aprovisionamiento y la implementación) del sistema de planeamiento de recursos empresariales Business Central (finanzas, operaciones, cadena de suministros, CRM, etc.).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft hospeda y mantiene el servicio de la versión de prueba (incluidos aprovisionamiento e implementación) de un sistema de Customer Engagement (ventas, servicio, servicio de proyecto, servicio de campo, etc.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft hospeda y mantiene el servicio de la unidad de prueba (incluye el aprovisionamiento y la implementación) del sistema de planeamiento de recursos empresariales Finance and Operations (finanzas, operaciones, fabricación, cadena de suministros, etc.). 
 - **[Aplicación lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : una plantilla de implementación que abarca todas las arquitecturas de soluciones complejas. Todos los productos personalizados deben usar este tipo de versión de prueba.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : un vínculo incrustado en un panel personalizado. Los productos que deseen realizar una demostración de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba. Todo lo que necesita para la carga aquí es la dirección URL insertada de Power BI.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : Un vínculo insertado en un panel personalizado. Los productos que deseen realizar una demostración de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba. Todo lo que necesita para la carga aquí es la dirección URL insertada de Power BI.
 
 #### <a name="additional-test-drive-resources"></a>Recursos adicionales de una unidad de prueba
 
@@ -94,7 +94,7 @@ Seleccione entre las siguientes opciones:
 - [Procedimientos recomendados de marketing de la versión de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - PDF de [Introducción a las versiones de prueba](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (asegúrese de que el bloqueador de elementos emergentes está desactivado)
 
-## <a name="connect-lead-management"></a>Conexión de administración de clientes potenciales
+### <a name="customer-leads"></a>Clientes potenciales
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -104,7 +104,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="properties"></a>Propiedades
 
-Esta página le permite definir las categorías y los sectores que se usan para agrupar su oferta en Marketplace, la versión de la aplicación y los contratos legales que dan soporte a su oferta.
+Esta página le permite definir las categorías y los sectores que se usan para agrupar su oferta en el marketplace, la versión de la aplicación y los contratos legales que dan soporte a su oferta.
 
 ### <a name="category"></a>Category
 
@@ -137,30 +137,15 @@ El nombre que escriba aquí se mostrará a los clientes como el título de la de
 
 ### <a name="short-description"></a>Descripción breve
 
-Especifique una descripción breve de la oferta (100 caracteres como máximo), que se va a usar en los resultados de la búsqueda de Marketplace.
+Proporcione una breve descripción de la oferta (hasta 100 caracteres). Esta descripción se puede usar en los resultados de la búsqueda de Marketplace.
 
 ### <a name="description"></a>Descripción
 
-Proporcione una descripción más larga de la oferta (hasta 3.000 caracteres). Esta descripción se mostrará a los clientes en la información general de la lista de Marketplace. Incluya una propuesta de valor de la oferta, los beneficios clave, las asociaciones de la categoría o sector, las oportunidades de compra en la aplicación y todas las divulgaciones necesarias. 
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Algunos consejos para escribir la descripción:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Describa claramente la propuesta de valor de la oferta en las primeras frases de su descripción. Incluya los siguientes elementos en la propuesta de valor:
-  - Descripción del producto
-  - Tipo de usuario que se beneficia del producto.
-  - Necesidad o preocupación del cliente que aborda el producto.
-- Tenga en cuenta que estas primeras frases podrían mostrarse en los resultados de los motores de búsqueda.  
-- No se base exclusivamente en las características y funcionalidades para vender su producto. En su lugar, céntrese en el valor que proporciona.  
-- Use tanto como se pueda un vocabulario específico del sector o palabras relacionadas con las ventajas.
-- Considere el uso de etiquetas HTML para formatear la descripción y hacer que sea más atractiva.
-
-Para que la descripción de la oferta sea más atractiva, use el editor de texto enriquecido para darle formato.
-
-![Uso del editor de texto enriquecido](./media/rich-text-editor.png)
-
-| <center>Cambiar el formato de texto | <center>Agregar viñetas o numeración | <center>Agregar o quitar sangría de texto |
-| --- | --- | --- |
-| <center>![Uso del editor de texto enriquecido para cambiar el formato del texto](./media/text-editor3.png) |  <center>![Uso del editor de texto enriquecido para agregar listas](./media/text-editor4.png) |  <center>![Uso del editor de texto enriquecido para aplicar sangría](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 ### <a name="search-keywords"></a>Palabras clave de búsqueda
 
@@ -276,9 +261,9 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
-Esta página le permite configurar una demostración ("versión de prueba") que permita a los clientes probar la oferta antes de adquirirla. Puede encontrar más información al respecto en el artículo [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Esta página permite configurar una demostración («versión de prueba») que permite a los clientes probar la oferta antes de adquirirla. Puede encontrar más información al respecto en el artículo [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-Para habilitar una versión de prueba, seleccione la casilla **Habilitar una versión de prueba** en la pestaña [Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
+Para habilitar una versión de prueba, seleccione la pestaña**Habilitar una versión de prueba** y marque la casilla[Configuración de la oferta](#test-drive). Para eliminar la versión de prueba de la oferta, desactive esta casilla.
 
 Los siguientes tipos de versiones de prueba están disponibles, cada uno de ellos con sus propios requisitos de configuración técnica.
 
@@ -297,15 +282,15 @@ Recursos adicionales de la versión de prueba:
 
 Una plantilla de implementación que contiene todos los recursos de Azure que componen la solución. Los productos que se ajustan a este escenario usan solo recursos de Azure. Más información acerca de cómo configurar una [versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-- **Regiones** (obligatorias): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. La habitual es que desee que su versión de prueba esté disponible en las regiones en que prevé un mayor número de clientes, con el fin de que puedan seleccionar la región más cercana para lograr el mejor rendimiento posible. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
+- **Regiones** (obligatorias): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. La habitual es que desee que su versión de prueba esté disponible en las regiones en que prevé un mayor número de clientes, con el fin de que puedan seleccionar la región más cercana para lograr el mejor rendimiento posible. Tendrá que asegurarse de que su suscripción puede implementar todos los recursos necesarios en cada una de las regiones que seleccione.
 
-- **Instancias**: Seleccione el tipo (activa o inactiva) y el número de instancias disponibles, que multiplicarán por el número de regiones en las que está disponible la oferta.
+- **Instancias**: Seleccione el tipo (activo o inactivo) y el número de instancias disponibles, que se multiplicarán por el número de regiones en las que está disponible la oferta.
 
     **Activa**: Este tipo de instancia se implementa y está en espera de acceso por cada región seleccionada. Los clientes pueden acceder al instante a las instancias *frecuentes* de una versión prueba, en lugar de tener que esperar a una implementación. La contrapartida es que estas instancias se ejecutan siempre en su suscripción de Azure, por lo que incurrirán en un mayor costo de tiempo de actividad. Se recomienda tener al menos una instancia *frecuente*, ya que la mayoría de los clientes no quieren esperar a que terminen las implementaciones completas, lo que genera un descenso en la utilización por parte de los clientes si no hay ninguna instancia *frecuente*.
 
     **Inactiva**: Este tipo de instancia representa el número total de instancias que se pueden implementar por región. Las instancias inactivas requieren que se implemente toda la plantilla de la versión de prueba de Resource Manager en el momento en que el cliente solicita la versión de prueba, por lo que las instancias *inactivas* tardan mucho más tiempo en cargarse que las *activas*. A cambio solo tiene que pagar por la duración de la versión de prueba, *no* se ejecuta de forma ininterrumpida en su suscripción de Azure como las instancias *activas*.
 
-- **Versión de prueba de plantilla de Azure Resource Manager**: Cargue el archivo. zip que contiene la plantilla de Azure Resource Manager.  Para más información acerca de cómo crear una plantilla de Azure Resource Manager, consulte el artículo del tutorial de inicio rápido [Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+- **Versión de prueba de la plantilla de Azure Resource Manager**: Cargue el archivo. zip que contiene la plantilla de Azure Resource Manager.  Para más información acerca de cómo crear una plantilla de Azure Resource Manager, consulte el artículo del tutorial de inicio rápido [Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 - **Duración de la versión de prueba** (obligatorio): Especifique el período de tiempo que la versión de prueba permanecerá activa, en número de horas. La versión de prueba finaliza automáticamente cuando finaliza este período de tiempo. Usar solo números enteros (por ejemplo, "2" horas es válido, mientras que "1,5" no lo es).
 
@@ -315,9 +300,9 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba hos
 
 - **Número máximo de versiones de prueba simultáneas** (obligatorio): Establezca el número máximo de clientes que puede usar la versión de prueba al mismo tiempo. Cada usuario simultáneo consumirá una licencia de Dynamics 365 mientras la versión de prueba esté activa, por lo que deberá asegurarse de que tiene suficientes licencias disponibles para admitir el límite máximo establecido. Se recomienda un valor entre 3 y 5.
 
-- **Duración de la versión de prueba** (obligatorio): Especifique el período de tiempo que la versión de prueba permanecerá activa. Para ello debe definir el número de horas. Después de este número de horas, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede indicar con un número completo de horas (p. ej. "2" horas; "1,5" no es un valor válido).  El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
+- **Duración de la versión de prueba** (obligatorio): Especifique la duración en que la versión de prueba permanecerá activa. Para ello debe definir el número de horas. Después de este número de horas, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede indicar con un número completo de horas (p. ej. "2" horas; "1,5" no es un valor válido).  El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
 
-- **URL de la instancia** (obligatoria): La dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (por ejemplo, `https://testdrive.crm.dynamics.com`).
+- **URL de la instancia** (obligatorio): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (por ejemplo, `https://testdrive.crm.dynamics.com`).
 
 - **Dirección URL de API web de la instancia** (obligatorio): Recupere la dirección URL de la API web de la instancia de Dynamics 365. Para ello, inicie sesión en su cuenta de Microsoft 365 y vaya a **Configuración** \&gt; **Personalización** \&gt; **Recursos para desarrolladores** \&gt; **API web de instancia (URL raíz de servicio)** . Copie la dirección URL que se encuentra aquí (por ejemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
@@ -327,21 +312,21 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba hos
 
 Los productos personalizados deben usar este tipo de plantilla de implementación de versión de prueba, que engloba varias arquitecturas de soluciones complejas. Para más información acerca de cómo configurar versiones de prueba de Logic App, visite [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) y [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) en GitHub.
 
-- **Región** (obligatoria, lista desplegable de selección única): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. Los recursos de la aplicación lógica se implementarán en la región que seleccione. Si la aplicación lógica tiene recursos personalizados almacenado en una región concreta, asegúrese de que se selecciona aquí dicha región. La mejor forma es implementar totalmente Logic App de forma local en la suscripción de Azure en el portal y comprobar que funciona correctamente antes de realizar esta selección.
+- **Regiones** (obligatorio, lista desplegable de selección única): Actualmente hay 26 regiones admitidas de Azure en las que se puede usar la versión de prueba. Los recursos de la aplicación lógica se implementarán en la región que seleccione. Si la aplicación lógica tiene recursos personalizados almacenado en una región concreta, asegúrese de que se selecciona aquí dicha región. La mejor forma es implementar totalmente Logic App de forma local en la suscripción de Azure en el portal y comprobar que funciona correctamente antes de realizar esta selección.
 
 - **Número máximo de versiones de prueba simultáneas** (obligatorio): Establezca el número máximo de clientes que puede usar la versión de prueba al mismo tiempo. Estas versiones de prueba ya están implementadas, lo que permitiendo a los clientes acceder al instante a ellas sin tener que esperar que se implementen.
 
-- **Duración de la versión de prueba** (obligatorio): Especifique el período de tiempo que la versión de prueba permanecerá activa, en número de horas. La versión de prueba termina automáticamente al finalizar este período.
+- **Duración de la versión de prueba** (obligatorio): Especifique la duración en que la versión de prueba permanecerá activa, en número de horas. La versión de prueba termina automáticamente al finalizar este período.
 
 - **Nombre del grupo de recursos de Azure:** (obligatorio): Escriba el nombre del [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) en el que se guardan las versiones de prueba de la aplicación lógica.
 
 - **Nombre de la aplicación lógica de Azure** (obligatorio): Escriba el nombre de la aplicación lógica que asigna a la versión de prueba al usuario. Dicha aplicación lógica debe guardarse en el grupo de recursos de Azure anterior.
 
-- **Desaprovisionamiento del nombre de la aplicación lógica** (obligatorio): Escriba el nombre de la aplicación lógica que desaprovisiona la versión de prueba una vez que el cliente ha finalizado. Dicha aplicación lógica debe guardarse en el grupo de recursos de Azure anterior.
+- **Desaprovisionar nombre de aplicación lógica** (obligatorio): escriba el nombre de la aplicación lógica que desaprovisiona la versión de prueba una vez que el cliente ha finalizado. Dicha aplicación lógica debe guardarse en el grupo de recursos de Azure anterior.
 
 ### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>No es necesaria configuración técnica para las versiones de prueba de Power BI
 
-Los productos que desean demostrar que un objeto visual interactivo de Power BI puede usar un vínculo insertado para compartir un panel personalizado como versión de prueba, no se necesita ninguna configuración técnica. Más información acerca de cómo configurar aplicaciones de la plantilla [Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview).
+Los productos que desean demostrar que un objeto visual interactivo de Power BI puede usar un vínculo insertado para compartir un panel personalizado como versión de prueba, no se necesita ninguna configuración técnica. Más información sobre la configuración de aplicaciones de la plantilla de [Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview).
 
 ### <a name="deployment-subscription-details"></a>Detalles de suscripción de implementación
 
@@ -351,11 +336,11 @@ Para implementar la versión de prueba en su nombre, cree y proporcione una susc
 
 - **Id. de inquilino de Azure AD** (obligatorio): Escriba el [identificador de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscar dicho identificador, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory del menú de la izquierda, seleccione **Propiedades y busque el número de **identificador de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección de su nombre de dominio en [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
-- **Nombre de inquilino de Azure AD** (obligatorio para Dynamics 365): Escriba su nombre de Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
+- **Nombre del inquilino de Azure AD** (obligatorio para Dynamic 365): Escriba el nombre de inquilino de Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
 
-- **Identificador de aplicación de Azure AD** (obligatorio): Escriba el [identificador de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de Azure Active Directory (AD). Para buscarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory del menú de la izquierda, seleccione **Registros de aplicaciones** y busque el número de **Id. de aplicación** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+- **Identificador de aplicación de Azure AD** (obligatorio): Escriba el identificador de la aplicación [de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Para buscarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory del menú de la izquierda, seleccione **Registros de aplicaciones** y busque el número de **Id. de aplicación** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Secreto de cliente de la aplicación de Azure AD** (obligatorio): Escriba el [secreto de cliente](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets) de su aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. No olvide copiar el valor. (no abandone la página sin hacerlo, ya que, de lo contrario no tendrá acceso al valor).
+- **Secreto del cliente de la aplicación Azure AD** (obligatorio): Escriba el secreto del cliente[de su aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. No olvide copiar el valor. (no abandone la página sin hacerlo, ya que, de lo contrario no tendrá acceso al valor).
 
 ### <a name="test-drive-marketplace-listings"></a>Listas de Marketplace de la versión de prueba
 
@@ -366,11 +351,11 @@ La opción **Listas de marketplace** que se encuentra en la pestaña **Versión 
 
 - **Descripción** (obligatoria): Se describe la versión de prueba, lo que se demostrará los objetivos con los que experimentará el usuario, las características que se van a explorar y cualquier información relevante que ayude al usuario a determinar si debe adquirir la oferta. En este campo se puede escribir hasta 3000 caracteres de texto. 
 
-- **Obtener acceso a la información** (obligatorio para las unidades de prueba de Azure Resource Manager y Logic): Explica lo que un cliente necesita saber para obtener acceso y usar esta versión de prueba. se muestra un escenario para usar la oferta y exactamente lo que el cliente debe saber para acceder a las características en la versión de prueba. En este campo se puede escribir hasta 10 000 caracteres de texto.
+- **Información de acceso** (obligatorio para las versiones de prueba de Azure Resource Manager y aplicaciones lógicas): explique lo que un cliente necesita saber para acceder a esta versión de prueba y usarla. se muestra un escenario para usar la oferta y exactamente lo que el cliente debe saber para acceder a las características en la versión de prueba. En este campo se puede escribir hasta 10 000 caracteres de texto.
 
-- **Manual del usuario:** (obligatorio): Se trata del tutorial detallado de la experiencia con la versión de prueba. Debe abarcar exactamente lo que desee que el cliente aprenda al usar la versión de prueba y puede servir como referencia para las preguntas que puedan surgirle. El archivo debe estar en formato PDF y hay que asignarle un nombre (255 caracteres como máximo) después de cargarlo.
+- **Manual del usuario** (obligatorio): tutorial detallado de la experiencia con la versión de prueba. Debe abarcar exactamente lo que desee que el cliente aprenda al usar la versión de prueba y puede servir como referencia para las preguntas que puedan surgirle. El archivo debe estar en formato PDF y hay que asignarle un nombre (255 caracteres como máximo) después de cargarlo.
 
-- **Vídeos** (opcional): Se pueden cargar vídeos en YouTube o Vimeo y hacer referencia a ellos aquí con un vínculo o una imagen en miniatura (533 × 324 píxeles) para que los clientes puedan ver toda la información que puede ayudarles a conocer mejor la versión de prueba, incluida la forma de usar correctamente las características de la oferta y comprender los escenarios que destacan sus ventajas.
+- **Videos** (opcional): Se pueden cargar vídeos en YouTube o Vimeo y hacer referencia a ellos aquí con un vínculo o una imagen en miniatura (533 × 324 píxeles) para que los clientes puedan ver toda la información que pueda ayudarles a entender mejor la versión de prueba, incluida la forma de usar correctamente las características de la oferta y comprender los escenarios que destacan sus ventajas.
   - **Nombre** (se requiere)
   - **URL (solo YouTube o Vimeo)** (se requiere)
   - Imagen **en miniatura** (la imagen debe estar en formato PNG y 533 x 324 píxeles)

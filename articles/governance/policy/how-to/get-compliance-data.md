@@ -1,14 +1,14 @@
 ---
 title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
-ms.date: 02/01/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194013"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747086"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -36,7 +36,7 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 
 - Un recurso se implementa en un ámbito con una asignación a través del Administrador de recursos, REST, CLI de Azure o Azure PowerShell. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento para el recurso individual están disponibles en el portal y en los SDK unos 15 minutos más tarde. Este evento no causa una evaluación de otros recursos.
 
-- Ciclo de evaluación de cumplimiento estándar. Una vez cada 24 horas, las asignaciones se vuelven a evaluar automáticamente. Una directiva o iniciativa grande de muchos recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de la evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
+- Ciclo de evaluación de cumplimiento estándar. Una vez cada 24 horas, las asignaciones se vuelven a evaluar automáticamente. Una directiva o iniciativa grande de muchos recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
 
 - Un recurso administrado actualiza el proveedor de recursos [Configuración de invitado](../concepts/guest-configuration.md) con detalles de cumplimiento.
 
@@ -44,7 +44,41 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 
 ### <a name="on-demand-evaluation-scan"></a>Examen de evaluación a petición
 
-Con una llamada a la API de REST se puede iniciar un examen de evaluación de una suscripción o un grupo de recursos. Este examen es un proceso asincrónico. Por ello, el punto de conexión de REST que iniciará el examen no espera hasta que este esté completo para responder. En su lugar, proporciona un URI para consultar el estado de la evaluación solicitada.
+Un examen de evaluación de una suscripción o de un grupo de recursos se puede iniciar con Azure PowerShell o con una llamada a la API REST. Este examen es un proceso asincrónico.
+
+#### <a name="on-demand-evaluation-scan---azure-powershell"></a>Análisis de evaluación a petición: Azure PowerShell
+
+El examen de cumplimiento se inicia con el cmdlet [Start-AzPolicyComplianceScan](/powershell/module/az.policyinsights/start-azpolicycompliancescan).
+
+De forma predeterminada, `Start-AzPolicyComplianceScan` inicia una evaluación de todos los recursos de la suscripción actual. Para iniciar una evaluación en un grupo de recursos específico, use el parámetro **ResourceGroupName**. En el ejemplo siguiente se inicia un examen de cumplimiento de la suscripción actual para el grupo de recursos _MyRG_:
+
+```azurepowershell-interactive
+Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+```
+
+Puede hacer que PowerShell espere a que se complete la llamada asincrónica antes de proporcionar la salida de resultados o hacer que se ejecute en segundo plano como un [trabajo](/powershell/module/microsoft.powershell.core/about/about_jobs). Para usar un trabajo de PowerShell para ejecutar el examen de cumplimiento en segundo plano, use el parámetro **AsJob** y establezca el valor en un objeto, como `$job` en este ejemplo:
+
+```azurepowershell-interactive
+$job = Start-AzPolicyComplianceScan -AsJob
+```
+
+Para comprobar el estado del trabajo, compruebe el objeto `$job`. El trabajo es del tipo `Microsoft.Azure.Commands.Common.AzureLongRunningJob`. Use `Get-Member` en el objeto `$job` para ver las propiedades y los métodos disponibles.
+
+Mientras se ejecuta el examen de cumplimiento, la comprobación del objeto `$job` genera resultados como los siguientes:
+
+```azurepowershell-interactive
+$job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+```
+
+Una vez finalizada esta operación, la propiedad **Estado** cambia a _Completado_.
+
+#### <a name="on-demand-evaluation-scan---rest"></a>Examen de evaluación a petición: REST
+
+En cuanto proceso asincrónico, el punto de conexión de REST que inicia el examen no espera a que esté completo para responder. En su lugar, proporciona un URI para consultar el estado de la evaluación solicitada.
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
@@ -56,19 +90,19 @@ El examen admite la evaluación de recursos de una suscripción o de un grupo de
 - Subscription
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 - Resource group
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 La llamada devuelve un estado **202 - Aceptado**. En el encabezado de la respuesta se incluye una propiedad **Location** con el formato siguiente:
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
 `{ResourceContainerGUID}` se genera estáticamente para el ámbito solicitado. Si un ámbito ya está ejecutando un examen a petición, no se iniciará un nuevo examen. En su lugar, se proporciona a la nueva solicitud el mismo URI de **ubicación** de `{ResourceContainerGUID}` para el estado. Un comando **GET** de API REST en el URI **Location** devolverá una respuesta **202 - Aceptado** mientras la evaluación esté en curso. Cuando haya finalizado el examen de evaluación, devolverá un estado **200 OK**. El cuerpo de un examen completo es una respuesta JSON con el estado:
@@ -143,7 +177,7 @@ De vuelta a la página de cumplimiento de recursos, haga clic con el botón dere
 
 ### <a name="understand-non-compliance"></a>Qué significa no cumplimiento
 
-Cuando se determina que un recurso no es **compatible**, hay muchas razones posibles para ello. Para determinar el motivo de que un recurso **no sea compatible** o para buscar el responsable del cambio, consulte [Determinación del incumplimiento](./determine-non-compliance.md).
+Cuando se determina que un recurso **no es compatible**, hay muchas razones posibles para ello. Para determinar el motivo de que un recurso **no sea compatible** o para buscar el responsable del cambio, consulte [Determinación del incumplimiento](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Línea de comandos
 
@@ -157,7 +191,7 @@ Use ARMClient o una herramienta similar para tratar la autenticación en Azure p
 Con la API REST, el resumen se puede realizar por contenedor, definición o asignación. Este es un ejemplo de resumen en el nivel de suscripción mediante [Summarize For Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription) (Resumen de la suscripción) de Azure Policy Insights:
 
 ```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
 ```
 
 La salida resume la suscripción. En la salida de ejemplo siguiente, la compatibilidad resumida está en **value.results.nonCompliantResources** y **value.results.nonCompliantPolicies**. Esta solicitud proporciona más detalles, incluida cada asignación que compone los números no compatibles y la información de definición de cada asignación. Cada objeto de directiva de la jerarquía proporciona un **queryResultsUri** que puede utilizarse para obtener detalles adicionales en ese nivel.
@@ -170,7 +204,7 @@ La salida resume la suscripción. En la salida de ejemplo siguiente, la compatib
         "@odata.id": null,
         "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#summary/$entity",
         "results": {
-            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
+            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
             "nonCompliantResources": 15,
             "nonCompliantPolicies": 1
         },
@@ -178,7 +212,7 @@ La salida resume la suscripción. En la salida de ejemplo siguiente, la compatib
             "policyAssignmentId": "/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77",
             "policySetDefinitionId": "",
             "results": {
-                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
+                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
                 "nonCompliantResources": 15,
                 "nonCompliantPolicies": 1
             },
@@ -187,7 +221,7 @@ La salida resume la suscripción. En la salida de ejemplo siguiente, la compatib
                 "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "effect": "deny",
                 "results": {
-                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
+                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
                     "nonCompliantResources": 15
                 }
             }]
@@ -201,7 +235,7 @@ La salida resume la suscripción. En la salida de ejemplo siguiente, la compatib
 En el ejemplo anterior, **value.policyAssignments.policyDefinitions.results.queryResultsUri** proporciona un URI de ejemplo para todos los recursos no compatibles de una definición de directiva específica. Examinando el valor de **$filter**, IsCompliant es igual (eq) a false, se especifica PolicyAssignmentId para la definición de directiva y, después, el propio PolicyDefinitionId. La razón para incluir PolicyAssignmentId en el filtro es que PolicyDefinitionId podría existir en varias asignaciones de directivas o de iniciativas con diversos ámbitos. Al especificar PolicyAssignmentId y PolicyDefinitionId, podremos ser explícitos en los resultados que estamos buscando. Anteriormente, para PolicyStates usábamos **más reciente**, que establece automáticamente una ventana temporal **desde** y **hasta** de las últimas 24 horas.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
 ```
 
 La respuesta del ejemplo siguiente se ha reducido a un único recurso no compatible para mayor brevedad. La respuesta detallada tiene varios elementos de datos sobre el recurso, la directiva (o iniciativa) y la asignación. Tenga en cuenta que también puede ver qué parámetros de asignación se han pasado a la definición de directiva.
@@ -247,7 +281,7 @@ La respuesta del ejemplo siguiente se ha reducido a un único recurso no compati
 Cuando se crea o actualiza un recurso, se genera un resultado de evaluación de directiva. Los resultados se denominan _eventos de directiva_. Utilice el siguiente Uri para ver eventos recientes de directiva asociados a la suscripción.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2018-04-04
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
 ```
 
 Los resultados deben tener una apariencia similar al ejemplo siguiente:

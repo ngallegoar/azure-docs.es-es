@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3a38b9a02894eafd3ef6df657680d2e2a58a7e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183793"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638385"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Inicio de sesión con una aplicación Android en Azure Active Directory B2C
 
@@ -72,10 +72,10 @@ Puede configurar la comunicación con Azure AD B2C si especifica el URI de detec
 * Id. de inquilino (por ejemplo, contoso.onmicrosoft.com)
 * Nombre del flujo de usuario (por ejemplo, B2C\_1\_SignUpIn)
 
-Si elige detectar automáticamente los URI de punto de conexión de autorización y token, deberá recuperar información del URI de detección. El URI de detección se puede generar si se reemplaza Tenant\_ID y Policy\_Name en la siguiente dirección URL:
+Si elige detectar automáticamente los URI de punto de conexión de autorización y token, deberá recuperar información del URI de detección. El URI de detección se puede generar si se reemplaza el `<tenant-id>` y el `<policy-name>` en la siguiente dirección URL:
 
 ```java
-String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/v2.0/.well-known/openid-configuration";
 ```
 
 A continuación, puede adquirir los URI de punto de conexión de autenticación y token y, además, crear un objeto AuthorizationServiceConfiguration; para ello, ejecute lo siguiente:
@@ -99,12 +99,12 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-En lugar de usar la detección para obtener los URI de punto de conexión de autorización y token, también puede especificarlos si reemplaza Tenant\_ID y Policy\_Name en las direcciones URL que aparecen a continuación:
+En lugar de usar la detección para obtener los URI de punto de conexión de autorización y token, también puede especificarlos explícitamente si reemplaza el `<tenant-id>` y el `<policy-name>` en las direcciones URL que aparecen a continuación:
 
 ```java
-String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/authorize";
 
-String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/token";
 ```
 
 Ejecute el código siguiente para crear el objeto AuthorizationServiceConfiguration:

@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 296c8e2dfe99e3b0aea66f364ac6f6d9b2f60a1a
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 440f46cbeebee1b552e64eba4ebc8787a47edf56
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272498"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779224"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restauración de aplicaciones de App Service eliminadas con PowerShell
 
@@ -48,6 +48,8 @@ La información detallada incluye:
 - **Hora de eliminación**: cuándo se eliminó la aplicación.  
 
 ## <a name="restore-deleted-app"></a>Restauración de la aplicación eliminada
+>[!NOTE]
+> `Restore-AzDeletedWebApp` no se admite para aplicaciones de funciones.
 
 Una vez identificada la aplicación que quiere restaurar, puede hacerlo mediante `Restore-AzDeletedWebApp`.
 

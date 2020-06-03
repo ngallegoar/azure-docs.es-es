@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 3603bc45b920dc62eb8bf6f2eb8557f98e21638e
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 6aa66ddc52665c22310fb58977fd516eea4e806a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024819"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651998"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Ejemplos de configuración de enrutadores para configurar y administrar enrutamiento
 Esta página ofrece ejemplos de configuración de enrutamiento e interfaces para enrutadores Cisco serie IOS-XE y Juniper serie MX para trabajar con Azure ExpressRoute.
@@ -175,8 +175,8 @@ Configure el enrutador para anunciar los prefijos seleccionados a Microsoft medi
         policy-statement <Policy_Name> {
             term 1 {
                 from protocol OSPF;
-        route-filter 
-    <Prefix_to_be_advertised/Subnet_Mask> exact;
+                route-filter; 
+                <Prefix_to_be_advertised/Subnet_Mask> exact;
                 then {
                     accept;
                 }
@@ -186,7 +186,7 @@ Configure el enrutador para anunciar los prefijos seleccionados a Microsoft medi
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
+                export <Policy_Name>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -205,7 +205,7 @@ Puede usar asignaciones de ruta y listas de prefijos para filtrar los prefijos p
         policy-statement <MS_Prefixes_Inbound> {
             term 1 {
                 from {
-                prefix-list MS_Prefixes;
+                    prefix-list MS_Prefixes;
                 }
                 then {
                     accept;
@@ -216,8 +216,8 @@ Puede usar asignaciones de ruta y listas de prefijos para filtrar los prefijos p
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
-                import <MS_Prefixes_Inbound>
+                export <Policy_Name>;
+                import <MS_Prefixes_Inbound>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -240,6 +240,26 @@ Configure BFD únicamente en la sección del protocolo BGP.
         }                                   
     }
 
+### <a name="configure-macsec"></a>Configuración de MACSec
+Para la configuración de MACSec, la clave de asociación de conectividad (CAK) y el nombre de clave de asociación de conectividad (CKN) deben coincidir con los valores configurados mediante comandos de PowerShell.
+
+    security {
+        macsec {
+            connectivity-association <Connectivity_Association_Name> {
+                cipher-suite gcm-aes-xpn-128;
+                security-mode static-cak;
+                pre-shared-key {
+                    ckn <Connectivity_Association_Key_Name>;
+                    cak <Connectivity_Association_Key>; ## SECRET-DATA
+                }
+            }
+            interfaces {
+                <Interface_Number> {
+                    connectivity-association <Connectivity_Association_Name>;
+                }
+            }
+        }
+    }
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.

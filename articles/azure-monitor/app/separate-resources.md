@@ -1,18 +1,18 @@
 ---
-title: Separación de la telemetría en Azure Application Insights
+title: 'Diseño de la implementación de Application Insights: uno frente a muchos recursos'
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 05/11/2020
+ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562158"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773692"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>Separación de la telemetría de desarrollo, prueba y producción
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?
 
-Cuando esté desarrollando la próxima versión de una aplicación web, no querrá mezclar la telemetría de [Application Insights](../../azure-monitor/app/app-insights-overview.md) de la nueva versión con la que ya se ha publicado. Para evitar confusiones, envíe la telemetría de las distintas fases de desarrollo para separar los recursos de Application Insights con claves de instrumentación independientes (iKey). Para que sea más fácil cambiar la clave de instrumentación cuando pase una versión de una fase a otro, puede ser útil establecer la clave iKey en el código en lugar de en el archivo de configuración. 
+Cuando esté desarrollando la próxima versión de una aplicación web, no querrá mezclar la telemetría de [Application Insights](../../azure-monitor/app/app-insights-overview.md) de la nueva versión con la que ya se ha publicado. Para evitar confusiones, envíe la telemetría de las distintas fases de desarrollo para separar los recursos de Application Insights con claves de instrumentación independientes (iKey). Para que sea más fácil cambiar la clave de instrumentación cuando pase una versión de una fase a otro, puede ser útil establecer la clave iKey en el código en lugar de en el archivo de configuración.
 
 (Si el sistema es un servicio en la nube de Azure, hay [otra forma de configurar claves separadas](../../azure-monitor/app/cloudservices.md)).
 
@@ -22,7 +22,7 @@ Al configurar la supervisión de Application Insights para su aplicación web, s
 
 Cada recurso de Application Insights incluye métricas disponibles de serie. En caso de que componentes totalmente independientes notifican al mismo recurso de Application Insights, puede que estas métricas no tengan sentido para el panel o la alerta.
 
-### <a name="use-a-single-application-insights-resource"></a>Uso de un único recurso de Application Insights
+### <a name="when-to-use-a-single-application-insights-resource"></a>Cuándo usar un único recurso de Application Insights
 
 -   En componentes de aplicaciones que se han implementado juntos. Normalmente han sido desarrollados por un solo equipo, administrados por el mismo conjunto de usuarios de DevOps/ITOps.
 -   Si tiene sentido agregar indicadores clave de rendimiento (KPI), como las duraciones de las respuestas, las tasas de error en el panel, etc., en todos ellos de forma predeterminada (puede optar por segmentar por nombre de rol en la experiencia del Explorador de métricas).
@@ -138,7 +138,7 @@ Cuando tenga la información de la compilación, el módulo web de Application I
 Tenga en cuenta, sin embargo, que el número de versión de la compilación solo lo genera Microsoft Build Engine, no la compilación de desarrollador de Visual Studio.
 
 ### <a name="release-annotations"></a>Anotaciones de la versión
-Si usa Azure DevOps, puede [obtener un marcador de anotación](../../azure-monitor/app/annotations.md) agregado a los gráficos, siempre que publique una nueva versión. La siguiente imagen muestra cómo aparece este marcador.
+Si usa Azure DevOps, puede [obtener un marcador de anotación](../../azure-monitor/app/annotations.md) agregado a los gráficos, siempre que publique una nueva versión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

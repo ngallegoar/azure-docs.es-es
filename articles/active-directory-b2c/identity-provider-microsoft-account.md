@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25784eb161a860398b0741d1d20375cabd1c4eca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 375c83445bb559efe5c797e583129cb1b0c2fb65
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188025"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636903"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta Microsoft mediante Azure Active Directory B2C
 
@@ -29,10 +29,10 @@ Para usar una cuenta Microsoft como [proveedor de identidades](openid-connect.md
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Nuevo registro**.
 1. Escriba el **nombre** de la aplicación. Por ejemplo, *MSAapp1*.
-1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** . Esta opción define como destino el conjunto más amplio de identidades de Microsoft.
+1. En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino) y cuentas de Microsoft personales (como Skype o Xbox)** .
 
    Para más información sobre las distintas opciones de tipo de cuenta, consulte [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md).
-1. En **URI de redirección (opcional)** , seleccione **Web** y escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` en el cuadro de texto. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C.
+1. En **URI de redirección (opcional)** , seleccione **Web** y escriba `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` en el cuadro de texto. Reemplace `<tenant-name>` por el nombre del inquilino de Azure AD B2C.
 1. Seleccione **Registrar**.
 1. Registre el **Id. de aplicación (cliente)** que se muestra en la página de información general de la aplicación. Necesitará esta información al configurar el proveedor de identidades en la siguiente sección.
 1. Seleccione **Certificates & secrets** (Certificados y secretos)

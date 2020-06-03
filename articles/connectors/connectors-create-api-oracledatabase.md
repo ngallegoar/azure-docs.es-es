@@ -3,16 +3,16 @@ title: Conexión con Oracle Database
 description: Insertar y administrar registros con las API REST de Oracle Database y Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147813"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836284"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -20,6 +20,13 @@ Mediante el conector de una base de datos de Oracle, crea flujos de trabajo orga
 
 * Agregue un nuevo cliente a una base de datos de clientes o actualice un pedido en una base de datos de pedidos para crear el flujo de trabajo.
 * Use acciones para obtener una fila de datos, insertar una fila nueva e incluso eliminarla. Por ejemplo, al crear un registro en Dynamics CRM Online (un desencadenador), inserte una fila en una base de datos de Oracle (una acción). 
+
+Este conector no admite los elementos siguientes:
+
+* Vistas 
+* Todas las tablas con claves compuestas
+* Tipos de objetos anidados en tablas
+* Funciones de base de datos con valores no escalares
 
 Este artículo le muestra cómo usar el conector de una base de datos de Oracle en una aplicación lógica.
 
@@ -108,12 +115,6 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 **Causa**: La tabla no tiene ninguna clave principal.  
 
 **Solución:** El conector de Oracle Database requiere que se utilice una tabla con una columna de clave principal.
-
-#### <a name="currently-not-supported"></a>Actualmente no se admite
-
-* Vistas 
-* Todas las tablas con claves compuestas
-* Tipos de objetos anidados en tablas
  
 ## <a name="connector-specific-details"></a>Detalles específicos del conector
 
@@ -121,7 +122,7 @@ Vea los desencadenadores y las acciones definidos en Swagger y vea también todo
 
 ## <a name="get-some-help"></a>Obtener ayuda
 
-El [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) es un excelente lugar para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Azure Logic Apps. 
+La [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) es un excelente lugar para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Logic Apps. 
 
 Puede ayudar a mejorar Logic Apps y conectores al votar y enviar sus ideas en [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 

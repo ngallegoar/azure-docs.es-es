@@ -2,14 +2,14 @@
 title: Azure Application Insights para aplicaciones de consola | Microsoft Docs
 description: Supervise la disponibilidad, el rendimiento y el uso de las aplicaciones web.
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe34b2b48de8ef4f6c2cdd61623b885878bad2b4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655436"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774038"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
 
@@ -36,7 +36,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Los datos de telemetría no se envían al instante. Los elementos de telemetría se procesan por lotes y se envían mediante el SDK de ApplicationInsights. En las aplicaciones de consola, que se cierran justo después de llamar a los métodos `Track()`, es posible que no se envíen los datos de telemetría a menos que `Flush()` y `Sleep` se completen antes de que se cierre la aplicación, tal como se muestra en el [ejemplo completo](#full-example) más adelante en este artículo.
+> Los datos de telemetría no se envían al instante. Los elementos de telemetría se procesan por lotes y se envían mediante el SDK de ApplicationInsights. En las aplicaciones de consola, que se cierran justo después de llamar a los métodos `Track()`, es posible que no se envíen los datos de telemetría a menos que `Flush()` y `Sleep`/`Delay` se completen antes de que se cierre la aplicación, tal como se muestra en el [ejemplo completo](#full-example) más adelante en este artículo. `Sleep` no es necesario si usa `InMemoryChannel`. Hay un problema activo relacionado con la necesidad de `Sleep` cuyo seguimiento se realiza aquí: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * Instale la versión más reciente de [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector), que hace automáticamente un seguimiento de HTTP, SQL o algunas llamadas de dependencias externas.
@@ -172,7 +172,8 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking so wait a bit
+            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
+            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
             Task.Delay(5000).Wait();
 
         }

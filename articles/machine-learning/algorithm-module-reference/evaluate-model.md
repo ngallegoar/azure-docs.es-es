@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129843"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847419"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -34,9 +34,13 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 
 
 ## <a name="how-to-use-evaluate-model"></a>Cómo usar Evaluar modelo
-1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) al puerto de entrada izquierdo de **Evaluate Model** (Evaluar modelo). 
+1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) o la salida del conjunto de datos Resultado de [Assign Data to Clusters](./assign-data-to-clusters.md) (Asignar datos a los clústeres) al puerto de entrada izquierdo de **Evaluate Model** (Evaluar modelo). 
+  > [!NOTE] 
+  > Si se usan módulos como "Seleccionar columnas en conjunto de datos" para seleccionar parte del conjunto de datos de entrada, asegúrese de que la columna de etiqueta Real (usada en el entrenamiento) y las columnas "Probabilidades puntuadas" y "Etiquetas puntuadas" existen para calcular métricas como AUC o Precisión para la clasificación binaria/detección de anomalías.
+  > La columna de etiqueta Real y la columna "Etiquetas puntuadas" existen para calcular las métricas para la clasificación o regresión de varias clases.
+  > La columna "Assignments" y las columnas "DistancesToClusterCenter no.X" (X es índice centroide, que va de 0, ..., a número de centroides -1) existen para calcular las métricas de la agrupación en clústeres.
 
-2. (Opcional) Conecte la salida de **Scored dataset** (Conjunto de datos puntuado) de [Score Model](./score-model.md) (Puntuar modelo) para el segundo modelo a la entrada **derecha** de **Evaluate Model** (Evaluar modelo). Puede comparar fácilmente los resultados de dos modelos distintos con los mismos datos. Los dos algoritmos de entrada deben ser del mismo tipo. O bien, puede comparar las puntuaciones de las dos ejecuciones diferentes con los mismos datos con parámetros diferentes.
+2. [Opcional] Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) o la salida del conjunto de datos Resultado de Assign Data to Clusters (Asignar datos a los clústeres) del segundo modelo al puerto de entrada **derecho** de **Evaluate Model** (Evaluar modelo). Puede comparar fácilmente los resultados de dos modelos distintos con los mismos datos. Los dos algoritmos de entrada deben ser del mismo tipo. O bien, puede comparar las puntuaciones de las dos ejecuciones diferentes con los mismos datos con parámetros diferentes.
 
     > [!NOTE]
     > El tipo de algoritmo hace referencia a la "clasificación de dos clases", la "clasificación multiclase", la "regresión" y la "agrupación en clústeres" en los "algoritmos de aprendizaje automático". 
@@ -45,7 +49,7 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 
 ## <a name="results"></a>Results
 
-Después de ejecutar **Evaluate Model** (Evaluar modelo), haga clic con el botón derecho en el módulo y seleccione **Visualize Evaluation results** (Visualizar resultados de evaluación) para ver los resultados.
+Después de ejecutar **Evaluate Model** (Evaluar modelo), seleccione el módulo para abrir el panel de navegación **Evaluate Model** (Evaluar modelo) a la derecha.  Luego, elija la pestaña **Outputs + Logs** (Salidas y registros) y, en esa pestaña, la sección **Data Outputs** (Salidas de datos) tiene varios iconos.   El icono **Visualizar** tiene un icono gráfico de barras y es una primera forma de ver los resultados.
 
 Si conecta los conjuntos de datos a las dos entradas de **Evaluate Model**, los resultados contendrán las métricas para ambos conjuntos de datos, o ambos modelos.
 El modelo o los datos conectados al puerto izquierdo aparecen en primer lugar en el informe, seguido de las métricas del conjunto de datos, o el modelo conectado al puerto derecho.  

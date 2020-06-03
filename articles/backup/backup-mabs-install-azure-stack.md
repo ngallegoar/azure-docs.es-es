@@ -3,12 +3,12 @@ title: Instalación de Azure Backup Server en Azure Stack
 description: En este artículo, aprenderá a usar Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77583442"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747450"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -91,7 +91,7 @@ La máquina virtual de Azure Backup Server debe unirse a un dominio. El usuario 
 
 Al elegir un servidor para Azure Backup Server, empiece con una imagen de la galería de Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. En el artículo [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de la primera máquina virtual de Windows en Azure Portal), se proporciona un tutorial de introducción a la máquina virtual recomendada. Los requisitos mínimos recomendados para la máquina virtual servidor deben ser: A2 estándar con 2 núcleos y 3,5 GB de RAM.
 
-La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
+La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. La [matriz de protección de MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) ayuda a explicar estos matices. Lea este artículo completamente antes de implementar la máquina.
 
 > [!NOTE]
 > Azure Backup Server está diseñado para ejecutarse en una máquina virtual dedicada para un único objetivo. No se puede instalar Azure Backup Server en:
@@ -243,7 +243,7 @@ Azure Backup Server comparte código con Data Protection Manager. En el instalad
 
     ![Requisitos previos de Microsoft Azure Backup2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    La ubicación temporal es un requisito para crear copias de seguridad en Azure. Asegúrese de que el tamaño de la ubicación temporal sea equivalente al menos al 5 % de los datos cuya copia de seguridad planea hacer en Azure. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para obtener más información acerca de los grupos de almacenamiento, consulte [Configuración de bloques de almacenamiento y almacenamiento en disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    La ubicación temporal es un requisito para crear copias de seguridad en Azure. Asegúrese de que el tamaño de la ubicación temporal sea equivalente al menos al 5 % de los datos cuya copia de seguridad planea hacer en Azure. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para más información sobre los grupos de almacenamiento, consulte [Preparación del almacenamiento de datos](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
 6. En la pantalla **Configuración de seguridad**, escriba una contraseña segura para las cuentas de usuario locales con permisos restringidos y haga clic en **Siguiente**.
 

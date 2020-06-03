@@ -1,15 +1,14 @@
 ---
 title: Variables de entorno de tiempo de ejecución de tareas
 description: Instrucciones y referencia de las variable de entorno de tiempo de ejecución de tareas para Azure Batch Analytics.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: labrenne
-ms.openlocfilehash: dd30444585cb1adaaf2b42cebdfa04683b12ecfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117342"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745344"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno de tiempo de ejecución de Azure Batch
 
@@ -49,7 +48,7 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 | AZ_BATCH_JOB_ID                 | El identificador de la cuenta a la que pertenece la tarea. | Todas las tareas excepto la tarea de inicio. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | La ruta de acceso completa del [directorio de tareas][files_dirs] de preparación del trabajo en el nodo. | Todas las tareas excepto la tarea de inicio y la tarea de preparación del trabajo. Solo está disponible si el trabajo está configurado con una tarea de preparación del trabajo. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | La ruta de acceso completa del [directorio de trabajo de tareas][files_dirs] de preparación del trabajo en el nodo. | Todas las tareas excepto la tarea de inicio y la tarea de preparación del trabajo. Solo está disponible si el trabajo está configurado con una tarea de preparación del trabajo. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_MASTER_NODE            | La dirección IP y puerto del nodo de ejecución en el que se ejecuta la tarea principal de una [tarea de varias instancias][multi_instance]. | Tareas principales y secundarias de varias instancias. | `10.0.0.4:6000` |
+| AZ_BATCH_MASTER_NODE            | La dirección IP y puerto del nodo de ejecución en el que se ejecuta la tarea principal de una [tarea de varias instancias][multi_instance]. No use el puerto especificado aquí para la comunicación de MPI o NCCL: está reservado para el servicio Azure Batch. En su lugar, use la variable MASTER_PORT, ya sea estableciéndola con un valor pasado a través del argumento de la línea de comandos (el puerto 6105 es una buena opción predeterminada) o, usando el valor, AML establece si lo hace. | Tareas principales y secundarias de varias instancias. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | El identificador del nodo al que se asignó la tarea. | Todas las tareas. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Si `true`, el nodo actual es un nodo dedicado. Si `false`, es un [nodo de prioridad baja](batch-low-pri-vms.md). | Todas las tareas. | `true` |
 | AZ_BATCH_NODE_LIST              | La lista de nodos que se asignan a una [tarea de varias instancias][multi_instance] en el formato `nodeIP;nodeIP`. | Tareas principales y secundarias de varias instancias. | `10.0.0.4;10.0.0.5` |

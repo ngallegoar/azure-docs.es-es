@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c55d81db848dcb1aebe9dacb03387565b3d8db48
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732378"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745614"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
@@ -178,7 +178,7 @@ Ahora que ha creado algunos recursos, vamos a crear un bot. Vamos a empezar con 
 El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de implementar un bot, pero en este tutorial nos centraremos en publicarlo directamente desde Visual Studio.
 
 > [!NOTE]
-> También, puede implementar un bot con la [CLI de Azure](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) y las [plantillas de implementación](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates).
+> También, puede implementar un bot con la [CLI de Azure](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) y las [plantillas de implementación](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot).
 
 1. En Visual Studio, abra el bot de eco que se ha configurado para su uso con el canal Direct Line Speech:
 
@@ -389,7 +389,7 @@ En el código fuente del cliente del asistente de voz de Windows, eche un vistaz
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>(Opcional) Cambio del idioma y la voz del bot
 
-El bot que creó escuchará y responderá en inglés, y la voz predeterminada para la conversión de texto a voz será en inglés estadounidense. Sin embargo, no está limitado a usar el idioma inglés ni una voz predeterminada. En esta sección, aprenderá a cambiar el idioma en el que el bot escuchará y responderá. También aprenderá a seleccionar una voz diferente para ese idioma.
+El bot que creó escuchará y responderá en inglés, y la voz predeterminada para la conversión de texto a voz será en inglés (EE.UU.). Sin embargo, no está limitado a usar el idioma inglés ni una voz predeterminada. En esta sección, aprenderá a cambiar el idioma en el que el bot escuchará y responderá. También aprenderá a seleccionar una voz diferente para ese idioma.
 
 ### <a name="change-the-language"></a>Cambio del idioma
 

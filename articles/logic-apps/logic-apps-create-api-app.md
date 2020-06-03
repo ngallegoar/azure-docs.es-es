@@ -3,15 +3,15 @@ title: Creación de API web y API REST para Azure Logic Apps
 description: Creación de API web y API REST para llamar a las API, los servicios o los sistemas para integraciones de sistemas en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, jehollan, logicappspm
-ms.topic: article
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233028"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834499"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
@@ -136,11 +136,13 @@ Para este patrón, configure dos puntos de conexión en el controlador: `subscri
 
 ![Patrón de acción de webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-> [!NOTE]
-> Actualmente, el Diseñador de aplicaciones lógicas no permite detectar puntos de conexión de webhook a través de Swagger. Por lo tanto, para este patrón, tiene que agregar una [acción de **webhook**](../connectors/connectors-native-webhook.md) y especificar la dirección URL, los encabezados y el cuerpo de la solicitud. Consulte también [Acciones y desencadenadores de flujo de trabajo](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Para pasar la dirección URL de devolución de llamada, puede usar la función de flujo de trabajo `@listCallbackUrl()` en cualquiera de los campos anteriores según sea necesario.
+Actualmente, el Diseñador de aplicaciones lógicas no permite detectar puntos de conexión de webhook a través de Swagger. Por lo tanto, para este patrón, tiene que agregar una [acción de **webhook**](../connectors/connectors-native-webhook.md) y especificar la dirección URL, los encabezados y el cuerpo de la solicitud. Consulte también [Acciones y desencadenadores de flujo de trabajo](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Para ver un ejemplo de patrón de webhook, consulte este [ejemplo de desencadenador de webhook en GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Para ver un ejemplo de patrón de webhook, consulte este [ejemplo de desencadenador de webhook en GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Estas son algunas sugerencias y notas:
+
+* Para pasar la dirección URL de devolución de llamada, puede usar la función de flujo de trabajo `@listCallbackUrl()` en cualquiera de los campos anteriores según sea necesario.
+
+* Si es el propietario de la aplicación lógica y del servicio suscrito, no tiene que llamar al punto de conexión `unsubscribe` después de llamar a la dirección URL de devolución de llamada. Si no, el tiempo de ejecución de Logic Apps ha de llamar al punto de conexión `unsubscribe` para indicar que no se esperan más llamadas y permitir la limpieza de recursos en el lado servidor.
 
 <a name="triggers"></a>
 
@@ -198,13 +200,15 @@ Los desencadenadores de webhook actúan de manera muy similar a las [acciones de
 
 ![Patrón de desencadenador de webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-> [!NOTE]
-> Actualmente, el Diseñador de aplicaciones lógicas no permite detectar puntos de conexión de webhook a través de Swagger. Por lo tanto, para este patrón, tiene que agregar un [desencadenador de **webhook**](../connectors/connectors-native-webhook.md) y especificar la dirección URL, los encabezados y el cuerpo de la solicitud. Consulte también el [desencadenador HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para pasar la dirección URL de devolución de llamada, puede usar la función de flujo de trabajo `@listCallbackUrl()` en cualquiera de los campos anteriores según sea necesario.
->
-> Para evitar el procesamiento de los mismos datos varias veces, el desencadenador debe limpiar los datos ya leídos y transmitidos a la aplicación lógica.
+Actualmente, el Diseñador de aplicaciones lógicas no permite detectar puntos de conexión de webhook a través de Swagger. Por lo tanto, para este patrón, tiene que agregar un [desencadenador de **webhook**](../connectors/connectors-native-webhook.md) y especificar la dirección URL, los encabezados y el cuerpo de la solicitud. Consulte también el [desencadenador HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para ver un ejemplo de patrón de webhook, consulte este [ejemplo de controlador de desencadenador de webhook en GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Para ver un ejemplo de patrón de webhook, consulte este [ejemplo de controlador de desencadenador de webhook en GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Estas son algunas sugerencias y notas:
+
+* Para pasar la dirección URL de devolución de llamada, puede usar la función de flujo de trabajo `@listCallbackUrl()` en cualquiera de los campos anteriores según sea necesario.
+
+* Para evitar el procesamiento de los mismos datos varias veces, el desencadenador debe limpiar los datos ya leídos y transmitidos a la aplicación lógica.
+
+* Si es el propietario de la aplicación lógica y del servicio suscrito, no tiene que llamar al punto de conexión `unsubscribe` después de llamar a la dirección URL de devolución de llamada. Si no, el tiempo de ejecución de Logic Apps ha de llamar al punto de conexión `unsubscribe` para indicar que no se esperan más llamadas y permitir la limpieza de recursos en el lado servidor.
 
 ## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Mejora de la seguridad de las llamadas a las API desde aplicaciones lógicas
 
@@ -224,7 +228,7 @@ Para que las API personalizadas estén disponibles para todos los usuarios de Lo
 
 * Para obtener ayuda específica sobre las API personalizadas, póngase en contacto con [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 
 * Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](https://aka.ms/logicapps-wish). 
 

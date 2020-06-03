@@ -1,16 +1,16 @@
 ---
 title: Uso de grupos dinámicos con Update Management de Azure Automation
-description: En este artículo se describe cómo funcionan los grupos dinámicos con Update Management de Azure Automation.
+description: En este artículo se explica cómo usar los grupos dinámicos con Update Management de Azure Automation.
 services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf4c156d2bf9c205bd7545a96b5314dd43b2d02c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690775"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830946"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Uso de grupos dinámicos con Update Management
 
@@ -49,4 +49,4 @@ Un grupo dinámico para máquinas que no son de Azure usa búsquedas guardadas, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de crear un grupo dinámico, puede [crear una implementación de actualizaciones](automation-tutorial-update-management.md).
+Para trabajar con Update Management, vea [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).

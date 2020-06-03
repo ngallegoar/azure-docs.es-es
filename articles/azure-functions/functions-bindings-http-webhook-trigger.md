@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235200"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648918"
 ---
 # <a name="azure-functions-http-trigger"></a>Desencadenador HTTP de Azure Functions
 
@@ -747,32 +747,12 @@ El usuario autenticado está disponible a través de [encabezados HTTP](../app-s
 
 ---
 
-## <a name="authorization-keys"></a>Claves de autorización
-
-Functions permite usar claves para dificultar el acceso a los puntos de conexión de función HTTP durante el desarrollo.  A menos que el nivel de autorización HTTP en una función desencadenada por HTTP se establezca en `anonymous`, las solicitudes deben incluir una clave de API. 
+## <a name="function-access-keys"></a><a name="authorization-keys"></a>Claves de acceso de función
 
 > [!IMPORTANT]
 > Aunque las claves pueden ayudar a ofuscar los puntos de conexión HTTP durante el desarrollo, no están diseñadas como una manera de proteger un desencadenador HTTP en producción. Para obtener más información, vea [Proteger un punto de conexión HTTP en producción](#secure-an-http-endpoint-in-production).
 
-> [!NOTE]
-> En el runtime 1.x de Functions, los proveedores de webhooks pueden usar claves para autorizar solicitudes de varias maneras, según lo que admita el proveedor. Esto se trata en [Webhooks y claves](#webhooks-and-keys). El entorno en tiempo de ejecución de Functions en la versión 2.x y posteriores no incluye compatibilidad integrada con proveedores de webhooks.
-
-#### <a name="authorization-scopes-function-level"></a>Ámbitos de autorización (nivel de función)
-
-Hay dos ámbitos de autorización para las claves de nivel de función:
-
-* **Función**: estas claves se aplican solo a las funciones específicas en las que se definen. Cuando se usan como una clave de API, solo permiten el acceso a esa función.
-
-* **Host**: las claves con un ámbito de host se pueden usar para acceder a todas las funciones dentro de la aplicación de función. Cuando se usan como una clave de API, permiten el acceso a cualquier función dentro de la aplicación de función. 
-
-Para cada clave se usa un nombre fácilmente referenciable y hay una clave predeterminada (denominada "predeterminada") en el nivel de función y host. Las claves de función tienen prioridad sobre las claves de host. Si se definen dos claves con el mismo nombre, siempre se usa la clave de función.
-
-#### <a name="master-key-admin-level"></a>Clave maestra (nivel de administrador) 
-
-Cada aplicación de función también tiene una clave de host de nivel de administrador denominada `_master`. Además de proporcionar acceso de nivel de host a todas las funciones de la aplicación, la clave maestra también proporciona acceso administrativo a las API REST del entorno de ejecución. No se puede revocar esta clave. Al establecer un nivel de autorización `admin`, las solicitudes deben usar la clave maestra; cualquier otra clave da lugar a un error de autorización.
-
-> [!CAUTION]  
-> Debido a los permisos elevados de la aplicación de función otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en aplicaciones cliente nativas. Tenga cuidado al elegir el nivel de autorización de administrador.
+[!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Obtención de claves
 
@@ -798,15 +778,13 @@ Puede permitir solicitudes anónimas, que no requieren claves. También puede ex
 
 ## <a name="secure-an-http-endpoint-in-production"></a>Proteger un punto de conexión HTTP en producción
 
-Para proteger totalmente los puntos de conexión de función en producción, considere la posibilidad de implementar una de las siguientes opciones de seguridad de nivel de aplicación de función:
+Para proteger totalmente los puntos de conexión de función en producción, considere la posibilidad de implementar una de las opciones de seguridad siguientes de nivel de aplicación de función. Cuando use alguno de estos métodos de seguridad de nivel de aplicación de función, debe establecer el nivel de autorización de función desencadenado por HTTP en `anonymous`.
 
-* Activar la autenticación o autorización de App Service para la aplicación de función. La plataforma App Service le permite usar Azure Active Directory (AAD) y varios proveedores de identidades de terceros para autenticar a los clientes. Se puede usar esta estrategia para implementar reglas de autorización personalizadas para las funciones y permite trabajar con información de usuario desde el código de función. Para obtener más información, vea [Autenticación y autorización en Azure App Service](../app-service/overview-authentication-authorization.md) y [Uso de identidades de cliente](#working-with-client-identities).
+[!INCLUDE [functions-enable-auth](../../includes/functions-enable-auth.md)]
 
-* Usar Azure API Management (APIM) para autenticar las solicitudes. APIM proporciona una serie de opciones de seguridad de API para las solicitudes entrantes. Para obtener más información, vea [Directivas de autenticación de Azure API Management](../api-management/api-management-authentication-policies.md). Con APIM, puede configurar la aplicación de función de modo que solo acepte solicitudes de la dirección IP de la instancia de APIM. Para obtener más información, vea [Restricciones de las direcciones IP](ip-addresses.md#ip-address-restrictions).
+#### <a name="deploy-your-function-app-in-isolation"></a>Implementación de la aplicación de funciones en aislamiento
 
-* Implementar la aplicación de función en una instancia de Azure App Service Environment (ASE). ASE proporciona un entorno de hospedaje dedicado en el que ejecutar las funciones. ASE le permite configurar una puerta de enlace de front-end única que se puede usar para autenticar todas las solicitudes entrantes. Para obtener más información, vea [Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
-
-Cuando use alguno de estos métodos de seguridad de nivel de aplicación de función, debe establecer el nivel de autorización de función desencadenado por HTTP en `anonymous`.
+[!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
 ## <a name="webhooks"></a>webhooks
 

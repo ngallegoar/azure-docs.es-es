@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API de SQL para Node.js, SDK y recursos'
 description: Obtenga toda la información sobre la API y el SDK de Node.js para SQL incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Node.js para Azure Cosmos DB.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 09/24/2018
-ms.author: dech
-ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982895"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650730"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Azure Cosmos DB para .NET para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -21,8 +21,9 @@ ms.locfileid: "80982895"
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [SDK para Java v4](sql-api-sdk-java-v4.md)
+> * [SDK asincrónico para Java v2](sql-api-sdk-async-java.md)
+> * [SDK sincrónico para Java v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -359,7 +360,7 @@ No son siempre los cambios más visibles, pero ayudan a nuestro equipo a distrib
 * Corrige el problema [100](https://github.com/Azure/azure-documentdb-node/issues/100) -agente específico de HTTPS: evite la modificación del agente global para fines de Azure Cosmos DB. Use un agente dedicado para todas las solicitudes de LIB.
 
 ### <a name=""></a><a name="1.5.3"/>1.5.3</a>
-* Corrige el problema [81](https://github.com/Azure/azure-documentdb-node/issues/81) : controla correctamente guiones en identificadores de medios.
+* Corrige el problema [81](https://github.com/Azure/azure-documentdb-node/issues/81): controla correctamente guiones en identificadores de medios.
 
 ### <a name=""></a><a name="1.5.2"/>1.5.2</a>
 * Corrige el problema [95](https://github.com/Azure/azure-documentdb-node/issues/95) : advertencia de pérdida de escucha de EventEmitter.
@@ -386,7 +387,7 @@ No son siempre los cambios más visibles, pero ayudan a nuestro equipo a distrib
 
 ### <a name=""></a><a name="1.2.0"/>1.2.0</a>
 * Se agregó compatibilidad con índice geoespacial.
-* Valida la propiedad id para todos los recursos. Los identificadores de recursos no pueden contener los caracteres ?, /, #, &#47;&#47;, ni terminar con un espacio.
+* Valida la propiedad ID para todos los recursos. Los identificadores de recursos no pueden contener los caracteres ?, /, #, &#47;&#47;, ni terminar con un espacio.
 * Agrega el nuevo encabezado "progreso de transformación de índices" a ResourceResponse.
 
 ### <a name=""></a><a name="1.1.0"/>1.1.0</a>

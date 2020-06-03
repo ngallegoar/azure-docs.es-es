@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a046791b8c50577c1921764b06bac5d88780194d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e4a7ae00edd8ff86e27037df1a26828c400f6ccf
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735001"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774234"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -748,6 +748,9 @@ Algunos de los desencadenadores tienen compatibilidad integrada para poder admin
 * **FileTrigger**. Establezca `FileProcessor.MaxDegreeOfParallelism` en `1`.
 
 Puede usar esta configuración para asegurarse de que la función se ejecuta como una singleton en una sola instancia. Para asegurarse de que solo se ejecuta una instancia de la función cuando la aplicación web se escala de forma horizontal a varias instancias, aplique un bloqueo de singleton de nivel de cliente de escucha en la función (`[Singleton(Mode = SingletonMode.Listener)]`). Los bloqueos de cliente de escucha se adquieren cuando se inicia el objeto JobHost. Si tres instancias de escalado horizontal se inician al mismo tiempo, solo una de ellas adquiere el bloqueo y solo un agente de escucha se inicia.
+
+> [!NOTE]
+> Consulte este [repositorio de GitHub](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) para más información sobre cómo funciona SingletonMode.Function.
 
 ### <a name="scope-values"></a>Valores de ámbito
 

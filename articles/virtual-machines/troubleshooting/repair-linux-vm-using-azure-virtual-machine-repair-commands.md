@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 49fdfde402938ce8d0ee1b141a47e68c99c502e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da40deb4df55a63f5fecc380500a507b374ca63d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73796200"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711149"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparación de una máquina virtual Linux mediante los comandos de reparación de máquinas virtuales de Azure
 
@@ -66,7 +66,7 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](https:/
    az extension update -n vm-repair
    ```
 
-3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación y conectará el disco.
+3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación en un nuevo grupo de recursos y conectará la copia del disco del sistema operativo.  La máquina virtual de reparación tendrá el mismo tamaño y región que la máquina virtual no funcional especificada.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose

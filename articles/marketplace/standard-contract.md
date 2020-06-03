@@ -1,22 +1,22 @@
 ---
-title: Contrato estándar | Azure Marketplace
-description: Contrato estándar para Azure Marketplace y AppSource
+title: Contrato estándar para el Marketplace comercial de Microsoft
+description: Contrato estándar para Azure Marketplace y AppSource en el Centro de partners
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/20/2020
 ms.author: dsindona
-ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53a22140fe62ce0db18c1d02d816eb31b12a381b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681448"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714158"
 ---
-# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
+# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
-Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un Contrato estándar para el Marketplace comercial de Microsoft con el fin de ayudar a facilitar una transacción en Marketplace. En lugar de crear términos y condiciones personalizados, los anunciantes del Marketplace comercial pueden ofrecer su software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez. El Contrato estándar puede encontrarse aquí: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
+Microsoft ofrece un Contrato estándar para el Marketplace comercial de Microsoft. Esto ayuda a simplificar el proceso de adquisición de los clientes, reducir la complejidad legal de los proveedores de software y facilitar las transacciones en Marketplace. En lugar de crear términos y condiciones personalizados, los anunciantes del Marketplace comercial pueden ofrecer su software en virtud del [Contrato estándar](https://go.microsoft.com/fwlink/?linkid=2041178), que los clientes solo tienen que revisar y aceptar una vez.
 
 Los términos y condiciones de una oferta se definen al crearla en el Centro de partners. Puede optar por usar el Contrato estándar para el Marketplace comercial de Microsoft en lugar de proporcionar sus propios términos y condiciones personalizados.
 
@@ -36,7 +36,7 @@ Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
 >[!Note]
 >Estos dos tipos de modificaciones se superponen entre sí. Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal al Contrato estándar durante la compra.
 
-Puede aprovechar el Contrato estándar del Marketplace comercial de Microsoft para los siguientes tipos de ofertas:  Las aplicaciones de Azure (plantillas de solución y aplicaciones administradas), máquinas virtuales, contenedores, aplicaciones de contenedor, módulos de IoT Edge y SaaS.
+Puede aprovechar el Contrato estándar del Marketplace comercial de Microsoft para los siguientes tipos de ofertas:  aplicaciones de Azure (plantillas de solución y aplicaciones administradas), máquinas virtuales y SaaS.
 
 ## <a name="customer-experience"></a>Experiencia del cliente
 

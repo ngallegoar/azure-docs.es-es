@@ -1,15 +1,15 @@
 ---
 title: Introducción a PowerShell
 description: Una rápida introducción a los cmdlets de Azure PowerShell que puede usar para administrar recursos de Batch.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b768fac7fa6fe0f4821a4fbaf5fa11414b10f81d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995313"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779621"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
 
@@ -114,7 +114,7 @@ Cuando se utilizan muchos de estos cmdlets, además de pasar un objeto BatchCont
 
 ### <a name="create-a-batch-pool"></a>Crear un grupo de Batch
 
-Al crear o actualizar un grupo de Batch, seleccione una configuración de servicios en la nube o de máquina virtual para el sistema operativo de los nodos de proceso (consulte el artículo de [introducción a las características de Batch](batch-api-basics.md#pool)). Si se especifica la configuración de servicios en la nube, se crea la imagen de sus nodos de proceso con una de las [versiones del sistema operativo invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Si se especifica la configuración de la máquina virtual, puede especificar alguna de las imágenes de máquina virtual de Linux o Windows que aparecen en [Azure Virtual Machines Marketplace][vm_marketplace], o proporcionar una imagen personalizada que haya preparado.
+Al crear o actualizar un grupo de Batch, seleccione la configuración de servicios en la nube o de máquina virtual para el sistema operativo de los nodos de proceso (consulte [Nodos y grupos](nodes-and-pools.md#configurations)). Si se especifica la configuración de servicios en la nube, se crea la imagen de sus nodos de proceso con una de las [versiones del sistema operativo invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Si se especifica la configuración de la máquina virtual, puede especificar alguna de las imágenes de máquina virtual de Linux o Windows que aparecen en [Azure Virtual Machines Marketplace][vm_marketplace], o proporcionar una imagen personalizada que haya preparado.
 
 Al ejecutar **New-AzBatchPool**, pase la configuración del sistema operativo en un objeto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Por ejemplo, el siguiente fragmento de código crea un grupo de Batch con nodos de proceso de tamaño Standard_A1 en la configuración de la máquina virtual con una imagen de Ubuntu Server 18.04-LTS. En este caso, el parámetro **VirtualMachineConfiguration** especifica la variable *$configuration* como objeto PSVirtualMachineConfiguration. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como objeto BatchAccountContext.
 
@@ -247,9 +247,10 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Ahora, cree el grupo y especifique el objeto de referencia del paquete como argumento en la opción `ApplicationPackageReferences`:
+Ahora se crea la configuración y el grupo. En este ejemplo se usa el parámetro **CloudServiceConfiguration** con un objeto de tipo `PSCloudServiceConfiguration` inicializado en `$configuration`, que establece **OSFamily** en `6` para "Windows Server 2019" y **OSVersion** en `*`. Especifique el objeto de referencia del paquete como argumento para la opción `ApplicationPackageReferences`:
 
 ```powershell
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 

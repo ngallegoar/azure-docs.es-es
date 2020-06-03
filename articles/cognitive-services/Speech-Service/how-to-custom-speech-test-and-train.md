@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402137"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725557"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -27,7 +27,7 @@ En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar
 
 | Tipo de datos | Se usa para pruebas | Cantidad recomendada | Se utiliza para el entrenamiento | Cantidad recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | No | N/a |
+| [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | No | N/D |
 | [Transcripciones de audio con etiqueta humana](#audio--human-labeled-transcript-data-for-testingtraining) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 1000 horas de audio |
 | [Texto relacionado](#related-text-data-for-training) | No | N/a | Sí | De 1 a 200 MB de texto relacionado |
 
@@ -80,6 +80,8 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <spa
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Datos de transcripción de audio y con etiqueta humanos para pruebas y entrenamiento
 
 Para medir la precisión de la precisión de la conversión de voz a texto de Microsoft al procesar sus archivos de audio, debe proporcionar transcripciones con etiqueta humana (palabra por palabra) para su comparación. Aunque la transcripción con etiqueta humana a menudo requiere mucho tiempo, es necesario evaluar la precisión y entrenar al modelo para los casos de uso. Tenga en cuenta que las mejoras en el reconocimiento solo serán tan buenas como los datos proporcionados. Por ese motivo, es importante que solo se carguen las transcripciones de alta calidad.
+
+Los archivos de audio pueden tener silencio al principio y al final de la grabación. Si es posible, incluya al menos medio segundo de silencio antes y después de la voz en cada archivo de ejemplo. Aunque el audio con un volumen de grabación bajo o con ruido de fondo molesto no resulta útil, no debería perjudicar al modelo personalizado. Considere siempre la posibilidad de actualizar los micrófonos y el hardware de procesamiento de la señal antes de recopilar muestras de audio.
 
 | Propiedad                 | Value                               |
 |--------------------------|-------------------------------------|

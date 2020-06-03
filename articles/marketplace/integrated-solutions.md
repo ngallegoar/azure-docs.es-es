@@ -1,21 +1,20 @@
 ---
-title: 'Soluciones integradas: Azure Marketplace'
-description: Soluciones integradas en Azure Marketplace y AppSource
+title: 'Soluciones integradas: marketplace comercial de Microsoft'
+description: Obtenga información sobre las ventajas, los recursos y los pasos sucesivos para ofrecer soluciones integradas en marketplace comercial.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c32fe80b681e6d82d40b0f5c94d5e9288f72cd6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bf20473b407db1804a4275fdc6dd3d528de1f189
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684401"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657998"
 ---
-# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Soluciones integradas de Microsoft AppSource y Azure Marketplace
-
+# <a name="integrated-solutions-in-the-commercial-marketplace"></a>Soluciones integradas en Marketplace comercial
 Una solución integrada reúne las mejores tecnologías de asociados de Microsoft, junto con la consultoría, la implementación y la asistencia que proporcionan expertos asociados de servicios.
 
 Dos o más asociados de Microsoft integran su tecnología y servicios para crear una experiencia de implementación unificada, completa y repetible, con el fin de que los clientes se pongan en marcha rápidamente.  El asociado principal de la solución (normalmente, el asociado de servicios) proporciona un único punto de contacto para el cliente, que ofrece servicios de personalización, consultoría y soporte técnico pertinentes en torno a la solución.
@@ -30,7 +29,7 @@ Las ventajas de un enfoque integrado son:
 * *Rentabilidad inmediata*: El enfoque de implementación integrada le ayudará a obtener beneficios inmediatas.
 * *Las mejores soluciones*: Descubra la sencillez de una experiencia integrada de compra e implementación.
 
-Para más información, consulte [Publicación de una solución integrada](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers).
+Para más información, consulte [Publicación de una solución integrada](./integrated-solutions-for-publishers.md).
 
 ## <a name="submit-a-nomination"></a>Enviar una nominación
 
@@ -38,7 +37,7 @@ Los partners que quieran participar en el programa deben identificar a otros par
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte las ofertas siguientes para descubrir soluciones integradas y contactar con valiosos asociados:
+Puede descubrir soluciones integradas y contactar con valiosos asociados visitando aquí sus ofertas:
 
 * [Customer 360 con tecnología de Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
 * [Comercio rápido](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)

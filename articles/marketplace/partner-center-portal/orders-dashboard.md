@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261268"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747808"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de marketplace comercial
 
@@ -58,7 +58,7 @@ El valor de porcentaje junto al de Total de pedidos representa el crecimiento en
 
 ### <a name="orders-by-geography"></a>Pedidos por geografía
 
-En el mapa térmico **Pedidos por geografía** se muestran el recuento de los pedidos en un mapa del mundo y los puestos asignados según el país del cliente. Este mapa térmico funciona igual que el **[mapa térmico Clientes por geografía](./customer-dashboard.md#customer-by-geography)** .
+En el mapa térmico **Pedidos por geografía** se muestra el recuento de los pedidos en un mapa del mundo y los puestos asignados según el país o la región del cliente. Este mapa térmico funciona igual que el **[mapa térmico Clientes por geografía](./customer-dashboard.md#customer-by-geography)** .
 
 ![Pedidos por geografía de Analizar del Centro de partners](./media/orders-by-geography.png)
 
@@ -103,7 +103,8 @@ En la tabla de detalles de pedidos se muestra una lista numerada de los 1000 ped
 - Cada columna de la cuadrícula se puede ordenar.
 - Los datos se pueden extraer en un archivo TSV si el recuento de los registros es inferior a 1000.
 - Si el número de registros es superior a 1000, los datos exportados se colocarán de forma asincrónica en una página de descargas durante los próximos 30 días.
-- Pueden aplicarse filtros a la **tabla de detalles de pedidos** a fin de mostrar solo los datos que le interesen. Los datos se pueden filtrar por país, tipo de licencia de Azure, tipo de licencia de Marketplace, tipo de oferta, estado de pedido, evaluaciones gratuitas, identificador de suscripción de Marketplace, identificador de cliente y nombre de la empresa.
+- Pueden aplicarse filtros a la **tabla de detalles de pedidos** a fin de mostrar solo los datos que le interesen. Los datos se pueden filtrar por país o región, tipo de licencia de Azure, tipo de licencia de Marketplace, tipo de oferta, estado de pedido, evaluaciones gratuitas, identificador de suscripción de Marketplace, identificador de cliente y nombre de la empresa.
+- Dado que las ofertas de SaaS compradas a través de Azure Marketplace o AppSource no requieren una suscripción a Azure, el identificador de suscripción de Marketplace aparecerá como 00000000-0000-0000-0000-000000000000 en la sección **Datos de pedidos detallados**.
 
 #### <a name="orders-page-filters"></a>Filtros de la página de pedidos
 

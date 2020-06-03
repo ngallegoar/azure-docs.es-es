@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: cfb4e0e563bc604b0f03dcc5fb128c87d9710430
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ae329ece6432444162f060be283e10d9088c23db
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696414"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124536"
 ---
 | Category | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -29,7 +29,7 @@ ms.locfileid: "83696414"
 | &nbsp; |[Azure Database para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Instancia administrada de Azure SQL Database](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Instancia administrada de Azure SQL](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Base de datos** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |

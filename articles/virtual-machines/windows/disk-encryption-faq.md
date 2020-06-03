@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: d9374f83110176e6705e2c6cca6c7794738a8c6e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901283"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848845"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Windows
 
@@ -48,8 +48,6 @@ En el artículo [Introducción a Azure Disk Encryption](disk-encryption-overview
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>¿Puedo cifrar los volúmenes de datos y arranque con Azure Disk Encryption?
 
 Puede cifrar tanto el volumen de arranque como el de datos, pero no puede cifrar el de datos sin cifrar antes el del sistema operativo.
-
-Una vez que se haya cifrado el volumen del sistema operativo no se admite la deshabilitación del cifrado en dicho volumen.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>¿Puedo cifrar un volumen desmontado con Azure Disk Encryption?
 
@@ -136,7 +134,7 @@ Azure Backup proporciona un mecanismo para la copia de seguridad y restauración
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>¿Dónde puedo formular preguntas o enviar comentarios?
 
-Puede realizar preguntas o publicar comentarios en el [Foro de Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+Puede realizar preguntas o publicar comentarios en la [página de preguntas y respuestas de Microsoft sobre Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió más acerca de las preguntas más frecuentes sobre Azure Disk Encryption. Para obtener más información acerca de este servicio, vea los siguientes artículos:

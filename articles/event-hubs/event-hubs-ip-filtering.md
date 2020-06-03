@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2d67ad70ccdf4ce1f88401806700f38bd1d3c11d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393140"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655889"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configuración de reglas de firewall de IP para un espacio de nombres de Azure Event Hubs
 Los espacios de nombres de Azure Event Hubs son accesibles de forma predeterminada desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -54,6 +54,9 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
     1. Seleccione la opción **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres. 
     2. En **Intervalo de direcciones**, escriba una dirección IPv4 específica o un intervalo de direcciones IPv4 en notación CIDR. 
     3. Especifique si quiere **permitir que los servicios de confianza de Microsoft omitan este firewall**. 
+
+        > [!WARNING]
+        > Si elige la opción **Redes seleccionadas** y no especifica ninguna dirección IP o un intervalo de direcciones, el servicio permitirá el tráfico desde todas las redes. 
 
         ![Firewall: opción Todas las redes seleccionada](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. Espere unos minutos hasta que la confirmación se muestre en las notificaciones de Azure Portal.

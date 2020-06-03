@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426378"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747632"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -77,10 +77,10 @@ Los siguientes tokens del especificador de formato se pueden utilizar solos o en
 |{datetime:MM}|Mes desde 01 hasta 12|01|
 |{datetime:M}|Mes desde 1 hasta 12|1|
 |{datetime:dd}|Día desde 01 hasta 31|02|
-|{datetime:d}|Día desde 1 hasta 12|2|
+|{datetime:d}|Día desde 1 hasta 31|2|
 |{datetime:HH}|Hora con el formato de 24 horas, de 00 a 23|10|
-|{datetime:mm}|Minutos de 00 a 24|06|
-|{datetime:m}|Minutos de 0 a 24|6|
+|{datetime:mm}|Minutos de 00 a 60|06|
+|{datetime:m}|Minutos de 0 a 60|6|
 |{datetime:ss}|Segundos de 00 a 60|08|
 
 Si no quiere usar patrones de fecha y hora personalizados, puede agregar el token {date} o {time} al prefijo de ruta de acceso para crear un menú desplegable con los formatos incorporados de fecha y hora.

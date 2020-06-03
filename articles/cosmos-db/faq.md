@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 976ff4d3be194bf33d2c01f06c66782caf8dad50
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608054"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834919"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -70,7 +70,7 @@ También puede usar el [Emulador de Azure Cosmos DB](local-emulator.md) para des
 
 Para formular una pregunta técnica, puede realizar una publicación en alguno de estos dos foros de preguntas y respuestas:
 
-* [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow es la mejor opción para preguntas de programación. Asegúrese de que su pregunta es [relevante](https://stackoverflow.com/help/on-topic) y [proporcione tantos detalles como sea posible, formulando la pregunta de forma clara y responsable](https://stackoverflow.com/help/how-to-ask).
 
 Para solicitar nuevas características, cree una nueva solicitud en [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -93,7 +93,7 @@ Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cos
 * La replicación global está disponible en las [regiones de Azure](https://azure.microsoft.com/regions/) siguientes: Centro de EE. UU., Norte de Europa y Sudeste de Asia
 * Rendimiento máximo de 5000 unidades de solicitud por segundo cuando se aprovisionan en el nivel de contenedor.
 * Rendimiento máximo de 20 000 unidades de solicitud por segundo cuando se aprovisionan en el nivel de base de datos.
-* Las suscripciones expiran después de 30 días y se pueden extender hasta un máximo de 31 días.
+* Las suscripciones expiran después de 30 días y se pueden extender hasta un máximo de 31 días. Después de la expiración, se elimina la información contenida.
 * No se pueden crear incidencias de soporte técnico de Azure para las cuentas de prueba de Azure Cosmos DB; sin embargo, se proporciona soporte técnico para aquellos suscriptores con planes de soporte técnico ya existentes.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configuración de Azure Cosmos DB

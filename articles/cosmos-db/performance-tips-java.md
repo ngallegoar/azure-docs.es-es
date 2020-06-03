@@ -1,28 +1,35 @@
 ---
-title: Sugerencias de rendimiento de Azure Cosmos DB para Java
-description: Conozca las opciones de configuración de cliente para mejorar el rendimiento de las bases de datos de Azure Cosmos.
-author: SnehaGunda
+title: Sugerencias de rendimiento para la versión 2 del SDK de Java sincrónico de Azure Cosmos DB
+description: Conozca las opciones de configuración de cliente para mejorar el rendimiento de las bases de datos de Azure Cosmos para la versión 2 del SDK de Java sincrónico.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: sngun
-ms.openlocfilehash: a20b7d91a927d48a14812110ca714491cd726071
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 998155c2505277170518a62af4ae2481e217a1df
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548778"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650099"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Sugerencias de rendimiento para Azure Cosmos DB y Java
+# <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Sugerencias de rendimiento para la versión 2 del SDK de Java sincrónico de Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [Async Java](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
+> * [Versión 4 del SDK de Java](performance-tips-java-sdk-v4-sql.md)
+> * [Versión 2 del SDK de Java asincrónico](performance-tips-async-java.md)
+> * [Versión 2 del SDK de Java sincrónico](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB es una base de datos distribuida rápida y flexible que se escala sin problemas con una latencia y un rendimiento garantizados. No es necesario realizar cambios de arquitectura importantes ni escribir código complejo para escalar la base de datos con Azure Cosmos DB. Escalar o reducir verticalmente es tan sencillo como realizar una única llamada API. Para más información, consulte [cómo aprovisionar el rendimiento del contenedor](how-to-provision-container-throughput.md) o [cómo aprovisionar el rendimiento de la base de datos](how-to-provision-database-throughput.md). Sin embargo, como el acceso a Azure Cosmos DB se realiza mediante llamadas de red, puede realizar optimizaciones en el lado cliente para conseguir un rendimiento máximo al usar el [SDK de Java para SQL](documentdb-sdk-java.md).
+> [!IMPORTANT]  
+> *No* se trata del SDK de Java más reciente para Azure Cosmos DB. Debe actualizar el proyecto a la [versión 4 del SDK de Java Azure Cosmos DB](sql-api-sdk-java-v4.md) y luego leer la [guía de sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) de la versión 4 del SDK de Java Azure Cosmos DB. Siga las instrucciones que se indican en la guía de [migración a la versión 4 del SDK de Java Azure Cosmos DB](migrate-java-v4-sdk.md) y la guía [Reactor frente a RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) para realizar la actualización. 
+> 
+> Estas sugerencias de rendimiento solo se dirigen a la versión 2 del SDK de Java sincrónico de Azure Cosmos DB. Consulte las [notas de la versión](sql-api-sdk-java.md) de la versión 2 del SDK de Java sincrónico de Azure Cosmos DB y el artículo sobre el [repositorio Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) para más información.
+>
+
+Azure Cosmos DB es una base de datos distribuida rápida y flexible que se escala sin problemas con una latencia y un rendimiento garantizados. No es necesario realizar cambios de arquitectura importantes ni escribir código complejo para escalar la base de datos con Azure Cosmos DB. Escalar o reducir verticalmente es tan sencillo como realizar una única llamada API. Para más información, consulte [cómo aprovisionar el rendimiento del contenedor](how-to-provision-container-throughput.md) o [cómo aprovisionar el rendimiento de la base de datos](how-to-provision-database-throughput.md). Sin embargo, como el acceso a Azure Cosmos DB se realiza mediante llamadas de red, puede realizar optimizaciones en el lado cliente para conseguir un rendimiento máximo al usar la [versión 2 del SDK de Java sincrónico de Azure Cosmos DB](documentdb-sdk-java.md).
 
 Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la base de datos?", tenga en cuenta las opciones siguientes:
 
@@ -38,9 +45,11 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
       El modo de puerta de enlace se admite en todas las plataformas de SDK y es el valor predeterminado configurado.  Si la aplicación se ejecuta dentro de una red corporativa con restricciones de firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el puerto HTTPS estándar y un único punto de conexión. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen o escriben datos en Azure Cosmos DB. Por este motivo, el modo DirectHttps ofrece mejor rendimiento debido al número menor de saltos de red. 
 
-      El SDK de Java usa HTTPS como protocolo de transporte. HTTPS usa TLS para la autenticación inicial y para cifrar el tráfico. Al usar el SDK de Java, solo es necesario que esté abierto el puerto HTTPS 443. 
+      La versión 2 del SDK de Java sincrónico de Azure Cosmos DB usa HTTPS como protocolo de transporte. HTTPS usa TLS para la autenticación inicial y para cifrar el tráfico. Si se usa la versión 2 del SDK de Java sincrónico de Azure Cosmos DB, solo hay que abrir el puerto HTTPS 443. 
 
       ConnectionMode se configura durante la construcción de la instancia de DocumentClient con el parámetro ConnectionPolicy. 
+
+    ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-connectionpolicy"></a>Versión 2 del SDK de Java sincrónico (Maven com.microsoft.azure::azure-documentdb)
 
       ```Java
       public ConnectionPolicy getConnectionPolicy() {
@@ -74,11 +83,11 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
    <a id="max-connection"></a>
 3. **Aumento de MaxPoolSize por host al utilizar el modo de puerta de enlace**
 
-    Las solicitudes de Azure Cosmos DB se realizan a través de HTTPS o REST cuando se usa el modo de puerta de enlace, y están condicionadas por los límites de conexión predeterminados por nombre de host o dirección IP. Puede que deba establecer MaxPoolSize en un valor mayor (200-1000) para que la biblioteca cliente pueda utilizar varias conexiones simultáneas a Azure Cosmos DB. En el SDK de Java, el valor predeterminado de [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) es 100. Use [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) para cambiar el valor.
+    Las solicitudes de Azure Cosmos DB se realizan a través de HTTPS o REST cuando se usa el modo de puerta de enlace, y están condicionadas por los límites de conexión predeterminados por nombre de host o dirección IP. Puede que deba establecer MaxPoolSize en un valor mayor (200-1000) para que la biblioteca cliente pueda utilizar varias conexiones simultáneas a Azure Cosmos DB. En la versión 2 del SDK de Java sincrónico de Azure Cosmos DB, el valor predeterminado de [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) es 100. Use [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) para cambiar el valor.
 
 4. **Ajuste de consultas paralelas en colecciones particionadas**
 
-    A partir de la versión 1.9.0 del SDK de Java para SQL de Azure Cosmos DB se admiten consultas paralelas que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte [ejemplos de código](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) relacionados para trabajar con los SDK. Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales.
+    A partir de la versión 1.9.0 y posteriores del SDK de Java sincrónico de Azure Cosmos DB se admiten consultas paralelas que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte [ejemplos de código](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) relacionados para trabajar con los SDK. Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales.
 
     (a) Las consultas paralelas ***Tuning setMaxDegreeOfParallelism\:*** realizan consultas en varias particiones en paralelo. Sin embargo, los datos de una recopilación con particiones individual se capturan en serie con respecto a la consulta. Por lo tanto, use el parámetro [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) para establecer el número de particiones que tiene la máxima probabilidad de conseguir el mejor rendimiento de consulta, siempre y cuando el resto de las demás condiciones del sistema permanezcan invariables. Si no conoce el número de particiones, puede usar setMaxDegreeOfParallelism para establecer un número alto y el sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el grado máximo de paralelismo. 
 
@@ -90,7 +99,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 5. **Implementación del retroceso según intervalos de getRetryAfterInMilliseconds**
 
-    Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación del cliente debe retroceder de acuerdo con la limitación para el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos. Se incluye compatibilidad con la directiva de reintentos en la versión 1.8.0 y versiones posteriores del [SDK de Java](documentdb-sdk-java.md). Para más información, vea [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
+    Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación del cliente debe retroceder de acuerdo con la limitación para el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos. Se incluye compatibilidad con la directiva de reintentos en la versión 1.8.0 y versiones posteriores del [SDK sincrónico de Java Azure Cosmos DB](documentdb-sdk-java.md). Para más información, vea [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
 6. **Escalado horizontal de la carga de trabajo de cliente**
 
@@ -113,7 +122,10 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
  
 1. **Exclusión de rutas de acceso sin utilizar de la indexación para acelerar las escrituras**
 
-    La directiva de indexación de Azure Cosmos DB le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) y [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas.  Por ejemplo, el código siguiente muestra cómo excluir una sección completa de los documentos (también conocido como subárbol) de la indexación usando el comodín "*".
+    La directiva de indexación de Azure Cosmos DB le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) y [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas.  Por ejemplo, en el siguiente código se muestra cómo excluir una sección completa (subárbol) de los documentos de la indexación mediante el comodín "*".
+
+
+    ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-indexing"></a>Versión 2 del SDK de Java sincrónico (Maven com.microsoft.azure::azure-documentdb)
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -139,6 +151,9 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de predicados, la naturaleza de los predicados, el número de UDF y el tamaño del conjunto de datos de origen influyen en el costo de operaciones de consulta.
 
     Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la propiedad RequestCharge equivalente en [ResourceResponse\<](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) o [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)) para medir el número de unidades de solicitudes usadas por estas operaciones.
+
+
+    ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Versión 2 del SDK de Java sincrónico (Maven com.microsoft.azure::azure-documentdb)
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);

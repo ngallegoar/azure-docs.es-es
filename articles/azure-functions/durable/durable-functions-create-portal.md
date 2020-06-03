@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo instalar la extensión Durable Fun
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7aa283480d95693e2630e24d5642fc7cb909b34b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83120167"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848767"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creación de Durable Functions mediante Azure Portal
 
@@ -57,6 +57,8 @@ Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-fun
 4. Una vez cargado el archivo `package.json`, ejecute el comando `npm install` en la consola de ejecución remota de Kudu.
 
    ![Ejecución de la instalación de npm en Kudu](./media/durable-functions-create-portal/kudu-npm-install.png)
+   
+5. Por último, (habilite el modo de compatibilidad)[https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1 ] agregando una configuración de aplicación `FUNCTIONS_V2_COMPATIBILITY_MODE` con el valor de `true`.
 
 ## <a name="create-an-orchestrator-function"></a>Creación de una función de orquestador
 

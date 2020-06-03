@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262407"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738326"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Panel Resumen de los análisis de marketplace comercial
 
@@ -70,7 +70,7 @@ El mapa térmico **Clientes por geografía** muestra un recuento de los clientes
 - Puede mover el mapa para ver la ubicación exacta.
 - Puede hacer zoom en una ubicación específica.
 - El mapa térmico tiene una cuadrícula complementaria para ver los detalles del recuento de clientes, recuento de pedidos y horas de uso normalizado en la ubicación específica.
-- Puede buscar y seleccionar un país en la cuadrícula para ampliar la ubicación en el mapa. Revierta a la vista original presionando el botón **Inicio** en el mapa.
+- Puede buscar y seleccionar un país o región en la cuadrícula para ampliar la ubicación en el mapa. Revierta a la vista original presionando el botón **Inicio** en el mapa.
 - Un **nuevo** cliente ha comprado una de sus ofertas por primera vez durante el mes dentro del intervalo de fechas seleccionado.
 
 ### <a name="growth-trend-charts"></a>Gráficos de tendencias de crecimiento

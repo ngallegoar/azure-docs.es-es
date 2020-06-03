@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121204"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778555"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Generación de perfiles de aplicaciones activas de Azure App Service con Application Insights
 
@@ -63,9 +63,9 @@ Si quiere habilitar Profiler para otras nubes, puede usar la siguiente configura
 
 ## <a name="disable-profiler"></a>Deshabilitación de Profiler
 
-Para detener o reiniciar el generador de perfiles en una determina instancia de la aplicación, en **Trabajos web**, vaya al recurso de la aplicación. Para eliminar Profiler, vaya a **Extensiones**.
+Para detener o reiniciar Profiler en una instancia de la aplicación, vaya a **WebJobs** y detenga el trabajo web llamado ApplicationInsightsProfiler3. Incluso si el generador de perfiles se deshabilita mediante el modificador de la página de Application Insights como se describió anteriormente, el proceso del generador de perfiles se seguirá ejecutando. El generador de perfiles comprobará si está habilitado. Si está deshabilitado, entrará en suspensión durante un tiempo antes de volver a realizar la comprobación. Si está deshabilitado, no realizará la generación de perfiles. Si deshabilita este trabajo web, el proceso del generador de perfiles no se ejecutará, ni siquiera para comprobar si está habilitado.
 
-![Deshabilitación de Profiler para un trabajo web][disable-profiler-webjob]
+  ![Deshabilitación de Profiler para un trabajo web][disable-profiler-webjob]
 
 Se recomienda tener habilitado el generador de perfiles en todas las aplicaciones para detectar cualquier problema de rendimiento lo antes posible.
 

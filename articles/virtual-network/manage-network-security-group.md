@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 62972be5b363c0a22a24a9056b6f3f8b11829566
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cac67e85383f36aee0a1535d69fa075f92bd6dbf
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182912"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267722"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -366,9 +366,9 @@ Para realizar tareas en grupos de seguridad de red, reglas de seguridad y grupos
 
 | Acción                                                        |   Nombre                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/networkSecurityGroups/rules/read            |   Obtener regla                                                            |
-| Microsoft.Network/networkSecurityGroups/rules/write           |   Crear o actualizar regla                                               |
-| Microsoft.Network/networkSecurityGroups/rules/delete          |   Eliminar regla                                                         |
+| Microsoft.Network/networkSecurityGroups/securityRules/read            |   Obtener regla                                                            |
+| Microsoft.Network/networkSecurityGroups/securityRules/write           |   Crear o actualizar regla                                               |
+| Microsoft.Network/networkSecurityGroups/securityRules/delete          |   Eliminar regla                                                         |
 
 ### <a name="application-security-group"></a>Grupo de seguridad de aplicaciones
 

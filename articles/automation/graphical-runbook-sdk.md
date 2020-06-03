@@ -1,24 +1,24 @@
 ---
-title: Uso del SDK de runbooks gráficos de Azure Automation
-description: En este artículo se describe cómo usar el SDK de runbooks gráficos de Azure Automation.
+title: Uso del SDK de runbooks gráficos de Azure Automation (versión preliminar)
+description: En este artículo se describe cómo usar el SDK de runbooks gráficos de Azure Automation. (versión preliminar).
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 886ce03b6e107d871879ff40bdc5de9ceb97c7c3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 969e60cd08a65adb1dd731aa7c6c3f9872e288fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690733"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835043"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Uso del SDK de runbooks gráficos de Azure Automation
+# <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Uso del SDK de runbooks gráficos de Azure Automation (versión preliminar)
 
 Los [runbooks gráficos](automation-graphical-authoring-intro.md) ayudan a administrar las complejidades del código subyacente de Windows PowerShell o del flujo de trabajo de PowerShell. El SDK de creación de gráficos en Microsoft Azure Automation permite a los desarrolladores crear y editar runbooks gráficos para usarlos con Azure Automation. En este artículo se describen los pasos básicos para crear un runbook gráfico a partir del código.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Importe el paquete `Orchestrator.GraphRunbook.Model.dll` en el proyecto.
+Importación del paquete `Orchestrator.GraphRunbook.Model.dll` descargando el [SDK](https://www.microsoft.com/download/details.aspx?id=50734).
 
 ## <a name="create-a-runbook-object-instance"></a>Creación de una instancia de objeto de runbook
 
@@ -141,4 +141,4 @@ El formato serializado puede cambiar en las futuras versiones de `Orchestrator.G
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre los runbooks gráficos en Azure Automation, consulte [Introducción a la creación gráfica](automation-graphical-authoring-intro.md).
+Para más información, consulte [Control de errores en runbooks gráficos de Azure Automation](automation-graphical-authoring-intro.md).

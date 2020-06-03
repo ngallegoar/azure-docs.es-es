@@ -1,15 +1,15 @@
 ---
-title: 'Ejecución de tareas en cuentas de usuario: Azure Batch'
-description: Resulta útil poder configurar la cuenta de usuario en que desea que se ejecute una tarea. Obtenga información acerca de los tipos de cuentas de usuario y cómo configurarlas.
-ms.topic: article
+title: Ejecución de tareas en cuentas de usuario
+description: Obtenga información acerca de los tipos de cuentas de usuario y cómo configurarlas.
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980293"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779490"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
@@ -40,7 +40,7 @@ Tanto las cuentas de usuario automático como las de usuario con nombre tienen a
 
 Si una tarea se ejecuta en la misma cuenta que se usó para ejecutar una tarea de inicio, la tarea tiene acceso de lectura y escritura al directorio de la tarea de inicio. De forma similar, si una tarea se ejecuta en la misma cuenta que se usó para ejecutar una tarea de preparación del trabajo, la tarea tiene acceso de lectura y escritura al directorio de preparación del trabajo de la tarea. Si una tarea se ejecuta en una cuenta diferente a la de la tarea de inicio o de preparación del trabajo, la tarea solo tiene acceso de lectura al directorio correspondiente.
 
-Para más información sobre cómo acceder a archivos y directorios desde una tarea, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md#files-and-directories).
+Para más información sobre el acceso a archivos y directorios desde una tarea, consulte [Archivos y directorios](files-and-directories.md).
 
 ## <a name="elevated-access-for-tasks"></a>Acceso con privilegios elevados para tareas 
 
@@ -322,4 +322,5 @@ La versión 2017-01-01.4.0 del servicio Batch incluye un cambio importante: se r
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
+* Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
+* Más información sobre [archivos y directorios](files-and-directories.md) en Azure Batch.

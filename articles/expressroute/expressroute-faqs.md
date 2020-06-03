@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231300"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745753"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
 ## <a name="what-is-expressroute"></a>¿Qué es ExpressRoute?
 
-ExpressRoute es un servicio de Azure que permite crear conexiones privadas entre los centros de datos de Microsoft y la infraestructura local o en una instalación de coubicación. Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, ofrecen una mayor confiabilidad, seguridad y velocidad con una menor latencia que las conexiones a Internet típicas.
+ExpressRoute es un servicio de Azure que permite crear conexiones privadas entre centros de datos de Microsoft y la infraestructura local o en una instalación de ubicación conjunta. Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, ofrecen una mayor confiabilidad, seguridad y velocidad con una menor latencia que las conexiones a Internet típicas.
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>¿Cuáles son las ventajas de usar ExpressRoute y conexiones de red privada?
 
@@ -28,7 +28,7 @@ Las conexiones ExpressRoute no pasan por la red pública de Internet. Ofrecen un
 
 Consulte esta página para conocer la ubicación del servicio y la disponibilidad: [Asociados de ExpressRoute y ubicaciones](expressroute-locations.md).
 
-### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>¿Cómo puedo usar ExpressRoute para conectarme a Microsoft si no tengo asociaciones con uno de los socios de operadores de ExpressRoute?
+### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>¿Cómo puedo usar ExpressRoute para conectarme a Microsoft si no tengo asociaciones con uno de los operadores asociados de ExpressRoute?
 
 Puede seleccionar un operador regional y conexiones Ethernet por tierra a una de las ubicaciones del proveedor de intercambio compatible. A continuación, puede explorar con Microsoft en la ubicación del proveedor. Compruebe la última sección de [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) para ver si su proveedor de servicio está presente en cualquiera de las ubicaciones de Exchange. A continuación, puede solicitar un circuito ExpressRoute a través del proveedor de servicio para conectarse a Azure.
 
@@ -277,7 +277,7 @@ El tiempo de espera es 180. Los mensajes de Keep-Alive se envían cada 60 segund
 
 Sí, puede intentar aumentar el ancho de banda del circuito ExpressRoute en Azure Portal o mediante PowerShell. Si el puerto físico en el que se creó el circuito tiene capacidad disponible, el cambio se realizará correctamente. 
 
-Si el cambio no se realiza correctamente, significa que no queda capacidad en el puerto actual y que es preciso crear un circuito ExpressRoute nuevo con mayor ancho de banda O que no hay capacidad adicional en dicha ubicación, en cuyo caso no se podrá aumentar el ancho de banda. 
+Si el cambio no se realiza correctamente, significa que no queda capacidad en el puerto actual y que es preciso crear un circuito ExpressRoute nuevo con mayor ancho de banda, o que no hay capacidad adicional en dicha ubicación, en cuyo caso no se podrá aumentar el ancho de banda. 
 
 También tendrá que realizar un seguimiento con su proveedor de conectividad para asegurarse de que actualizan los aceleradores en sus redes para admitir el aumento del ancho de banda. Sin embargo, no se puede reducir el ancho de banda de su circuito ExpressRoute. Tendrá que crear un nuevo circuito ExpressRoute con menor ancho de banda y eliminar el circuito anterior.
 
@@ -342,7 +342,7 @@ En comparación con un circuito ExpressRoute Standard, un circuito ExpressRoute 
 ExpressRoute Local también tiene los mismos límites de recursos (por ejemplo, el número de redes virtuales por circuito) que ExpressRoute Standard. 
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>¿Donde está disponible ExpressRoute Local y a qué regiones de Azure se asigna cada ubicación de emparejamiento?
-ExpressRoute Local está disponible en las ubicaciones de emparejamiento donde haya cerca una o dos regiones de Azure. No está disponible en una ubicación de emparejamiento donde no haya ninguna región de Azure en ese estado, provincia o país. Vea las asignaciones exactas en [la página de ubicaciones](expressroute-locations-providers.md).  
+ExpressRoute Local está disponible en las ubicaciones de emparejamiento donde haya cerca una o dos regiones de Azure. No está disponible en una ubicación de emparejamiento donde no haya ninguna región de Azure en ese estado, provincia, país o región. Vea las asignaciones exactas en [la página de ubicaciones](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute para Office 365
 

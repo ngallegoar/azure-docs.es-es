@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 91fc2c4525ee622064520b0098087d54158bbe9e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422104"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680691"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma de Azure Monitor que pueden exportarse con la configuración de diagnóstico
 
@@ -24,7 +24,10 @@ Debido a las complejidades del back-end de Azure Monitor, no todas las métricas
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Cambio en el comportamiento de valores NULL y cero 
  
-En el caso de las métricas de la plataforma que se pueden exportar a través de la configuración de diagnóstico, hay algunas métricas para las que Azure Monitor interpreta los 0 como valores Null. Esto ha provocado cierta confusión entre los 0 reales (emitidos por el recurso) y los 0 interpretados (valores NULL). Próximamente se producirá un cambio y las métricas de la plataforma exportadas a través de la configuración de diagnóstico ya no exportarán los 0, a menos que el recurso subyacente los haya emitido realmente. El cambio estaba programado para el 1 de abril de 2020, pero se ha retrasado debido a los cambios de prioridades ocasionados por la COVID-19. 
+En el caso de las métricas de la plataforma que se pueden exportar a través de la configuración de diagnóstico, hay algunas métricas para las que Azure Monitor interpreta los 0 como valores Null. Esto ha provocado cierta confusión entre los 0 reales (emitidos por el recurso) y los 0 interpretados (valores NULL). Próximamente se producirá un cambio y las métricas de la plataforma exportadas a través de la configuración de diagnóstico ya no exportarán los 0, a menos que el recurso subyacente los haya emitido realmente. 
+
+> [!CAUTION]
+> El cambio en el comportamiento descrito anteriormente está programado para que se produzca el 1 de junio de 2020.
 
 Tenga en cuenta lo siguiente:
 

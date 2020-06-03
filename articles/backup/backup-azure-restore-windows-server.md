@@ -1,17 +1,17 @@
 ---
-title: Restauración de datos de Azure en Windows Server
+title: Restauración de archivos en Windows Server mediante el agente de MARS
 description: En este artículo, aprenderá a restaurar datos almacenados en Azure en un equipo Windows Server o Windows con el agente de Microsoft Azure Recovery Services (MARS).
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446ebf563a09131b715b2e08033a7a0278a1fd95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186811"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652095"
 ---
-# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restauración de archivos en Windows con el modelo de implementación de Azure Resource Manager
+# <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restauración de archivos en Windows Server mediante el agente de MARS
 
 En este artículo se explica cómo restaurar datos a partir de un almacén de copia de seguridad. Para restaurar datos, utilice al Asistente de recuperación de datos del agente de Microsoft Azure Recovery Services (MARS). Puede:
 

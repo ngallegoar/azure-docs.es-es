@@ -3,14 +3,14 @@ title: Introducción a la CLI de Azure Service Fabric
 description: Aprenda a utilizar la CLI de Azure Service Fabric. Aprenda a conectarse a un clúster y administrar aplicaciones.
 author: jeffj6123
 ms.topic: conceptual
-ms.date: 1/16/2020
+ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229460"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681804"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI de Azure Service Fabric
 
@@ -30,7 +30,8 @@ La CLI de Service Fabric debería ser compatible con la versión más reciente d
 
 | Versión de la CLI   | versión compatible del runtime |
 |---------------|---------------------------|
-| Más reciente (~=9)  | Más reciente (~=7)              |
+| Más reciente (~=10) | Más reciente (~=7.1)            |
+| 9.0.0         | 7.1                       |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |

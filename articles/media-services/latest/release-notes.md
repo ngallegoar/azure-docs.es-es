@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: juliako
-ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769749"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647636"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -35,6 +35,10 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="may-2020"></a>Mayo de 2020
+
+Azure Media Services ya está disponible con carácter general en las regiones siguientes: "Norte de Alemania", "Centro-oeste de Alemania", "Norte de Suiza" y "Oeste de Suiza". Los clientes pueden implementar Media Services en estas regiones mediante Azure Portal.
 
 ## <a name="april-2020"></a>Abril de 2020
 

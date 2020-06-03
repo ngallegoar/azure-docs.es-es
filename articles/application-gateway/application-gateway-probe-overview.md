@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: c5a53167c6a4ca6c886b858a1608eaa173185bd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335859"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648411"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
@@ -64,12 +64,12 @@ Una vez que se especifican los criterios de coincidencia, se pueden asociar a la
 | Dirección URL de sondeo |http://127.0.0.1:\<port\>/ |Ruta de acceso URL |
 | Intervalo |30 |Cantidad de tiempo en segundos que se debe esperar antes de que se envíe el siguiente sondeo de estado.|
 | Tiempo de espera |30 |Cantidad de tiempo en segundos que la puerta de enlace de la aplicación espera una respuesta de sondeo antes de marcar dicho sondeo como incorrecto. Si un sondeo devuelve un estado correcto, el back-end correspondiente se marca inmediatamente como correcto.|
-| Umbral incorrecto |3 |Controla cuántos sondeos se van a enviar si se produce un error en el sondeo de estado normal. Estos sondeos de estado adicionales se envían en sucesión rápida para determinar el estado del back-end rápidamente y no esperar al intervalo de sondeo. Este comportamiento es solo en el caso de la SKU v1. En el caso de la SKU v2, los sondeos de estado esperan el intervalo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
+| Umbral incorrecto |3 |Controla cuántos sondeos se van a enviar si se produce un error en el sondeo de estado normal. Estos sondeos de estado adicionales se envían en sucesión rápida para determinar el estado del back-end rápidamente y no esperar al intervalo de sondeo. Este comportamiento es solo en el caso de la versión 1 de la SKU. En el caso de la SKU v2, los sondeos de estado esperan el intervalo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
 
 > [!NOTE]
 > El puerto es el mismo que la configuración de HTTP del back-end.
 
-El sondeo predeterminado solo examina http:\///127.0.0.1:\<puerto\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizados.
+El sondeo predeterminado solo examina http:\///127.0.0.1:\<puerto\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizados. Para obtener más información sobre los sondeos HTTP, consulte [Introducción a la terminación TLS y a TLS de extremo a extremo con Application Gateway](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Intervalos de sondeo
 

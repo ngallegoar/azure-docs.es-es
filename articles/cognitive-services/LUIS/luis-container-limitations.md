@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592906"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745371"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitaciones de los contenedores de Language Understanding (LUIS)
 
@@ -35,7 +35,7 @@ Puede usar una aplicación de LUIS si **no incluye** ninguna de las siguientes d
 
 Configuraciones de aplicaciones no admitidas|Detalles|
 |--|--|
-|Referencias culturales de contenedor no admitidas| Neerlandés (`nl-NL`)<br>Japonés (`ja-JP`)<br>El alemán solo es compatible con el [tokenizador 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
+|Referencias culturales de contenedor no admitidas| Los idiomas neerlandés (`nl-NL`), japonés (`ja-JP`) y alemán (`de-DE`) solo se admiten con la versión [1.0.2 del tokenizador](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades no compatibles con ninguna referencia cultural|Entidad [KeyPhrase](luis-reference-prebuilt-keyphrase.md) pregenerada para todas las referencias culturales|
 |Entidades no compatibles con la referencia cultural Inglés (`en-US`)|Entidades [GeographyV2](luis-reference-prebuilt-geographyV2.md) pregeneradas|
 |Preparación para la voz|El contenedor no admite dependencias externas.|
@@ -48,7 +48,7 @@ Los contenedores LUIS admiten un subconjunto de los [idiomas admitidos](luis-lan
 
 | Idioma | Configuración regional | Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | \**[Análisis de texto](../text-analytics/language-support.md)<br>(Las opiniones y<br>palabras clave)|
 |--|--|:--:|:--:|:--:|:--:|
-| Inglés de Estados Unidos | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Spanish (Traditional Sort) - Spain | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Chino](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | Francés (Francia) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Francés (Canadá) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |

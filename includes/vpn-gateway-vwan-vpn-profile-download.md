@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 05/13/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c61378510fbfc8bdc13f35ba1063a0d9316d88e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d14ee849c89e6c3807636d0a728157abd9de97a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066214"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650667"
 ---
 ## <a name="1-download-the-file"></a>1. Descargue el archivo
 
@@ -31,7 +31,7 @@ Extraiga el archivo ZIP. El archivo contiene las siguientes carpetas:
 
 * AzureVPN
 * Genérico
-* OpenVPN (si ha habilitado la configuración de autenticación de OpenVPN y Azure AD en la puerta de enlace. En el caso de VPN Gateway, consulte [Creación de un inquilino](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). En el caso de Virtual WAN, consulte [Creación de un inquilino: VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (si ha habilitado la configuración de autenticación de OpenVPN y Azure AD en la puerta de enlace). En el caso de VPN Gateway, consulte [Creación de un inquilino](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). En el caso de Virtual WAN, consulte [Creación de un inquilino: VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
 ## <a name="3-retrieve-information"></a>3. Recuperar información
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 032b49631c6adb30d4b25f8b82d35dab49ffd3a2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: cf50ee847bd1542a3e024cb88cf7bbc8bc283f91
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757676"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643429"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparación de una máquina virtual SLES u openSUSE para Azure
 
@@ -28,7 +28,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 * En Azure, todos los discos duros virtuales deben tener un tamaño virtual alineado con 1 MB. Al convertir un disco sin procesar en un disco duro virtual, tiene que asegurarse de que su tamaño es un múltiplo de 1 MB antes de la conversión. Para más información, consulte [Notas sobre la instalación de Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ## <a name="use-suse-studio"></a>Uso de SUSE Studio
-[SUSE Studio](http://www.susestudio.com) puede crear y administrar fácilmente sus imágenes de SLES y openSUSE para Hyper-V y Azure. Este es el enfoque recomendado para personalizar sus propias imágenes SLES y openSUSE.
+[SUSE Studio](https://studioexpress.opensuse.org/) puede crear y administrar fácilmente sus imágenes de SLES y openSUSE para Hyper-V y Azure. Este es el enfoque recomendado para personalizar sus propias imágenes SLES y openSUSE.
 
 Como alternativa a la creación de su propio VHD, SUSE también publica imágenes de BYOS ("traiga su propia suscripción") para SLES en [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -39,7 +39,7 @@ Como alternativa a la creación de su propio VHD, SUSE también publica imágene
 4. Actualice el sistema con las revisiones más recientes:
    
         # sudo zypper update
-5. Instale el Agente de Linux de Azure desde el repositorio SLES:
+5. Instale el agente de Linux de Azure desde el repositorio de SLES (SLE11-Public-Cloud-Module):
    
         # sudo zypper install python-azure-agent
 6. Compruebe si waagent está establecido en "on" en chkconfig y, en caso contrario, puede habilitarlo para que se inicie automáticamente:
@@ -135,7 +135,7 @@ Como alternativa a la creación de su propio VHD, SUSE también publica imágene
 7. Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro `DHCLIENT_SET_HOSTNAME` por lo siguiente:
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Importante:** en "/etc/sudoers", realice un comentario o quite las siguientes líneas si existen:
+8. **Importante:** En "/etc/sudoers", convierta en comentario o quite las líneas siguientes, si existen:
      
      ```
      Defaults targetpw   # ask for the password of the target user i.e. root

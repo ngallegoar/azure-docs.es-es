@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656584"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119032"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -220,11 +220,9 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
 1. Seleccione **Regression** > **Linear Regression** (Regresión > Regresión lineal) y arrástrelo al lienzo de la canalización.
 
-1. Conecte la salida del módulo **Linear Regression** (Regresión lineal) a la entrada izquierda del módulo **Train Model** (Entrenar modelo).
-
 1. En la paleta de módulos, expanda la sección **Entrenamiento de módulos** y arrastre el módulo **Train Model** (Entrenar modelo) al lienzo.
 
-1. Seleccione el módulo **Entrenar modelo** y arrástrelo hasta el lienzo de la canalización.
+1. Conecte la salida del módulo **Linear Regression** (Regresión lineal) a la entrada izquierda del módulo **Train Model** (Entrenar modelo).
 
 1. Conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo **Dividir datos** a la entrada derecha del módulo **Entrenar modelo**.
     

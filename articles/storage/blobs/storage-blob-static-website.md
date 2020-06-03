@@ -6,14 +6,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/29/2019
+ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 57ba59288cbf65c1ef588302965d480ee357ea4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779984"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648511"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -50,13 +50,14 @@ Puede usar cualquiera de estas herramientas para cargar contenido en el contened
 
 ## <a name="viewing-content"></a>Visualización de contenido
 
-Los usuarios pueden ver contenido del sitio desde un explorador usando la dirección URL pública del sitio web. Puede buscar la dirección URL usando Azure Portal, CLI de Azure o PowerShell. Use esta tabla como guía.
+Los usuarios pueden ver contenido del sitio desde un explorador usando la dirección URL pública del sitio web. Puede buscar la dirección URL usando Azure Portal, CLI de Azure o PowerShell. Consulte cómo [Búsqueda de la dirección URL del sitio web](storage-blob-static-website-how-to.md#portal-find-url).
 
-|Herramienta| Guía |
-|----|----|
-|**Azure Portal** | [Búsqueda de la dirección URL del sitio web mediante Azure Portal](storage-blob-static-website-how-to.md#portal-find-url) |
-|**CLI de Azure** | [Búsqueda de la dirección URL del sitio web mediante la CLI de Azure](storage-blob-static-website-how-to.md#cli-find-url) |
-|**Módulo de Azure PowerShell** | [Búsqueda de la dirección URL del sitio web mediante PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+Si el servidor devuelve un error 404 y no se ha especificado un documento de error al habilitar el sitio web, se devuelve una página 404 predeterminada al usuario.
+
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) no se admite con un sitio web estático.
+
+### <a name="regional-codes"></a>Códigos regionales
 
 La dirección URL del sitio contiene un código regional. Por ejemplo, la dirección URL `https://contosoblobaccount.z22.web.core.windows.net/` contiene el código regional `z22`.
 
@@ -64,10 +65,9 @@ Aunque el código debe permanecer en la dirección URL, solo es para uso interno
 
 El documento del índice que especifique al habilitar el hospedaje de sitios web estáticos aparece cuando los usuarios abren el sitio y no especifican un archivo concreto (por ejemplo, `https://contosoblobaccount.z22.web.core.windows.net`).  
 
-Si el servidor devuelve un error 404 y no se ha especificado un documento de error al habilitar el sitio web, se devuelve una página 404 predeterminada al usuario.
+### <a name="secondary-endpoints"></a>Puntos de conexión secundarios
 
-> [!NOTE]
-> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) no se admite con un sitio web estático.
+Si configura la [redundancia en una región secundaria](../common/storage-redundancy.md#redundancy-in-a-secondary-region), también puede tener acceso al contenido del sitio web mediante un punto de conexión secundario. Dado que los datos se replican en las regiones secundarias de forma asincrónica, los archivos que están disponibles en el punto de conexión secundario no están siempre sincronizados con los archivos que están disponibles en el punto de conexión principal. 
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto de la configuración del nivel de acceso público del contenedor web
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a0e930116447ded51616651751bba7482b638ca1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311937"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745494"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generación de un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada
 
@@ -179,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Para cargar el certificado en Application Gateway, debe exportar el certificado .crt con un formato .cer codificado en base 64. Dado que .crt ya contiene la clave pública en el formato codificado en base 64, solo tiene que cambiar el nombre de la extensión del archivo de .crt a .cer. 
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Para cargar el certificado raíz de confianza desde el portal, seleccione **Configuración HTTP** y elija el protocolo **HTTPS**.
 

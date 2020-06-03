@@ -2,13 +2,13 @@
 title: Administración de Azure Monitor para el agente de contenedores | Microsoft Docs
 description: En este artículo se describe cómo administrar las tareas de mantenimiento más comunes con el agente de Log Analytics en contenedores que usa Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 1a1f8d690979a846dbf5041999180221752acc0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/12/2020
+ms.openlocfilehash: ce014d27c6acc473c4a435dfed4757fb0884f4fe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234500"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652197"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Administración de Azure Monitor para el agente de contenedores
 
@@ -16,13 +16,13 @@ Azure Monitor para contenedores usa una versión con contenedores del agente de 
 
 ## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Actualización de Azure Monitor para el agente de contenedores
 
-Azure Monitor para contenedores usa una versión con contenedores del agente de Log Analytics para Linux. Cuando se publica una nueva versión del agente, este se actualiza automáticamente en los clústeres de Kubernetes administrado que se hospedan en Azure Kubernetes Service (AKS) y Red Hat OpenShift en Azure. En el caso de un [clúster de Kubernetes híbrido](container-insights-hybrid-setup.md), el agente no está administrado y debe actualizar el agente de forma manual.
+Azure Monitor para contenedores usa una versión con contenedores del agente de Log Analytics para Linux. Cuando se publica una nueva versión del agente, este se actualiza automáticamente en los clústeres de Kubernetes administrado que se hospedan en Azure Kubernetes Service (AKS) y Red Hat OpenShift en Azure versión 3.x. En el caso de un [clúster de Kubernetes híbrido](container-insights-hybrid-setup.md) y Red Hat OpenShift en Azure versión 4.x, el agente no está administrado y debe actualizarlo manualmente.
 
-Si se produce un error en la actualización del agente de un clúster hospedado en AKS, en este artículo también se describe el proceso para actualizar el agente de forma manual. Para seguir las versiones publicadas, consulte los [anuncios de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+Si se produce un error en la actualización del agente de un clúster hospedado en AKS o Red Hat OpenShift en Azure versión 3.x, en este artículo también se describe el proceso para actualizar el agente de forma manual. Para seguir las versiones publicadas, consulte los [anuncios de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
-### <a name="upgrade-agent-on-monitored-kubernetes-cluster"></a>Actualización de agente en un clúster de Kubernetes supervisado
+### <a name="upgrade-agent-on-aks-cluster"></a>Actualización del agente en el clúster de AKS
 
-El proceso para actualizar el agente en clústeres, que no sean de Red Hat OpenShift en Azure, consta de dos pasos sencillos. El primer paso es deshabilitar la supervisión con Azure Monitor para contenedores mediante la CLI de Azure. Siga los pasos descritos en el artículo [Deshabilitar la supervisión](container-insights-optout.md?#azure-cli). El uso de la CLI de Azure nos permite quitar el agente de los nodos del clúster sin afectar a la solución ni a los datos correspondientes que se almacenan en el área de trabajo. 
+El proceso para actualizar al agente en clústeres de AKS consta de dos pasos sencillos. El primer paso es deshabilitar la supervisión con Azure Monitor para contenedores mediante la CLI de Azure. Siga los pasos descritos en el artículo [Deshabilitar la supervisión](container-insights-optout.md?#azure-cli). El uso de la CLI de Azure nos permite quitar el agente de los nodos del clúster sin afectar a la solución ni a los datos correspondientes que se almacenan en el área de trabajo. 
 
 >[!NOTE]
 >Mientras está realizando esta actividad de mantenimiento, los nodos del clúster no reenviarán los datos recopilados y las vistas de rendimiento no mostrarán datos en el período comprendido entre la eliminación del agente y la instalación de la nueva versión. 
@@ -53,9 +53,15 @@ El estado debe parecerse al ejemplo siguiente, donde los valores de *omi* y *oms
     omsagent 1.6.0-163
     docker-cimprov 1.0.0.31
 
-## <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Actualización de agente en un clúster de Kubernetes híbrido
+### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Actualización de agente en un clúster de Kubernetes híbrido
 
-El proceso para actualizar el agente en un clúster de Kubernetes hospedado de forma local, el motor de AKS en Azure y Azure Stack se puede completar mediante la ejecución del siguiente comando:
+Siga los pasos que se describen a continuación para actualizar el agente en un clúster de Kubernetes que se ejecute en:
+
+* clústeres de Kubernetes autoadministrados que se hospedan en Azure con el motor de AKS;
+* clústeres de Kubernetes autoadministrados que se hospedan en Azure Stack o en el entorno local con el motor de AKS;
+* Red Hat OpenShift versión 4.x.
+
+Si el área de trabajo de Log Analytics está en una instancia comercial de Azure, ejecute el siguiente comando:
 
 ```
 $ helm upgrade --name myrelease-1 \
@@ -74,6 +80,19 @@ Si el área de trabajo de Log Analytics está en Azure Gobierno de EE. UU, ejec
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+```
+
+### <a name="upgrade-agent-on-azure-red-hat-openshift-v4"></a>Actualización del agente en Red Hat OpenShift en Azure versión 4
+
+Siga los pasos que se describen a continuación para actualizar el agente en un clúster de Kubernetes que se ejecuta en Red Hat OpenShift en Azure versión 4. 
+
+>[!NOTE]
+>Red Hat OpenShift en Azure versión 4 solo admite la ejecución en la nube comercial de Azure.
+>
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
 ```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Cómo deshabilitar la recopilación de variables de entorno en un contenedor

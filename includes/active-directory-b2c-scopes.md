@@ -5,22 +5,13 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183400"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297501"
 ---
-#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
-
-1. Seleccione **Aplicaciones**.
-1. Seleccione la aplicación *webapi1* para abrir su página **Propiedades**.
-1. Seleccione **Ámbitos publicados**. Los ámbitos publicados se pueden utilizar para conceder a una aplicación cliente ciertos permisos para la API web.
-1. En **ÁMBITO** escriba `demo.read` y en **DESCRIPCIÓN**, `Read access to the web API`.
-1. En **ÁMBITO** escriba `demo.write` y en **DESCRIPCIÓN**, `Write access to the web API`.
-1. Seleccione **Guardar**.
-
 #### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
 
 1. Seleccione **Registros de aplicaciones (versión preliminar)** .
@@ -37,3 +28,12 @@ ms.locfileid: "78183400"
     1. **Nombre de ámbito**: `demo.write`
     1. **Nombre para mostrar del consentimiento del administrador**: `Write access to demo API`
     1. **Descripción del consentimiento del administrador**: `Allows write access to the demo API`
+
+#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
+
+1. Seleccione **Aplicaciones**.
+1. Seleccione la aplicación *webapi1* para abrir su página **Propiedades**.
+1. Seleccione **Ámbitos publicados**. Los ámbitos publicados se pueden utilizar para conceder a una aplicación cliente ciertos permisos para la API web.
+1. En **ÁMBITO** escriba `demo.read` y en **DESCRIPCIÓN**, `Read access to the web API`.
+1. En **ÁMBITO** escriba `demo.write` y en **DESCRIPCIÓN**, `Write access to the web API`.
+1. Seleccione **Guardar**.

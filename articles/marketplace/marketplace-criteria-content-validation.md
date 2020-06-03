@@ -1,28 +1,28 @@
 ---
-title: Criterios de publicación de ofertas y servicios de Marketplace | Azure Marketplace
-description: En este artículo se describe cómo convertirse en anunciante en Azure Marketplace.
+title: Requisitos para el anuncio de servicios y ofertas de Azure Marketplace
+description: En este artículo se explican los requisitos y las directrices para anunciar nuevas ofertas y servicios en Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: ca40e8e00cb72d6ecc3246ad7aef3b3bac4fbedd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 0c7352ce95edf7c6ec5fad9fe658e01a66d88573
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160484"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657918"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instrucciones de descripción de Azure Marketplace
 
-Este documento contiene requisitos e instrucciones para las nuevas ofertas y servicios que se enumeran en Azure Marketplace.
+En este artículo se explican los requisitos y las directrices para anunciar nuevas ofertas y servicios en Azure Marketplace.
 
-Todas las ofertas deben cumplir los requisitos que se enumeran en la sección "Requisitos de descripción para todas las ofertas".
+Todas las ofertas deben cumplir los requisitos que se enumeran en la sección [Requisitos de descripción para todas las ofertas](#listing-requirements-for-all-offers).
 
 Se proporcionan requisitos adicionales y listas de comprobación para tipos de descripción específicos, entre los que se incluyen: 
 * [Requisitos de la oferta de evaluación](#trial-offer-requirements)
-* [Requisitos de aplicaciones SaaS](#saas-app-requirements)
+* [Requisitos de la aplicación SaaS](#saas-application-requirements)
 * [Requisitos de la oferta de contenedor](#container-offer-requirements)
 * [Requisitos de la oferta de consultoría](#consulting-offer-requirements)
 
@@ -53,7 +53,7 @@ Se proporcionan requisitos adicionales y listas de comprobación para tipos de d
 
 ---
 
-## <a name="saas-app-requirements"></a>Requisitos de aplicaciones SaaS
+## <a name="saas-application-requirements"></a>Requisitos de la aplicación SaaS
 
 |  | Elemento de descripción | Requisito base | Requisito óptimo | 
 |:--- |:--- |:--- |:--- |

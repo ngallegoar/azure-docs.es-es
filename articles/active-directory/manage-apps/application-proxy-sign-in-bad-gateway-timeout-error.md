@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbb3743251f2818ab1e4255b3dc6e7f4f9cbbcba
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74275468"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846739"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Error "Can't Access this Corporate Application" al usar una aplicación de Proxy de aplicación
 
@@ -71,7 +71,7 @@ Como primer paso rápido, vuelva a comprobar y corrija la dirección URL interna
 Para comprobar que la aplicación está asignada a un grupo de conectores en funcionamiento:
 
 1. Abra la aplicación en el portal; para ello, vaya a **Azure Active Directory**, haga clic en **Aplicaciones empresariales** y en **Todas las aplicaciones**. Abra la aplicación y seleccione **Proxy de aplicación** en el menú izquierdo.
-1. Fíjese en el campo Grupo de conectores. Si no hay ningún conector activo en el grupo, verá una advertencia. Si no ve advertencias, pase a comprobar que todos los puertos necesarios están permitidos.
+1. Fíjese en el campo Grupo de conectores. Si no hay ningún conector activo en el grupo, verá una advertencia. Si no ve advertencias, pase a comprobar que todos los [puertos necesarios](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to) están permitidos.
 1. Si se muestra el grupo de conectores incorrecto, seleccione el correcto en la lista desplegable y confirme que ya no ve las advertencias. Si se muestra el grupo de conectores previsto, haga clic en el mensaje de advertencia para abrir la página de administración del conector.
 1. Desde aquí, podemos profundizar de varias maneras:
 
@@ -83,7 +83,7 @@ Después de seguir estos pasos para asegurarse de que la aplicación está asign
 
 ## <a name="check-all-required-ports-are-open"></a>Comprobar que todos los puertos necesarios están abiertos
 
-Para comprobar que todos los puertos necesarios están abiertos, consulte la documentación sobre cómo abrir los puertos. Si todos los puertos necesarios están abiertos, vaya a la sección siguiente.
+Para comprobar que todos los puertos necesarios están abiertos, consulte la [documentación sobre cómo abrir los puertos](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to). Si todos los puertos necesarios están abiertos, vaya a la sección siguiente.
 
 ## <a name="check-for-other-connector-errors"></a>Búsqueda de otros errores de los conectores
 

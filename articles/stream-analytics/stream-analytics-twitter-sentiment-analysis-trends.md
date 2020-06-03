@@ -1,6 +1,6 @@
 ---
-title: Análisis de sentimiento de Twitter en tiempo real con Azure Stream Analytics
-description: En este artículo se describe cómo usar Stream Analytics para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico.
+title: Análisis de sentimiento en tiempo real de Twitter con Azure Stream Analytics
+description: En este artículo se describe cómo usar Stream Analytics para el análisis de sentimiento en tiempo real de Twitter. Instrucciones paso a paso desde la generación de eventos a los datos en un panel dinámico.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,30 +8,30 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240297"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834771"
 ---
-# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
+# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento en tiempo real de Twitter en Azure Stream Analytics
 
 En este artículo se enseña a crear una solución de análisis de sentimiento para análisis de redes sociales, para lo cual se ponen eventos de Twitter en tiempo real en Azure Event Hubs. Escriba una consulta de Azure Stream Analytics para analizar los datos y almacenar los resultados para usarlos más tarde, o bien cree un panel de [Power BI](https://powerbi.com/) para ofrecer información en tiempo real.
 
-Las herramientas de análisis de las redes sociales ayudan a las organizaciones a comprender los temas que son tendencias. Los temas populares son asuntos y actitudes que tienen un gran volumen de entradas en las redes sociales. Por su parte, los análisis de opinión, denominados también *minería de opinión*, usan las herramientas de análisis de las redes sociales para determinar las actitudes hacia un producto o una idea. 
+Las herramientas de análisis de las redes sociales ayudan a las organizaciones a comprender temas populares. Los temas populares son cuestiones y actitudes que tienen un gran volumen de entradas en las redes sociales. Por su parte, los análisis de sentimiento, denominados también *minería de opinión*, usan las herramientas de análisis de las redes sociales para determinar las actitudes hacia un producto o una idea. 
 
-El análisis de tendencias de Twitter en tiempo real es un buen ejemplo de una herramienta de análisis, porque el modelo de suscripción mediante etiquetas permite escuchar palabras clave específicas (etiquetas) y desarrollar análisis de opinión de la fuente.
+El análisis de tendencias de Twitter en tiempo real es un buen ejemplo de herramienta de análisis, porque el modelo de suscripción por hashtags permite escuchar palabras clave específicas (hashtags) y desarrollar el análisis de sentimiento de la fuente.
 
-## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Escenario: Análisis de opinión de redes sociales en tiempo real
+## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Escenario: Análisis de sentimiento de redes sociales en tiempo real
 
-Una empresa que tiene un sitio web multimedia de noticias está interesada en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. La empresa usa el análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter.
+Una empresa que tiene un sitio web de medios de comunicación está interesada en obtener una ventaja sobre sus competidores ofreciendo contenido del sitio que sea inmediatamente relevante para sus lectores. La empresa usa el análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración del análisis de sentimiento en tiempo real de los datos de Twitter.
 
-Para identificar los temas que son tendencias en tiempo real en Twitter, la empresa necesita el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave.
+Para identificar los temas populares en tiempo real en Twitter, la empresa necesita el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-En esta guía paso a paso va a utilizar una aplicación cliente que se conecta a Twitter y busca tweets con ciertas etiquetas (que se pueden establecer). Para ejecutar la aplicación y analizar los tweets mediante Azure Stream Analytics, debe tener lo siguiente:
+En esta guía paso a paso va a utilizar una aplicación cliente que se conecta a Twitter y busca tweets con ciertos hashtags (que se pueden establecer). Para ejecutar la aplicación y analizar los tweets mediante Azure Stream Analytics, debe tener lo siguiente:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -43,7 +43,7 @@ En esta guía paso a paso va a utilizar una aplicación cliente que se conecta a
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>Creación de un centro de eventos para la entrada de streaming
 
-La aplicación de ejemplo genera eventos y los inserta en un centro de eventos de Azure. Azure Event Hubs es el método preferido de ingesta de eventos para Stream Analytics. Para más información, consulte las [páginas de documentación](../event-hubs/event-hubs-what-is-event-hubs.md) de Azure Event Hubs.
+La aplicación de ejemplo genera eventos y los inserta en un centro de eventos de Azure. Azure Event Hubs es el método preferido de ingesta de eventos para Stream Analytics. Para más información, consulte la [documentación de Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Creación de un espacio de nombres del centro de eventos y un centro de eventos
 En esta sección, se crea un espacio de nombres del centro de eventos y, luego, se agrega un centro de eventos al espacio de nombres. Los espacios de nombres del centro de eventos se usan para agrupar lógicamente instancias de bus de eventos relacionados. 
@@ -58,7 +58,7 @@ En esta sección, se crea un espacio de nombres del centro de eventos y, luego, 
 
 5. En el nuevo espacio de nombres, seleccione **+&nbsp;Centro de eventos**. 
 
-6. Asigne al nuevo centro de eventos el nombre *socialtwitter-eh*. Puede usar otro nombre. Si lo hace, tome nota del mismo, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos.
+6. Asigne al nuevo centro de eventos el nombre *socialtwitter-eh*. Puede usar otro nombre. Si lo hace, tome nota de él, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos.
  
 7. Seleccione **Crear**.
 
@@ -92,23 +92,23 @@ Para que un proceso pueda enviar datos a un centro de eventos, este necesita una
    Observe que la cadena de conexión contiene varios pares clave-valor, separados por punto y coma: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey` y `EntityPath`.  
 
    > [!NOTE]
-   > Por seguridad, partes de la cadena de conexión del ejemplo se han quitado.
+   > Por seguridad, se han quitado partes de la cadena de conexión del ejemplo.
 
-## <a name="configure-and-start-the-twitter-client-application"></a>Configuración e inicio de la aplicación cliente Twitter
+## <a name="configure-and-start-the-twitter-client-application"></a>Configuración e inicio de la aplicación cliente de Twitter
 
-La aplicación cliente obtiene los eventos Tweet directamente de Twitter. Para ello, necesita permiso para llamar a las API de streaming de Twitter. Para configurar ese permiso, debe crear una aplicación de Twitter, que genera credenciales exclusivas (por ejemplo, un token de OAuth). Después, puede configurar la aplicación cliente para que use estas credenciales cuando realiza llamadas de API. 
+La aplicación cliente obtiene los eventos Tweet directamente de Twitter. Para ello, necesita permiso para llamar a las API de streaming de Twitter. Para configurar ese permiso, debe crear una aplicación de Twitter, que genera credenciales exclusivas (por ejemplo, un token de OAuth). Luego puede configurar la aplicación cliente para que use estas credenciales cuando realiza llamadas de API. 
 
-### <a name="create-a-twitter-application"></a>Crear una aplicación de Twitter
+### <a name="create-a-twitter-application"></a>Creación de una aplicación de Twitter
 Si no dispone de una aplicación de Twitter que pueda usar para esta guía paso a paso, puede crear una. Ya debe tener una cuenta de Twitter.
 
 > [!NOTE]
-> Puede cambiar el proceso exacto en Twitter para crear una aplicación y obtener las claves, secretos y token. Si estas instrucciones no coinciden con lo que se ve en el sitio de Twitter, consulte la documentación para desarrolladores de Twitter.
+> Puede que el proceso exacto en Twitter para crear una aplicación y obtener claves, secretos y tokens cambie. Si estas instrucciones no coinciden con lo que se ve en el sitio de Twitter, consulte la documentación para desarrolladores de Twitter.
 
-1. En un explorador web, vaya a [Twitter For Developers](https://developer.twitter.com/en/apps), cree una cuenta de desarrollador y seleccione **Create an app** (Crear una aplicación). Es posible que vea un mensaje en el que se le indique que es necesario solicitar una cuenta de desarrollador de Twitter. Hágalo y, cuando se haya aprobado la solicitud, verá un correo electrónico de confirmación. Tenga en cuenta que una cuenta de desarrollador puede tardar varios días en aprobarse.
+1. En un explorador web, vaya a [Twitter For Developers](https://developer.twitter.com/en/apps), cree una cuenta de desarrollador y seleccione **Create an app** (Crear una aplicación). Es posible que vea un mensaje en el que se le indique que ha de solicitar una cuenta de desarrollador de Twitter. Hágalo y, cuando se haya aprobado la solicitud, verá un correo electrónico de confirmación. Tenga en cuenta que una cuenta de desarrollador puede tardar varios días en aprobarse.
 
    ![Detalles de la aplicación Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalles de la aplicación Twitter")
 
-2. En la página **Create an application** (Crear una aplicación), proporcione los detalles de la nueva aplicación y, a continuación, seleccione **Create your Twitter application** (Crear su aplicación de Twitter).
+2. En la página **Create an application** (Crear una aplicación), proporcione los detalles de la nueva aplicación y luego seleccione **Create your Twitter application** (Crear su aplicación de Twitter).
 
    ![Detalles de la aplicación Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Detalles de la aplicación Twitter")
 
@@ -159,8 +159,8 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Alias de entrada| *TwitterStream* | Escriba un alias para la entrada. |
-   |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiera usar. |
-   |Espacio de nombres del Centro de eventos | *asa-twitter-eventhub* |
+   |Suscripción  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiera usar. |
+   |Espacio de nombres del centro de eventos | *asa-twitter-eventhub* |
    |Nombre del centro de eventos | *socialtwitter-eh* | Elija *Usar existente*. Luego, seleccione el centro de eventos que ha creado.|
    |Tipo de compresión de eventos| GZip | El tipo de compresión de datos.|
 
@@ -168,9 +168,9 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
 ## <a name="specify-the-job-query"></a>Especificación de la consulta del trabajo
 
-Stream Analytics admite un modelo de consulta declarativa simple que describe las transformaciones. Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Esta guía paso a paso le ayudará a crear y probar varias consultas sobre datos de Twitter.
+Stream Analytics admite un modelo de consulta declarativa simple que describe las transformaciones. Para más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Esta guía paso a paso le ayudará a crear y probar varias consultas sobre datos de Twitter.
 
-Para comparar el número de menciones entre temas, se usa una [ventana de saltos de tamaño constante](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obtener el recuento de menciones por tema cada cinco segundos.
+Para comparar el número de menciones entre temas, se usa una [ventana de saltos de tamaño constante](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obtener el recuento de menciones por tema cada cinco segundos.
 
 1. En la **Información general** del trabajo, seleccione **Editar consulta**, cerca de la parte superior derecha del cuadro Consulta. Azure enumera las entradas y salidas que están configuradas para el trabajo, y permite crear una consulta para transformar el flujo de entrada a medida que se envía a la salida.
 
@@ -199,7 +199,7 @@ Para comparar el número de menciones entre temas, se usa una [ventana de saltos
 
 Se ha definido un flujo de eventos, una entrada de centro de eventos para la ingesta de eventos y una consulta para realizar una transformación en el flujo de datos. El último paso consiste en definir un receptor de salida para el trabajo.  
 
-En esta guía paso a paso va a escribir los eventos Tweet agregados de nuestra consulta de trabajo en Azure Blob Storage.  También puede insertar los resultados en Azure SQL Database, Azure Table Storage, Event Hubs o Power BI, según las necesidades específicas de su aplicación.
+En esta guía paso a paso va a escribir los eventos Tweet agregados de nuestra consulta de trabajo en Azure Blob Storage.  También puede insertar los resultados en Azure SQL Database, Azure Table Storage, Event Hubs o Power BI, según las necesidades específicas de su aplicación.
 
 ## <a name="specify-the-job-output"></a>Especificación de la salida del trabajo
 
@@ -209,7 +209,7 @@ En esta guía paso a paso va a escribir los eventos Tweet agregados de nuestra c
 
    * **Alias de salida**: Use el nombre `TwitterStream-Output`. 
    * **Opciones de importación**: Seleccione **Seleccionar almacenamiento de las suscripciones**.
-   * **Cuenta de almacenamiento**. Seleccione su cuenta de almacenamiento.
+   * **Cuenta de almacenamiento**. Seleccione la cuenta de almacenamiento.
    * **Contenedor**. Seleccione **Crear nuevo** y escriba `socialtwitter`.
    
 4. Seleccione **Guardar**.   
@@ -225,11 +225,11 @@ Se especifican una entrada de trabajo, la consulta y la salida. Está listo para
 3. En la página **Iniciar trabajo**, en **Hora de inicio de la salida del trabajo**, seleccione **Ahora** y, después, **Iniciar**.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -3,18 +3,18 @@ title: Referencia para desarrolladores de Python para Azure Functions
 description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: ea128fc7c68b49fc14d796e9a3b91a9dbddd9b26
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 49577f5ac274b4e34fa07415e5495329ff650aa5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780052"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83676192"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
-Este artículo es una introducción al desarrollo de Azure Functions mediante Python. En lo que va a leer a continuación se supone que ya ha leído la [guía para desarrolladores de Azure Functions](functions-reference.md). 
+Este artículo es una introducción al desarrollo de Azure Functions mediante Python. En lo que va a leer a continuación se supone que ya ha leído la [guía para desarrolladores de Azure Functions](functions-reference.md).
 
-Para ver los proyectos de ejemplo de funciones independientes de Python, examine los [ejemplos de funciones de Python](/samples/browse/?products=azure-functions&languages=python). 
+Para ver los proyectos de ejemplo de funciones independientes de Python, examine los [ejemplos de funciones de Python](/samples/browse/?products=azure-functions&languages=python).
 
 ## <a name="programming-model"></a>Modelo de programación
 
@@ -89,7 +89,7 @@ La carpeta de proyecto principal (\_\_app\_\_) puede contener los siguientes arc
 * *.gitignore*: (opcional) declara los archivos que se excluyen de un repositorio de Git, como local.settings.json.
 * *Dockerfile*: (Opcional) se usa al publicar el proyecto en un [contenedor personalizado](functions-create-function-linux-custom-image.md).
 
-Cada función tiene su propio archivo de código y archivo de configuración de enlace (function.json). 
+Cada función tiene su propio archivo de código y archivo de configuración de enlace (function.json).
 
 Al implementar el proyecto en una aplicación de funciones de Azure, debe incluirse en el paquete todo el contenido de la carpeta principal del proyecto ( *\_\_app\_\_* ), pero no la propia carpeta. Se recomienda mantener las pruebas en una carpeta independiente de la carpeta del proyecto; en este ejemplo `tests`. Esto evita que se implemente código de prueba con la aplicación. Para más información, consulte [Pruebas unitarias](#unit-testing).
 
@@ -135,7 +135,7 @@ from __app__.shared_code import my_first_helper_function
 
 ## <a name="triggers-and-inputs"></a>Desencadenadores y entradas
 
-Las entradas se dividen en dos categorías dentro de Azure Functions: una entrada del desencadenador y otra adicional. Aunque son diferentes en el archivo `function.json`, se usan igual en el código de Python.  Las cadenas de conexión o los secretos de los orígenes de entrada y el desencadenador se asignan a valores en el archivo `local.settings.json` al ejecutarse localmente y a la configuración de la aplicación al ejecutarse en Azure. 
+Las entradas se dividen en dos categorías dentro de Azure Functions: una entrada del desencadenador y otra adicional. Aunque son diferentes en el archivo `function.json`, se usan igual en el código de Python.  Las cadenas de conexión o los secretos de los orígenes de entrada y el desencadenador se asignan a valores en el archivo `local.settings.json` al ejecutarse localmente y a la configuración de la aplicación al ejecutarse en Azure.
 
 Por ejemplo, el siguiente código muestra la diferencia entre las dos:
 
@@ -262,11 +262,12 @@ Para más información sobre el registro, consulte [Supervisión de Azure Functi
 
 ## <a name="http-trigger-and-bindings"></a>Desencadenadores y enlaces HTTP
 
-El desencadenador HTTP se define en el archivo function.json. El valor de `name` del enlace debe coincidir con el parámetro con nombre de la función. En los ejemplos anteriores, se usa un nombre de enlace `req`. Este parámetro es un objeto [HttpRequest] y se devuelve un objeto [HttpResponse].
+El desencadenador HTTP se define en el archivo function.json. El valor de `name` del enlace debe coincidir con el parámetro con nombre de la función.
+En los ejemplos anteriores, se usa un nombre de enlace `req`. Este parámetro es un objeto [HttpRequest] y se devuelve un objeto [HttpResponse].
 
-Desde el objeto [HttpRequest], puede obtener encabezados de solicitud, parámetros de consulta, parámetros de ruta y el cuerpo del mensaje. 
+Desde el objeto [HttpRequest], puede obtener encabezados de solicitud, parámetros de consulta, parámetros de ruta y el cuerpo del mensaje.
 
-El ejemplo siguiente es de la [plantilla de desencadenador HTTP para Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
+El ejemplo siguiente es de la [plantilla de desencadenador HTTP para Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python).
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -280,7 +281,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             pass
         else:
             name = req_body.get('name')
-            
+
     if name:
         return func.HttpResponse(f"Hello {name}!", headers=headers)
     else:
@@ -290,7 +291,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-En esta función, el valor del parámetro de consulta `name` se obtiene del parámetro `params` del objeto [HttpRequest]. El cuerpo del mensaje con codificación JSON se lee mediante el método `get_json`. 
+En esta función, el valor del parámetro de consulta `name` se obtiene del parámetro `params` del objeto [HttpRequest]. El cuerpo del mensaje con codificación JSON se lee mediante el método `get_json`.
 
 Del mismo modo, puede establecer `status_code` y `headers` para el mensaje de respuesta en el objeto [HttpResponse] devuelto.
 
@@ -328,13 +329,13 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Uso de procesos de trabajo de varios lenguajes
 
-De forma predeterminada, cada instancia de host de Functions tiene un único proceso de trabajo de lenguaje. Puede aumentar el número de procesos de trabajo por host (hasta 10) mediante la configuración de la aplicación [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos. 
+De forma predeterminada, cada instancia de host de Functions tiene un único proceso de trabajo de lenguaje. Puede aumentar el número de procesos de trabajo por host (hasta 10) mediante la configuración de la aplicación [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos.
 
-FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda. 
+FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda.
 
 ## <a name="context"></a>Context
 
-Para obtener el contexto de invocación de una función durante la ejecución, incluya el argumento [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) en su firma. 
+Para obtener el contexto de invocación de una función durante la ejecución, incluya el argumento [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) en su firma.
 
 Por ejemplo:
 
@@ -349,18 +350,15 @@ def main(req: azure.functions.HttpRequest,
 
 La clase [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) tiene los atributos de cadena siguientes:
 
-`function_directory`  
-El directorio en que se ejecuta la función.
+`function_directory` El directorio en que se ejecuta la función.
 
-`function_name`  
-El nombre de la función.
+`function_name` El nombre de la función.
 
-`invocation_id`  
-El identificador de la invocación de la función actual.
+`invocation_id` El identificador de la invocación de la función actual.
 
 ## <a name="global-variables"></a>Variables globales
 
-No se garantiza la conservación del estado de la aplicación para las ejecuciones futuras. Sin embargo, Azure Functions Runtime suele reutilizar el mismo proceso para varias ejecuciones de la misma aplicación. Para almacenar en caché los resultados de un cálculo costoso, debe declararse como variable global. 
+No se garantiza la conservación del estado de la aplicación para las ejecuciones futuras. Sin embargo, Azure Functions Runtime suele reutilizar el mismo proceso para varias ejecuciones de la misma aplicación. Para almacenar en caché los resultados de un cálculo costoso, debe declararse como variable global.
 
 ```python
 CACHED_DATA = None
@@ -392,9 +390,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-Para el desarrollo local, la configuración de la aplicación se [mantiene en el archivo local.settings.json](functions-run-local.md#local-settings-file).  
+Para el desarrollo local, la configuración de la aplicación se [mantiene en el archivo local.settings.json](functions-run-local.md#local-settings-file).
 
-## <a name="python-version"></a>Versión de Python 
+## <a name="python-version"></a>Versión de Python
 
 Azure Functions admite las siguientes versiones de Python:
 
@@ -405,13 +403,13 @@ Azure Functions admite las siguientes versiones de Python:
 
 <sup>*</sup>Distribuciones oficiales de CPython
 
-Para solicitar una versión específica de Python al crear la aplicación de funciones en Azure, use la opción `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). La versión de tiempo de ejecución de Functions se establece mediante la opción `--functions-version`. La versión de Python se establece al crear la aplicación de funciones y no se puede cambiar.  
+Para solicitar una versión específica de Python al crear la aplicación de funciones en Azure, use la opción `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). La versión de tiempo de ejecución de Functions se establece mediante la opción `--functions-version`. La versión de Python se establece al crear la aplicación de funciones y no se puede cambiar.
 
-Cuando se ejecuta localmente, el entorno de ejecución usa la versión de Python disponible. 
+Cuando se ejecuta localmente, el entorno de ejecución usa la versión de Python disponible.
 
 ## <a name="package-management"></a>Administración de paquetes
 
-Al desarrollar localmente con Azure Functions Core Tools o Visual Studio Code, agregue los nombres y las versiones de los paquetes necesarios al archivo `requirements.txt` e instálelos mediante `pip`. 
+Al desarrollar localmente con Azure Functions Core Tools o Visual Studio Code, agregue los nombres y las versiones de los paquetes necesarios al archivo `requirements.txt` e instálelos mediante `pip`.
 
 Por ejemplo, se puede usar el comando de archivo y pip siguiente para instalar el paquete `requests` desde PyPI.
 
@@ -425,21 +423,21 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>Publicación en Azure
 
-Cuando esté preparado para la publicación, asegúrese de que todas las dependencias disponibles públicamente están incluidas en el archivo requirements.txt, que se encuentra en la raíz del directorio del proyecto. 
+Cuando esté preparado para la publicación, asegúrese de que todas las dependencias disponibles públicamente están incluidas en el archivo requirements.txt, que se encuentra en la raíz del directorio del proyecto.
 
 Los archivos de proyecto y las carpetas que se excluyen de la publicación, incluida la carpeta del entorno virtual, se enumeran en el archivo. funcignore.
 
 Se admiten tres acciones de compilación para publicar el proyecto de Python en Azure:
 
-+ Compilación remota: las dependencias se obtienen de forma remota en función del contenido del archivo requirements.txt. La [compilación remota](functions-deployment-technologies.md#remote-build) es el método de compilación recomendado. Esta es también la opción de compilación predeterminada de las herramientas de Azure. 
-+ Compilación local: las dependencias se obtienen de forma local en función del contenido del archivo requirements.txt. 
++ Compilación remota: las dependencias se obtienen de forma remota en función del contenido del archivo requirements.txt. La [compilación remota](functions-deployment-technologies.md#remote-build) es el método de compilación recomendado. Esta es también la opción de compilación predeterminada de las herramientas de Azure.
++ Compilación local: las dependencias se obtienen de forma local en función del contenido del archivo requirements.txt.
 + Dependencias personalizadas: el proyecto usa paquetes que no están disponibles públicamente para nuestras herramientas. Esta opción requiere Docker.
 
 Para crear sus dependencias y publicarlas mediante un sistema de entrega continua (CD), [use Azure Pipelines](functions-how-to-azure-devops.md).
 
 ### <a name="remote-build"></a>Compilación remota
 
-De forma predeterminada, Azure Functions Core Tools solicita una compilación remota cuando se usa el siguiente comando [func azure functionapp publish](functions-run-local.md#publish) para publicar el proyecto de Python en Azure. 
+De forma predeterminada, Azure Functions Core Tools solicita una compilación remota cuando se usa el siguiente comando [func azure functionapp publish](functions-run-local.md#publish) para publicar el proyecto de Python en Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -447,19 +445,19 @@ func azure functionapp publish <APP_NAME>
 
 Reemplace `<APP_NAME>` por el nombre de la aplicación de función de Azure.
 
-La [extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) también solicita de forma predeterminada una compilación remota. 
+La [extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) también solicita de forma predeterminada una compilación remota.
 
 ### <a name="local-build"></a>Compilación local
 
-Puede impedir que se lleve a cabo una compilación remota usando el siguiente comando [func azure functionapp publish](functions-run-local.md#publish) para publicar con una compilación local. 
+Puede impedir que se lleve a cabo una compilación remota usando el siguiente comando [func azure functionapp publish](functions-run-local.md#publish) para publicar con una compilación local.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
 ```
 
-Reemplace `<APP_NAME>` por el nombre de la aplicación de función de Azure. 
+Reemplace `<APP_NAME>` por el nombre de la aplicación de función de Azure.
 
-Con la opción `--build local`, las dependencias del proyecto se leen del archivo requirements.txt y los paquetes dependientes se descargan e instalan localmente. Los archivos de proyecto y las dependencias se implementan desde el equipo local en Azure. Esto hace que se cargue un paquete de implementación más grande en Azure. Si, por alguna razón, Core Tools no puede obtener las dependencias del archivo requirements.txt, debe usar la opción de dependencias personalizadas para la publicación. 
+Con la opción `--build local`, las dependencias del proyecto se leen del archivo requirements.txt y los paquetes dependientes se descargan e instalan localmente. Los archivos de proyecto y las dependencias se implementan desde el equipo local en Azure. Esto hace que se cargue un paquete de implementación más grande en Azure. Si, por alguna razón, Core Tools no puede obtener las dependencias del archivo requirements.txt, debe usar la opción de dependencias personalizadas para la publicación.
 
 ### <a name="custom-dependencies"></a>Dependencias personalizadas
 
@@ -469,7 +467,7 @@ Si el proyecto usa paquetes que no están disponibles públicamente para nuestra
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-Al usar dependencias personalizadas, debe usar la opción de publicación `--no-build`, puesto que ya ha instalado las dependencias.  
+Al usar dependencias personalizadas, debe usar la opción de publicación `--no-build`, puesto que ya ha instalado las dependencias.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -479,7 +477,7 @@ Reemplace `<APP_NAME>` por el nombre de la aplicación de función de Azure.
 
 ## <a name="unit-testing"></a>Pruebas unitarias
 
-Las funciones escritas en Python se pueden probar como otro código de Python mediante marcos de pruebas. Para la mayoría de los enlaces, es posible crear un objeto de entrada ficticio creando una instancia de una clase adecuada a partir del paquete `azure.functions`. Dado que el paquete [`azure.functions`](https://pypi.org/project/azure-functions/) no está disponible inmediatamente, asegúrese de instalarlo a través del archivo `requirements.txt`, tal como se describe en la sección [Administración de paquetes](#package-management) anterior. 
+Las funciones escritas en Python se pueden probar como otro código de Python mediante marcos de pruebas. Para la mayoría de los enlaces, es posible crear un objeto de entrada ficticio creando una instancia de una clase adecuada a partir del paquete `azure.functions`. Dado que el paquete [`azure.functions`](https://pypi.org/project/azure-functions/) no está disponible inmediatamente, asegúrese de instalarlo a través del archivo `requirements.txt`, tal como se describe en la sección [Administración de paquetes](#package-management) anterior.
 
 Por ejemplo, a continuación se muestra una prueba ficticia de una función desencadenada por HTTP:
 
@@ -609,10 +607,10 @@ class TestFunction(unittest.TestCase):
 ```
 ## <a name="temporary-files"></a>Archivos temporales
 
-El método `tempfile.gettempdir()` devuelve una carpeta temporal, que en Linux es `/tmp`. La aplicación puede usar este directorio para almacenar los archivos temporales generados y usados por las funciones durante la ejecución. 
+El método `tempfile.gettempdir()` devuelve una carpeta temporal, que en Linux es `/tmp`. La aplicación puede usar este directorio para almacenar los archivos temporales generados y usados por las funciones durante la ejecución.
 
 > [!IMPORTANT]
-> No se garantiza que los archivos escritos en el directorio temporal persistan entre invocaciones. Durante el escalado horizontal, los archivos temporales no se comparten entre instancias. 
+> No se garantiza que los archivos escritos en el directorio temporal persistan entre invocaciones. Durante el escalado horizontal, los archivos temporales no se comparten entre instancias.
 
 En el ejemplo siguiente se crea un archivo temporal con nombre en el directorio temporal (`/tmp`):
 
@@ -623,21 +621,25 @@ import tempfile
 from os import listdir
 
 #---
-   tempFilePath = tempfile.gettempdir()   
-   fp = tempfile.NamedTemporaryFile()     
-   fp.write(b'Hello world!')              
-   filesDirListInTemp = listdir(tempFilePath)     
-```   
+   tempFilePath = tempfile.gettempdir()
+   fp = tempfile.NamedTemporaryFile()
+   fp.write(b'Hello world!')
+   filesDirListInTemp = listdir(tempFilePath)
+```
 
-Se recomienda mantener las pruebas en una carpeta independiente de la carpeta del proyecto. Esto evita que se implemente código de prueba con la aplicación. 
+Se recomienda mantener las pruebas en una carpeta independiente de la carpeta del proyecto. Esto evita que se implemente código de prueba con la aplicación.
 
 ## <a name="cross-origin-resource-sharing"></a>Uso compartido de recursos entre orígenes
 
-Azure Functions admite el uso compartido de recursos entre orígenes (CORS). CORS se configura [en el portal](functions-how-to-use-azure-function-app-settings.md#cors) y mediante la [CLI de Azure](/cli/azure/functionapp/cors). La lista de orígenes permitidos de CORS se aplica en el nivel de la aplicación de función. Con CORS habilitado, las respuestas incluyen el encabezado `Access-Control-Allow-Origin`. Para obtener más información, consulte [Uso compartido de recursos entre orígenes](functions-how-to-use-azure-function-app-settings.md#cors). 
+[!INCLUDE [functions-cors](../../includes/functions-cors.md)]
 
 CORS es totalmente compatible con las aplicaciones de funciones de Python.
 
 ## <a name="known-issues-and-faq"></a>Problemas conocidos y preguntas más frecuentes
+
+Gracias a sus valiosos comentarios, podemos mantener una lista de guías de solución para problemas comunes:
+
+* [ModuleNotFoundError e ImportError](recover-module-not-found.md)
 
 Todos los problemas conocidos y las solicitudes de características se siguen mediante la lista de[problemas de GitHub](https://github.com/Azure/azure-functions-python-worker/issues). Si le surge algún problema y no lo encuentra en GitHub, abra un nuevo problema e incluya una descripción detallada del mismo.
 

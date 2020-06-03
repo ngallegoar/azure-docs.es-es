@@ -6,18 +6,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672385"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635949"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Introducción a Azure Diagnostics Extension
 Azure Diagnostics Extension es un [agente de Azure Monitor](agents-overview.md) que recopila datos de supervisión del sistema operativo invitado de los recursos de proceso de Azure, máquinas virtuales incluidas. En este artículo se proporciona información general sobre Azure Diagnostics Extension, incluida la funcionalidad específica que admite y las opciones de instalación y configuración. 
 
 > [!NOTE]
 > Azure Diagnostics Extension es uno de los agentes disponibles para recopilar datos de supervisión del sistema operativo invitado y de los recursos de proceso de Azure. Consulte [Introducción a los agentes de Azure Monitor](agents-overview.md) para ver una descripción de los distintos agentes e instrucciones sobre cómo seleccionar los que necesite.
+
+## <a name="primary-scenarios"></a>Escenarios principales
+Los escenarios principales abordados por la extensión de diagnóstico son:
+
+- Recopilación de métricas de invitado en métricas de Azure Monitor.
+- Envío de registros y métricas de invitado a Azure Storage para su archivado.
+- Envío de registros y métricas de invitado a Azure Event Hubs para enviarlos fuera de Azure.
+
 
 ## <a name="comparison-to-log-analytics-agent"></a>Comparación con el agente de Log Analytics
 El agente de Log Analytics en Azure Monitor también sirve para recopilar datos de supervisión del sistema operativo invitado de máquinas virtuales. Puede optar por usar uno o ambos, según sus necesidades. Consulte [Introducción a los agentes de Azure Monitor](agents-overview.md) para ver una comparación detallada entre los agentes de Azure Monitor. 

@@ -6,24 +6,21 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 875d2bbebdfa95c6d180979399d876eb2afc01b4
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 0bb17ab98dc17bbe7623467451acc65a126bcaf1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392521"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779967"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
+En este tema se muestra cómo crear una identidad administrada para las aplicaciones App Service y Azure Functions y cómo usarla para acceder a otros recursos. 
+
 > [!Important] 
-> Las identidades administradas de App Service y Azure Functions no se comportarán según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación necesitará obtener una nueva identidad, lo que se puede hacer deshabitando y volviendo a habilitar la función. Consulte [Eliminación de una identidad](#remove) a continuación. Los recursos de nivel inferior también necesitarán tener directivas de acceso actualizadas para utilizar la nueva identidad.
+> Las identidades administradas de App Service y Azure Functions no se comportarán según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación tiene que obtener una nueva identidad, para lo cual se deshabilita y vuelve a habilitar la característica. Consulte [Eliminación de una identidad](#remove) a continuación. Los recursos de nivel inferior también han de tener directivas de acceso actualizadas para utilizar la nueva identidad.
 
-En este tema se muestra cómo crear una identidad administrada para las aplicaciones App Service y Azure Functions y cómo usarla para acceder a otros recursos. Una identidad administrada de Azure Active Directory (Azure AD) permite a la aplicación acceder fácilmente a otros recursos protegidos por Azure AD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-La aplicación puede tener dos tipos de identidades:
-
-- Una **identidad asignada por el sistema** está asociada a la aplicación y se elimina si se elimina la aplicación. Una aplicación solo puede tener una identidad asignada por el sistema.
-- Una **identidad asignada por el usuario** es un recurso de Azure independiente que puede asignarse a la aplicación. Una aplicación puede tener varias identidades asignadas por el usuario.
+[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## <a name="add-a-system-assigned-identity"></a>Adición de una identidad asignada por el sistema
 
@@ -42,6 +39,11 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 4. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Haga clic en **Save**(Guardar).
 
     ![Identidad administrada en App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+
+
+> [!NOTE] 
+> Para buscar la identidad administrada de la aplicación web o de ranura en Azure Portal, vaya a la sección Configuración de usuario en Aplicaciones empresariales.
+
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
 

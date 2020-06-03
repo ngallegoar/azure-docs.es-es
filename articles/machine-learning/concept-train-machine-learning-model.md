@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/13/2020
+ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592396"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683015"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -111,6 +111,18 @@ El diseñador permite entrenar modelos mediante una interfaz de arrastrar y colo
 + [Clasificación: predicción de la deserción de clientes, la apetencia y la venta vertical](how-to-designer-sample-classification-churn.md)
 + [Clasificación con script R personalizado: Predicción de retrasos en los vuelos](how-to-designer-sample-classification-flight-delay.md)
 + [Clasificación de texto: Conjunto de datos de SP 500 de Wikipedia](how-to-designer-sample-text-classification.md)
+
+## <a name="many-models-solution-accelerator"></a>Acelerador de soluciones Many Models
+
+El [Acelerador de soluciones Many Models](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
+
+Por ejemplo, la creación de un modelo __para cada instancia o individual__ en los escenarios siguientes puede dar lugar a resultados mejorados:
+
+* Predicción de ventas para cada tienda individual
+* Mantenimiento predictivo para cientos de pozos petrolíferos
+* Personalización de una experiencia para usuarios individuales
+
+Para obtener más información, vea el [Acelerador de soluciones Many Models](https://aka.ms/many-models) en GitHub.
 
 ## <a name="cli"></a>CLI
 

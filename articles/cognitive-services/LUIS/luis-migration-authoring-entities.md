@@ -1,14 +1,14 @@
 ---
-title: Migrar a una entidad de aprendizaje automático de V3
+title: Migración a una entidad de aprendizaje automático de V3
 description: La creación de V3 proporciona un nuevo tipo de entidad, la entidad de aprendizaje automático, junto con la capacidad de agregar relaciones a la entidad de aprendizaje automático y a otras entidades o características de la aplicación.
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 79fbe261f597f55ca6caff468d4d5c154a273c42
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593229"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684593"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migración a la creación de V3
 
@@ -16,9 +16,9 @@ La creación de V3 proporciona un nuevo tipo de entidad, la entidad de aprendiza
 
 ## <a name="entities-are-decomposable-in-v3"></a>Las entidades se pueden descomponer en V3
 
-Las entidades creadas con las API de creación de V3, ya sea mediante las [API](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) o con el portal, le permiten crear un modelo de entidad con capas con un elemento principal y elementos secundarios. Al elemento principal se le conoce como **entidad de aprendizaje automático** y a los elementos secundarios se les conoce como **subentidades** de la entidad de aprendizaje automático.
+Las entidades creadas con las API de creación de V3, ya sea mediante las [API](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) o con el portal, le permiten crear un modelo de entidad con capas con un elemento principal y elementos secundarios. Al elemento primario se le conoce como **entidad de aprendizaje automático** y a los secundarios se les conoce como **subentidades** de la entidad de aprendizaje automático.
 
-Cada subentidad es también una entidad de aprendizaje automático, pero con las opciones de configuración agregadas características.
+Cada subentidad es también una entidad de aprendizaje automático, pero con las opciones de configuración agregadas de las características.
 
 * Las **características necesarias** son reglas que garantizan que una entidad se extraiga cuando coincida con una característica. La regla se define mediante la característica necesaria para el modelo:
     * [Entidad precompilada](luis-reference-prebuilt-entities.md)
@@ -54,7 +54,7 @@ Cuando migre, tenga en cuenta lo siguiente en el plan de migración:
     * Entidades
         * Entidad jerárquica
         * Entidad compuesta
-    * Roles: los roles solo se pueden aplicar a una entidad de aprendizaje automático (principal). Los roles no se pueden aplicar a las subentidades.
+    * Roles: los roles solo se pueden aplicar a una entidad de aprendizaje automático (primaria). Los roles no se pueden aplicar a las subentidades.
     * Pruebas por lotes y patrones que usan las entidades jerárquicas y compuestas
 
 Al diseñar el plan de migración, deje tiempo para revisar las entidades finales de aprendizaje automático, después de que se hayan migrado todas las entidades jerárquicas y compuestas. Aunque una migración directa funcionará, después de realizar el cambio y revisar los resultados de las pruebas por lotes, y el JSON de predicción, el JSON más unificado puede hacer que realice cambios para que la información final que se entrega a la aplicación del lado del cliente se organice de manera diferente. Esto es similar a la refactorización de código y debe tratarse con el mismo proceso de revisión que tiene su organización.
@@ -63,14 +63,14 @@ Si no tiene pruebas por lotes para su modelo de V2 y migra las pruebas por lotes
 
 ## <a name="migrating-from-v2-entities"></a>Migración desde entidades de V2
 
-Cuando empiece a migrar al modelo de creación de V3, debe considerar cómo migrar a la entidad de aprendizaje automático, así como sus subentidades y características.
+Cuando se empiece a migrar al modelo de creación de V3, se debe tener en cuenta cómo migrar a la entidad de aprendizaje automático, así como sus subentidades y características.
 
 En la tabla siguiente se indican las entidades que se deben migrar de un diseño de entidad de V2 a V3.
 
 |Tipo de entidad de creación de V2|Tipo de entidad de creación de V3|Ejemplo|
 |--|--|--|
 |Entidad compuesta|Entidad de aprendizaje automático|[más información](#migrate-v2-composite-entity)|
-|Entidad jerárquica|Rol de entidad de aprendizaje automático|[más información](#migrate-v2-hierarchical-entity)|
+|Entidad jerárquica|rol de la entidad de aprendizaje automático|[más información](#migrate-v2-hierarchical-entity)|
 
 ## <a name="migrate-v2-composite-entity"></a>Migración de una entidad compuesta de V2
 
@@ -83,7 +83,7 @@ Consideraciones a la hora de planear la migración de una entidad compuesta a un
 
 ### <a name="existing-features"></a>Características existentes
 
-Cualquier lista de frases utilizada para potenciar las palabras en la entidad compuesta debe aplicarse como característica a la entidad de aprendizaje automático (principal), la subentidad (secundaria) o la intención (si la lista de frases solo se aplica a una intención). Planee agregar la característica a la entidad que debe potenciar de forma significativa. No agregue la característica genéricamente a la entidad de aprendizaje automático (principal), en caso de que potencie de forma significativa la predicción de una subentidad (secundaria).
+Cualquier lista de frases utilizada para potenciar las palabras en la entidad compuesta debe aplicarse como característica a la entidad de aprendizaje automático (primaria), la subentidad (secundaria) o la intención (si la lista de frases solo se aplica a una intención). Planee agregar la característica a la entidad que debe potenciar de forma significativa. No agregue la característica genéricamente a la entidad de aprendizaje automático (primaria), en caso de que potencie de forma significativa la predicción de una subentidad (secundaria).
 
 ### <a name="new-features"></a>Nuevas características
 
@@ -106,7 +106,7 @@ En la tabla siguiente se muestra la migración:
 
 |Modelos de V2|Modelos de V3|
 |--|--|
-|Principal: entidad de componente llamada `Order`|Principal: entidad de aprendizaje automático llamada `Order`|
+|Principal: entidad de componente llamada `Order`|Primaria: entidad de aprendizaje automático llamada `Order`|
 |Secundario: entidad datetimeV2 creada previamente|* Migre la entidad creada previamente a la nueva aplicación.<br>* Agregue una característica necesaria en el elemento principal para la entidad datetimeV2 creada previamente.|
 |Secundario: entidad de lista para los ingredientes|* Migre la entidad de lista a la nueva aplicación.<br>* A continuación, agregue una característica necesaria en el elemento principal para la entidad de lista.|
 
@@ -116,7 +116,7 @@ En la tabla siguiente se muestra la migración:
 En la creación de V2, se proporcionaba una entidad jerárquica antes de los roles existentes en LUIS. Ambos tenían el mismo propósito de extraer entidades según el uso del contexto. Si tiene entidades jerárquicas, puede considerarlas como entidades simples con roles.
 
 En la creación de V3:
-* Un rol se puede aplicar a la entidad de aprendizaje automático (principal).
+* Un rol se puede aplicar a la entidad de aprendizaje automático (primaria).
 * Los roles no se pueden aplicar a las subentidades.
 
 Esta entidad es solo un ejemplo. Su propia migración de entidades puede requerir otras consideraciones.
@@ -132,7 +132,7 @@ En la tabla siguiente se muestra la migración:
 
 |Modelos de V2|Modelos de V3|
 |--|--|
-|Principal: entidad de componente llamada `Order`|Principal: entidad de aprendizaje automático llamada `Order`|
+|Principal: entidad de componente llamada `Order`|Primaria: entidad de aprendizaje automático llamada `Order`|
 |Secundario: entidad jerárquica con el ingrediente de la pizza original y final|* Agregue un rol a `Order` para cada ingrediente.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>Restricción de cambios de API reemplazada por característica necesaria

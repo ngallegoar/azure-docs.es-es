@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e0325b43b6726f04d5994b60404f218ac58122d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594834"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737765"
 ---
 # <a name="self-service-sign-up-preview"></a>Registro de autoservicio (versión preliminar)
 |     |
@@ -24,17 +24,20 @@ ms.locfileid: "83594834"
 | El registro de autoservicio es la característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Al compartir aplicaciones con usuarios externos, es posible que no siempre sepa de antemano quién necesitará tener acceso a una aplicación. Como alternativa al envío de invitaciones directamente a los usuarios, puede permitir que los usuarios externos se registren en aplicaciones específicas habilitando el registro de autoservicio. Puede crear una experiencia de registro personalizada mediante la personalización del flujo de usuario de registro de autoservicio. Por ejemplo, puede proporcionar opciones para Azure AD o proveedores de identidades sociales y recopilar información sobre el usuario.
+Al compartir una aplicación con usuarios externos, es posible que no siempre sepa de antemano quién necesitará tener acceso a la aplicación. Como alternativa al envío de invitaciones directamente a los usuarios, puede permitir que los usuarios externos se registren en aplicaciones específicas habilitando el registro de autoservicio. Puede crear una experiencia de registro personalizada mediante la personalización del flujo de usuario de registro de autoservicio. Por ejemplo, puede proporcionar opciones de registro con Azure AD o proveedores de identidades sociales y recopilar información sobre el usuario durante el proceso de registro.
+
+> [!NOTE]
+> Puede asociar flujos de usuarios a las aplicaciones que compila la organización. Los flujos de usuario no se pueden usar para las aplicaciones de Microsoft, como SharePoint o Teams.
 
 ## <a name="user-flow-for-self-service-sign-up"></a>Flujo de usuario para el registro de autoservicio
 
-Un flujo de usuario de registro de autoservicio crea una experiencia de registro para los usuarios externos a través de la aplicación que quiera compartir. El flujo de usuario puede asociarse a una o varias de sus aplicaciones. En primer lugar, debe habilitar el registro de autoservicio para el inquilino y federarse con los proveedores de identidades que quiera permitir para que los usuarios externos usen para iniciar sesión. A continuación, debe crear y personalizar el flujo de usuario de registro y asignarle sus aplicaciones.
+Un flujo de usuario de registro de autoservicio crea una experiencia de registro para los usuarios externos a través de la aplicación que quiera compartir. El flujo de usuario puede asociarse a una o varias de sus aplicaciones. En primer lugar, habilitará el registro de autoservicio para el inquilino y se federará con los proveedores de identidades que quiera permitir que usen los usuarios externos para iniciar sesión. A continuación, debe crear y personalizar el flujo de usuario de registro y asignarle sus aplicaciones.
 Puede configurar las opciones de flujo de usuario para controlar el modo en que el usuario se registra en la aplicación:
 
 - Tipos de cuenta utilizados para iniciar sesión, como cuentas de redes sociales (como Facebook) o cuentas de Azure AD.
-- Los atributos que se recopilan del registro del usuario, como el nombre, el código postal o el país de residencia.
+- Atributos que se recopilan del registro del usuario, como el nombre, el código postal o el país o región de residencia.
 
-Cuando un usuario quiere iniciar sesión en su aplicación, ya sea una aplicación web, móvil, de escritorio o de una sola página (SPA), la aplicación inicia una solicitud de autorización a un punto de conexión proporcionado por el flujo de usuario. El flujo de usuario define y controla la experiencia del usuario. Al completar un flujo de usuario de registro, Azure AD genera un token y, luego, redirige al usuario de vuelta a la aplicación. Varias aplicaciones pueden usar el mismo flujo de usuario.
+Cuando un usuario quiere iniciar sesión en su aplicación, ya sea una aplicación web, móvil, de escritorio o de una sola página (SPA), la aplicación inicia una solicitud de autorización a un punto de conexión proporcionado por el flujo de usuario. El flujo de usuario define y controla la experiencia del usuario. Cuando el usuario completa el flujo de usuario de registro, Azure AD genera un token y, luego, redirige al usuario de vuelta a la aplicación. Una vez completado el registro, se aprovisiona una cuenta de invitado para el usuario en el directorio. Varias aplicaciones pueden usar el mismo flujo de usuario.
 
 ## <a name="example-of-self-service-sign-up"></a>Ejemplo de registro de autoservicio
 
@@ -47,7 +50,7 @@ Usa el correo electrónico de su elección para registrarse.
 
 ![Ejemplo que muestra la selección de Facebook para el inicio de sesión](media/self-service-sign-up-overview/example-sign-in-with-facebook.png)
 
-Azure AD crea una relación con Woodgrove mediante la cuenta de Facebook del asociado y crea una cuenta nueva.
+Azure AD crea una relación con Woodgrove mediante la cuenta de Facebook del asociado y crea una cuenta de invitado nueva para el usuario después de que se registre.
 
 Woodgrove quiere obtener más información sobre el usuario, como el nombre, el nombre de la empresa, el código de registro del negocio y el número de teléfono.
 

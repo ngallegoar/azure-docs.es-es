@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: c2291d4d2eca2abd11ef9c0f18f3fda52424ab93
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81756780"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739114"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -825,7 +825,7 @@ Extrae partes de un tipo de notificación de cadena, comenzando por el carácter
 | InputParameter | length | int | Número de caracteres de la subcadena. |
 | OutputClaim | outputClaim | boolean | Cadena equivalente a la subcadena de longitud que comienza en el valor de startIndex de esta instancia, o bien, un valor vacío si el valor de startIndex es igual a la longitud de esta instancia y length es cero. |
 
-Por ejemplo, obtiene el prefijo de país del número de teléfono.
+Por ejemplo, obtiene el prefijo de país o región del número de teléfono.
 
 
 ```XML

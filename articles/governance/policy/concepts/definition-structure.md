@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d4c1c10dfbf384815c34af8436acdbb45cb8e242
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613309"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746980"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -80,15 +80,14 @@ Por ejemplo, en un recurso, `Microsoft.Network/routeTables` admite etiquetas y u
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
-`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos** y las **suscripciones**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos o suscripción deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups` o `Microsoft.Resources/subscriptions`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
+`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos** y las **suscripciones**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos o suscripción deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups` o `Microsoft.Resources/subscriptions`. Para obtener un ejemplo, consulte [Patrón: Etiquetas: ejemplo n.º 1](../samples/pattern-tags.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos del proveedor de recursos (versión preliminar)
 
 Actualmente se admiten los siguientes modos del proveedor de recursos durante la versión preliminar:
 
-- `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy).
-- `Microsoft.Kubernetes.Data` para administrar clústeres de Kubernetes del motor de AKS autoadministrados en Azure.
-  Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+- `Microsoft.ContainerService.Data` para administrar reglas del controlador de admisión en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceRegoPolicy](./effects.md#enforceregopolicy). Este modo está _en desuso_.
+- `Microsoft.Kubernetes.Data` para administrar los clústeres de Kubernetes en o fuera de Azure. Las políticas que usan este modo del proveedor de recursos **deben** utilizar el efecto [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
 - `Microsoft.KeyVault.Data` para administrar almacenes y certificados en [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
@@ -677,7 +676,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 - API de REST/ARMClient
 
   ```http
-  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  GET https://management.azure.com/providers/?api-version=2019-10-01&$expand=resourceTypes/aliases
   ```
 
 ### <a name="understanding-the--alias"></a>Descripción del alias [*]

@@ -1,27 +1,27 @@
 ---
 title: Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento
 titleSuffix: Azure Storage
-description: Aprenda cómo comprobar la propiedad **Hora de la última sincronización** para una cuenta de almacenamiento con replicación geográfica. La propiedad **Hora de la última sincronización** indica la hora más reciente en que todas las operaciones de escritura de la región primaria se escribieron correctamente en la secundaria.
+description: Aprenda cómo comprobar la propiedad Hora de la última sincronización para una cuenta de almacenamiento con replicación geográfica. La propiedad Hora de la última sincronización indica la hora más reciente en que todas las operaciones de escritura de la región primaria se escribieron correctamente en la secundaria.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/16/2019
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3a406ce6db060b9ff5be7bcadecb6c7ff7e65a1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77163813"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659253"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento
 
 Cuando se configura una cuenta de almacenamiento, se puede definir que los datos se copien en una región secundaria que se encuentra a cientos de kilómetros de la región primaria. La replicación geográfica proporciona durabilidad para los datos en caso de que se produzca una interrupción importante en la región primaria, como un desastre natural. Si, además, habilita el acceso de lectura a la región secundaria, los datos seguirán disponibles para las operaciones de lectura si la región primaria deja de estar disponible. Puede diseñar la aplicación para que cambie sin problemas a la lectura desde la región secundaria si la región primaria no responde.
 
-Tanto el almacenamiento con redundancia geográfica (GRS) como el almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar) replican los datos de forma asincrónica en una región secundaria. Para obtener acceso de lectura a la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS). Para obtener más información sobre las diversas opciones de redundancia que se ofrecen en Azure Storage, consulte [Redundancia de Azure Storage](storage-redundancy.md).
+Tanto el almacenamiento con redundancia geográfica (GRS) como el almacenamiento con redundancia de zona geográfica (GZRS) replican los datos de forma asincrónica en una región secundaria. Para obtener acceso de lectura a la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS). Para obtener más información sobre las diversas opciones de redundancia que se ofrecen en Azure Storage, consulte [Redundancia de Azure Storage](storage-redundancy.md).
 
 En este artículo se describe cómo comprobar la propiedad **Hora de la última sincronización** de la cuenta de almacenamiento para que pueda evaluar cualquier discrepancia entre las regiones primaria y secundaria.
 
@@ -37,10 +37,10 @@ Puede usar PowerShell o la CLI de Azure para recuperar el valor de la propiedad 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para obtener la hora de la última sincronización de la cuenta de almacenamiento con PowerShell, instale un módulo de versión preliminar de Azure Storage que admita la obtención de estadísticas de replicación geográfica. Por ejemplo:
+Para obtener la hora de la última sincronización de la cuenta de almacenamiento con PowerShell, instale una versión del módulo Az.Storage que admita la obtención de estadísticas de replicación geográfica. Por ejemplo:
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
 ```
 
 A continuación, compruebe la propiedad **GeoReplicationStats.LastSyncTime** de la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición por los propios:
@@ -70,4 +70,4 @@ $lastSyncTime=$(az storage account show \
 
 - [Redundancia de Azure Storage](storage-redundancy.md)
 - [Cambio de la opción de redundancia para una cuenta de almacenamiento](redundancy-migration.md)
-- [Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica con acceso de lectura](storage-designing-ha-apps-with-ragrs.md)
+- [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792894"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738292"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configuración de la cuenta de pago y los formularios de impuestos
 
@@ -36,13 +36,13 @@ Una vez que haya configurado la cuenta, debe hacer dos cosas antes de poder vend
 
 En primer lugar, deberá crear un perfil fiscal y asignarlo a los programas en los que participe. Para crear su *perfil fiscal* para Marketplace comercial, complete los pasos siguientes:
 
-- Especifique el país de residencia y la nacionalidad.
+- Especifique el país o la región de residencia y la nacionalidad.
 - Rellene los formularios fiscales adecuados.
 
 Puede completar y enviar los formularios fiscales electrónicamente desde el Centro de partners. En la mayoría de los casos, no es necesario imprimir y enviar por correo ningún formulario.
 
 > [!IMPORTANT]
-> Los distintos países y regiones tienen requisitos fiscales diferentes. El importe exacto que debe pagar en impuestos dependerá de los países y regiones en los que desea vender sus ofertas. Consulte el [Contrato para publicadores de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) para averiguar para qué países Microsoft remite las ventas y los impuestos sobre el consumo en su nombre. En otros países, según donde esté registrado, puede que tenga que remitir las ventas de ofertas y los impuestos sobre el consumo directamente ante la autoridad fiscal local. Además, los ingresos por ventas de la aplicación que recibe pueden estar sujetos a impuestos como ingresos. Le recomendamos encarecidamente que se ponga en contacto con la autoridad pertinente del país o región que mejor le pueda ayudar a determinar la información fiscal adecuada para sus actividades de Marketplace comercial.
+> Los distintos países y regiones tienen requisitos fiscales diferentes. El importe exacto que debe pagar en impuestos dependerá de los países y regiones en los que desea vender sus ofertas. Consulte el [Contrato para editores de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) para averiguar para qué países o regiones Microsoft remite las ventas y los impuestos sobre el consumo en su nombre. En otros países o regiones, según donde esté registrado, puede que tenga que remitir las ventas de ofertas y los impuestos sobre el consumo de estas directamente ante la autoridad fiscal local. Además, los ingresos por ventas de la aplicación que recibe pueden estar sujetos a impuestos como ingresos. Le recomendamos encarecidamente que se ponga en contacto con la autoridad pertinente del país o región que mejor le pueda ayudar a determinar la información fiscal adecuada para sus actividades de Marketplace comercial.
 
 1. En el [Centro de partners](https://partner.microsoft.com/dashboard), seleccione el icono de **configuración de la cuenta** en la esquina superior derecha y, a continuación, seleccione **Configuración del desarrollador**.
 
@@ -54,20 +54,20 @@ Puede completar y enviar los formularios fiscales electrónicamente desde el Cen
 
 5. Haga clic en el botón **Editar** para editar la información fiscal.
 
-6. Seleccione el botón de radio adecuado, así como su país si se le solicita. Este paso determina la entidad empresarial de Microsoft que se usará para realizar pagos en su cuenta.
+6. Seleccione el botón de radio adecuado, así como su país o región si se le solicita. Este paso determina la entidad empresarial de Microsoft que se usará para realizar pagos en su cuenta.
 
-7. En función de las selecciones realizadas el paso 6, se le pedirá que proporcione la información fiscal necesaria para su país.
+7. En función de las selecciones realizadas el paso 6, se le pedirá que proporcione la información fiscal necesaria para su país o región.
 
    > [!NOTE]
-   > Independientemente de su país de residencia o nacionalidad, debe rellenar los formularios fiscales de Estados Unidos para vender ofertas o complementos mediante Marketplace comercial. Los publicadores que cumplen determinados requisitos de residencia de Estados Unidos deben rellenar un formulario IRS W-9. El resto de publicadores de fuera de Estados Unidos deben rellenar un formulario de IRS W-8. Puede rellenar estos formularios en línea a medida que completa su perfil fiscal.
+   > Independientemente de su país o región de residencia o nacionalidad, debe rellenar los formularios fiscales de Estados Unidos para vender ofertas o complementos mediante marketplace comercial. Los publicadores que cumplen determinados requisitos de residencia de Estados Unidos deben rellenar un formulario IRS W-9. El resto de publicadores de fuera de Estados Unidos deben rellenar un formulario de IRS W-8. Puede rellenar estos formularios en línea a medida que completa su perfil fiscal.
 
 ### <a name="withholding-rates"></a>Tasas de retención
 
-La información que envíe en las declaraciones de impuestos determinará la tasa de retención fiscal adecuada. La tasa de retención se aplica solo a las ventas que se realizan en Estados Unidos. Las ventas realizadas en ubicaciones fuera de Estados Unidos no están sujetas a retenciones. Las tasas de retención varían, pero para la mayoría de los publicadores que están registrados fuera de Estados Unidos, la tasa predeterminada es del 30 %. Podrá reducir esta tasa si su país ha firmado con Estados Unidos un tratado tributario por ingresos especial.
+La información que envíe en las declaraciones de impuestos determinará la tasa de retención fiscal adecuada. La tasa de retención se aplica solo a las ventas que se realizan en Estados Unidos. Las ventas realizadas en ubicaciones fuera de Estados Unidos no están sujetas a retenciones. Las tasas de retención varían, pero para la mayoría de los publicadores que están registrados fuera de Estados Unidos, la tasa predeterminada es del 30 %. Podrá reducir esta tasa si su país o región ha firmado con Estados Unidos un tratado tributario por ingresos.
 
 ### <a name="tax-treaty-benefits"></a>Beneficios por tratado tributario
 
-Si reside fuera de Estados Unidos, puede aprovechar los beneficios por tratados tributarios. Estos beneficios varían de un país a otro y puede que le permitan reducir el importe de los impuestos que retiene Marketplace comercial. Puede reclamar los beneficios por tratado tributario rellenando la Parte II del formulario W-8BEN. Es recomendable que se ponga en contacto con los recursos adecuados de su país o región para determinar si estos beneficios se le pueden aplicar.
+Si reside fuera de Estados Unidos, puede aprovechar los beneficios por tratados tributarios. Estos beneficios varían de un país o región a otro y puede que le permitan reducir el importe de los impuestos que retiene marketplace comercial. Puede reclamar los beneficios por tratado tributario rellenando la Parte II del formulario W-8BEN. Es recomendable que se ponga en contacto con los recursos adecuados de su país o región para determinar si estos beneficios se le pueden aplicar.
 
 > [!NOTE]
 > No es necesario tener el número de identificación fiscal individual (ITIN) de Estados Unidos para recibir pagos de Microsoft o para reclamar beneficios del tratado fiscal.
@@ -146,9 +146,9 @@ Preguntas comunes sobre el uso de PayPal como método de pago:
 
 - **¿Se admite mi país o región?** Consulte [Umbrales, métodos y períodos de tiempo de pago](payment-thresholds-methods-timeframes.md) para averiguar dónde se admite PayPal como método de pago.
 
-- **¿Mi cuenta de PayPal tiene que estar registrada en el mismo país o región que mi cuenta del Centro de partners?** No. Al configurar una cuenta de PayPal, puede aceptar la configuración predeterminada. No debe tener ningún problema con otros países o regiones y monedas a menos que haya bloqueado el pago en algunas monedas. Esta configuración se administra en la página de preferencias de recepción de pagos de PayPal.
+- **¿Mi cuenta de PayPal tiene que estar registrada en el mismo país o región que mi cuenta del Centro de partners?** No. Al configurar una cuenta de PayPal, puede aceptar la configuración predeterminada. No debería tener ningún problema con otros países o regiones y monedas, a menos que haya bloqueado el pago en algunas monedas. Esta configuración se administra en la página de preferencias de recepción de pagos de PayPal.
 
-- **¿Tengo que aceptar los pagos de PayPal manualmente?** No. De forma predeterminada, las cuentas de PayPal se establecen para requerir que los usuarios acepten los pagos manualmente, lo que significa que, si no acepta el pago en un plazo de 30 días, se devuelve. Para cambiar esta configuración, desactive "Ask Me" (Preguntar) en la página More Settings (Más opciones) de PayPal.
+- **¿Tengo que aceptar los pagos de PayPal manualmente?** No. De forma predeterminada, las cuentas de PayPal se establecen para requerir que los usuarios acepten los pagos manualmente, lo que significa que, si no acepta el pago en un plazo de 30 días, se devuelve. Para cambiar esta configuración, desactive "Ask Me" (Preguntarme) en la página Más configuración de PayPal.
 
 - **¿Qué monedas admite PayPal?** Consulte la [página de soporte técnico de PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) para ver la lista actual.
 
@@ -166,7 +166,7 @@ Una vez enviado el pago a su banco, tiene 30 días para enviar un formulario Fo
 
 #### <a name="russia"></a>Rusia
 
-Si es un publicador que vive en Rusia, puede que necesite proporcionar documentación a su banco antes de que este envíe fondos a su cuenta. Cuando sea posible el pago, le proporcionaremos la siguiente documentación en un mensaje de correo electrónico:
+Si es un editor que vive en Rusia, puede que necesite proporcionar documentación a su banco antes de que este envíe fondos a su cuenta. Cuando sea posible el pago, le proporcionaremos la siguiente documentación en un mensaje de correo electrónico:
 
 - Certificado de recepción (AC): contiene la cantidad de pagos que se transfieren a su cuenta.
 - [Acuerdo del publicador de Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560): una copia firmada del acuerdo del publicador que debe refrendarse.

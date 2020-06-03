@@ -1,18 +1,18 @@
 ---
-title: Integración del control de código fuente en Azure Automation (heredado)
-description: En este artículo se describe la integración del control de código fuente con GitHub en Azure Automation.
+title: 'Uso de la integración del control de código fuente en Azure Automation: heredado'
+description: En este artículo se explica cómo usar la integración del control de código fuente.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855349"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828940"
 ---
-# <a name="source-control-integration-in-azure-automation---legacy"></a>Integración del control de código fuente en Azure Automation (heredado)
+# <a name="use-source-control-integration-in-azure-automation---legacy"></a>Uso de la integración del control de código fuente en Azure Automation: heredado
 
 > [!NOTE]
 > Hay una nueva experiencia de control de código fuente. Para más información acerca de la nueva experiencia, consulte [Control de código fuente (versión preliminar)](source-control-integration.md).
@@ -24,7 +24,7 @@ El control de código fuente le permite insertar código de Azure Automation en 
 > [!NOTE]
 > El control de código fuente admite la extracción e inserción de [runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) y de [runbooks de PowerShell](automation-runbook-types.md#powershell-runbooks). Los [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) aún no se admiten.
 
-## <a name="configuring-source-control"></a>Configuración del control de código fuente
+## <a name="configure-source-control"></a>Configurar el control de código fuente
 
 Hay dos pasos sencillos necesarios para configurar el control de código fuente para su cuenta de Automation y solo uno si ya tiene una cuenta GitHub. 
 
@@ -80,7 +80,7 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Azure Aut
 
      ![Configuración de la aplicación en GitHub](media/source-control-integration-legacy/automation-GitApplication.png)
 
-## <a name="using-source-control-in-automation"></a>Uso del control de código fuente en Automation
+## <a name="use-source-control-in-automation"></a>Uso del control de código fuente en Automation
 
 La inserción de runbooks en el repositorio permite insertar los cambios realizados en un runbook de Azure Automation en el repositorio de control de código fuente. A continuación se muestran los pasos necesarios para insertar un runbook en el repositorio:
 
@@ -124,7 +124,7 @@ El botón de sincronización que se encuentra en la página Sincronización de r
 
 ![Una ventana que muestra todos los registros a partir de un trabajo de sincronización de control de código fuente suspendido](media/source-control-integration-legacy/automation-AllLogs.png)
 
-## <a name="disconnecting-source-control"></a>Desconexión del control de código fuente
+## <a name="disconnect-source-control"></a>Desconexión del control de código fuente
 
 Para desconectarse de la cuenta de GitHub, abra la página Sincronización de repositorios y haga clic en **Desconectar**. Cuando desconecte el control de código fuente, los runbooks que se sincronizaron seguirán estando en su cuenta de Automation, pero no se habilitará la página Sincronización de repositorios.  
 
@@ -132,7 +132,5 @@ Para desconectarse de la cuenta de GitHub, abra la página Sincronización de re
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la integración del control de código fuente, consulte los siguientes recursos:  
-
-* [Azure Automation: Integración del control de código fuente en Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Azure Automation: integración del control de código fuente de runbook mediante Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* Para integrar el control de código fuente en Azure Automation, vea [Azure Automation: integración del control de código fuente en Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
+* Para integrar el control de código fuente de runbook con Visual Studio Online, vea [Azure Automation: integración del control de código fuente de runbook mediante Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).  

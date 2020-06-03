@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678452"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739148"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -27,7 +27,7 @@ Para poder usar la inserción de dependencias, debe instalar los siguientes paqu
 
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- Versión 1.0.28 o posterior del [paquete de Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
+- Versión 1.0.28 o posterior del paquete [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
 
 ## <a name="register-services"></a>Registro de los servicios
 

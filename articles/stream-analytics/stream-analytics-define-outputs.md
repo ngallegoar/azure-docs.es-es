@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: d1eda3671b52a1e4bbae9af2d97010657880c383
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c4790585d089ab287260f74001a8aa3f1cb7e5f7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585409"
+ms.locfileid: "83647508"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 
@@ -80,7 +80,7 @@ La salida de los trabajos de Azure Stream Analytics se puede generar en una tabl
 
 La tabla de grupo de SQL debe existir antes de poder agregarla como salida al trabajo de Stream Analytics. El esquema de tabla debe coincidir con los campos y los tipos en la salida del trabajo. 
 
-Para usar Azure Synapse como salida, debe asegurarse de que tiene la cuenta de almacenamiento configurada. Vaya a Configuración de cuenta de almacenamiento para configurar la cuenta de almacenamiento. Solo se permiten los tipos de cuenta de almacenamiento que admiten tablas: Uso general V2 y uso general V1.   
+Para usar Azure Synapse como salida, debe asegurarse de que tiene la cuenta de almacenamiento configurada. Vaya a Configuración de cuenta de almacenamiento para configurar la cuenta de almacenamiento. Solo se permiten los tipos de cuenta de almacenamiento que admiten tablas: Uso general V2 y uso general V1. Seleccione solo el nivel estándar. No se admite el nivel Premium.   
 
 En la siguiente tabla se enumeran los nombres de propiedad y su descripción para crear una salida de Azure Synapse Analytics.
 

@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: designer
+ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037620"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654926"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -82,7 +83,7 @@ Un módulo puede tener un conjunto de parámetros que puede utilizar para config
 
 ![Propiedades del módulo](./media/concept-designer/properties.png)
 
-Si desea ayuda para desplazarse por la biblioteca de algoritmos de aprendizaje automático disponibles, consulte [Información general sobre la referencia de módulos y algoritmos](algorithm-module-reference/module-reference.md)
+Si desea ayuda para desplazarse por la biblioteca de algoritmos de aprendizaje automático disponibles, consulte [Información general sobre la referencia de módulos y algoritmos](algorithm-module-reference/module-reference.md). Para obtener ayuda para elegir un algoritmo, vea la [hoja de referencia rápida de algoritmos de Azure Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="compute-resources"></a><a name="compute"></a>Recursos de proceso
 
@@ -91,9 +92,10 @@ Use recursos de proceso del área de trabajo para ejecutar la canalización y ho
 | Destino de proceso | Cursos | Implementación |
 | ---- |:----:|:----:|
 | Proceso de Azure Machine Learning | ✓ | |
+| Instancia de proceso de Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Los destinos de proceso están conectados a su [área de trabajo de Azure Machine Learning](concept-workspace.md). Los destinos de proceso se administran en el área de trabajo de [Azure Machine Learning Studio (clásico)](https://ml.azure.com).
+Los destinos de proceso están conectados a su [área de trabajo de Azure Machine Learning](concept-workspace.md). Los destinos de proceso se administran en el área de trabajo de [Azure Machine Learning Studio](https://ml.azure.com).
 
 ## <a name="deploy"></a>Implementación
 

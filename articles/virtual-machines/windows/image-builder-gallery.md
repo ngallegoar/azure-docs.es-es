@@ -3,16 +3,16 @@ title: Utilizar Azure Image Builder con una galería de imágenes para máquinas
 description: Cree versiones de imágenes de Azure Shared Gallery mediante Azure Image Builder and Azure PowerShell.
 author: cynthn
 ms.author: cynthn
-ms.date: 01/14/2020
+ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 48eff11facf0f1432534d61f003f61e6755caf33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869517"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656660"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Creación de una imagen de Windows y distribución en una galería de imágenes compartidas 
 
@@ -89,24 +89,58 @@ $imageTemplateName="helloImageTemplateWin02ps"
 # Distribution properties object name (runOutput).
 # This gives you the properties of the managed image on completion.
 $runOutputName="winclientR01"
-```
 
-
-
-## <a name="create-the-resource-group"></a>Creación del grupo de recursos
-
-Cree un grupo de recursos y conceda a Azure Image Builder permiso para crear recursos en ese grupo.
-
-```powershell
+# Create a resource group for Image Template and Shared Image Gallery
 New-AzResourceGroup `
    -Name $imageResourceGroup `
    -Location $location
-New-AzRoleAssignment `
-   -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 `
-   -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup `
-   -RoleDefinitionName Contributor
 ```
 
+
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creación de una identidad asignada por el usuario y establecimiento de los permisos en el grupo de recursos
+Image Builder usará la [identidad de usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) proporcionada para insertar la imagen en la instancia de Azure Shared Image Gallery (SIG). En este ejemplo, se creará una definición de roles de Azure que tiene las acciones granulares necesarias para realizar la distribución de la imagen a la instancia de SIG. La definición de roles se asignará a la identidad del usuario.
+
+```powershell
+# setup role def names, these need to be unique
+$timeInt=$(get-date -UFormat "%s")
+$imageRoleDefName="Azure Image Builder Image Def"+$timeInt
+$identityName="aibIdentity"+$timeInt
+
+## Add AZ PS module to support AzUserAssignedIdentity
+Install-Module -Name Az.ManagedServiceIdentity
+
+# create identity
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
+
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
+```
+
+
+### <a name="assign-permissions-for-identity-to-distribute-images"></a>Asignación de permisos para identidad para distribuir imágenes
+
+Este comando descargará una plantilla de definición de roles de Azure y actualizará la plantilla con los parámetros especificados anteriormente.
+
+```powershell
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationPath = "aibRoleImageCreation.json"
+
+# download config
+Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPath -UseBasicParsing
+
+((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $aibRoleImageCreationPath
+((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<rgName>', $imageResourceGroup) | Set-Content -Path $aibRoleImageCreationPath
+((Get-Content -path $aibRoleImageCreationPath -Raw) -replace 'Azure Image Builder Service Image Creation Role', $imageRoleDefName) | Set-Content -Path $aibRoleImageCreationPath
+
+# create role definition
+New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
+
+# grant role definition to image builder service principal
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+
+### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
+https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
+```
 
 
 ## <a name="create-the-shared-image-gallery"></a>Creación de la instancia de Shared Image Gallery
@@ -173,7 +207,7 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
@@ -282,6 +316,24 @@ Elimine la plantilla de la imagen.
 
 ```powerShell
 Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
+```
+
+Eliminación de asignaciones de roles
+
+```powerShell
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+```
+
+quitar definiciones
+
+```powerShell
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+```
+
+eliminar identidad
+
+```powerShell
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
 Elimine el grupo de recursos.

@@ -6,12 +6,12 @@ ms.custom: subject-armqs
 ms.date: 04/29/2020
 author: davidsmatlak
 ms.author: v-dasmat
-ms.openlocfilehash: 47c25ebd0fe18d470b04ccbcc85a8638c1ce0346
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598406"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217295"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
 
@@ -21,7 +21,7 @@ En este inicio rápido, se describe cómo instalar un almacén de Azure Recovery
 
 Si no tiene una suscripción activa a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ninguno.
 
@@ -35,7 +35,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 
 En la plantilla se definen dos recursos de Azure:
 
-- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults): crea el almacén.
+- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/vaults): crea el almacén.
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): configura la redundancia de copia de seguridad del almacén.
 
 La plantilla incluye parámetros opcionales para la configuración de las copias de seguridad del almacén. Los valores de redundancia del almacenamiento son: almacenamiento con redundancia local (LRS) o almacenamiento con redundancia geográfica (GRS). Para más información, consulte el apartado[Establecimiento de la redundancia de almacenamiento](../backup/backup-create-rs-vault.md#set-storage-redundancy).
@@ -58,7 +58,7 @@ Para implementar la plantilla, se requieren los valores de **Suscripción**, **G
    - **Grupo de recursos**: seleccione un grupo existente, o bien seleccione **Crear nuevo** para agregar un grupo.
    - **Ubicación**: el valor predeterminado es la ubicación del grupo de recursos y deja de estar disponible cuando se selecciona un grupo de recursos.
    - **Nombre del almacén**: escriba el nombre del almacén.
-   - **Change Storage Type** (Cambiar tipo de almacenamiento): el valor predeterminado es **false**. Seleccione **true** solo si necesita cambiar el tipo de almacenamiento del almacén.
+   - **Change Storage Type** (Cambiar tipo de almacenamiento): El valor predeterminado es **false**. Seleccione **true** solo si necesita cambiar el tipo de almacenamiento del almacén.
    - **Vault Storage Type** (Tipo de almacenamiento del almacén): el valor predeterminado es **GloballyRedundant**. Si el tipo de almacenamiento se ha establecido en **true**, seleccione **LocallyRedundant**.
    - **Location** (Ubicación): el valor predeterminado de la función `[resourceGroup().location]` es la ubicación del grupo de recursos. Para cambiar la ubicación, escriba un valor como **westus**.
    - Seleccione la casilla **Acepto los términos y condiciones indicados anteriormente**.

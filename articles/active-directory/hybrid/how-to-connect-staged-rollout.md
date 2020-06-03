@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/12/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b7536704d68e96429d715705a0518410db399a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112327"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644165"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
@@ -51,6 +51,7 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 
 -   Para habilitar el *inicio de sesión único de conexión directa* en un bosque específico de Active Directory, debe ser administrador de dominio.
 
+
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
 Se admiten estos escenarios en el lanzamiento preconfigurado: La característica solo funciona en los siguientes casos:
@@ -58,6 +59,7 @@ Se admiten estos escenarios en el lanzamiento preconfigurado: La característica
 - Usuarios que se aprovisionan en Azure AD mediante Azure AD Connect. No se aplica a los usuarios solo de nube.
 
 - El tráfico de inicio de sesión del usuario en los exploradores y clientes de *autenticación moderna*. Las aplicaciones o los servicios en la nube que usan la autenticación heredada revertirán a los flujos de autenticación federada. Un ejemplo podría ser Exchange Online con la autenticación moderna desactivada o Outlook 2010, que no admite autenticación moderna.
+- El tamaño de grupo está limitado actualmente a 50 000 usuarios.  Si tiene grupos de más de 50 000 usuarios, se recomienda dividir este grupo en varios grupos para la implementación por fases.
 
 ## <a name="unsupported-scenarios"></a>Escenarios no admitidos
 
@@ -77,6 +79,9 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 - Sigue siendo necesario realizar el traslado final de la autenticación federada a la nube mediante Azure AD Connect o PowerShell. El lanzamiento preconfigurado no cambia de dominio federado a administrado.
 
 - La primera vez que se agrega un grupo de seguridad para el lanzamiento preconfigurado, está limitado a 200 usuarios para evitar que se agote el tiempo de espera de la experiencia de usuario. Después de agregar el grupo, puede agregarle más usuarios directamente, según sea necesario.
+
+>[!NOTE]
+> Dado que los puntos de conexión de inquilinos no envían sugerencias de inicio de sesión, no se admiten para la implementación por fases.  Las aplicaciones SAML usan los puntos de conexión de inquilinos y tampoco son compatibles con el lanzamiento de ensayo.
 
 ## <a name="get-started-with-staged-rollout"></a>Introducción al lanzamiento preconfigurado
 

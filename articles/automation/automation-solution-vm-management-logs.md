@@ -1,20 +1,20 @@
 ---
-title: Consulta de registros de la solución Start/Stop VMs
-description: En este artículo se describe cómo consultar los datos de registro generados por la solución Start/Stop VMs desde Azure Monitor.
+title: Consulta de registros de Start/Stop VMs during off-hours de Azure Automation
+description: En este artículo se describe cómo usar Azure Monitor para consultar los datos de registro generados por Start/Stop VMs during off-hours.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604735"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827563"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Consulta de registros de la solución Start/Stop VMs
+# <a name="query-logs-from-startstop-vms-during-off-hours"></a>Consulta de registros de Start/Stop VMs during off-hours
 
-Azure Automation envía dos tipos de registros al área de trabajo de Log Analytics vinculada: registros de trabajo y flujos de trabajo. Estos datos están disponibles para [consulta](../azure-monitor/log-query/log-query-overview.md) en Azure Monitor.
+Azure Automation envía dos tipos de registros al área de trabajo de Log Analytics vinculada: registros de trabajo y flujos de trabajo. En este artículo se revisan los datos disponibles para [consultar](../azure-monitor/log-query/log-query-overview.md) en Azure Monitor.
 
 ## <a name="job-logs"></a>Registros de trabajo
 
@@ -60,7 +60,7 @@ Cuando se realiza cualquier búsqueda de registros que devuelve registros de la 
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 
-En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para los registros de trabajo recopilados por esta solución.
+En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para los registros de trabajo recopilados por Start/Stop VMs during off-hours.
 
 |Consultar | Descripción|
 |----------|----------|
@@ -71,4 +71,6 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La solución **Start/Stop VMs during off-hours** no incluye un conjunto predefinido de alertas. Consulte el artículo [Creación de alertas de registro](../azure-monitor/platform/alerts-log.md) con Azure Monitor para aprender a crear alertas de errores de trabajo con el fin de ayudar a los proceso y procedimientos operativos o de DevOps.
+* Para configurar la característica, vea [Configuración de Stop/Start VMs during off-hours](automation-solution-vm-management-config.md).
+* Para obtener información sobre las alertas de registro durante la implementación de características, vea [Creación de alertas de registro con Azure Monitor](../azure-monitor/platform/alerts-log.md).
+* Para resolver los errores de características, consulte [Solución de problemas de Start/Stop VMs during off-hours](troubleshoot/start-stop-vm.md).

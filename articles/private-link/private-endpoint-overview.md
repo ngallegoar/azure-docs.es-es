@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744406"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849661"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -35,7 +35,9 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 Estos son algunos detalles importantes acerca de los puntos de conexión privados: 
 - El punto de conexión privado permite la conectividad entre los consumidores de la misma red virtual, las redes virtuales emparejadas de forma regional, las redes virtuales emparejadas de forma global y las instalaciones locales que usan [VPN](https://azure.microsoft.com/services/vpn-gateway/) o [Express Route](https://azure.microsoft.com/services/expressroute/) y servicios con la tecnología Private Link.
  
-- Al crear un punto de conexión privado, también se crea una interfaz de red de solo lectura para el ciclo de vida del recurso. A la interfaz se le asigna una dirección IP privada de la subred que se asigna al recurso de Private Link.
+- Las conexiones de red solo pueden ser iniciadas por clientes que se conecten al punto de conexión privado. Los proveedores de servicios no tienen ninguna configuración de enrutamiento para iniciar conexiones en los consumidores del servicio. Las conexiones solo se pueden establecer en una dirección.
+
+- Al crear un punto de conexión privado, también se crea una interfaz de red de solo lectura para el ciclo de vida del recurso. A la interfaz se le asigna una dirección IP privada desde la subred que se corresponde con el recurso de Private Link. El valor de la dirección IP privada no cambia durante todo el ciclo de vida del punto de conexión privado.
  
 - El punto de conexión privado debe implementarse en la misma región que la red virtual. 
  
@@ -61,6 +63,7 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 |**Azure Database for PostgreSQL: servidor único** | Microsoft.DBforPostgreSQL/servers    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | almacén |
 |**Azure Kubernetes Service: API de Kubernetes** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  

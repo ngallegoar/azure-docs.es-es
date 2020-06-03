@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 56622ee2c014bd8dbca7c61ec00b927c56f63a40
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617198"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740406"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Compatibilidad con tráfico elevado en Application Gateway
 
@@ -51,7 +51,7 @@ En este ejemplo se muestra cómo usar Azure Portal para configurar una alerta pa
 > Puede configurar la alerta para que se produzca al llegar a un porcentaje de uso de CU inferior o mayor en función de qué tan sensible quiere que sea con respecto a posibles picos de tráfico.
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Configuración de WAF con filtrado geográfico y protección contra bots para detener los ataques
-Si quiere agregar una capa de seguridad frente a la aplicación, use la SKU WAF_v2 de Application Gateway por sus funcionalidades de WAF. Puede configurar la SKU v2 para permitir solo el acceso a las aplicaciones desde un país o países determinados. Puede configurar una regla personalizada de WAF para permitir o bloquear de manera explícita el tráfico en función de la geolocalización. Para más información, consulte las [reglas personalizadas de filtrado geográfico](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) y el artículo sobre cómo [configurar las reglas personalizadas en la SKU WAF_v2 de Application Gateway a través de PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Si quiere agregar una capa de seguridad frente a la aplicación, use la SKU WAF_v2 de Application Gateway por sus funcionalidades de WAF. Puede configurar la SKU v2 para permitir solo el acceso a las aplicaciones desde países o regiones determinados. Puede configurar una regla personalizada de WAF para permitir o bloquear de manera explícita el tráfico en función de la geolocalización. Para más información, consulte las [reglas personalizadas de filtrado geográfico](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) y el artículo sobre cómo [configurar las reglas personalizadas en la SKU WAF_v2 de Application Gateway a través de PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 
 Habilite la protección contra bots para bloquear bots malintencionados conocidos. Esto debería disminuir la cantidad de tráfico que llega a la aplicación. Para más configuración, consulte las [instrucciones para configurar la protección contra bots](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 

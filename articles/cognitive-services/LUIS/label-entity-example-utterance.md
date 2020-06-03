@@ -1,29 +1,86 @@
 ---
 title: Etiquetado de una entidad en una expresión de ejemplo
-description: Obtenga información sobre cómo etiquetar una entidad de aprendizaje automático con subcomponentes en una expresión de ejemplo en una página de detalles de la intención del portal de LUIS.
+description: Aprenda a etiquetar una entidad de aprendizaje automático con subentidades en una expresión de ejemplo en una página de detalles de la intención del portal de LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/20/2020
+ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382397"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722650"
 ---
-# <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etiquetado de una entidad de aprendizaje automático en una expresión de ejemplo
+# <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etiquetado de una entidad de aprendizaje automático en una expresión de ejemplo
 
 Etiquetar una entidad en una expresión de ejemplo da a LUIS un ejemplo de qué es la entidad y dónde puede aparecer la entidad en la expresión.
 
-## <a name="labeling-machine-learned-entity"></a>Etiquetado de una entidad de aprendizaje automático
+Puede etiquetar entidades y subentidades de aprendizaje automático.
 
-Analice en la frase `hi, please I want a cheese pizza in 20 minutes`.
+Dado que no se puede etiquetar expresiones regulares, listas o entidades generadas previamente, cree una entidad o subentidad y, a continuación, agregue estas entidades y características, si procede, a la entidad o subentidad.
 
-1. Seleccione el texto situado más a la izquierda y, a continuación, seleccione el texto situado más a la derecha de la entidad y, después, elija la entidad con la que desea etiquetar, en este caso, Orden completo. El _pedido completo_ aparece etiquetado en la siguiente imagen.
+## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etiquetado de expresiones de ejemplo desde la página de detalles de la intención
+
+Para etiquetar ejemplos de entidades dentro de la expresión, seleccione la intención de esta.
+
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai), seleccione su **Suscripción** y **Recurso de creación** para ver las aplicaciones asignadas a ese recurso de creación.
+1. Abra la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**.
+1. Seleccione la intención que contiene las expresiones de ejemplo que desea etiquetar para la extracción con una entidad.
+1. Seleccione el texto que desea etiquetar y, a continuación, seleccione la entidad.
+
+## <a name="two-techniques-to-label-entities"></a>Dos técnicas para etiquetar entidades
+
+En la página de detalles de la intención se admiten dos técnicas de etiquetado.
+* Seleccione entidad o subentidad en [Paleta de entidades](#label-with-the-entity-palette-visible) y, después, en el ejemplo seleccione el texto de la expresión. Esta es la técnica recomendada porque puede comprobar visualmente que está trabajando con la entidad o subentidad correcta, según el esquema.
+* Seleccione en primer lugar el texto de la expresión de ejemplo. Al hacerlo, se muestra un menú emergente de [opciones de etiquetado](#how-to-label-entity-from-in-place-menu).
+
+## <a name="label-with-the-entity-palette-visible"></a>Etiquetado con la paleta de entidades visible
+
+Una vez [planeado el esquema con entidades](luis-how-plan-your-app.md), mantenga la **paleta de entidades** visible durante el etiquetado. La **paleta de entidades** es un recordatorio de las entidades que planea extraer.
+
+Para acceder a la **paleta de entidades**, seleccione el símbolo **@** en la barra de herramientas contextual que se encuentra encima de la lista de expresiones de ejemplo.
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de la paleta de entidades en la página de detalles de la intención.](media/label-utterances/entity-palette-from-tool-bar.png)
+
+## <a name="how-to-label-entity-from-entity-palette"></a>Etiquetado de una entidad desde la paleta de entidades
+
+La paleta de entidades ofrece una alternativa a la experiencia de etiquetado anterior. Permite cambiar el texto para etiquetarlo al instante con una entidad.
+
+1. Para abrir la paleta de entidades, seleccione el símbolo **@** situado en la parte superior derecha de la tabla de expresiones.
+
+2. Seleccione la entidad de la paleta que desea etiquetar. Esta acción se indica visualmente con un nuevo cursor. El cursor sigue al mouse mientras se mueve por el portal de LUIS.
+
+3. En la expresión de ejemplo, _pinte_ la entidad con el cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Etiqueta completa de la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
+    > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
-1. Seleccione la entidad en la ventana emergente. La entidad completa etiquetada de pedido de pizza incluye todas las palabras (de izquierda a derecha en inglés) que están etiquetadas.
+## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Incorporación de entidades como una característica de la paleta de entidades
+
+La sección inferior de la paleta de entidades permite agregar características a la entidad seleccionada actualmente. Puede seleccionar entre todas las entidades y las listas de frases existentes o crear una nueva lista de frases.
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de la paleta de entidades con la entidad como una característica](media/label-utterances/entity-palette-entity-as-a-feature.png)
+
+## <a name="labeling-entity-roles"></a>Etiquetado de roles de entidad
+
+Los roles de entidad se etiquetan mediante la **paleta de entidades**.
+
+1. En la página Intent detail (Detalle de intención), seleccione la **paleta de entidades** de la barra de herramientas contextual.
+1. Una vez que se abra la paleta de entidades, seleccione la entidad en la lista de entidades.
+1. Debajo de la lista de entidades, seleccione un rol existente.
+1. En el texto de la expresión de ejemplo, etiquete el texto con el rol de entidad.
+
+## <a name="how-to-label-entity-from-in-place-menu"></a>Etiquetado de una entidad desde un menú contextual
+
+El etiquetado contextual permite seleccionar rápidamente el texto de la expresión y etiquetarlo. También puede crear una entidad de aprendizaje automático o de lista a partir del texto etiquetado.
+
+Observe la expresión de ejemplo, `hi, please I want a cheese pizza in 20 minutes`.
+
+Seleccione el texto situado más a la izquierda y, a continuación, seleccione el texto situado más a la derecha de la entidad y, después, en el menú contextual, elija la entidad con la que desea etiquetar.
+
+> [!div class="mx-imgBorder"]
+> ![Etiqueta completa de la entidad de aprendizaje automático](media/label-utterances/label-steps-in-place-menu.png)
 
 ## <a name="review-labeled-text"></a>Revisión del texto etiquetado
 
@@ -34,80 +91,41 @@ Después del etiquetado, revise la expresión de ejemplo y asegúrese de que el 
 
 ## <a name="confirm-predicted-entity"></a>Confirmación de entidad predicha
 
-Si hay un cuadro con líneas de puntos alrededor del intervalo de texto y el nombre de la entidad está por encima de la expresión, indica que el texto está predicho y, sin embargo, _todavía no se ha etiquetado_. Para convertir la predicción en una etiqueta, seleccione la fila de la expresión y, a continuación, seleccione **Confirm entity predictions** (Confirmar predicciones de entidad).
+Si hay un cuadro con líneas de puntos alrededor del intervalo de texto, indica que el texto está predicho y, sin embargo, _todavía no se ha etiquetado_. Para convertir la predicción en una etiqueta, seleccione la fila de la expresión y, a continuación, seleccione **Confirm entities** (Confirmar entidades) en la barra de herramientas contextual.
 
-> [!div class="mx-imgBorder"]
-> ![Predicción completa de la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
+## <a name="relabeling-over-existing-entities"></a>Volver a etiquetar las entidades existentes
 
-Como alternativa, puede seleccionar el nombre de la entidad que se encuentra sobre el texto y seleccionar **Confirm Prediction** (Confirmar predicción) en el menú que aparece.
-
-> [!div class="mx-imgBorder"]
-> ![Predicción completa de la entidad de aprendizaje automático con menú](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted-menu.png)
-
-## <a name="label-entity-by-painting-with-entity-palette-cursor"></a>Entidad de etiqueta pintando con el cursor de la paleta de entidades
-
-La paleta de entidades ofrece una alternativa a la experiencia de etiquetado anterior. Permite cambiar el texto para etiquetarlo al instante con una entidad.
-
-1. Abra la paleta de entidades seleccionando el icono de marcador de resaltado situado en la parte superior derecha de la tabla de expresiones.
-
-    > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
-
-2. Seleccione el componente de la entidad. Esta acción se indica visualmente con un nuevo cursor. El cursor sigue al mouse mientras se mueve por el portal.
-
-    > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
-
-3. En la expresión de ejemplo, _pinte_ la entidad con el cursor.
-
-    > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
-
-## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Etiquetado de subcomponentes de una entidad de aprendizaje automático
-
-Los subcomponentes de las entidades se etiquetan exactamente de la misma manera que las entidades de nivel superior. Al seleccionar texto, las entidades disponibles en la ventana emergente son relativas al contexto en el que aparece el texto. Por ejemplo, si tiene una entidad de aprendizaje automático de cinco niveles y selecciona texto que se ha etiquetado con el primero y segundo nivel (indicado por un nombre de entidad etiquetada en la expresión de ejemplo), las entidades disponibles en la ventana emergente se limitan al contexto de los subcomponentes del tercer nivel. Para etiquetar el texto con otras entidades, seleccione la opción **Label as another entity** (Etiquetar como otra entidad).
-
-> [!div class="mx-imgBorder"]
-> ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
-
-Los subcomponentes solo se pueden etiquetar si el elemento primario también está etiquetado.
-
-## <a name="labeling-entity-roles"></a>Etiquetado de roles de entidad
-
-Los roles de entidad se etiquetan mediante la paleta de entidades.
-
-1. En la página Intent detail (Detalle de intención), seleccione la **paleta de entidades** de la barra de herramientas contextual.
-1. Una vez que se abra la paleta de entidades, seleccione la entidad en la lista de entidades.
-1. Vaya al **inspector de entidades** y seleccione un rol existente o cree uno nuevo.
-1. En el texto de la expresión de ejemplo, etiquete el texto con el rol de entidad.
+Si vuelve a etiquetar un texto que ya está etiquetado, LUIS puede dividir o combinar las etiquetas existentes.
 
 ## <a name="labeling-for-punctuation"></a>Etiquetado para la puntuación
 
-No es necesario etiquetar para la puntuación. Utilice la [configuración de la aplicación](luis-reference-application-settings.md) para controlar si la puntuación afecta a las predicciones de expresiones.
+No es necesario etiquetar para la puntuación. Utilice la [configuración de la aplicación](luis-reference-application-settings.md) para controlar cómo afecta la puntuación a las predicciones de expresiones.
 
 ## <a name="unlabel-entities"></a>Anulación de etiquetas de entidades
 
-Para anular la etiqueta de una entidad, seleccione el nombre de la entidad debajo del texto y seleccione **Anular etiqueta**. Si la entidad a la que está intentando anular la etiqueta tiene subcomponentes etiquetados, los subcomponentes no deben etiquetarse en primer lugar.
+> [!NOTE]
+> Solo se pueden quitar las etiquetas de las entidades con aprendizaje automático. No se puede etiquetar ni quitar las etiquetas de entidades de expresiones regulares, entidades de lista o entidades generadas previamente.
 
-## <a name="editing-labels-using-the-entity-palette"></a>Edición de las etiquetas mediante la paleta de entidades
+Para quitar la etiqueta de una entidad, seleccione la entidad y, después, seleccione **Eliminar la etiqueta** del menú contextual.
 
-Si comete un error al etiquetar, la paleta de entidades es una herramienta sencilla que permite modificaciones rápidas. Por ejemplo, si una etiqueta de entidad abarca una palabra adicional por error y ya tiene subcomponentes etiquetados, puede usar la paleta de entidades para cambiar el intervalo de palabras más corto necesario.
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla que muestra la eliminación de la etiqueta de una entidad](media/label-utterances/unlabel-entity-using-in-place-menu.png)
 
-Por ejemplo:
+## <a name="automatic-labeling-for-parent-and-child-entities"></a>Etiquetado automático para entidades primarias y secundarias
 
-1. El subcomponente de tipo de pizza abarca "pizza de queso con", que incluye la palabra incorrecta adicional "con"
+Si va a etiquetar una entidad primaria, se etiquetará cualquier subentidad que se pueda predecir en función de la versión entrenada actualmente.
 
-    > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/edit-label-with-palette-1.png)
+Si va a etiquetar una subentidad, la entidad primaria se etiquetará automáticamente.
 
-2. Use la paleta de entidades para elegir el tipo de pizza y cambie a "pizza de queso". El resultado es que solo la pizza de queso tiene ahora la etiqueta Tipo de pizza.
+## <a name="automatic-labeling-for-non-machine-learned-entities"></a>Etiquetado automático de entidades sin aprendizaje automático
 
-    > [!div class="mx-imgBorder"]
-    > ![Paleta de entidades para la entidad de aprendizaje automático](media/label-utterances/edit-label-with-palette-2.png)
+Entre las entidades sin aprendizaje automático se incluyen las entidades predefinidas, las entidades de expresiones regulares, las entidades de lista y las entidades pattern.any. Estas se etiquetan automáticamente por LUIS, por lo que no es necesario que los usuarios las etiqueten manualmente.
 
-## <a name="labels-for-matching-text-entities"></a>Etiquetas para entidades de texto coincidentes
+## <a name="intent-prediction-errors"></a>Errores de predicción de intenciones
 
-Entre las entidades con texto coincidente se incluyen las entidades predefinidas, las entidades de expresiones regulares, las entidades de lista y las entidades pattern.any. Estas se etiquetan automáticamente por LUIS, por lo que no es necesario que los usuarios las etiqueten manualmente.
+Un error de predicción de la intención indica que la expresión de ejemplo, dada la aplicación entrenada actual, no sería predecible para la intención.
+
+Aprenda a [ver estos errores](luis-how-to-add-intents.md#intent-prediction-errors) en la página de detalles de la intención.
 
 ## <a name="entity-prediction-errors"></a>Errores de predicción de entidades
 

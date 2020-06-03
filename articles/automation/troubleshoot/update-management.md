@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas de Update Management en Azure Automation
-description: Obtenga información acerca de la solución de problemas con la solución Update Management en Azure Automation.
+title: Resolución de problemas de Update Management de Azure Automation
+description: En este artículo se describe cómo solucionar y resolver problemas con Update Management de Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,28 +8,25 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790837"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735895"
 ---
-# <a name="troubleshoot-issues-with-the-update-management-solution"></a>Solución de problemas con la solución de Update Management
+# <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
-En este artículo se describen los problemas que puede experimentar al usar la solución de Update Management. Existe un agente solucionador de problemas para que el agente de Hybrid Runbook Worker determine el problema subyacente. Para obtener más información sobre el solucionador de problemas, consulte [Solución de problemas del agente de actualización de Windows](update-agent-issues.md) y [Solución de problemas del agente de actualización de Linux](update-agent-issues-linux.md). Para otros problemas sobre la incorporación, consulte [Solución de problemas de errores al incorporar soluciones](onboarding.md).
-
->[!NOTE]
->Si encuentra problemas al incorporar la solución en una máquina virtual (VM), consulte el registro de **Operations Manager** en **Registros de aplicaciones y servicios** en la máquina local. Busque eventos con el id. de evento 4502 y detalles del evento que contengan `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+En este artículo se describen los problemas que puede experimentar al implementar la característica Update Management en sus máquinas. Existe un agente solucionador de problemas para que el agente de Hybrid Runbook Worker determine el problema subyacente. Para obtener más información sobre el solucionador de problemas, consulte [Solución de problemas del agente de actualización de Windows](update-agent-issues.md) y [Solución de problemas del agente de actualización de Linux](update-agent-issues-linux.md). Si tiene otros problemas de implementación de características, consulte [Solucionar problemas de implementación de características](onboarding.md).
 
 >[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
+>Si encuentra problemas al implementar Update Management en una VM, consulte el registro de **Operations Manager** en **Registros de aplicaciones y servicios** en la máquina local. Busque eventos con el id. de evento 4502 y detalles del evento que contengan `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Escenario: Recibe el error "No se pudo habilitar la solución de actualización"
 
 ### <a name="issue"></a>Problema
 
-Al intentar habilitar la solución Update Management en su cuenta de Automation, recibe este error:
+Al intentar habilitar la Update Management en su cuenta de Automation, recibe el error siguiente:
 
 ```error
 Error details: Failed to enable the Update solution
@@ -41,7 +38,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 * Es posible que los requisitos del firewall de red para el agente de Log Analytics no estén configurados correctamente. Esta situación puede provocar que el agente no pueda resolver las direcciones URL de DNS.
 
-* El destino de solución no está correctamente configurado y la máquina no recibe las actualizaciones según lo esperado.
+* El destino de Update Management no está configurado correctamente y la máquina no recibe las actualizaciones según lo esperado.
 
 * Es posible que también note que la máquina muestra un estado de `Non-compliant` en **Cumplimiento**. Al mismo tiempo, **Análisis de escritorio del agente** informa el agente como `Disconnected`.
 
@@ -53,9 +50,9 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 * Vaya a [Configuración de red](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para obtener información acerca de qué direcciones y puertos deben permitirse para que el agente de Log Analytics funcione.
 
-* Compruebe si hay problemas de configuración de ámbito. La [configuración de ámbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina qué máquinas se configuran para la solución. Si la máquina aparece en el área de trabajo, pero no se muestra en el portal de **Update Management, tendrá que establecer la configuración de ámbito para dirigirse a las máquinas. Para información sobre la configuración de ámbito, consulte [Incorporación de máquinas en el área de trabajo](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Compruebe si hay problemas de configuración de ámbito. La [configuración de ámbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina qué máquinas se configuran para Update Management. Si la máquina aparece en el área de trabajo, pero no se muestra en el portal de Update Management, tendrá que establecer la configuración de ámbito para dirigirse a las máquinas. Para obtener información sobre la configuración de ámbito, consulte [Habilitación de máquinas en el área de trabajo](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
-* Para quitar la configuración de trabajo, siga los pasos descritos en [Quitar un Hybrid Runbook Worker de Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) o [Quitar un Hybrid Runbook Worker de Linux](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
+* Para quitar la configuración de trabajo, siga los pasos descritos en [Eliminación de la instancia de Hybrid Runbook Worker de un equipo Windows local](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) o [Eliminación de la instancia de Hybrid Runbook Worker de un equipo Linux local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Escenario: En Update Management se indica que falta una actualización reemplazada
 
@@ -122,9 +119,9 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 4. Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
 
-5. Si el equipo aparece en los resultados de la consulta, compruebe los problemas de configuración de ámbito. La [configuración de ámbito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina qué máquinas se configuran para la solución. 
+5. Si el equipo aparece en los resultados de la consulta, compruebe los problemas de configuración de ámbito. La [configuración de ámbito](../automation-scope-configurations-update-management.md) determina qué máquinas se configuran para Update Management. 
 
-6. Si la máquina aparece en el área de trabajo, pero no se muestra en Update Management, debe realizar la configuración de ámbito para dirigirse a la máquina. Para información sobre cómo hacerlo, consulte [Incorporación de máquinas en el área de trabajo](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+6. Si la máquina aparece en el área de trabajo, pero no se muestra en Update Management, debe realizar la configuración de ámbito para dirigirse a la máquina. Para obtener información sobre cómo hacerlo, consulte [Habilitación de máquinas en el área de trabajo](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 7. En el área de trabajo, ejecute esta consulta.
 
@@ -142,7 +139,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 ### <a name="issue"></a>Problema
 
-Al trabajar con soluciones en la cuenta de Automation, se produce el siguiente error:
+Al trabajar con implementaciones de características en la cuenta de Automation, se produce el siguiente error:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions
@@ -281,11 +278,11 @@ Las máquinas aparecen en los resultados de la consulta de ARG, pero todavía no
 
 7. Repita los pasos anteriores para todas las máquinas que no se han mostrado en la versión preliminar.
 
-## <a name="scenario-components-for-update-management-solution-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Escenario: Componentes de la solución de Update Management habilitados, mientras que la máquina virtual se sigue mostrando como configurada
+## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Escenario: Componentes de Update Management habilitados, mientras la máquina virtual se sigue mostrando como configurada
 
 ### <a name="issue"></a>Problema
 
-Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la incorporación:
+Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la implementación:
 
 ```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
@@ -299,7 +296,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 * Hay un nombre de equipo duplicado con identificadores de equipo de origen diferentes. Este escenario se produce cuando se crea una máquina virtual con un nombre de equipo determinado en distintos grupos de recursos y envía notificaciones a la misma área de trabajo del agente de logística en la suscripción.
 
-* La imagen de máquina virtual que se incorporará puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
+* La imagen de máquina virtual que se implementará puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
 
 ### <a name="resolution"></a>Solución
 
@@ -319,7 +316,7 @@ Vaya a [Network planning](../automation-update-management.md#ports) (Planeamient
 
 Cambie el nombre de las máquinas virtuales para asegurarse de que los nombres sean únicos en el entorno.
 
-#### <a name="onboarded-image-from-cloned-machine"></a>Imagen incorporada desde una máquina clonada
+#### <a name="deployed-image-from-cloned-machine"></a>Imagen implementada desde una máquina clonada
 
 Si usa una imagen clonada, los distintos nombres de equipo tienen el mismo identificador de equipo de origen. En este caso:
 
@@ -333,7 +330,7 @@ Si usa una imagen clonada, los distintos nombres de equipo tienen el mismo ident
 
 3. Ejecute `Restart-Service HealthService` para reiniciar el servicio de mantenimiento. Esta operación vuelve a crear la clave y genera un nuevo UUID.
 
-4. Si este enfoque no funciona, en primer lugar, ejecute Sysprep en la imagen y, a continuación, instale MMA.
+4. Si este enfoque no funciona, en primer lugar, ejecute sysprep en la imagen y, a continuación, instale MMA.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure
 
@@ -443,7 +440,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="cause"></a>Causa
 
-La máquina ya se ha incorporado a otra área de trabajo para Update Management.
+La máquina ya se ha implementado en otra área de trabajo para Update Management.
 
 ### <a name="resolution"></a>Solución
 
@@ -534,7 +531,7 @@ Este problema suele deberse a problemas de firewall y de configuración de red. 
   * Si las máquinas están configuradas para Windows Update, asegúrese de que puede acceder a los puntos de conexión descritos en [Problemas relacionados con HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   * Si las máquinas están configuradas para Windows Server Update Services (WSUS), asegúrese de que puede acceder al servidor WSUS configurado por la [clave del Registro WUServer ](/windows/deployment/update/waas-wu-settings).
 
-Si se muestra un código de error HRESULT, haga doble clic en la excepción que se muestra en rojo para ver el mensaje de excepción completo. Revise la siguiente tabla para ver posibles soluciones o acciones recomendadas.
+Si se muestra un código de error HRESULT, haga doble clic en la excepción que se muestra en rojo para ver el mensaje de excepción completo. Revise la siguiente tabla para ver posibles resoluciones o acciones recomendadas.
 
 |Excepción  |Acción o resolución  |
 |---------|---------|
@@ -546,7 +543,7 @@ Si se muestra un código de error HRESULT, haga doble clic en la excepción que 
 |`0x80072EE2`|Existe un problema de conectividad de red o un problema al comunicarse con un servidor WSUS configurado. Compruebe la configuración de WSUS y asegúrese de que se puede acceder al servicio desde el cliente.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Asegúrese de que el servicio Windows Update (wuauserv) se está ejecutando y no está deshabilitado.        |
 |`0x80070005`| Un error de acceso denegado puede deberse a cualquiera de las siguientes razones:<br> Equipo infectado<br> Windows Update no está configurado correctamente.<br> Error de permiso de archivo en la carpeta %WinDir%\SoftwareDistribution<br> Espacio en disco insuficiente en la unidad del sistema (C:).
-|Cualquier otra excepción genérica     | Ejecute una búsqueda en Internet para ver las soluciones posibles y colabore con el equipo de soporte técnico de TI local.         |
+|Cualquier otra excepción genérica     | Ejecute una búsqueda en Internet para ver las resoluciones posibles y colabore con el equipo de soporte técnico de TI local.         |
 
 Revisar el archivo **%Windir%\Windowsupdate.log** también puede ayudar a determinar los posibles motivos. Para más información sobre cómo leer el registro, consulte [Cómo leer el archivo Windowsupdate.log](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
 

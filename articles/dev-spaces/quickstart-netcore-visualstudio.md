@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 1aa2545f3bd4e7558c99a31dca43f65510bab59e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 909e4638b3b0919919320a09cbfa0e8d9ac92f2e
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872136"
+ms.locfileid: "83995945"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Inicio rápido: Depuración e iteración en Kubernetes: Visual Studio y .NET Core: Azure Dev Spaces
 
@@ -28,29 +28,47 @@ Azure Dev Spaces también permite depurar e iterar mediante:
 - [Node.js y Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core y Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - Visual Studio 2019 en Windows con la carga de trabajo de desarrollo de Azure instalada. Si no tiene instalado Visual Studio, descárguelo [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [La CLI de Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
 
-Debe crear un clúster de AKS en una [región admitida][supported-regions]. Para crear un clúster:
+Debe crear un clúster de AKS en una [región admitida][supported-regions]. Los siguientes comandos permiten crear un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. Seleccione *+ Crear un recurso > Kubernetes Service*. 
-1. Escriba la _suscripción_, el _grupo de recursos_, el _nombre del clúster de Kubernetes_, la _región_, la _versión de Kubernetes_ y el _prefijo del nombre DNS_.
-
-    ![Creación de instancia de AKS en Azure Portal](media/get-started-netcore-visualstudio/create-aks-portal.png)
-
-1. Haga clic en *Revisar + crear*.
-1. Haga clic en *Crear*.
+```azurecli
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
+```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces en el clúster de AKS
 
-Vaya a su clúster de AKS en Azure Portal y haga clic en *Dev Spaces*. Cambie *Use Dev Spaces* (Usar Dev Spaces) a *Sí* y haga clic en *Guardar*.
+Use el comando `use-dev-spaces` para habilitar Dev Spaces en el clúster de AKS y siga las indicaciones. El siguiente comando permite habilitar Dev Spaces en el clúster *MyAKS* del grupo *MyResourceGroup* y crea un espacio de desarrollo *predeterminado*.
 
-![Habilitar Dev Spaces en Azure Portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
+> [!NOTE]
+> El comando `use-dev-spaces` también instalará la CLI de Azure Dev Spaces si aún no se ha instalado. La CLI de Azure Dev Spaces no se puede instalar en Azure Cloud Shell.
+
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
+
+```output
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
 
 ## <a name="create-a-new-aspnet-web-app"></a>Crear una aplicación web ASP.NET
 

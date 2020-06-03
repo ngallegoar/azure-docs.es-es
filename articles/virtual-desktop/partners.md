@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a6a4712f88a6f5351845233f4179e82e4b473ded
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692236"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266736"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integraciones de partners de Windows Virtual Desktop
 
@@ -245,7 +245,7 @@ sepago fue fundada en 2002 por cuatro amigos de Colonia. Hoy en día, sepago es 
 El laboratorio de innovación y desarrollo de sepago crea soluciones inteligentes mediante tecnologías de macrodatos e IA. Estas soluciones se centran en la mejora del negocio, la experiencia de usuario y las administraciones de productos de asociados como Windows Virtual Desktop.
 
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
-- [Ir al sitio web del asociado](https://www.sepago.de/wvd-value-add-tools/).
+- [Ir al sitio web del asociado](https://www.sepago.de/en/).
 
 ## <a name="thinprint"></a>ThinPrint
 

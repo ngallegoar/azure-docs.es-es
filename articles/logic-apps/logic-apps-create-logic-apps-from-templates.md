@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f9513c3ac28b8f65d9023fc529927b208323ca1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905112"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834465"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
 
@@ -34,7 +34,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
 ## <a name="create-logic-apps-from-templates"></a>Creación de aplicaciones lógicas a partir de plantillas
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com "Portal de Azure") si aún no lo ha hecho.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal") si aún no lo ha hecho.
 
 2. En el menú principal de Azure Portal, elija **Crear un recurso** > **Enterprise Integration** > **Logic App**.
 
@@ -99,7 +99,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
 ## <a name="update-logic-apps-with-templates"></a>Actualizar aplicaciones lógicas con plantillas
 
-1. En [Azure Portal](https://portal.azure.com "Portal de Azure"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. En [Azure Portal](https://portal.azure.com "Azure Portal"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
 2. En la barra de herramientas del diseñador, haga clic en **Plantillas**. Esta acción descarta los cambios no guardados, por lo que aparece un mensaje de advertencia para confirmar que quiere continuar. Para confirmar, elija **Aceptar**. Por ejemplo:
 
@@ -146,7 +146,7 @@ En la barra de herramientas del diseñador, haga clic en **Guardar**.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes

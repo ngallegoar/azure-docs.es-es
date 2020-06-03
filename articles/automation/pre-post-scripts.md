@@ -5,19 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f55ebb3270fdd97a1fdbbf5a56f9703c08933f9f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: fd37ccc5850baf1cfb778b6706a76c91bd178922
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855325"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835179"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Administración de scripts previos y posteriores
 
 Los scripts previos y posteriores son runbooks para ejecutar en la cuenta de Azure Automation antes (antes de la tarea) y después (después de la tarea) de la implementación de una actualización. Los scripts previos y posteriores se ejecutan en el contexto de Azure, no de forma local. Los scripts previos se ejecutan al principio de la implementación de actualizaciones. Los scripts posteriores se ejecutan al final de la implementación y después de todos reinicios que estén configurados.
-
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de scripts previos y posteriores
 
@@ -94,7 +91,7 @@ Se puede encontrar un ejemplo completo con todas las propiedades en: [Get softwa
 > [!NOTE]
 > El objeto `SoftwareUpdateConfigurationRunContext` puede contener entradas duplicadas para las máquinas. Esto puede hacer que los scripts previos y posteriores se ejecuten varias veces en la misma máquina. Para solucionar este comportamiento, use `Sort-Object -Unique` para seleccionar solo nombres de VM únicos.
 
-## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Uso de un script previo o posterior en una implementación
+## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Uso de un script previo o posterior en una implementación
 
 Para usar un script previo o posterior en una implementación de actualizaciones, solo tiene que empezar por crear una implementación de actualizaciones. Seleccione **Scripts previos y scripts posteriores**. Se abrirá la página **Seleccionar scripts previos + scripts posteriores**.
 
@@ -120,7 +117,7 @@ Al seleccionar la ejecución de la implementación de actualizaciones, se muestr
 
 en su script.
 
-## <a name="stopping-a-deployment"></a>Detención de una implementación
+## <a name="stop-a-deployment"></a>Detención de una implementación
 
 Si quiere detener una implementación basada en un script previo, debe [generar](automation-runbook-execution.md#throw) una excepción. Si no lo hace, la implementación y el script posterior se seguirán ejecutando. El siguiente fragmento de código muestra cómo generar una excepción.
 
@@ -137,9 +134,7 @@ foreach($summary in $finalStatus)
 }
 ```
 
-
-
-## <a name="interacting-with-machines"></a>Interacción con las máquinas
+## <a name="interact-with-machines"></a>Interacción con máquinas
 
 Los scripts previos y la tareas posteriores se ejecutan como runbooks en la cuenta de Automation y no directamente en las máquinas de la implementación. Las tareas previas y posteriores también se ejecutan en el contexto de Azure y no tienen acceso a máquinas que no son de Azure. En las secciones siguientes se muestra cómo interactuar directamente con las máquinas, tanto si se trata de VM de Azure como de máquinas que no son de Azure.
 
@@ -163,7 +158,7 @@ Las tareas previas y posteriores se ejecutan en el contexto de Azure y no tienen
 
 Para interactuar con máquinas que no son de Azure, se ejecuta un runbook principal en el contexto de Azure. Este runbook llama a un runbook secundario con el cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Debe especificar el parámetro `RunOn` y proporcionar el nombre de la instancia de Hybrid Runbook Worker para que el script se ejecute. Consulte el ejemplo de runbook [Update Management: ejecutar script de forma local](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
-## <a name="aborting-patch-deployment"></a>Anulación de la implementación de revisiones
+## <a name="abort-patch-deployment"></a>Acerca de la implementación de revisiones
 
 Si el script previo devuelve un error, es posible que quiera anular la implementación. Para ello, debe [generar](/powershell/module/microsoft.powershell.core/about/about_throw) un error en el script en cualquier lógica que implique un error.
 
@@ -250,7 +245,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe con el tutorial siguiente para aprender a administrar actualizaciones de máquinas virtuales Windows:
-
-> [!div class="nextstepaction"]
-> [Administración de actualizaciones y revisiones para las máquinas virtuales Windows de Azure](automation-tutorial-update-management.md)
+* Para más información sobre Update Management, consulte [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).

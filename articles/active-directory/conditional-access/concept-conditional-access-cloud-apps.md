@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 022c6360b97c7c27887ff5d2f6460f69cb8126c6
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: d6cf00fab14f91b151327b435068d689edab32b2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778471"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737731"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -117,6 +117,10 @@ Además de las aplicaciones de Microsoft, los administradores pueden agregar cua
 - [Aplicaciones agregadas desde la galería](../manage-apps/add-application-portal.md)
 - [Aplicaciones personalizadas que no están en la galería](../manage-apps/add-non-gallery-app.md)
 - [Aplicaciones heredadas publicadas a través de redes y controladores de entrega de aplicaciones](../manage-apps/secure-hybrid-access.md)
+
+> [!NOTE]
+> Puesto que la directiva de acceso condicional establece los requisitos para obtener acceso a un servicio, no puede aplicarla a una aplicación cliente (pública o nativa). Es decir, la directiva no está establecida directamente en una aplicación cliente (pública o nativa), pero se aplica cuando un cliente llama a un servicio. Por ejemplo, una directiva establecida en el servicio SharePoint se aplica a los clientes que llamen a SharePoint. Así mismo, una directiva establecida en Exchange se aplica al intento de acceder al correo electrónico mediante el cliente de Outlook. Este es el motivo por el que las aplicaciones cliente (públicas o nativas) no están disponibles para su selección en el selector Aplicaciones en la nube y la opción Acceso condicional no está disponible en la configuración de la aplicación para la aplicación cliente (pública o nativa) registrada en el inquilino. 
+
 
 ## <a name="user-actions"></a>Acciones del usuario
 

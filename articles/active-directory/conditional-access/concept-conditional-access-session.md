@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671916"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993868"
 ---
 # <a name="conditional-access-session"></a>Acceso condicional: Sesión
 
@@ -48,7 +48,7 @@ Control de aplicaciones de acceso condicional permite supervisar y controlar las
 
 Para obtener más información, consulte el artículo [Implementación del Control de aplicaciones de acceso condicional para aplicaciones destacadas](/cloud-app-security/proxy-deployment-aad).
 
-## <a name="sign-in-frequency-preview"></a>Frecuencia de inicio de sesión (versión preliminar)
+## <a name="sign-in-frequency"></a>Frecuencia de inicio de sesión
 
 La frecuencia de inicio de sesión define el período de tiempo antes de que se pida a un usuario que vuelva a iniciar sesión cuando intenta acceder a un recurso.
 
@@ -62,11 +62,11 @@ La configuración de la frecuencia de inicio de sesión funciona con aplicacione
 - SharePoint y OneDrive
 - Cliente web de Teams
 - Dynamics CRM Online
-- Portal de Azure
+- Azure portal
 
 Para más información, consulte el artículo [Configuración de la administración de las sesiones de autenticación con el acceso condicional](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## <a name="persistent-browser-session-preview"></a>Sesión del explorador persistente (versión preliminar)
+## <a name="persistent-browser-session"></a>Sesión del explorador persistente
 
 Una sesión persistente del explorador permite a los usuarios permanecer conectados después de cerrar y volver a abrir la ventana del explorador.
 

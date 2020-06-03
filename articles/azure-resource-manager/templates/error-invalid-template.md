@@ -2,13 +2,13 @@
 title: Errores de plantilla no válida
 description: Describe cómo resolver errores de plantilla no válida al implementar plantillas de Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76154064"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832528"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolución de errores de plantilla no válida
 
@@ -130,7 +130,7 @@ Compruebe los valores permitidos de la plantilla y proporcione uno durante la im
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solución 4: hay demasiados grupos de recursos de destino
 
-Si especifica más de cinco grupos de recursos de destino en una sola implementación, recibirá este error. Considere la posibilidad de consolidar el número de grupos de recursos de la implementación o implementar algunas de las plantillas en diferentes implementaciones. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-resource-group-deployment.md).
+Puede que vea este error en implementaciones anteriores porque estaba limitado a cinco grupos de recursos de destino en una sola implementación. En mayo de 2020 ese límite se ha aumentado a 800 grupos de recursos. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 
@@ -143,7 +143,7 @@ Para resolver una dependencia circular:
 1. En la plantilla, busque el recurso identificado en la dependencia circular.
 2. Para ese recurso, examine la propiedad **dependsOn** y todos los usos de la función **reference** para ver de qué recursos depende.
 3. Examine esos recursos para ver de qué recursos dependen. Siga las dependencias hasta que observe un recurso que dependa del recurso original.
-5. Para los recursos que intervienen en la dependencia circular, examine con cuidado todos los usos de la propiedad **dependsOn** para identificar las dependencias que no sean necesarias. Quite esas dependencias. Si no está seguro de si una dependencia es necesaria, pruebe a quitarla.
+5. En el caso de los recursos que intervienen en la dependencia circular, examine con cuidado todos los usos de la propiedad **dependsOn** para identificar las dependencias que no sean necesarias. Quite esas dependencias. Si no está seguro de si una dependencia es necesaria, pruebe a quitarla.
 6. Vuelva a implementar la plantilla.
 
 Al quitar los valores de la propiedad **dependsOn**, se pueden provocar errores al implementar la plantilla. Si recibe un error, vuelva a agregar la dependencia a la plantilla.

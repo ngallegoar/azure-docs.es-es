@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ed8c3563f9a17a30e0d5df5f00c35f34510d6029
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203421"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848930"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creación masiva de usuarios en Azure Active Directory
 
@@ -44,7 +44,7 @@ Las filas de una plantilla CSV descargada son las siguientes:
 
 ### <a name="additional-guidance"></a>Instrucciones adicionales
 
-- Las dos primeras filas de la plantilla de carga no se deben quitar ni modificar, o no se podrá procesar la carga.
+- Las dos primeras filas de la plantilla de carga no se deben eliminar ni modificar, o no se podrá procesar la carga.
 - Las columnas necesarias se enumeran en primer lugar.
 - No se recomienda agregar nuevas columnas a la plantilla. Cualquier columna adicional que agregue se omitirá y no se procesará.
 - Se recomienda que descargue la versión más reciente de la plantilla CSV tan a menudo como sea posible.
@@ -66,7 +66,7 @@ Las filas de una plantilla CSV descargada son las siguientes:
 1. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que importa los nuevos usuarios.
 1. Cuando la operación de importación finalice, verá una notificación que indicará el estado del trabajo de la operación masiva.
 
-Si hay errores, puede descargar y ver el archivo de resultados en la página **Resultados de la operación masiva**. El archivo contiene el motivo de cada error.
+Si hay errores, puede descargar y ver el archivo de resultados en la página **Resultados de la operación masiva**. El archivo contiene el motivo de cada error. El envío del archivo debe coincidir con la plantilla proporcionada e incluir los nombres de columna exactos.
 
 ## <a name="check-status"></a>Comprobar estado
 

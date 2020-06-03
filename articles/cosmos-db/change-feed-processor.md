@@ -1,21 +1,21 @@
 ---
-title: Biblioteca de procesadores de fuente de cambios de Azure Cosmos DB
-description: Aprenda a usar la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB para leer la fuente de cambios y los componentes del procesador de fuente de cambios.
-author: markjbrown
-ms.author: mjbrown
+title: Procesadores de fuente de cambios de Azure Cosmos DB
+description: Aprenda a usar el procesador de fuente de cambios de Azure Cosmos DB para leer la fuente de cambios, y los componentes del procesador de fuente de cambios.
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273305"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655308"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB
 
 El procesador de fuente de cambios es parte del [SDK V3 de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3). Simplifica el proceso de lectura de la fuente de cambios y distribuye el procesamiento de eventos entre varios consumidores de manera eficaz.
 
@@ -23,13 +23,13 @@ La principal ventaja de la biblioteca de procesador de fuente de cambios es su c
 
 ## <a name="components-of-the-change-feed-processor"></a>Componentes del procesador de fuente de cambios
 
-Hay cuatro componentes principales en la implementación del procesador de fuente de cambios: 
+Hay cuatro componentes principales en la implementación del procesador de fuente de cambios:
 
 1. **El contenedor supervisado:** el contenedor supervisado tiene los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y actualizaciones realizadas en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
 
-1. **El contenedor de concesión**: El contenedor de concesión actúa como un almacenamiento de estado y coordina el procesamiento de la fuente de cambios entre varios trabajadores. El contenedor de concesión se puede almacenar en la misma cuenta que el contenedor supervisado o en una cuenta independiente. 
+1. **El contenedor de concesión**: El contenedor de concesión actúa como un almacenamiento de estado y coordina el procesamiento de la fuente de cambios entre varios trabajadores. El contenedor de concesión se puede almacenar en la misma cuenta que el contenedor supervisado o en una cuenta independiente.
 
-1. **El host:** Un host es una instancia de aplicación que usa el procesador de fuente de cambios para escuchar los cambios. Se pueden ejecutar varias instancias con la misma configuración de concesión en paralelo, pero cada instancia debe tener **un nombre de instancia** diferente. 
+1. **El host:** Un host es una instancia de aplicación que usa el procesador de fuente de cambios para escuchar los cambios. Se pueden ejecutar varias instancias con la misma configuración de concesión en paralelo, pero cada instancia debe tener **un nombre de instancia** diferente.
 
 1. **El delegado:** El delegado es el código que define lo que usted, el desarrollador, desea hacer con cada lote de cambios que el procesador de la fuente de cambios lea. 
 
@@ -65,17 +65,27 @@ El ciclo de vida normal de una instancia de host es:
 
 ## <a name="error-handling"></a>Control de errores
 
-El procesador de fuente de cambios es resistente a los errores de código de usuario. Esto significa que si la implementación del delegado tiene una excepción no controlada (paso nº 4), el subproceso que está procesando ese lote específico de cambios se detendrá y se creará un nuevo subproceso. El nuevo subproceso comprobará cuál fue el último punto en el tiempo que el almacén de concesiones tiene para ese intervalo de valores de clave de partición, y se reiniciará desde allí, enviando de forma eficaz el mismo lote de cambios al delegado. Este comportamiento continuará hasta que el delegado procese los cambios correctamente, y es el motivo por el que el procesador de fuente de cambios tiene una garantía de "al menos una vez", ya que, si se produce un error en el código de delegado, ese lote se volverá a intentar.
+El procesador de fuente de cambios es resistente a los errores de código de usuario. Esto significa que si la implementación del delegado tiene una excepción no controlada (paso nº 4), el subproceso que está procesando ese lote específico de cambios se detendrá y se creará un nuevo subproceso. El nuevo subproceso comprobará cuál fue el último punto en el tiempo que el almacén de concesiones tiene para ese intervalo de valores de clave de partición, y se reiniciará desde allí, enviando de forma eficaz el mismo lote de cambios al delegado. Este comportamiento continúa hasta que el delegado procesa los cambios correctamente, y es el motivo por el que el procesador de fuente de cambios tiene una garantía de "al menos una vez", ya que, si se produce una excepción en el código del delegado, ese lote se vuelve a intentar.
+
+Para evitar que el procesador de fuente de cambios se "atasque" al reintentar continuamente el mismo lote de cambios, debe agregar lógica al código del delegado para escribir documentos, en caso de excepción, en una cola de mensajes fallidos. Este diseño garantiza que se pueda realizar un seguimiento de los cambios sin procesar a la vez que se siguen procesando cambios futuros. La cola de mensajes fallidos podría ser simplemente otro contenedor de Cosmos. El almacén de datos exacto no importa, simplemente que se conserven los cambios sin procesar.
+
+Además, puede usar el [estimador de fuente de cambios](how-to-use-change-feed-estimator.md) para supervisar el progreso de las instancias del procesador de fuente de cambios a medida que leen la fuente de cambios. Además de supervisar si el procesador de fuente de cambios se "atasca" al reintentar continuamente el mismo lote de cambios, también puede entender si el procesador de fuente de cambios va retrasado debido a recursos disponibles como la CPU, la memoria y el ancho de banda de red.
+
+## <a name="deployment-unit"></a>Unidad de implementación
+
+Una sola unidad de implementación de procesador de fuente de cambios está formada por una o varias instancias con el mismo `processorName` y la misma configuración de contenedor de concesión. Puede tener muchas unidades de implementación donde cada una tiene un flujo de negocio diferente para los cambios y cada unidad de implementación que consta de una o varias instancias. 
+
+Por ejemplo, podría tener una unidad de implementación que desencadene una API externa en cualquier momento en que se produzca un cambio en el contenedor. Otra unidad de implementación podría trasladar los datos en tiempo real, cada vez que se produzca un cambio. Cuando se produce un cambio en el contenedor supervisado, todas las unidades de implementación recibirán una notificación.
 
 ## <a name="dynamic-scaling"></a>Escalado dinámico
 
-Como se mencionó en la introducción, el procesador de fuente de cambios puede distribuir el proceso entre varias instancias de forma automática. Puede implementar varias instancias de la aplicación mediante el procesador de fuente de cambios y sacar provecho de ello, los únicos requisitos clave son los siguientes:
+Como se mencionó antes, en una unidad de implementación puede tener una o más instancias. Para beneficiarse de la distribución de proceso dentro de la unidad de implementación, los únicos requisitos clave son los siguientes:
 
 1. Todas las instancias deben tener la misma configuración de contenedor de concesión.
-1. Todas las instancias deben tener el mismo nombre de flujo de trabajo.
+1. Todas las instancias deben tener el mismo `processorName`.
 1. Cada instancia tiene que tener un nombre de instancia diferente (`WithInstanceName`).
 
-Si estas tres condiciones son aplicables, el procesador de fuente de cambios, mediante el uso de un algoritmo de distribución equitativa, distribuye todas las concesiones en el contenedor de concesión en todas las instancias en ejecución y paraleliza el proceso. Una concesión solo puede ser propiedad de una instancia en un momento dado, por lo que el número máximo de instancias es igual al número de concesiones.
+Si estas tres condiciones son aplicables, el procesador de fuente de cambios, mediante el uso de un algoritmo de distribución equitativa, distribuye todas las concesiones en el contenedor de concesión en todas las instancias en ejecución de esa unidad de implementación y paraleliza el proceso. Una concesión solo puede ser propiedad de una instancia en un momento dado, por lo que el número máximo de instancias es igual al número de concesiones.
 
 El número de instancias pueden aumentar y reducir, y el procesador de fuente de cambios ajustará dinámicamente la carga redistribuyéndola en consecuencia.
 
@@ -96,6 +106,7 @@ Se le cobrarán las RU consumidas, puesto que la entrada y la salida de datos de
 Puede obtener más información sobre el procesador de la fuente de cambios en los siguientes artículos:
 
 * [Introducción a la fuente de cambios](change-feed.md)
+* [Modelo de extracción de fuente de cambios](change-feed-pull-model.md)
 * [Migración desde la biblioteca de procesadores de fuente de cambios](how-to-migrate-from-change-feed-library.md)
 * [Uso del calculador de la fuente de cambios](how-to-use-change-feed-estimator.md)
 * [Hora de inicio del procesador de la fuente de cambios](how-to-configure-change-feed-start-time.md)

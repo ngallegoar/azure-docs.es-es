@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1045f86db5e1a9ed1979a266937974045e401e27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234576"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684645"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión de redes de Azure en Azure Monitor
 
@@ -150,7 +150,7 @@ Para los grupos de seguridad de red se admiten los siguientes registros:
 ### <a name="install-and-configure-the-solution"></a>Instalación y configuración de la solución
 Para instalar y configurar la solución Azure Networking Analytics, siga estas instrucciones:
 
-1. Habilite la solución Azure Network Security Group Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md).
+1. Habilite la solución Azure Network Security Group Analytics mediante el proceso que se describe en [Incorporación de soluciones de Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md).
 2. Habilite el registro de diagnósticos para los recursos de [Network Security Group](../../virtual-network/virtual-network-nsg-manage-log.md) que desea supervisar.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Habilitación de los diagnósticos de Azure Network Security Group en el portal

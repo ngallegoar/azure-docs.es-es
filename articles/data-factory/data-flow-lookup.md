@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
-ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 05/15/2020
+ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594328"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683330"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformación de búsqueda en el flujo de datos de asignación
 
@@ -40,6 +40,12 @@ Una transformación búsqueda es similar a una combinación externa izquierda. T
 La transformación búsqueda solo admite coincidencias de igualdad. Para personalizar la expresión de búsqueda para que incluya otros operadores como mayor que, se recomienda usar una [Combinación cruzada en la transformación combinada](data-flow-join.md#custom-cross-join). Una combinación cruzada evitará cualquier posible error de producto cartesiano en la ejecución.
 
 Todas las columnas de ambas secuencias se incluyen en los datos de salida. Para quitar las columnas duplicadas o no deseadas, agregue una [transformación de selección](data-flow-select.md) después de la transformación búsqueda. También se pueden quitar o cambiar el nombre de las columnas en una transformación de receptor.
+
+### <a name="non-equi-joins"></a>Combinaciones no equivalentes
+
+Para usar un operador condicional como no es igual a (! =) o mayor que (>) en las condiciones de búsqueda, cambie la lista desplegable de operadores entre las dos columnas. Las combinaciones no equivalentes requieren que al menos uno de los dos flujos se difunda mediante la retransmisión **fija** en la pestaña **Optimizar**.
+
+![Búsqueda no equivalente](media/data-flow/non-equi-lookup.png "Búsqueda no equivalente")
 
 ## <a name="analyzing-matched-rows"></a>Analizar filas coincidentes
 
