@@ -3,12 +3,12 @@ title: 'Inicio rápido: La primera consulta en el portal'
 description: En este inicio rápido dará los pasos necesarios para ejecutar la primera consulta desde Azure Portal mediante Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872082"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148045"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer
 
@@ -51,7 +51,7 @@ El explorador de esquema es una excelente manera de detectar las propiedades que
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Creación de un gráfico a partir de la consulta de Resource Graph
 
-Después de ejecutar la última consulta anterior, si selecciona la pestaña **Gráficos**, recibirá un mensaje que indica que el conjunto de resultados no es compatible con una visualización de gráfico circular. Las consultas que muestran resultados no se pueden convertir en un gráfico, pero las consultas que proporcionan recuentos de recursos sí. Mediante la consulta de ejemplo [Recuento de máquinas virtuales por tipo de sistema operativo](./samples/starter.md#count-virtual-machines-by-os-type), vamos a crear una visualización a partir de la consulta de Resource Graph.
+Después de ejecutar la última consulta anterior, si selecciona la pestaña **Gráficos**, recibirá un mensaje que indica que el conjunto de resultados no es compatible con una visualización de gráfico circular. Las consultas que muestran resultados no se pueden convertir en un gráfico, pero las consultas que proporcionan recuentos de recursos sí. Mediante la consulta de ejemplo [Recuento de máquinas virtuales por tipo de sistema operativo](./samples/starter.md#count-os), vamos a crear una visualización a partir de la consulta de Resource Graph.
 
 1. En la parte **Consulta 1** de la ventana, escriba la siguiente consulta y seleccione **Ejecutar consulta**.
 

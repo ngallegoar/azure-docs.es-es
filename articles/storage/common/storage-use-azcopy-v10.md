@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 60f3e725a4df619e3cc8ed7e8878fe2a5e5c3406
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780885"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195194"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -23,7 +23,7 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 >
 > Si necesita usar una versión anterior de AzCopy, consulte la sección [Uso de la versión anterior de AzCopy](#previous-version) de este artículo.
 
-<a id="download-and-install-azcopy" />
+<a id="download-and-install-azcopy"></a>
 
 ## <a name="download-azcopy"></a>Descargar AzCopy
 
@@ -125,7 +125,7 @@ Este comando devuelve un código de autenticación y la dirección URL de un sit
 
 Aparece una ventana de inicio de sesión. En esa ventana, inicie sesión en la cuenta de Azure con sus credenciales de la cuenta de Azure. Cuando haya iniciado sesión correctamente, puede cerrar la ventana del explorador y comenzar a usar AzCopy.
 
-<a id="service-principal" />
+<a id="service-principal"></a>
 
 #### <a name="authenticate-a-service-principal"></a>Autenticación de una entidad de servicio
 
@@ -191,7 +191,7 @@ Reemplace el marcador de posición `<path-to-certificate-file>` por la ruta de a
 > [!NOTE]
 > Considere la posibilidad de utilizar un símbolo del sistema como se muestra en este ejemplo. De este modo, la contraseña no aparecerá en el historial de comandos de la consola. 
 
-<a id="managed-identity" />
+<a id="managed-identity"></a>
 
 #### <a name="authenticate-a-managed-identity"></a>Autenticación de una identidad administrada
 
@@ -304,7 +304,7 @@ El [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer
 
 El Explorador de Azure Storage utiliza la clave de la cuenta para realizar operaciones, por lo que después de iniciar sesión en el Explorador de Azure Storage, no tendrá que proporcionar credenciales de autorización adicionales.
 
-<a id="previous-version" />
+<a id="previous-version"></a>
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Uso de la versión anterior de AzCopy
 

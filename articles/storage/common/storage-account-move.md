@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 64d987ff01e596eefa98e8086788546c465e2d83
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198500"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195394"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Traslado de una cuenta de Azure Storage a otra región
 
@@ -37,7 +37,7 @@ En este artículo, aprenderá a:
 
 - En el caso de las características en vista previa (GB), asegúrese de que la suscripción está en la lista de permitidos para la región de destino.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## <a name="prepare"></a>Preparación
 
@@ -174,7 +174,7 @@ Para implementar la plantilla con PowerShell:
     ```
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## <a name="move"></a>Move
 

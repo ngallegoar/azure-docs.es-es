@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a3180593eaf8c01c772fd761d88b5f5b9f7657ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6d2be3760a28a8702b221dbd484901918441d9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75941506"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195204"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copia de datos desde Amazon S3 a Azure Storage con AzCopy
 
@@ -135,7 +135,7 @@ Como parte de un comando `copy` de AzCopy, puede proporcionar un valor opcional 
 | **FailIfInvalid** | Los objetos no se copian. AzCopy registra un error y lo incluye en el recuento de errores que aparece en el resumen de la transferencia.  |
 | **RenameIfInvalid**  | AzCopy resuelve la clave de metadatos no válida y copia el objeto en Azure mediante el par clave-valor de metadatos resuelto. Para saber exactamente qué pasos realiza AzCopy para cambiar el nombre de las claves de objeto, vea la sección [Cómo cambia AzCopy el nombre de las claves de objeto](#rename-logic) más adelante. Si AzCopy no puede cambiar el nombre de la clave, el objeto no se copiará. |
 
-<a id="rename-logic" />
+<a id="rename-logic"></a>
 
 ### <a name="how-azcopy-renames-object-keys"></a>Cómo cambia AzCopy el nombre de las claves de objeto
 
