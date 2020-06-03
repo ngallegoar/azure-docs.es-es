@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cb47119fdddad70f8b7d5de94f9a2d35efd80d76
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649802"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259310"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
@@ -118,7 +118,7 @@ resourceId | El identificador de recursos de Azure Resource Manager |
 SubscriptionId | Id. de suscripción |
 EventTimeString | Hora de la operación |
 EventProperties | Propiedades de la operación |
-Status | Estado de la operación |
+Estado | Estado de la operación |
 Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client) |
 Category | OperationalLogs |
 
@@ -247,7 +247,7 @@ Las cadenas JSON del registro de usuario de claves administradas por el cliente 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Introducción a la API de Event Hubs](event-hubs-api-overview.md)
+- [Ejemplos de Event Hubs](sdks.md)
 - Introducción a Event Hubs
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)

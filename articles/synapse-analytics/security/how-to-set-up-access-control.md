@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 894f3002e292466a460c8f96bb7f35b590cb9552
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660087"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015835"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar)
 
@@ -130,7 +130,7 @@ Los usuarios de cada rol deben completar los siguientes pasos:
 
 ## <a name="step-8-network-security"></a>PASO 8: Seguridad de redes
 
-Para configurar el firewall del área de trabajo, la red virtual y la instancia de [Private Link](../../sql-database/sql-database-private-endpoint-overview.md).
+Para configurar el firewall del área de trabajo, la red virtual y la instancia de [Private Link](../../azure-sql/database/private-endpoint-overview.md).
 
 ## <a name="step-9-completion"></a>PASO 9: Completion
 

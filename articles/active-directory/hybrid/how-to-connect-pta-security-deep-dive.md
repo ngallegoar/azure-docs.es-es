@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77185559"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014373"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -75,6 +75,9 @@ En las secciones siguientes se tratan estas fases en detalle.
 Solo los administradores globales pueden instalar un agente de autenticación (con Azure AD Connect o de forma independiente) en un servidor local. La instalación agrega dos nuevas entradas a la lista de **Panel de control** > **Programas** > **Programas y características**:
 - La propia aplicación del agente de autenticación. Esta aplicación se ejecuta con privilegios [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx).
 - La aplicación del actualizador que se usa para actualizar automáticamente el agente de autenticación. Esta aplicación se ejecuta con privilegios [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
+
+>[!IMPORTANT]
+>Desde el punto de vista de la seguridad, los administradores deben tratar el servidor que ejecuta el agente de PTA como si fuera un controlador de dominio.  Los servidores del agente de PTA deben protegerse a lo largo de las mismas líneas que se describen en [Protección de los controladores de dominio frente a ataques](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack).
 
 ### <a name="authentication-agent-registration"></a>Registro del agente de autenticación
 

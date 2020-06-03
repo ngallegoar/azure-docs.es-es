@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cf00fab14f91b151327b435068d689edab32b2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737731"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014356"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -36,7 +36,7 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 - [Office 365 (versión preliminar)](#office-365-preview)
 - Azure Analysis Services
 - Azure DevOps
-- [Azure SQL Database y Data Warehouse](../../sql-database/sql-database-conditional-access.md)
+- [Azure SQL Database y Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Analytics de Microsoft Application Insights
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -98,7 +98,7 @@ Aplicaciones clave que se incluyen en la aplicación cliente Office 365 (versió
 
 La aplicación de administración de Microsoft Azure incluye varios servicios subyacentes. 
 
-   - Azure Portal
+   - Azure portal
    - Proveedor de Azure Resource Manager
    - API del modelo de implementación clásica
    - Azure PowerShell

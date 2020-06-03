@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70881289"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300739"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Redes de Azure Dedicated HSM
 
@@ -78,7 +78,7 @@ Los dispositivos HSM tienen la capacidad, mediante bibliotecas de software, de r
 
 ### <a name="cross-region-ha-using-vpn-gateway"></a>Alta disponibilidad entre regiones mediante VPN Gateway
 
-Para aplicaciones distribuidas globalmente o para escenarios de conmutación por error regional de alta disponibilidad, es necesario conectar redes virtuales entre regiones. Con Azure Dedicated HSM, se puede lograr alta disponibilidad mediante el uso de VPN Gateway, que proporciona un túnel seguro entre las dos redes virtuales. Para más información sobre las conexiones de red virtual a red virtual mediante VPN Gateway, consulte el artículo titulado [¿Qué es VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
+Para aplicaciones distribuidas globalmente o para escenarios de conmutación por error regional de alta disponibilidad, es necesario conectar redes virtuales entre regiones. Con Azure Dedicated HSM, se puede lograr alta disponibilidad mediante el uso de VPN Gateway, que proporciona un túnel seguro entre las dos redes virtuales. Para más información sobre las conexiones de red virtual a red virtual mediante VPN Gateway, consulte el artículo titulado [¿Qué es VPN Gateway?](../vpn-gateway/design.md#V2V)
 
 > [!NOTE]
 > El emparejamiento de red virtual global no está disponible en escenarios de conectividad entre regiones con HSM dedicados en este momento y, en su lugar, debe utilizarse VPN Gateway. 

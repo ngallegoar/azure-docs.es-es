@@ -3,16 +3,16 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648186"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298149"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -43,7 +43,7 @@ Una inscripción tiene uno de los siguientes valores de estado. Cada valor deter
 
 **Expired** (Expirado): la inscripción del Contrato Enterprise expira cuando se alcanza la fecha de finalización de este contrato. El cliente del Contrato Enterprise no participa en el período extendido y todos sus servicios están deshabilitados.
 
-A partir del 1 de agosto de 2019, no se aceptan nuevos formularios de no participación para los clientes comerciales de Azure. En su lugar, todas las inscripciones entran en un período extendido indefinido. Si desea dejar de usar los servicios de Azure, cierre la suscripción en [Azure EA Portal](https://portal.azure.com). O bien, el asociado puede enviar una solicitud de finalización en https://www.explore.ms. No hay ningún cambio para los clientes con los tipos de contrato de gobierno.
+A partir del 1 de agosto de 2019, no se aceptan nuevos formularios de no participación para los clientes comerciales de Azure. En su lugar, todas las inscripciones entran en un período extendido indefinido. Si desea dejar de usar los servicios de Azure, cierre la suscripción en [Azure Portal](https://portal.azure.com). O bien, el asociado puede enviar una solicitud de finalización en https://www.explore.ms. No hay ningún cambio para los clientes con los tipos de contrato de gobierno.
 
 **Transferred** (Transferido): el estado transferido se aplica a las inscripciones que tienen las cuentas y servicios asociados transferidos a una nueva inscripción. Las inscripciones no se transfieren automáticamente si se genera un nuevo número de inscripción durante la renovación. El número de inscripción anterior debe incluirse en la solicitud de renovación del cliente para una transferencia automática.
 

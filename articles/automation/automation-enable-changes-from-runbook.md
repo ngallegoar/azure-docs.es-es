@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 014442dee1be23a189e22a505abf86050601b2aa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826749"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171096"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Habilitación de Change Tracking e Inventario desde un runbook
 
@@ -19,7 +19,7 @@ En este artículo se describe cómo puede usar un runbook para habilitar la cara
 > [!NOTE]
 > Al habilitar Change Tracking e Inventario, solo se admite la vinculación a un área de trabajo de Log Analytics y una cuenta de Automation en regiones concretas. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](automation-offering-get-started.md) para administrar máquinas.
@@ -104,8 +104,4 @@ Debe haber habilitado Change Tracking e Inventario para que una máquina virtual
 
 * Para programar un runbook, vea [Administración de programaciones en Azure Automation](shared-resources/schedules.md).
 * Para obtener más información sobre cómo trabajar con la característica, consulte [Administración de Change Tracking e Inventario](change-tracking-file-contents.md).
-* Para obtener información sobre las configuraciones de ámbito, vea [Uso de configuraciones de ámbito para Change Tracking e Inventario](automation-scope-configurations-change-tracking.md).
-* Para obtener información sobre cómo usar la característica para identificar el software instalado en el entorno, vea [Detección del software instalado en las máquinas virtuales](automation-tutorial-installed-software.md).
-* Si no quiere integrar la cuenta de Automation con un área de trabajo Log Analytics al habilitar la característica, vea [Desvinculación de un área de trabajo de una cuenta de Automation](automation-unlink-workspace-change-tracking.md).
-* Cuando haya terminado de implementar los cambios en las máquinas virtuales, puede quitarlas como se describe en [Eliminación de máquinas virtuales de Change Tracking e Inventario](automation-remove-vms-from-change-tracking.md).
 * Para solucionar problemas generales con la característica, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).

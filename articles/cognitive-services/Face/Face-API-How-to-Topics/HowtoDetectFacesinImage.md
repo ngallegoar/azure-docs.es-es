@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3fd308ede17f510b3e9188f2bebc93a08a61181
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76169871"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263202"
 ---
 # <a name="get-face-detection-data"></a>Obtención de los datos de detección de caras
 
@@ -145,7 +145,6 @@ Para más información acerca de cada uno de los atributos, consulte la guía co
 En esta guía, ha aprendido cómo utilizar las diversas funcionalidades de la detección de caras. A continuación, puede integrar estas características en la aplicación siguiendo un tutorial en profundidad.
 
 - [Tutorial: Creación de una aplicación WPF que muestre los datos de las caras de una imagen](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutorial: Creación de una aplicación Android para detectar y enmarcar caras de una imagen](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## <a name="related-topics"></a>Temas relacionados
 

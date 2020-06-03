@@ -2,13 +2,13 @@
 title: Cómo habilitar Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo habilitar y configurar Azure Monitor para contenedores, de forma que pueda conocer el rendimiento de su contenedor y qué problemas relacionados con su rendimiento se han identificado.
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 284668dfe2aec809ce9a94e15f7c83cf0f2025b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/28/2020
+ms.openlocfilehash: 0348d580a42d4a522ac05f929c96547a47e831a9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185938"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147909"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Cómo habilitar Azure Monitor para contenedores
 
@@ -32,7 +32,7 @@ Azure Monitor para contenedores puede habilitarse para implementaciones de Kuber
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
@@ -66,7 +66,6 @@ La información de la tabla siguiente muestra la configuración de proxy y firew
 | *.ods.opinsights.azure.com | 443 |  
 | *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
-| *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
 | login.microsoftonline.com | 443 |
 
@@ -76,7 +75,6 @@ En la información de la tabla siguiente se muestra la información de configura
 |--------------|------|-------------|
 | *.ods.opinsights.azure.cn | 443 | Ingesta de datos |
 | *.oms.opinsights.azure.cn | 443 | Incorporación de OMS |
-| microsoft.com | 80 | Se usa para la conectividad de red. Solo es necesario si la versión de la imagen del agente es ciprod09262019 o anterior. |
 | dc.services.visualstudio.com | 443 | Para la telemetría del agente que usa Application Insights en la nube pública de Azure. |
 
 En la información de la tabla siguiente se muestra la información de configuración de proxy y firewall para Azure US Government.
@@ -85,7 +83,6 @@ En la información de la tabla siguiente se muestra la información de configura
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Ingesta de datos |
 | *.oms.opinsights.azure.us | 443 | Incorporación de OMS |
-| microsoft.com | 80 | Se usa para la conectividad de red. Solo es necesario si la versión de la imagen del agente es ciprod09262019 o anterior. |
 | dc.services.visualstudio.com | 443 | Para la telemetría del agente que usa Application Insights en la nube pública de Azure. |
 
 ## <a name="components"></a>Componentes

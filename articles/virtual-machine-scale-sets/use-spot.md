@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125050"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310570"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
@@ -160,7 +160,7 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 | Pago por uso                | Sí                               |
 | Proveedor de servicios en la nube (CSP) | [Póngase en contacto con su asociado](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Ventajas                     | No disponible                     |
-| Patrocinados                    | No disponible                     |
+| Patrocinados                    | Sí                               |
 | Versión de prueba gratuita                   | No disponible                     |
 
 

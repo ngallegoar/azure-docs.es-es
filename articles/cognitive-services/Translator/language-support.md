@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592736"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996081"
 ---
 # <a name="language-and-region-support-for-translator"></a>Compatibilidad de idiomas y regiones para Translator
 
@@ -40,80 +40,80 @@ Translator admite los siguientes idiomas para la traducción de texto a texto. L
 > [!NOTE]
 > Actualmente, un subconjunto de los idiomas neuronales está disponible en Traductor personalizado y agregamos otros adicionales de forma gradual. [Vea los idiomas disponibles actualmente en Traductor personalizado](#customization).
 
-|Idioma|  Código de lenguaje|  API V3|
+|Idioma|    Código de lenguaje|    API V3|
 |:-----|:-----:|:-----|
-|Afrikáans| `af`|   Neuronal|
-|Árabe|    `ar`    |   Neuronal|
-|Bengalí|    `bn`    |   Neuronal|
-|Bosnio (latino)|   `bs`    |   Neuronal|
-|Búlgaro| `bg`    |   Neuronal|
-|Cantonés (tradicional)|   `yue`|  Estadística|
-|Catalán|   `ca`    |   Estadística|
+|Afrikáans|    `af`|    Neuronal|
+|Árabe|    `ar`    |    Neuronal|
+|Bengalí|    `bn`    |    Neuronal|
+|Bosnio (latino)|    `bs`    |    Neuronal|
+|Búlgaro|    `bg`    |    Neuronal|
+|Cantonés (tradicional)|    `yue`|    Estadística|
+|Catalán|    `ca`    |    Estadística|
 |Chino simplificado|    `zh-Hans`|Neuronal|
-|Chino tradicional|   `zh-Hant`       |Neuronal|
-|Croata|  `hr`    |Neuronal|
-|Checo| `cs`    |   Neuronal|
+|Chino tradicional|    `zh-Hant`        |Neuronal|
+|Croata|    `hr`    |Neuronal|
+|Checo|    `cs`    |    Neuronal|
 |Danés|    `da`        |Neuronal|
-|Neerlandés| `nl`|   Neuronal|
-|Inglés|   `en`    |   Neuronal|
-|Estonio|  `et`    |   Neuronal|
-|Fiyiano|    `fj`    |   Estadística|
-|Filipino|  `fil`   |   Estadística|
-|Finés|   `fi`    |   Neuronal|
-|Francés|    `fr`    |   Neuronal|
-|Alemán|    `de`    |   Neuronal|
-|Griego| `el`    |   Neuronal|
-|Gujarati|  `gu`    |   Neuronal|
+|Neerlandés|    `nl`|    Neuronal|
+|Inglés|    `en`    |    Neuronal|
+|Estonio|    `et`    |    Neuronal|
+|Fiyiano|    `fj`    |    Estadística|
+|Filipino|    `fil`    |    Estadística|
+|Finés|    `fi`    |    Neuronal|
+|Francés|    `fr`    |    Neuronal|
+|Alemán|    `de`    |    Neuronal|
+|Griego|    `el`    |    Neuronal|
+|Gujarati|    `gu`    |    Neuronal|
 |Criollo haitiano|    `ht`        |Estadística|
-|Hebreo |`he`   |Neuronal
-|Hindi| `hi`    |   Neuronal|
-|Hmong Daw| `mww`   |   Estadística|
-|Húngaro| `hu`    |   Neuronal|
-|Islandés| `is`    |   Neuronal|
-|Indonesio|    `id`    |   Estadística|
+|Hebreo    |`he`    |Neuronal
+|Hindi|    `hi`    |    Neuronal|
+|Hmong Daw|    `mww`    |    Estadística|
+|Húngaro|    `hu`    |    Neuronal|
+|Islandés|    `is`    |    Neuronal|
+|Indonesio|    `id`    |    Estadística|
 |Irlandés | `ga`| Neuronal
-|Italiano|   `it`    |   Neuronal|
-|Japonés|  `ja`    |   Neuronal|
+|Italiano|    `it`    |    Neuronal|
+|Japonés|    `ja`    |    Neuronal|
 |Canarés|`kn`| Neuronal
-|Kiswahili| `sw`    |   Estadística|
-|Klingon|   `tlh`   |   Estadística|
-|Klingon (plqaD)|   `tlh-Qaak`  |   Estadística|
-|Coreano |`ko`   |   Neuronal|
-|Letón|   `lv`    |   Neuronal|
-|Lituano|    `lt`    |   Neuronal|
-|Malgache|  `mg`    |   Estadística|
-|Malayo| `ms`        |Estadística|
+|Kiswahili|    `sw`    |    Estadística|
+|Klingon|    `tlh`    |    Estadística|
+|Klingon (plqaD)|    `tlh-Qaak`    |    Estadística|
+|Coreano    |`ko`    |    Neuronal|
+|Letón|    `lv`    |    Neuronal|
+|Lituano|    `lt`    |    Neuronal|
+|Malgache|    `mg`    |    Estadística|
+|Malayo|    `ms`        |Estadística|
 |Malayalam| `ml` | Neuronal
-|Maltés|   `mt`    |   Estadística|
+|Maltés|    `mt`    |    Estadística|
 |Maori| `mi`  | Neuronal|
 |Maratí| `mr`  | Neuronal|
-|Noruego| `nb`    |   Neuronal|
-|Persa|   `fa`    |   Neuronal|
-|Polaco|    `pl`    |   Neuronal|
-|Portugués (Brasil)|   `pt-br` |   Neuronal|
+|Noruego|    `nb`    |    Neuronal|
+|Persa|    `fa`    |    Neuronal|
+|Polaco|    `pl`    |    Neuronal|
+|Portugués (Brasil)|    `pt-br`    |    Neuronal|
 |Portugués (Portugal)| `pt-pt` | Neuronal
 |Punjabi|`pa`|Neuronal
-|Otomí Querétaro|   `otq`   |   Estadística|
-|Rumano|  `ro`    |   Neuronal|
-|Ruso|   `ru`    |   Neuronal|
-|Samoano|    `sm`    |   Estadística|
-|Serbio (cirílico)|    `sr-Cyrl`|  Estadística|
-|Serbio (latino)|   `sr-Latn`       |Estadística|
-|Eslovaco|    `sk`    |   Neuronal|
-|Esloveno| `sl`    |   Neuronal|
-|Español|   `es`    |   Neuronal|
-|Sueco|   `sv`    |Neuronal|
-|Tahitiano|  `ty`    |Estadística|
-|Tamil| `ta`    |   Neuronal|
-|Telugu|    `te`    |   Neuronal|
-|Tailandés|  `th`    |   Neuronal|
-|Tongano|    `to`    |   Estadística|
-|Turco|   `tr`        |Neuronal|
-|Ucraniano| `uk`    |   Neuronal|
-|Urdu|  `ur`    |   Estadística|
-|Vietnamita|    `vi`    |   Neuronal|
-|Galés| `cy`    |   Neuronal|
-|Maya Yucateco|  `yua`   |   Estadística|
+|Otomí Querétaro|    `otq`    |    Estadística|
+|Rumano|    `ro`    |    Neuronal|
+|Ruso|    `ru`    |    Neuronal|
+|Samoano|    `sm`    |    Estadística|
+|Serbio (cirílico)|    `sr-Cyrl`|    Estadística|
+|Serbio (latino)|    `sr-Latn`        |Estadística|
+|Eslovaco|    `sk`    |    Neuronal|
+|Esloveno|    `sl`    |    Neuronal|
+|Español|    `es`    |    Neuronal|
+|Sueco|    `sv`    |Neuronal|
+|Tahitiano|    `ty`    |Estadística|
+|Tamil|    `ta`    |    Neuronal|
+|Telugu|    `te`    |    Neuronal|
+|Tailandés|    `th`    |    Neuronal|
+|Tongano|    `to`    |    Estadística|
+|Turco|    `tr`        |Neuronal|
+|Ucraniano|    `uk`    |    Neuronal|
+|Urdu|    `ur`    |    Estadística|
+|Vietnamita|    `vi`    |    Neuronal|
+|Galés|    `cy`    |    Neuronal|
+|Maya Yucateco|    `yua`    |    Estadística|
 
 > [!NOTE]
 > El código de idioma `pt` se establece de forma predeterminada en `pt-br`, Portugués (Brasil).
@@ -224,7 +224,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Bosnio (latino)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chino simplificado      | `zh-Hans`          |
-|Chino tradicional|   `zh-Hant`   |
+|Chino tradicional|    `zh-Hant`    |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Danés      | `da`          |
@@ -239,15 +239,15 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Hindi      | `hi`          |
 | Húngaro      | `hu`          |
 | Islandés | `is` |
-| Indonesio|   `id`    |
-| Irlandés | `ga`  |
+| Indonesio|    `id`    |
+| Irlandés | `ga`    |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
 | Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
-| Malgache| `mg`    |
+| Malgache|    `mg`    |
 | Maori| `mi`  |
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
@@ -255,7 +255,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Portugués (Brasil) | `pt-br` |
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |
-| Samoano|   `sm`    |
+| Samoano|    `sm`    |
 | Serbio (latino)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |

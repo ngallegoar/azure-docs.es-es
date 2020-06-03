@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ded8aa0587ecb6bb756f3faa07cc816b7d46b561
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228344"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259582"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -78,11 +78,13 @@ En la siguiente lista se muestran los discos que se pueden usar con el servicio 
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
 No se admiten los tipos de disco siguientes:
+
 - USB.
 - Unidad de disco duro externa con adaptador USB integrado.
 - Discos dentro de la carcasa de una unidad de disco duro externa.
 
 Un único trabajo de importación o exportación puede tener:
+
 - 10 HDD o SSD como máximo.
 - Una combinación de HDD y SSD de cualquier tamaño.
 
@@ -90,9 +92,6 @@ Un volumen grande de unidades puede distribuirse entre varios trabajos, y no hay
 
 Al preparar las unidades de disco duro y copiar los datos mediante la herramienta WAImportExport, puede usar adaptadores de USB externos. La mayoría de los adaptadores comerciales USB 3.0 o posteriores deberían funcionar.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de la herramienta WAImportExport](storage-import-export-tool-how-to.md)
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
-* [Ejemplo de API de REST de Azure Import/Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651938"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021694"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics
 
 Azure Stream Analytics admite Azure SQL Database como origen de la entrada de datos de referencia. Puede usar SQL Database como datos de referencia para su trabajo de Stream Analytics en Azure Portal y en Visual Studio con herramientas de Stream Analytics. En este artículo se muestra cómo realizar ambos métodos.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 Use los pasos siguientes para agregar Azure SQL Database como un origen de entrada de referencia mediante Azure Portal:
 
@@ -40,7 +40,7 @@ Use los pasos siguientes para agregar Azure SQL Database como un origen de entra
 
    ![Configuración de la referencia de SQL Database](./media/sql-reference-data/sql-input-config.png)
 
-3. Pruebe la consulta de instantánea en el editor de consultas SQL. Para más información, vea [Uso del Editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos](../sql-database/sql-database-connect-query-portal.md).
+3. Pruebe la consulta de instantánea en el editor de consultas SQL. Para más información, vea [Uso del Editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos](../azure-sql/database/connect-query-portal.md).
 
 ### <a name="specify-storage-account-in-job-config"></a>Especificación de la cuenta de almacenamiento en la configuración de trabajos
 
@@ -69,7 +69,7 @@ Use los pasos siguientes para agregar Azure SQL Database como un origen de entra
 
 ### <a name="create-a-sql-database-table"></a>Creación de una tabla de SQL Database
 
-Use SQL Server Management Studio para crear una tabla para almacenar los datos de referencia. Vea [Diseño de la primera base de datos de Azure SQL mediante SSMS](../sql-database/sql-database-design-first-database.md) para obtener información detallada.
+Use SQL Server Management Studio para crear una tabla para almacenar los datos de referencia. Vea [Diseño de la primera base de datos de Azure SQL mediante SSMS](../azure-sql/database/design-first-database-tutorial.md) para obtener información detallada.
 
 La tabla de ejemplo utilizada en el ejemplo siguiente se creó a partir de la siguiente instrucción:
 
@@ -129,7 +129,7 @@ Antes de implementar el trabajo en Azure, puede probar la lógica de consulta lo
 
 ## <a name="delta-query"></a>Consulta delta
 
-Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure SQL Database](../sql-database/sql-database-temporal-tables.md).
+Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure SQL Database](../azure-sql/temporal-tables.md).
 
 1. Cree una tabla temporal en Azure SQL Database.
    

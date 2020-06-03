@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: 8b67574f435681d8071eda1ad954dcafb5124cbf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1195bb2676634dd3e7c9310da4e8855c4ff814f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655107"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015971"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configuración de reglas de aplicación de Azure Firewall con nombres de dominio completos de SQL
 
@@ -63,4 +63,4 @@ Si usa puertos no predeterminados para el tráfico de SQL IaaS, puede configurar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre los modos de proxy y redirección de SQL, vea [Arquitectura de conectividad de Azure SQL Database](../sql-database/sql-database-connectivity-architecture.md).
+Para obtener información sobre los modos de proxy y redirección de SQL, vea [Arquitectura de conectividad de Azure SQL Database](../azure-sql/database/connectivity-architecture.md).

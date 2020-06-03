@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac4df0b63d48e590bfdfc49f1c8b5607b4651cd5
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80333583"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310196"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura de meteorología de Azure Maps
 
@@ -166,7 +166,6 @@ La tabla siguiente proporciona información acerca de qué tipo de información 
 | Túnez                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | Emiratos Árabes Unidos        | ✓               |                              |        ✓| 
-| Sahara Occidental              | ✓               |                              |        ✓| 
 | Yemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabue                    | ✓               |                              |        ✓| 
@@ -182,7 +181,7 @@ La tabla siguiente proporciona información acerca de qué tipo de información 
 | Bangladés                        | ✓ |   |  ✓| 
 | Bután                            | ✓ |   |  ✓| 
 | Territorio Británico del Océano Índico    | ✓ |   |  ✓| 
-| Brunei                            | ✓ |   |  ✓| 
+| Brunéi                            | ✓ |   |  ✓| 
 | Camboya                          | ✓ |   |  ✓| 
 | China                             | ✓ | ✓ |  ✓| 
 | Isla de Navidad                  | ✓ |   |  ✓| 
@@ -248,7 +247,7 @@ La tabla siguiente proporciona información acerca de qué tipo de información 
 | Armenia                | ✓ |   |  ✓| 
 | Austria                | ✓ | ✓ |  ✓|
 | Azerbaiyán             | ✓ |   |  ✓| 
-| Belarús                | ✓ |   |  ✓| 
+| Bielorrusia                | ✓ |   |  ✓| 
 | Bélgica                | ✓ | ✓ |  ✓| 
 | Bosnia y Herzegovina | ✓ | ✓ |  ✓| 
 | Bulgaria               | ✓ |   |  ✓| 
@@ -278,7 +277,7 @@ La tabla siguiente proporciona información acerca de qué tipo de información 
 | Luxemburgo             | ✓ | ✓ |  ✓| 
 | Macedonia del Norte        | ✓ |   |  ✓| 
 | Malta                  | ✓ |   |  ✓| 
-| Moldova                | ✓ | ✓ |  ✓| 
+| Moldavia                | ✓ | ✓ |  ✓| 
 | Mónaco                 | ✓ | ✓ |  ✓| 
 | Montenegro             | ✓ | ✓ |  ✓| 
 | Países Bajos            | ✓ | ✓ |  ✓| 

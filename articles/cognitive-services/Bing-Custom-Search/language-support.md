@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66388558"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310587"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Compatibilidad de idiomas y regiones para Bing Custom Search API
 
@@ -44,7 +44,7 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 |Alemania|DE|
 |RAE de Hong Kong|HK|
 |India|IN|
-|Indonesia|id|
+|Indonesia|ID|
 |Italia|IT|
 |Japón|JP|
 |Corea|KR|
@@ -86,7 +86,7 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 |Finlandia|Finés|fi-FI|
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
-|Hong Kong, SAR|Chino tradicional|zh-HK|
+|RAE de Hong Kong|Chino tradicional|zh-HK|
 |India|Inglés|en-IN|
 |Indonesia|Inglés|en-ID|
 |Italia|Italiano|it-IT|

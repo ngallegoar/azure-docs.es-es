@@ -4,12 +4,12 @@ description: Obtenga información sobre las restricciones, los límites y las cu
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780001"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229848"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -126,7 +126,7 @@ Una vez que haya enviado la solicitud de soporte técnico, el servicio de soport
 Los grupos de Batch en la configuración de máquina virtual implementada en una red virtual de Azure asignan automáticamente recursos de red de Azure adicionales. Se necesitan los siguientes recursos por cada 50 nodos de grupo en una red virtual:
 
 * Un [grupo de seguridad de red](../virtual-network/security-overview.md#network-security-groups)
-* Una [dirección IP pública](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* Una [dirección IP pública](../virtual-network/public-ip-addresses.md)
 * Un [equilibrador de carga](../load-balancer/load-balancer-overview.md)
 
 Estos recursos se asignan en la suscripción que contiene la red virtual proporcionada al crear el grupo de Batch. Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si tiene previsto realizar grandes implementaciones de grupos en una red virtual, compruebe las cuotas de suscripción para estos recursos. Si es necesario, solicite un aumento en Azure Portal seleccionando **Ayuda y soporte técnico**.

@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 183189253d11638751e1f8283b202f122131b005
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836318"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013204"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integración de Update Management con Endpoint Configuration Manager de Windows
 
@@ -20,7 +20,7 @@ Los clientes que han invertido en Microsoft Endpoint Configuration Manager para 
 
 Puede crear informes sobre los servidores de Windows administrados y actualizarlos si crea y preconfigura implementaciones de actualizaciones de software en Endpoint Configuration Manager de Windows, y obtener el estado detallado de las implementaciones de actualizaciones finalizadas mediante [Update Management](automation-update-management.md). Si usa Endpoint Configuration Manager de Windows para los informes de cumplimiento de las actualizaciones, pero no para administrar implementaciones de actualizaciones con los servidores de Windows, puede seguir enviando notificaciones a Configuration Manager mientras se administran las actualizaciones de seguridad con Update Management en Azure Automation.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Debe haber agregado [Update Management de Azure Automation](automation-update-management.md) a la cuenta de Automation.
 * Los servidores de Windows que actualmente administra el entorno de Endpoint Configuration Manager de Windows deben informar al área de trabajo de Log Analytics que también tiene Update Management habilitado.
@@ -38,7 +38,7 @@ Siga estos pasos si va a continuar con la administración de implementaciones de
 1. En Azure Automation, seleccione **Update Management**. Siga los pasos descritos en [Creación de una implementación de actualizaciones](automation-tutorial-update-management.md#schedule-an-update-deployment) para crear una implementación y seleccione **Grupos importados** en la lista desplegable **Tipo** para seleccionar la colección adecuada de Endpoint Configuration Manager de Windows. Tenga en cuenta los siguientes puntos importantes: a. Si se define una ventana de mantenimiento en la colección de dispositivos de Endpoint Configuration Manager de Windows, los miembros de la colección respetan sus condiciones, en lugar de la configuración **Duración** definida en la implementación programada.
     b. Los miembros de la colección de destino deben tener una conexión a Internet (ya sea directamente, a través de un servidor proxy o a través de la puerta de enlace de Log Analytics).
 
-Después de completar la implementación de actualizaciones mediante Azure Automation, los equipos de destino que son miembros del grupo de equipos seleccionado instalarán las actualizaciones a la hora programada desde la memoria caché del cliente local. También puede [ver el estado de implementación de actualizaciones](automation-tutorial-update-management.md#view-results-of-an-update-deployment) para supervisar los resultados de la implementación.
+Después de completar la implementación de actualizaciones mediante Azure Automation, los equipos de destino que son miembros del grupo de equipos seleccionado instalarán las actualizaciones a la hora programada desde la memoria caché del cliente local. También puede [ver el estado de implementación de actualizaciones](automation-tutorial-update-management.md#check-deployment-status) para supervisar los resultados de la implementación.
 
 ## <a name="manage-software-updates-from-azure-automation"></a>Administrar actualizaciones de software desde Azure Automation
 

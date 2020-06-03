@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: cb88fb24ceed943d4104da6914959e4b79c35571
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231924"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267246"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guía de referencia del SDK del Lector inmersivo
 
@@ -226,4 +226,4 @@ Use las versiones más recientes de los siguientes exploradores para disfrutar d
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Explorar el [SDK del Lector inmersivo en GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Inicio rápido: Creación de una aplicación web que inicia el Lector inmersivo (C#)](./quickstart.md)
+* [Inicio rápido: Creación de una aplicación web que inicia el Lector inmersivo (C#)](./quickstarts/client-libraries.md?pivots=programming-language-csharp)

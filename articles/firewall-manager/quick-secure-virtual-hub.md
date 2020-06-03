@@ -5,26 +5,25 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/19/2020
 ms.author: victorh
-ms.openlocfilehash: b9839e51fcea1e8fe4adc4760e16ae2d73b163ee
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694139"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167203"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Inicio rápido: Protección de un centro virtual mediante Azure Firewall Manager (plantilla de Resource Manager)
 
-En este inicio rápido, usará una plantilla de Resource Manager para proteger el centro virtual mediante la versión preliminar de Azure Firewall Manager.
-
-El firewall implementado tiene una regla de aplicación que permite conexiones a `www.microsoft.com`. Para probar el firewall, se implementan dos máquinas virtuales con Windows Server 2019. Para realizar la conexión al servidor de cargas de trabajo, se usa un servidor de saltos. Desde el servidor de cargas de trabajo, solo puede conectarse a `www.microsoft.com`.
+En este inicio rápido, usará una plantilla de Resource Manager para proteger el centro virtual mediante la versión preliminar de Azure Firewall Manager. El firewall implementado tiene una regla de aplicación que permite conexiones a `www.microsoft.com`. Para probar el firewall, se implementan dos máquinas virtuales con Windows Server 2019. Para realizar la conexión al servidor de cargas de trabajo, se usa un servidor de saltos. Desde el servidor de cargas de trabajo, solo puede conectarse a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para más información sobre la versión preliminar de Azure Firewall Manager, consulte [¿Qué es Azure Firewall Manager (versión preliminar)?](overview.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -34,23 +33,23 @@ Esta plantilla crea un centro virtual protegido mediante la versión preliminar 
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/fwm-docs-qs/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
 En la plantilla se definen varios recursos de Azure:
 
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
-- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/virtualWans**](/azure/templates/microsoft.network/virtualWans)
 - [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualHubs)
+- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
+- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 

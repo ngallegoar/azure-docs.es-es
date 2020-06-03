@@ -3,12 +3,12 @@ title: 'Edición de una base de conocimiento: QnA Maker'
 description: QnA Maker le permite administrar el contenido de la base de conocimiento, proporcionando una experiencia de edición sencilla.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650801"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993582"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edición de pares de QnA en la base de conocimiento
 
@@ -85,7 +85,7 @@ Se puede editar cualquier campo de cualquier par de QnA, sin importar el origen 
 
 ## <a name="delete-a-qna-pair"></a>Eliminación de un par de QnA
 
-Para eliminar un QnA, haga clic en el icono **eliminar** en el extremo derecho de la fila QnA. Esta es una operación permanente. No se puede deshacer. Considere la posibilidad de exportar la base de conocimiento desde la página **Publish** (Publicar) antes de eliminar los conjuntos.
+Para eliminar un QnA, haga clic en el icono **eliminar** en el extremo derecho de la fila QnA. Esta es una operación permanente. No se puede deshacer. Considere la posibilidad de exportar la base de conocimiento desde la página **Publish** (Publicar) antes de eliminar los pares.
 
 ![Eliminación de un par de QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ No se pueden vincular pares de QnA en los metadatos de la respuesta.
 
 ## <a name="add-metadata"></a>Agregar metadatos
 
-Para agregar conjuntos de metadatos, seleccione primero **View options** (Ver opciones) y, luego, elija **Show metadata** (Mostrar metadatos). Como resultado, se muestra la columna de metadatos. A continuación, seleccione el signo **+** para agregar un conjunto de metadatos. Este conjunto consta de una clave y un valor.
+Para agregar pares de metadatos, seleccione primero **View options** (Ver opciones) y, luego, seleccione **Show metadata** (Mostrar metadatos). Como resultado, se muestra la columna de metadatos. A continuación, seleccione el signo **+** para agregar un par de metadatos. Este par consta de una clave y un valor.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Guardar los cambios en los pares de QnA
 
