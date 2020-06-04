@@ -356,18 +356,18 @@ The only possible values are '', 'Enable', and 'Disable'" (Privacy.dataCollectio
 "WmfVersion is '{0}'. ("WmfVersion es "{0}")
 Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos valores posibles son... y "latest").
 
-**Problema**: Se proporcionó un valor no permitido.
+**Problema**: se proporcionó un valor no permitido.
 
-**Solución**: Cambie el valor no válido a un valor válido.
+**Solución**: cambie el valor no válido por un valor válido.
 Para más información, consulte la tabla que aparece en [Detalles](#details).
 
 ### <a name="invalid-url"></a>Dirección URL no válida
 
 "ConfigurationData.url is '{0}'. ("ConfigurationData.url es "{0}") This is not a valid URL" "DataBlobUri is '{0}'. (Esta dirección URL no es válida" "DataBlobUri es "{0}") This is not a valid URL" "Configuration.url is '{0}'. (Esta dirección URL no es válida" "Configuration.url es "{0}") This is not a valid URL" This is not a valid URL" (Configuration.url es '{0}'. No es una dirección URL válida)
 
-**Problema**: Se proporcionó una dirección URL no válida.
+**Problema**: una URL proporcionada no es válida.
 
-**Solución**: Revise todas las direcciones URL proporcionadas.
+**Solución**: revise todas las direcciones URL proporcionadas.
 Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas a las que la extensión pueda acceder en la máquina remota.
 
 ### <a name="invalid-registrationkey-type"></a>Tipo RegistrationKey no válido
@@ -376,7 +376,7 @@ Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas
 
 **Problema**: el valor de *RegistrationKey* en protectedSettings.configurationArguments no se puede proporcionar como cualquier tipo que no sea PSCredential.
 
-**Solución**: cambie la entrada de protectedSettings.configurationArguments para RegistrationKey a un tipo PSCredential con el formato siguiente:
+**Solución**: cambie la entrada de protectedSettings.configurationArguments de RegistrationKey a un tipo PSCredential con el formato siguiente:
 
 ```json
 "configurationArguments": {
@@ -400,9 +400,9 @@ Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las com
 
 "Found duplicate arguments '{0}' in both public and protected configurationArguments" (Se encontraron argumentos duplicados "{0}" en propiedades configurationArguments públicas y privadas)
 
-**Problema**: La propiedad *ConfigurationArguments* en la configuración pública y la propiedad *ConfigurationArguments* en la configuración protegida contienen propiedades con el mismo nombre.
+**Problema**: la propiedad *ConfigurationArguments* en la configuración pública y la propiedad *ConfigurationArguments* en la configuración protegida contienen propiedades con el mismo nombre.
 
-**Solución**: Quite una de las propiedades duplicadas.
+**Solución**: quite una de las propiedades duplicadas.
 
 ### <a name="missing-properties"></a>Propiedades que faltan
 
@@ -418,7 +418,7 @@ Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las com
 
 "protectedSettings.ConfigurationDataUrlSasToken requiere que se especifique settings.configurationData.url"
 
-**Problema**: Una propiedad definida requiere otra propiedad que falta.
+**Problema**: una propiedad definida requiere otra propiedad que falta.
 
 **Soluciones**:
 

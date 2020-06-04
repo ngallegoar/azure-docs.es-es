@@ -16,7 +16,7 @@ ms.locfileid: "83122048"
 
 En Azure Functions, los enlaces de entrada y salida proporcionan una forma declarativa de hacer que los datos de servicios externos estén disponibles para su código. En esta guía de inicio rápido, se utiliza en enlace de salida para crear un mensaje en una cola cuando una solicitud HTTP desencadena una función. Utilice el contenedor de Azure Storage para ver los mensajes de cola que crea la función.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido:
 

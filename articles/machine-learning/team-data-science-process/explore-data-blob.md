@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e429dce497411305964cb1ec5298228dc4093b1f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685949"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en el almacenamiento de blobs de Azure con Pandas
@@ -24,7 +24,7 @@ En este artículo se explica cómo explorar los datos almacenados en el contened
 
 Esta tarea constituye un paso del [proceso de ciencia de datos en equipos](overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md)

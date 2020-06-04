@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536325"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
@@ -24,7 +24,7 @@ En este artículo se describe cómo crear e implementar recursos de Time Series 
 
 Time Series Insights admite los siguientes recursos:
 
-   | Resource | Descripción |
+   | Recurso | Descripción |
    | --- | --- |
    | Entorno | Un entorno de Time Series Insights es una agrupación lógica de eventos que se leen en los agentes de eventos, se almacenan y están disponibles para consulta. Para más información, lea [Planeamiento del entorno de Azure Time Series Insights](time-series-insights-environment-planning.md). |
    | Origen de eventos | Un origen de eventos es una conexión a un agente de eventos del que Time Series Insights lee e ingiere eventos en el entorno. Los orígenes de eventos actualmente admitidos son IoT Hub y Event Hub. |
@@ -63,7 +63,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
      | --- | --- |
      | eventHubNamespaceName | El espacio de nombres del centro de eventos de origen. |
      | eventHubName | El nombre del centro de eventos de origen. |
-     | consumerGroupName | El nombre del grupo de consumidores que usará el servicio Time Series Insights para leer los datos del centro de eventos. **NOTA:** Para evitar la contención de los recursos, este grupo de consumidores debe estar dedicado al servicio Time Series Insights y no se debe compartir con otros lectores. |
+     | consumerGroupName | El nombre del grupo de consumidores que usará el servicio Time Series Insights para leer los datos del centro de eventos. **NOTA:** Para evitar la contención de los recursos, este grupo de consumidores tiene que estar dedicado al servicio Time Series Insights y no se debe compartir con otros lectores. |
      | environmentName | El nombre del entorno. El nombre no puede incluir los caracteres `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni ningún carácter de control. Todos los demás caracteres se permiten.|
      | eventSourceName | El nombre del recurso de secundarios del origen de eventos. El nombre no puede incluir los caracteres `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni ningún carácter de control. Todos los demás caracteres se permiten. |
 
@@ -73,7 +73,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
      | Parámetro | Descripción |
      | --- | --- |
-     | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla debe tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
+     | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla tiene que tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
      | environmentDisplayName | Un nombre descriptivo opcional que se muestra en las herramientas o las interfaces de usuario en el lugar del nombre del entorno. |
      | environmentSkuName | El nombre de la SKU. Para más información, lea la [página de precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | La capacidad unitaria de la SKU. Para más información, lea la [página de precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|

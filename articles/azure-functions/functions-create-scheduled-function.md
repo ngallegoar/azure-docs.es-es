@@ -16,7 +16,7 @@ ms.locfileid: "83123502"
 
 Aprenda a usar Azure Functions para crear una función [sin servidor](https://azure.microsoft.com/solutions/serverless/) que se ejecute según la programación que se defina.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 

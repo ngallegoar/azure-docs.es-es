@@ -10,10 +10,10 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: f0c21626c664f2d72b534ebae7f0a257620be07d
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81767068"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glosario de términos de la versión preliminar de IoT Plug and Play
@@ -165,7 +165,7 @@ Cuando un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) se conecta 
 
 ## <a name="model-repository"></a>Repositorio de modelos
 
-En el repositorio de modelos se almacenan las [interfaces](#device-capability-model) y los [modelos de funcionalidad del dispositivo](#interface). Hay un solo [repositorio de modelos públicos](#public-model-repository). Las organizaciones pueden crear sus propios repositorios de modelos organizativos.
+En el repositorio de modelos se almacenan las [interfaces](#interface) y los [modelos de funcionalidad del dispositivo](#device-capability-model). Hay un solo [repositorio de modelos públicos](#public-model-repository). Las organizaciones pueden crear sus propios repositorios de modelos organizativos.
 
 ## <a name="model-repository-rest-api"></a>API REST del repositorio de modelos
 
@@ -177,7 +177,7 @@ Las propiedades son campos de datos definidos en una [interfaz](#interface) que 
 
 ## <a name="public-model-repository"></a>Repositorio de modelos público
 
-Hay un único repositorio de modelos público donde se almacenan las [interfaces](#device-capability-model) y los [modelos de funcionalidad del dispositivo](#interface) de los [dispositivos certificados](#device-certification). El repositorio de modelos público almacena también las definiciones de las [interfaces comunes](#common-interface).
+Hay un único repositorio de modelos público donde se almacenan las [interfaces](#interface) y los [modelos de funcionalidad del dispositivo](#device-capability-model) de los [dispositivos certificados](#device-certification). El repositorio de modelos público almacena también las definiciones de las [interfaces comunes](#common-interface).
 
 ## <a name="registration-id"></a>Identificador de registro
 

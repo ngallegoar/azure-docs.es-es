@@ -22,7 +22,7 @@ Una vez que ha creado módulos de IoT Edge con su lógica empresarial, querrá i
 
 En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para obtener información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, vea [Implementación de módulos de IoT Edge a escala con Visual Studio Code](how-to-deploy-vscode-at-scale.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
 * Un [dispositivo de IoT Edge](how-to-register-device.md#register-with-visual-studio-code) que tenga instalado el entorno de ejecución de Azure IoT Edge.

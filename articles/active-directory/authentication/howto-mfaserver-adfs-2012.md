@@ -25,7 +25,7 @@ Si usa los Servicios de federación de Active Directory (AD FS) y desea proteger
 En este artículo se describe el uso del Servidor Azure Multi-Factor Authentication con AD FS en Windows Server 2012 R2 y Windows Server 2016. Para más información, lea sobre la [protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para nuevas implementaciones. Los nuevos clientes que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Protección de Windows Server AD FS con Servidor Azure Multi-Factor Authentication
 

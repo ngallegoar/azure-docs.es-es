@@ -90,7 +90,7 @@ Para copiar datos de SAP Cloud for Customer, establezca la propiedad type del co
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **SapCloudForCustomerResource**. |Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **SapCloudForCustomerResource** |Sí |
 | path | Especifique la ruta de acceso de la entidad de OData de SAP C4C. |Sí |
 
 **Ejemplo**:
@@ -122,7 +122,7 @@ Para copiar datos de SAP Cloud for Customer, establezca el tipo de origen en la 
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapCloudForCustomerSource**.  | Sí |
+| type | La propiedad type debe establecerse en: **SapCloudForCustomerSource**  | Sí |
 | Query | Especifique la consulta de OData personalizada para leer datos. | No |
 
 Consulta de ejemplo para obtener datos de un día concreto: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -165,7 +165,7 @@ Para copiar datos de SAP Cloud for Customer, establezca el tipo de receptor en l
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapCloudForCustomerSink**.  | Sí |
+| type | La propiedad type debe establecerse en: **SapCloudForCustomerSink**  | Sí |
 | writeBehavior | El comportamiento de escritura de la operación. Puede ser "Insert" o "Update". | No. El valor predeterminado es "Insert". |
 | writeBatchSize | Tamaño de lote de la operación de escritura. El tamaño de lote para obtener un rendimiento óptimo puede ser diferente para otra tabla o servidor. | No. El valor predeterminado es 10. |
 

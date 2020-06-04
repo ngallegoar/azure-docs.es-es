@@ -53,7 +53,7 @@ Para crear un entorno de ejecución de integración autohospedado compartido med
 1. Cree un entorno de ejecución de integración vinculado.
 1. Revoque el uso compartido.
 
-### <a name="prerequisites"></a>Prerequisites 
+### <a name="prerequisites"></a>Requisitos previos 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

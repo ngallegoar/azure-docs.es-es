@@ -29,7 +29,7 @@ En este artículo, le guiaremos a través de la captura de mantenimiento de Sche
 
 ![Diagrama que muestra el ciclo de vida de los eventos](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 En este ejemplo, tendrá que crear una [máquina virtual Windows en un conjunto de disponibilidad](tutorial-availability-sets.md). Scheduled Events proporciona notificaciones sobre los cambios que pueden afectar a cualquiera de las máquinas virtuales del conjunto de disponibilidad, el servicio en la nube, el conjunto de escalado de máquinas virtuales o a las máquinas virtuales independientes. Se va a ejecutar un [servicio](https://github.com/microsoft/AzureScheduledEventsService) que sondea los eventos programados en una de las máquinas virtuales, la cual actuará como recopilador para obtener los eventos de todas las demás máquinas virtuales del conjunto de disponibilidad.    
 

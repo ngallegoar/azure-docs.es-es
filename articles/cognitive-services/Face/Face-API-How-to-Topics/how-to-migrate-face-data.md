@@ -23,7 +23,7 @@ En esta guía se muestra cómo mover datos de caras, como un objeto PersonGroup 
 
 Esta misma estrategia de migración también se aplica a los objetos LargePersonGroup y LargeFaceList. Si no está familiarizado con los conceptos que aparecen en esta guía, consulte sus definiciones en la guía [Conceptos del reconocimiento facial](../concepts/face-recognition.md). Esta guía usa la biblioteca cliente .NET de Face con C#.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita los siguientes elementos:
 

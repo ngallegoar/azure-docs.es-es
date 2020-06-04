@@ -22,7 +22,7 @@ Aprenda a usar las herramientas de HDInsight para IntelliJ para desarrollar apli
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) es un entorno de desarrollo integrado (IDE) de Java para desarrollar software informático. Después de desarrollar y probar las aplicaciones en Hortonworks Sandbox, puede moverlas a [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este artículo, debe tener los siguientes elementos:
 

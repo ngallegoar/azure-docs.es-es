@@ -6,23 +6,23 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: mimart
 ms.openlocfilehash: f4944881e6eff3e9a56a74bc997c280f9fff6be8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187016"
 ---
 ## <a name="ropc-flow-notes"></a>Notas del flujo ROPC
 En Azure Active Directory B2C (Azure AD B2C), se admiten las siguientes opciones:
 
 - **Cliente nativo**: la interacción del usuario durante la autenticación se produce cuando se ejecuta el código en un dispositivo en el lado del usuario. El dispositivo puede ser una aplicación móvil que se ejecuta en un sistema operativo nativo como, por ejemplo, Android e iOS.
-- **Public client flow** (Flujo de cliente público): en la llamada de API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
+- **Public client flow** (Flujo de cliente público): en la llamada API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
 - **Add new claims** (Agregar nuevas notificaciones): se puede cambiar el contenido del token de id. para agregar nuevas notificaciones.
 
 No se admiten los siguientes flujos:
 
 - **De servidor a servidor**: el sistema de protección de identidades necesita una dirección IP de confianza que recopile el autor de la llamada (el cliente nativo) como parte de la interacción. En una llamada API del lado servidor, se utiliza sólo la dirección IP del servidor. Si se supera un umbral dinámico de errores de autenticación, el sistema de protección de identidad puede identificar una dirección IP repetida como un atacante.
-- **Confidential client flow (Flujo de cliente confidencial)** : se valida el id. de cliente de la aplicación, pero no el secreto de la aplicación.
+- **Confidential client flow (Flujo de cliente confidencial)** : se valida el identificador de cliente de la aplicación, pero no el secreto de la aplicación.
 
 Al usar el flujo ROPC, tenga en cuenta lo siguiente:
 

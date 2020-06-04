@@ -17,7 +17,7 @@ ms.locfileid: "82584043"
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Administración de reglas de firewall en Azure Database for PostgreSQL: Hiperescala (Citus)
 Se pueden usar reglas de firewall de nivel de servidor para administrar el acceso a un nodo de coordinación de Hiperescala (Citus) desde una dirección IP o un intervalo de direcciones IP especificados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
 - Un grupo de servidores. Consulte [Creación de un grupo de recursos de Azure Database for PostgreSQL: Hiperescala (Citus)](quickstart-create-hyperscale-portal.md).
 

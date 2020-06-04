@@ -45,21 +45,21 @@ Después, cree una función en la nueva Function App.
 
 1. En el menú de la izquierda de la ventana **Funciones**, seleccione **Funciones** y, a continuación, seleccione **Agregar** en el menú superior. 
  
-1. En la ventana **Nueva función**, seleccione **Desencadenador HTTP**.
+1. En la ventana **Nueva función**, seleccione **Desencadenador de HTTP**.
 
-    ![Elección de la función de desencadenador HTTP](./media/functions-create-student-starter/function-app-select-http-trigger.png)
+    ![Elección de la función de desencadenador de HTTP](./media/functions-create-student-starter/function-app-select-http-trigger.png)
 
-1. En la ventana **Nueva función**, acepte el nombre predeterminado para la **Nueva función** o escriba un nombre nuevo. 
+1. En la ventana **Nueva función**, acepte el nombre predeterminado para la **nueva función** o escriba un nombre nuevo. 
 
 1. En la lista desplegable **Nivel de autorización**, elija **Anónimo** y, a continuación, seleccione **Crear función**.
 
-    Azure crea la función de desencadenador HTTP. Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
+    Azure crea la función de desencadenador de HTTP. Ahora, puede ejecutar la nueva función mediante el envío de una solicitud HTTP.
 
 ## <a name="test-the-function"></a>Prueba de la función
 
-1. En la nueva función de desencadenador HTTP, seleccione **Código y prueba** en el menú de la izquierda y, a continuación, seleccione **Obtener la dirección URL de la función** en el menú superior.
+1. En la nueva función de desencadenador de HTTP, seleccione **Código y prueba** en el menú de la izquierda y, a continuación, seleccione **Obtener la dirección URL de la función** en el menú superior.
 
-    ![Selección de Obtener la dirección URL de la función](./media/functions-create-student-starter/function-app-select-get-function-url.png)
+    ![Selección de la opción Obtener la dirección URL de la función](./media/functions-create-student-starter/function-app-select-get-function-url.png)
 
 1. En el cuadro de diálogo **Obtener la dirección URL de la función**, seleccione **valor predeterminado** en la lista desplegable y, a continuación, seleccione el icono **Copiar al Portapapeles**. 
 

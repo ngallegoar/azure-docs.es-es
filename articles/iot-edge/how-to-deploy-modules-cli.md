@@ -24,7 +24,7 @@ La [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) es
 
 En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, consulte [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-cli-at-scale.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure.
 * Un [dispositivo de IoT Edge](how-to-register-device.md#register-with-the-azure-cli) que tenga instalado el entorno de ejecución de Azure IoT Edge.

@@ -24,7 +24,7 @@ Aprenda a usar Azure Kubernetes Service (AKS) con [Apache Kafka](https://kafka.a
 > [!NOTE]  
 > Este documento se centra en los pasos necesarios para permitir que Azure Kubernetes Service se comunique con Kafka en HDInsight. El ejemplo en sí es simplemente un cliente de Kafka básico para demostrar que la configuración funciona.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Una suscripción de Azure

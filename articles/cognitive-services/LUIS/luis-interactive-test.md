@@ -1,14 +1,14 @@
 ---
 title: Prueba de la aplicación en el portal de LUIS
 description: Use Language Understanding (LUIS) para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
-ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714439"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344159"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
 

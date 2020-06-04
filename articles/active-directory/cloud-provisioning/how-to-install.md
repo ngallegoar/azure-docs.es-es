@@ -67,7 +67,7 @@ Para comprobar que Azure ve el agente, siga estos pasos.
 1. Inicie sesión en Azure Portal.
 1. En la parte izquierda, seleccione **Azure Active Directory** > **Azure AD Connect**. En el centro, seleccione **Administración del aprovisionamiento (versión preliminar)** .
 
-   ![Azure Portal](media/how-to-install/install6.png)</br>
+   ![Azure portal](media/how-to-install/install6.png)</br>
 
 1.  En la pantalla **Aprovisionamiento de Azure AD (versión preliminar)** , seleccione **Revisar todos los agentes**.
 

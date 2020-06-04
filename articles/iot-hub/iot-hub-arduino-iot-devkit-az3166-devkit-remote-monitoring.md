@@ -82,7 +82,7 @@ Una suscripción de Azure activa. Si no tiene una, puede registrarse a través d
 4. Expanda la sección de la izquierda **EJEMPLOS DE ARDUINO**, vaya a **Ejemplos para MXCHIP AZ3166 > AzureIoT** y seleccione **RemoteMonitoring**. Se abre una nueva ventana de VS Code que contiene la carpeta de proyecto.
 
    > [!NOTE]
-   > Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
+   > Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: Ejemplos**.
 
 ## <a name="provision-required-azure-services"></a>Aprovisionamiento de los servicios de Azure necesarios
 

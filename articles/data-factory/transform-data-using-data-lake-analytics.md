@@ -61,7 +61,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 | **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
 | **tenant**              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí      |
 
-**Ejemplo: autenticación de la entidad de servicio**
+**Ejemplo: Autenticación de entidad de servicio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -131,7 +131,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | priority            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No       |
 | parámetros          | Parámetros para pasar el script de U-SQL.    | No       |
 | runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usará. | No       |
-| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de estos valores: **Semántico:** solo realiza comprobaciones de semántica y comprobaciones de integridad necesarias, **Completo:** realiza la compilación completa, incluida la comprobación de sintaxis, optimización, generación de código, etc., **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | No |
+| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de los valores siguientes: **Semantic:** solo realiza comprobaciones semánticas y comprobaciones de integridad necesarias. **Full:** realiza la compilación completa (comprobación de sintaxis, optimización, generación de código, etc.), **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | No |
 
 Para ver la definición del script, consulte [SearchLogProcessing.txt](#sample-u-sql-script). 
 

@@ -30,7 +30,7 @@ En este ejemplo de C# se muestra cómo consultar datos desde las [API de acceso 
 En el código de ejemplo siguiente se muestran las siguientes características:
 
 * Compatibilidad con la generación automática del SDK desde [Azure AutoRest](https://github.com/Azure/AutoRest).
-* Cómo adquirir un token de acceso a través de Azure Active Directory con [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* Cómo adquirir un token de acceso a través de Azure Active Directory mediante [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 * Cómo pasar el token de acceso adquirido en el encabezado `Authorization` de las posteriores solicitudes de Data Access API. 
 * El ejemplo proporciona una interfaz de consola que muestra cómo se realizan las solicitudes HTTP en:
 
@@ -63,7 +63,7 @@ Se recomienda usar la versión más reciente de Visual Studio:
 
 El código de ejemplo tiene varias dependencias requeridas, que se pueden ver en el archivo [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config).
 
-Para descargar los paquetes en Visual Studio 2019, seleccione la opción **Compilar** > **Compilar solución**. 
+Descargue los paquetes en Visual Studio 2019, para lo cual debe seleccionar la opción **Compilar** > **Compilar solución**. 
 
 Como alternativa, agregue cada paquete con [NuGet 2.12+](https://www.nuget.org/). Por ejemplo:
 

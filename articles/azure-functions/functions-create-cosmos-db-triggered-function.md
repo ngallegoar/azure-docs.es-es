@@ -18,7 +18,7 @@ Aprenda a crear una función que se desencadena cuando se agregan o se cambian d
 
 :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Código de Azure Cosmos DB":::
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 

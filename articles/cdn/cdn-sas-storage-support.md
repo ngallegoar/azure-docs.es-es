@@ -32,7 +32,7 @@ Con una SAS, puede definir diversos parámetros de acceso a un blob, como horas 
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Configuración de Azure CDN para trabajar con la característica SAS de almacenamiento
 Se recomiendan las tres opciones siguientes para usar SAS con la red Azure CDN. En todas las opciones se presupone que ya creó una SAS en funcionamiento (consulte los requisitos previos). 
  
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 Para comenzar, cree una cuenta de almacenamiento y, luego, genere una SAS para el recurso. Puede generar dos tipos de firmas de acceso compartido: una SAS de servicio o una SAS de cuenta. Para más información, consulte [Tipos de firmas de acceso compartido](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
 Cuando haya generado un token de SAS, tiene acceso a su archivo de Blob Storage mediante la anexión de `?sv=<SAS token>` a la dirección URL. Esta dirección URL tiene el formato siguiente: 
@@ -144,6 +144,6 @@ Como los parámetros de SAS no son visibles para Azure CDN, esta no puede cambia
 
 Para obtener más información acerca de SAS, vea los siguientes artículos:
 - [Uso de Firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Para más información acerca de cómo configurar la autenticación por tokens, consulte [Protección de recursos de Azure Content Delivery Network con la autenticación por tokens](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

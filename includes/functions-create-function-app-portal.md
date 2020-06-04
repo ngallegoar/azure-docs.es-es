@@ -41,7 +41,7 @@ ms.locfileid: "83116457"
     |**Sistema operativo**| Sistema operativo preferido | Se preselecciona un sistema operativo en función de la selección de pila en tiempo de ejecución, pero puede cambiar esta configuración si es necesario. |
     | **[Plan](../articles/azure-functions/functions-scale.md)** | **Consumo (sin servidor)** | Plan de hospedaje que define cómo se asignan los recursos a la Function App. En el plan de **Consumo** predeterminado, los recursos se agregan dinámicamente según lo requieran sus funciones. En este hospedaje [sin servidor](https://azure.microsoft.com/overview/serverless-computing/), solo paga por el tiempo durante el cual se ejecutan las funciones. Si ejecuta un plan de App Service, debe administrar el [escalado de la aplicación de función](../articles/azure-functions/functions-scale.md).  |
 
-    ![Hospedaje](./media/functions-create-function-app-portal/function-app-create-hosting.png)
+    ![Hosting](./media/functions-create-function-app-portal/function-app-create-hosting.png)
 
 1. Seleccione **Siguiente: Supervisión**. En la página **Supervisión**, escriba la siguiente configuración.
 

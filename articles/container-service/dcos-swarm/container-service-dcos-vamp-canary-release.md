@@ -197,7 +197,7 @@ Para combinar el nuevo servicio sava 1.1 con la implementación en ejecución:
 
 1. En la interfaz de usuario de Vamp, haga clic en **Blueprints** (Planos).
 
-2. Haga clic en **Add** (Agregar) y pegue el siguiente código YAML de plano: este plano describe una nueva variante de un servicio (sava:1.1.0) para implementarla en el clúster existente (sava_cluster).
+2. Haga clic en **Agregar** y pegue el siguiente código YAML de plano: este plano describe una nueva variante de un servicio (sava:1.1.0) para implementarla en el clúster existente (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name

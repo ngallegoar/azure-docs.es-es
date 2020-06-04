@@ -29,7 +29,7 @@ En este artículo se muestra cómo configurar la recuperación ante desastres en
 > * Habilitación de la replicación para una máquina virtual
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este escenario:
 

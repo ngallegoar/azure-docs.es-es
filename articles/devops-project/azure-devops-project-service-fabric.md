@@ -35,7 +35,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Confirmación de los cambios en Git e implementación automática en Azure
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -45,7 +45,7 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el cuadro de búsqueda, escriba **DevOps Starter** y, a continuación, seleccione. Haga clic en **Agregar** para crear un recurso.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear un recurso.
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
@@ -90,13 +90,13 @@ DevOps Starter configura automáticamente una canalización de CI/CD en Azure Pi
 
 1. En el nombre de la canalización de compilación, seleccione **Historial**. Este panel muestra un registro de auditoría de los cambios recientes de la compilación. Azure DevOps realiza un seguimiento de los cambios realizados en la canalización de compilación y permite comparar las versiones.
 
-1. Seleccione **Desencadenadores**. DevOps Starter crea automáticamente un desencadenador de integración continua y cada confirmación al repositorio inicia una compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
+1. Seleccione **Desencadenadores**. DevOps Starter crea automáticamente un desencadenador de integración continua, y cada confirmación al repositorio inicia una nueva compilación. Opcionalmente, puede elegir incluir o excluir ramas del proceso de integración continua.
 
 1. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
 ## <a name="examine-the-cd-pipeline"></a>Examen de la canalización de CD
 
-DevOps Starter crea y configura automáticamente los pasos necesarios para implementar desde la organización de Azure DevOps en la suscripción de Azure. Dichos pasos incluyen la configuración de una conexión de servicio de Azure para realizar la autenticación de Azure DevOps en la suscripción de Azure. La automatización también crea una canalización de versión, lo que proporciona la implementación continua en Azure. Para más información acerca de la canalización de versión, siga estos pasos:
+DevOps Starter crea y configura automáticamente los pasos necesarios para implementar desde la organización de Azure DevOps en la suscripción a Azure. Dichos pasos incluyen la configuración de una conexión de servicio de Azure para realizar la autenticación de Azure DevOps en la suscripción de Azure. La automatización también crea una canalización de versión, lo que proporciona la implementación continua en Azure. Para más información acerca de la canalización de versión, siga estos pasos:
 
 1. Seleccione **Compilación y versión** y, después, **Versiones**. DevOps Starter crea una canalización de versión para administrar implementaciones en Azure.
 
@@ -137,7 +137,7 @@ A partir de ese momento ya puede empezar a colaborar con un equipo en una aplica
 Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de facturación. Cuando dejen de ser necesarios, puede eliminar el clúster de Azure Service Fabric y los recursos relacionados que ha creado en este tutorial. Para ello, utilice la funcionalidad de **eliminación** del panel de DevOps Starter.
 
 > [!IMPORTANT]
-> El siguiente procedimiento elimina permanentemente los recursos. La funcionalidad de *eliminación* destruye los datos que crea el proyecto en DevOps Starter tanto en Azure como en Azure DevOps y no se podrán recuperar. Utilice este procedimiento cuando haya leído detenidamente las indicaciones.
+> El siguiente procedimiento elimina permanentemente los recursos. La funcionalidad de *Eliminación* destruye los datos que crea el proyecto en DevOps Starter tanto en Azure como en Azure DevOps y no se podrán recuperar. Utilice este procedimiento cuando haya leído detenidamente las indicaciones.
 
 1. En Azure Portal, vaya al panel de DevOps Starter.
 1. En la parte superior derecha, seleccione **Eliminar**. 

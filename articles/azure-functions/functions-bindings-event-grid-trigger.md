@@ -399,7 +399,7 @@ El tipo `EventGridEvent` define solo las propiedades de nivel superior; la propi
 
 Para empezar a recibir solicitudes HTTP de Event Grid, cree una suscripción a Event Grid que especifique la dirección URL de punto de conexión que invoca la función.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 En el caso de las funciones que se desarrollen en Azure Portal con el desencadenador de Event Grid, seleccione **Integración** y, después, elija **Desencadenador de Event Grid** y seleccione **Crear suscripción de Event Grid**.
 

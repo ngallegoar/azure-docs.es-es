@@ -35,7 +35,7 @@ También se admite el flujo de aserción de portador SAML de OAuth para los usua
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Gráfico de llamadas con aserción de portador SAML
 Ahora, vamos a comprender cómo podemos capturar realmente aserciones SAML mediante programación. Este enfoque se prueba con ADFS. Sin embargo, funciona con cualquier proveedor de identidades que admita el retorno de la aserción SAML mediante programación. El proceso básico es: obtener una aserción SAML, obtener un token de acceso y acceder a Microsoft Graph.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Establezca una relación de confianza entre el servidor o entorno de autorización (Microsoft 365) y el proveedor de identidades o el emisor de la aserción de portador SAML 2.0 (ADFS). Para configurar ADFS para el inicio de sesión único y como proveedor de identidades, puede consultar [este artículo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
 

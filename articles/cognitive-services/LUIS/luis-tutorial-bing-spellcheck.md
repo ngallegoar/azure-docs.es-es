@@ -8,26 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 98f35d0b3f37a7bb181f83b83a48ef113e02f1e2
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80396828"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344142"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
-Se puede integrar la aplicación de LUIS con [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corregir las palabras incorrectas en las expresiones antes de que LUIS prediga la puntuación y las entidades de la expresión. 
+Se puede integrar la aplicación de LUIS con [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corregir las palabras incorrectas en las expresiones antes de que LUIS prediga la puntuación y las entidades de la expresión.
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Crear la primera clave para Bing Spell Check V7
 
-La [primera clave de Bing Spell Check API v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) es gratuita. 
+La [primera clave de Bing Spell Check API v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) es gratuita.
 
 ![Creación de una clave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
@@ -36,7 +36,7 @@ La [primera clave de Bing Spell Check API v7](https://azure.microsoft.com/try/co
 ## <a name="create-endpoint-key"></a>Creación de punto de conexión
 Si la clave gratuita expiró, cree una clave de punto de conexión.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda.
 
@@ -44,9 +44,9 @@ Si la clave gratuita expiró, cree una clave de punto de conexión.
 
     ![Búsqueda de Bing Spell Check API V7](./media/luis-tutorial-bing-spellcheck/portal-search.png)
 
-4. Seleccione el servicio. 
+4. Seleccione el servicio.
 
-5. Aparece un panel de información a la derecha con información, incluido el Aviso legal. Haga clic en **Crear** para iniciar el proceso de creación de la suscripción. 
+5. Aparece un panel de información a la derecha con información, incluido el Aviso legal. Haga clic en **Crear** para iniciar el proceso de creación de la suscripción.
 
 6. En el panel siguiente, escriba la configuración del servicio. Espere a que finalice el proceso de creación del servicio.
 
@@ -54,13 +54,13 @@ Si la clave gratuita expiró, cree una clave de punto de conexión.
 
 7. Seleccione **Todos los recursos** bajo el título **Favoritos** en el panel de navegación de la izquierda.
 
-8. Seleccione el servicio nuevo. Su tipo es **Cognitive Services** y la ubicación es **global**. 
+8. Seleccione el servicio nuevo. Su tipo es **Cognitive Services** y la ubicación es **global**.
 
 9. En el panel principal, haga clic en **Keys** (Claves) para ver las claves nuevas.
 
     ![Obtención de las claves](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
 
-10. Copie la primera clave. Solo necesita una de las dos claves. 
+10. Copie la primera clave. Solo necesita una de las dos claves.
 
 <!--
 ## Using the key in LUIS test panel
@@ -76,7 +76,7 @@ La dirección URL del punto de conexión tiene varios valores que se deben pasar
 ## <a name="send-misspelled-utterance-to-luis"></a>Enviar expresiones incorrectas a LUIS
 1. En un explorador web, copie la cadena anterior y reemplace `region`, `appId`, `luisKey` y `bingKey` con sus propios valores. Asegúrese de usar la región del punto de conexión, si es diferente de la [región](luis-reference-regions.md) de publicación.
 
-2. Agregue una expresión incorrecta como "How far is the mountainn?". En inglés, `mountain`, con una `n`, es la ortografía correcta. 
+2. Agregue una expresión incorrecta como "How far is the mountainn?". En inglés, `mountain`, con una `n`, es la ortografía correcta.
 
 3. Presione Entrar para enviar la consulta a LUIS.
 
@@ -96,15 +96,15 @@ La dirección URL del punto de conexión tiene varios valores que se deben pasar
 
 ## <a name="ignore-spelling-mistakes"></a>Omitir los errores ortográficos
 
-Si no desea usar el servicio Bing Spell Check API v. 7, debe agregar la ortografía correcta e incorrecta. 
+Si no desea usar el servicio Bing Spell Check API v. 7, debe agregar la ortografía correcta e incorrecta.
 
 Hay dos soluciones:
 
 * Etiquete las expresiones de ejemplo que tengan todas las diferentes ortografías para que LUIS pueda aprender la correcta, así como los errores tipográficos. Esta opción requiere más esfuerzo de etiquetado que el uso de un corrector ortográfico.
-* Cree una lista de frases con todas las variaciones de la palabra. Con esta solución, no es necesario etiquetar las variaciones de palabras en las expresiones de ejemplo. 
+* Cree una lista de frases con todas las variaciones de la palabra. Con esta solución, no es necesario etiquetar las variaciones de palabras en las expresiones de ejemplo.
 
 ## <a name="publishing-page"></a>Página de publicación
-La página de [publicación](luis-how-to-publish-app.md) contiene una casilla **Enable Bing spell checker** (Habilitar el corrector ortográfico de Bing). Se trata de una comodidad para crear la clave y comprender cómo cambia la dirección URL del punto de conexión. Tendrá que seguir usando los parámetros de punto de conexión correctos para que se corrija la ortografía de cada expresión. 
+La página de [publicación](luis-how-to-publish-app.md) contiene una casilla **Enable Bing spell checker** (Habilitar el corrector ortográfico de Bing). Se trata de una comodidad para crear la clave y comprender cómo cambia la dirección URL del punto de conexión. Tendrá que seguir usando los parámetros de punto de conexión correctos para que se corrija la ortografía de cada expresión.
 
 > [!div class="nextstepaction"]
 > [Más información sobre las expresiones de ejemplo](luis-how-to-add-example-utterances.md)

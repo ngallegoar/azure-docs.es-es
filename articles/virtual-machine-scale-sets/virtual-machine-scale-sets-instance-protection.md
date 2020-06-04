@@ -45,7 +45,7 @@ La protección de instancias se puede aplicar a instancias del conjunto de escal
 
 Hay varias maneras de aplicar la protección contra la reducción horizontal en las instancias del conjunto de escalado, tal como se describe en los siguientes ejemplos.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Puede aplicar la protección de la reducción horizontal mediante Azure Portal a una instancia del conjunto de escalado. No se puede ajustar más de una instancia a la vez. Repita los pasos para cada instancia que quiera proteger.
  
@@ -113,7 +113,7 @@ La protección de una instancia contra las acciones del conjunto de escalado tam
 
 Hay varias maneras de aplicar la protección contra las acciones del conjunto de escalado en las instancias del conjunto de escalado, tal como se describe en los siguientes ejemplos.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Puede aplicar la protección contra las acciones del conjunto de escalado mediante Azure Portal a una instancia del conjunto de escalado. No se puede ajustar más de una instancia a la vez. Repita los pasos para cada instancia que quiera proteger.
  

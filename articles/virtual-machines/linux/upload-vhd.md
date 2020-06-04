@@ -63,17 +63,17 @@ Azure admite varias distribuciones Linux (consulte [Distribuciones aprobadas](en
 * [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES y openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Ubuntu:](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Otras: distribuciones no aprobadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Consulte también las [notas de instalación de Linux](create-upload-generic.md#general-linux-installation-notes) para más sugerencias generales sobre la preparación de imágenes de Linux para Azure.
+Vea también las [notas de instalación de Linux](create-upload-generic.md#general-linux-installation-notes) para obtener más sugerencias generales sobre la preparación de imágenes de Linux para Azure.
 
 > [!NOTE]
 > El [Acuerdo de Nivel de Servicio de la plataforma Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) se aplica a las VM que ejecutan Linux solo cuando una de las distribuciones aprobadas se use con los detalles de la configuración según se indica en la sección "Versiones admitidas" en [Linux en distribuciones aprobadas por Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Opción 1: Cargar un disco duro virtual
+## <a name="option-1-upload-a-vhd"></a>Opción 1: Carga de un disco duro virtual
 
 Ahora puede cargar un disco duro virtual directamente en un disco administrado. Para obtener instrucciones al respecto, consulte [Carga de un disco duro virtual en Azure mediante la CLI de Azure](disks-upload-vhd-to-managed-disk-cli.md).
 

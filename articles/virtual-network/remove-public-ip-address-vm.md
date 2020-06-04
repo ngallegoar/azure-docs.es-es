@@ -26,7 +26,7 @@ En este artículo aprenderá a desasociar direcciones IP públicas de una máqui
 
 Para disociar una dirección IP pública de una máquina virtual, puede usar [Azure Portal](#azure-portal), la [interfaz de la línea de comandos](#azure-cli) (CLI) de Azure o [PowerShell](#powershell).
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Busque o vaya a la máquina virtual de la que desea disociar la dirección IP pública y selecciónela.

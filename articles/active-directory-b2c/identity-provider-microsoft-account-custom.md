@@ -24,7 +24,7 @@ ms.locfileid: "83636974"
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios desde una cuenta Microsoft mediante [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md).
 - Si aún no tiene una cuenta Microsoft, cree una en [https://www.live.com/](https://www.live.com/).

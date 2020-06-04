@@ -33,7 +33,7 @@ Estas instrucciones paso a paso muestran cómo completar las tareas siguientes:
 
 Consulte el [artículo de concepto](concept-enterprise-security.md) para información general sobre la seguridad y la autenticación dentro de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 * [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o bien use una [máquina virtual de Azure Machine Learning Notebook](concept-azure-machine-learning-architecture.md#compute-instance) con el SDK ya instalado.

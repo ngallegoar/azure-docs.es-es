@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
@@ -375,7 +375,7 @@ En esta sección, se activará la autenticación real mediante la adición del a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-the-app-to-azure"></a>Implementación de la aplicación en Azure
+## <a name="deploy-the-app-to-azure"></a>Implementar la aplicación en Azure
 
 En esta sección, utilizará la interfaz de la línea de comandos (CLI) de Azure desde Azure Cloud Shell para crear una nueva aplicación web de [Azure App Service](https://docs.microsoft.com/azure/app-service/) para hospedar la aplicación de ASP.NET en Azure. La aplicación web se configurará para usar la implementación de Git local. La aplicación web también se configurará con la cadena de conexión de SignalR, los secretos de la aplicación de OAuth de GitHub y un usuario de implementación.
 

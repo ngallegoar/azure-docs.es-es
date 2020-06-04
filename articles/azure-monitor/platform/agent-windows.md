@@ -50,7 +50,7 @@ Para configurar el uso del protocolo [TLS 1.2](https://docs.microsoft.com/window
 >Si va a configurar una máquina virtual que ejecuta Windows Server 2008 SP2 x64 para usar TLS 1.2, debe instalar la siguiente [actualización de compatibilidad con la firma de código SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) antes de realizar los pasos siguientes. 
 >
 
-1. Busque la siguiente subclave del Registro: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**.
+1. Busque la siguiente subclave del Registro: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Cree una subclave en **Protocolos** para TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
 3. Cree una subclave **Cliente** debajo de la subclave de la versión del protocolo TLS 1.2 que ha creado anteriormente. Por ejemplo, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
 4. Cree los siguientes valores DWORD en **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
@@ -60,7 +60,7 @@ Para configurar el uso del protocolo [TLS 1.2](https://docs.microsoft.com/window
 
 Configure .NET Framework 4.6 o posterior para que sea compatible con la criptografía segura, ya que, de forma predeterminada, está desactivada. La [criptografía fuerte](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) utiliza protocolos de red más seguros como TLS 1.2, y bloquea los protocolos que no son seguros. 
 
-1. Busque la siguiente subclave del Registro:**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
+1. Busque la siguiente subclave del Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
 2. Cree el valor DWORD **SchUseStrongCrypto** bajo esta subclave con un valor de **1**.  
 3. Busque la siguiente subclave del Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
 4. Cree el valor DWORD **SchUseStrongCrypto** bajo esta subclave con un valor de **1**. 
@@ -183,7 +183,7 @@ Configuration MMAgent
 
 Una vez completada la instalación del agente, compruebe que se ha conectado correctamente y que la creación de informes puede realizarse desde ambos lados.  
 
-En el **Panel de control** del equipo, busque el elemento **Microsoft Monitoring Agent**.  Selecciónelo y, en la pestaña **Azure Log Analytics**, el agente mostrará un mensaje similar al siguiente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite.**<br><br> ![Estado de la conexión de MMA en Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+En el **Panel de control** del equipo, busque el elemento **Microsoft Monitoring Agent**.  Selecciónelo y, en la pestaña **Azure Log Analytics**, el agente debe mostrar un mensaje que indica: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent se ha conectado correctamente al servicio Microsoft Operations Management Suite).<br><br> ![Estado de la conexión de MMA en Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 También puede realizar una consulta de registros sencilla en Azure Portal.  
 

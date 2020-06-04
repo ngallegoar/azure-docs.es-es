@@ -62,7 +62,7 @@ Estos son los requisitos de Azure para este escenario de migración:
 * Una red virtual de Azure a la que se conectarán las máquinas virtuales cuando se creen en la conmutación por error. La red virtual de Azure debe estar en la misma región en que se ejecuta Site Recovery.
 * Una cuenta de almacenamiento estándar de Azure para almacenar los registros de replicación. Puede ser la misma que para los discos de máquina virtual que se migran.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Comprender los componentes del escenario de migración relevantes de la sección anterior.
 * Planear el tiempo de inactividad, para lo que se debe conocer la [conmutación por error en Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -205,7 +205,7 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
 ## <a name="troubleshooting"></a>Solución de problemas
 
 * [Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Página de preguntas y respuestas sobre Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
+* [Página de preguntas y respuestas de Microsoft sobre Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

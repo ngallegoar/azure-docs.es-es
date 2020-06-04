@@ -22,7 +22,7 @@ Al crear un conjunto de escalado, puede definir el número de instancias de máq
 Este artículo muestra cómo crear reglas de escalado automático en Azure Portal que supervisan el rendimiento de las instancias de máquina virtual del conjunto de escalado. Estas reglas de escalado automático permiten aumentar o reducir el número de instancias de máquina virtual en respuesta a estas métricas de rendimiento. También puede seguir estos pasos con [Azure PowerShell](tutorial-autoscale-powershell.md) o la [CLI de Azure](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado con [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o la [CLI de Azure](quick-create-cli.md).
 
 

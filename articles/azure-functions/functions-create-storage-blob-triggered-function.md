@@ -16,7 +16,7 @@ ms.locfileid: "83123129"
 
 Obtenga información sobre cómo crear una función que se desencadena cuando se cargan o se actualizan archivos en un contenedor de Blob Storage.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

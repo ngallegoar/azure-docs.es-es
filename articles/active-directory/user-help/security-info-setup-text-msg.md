@@ -89,11 +89,11 @@ Si quiere que los mensajes de texto sean el método predeterminado que se usa al
 
     ![Cambio de vínculo del método de inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Seleccione **Teléfono: texto ( *_su_número_de_teléfono_* )** en la lista desplegable de métodos disponibles y, después, seleccione **Confirmar**.
+2. Seleccione **Teléfono: texto (*_su_número_de_teléfono_*)** en la lista desplegable de métodos disponibles y, después, seleccione **Confirmar**.
 
     ![Elección de método para el inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    El método predeterminado que se usa para el inicio de sesión se cambia en **Teléfono: texto ( *_su_número_de_teléfono_* )** .
+    El método predeterminado que se usa para el inicio de sesión se cambia en **Teléfono: texto (*_su_número_de_teléfono_*)** .
 
 ## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 

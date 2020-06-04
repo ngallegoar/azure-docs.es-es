@@ -17,7 +17,7 @@ ms.locfileid: "82792316"
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparación de la imagen de máquina virtual Linux en Azure para usarse con cloud-init
 En este artículo se explica cómo utilizar una máquina virtual de Azure y prepararla para volver a implementarse y poder usar cloud-init. La imagen resultante se puede utilizar para implementar una nueva máquina virtual o conjuntos de escalado de máquinas virtuales (luego se pueden personaliza más aún mediante cloud-init durante la implementación).  Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 En este documento se da por hecho que ya tiene una máquina virtual Azure en ejecución que ejecute una versión compatible del sistema operativo Linux. Ya ha configurado la máquina para satisfacer sus necesidades, ha instalado todos los módulos necesarios, ha procesado todas las actualizaciones necesarias y ha probado la máquina para asegurarse de que cumple los requisitos. 
 
 ## <a name="preparing-rhel-76--centos-76"></a>Preparación de RHEL 7.6/CentOS 7.6

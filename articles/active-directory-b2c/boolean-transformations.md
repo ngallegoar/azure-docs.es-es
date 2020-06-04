@@ -112,7 +112,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 - Notificaciones de entrada:
     - **inputClaim**: false
     - **valueToCompareTo**: true
-- Resultado: error emitido
+- Resultado: aparece un error
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 

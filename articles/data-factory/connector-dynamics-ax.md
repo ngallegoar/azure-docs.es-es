@@ -45,7 +45,7 @@ De forma específica, este conector de Dynamics AX admite la copia de datos desd
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que puede usar para definir entidades de Data Factory específicas del conector de Dynamics AX.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de usar la autenticación de entidad de servicio, siga estos pasos:
 
@@ -66,7 +66,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | type | La propiedad **type** debe establecerse en **Dynamics AX**. |Sí |
 | url | El extremo de OData de instancia de Dynamics AX (o Dynamics 365 Finance and Operations). |Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como **SecureString** para almacenarlo de forma segura en Data Factory, o bien [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | aadResourceId | Especifique el recurso de AAD para el cual solicita autorización. Por ejemplo, si es la dirección URL de Dynamics es `https://sampledynamics.sandbox.operations.dynamics.com/data/`, el recurso AAD correspondiente suele ser `https://sampledynamics.sandbox.operations.dynamics.com`. | Sí |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede elegir Azure Integration Runtime o un Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |

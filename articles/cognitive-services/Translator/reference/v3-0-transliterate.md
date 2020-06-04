@@ -159,7 +159,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
 </table> 
 
-Si se produce un error, la solicitud también devuelve una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pueden encontrarse los códigos de error comunes. 
+Si se produce un error, la solicitud también devuelve una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. En la [página de referencia de Traductor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) pueden encontrarse los códigos de error comunes. 
 
 ## <a name="examples"></a>Ejemplos
 

@@ -36,7 +36,7 @@ En este tutorial, aprenderá lo siguiente:
 > * A conectar a la base de datos de Azure SQL 
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -46,7 +46,7 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear una instancia.
+1. En el cuadro de búsqueda, escriba **DevOps Starter** y, después, selecciónelo. Haga clic en **Agregar** para crear un recurso.
 
     ![Panel de DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 

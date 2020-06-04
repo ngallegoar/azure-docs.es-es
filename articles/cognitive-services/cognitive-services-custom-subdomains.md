@@ -87,7 +87,7 @@ Sí. Esta es una lista de puntos de conexión regionales que puede usar con los 
 | | Norte de Sudáfrica | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | Centro-sur de EE. UU. | `https://southcentralus.api.cognitive.microsoft.com` |
 | | Sudeste de Asia | `https://southeastasia.api.cognitive.microsoft.com` |
-| | Sur de Reino Unido 2 | `https://uksouth.api.cognitive.microsoft.com` |
+| | Sur de Reino Unido | `https://uksouth.api.cognitive.microsoft.com` |
 | | Centro-Oeste de EE. UU. | `https://westcentralus.api.cognitive.microsoft.com` |
 | | Oeste de Europa | `https://westeurope.api.cognitive.microsoft.com` |
 | | Oeste de EE. UU. | `https://westus.api.cognitive.microsoft.com` |

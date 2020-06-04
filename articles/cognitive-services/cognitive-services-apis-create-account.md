@@ -23,7 +23,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure válida: [cree una de manera gratuita](https://azure.microsoft.com/free/).
 

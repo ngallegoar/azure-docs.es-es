@@ -37,7 +37,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Confirmación de los cambios en Git y su implementación automática en Azure
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -149,7 +149,7 @@ A partir de ese momento ya puede empezar a colaborar con un equipo en una aplica
 Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de facturación. Cuando dejen de ser necesarios, puede eliminar el clúster de AKS y los recursos relacionados que ha creado en este tutorial. Para ello, utilice la funcionalidad de **eliminación** del panel de DevOps Starter.
 
 > [!IMPORTANT]
-> El siguiente procedimiento elimina permanentemente los recursos. La funcionalidad de *eliminación* destruye los datos que crea el proyecto en DevOps Starter tanto en Azure como en Azure DevOps y no se podrán recuperar. Utilice este procedimiento cuando haya leído detenidamente las indicaciones.
+> El siguiente procedimiento elimina permanentemente los recursos. La funcionalidad de *Eliminación* destruye los datos que crea el proyecto en DevOps Starter tanto en Azure como en Azure DevOps y no se podrán recuperar. Utilice este procedimiento cuando haya leído detenidamente las indicaciones.
 
 1. En Azure Portal, vaya al panel de DevOps Starter.
 1. En la parte superior derecha, seleccione **Eliminar**. 

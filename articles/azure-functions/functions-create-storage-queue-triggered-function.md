@@ -16,7 +16,7 @@ ms.locfileid: "83123350"
 
 Obtenga información sobre cómo crear una función que se desencadena cuando se envían mensajes a una cola de Azure Storage.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

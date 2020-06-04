@@ -25,7 +25,7 @@ En este artículo se muestra cómo implementar varios contenedores de Azure Cogn
 
 Puede ser útil coordinar varias imágenes de contenedor en un solo equipo host. En este artículo, reuniremos los contenedores de lectura y de Form Recognizer.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente:
 

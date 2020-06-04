@@ -114,7 +114,7 @@ En la siguiente tabla se muestran todos los eventos de clase de mapa admitidos.
 Consulte los siguientes artículos para obtener ejemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Uso del módulo de servicios de Azure Maps](./how-to-use-services-module.md)
+> [Usar el módulo de servicios de Azure Maps](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

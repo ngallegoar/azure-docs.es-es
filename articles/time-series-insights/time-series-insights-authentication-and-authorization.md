@@ -149,15 +149,15 @@ Los parámetros de la cadena de consulta de la URL obligatorios dependen de la v
 | Release | Posibles valores de versión de API |
 | --- |  --- |
 | Disponibilidad general | `api-version=2016-12-12`|
-| Vista previa | `api-version=2018-11-01-preview` |
-| Vista previa | `api-version=2018-08-15-preview` |
+| Versión preliminar | `api-version=2018-11-01-preview` |
+| Versión preliminar | `api-version=2018-08-15-preview` |
 
 Los parámetros de cadena de consulta de dirección URL opcionales incluyen establecer un tiempo de espera para los tiempos de ejecución de la solicitud HTTP.
 
 | Parámetro de consulta opcional | Descripción | Versión |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tiempo de espera del lado servidor para la ejecución de la solicitud. Esto es aplicable solo a las API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) y [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). El valor del tiempo de espera debe estar en un formato de duración de tipo ISO 8601, por ejemplo `"PT20S"`, y debe estar en el intervalo `1-30 s`. El valor predeterminado es `30 s`. | GA |
-| `storeType=<storeType>` | En el caso de los entornos de versión preliminar con la tienda en caliente habilitada, la consulta se puede ejecutar en `WarmStore` o `ColdStore`. Este parámetro de la consulta define en qué almacén debe ejecutarse la consulta. Si no se define, la consulta se ejecutará en el almacén frío. Para consultar la tienda en caliente, **storeType** debe establecerse en `WarmStore`. Si no se define, la consulta se ejecutará en el almacén frío. | Vista previa |
+| `timeout=<timeout>` | Tiempo de espera del lado servidor para la ejecución de la solicitud. Esto es aplicable solo a las API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) y [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). El valor del tiempo de espera debe estar en un formato de duración de tipo ISO 8601, por ejemplo `"PT20S"`, y debe estar en el intervalo `1-30 s`. El valor predeterminado es `30 s`. | Disponibilidad general |
+| `storeType=<storeType>` | En el caso de los entornos de versión preliminar con la tienda en caliente habilitada, la consulta se puede ejecutar en `WarmStore` o `ColdStore`. Este parámetro de la consulta define en qué almacén debe ejecutarse la consulta. Si no se define, la consulta se ejecutará en el almacén frío. Para consultar la tienda en caliente, **storeType** debe establecerse en `WarmStore`. Si no se define, la consulta se ejecutará en el almacén frío. | Versión preliminar |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

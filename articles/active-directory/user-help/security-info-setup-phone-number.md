@@ -102,11 +102,11 @@ Si desea que las llamadas de teléfono sean el método predeterminado usado al i
 
     ![Cambio de vínculo del método de inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Seleccione **Teléfono: llamada ( *_su_número_de_teléfono_* )** en la lista desplegable de métodos disponibles y, a continuación, seleccione **Confirmar**.
+2. Seleccione **Teléfono: llamada (*_su_número_de_teléfono_*)** en la lista desplegable de métodos disponibles y, a continuación, seleccione **Confirmar**.
 
     ![Elección de método para el inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    El método predeterminado usado para el inicio de sesión se cambia en **Teléfono: llamada ( *_su_número_de_teléfono_* )** .
+    El método predeterminado usado para el inicio de sesión se cambia en **Teléfono: llamada (*_su_número_de_teléfono_*)** .
 
 ## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 

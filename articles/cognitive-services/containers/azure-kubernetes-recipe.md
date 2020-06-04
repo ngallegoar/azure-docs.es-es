@@ -21,7 +21,7 @@ ms.locfileid: "80876732"
 
 Aprenda a implementar el contenedor de detección de idioma. Este procedimiento muestra cómo crear los contenedores de Docker locales, insertar los contenedores en su propio registro de contenedor privado, ejecutar el contenedor en un clúster de Kubernetes y probarlo en un explorador web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente. No use Azure Cloud Shell.
 

@@ -28,7 +28,7 @@ Las alertas desencadenadas en las soluciones de seguridad de Microsoft que está
 
 Si sigue las instrucciones de este artículo, puede configurar fácilmente Azure Sentinel para crear automáticamente incidentes cada vez que se desencadene una alerta en una solución de seguridad de Microsoft conectada.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Debe [conectar las soluciones de seguridad de Microsoft](connect-data-sources.md#data-connection-methods) para habilitar la creación de incidentes a partir de alertas del servicio de seguridad.
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Uso de reglas de análisis de creación de incidentes de seguridad de Microsoft

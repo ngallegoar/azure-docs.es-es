@@ -23,7 +23,7 @@ ms.locfileid: "80653382"
 Para conseguir una alta disponibilidad con la implementación del Servidor Azure MFA, debe implementar varios servidores MFA. En esta sección se proporciona información sobre un diseño de carga equilibrada para conseguir objetivos de alta disponibilidad en la implementación del Servidor Azure MFA.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para nuevas implementaciones. Los nuevos clientes que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ## <a name="mfa-server-overview"></a>Introducción al Servidor MFA
 

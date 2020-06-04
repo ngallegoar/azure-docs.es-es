@@ -101,7 +101,7 @@ En esta sección se muestra cómo crear una función en la nueva aplicación de 
 
 1. En la nueva función de desencadenador de HTTP, seleccione **Código y prueba** en el menú de la izquierda y, a continuación, seleccione **Obtener la dirección URL de la función** en el menú superior.
 
-    ![Selección de Obtener la dirección URL de la función](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
+    ![Selección de la opción Obtener la dirección URL de la función](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
 
 1. En el cuadro de diálogo **Obtener la dirección URL de la función**, seleccione **valor predeterminado** en la lista desplegable y, a continuación, seleccione el icono **Copiar al Portapapeles**. 
 

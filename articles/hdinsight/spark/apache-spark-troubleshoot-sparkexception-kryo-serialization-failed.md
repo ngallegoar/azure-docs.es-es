@@ -18,7 +18,7 @@ ms.locfileid: "83653584"
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar componentes de Apache Spark en clústeres de Azure HDInsight.
 
-## <a name="issue"></a>Problema
+## <a name="issue"></a>Incidencia
 
 Al intentar descargar conjuntos de datos grandes mediante JDBC/ODBC y el marco de software Apache Thrift en Azure HDInsight, recibe un mensaje de error similar al siguiente:
 
@@ -31,7 +31,7 @@ Buffer overflow. Available: 0, required: 36518. To avoid this, increase spark.kr
 
 Esta excepción se debe a que el proceso de serialización está intentando usar más espacio en búfer del permitido. En Spark 2.0.0, la clase `org.apache.spark.serializer.KryoSerializer` se usa para serializar objetos cuando se tiene acceso a los datos mediante el marco de software Apache Thrift. Con los datos que se envían a través de la red o que se almacenan en caché en formato serializado, se usa una clase diferente.
 
-## <a name="resolution"></a>Solución
+## <a name="resolution"></a>Resolución
 
 Aumente el valor de búfer `Kryoserializer`. Agregue una clave denominada `spark.kryoserializer.buffer.max` y establézcala en `2047` en la configuración de spark2 en `Custom spark2-thrift-sparkconf`. Reinicie todos los componentes afectados.
 
@@ -40,7 +40,7 @@ Aumente el valor de búfer `Kryoserializer`. Agregue una clave denominada `spark
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener más soporte técnico:
 
 * Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
 

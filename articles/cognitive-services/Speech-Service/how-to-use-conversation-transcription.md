@@ -35,7 +35,7 @@ El SDK de dispositivos de voz proporciona código de ejemplo en Java para la cap
 - [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java) (Código de ejemplo de dispositivo ROOBO)
 - [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java) (Código de ejemplo de Azure Kinect Dev Kit)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Una suscripción al servicio de voz. Puede [obtener una suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/) si no la tiene.
 

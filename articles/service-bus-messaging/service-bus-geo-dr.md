@@ -150,7 +150,7 @@ Solo puede habilitar Availability Zones en los espacios de nombres nuevos median
 En esta sección se proporcionan consideraciones adicionales cuando se usa la recuperación ante desastres geográfica con espacios de nombres que utilizan puntos de conexión privados. Para obtener información sobre el uso de puntos de conexión privados con Service Bus en general, consulte [Integración de Azure Service Bus con Azure Private Link](private-link-service.md).
 
 ### <a name="new-pairings"></a>Nuevos emparejamientos
-Si intenta crear un emparejamiento entre un espacio de nombres principal con un punto de conexión privado y un espacio de nombres secundario sin un punto de conexión privado, se producirá un error en el emparejamiento. El emparejamiento solo se realizará correctamente si los espacios de nombres principal y secundario tienen puntos de conexión privados. Se recomienda utilizar las mismas configuraciones en los espacios de nombres principal y secundario y en las redes virtuales en las que se creen los puntos de conexión privados. 
+Si intenta crear un emparejamiento entre un espacio de nombres primario con un punto de conexión privado y un espacio de nombres secundario sin un punto de conexión privado, se producirá un error. El emparejamiento solo se realizará correctamente si los espacios de nombres primario y secundario tienen puntos de conexión privados. Se recomienda utilizar las mismas configuraciones en los espacios de nombres principal y secundario y en las redes virtuales en las que se creen los puntos de conexión privados. 
 
 > [!NOTE]
 > Al intentar emparejar el espacio de nombres principal con un punto de conexión privado y el espacio de nombres secundario, el proceso de validación solo comprueba si existe un punto de conexión privado en el espacio de nombres secundario. No comprueba si el punto de conexión funciona ahora o después de la conmutación por error. Es su responsabilidad asegurarse de que el espacio de nombres secundario con el punto de conexión privado funcionará según lo esperado después de la conmutación por error.
@@ -158,7 +158,7 @@ Si intenta crear un emparejamiento entre un espacio de nombres principal con un 
 > Para probar que las configuraciones del punto de conexión privado son iguales, envíe una solicitud [Get queues](/rest/api/servicebus/queues/get) al espacio de nombres secundario desde fuera de la red virtual y compruebe que recibe un mensaje de error del servicio.
 
 ### <a name="existing-pairings"></a>Emparejamientos existentes
-Si ya existe un emparejamiento entre el espacio de nombres principal y el secundario, se producirá un error en la creación del punto de conexión privado en el espacio de nombres principal. Para resolverlo, cree primero un punto de conexión privado en el espacio de nombres secundario y, a continuación, cree uno para el espacio de nombres principal.
+Si ya existe un emparejamiento entre el espacio de nombres primario y el secundario, se producirá un error en la creación del punto de conexión privado en el espacio de nombres primario. Para resolverlo, cree primero un punto de conexión privado en el espacio de nombres secundario y, a continuación, cree uno para el espacio de nombres primario.
 
 > [!NOTE]
 > Aunque se permite el acceso de solo lectura al espacio de nombres secundario, no se permiten las actualizaciones de las configuraciones de punto de conexión privado. 

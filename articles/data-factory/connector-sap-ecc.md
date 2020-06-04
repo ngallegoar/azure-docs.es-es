@@ -50,7 +50,7 @@ En concreto, este conector SAP ECC admite las siguientes funcionalidades:
 >[!TIP]
 >Para copiar datos de SAP ECC a través de una tabla o una vista de SAP, use el conector de [tabla de SAP](connector-sap-table.md), que es más rápido y escalable.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Por lo general, SAP ECC expone las entidades mediante servicios de OData a través de la puerta de enlace de SAP. Para usar este conector SAP ECC, necesitará lo siguiente:
 
@@ -58,7 +58,7 @@ Por lo general, SAP ECC expone las entidades mediante servicios de OData a trav�
 
 - **Activar y configurar el servicio SAP OData**. Puede activar el servicios de OData a través de TCODE SICF en cuestión de segundos. También puede configurar qué objetos se deben exponer. Para obtener más información, consulte la [guía paso a paso](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
