@@ -2,19 +2,19 @@
 title: Implementación de Azure SQL Edge (versión preliminar) mediante Azure Portal
 description: Información sobre cómo implementar Azure SQL Edge (versión preliminar) mediante Azure Portal
 keywords: implementación de SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7dfc7b680c6b7d6b2a3641b25c0f82665143bde1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594674"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233237"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Implementación de Azure SQL Edge (versión preliminar) 
 
@@ -47,7 +47,7 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
 
    |**Campo**  |**Descripción**  |
    |---------|---------|
-   |Subscription  |  La suscripción de Azure en la que se creó el IoT Hub |
+   |Suscripción  |  La suscripción de Azure en la que se creó el IoT Hub |
    |IoT Hub   |  Nombre del IoT Hub en el que está registrado el dispositivo IoT Edge y, a continuación, seleccione la opción "Implementar en un dispositivo"|
    |Nombre de dispositivo IoT Edge  |  Nombre del dispositivo IoT Edge en el que se implementará SQL Edge |
 
@@ -119,4 +119,4 @@ Con esta guía de inicio rápido, ha implementado un módulo de SQL Edge en un d
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Aprendizaje automático e inteligencia artificial con ONNX en SQL Edge](onnx-overview.md).
-- Creación de una solución de IoT de un extremo a otro con SQL Edge mediante IoT Edge.
+- [Creación de una solución de IoT de un extremo a otro con SQL Edge mediante IoT Edge](tutorial-deploy-azure-resources.md).

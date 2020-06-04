@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dca235374ca20ef8a17e685706f952127d5ece2a
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189624"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869442"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a configurar la [duración y la compatibilidad de 
 
 [Cree un flujo de usuario](tutorial-create-user-flows.md) para permitir a los usuarios registrarse e iniciar sesión en la aplicación.
 
-## <a name="configure-token-lifetime"></a>Configuración de la duración de los tokens
+## <a name="configure-jwt-token-lifetime"></a>Configuración de la duración de los tokens de JWT
 
 Puede configurar la duración de los tokens en cualquier flujo de usuario.
 
@@ -41,7 +41,7 @@ Puede configurar la duración de los tokens en cualquier flujo de usuario.
 
 8. Haga clic en **Save**(Guardar).
 
-## <a name="configure-token-compatibility"></a>Configuración de compatibilidad del token
+## <a name="configure-jwt-token-compatibility"></a>Configuración de compatibilidad de tokens de JWT
 
 1. Seleccione **Flujos de usuario (directivas)** .
 2. Abra el flujo de usuario que creó anteriormente.
@@ -54,7 +54,7 @@ Puede configurar la duración de los tokens en cualquier flujo de usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre cómo [usar los tokens de acceso](access-tokens.md).
+Más información sobre cómo [solicitar tokens de acceso](access-tokens.md).
 
 
 

@@ -5,20 +5,20 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/09/2020
+ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 2b506c9d15dafcd23b24207fe15ed0532939209f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310703"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714226"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Captura de un seguimiento del explorador para solucionar problemas
 
-Si está solucionando un problema con Azure Portal y necesita contactar con el soporte de Microsoft, se recomienda capturar primero un seguimiento del explorador e información adicional. La información que recopile puede proporcionar detalles importantes sobre el portal en el momento en que se produce el problema. Siga los pasos de este artículo para las herramientas de desarrollo en el explorador que usa: Google Chrome o Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML) o Apple Safari.
+Si está solucionando un problema con Azure Portal y necesita contactar con el soporte de Microsoft, se recomienda capturar primero un seguimiento del explorador e información adicional. La información que recopile puede proporcionar detalles importantes sobre el portal en el momento en que se produce el problema. Siga los pasos de este artículo para las herramientas de desarrollo en el explorador que usa: Google Chrome o Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari o Firefox.
 
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome y Microsoft Edge (Chromium)
 
@@ -60,7 +60,7 @@ Google Chrome y Microsoft Edge (Chromium) se basan en el [proyecto de código ab
 
 1. Detenga la grabación de acciones y guarde el archivo.
 
-1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola**. Haga clic con el botón derecho y seleccione **Guardar como...** y guarde el resultado de la consola en un archivo de texto.
+1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola**. Haga clic con el botón derecho en uno de los mensajes y, a continuación, seleccione **Guardar como...** y guarde la salida de la consola en un archivo de texto.
 
     ![Captura de pantalla del resultado de la consola](media/capture-browser-trace/chromium-console-select.png)
 
@@ -158,11 +158,53 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
     ![Captura de pantalla de "Exportar"](media/capture-browser-trace/safari-network-export-har.png)
 
-1. Detenga la grabación de acciones y guarde el archivo.
+1. Detenga la grabadora de pantalla y guarde la grabación.
 
 1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola** y expanda la ventana. Coloque el cursor al principio del resultado de la consola y, a continuación, arrastre y seleccione todo el contenido del resultado. Use Comando-C para copiar el resultado y guárdelo en un archivo de texto.
 
     ![Captura de pantalla del resultado de la consola](media/capture-browser-trace/safari-console-select.png)
+
+1. Empaquete el archivo HAR, el resultado de la consola y la grabación de pantalla en un formato comprimido como .zip, y comparta esta información con el soporte técnico de Microsoft.
+
+## <a name="firefox"></a>Firefox
+
+En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en Firefox. Para más información, consulte [Herramientas de desarrollo de Firefox](https://developer.mozilla.org/docs/Tools).
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Es importante iniciar sesión _antes_ de iniciar el seguimiento para que este no contenga información confidencial relacionada con el inicio de sesión. 
+
+1. Empiece a grabar las acciones que se llevan a cabo en el portal. Use la [grabación de acciones](https://support.microsoft.com/help/22878/windows-10-record-steps) en Windows o consulte [Cómo grabar la pantalla en el Mac](https://support.apple.com/HT208721).
+
+1. En el portal, vaya al paso que se encuentra justo antes del problema.
+
+1. Presione F12 o seleccione ![Captura de pantalla del icono de configuración del explorador](media/capture-browser-trace/firefox-icon-settings.png) > **Desarrollo web** > **Alternar herramientas**.
+
+1. De forma predeterminada, el explorador solo conserva la información de seguimiento de la página que está cargada actualmente. Establezca las siguientes opciones para que el explorador mantenga toda la información de seguimiento, incluso si la reproducción requiere ir a más de una página:
+
+    1. Seleccione la pestaña **Red** y, a continuación, **Conservar los registros**.
+
+          ![Captura de pantalla de "Conservar los registros"](media/capture-browser-trace/firefox-network-persist-logs.png)
+
+    1. Seleccione la pestaña **Consola**, seleccione **Configuración de la consola** y, después, **Conservar los registros**.
+
+          ![Captura de pantalla de "Conservar los registros"](media/capture-browser-trace/firefox-console-persist-logs.png)
+
+1. Seleccione la pestaña **Red** y, a continuación, **Borrar**.
+
+    ![Captura de pantalla de "Borrar"](media/capture-browser-trace/firefox-clear-session.png)
+
+1. Reproduzca el problema en el portal. Verá un resultado de sesión similar al de la imagen siguiente.
+
+    ![Captura de pantalla de los resultados de seguimiento del explorador](media/capture-browser-trace/firefox-browser-trace-results.png)
+
+1. Una vez que haya reproducido el comportamiento inesperado del portal, seleccione **Exportar/Importar HAR** y, a continuación, **Guardar todo como HAR**.
+
+    ![Captura de pantalla de "Exportar HAR"](media/capture-browser-trace/firefox-network-export-har.png)
+
+1. Detenga la grabadora de acciones en Windows o la grabación de pantalla en Mac y guarde la grabación.
+
+1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola**. Haga clic con el botón derecho en uno de los mensajes y, a continuación, seleccione **Exportar mensaje visible a** y guarde la salida de la consola en un archivo de texto.
+
+    ![Captura de pantalla del resultado de la consola](media/capture-browser-trace/firefox-console-select.png)
 
 1. Empaquete el archivo HAR, el resultado de la consola y la grabación de pantalla en un formato comprimido como .zip, y comparta esta información con el soporte técnico de Microsoft.
 

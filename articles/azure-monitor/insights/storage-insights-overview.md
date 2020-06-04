@@ -1,25 +1,25 @@
 ---
-title: Supervisión de los servicios de Azure Storage con Azure Monitor para Storage (versión preliminar) | Microsoft Docs
+title: Supervisión de los servicios de Azure Storage con Azure Monitor para Storage | Microsoft Docs
 description: En este artículo se describe la característica Azure Monitor para Storage que proporciona a los administradores de almacenamiento una comprensión rápida de los problemas de uso y rendimiento de sus cuentas de Azure Storage.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/15/2019
-ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691108"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800068"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage (versión preliminar)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage
 
-Azure Monitor para Storage (versión preliminar) proporciona una supervisión completa de las cuentas de Azure Storage al ofrecer una vista unificada del rendimiento, la capacidad y la disponibilidad de los servicios de Azure Storage. Es posible observar la capacidad de almacenamiento y el rendimiento de dos maneras: se pueden ver directamente desde una cuenta de almacenamiento, o bien en Azure Monitor para comparar estos valores entre grupos de cuentas de almacenamiento. 
+Azure Monitor para Storage proporciona una supervisión completa de las cuentas de Azure Storage al ofrecer una vista unificada del rendimiento, la capacidad y la disponibilidad de los servicios de Azure Storage. Es posible observar la capacidad de almacenamiento y el rendimiento de dos maneras: se pueden ver directamente desde una cuenta de almacenamiento, o bien en Azure Monitor para comparar estos valores entre grupos de cuentas de almacenamiento. 
 
-Este artículo le ayudará a comprender la experiencia que proporciona Azure Monitor para Storage (versión preliminar) para extraer conocimientos prácticos sobre el estado y el rendimiento de las cuentas de almacenamiento a escala, con una funcionalidad para centrarse en las zonas activas y diagnosticar los problemas de latencia, limitación y disponibilidad.
+Este artículo le ayudará a comprender la experiencia que proporciona Azure Monitor para Storage para extraer conocimientos prácticos sobre el estado y el rendimiento de las cuentas de almacenamiento a escala, con una funcionalidad para centrarse en las zonas activas y diagnosticar los problemas de latencia, limitación y disponibilidad.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introducción a Azure Monitor for Storage (versión preliminar)
+## <a name="introduction-to-azure-monitor-for-storage"></a>Introducción a Azure Monitor para Storage
 
 Antes de profundizar en la experiencia, debe entender cómo se presenta y se visualiza la información. Tanto si selecciona la característica de almacenamiento directamente desde una cuenta de almacenamiento o desde Azure Monitor, Azure Monitor para Storage presenta una experiencia coherente. 
 
@@ -48,7 +48,7 @@ Para ver el uso y la disponibilidad de las cuentas de almacenamiento en todas la
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. Seleccione **Monitor** en el panel izquierdo y, en la sección **Insights**, seleccione **Cuentas de almacenamiento (versión preliminar)** .
+2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección **Información detallada**, elija **Cuentas de almacenamiento**.
 
     ![Vista de varias cuentas de almacenamiento](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -92,7 +92,7 @@ Para acceder a Azure Monitor para VM directamente desde una máquina virtual, si
 
 1. En Azure Portal, seleccione Cuentas de almacenamiento.
 
-2. En la lista, elija una cuenta de almacenamiento. En la sección Supervisión, seleccione Insights (versión preliminar).
+2. En la lista, elija una cuenta de almacenamiento. En la sección Supervisión, seleccione Información detallada.
 
     ![Página de información general de la cuenta de almacenamiento seleccionada](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
@@ -138,7 +138,7 @@ Los libros **Overview** (Información general) o **Capacity** (Capacidad) de var
 
 ![Ejemplo de resultados de la cuadrícula de exportación de libros](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Personalización de Azure Monitor para Storage (versión preliminar)
+## <a name="customize-azure-monitor-for-storage"></a>Personalización de Azure Monitor para Storage
 
 En esta sección se resaltan los escenarios comunes para editar el libro y personalizarlo de acuerdo con sus necesidades de análisis de datos:
 
@@ -155,7 +155,7 @@ Las personalizaciones se guardan en un libro personalizado para evitar sobrescri
 
 Puede configurar los libros **Overview** (Información general) o **Capacity** (Capacidad) de varias suscripciones y cuentas de almacenamiento para reducir el ámbito a una o varias suscripciones o cuentas de almacenamiento en concreto en cada ejecución. Para ello, realice los siguientes pasos.
 
-1. Seleccione **Monitor** en el portal y, luego, **Cuentas de almacenamiento (versión preliminar)** en el panel izquierdo.
+1. Seleccione **Supervisión** en el portal y, luego, **Cuentas de almacenamiento** en el panel izquierdo.
 
 2. En el libro **Overview** (Información general), elija **Edit** (Editar) en la barra de comandos.
 
@@ -176,7 +176,7 @@ En nuestro ejemplo, vamos a trabajar con el libro de capacidad de varias suscrip
 
 Los mismos cambios se pueden realizar en cada uno de los libros precompilados de **Failures** (Errores), **Performance** (Rendimiento), **Availability** (Disponibilidad) y **Capacity** (Capacidad).
 
-1. Seleccione **Monitor** en el portal y, luego, **Cuentas de almacenamiento (versión preliminar)** en el panel izquierdo.
+1. Seleccione **Supervisión** en el portal y, luego, **Cuentas de almacenamiento** en el panel izquierdo.
 
 2. Seleccione **Capacity** (Capacidad) para cambiar al libro de capacidad y, en la barra de comandos, seleccione **Edit** (Editar).
 
@@ -210,7 +210,7 @@ En este ejemplo, vamos a trabajar con el libro de capacidad de la cuenta de alma
 
 1. Seleccione **Cuentas de almacenamiento** en el portal y, luego, seleccione una cuenta de almacenamiento de la lista.
 
-2. Seleccione **Insights (versión preliminar)** en el panel izquierdo.
+2. Seleccione **Información detallada** en el panel izquierdo.
 
 3. En el libro, seleccione **Availability** (Disponibilidad) para cambiar al libro de disponibilidad y, luego, seleccione **Edit** (Editar) en la barra de comandos. 
 
@@ -228,11 +228,11 @@ En este ejemplo, vamos a trabajar con el libro de capacidad de la cuenta de alma
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Monitor para Storage (versión preliminar). Utilice la siguiente lista para buscar la información relacionada con el problema específico.
+Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Monitor para Storage. Utilice la siguiente lista para buscar la información relacionada con el problema específico.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Resolución de problemas de rendimiento, capacidad o disponibilidad
 
-Para ayudar a solucionar los problemas relacionados con el almacenamiento que identifique con Azure Monitor para Storage (versión preliminar), consulte la [guía de solución de problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance) de Azure Storage.  
+Para ayudar a solucionar los problemas relacionados con el almacenamiento que identifique con Azure Monitor para Storage, consulte la [guía de solución de problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance) de Azure Storage.  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>¿Por qué solo se pueden ver 200 cuentas de almacenamiento?
 
@@ -318,6 +318,6 @@ Para cambiar el nombre de un paso en el libro guardado, seleccione Editar en el 
 
 * Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications.md) para generar alertas automáticas que ayuden a detectar los problemas.
 
-* Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../app/usage-workbooks.md).
+* Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).
 
 * Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage, consulte [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).

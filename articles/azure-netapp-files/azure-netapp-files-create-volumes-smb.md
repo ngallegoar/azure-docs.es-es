@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: b-juche
-ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 6cb3fa56e679bc911f12e99379152fc8e1fb7526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625561"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832844"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de SMB para Azure NetApp Files
 
@@ -58,7 +58,7 @@ Debe haber una subred delegada en Azure NetApp Files.
     |    SAM/LSA            |    445       |    UDP           |
     |    w32time            |    123       |    UDP           |
 
-* La topología del sitio para la instancia de Active Directory Domain Services de destino debe cumplir los procedimientos recomendados, en particular, la red virtual de Azure donde se implementa Azure NetApp Files.  
+* La topología del sitio para la instancia de Active Directory Domain Services de destino debe cumplir las directrices, en particular, la red virtual de Azure donde se implementa Azure NetApp Files.  
 
     El espacio de direcciones de la red virtual donde se implementa Azure NetApp Files debe agregarse a un sitio de Active Directory nuevo o existente (donde se encuentre un controlador de dominio al que Azure NetApp Files pueda acceder). 
 
@@ -79,7 +79,7 @@ Debe haber una subred delegada en Azure NetApp Files.
 
     For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers MMC console:   
+    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
 
     ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 -->
@@ -98,7 +98,7 @@ Puede usar su ámbito favorito de [Sitios y servicios de Active Directory](https
 
 Para encontrar el nombre del sitio al usar ADDS, puede ponerse en contacto con el grupo administrativo de su organización que se responsabiliza de Active Directory Domain Services. En el ejemplo siguiente se muestra el complemento de Sitios y servicios de Active Directory en el que se muestra el nombre del sitio: 
 
-![Sitios y servicios de Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+![Sitios y servicios de Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-services.png)
 
 Al configurar una conexión de AD para Azure NetApp Files, especifique el nombre del sitio en el ámbito para el campo **Nombre de sitio de Active Directory**.
 
@@ -152,11 +152,20 @@ Esta opción está configurada en **Conexiones de Active Directory** debajo de *
 
         El servicio creará cuentas de máquina adicionales en Active Directory según sea necesario.
 
+        > [!IMPORTANT] 
+        > El cambio de nombre del prefijo del servidor de SMB después de crear la conexión de Active Directory es perjudicial. Tendrá que volver a montar los recursos compartidos de SMB existentes después de cambiar el nombre del prefijo del servidor de SMB.
+
     * **Ruta de acceso de unidad organizativa**  
         Se trata de la ruta de acceso LDAP para la unidad organizativa (UO) donde se crearán las cuentas de máquina del servidor SMB. Es decir, UO=segundo nivel, UO=primer nivel. 
 
         Si usa Azure NetApp Files con Azure Active Directory Domain Services, la ruta de acceso de la unidad organizativa es `OU=AADDC Computers` cuando configura Active Directory para su cuenta de NetApp.
-        
+
+     * **Usuarios de la directiva de copia de seguridad**  
+        Puede incluir cuentas adicionales que requieran privilegios elevados para la cuenta de equipo creada para su uso con Azure NetApp Files. Se permitirá a las cuentas especificadas cambiar los permisos de NTFS en el nivel de archivo o carpeta. Por ejemplo, puede especificar una cuenta de servicio sin privilegios que se usa para migrar los datos a un recurso compartido de archivos de SMB en Azure NetApp Files.  
+
+        > [!IMPORTANT] 
+        > El uso de la característica de usuarios de la directiva de copia de seguridad requiere la creación de listas de permitidos. Envíe un correo electrónico a anffeedback@microsoft.com con su identificador de suscripción para solicitar esta característica. 
+
     * Las credenciales, incluidos el **nombre de usuario** y la **contraseña**
 
     ![Unir Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)

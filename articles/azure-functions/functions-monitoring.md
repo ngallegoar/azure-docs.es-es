@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo usar Azure Application Insight
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 9997a44d14f5b4ca4de4e5b135efc453b12bff01
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202420"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757762"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -21,7 +21,10 @@ Dado que la instrumentación de Application Insights necesaria está integrada e
 
 ## <a name="application-insights-pricing-and-limits"></a>Precios y límites de Application Insights
 
-Puede probar la integración de Application Insights con instancias de Function App de forma gratuita. Hay un límite diario para la cantidad de datos que se puede procesar de forma gratuita. Podría alcanzar este límite durante las pruebas. Azure proporciona notificaciones del portal y por correo electrónico cuando se aproxima al límite diario. Si pasa por alto esas alertas y llega al límite, los nuevos registros no aparecerán en las consultas de Application Insights. Tenga en cuenta el límite para evitar el tiempo que puede perder, de forma innecesaria, solucionando problemas. Para más información, consulte [Administración de precios y volúmenes de datos de Application Insights](../azure-monitor/app/pricing.md).
+Puede probar la integración de Application Insights con Azure Functions de forma gratuita. Hay un límite diario para la cantidad de datos que se puede procesar de forma gratuita. Podría alcanzar este límite durante las pruebas. Azure proporciona notificaciones del portal y por correo electrónico cuando se aproxima al límite diario. Si pasa por alto esas alertas y llega al límite, los nuevos registros no aparecerán en las consultas de Application Insights. Tenga en cuenta el límite para evitar el tiempo que puede perder, de forma innecesaria, solucionando problemas. Para más información, consulte [Administración de precios y volúmenes de datos de Application Insights](../azure-monitor/app/pricing.md).
+
+> [!IMPORTANT]
+> Application Insights tiene una característica de [muestreo](../azure-monitor/app/sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría sobre las ejecuciones completadas en los momentos de picos de carga. El muestreo está habilitado de forma predeterminada. Si parece que faltan datos, es posible que simplemente deba ajustar la configuración de muestreo para adaptarla a su escenario de supervisión en particular. Para más información, consulte [Configuración del muestreo](#configure-sampling).
 
 La lista completa de características de Application Insights disponibles para la aplicación de función se detalla en [Características compatibles de Application Insights para Azure Functions](../azure-monitor/app/azure-functions-supported-features.md).
 
@@ -29,7 +32,7 @@ La lista completa de características de Application Insights disponibles para l
 
 Con la [integración de Application Insights habilitada](#enable-application-insights-integration), puede ver los datos de telemetría en la pestaña **Supervisar**.
 
-1. En la página de la aplicación de función, seleccione una función que se haya ejecutado por lo menos una vez después de que se configurase Application Insights. Luego seleccione la pestaña **Supervisar**. Seleccione **Actualizar** periódicamente hasta que aparezca la lista de las invocaciones de funciones.
+1. En la página de la aplicación de función, seleccione una función que se haya ejecutado por lo menos una vez después de que se configurase Application Insights. A continuación, seleccione **Supervisar** en el panel izquierdo. Seleccione **Actualizar** periódicamente hasta que aparezca la lista de las invocaciones de funciones.
 
    ![Lista de invocaciones](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -40,9 +43,9 @@ Con la [integración de Application Insights habilitada](#enable-application-ins
 
    ![Detalles de la invocación](media/functions-monitoring/invocation-details-ai.png)
 
-1. Elija el vínculo **Ejecutar en Application Insights** para ver el origen de la consulta que recupera los datos de registro de Azure Monitor en el registro de Azure. Si esta es la primera vez que usa Azure Log Analytics en su suscripción, se le pedirá que la habilite.
+1. Elija **Ejecutar en Application Insights** para ver el origen de la consulta que recupera los datos de registro de Azure Monitor en el registro de Azure. Si esta es la primera vez que usa Azure Log Analytics en la suscripción, se le pedirá que lo habilite.
 
-1. Al elegir ese vínculo y habilitar Log Analytics, se muestra la siguiente consulta. Puede ver que los resultados de la consulta se limitan a los últimos 30 días (`where timestamp > ago(30d)`). Además, los resultados no muestran más de 20 filas (`take 20`). Por el contrario, la lista de detalles de invocación de la función es para los últimos 30 días sin límite.
+1. Después de habilitar Log Analytics, se muestra la siguiente consulta. Puede ver que los resultados de la consulta se limitan a los últimos 30 días (`where timestamp > ago(30d)`). Además, los resultados no muestran más de 20 filas (`take 20`). Por el contrario, la lista de detalles de invocación de la función es para los últimos 30 días sin límite.
 
    ![Lista de invocación del análisis de Application Insights](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -50,7 +53,7 @@ Para más información, consulte la sección [Consultar datos de telemetría](#q
 
 ## <a name="view-telemetry-in-application-insights"></a>Visualización de la telemetría en Application Insights
 
-Para abrir Application Insights desde una aplicación de función en Azure Portal, vaya a la página **Información general** de la aplicación de función. En **Características configuradas**, seleccione **Application Insights**.
+Para abrir Application Insights desde una aplicación de funciones en Azure Portal, seleccione **Application Insights** en **Configuración** en la página de la izquierda. Si esta es la primera vez que usa Application Insights con la suscripción, se le pedirá que lo habilite: seleccione **Activar Application Insights** y, a continuación, **Aplicar** en la página siguiente.
 
 ![Abra Application Insights desde la página Información general de la aplicación de función](media/functions-monitoring/ai-link.png)
 
@@ -271,9 +274,6 @@ Application Insights tiene una característica de [muestreo](../azure-monitor/ap
   }
 }
 ```
-
-> [!NOTE]
-> El [muestreo](../azure-monitor/app/sampling.md) está habilitado de forma predeterminada. Si parece que faltan datos, es posible que simplemente deba ajustar la configuración de muestreo para adaptarla a su escenario de supervisión en particular.
 
 ## <a name="write-logs-in-c-functions"></a>Escribir registros en funciones de C#
 
@@ -610,7 +610,7 @@ Cuando elige **Crear**, se crea un recurso de Application Insights con la aplica
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Adición a una aplicación de función existente 
 
-Al crear una aplicación de funciones mediante [Visual Studio](functions-create-your-first-function-visual-studio.md), debe crear el recurso de Application Insights. Luego, puede agregar la clave de instrumentación desde ese recurso como configuración de aplicación en la aplicación de función.
+Al crear una aplicación de funciones mediante [Visual Studio](functions-create-your-first-function-visual-studio.md), debe crear el recurso de Application Insights. A continuación, puede agregar la clave de instrumentación de ese recurso como una [configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) en la aplicación de funciones.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 

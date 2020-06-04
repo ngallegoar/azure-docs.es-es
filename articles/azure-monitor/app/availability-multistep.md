@@ -2,14 +2,13 @@
 title: 'Supervisión con pruebas web de varios pasos: Azure Application Insights'
 description: Configuración de pruebas web de varios pasos para supervisar las aplicaciones web con Azure Application Insights
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.reviewer: sdash
-ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/26/2020
+ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655947"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873345"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
@@ -17,6 +16,9 @@ Puede supervisar una secuencia registrada de direcciones URL e interacciones con
 
 > [!NOTE]
 > Las pruebas web de varios pasos dependen de los archivos de pruebas web de Visual Studio. Se [anunció](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 será la última versión con la funcionalidad de prueba web. Es importante comprender que, aunque no se agregarán nuevas características, la funcionalidad de pruebas web de Visual Studio 2019 todavía se admite y se seguirá admitiendo durante el ciclo de vida de soporte técnico del producto. El equipo de productos de Azure Monitor ha abordado las preguntas sobre el futuro de las pruebas de disponibilidad de varios pasos [aquí](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> </br>
+> **No se admiten** las pruebas web de varios pasos en la nube de[ Azure Government](https://docs.microsoft.com/azure/azure-government/).
+
 
 ## <a name="pre-requisites"></a>Requisitos previos
 

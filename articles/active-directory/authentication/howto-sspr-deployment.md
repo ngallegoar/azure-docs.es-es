@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450996"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870975"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 

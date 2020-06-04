@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5e0043ebba1a317dcc6798d6be74aac051d97012
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595394"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685164"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Creación de un trabajo de Stream Analytics en Azure SQL Edge (versión preliminar) 
 
@@ -22,6 +22,9 @@ En este artículo se explica cómo crear un trabajo de streaming de T-SQL en Azu
 
 1. Creación de los objetos de entrada y salida de transmisión externa
 2. Defina la consulta de trabajo de streaming como parte de la creación del trabajo de streaming.
+
+> [!NOTE]
+> Para habilitar la característica de streaming de T-SQL en Azure SQL Edge, habilite TF 11515 como opción de inicio o use el comando [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). Para más información sobre cómo habilitar marcas de seguimiento mediante el archivo mssql.conf, consulte [Configuración mediante el archivo mssql.conf](configure.md#configure-using-mssqlconf-file). Este requisito se quitará en futuras actualizaciones de Azure SQL Edge (versión preliminar).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Configuración de un objeto de entrada y salida de transmisión externa
 

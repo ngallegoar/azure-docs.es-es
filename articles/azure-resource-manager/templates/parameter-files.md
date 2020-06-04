@@ -3,12 +3,12 @@ title: Creación de archivo de parámetros
 description: Creación de un archivo de parámetros para pasar valores durante la implementación de una plantilla de Azure Resource Manager
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a1a1f703594f8eaa572ea38ecef88b4cd6ba5a4b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682890"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873079"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager
 
@@ -193,7 +193,7 @@ Para realizar la implementación en entornos diferentes, cree más de un archivo
 
 Puede usar parámetros en línea y un archivo de parámetros local en la misma operación de implementación. Por ejemplo, puede especificar algunos valores en el archivo de parámetros local y agregar otros valores en línea durante la implementación. Si proporciona valores para un parámetro en el archivo de parámetros local y en línea, el valor en línea tiene prioridad.
 
-Sin embargo, cuando se utiliza un archivo de parámetros externo, no se pueden pasar otros valores ya sea en línea o desde un archivo local. Se omiten todos los parámetros insertados. Proporcione todos los valores de parámetro en el archivo externo.
+Es posible usar un archivo de parámetros externo proporcionando el URI al archivo. Al hacerlo, no puede pasar otros valores insertados o desde un archivo local. Se omiten todos los parámetros insertados. Proporcione todos los valores de parámetro en el archivo externo.
 
 ## <a name="parameter-name-conflicts"></a>Conflictos de nombres de parámetro
 

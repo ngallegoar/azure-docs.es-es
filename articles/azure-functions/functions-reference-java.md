@@ -3,12 +3,12 @@ title: Referencia para desarrolladores de Java para Azure Functions
 description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 19a290fe7717d7838e8fcd1d1f5cddb3f54eb812
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145325"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648240"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -16,7 +16,7 @@ El tiempo de ejecución de Azure Functions admite [Java SE 8 LTS (zulu8.31.0.2-j
 
 Como sucede con otros lenguajes, una aplicación de funciones puede tener una o varias funciones. Una función Java es un método `public` decorado con la anotación `@FunctionName`. Este método define la entrada de una función Java, y debe ser única en un paquete determinado. Una aplicación de funciones escrita en Java puede tener varias clases con varios métodos públicos anotados con `@FunctionName`.
 
-En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). También debe completar el inicio rápido de Functions para crear su primera función, mediante [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) o [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). También debe completar una de las siguientes guías de inicio rápido de Functions: [Creación de su primera función de Java mediante Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) o [Creación de su primera función de Java desde la línea de comandos con Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
 
 ## <a name="programming-model"></a>Modelo de programación 
 
@@ -467,6 +467,6 @@ Para más información sobre el desarrollo de Java de Azure Functions, vea los s
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)
 * [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
 * Desarrollo y depuración local con [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) y [Eclipse](functions-create-maven-eclipse.md)
-* [Depuración remota de Azure Functions en Java con Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Depuración remota de funciones de Java con Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Complemento Maven para Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) 
 * Optimización de la creación de funciones a través del objetivo `azure-functions:add` y preparación de un directorio de almacenamiento provisional para la [implementación del archivo ZIP](deployment-zip-push.md).

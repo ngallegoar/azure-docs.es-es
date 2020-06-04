@@ -1,23 +1,20 @@
 ---
 title: Administración de datos de Azure Automation
-description: Este artículo contiene varios temas para administrar un entorno de Azure Automation.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Azure Automation.
+description: En este artículo se describen conceptos de administración de datos en Azure Automation, incluidas la retención de datos y la copia de seguridad.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: f917e9c64a932d75fd0f6b14c9e0f35808467355
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984664"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835213"
 ---
-# <a name="managing-azure-automation-data"></a>Administración de datos de Azure Automation
+# <a name="management-of-azure-automation-data"></a>Administración de datos de Azure Automation
 
 Este artículo contiene varios temas para administrar datos en un entorno de Azure Automation.
-
->[!NOTE]
->Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Aún puede usar el módulo de AzureRM que continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación del módulo Az en Hybrid Runbook Worker, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Puede actualizar los módulos de su cuenta de Automation a la versión más reciente mediante [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="data-retention"></a>Retención de datos
 
@@ -80,5 +77,4 @@ El servicio de replicación geográfica de Automation no es accesible directamen
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de los recursos seguros de Azure Automation, consulte [Cifrado de recursos protegidos en Azure Automation](automation-secure-asset-encryption.md).
-
 * Para más información sobre la replicación geográfica, consulte [Creación y uso de la replicación geográfica activa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).

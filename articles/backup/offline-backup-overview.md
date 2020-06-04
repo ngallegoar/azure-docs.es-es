@@ -3,12 +3,12 @@ title: Introducción a la copia de seguridad sin conexión
 description: Conozca los componentes de la copia de seguridad sin conexión. Por ejemplo, la copia de seguridad sin conexión basada en Azure Data Box y la copia de seguridad sin conexión basada en el servicio Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160928"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744634"
 ---
 # <a name="overview-of-offline-backup"></a>Introducción a la copia de seguridad sin conexión
 
@@ -73,11 +73,11 @@ En la tabla siguiente se comparan las dos opciones disponibles, de modo que pued
 | Seguridad (datos, dispositivo y servicio)                           | [Datos](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection): cifrados con AES de 256 bits <br> [Dispositivo](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection): interfaz propia basada en credenciales, en carcasa resistente para copiar datos <br> [Servicio](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection): protegido por las características de seguridad de Azure | Datos: cifrados con BitLocker                                 |
 | Aprovisionamiento de ubicación de almacenamiento provisional temporal                     | No se requiere                                                | Mayor o igual que el tamaño estimado de los datos de copia de seguridad        |
 | Regiones admitidas                                           | [Regiones de Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Regiones de Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Regiones de servicios Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
-| Envío entre países                                     | No compatible  <br>    La dirección de origen y el centro de datos de Azure de destino deben estar en el mismo país* | Compatible                                                    |
+| Envío entre países                                     | No compatible  <br>    La dirección de origen y el centro de datos de Azure de destino deben estar en el mismo país o región*. | Compatible                                                    |
 | Logística de transferencia (entrega, transporte, recogida)           | Administrada totalmente por Microsoft                                     | Administrado por el cliente                                            |
 | Precios                                                      | [Precios de Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Precios de Azure Data Box Disk](https://azure.microsoft.com/pricing/details/databox/disk/) | [Precios del servicio Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
-*Si su país no tiene un centro de datos de Azure, debe enviar los discos a uno situado en otro país.
+*Si su país o región no tiene un centro de datos de Azure, debe enviar los discos a uno situado en otro país o región.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

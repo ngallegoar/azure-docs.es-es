@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45648170f69d513b15e79cdd76f56e66bbc88bfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332080"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870929"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -48,6 +48,8 @@ Ejecute la [herramienta IdFix](https://docs.microsoft.com/office365/enterprise/p
 
 1. Identifique un servidor host unido a un dominio en el que se ejecuta Windows Server 2012 R2 o superior con un mínimo de 4 GB de RAM y un entorno de ejecución .NET 4.7.1 o posterior.
 
+1. La directiva de ejecución de PowerShell en el servidor local debe establecerse en Undefined o RemoteSigned.
+
 1. Si hay un firewall entre los servidores y Azure AD, configure los elementos siguientes:
    - Asegúrese de que los agentes pueden realizar solicitudes *de salida* a Azure AD a través de los puertos siguientes:
 
@@ -62,14 +64,9 @@ Ejecute la [herramienta IdFix](https://docs.microsoft.com/office365/enterprise/p
    - Los agentes necesitan acceder a login.windows.net y login.microsoftonline.com para el registro inicial. Abra el firewall también para esas direcciones URL.
    - Para la validación de certificados, desbloquee las siguientes direcciones URL: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 y www\.microsoft.com:80. Estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, por lo que es posible que estas direcciones URL estén bloqueadas.
 
-### <a name="verify-the-port"></a>Comprobación del puerto
-Para comprobar que Azure está escuchando en el puerto 443 y que el agente puede comunicarse con él, utilice la siguiente dirección URL:
+>[!NOTE]
+> La instalación del agente de aprovisionamiento en la nube en Windows Server Core no se admite.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-En esta prueba se comprobará que los agentes pueden comunicarse con Azure a través del puerto 443. Abra un explorador y vaya a la dirección URL anterior desde el servidor en el que está instalado el agente.
-
-![Comprobación de disponibilidad de puertos](media/how-to-install/verify2.png)
 
 ### <a name="additional-requirements"></a>Requisitos adicionales
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 

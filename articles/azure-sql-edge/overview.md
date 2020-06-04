@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6e5e54f7bf61d933240403ff952c1aa6e162958f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 40128c68caeba793919a680ba2beeb35eb3aa3be
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594584"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712815"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>¿Qué es Azure SQL Edge (versión preliminar)?
 
@@ -33,7 +33,7 @@ Azure SQL Edge está disponible en Azure Marketplace y se puede implementar como
 
 ## <a name="editions-of-sql-edge"></a>Ediciones de SQL Edge
 
-SQL Edge está disponible en tres ediciones o planes de software diferentes. Estas ediciones tienen conjuntos de características idénticos y solo difieren en cuanto a sus derechos de uso y la cantidad de CPU o memoria que admiten.
+SQL Edge está disponible en dos ediciones o planes de software diferentes. Estas ediciones tienen conjuntos de características idénticos y solo difieren en cuanto a sus derechos de uso y la cantidad de CPU o memoria que admiten.
 
    |**Plan**  |**Descripción**  |
    |---------|---------|
@@ -42,7 +42,7 @@ SQL Edge está disponible en tres ediciones o planes de software diferentes. Est
 
 ## <a name="pricing-and-availability"></a>Precios y disponibilidad
 
-Actualmente, Azure SQL Edge se encuentra en versión preliminar. Para obtener más información sobre los precios y la disponibilidad, consulte [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
+Actualmente, Azure SQL Edge se encuentra en versión preliminar. Para obtener más información sobre los precios y la disponibilidad, consulte [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Para comprender las diferencias en las características de Azure SQL Edge y SQL Server, así como las que existen entre distintas opciones de Azure SQL Edge, consulte [Características admitidas de Azure SQL Edge](features.md).

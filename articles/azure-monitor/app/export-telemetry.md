@@ -2,16 +2,20 @@
 title: Exportación de telemetría desde Application Insights | Microsoft Docs
 description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/20/2020
+ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298282"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744856"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir el código necesario para procesarlos.  
+
+> [!NOTE]
+> La exportación continua solo se admite para los recursos clásicos de Application Insights. Los [recursos de Application Insights basados en áreas de trabajo](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) deben usar la [configuración de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry).
+>
 
 Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
 
