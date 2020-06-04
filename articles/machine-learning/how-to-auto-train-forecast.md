@@ -10,17 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bb32418a9f6f556c3bcdfbdf8a70a10c4588218
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137383"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646148"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo aprenderá a configurar y entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado en Azure Machine Learning. 
+En este artículo aprenderá a configurar y entrenar un modelo de regresión de previsión de series temporales con aprendizaje automático automatizado en la [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+
+Para obtener una experiencia con poco código, vea el [tutorial de previsión de la demanda con el automatizado de aprendizaje automático](tutorial-automated-ml-forecast.md) para obtener un ejemplo de previsión de serie temporal que usa el aprendizaje automático automatizado en [Azure Machine Learning Studio](https://ml.azure.com/).
 
 La configuración de un modelo de previsión es similar a la configuración de un modelo de regresión estándar mediante aprendizaje automático automatizado, pero existen algunas opciones de configuración y pasos previos de procesamiento para trabajar con los datos de series temporales. 
 
@@ -40,7 +42,6 @@ Las características que se extraen de los datos de entrenamiento desempeñan un
 
 ## <a name="time-series-and-deep-learning-models"></a>Modelos de serie temporal y aprendizaje profundo
 
-
 El aprendizaje profundo de ML automatizado permite pronosticar datos de series temporales de variable única y de varias variables.
 
 Los modelos de aprendizaje profundo tienen tres capacidades intrínsecas:
@@ -51,7 +52,6 @@ Los modelos de aprendizaje profundo tienen tres capacidades intrínsecas:
 En el caso de datos de mayor tamaño, los modelos de aprendizaje profundo, como ForecastTCN de Microsoft, pueden mejorar las puntuaciones del modelo resultante. Obtenga información sobre cómo [configurar el experimento para el aprendizaje profundo](#configure-a-dnn-enable-forecasting-experiment).
 
 ML automatizado proporciona a los usuarios modelos nativos de serie temporal y de aprendizaje profundo como parte del sistema de recomendaciones. 
-
 
 Modelos| Descripción | Ventajas
 ----|----|---
@@ -112,7 +112,7 @@ En el caso de la previsión de series temporales, se usa la validación cruzada 
 
 ![texto alternativo](./media/how-to-auto-train-forecast/ROCV.svg)
 
-Esta estrategia conservará la integridad de los datos de la serie temporal y eliminará el riesgo de perder datos. ROCV se utiliza automáticamente para las tareas de previsión al pasar juntos los datos de entrenamiento y validación, y establecer el número de subconjuntos de validación cruzada mediante `n_cross_validations`. 
+Esta estrategia conservará la integridad de los datos de la serie temporal y eliminará el riesgo de perder datos. ROCV se utiliza automáticamente para las tareas de previsión al pasar juntos los datos de entrenamiento y validación, y establecer el número de subconjuntos de validación cruzada mediante `n_cross_validations`. Obtenga más información sobre cómo AutoML aplica la validación cruzada para [evitar un sobreajuste de los modelos](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',

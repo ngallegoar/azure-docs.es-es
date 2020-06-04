@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657051"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742212"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -31,7 +31,7 @@ En la lista siguiente se describen las palabras comunes que se usan con los serv
 
 <a name="altitude"></a> **Altitud**: altura o elevación vertical de un punto por encima de una superficie de referencia. Las medidas de altitud se basan en datos de referencia concretos; por ejemplo, el nivel medio del mar. Consulte también Elevación.
 
-<a name="ambiguous"></a> **Ambiguo**: estado de incertidumbre de clasificación de datos que se produce cuando se pueden asignar correctamente dos o más valores para un atributo concreto de un objeto. Por ejemplo, al geocodificar "CA", se devuelven dos resultados ambiguos: "Canada" y "California". "CA" es un país y un código de estado, para "Canada" y "California", respectivamente. 
+<a name="ambiguous"></a> **Ambiguo**: estado de incertidumbre de clasificación de datos que se produce cuando se pueden asignar correctamente dos o más valores para un atributo concreto de un objeto. Por ejemplo, al geocodificar "CA", se devuelven dos resultados ambiguos: "Canada" y "California". "CA" es un código de país o región y de estado, para "Canada" y "California", respectivamente. 
 
 <a name="annotation"></a> **Anotación**: texto o gráfico que se muestra en el mapa para proporcionar información al usuario. La anotación puede identificar o describir una entidad de asignación específica, proporcionar información general sobre un área en el mapa o proporcionar información acerca del propio mapa.
 
@@ -53,7 +53,7 @@ En la lista siguiente se describen las palabras comunes que se usan con los serv
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)** : nombre anterior de Azure Maps cuando estaba en versión preliminar.
 
-<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)** : Azure AD es un servicio de administración de acceso y de identidades basado en la nube de Microsoft. La integración de Azure AD y Azure Maps está disponible actualmente en versión preliminar para todas las API de Azure Maps. Azure AD admite el control de acceso basado en rol (RBAC) para permitir el acceso específico a recursos de Azure Maps. Para obtener más información sobre la integración de Azure AD y Azure Maps, consulte [Azure Maps y Azure AD](azure-maps-authentication.md) y [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)** : Azure AD es un servicio de administración de acceso y de identidades basado en la nube de Microsoft. La integración de Azure AD y Azure Maps está disponible actualmente en versión preliminar para todas las API de Azure Maps. Azure AD admite el control de acceso basado en rol (RBAC) para permitir el acceso específico a recursos de Azure Maps. Para obtener más información sobre la integración de Azure AD y Azure Maps, consulte [Azure Maps y Azure AD](azure-maps-authentication.md) y [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 <a name="azure-maps-key"></a> **Clave de Azure Maps**: Consulte [Autenticación de clave compartida](#shared-key-authentication).
 
@@ -408,5 +408,5 @@ En la lista siguiente se describen las palabras comunes que se usan con los serv
 
 <a name="zip-code"></a> **Zip Code**: vea [Código postal](#postal-code).
 
-<a name="Zoom level"></a> **Nivel de zoom**: especifica el nivel de detalle y qué parte del mapa es visible. Cuando se amplía hasta el nivel 0, se puede ver el mapa del mundo completo. Sin embargo, el mapa mostrará detalles limitados, como los nombres de los países o de las regiones, los bordes y los nombres de los océanos. Si se acerca al nivel 17, el mapa mostrará un área con algunas manzanas de una ciudad con información detallada sobre las calles. En Azure Maps, el nivel de zoom máximo es 22. Para más información, consulte la documentación sobre [niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a> **Nivel de zoom**: especifica el nivel de detalle y qué parte del mapa es visible. Cuando se amplía hasta el nivel 0, se puede ver el mapa del mundo completo. Sin embargo, el mapa mostrará detalles limitados, como los nombres de los países o de las regiones, los bordes y los nombres de los océanos. Si se acerca al nivel 17, el mapa mostrará un área con algunas manzanas de una ciudad con información detallada sobre las calles. En Azure Maps, el nivel de zoom máximo es 22. Para más información, consulte la documentación sobre [niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
 

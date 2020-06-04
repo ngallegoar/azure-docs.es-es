@@ -3,12 +3,12 @@ title: 'Archivos de SharePoint: QnA Maker'
 description: Agregue orígenes de datos protegidos de SharePoint a la base de conocimiento para enriquecerla con preguntas y respuestas que se pueden proteger con Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294876"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660298"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adición de un origen de datos protegido de SharePoint a la base de conocimiento
 
@@ -32,7 +32,7 @@ Puede agregar todos los [tipos de archivos](../Concepts/content-types.md) compat
 
    ![Obtenga la dirección URL del archivo SharePoint seleccionando el menú del botón de puntos suspensivos del archivo y luego copiando la dirección URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. En el portal de QnA Maker, en la página **Configuración**, [agregue la dirección URL](manage-knowledge-bases.md#edit-knowledge-base) a la base de conocimiento.
+1. En el portal de QnA Maker, en la página **Configuración**, agregue la dirección URL a la base de conocimiento.
 
 ### <a name="images-with-sharepoint-files"></a>Imágenes con archivos de SharePoint
 

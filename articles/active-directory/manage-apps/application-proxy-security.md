@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e0faf8ac776c043f2407e509c936d21f227664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481235"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739975"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -47,7 +47,7 @@ Si elige el acceso directo como método de autenticación previa, no disfruta de
 
 Aplique controles de directiva más completos antes de que se establezcan las conexiones a la red.
 
-Con el [acceso condicional](../conditional-access/overview.md), es posible definir aún más las restricciones sobre el tráfico que se permite que tenga acceso a las aplicaciones de back-end. Puede crear directivas que restrinjan los inicios de sesión en función de la ubicación, el nivel de autenticación y el perfil de riesgo del usuario.
+Con el [acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md), es posible definir las restricciones sobre cómo los usuarios pueden acceder a sus aplicaciones. Puede crear directivas que restrinjan los inicios de sesión en función de la ubicación, el nivel de autenticación y el perfil de riesgo del usuario.
 
 También puede usar el acceso condicional para configurar directivas de Multi-Factor Authentication, agregando otro nivel de seguridad para la autenticación de los usuarios. Además, las aplicaciones también pueden enrutarse a Microsoft Cloud App Security mediante el acceso condicional de Azure AD para proporcionar supervisión y controles en tiempo real, mediante las directivas de [acceso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) y [sesión](https://docs.microsoft.com/cloud-app-security/session-policy-aad).
 
@@ -61,7 +61,7 @@ Como el Proxy de aplicación de Azure AD es un servidor proxy inverso, todo el t
 
 No es necesario abrir conexiones de entrada a la red corporativa.
 
-Los conectores de Proxy de aplicación solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ* o *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria inversiones adicionales en productos de firewall de aplicaciones web para analizar el tráfico y proteger el entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
+Los conectores de Proxy de aplicación solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ* *o* *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria inversiones adicionales en productos de firewall de aplicaciones web para analizar el tráfico y proteger el entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
 
 Para más información sobre los conectores, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-connectors.md).
 
