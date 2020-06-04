@@ -194,6 +194,8 @@
           href: metrics.md
 - name: Guías paso a paso
   items:
+    - name: 'Creación, visualización y administración de temas del sistema'
+      href: create-view-manage-system-topics.md
     - name: Publicación en tema personalizado
       href: post-to-custom-topic.md
     - name: Suscripción a eventos de Auth0

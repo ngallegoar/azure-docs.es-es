@@ -464,6 +464,8 @@
               href: platform/alerts-metric-logs.md
             - name: Uso de la plantilla de Resource Manager
               href: platform/alerts-metric-create-templates.md
+            - name: Solución de problemas de alertas de métricas
+              href: platform/alerts-troubleshoot-metric.md
         - name: Reglas de alertas de registro
           items:
             - name: Configuración de alertas en las consultas de análisis
@@ -990,12 +992,12 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
-        - name: Key Vault
-          href: insights/key-vaults-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
+        - name: Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: Storage
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md
@@ -1096,6 +1098,7 @@
     - name: Workbooks
       items:
         - name: Información general
+          displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualizaciones
           href: platform/workbooks-visualizations.md

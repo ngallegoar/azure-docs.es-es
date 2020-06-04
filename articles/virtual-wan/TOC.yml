@@ -48,8 +48,6 @@
       href: upgrade-virtual-wan.md
     - name: Configuración de una directiva de IPsec personalizada
       href: virtual-wan-custom-ipsec-portal.md
-    - name: Instalación de Azure Firewall en un centro de conectividad
-      href: howto-firewall.md
     - name: ExpressRoute
       items:
         - name: Creación de una conexión de ExpressRoute
@@ -60,6 +58,8 @@
       items:
         - name: Creación de una conexión de sitio a sitio
           href: virtual-wan-site-to-site-portal.md
+        - name: 'Varios vínculos de ISP: selección de ruta de acceso de Azure'
+          href: path-selection-multiple-links.md
     - name: VPN de usuario (de punto a sitio)
       items:
         - name: Creación de una conexión VPN de usuario
@@ -86,24 +86,24 @@
           href: openvpn-azure-ad-client.md
         - name: "Configuración de la autenticación de Azure\_AD para varias aplicaciones"
           href: openvpn-azure-ad-tenant-multi-app.md
-        - name: Instalación de Azure Firewall en un centro de conectividad
-          href: howto-firewall.md
     - name: Enrutamiento
       items:
         - name: Enrutamiento del tráfico desde una central virtual a NVA
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: virtual-wan-route-table-portal.md
             - name: Azure PowerShell
               href: virtual-wan-route-table.md
         - name: Visualización de rutas efectivas de centro virtual
           href: effective-routes-virtual-hub.md
-        - name: 'Varios vínculos de ISP: selección de ruta de acceso de Azure'
-          href: path-selection-multiple-links.md
     - name: Seguridad
       items:
         - name: Instalación de Azure Firewall en un centro de conectividad
           href: howto-firewall.md
+    - name: Supervisión
+      items:
+        - name: Registros y métricas
+          href: logs-metrics.md
 - name: Referencia
   items:
     - name: Azure PowerShell

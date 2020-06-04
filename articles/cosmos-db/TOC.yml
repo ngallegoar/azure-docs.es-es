@@ -10,7 +10,7 @@
     - name: Recursos de Cosmos DB
       expanded: true
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: create-cosmosdb-resources-portal.md
         - name: Plantilla ARM
           displayName: Resource Manager
@@ -592,8 +592,12 @@
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
-            - name: Java
+            - name: .NET Core
+              href: create-cassandra-dotnet-core.md
+            - name: "Java\_v3"
               href: create-cassandra-java.md
+            - name: "Java\_v4"
+              href: create-cassandra-java-v4.md
             - name: Node.js
               href: create-cassandra-nodejs.md
             - name: Python
@@ -615,6 +619,8 @@
               href: cassandra-faq.md
             - name: Escalado elástico
               href: manage-scale-cassandra.md
+            - name: Creación de particiones
+              href: cassandra-partitioning.md
             - name: Índices secundarios
               href: cassandra-secondary-index.md
         - name: Guías paso a paso
@@ -810,7 +816,7 @@
           items:
             - name: Encabezados de respuesta
               href: gremlin-headers.md
-            - name: límites
+            - name: Límites
               href: gremlin-limits.md
             - name: Compatibilidad
               href: gremlin-compatibility.md

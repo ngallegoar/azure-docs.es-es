@@ -817,7 +817,7 @@
           items:
             - name: Azure PowerShell
               href: attach-disk-ps.md
-            - name: Azure Portal
+            - name: Azure portal
               href: attach-managed-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
@@ -860,8 +860,10 @@
               href: disks-enable-ultra-ssd.md
             - name: Realización de pruebas comparativas de un disco
               href: disks-benchmarks.md
-        - name: Búsqueda de discos sin conectar
+        - name: 'Búsqueda de discos sin conectar: PowerShell'
           href: find-unattached-disks.md
+        - name: 'Búsqueda de discos sin conectar: Azure Portal'
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Preguntas más frecuentes de discos
           href: faq-for-disks.md
     - name: Administración de redes
@@ -871,7 +873,7 @@
           href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

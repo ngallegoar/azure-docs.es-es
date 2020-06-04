@@ -73,6 +73,12 @@
       items:
         - name: Rotación de claves de acceso
           href: signalr-howto-key-rotation.md
+        - name: Uso de etiquetas de servicio de Azure
+          href: howto-service-tags.md
+        - name: Uso de puntos de conexión privados de Azure
+          href: howto-private-endpoints.md
+        - name: Administración del control de acceso a la red
+          href: howto-network-access-control.md
     - name: Integrate
       items:
         - name: Enlaces de Azure Functions

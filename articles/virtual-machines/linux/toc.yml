@@ -903,7 +903,7 @@
           items:
             - name: Azure CLI
               href: add-disk.md
-            - name: Azure Portal
+            - name: Azure portal
               href: attach-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
@@ -952,8 +952,10 @@
               href: configure-raid.md
             - name: Configuración del LVM
               href: configure-lvm.md
-        - name: Búsqueda de discos sin conectar
+        - name: 'Búsqueda de discos sin conectar: CLI'
           href: find-unattached-disks.md
+        - name: 'Búsqueda de discos sin conectar: Azure Portal'
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Uso de File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Preguntas más frecuentes de discos

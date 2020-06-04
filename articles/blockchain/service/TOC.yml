@@ -11,7 +11,8 @@
       href: create-member.md
     - name: Creación de miembros mediante la CLI
       href: create-member-cli.md
-    - name: Creación de miembros mediante plantilla
+    - name: Creación de miembros mediante la plantilla de Resource Manager
+      displayName: Resource Manager
       href: create-member-template.md
     - name: Conexión al nodo de transacción
       items:
@@ -37,7 +38,7 @@
       href: data-manager.md
     - name: Desarrollar
       href: develop.md
-    - name: límites
+    - name: Límites
       href: limits.md
     - name: 'Aplicación de revisiones, actualización y control de versiones'
       href: ledger-versions.md

@@ -70,7 +70,8 @@
       items:
         - name: Entrenamiento e implementación con la CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Creación de áreas de trabajo con plantillas de Resource Manager
+        - name: Creación de áreas de trabajo con la plantilla de Resource Manager
+          displayName: Resource Manager
           href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
@@ -209,7 +210,7 @@
         - name: Configuración de entornos de software
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
-        - name: Habilitación del registro
+        - name: Habilitar registro
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
         - name: Establecimiento de directorios de entrada y salida
