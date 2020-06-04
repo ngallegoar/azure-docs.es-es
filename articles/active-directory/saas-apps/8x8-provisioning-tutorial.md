@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 6fc14bd41faf6a86953b82f8a7ea7bd75b746cf9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: b200aabff1231cdf383d30ad2e671c4b46ca91bb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801518"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196206"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configuración de 8x8 para el aprovisionamiento automático de usuarios
 
@@ -33,7 +33,7 @@ En este tutorial se describen los pasos que debe realizar en Configuration Manag
 > * Mantener los atributos de usuario sincronizados entre Azure AD y 8x8
 > * [Inicio de sesión único](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) en 8x8 (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -116,7 +116,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 7. Seleccione **Guardar**.
 
-8. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con 8x8**.
+8. En la sección **Asignaciones**, seleccione **Aprovisionar usuarios de Azure Active Directory**.
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y 8x8 en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 8x8 a fin de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de 8x8 admite el filtrado de usuarios basado en ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
