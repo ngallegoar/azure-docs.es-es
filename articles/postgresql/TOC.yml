@@ -44,7 +44,7 @@
       items:
         - name: 1 - Diseño de una base de datos
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: tutorial-design-database-using-azure-portal.md
             - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
@@ -86,7 +86,7 @@
               href: concepts-pricing-tiers.md
             - name: Pago por adelantado de capacidad reservada
               href: concept-reserved-pricing.md
-            - name: límites
+            - name: Límites
               href: concepts-limits.md
         - name: Acceso a datos y seguridad
           items:
@@ -195,7 +195,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-create-manage-server-portal.md
         - name: Authentication
           items:
@@ -217,13 +217,13 @@
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
         - name: Administración del firewall
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-firewall-using-portal.md
             - name: Azure CLI
               href: howto-manage-firewall-using-cli.md
         - name: Restauración de un servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restore-server-portal.md
             - name: Azure CLI
               href: howto-restore-server-cli.md
@@ -235,21 +235,25 @@
               href: howto-migrate-using-export-and-import.md
             - name: Migración con tiempo de inactividad mínimo
               href: howto-migrate-online.md
+        - name: Conexión de aplicaciones
+          items:
+            - name: Configuración de TLS
+              href: howto-tls-configurations.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
             - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
         - name: Registros de acceso
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-using-cli.md
@@ -265,23 +269,23 @@
               href: howto-data-encryption-troubleshoot.md
         - name: Protección contra amenazas avanzada
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-database-threat-protection-portal.md
         - name: Virtual Network
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-vnet-using-portal.md
             - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
         - name: Private Link
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-privatelink-portal.md
             - name: Azure CLI
               href: howto-configure-privatelink-cli.md
         - name: Cifrado de datos
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
@@ -289,13 +293,13 @@
               href: howto-data-encryption-validation.md
         - name: Reinicio del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
         - name: Denegación del acceso a una red pública
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-deny-public-network-access.md
         - name: Replicación
           items:
@@ -311,7 +315,7 @@
           href: howto-hyperscale-scaling.md
         - name: Administración del firewall
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-hyperscale-manage-firewall-using-portal.md
         - name: Alta disponibilidad
           href: howto-hyperscale-high-availability.md

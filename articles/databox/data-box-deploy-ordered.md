@@ -28,7 +28,7 @@ En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de implementar el dispositivo, complete los siguientes requisitos previos de configuración tanto del servicio Data Box como del dispositivo.
 
@@ -58,7 +58,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     |Configuración  |Value  |
     |---------|---------|
-    |Subscription     | Seleccione una suscripción patrocinada por EA, CSP o Azure para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
+    |Suscripción     | Seleccione una suscripción patrocinada por EA, CSP o Azure para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
     |Tipo de transferencia     | Seleccione **Importar en Azure**.        |
     |País o región de origen    |    Seleccione el país o región en que residen los datos actualmente.         |
     |Región de Azure de destino     |     Seleccione la región de Azure a la que desea transferir los datos.        |

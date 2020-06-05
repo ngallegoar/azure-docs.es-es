@@ -31,7 +31,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-java-elk.md)
 > * Configuración de CI/CD
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Instalar Git en el equipo local desde la [página de descargas de Git](https://git-scm.com/downloads). Para más información sobre Git, leer la [documentación correspondiente](https://git-scm.com/docs).
 * Tener conocimientos prácticos de [Jenkins](https://jenkins.io/).

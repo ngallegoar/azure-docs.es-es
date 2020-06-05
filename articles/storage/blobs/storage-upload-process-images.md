@@ -37,7 +37,7 @@ En la primera parte de la serie, se aprende a:
 > * Configuración de aplicaciones
 > * Interactuar con la aplicación web
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará una suscripción de Azure. Cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de comenzar.
 

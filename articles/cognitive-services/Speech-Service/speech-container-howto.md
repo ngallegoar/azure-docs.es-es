@@ -35,7 +35,7 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Requisitos previos para poder usar los contenedores de Voz:
 

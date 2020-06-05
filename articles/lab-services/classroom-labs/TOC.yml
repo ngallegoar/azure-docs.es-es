@@ -82,6 +82,8 @@
           href: specify-marketplace-images.md
         - name: Especificación de información de soporte técnico (propietario de cuenta de laboratorio)
           href: lab-account-owner-support-information.md
+        - name: Cost Management para laboratorios
+          href: cost-management-guide.md
     - name: Creación y configuración de laboratorios educativos (formador)
       items:
         - name: Creación y administración de laboratorios educativos

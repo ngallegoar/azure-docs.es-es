@@ -19,7 +19,7 @@ ms.locfileid: "82731958"
 
 Esta guía de inicio rápido le orienta a través de la conexión de la instancia de App Center de la aplicación a Application Insights. Con Application Insights, puede consultar, segmentar, filtrar y analizar la telemetría con herramientas más eficaces que las disponibles en el servicio [Analytics](https://docs.microsoft.com/mobile-center/analytics/) de App Center.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido necesita instalar:
 

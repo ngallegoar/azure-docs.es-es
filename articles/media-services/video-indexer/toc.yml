@@ -23,8 +23,6 @@
       href: 'https://github.com/Azure-Samples/media-services-video-indexer'
 - name: Conceptos
   items:
-    - name: Información general
-      href: video-indexer-concepts.md
     - name: Comparación de los valores preestablecidos de Video Indexer y Media Services
       href: compare-video-indexer-with-media-services-presets.md
     - name: Administración de varios inquilinos

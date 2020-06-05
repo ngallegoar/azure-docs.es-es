@@ -12,7 +12,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 05/22/2020
 ms.locfileid: "83800692"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 El único requisito previo es una suscripción a Azure Speech. Consulte la [guía](../get-started.md#new-resource) sobre cómo crear una suscripción si aún no tiene una.
 

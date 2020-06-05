@@ -11,7 +11,7 @@
   items:
     - name: Creación de un trabajo
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: stream-analytics-quick-create-portal.md
         - name: Plantilla ARM
           href: quick-create-azure-resource-manager.md
@@ -114,6 +114,8 @@
   items:
     - name: Administrar
       items:
+        - name: Trabajos de escalabilidad automática
+          href: stream-analytics-autoscale.md
         - name: Actualización de credenciales
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configuración de las directivas de ordenación de eventos
@@ -611,6 +613,8 @@
       href: /rest/api/streamanalytics
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Azure CLI
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Recursos
   items:
     - name: Versiones preliminares de Stream Analytics

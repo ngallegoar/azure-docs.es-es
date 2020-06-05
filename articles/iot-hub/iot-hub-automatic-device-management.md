@@ -179,7 +179,7 @@ Para ver los detalles de una configuración y supervisar los dispositivos que la
 
    * **Metrics** (Métricas): una lista de métricas del sistema y métricas personalizadas.  Para ver una lista de los dispositivos o módulos que se tienen en cuenta para cada métrica, seleccione la métrica en el menú desplegable y luego seleccione **Ver dispositivos** o **Ver módulos**.
 
-   * **Configuración de dispositivos gemelos**: ajustes de los gemelos definidos en la configuración. 
+   * **Configuración de dispositivos gemelos**: ajustes de los gemelos definidos en la configuración **.** 
 
    * **Configuration Labels** (Etiquetas de configuración): pares clave-valor utilizados para describir una configuración.  Las etiquetas no tienen ningún impacto en la funcionalidad. 
 

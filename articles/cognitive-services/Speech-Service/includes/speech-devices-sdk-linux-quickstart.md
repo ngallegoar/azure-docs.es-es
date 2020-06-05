@@ -20,7 +20,7 @@ Para esta guía se requiere una cuenta de [Azure Cognitive Services](../get-star
 
 El código fuente de la [aplicación de ejemplo](https://aka.ms/sdsdk-download-JRE) se incluye con Speech Devices SDK. También está [disponible en GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Esta guía de inicio rápido requiere:
 

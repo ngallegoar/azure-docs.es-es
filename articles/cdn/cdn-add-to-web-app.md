@@ -38,7 +38,7 @@ Temas que se abordarán:
 > * Utilizar cadenas de consulta para controlar las versiones en caché.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
