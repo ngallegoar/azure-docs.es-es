@@ -1,9 +1,11 @@
 - name: Azure Blockchain Service (versión preliminar)
   href: index.yml
-- name: Información general
+- name: Introducción
   items:
     - name: Acerca del servicio Azure Blockchain
       href: overview.md
+    - name: Novedades
+      href: whats-new.md
 - name: Guías de inicio rápido
   expanded: true
   items:
