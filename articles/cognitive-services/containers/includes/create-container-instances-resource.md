@@ -24,7 +24,7 @@ ms.locfileid: "80876469"
 
     |Configuración|Value|
     |--|--|
-    |Subscription|Seleccione su suscripción.|
+    |Suscripción|Seleccione su suscripción.|
     |Resource group|Seleccione el grupo de recursos disponible o cree uno nuevo, como `cognitive-services`.|
     |Nombre del contenedor|Escriba un nombre como `cognitive-container-instance`. Este nombre debe estar en minúsculas.|
     |Location|Seleccione una región para la implementación.|

@@ -6,7 +6,7 @@
       href: data-lake-analytics-overview.md
 - name: Introducción
   items:
-    - name: Azure Portal
+    - name: Azure portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -25,7 +25,7 @@
   items:
     - name: Administración con Data Lake Analytics
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
@@ -151,7 +151,7 @@
       href: /rest/api/datalakeanalytics/
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.datalakeanalytics/allversions
-    - name: CLI
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/dla'
 - name: Recursos
   items:

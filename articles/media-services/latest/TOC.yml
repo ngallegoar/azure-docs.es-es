@@ -99,7 +99,7 @@
       items:
         - name: Información general
           href: live-streaming-overview.md
-        - name: Eventos en directo y salidas en vivo
+        - name: Eventos en directo y salidas en directo
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Codificadores en directo locales probados
@@ -126,7 +126,7 @@
         - name: Filtros
           displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
-        - name: Extremos de streaming
+        - name: Puntos de conexión de streaming
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Escalado de streaming con CDN
@@ -154,7 +154,7 @@
               href: fairplay-license-overview.md
         - name: Directivas de streaming
           href: streaming-policy-concept.md
-        - name: Directivas de clave de contenido
+        - name: Directivas de claves de contenido
           href: content-key-policy-concept.md
     - name: Supervisión
       items:
@@ -181,7 +181,7 @@
           href: rbac-overview.md
         - name: Códigos de error
           items:
-            - name: Códigos de error de punto de conexión de streaming
+            - name: Códigos de error de puntos de conexión de streaming
               href: streaming-endpoint-error-codes.md
             - name: Códigos de error de eventos en directo
               href: live-event-error-codes.md
@@ -260,10 +260,10 @@
           href: job-multiple-transform-outputs.md
     - name: Codificar contenido
       items:
-        - name: HTTPS como entrada del trabajo
+        - name: HTTPS como entrada de trabajo
           displayName: 'encode, encoding'
           href: job-input-from-http-how-to.md
-        - name: Archivo local como entrada del trabajo
+        - name: Archivo local como entrada de trabajo
           displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Codificación con una transformación personalizada
@@ -347,7 +347,7 @@
           href: frequently-asked-questions.md
         - name: Códigos de error
           items:
-            - name: Códigos de error de punto de conexión de streaming
+            - name: Códigos de error de puntos de conexión de streaming
               href: streaming-endpoint-error-codes.md
             - name: Códigos de error de eventos en directo
               href: live-event-error-codes.md
@@ -376,6 +376,10 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.media/allversions
+    - name: Esquemas de codificador estándar
+      items:
+        - name: Metadatos de salida
+          href: output-metadata-schema.md
 - name: Recursos
   items:
     - name: Comunidad de Azure Media Services

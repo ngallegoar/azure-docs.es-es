@@ -24,7 +24,7 @@ ms.locfileid: "80877861"
 
     |Configuración|Value|
     |--|--|
-    |Subscription|Seleccione una suscripción adecuada.|
+    |Suscripción|Seleccione una suscripción adecuada.|
     |Resource group|Seleccione un grupo de recursos disponible.|
     |Nombre del clúster de Kubernetes|Escriba un nombre (en minúsculas).|
     |Region|Seleccione una ubicación cercana.|
@@ -40,7 +40,7 @@ ms.locfileid: "80877861"
     |Configuración|Value|
     |--|--|
     |Enrutamiento de aplicación HTTP|No|
-    |Configuración de red|Básica|
+    |Configuración de red|Básico|
 
 1. En la pestaña **Supervisión**, asegúrese de que la opción **Habilitar la supervisión de contenedores** esté establecida en **Sí** y deje **Área de trabajo de Log Analytics** con el valor predeterminado.
 1. En la pestaña **Tags** (Etiquetas), deje los pares nombre/valor en blanco por ahora.

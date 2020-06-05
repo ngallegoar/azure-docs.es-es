@@ -25,7 +25,7 @@ Azure Backup crea puntos de recuperación que se almacenan en almacenes de recup
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para este tutorial se necesita una máquina virtual Linux protegida con Azure Backup. Para simular un proceso de recuperación y la eliminación accidental de archivos, elimine una página desde un servidor web. Si necesita una máquina virtual Linux que ejecute un servidor web y esté protegida con Azure Backup, consulte [Copia de seguridad de una máquina virtual en Azure con la CLI](quick-backup-vm-cli.md).
 

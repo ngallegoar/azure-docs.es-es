@@ -34,7 +34,7 @@ En este tutorial, se usa Azure Portal para crear una canalización de Data Facto
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 - **Azure Virtual Network.** Si no tiene ninguna instancia de Azure Virtual Network, cree una siguiendo [estas instrucciones](../virtual-network/quick-create-portal.md). En este ejemplo, HDInsight se encuentra en una instancia de Azure Virtual Network. A continuación, puede ver una configuración de ejemplo de Azure Virtual Network. 
 
     ![Creación de una red virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
-- **Clúster de HDInsight.** Siga este artículo: [Extender Azure HDInsight mediante una instancia de Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) para crear un clúster de HDInsight y unirlo a la red virtual que creó en el paso anterior. A continuación, puede ver una configuración de ejemplo de HDInsight en una red virtual. 
+- **Clúster de HDInsight.** Consulte el artículo siguiente para crear un clúster de HDInsight y unirlo a la red virtual que creó en el paso anterior: [Extender Azure HDInsight mediante una instancia de Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). A continuación, puede ver una configuración de ejemplo de HDInsight en una red virtual. 
 
     ![HDInsight en una red virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
@@ -95,7 +95,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 5. Seleccione la **ubicación** de Data Factory. En la lista solo se muestran las ubicaciones que se admiten para la creación de factorías de datos.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Crear**.
-8. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
+8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
      ![icono implementando factoría de datos](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.

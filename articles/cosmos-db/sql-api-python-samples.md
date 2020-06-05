@@ -30,7 +30,7 @@ En el repositorio de GitHub [azure-documentdb-python](https://github.com/Azure/a
 * Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de Python.
 * Vínculos al contenido de referencia de la API relacionada.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -26,7 +26,7 @@ ms.locfileid: "80876464"
     |Configuración|Value|
     |--|--|
     |Nombre|Escriba un nombre (de 2 a 64 caracteres).|
-    |Subscription|Seleccione la suscripción adecuada.|
+    |Suscripción|Seleccione la suscripción adecuada.|
     |Location|Seleccione una ubicación cercana.|
     |Plan de tarifa| Escriba **S**, el plan de tarifa estándar.|
     |Resource group|Seleccione un grupo de recursos disponible.|

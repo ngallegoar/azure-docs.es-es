@@ -21,7 +21,7 @@ ms.locfileid: "80877987"
 
 Una opción para administrar los contenedores de Computer Vision es usar Kubernetes y Helm. Vamos a crear un paquete de Kubernetes usando Kubernetes y Helm para definir una imagen de contenedor de Computer Vision. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local. Por último, exploraremos cómo probar los servicios implementados. Para más información sobre la ejecución de contenedores de Docker sin orquestación de Kubernetes, consulte [Instalación y ejecución de contenedores de Computer Vision](computer-vision-how-to-install-containers.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Estos son los requisitos previos para poder usar contenedores de Computer Vision en el entorno local:
 
