@@ -110,7 +110,7 @@
       href: troubleshoot-set-up-overview.md
     - name: Identificación y diagnóstico de problemas
       href: diagnostics-role-service.md
-    - name: Creación de los grupos de inquilinos y de host
+    - name: Creación de grupos de hosts
       href: troubleshoot-set-up-issues.md
     - name: Configuración de máquina virtual de host de sesión
       href: troubleshoot-vm-configuration.md

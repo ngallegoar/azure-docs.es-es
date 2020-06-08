@@ -13,6 +13,9 @@
       href: quick-create-portal.md
     - name: 'Creación de una máquina virtual: Azure PowerShell'
       href: quick-create-powershell.md
+    - name: 'Creación de una máquina virtual: plantilla de Resource Manager'
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Tutoriales
   items:
     - name: 1 - Creación y administración de máquinas virtuales

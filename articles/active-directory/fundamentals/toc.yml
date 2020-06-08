@@ -11,6 +11,8 @@
       href: whats-new.md
     - name: Novedades de Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
+    - name: Archivo de novedades de Azure AD
+      href: whats-new-archive.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -51,6 +53,8 @@
       items:
         - name: 'Implementación de 30, 90 y más'
           href: active-directory-deployment-checklist-p2.md
+        - name: Planes de implementación de Azure Active Directory
+          href: active-directory-deployment-plans.md
     - name: Almacenamiento de datos
       items:
         - name: Almacenamiento de datos de identidad para Europa
@@ -100,6 +104,8 @@
           href: active-directory-groups-settings-azure-portal.md
         - name: Incorporación o eliminación de propietarios del grupo
           href: active-directory-accessmanagement-managing-group-owners.md
+        - name: Administración del acceso a los recursos con grupos
+          href: active-directory-manage-groups.md
     - name: Usuarios
       items:
         - name: Incorporación o eliminación de un nuevo usuario
@@ -114,14 +120,10 @@
           href: license-users-groups.md
         - name: Restaurar un usuario eliminado
           href: active-directory-users-restore.md
-- name: Recursos
+- name: Solución de problemas
   expanded: true
   items:
     - name: Obtención de soporte técnico para Azure Active Directory
       href: active-directory-troubleshooting-support-howto.md
     - name: P+F de Azure Active Directory
       href: active-directory-faq.md
-    - name: Planes de implementación de Azure Active Directory
-      href: active-directory-deployment-plans.md
-    - name: Archivo de novedades de Azure AD
-      href: whats-new-archive.md

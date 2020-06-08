@@ -162,6 +162,10 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Tiempo de ejecución de integración
       href: concepts-integration-runtime.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Flujos de datos
       items:
         - name: Transformación de datos con Mapping Data Flow

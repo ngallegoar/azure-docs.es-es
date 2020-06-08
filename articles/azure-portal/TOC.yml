@@ -70,6 +70,8 @@
       href: azure-portal-safelist-urls.md
     - name: Estructura de los paneles de Azure
       href: azure-portal-dashboards-structure.md
+    - name: Azure CLI
+      href: /cli/azure/ext/portal/portal
 - name: Recursos
   items:
     - name: Azure Roadmap

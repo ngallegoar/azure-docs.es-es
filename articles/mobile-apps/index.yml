@@ -1,0 +1,159 @@
+### YamlMime:Hub
+title: Documentación de Azure para desarrolladores para dispositivos móviles
+summary: Busque la información que necesita para desarrollar aplicaciones móviles en Azure
+brand: azure
+metadata:
+  title: Azure para desarrolladores para dispositivos móviles
+  description: Busque la información que necesita para desarrollar aplicaciones móviles en Azure
+  services: mobile-services
+  ms.service: mobile-services
+  ms.topic: hub-page
+  author: codemillmatt
+  ms.author: masoucou
+  ms.date: 06/01/2020
+  ms.openlocfilehash: 470928c43d0e80887ed0f3f8af1a92cadc29c05c
+  ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/05/2020
+  ms.locfileid: "84449906"
+highlightedContent:
+  items:
+  - title: Elección de marcos de desarrollo para aplicaciones móviles
+    itemType: architecture
+    url: concepts/front-end-development-platform.md
+  - title: Fases en el desarrollo de aplicaciones móviles en Azure
+    itemType: architecture
+    url: concepts/stages-overview.md
+  - title: Compilación de una aplicación móvil completa con Azure
+    itemType: video
+    url: https://channel9.msdn.com/Shows/Partly-Cloudy
+  - title: Compilación de aplicaciones móviles con Xamarin.Forms
+    itemType: learn
+    url: https://docs.microsoft.com/learn/paths/build-mobile-apps-with-xamarin-forms/
+conceptualContent:
+  title: Introducción
+  summary: Uso de Azure para crear aplicaciones móviles conectadas en la nube
+  items:
+  - title: Llamada a servicios web
+    links:
+    - url: concepts/serverless-compute.md
+      itemType: concept
+      text: Creación de un back-end de aplicación móvil sin servidor con Azure Functions y otros servicios
+    - url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
+      itemType: quickstart
+      text: /xamarin/xamarin-forms/data-cloud/azure-services/azure-functions.md
+    - url: /learn/modules/consume-rest-services.md
+      itemType: learn
+      text: Consumo de un servicio web RESTful con Xamarin
+    - url: /xamarin/xamarin-forms/data-cloud/azure-services/azure-signalr.md
+      itemType: concept
+      text: Azure SignalR Service con Xamarin.Forms
+    - url: ../api-management/api-management-key-concepts.md
+      itemType: overview
+      text: Introducción a Azure API Management
+    - url: concepts/real-time.md
+      itemType: overview
+      text: Creación de aplicaciones en tiempo real con Azure SignalR Service
+  - title: Almacenamiento de datos
+    links:
+    - url: concepts/data-storage.md
+      itemType: concept
+      text: Almacenamiento, sincronización y consulta de datos de aplicaciones móviles desde la nube
+    - url: ../cosmos-db/create-sql-api-xamarin-dotnet.md
+      itemType: quickstart
+      text: Almacenamiento de datos con Azure Cosmos DB
+    - url: ../cosmos-db/create-mongodb-xamarin.md
+      itemType: quickstart
+      text: Creación de una aplicación Xamarin.Forms con .NET SDK y la API de Azure Cosmos DB para MongoDB
+    - url: concepts/azure-storage.md
+      itemType: overview
+      text: Almacenamiento en la nube de aplicaciones muy escalables, seguras y duraderas con Azure Storage
+    - url: ../storage/blobs/storage-quickstart-blobs-xamarin.md
+      itemType: quickstart
+      text: Uso con Blob Storage
+    - url: concepts/azure-cdn.md
+      itemType: overview
+      text: Entrega de contenido con Azure Content Delivery Network
+  - title: Envío de notificaciones push
+    links:
+    - url: concepts/push-notifications.md
+      itemType: overview
+      text: Interacción con los usuarios de la aplicación enviando notificaciones push
+    - url: ../notification-hubs/create-notification-hub-portal.md
+      itemType: quickstart
+      text: Creación de un centro de notificaciones de Azure en Azure Portal
+    - url: ../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md
+      itemType: tutorial
+      text: Envío de notificaciones push a dispositivos Android
+    - url: ../notification-hubs/push-notifications-android-specific-devices-firebase-cloud-messaging.md
+      itemType: tutorial
+      text: Envío de notificaciones a dispositivos específicos mediante Azure Notification Hubs y Google Firebase Cloud Messaging
+    - url: ../notification-hubs/notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
+      itemType: how-to-guide
+      text: Inserción de contenido enriquecido en dispositivos
+  - title: Autenticación de usuarios
+    links:
+    - url: concepts/authentication.md
+      itemType: overview
+      text: Incorporación de autenticación y administración de identidades de usuario en las aplicaciones móviles
+    - url: ../active-directory/develop/tutorial-v2-android.md
+      itemType: tutorial
+      text: Inicio de sesión de usuarios y llamada a Microsoft Graph desde una aplicación Android
+    - url: ../active-directory-b2c/add-native-application.md
+      itemType: how-to-guide
+      text: Adición de una aplicación cliente nativa en su inquilino de Azure Active Directory B2C
+    - url: ../active-directory/develop/msal-authentication-flows.md
+      itemType: concept
+      text: Flujos de autenticación compatibles con la Biblioteca de autenticación de Microsoft (MSAL)
+    - url: https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal
+      itemType: sample
+      text: Inicio de sesión de usuarios con una aplicación iOS de Swift
+  - title: DevOps
+    links:
+    - url: concepts/continuous-delivery.md
+      itemType: concept
+      text: Automatización de la implementación y el lanzamiento de las aplicaciones móviles con servicios de entrega continua
+    - url: concepts/continuous-integration.md
+      itemType: concept
+      text: Automatización del ciclo de vida de las aplicaciones con la compilación y la integración continuas
+    - url: /azure/devops/pipelines/get-started/key-pipelines-concepts.md
+      itemType: concept
+      text: Conceptos clave para los nuevos usuarios de Azure Pipelines
+    - url: /appcenter/distribution/uploading.md
+      itemType: how-to-guide
+      text: Liberación de una compilación con App Center
+    - url: /appcenter/distribution/codepush.md
+      itemType: overview
+      text: App Center CodePush
+  - title: Análisis e informes de bloqueos
+    links:
+    - url: concepts/analytics.md
+      itemType: concept
+      text: Análisis y comprensión del uso de las aplicaciones móviles
+    - url: /appcenter/analytics/overview.md
+      itemType: overview
+      text: App Center Analytics
+    - url: /appcenter/diagnostics/enabling-diagnostics.md
+      itemType: how-to-guide
+      text: Habilitación de diagnósticos en una aplicación
+    - url: concepts/diagnostics.md
+      itemType: concept
+      text: Supervisión de la aplicación móvil en busca de bloqueos y errores en tiempo real
+    - url: /appcenter/analytics/log-flow.md
+      itemType: tutorial
+      text: Recepción de análisis en tiempo real
+additionalContent:
+  sections:
+  - title: SDK de Azure Mobile
+    summary: Estos son algunos de los SDK de cliente de Azure Mobile
+    items:
+    - title: iOS
+      summary: SDK de cliente de iOS para Microsoft Azure
+      url: https://github.com/Azure/azure-sdk-for-ios
+    - title: Android
+      summary: SDK de cliente de Android para Microsoft Azure
+      url: https://github.com/Azure/azure-sdk-for-android
+    - title: .NET/Xamarin
+      summary: SDK de Azure para .NET y Xamarin
+      url: https://azure.github.io/azure-sdk/releases/latest/dotnet.html

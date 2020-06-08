@@ -170,7 +170,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: create-cli.md
@@ -341,6 +341,12 @@
   items:
     - name: Referencias de API
       items:
+        - name: Plantilla ARM
+          href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+        - name: Azure CLI
+          href: /cli/azure/functionapp
+        - name: Azure PowerShell
+          href: /powershell/module/az.functions
         - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
         - name: Python
@@ -363,7 +369,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
@@ -461,6 +467,9 @@
           items:
             - name: Información general
               href: functions-bindings-signalr-service.md
+              displayName: SignalR Service
+            - name: Desencadenador
+              href: functions-bindings-signalr-service-trigger.md
               displayName: SignalR Service
             - name: Entrada
               href: functions-bindings-signalr-service-input.md

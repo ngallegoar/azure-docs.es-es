@@ -176,7 +176,7 @@
                   href: search-howto-index-json-blobs.md
             - name: Azure Tables
               href: search-howto-indexing-azure-tables.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-index-cosmosdb.md
             - name: Azure Data Lake Storage Gen2
               href: search-howto-index-azure-data-lake-storage.md
@@ -192,7 +192,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -326,22 +326,26 @@
           href: search-api-migration.md
     - name: Seguridad
       items:
-        - name: Introducción a la seguridad
+        - name: Información general
           href: search-security-overview.md
-        - name: Creación de un punto de conexión privado
-          href: service-create-private-endpoint.md
-        - name: "Configuración de un firewall de\_IP"
-          href: service-configure-firewall.md
-        - name: Administración de claves de servicios
-          href: search-security-api-keys.md
-        - name: Acceso de administrador basado en rol
-          href: search-security-rbac.md
-        - name: Filtros de seguridad
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtro por identidades de AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Administración de claves de cifrado
-          href: search-security-manage-encryption-keys.md
+        - name: Cifrado de datos
+          items:
+            - name: Claves administradas por el cliente
+              href: search-security-manage-encryption-keys.md
+        - name: Seguridad de entrada
+          items:
+            - name: Claves de acceso de API
+              href: search-security-api-keys.md
+            - name: "Configuración de un firewall de\_IP"
+              href: service-configure-firewall.md
+            - name: Creación de un punto de conexión privado
+              href: service-create-private-endpoint.md
+        - name: Acceso basado en identidad
+          items:
+            - name: Filtros de seguridad
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtro por identidades de AAD
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Administrar
       items:
         - name: Portal
@@ -350,6 +354,8 @@
           href: search-manage-powershell.md
         - name: Movimiento de servicios entre regiones
           href: search-howto-move-across-regions.md
+        - name: Acceso de administrador basado en rol
+          href: search-security-rbac.md
     - name: Supervisión
       items:
         - name: Aspectos básicos
@@ -473,6 +479,8 @@
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Foro de comentarios (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
+    - name: Cumplimiento y certificaciones
+      href: 'https://aka.ms/azurecompliance'
     - name: Sitios de demostración
       items:
         - name: Demostración de archivos financieros
