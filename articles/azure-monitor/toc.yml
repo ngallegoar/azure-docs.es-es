@@ -622,6 +622,10 @@
                   href: app/javascript.md
                 - name: Mapa de origen para JavaScript
                   href: app/source-map-support.md
+                - name: Solución de problemas
+                  items:
+                    - name: Error de carga de SDK
+                      href: app/javascript-sdk-load-failure.md
             - name: Resumen de API de Application Insights
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -743,6 +747,8 @@
               href: app/profiler-settings.md
             - name: Seguimiento de las solicitudes de generación de perfiles
               href: app/profiler-trackrequests.md
+            - name: Configuración de BYOS (Traiga su propio almacenamiento)
+              href: app/profiler-bring-your-own-storage.md
             - name: Solución de problemas del generador de perfiles
               href: app/profiler-troubleshooting.md
         - name: Depurador de instantáneas
@@ -756,6 +762,8 @@
               href: app/snapshot-debugger-vm.md
             - name: Actualización de Snapshot Debugger
               href: app/snapshot-debugger-upgrade.md
+            - name: Configuración de BYOS (Traiga su propio almacenamiento)
+              href: app/profiler-bring-your-own-storage.md
             - name: Solución de problemas de Snapshot Debugger
               displayname: 'troubleshoot, troubleshooting'
               href: app/snapshot-debugger-troubleshoot.md
