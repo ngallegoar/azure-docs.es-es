@@ -1,78 +1,19 @@
 - name: Azure Digital Twins
   href: index.yml
 - name: Información general
-  items:
-    - name: Acerca de Azure Digital Twins
-      href: about-digital-twins.md
 - name: Guías de inicio rápido
   expanded: true
-  items:
-    - name: Búsqueda de habitaciones disponibles
-      href: quickstart-view-occupancy-dotnet.md
 - name: Tutoriales
   items:
     - name: Supervisión de un edificio con Digital Twins
-      items:
-        - name: Implementación y configuración
-          href: tutorial-facilities-setup.md
-        - name: Aprovisionamiento y supervisión de condiciones
-          href: tutorial-facilities-udf.md
-        - name: Notificación con Logic Apps
-          href: tutorial-facilities-events.md
-        - name: Visualización de eventos con Time Series Insights
-          href: tutorial-facilities-analyze.md
 - name: Conceptos
   items:
-    - name: Modelo de objetos de Digital Twins y gráfico de inteligencia espacial
-      href: concepts-objectmodel-spatialgraph.md
-    - name: Entrada de datos de telemetría y conectividad de dispositivo
-      href: concepts-device-ingress.md
-    - name: Procesamiento de datos y funciones definidas por el usuario
-      href: concepts-user-defined-functions.md
-    - name: Enrutamiento de eventos y mensajes
-      href: concepts-events-routing.md
-    - name: Límites de servicio de la versión preliminar pública
-      href: concepts-service-limits.md
     - name: Seguridad
-      items:
-        - name: Recomendaciones de seguridad
-          href: security-best-practices.md
-        - name: Control de acceso basado en rol
-          href: security-role-based-access-control.md
-        - name: Creación y administración de asignaciones de roles
-          href: security-create-manage-role-assignments.md
-        - name: Autenticación de API de administración
-          href: security-authenticating-apis.md
 - name: Guías paso a paso
   items:
-    - name: Habilitar aplicaciones multiinquilino
-      href: how-to-multitenant-applications.md
-    - name: Creación de funciones definidas por el usuario
-      href: how-to-user-defined-functions.md
-    - name: Enrutamiento de eventos y mensajes a través de puntos de conexión
-      href: how-to-egress-endpoints.md
-    - name: Agregar blobs a objetos
-      href: how-to-add-blobs.md
-    - name: Uso de Digital Twins Swagger
-      href: how-to-use-swagger.md
-    - name: Depuración de funciones definidas por el usuario
-      href: how-to-diagnose-user-defined-functions.md
-    - name: Configuración de la supervisión
-      href: how-to-configure-monitoring.md
     - name: Consulta de las API de Digital Twins
-      items:
-        - name: Configuración de Postman
-          href: how-to-configure-postman.md
-        - name: Uso de las API de Digital Twins
-          href: how-to-navigate-apis.md
-        - name: Patrones de consultas comunes
-          href: how-to-query-common-apis.md
 - name: Referencia
-  items:
-    - name: Biblioteca cliente de funciones definidas por el usuario
-      href: reference-user-defined-functions-client-library.md
 - name: Recursos
-  expanded: true
   items:
     - name: Recursos para desarrolladores
       items:
@@ -116,3 +57,4 @@
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Actualizaciones de Azure IoT
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
+  expanded: true

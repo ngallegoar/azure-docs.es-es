@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b0d6221aaafe3ade70bc23ce4196a7b53c9474c5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421039"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169974"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un certificado de Azure Key Vault mediante Azure Portal
 
@@ -67,7 +67,8 @@ Una vez que haya recibido el mensaje de que el certificado se ha creado correcta
 
 ![Propiedades del certificado](../media/certificates/quick-create-portal/current-version-hidden.png)
 
-Al hacer clic en "Descargar en formato CER" o "Descargar en formato PFX/PEM", puede descargar el certificado. 
+## <a name="export-certificate-from-key-vault"></a>Exportar certificado de Key Vault
+Al hacer clic en el botón "Descargar en formato CER" o "Descargar en formato PFX/PEM", puede descargar el certificado. 
 
 ![Descarga del certificado](../media/certificates/quick-create-portal/current-version-shown.png)
 

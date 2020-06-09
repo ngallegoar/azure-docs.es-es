@@ -231,7 +231,7 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -410,7 +410,7 @@
                   href: 'https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure Portal
+                - name: Azure portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -447,7 +447,7 @@
             - name: Uso de Resource Health para problemas de conectividad
               href: database/resource-health-to-troubleshoot-connectivity.md
             - name: Migración de DTU a núcleo virtual
-              href: database/resource-health-to-troubleshoot-connectivity.md
+              href: database/migrate-dtu-to-vcore.md
             - name: Escalar los recursos de base de datos
               href: database/single-database-scale.md
             - name: Escalado de recursos de grupo

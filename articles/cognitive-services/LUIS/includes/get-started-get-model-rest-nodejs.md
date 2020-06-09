@@ -6,21 +6,19 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 19f72dbb62fc2084bf0c9609fb3782e083c911af
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a1a72d9be339ed1ee0a1c525ee426047b1768f2f
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655492"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416446"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+[Documentación de referencia](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [Ejemplo](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-model-with-rest/model.js)
 
-* Azure Language Understanding: creación de una clave de 32 caracteres y de la dirección URL del punto de conexión de creación. Cree con [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o con la [CLI de Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
-* Importe la aplicación de [pizza](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json) desde el repositorio de GitHub `Azure-Samples/cognitive-services-sample-data-files`.
-* El identificador de la aplicación de LUIS para la aplicación de pizza importada. El identificador de aplicación se muestra en el panel de la aplicación.
-* El identificador de versión dentro de la aplicación que recibe las expresiones.
+## <a name="prerequisites"></a>Requisitos previos
+
 * Lenguaje de programación [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -43,174 +41,117 @@ ms.locfileid: "83655492"
 1. Introduzca el siguiente comando para instalar el módulo request-promise:
 
     ```console
+    npm install --save request
     npm install --save request-promise
+    npm install --save querystring
     ```
 
 ## <a name="change-model-programmatically"></a>Cambio de modelo mediante programación
 
 1. Cree un nuevo archivo llamado `model.js`. Agregue el siguiente código:
 
-    ```javascript
-    var request = require('request-promise');
-
-    //////////
-    // Values to modify.
-
-    // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
-    const LUIS_appId = "YOUR-APP-ID";
-
-    // YOUR-AUTHORING-KEY: Your LUIS authoring key, 32 character value.
-    const LUIS_authoringKey = "YOUR-AUTHORING-KEY";
-
-    // YOUR-AUTHORING-ENDPOINT: Replace this with your authoring key endpoint.
-    // For example, "https://your-resource-name.api.cognitive.microsoft.com/"
-    const LUIS_endpoint = "YOUR-AUTHORING-ENDPOINT";
-
-    // NOTE: Replace this your version number. The Pizza app uses a version number of "0.1".
-    const LUIS_versionId = "0.1";
-    //////////
-
-    const addUtterancesURI = `${LUIS_endpoint}luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/examples`;
-    const addTrainURI = `${LUIS_endpoint}luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/train`;
-
-    const utterances = [
-        {
-            'text': 'order a pizza',
-            'intentName': 'ModifyOrder',
-            'entityLabels': [
-                {
-                    'entityName': 'Order',
-                    'startCharIndex': 6,
-                    'endCharIndex': 12
-                }
-            ]
-        },
-        {
-            'text': 'order a large pepperoni pizza',
-            'intentName': 'ModifyOrder',
-            'entityLabels': [
-                {
-                    'entityName': 'Order',
-                    'startCharIndex': 6,
-                    'endCharIndex': 28
-                },
-                {
-                    'entityName': 'FullPizzaWithModifiers',
-                    'startCharIndex': 6,
-                    'endCharIndex': 28
-                },
-                {
-                    'entityName': 'PizzaType',
-                    'startCharIndex': 14,
-                    'endCharIndex': 28
-                },
-                {
-                    'entityName': 'Size',
-                    'startCharIndex': 8,
-                    'endCharIndex': 12
-                }
-            ]
-        },
-        {
-            'text': 'I want two large pepperoni pizzas on thin crust',
-            'intentName': 'ModifyOrder',
-            'entityLabels': [
-                {
-                    'entityName': 'Order',
-                    'startCharIndex': 7,
-                    'endCharIndex': 46
-                },
-                {
-                    'entityName': 'FullPizzaWithModifiers',
-                    'startCharIndex': 7,
-                    'endCharIndex': 46
-                },
-                {
-                    'entityName': 'PizzaType',
-                    'startCharIndex': 17,
-                    'endCharIndex': 32
-                },
-                {
-                    'entityName': 'Size',
-                    'startCharIndex': 11,
-                    'endCharIndex': 15
-                },
-                {
-                    'entityName': 'Quantity',
-                    'startCharIndex': 7,
-                    'endCharIndex': 9
-                },
-                {
-                    'entityName': 'Crust',
-                    'startCharIndex': 37,
-                    'endCharIndex': 46
-                }
-            ]
-        }
-    ];
-
-    // Main function.
-    const main = async() =>{
-
-        await addUtterances(utterances);
-        await train("POST");
-        await train("GET");
-
-    }
-
-    // Adds the utterances to the model.
-    const addUtterances = async (utterances) => {
-
-        const options = {
-            uri: addUtterancesURI,
-            method: 'POST',
-            headers: {
-                'Ocp-Apim-Subscription-Key': LUIS_authoringKey
-            },
-            json: true,
-            body: utterances
-        };
-
-        const response = await request(options)
-        console.log("addUtterance:\n" + JSON.stringify(response, null, 2));
-    }
-
-    // With verb === "POST", sends a training request.
-    // With verb === "GET", obtains the training status.
-    const train = async (verb) => {
-
-        const options = {
-            uri: addTrainURI,
-            method: verb,
-            headers: {
-                'Ocp-Apim-Subscription-Key': LUIS_authoringKey
-            },
-            json: true,
-            body: null // The body can be empty for a training request
-        };
-
-        const response = await request(options)
-        console.log("train " + verb + ":\n" + JSON.stringify(response, null, 2));
-    }
-
-    // MAIN
-    main().then(() => console.log("done")).catch((err)=> console.log(err));
-    ```
+    [!code-javascript[Code snippet](~/cognitive-services-quickstart-code/javascript/LUIS/node-model-with-rest/model.js)]
 
 1. Reemplace los valores a partir de `YOUR-` por sus propios valores.
 
-    |Information|Propósito|
+    |Información|Propósito|
     |--|--|
     |`YOUR-APP-ID`| El identificador de la aplicación de LUIS. |
     |`YOUR-AUTHORING-KEY`|La clave de creación de 32 caracteres.|
     |`YOUR-AUTHORING-ENDPOINT`| El punto de conexión de la dirección URL de creación. Por ejemplo, `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. El nombre del recurso se establece al crear el recurso.|
 
-    Las claves y recursos asignados son visibles en el portal de LUIS, en la sección Administrar de la página de **recursos de Azure**. El identificador de la aplicación está disponible en la misma sección Administrar, en la página **Configuración de la aplicación**.
+    Las claves y recursos asignados son visibles en el portal de LUIS, en la sección Administrar de la página **Recursos de Azure**. El identificador de la aplicación está disponible en la misma sección Administrar, en la página **Configuración de la aplicación**.
 
 1. En el símbolo del sistema, escriba el siguiente comando para ejecutar el proyecto:
 
     ```console
     node model.js
+    ```
+
+1. Revise la respuesta de creación:
+
+    ```json
+    addUtterance:
+    [
+      {
+        "value": {
+          "ExampleId": 1137150691,
+          "UtteranceText": "order a pizza"
+        },
+        "hasError": false
+      },
+      {
+        "value": {
+          "ExampleId": 1137150692,
+          "UtteranceText": "order a large pepperoni pizza"
+        },
+        "hasError": false
+      },
+      {
+        "value": {
+          "ExampleId": 1137150693,
+          "UtteranceText": "i want two large pepperoni pizzas on thin crust"
+        },
+        "hasError": false
+      }
+    ]
+    train POST:
+    {
+      "statusId": 9,
+      "status": "Queued"
+    }
+    train GET:
+    [
+      {
+        "modelId": "edb46abf-0000-41ab-beb2-a41a0fe1630f",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "a5030be2-616c-4648-bf2f-380fa9417d37",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "3f2b1f31-a3c3-4fbd-8182-e9d9dbc120b9",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "e4b6704b-1636-474c-9459-fe9ccbeba51c",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "031d3777-2a00-4a7a-9323-9a3280a30000",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "9250e7a1-06eb-4413-9432-ae132ed32583",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      }
+    ]
+    done
     ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
