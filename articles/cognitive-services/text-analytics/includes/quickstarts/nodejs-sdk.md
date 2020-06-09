@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 8bcc919aee7548e8596d1f44c8a357d3f84dfb14
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d2a4a8338880dc8063d6a3f088c0cd44e314e43
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82095930"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140762"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 [Documentación de referencia de v3](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Paquete v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
@@ -29,7 +29,7 @@ ms.locfileid: "82095930"
 
 ---
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [Node.js](https://nodejs.org/).
@@ -56,12 +56,12 @@ npm init
 ```
 ### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Instale los paquetes NPM `@azure/ai-text-analytics`:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.4
+npm install --save @azure/ai-text-analytics@1.0.0-preview.5
 ```
 
 > [!TIP]
@@ -83,7 +83,7 @@ npm install --save @azure/cognitiveservices-textanalytics
 el archivo `package.json` de la aplicación se actualizará con las dependencias.
 Cree un archivo llamado `index.js` y agregue los siguientes elementos:
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 ```javascript
 "use strict";
@@ -128,7 +128,7 @@ El objeto de respuesta es una lista que contiene la información de análisis pa
 
 ## <a name="client-authentication"></a>Autenticación de clientes
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Cree un objeto `TextAnalyticsClient` con el punto de conexión y la clave como parámetros.
 
@@ -146,7 +146,7 @@ Cree un objeto [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `analyzeSentiment()` del cliente y obtenga el objeto `SentimentBatchResult` devuelto. Recorra en iteración la lista de resultados e imprima el identificador de cada documento y la opinión de nivel de documento con puntuaciones de confianza. El resultado contiene, para cada documento, un sentimiento de nivel de oración junto con las puntuaciones de desplazamientos, longitud y confianza.
 
@@ -213,7 +213,7 @@ Ejecute el código con `node index.js` en la ventana de la consola.
 
 ## <a name="language-detection"></a>Detección de idiomas
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `detectLanguage()` del cliente y obtenga el objeto `DetectLanguageResultCollection` devuelto. Luego, recorra en iteración los resultados e imprima el identificador de cada documento y el idioma principal respectivo.
 
@@ -262,7 +262,7 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 > [!NOTE]
 > En la versión `3.0-preview`:
@@ -283,7 +283,7 @@ async function entityRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
+            console.log(`\tScore: ${entity.confidenceScore}`);
         });
     });
 }
@@ -297,26 +297,20 @@ Ejecute el código con `node index.js` en la ventana de la consola.
 ```console
 Document ID: 0
         Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 1
+        Score: 0.29
         Name: Bill Gates        Category: Person        Subcategory: N/A
-        Score: 0.67
+        Score: 0.78
         Name: Paul Allen        Category: Person        Subcategory: N/A
-        Score: 0.81
+        Score: 0.82
         Name: April 4, 1975     Category: DateTime      Subcategory: Date
         Score: 0.8
-        Name: interpreters      Category: PersonType    Subcategory: N/A
-        Score: 0.6
         Name: 8800      Category: Quantity      Subcategory: Number
         Score: 0.8
 Document ID: 1
-        Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 0.96
-        Name: Redmond   Category: Location      Subcategory: GPE
-        Score: 0.09
         Name: 21        Category: Quantity      Subcategory: Number
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
-        Score: 0.31
+        Score: 0.25
 ```
 
 ## <a name="entity-linking"></a>Entity Linking
@@ -337,8 +331,8 @@ async function linkedEntityRecognition(client){
             console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text} \tScore: ${match.score.toFixed(2)}`);
-            });
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
         });
     });
 }
@@ -353,24 +347,24 @@ Ejecute el código con `node index.js` en la ventana de la consola.
 Document ID: 0
         Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
-                Text: Altair 8800       Score: 0.78
+                Text: Altair 8800       Score: 0.88
         Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
-                Text: Bill Gates        Score: 0.55
-                Text: Gates     Score: 0.55
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
         Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
-                Text: Paul Allen        Score: 0.53
+                Text: Paul Allen        Score: 0.60
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
-                Text: Microsoft         Score: 0.47
-                Text: Microsoft         Score: 0.47
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
         Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
-                Text: April 4   Score: 0.25
+                Text: April 4   Score: 0.32
         Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
-                Text: BASIC     Score: 0.28
+                Text: BASIC     Score: 0.33
 ```
 
 #### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
@@ -418,7 +412,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Extracción de la frase clave
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `extractKeyPhrases()` del cliente y obtenga el objeto `ExtractKeyPhrasesResult` devuelto. Itere los resultados e imprima el identificador de cada documento y todas las frases clave detectadas.
 

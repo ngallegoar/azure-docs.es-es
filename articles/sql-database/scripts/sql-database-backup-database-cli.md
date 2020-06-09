@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de CLI para realizar una copia de seguridad de una base de datos de Azure SQL
+title: 'CLI de Azure: Copia de seguridad de una base de datos de Azure SQL Database'
 description: Script de ejemplo de la CLI de Azure para realizar una copia de seguridad de una base de datos única de Azure SQL en un contenedor de Azure Storage
 services: sql-database
 ms.service: sql-database
@@ -10,16 +10,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 68af42bd83565243dad5d48f227fa5cef3115cf6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061860"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022716"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Uso de la CLI para realizar una copia de seguridad de una base de datos única de Azure SQL en un contenedor de Azure Storage
 
-Este ejemplo de la CLI de Azure realiza una copia de seguridad de una base de datos de Azure SQL en un contenedor de Azure Storage.  
+Este ejemplo de la CLI de Azure realiza una copia de seguridad de una base de datos de SQL Database en un contenedor de Azure Storage.  
 
 Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -60,4 +60,4 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
-Encontrará más ejemplos de scripts de la CLI de SQL Database en la [documentación de Azure SQL Database](../sql-database-cli-samples.md).
+Encontrará más ejemplos de scripts de la CLI de SQL Database en la [documentación de Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b1f2d97aabfee47110946336c0ad8ad03d86a163
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118496"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116576"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Inicio rápido: Extracción de datos de recibos con API REST Form Recognizer con cURL
 
-En este inicio rápido, usará la API REST Azure Form Recognizer con cURL para extraer e identificar la información pertinente de los recibos de compras de EE. UU.
+En este inicio rápido, usará la API REST de Azure Form Recognizer con cURL para extraer e identificar la información pertinente de los recibos de compras de EE. UU.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - [cURL](https://curl.haxx.se/windows/) instalado.
-- Una dirección URL para la imagen de un recibo. En este inicio rápido, puede usar una [imagen de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true).
+- Una dirección URL para la imagen de un recibo. En este inicio rápido, puede usar una [imagen de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -399,7 +399,7 @@ El nodo `"recognitionResults"` contiene todo el texto reconocido. El texto se or
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, usará la API REST Form Recognizer con cURL para extraer el contenido de un recibo de ventas. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
+En este inicio rápido, usará la API REST de Form Recognizer con cURL para extraer el contenido de un recibo de ventas. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
 
 > [!div class="nextstepaction"]
 > [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 991a31898bb010dab3db7a545cd115a60bfe3ed1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592362"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995723"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Compilación de una aplicación de Flask con Azure Cognitive Services
 
@@ -44,7 +44,7 @@ Si desea obtener información detallada después de este tutorial, consulte esto
 * [Documentación de Flask](http://flask.pocoo.org/)
 * [Guía de Flask para principiantes](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para este tutorial, se necesita el software y las claves de suscripción siguientes.
 
@@ -119,7 +119,7 @@ Ahora creará un entorno virtual para la aplicación de Flask con `virtualenv`. 
 
 ### <a name="install-requests"></a>Instalación de Requests
 
-Requests es un módulo popular que se usa para enviar solicitudes HTTP 1.1. No es necesario agregar manualmente cadenas de consulta a las direcciones URL ni formar y codificar los datos POST.
+Requests es un módulo popular que se usa para enviar solicitudes HTTP 1.1. No es preciso agregar manualmente cadenas de consulta a las direcciones URL ni formar y codificar los datos POST.
 
 1. Para instalar Requests, ejecute lo siguiente:
 

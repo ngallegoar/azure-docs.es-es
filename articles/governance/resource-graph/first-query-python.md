@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: La primera consulta de Python'
 description: En este inicio rápido, dará los pasos necesarios para habilitar la biblioteca de Resource Graph para Python y ejecutará la primera consulta.
-ms.date: 05/26/2020
+ms.date: 05/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: 9d247f00bdfc5a5ac1642c853923dc8fc84d6e18
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cbc545551c650ad3140cbd6a9b40ab7dee1c0f3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883177"
+ms.locfileid: "83996149"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con Python
 
@@ -16,7 +16,7 @@ El primer paso para usar Azure Resource Graph es comprobar que están instaladas
 
 Cuando finalice, habrá agregado las bibliotecas a la instalación de Python y ejecutado la primera consulta de Resource Graph.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -53,15 +53,13 @@ Para que Python pueda consultar Azure Resource Graph, se debe agregar la bibliot
    ```
 
    > [!NOTE]
-   > Si Python se instala para todos los usuarios, este comando debe ejecutarse desde una consola con privilegios elevados.
+   > Si Python está instalado en todos los usuarios, estos comando deben ejecutarse desde una consola con privilegios elevados.
 
 1. Compruebe que se han instalado las bibliotecas. `azure-mgmt-resourcegraph` debe tener la versión **2.0.0** o superior; `azure-mgmt-resource` debe tener la versión **9.0.0** o superior; y `azure-cli-core` debe tener la versión **2.5.0**.
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-resourcegraph
-   pip show azure-mgmt-resource
-   pip show azure-cli-core
+   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
    ```
 
 ## <a name="run-your-first-resource-graph-query"></a>Ejecutar la primera consulta de Resource Graph
@@ -82,18 +80,20 @@ Una vez agregadas las bibliotecas de Python de su elección, es el momento de pr
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
-       subClient = get_client_from_cli_profile(SubscriptionClient)
-       subsRaw = [sub.as_dict() for sub in subClient.subscriptions.list()]
-       subList = []
+       subsClient = get_client_from_cli_profile(SubscriptionClient)
+       subsRaw = []
+       for sub in subsClient.subscriptions.list():
+           subsRaw.append(sub.as_dict())
+       subsList = []
        for sub in subsRaw:
-           subList.append(sub.get('subscription_id'))
+           subsList.append(sub.get('subscription_id'))
        
        # Create Azure Resource Graph client and set options
        argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
        
        # Create query
-       argQuery = arg.models.QueryRequest(subscriptions=subList, query=strQuery, options=argQueryOptions)
+       argQuery = arg.models.QueryRequest(subscriptions=subsList, query=strQuery, options=argQueryOptions)
        
        # Run query
        argResults = argClient.resources(argQuery)
@@ -130,9 +130,7 @@ Si desea quitar las bibliotecas instaladas del entorno de Python, puede hacerlo 
 
 ```bash
 # Remove the installed libraries from the Python environment
-pip uninstall azure-mgmt-resourcegraph
-pip uninstall azure-mgmt-resource
-pip uninstall azure-cli-core
+pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

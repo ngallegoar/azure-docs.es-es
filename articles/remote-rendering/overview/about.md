@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677930"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021453"
 ---
 # <a name="about-azure-remote-rendering"></a>Acerca de Azure Remote Rendering
 
@@ -22,7 +22,11 @@ ms.locfileid: "80677930"
 
 ![Modelo de ejemplo](../media/arr-engine.png)
 
-Los dispositivos desconectados tienen una potencia de cálculo limitada para la representación de modelos complejos. Sin embargo, en muchas aplicaciones, sería inaceptable reducir la fidelidad visual de algún modo.
+Los dispositivos desconectados tienen una potencia de cálculo limitada para la representación de modelos complejos. Sin embargo, en muchas aplicaciones, sería inaceptable reducir la fidelidad visual de algún modo. En la captura de pantalla siguiente se compara el modelo con todos los detalles con un modelo que se ha simplificado mediante una herramienta de creación de contenido común:
+
+![Modelo de ejemplo](./media/engine-model-decimated.png)
+
+El modelo reducido consta de aproximadamente 200 000 triángulos (incluidos los elementos interiores detallados), frente a los más de 18 millones de triángulos del modelo original.
 
 Para resolver este problema, *Remote Rendering* traslada la carga de trabajo de representación a las GPU de perfil alto en la nube. Un motor de gráficos hospedado en la nube representa la imagen, la codifica como una secuencia de vídeo y la transmite al dispositivo de destino.
 

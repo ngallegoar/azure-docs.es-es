@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204892"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997135"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -40,7 +40,7 @@ Este es un ejemplo que muestra los costos para un solo cliente.
 
 Toda la funcionalidad disponible en Azure Cost Management también lo está con las API REST. Use las API para automatizar las tareas de administración de costos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Como asociado, Azure Cost Management está disponible de forma nativa solo para las suscripciones que están en el plan de Azure.
 
@@ -95,7 +95,7 @@ Los asociados pueden usar el ámbito para conciliar las facturas. Además, usan 
 - Customer
 - Subscription
 - Resource group
-- Resource
+- Recurso
 - Servicio de Azure
 - Medidor
 - ResellerMPNID
@@ -246,7 +246,7 @@ Cuando la propiedad **PartnerEarnedCreditApplied** es _True_, el costo asociado 
 
 Cuando la propiedad **PartnerEarnedCreditApplied** es _False_, el costo asociado no ha satisfecho los requisitos necesarios para el crédito. O bien, el servicio adquirido no reúne los requisitos para ganar créditos de asociado.
 
-Lo habitual es que los datos de uso del servicio tarden entre 8 y 24 horas en aparecer en Cost Management. Para más información, consulte [La frecuencia de actualización de los datos de uso varía](understand-cost-mgt-data.md#usage-data-update-frequency-varies). Los créditos PEC aparecen a las 48 horas desde el momento del acceso en Azure Cost Management.
+Lo habitual es que los datos de uso del servicio tarden entre 8 y 24 horas en aparecer en Cost Management. Para más información, consulte [Retención y actualizaciones de datos de uso y costos](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Los créditos PEC aparecen a las 48 horas desde el momento del acceso en Azure Cost Management.
 
 
 También puede agrupar y filtrar por la propiedad **PartnerEarnedCreditApplied** mediante las opciones **Agrupar por**. Use las opciones para examinar los costos que tienen y no tienen PEC.

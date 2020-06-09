@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 04/16/2020
+ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ada451b6bb3578a2903e9bd832b98981d7029d1d
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605716"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310524"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal
 
@@ -86,12 +86,18 @@ Antes de suscribirse a los eventos de Blob Storage, vamos a crear el punto de co
 Suscríbase a un tema que indique a Event Grid los eventos cuyo seguimiento desea realizar y el lugar al que deben enviarse los eventos.
 
 1. En el portal, vaya a la cuenta de Azure Storage que creó antes. En el menú de la izquierda, seleccione **Todos los recursos** y seleccione su cuenta de almacenamiento. 
-2. En la página **Cuenta de almacenamiento**, seleccione **Eventos** en el menú de la izquierda.
+2. En la página **Cuenta de almacenamiento**, seleccione **Eventos** en el menú de la izquierda. 
 1. Seleccione **Más opciones** y **Webhook**. Al enviar los eventos a la aplicación de visor, va a usar un webhook como punto de conexión. 
 
    ![Selección de webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. En la página **Crear suscripción de eventos**, realice los siguientes pasos: 
     1. Escriba un **nombre** para la suscripción a eventos.
+    2. Escriba un **nombre** para el **tema del sistema**. 
+
+       ![Especificación de los nombres de la suscripción a eventos y el tema del sistema](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
+
+       > [!NOTE]
+       > Anteriormente, cuando creó una suscripción para un evento generado por orígenes de Azure, el servicio Event Grid creó automáticamente un tema del sistema con un nombre generado de forma aleatoria. Ahora, puede especificar un nombre para el tema del sistema en este cuadro de texto. Este recurso de tema del sistema se puede usar para detectar métricas y registros de diagnóstico.
     2. En **Webhook**, seleccione **Tipo de punto de conexión**. 
 
        ![Seleccionar el tipo de punto de conexión webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

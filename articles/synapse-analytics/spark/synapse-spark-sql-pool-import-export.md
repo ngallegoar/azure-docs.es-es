@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739284"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020870"
 ---
 # <a name="introduction"></a>Introducción
 
@@ -38,7 +38,7 @@ Por esta razón, no es necesario crear credenciales ni especificarlas en la API 
 
 - Este conector solo funciona en Scala.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Tener el rol **db_exporter** en la base de datos o el grupo de SQL al que quiere, o del que desea, transferir los datos.
 
@@ -59,7 +59,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 Las instrucciones de importación no son necesarias, ya que se importan previamente para la experiencia del cuaderno.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Transferencia de datos hacia o desde un grupo de SQL en el servidor lógico (instancia de DW) asociado al área de trabajo
+### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferencia de datos hacia un grupo de SQL asociado al área de trabajo, o desde él
 
 > [!NOTE]
 > **Importaciones no necesarias en la experiencia del cuaderno**
@@ -92,7 +92,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 Se realiza la autenticación en Storage y en SQL Server
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-in-a-logical-server-outside-the-workspace"></a>Si va a transferir datos hacia o desde un grupo de SQL o una base de datos de un servidor lógico fuera del área de trabajo
+### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Si va a transferir datos hacia un grupo de SQL o una base de datos fuera del área de trabajo, o desde él
 
 > [!NOTE]
 > Importaciones no necesarias en la experiencia del cuaderno

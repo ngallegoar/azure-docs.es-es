@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f34103bb42999f6d2e9bfe35dbc257db7cecd909
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73682850"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119261"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Creación de una canalización de Data Factory que mueve datos mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > 
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -189,7 +189,7 @@ En este paso, vinculará su base de datos de Azure SQL con su factoría de datos
 1. Cree un archivo JSON con el nombre AzureSqlLinkedService.json en la carpeta C:\ADFGetStartedPSH con el siguiente contenido:
 
     > [!IMPORTANT]
-    > Reemplace &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; y &lt;password&gt; por los nombres del servidor SQL Azure, de la base de datos, de la cuenta de usuario y de la contraseña.
+    > Reemplace &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; y &lt;password&gt; por los nombres del servidor, de la base de datos, de la cuenta de usuario y de la contraseña.
     
     ```json
     {
@@ -218,7 +218,7 @@ En este paso, vinculará su base de datos de Azure SQL con su factoría de datos
     ProvisioningState : Succeeded
     ```
 
-   Confirme que la opción **Permitir el acceso a los servicios de Azure** esté activada para el servidor de SQL Database. Para comprobarla y activarla, siga estos pasos:
+   Confirme que la opción **Permitir el acceso a servicios de Azure** esté activada para el servidor. Para comprobarla y activarla, siga estos pasos:
 
     1. Inicie sesión en el [Azure Portal](https://portal.azure.com)
     1. Haga clic en **Más servicios >** a la izquierda, y haga clic en **Servidores SQL** en la categoría **BASES DE DATOS**.

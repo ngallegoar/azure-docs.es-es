@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5cb3e6d53f6840b8f4e535976739c188daed18b2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789050"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317453"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
@@ -31,9 +31,9 @@ Si tiene un gran número de imágenes que se deben mantener y quiere que estén 
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-| Resource | Descripción|
+| Recurso | Descripción|
 |----------|------------|
-| **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una VM de Azure existente que sea [generalizada o especializada](#generalized-and-specialized-images), una imagen administrada, una instantánea o una versión de imagen de otra galería de imágenes. |
+| **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images); una imagen administrada; una instantánea o una versión de imagen de otra galería de imágenes. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
 | **Definición de la imagen** | Las definiciones de imagen se crean dentro de una galería y contienen información sobre la imagen y los requisitos para usarla internamente. Esto incluye si la imagen es Windows o Linux, notas de la versión y los requisitos de memoria mínima y máxima. Es una definición de un tipo de imagen. |
 | **Versión de la imagen** | Una **versión de la imagen** es lo que se usa para crear una VM cuando se usa una galería. Puede tener varias versiones de una imagen según sea necesario para su entorno. Al igual que una imagen administrada, cuando se usa una **versión de la imagen** para crear una VM, la versión de la imagen se usa para crear nuevos discos para la VM. Las versiones de las imágenes pueden usarse varias veces. |
@@ -71,7 +71,7 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 
 ## <a name="generalized-and-specialized-images"></a>Imágenes generalizadas y especializadas
 
-Hay dos estados del sistema operativo compatibles con Shared Image Gallery. Normalmente, las imágenes requieren que la máquina virtual usada para crear la imagen se haya generalizado antes de tomar la imagen. La generalización es un proceso que quita la información específica del equipo y del usuario de la máquina virtual. En Windows, se usa también Sysprep. En el caso de Linux, puede usar [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` parámetros.
+Hay dos estados del sistema operativo compatibles con Shared Image Gallery. Normalmente, las imágenes requieren que la máquina virtual usada para crear la imagen se haya generalizado antes de tomar la imagen. La generalización es un proceso que quita la información específica del equipo y del usuario de la máquina virtual. En Windows, se usa la herramienta Sysprep. En el caso de Linux, puede usar [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` parámetros.
 
 Las máquinas virtuales especializadas no han pasado por un proceso para quitar la información y las cuentas específicas de la máquina. Además, las máquinas virtuales creadas a partir de imágenes especializadas no tienen un `osProfile` asociado a ellas. Esto significa que las imágenes especializadas tendrán algunas limitaciones, además de algunas ventajas.
 
@@ -88,7 +88,7 @@ Las regiones de origen se muestran en la tabla siguiente. Todas las regiones pú
 | Regiones de origen        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Centro de Australia     | Este de China        | Sur de la India        | Oeste de Europa        |
-| Centro de Australia 2   | Este de China 2      | Sudeste de Asia     | Sur de Reino Unido 2           |
+| Centro de Australia 2   | Este de China 2      | Sudeste de Asia     | Sur de Reino Unido           |
 | Este de Australia        | Norte de China       | Japón Oriental         | Oeste de Reino Unido            |
 | Sudeste de Australia   | Norte de China 2     | Japón Occidental         | US DoD (centro)     |
 | Sur de Brasil          | Este de Asia         | Centro de Corea del Sur      | US DoD (este)        |
@@ -101,7 +101,7 @@ Las regiones de origen se muestran en la tabla siguiente. Todas las regiones pú
 
 
 
-## <a name="limits"></a>límites 
+## <a name="limits"></a>Límites 
 
 Hay límites por suscripción, para implementar los recursos con las galerías de imágenes compartidas:
 - 100 galerías de imágenes compartidas por suscripción, por región

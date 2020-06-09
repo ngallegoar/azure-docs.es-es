@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: bcc9e748cb5f88084b9cd3254654f9dc0fbc8aa1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60f539dfad4f5f3942be92f35b84cc42968f95a0
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115574"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220731"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar
 >[!NOTE]
 > El código de este artículo se probó con la versión 1.0.83 del [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Complete el [Tutorial: Comience a crear su primer experimento de Azure ML ](tutorial-1st-experiment-sdk-setup.md) para:
     * Crear un área de trabajo
@@ -107,7 +107,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 Al usar Proceso de Azure Machine Learning, un servicio administrado, los científicos de datos pueden entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, entre las que se incluyen las que tienen compatibilidad con GPU. En este tutorial, va a crear una instancia de Proceso de Azure Machine Learning como entorno de aprendizaje. Posteriormente en el tutorial enviará el código de Python que se ejecutará en esta máquina virtual. 
 
-El código siguiente crea los clústeres de proceso automáticamente si no existen aún en el área de trabajo.
+El código siguiente crea los clústeres de proceso automáticamente si no existen aún en el área de trabajo. Configura un clúster que se reducirá verticalmente a 0 cuando no esté en uso y se puede escalar verticalmente hasta un máximo de 4 nodos. 
 
  **La creación del destino de proceso tarda aproximadamente 5 minutos.** Si el recurso de proceso ya está en el área de trabajo, el código lo usa y omite el proceso de creación.
 

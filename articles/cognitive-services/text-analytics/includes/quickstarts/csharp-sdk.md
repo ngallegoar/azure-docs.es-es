@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 0e98a10573a2e3abda255c325845190ed5067bb3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 979c714ca5446d3f1eabb76e97535ee5ffa2e359
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778283"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140766"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 [Documentación de referencia de v3](https://aka.ms/azsdk-net-textanalytics-ref-docs) | [Código fuente de la biblioteca v3](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [Paquete v3 (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics) | [Ejemplos de v3](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
@@ -28,7 +28,7 @@ ms.locfileid: "83778283"
 
 ---
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/)
@@ -42,9 +42,9 @@ ms.locfileid: "83778283"
 
 Utilice el IDE de Visual Studio para crear una aplicación de consola de .NET Core. Así se creará un proyecto "Hola mundo" con un solo archivo de origen de C#: *program.cs*.
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
-Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho en la solución en el **Explorador de soluciones** y seleccionar **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Azure.AI.TextAnalytics`. Seleccione la versión `1.0.0-preview.4` e **Instalar**. También puede usar la [Consola del Administrador de paquetes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho en la solución en el **Explorador de soluciones** y seleccionar **Administrar paquetes NuGet**. En el administrador de paquetes que se abre, seleccione **Examinar** **Incluir versión preliminar** y busque `Azure.AI.TextAnalytics`. Seleccione la versión `1.0.0-preview.5` e **Instalar**. También puede usar la [Consola del Administrador de paquetes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!TIP]
 > ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo [en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), que contiene los ejemplos de código de este inicio rápido. 
@@ -58,7 +58,7 @@ Instale la biblioteca cliente, para lo que debe hacer clic con el botón derecho
 
 ---
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Abra el archivo *program.cs* y agregue las siguientes `using` directivas:
 
@@ -121,7 +121,7 @@ Reemplace el método de `Main` de la aplicación. Más adelante definirá los m�
 
 El cliente de Text Analytics es un objeto `TextAnalyticsClient` que se autentica en Azure mediante su clave y que proporciona funciones para aceptar texto como cadenas individuales o como un lote. Puede enviar texto a la API de forma sincrónica o asincrónica. El objeto de respuesta contendrá la información del análisis de todos los documentos que envíe. 
 
-Si va a usar la versión `3.0-preview` del servicio, puede emplear una instancia de `TextAnalyticsClientOptions` opcional para inicializar el cliente con distintas configuraciones predeterminadas (por ejemplo, el idioma predeterminado o la sugerencia de país o región). También puede autenticarse mediante un token de Azure Active Directory. 
+Si va a usar la versión `3.0` del servicio, puede emplear una instancia de `TextAnalyticsClientOptions` opcional para inicializar el cliente con distintas configuraciones predeterminadas (por ejemplo, el idioma predeterminado o la sugerencia de país o región). También puede autenticarse mediante un token de Azure Active Directory. 
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -133,7 +133,7 @@ Si va a usar la versión `3.0-preview` del servicio, puede emplear una instancia
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Asegúrese de que el método main anterior crea un objeto de cliente con el punto de conexión y las credenciales.
 
@@ -155,7 +155,7 @@ Cree un método para crear una instancia del objeto [TextAnalyticsClient](https:
 
 ## <a name="sentiment-analysis"></a>análisis de opiniones
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Cree una función denominada `SentimentAnalysisExample()` que tome el cliente que creó anteriormente y llame a su función `AnalyzeSentiment()`. El objeto `Response<DocumentSentiment>` devuelto contendrá la etiqueta de opinión y la puntuación del documento de entrada completo, así como un análisis de opinión de cada oración si la operación se realiza correctamente. Si se produjeron errores, se producirá lo siguiente: `RequestFailedException`.
 
@@ -169,8 +169,7 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
-        Console.WriteLine($"\tSentence [length {sentence.GraphemeLength}]");
-        Console.WriteLine($"\tText: \"{si.SubstringByTextElements(sentence.GraphemeOffset, sentence.GraphemeLength)}\"");
+        Console.WriteLine($"\tText: \"{sentence.Text}\"");
         Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
         Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
         Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
@@ -184,14 +183,12 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
 ```console
 Document sentiment: Positive
 
-        Sentence [length 30]
         Text: "I had the best day of my life."
         Sentence sentiment: Positive
         Positive score: 1.00
         Negative score: 0.00
         Neutral score: 0.00
 
-        Sentence [length 30]
         Text: "I wish you were there with me."
         Sentence sentiment: Neutral
         Positive score: 0.21
@@ -215,7 +212,7 @@ Sentiment Score: 0.87
 
 ## <a name="language-detection"></a>Detección de idiomas
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 
 Cree una función denominada `LanguageDetectionExample()` que tome el cliente que creó anteriormente y llame a su función `DetectLanguage()`. El objeto `Response<DetectedLanguage>` devuelto contendrá el idioma detectado junto con su nombre y el código ISO-6391. Si se produjeron errores, se producirá lo siguiente: `RequestFailedException`.
@@ -258,11 +255,11 @@ Language: English
 
 ## <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 
 > [!NOTE]
-> Nuevo en la versión `3.0-preview`:
+> Nuevo en la versión `3.0`:
 > * La vinculación de entidad ahora es independiente del reconocimiento de entidades.
 
 
@@ -276,7 +273,7 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
     foreach (var entity in response.Value)
     {
         Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
+        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
     }
 }
 ```
@@ -285,11 +282,14 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
 
 ```console
 Named Entities:
+        Text: trip,     Category: Event,        Sub-Category:
+                Score: 0.61
+
         Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Length: 7,      Score: 0.92
+                Score: 0.82
 
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Length: 9,      Score: 0.80
+                Score: 0.80
 ```
 
 ## <a name="entity-linking"></a>Vinculación de entidad
@@ -313,7 +313,7 @@ static void EntityLinkingExample(TextAnalyticsClient client)
         foreach (var match in entity.Matches)
         {
             Console.WriteLine($"\t\tText: {match.Text}");
-            Console.WriteLine($"\t\tLength: {match.GraphemeLength},\tScore: {match.ConfidenceScore:F2}\n");
+            Console.WriteLine($"\t\tScore: {match.ConfidenceScore:F2}\n");
         }
     }
 }
@@ -326,38 +326,38 @@ Linked Entities:
         Name: Altair 8800,      ID: Altair 8800,        URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
                 Text: Altair 8800
-                Length: 11,     Score: 0.78
+                Score: 0.88
 
         Name: Bill Gates,       ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
                 Text: Bill Gates
-                Length: 10,     Score: 0.55
+                Score: 0.63
 
                 Text: Gates
-                Length: 5,      Score: 0.55
+                Score: 0.63
 
         Name: Paul Allen,       ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
                 Text: Paul Allen
-                Length: 10,     Score: 0.53
+                Score: 0.60
 
         Name: Microsoft,        ID: Microsoft,  URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
                 Text: Microsoft
-                Length: 9,      Score: 0.47
+                Score: 0.55
 
         Name: April 4,  ID: April 4,    URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
                 Text: April 4
-                Length: 7,      Score: 0.25
+                Score: 0.32
 
         Name: BASIC,    ID: BASIC,      URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
                 Text: BASIC
-                Length: 5,      Score: 0.28
+                Score: 0.33
 ```
 
 #### <a name="version-21"></a>[Versión 2.1](#tab/version-2)
@@ -374,7 +374,7 @@ Cree una función denominada `RecognizeEntitiesExample()` que tome el cliente qu
 
 ## <a name="key-phrase-extraction"></a>Extracción de la frase clave
 
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+#### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Cree una función denominada `KeyPhraseExtractionExample()` que tome el cliente que creó anteriormente y llame a su función `ExtractKeyPhrases()`. El objeto `<Response<IReadOnlyCollection<string>>` devuelto contendrá la lista de las frases clave detectadas. Si se produjeron errores, se producirá lo siguiente: `RequestFailedException`.
 

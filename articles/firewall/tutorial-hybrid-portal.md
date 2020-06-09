@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239681"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298965"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal
 
@@ -45,7 +45,7 @@ En este tutorial, aprenderá a:
 
 Si desea usar Azure PowerShell en su lugar para completar este procedimiento, consulte [Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Una red híbrida usa el modelo de arquitectura radial para enrutar el tráfico entre redes virtuales de Azure y redes locales. La arquitectura radial tiene los siguientes requisitos:
 
@@ -131,18 +131,6 @@ Ahora cree una segunda subred para la puerta de enlace.
 4. En **Intervalo de direcciones (bloque CIDR)** , escriba **192.168.2.0/24**.
 5. Seleccione **Aceptar**.
 
-### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
-
-Se trata de la dirección IP pública que se usa para la puerta de enlace local.
-
-1. En la página principal de Azure Portal, seleccione **Crear un recurso**.
-2. En el cuadro de texto de búsqueda, escriba **dirección IP pública** y presione **Entrar**.
-3. Seleccione **Dirección IP pública** y luego **Crear**.
-4. En el nombre, escriba **VNet-Onprem-GW-pip**.
-5. En el grupo de recursos, escriba **FW-Hybrid-Test**.
-6. En **Ubicación**, seleccione la misma ubicación que usó anteriormente.
-7. Acepte los otros valores predeterminados y seleccione **Crear**.
-
 ## <a name="configure-and-deploy-the-firewall"></a>Configuración e implementación del firewall
 
 Ahora, implemente el firewall en la red virtual del concentrador de firewall.
@@ -153,7 +141,7 @@ Ahora, implemente el firewall en la red virtual del concentrador de firewall.
 
    |Configuración  |Value  |
    |---------|---------|
-   |Subscription     |\<su suscripción\>|
+   |Suscripción     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Nombre     |**AzFW01**|
    |Location     |Seleccione la misma ubicación que usó anteriormente.|

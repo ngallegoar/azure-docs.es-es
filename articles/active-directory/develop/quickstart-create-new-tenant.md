@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883820"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308496"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Inicio rápido: Configuración de un inquilino
 
@@ -73,4 +73,4 @@ Para empezar a crear aplicaciones que inician sesión en cuentas sociales y loca
 
 * [Registre una aplicación](quickstart-register-app.md) e integre con la Plataforma de identidad de Microsoft. 
 * Conozca los [fundamentos de la autenticación](authentication-scenarios.md).
-* Consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para más información sobre la relación entre las suscripciones y un inquilino de Azure AD.
+* Consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para más información sobre la relación entre las suscripciones y un inquilino de Azure AD.

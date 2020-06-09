@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199133"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194140"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Revisión de la factura de Azure
 
@@ -21,13 +21,15 @@ Este artículo le ayudará a comprender y a revisar su factura de Azure. Lo norm
 
 Este tutorial se aplica solo a los clientes de Azure con una suscripción individual. Las suscripciones individuales comunes son aquellas con las tarifas de pago por uso compradas directamente desde el sitio web de Azure.
 
+Si necesita ayuda para comprender los cargos inesperados, consulte [Análisis de cargos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). O bien, si necesita cancelar su suscripción a Azure, consulte [Cancelación de la suscripción a Azure](../manage/cancel-azure-subscription.md).
+
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Comparación de los cargos facturados con el archivo de uso
 > * Comparación de los cargos y el uso en el análisis de costos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener una cuenta de facturación de pago del *Programa de Microsoft Online Services*. La cuenta se crea al registrarse en Azure mediante el sitio web de Azure. Por ejemplo, si tiene una [cuenta con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) o es [suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
@@ -47,7 +49,7 @@ El primer paso para comparar el uso y los costos es descargar la factura y los a
 
 En Azure Portal, escriba *suscripciones* en el cuadro de búsqueda y haga clic en [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Cómo ir a las suscripciones](./media/review-individual-bill/navigate-subscriptions.png)
+[![Vaya a Suscripciones](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 En la lista de suscripciones, haga clic en la suscripción.
 
@@ -86,7 +88,7 @@ Los cargos de uso se muestran en el nivel de medidor. Los siguientes términos s
 |Ciclo de facturación | BillingPeriodStartDate BillingPeriodEndDate |
 |Nombre |Categoría de medidor |
 |Tipo |Subcategoría de medidor |
-|Resource |MeterName |
+|Recurso |MeterName |
 |Region |MeterRegion |
 |Consumida | Cantidad |
 |Se incluye |Cantidad incluida |
@@ -147,7 +149,7 @@ Por ejemplo, una sola máquina virtual creada en Azure puede tener los siguiente
 
 Cuando se crea la máquina virtual, cada medidor comienza a emitir registros de uso. Este uso y el precio del medidor se registra en el sistema de medición de Azure.
 
-Puede ver los medidores que se usaron para calcular la factura en el archivo CSV de uso.
+Puede ver los medidores que se usaron para calcular la factura en el archivo CSV de uso, como en el ejemplo anterior.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>Pagar la factura
 

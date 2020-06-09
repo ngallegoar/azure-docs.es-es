@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/19/2019
 ms.author: assafi
-ms.openlocfilehash: 187565f2518145dcd554ae4d300174981eb55ea6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6fb6e62dbcf404f0c5f77592c2c8e6565f4bc687
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74284762"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84144990"
 ---
 > [!Tip]
 > Para obtener documentación técnica detallada de la API y verla en acción, use los vínculos siguientes. También puede enviar solicitudes POST desde la consola de prueba de la API integrada. No se requiere ninguna configuración, simplemente pegue la clave del recurso y los documentos JSON en la solicitud:
-> - Versión estable más reciente de la API: [v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1)
-> - Versión preliminar más reciente de la API: [v 3.0-Preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1)
+> - Versión estable más reciente de la API: [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
+> - Versión preliminar más reciente de la API: [v 3.1-Preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-1)

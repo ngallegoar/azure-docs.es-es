@@ -5,24 +5,20 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa1999df83c3a3926f3410ea7ee48af75b2dd515
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122755"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231467"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Inicio rápido: Creación de la primera función de Azure mediante Visual Studio
 
-Azure Functions permite ejecutar el código en un entorno sin servidor y sin necesidad de crear una máquina virtual ni publicar una aplicación web.
+En este artículo se usa Visual Studio para crear una función basada en biblioteca de clases de C# que responde a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions.  
 
-En este inicio rápido, aprenderá a usar Visual Studio 2019 para crear y probar localmente una aplicación de funciones en C# desencadenada por HTTP "hello world", que después publicará en Azure. 
+Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
-![Respuesta de localhost de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
-
-Este inicio rápido está diseñado para Visual Studio 2019. 
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, instale antes [Visual Studio 2019](https://azure.microsoft.com/downloads/). Asegúrese de seleccionar la carga de trabajo de **desarrollo de Azure** durante la instalación. Si desea crear un proyecto de Azure Functions con Visual Studio 2017, debe instalar antes las [herramientas de Azure Functions más recientes](functions-develop-vs.md#check-your-tools-version).
 
@@ -34,11 +30,19 @@ Si no tiene una [suscripción a Azure](../guides/developer/azure-developer-guide
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio crea un proyecto y una clase que contiene código reutilizable para el tipo de función de desencadenador HTTP. El atributo de método `FunctionName` establece el nombre de la función que, de forma predeterminada, es `Function1`. El atributo `HttpTrigger` especifica que la función es desencadenada por una solicitud HTTP. El código reutilizable envía una respuesta HTTP que incluye un valor del cuerpo de la solicitud o de la cadena de consulta.
+Visual Studio crea un proyecto y una clase que contiene código reutilizable para el tipo de función de desencadenador HTTP. El código reutilizable envía una respuesta HTTP que incluye un valor del cuerpo de la solicitud o de la cadena de consulta. El atributo `HttpTrigger` especifica que la función es desencadenada por una solicitud HTTP. 
 
-Amplíe las funcionalidades de la función con enlaces de entrada y salida, mediante la aplicación de los atributos adecuados al método. Para más información, consulte la sección [Desencadenadores y enlaces](functions-dotnet-class-library.md#triggers-and-bindings) de la [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
+## <a name="rename-the-function"></a>Cambio del nombre de la función
 
-Ahora que ha creado un proyecto de función y una función de desencadenador HTTP, puede probarla en el equipo local.
+El atributo del método `FunctionName` establece el nombre de la función que, de forma predeterminada, se genera como `Function1`. Como las herramientas no le permiten reemplazar el nombre de la función predeterminada al crear un proyecto, dedique un minuto a crear un nombre mejor para la clase, el archivo y los metadatos de la función.
+
+1. En el **Explorador de archivos**, haga clic con el botón derecho en el archivo Function1.cs y cambie su nombre a `HttpExample.cs`.
+
+1. En el código, cambie el nombre de la clase Function1 a "HttpExample".
+
+1. En el método `HttpTrigger` denominado `run`, cambie el nombre del atributo del método `FunctionName` a `HttpExample`.
+
+Ahora que ha cambiado el nombre de la función, puede probarla en el equipo local.
 
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
@@ -56,19 +60,41 @@ Para poder publicar el proyecto, debe tener una aplicación de funciones en la s
 
 ## <a name="test-your-function-in-azure"></a>Prueba de una función en Azure
 
-1. Copie la URL base de la aplicación de funciones de la página de perfil **Publicar**. Reemplace la parte `localhost:port` de la dirección URL que usó al probar la función localmente por la nueva URL base. Agregue la cadena de consulta `?name=<YOUR_NAME>` a esta dirección URL y ejecute la solicitud.
+1. En Cloud Explorer, se debe seleccionar la nueva aplicación de funciones. Si no es así, expanda su suscripción > **App Services**y seleccione la nueva aplicación de funciones.
+
+1. Haga clic con el botón derecho en la aplicación de funciones y elija **Abrir en explorador**. Se abre la raíz de su aplicación de funciones en el explorador web predeterminado y muestra la página que indica que su aplicación de funciones se está ejecutando. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Aplicación de funciones en ejecución":::
+
+1. En la barra de direcciones del explorador, anexe la cadena `/api/HttpExample?name=Functions` a la URL base y ejecute la solicitud.
 
     La dirección URL que llama a la función de desencadenador HTTP tiene el formato siguiente:
 
-    `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
+    `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
-2. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. La imagen siguiente muestra la respuesta en el explorador para la solicitud GET remota devuelta por la función:
+2. Vaya a esta dirección URL y verá una respuesta en el explorador para la solicitud GET remota devuelta por la función, que es similar a la del siguiente ejemplo:
 
-    ![Respuesta de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Respuesta de la función en el explorador":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto trabajar con las siguientes guías de inicio rápido, tutoriales o con cualquiera de los servicios que haya creado en esta guía de inicio rápido, no elimine los recursos.
+
+En Azure, los *recursos* son aplicaciones de función, funciones o cuentas de almacenamiento, entre otros. Se agrupan en *grupos de recursos* y se puede eliminar todo el contenido de un grupo si este se elimina. 
+
+Ha creado recursos para completar estas guías de inicio rápido. Se le pueden facturar por estos recursos, dependiendo del [estado de la cuentade los ](https://azure.microsoft.com/account/) y [precios de los servicios](https://azure.microsoft.com/pricing/). Si ya no necesita los recursos, aquí se indica cómo eliminarlos:
+
+1. En Cloud Explorer, expanda su suscripción > **App Services**, haga clic con el botón derecho en su aplicación de funciones y elija **Abrir en el portal**. 
+
+1. En la página de la aplicación de funciones, seleccione la pestaña **Información general** y, después, seleccione el vínculo situado bajo **Grupo de recursos**.
+
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Seleccione el grupo de recursos que se va a eliminar de la página de la aplicación de funciones":::
+
+2. En la página **Grupo de recursos**, revise la lista de recursos incluidos y compruebe que son los que desea eliminar.
+ 
+3. Seleccione **Eliminar grupo de recursos** y siga las instrucciones.
+
+   El proceso de eliminación tardará un par de minutos. Cuando termine, aparece una notificación durante unos segundos. También puede seleccionar el icono de campana en la parte superior de la página para ver la notificación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

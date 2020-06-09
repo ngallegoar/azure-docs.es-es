@@ -1,6 +1,6 @@
 ---
 title: Introducción a Data Factory, un servicio de integración de datos
-description: 'Sepa lo que es Azure Data Factory: un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos.'
+description: Sepa lo que es Azure Data Factory, un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4175214219350620ae44d0249243e23b1a25144a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73666796"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196606"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -112,13 +112,13 @@ Por ejemplo, un servicio vinculado de Azure Storage especifica la cadena de cone
 
 Los servicios vinculados se utilizan en Data Factory por dos motivos:
 
-* Para representar un *almacén de datos* que incluye, entre otros, una instancia de SQL Server local, una base de datos de Oracle, un recurso compartido de archivos o una cuenta de Azure Blob Storage. Para ver una lista de los almacenes de datos compatibles, consulte la sección [Actividades de movimiento de datos](#data-movement-activities) .
+* Para representar un *almacén de datos* que incluye, entre otros, una base de datos de SQL Server, una base de datos de Oracle, un recurso compartido de archivos o una cuenta de Azure Blob Storage. Para ver una lista de los almacenes de datos compatibles, consulte la sección [Actividades de movimiento de datos](#data-movement-activities) .
 
 * Para representar un *recurso de proceso* que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsightHive se ejecuta en un clúster de Hadoop para HDInsight. Consulte la sección [Actividades de transformación de datos](#data-transformation-activities) para ver una lista de los entornos de proceso admitidos.
 
 ### <a name="relationship-between-data-factory-entities"></a>Relación entre las entidades de Data Factory
 
-![Diagrama: Data Factory, un servicio de integración de datos en la nube - conceptos clave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagrama: Data Factory, un servicio de integración de datos en la nube (conceptos clave)](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regiones admitidas
 Actualmente, se pueden crear factorías de datos en las regiones Oeste de EE. UU., Este de EE.UU. y Norte de Europa. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre almacenes de datos o para procesarlos mediante servicios de proceso.
@@ -144,4 +144,4 @@ Para aprender a compilar factorías de datos con canalizaciones de datos, siga l
 | --- | --- |
 | [Movimiento de datos entre dos almacenes de datos en la nube](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Cree una factoría de datos con una canalización que mueva datos de Blob Storage a SQL Database. |
 | [Transformación de datos con el clúster de Hadoop](data-factory-build-your-first-pipeline.md) |Compile su primera instancia de Azure Data Factory con una canalización de datos que procese los datos al ejecutar un script de Hive en un clúster de Azure HDInsight (Hadoop). |
-| [Movimiento de datos entre un almacén de datos local y un almacén de datos en la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Compile una factoría de datos con una canalización que mueva los datos de una base de datos de SQL Server local a un blob de Azure. Como parte del tutorial, instalará y configurará la puerta de enlace de administración de datos en su máquina. |
+| [Movimiento de datos entre un almacén de datos local y un almacén de datos en la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Compile una factoría de datos con una canalización que mueva los datos de una base de datos de SQL Server a un blob de Azure. Como parte del tutorial, instalará y configurará la puerta de enlace de administración de datos en su máquina. |

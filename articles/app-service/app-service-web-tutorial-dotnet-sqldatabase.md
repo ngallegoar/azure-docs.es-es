@@ -1,28 +1,29 @@
 ---
-title: 'Tutorial: Aplicación ASP.NET con SQL Database'
-description: Aprenda a implementar una aplicación de ASP.NET para C# con una base de datos SQL Server en Azure.
+title: 'Tutorial: Aplicación ASP.NET con Azure SQL Database'
+description: Aprenda a implementar una aplicación ASP.NET para C# en Azure y Azure SQL Database.
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6c8b388a9d1261e08314b8f8c607e5ee16362ae
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80047020"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013795"
 ---
-# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database
+# <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implementación de una aplicación ASP.NET en Azure con Azure SQL Database
 
-[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo implementar una aplicación ASP.NET orientada a datos en App Service y conectarla a [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database.
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo implementar una aplicación ASP.NET orientada a datos en App Service y conectarla a [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database.
 
 ![Aplicación de ASP.NET publicada en Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una base de datos SQL Database en Azure
+>
+> * Creación de una base de datos de Azure SQL Database
 > * Conectar una aplicación ASP.NET a SQL Database
 > * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
@@ -31,7 +32,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -41,24 +42,24 @@ Si ya ha instalado Visual Studio, agregue las cargas de trabajo en Visual Studio
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
-- [Descarga del proyecto de ejemplo](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)
-- Extraiga (descomprima) el archivo  *dotnet-sqldb-tutorial-master.zip*.
+* [Descarga del proyecto de ejemplo](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)
+* Extraiga (descomprima) el archivo  *dotnet-sqldb-tutorial-master.zip*.
 
 El proyecto de ejemplo contiene una aplicación básica CRUD (crear, leer, actualizar, eliminar) de [ASP.NET MVC](https://www.asp.net/mvc) que usa [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 ### <a name="run-the-app"></a>Ejecución la aplicación
 
-Abra el archivo *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* en Visual Studio. 
+Abra el archivo *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* en Visual Studio.
 
-Escriba `Ctrl+F5` para ejecutar la aplicación sin depurarla. La aplicación se muestra en el explorador predeterminado. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de *tareas pendientes*. 
+Escriba `Ctrl+F5` para ejecutar la aplicación sin depurarla. La aplicación se muestra en el explorador predeterminado. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de *tareas pendientes*.
 
 ![Cuadro de diálogo Nuevo proyecto de ASP.NET](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
 Pruebe los vínculos **Editar**, **Detalles** y **Eliminar**.
 
-La aplicación usa un contexto de base de datos para conectarse con la base de datos. En este ejemplo, el contexto de base de datos emplea una cadena de conexión llamada `MyDbConnection`. La cadena de conexión se establece en el archivo *Web.config* y se hace referencia a ella en el archivo *Models/MyDatabaseContext.cs*. El nombre de la cadena de conexión se usa más adelante en el tutorial para conectar la aplicación de Azure a una base de datos de Azure SQL. 
+La aplicación usa un contexto de base de datos para conectarse con la base de datos. En este ejemplo, el contexto de base de datos emplea una cadena de conexión llamada `MyDbConnection`. La cadena de conexión se establece en el archivo *Web.config* y se hace referencia a ella en el archivo *Models/MyDatabaseContext.cs*. El nombre de la cadena de conexión se usa más adelante en el tutorial para conectar la aplicación de Azure a una base de datos de Azure SQL.
 
-## <a name="publish-to-azure-with-sql-database"></a>Publicación en Azure con SQL Database
+## <a name="publish-aspnet-application-to-azure"></a>Publicación de una aplicación ASP.NET en Azure
 
 En el **Explorador de soluciones**, haga clic con el botón derecho en su proyecto **DotNetAppSqlDb** y seleccione **Publicar**.
 
@@ -72,18 +73,16 @@ Al publicar se abre el cuadro de diálogo **Crear servicio de aplicaciones**, qu
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-En el cuadro de diálogo **Crear App Service**, haga clic en **Agregar una cuenta** y, a continuación, inicie sesión en su suscripción de Azure. Si ya ha iniciado sesión en una cuenta de Microsoft, asegúrese de que esa cuenta contiene la suscripción de Azure. Si la cuenta de Microsoft con la que inició sesión no contiene su suscripción de Azure, haga clic en ella para agregar la cuenta correcta. 
+En el cuadro de diálogo **Crear App Service**, haga clic en **Agregar una cuenta** y, a continuación, inicie sesión en su suscripción de Azure. Si ya ha iniciado sesión en una cuenta de Microsoft, asegúrese de que esa cuenta contiene la suscripción de Azure. Si la cuenta de Microsoft con la que inició sesión no contiene su suscripción de Azure, haga clic en ella para agregar la cuenta correcta.
 
 > [!NOTE]
 > Si ya ha iniciado sesión, no seleccione **Crear** todavía.
->
->
-   
+
 ![Inicio de sesión en Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Configuración del nombre de la aplicación web
 
-Puede mantener el nombre de aplicación web generado, o cambiarlo por otro nombre único (los caracteres válidos son `a-z`, `0-9` y `-`). El nombre de la aplicación web se usa como parte de la dirección URL predeterminada en la aplicación (`<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación web). El nombre de la aplicación web debe ser único entre todas las aplicaciones de Azure. 
+Puede mantener el nombre de aplicación web generado, o cambiarlo por otro nombre único (los caracteres válidos son `a-z`, `0-9` y `-`). El nombre de la aplicación web se usa como parte de la dirección URL predeterminada en la aplicación (`<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación web). El nombre de la aplicación web debe ser único entre todas las aplicaciones de Azure.
 
 ![Cuadro de diálogo Create App Service (Crear App Service)](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
 
@@ -91,66 +90,66 @@ Puede mantener el nombre de aplicación web generado, o cambiarlo por otro nombr
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
-Junto a **Grupo de recursos**, haga clic en **Nuevo**.
+1. Junto a **Grupo de recursos**, haga clic en **Nuevo**.
 
-![Junto a Grupo de recursos, haga clic en Nuevo.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
+   ![Junto a Grupo de recursos, haga clic en Nuevo.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
-Llame al grupo de recursos **myResourceGroup**.
+2. Llame al grupo de recursos **myResourceGroup**.
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Junto a **Plan de App Service**, haga clic en **Nuevo**. 
+1. Junto a **Plan de App Service**, haga clic en **Nuevo**.
 
-En el cuadro de diálogo **Configurar el plan de App Service**, configure el nuevo plan de App Service con los valores siguientes:
+2. En el cuadro de diálogo **Configurar el plan de App Service**, configure el nuevo plan de App Service con los valores siguientes:
 
-![Creación de un plan de App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
+   ![Creación de un plan de App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| Configuración  | Valor sugerido | Para obtener más información |
-| ----------------- | ------------ | ----|
-|**Plan de App Service**| myAppServicePlan | [Planes de App Service](../app-service/overview-hosting-plans.md) |
-|**Ubicación**| Oeste de Europa | [Regiones de Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
-|**Tamaño**| Gratuito | [Planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
+   | Configuración  | Valor sugerido | Para obtener más información |
+   | ----------------- | ------------ | ----|
+   |**Plan de App Service**| myAppServicePlan | [Planes de App Service](../app-service/overview-hosting-plans.md) |
+   |**Ubicación**| Oeste de Europa | [Regiones de Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+   |**Tamaño**| Gratuito | [Planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
-### <a name="create-a-sql-server-instance"></a>Creación de una instancia de SQL Server
+### <a name="create-a-server"></a>Creación de un servidor
 
-Antes de crear una base de datos, necesita un [servidor lógico de Azure SQL Database](../sql-database/sql-database-features.md). Un servidor lógico contiene un conjunto de bases de datos administradas como un grupo.
+Antes de crear una base de datos, necesita un [servidor SQL lógico ](../azure-sql/database/logical-servers.md). Un servidor SQL lógico es una estructura lógica que contiene un conjunto de bases de datos administradas como un grupo.
 
-Haga clic en **Create a SQL Database** (Crear una instancia de SQL Database).
+1. Haga clic en **Create a SQL Database** (Crear una instancia de SQL Database).
 
-![Creación de una instancia de SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
+   ![Creación de una instancia de SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-En el cuadro de diálogo **Configurar SQL Database**, haga clic en **Nuevo** junto a **SQL Server**. 
+2. En el cuadro de diálogo **Configurar SQL Database**, haga clic en **Nuevo** junto a **SQL Server**.
 
-Se genera un nombre de servidor único. Este nombre se usa como parte de la dirección URL predeterminada del servidor lógico, `<server_name>.database.windows.net`. Debe ser único entre todas las instancias de servidor lógico de Azure. Este nombre se puede cambiar, pero para los fines de este tutorial, conserve el valor generado.
+   Se genera un nombre de servidor único. Este nombre se usa como parte de la dirección URL predeterminada del servidor, `<server_name>.database.windows.net`. Tiene que ser único entre todos los servidores de Azure SQL. Este nombre se puede cambiar, pero para los fines de este tutorial, conserve el valor generado.
 
-Agregue un nombre de usuario y una contraseña de administrador. Para conocer los requisitos de complejidad de la contraseña, consulte [Directivas de contraseñas](/sql/relational-databases/security/password-policy).
+3. Agregue un nombre de usuario y una contraseña de administrador. Para conocer los requisitos de complejidad de la contraseña, consulte [Directivas de contraseñas](/sql/relational-databases/security/password-policy).
 
-Recuerde este nombre de usuario y esta contraseña. Los necesitará más adelante para administrar la instancia del servidor lógico.
+   Recuerde este nombre de usuario y esta contraseña. Los necesitará para administrar el servidor más adelante.
 
-> [!IMPORTANT]
-> Aunque la contraseña de las cadenas de conexión está enmascarada (en Visual Studio y también en App Service), el hecho de que se conserva en otro lugar se suma a la superficie expuesta a ataques de la aplicación. App Service puede usar [identidades de servicio administradas](overview-managed-identity.md) para quitar este riesgo eliminando por completo la necesidad de conservar secretos en el código o en la configuración de la aplicación. Para más información, consulte la sección [Pasos siguientes](#next-steps).
+   > [!IMPORTANT]
+   > Aunque la contraseña de las cadenas de conexión está enmascarada (en Visual Studio y también en App Service), el hecho de que se conserva en otro lugar se suma a la superficie expuesta a ataques de la aplicación. App Service puede usar [identidades de servicio administradas](overview-managed-identity.md) para quitar este riesgo eliminando por completo la necesidad de conservar secretos en el código o en la configuración de la aplicación. Para más información, consulte la sección [Pasos siguientes](#next-steps).
 
-![Creación de una instancia de SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+   ![Crear un servidor](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-Haga clic en **OK**. No cierre aún el cuadro de diálogo **Configurar base de datos SQL**.
+4. Haga clic en **OK**. No cierre aún el cuadro de diálogo **Configurar base de datos SQL**.
 
-### <a name="create-a-sql-database"></a>Creación de una instancia de SQL Database
+### <a name="create-a-database-in-azure-sql-database"></a>Creación de una base de datos de Azure SQL Database
 
-En el cuadro de diálogo **Configurar SQL Database**: 
+1. En el cuadro de diálogo **Configurar SQL Database**:
 
-* Mantenga el **nombre de base de datos** generado predeterminado.
-* En **Nombre de la cadena de conexión**, escriba *MyDbConnection*. Este nombre tiene que coincidir con la cadena de conexión a la que se hace referencia en *Models\MyDatabaseContext.cs*.
-* Seleccione **Aceptar**.
+   * Mantenga el **nombre de base de datos** generado predeterminado.
+   * En **Nombre de la cadena de conexión**, escriba *MyDbConnection*. Este nombre tiene que coincidir con la cadena de conexión a la que se hace referencia en *Models\MyDatabaseContext.cs*.
+   * Seleccione **Aceptar**.
 
-![Configuración de SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
+    ![Configuración de la base de datos](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-El cuadro de diálogo **Create App Service** (Crear App Service) muestra los recursos que ha configurado. Haga clic en **Crear**. 
+2. El cuadro de diálogo **Create App Service** (Crear App Service) muestra los recursos que ha configurado. Haga clic en **Crear**.
 
-![Se muestran los recursos que ha creado.](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+   ![Se muestran los recursos que ha creado.](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
-Cuando el asistente termina de crear los recursos de Azure, publica la aplicación ASP.NET en Azure. El explorador predeterminado se inicia con la dirección URL a la aplicación implementada. 
+Cuando el asistente termina de crear los recursos de Azure, publica la aplicación ASP.NET en Azure. El explorador predeterminado se inicia con la dirección URL a la aplicación implementada.
 
 Agregue algunos elementos de tareas pendientes.
 
@@ -158,9 +157,9 @@ Agregue algunos elementos de tareas pendientes.
 
 Felicidades. La aplicación ASP.NET orientada a datos se ejecuta en directo en Azure App Service.
 
-## <a name="access-the-sql-database-locally"></a>Acceso local a la instancia de SQL Database
+## <a name="access-the-database-locally"></a>Acceso local a la base de datos
 
-Visual Studio le permite explorar y administrar su nueva instancia de SQL Database de manera fácil en el **Explorador de objetos de SQL Server**.
+Visual Studio le permite explorar y administrar su nueva base de datos de una manera fácil en el **Explorador de objetos de SQL Server**.
 
 ### <a name="create-a-database-connection"></a>Creación de una conexión de base de datos
 
@@ -172,7 +171,7 @@ En la parte superior del **Explorador de objetos de SQL Server**, haga clic en e
 
 En el cuadro de diálogo **Conectar**, expanda el nodo **Azure**. Aquí se muestran todas las instancias de Azure SQL Database.
 
-Seleccione la instancia de SQL Database que creó anteriormente. La conexión que creó anteriormente se rellena automáticamente en la parte inferior.
+Seleccione la base de datos que creó anteriormente. La conexión que creó anteriormente se rellena automáticamente en la parte inferior.
 
 Escriba la contraseña de administrador de base de datos que creó anteriormente y haga clic en **Conectar**.
 
@@ -180,19 +179,19 @@ Escriba la contraseña de administrador de base de datos que creó anteriormente
 
 ### <a name="allow-client-connection-from-your-computer"></a>Permitir la conexión de cliente desde el equipo
 
-Se abre el cuadro de diálogo **Create a new firewall rule** (Crear nueva regla de firewall). De forma predeterminada, la instancia de SQL Database solo permite conexiones desde servicios de Azure, como la aplicación de Azure. Para conectarse a la base de datos, cree una regla de firewall en la instancia de SQL Database. La regla de firewall permite la dirección IP pública del equipo local.
+Se abre el cuadro de diálogo **Create a new firewall rule** (Crear nueva regla de firewall). De forma predeterminada, un servidor solo permite conexiones con sus bases de datos desde servicios de Azure, como la aplicación de Azure. Para conectarse a la base de datos desde fuera de Azure, cree una regla de firewall en el nivel de servidor. La regla de firewall permite la dirección IP pública del equipo local.
 
 El cuadro de diálogo ya se ha rellenado con la dirección IP pública de su equipo.
 
-Asegúrese de que **Add my client IP** (Agregar mi IP de cliente) está seleccionado y haga clic en **Aceptar**. 
+Asegúrese de que **Add my client IP** (Agregar mi IP de cliente) está seleccionado y haga clic en **Aceptar**.
 
-![Configuración del firewall para la instancia de SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
+![Crear reglas de firewall](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
 
 Una vez que Visual Studio termina de crear la configuración de firewall para su instancia de SQL Database, la conexión se muestra en el **Explorador de objetos de SQL Server**.
 
-Aquí, puede realizar las operaciones de base de datos más comunes, como ejecutar consultas, crear vistas y procedimientos almacenados, entre otras. 
+Aquí, puede realizar las operaciones de base de datos más comunes, como ejecutar consultas, crear vistas y procedimientos almacenados, entre otras.
 
-Expanda la conexión > **Bases de datos** >  **&lt;base de datos >**  > **Tablas**. Haga clic con el botón derecho en la tabla `Todoes` y seleccione **Ver datos**. 
+Expanda la conexión > **Bases de datos** >  **&lt;base de datos >**  > **Tablas**. Haga clic con el botón derecho en la tabla `Todoes` y seleccione **Ver datos**.
 
 ![Exploración de objetos de SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -212,7 +211,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>Ejecución de Migraciones de Code First
 
-Ejecute algunos comandos para realizar actualizaciones en la base de datos local. 
+Ejecute algunos comandos para realizar actualizaciones en la base de datos local.
 
 En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
 
@@ -236,7 +235,7 @@ Update-Database
 
 Escriba `Ctrl+F5` para ejecutar la aplicación. Pruebe los vínculos de edición, detalles y creación.
 
-Si la aplicación se carga sin errores, la característica Migraciones de Code First ha funcionado correctamente. Sin embargo, la página todavía tiene el mismo aspecto porque la aplicación lógica no usa aún esta propiedad. 
+Si la aplicación se carga sin errores, la característica Migraciones de Code First ha funcionado correctamente. Sin embargo, la página todavía tiene el mismo aspecto porque la aplicación lógica no usa aún esta propiedad.
 
 ### <a name="use-the-new-property"></a>Uso de la nueva propiedad
 
@@ -284,7 +283,7 @@ Busque el elemento `<td>` que contiene los métodos auxiliares `Html.ActionLink(
 </td>
 ```
 
-Eso es todo lo que necesita para ver los cambios en las vistas `Index` y `Create`. 
+Eso es todo lo que necesita para ver los cambios en las vistas `Index` y `Create`.
 
 Escriba `Ctrl+F5` para ejecutar la aplicación.
 
@@ -302,7 +301,7 @@ Haga clic en **Configurar** para abrir la configuración de publicación.
 
 En el asistente, haga clic en **Siguiente**.
 
-Asegúrese de que la cadena de conexión de su instancia de SQL Database se rellena en **MyDatabaseContext (MyDbConnection)** . Debe seleccionar la base de datos **myToDoAppDb** en la lista desplegable. 
+Asegúrese de que la cadena de conexión de su instancia de SQL Database se rellena en **MyDatabaseContext (MyDbConnection)** . Debe seleccionar la base de datos **myToDoAppDb** en la lista desplegable.
 
 Seleccione **Ejecutar Migraciones de Code First (se ejecuta al iniciar la aplicación)** y luego haga clic en **Guardar**.
 
@@ -320,7 +319,6 @@ Intente volver a agregar elementos de tareas pendientes y seleccione **Listo**; 
 
 Aún se muestran todas las tareas pendientes existentes. Cuando vuelva a publicar su aplicación de ASP.NET, los datos existentes en su instancia de SQL Database no se perderán. Además, Migraciones de Code First solo cambia el esquema de datos y deja intactos los datos existentes.
 
-
 ## <a name="stream-application-logs"></a>Transmisión de registros de aplicación
 
 Puede transmitir mensajes de seguimiento directamente desde la aplicación de Azure hasta Visual Studio.
@@ -331,7 +329,7 @@ Cada acción comienza con un método `Trace.WriteLine()`. Este código se agrega
 
 ### <a name="open-server-explorer"></a>Apertura del Explorador de servidores
 
-En el menú **Ver**, seleccione **Explorador de servidores**. Puede configurar el registro de la aplicación de Azure en el **Explorador de servidores**. 
+En el menú **Ver**, seleccione **Explorador de servidores**. Puede configurar el registro de la aplicación de Azure en el **Explorador de servidores**.
 
 ### <a name="enable-log-streaming"></a>Habilitación de la secuencia de registros
 
@@ -343,7 +341,7 @@ Haga clic con el botón derecho en la aplicación de Azure y seleccione **Ver re
 
 ![Habilitación de la secuencia de registros](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
-Los registros se insertan ahora en la ventana **Salida**. 
+Los registros se insertan ahora en la ventana **Salida**.
 
 ![Secuencia de registros en la ventana Salida](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
@@ -361,8 +359,6 @@ En la lista desplegable **Registro de la aplicación (sistema de archivos)** , s
 
 > [!TIP]
 > Puede experimentar con diferentes niveles de seguimiento para ver qué tipos de mensajes se muestran para cada nivel. Por ejemplo, el nivel **Información** incluye todos los registros creados por `Trace.TraceInformation()`, `Trace.TraceWarning()` y `Trace.TraceError()`, pero no los registros creados por `Trace.WriteLine()`.
->
->
 
 En el explorador, vaya a la aplicación de nuevo en *http://&lt;nombre de la aplicación>.azurewebsites.net* e intente hacer clic en torno a la aplicación de la lista de tareas pendientes en Azure. Los mensajes de seguimiento se insertan ahora en la ventana **Salida** de Visual Studio.
 
@@ -373,8 +369,6 @@ Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create
 Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 ```
 
-
-
 ### <a name="stop-log-streaming"></a>Detención de las secuencias de registro
 
 Para detener el servicio de secuencias de registros, haga clic en el botón **Detener supervisión** en la ventana **Salida**.
@@ -383,7 +377,7 @@ Para detener el servicio de secuencias de registros, haga clic en el botón **De
 
 ## <a name="manage-your-azure-app"></a>Administración de la aplicación de Azure
 
-Vaya a [Azure Portal](https://portal.azure.com) para administrar la aplicación web. Busque y seleccione **App Services**. 
+Vaya a [Azure Portal](https://portal.azure.com) para administrar la aplicación web. Busque y seleccione **App Services**.
 
 ![Búsqueda de Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
@@ -391,9 +385,9 @@ Seleccione el nombre de la aplicación de Azure.
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-Ha llegado a la página de la aplicación. 
+Ha llegado a la página de la aplicación.
 
-De forma predeterminada, el portal muestra la página **Información general**. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir. 
+De forma predeterminada, el portal muestra la página **Información general**. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
 
 ![Página de App Service en Azure Portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
@@ -404,7 +398,8 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
-> * Crear una base de datos SQL Database en Azure
+>
+> * Creación de una base de datos de Azure SQL Database
 > * Conectar una aplicación ASP.NET a SQL Database
 > * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación

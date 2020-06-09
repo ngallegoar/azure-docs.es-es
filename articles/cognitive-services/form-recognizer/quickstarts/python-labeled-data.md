@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 482e1bfe14181a59b744efd794a5636a442ce9a4
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594175"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141949"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la API REST y Python
 
@@ -22,11 +22,14 @@ En este inicio rápido, usará la API REST de Form Recognizer con Python para en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - [Python](https://www.python.org/downloads/) instalado (si desea ejecutar el ejemplo localmente).
 - Un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
+
+> [!NOTE]
+> En este inicio rápido se usan documentos remotos con acceso mediante la dirección URL. Para usar en cambio archivos locales, consulte la [documentación de referencia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -34,14 +37,14 @@ Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
 ## <a name="set-up-training-data"></a>Configuración de los datos de entrenamiento
 
-Después, deberá configurar los datos de entrada necesarios. La característica de datos etiquetados tiene requisitos de entrada especiales que van más allá de los que se necesitan para entrenar un modelo personalizado. 
+Después, deberá configurar los datos de entrada necesarios. La característica de datos etiquetados tiene requisitos de entrada especiales que van más allá de los que se necesitan para entrenar un modelo personalizado sin etiquetas.
 
 Asegúrese de que todos los documentos de entrenamiento tienen el mismo formato. Si tiene formularios en varios formatos, organícelos en subcarpetas basadas en un formato común. Al entrenar, deberá dirigir la API a una subcarpeta.
 
 Para entrenar un modelo con datos etiquetados, necesitará los siguientes archivos como entradas en la subcarpeta. A continuación, aprenderá a crear estos archivos.
 
 * **Formularios de origen**: los formularios de los que se van a extraer datos. Los tipos admitidos son JPEG, PNG, PDF o TIFF.
-* **Archivos de diseño OCR**: archivos JSON que describen los tamaños y posiciones de todo el texto legible de cada formulario de origen. Usará la API de diseño de Form Recognizer para generar estos datos. 
+* **Archivos de diseño OCR**: archivos JSON que describen los tamaños y las posiciones de todo el texto legible de cada formulario de origen. Usará la API de diseño de Form Recognizer para generar estos datos. 
 * **Archivos de etiqueta**: archivos JSON que describen las etiquetas de datos que un usuario ha escrito manualmente.
 
 Todos estos archivos deben ocupar la misma subcarpeta y tener el siguiente formato:
@@ -116,7 +119,7 @@ Necesita archivos de resultados de OCR para que el servicio tenga en cuenta los 
 
 ### <a name="create-the-label-files"></a>Creación de archivos de etiqueta
 
-Los archivos de etiqueta contienen asociaciones de clave-valor que un usuario ha especificado manualmente. Son necesarios para el entrenamiento con datos etiquetados, pero no todos los archivos de origen deben tener un archivo de etiqueta correspondiente. Los archivos de origen sin etiquetas se tratarán como documentos de entrenamiento ordinarios. Se recomiendan cinco o más archivos etiquetados para un entrenamiento confiable.
+Los archivos de etiqueta contienen asociaciones de clave-valor que un usuario ha especificado manualmente. Son necesarios para el entrenamiento con datos etiquetados, pero no todos los archivos de origen deben tener un archivo de etiqueta correspondiente. Los archivos de origen sin etiquetas se tratarán como documentos de entrenamiento ordinarios. Se recomiendan cinco o más archivos etiquetados para un entrenamiento confiable. Puede usar una herramienta de interfaz de usuario como la [herramienta de etiquetado de ejemplo](./label-tool.md) para generar estos archivos.
 
 Al crear un archivo de etiquetas, puede especificar de forma opcional las posiciones de regiones exactas de los valores del documento. Esto proporcionará al entrenamiento aún más precisión. Las regiones tienen un formato de conjunto de ocho valores que se corresponden con las cuatro coordenadas X, Y: superior izquierda, superior derecha, inferior derecha e inferior izquierda. Los valores de las coordenadas están entre cero y uno, escalados a las dimensiones de la página.
 
@@ -187,7 +190,7 @@ Para cada formulario de origen, el archivo de etiquetas correspondiente debe ten
                 ...
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > Solo se puede aplicar una etiqueta a cada elemento de texto y cada etiqueta solo se puede aplicar una vez por página. Actualmente no se puede aplicar una etiqueta a varias páginas.
 
 
@@ -554,4 +557,7 @@ Somos conscientes de que esta posibilidad es fundamental para nuestros clientes 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a usar la API REST de Form Recognizer con Python para entrenar un modelo con datos etiquetados manualmente. A continuación, consulte la [documentación de referencia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) para explorar la API de Form Recognizer con mayor profundidad.
+En este inicio rápido, ha aprendido a usar la API REST de Form Recognizer con Python para entrenar un modelo con datos etiquetados manualmente. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
+
+> [!div class="nextstepaction"]
+> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 670ae329943610ba16411da3782bc1da079c6490
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74183210"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266311"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de una identidad asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage con las credenciales de SAS
 
@@ -40,7 +40,7 @@ Una credencial SAS de servicio permite conceder acceso limitado a los objetos de
 > * Conceder acceso a la máquina virtual a una SAS de cuenta de almacenamiento en Resource Manager 
 > * Obtener un token de acceso mediante la identidad de la máquina virtual y utilizarlo para recuperar la credencial SAS desde Resource Manager 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -101,7 +101,7 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
     
     > [!NOTE]
     > En la solicitud anterior, el valor del parámetro "resource" tiene que coincidir exactamente con el que Azure AD espera. Al usar el id. de recurso de Azure Resource Manager, debe incluir la barra diagonal final en el URI.
-    > En la siguiente respuesta, el elemento access_token se ha abreviado.
+    > En la siguiente respuesta, el elemento access_token se ha acortado para abreviar.
     
     ```bash
     {"access_token":"eyJ0eXAiOiJ...",

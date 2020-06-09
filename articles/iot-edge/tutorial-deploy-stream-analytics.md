@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76906290"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220285"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Un dispositivo de Azure IoT Edge:
 
@@ -66,7 +66,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
 
    | Campo | Value |
    | ----- | ----- |
-   | Subscription | Elija la misma suscripción que IoT Hub. |
+   | Suscripción | Elija la misma suscripción que IoT Hub. |
    | Resource group | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |
    | Nombre | Especifique un nombre único para la cuenta de almacenamiento. |
    | Location | Elija una ubicación cercana a usted. |
@@ -84,7 +84,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
    | Campo | Value |
    | ----- | ----- |
    | Nombre del trabajo | Especifique el nombre del trabajo. Por ejemplo, **IoTEdgeJob** |
-   | Subscription | Elija la misma suscripción que IoT Hub. |
+   | Suscripción | Elija la misma suscripción que IoT Hub. |
    | Resource group | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |
    | Location | Elija una ubicación cercana a usted. |
    | Entorno de hospedaje | Seleccionar **Edge**. |
@@ -169,7 +169,7 @@ En este tutorial se implementan dos módulos. La primera opción es **SimulatedT
    1. Haga clic en **Add** (Agregar) y seleccione **IoT Edge Module** (Módulo de IoT Edge).
    1. En el nombre, escriba **SimulatedTemperatureSensor**.
    1. Para el URI de la imagen, escriba **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**.
-   1. Deje los restantes valores tal cual y seleccione **Guardar**.
+   1. Deje los restantes valores sin cambios y seleccione **Add** (Agregar).
 
 1. Agregue el trabajo de Edge de Azure Stream Analytics con los siguientes pasos:
 
@@ -187,7 +187,7 @@ En este tutorial se implementan dos módulos. La primera opción es **SimulatedT
 
    De forma predeterminada, el módulo de Stream Analytics usa el mismo nombre que el trabajo en el que se basa. Si lo prefiere, puede cambiar el nombre del módulo en esta página, pero no es necesario.
 
-1. Seleccione **Cancelar** o **Guardar**.
+1. Seleccione **Update** (Actualizar) o **Cancel** (Cancelar).
 
 1. Anote el nombre de su módulo de Stream Analytics, ya que lo necesitará en el paso siguiente. Luego, seleccione **Siguiente: Rutas** para continuar.
 

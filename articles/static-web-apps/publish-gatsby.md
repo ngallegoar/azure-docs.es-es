@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 14706b623c6973c09b499e4fcd905e3eed430898
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 24d5ee132444f19118613f6b1b798fd763e46e3c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593383"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299331"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Gatsby en Azure Static Web Apps (versión preliminar)
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. En caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de GitHub. En caso de no tener una, puede [crear una cuenta gratuita](https://github.com/join).
@@ -95,7 +95,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. En _Grupo de recursos_, seleccione **Nuevo**. En _Nuevo nombre de grupo de recursos_, escriba **gatsby-static-web-app** y seleccione **Aceptar**.
 
-1. A continuación, escriba un nombre único global para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`. Este valor se usa como prefijo de dirección URL para la aplicación de Static Web Apps con el formato `https://<YOUR_APP_NAME>.azurestaticapps.net`.
+1. Después, un nombre para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`.
 
 1. En _Región_, seleccione una región cercana disponible.
 

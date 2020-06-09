@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395714"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141864"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -88,7 +88,7 @@ Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin f
 |------------------------|---------------|
 | Tamaño máximo de un documento individual | 5120 caracteres, medidos por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamaño máximo de la solicitud completa | 1 MB |
-| Número máximo de documentos de una solicitud | 1000 documentos |
+| Número máximo de documentos de una solicitud | Hasta 1000 documentos ([varía para cada característica](concepts/data-limits.md)) |
 
 El límite de velocidad variará en función del plan de tarifa.
 

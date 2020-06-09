@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74327572"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014917"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure HDInsight
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una cuenta de almacenamiento de Azure Data Lake Storage Gen2 configurada para HDInsight**
 
@@ -244,12 +244,12 @@ Necesita el nombre del servidor de la base de datos SQL para esta operación. Co
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. Cuando finalice la instalación, use el comando siguiente para conectarse al servidor de SQL Database.
+6. Cuando finalice la instalación, use el comando siguiente para conectarse a SQL Database.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Reemplace el marcador de posición `<server-name>` por el nombre del servidor de SQL Database.
+   * Reemplace el marcador de posición `<server-name>` por el nombre de servidor lógico de SQL.
 
    * Reemplace el marcador de posición `<admin-login>` por el inicio de sesión de administrador para SQL Database.
 

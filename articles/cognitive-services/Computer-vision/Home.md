@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131748"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117511"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-El servicio Computer Vision de Azure proporciona a los desarrolladores acceso a algoritmos avanzados que procesan imágenes y devuelven información, según las características visuales que le interesen. Por ejemplo, Computer Vision puede determinar si una imagen incluye contenido para adultos o buscar todos los rostros en una imagen.
+El servicio Computer Vision de Azure proporciona a los desarrolladores acceso a algoritmos avanzados que procesan imágenes y devuelven información basada en las características visuales que le interesen. Por ejemplo, Computer Vision puede determinar si una imagen tiene contenido para adultos, buscar marcas u objetos específicos o buscar rostros humanos.
 
-Puede usar Computer Vision en la aplicación mediante el uso de un SDK nativo o invocar la API de REST directamente. Esta página cubre ampliamente lo que puede hacer con Computer Vision.
+Puede usar Computer Vision en la aplicación mediante el uso de un SDK de biblioteca cliente o invocar la API REST directamente. Esta página cubre ampliamente lo que puede hacer con Computer Vision.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Computer Vision para la administración de activos digitales
 
@@ -32,13 +32,13 @@ Computer Vision puede funcionar en muchos escenarios de administración de activ
 
 ## <a name="analyze-images-for-insight"></a>Análisis de imágenes para obtener información
 
-Puede analizar imágenes para detectar y proporcionar información detallada acerca de las funciones visuales y las características. Todas las características de la tabla siguiente se proporcionan gracias a la API [de análisis de imágenes](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+Puede analizar imágenes para detectar y proporcionar información detallada acerca de las características y funciones visuales. Todas las características de la tabla siguiente se proporcionan gracias a la API [de análisis de imágenes](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
 | Acción | Descripción |
 | ------ | ----------- |
 |**[Etiquetar características visuales](concept-tagging-images.md)**|Identifique y etiquete las características visuales de una imagen a partir de un conjunto de miles de objetos, seres vivos, paisajes y acciones reconocibles. Cuando las etiquetas son ambiguas o no muy comunes, la respuesta de la API contiene “indicaciones” para aclarar el contexto de la etiqueta. El etiquetado no se limita al sujeto principal, como una persona en primer plano, sino que también incluye el entorno (interior o exterior), muebles, herramientas, plantas, animales, accesorios, gadgets, etc.|
 |**[Detectar objetos](concept-object-detection.md)**| La detección de objetos es similar al etiquetado, pero la API devuelve las coordenadas del rectángulo delimitador para cada etiqueta aplicada. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos junto con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar más las relaciones entre los objetos de una imagen. También permite saber cuando hay varias instancias de la misma etiqueta en una imagen.|
-|**[Detección de las marcas](concept-brand-detection.md)**|Identifique las marcas comerciales en imágenes o vídeos desde una base de datos de miles de logotipos globales.  Puede usar esta característica, por ejemplo, para detectar qué marcas son más populares en medios sociales o más frecuentes en la ubicación de los productos multimedia.|
+|**[Detección de las marcas](concept-brand-detection.md)**|Identifique las marcas comerciales en imágenes o vídeos desde una base de datos de miles de logotipos globales. Puede usar esta característica, por ejemplo, para detectar qué marcas son más populares en medios sociales o más frecuentes en la ubicación de los productos multimedia.|
 |**[Clasificar una imagen](concept-categorizing-images.md)**|Identifique y clasifique toda una imagen mediante una [taxonomía de categoría](Category-Taxonomy.md) con jerarquías hereditarias de elementos primarios y secundarios. Las categorías se pueden usar solas o con nuestros nuevos modelos de etiquetado.<br/>Actualmente, el inglés es el único idioma que se admite para etiquetar y clasificar imágenes.|
 |**[Describir una imagen](concept-describing-images.md)**|Genere una descripción de toda una imagen en lenguaje natural, con frases completas. Los algoritmos de Computer Vision generan varias descripciones en función de los objetos identificados en la imagen. Cada una de estas descripciones se evalúa y se genera una puntuación de confianza. Después, se devuelve una lista de puntuaciones de confianza ordenadas de más alta a más baja.|
 |**[Detectar caras](concept-detecting-faces.md)** |Detecte caras en una imagen y proporcione información acerca de ellas. Computer Vision devuelve las coordenadas, el rectángulo, el género y la edad de los rostros que detecta.<br/>Computer Vision proporciona un subconjunto de la funcionalidad del servicio [Face](/azure/cognitive-services/face/). Puede usar el servicio Face para realizar un análisis más detallado, como la identificación facial y la detección de poses.|
@@ -50,7 +50,7 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 
 ## <a name="extract-text-from-images"></a>Extracción de texto de las imágenes
 
-Puede usar la API [Read](concept-recognizing-text.md#read-api) de Computer Vision para extraer texto escrito a mano e impreso de imágenes en una secuencia de caracteres legible por máquina. La API Read utiliza modelos actualizados y funciona con texto sobre superficies y fondos distintos, como recibos, pósteres, tarjetas de visita, cartas y pizarras. Actualmente, el inglés y el español son los únicos idiomas admitidos.
+Puede usar la API [Read](concept-recognizing-text.md#read-api) de Computer Vision para extraer texto escrito a mano e impreso de imágenes en una secuencia de caracteres legible por máquina. La API Read utiliza modelos actualizados y funciona con texto sobre superficies y fondos distintos, como recibos, pósteres, tarjetas de visita, cartas y pizarras. Actualmente funciona con siete idiomas diferentes (Consulte [Compatibilidad con idiomas](./language-support.md)).
 
 También puede usar la API de [reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extraer el texto impreso en varios idiomas. Si es necesario, OCR corrige el giro del texto reconocido y proporciona las coordenadas del marco de cada palabra. El OCR admite 25 idiomas y detecta automáticamente el idioma del texto reconocido.
 

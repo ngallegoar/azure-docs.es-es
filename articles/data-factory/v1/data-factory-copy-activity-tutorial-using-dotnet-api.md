@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: crear una canalización con la actividad de copia mediante la API de NET '
+title: 'Tutorial: Creación de una canalización con la actividad de copia mediante la API de NET '
 description: En este tutorial, se crea una canalización de Azure Data Factory con una actividad de copia mediante la API de .NET.
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 47714be27cd4588b9bdf481750974394d3738985
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74931731"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119293"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: crear una canalización con la actividad de copia mediante la API de NET
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Creación de una canalización con la actividad de copia mediante la API de NET
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -41,9 +41,9 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > [!NOTE] 
 > Para obtener documentación completa sobre la API de .NET para Data Factory, consulte la [referencia de API de .NET de Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 > 
-> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
+> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -234,13 +234,13 @@ Debe tener los cuatro valores siguientes de estos pasos:
 
     Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En este tutorial, no se usa ningún servicio de proceso, como Azure HDInsight o Azure Data Lake Analytics. Se usan dos almacenes de datos del tipo Azure Storage (origen) y Azure SQL Database (destino). 
 
-    Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService del tipo AzureStorage y AzureSqlDatabase.  
+    Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService de los tipos: AzureStorage y AzureSqlDatabase.  
 
     AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Esta cuenta de almacenamiento es la que se usó para crear un contenedor y con la que se cargaron los datos como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 9. Agregue el siguiente código que crea un **servicio vinculado de Azure SQL** al método **Main**.
 
    > [!IMPORTANT]
-   > Reemplace **servername**, **databasename**, **username** y **password** por los nombres del servidor de Azure SQL, de la base de datos, del usuario y de la contraseña.
+   > Reemplace **servername**, **databasename**, **username** y **password** por los nombres del servidor, de la base de datos, del usuario y de la contraseña.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database

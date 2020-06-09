@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661539"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148266"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
@@ -35,6 +35,14 @@ Seleccione **Panel** para abrir el [panel](../../azure-portal/azure-portal-dashb
 ![Panel de Portal de Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Aquí puede agrupar los datos operacionales que sean más importantes para la TI en todos los recursos de Azure, incluidos los datos de telemetría de Azure Log Analytics.  Antes de que pasemos a la visualización de una consulta de registro, creemos primero un panel y compartámoslo.  Luego, podemos centrarnos en la consulta de registro de rendimiento de ejemplo, que se representará como un gráfico de líneas, y lo agregaremos al panel.  
+
+> [!NOTE]
+> Los siguientes tipos de gráficos se admiten en los paneles de Azure mediante consultas de registro:
+> - areachart
+> - columnchart
+> - piechart (se representará en el panel como un anillo)
+> - scatterchart
+> - timechart
 
 Para crear un panel, haga clic en el botón **Panel nuevo** situado junto al nombre del panel actual.
 

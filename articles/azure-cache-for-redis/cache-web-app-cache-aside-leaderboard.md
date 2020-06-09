@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75411954"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195573"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
@@ -642,9 +642,9 @@ Para ejecutar la aplicación localmente:
 
 ## <a name="publish-and-run-in-azure"></a>Publicación y ejecución en Azure
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>Aprovisionamiento de una base de datos SQL de Azure para la aplicación
+### <a name="provision-a-database-for-the-app"></a>Aprovisionamiento de una base de datos para la aplicación
 
-En esta sección, aprovisionará una nueva base de datos SQL de Azure para que la use la aplicación usar mientras esté hospedada en Azure.
+En esta sección aprovisionará una nueva base de datos en SQL Database para que la use la aplicación mientras esté hospedada en Azure.
 
 1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso**.
 

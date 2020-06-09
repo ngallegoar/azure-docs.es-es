@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: f0a4bb23d8a868e7c11153748259eba23a0cca38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81732f13b85a7c0b514aad61c40802f4547957c2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501828"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219122"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copia de datos a Azure Data Box Disk mediante NFS
 
@@ -23,11 +23,11 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 >
-> * Prerrequisitos
+> * Requisitos previos
 > * Conexión a un dispositivo Data Box
 > * Copia de datos a un dispositivo Data Box
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 
@@ -52,7 +52,7 @@ En la tabla siguiente se muestra la ruta de acceso UNC a los recursos compartido
 |-------------------|--------------------------------------------------------------------------------|
 | Blobs en bloques de Azure | <li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs en páginas de Azure  | <li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Archivos de Azure       |<li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
+| Azure Files       |<li>Ruta de acceso UNC a recursos compartidos: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Dirección URL de Azure Storage: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 Si usa un equipo host Linux, realice los pasos siguientes para configurar un dispositivo Data Box para que pueda acceder a los clientes NFS.
 
@@ -94,7 +94,9 @@ Una vez que esté conectado a los recursos compartidos de Data Box, el siguiente
   * Los archivos no distinguen mayúsculas de minúsculas.
 
     Por ejemplo, si copia `SampleFile.txt` y `Samplefile.Txt`, se conservarán las mayúsculas y minúsculas del nombre cuando se copian en Data Box, pero el segundo archivo sobrescribirá el primero porque considera que son el mismo archivo.
-* Asegúrese de conservar una copia de los datos de origen hasta que pueda confirmar que Data Box los ha transferido a Azure Storage.
+
+> [!IMPORTANT]
+> Asegúrese de conservar una copia de los datos de origen hasta que pueda confirmar que Data Box los ha transferido a Azure Storage.
 
 Si su equipo es un host Linux, use una utilidad de copia similar a Robocopy. Algunas de las alternativas disponibles en Linux son [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) o [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -102,31 +104,31 @@ El comando `cp` es una de las mejores opciones para copiar un directorio. Para m
 
 Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 
- - Instale el paquete **CIFS Utils** o **NFS Utils** según el sistema de archivos que use el cliente Linux.
+* Instale el paquete **CIFS Utils** o **NFS Utils** según el sistema de archivos que use el cliente Linux.
 
     `sudo apt-get install cifs-utils`
 
     `sudo apt-get install nfs-utils`
 
- -  Instale **Rsync** y **Parallel** (varía según la versión de la distribución de Linux).
+* Instale **Rsync** y **Parallel** (varía según la versión de la distribución de Linux).
 
     `sudo apt-get install rsync`
    
     `sudo apt-get install parallel` 
 
- - Cree un punto de montaje.
+* Cree un punto de montaje.
 
     `sudo mkdir /mnt/databox`
 
- - Monte el volumen.
+* Monte el volumen.
 
     `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
 
- - Refleje la estructura de directorios de carpetas.  
+* Refleje la estructura de directorios de carpetas.  
 
     `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
 
- - Copie los archivos. 
+* Copie los archivos.
 
     `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
 
@@ -140,22 +142,20 @@ Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 Abra la carpeta de destino para ver y comprobar los archivos copiados. Si se produce algún error durante el proceso de copia, descargue los archivos de error para solucionar problemas. Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
 
 Para garantizar la integridad de los datos, la suma de comprobación se calcula a medida que los datos se copian. Una vez completada la copia, compruebe el espacio utilizado y el espacio disponible en el dispositivo.
-    
-   ![Comprobación del espacio libre y utilizado en el panel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
+   ![Comprobación del espacio libre y utilizado en el panel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box, como:
 
 > [!div class="checklist"]
-> * Prerrequisitos
+>
+> * Requisitos previos
 > * Conexión a un dispositivo Data Box
 > * Copia de datos a un dispositivo Data Box
-
 
 En el siguiente tutorial aprenderá a enviar su dispositivo Data Box a Microsoft.
 
 > [!div class="nextstepaction"]
 > [Envío de un dispositivo Data Box a Microsoft](./data-box-deploy-picked-up.md)
-

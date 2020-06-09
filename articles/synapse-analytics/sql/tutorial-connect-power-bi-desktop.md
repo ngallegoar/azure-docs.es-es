@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745396"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258290"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Tutorial: Uso de SQL a petición (versión preliminar) con Power BI Desktop y creación de un informe
 
@@ -27,12 +27,16 @@ En este tutorial, aprenderá a:
 > - Conectar Power BI Desktop a SQL a petición
 > - Crear un informe basado en el conjunto de datos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesitará el software siguiente:
+Para completar este tutorial, debe cumplir los siguientes requisitos previos:
+
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/): necesario para visualizar los datos y crear un informe.
+- [Área de trabajo de Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio): necesaria para crear la base de datos, el origen de datos externo y la vista.
+
+Opcional:
 
 - Una herramienta de consulta SQL, como [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Valores de estos parámetros:
 

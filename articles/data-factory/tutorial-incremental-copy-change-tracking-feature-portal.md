@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de datos con Change Tracking
-description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos de Azure SQL.
+description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos de SQL Server a una base de datos de Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 842531b7f4bdd3690258262b32a42a19366c1830
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415437"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196291"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios
 
@@ -42,7 +42,7 @@ En una solución de integración de datos, la carga incremental de los datos des
 Estos son los pasos del flujo de trabajo completo típico para cargar incrementalmente los datos mediante la tecnología de control de cambios.
 
 > [!NOTE]
-> Tanto Azure SQL Database como SQL Server admiten la tecnología de control de cambios. Este tutorial utiliza Azure SQL Database como almacén de datos de origen. También puede usar un servidor local de SQL Server.
+> Tanto Azure SQL Database como SQL Server admiten la tecnología de control de cambios. Este tutorial utiliza Azure SQL Database como almacén de datos de origen. También puede usar una instancia de SQL Server.
 
 1. **Carga inicial de datos históricos** (ejecutar una vez):
     1. Habilite la tecnología de control de cambios en la base de datos de Azure SQL de origen.
@@ -69,12 +69,12 @@ En este tutorial, creará dos canalizaciones que llevan a cabo las dos operacion
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
+## <a name="prerequisites"></a>Requisitos previos
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
 * **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en una base de datos de Azure SQL
-1. Inicie **SQL Server Management Studio** y conéctese a su servidor de Azure SQL.
+1. Abra **SQL Server Management Studio** y conéctese a SQL Database.
 2. En el **Explorador de servidores**, haga clic con el botón derecho en la **base de datos** y elija la **Nueva consulta**.
 3. Ejecute el siguiente comando SQL en su base de datos de Azure SQL para crear una tabla denominada `data_source_table` como almacén de origen de datos.  
 
@@ -216,8 +216,8 @@ En este paso, vinculará su cuenta de Azure SQL Database con la factoría de dat
 3. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
     1. Escriba **AzureSqlDatabaseLinkedService** en el campo **Name** (Nombre).
-    2. Seleccione el servidor de Azure SQL Server en el campo **Server name** (Nombre del servidor).
-    4. Seleccione la base de datos de Azure SQL en el campo **Database name** (Nombre de la base de datos).
+    2. Seleccione su servidor en el campo **Server name** (Nombre del servidor).
+    4. Seleccione la base de datos en el campo **Database name** (Nombre de la base de datos).
     5. Escriba el nombre del usuario en el campo **User name** (Nombre de usuario).
     6. Escriba la contraseña del usuario en el campo **Password** (Contraseña).
     7. Haga clic en **Test connection** (Prueba de conexión) para probar la conexión.

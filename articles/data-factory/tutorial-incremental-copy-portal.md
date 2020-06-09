@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409336"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249100"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage mediante Azure Portal
 
@@ -64,8 +64,8 @@ Estos son los pasos importantes para crear esta solución:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
+## <a name="prerequisites"></a>Requisitos previos
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para su creación.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creación de una tabla de origen de datos en la base de datos SQL
@@ -182,7 +182,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 1. En la página de **introducción** de la interfaz de usuario de Data Factory, haga clic en el icono **Create pipeline** (Crear canalización).
 
    ![Página de introducción de la interfaz de usuario de Data Factory](./media/doc-common-process/get-started-page.png)    
-3. En la página **General** (General) de la ventana **Properties** (Propiedades) de la canalización, escriba el nombre **IncrementalCopyPipeline**.
+3. En el panel General, en **Propiedades**, especifique **IncrementalCopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 4. Agreguemos la primera actividad de búsqueda para recuperar el valor de marca de agua anterior. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Cambie el nombre de la actividad a **LookupOldWaterMarkActivity**.
 
@@ -196,7 +196,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 8. En **Linked Service** (Servicio vinculado), seleccione **New** (Nuevo) y siga estos pasos:
 
     1. Escriba **AzureSqlDatabaseLinkedService** en **Name** (Nombre).
-    2. Seleccione el servidor de Azure SQL Server en **Server name** (Nombre del servidor).
+    2. Seleccione su servidor en **Server name** (Nombre del servidor).
     3. Seleccione el **nombre de la base de datos** en el menú desplegable.
     4. Escriba su **nombre de usuario** &  y **contraseña**.
     5. Para probar la conexión a Azure SQL Database, haga clic en **Test connection** (Prueba de conexión).
@@ -398,7 +398,7 @@ En este tutorial, realizó los pasos siguientes:
 > * Supervisión de la segunda ejecución de la canalización
 > * Revisión de los resultados de la segunda ejecución
 
-En este tutorial, la canalización copió datos de una única tabla de una base de datos SQL a una instancia de Blob Storage. Avance al tutorial siguiente para aprender a copiar datos de varias tablas de una base de datos de SQL Server local a una base de datos SQL.
+En este tutorial, la canalización copió datos de una única tabla de una base de datos SQL a una instancia de Blob Storage. Avance al tutorial siguiente para aprender a copiar datos de varias tablas de una base de datos de SQL Server en SQL Database.
 
 > [!div class="nextstepaction"]
 >[Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

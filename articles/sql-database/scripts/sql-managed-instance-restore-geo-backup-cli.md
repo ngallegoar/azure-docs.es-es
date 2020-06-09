@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774456"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019850"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Uso de la CLI para restaurar una base de datos de Instancia administrada de SQL Database en otra región con replicación geográfica
 
@@ -26,9 +26,9 @@ Si decide instalar y usar la CLI localmente, para este artículo es preciso que 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
-Un par existente de instancias administradas; consulte el artículo en el que se explica cómo [usar la CLI de Azure para crear una instancia administrada de Azure SQL Database](sql-database-create-configure-managed-instance-cli.md).
+Un par de instancias administradas ya existente; consulte [Uso de la CLI de Azure para crear una instancia administrada de Azure SQL Database](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -64,4 +64,4 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
-Encontrará más ejemplos de scripts de la CLI de SQL Database en la [documentación de Azure SQL Database](../sql-database-cli-samples.md).
+Encontrará más ejemplos de scripts de la CLI de SQL Database en la [documentación de Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

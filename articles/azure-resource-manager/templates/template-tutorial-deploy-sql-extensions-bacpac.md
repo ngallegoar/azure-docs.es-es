@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754331"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018402"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importación de archivos BACPAC de SQL con plantillas de Resource Manager
 
 Aprenda a usar las extensiones de Azure SQL Database para importar un archivo BACPAC con las plantillas de Azure Resource Manager. Los artefactos de implementación son cualquier archivo, además de los archivos de la plantilla principal, que se necesitan para completar una implementación. El archivo BACPAC es un artefacto.
 
-En este tutorial creará una plantilla para implementar una instancia de Azure SQL Server y otra de SQL Database e importar un archivo BACPAC. Para más información sobre la implementación de extensiones de máquina virtual de Azure mediante plantillas de Azure Resource Manager, consulte [Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager](./template-tutorial-deploy-vm-extensions.md).
+En este tutorial creará una plantilla para implementar un [servidor SQL lógico](../../azure-sql/database/logical-servers.md) y una base de datos única, e importar un archivo BACPAC. Para más información sobre la implementación de extensiones de máquina virtual de Azure mediante plantillas de Azure Resource Manager, consulte [Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager](./template-tutorial-deploy-vm-extensions.md).
 
 En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
+>
 > * Preparación de un archivo BACPAC.
 > * Apertura de una plantilla de inicio rápido.
 > * Edición de la plantilla.
@@ -29,12 +30,12 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este artículo, necesitará lo siguiente:
 
 * Visual Studio Code con la extensión Herramientas de Resource Manager. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](./use-vs-code-to-create-template.md).
-* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de Azure SQL Server. A continuación se muestra un ejemplo de generación de contraseña:
+* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador del servidor. A continuación se muestra un ejemplo de generación de contraseña:
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="prepare-a-bacpac-file"></a>Preparación de un archivo BACPAC
 
-En [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) se comparte un archivo BACPAC. Para crear el suyo propio, consulte [Exportación de una base de datos de Azure SQL Database a un archivo BACPAC](../../sql-database/sql-database-export.md) Si elige publicar el archivo en su propia ubicación, tendrá que actualizar la plantilla más adelante en el tutorial.
+En [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) se comparte un archivo BACPAC. Para crear el suyo propio, consulte [Exportación de una base de datos de Azure SQL Database a un archivo BACPAC](../../azure-sql/database/database-export.md) Si elige publicar el archivo en su propia ubicación, tendrá que actualizar la plantilla más adelante en el tutorial.
 
 El archivo BACPAC se debe almacenar en una cuenta de Azure Storage para poder importarlo con una plantilla de Resource Manager. El siguiente script de PowerShell prepara el archivo BACPAC con estos pasos:
 
@@ -142,7 +143,7 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
 
 1. Agregue dos recursos adicionales a la plantilla.
 
-    * Para permitir que la extensión de SQL Database importe archivos BACPAC, necesita permitir el tráfico desde los servicios de Azure. Agregue la siguiente definición de regla de firewall en la definición de SQL Server:
+    * Para permitir que la extensión de SQL Database importe archivos BACPAC, necesita permitir el tráfico desde los servicios de Azure. Agregue la siguiente definición de regla de firewall en la definición del servidor:
 
         ```json
         "resources": [
@@ -238,7 +239,7 @@ Use una contraseña generada. Consulte [Requisitos previos](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Comprobar la implementación
 
-Para tener acceso a SQL Server desde el equipo cliente, debe agregar una regla de firewall adicional. Para más información, consulte [Creación y administración de reglas de firewall de IP](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+Para acceder al servidor desde el equipo cliente, debe agregar una regla de firewall adicional. Para más información, consulte [Creación y administración de reglas de firewall de IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 En Azure Portal, seleccione la base de datos SQL del grupo de recursos recién implementado. Seleccione **Editor de consultas (versión preliminar)** y, después, escriba las credenciales de administrador. Verá dos tablas importadas en la base de datos.
 
@@ -255,7 +256,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha implementado una instancia de SQL Server y otra de SQL Database, y ha importado un archivo BACPAC. Para obtener información sobre cómo solucionar problemas de implementación de plantillas, consulte:
+En este tutorial ha implementado un servidor y una base de datos, y ha importado un archivo BACPAC. Para obtener información sobre cómo solucionar problemas de implementación de plantillas, consulte:
 
 > [!div class="nextstepaction"]
 > [Solución de problemas de las implementaciones de plantillas de Resource Manager](./template-tutorial-troubleshoot.md)

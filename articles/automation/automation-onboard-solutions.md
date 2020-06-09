@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836063"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204079"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Habilitación de Update Management desde un runbook
 
@@ -19,7 +19,7 @@ En este artículo se describe cómo puede usar un runbook para habilitar la cara
 > [!NOTE]
 > Al habilitar Update Management, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](automation-offering-get-started.md) para administrar máquinas.
@@ -103,9 +103,6 @@ Debe haber habilitado Update Management para que una máquina virtual de Azure i
 
 * Para programar un runbook, consulte [Administración de programaciones en Azure Automation](shared-resources/schedules.md).
 * Para usar Update Management para máquinas virtuales, consulte [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
-* Para ver las configuraciones de ámbito, consulte [Uso de configuraciones de ámbito](automation-scope-configurations-update-management.md).
-* Si ya no necesita el área de trabajo de Log Analytics, consulte las instrucciones en [Desvinculación de un área de trabajo de una cuenta de Automation](automation-unlink-workspace-update-management.md).
-* Para eliminar máquinas virtuales de Update Management, consulte [Eliminación de una máquina virtual desde Update Management](automation-remove-vms-from-update-management.md).
 * Para solucionar los errores de Update Management generales, consulte [Solución de problemas de Update Management](troubleshoot/update-management.md).
 * Para solucionar problemas con el agente de Windows Update, consulte [Solución de problemas del agente de actualización de Windows](troubleshoot/update-agent-issues.md).
-* Para solucionar problemas con el agente de actualización de Linux, consulte [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).
+* Para solucionar problemas relativos al agente de actualización de Linux, consulte [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).

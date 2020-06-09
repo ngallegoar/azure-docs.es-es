@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746078"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266532"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
@@ -28,7 +28,7 @@ En este tutorial se describe cómo se puede solicitar Azure Data Box Disk. En es
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de implementar, complete los siguientes requisitos previos de configuración para el servicio Data Box y para Data Box Disk.
 
@@ -65,7 +65,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
 
     |Configuración|Value|
     |---|---|
-    |Subscription|Seleccione la suscripción para la que se habilita el servicio Data Box.<br> La suscripción está vinculada a la cuenta de facturación. |
+    |Suscripción|Seleccione la suscripción para la que se habilita el servicio Data Box.<br> La suscripción está vinculada a la cuenta de facturación. |
     |Tipo de transferencia| Importar en Azure|
     |País o región de origen | Seleccione el país o región en que residen los datos actualmente.|
     |Región de Azure de destino|Seleccione la región de Azure a la que desea transferir los datos.|
@@ -105,7 +105,7 @@ Realice los pasos siguientes para realizar el pedido de Data Box Disk.
 
 7. En la pestaña **Dirección de envío**, escriba su nombre y apellidos, el nombre y la dirección postal de la empresa y un número de teléfono válido. Haga clic en **Validar la dirección**. El servicio valida la dirección de envío para conocer la disponibilidad del servicio. Si el servicio está disponible para la dirección de envío especificada, recibirá una notificación al respecto.
 
-   Una vez procesado el pedido, recibirá una notificación por correo electrónico. Para obtener más información sobre el envío autoadministrado, consulte [Uso del envío autoadministrado](data-box-disk-portal-customer-managed-shipping.md).
+   Una vez procesado el pedido, recibirá una notificación por correo electrónico. Si ha elegido el envío autoadministrado, consulte [Uso del envío autoadministrado para Azure Data Box en Azure Portal](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Especificar dirección de envío](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 8. En **Detalles de la notificación**, especifique las direcciones de correo electrónico. El servicio envía notificaciones por correo electrónico si se produce cualquier actualización en el estado del pedido a las direcciones de correo electrónico especificadas.

@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/08/2020
-ms.openlocfilehash: 3b2a6566322f29870d2376007060acedac62692a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873541"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187538"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Database Migration Service mediante Azure Portal
 
-En este inicio rápido, puede usar Azure Portal para crear una instancia de Azure Database Migration Service.  Después de crear la instancia, puede usarla para migrar datos de SQL Server local a una base de datos de Azure SQL Database.
+En este inicio rápido, puede usar Azure Portal para crear una instancia de Azure Database Migration Service.  Después de crear la instancia, puede usarla para migrar datos de SQL Server a Azure SQL Database.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -78,4 +78,4 @@ Puede limpiar los recursos creados en esta guía de inicio rápido mediante la e
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Migración de SQL Server local a Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
+> [Migración de SQL Server a Azure SQL Database](tutorial-sql-server-to-azure-sql.md)

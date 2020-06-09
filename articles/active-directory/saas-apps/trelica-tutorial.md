@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402438"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994313"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Trelica
 
@@ -34,7 +34,7 @@ Con esta integración, puede:
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -90,9 +90,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     1. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con el patrón `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
     > [!NOTE]
-    > El valor de **Dirección URL de respuesta** no es real. Actualice este valor con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de Trelica](mailto:support@trelica.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > El valor de dirección URL de respuesta no es real. Actualice este valor con la dirección URL de respuesta real (también llamada ACS).
+    > Para encontrarla, inicie sesión en Trelica y vaya a la [página de configuración de proveedores de identidades SAML](https://app.trelica.com/Admin/Profile/SAML) (Admin [Administrador] > Account [Cuenta] > SAML). Haga clic en el botón Copiar junto a la **dirección URL del servicio de consumidor de aserciones (ACS)** para colocar la información en el portapapeles, lista para pegarla en el cuadro de texto **Dirección URL de respuesta** de Azure AD.
+    > Si tiene alguna duda, consulte la [documentación de ayuda de Trelica](https://docs.trelica.com/admin/saml/azure-ad) o póngase en contacto con el [equipo de soporte técnico del cliente de Trelica](mailto:support@trelica.com).
 
-1. En la página **Configuración del inicio de sesión único con SAML**, vaya a la sección **Certificado de firma de SAML**. A la derecha de **Dirección URL de metadatos de federación de aplicación**, seleccione el botón de copia para copiar la dirección URL. Guarde la dirección URL en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Sección Certificado de firma de SAML, con el botón de copia resaltado junto a Dirección URL de metadatos de federación de aplicación](common/copy-metadataurl.png)
 
@@ -128,11 +130,11 @@ En esta sección, va a permitir que B.Simon acceda a Trelica mediante el inicio 
 
 ## <a name="configure-trelica-sso"></a>Configuración del inicio de sesión único de Trelica
 
-Para configurar el inicio de sesión único en **Trelica**, debe enviar la **dirección URL de metadatos de federación de aplicación** copiada al [equipo de soporte técnico de Trelica](mailto:support@trelica.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Trelica**, vaya a la [página de configuración de proveedores de identidades de SAML](https://app.trelica.com/Admin/Profile/SAML) (Admin [Administrador] > Account [Cuenta] > SAML). Haga clic en el botón **Nuevo**. Escriba **Azure AD** como nombre y, para el tipo de metadatos, elija **Metadata from url** (Metadatos de la dirección URL). Pegue la **dirección URL de metadatos de federación de aplicación** que tomó de Azure AD en el campo de la **dirección URL de metadatos** de Trelica.
+
+Si tiene alguna duda, consulte la [documentación de ayuda de Trelica](https://docs.trelica.com/admin/saml/azure-ad) o póngase en contacto con el [equipo de soporte técnico del cliente de Trelica](mailto:support@trelica.com).
 
 ### <a name="create-a-trelica-test-user"></a>Creación de un usuario de prueba de Trelica
-
-En esta sección creará un usuario llamado B.Simon en Trelica.
 
 Trelica admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No es necesaria ninguna acción por su parte en esta sección. Si el usuario no existe ya en Trelica, se crea uno después de la autenticación.
 

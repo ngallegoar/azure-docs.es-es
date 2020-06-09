@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial para analistas de datos: uso de SQL a petición (versión preliminar) para analizar Azure Open Datasets en Azure Synapse Studio (versión preliminar)'
+title: 'Tutorial para analista de datos: Uso de SQL a petición (versión preliminar) para analizar Azure Open Datasets en Azure Synapse Studio (versión preliminar)'
 description: En este tutorial, aprenderá a realizar con facilidad el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets con SQL a petición (versión preliminar) y a visualizar los resultados en Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
@@ -9,87 +9,80 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b2fe4dea27564b96c5ef1734dc16ca4525011d17
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 84e808caa033491ce3f2da099459d1242df6decd
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745640"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299543"
 ---
 # <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Uso de SQL a petición (versión preliminar) para analizar Azure Open Datasets y visualizar los resultados en Azure Synapse Studio (versión preliminar)
 
 En este tutorial, aprenderá a realizar el análisis de datos exploratorios mediante la combinación de diferentes Azure Open Datasets con SQL a petición y, después, visualizando los resultados en Azure Synapse Studio.
 
-En concreto, se analiza el [conjunto de datos de taxi de Nueva York](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) que incluye fechas y horas de recogida y llegada, las ubicaciones de recogida y llegada, las distancias del viaje, las tarifas detalladas, los tipos de tarifas, los tipos de pago y el número de pasajeros comunicados por el conductor.
+En concreto, se analiza el [conjunto de datos de taxis de Nueva York (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) que incluye:
 
-El objetivo del análisis es encontrar tendencias en las variaciones de números de viajes de taxi a lo largo del tiempo. Puede analizar otros dos Azure Open Datasets (los de [días festivos públicos](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) y [datos meteorológicos](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)) para comprender los valores atípicos en el número de viajes de taxi.
-
-## <a name="create-data-source"></a>Creación de un origen de datos
-
-El objeto de origen de datos se usa para hacer referencia a la cuenta de Azure Storage en la que necesita analizar los datos. El almacenamiento disponible públicamente no necesita credenciales para acceder a él.
-
-```sql
--- There is no credential in data surce. We are using public storage account which doesn't need a credential.
-CREATE EXTERNAL DATA SOURCE AzureOpenData
-WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
-```
+- Fechas y horas de recogida y llegada a destino.
+- Ubicaciones de recogida y llegada a destino. 
+- Distancias de la carrera.
+- Tarifas desglosadas.
+- Tipos de tarifa.
+- Formas de pago. 
+- Recuentos de pasajeros indicados por el conductor.
 
 ## <a name="automatic-schema-inference"></a>Inferencia automática del esquema
 
-Puesto que los datos se almacenan en formato de archivo Parquet, la inferencia de esquemas automática está disponible, de modo que se pueden consultar fácilmente los datos sin necesidad de enumerar los tipos de datos de todas las columnas de los archivos. Además, puede utilizarse el mecanismo de la columna virtual y la función FilePath para filtrar un determinado subconjunto de archivos.
+Puesto que los datos se almacenan en el formato de archivo parquet, está disponible la inferencia de esquemas automática. Puede consultar fácilmente los datos sin necesidad de enumerar los tipos de datos de todas las columnas de los archivos. También puede utilizar el mecanismo de la columna virtual y la función FilePath para filtrar un determinado subconjunto de archivos.
 
 En primer lugar, vamos a familiarizarnos con los datos de los taxis de Nueva York mediante la ejecución de la siguiente consulta:
 
 ```sql
 SELECT TOP 100 * FROM
     OPENROWSET(
-        BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 ```
 
-A continuación se muestra el fragmento de código de resultado para los datos de los taxis de Nueva York:
+El fragmento a continuación muestra el resultado para los datos de los taxis de Nueva York:
 
-![fragmento de código de resultado](./media/tutorial-data-analyst/1.png)
+![Fragmento del resultado de datos de taxis de Nueva York](./media/tutorial-data-analyst/1.png)
 
-Del mismo modo, se puede consultar el conjunto de datos de los días festivos públicos con la siguiente consulta:
+Del mismo modo, puede consultar el conjunto de datos de los días festivos locales y nacionales mediante la siguiente consulta:
 
 ```sql
 SELECT TOP 100 * FROM
     OPENROWSET(
-        BULK 'holidaydatacontainer/Processed/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer/Processed/*.parquet',
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
 
-A continuación se muestra el fragmento de código de resultado para el conjunto de datos de los días festivos públicos:
+El siguiente fragmento muestra el resultado para el conjunto de datos de los días festivos locales y nacionales:
 
-![fragmento de código de resultado 2](./media/tutorial-data-analyst/2.png)
+![Fragmento del resultado de conjunto de datos de festivos locales y nacionales](./media/tutorial-data-analyst/2.png)
 
-Por último, también se puede consultar el conjunto de datos meteorológicos mediante la siguiente consulta:
+Por último, también puede consultar el conjunto de datos meteorológicos mediante la siguiente consulta:
 
 ```sql
 SELECT
     TOP 100 *
 FROM  
     OPENROWSET(
-        BULK 'isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [weather]
 ```
 
-A continuación, se muestra el fragmento de código resultado para el conjunto de datos meteorológicos:
+El siguiente fragmento muestra el resultado para el conjunto de datos meteorológicos:
 
-![fragmento de código de resultado 3](./media/tutorial-data-analyst/3.png)
+![Fragmento del resultado del conjunto de datos meteorológicos](./media/tutorial-data-analyst/3.png)
 
 Puede obtener más información sobre el significado de las columnas individuales en las descripciones de los conjuntos de datos de [taxis de Nueva York](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [días festivos](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) y [datos meteorológicos](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/).
 
 ## <a name="time-series-seasonality-and-outlier-analysis"></a>Análisis de series temporales, estacionalidad y valores atípicos
 
-Puede resumir fácilmente el número anual de viajes de taxi con la siguiente consulta:
+Puede resumir fácilmente el número anual de carreras de taxi con la siguiente consulta:
 
 ```sql
 SELECT
@@ -97,8 +90,7 @@ SELECT
     COUNT(*) AS rides_per_year
 FROM
     OPENROWSET(
-        BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 WHERE nyc.filepath(1) >= '2009' AND nyc.filepath(1) <= '2019'
@@ -106,20 +98,20 @@ GROUP BY YEAR(tpepPickupDateTime)
 ORDER BY 1 ASC
 ```
 
-A continuación se muestra el fragmento de código de resultado para el número anual de viajes de taxi:
+El fragmento a continuación muestra el resultado para el número anual de carreras de taxi:
 
-![fragmento de código de resultado 4](./media/tutorial-data-analyst/4.png)
+![Fragmento del resultado del número anual de carreras de taxi](./media/tutorial-data-analyst/4.png)
 
-Los datos se pueden visualizar en Synapse Studio si cambia de la vista de tabla a la de gráfico. Puede elegir entre diferentes tipos de gráficos (de área, de barras, de columnas, de líneas, circulares y de dispersión). En este caso, vamos a trazar el gráfico de columnas con la columna de categoría establecida en "current_year":
+Los datos se pueden visualizar en Synapse Studio realizando un cambio de la vista de **Tabla** a la de **Gráfico**. Puede elegir entre diferentes tipos de gráficos: **de área**, **de barras**, **de columnas**, **de líneas**, **circular** y **de dispersión**. En este caso, vamos a trazar el gráfico **de columnas** con la columna de **Categoría** establecida en **current_year**:
 
-![visualización del resultado 5](./media/tutorial-data-analyst/5.png)
+![Gráfico de columnas que muestra las carreras por año](./media/tutorial-data-analyst/5.png)
 
-En esta visualización, se puede ver claramente una tendencia decreciente en el número de viajes a lo largo de los años, probablemente debida a la reciente popularidad en aumento de las compañías que permiten compartir el viaje.
+A partir de esta visualización, se puede ver claramente una tendencia a la disminución en el número de carreras a lo largo de los años. Posiblemente, esta disminución se debe al aumento de la popularidad de las empresas de uso compartido de vehículos.
 
 > [!NOTE]
-> En el momento de redactar este tutorial, los datos de 2019 están incompletos, por lo que hay una gran caída en el número de viajes de ese año.
+> En el momento de escribir este tutorial, los datos de 2019 están incompletos. Como resultado, hay una gran caída en el número de carreras de ese año.
 
-A continuación, vamos a centrar el análisis en un solo año, por ejemplo, 2016. La siguiente consulta devuelve el número diario de viajes durante ese año:
+A continuación, vamos a centrar el análisis en un solo año, por ejemplo, 2016. La siguiente consulta devuelve el número diario de carreras durante ese año:
 
 ```sql
 SELECT
@@ -127,8 +119,7 @@ SELECT
     COUNT(*) as rides_per_day
 FROM
     OPENROWSET(
-        BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 WHERE nyc.filepath(1) = '2016'
@@ -136,17 +127,17 @@ GROUP BY CAST([tpepPickupDateTime] AS DATE)
 ORDER BY 1 ASC
 ```
 
-A continuación se muestra el fragmento de código de resultado para esta consulta:
+El fragmento siguiente muestra el resultado de esta consulta:
 
-![fragmento de código de resultado 6](./media/tutorial-data-analyst/6.png)
+![Fragmento del resultado del número diario de carreras para 2016](./media/tutorial-data-analyst/6.png)
 
-Una vez más, se pueden visualizar datos fácilmente si se traza el gráfico de columnas con la columna de categoría "current_day" y la columna de leyenda (series) "rides_per_day".
+De nuevo, puede visualizar los datos fácilmente trazando el gráfico de **columnas** con la columna de **Categoría** establecida en **current_day** y la columna de **Leyenda (series)** establecida en **rides_per_day**.
 
-![visualización del resultado 7](./media/tutorial-data-analyst/7.png)
+![Gráfico de columnas que muestra el número diario de carreras para 2016](./media/tutorial-data-analyst/7.png)
 
-En el trazado, se puede observar que hay un patrón semanal, con el pico del sábado. Durante los meses de verano, hay menos viajes de taxi debido al período de vacaciones. Sin embargo, también hay algunas reducciones significativas en el número de viajes de taxi sin un patrón claro de cuándo y por qué se producen.
+En el gráfico trazado, puede ver que hay un patrón semanal, con sábados como el día de máxima actividad. Durante los meses de verano, hay menos carreras de taxi debido al período de vacaciones. También hay algunas reducciones significativas en el número de carreras de taxi sin un patrón claro de cuándo y por qué se producen.
 
-A continuación, vamos a ver si esas reducciones pueden estar correlacionadas con las festividades locales. Para ello, uniremos los viajes de los taxis de Nueva York con el conjunto de datos de días festivos públicos:
+A continuación, vamos a ver si esas reducciones pueden estar correlacionadas con los festivos locales y nacionales. Para ello, uniremos el conjunto de datos de carreras de los taxis de Nueva York con el conjunto de datos de días festivos locales y nacionales:
 
 ```sql
 WITH taxi_rides AS
@@ -156,8 +147,7 @@ WITH taxi_rides AS
         COUNT(*) as rides_per_day
     FROM  
         OPENROWSET(
-            BULK 'nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            DATA_SOURCE = 'AzureOpenData',
+            BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
             FORMAT='PARQUET'
         ) AS [nyc]
     WHERE nyc.filepath(1) = '2016'
@@ -170,8 +160,7 @@ public_holidays AS
         date
     FROM
         OPENROWSET(
-            BULK 'holidaydatacontainer/Processed/*.parquet',
-            DATA_SOURCE = 'AzureOpenData',
+            BULK 'https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer/Processed/*.parquet',
             FORMAT='PARQUET'
         ) AS [holidays]
     WHERE countryorregion = 'United States' AND YEAR(date) = 2016
@@ -183,13 +172,13 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![visualización del resultado 8](./media/tutorial-data-analyst/8.png)
+![Visualización de los resultados de los conjuntos de datos de carreras de taxi de Nueva York y días festivos locales y nacionales](./media/tutorial-data-analyst/8.png)
 
-Esta vez, queremos resaltar el número de viajes de taxi durante los días festivos públicos. Para ello, elegiremos "none" en la columna de categoría y "rides_per_day" y "holiday" como columnas de leyenda (series).
+Esta vez, queremos resaltar el número de carreras de taxi durante los días festivos locales y nacionales. Para ello, elegiremos **none** en la columna de **Categoría** y **rides_per_day** y **holiday** como columnas de **Leyenda (series)** .
 
-![visualización del resultado 9](./media/tutorial-data-analyst/9.png)
+![Gráfico trazado del número de carreras de taxi durante los días festivos locales y nacionales](./media/tutorial-data-analyst/9.png)
 
-En el trazado, se puede ver claramente que, durante los días festivos públicos, la cifra de viajes de taxi es menor. Sin embargo, todavía hay una gran reducción inexplicable el 23 de enero. Vamos a comprobar el tiempo en Nueva York en ese día consultando el conjunto de datos meteorológicos:
+En el gráfico trazado, puede ver que durante los días festivos locales y nacionales, el número de carreras de taxi es inferior. Todavía hay una gran reducción no explicada el 23 de enero. Vamos a comprobar el tiempo en Nueva York en ese día consultando el conjunto de datos meteorológicos:
 
 ```sql
 SELECT
@@ -210,24 +199,23 @@ SELECT
     MAX(snowdepth) AS max_snowdepth
 FROM
     OPENROWSET(
-        BULK 'isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
-        DATA_SOURCE = 'AzureOpenData',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/isdweatherdatacontainer/ISDWeather/year=*/month=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [weather]
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![visualización del resultado 10](./media/tutorial-data-analyst/10.png)
+![Visualización del resultado del conjunto de datos meteorológico](./media/tutorial-data-analyst/10.png)
 
 Los resultados de la consulta indican que la reducción del número de viajes de taxi se debió a:
 
-- Una tormenta de nieve ese día en Nueva York, ya que había mucha nieve (~30 cm)
-- Hacía frío (una temperatura inferior a cero grados Celsius)
-- Hizo viento (~10m/s)
+- Una tormenta de nieve ese día en Nueva York con gran acumulación de nieve (~30 cm).
+- Hizo frío (una temperatura inferior a cero grados Celsius).
+- Hizo viento (~ 10 m/s).
 
 En este tutorial se ha mostrado cómo el analista de datos puede realizar rápidamente análisis de datos exploratorios, combinar de forma sencilla diferentes conjuntos de datos mediante SQL a petición y visualizar los resultados con Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el artículo [Conexión de SQL a petición a Power BI Desktop y creación de un informe](tutorial-connect-power-bi-desktop.md) para obtener información sobre cómo conectar SQL a petición a Power BI Desktop y crear informes.
+Para obtener información sobre cómo conectar SQL a petición a Power BI Desktop y crear informes, consulte el artículo [Conexión de SQL a petición a Power BI Desktop y creación de un informe](tutorial-connect-power-bi-desktop.md).
  

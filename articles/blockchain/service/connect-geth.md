@@ -1,23 +1,23 @@
 ---
 title: Uso de Geth para conectarse a Azure Blockchain Service
 description: Conexión a una instancia de Geth en un nodo de transacción de Azure Blockchain Service
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: maheshna
+ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74455834"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994796"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Inicio rápido: Uso de Geth para conectarse a un nodo de transacción de Azure Blockchain Service
 
-En este inicio rápido, se usa el cliente de Geth para conectarse a una instancia de Geth en un nodo de transacción de Azure Blockchain Service. Una vez conectado, use la consola JavaScript de Geth para llamar a JavaScript Dapp API de web3.
+En este inicio rápido, se usa el cliente de Geth para conectarse a una instancia de Geth en un nodo de transacción de Azure Blockchain Service. Una vez conectado, use la consola de Geth para llamar a Ethereum JavaScript API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Instalar [Geth](https://github.com/ethereum/go-ethereum/wiki/geth)
 * Realizar el tutorial [Quickstart: Creación de un miembro de cadena de bloques mediante Azure Portal](create-member.md) o [Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure](create-member-cli.md)
@@ -45,7 +45,7 @@ La cadena de conexión de Geth para un nodo de transacción de Azure Blockchain 
     geth attach <connection string>
     ```
 
-1. Una vez conectado a la consola de Ethereum del nodo de transacción, puede llamar a la API de aplicación deserializada web3 JavaScript o a la API de administración.
+1. Una vez conectado a la consola de Ethereum del nodo de transacción, puede llamar a Ethereum JavaScript API.
 
     Por ejemplo, use la siguiente API para averiguar el valor de chainId.
 

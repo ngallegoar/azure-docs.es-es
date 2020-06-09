@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714243"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259259"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Inicio rápido: creación de la primera aplicación web estática
 
@@ -20,7 +20,7 @@ Azure Static Web Apps publica sitios web en un entorno de producción mediante l
 
 Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [GitHub](https://github.com)
 - Cuenta de [Azure](https://portal.azure.com)
@@ -31,25 +31,25 @@ En este artículo se usan repositorios de plantillas de GitHub para facilitar la
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-- Vaya a la siguiente ubicación para crear un nuevo repositorio.
+- Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a la siguiente ubicación para crear un nuevo repositorio.
   - https://github.com/staticwebdev/angular-basic/generate
 - Asigne el nombre **my-first-static-web-app** al repositorio.
 
 # <a name="react"></a>[React](#tab/react)
 
-- Vaya a la siguiente ubicación para crear un nuevo repositorio.
+- Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a la siguiente ubicación para crear un nuevo repositorio.
   - https://github.com/staticwebdev/react-basic/generate
 - Asigne el nombre **my-first-static-web-app** al repositorio.
 
 # <a name="vue"></a>[Vue](#tab/vue)
 
-- Vaya a la siguiente ubicación para crear un nuevo repositorio.
+- Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a la siguiente ubicación para crear un nuevo repositorio.
   - https://github.com/staticwebdev/vue-basic/generate
 - Asigne el nombre **my-first-static-web-app** al repositorio.
 
 # <a name="no-framework"></a>[Ningún marco](#tab/vanilla-javascript)
 
-- Vaya a la siguiente ubicación para crear un nuevo repositorio.
+- Asegúrese de que ha iniciado sesión en GitHub y, a continuación, vaya a la siguiente ubicación para crear un nuevo repositorio.
   - https://github.com/staticwebdev/vanilla-basic/generate
 - Asigne el nombre **my-first-static-web-app** al repositorio.
 

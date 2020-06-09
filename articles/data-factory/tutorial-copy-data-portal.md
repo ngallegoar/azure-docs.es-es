@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 655a98ef1b6b8b2d4086b472ee7ce4d67346e5ca
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418718"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248624"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copia de datos de Azure Blob Storage a SQL Database mediante Azure Data Factory
 
@@ -38,10 +38,10 @@ En este tutorial, realizará los siguientes pasos:
 > * Desencadenamiento de la canalización de forma programada.
 > * Supervisión de las ejecuciones de canalización y actividad.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. Usará Blob Storage como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
-* **Azure SQL Database**. Usará la base de datos como un almacén de datos *receptor*. Si no tiene una base de datos de Azure SQL, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para crear una.
+* **Azure SQL Database**. Usará la base de datos como un almacén de datos *receptor*. Si no tiene una base de datos de Azure SQL, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para crear una.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creación de un blob y una tabla SQL
 
@@ -75,7 +75,7 @@ Ahora, prepare su almacenamiento de blobs y su base de datos SQL para el tutoria
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Permita que los servicios de Azure accedan a SQL Server. Asegúrese de que **Permitir el acceso a servicios de Azure** esté **Activado** para SQL Server de forma que Data Factory pueda escribir datos en su instancia de SQL Server. Para verificar y activar esta configuración, vaya a Azure SQL Server > Información general > Establecer el firewall del servidor > establezca la opción **Permitir el acceso a servicios de Azure** en **Activada**.
+1. Permita que los servicios de Azure accedan a SQL Server. Asegúrese de que **Permitir el acceso a servicios de Azure** esté **Activado** para SQL Server de forma que Data Factory pueda escribir datos en su instancia de SQL Server. Para comprobar y activar esta configuración, vaya al servidor SQL lógico > Información general > Establecer el firewall del servidor > y establezca la opción **Permitir el acceso a servicios de Azure** en **Activada**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 En este paso, creará una factoría de datos e iniciará la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos.
@@ -114,7 +114,8 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 1. En la página **Let's get started** (Introducción) seleccione **Create pipeline** (Crear canalización).
 
    ![Creación de una canalización](./media/doc-common-process/get-started-page.png)
-1. En la pestaña **General** de la canalización, escriba **CopyPipeline** como **nombre** de la canalización.
+
+1. 1. En el panel General, en **Propiedades**, especifique **CopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda la categoría **Move and Transform** (Mover y transformar) y arrastre y suelte la actividad **Copy Data** (Copiar datos) desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** en **Name** (Nombre).
 

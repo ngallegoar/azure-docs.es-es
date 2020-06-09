@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/25/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b51dcc214e099ed573fa297d979cfc55ba1513b9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80240122"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140765"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics
 
@@ -32,7 +32,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
+> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
 >    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
 
@@ -43,7 +43,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * Este inicio rápido es solo para la versión `3.0-preview` de la biblioteca cliente de Text Analytics, que incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -53,7 +53,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
+> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
 >    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
 > * Esta versión de la biblioteca cliente de Text Analytics también se puede ejecutar en el [explorador](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -65,7 +65,7 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * La versión preliminar más reciente de Text Analytics API es `3.0-preview`, la cual incluye una versión preliminar pública de las funcionalidades mejoradas [Análisis de sentimiento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) y [Reconocimiento de entidades con nombre (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). La versión estable más reciente es `2.1`.
+> * La versión estable más reciente de la biblioteca cliente de Text Analytics es `3.0`.
 >    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia. 
 

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501880"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219161"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box (versión preliminar)
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 >
 > * Copia de datos a un dispositivo Data Box
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 
@@ -50,7 +50,8 @@ Una vez conectado al dispositivo NAS, el siguiente paso es copiar los datos. Ant
 
 * Si se están modificando los datos mientras el servicio de copia de datos los está leyendo, podrían aparecer errores o daños en los datos.
 
-* Asegúrese de conservar una copia de los datos de origen hasta que pueda confirmar que Data Box los ha transferido a Azure Storage.
+> [!IMPORTANT]
+> Asegúrese de conservar una copia de los datos de origen hasta que pueda confirmar que Data Box los ha transferido a Azure Storage.
 
 Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un trabajo:
 
@@ -63,7 +64,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     
     |Campo                          |Value    |
     |-------------------------------|---------|
-    |**Nombre del trabajo**                       |Un nombre exclusivo de menos de 230 caracteres para el trabajo. En el nombre del trabajo no se permiten los siguientes caracteres: \<, \>, \|, \?, \*, \\, \:, \/ y \\\.         |
+    |**Nombre del trabajo**                       |Un nombre exclusivo de menos de 230 caracteres para el trabajo. En el nombre del trabajo no se permiten los siguientes caracteres: \<, \>, \|, \?, \*, \\, \:, \/, \\ y \.         |
     |**Ubicación de origen**                |Proporcione la ruta de acceso SMB para el origen de datos en el formato: `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
     |**Nombre de usuario**                       |Nombre de usuario en formato `\\<DomainName><UserName>` para acceder al origen de datos. Si hay un administrador local conectándose, necesitará permisos de seguridad explícitos. Haga clic con el botón derecho en la carpeta, seleccione **Propiedades** y, luego, **Seguridad**. Esto debería agregar al administrador en la pestaña **Seguridad**.       |
     |**Contraseña**                       |Contraseña para acceder al origen de datos.           |
@@ -150,4 +151,3 @@ En el siguiente tutorial aprenderá a enviar el dispositivo Data Box a Microsoft
 
 > [!div class="nextstepaction"]
 > [Envío del dispositivo Azure Data Box a Microsoft](./data-box-deploy-picked-up.md)
-

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871374"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141898"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -22,7 +22,7 @@ En este inicio rápido, usará la API REST de Form Recognizer con la herramienta
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
@@ -143,7 +143,8 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
     > * Etiquete los valores tal como aparecen en el formulario; no intente dividir un valor en dos partes con dos etiquetas diferentes. Por ejemplo, un campo de dirección debe etiquetarse con una sola etiqueta incluso si abarca varias líneas.
     > * No incluya claves en los campos etiquetados, solo los valores.
     > * Los datos de la tabla se deben detectar automáticamente y estarán disponibles en el archivo JSON de salida final. Sin embargo, si el modelo no detecta todos los datos de la tabla, también puede etiquetar manualmente estos campos. Etiquete cada celda de la tabla con una etiqueta diferente. Si los formularios tienen tablas con un número variable de filas, asegúrese de etiquetar al menos un formulario con la tabla más grande posible.
-    > * Para eliminar una etiqueta aplicada, seleccione el rectángulo en la vista de documento y presione la tecla Suprimir.
+    > * Use los botones situados a la derecha de **+** para buscar, reordenar y eliminar las etiquetas, así como cambiarles el nombre.
+    > * Para quitar una etiqueta aplicada sin eliminar la etiqueta en sí, seleccione el rectángulo etiquetado en la vista de documento y presione la tecla Supr.
 
 ![Ventana principal del editor de la herramienta de etiquetado de ejemplo](../media/label-tool/main-editor.png)
 

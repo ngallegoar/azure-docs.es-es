@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438872"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119232"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de API REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 >  
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -121,7 +121,7 @@ Para más información acerca de las propiedades JSON, consulte [servicio vincul
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> Reemplace **servername**, **databasename**, **username** y **password** por los nombres del servidor SQL Azure, de la Base de datos SQL, de la cuenta de usuario y de la contraseña para la cuenta.  
+> Reemplace **servername**, **databasename**, **username** y **password** por los nombres del servidor, de la base de datos SQL, de la cuenta de usuario y de la contraseña para la cuenta.  
 > 
 >
 
@@ -403,7 +403,7 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. E
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Creación de un servicio vinculado SQL de Azure
-En este paso, vinculará su base de datos de Azure SQL con su factoría de datos. Especifique el nombre del servidor Azure SQL, nombre de base de datos, nombre de usuario y contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.
+En este paso, vinculará su base de datos de Azure SQL con su factoría de datos. Especifique el nombre del servidor SQL lógico, el nombre de la base de datos, el nombre de usuario y la contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.
 
 1. Asigne el comando a la variable denominada **cmd**. 
    

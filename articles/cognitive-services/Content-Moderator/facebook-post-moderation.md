@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774283"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118632"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderación de comandos y publicaciones de Facebook con Azure Content Moderator
 
@@ -37,7 +37,7 @@ En este diagrama se ilustra cada componente de este escenario:
 > [!IMPORTANT]
 > En 2018, Facebook puso en marcha una directiva más estricta para las aplicaciones de Facebook. No podrá completar los pasos de este tutorial si la aplicación no se ha revisado y aprobado por el equipo de revisión de Facebook.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una clave de suscripción de Content Moderator. Siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Content Moderator y obtener su clave.
 - Una [cuenta de Facebook](https://www.facebook.com/).
@@ -70,14 +70,14 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) y siga estos pasos:
     
     | Nombre del valor de configuración de la aplicación | value   | 
     | -------------------- |-------------|
-    | cm:TeamId   | Identificador del equipo de Content Moderator.  | 
-    | cm:SubscriptionKey | Clave de suscripción de Content Moderator. Consulte [Credenciales](review-tool-user-guide/credentials.md). |
-    | cm:Region | Nombre de la región de Content Moderator, sin espacios en blanco. Se puede encontrar en el campo **Ubicación** de la pestaña **Información general** de su recurso de Azure.|
-    | cm:ImageWorkflow | Nombre del flujo de trabajo para ejecutar en imágenes. |
-    | cm:TextWorkflow | Nombre del flujo de trabajo para ejecutar en texto. |
-    | cm:CallbackEndpoint | Dirección URL de la aplicación de función CMListener que creará más adelante en esta guía. |
-    | fb:VerificationToken | Token de secreto que cree, que se usa para suscribirse a los efectos de fuente de Facebook. |
-    | fb:PageAccessToken | El token de acceso de la API gráfica de Facebook no expira y permite a la función ocultar o eliminar publicaciones en su nombre. Este token se obtendrá en un paso posterior. |
+    | `cm:TeamId`   | Identificador del equipo de Content Moderator.  | 
+    | `cm:SubscriptionKey` | Clave de suscripción de Content Moderator. Consulte [Credenciales](review-tool-user-guide/credentials.md). |
+    | `cm:Region` | Nombre de la región de Content Moderator, sin espacios en blanco. Se puede encontrar en el campo **Ubicación** de la pestaña **Información general** de su recurso de Azure.|
+    | `cm:ImageWorkflow` | Nombre del flujo de trabajo para ejecutar en imágenes. |
+    | `cm:TextWorkflow` | Nombre del flujo de trabajo para ejecutar en texto. |
+    | `cm:CallbackEndpoint` | Dirección URL de la aplicación de función CMListener que creará más adelante en esta guía. |
+    | `fb:VerificationToken` | Token de secreto que cree, que se usa para suscribirse a los efectos de fuente de Facebook. |
+    | `fb:PageAccessToken` | El token de acceso de la API gráfica de Facebook no expira y permite a la función ocultar o eliminar publicaciones en su nombre. Este token se obtendrá en un paso posterior. |
 
     Haga clic en el botón **Guardar** de la parte superior de la página.
 

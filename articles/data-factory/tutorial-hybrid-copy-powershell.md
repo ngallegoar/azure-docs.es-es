@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 70bc79470cd72ce01007265c6c1236c951ddd7d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eec9c197f0bc17a5237a05e198b12cb769da89d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81411432"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194571"
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copia de datos de una base de datos de SQL Server local a Azure Blob Storage
+# <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server a Azure Blob Storage
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, use Azure PowerShell para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local a Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
+En este tutorial, usará Azure PowerShell para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server a Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
 
 > [!NOTE]
 > En este artículo no se ofrece una introducción detallada al servicio Data Factory. Para más información, consulte [Introducción a Azure Data Factory](introduction.md).
@@ -38,7 +38,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de la ejecución de la canalización
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -48,7 +48,7 @@ Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar
 Para ver los permisos que tiene en la suscripción, vaya a Azure Portal, seleccione su nombre de usuario en la esquina superior derecha y, después, seleccione **Permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente. Para instrucciones de ejemplo sobre cómo agregar un rol a un usuario, consulte el artículo [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 y 2017
-En este tutorial se usa una base de datos de SQL Server local como almacén de datos de *origen*. La canalización de Data Fatory que crea en este tutorial copia los datos de esta base de datos de SQL Server local (origen) a Azure Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
+En este tutorial, usará una base de datos de SQL Server como almacén de datos de *origen*. La canalización de Data Factory que crea en este tutorial copia los datos de esta base de datos de SQL Server (origen) a Azure Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
 
 1. Inicie SQL Server Management Studio. Si no está instalada en su equipo, vaya a [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -76,7 +76,7 @@ En este tutorial se usa una base de datos de SQL Server local como almacén de d
 
 
 ### <a name="azure-storage-account"></a>Cuenta de Azure Storage
-En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor en este tutorial. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md). La canalización de la factoría de datos que crea en este tutorial copia los datos de la base de datos de SQL Server local (origen) a esta instancia de Azure Blob Storage (receptor). 
+En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor en este tutorial. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md). La canalización de Data Factory que crea en este tutorial copia los datos de la base de datos de SQL Server (origen) a esta instancia de Azure Blob Storage (receptor). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obtener un nombre y una clave de cuenta de Storage
 En este tutorial, use el nombre y la clave de su cuenta de Azure Storage. Para obtener el nombre y la clave de una cuenta de almacenamiento, siga estos pasos:
@@ -179,7 +179,7 @@ Si no está en el equipo, instale la versión más reciente de Azure PowerShell.
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Para crear instancias de Data Factory, a la cuenta de usuario que use para iniciar sesión en Azure debe se le deben asignar los roles *colaborador* o *propietario*, o bien debe de ser de un *administrador* de la suscripción a Azure.
-> * Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+> * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 >
 >
 
@@ -309,7 +309,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
     Anote todos los valores anteriores, ya que los usará más adelante en este mismo tutorial.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
-Para vincular los almacenes de datos y los servicios de proceso a la factoría de datos, cree servicios vinculados en una factoría de datos. En este tutorial, vincula su cuenta de Azure Storage y una instancia de SQL Server local al almacén de datos. Los servicios vinculados tienen la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a ellos.
+Para vincular los almacenes de datos y los servicios de proceso a la factoría de datos, cree servicios vinculados en una factoría de datos. En este tutorial, vincula su cuenta de Azure Storage y una instancia de SQL Server al almacén de datos. Los servicios vinculados tienen la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a ellos.
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Creación de un servicio vinculado a Azure Storage (destino/receptor)
 En este paso, vinculará su cuenta de Azure Storage a la factoría de datos.
@@ -317,7 +317,7 @@ En este paso, vinculará su cuenta de Azure Storage a la factoría de datos.
 1. Cree un archivo JSON llamado *AzureStorageLinkedService.json* en la carpeta *C:\ADFv2Tutorial* con el siguiente código. Si la carpeta *ADFv2Tutorial* no existe, créela.  
 
     > [!IMPORTANT]
-    > Antes de guardar el archivo, sustituya \<accountName> y \<accountKey> por el nombre y la clave de su cuenta de Azure Storage. Los anotó en la sección [Requisitos previos](#get-storage-account-name-and-account-key).
+    > Antes de guardar el archivo, reemplace \<accountName> y \<accountKey> por el nombre y la clave de la cuenta de almacenamiento de Azure. Los anotó en la sección [Requisitos previos](#get-storage-account-name-and-account-key).
 
    ```json
     {
@@ -355,7 +355,7 @@ En este paso, vinculará su cuenta de Azure Storage a la factoría de datos.
     Si recibe un error de "archivo no encontrado", confirme que existe el archivo, para lo que debe ejecutar el comando `dir`. Si el nombre del archivo tiene la extensión *.txt* (por ejemplo, AzureStorageLinkedService.json.txt), quítela y vuelva a ejecutar el comando de PowerShell.
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Creación y cifrado de un servicio vinculado de SQL Server (origen)
-En este paso, vincula la instancia de SQL Server local a la factoría de datos.
+En este paso, vinculará la instancia de SQL Server a la factoría de datos.
 
 1. Cree un archivo JSON llamado *SqlServerLinkedService.json* en la carpeta *C:\ADFv2Tutorial* mediante el siguiente código:
 
@@ -413,8 +413,8 @@ En este paso, vincula la instancia de SQL Server local a la factoría de datos.
 
     > [!IMPORTANT]
     > - Seleccione la sección que se basa en la autenticación que usa para conectarse a su instancia de SQL Server.
-    > - Reemplace **\<integration runtime name>** por el nombre de su instancia de Integration Runtime.
-    > - Antes de guardar el archivo, reemplace **\<servername>** , **\<databasename>** , **\<username>** y **\<password>** por los valores de su instancia de SQL Server.
+    > - Reemplace **\<integration runtime name>** por el nombre de su instancia del entorno de ejecución de integración.
+    > - Antes de guardar el archivo, reemplace **\<servername>** , **\<databasename>** , **\<username>** y **\<password>** por los valores de su instancia de SQL Server.
     > - Si necesita usar una barra diagonal inversa (\\) en la cuenta del usuario o en el nombre del servidor, utilice el carácter de escape (\\) antes. Por ejemplo, use *mydomain\\\\myuser*.
 
 1. Para cifrar los datos confidenciales (nombre de usuario, contraseña, etc.), ejecute el cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  
@@ -432,7 +432,7 @@ En este paso, vincula la instancia de SQL Server local a la factoría de datos.
 
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
-En este paso, crea conjuntos de datos de entrada y salida. Estos representan los datos de entrada y de salida para la operación de copia, en la que se copian datos de la base de datos de SQL Server local a Azure Blob Storage.
+En este paso, crea conjuntos de datos de entrada y salida. Estos representan los datos de entrada y de salida para la operación de copia, en la que se copian datos de la base de datos de SQL Server a Azure Blob Storage.
 
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>Creación de un conjunto de datos para la base de datos de origen SQL Server
 En este paso, defina un conjunto de datos que represente los datos de la instancia de la base de datos de SQL Server. El conjunto de datos es del tipo SqlServerTable. Hace referencia al servicio vinculado de SQL Server que creó en el paso anterior. El servicio vinculado tiene la información de conexión que el servicio Data Factory usa para conectarse a su instancia de SQL Server en el runtime. Este conjunto de datos especifica la tabla SQL de la base de datos que contiene los datos. En este tutorial, la tabla **emp** contiene los datos de origen.
@@ -480,7 +480,7 @@ En este paso, defina un conjunto de datos que represente los datos de la instanc
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Creación de un conjunto de datos para Azure Blob Storage (receptor)
 En este paso, se define un conjunto de datos que representa los datos que se van a copiar a Azure Blob Storage. El conjunto de datos es del tipo AzureBlob. Hace referencia al servicio vinculado Azure Storage que creó anteriormente en este tutorial.
 
-El servicio vinculado tiene la información de conexión que Data Factory usa en el runtime para conectarse a su cuenta de Azure Storage. Este conjunto de datos especifica la carpeta del almacenamiento de Azure a la que se copian los datos desde la base de datos de SQL Server. En este tutorial, la carpeta es: *adftutorial/fromonprem*, donde `adftutorial` es el contenedor de blobs y `fromonprem` es la carpeta.
+El servicio vinculado tiene la información de conexión que Data Factory usa en el runtime para conectarse a su cuenta de Azure Storage. Este conjunto de datos especifica la carpeta del almacenamiento de Azure a la que se copian los datos desde la base de datos de SQL Server. En este tutorial, la carpeta es: *adftutorial/fromonprem*, donde `fromonprem` es el contenedor de blobs y `adftutorial` es la carpeta.
 
 1. Cree un archivo JSON denominado *AzureBlobDataset.json* en la carpeta *C:\ADFv2Tutorial* con el siguiente código:
 

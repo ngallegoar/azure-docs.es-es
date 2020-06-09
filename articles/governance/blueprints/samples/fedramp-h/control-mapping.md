@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 description: Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 01/31/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f57f753c405e736a4c83dd6f10b6f38184ce74b6
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77150619"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168886"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
@@ -118,9 +118,7 @@ Los datos de registro que recopila Azure Monitor se almacenan en un área de tra
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Revisión, análisis e informes de auditoría | Integración y funcionalidades de examen y supervisión
 
-Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, instancias administradas de SQL y servidores de SQL Server.
-Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas.
-Para un examen y una supervisión de vulnerabilidades detallados, le recomendamos que también aproveche las ventajas de Azure Sentinel y Azure Security Center.
+Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la evaluación de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales, servidores de SQL Database e instancias administradas de SQL. Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas. Para un examen y una supervisión de vulnerabilidades detallados, le recomendamos que también aproveche las ventajas de Azure Sentinel y Azure Security Center.
 
 - \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - \[Versión preliminar\]: Habilitar Azure Monitor para VM

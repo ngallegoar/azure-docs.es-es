@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e17eee8de789b813e5aab726207233e8607ec97f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74903095"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200514"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
 La directiva de IPsec o IKE personalizada se admite en todas las SKU de Azure, excepto la SKU básica.
@@ -104,7 +104,7 @@ Sí. Un túnel entre redes virtuales consta de dos recursos de conexión en Azur
 No. La directiva de IPsec o IKE solo funciona en conexiones entre redes virtuales a través de las puertas de enlace de VPN de Azure y VPN de S2S.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Creación de conexiones con el tipo de protocolo IKEv1 o IKEv2
-Las conexiones IKEv1 se pueden crear en todas las SKU de tipo VPN RouteBased, excepto la SKU básica. Puede especificar un tipo de protocolo de conexión IKEv1 o IKEv2 al crear conexiones. Si no especifica un tipo de protocolo de conexión, se utiliza IKEv2 como opción predeterminada cuando proceda. Para más información, consulte la documentación del [cmdlet de PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Para los tipos de SKU y la compatibilidad con IKEv1 y IKEv2, consulte [Conexión de puertas de enlace a dispositivos VPN basados en directivas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Las conexiones IKEv1 se pueden crear en todas las SKU de tipo VPN RouteBased, excepto la SKU heredada. Puede especificar un tipo de protocolo de conexión IKEv1 o IKEv2 al crear conexiones. Si no especifica un tipo de protocolo de conexión, se utiliza IKEv2 como opción predeterminada cuando proceda. Para más información, consulte la documentación del [cmdlet de PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Para los tipos de SKU y la compatibilidad con IKEv1 y IKEv2, consulte [Conexión de puertas de enlace a dispositivos VPN basados en directivas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>¿Se permite el tránsito entre las conexiones IKEv1 y IKEv2?
 Sí. Se admite el tránsito entre conexiones IKEv1 e IKEv2.

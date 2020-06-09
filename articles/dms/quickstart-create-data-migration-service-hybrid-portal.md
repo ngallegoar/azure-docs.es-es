@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370243"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195685"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Inicio rápido: Creación de una instancia en modo híbrido con Azure Portal y Azure Database Migration Service
 
@@ -26,7 +26,7 @@ Azure Database Migration Service en modo híbrido administra las migraciones de 
 >[!NOTE]
 >Actualmente, cuando Azure Database Migration Service se ejecuta en modo híbrido admite migraciones de SQL Server a:
 >
->- Una instancia de Azure SQL Database con un tiempo de inactividad próximo a cero (en línea).
+>- Instancia administrada de Azure SQL con un tiempo de inactividad próximo a cero (en línea).
 >- Una base de datos única de Azure SQL Database con cierto tiempo de inactividad (sin conexión).
 >- MongoDb a Azure CosmosDB con un tiempo de inactividad próximo a cero (en línea).
 >- MongoDb a Azure CosmosDB con cierto tiempo de inactividad (sin conexión).
@@ -191,5 +191,5 @@ Rellene los parámetros del principio del script y, después, ejecute el script 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Migración de SQL Server a una instancia administrada de Azure SQL Database en línea](tutorial-sql-server-managed-instance-online.md)
-> [Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database sin conexión](tutorial-sql-server-to-azure-sql.md)
+> [Migración de SQL Server a una instancia administrada de Azure SQL en línea](tutorial-sql-server-managed-instance-online.md)
+> [Migración de SQL Server a Azure SQL Database sin conexión](tutorial-sql-server-to-azure-sql.md)

@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de varias tablas mediante Azure Portal
-description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos de Azure SQL.
+description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos de SQL Server a una base de datos de Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
-ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: ba934d8eeadcd3d3e89d5d9f6115c258206c2d13
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419279"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247264"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a una base de datos de Azure SQL
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos de Azure SQL.    
+En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una base de datos de SQL Server en una base de datos de Azure SQL Database.    
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -67,13 +67,13 @@ Estos son los pasos importantes para crear esta solución:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
-* **SQL Server**. En este tutorial, usará una base de datos local SQL Server como almacén de datos de origen. 
-* **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación. 
+## <a name="prerequisites"></a>Requisitos previos
+* **SQL Server**. En este tutorial, usará una base de datos de SQL Server como almacén de datos de origen. 
+* **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos para su creación. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creación de tablas de origen en la base de datos de SQL Server
 
-1. Abra SQL Server Management Studio y conéctese a la base de datos SQL Server local.
+1. Abra SQL Server Management Studio y conéctese a la base de datos SQL Server.
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 
@@ -281,10 +281,10 @@ Cuando mueva datos de un almacén de datos de una privada red (local) a un almac
 1. Confirme que ve **MySelfHostedIR** en la lista de entornos de ejecución de integración.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
-Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados a la base de datos local de SQL Server y a la base de datos de Azure SQL. 
+Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En esta sección, creará servicios vinculados a la base de datos de SQL Server y Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Creación del servicio vinculado de SQL Server
-En este paso, vinculará la base de datos SQL Server local a la factoría de datos.
+En este paso, vinculará la base de datos de SQL Server a la factoría de datos.
 
 1. En la ventana **Connections** ventana, cambie de la pestaña **Integration Runtimes** (Entornos de ejecución de integración) a la pestaña **Linked Services** (Servicios vinculados) y haga clic en **+ New** (Nuevo).
 
@@ -310,7 +310,7 @@ En el último paso, creó un servicio vinculado para vincular su base de datos d
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
     1. Escriba **AzureSqlDatabaseLinkedService** en **Name** (Nombre). 
-    1. En **Server name** (Nombre del servidor), seleccione el nombre del servidor de Azure SQL Server en la lista desplegable. 
+    1. En **Server name** (Nombre del servidor), seleccione el nombre del servidor en la lista desplegable. 
     1. En **Database name** (Nombre de base de datos), seleccione la base de datos de Azure SQL en la que creó customer_table y project_table como parte de los requisitos previos. 
     1. En **User name** (Nombre de usuario), escriba el nombre del usuario que tiene acceso a la base de datos de Azure SQL. 
     1. En **Password** (Contraseña), escriba la **contraseña** del usuario. 
@@ -388,7 +388,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 1. En el panel izquierdo, haga clic en el **signo + (más)** y en **Pipeline** (Canalización).
 
-1. En la pestaña **General**, escriba **IncrementalCopyPipeline** en **Name** (Nombre). 
+1. En el panel General, en **Propiedades**, especifique **IncrementalCopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.  
 
 1. En la pestaña **Parameters** (Parámetros), haga lo siguiente: 
 

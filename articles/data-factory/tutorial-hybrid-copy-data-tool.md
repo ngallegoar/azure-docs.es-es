@@ -1,6 +1,6 @@
 ---
 title: Copia de datos locales con la herramienta Copiar datos de Azure
-description: Cree una instancia de Azure Data Factory y use la herramienta Copy Data para copiar datos locales de Azure SQL Server Database en Azure Blob Storage.
+description: Cree una instancia de Azure Data Factory y use la herramienta Copiar datos para copiar datos de una base de datos de SQL Server en Azure Blob Storage.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: 6b4df324fec38d08355754146d8be76d225e6cb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418599"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194590"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage con la herramienta Copy Data
+# <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server en Azure Blob Storage con la herramienta Copiar datos
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](tutorial-hybrid-copy-data-tool.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este tutorial, usará Azure Portal para crear una factoría de datos. A continuación, usará la herramienta Copy Data para crear una canalización que copia datos de una instancia de base de datos de SQL Server local en una instancia de Azure Blob Storage.
+En este tutorial, usará Azure Portal para crear una factoría de datos. A continuación, usará la herramienta Copiar datos para crear una canalización que copia datos de una instancia de base de datos de SQL Server en una instancia de Azure Blob Storage.
 
 > [!NOTE]
 > - Si no está familiarizado con Azure Data Factory, consulte [Introducción a Data Factory](introduction.md).
@@ -37,7 +37,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Uso de la herramienta Copy Data para crear una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -47,7 +47,7 @@ Para crear instancias de Data Factory, a la cuenta de usuario que use para inici
 Para ver los permisos que tiene en la suscripción, vaya a Azure Portal. Seleccione su nombre de usuario en la esquina superior derecha y luego seleccione **Permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente. Para instrucciones de ejemplo sobre cómo agregar un rol a un usuario, consulte [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 y 2017
-En este tutorial se usa una base de datos de SQL Server local como almacén de datos de *origen*. La canalización de la factoría de datos que crea en este tutorial, copia los datos de esta base de datos de SQL Server local (origen) a Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
+En este tutorial, usará una base de datos de SQL Server como almacén de datos de *origen*. La canalización de la factoría de datos que crea en este tutorial copia los datos de esta base de datos de SQL Server (origen) a Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
 
 1. Inicie SQL Server Management Studio. Si no está instalada en su máquina, vaya a [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -74,7 +74,7 @@ En este tutorial se usa una base de datos de SQL Server local como almacén de d
     ```
 
 ### <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
-En este tutorial, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor. Si no dispone de una cuenta de almacenamiento de uso general, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md), donde se indica cómo crearla. La canalización de la factoría de datos que crea en este tutorial copia datos de la base de datos de SQL Server local (origen) en esta instancia de Blob Storage (receptor). 
+En este tutorial, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor. Si no dispone de una cuenta de almacenamiento de uso general, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md), donde se indica cómo crearla. La canalización de Data Factory que crea en este tutorial copia los datos de la base de datos de SQL Server (origen) a esta instancia de Blob Storage (receptor). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtención de un nombre y una clave de cuenta de almacenamiento
 En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para obtener el nombre y la clave de la cuenta de almacenamiento, siga estos pasos:
@@ -169,13 +169,13 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
     a. En **Name** (Nombre), escriba **SqlServerLinkedService**.
 
-    b. Escriba el nombre de la instancia de SQL Server local en **Server name** (Nombre del servidor).
+    b. Escriba el nombre de la instancia de SQL Server en **Server name** (Nombre del servidor).
 
     c. Escriba el nombre de la base de datos local en **Database name** (Nombre de la base de datos).
 
     d. Seleccione la autenticación adecuada en **Authentication type** (Tipo de autenticación).
 
-    e. Escriba el nombre de usuario con acceso a la instancia de SQL Server local en **User name** (Nombre de usuario).
+    e. Escriba el nombre de usuario con acceso a la instancia de SQL Server en **User name** (Nombre de usuario).
 
     f. Escriba la **contraseña** del usuario.
 
@@ -233,7 +233,7 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-La canalización de este ejemplo copia datos de la base de datos SQL Server local en Blob Storage. Ha aprendido a:
+La canalización de este ejemplo copia datos de la base de datos de SQL Server en Blob Storage. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.

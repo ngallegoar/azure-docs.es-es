@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark, controles
 description: Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark para Azure Policy.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b6029e147af49cfb91078c6228615c32ad2db5fe
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863967"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167237"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
 
@@ -192,14 +192,14 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 ## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 Asegúrese de que "Advanced Data Security" en un servidor SQL Server esté establecido en "Activado".
 
-Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que la seguridad de los datos avanzada esté habilitada en los servidores SQL Server y las instancias administradas de SQL.
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que la seguridad de los datos avanzada esté habilitada en los servidores de instancia administrada de SQL y SQL Database.
 
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
 - La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Asegúrese de que "Tipos de detección de amenazas" esté establecido en "Todo"
 
-Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán a garantizar que la protección avanzada contra amenazas esté configurada correctamente en los servidores SQL Server y las instancias administradas de SQL.
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán a garantizar que la protección avanzada contra amenazas esté configurada correctamente en los servidores de instancia administrada de SQL y SQL Database.
 
 - Los tipos de Advanced Threat Protection deben estar establecidos en "Todos" en la configuración de Advanced Data Security de SQL Server
 - Los tipos de Advanced Threat Protection deben estar establecidos en "Todos" en la configuración de Advanced Data Security de la instancia administrada de SQL Server
@@ -232,7 +232,7 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 ## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 Asegúrese de que el protector de TDE de SQL Server esté cifrado con BYOK (use su propia clave)
 
-Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán a garantizar que el protector cifrado de datos transparente para los servidores SQL Server y las instancias administradas de SQL estén cifrados con su propia clave.
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán a garantizar que el protector cifrado de datos transparente para los servidores de instancia administrada de SQL y SQL Database esté cifrado con su propia clave.
 
 - El protector de TDE de SQL Server debe estar cifrado con su propia clave
 - El protector de TDE de la instancia administrada SQL debe estar cifrado con su propia clave

@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9effbe29917c774279b6e9d203f44d5ad5c72e2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a6ac2fd0ef3414f5b9d7f6551628264b4724b037
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121055"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234327"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Los artículos que cree con la versión Fall 2019 de Windows Virtual Desktop no se podrán administrar desde Azure Portal.
+>Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Cualquier objeto que cree con la versión de otoño de 2019 de Windows Virtual Desktop no se podrá administrar desde Azure Portal.
 >
 > La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -27,7 +27,7 @@ Los grupos de hosts son una colección de una o varias máquinas virtuales (VM) 
 
 Este artículo le guía en el proceso de configuración para crear un grupo de hosts para un entorno de Windows Virtual Desktop mediante Azure Portal. El método que se ofrece proporciona una interfaz de usuario basada en explorador para crear un grupo de hosts en Windows Virtual Desktop, crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Azure Active Directory (AD) y registrar las máquinas virtuales en Windows Virtual Desktop.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Deberá especificar los siguientes parámetros para crear un grupo de hosts:
 

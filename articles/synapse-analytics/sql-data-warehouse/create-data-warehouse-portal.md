@@ -11,18 +11,18 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 282222aad68df94ea9eff4151d31eb5e488bca81
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770829"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116969"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Inicio rápido: Creación y consulta de un grupo de SQL de Synapse mediante Azure Portal
 
 Cree y consulte rápidamente un grupo de SQL de Synapse (almacenamiento de datos) en Azure Synapse Analytics (antes SQL DW) mediante Azure Portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -37,7 +37,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Creación de un grupo de SQL
 
-Los almacenamientos de datos se crean mediante un grupo de SQL en Azure Synapse Analytics. Se crea un grupo de SQL con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y en un [servidor lógico de Azure SQL](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Los almacenamientos de datos se crean mediante un grupo de SQL en Azure Synapse Analytics. Se crea un grupo de SQL con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) y en un [servidor lógico de SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **AdventureWorksDW**.
 
@@ -64,7 +64,7 @@ Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **
 
    ![cambiar el nivel de rendimiento de un almacenamiento de datos](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-   Para más información acerca de los niveles de rendimiento, consulte [Administración de proceso en Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
+   Para más información acerca de los niveles de rendimiento, consulte [Administración de proceso en Azure Synapse Analytics](sql-data-warehouse-manage-compute-overview.md).
 
 5. Seleccione **Configuración adicional**, en **Usar datos existentes**, elija **Ejemplo** para que AdventureWorksDW se cree como la base de datos de ejemplo.
 
@@ -76,16 +76,16 @@ Siga estos pasos para crear un grupo de SQL que contenga los datos de ejemplo **
 
    ![seleccionar crear](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-6. Para supervisar el proceso de implementación, seleccione **Notificaciones** en la barra de herramientas.
+7. Para supervisar el proceso de implementación, seleccione **Notificaciones** en la barra de herramientas.
 
    ![notificación](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 
-El servicio Azure Synapse crea un firewall en el nivel de servidor. El firewall impide que herramientas y aplicaciones externas se conecten al servidor y a cualquier base de datos incluida en este. Para habilitar la conectividad, puede agregar reglas de firewall que habilitan la conectividad para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para la dirección IP del cliente.
+El servicio Azure Synapse crea un firewall en el nivel de servidor. El firewall impide que herramientas y aplicaciones externas se conecten al servidor y a cualquier base de datos incluida en este. Para habilitar la conectividad, puede agregar reglas de firewall que habilitan la conectividad para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para la dirección IP del cliente.
 
 > [!NOTE]
-> Azure Synapse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
+> Azure Synapse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no podrá conectarse al servidor salvo que el departamento de TI abra el puerto 1433.
 
 1. Una vez finalizada la implementación, seleccione **Todos los servicios** en el menú izquierdo. Seleccione **Databases** (Bases de datos) y seleccione la estrella que hay al lado de **Azure Synapse Analytics** para agregar Azure Synapse Analytics a sus favoritos.
 
@@ -99,24 +99,24 @@ El servicio Azure Synapse crea un firewall en el nivel de servidor. El firewall 
 
    ![configuración del servidor](./media/create-data-warehouse-portal/server-settings.png)
 
-5. Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
+5. Se abrirá la página **Configuración del firewall** del servidor.
 
    ![regla de firewall del servidor](./media/create-data-warehouse-portal/server-firewall-rule.png)
 
 6. Para agregar la dirección IP actual a una regla de firewall nueva, seleccione **Agregar IP de cliente** en la barra de herramientas. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-7. Seleccione **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+7. Seleccione **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor.
 
 8. Seleccione **Aceptar** y cierre la página **Configuración del firewall**.
 
-Ahora puede conectarse a SQL Server y sus grupos de SQL mediante esta dirección IP. La conexión funciona desde SQL Server Management Studio u otra herramienta de su elección. Cuando se conecte, use la cuenta de ServerAdmin que creó anteriormente.
+Ahora puede conectarse al servidor y sus grupos de SQL mediante esta dirección IP. La conexión funciona desde SQL Server Management Studio u otra herramienta de su elección. Cuando se conecte, use la cuenta de ServerAdmin que creó anteriormente.
 
 > [!IMPORTANT]
 > De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Seleccione **DESACTIVAR** en esta página y luego **Guardar** para deshabilitar el firewall para todos los servicios de Azure.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Obtención del nombre completo del servidor
 
-En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante usará el nombre completo cuando se conecte al servidor.
+En Azure Portal encontrará el nombre completo del servidor. Más adelante usará el nombre completo cuando se conecte al servidor.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -128,7 +128,7 @@ En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante u
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conexión al servidor como administrador del mismo
 
-En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para establecer una conexión con el servidor Azure SQL.
+En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) para establecer una conexión con el servidor.
 
 1. Abra SQL Server Management Studio.
 
@@ -196,7 +196,7 @@ Siga estos pasos para limpiar los recursos que ya no necesite.
 
 3. Para quitar el grupo de SQL para que no se le cobre por el proceso o almacenamiento, seleccione **Eliminar**.
 
-4. Para eliminar el servidor SQL que creó, seleccione **sqlpoolservername.database.windows.net** en la imagen anterior y seleccione **Eliminar**. Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
+4. Para eliminar el servidor que ha creado, seleccione **sqlpoolservername.database.windows.net** en la imagen anterior y, después, **Eliminar**. Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
 
 5. Para quitar el grupo de recursos, seleccione **myResourceGroup** y **Eliminar grupo de recursos**.
 

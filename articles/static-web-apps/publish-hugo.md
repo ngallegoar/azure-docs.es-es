@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 85376e1861108089cd7918b3b261f05433b59217
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870701"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298044"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. En caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de GitHub. En caso de no tener una, puede [crear una cuenta gratuita](https://github.com/join).
@@ -109,7 +109,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. En _Grupo de recursos_, seleccione **Nuevo**. En _Nuevo nombre de grupo de recursos_, escriba **hugo-static-app** y seleccione **Aceptar**.
 
-1. A continuación, escriba un nombre único global para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`. Este valor se usa como prefijo de dirección URL para la aplicación estática con el formato `https://<APP_NAME>....`.
+1. Después, un nombre para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`.
 
 1. En _Región_, seleccione una región cercana disponible.
 
@@ -153,7 +153,7 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 1. Abra la aplicación de Hugo en un editor de texto y abra el archivo _.github/workflows/azure-pages-<NOMBRE_DE_FLUJO_DE_TRABAJO>.yml_.
 
-1. Reemplace la línea `- uses: actions/checkout@v2` (línea 18) por lo siguiente para compilar la aplicación de Hugo.
+1. Reemplace la línea `- uses: actions/checkout@v2` (línea 18) por lo siguiente para compilar la aplicación de Hugo. Si necesita Hugo Extended, quite la marca de comentario `extended: true`.
 
    ```yml
    - uses: actions/checkout@v2
@@ -164,6 +164,7 @@ A continuación, agregue los valores de configuración que el proceso de compila
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo

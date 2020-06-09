@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dd559a8dd0bd59b50f4a3fa663f57874d948bf71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3800460c7b17adf1a10c1efc3adc12d65bbeb670
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438857"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022000"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > [!NOTE] 
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md). 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ En este tutorial, va a crear una factoría de datos con las siguientes entidades
 | Servicio vinculado de Azure Storage |Vincula la cuenta de Azure Storage a la factoría de datos. Azure Storage es el almacén de datos de origen y Azure SQL Database es el almacén de datos del receptor para la actividad de copia en el tutorial. Especifica la cuenta de almacenamiento que contiene los datos de entrada para la actividad de copia. |
 | Servicio vinculado de Azure SQL Database |Vincula la base de datos de Azure SQL a la factoría de datos. Especifica la base de datos de Azure SQL que contiene los datos de salida para la actividad de copia. |
 | Conjunto de datos de entrada de blob de Azure |Hace referencia al servicio vinculado de Azure Storage. El servicio vinculado hace referencia a una cuenta de Azure Storage y los conjuntos de datos del blob de Azure especifican el contenedor, la carpeta y el nombre de archivo del almacenamiento que contiene los datos de entrada. |
-| Conjunto de datos de salida SQL de Azure |Hace referencia al servicio vinculado de Azure SQL. El servicio vinculado de SQL Azure hace referencia a un servidor de Azure SQL y el conjunto de datos de Azure SQL especifica el nombre de la tabla que contiene los datos de salida. |
+| Conjunto de datos de salida SQL de Azure |Hace referencia al servicio vinculado de Azure SQL. El servicio vinculado de SQL Azure hace referencia a un servidor SQL lógico y el conjunto de datos de Azure SQL especifica el nombre de la tabla que contiene los datos de salida. |
 | Canalización de datos |La canalización tiene una actividad de tipo Copiar que toma el conjunto de datos del blob de Azure como entrada y el conjunto de datos de Azure SQL como salida. Esta actividad copia datos desde un blob de Azure a una tabla de la base de datos de Azure SQL. |
 
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Hay dos tipos de actividades: [actividades de movimiento de datos](data-factory-data-movement-activities.md) y [actividades de transformación de datos](data-factory-data-transformation-activities.md). En este tutorial, va a crear una canalización con una actividad (actividad de copia).
@@ -106,9 +106,9 @@ Cree un archivo JSON llamado **ADFCopyTutorialARM.json** en la carpeta **C:\ADFG
       "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
       "sourceBlobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
       "sourceBlobName": { "type": "string", "metadata": { "description": "Name of the blob in the container that has the data to be copied to Azure SQL Database table" } },
-      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Server that will hold the output/copied data." } },
-      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the Azure SQL server." } },
-      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the Azure SQL server." } },
+      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the logical SQL server that will hold the output/copied data." } },
+      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the logical SQL server." } },
+      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the logical SQL server." } },
       "sqlServerPassword": { "type": "securestring", "metadata": { "description": "Password for the user." } },
       "targetSQLTable": { "type": "string", "metadata": { "description": "Table in the Azure SQL Database that will hold the copied data." } 
       } 
@@ -288,7 +288,7 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
 > [!IMPORTANT]
 > Especifique el nombre y la clave de la cuenta de Azure Storage para los parámetros storageAccountName y storageAccountKey.  
 > 
-> Especifique el servidor de Azure SQL, la base de datos, el usuario y la contraseña de los parámetros sqlServerName, databaseName, sqlServerUserName y sqlServerPassword.  
+> Especifique el servidor SQL lógico, la base de datos, el usuario y la contraseña de los parámetros sqlServerName, databaseName, sqlServerUserName y sqlServerPassword.  
 
 ```json
 {
@@ -301,7 +301,7 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
         },
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
-        "sqlServerName": { "value": "<Name of the Azure SQL server>" },
+        "sqlServerName": { "value": "<Name of the logical SQL server>" },
         "databaseName": { "value": "<Name of the Azure SQL database>" },
         "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
         "sqlServerPassword": { "value": "<password for the user>" },
@@ -413,7 +413,7 @@ AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de 
 ConnectionString utiliza los parámetros storageAccountName y storageAccountKey. Los valores de estos parámetros se pasan mediante el uso de un archivo de configuración. La definición también usa las variables azureStroageLinkedService y dataFactoryName definidas en la plantilla. 
 
 #### <a name="azure-sql-database-linked-service"></a>Servicio vinculado de Azure SQL Database
-AzureSqlLinkedService vincula la base de datos de Azure SQL con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos. Especifique el nombre del servidor Azure SQL, nombre de base de datos, nombre de usuario y contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.  
+AzureSqlLinkedService vincula la base de datos de Azure SQL con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos. Especifique el nombre del servidor SQL lógico, el nombre de la base de datos, el nombre de usuario y la contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.  
 
 ```json
 {

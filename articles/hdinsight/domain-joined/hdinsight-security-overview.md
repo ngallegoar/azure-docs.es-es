@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780086"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996319"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Introducción a la seguridad de la empresa en Azure HDInsight
 
@@ -43,7 +43,7 @@ Con esta configuración, los empleados de la empresa pueden iniciar sesión en l
 
 Un procedimiento recomendado que la mayoría de las empresas siguen es que no todos los empleados tengan acceso completo a todos los recursos de la empresa. Asimismo, el administrador puede definir directivas de control de acceso basado en rol para los recursos del clúster. Esta acción solo está disponible en los clústeres de ESP.
 
-El administrador de Hadoop puede configurar el control de acceso basado en rol (RBAC). Las configuraciones protegen Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) y [Kafka](apache-domain-joined-run-kafka.md) con complementos de Apache Range. La configuración de las directivas RBAC permite asociar permisos a un rol de la organización. Esta capa de abstracción permite garantizar fácilmente que los usuarios solo tengan los permisos necesarios para realizar sus responsabilidades laborales. Ranger también puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso.
+El administrador de Hadoop puede configurar el control de acceso basado en rol (RBAC). Las configuraciones protegen Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) y [Kafka](apache-domain-joined-run-kafka.md) con complementos de Apache Ranger. La configuración de las directivas RBAC permite asociar permisos a un rol de la organización. Esta capa de abstracción permite garantizar fácilmente que los usuarios solo tengan los permisos necesarios para realizar sus responsabilidades laborales. Ranger también puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso.
 
 Por ejemplo, puede configurar el administrador [Apache Ranger](https://ranger.apache.org/) para establecer las directivas de control de acceso para Hive. Esta funcionalidad garantiza el filtrado de nivel de fila y de columna (enmascaramiento de datos). Además, filtra los datos confidenciales para usuarios no autorizados.
 

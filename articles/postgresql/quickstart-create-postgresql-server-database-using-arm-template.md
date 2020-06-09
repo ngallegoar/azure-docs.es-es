@@ -7,20 +7,20 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 6273043fc50938961caaf9f5a84273ec93c7521c
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 70def2584cf8855e8fdf4a74081dc5a9a8c46f68
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801723"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205116"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear un servidor único de Azure Database for PostgreSQL
 
 Azure Database for PostgreSQL es un servicio administrado que usa para ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. En este inicio rápido se usa una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor en Azure Portal, PowerShell o la CLI de Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -44,7 +44,7 @@ Cree un servidor de Azure Database for PostgreSQL con un conjunto configurado de
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en esta guía de inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-postgresql-with-vnet/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
 
@@ -58,7 +58,7 @@ La plantilla define cinco recursos de Azure:
 
 Puede encontrar más ejemplos de plantillas de Azure Database for PostgreSQL en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+### <a name="deploy-the-template"></a>Implementación de la plantilla
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

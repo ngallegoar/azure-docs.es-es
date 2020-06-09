@@ -3,12 +3,12 @@ title: Información general de Azure Resource Graph
 description: Conozca la forma en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala en suscripciones e inquilinos.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381526"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167271"
 ---
 # <a name="what-is-azure-resource-graph"></a>¿Qué es Azure Resource Graph?
 
@@ -22,7 +22,7 @@ Azure Resource Graph es un servicio de Azure diseñado para extender Azure Resou
 En esta documentación, repasará cada característica en detalle.
 
 > [!NOTE]
-> Azure Resource Graph se usa en la barra de búsqueda de Azure Portal, en la nueva experiencia de exploración de "Todos los recursos" y en el [historial de cambios](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> Azure Resource Graph se usa en la barra de búsqueda de Azure Portal, en la nueva experiencia de exploración de "Todos los recursos" y en el [historial de cambios](../policy/how-to/determine-non-compliance.md#change-history)
 > _diferencia visual_ de Azure Policy. Se ha diseñado para ayudar a los clientes a administrar entornos a gran escala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
@@ -79,16 +79,17 @@ Para más información, consulte [Guía para soluciones limitadas](./concepts/gu
 
 ## <a name="running-your-first-query"></a>Ejecución de la primera consulta
 
-Azure Resource Graph Explorer, que forma parte de Azure Portal, permite ejecutar consultas de Resource Graph directamente en Azure Portal. Ancle los resultados como gráficos dinámicos para proporcionar información dinámica en tiempo real al flujo de trabajo del portal. Para más información, consulte [Primera consulta con Azure Resource Graph Explorer](first-query-portal.md).
+Azure Resource Graph Explorer, que forma parte de Azure Portal, permite ejecutar consultas de Resource Graph directamente en Azure Portal. Ancle los resultados como gráficos dinámicos para proporcionar información dinámica en tiempo real al flujo de trabajo del portal. Para más información, consulte [Primera consulta con Azure Resource Graph Explorer](./first-query-portal.md).
 
-Resource Graph admite la CLI de Azure, Azure PowerShell, y el SDK para .NET de Azure, entre otros muchos. La consulta se estructura igual para cada lenguaje. Aprenda a habilitar Resource Graph con:
+Resource Graph admite la CLI de Azure, Azure PowerShell, y el SDK de Azure para Python, entre otros muchos. La consulta se estructura igual para cada lenguaje. Aprenda a habilitar Resource Graph con:
 
-- [Azure Portal y Resource Graph Explorer](first-query-portal.md) 
-- [CLI de Azure](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Azure Portal y Resource Graph Explorer](./first-query-portal.md) 
+- [CLI de Azure](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ejecute la primera consulta mediante [Azure Portal](first-query-portal.md).
-- Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
-- Ejecute la primera consulta con [Azure PowerShell](first-query-powershell.md).
+- Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
+- Consulte el lenguaje en uso en[Consultas básicas](./samples/starter.md).
+- Consulte los usos avanzados en [Consultas avanzadas](./samples/advanced.md).

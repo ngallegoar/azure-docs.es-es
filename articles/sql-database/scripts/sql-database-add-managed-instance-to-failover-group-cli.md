@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de CLI: grupo de conmutación por error en una instancia administrada de Azure SQL Database'
-description: Script de ejemplo de la CLI de Azure para crear una instancia administrada de Azure SQL Database, agregarla a un grupo de conmutación por error y probar la conmutación por error.
+title: 'Ejemplo de CLI: grupo de conmutación por error en una instancia administrada de Azure SQL'
+description: Script de ejemplo de la CLI de Azure para crear una instancia administrada de Azure SQL, agregarla a un grupo de conmutación por error y probar la conmutación por error.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 8ffe40662ffaf8a1fb35a3d31acfaea78ea0fbeb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9efb4e222e74f97a4f3d88639b02a86a3a6d660
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061918"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115422"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Uso de la CLI para agregar una instancia administrada de Azure SQL Database a un grupo de conmutación por error
+# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Uso de la CLI para agregar una instancia administrada de Azure SQL a un grupo de conmutación por error
 
 Este ejemplo de la CLI de Azure crea dos instancias administradas, las agrega a un grupo de conmutación por error y, a continuación, prueba la conmutación por error de la instancia administrada principal en la instancia administrada secundaria.
 
@@ -52,13 +52,13 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Comandos de subred de red virtual. |
 | [az network nsg](/cli/azure/network/nsg) | Comandos de grupo de seguridad de red. |
 | [az network route-table](/cli/azure/network/route-table) | Comandos de tabla de rutas. |
-| [az sql mi](/cli/azure/sql/mi) | Comandos de instancia administrada. |
+| [az sql mi](/cli/azure/sql/mi) | Comandos de instancia administrada de SQL. |
 | [az network public-ip](/cli/azure/network/public-ip) | Comandos de dirección IP pública de red. |
 | [az network vnet-gateway](/cli/azure/network/vnet-gateway) | Problemas de la puerta de enlace de red virtual. |
-| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Comandos de grupo de conmutación por error de instancia administrada. |
+| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Comandos de grupo de conmutación por error de instancia administrada de SQL. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
-Encontrará más ejemplos de scripts de la CLI de SQL Database en la [documentación de Azure SQL Database](../sql-database-cli-samples.md).
+Encontrará más ejemplos de scripts de la CLI de SQL Database en la [documentación de Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 0f73095f72d07989cdfa309454a2b54efa8e5f95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6a6aaedc1bb4abc5cf02ea1cd081ad48ec78d19
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418769"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118201"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 
@@ -46,7 +46,7 @@ En este escenario, tenemos varias tablas en Azure SQL Database que queremos copi
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 **Preparación de la base de datos de Azure SQL de origen**:
 
-Siga el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para crear una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de SQL Data Warehouse.
+Siga el artículo [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para crear una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de SQL Data Warehouse.
 
 **Preparación de la instancia de Azure SQL Data Warehouse receptora**:
 
@@ -69,7 +69,7 @@ Siga el artículo [Creación de una base de datos de Azure SQL](../sql-database/
 
 ## <a name="azure-services-to-access-sql-server"></a>Servicios de Azure para acceder a SQL Server
 
-Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database como para SQL Data Warehouse. Asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté **activada** para Azure SQL Server. Esta configuración permite al servicio Data Factory leer los datos de su base de datos de Azure SQL y escribir datos en su instancia de Azure SQL Data Warehouse. Para comprobar y activar esta configuración, realice los siguientes pasos:
+Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database como para SQL Data Warehouse. Asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté **activada** para el servidor. Esta configuración permite al servicio Data Factory leer los datos de su base de datos de Azure SQL y escribir datos en su instancia de Azure SQL Data Warehouse. Para comprobar y activar esta configuración, realice los siguientes pasos:
 
 1. Haga clic en **Todos los servicios** a la izquierda y en **Servidores SQL**.
 2. Seleccione el servidor y haga clic en **Firewall** en **CONFIGURACIÓN**.

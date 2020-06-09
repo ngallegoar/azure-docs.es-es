@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395aa82d47f4f84070af557c2c3b741776fb51ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70caf48163483b449fa2cf3576681b5c9c15f4f2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834414"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259293"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Slack
 
@@ -32,7 +32,7 @@ En este tutorial, obtendrá información sobre cómo integrar Slack con Azure A
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Slack.
 
 > [!NOTE]
-> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+> Si necesita efectuar una integración con más de una instancia de Slack en un inquilino, el identificador de cada aplicación puede ser una variable.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -93,20 +93,24 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualice el valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    
+    > [!NOTE]
+    > El valor de **Identificador (Id. de entidad)** puede ser una variable si tiene más de una instancia de Slack para integrar con el inquilino. Utilice el patrón `https://<DOMAIN NAME>.slack.com`. En este escenario, debe emparejar otro valor en Slack utilizando el mismo valor.
 
 1. La aplicación Slack espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
     ![imagen](common/edit-attribute.png)
 
-1. Además de lo anterior, la aplicación Slack espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos. Si los usuarios no tienen una dirección de correo electrónico, asigne **emailaddress** a **user.userprincipalname**.
+1. Además de lo anterior, la aplicación Slack espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos. También debe agregar el atributo `email`. Si el usuario no tiene una dirección de correo electrónico, asigne **emailaddress** a **user.userprincipalname** y **email** a **user.userprincipalname**.
 
     | Nombre | Atributo de origen |
     | -----|---------|
     | emailaddress | user.userprincipalname |
+    | email | user.userprincipalname |
     | | |
 
-> [!NOTE]
-    > Para establecer la configuración del proveedor de servicios (SP), debe hacer clic en **Expand** (Expandir) junto a **Advanced Options** (Opciones avanzadas) en la página de configuración de SAML. En el cuadro de texto **Service Provider Issuer** (Emisor del proveedor de servicios), escriba la dirección URL del área de trabajo. El valor predeterminado es slack.com. 
+   > [!NOTE]
+   > Para establecer la configuración del proveedor de servicios (SP), debe hacer clic en **Expand** (Expandir) junto a **Advanced Options** (Opciones avanzadas) en la página de configuración de SAML. En el cuadro de texto **Service Provider Issuer** (Emisor del proveedor de servicios), escriba la dirección URL del área de trabajo. El valor predeterminado es slack.com. 
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -166,15 +170,18 @@ En esta sección, va a permitir que B. Simon acceda a Slack mediante el inicio 
 
     b.  En el cuadro de texto **Emisor de proveedor de identidades**, pegue el valor de **Identificador Azure AD** que ha copiado de Azure Portal.
 
-    c.  Abra el archivo de certificado descargado en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado público**.
+    c.  Abra el archivo de certificado descargado en el Bloc de notas, copie el contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado público**.
 
     d. Configure las tres opciones anteriores según corresponda para su equipo de Slack. Para obtener más información sobre la configuración, busque la **Guía de configuración de SSO de Slack** aquí. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     ![Configuración del inicio de sesión único en App Side](./media/slack-tutorial/tutorial-slack-004.png)
 
-    e. Haga clic en **Expand** (Expandir) y escriba `https://slack.com` en el cuadro de texto **Identity provider issuer** (Emisor del proveedor de identidades).
+    e. Haga clic en **Expand** (Expandir) y escriba `https://slack.com` en el cuadro de texto **Service provider issuer** (Emisor del proveedor de servicios).
 
     f.  Haga clic en **Guardar configuración**.
+    
+    > [!NOTE]
+    > Si tiene más de una instancia de Slack para integrar con Azure AD, establezca `https://<DOMAIN NAME>.slack.com` en **Service provider issuer** (Emisor del proveedor de servicios) para emparejarlo con el **identificador** de la aplicación de Azure.
 
 ### <a name="create-slack-test-user"></a>Creación de un usuario de prueba de Slack
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678656"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300596"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Tutorial: Configuración de un proyecto de Unity desde cero
 
@@ -25,13 +25,16 @@ En este tutorial, aprenderá a:
 > * Cargar modelos en una sesión de representación.
 > * Mostrar estadísticas de conexión.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para este tutorial, necesitará:
 
 * La información de su cuenta (identificador de cuenta, clave de cuenta, identificador de suscripción). Si no tiene una cuenta, [cree una](../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(descargar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* La versión más reciente de Visual Studio 2019 [(descargar)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* La versión más reciente de Visual Studio 2019 [(descargar)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Las herramientas de Visual Studio para Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). En concreto, las instalaciones de *carga de trabajo* siguientes son obligatorias:
+  * **Desarrollo para el escritorio con C++**
+  * **Desarrollo de Plataforma universal de Windows (UWP)**
 * GIT [(descargar)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(descargar)](https://unity3d.com/get-unity/download)
   * Instale estos módulos en Unity:
@@ -77,7 +80,7 @@ Después de que haya modificado y guardado el manifiesto, Unity se actualiza aut
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Asegúrese de que tiene la versión más reciente del paquete
 
 Los siguientes pasos garantizan que en el proyecto se usa la versión más reciente del paquete de representación remota.
-1. Seleccione el paquete en la ventana Project y haga clic en el icono del paquete: ![Seleccionar el icono del paquete](media/package-icons.png)
+1. Seleccione el paquete en la ventana Project y haga clic en el icono :::no-loc text="package":::: ![Seleccionar el icono del paquete](media/package-icons.png)
 1. En Inspector, haga clic en "View in Package Manager" (Ver en administrador de paquetes): ![inspector de paquetes](media/package-properties.png)
 1. En la página del administrador de paquetes para el paquete de representación remota, vea si está disponible el botón de actualización. Si lo está, al hacer clic en él actualizará el paquete a la versión más reciente disponible: ![El paquete de Azure Remote Rendering en el administrador de paquetes](media/package-manager.png)
 1. A veces, la actualización del paquete puede provocar errores en la consola. En ese caso, prueba a cerrar y volver a abrir el proyecto.
@@ -90,11 +93,11 @@ Seleccione el nodo **Main Camera** (Cámara principal).
 
     ![restablecer transformación de la cámara](media/camera-reset-transform.png)
 
-1. En **Clear flags** (Borrar marcas), seleccione *Solid Color* (Color sólido).
+1. Establezca **:::no-loc text="Clear flags":::** en *:::no-loc text="Solid Color":::*
 
-1. En **Background** (Fondo), seleccione *Black* (Negro).
+1. Establezca **:::no-loc text="Background":::** en *:::no-loc text="Black":::*
 
-1. En **Clipping Planes** (Planos de recorte), seleccione *Cerca = 0,3* y *Lejos = 20*. Esto significa que la representación recortará la geometría que está a menos de 30 cm o a más de 20 m.
+1. Establezca **:::no-loc text="Clipping Planes":::** en *Near = 0.3* y *Far = 20*. Esto significa que la representación recortará la geometría que está a menos de 30 cm o a más de 20 m.
 
     ![Propiedades de la cámara de Unity](media/camera-properties.png)
 

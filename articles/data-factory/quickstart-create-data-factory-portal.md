@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: c54d3187af1faee3a47a794dcf5b9b91733e5592
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683343"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248539"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
 
@@ -143,12 +143,13 @@ En la configuración del servicio vinculado se especifica la cuenta de Azure Sto
     f. Seleccione **Aceptar**.   
 
     ![Definición de las propiedades de OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+
 ## <a name="create-a-pipeline"></a>Crear una canalización 
 En este procedimiento, va a crear y comprobar una canalización con una actividad de copia que utiliza los conjuntos de datos de entrada y de salida. La actividad de copia realiza una copia de los datos desde el archivo especificado en la configuración del conjunto de datos de entrada hasta el archivo especificado en la configuración del conjunto de datos de salida. Si el conjunto de datos de entrada especifica solo una carpeta (no el nombre de archivo), la actividad de copia realiza una copia de todos los archivos de la carpeta de origen al destino. 
 
 1. Haga clic en el botón **+** (Más) y seleccione **Pipeline** (Canalización). 
 
-1. En la pestaña **General**, especifique **CopyPipeline** en **Nombre**. 
+1. En el panel General, en **Propiedades**, especifique **CopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda **Move & Transform** (Mover y transformar). Arrastre la actividad **Copiar datos** del cuadro de herramientas **Actividades** a la superficie del diseñador de canalizaciones. También puede buscar actividades en el cuadro de herramientas **Activities** (Actividades). Especifique **CopyFromBlobToBlob** en **Name** (Nombre).
    ![Creación de una actividad de copia de datos](./media/quickstart-create-data-factory-portal/copy-activity.png)

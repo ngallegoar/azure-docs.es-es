@@ -9,57 +9,49 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: dcad90713227e55437523c91997175242078e9e4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836488"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248335"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Introducción a Azure Synapse Analytics
 
-Este tutorial le guiará a través de los pasos básicos necesarios para configurar y usar Azure Synapse Analytics.
+Este documento le guiará por los pasos básicos necesarios para configurar y usar Azure Synapse Analytics.
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Preparación de una cuenta de almacenamiento para usarla en un área de trabajo de Synapse
 
-1. Abra [Azure Portal](https://portal.azure.com).
-1. Cree una cuenta de almacenamiento con la siguiente configuración:
-    * En la pestaña **Aspectos básicos**
+* Abra [Azure Portal](https://portal.azure.com).
+* Cree una cuenta de almacenamiento con la siguiente configuración:
 
-    |Configuración | Valor sugerido | Descripción |
-    |---|---|---|
-    |**Nombre de cuenta de almacenamiento**| Puede asignarle cualquier nombre.|En este documento, usaremos el nombre `contosolake`.
-    |**Tipo de cuenta**|Se debe establecer en `StorageV2`||
-    |**Ubicación**|Puede seleccionar cualquier ubicación| Se recomienda que el área de trabajo de Synapse y la cuenta de Azure Data Lake Storage (ADLS) Gen2 se encuentren en la misma región.|
-    ||||
-    
-    * En la pestaña **Opciones avanzadas**
-    
-    |Configuración | Valor sugerido | Descripción |
-    |---|---|---|
-    |**Data Lake Storage Gen2**|`Enabled`| Azure Synapse solo funciona con cuentas de almacenamiento en las que esté habilitado este valor.|
-    ||||
+    |Pestaña|Configuración | Valor sugerido | Descripción |
+    |---|---|---|---|
+    |Aspectos básicos|**Nombre de cuenta de almacenamiento**| Puede asignarle cualquier nombre.|En este documento, usaremos el nombre `contosolake`.|
+    |Aspectos básicos|**Tipo de cuenta**|Se debe establecer en `StorageV2`||
+    |Aspectos básicos|**Ubicación**|Puede seleccionar cualquier ubicación| Se recomienda que el área de trabajo de Synapse y la cuenta de Azure Data Lake Storage (ADLS) Gen2 se encuentren en la misma región.|
+    |Avanzado|**Data Lake Storage Gen2**|`Enabled`| Azure Synapse solo funciona con cuentas de almacenamiento en las que esté habilitado este valor.|
 
 1. Una vez creada la cuenta de almacenamiento, seleccione **Control de acceso (IAM)** en el panel de navegación izquierdo. Luego, asigne los siguientes roles o asegúrese de que ya están asignados. 
+
     a. * Asígnese el rol **Propietario** en la cuenta de almacenamiento b. * Asígnese el rol **Propietario de datos de Storage Blob** en la cuenta de almacenamiento
+
 1. En el panel de navegación izquierdo, seleccione **Contenedores** y cree un contenedor. Puede asignarle cualquier nombre. Acepte el valor predeterminado de **Nivel de acceso público**. En este documento, llamaremos al contenedor `users`. Seleccione **Crear**. 
+
+En el paso siguiente, configurará el área de trabajo de Synapse para usar esta cuenta de almacenamiento como su cuenta de almacenamiento "principal" y el contenedor para almacenar los datos del área de trabajo. El área de trabajo almacenará los datos en tablas de Apache Spark y en los registros de aplicaciones de Spark en esta cuenta, en una carpeta denominada `/synapse/workspacename`.
 
 ## <a name="create-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
-1. Abra [Azure Portal](https://portal.azure.com) y, en la parte superior, busque `Synapse`.
-1. En los resultados de la búsqueda, en **Servicios**, seleccione **Azure Synapse Analytics (versión preliminar de las áreas de trabajo)** .
-1. Seleccione **+ Agregar**.
-1. Pestaña **Aspectos básicos**:
+* Abra [Azure Portal](https://portal.azure.com) y, en la parte superior, busque `Synapse`.
+* En los resultados de la búsqueda, en **Servicios**, seleccione **Azure Synapse Analytics (versión preliminar de las áreas de trabajo)** .
+* Seleccione **+ Agregar** para crear un área de trabajo con esta configuración.
 
-    |Configuración | Valor sugerido | Descripción |
-    |---|---|---|
-    |**Workspace name** (Nombre del área de trabajo)|Puede darle cualquier nombre.| En este documento, se utiliza `myworkspace`.
-    |**Región**|Coincidencia de la región de la cuenta de almacenamiento||
-    |||
+    |Pestaña|Configuración | Valor sugerido | Descripción |
+    |---|---|---|---|
+    |Aspectos básicos|**Workspace name** (Nombre del área de trabajo)|Puede darle cualquier nombre.| En este documento, se utiliza `myworkspace`.|
+    |Aspectos básicos|**Región**|Coincidencia de la región de la cuenta de almacenamiento|
 
 1. En **Select Data Lake Storage Gen 2** (Seleccionar Data Lake Storage Gen 2), seleccione la cuenta y el contenedor que creó anteriormente.
-    > [!NOTE]
-    > La cuenta de almacenamiento elegida aquí la denominaremos la cuenta de almacenamiento "principal" del área de trabajo de Synapse. Esta cuenta se usa para almacenar los datos en tablas de Apache Spark, así como para los registros creados cuando se crean grupos de Spark o cuando se ejecutan aplicaciones de Spark.
 
 1. Seleccione **Revisar + crear**. Seleccione **Crear**. El área de trabajo estará lista en unos minutos.
 
@@ -81,27 +73,17 @@ Una vez creada el área de trabajo de Synapse, hay dos maneras de abrir Synapse 
 ## <a name="create-a-sql-pool"></a>Creación de un grupo de SQL
 
 1. En Synapse Studio, en el panel de navegación izquierdo, seleccione **Manage > SQL pools** (Administrar > Grupos de SQL).
-
-    > [!NOTE] 
-    > Todas las áreas de trabajo de Synapse incluyen un grupo creado previamente denominado **SQL On-Demand**.
-
 1. Seleccione **+Nuevo** y especifique estos valores:
 
     |Configuración | Valor sugerido | 
-    |---|---|---|
+    |---|---|
     |**Nombre del grupo de SQL**| `SQLDB1`|
     |**Nivel de rendimiento**|`DW100C`|
-    |||
 
 1. Seleccione **Revisar y crear** y, después, seleccione **Crear**.
-1. El grupo de SQL estará listo en unos minutos.
+1. El grupo de SQL estará listo en unos minutos. Cuando se cree el grupo de SQL, se asociará con una base de datos del grupo de SQL también denominada **SQLDB1**.
 
-    > [!NOTE]
-    > Un grupo de Synapse SQL corresponde a lo que solía denominarse "Azure SQL Data Warehouse"
-
-Los grupos de SQL consumen recursos facturables mientras están en ejecución. Por consiguiente, puede pausar el grupo cuando sea necesario para reducir los costos.
-
-Cuando se cree el grupo de SQL, se asociará con una base de datos del grupo de SQL también denominada **SQLDB1**.
+Los grupos de SQL consumen recursos facturables mientras están activos. Puede pausar los grupos más adelante para reducir los costos.
 
 ## <a name="create-an-apache-spark-pool"></a>Creación de un grupo de Apache Spark
 
@@ -109,11 +91,10 @@ Cuando se cree el grupo de SQL, se asociará con una base de datos del grupo de 
 1. Seleccione **+Nuevo** y especifique estos valores:
 
     |Configuración | Valor sugerido | 
-    |---|---|---|
+    |---|---|
     |**Nombre del grupo de Apache Spark**|`Spark1`
     |**Tamaño del nodo**| `Small`|
     |**Número de nodos**| Establezca el valor mínimo en 3 y el máximo en 3|
-    |||
 
 1. Seleccione **Revisar y crear** y, después, seleccione **Crear**.
 1. El grupo de Apache Spark estará listo en unos segundos.
@@ -149,7 +130,7 @@ Todas las áreas de trabajo incluyen un grupo precompilado y que no se puede eli
 1. Vaya a **SQLDB1 > Tables** (Tablas). Verá que se han cargado varias tablas.
 1. Haga clic con el botón derecho en la tabla **dbo.Trip** y seleccione **New SQL Script > Select TOP 100 Rows** (Nuevo script SQL > Seleccionar 100 primeras filas).
 1. Se creará un nuevo script SQL y se ejecutará automáticamente.
-1. Observe que en la parte superior del script SQL, en **Connect to** (Conectar a) está seleccionado automáticamente el grupo de SQL llamado SQLDB1.
+1. Observe que en la parte superior del script SQL, en **Connect to** (Conectar a) está establecido automáticamente en el grupo de SQL llamado `SQLDB1`.
 1. Reemplace el texto del script de SQL por este código y ejecútelo.
 
     ```sql
@@ -167,7 +148,7 @@ Todas las áreas de trabajo incluyen un grupo precompilado y que no se puede eli
 
 ## <a name="load-the-nyc-taxi-sample-data-into-the-spark-nyctaxi-database"></a>Cargue los datos del ejemplo de los taxis de Nueva York en la base de datos nyctaxi de Spark
 
-Los datos están disponibles en una tabla en `SQLDB1`. Ahora se cargan en una base de datos de Spark denominada "nyctaxi".
+Los datos están disponibles en una tabla en `SQLDB1`. Ahora se cargan en una base de datos de Spark denominada `nyctaxi`.
 
 1. En Synapse Studio, vaya al centro **Develop** (Desarrollar).
 1. Seleccione **+** y seleccione **Notebook**.
@@ -299,8 +280,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Seleccione **Linked** (Vinculado).
 1. Vaya a **Storage accounts > myworkspace (Primary - contosolake)** [Cuentas de almacenamiento > myworkspace (Principal: contosolake)].
 1. Seleccione **users (Primary)"** [usuarios (Principal)].
-1. Debería ver una carpeta denominada "NYCTaxi". Dentro debería ver dos carpetas: "PassengerCountStats.csv" y "PassengerCountStats.parquet".
-1. Vaya a la carpeta "PassengerCountStats.parquet".
+1. Debería ver una carpeta denominada `NYCTaxi`. Dentro de ella debería ver dos carpetas `PassengerCountStats.csv` y `PassengerCountStats.parquet`.
+1. Vaya a la carpeta `PassengerCountStats.parquet`.
 1. Haga clic con el botón derecho en el archivo Parquet de dentro y seleccione **new notebook** (cuaderno nuevo), y se creará un cuaderno con una celda similar a esta:
 
     ```py
@@ -342,11 +323,10 @@ Puede vincular un área de trabajo de Power BI a su área de trabajo de Synapse
 1. Seleccione **+ New** (+Nuevo) y seleccione **Connect to Power BI** (Conectarse a Power BI) y configure estos campos:
 
     |Configuración | Valor sugerido | 
-    |---|---|---|
+    |---|---|
     |**Nombre**|`NYCTaxiWorkspace1`|
     |**Workspace name** (Nombre del área de trabajo)|`NYCTaxiWorkspace1`|
-    |||
-    
+        
 1. Seleccione **Crear**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-synapse-workspace"></a>Creación de un conjunto de datos de Power BI que use los datos del área de trabajo de Synapse

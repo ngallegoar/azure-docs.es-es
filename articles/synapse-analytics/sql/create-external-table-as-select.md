@@ -9,30 +9,29 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cbf6d42f3b1d130a6bf89f07bd3a7009ff0e8fa8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d73e895371764d9dd28290648551d84181e022cd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647520"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117594"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Almacenamiento de los resultados de la consulta en Storage mediante SQL a petición (versión preliminar) con Azure Synapse Analytics
 
 En este artículo, aprenderá a almacenar los resultados de las consultas en Storage mediante SQL On-Demand (versión preliminar).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-El primer paso es leer los artículos siguientes y asegurarse de que cumple los requisitos previos:
+El primer paso es **crear una base de datos** en la que se ejecutarán las consultas. Luego, se inicializan los objetos, para lo que hay que ejecutar un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Este script de instalación creará los orígenes de datos, las credenciales con ámbito de base de datos y los formatos de archivo externos que se usan para leer datos en estos ejemplos.
 
-- [Primera configuración](query-data-storage.md#first-time-setup)
-- [Requisitos previos](query-data-storage.md#prerequisites)
+Siga las instrucciones de este artículo para crear orígenes de datos, credenciales con ámbito de base de datos y formatos de archivo externos que se usan para escribir datos en el almacenamiento de salida.
 
 ## <a name="create-external-table-as-select"></a>CREATE EXTERNAL TABLE AS SELECT
 
 Puede usar la instrucción CREATE EXTERNAL TABLE AS SELECT (CETAS) para almacenar los resultados de la consulta en Storage.
 
 > [!NOTE]
-> Cambie la primera línea de la consulta, es decir, [mydbname], para usar la base de datos que ha creado. Si no ha creado ninguna base de datos, consulte [Primera configuración](query-data-storage.md#first-time-setup). Debe cambiar LOCATION en el origen de datos externo de MyDataSource para que apunte a la ubicación para la que tiene permiso de escritura. 
+> Cambie la primera línea de la consulta, es decir, [mydbname], para usar la base de datos que ha creado.
 
 ```sql
 USE [mydbname];
@@ -63,8 +62,9 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
-        FORMAT='CSV'
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
     ) WITH (
         CountryCode varchar(4),
         CountryName varchar(64),
@@ -79,7 +79,7 @@ FROM
 La tabla externa que se crea mediante CETAS se puede usar como una tabla externa normal.
 
 > [!NOTE]
-> Cambie la primera línea de la consulta, es decir, [mydbname], para usar la base de datos que ha creado. Si no ha creado ninguna base de datos, consulte [Primera configuración](query-data-storage.md#first-time-setup).
+> Cambie la primera línea de la consulta, es decir, [mydbname], para usar la base de datos que ha creado.
 
 ```sql
 USE [mydbname];

@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007550"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171572"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -38,7 +38,7 @@ En este artículo, aprenderá a:
 > * Exportar las etiquetas
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 
 * Los datos que quiere etiquetar, ya sea en archivos locales o en el almacenamiento de blobs de Azure.
@@ -55,8 +55,7 @@ Si los datos ya están en el almacenamiento de blobs de Azure, debe hacer que es
 
 Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecuado al proyecto y seleccione **Tipo de tarea de etiquetado**.
 
-![Asistente para la creación de proyectos de etiquetado](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
-
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Asistente para la creación de proyectos de etiquetado":::
 
 * Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola clase* de un conjunto de clases a una imagen.
 * Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de clases a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.

@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas 
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747227"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248250"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -22,7 +22,10 @@ Este tutorial muestra cómo realizar una copia de seguridad de una base de datos
 
 [Aquí](sap-hana-backup-support-matrix.md#scenario-support) están todos los escenarios que se admiten actualmente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+>[!NOTE]
+>[Comience](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) con la versión preliminar de la copia de seguridad de SAP HANA para RHEL (7.4, 7.6, 7.7 o 8.1). Para más consultas, escríbanos a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 
@@ -34,9 +37,7 @@ Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 * Ejecute el script de configuración de la copia de seguridad de SAP HANA (script de registro previo) en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://aka.ms/scriptforpermsonhana) prepara el sistema HANA para la copia de seguridad. Consulte la sección [Qué hace el script de registro previo](#what-the-pre-registration-script-does) para comprender mejor el script de registro previo.
 
 >[!NOTE]
->Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos SAP HANA en una máquina virtual de Azure.
->
->Modifique la directiva de forma manual según sea necesario.
+>El script de registro previo instala **compat-unixODBC234** para las cargas de trabajo de SAP HANA que se ejecutan en RHEL (7.4, 7.6 y 7.7) y **unixODBC** para RHEL 8.1. [Este paquete se encuentra en el repositorio de Update Services de RHEL for SAP HANA (para RHEL 7 Server) para SAP Solutions (RPM)](https://access.redhat.com/solutions/5094721).  Para la imagen de RHEL de Azure Marketplace, el repositorio sería **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
 ## <a name="set-up-network-connectivity"></a>Configurar la conectividad de red
 

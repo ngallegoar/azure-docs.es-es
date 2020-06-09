@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d9059c9386af6fab6bb1068d6a9e64b763206f94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 69f63615d3c5f10bdcef071e18a7379ecf52338e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74929204"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119299"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Creación de una canalización con la actividad de copia mediante Visual Studio
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > [!NOTE] 
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -108,7 +108,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 ### <a name="create-the-azure-sql-linked-service"></a>Cree el servicio vinculado SQL de Azure.
 1. Haga doble clic con el botón derecho en el nodo **Servicios vinculados** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**. 
 2. Esta vez, seleccione **Servicios vinculados de SQL Azure** y haga clic en **Agregar**. 
-3. En el archivo **AzureSqlLinkedService1.json**, reemplace `<servername>`, `<databasename>`, `<username@servername>` y `<password>` por los nombres del servidor, la base de datos, la cuenta de usuario y la contraseña de SQL Azure.    
+3. En el **archivo AzureSqlLinkedService1.json**, reemplace `<servername>`, `<databasename>`, `<username@servername>` y `<password>` por los nombres del servidor, la base de datos, la cuenta de usuario y la contraseña.    
 4. Guarde el archivo **AzureSqlLinkedService1.json** . 
     
     Para más información acerca de estas propiedades JSON, consulte [Conector de Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties).
@@ -436,7 +436,7 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
         "AzureSqlLinkedService1": [
             {
                 "name": "$.properties.typeProperties.connectionString",
-                "value":  "Server=tcp:<Azure SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         ]
     }

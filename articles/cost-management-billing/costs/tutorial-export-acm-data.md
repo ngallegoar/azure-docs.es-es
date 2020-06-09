@@ -3,17 +3,17 @@ title: 'Tutorial: Creación y administración de datos exportados desde Azure Co
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/27/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f0a1515816fe7a9e1d79f69655e6bf21725a0b5d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877956"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142334"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Creación de una exportación diaria
 > * Verificación de la recopilación de los datos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 La exportación de datos está disponible para varios tipos de cuenta de Azure, entre las que se incluyen las de los clientes con [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) y [Contrato de cliente de Microsoft](get-started-partners.md). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para la exportación de datos por usuario y grupo, se admiten los siguientes permisos o ámbitos de Azure por suscripción. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Propietario: puede crear, modificar o eliminar exportaciones programadas para una suscripción.
@@ -49,17 +49,15 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-daily-export"></a>Creación de una exportación diaria
 
-Para crear o ver una exportación de datos o programar una exportación, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. En la parte superior de la página Análisis de costos,seleccione **Exportar** y elija una opción de exportación. Por ejemplo, haga clic en **Programar exportación**.  
+Para crear o ver una exportación de datos o programar una exportación, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. En la parte superior de la página Análisis de costos,seleccione **Configuración**, **Exportaciones** y después elija una opción de exportación.
 
 > [!NOTE]
 > - Además de las suscripciones, puede crear exportaciones en grupo de recursos, cuentas, departamentos e inscripciones. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 >- Cuando haya iniciado sesión como asociado en el ámbito de la cuenta de facturación o en el inquilino de un cliente, podrá exportar los datos a una cuenta de Azure Storage vinculada a su cuenta de almacenamiento de asociado. Sin embargo, debe tener una suscripción activa en el inquilino de CSP.
->
-
 
 Seleccione **Agregar**, escriba un nombre para la exportación y seleccione la opción **Exportación diaria de costos desde ese mes hasta la fecha actual**. Seleccione **Next** (Siguiente).
 
-![Nuevo ejemplo de exportación que muestra el tipo de exportación](./media/tutorial-export-acm-data/basics_exports.png)
+[![Nuevo ejemplo de exportación que muestra el tipo de exportación](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Especifique la suscripción de su cuenta de almacenamiento de Azure y, luego, seleccione la cuenta de almacenamiento.  Especifique el contenedor de almacenamiento y la ruta del directorio al que desea que vaya el archivo de exportación. Seleccione **Next** (Siguiente).
 
@@ -83,10 +81,19 @@ Existen dos tipos de opciones de exportación:
 **Personalizado**: le permite programar exportaciones semanales y mensuales con las opciones de semana hasta la fecha y de mes hasta la fecha. *La exportación inicial se ejecutará inmediatamente.*
 
 Si tiene una suscripción de pago por uso, MSDN o Visual Studio, es posible que el período de facturación no esté alineado con el mes natural. En el caso de esos tipos de suscripciones y grupos de recursos, puede crear una exportación que se alinee con el período de su factura o con los meses naturales. Para crear una exportación que esté alineada con el mes de facturación, navegue a **Personalizado** y, luego, seleccione **Período de facturación hasta la fecha**.  Para crear una exportación que se alinee con el mes natural, seleccione **Mes hasta la fecha**.
->
->
 
 ![La pestaña Exportación nueva - Básico que muestra una selección de semana hasta la fecha personalizada semanalmente](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
+#### <a name="create-an-export-for-multiple-subscriptions"></a>Creación de una exportación para varias suscripciones
+
+Si tiene un Contrato Enterprise, puede usar un grupo de administración para agregar información de costos de suscripción en un solo contenedor. Después, puede exportar los datos de administración de costos para el grupo de administración.
+
+No se admiten las exportaciones de grupos de administración de otros tipos de suscripciones.
+
+1. Cree un grupo de administración y asígnele suscripciones.
+1. En Exportaciones, seleccione **Ámbito**.
+1. Seleccione **Select this management group** (Seleccionar este grupo de administración).
+1. Cree una exportación en el ámbito para obtener datos de administración de costos para las suscripciones en el grupo de administración.
 
 ## <a name="verify-that-data-is-collected"></a>Verificación de la recopilación de los datos
 
@@ -104,6 +111,18 @@ El archivo se abre con el programa o la aplicación que se ha establecido para a
 
 ![Datos CSV exportados de ejemplo que se muestran en Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+### <a name="download-an-exported-csv-data-file"></a>Descarga de un archivo de datos CSV exportado
+
+También puede descargar el archivo CSV exportado en Azure Portal. En los pasos siguientes se explica cómo encontrarlo desde el análisis de costos.
+
+1. En el análisis de costos, seleccione **Configuración** y, después, **Exportaciones**.
+1. En la lista de exportaciones, seleccione la cuenta de almacenamiento para una exportación.
+1. En la cuenta de almacenamiento, haga clic en **Contenedores**.
+1. En la lista de contenedores, seleccione uno de ellos.
+1. Desplácese por los directorios y los blobs de almacenamiento hasta la fecha que desee.
+1. Seleccione el archivo CSV y, después, seleccione **Descargar**.
+
+[![Descarga de exportación de ejemplo](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
 ## <a name="access-exported-data-from-other-systems"></a>Acceso a los datos exportados desde otros sistemas
 

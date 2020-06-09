@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 67674092bd27b85e3e915fe82a7cb7189ff22b02
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118099"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141915"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API de REST con Python
 
@@ -22,11 +22,15 @@ En este inicio rápido usará la API de REST de Form Recognizer con Python para 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - [Python](https://www.python.org/downloads/) instalado (si desea ejecutar el ejemplo localmente).
 - Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. Los formularios pueden ser diferentes tipos de archivo, pero deben ser del mismo tipo de documento. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
+
+> [!NOTE]
+> En este inicio rápido se usan documentos remotos con acceso mediante la dirección URL. Para usar en cambio archivos locales, consulte la [documentación de referencia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
+
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -66,7 +70,7 @@ Para entrenar un modelo de Form Recognizer con los documentos del contenedor de 
         'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
     
-    body =  {
+    body =     {
         "source": source,
         "sourceFilter": {
             "prefix": prefix,

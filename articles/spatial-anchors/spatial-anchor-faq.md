@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004467"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296676"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Preguntas más frecuentes sobre Azure Spatial Anchors
 
@@ -72,21 +72,21 @@ Azure Spatial Anchors se adhiere a los [Términos del acuerdo de servicio de Azu
 
 **P: ¿Ofrece un Acuerdo de Nivel de Servicio?**
 
-**R:** Como es norma para los servicios de Azure, nuestro objetivo es una disponibilidad superior al 99,9 %. Tenga en cuenta que Azure Spatial Anchors está actualmente en versión preliminar y, por tanto, se aplican los [Términos complementarios de las versiones preliminares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+**R:** Como es norma para los servicios de Azure, nuestro objetivo es una disponibilidad superior al 99,9 %. 
 
 **P: ¿Puedo publicar mis aplicaciones con Azure Spatial Anchors en tiendas de aplicaciones? ¿Puedo usar Azure Spatial Anchors en escenarios de producción de críticos para la misión?**
 
-**R:** Azure Spatial Anchors está actualmente en versión preliminar y, durante este tiempo, le invitamos a desarrollar aplicaciones, [proporcionar comentarios](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sobre el producto y planear las implementaciones en producción.
-
-Las fechas de disponibilidad general se anunciarán próximamente.
+**R:** Sí, Azure Spatial Anchors está disponible con carácter general y tiene un Acuerdo de Nivel de Servicio de servicios de Azure estándar. Le invitamos a desarrollar aplicaciones para sus implementaciones de producción y [compartir sus comentarios](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sobre el producto con nosotros.
 
 **P: ¿Existen limitaciones?**
 
-**R.** : Sí, hay limitaciones.  No esperamos que las alcance en un trabajo típico de desarrollo y prueba de aplicaciones. En el caso de las implementaciones en producción, estamos preparados para dar respaldo a las necesidades de gran escala de nuestros clientes. [Póngase en contacto con nosotros](mailto:azuremrs@microsoft.com) para tratar este asunto. Durante esta fase de versión preliminar, no hemos publicado aún nuestra estructura de precios y niveles, pero esperamos hacerlo pronto.
+**R.** : Sí, hay limitaciones.  No esperamos que las alcance en un trabajo típico de desarrollo y prueba de aplicaciones. En el caso de las implementaciones en producción, estamos preparados para dar respaldo a las necesidades de gran escala de nuestros clientes. [Póngase en contacto con nosotros](mailto:azuremrs@microsoft.com) para tratar este asunto. 
 
 **P: ¿En qué regiones está disponible Azure Spatial Anchors?**
 
-**R:** Puede crear una cuenta de Azure Spatial Anchors hoy mismo en la región de Azure Este de EE. UU. 2. Esto significa que los recursos tanto de proceso como de almacenamiento está en esta región. Aparte de eso, no hay ninguna restricción sobre la ubicación de los clientes. En el futuro, ampliaremos la disponibilidad del servicio a todas las regiones de Azure principales.
+**R:** Azure Spatial Anchors está disponible actualmente en Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de Europa, Norte de Europa, Sur de Reino Unido y Este de Australia. En el futuro, estarán disponibles más regiones.
+
+Esto significa que los recursos tanto de proceso como de almacenamiento están en esas regiones. Aparte de eso, no hay ninguna restricción sobre la ubicación de los clientes. 
 
 **P: ¿Azure Spatial Anchors es un servicio de pago? ¿Van a cobrar por él?**
 

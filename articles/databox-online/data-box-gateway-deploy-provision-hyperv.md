@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561618"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196633"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en Hyper-V
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Aquí encontrará los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que ejecuta Hyper-V en Windows Server 2016 o Windows Server 2012 R2.
 
@@ -64,8 +64,8 @@ Antes de implementar un dispositivo, asegúrese de que:
 
 Antes de empezar:
 
-- Revise los requisitos de red para implementar Data Box Gateway y configure la red del centro de datos según dichos requisitos. Para más información, consulte [Requisitos de red de Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
-- Asegúrese de que el ancho de banda mínimo de Internet es de 20 Mbps para que el dispositivo funcione de forma óptima.
+* Revise los requisitos de red para implementar Data Box Gateway y configure la red del centro de datos según dichos requisitos. Para más información, consulte [Requisitos de red de Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
+* Asegúrese de que el ancho de banda mínimo de Internet es de 20 Mbps para que el dispositivo funcione de forma óptima.
 
 ## <a name="check-the-host-system"></a>Comprobación del sistema host
 
@@ -75,11 +75,17 @@ Para crear un dispositivo virtual, necesita:
 * Administrador de Hyper-V de Microsoft en un cliente Microsoft Windows conectado al host.
 * Asegúrese de que el hardware subyacente (sistema de host) en el que está creando el dispositivo virtual pueda dedicar los siguientes recursos al dispositivo virtual:
 
-    * Un mínimo de 4 procesadores virtuales.
-    * Al menos 8 GB de RAM.
-    * Una interfaz de red conectada a la red capaz de enrutar el tráfico a Internet. 
-    * Un disco de sistema operativo de 250 GB.
-    * Un disco virtual de 2 TB para datos del sistema.
+  * Un mínimo de 4 procesadores virtuales.
+  * Al menos 8 GB de RAM.
+  * Una interfaz de red conectada a la red capaz de enrutar el tráfico a Internet.
+  * Un disco de sistema operativo de 250 GB.
+  * Un disco virtual de 2 TB para datos del sistema.
+
+## <a name="bitlocker-considerations"></a>Consideraciones sobre BitLocker
+
+* Se recomienda habilitar BitLocker en la máquina virtual de Data Box Gateway. De forma predeterminada, BitLocker no está habilitado. Para más información, consulte:
+  * [Configuración de la compatibilidad con el cifrado en el administrador de Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Compatibilidad con BitLocker en una máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprovisionar un dispositivo virtual en el hipervisor
 
@@ -136,7 +142,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
     ![Página Especificar nombre y ubicación](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. En la página **Configurar disco**, seleccione la opción **Crear un nuevo disco duro virtual en blanco** y especifique el tamaño como **2 TB** (o más).
-    
+
     Aunque el requisito mínimo son 2 TB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que una vez que el disco se aprovisiona su tamaño no se puede reducir. Si intenta hacer esto, se perderán todos los datos locales del dispositivo. No se admite la expansión del disco de datos. Haga clic en **Next**.
 
     ![Página Configurar disco](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
@@ -148,9 +154,11 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
     ![Página Configuración](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Inicio del dispositivo virtual y obtención de la dirección IP
+
 Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a él.
 
 #### <a name="to-start-the-virtual-device"></a>Para iniciar el dispositivo virtual
+
 1. Inicie el dispositivo virtual.
 
    ![Iniciar dispositivo virtual](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
@@ -159,26 +167,25 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
 3. Es posible que tenga que esperar entre 10 y 15 minutos para que el dispositivo esté listo. En la consola se muestra un mensaje de estado para indicar el progreso. Cuando el dispositivo esté listo, vaya a **Acción**. Presione `Ctrl + Alt + Delete` para conectarse al dispositivo virtual. El usuario predeterminado es *EdgeUser* y la contraseña predeterminada es *Password1*.
 
    ![Iniciar sesión en la máquina virtual](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-   
-6. Los pasos 5 a 7 solo se aplican cuando se arranca en un entorno que no sea DHCP. Si se encuentra en un entorno DHCP, omita estos pasos. Si ha arrancado el dispositivo en un entorno sin DHCP, verá un mensaje de confirmación al respecto.
-    
-7. Para configurar la red, utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.
 
-8. Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. Vea el ejemplo siguiente:
+4. Los pasos 5 a 7 solo se aplican cuando se arranca en un entorno que no sea DHCP. Si se encuentra en un entorno DHCP, omita estos pasos. Si ha arrancado el dispositivo en un entorno sin DHCP, verá un mensaje de confirmación al respecto.
+
+5. Para configurar la red, utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.
+
+6. Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. Observe el ejemplo siguiente:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
-    
-9. Una vez que haya finalizado la instalación inicial y el dispositivo haya arrancado, verá el texto de titular del dispositivo. Anote la dirección IP y la dirección URL que se muestran en el texto del titular para administrar el dispositivo. Use esta dirección IP para conectarse a la interfaz de usuario web del dispositivo virtual y completar la instalación local y la activación.
+
+7. Una vez que haya finalizado la instalación inicial y el dispositivo haya arrancado, verá el texto de titular del dispositivo. Anote la dirección IP y la dirección URL que se muestran en el texto del titular para administrar el dispositivo. Use esta dirección IP para conectarse a la interfaz de usuario web del dispositivo virtual y completar la instalación local y la activación.
 
    ![Banner de dispositivo virtual con la dirección IP y la dirección URL de conexión](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
-      
 
 Si el dispositivo no cumple los requisitos mínimos de configuración, verá un error en el texto del titular. Modifique la configuración del dispositivo para que el equipo tenga los recursos adecuados para cumplir los requisitos mínimos. A continuación, puede reiniciar y conectarse al dispositivo. Consulte los requisitos mínimos de configuración indicados en [Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual](#check-the-host-system).
 
 Si encuentra cualquier otro error durante la configuración inicial mediante la interfaz de usuario web local, consulte los siguientes flujos de trabajo:
 
-- [Ejecute pruebas de diagnóstico para solucionar problemas de configuración de la interfaz de usuario web](data-box-gateway-troubleshoot.md#run-diagnostics).
-- [Genere el paquete de registro y vea los archivos del registro](data-box-gateway-troubleshoot.md#collect-support-package).
+* [Ejecute pruebas de diagnóstico para solucionar problemas de configuración de la interfaz de usuario web](data-box-gateway-troubleshoot.md#run-diagnostics).
+* [Genere el paquete de registro y vea los archivos del registro](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

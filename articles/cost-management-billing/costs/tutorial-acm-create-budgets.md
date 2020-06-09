@@ -3,17 +3,17 @@ title: 'Tutorial: Creación y administración de presupuestos de Azure'
 description: Este tutorial le ayuda a planear y tener en cuenta los costos de los servicios de Azure que usted consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101763"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142442"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 > * Creación y edición de presupuestos con PowerShell
 > * Crear un presupuesto con una plantilla de Azure Resource Manager
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Se admiten los presupuestos para los siguientes tipos de cuentas y ámbitos de Azure:
 
@@ -115,6 +115,15 @@ Después de crear un presupuesto, se muestra en el análisis de costos. Ver el p
 
 En el ejemplo anterior, creó un presupuesto para una suscripción. También puede crear un presupuesto para un grupo de recursos. Si quiere crear un presupuesto para un grupo de recursos, vaya a **Cost Management + Billing** &gt; **Suscripciones** &gt; seleccione una suscripción > **Grupos de recursos** > seleccione un grupo de recursos > **Presupuestos** > y **Agregar** un presupuesto.
 
+### <a name="create-a-budget-for-combined-azure-and-aws-costs"></a>Creación de un presupuesto para los costos combinados de Azure y AWS
+
+Para agrupar los costos de Azure y AWS, asigne un grupo de administración al conector junto con las cuentas consolidadas y vinculadas. Asigne las suscripciones de Azure al mismo grupo de administración. A continuación, cree un presupuesto para los costos combinados.
+
+1. En Cost Management, seleccione **Presupuestos**.
+1. Seleccione **Agregar**.
+1. Seleccione **Cambiar ámbito** y, a continuación, seleccione el grupo de administración.
+1. Siga creando el presupuesto hasta que finalice.
+
 ## <a name="costs-in-budget-evaluations"></a>Costos de las evaluaciones de presupuesto
 
 Las evaluaciones de costos del presupuesto ahora incluyen datos de instancias reservadas y de compras. Si se le aplican cargos, es posible que reciba alertas a medida que se incorporen cargos a las evaluaciones. Se recomienda iniciar sesión en [Azure Portal](https://portal.azure.com) para verificar que los umbrales del presupuesto estén configurados correctamente para tener en cuenta los nuevos costos. Los cargos facturados de Azure no cambian. Los presupuestos ahora se evalúan frente a un conjunto más completo de costos. Si no se le aplican los cargos, el comportamiento del presupuesto permanece inalterado.
@@ -125,7 +134,6 @@ Si desea filtrar los nuevos costos de modo que los presupuestos se evalúen úni
 - Tipo de cargo: Uso
 
 Las evaluaciones de los costos del presupuesto se basan en el costo real. No incluyen la amortización. Para obtener más información sobre las opciones de filtrado disponibles en los presupuestos, consulte [Descripción de las opciones de agrupación y filtrado](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
-
 
 ## <a name="trigger-an-action-group"></a>Activación de un grupo de acciones
 

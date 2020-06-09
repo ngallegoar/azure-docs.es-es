@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732899"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300104"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service en Linux
 
@@ -34,7 +34,7 @@ ms.locfileid: "81732899"
 Ejecute el siguiente comando de Maven en el símbolo del sistema de Cloud Shell para crear una aplicación denominada `helloworld`:
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" -Dversion=1.0-SNAPSHOT
 ```
 A continuación, cambie el directorio de trabajo a la carpeta del proyecto:
 
@@ -44,13 +44,9 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configuración del complemento Maven
 
-El proceso de implementación en Azure App Service usa las credenciales de cuenta desde la CLI de Azure. [Inicie sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
+El proceso de implementación en Azure App Service puede tomar automáticamente las credenciales de Azure de la CLI de Azure. Si no tiene la CLI de Azure instalada, el complemento Maven iniciará sesión con OAuth o el inicio de sesión del dispositivo. Consulte los detalles sobre la [autenticación con complementos de Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio) si fuera necesario.
 
-```azurecli
-az login
-```
-
-Luego puede configurar la implementación, ejecutar el comando de Maven en el símbolo del sistema y usar las configuraciones predeterminadas presionando **ENTRAR** hasta que aparezca el mensaje **Confirm (Y/N)** [Confirmar (S/N)], donde deberá presionar **"y"** para finalizar la configuración. 
+Para configurar la implementación, ejecute el comando maven en el símbolo del sistema y use las configuraciones presionando la tecla **ENTRAR** hasta que aparezca el mensaje **Confirmar (S/N)** , presione la tecla **'s'** y la configuración habrá terminado. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
@@ -93,7 +89,13 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > En este artículo solo se trabaja con aplicaciones Java empaquetadas en archivos WAR. El complemento también admite aplicaciones web JAR, visite [Implementación de un archivo JAR de SE de Java en App Service en Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para probarlo.
 
-Vaya nuevamente a `pom.xml` para ver si se actualizó la configuración del complemento. Puede modificar otras configuraciones de App Service directamente en el archivo POM si es necesario. Algunas configuraciones comunes se muestran a continuación:
+Abra `pom.xml` para ver la configuración actualizada.
+
+```bash
+code pom.xml
+```
+
+Las configuraciones de App Service se pueden modificar directamente en el archivo POM si fuera necesario. A continuación se muestran algunas configuraciones comunes:
 
  Propiedad | Obligatorio | Descripción | Versión
 ---|---|---|---
@@ -147,7 +149,7 @@ Este comando puede tardar varios segundos en ejecutarse.
 > [Conexión a Azure DB para PostgreSQL con Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Configuración de una aplicación Java](configure-custom-container.md)
+> [Configuración de una aplicación Java](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [CI/CD con Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

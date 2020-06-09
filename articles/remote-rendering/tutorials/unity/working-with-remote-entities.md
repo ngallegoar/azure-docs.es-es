@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
-ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 5d995e9a5cdb6fc18532e0c3533959e9feece908
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310208"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021252"
 ---
 # <a name="tutorial-working-with-remote-entities-in-unity"></a>Tutorial: Trabajo con entidades remotas en Unity
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a:
 > * Mover entidades remotas.
 > * Usar planos de corte para examinar el interior de los objetos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Este tutorial se basa en [Tutorial: Configuración de un proyecto de Unity desde cero](project-setup.md).
 
@@ -192,7 +192,7 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 > [!CAUTION]
-> No asigne este script a ningún objeto de juego, ya que el código siguiente lo asignará mediante programación.
+> No asigne este script a ningún objeto de juego Unity, ya que el código siguiente lo asignará mediante programación.
 
 Después, tenemos que ampliar *RemoteRaycaster* para agregar el componente *RemoteModelEntity* al objeto que acabamos de elegir.
 

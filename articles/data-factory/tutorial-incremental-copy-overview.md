@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 00d54f9adcab93152881852b6fcac417e9d7c7d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1fb209f44ae7922de87277100fbf55add184766
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409898"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194488"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carga incremental de datos de un almacén de datos de origen a un almacén de datos de destino
 
@@ -32,7 +32,7 @@ En este caso, definirá una marca de agua en la base de datos de origen. Una mar
 
 Consulte los siguientes temas para obtener instrucciones paso a paso: 
 - [Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage](tutorial-incremental-copy-powershell.md)
-- [Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Copia incremental de datos de varias tablas de una instancia de SQL Server en Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 Para las plantillas, consulte lo siguiente:
 - [Copia diferencial con la tabla de controles](solution-template-delta-copy-with-control-table.md)

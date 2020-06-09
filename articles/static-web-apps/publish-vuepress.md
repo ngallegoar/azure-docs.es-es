@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: bd9eaad0c141eda815da159e3c13d6c51f5e6200
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593603"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298010"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de VuePress en Azure Static Web Apps (versión preliminar)
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a:
 > - Configurar Azure Static Web Apps
 > - Implementar la aplicación de VuePress en Azure
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. En caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de GitHub. En caso de no tener una, puede [crear una cuenta gratuita](https://github.com/join).
@@ -114,13 +114,13 @@ En los pasos siguientes se muestra cómo crear una aplicación de Static Web App
 1. Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
 1. Haga clic en **Crear**
 
-   :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Creación de un aplicación de Static Web Apps (versión preliminar) en el portal":::
+   :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
 
 1. En **Suscripción**, acepte la suscripción que aparece o seleccione otra en la lista desplegable.
 
 1. En _Grupo de recursos_, seleccione **Nuevo**. En _Nuevo nombre de grupo de recursos_, escriba **vuepress-static-app** y seleccione **Aceptar**.
 
-1. A continuación, escriba un nombre único global para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`. Este valor se usa como prefijo de dirección URL para la aplicación estática con el formato `https://<APP_NAME>.azurestaticapps.net`.
+1. Después, un nombre para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`.
 
 1. En _Región_, seleccione una región cercana disponible.
 

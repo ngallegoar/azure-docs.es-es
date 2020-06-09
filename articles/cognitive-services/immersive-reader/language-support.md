@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538370"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309312"
 ---
 # <a name="language-support-for-immersive-reader"></a>Compatibilidad de idiomas con el Lector inmersivo
 
@@ -34,15 +34,15 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Chino | zh |
 | Chino (China) | zh-CN |
 | Chino (RAE de Hong Kong) | zh-HK |
-| Chino (Macao) | zh-MO |
+| Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chino (Taiwán) | zh-TW |
 | Chino simplificado | zh-Hans |
 | Chino simplificado (China) | zh-Hans-CN |
 | Chino simplificado (Singapur) | zh-Hans-SG |
 | Chino tradicional | zh-Hant-CN |
-| Chino tradicional (Hong Kong) | zh-Hant-HK |
-| Chino tradicional (Macao) | zh-Hant-MO |
+| Chino tradicional (RAE de Hong Kong) | zh-Hant-HK |
+| Chino tradicional (RAE de Macao) | zh-Hant-MO |
 | Chino tradicional (Taiwán) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croacia) | hr-HR |
@@ -136,15 +136,15 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Chino | zh |
 | Chino (China) | zh-CN |
 | Chino (RAE de Hong Kong) | zh-HK |
-| Chino (Macao) | zh-MO |
+| Chinese (Macao SAR) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chino (Taiwán) | zh-TW |
 | Chino simplificado | zh-Hans |
 | Chino simplificado (China) | zh-Hans-CN |
 | Chino simplificado (Singapur) | zh-Hans-SG |
 | Chino tradicional | zh-Hant-CN |
-| Chino tradicional (Hong Kong) | zh-Hant-HK |
-| Chino tradicional (Macao) | zh-Hant-MO |
+| Chino tradicional (RAE de Hong Kong) | zh-Hant-HK |
+| Chino tradicional (RAE de Macao) | zh-Hant-MO |
 | Chino tradicional (Taiwán) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croacia) | hr-HR |
@@ -267,8 +267,8 @@ En este artículo se enumeran los idiomas humanos admitidos en las característi
 | Chino simplificado (China) | zh-Hans-CN |
 | Chino simplificado (Singapur) | zh-Hans-SG |
 | Chino tradicional | zh-Hant-CN |
-| Chino tradicional (Hong Kong) | zh-Hant-HK |
-| Chino tradicional (Macao) | zh-Hant-MO |
+| Chino tradicional (RAE de Hong Kong) | zh-Hant-HK |
+| Chino tradicional (RAE de Macao) | zh-Hant-MO |
 | Chino tradicional (Taiwán) | zh-Hant-TW |
 | Croata | hr |
 | Croata (Croacia) | hr-HR |

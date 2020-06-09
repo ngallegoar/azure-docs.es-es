@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79117096"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317469"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 
@@ -29,6 +29,7 @@ Se admiten los siguientes sistemas operativos de cliente:
 * Windows Server 2012 (solo 64 bits)
 * Windows Server 2012 R2 (solo 64 bits)
 * Windows Server 2016 (solo 64 bits)
+* Windows Server 2019 (solo 64 bits)
 * Windows 10
 * Mac OS X versión 10.11 o versiones posteriores
 * Linux (StrongSwan)

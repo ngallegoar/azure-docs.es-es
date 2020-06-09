@@ -9,22 +9,22 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8501f9d07ffa2d04915d4d1a351317cc145f9844
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116254"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118264"
 ---
 # <a name="overview-query-data-in-storage"></a>Introducción: consulta de los datos en el almacenamiento
 
 Esta sección contiene consultas de ejemplo que puede usar para probar el recurso de SQL a petición (versión preliminar) en Azure Synapse Analytics.
-Estos son los archivos que se admiten actualmente: 
+Los formatos de archivo compatibles actualmente son los siguientes:  
 - CSV
 - Parquet
 - JSON
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Las herramientas necesarias para emitir consultas:
 
@@ -44,67 +44,13 @@ Además, estos son los parámetros:
 
 ## <a name="first-time-setup"></a>Primera configuración
 
-Antes de usar los ejemplos que se incluyen más adelante en este artículo, tiene dos pasos:
-
-- Cree una base de datos para las vistas (en caso de que quiera usar vistas)
-- Cree las credenciales que va a usar SQL a petición para acceder a los archivos en el almacenamiento
-
-### <a name="create-database"></a>Crear base de datos
-
-Para crear vistas, necesita una base de datos. Usará esta base de datos para algunas de las consultas de ejemplo de esta documentación.
+El primer paso es **crear una base de datos** en la que se ejecutarán las consultas. Luego, se inicializan los objetos, para lo que hay que ejecutar un [script de instalación](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) en esa base de datos. Este script de instalación creará los orígenes de datos, las credenciales con ámbito de base de datos y los formatos de archivo externos que se usan para leer datos en estos ejemplos.
 
 > [!NOTE]
 > Las bases de datos se usan solo para ver metadatos, no para datos reales.  Anote el nombre de la base de datos que use, ya que lo necesitará más adelante.
 
 ```sql
 CREATE DATABASE mydbname;
-```
-
-### <a name="create-credentials"></a>Crear credenciales
-
-Debe crear credenciales para poder ejecutar consultas. El servicio de SQL a petición usará esta credencial para acceder a los archivos del almacenamiento.
-
-> [!NOTE]
-> Para ejecutar correctamente los procedimientos de esta sección, es preciso usar un token de SAS.
->
-> Para empezar a usar tokens de SAS, debe quitar UserIdentity, lo que se explica en el siguiente [artículo](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> De manera predeterminada SQL a petición siempre usa el paso a través de AAD.
-
-Para más información sobre cómo administrar el control de acceso de almacenamiento, consulte este [vínculo](develop-storage-files-storage-access-control.md).
-
-Para crear credenciales para contenedores CSV, JSON y Parquet, ejecute el siguiente código:
-
-```sql
--- create credentials for CSV container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/csv')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for JSON container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/json')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for PARQUET container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/parquet')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
 ```
 
 ## <a name="provided-demo-data"></a>Datos de demostración proporcionados
@@ -132,24 +78,6 @@ Los datos de demostración contienen los siguientes conjuntos de datos:
 | /json/                                                       | Carpeta principal para los datos en formato JSON                        |
 | /json/books/                                                 | Archivos JSON con datos de libros                                   |
 
-## <a name="validation"></a>Validación
-
-Ejecute las tres consultas siguientes y compruebe si las credenciales se crean correctamente.
-
-> [!NOTE]
-> Todos los identificadores URI de las consultas de ejemplo usa una cuenta de almacenamiento ubicada en la región Norte de Europa de Azure. Asegúrese de que ha creado la credencial adecuada. Ejecute la consulta siguiente y asegúrese de que la cuenta de almacenamiento aparece en la lista.
-
-```sql
-SELECT name
-FROM sys.credentials
-WHERE
-     name IN ( 'https://sqlondemandstorage.blob.core.windows.net/csv',
-     'https://sqlondemandstorage.blob.core.windows.net/parquet',
-     'https://sqlondemandstorage.blob.core.windows.net/json');
-```
-
-Si no encuentra la credencial adecuada, consulte la sección en la que se explica la [primera configuración](#first-time-setup).
-
 ### <a name="sample-query"></a>Consulta de ejemplo
 
 El último paso de la validación es ejecutar la siguiente consulta:
@@ -159,7 +87,8 @@ SELECT
     COUNT_BIG(*)
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+        DATA_SOURCE = 'sqlondemanddemo',
         FORMAT='PARQUET'
     ) AS nyc;
 ```

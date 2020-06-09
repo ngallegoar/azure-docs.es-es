@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637240"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021711"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal
 
-Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este inicio rápido, aprenderá a crear una máquina virtual en una instancia de Azure Virtual Network, un servidor de SQL Database con un punto de conexión privado de Azure mediante Azure Portal. Después, puede acceder de forma segura al servidor de SQL Database desde la máquina virtual.
+Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este inicio rápido, aprenderá a crear una máquina virtual en una instancia de Azure Virtual Network, un servidor de SQL Server lógico con un punto de conexión privado de Azure mediante Azure Portal. Después, puede acceder de forma segura a SQL Database desde la máquina virtual.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -36,11 +36,11 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroup |
+| **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myVirtualNetwork          |
 | **\<region-name>**          | Centro-Oeste de EE. UU.    |
-| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0/16          |
-| **\<nombre-de-subred>**          | mySubnet        |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnet        |
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -93,8 +93,9 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 1. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
 
-## <a name="create-a-sql-database-server"></a>Creación de un servidor de base de datos SQL
-En esta sección, va a crear un servidor de SQL Database en Azure. 
+## <a name="create-a-logical-sql-server"></a>Creación de un servidor de SQL Server lógico
+
+En esta sección, va a crear un servidor de SQL Server lógico en Azure. 
 
 1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Bases de datos** > **SQL Database**.
 
@@ -148,7 +149,7 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
     | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.Sql/servers**. |
-    | Resource |Seleccione *miServidor*.|
+    | Recurso |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *sqlServer*.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
@@ -193,7 +194,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 1. Una vez que aparezca el escritorio de la máquina virtual, minimícelo para volver a su escritorio local.  
 
-## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
+## <a name="access-sql-database-privately-from-the-vm"></a>Acceso a SQL Database de forma privada desde la máquina virtual
 
 1. En el Escritorio remoto de *myVm*, abra PowerShell.
 
@@ -233,4 +234,4 @@ Cuando haya terminado mediante el punto de conexión privado, el servidor SQL y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado una máquina virtual en una red virtual, un servidor de SQL Database y un punto de conexión privado para el acceso privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura al servidor de SQL Database mediante el vínculo privado. Para más información sobre los puntos de conexión privados, consulte [¿Qué es un punto de conexión privado de Azure? ](private-endpoint-overview.md).
+En este inicio rápido, ha creado una máquina virtual en una red virtual, un servidor de SQL Server lógico y un punto de conexión privado para el acceso privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura con SQL Database mediante Private Link. Para más información sobre los puntos de conexión privados, consulte [¿Qué es un punto de conexión privado de Azure? ](private-endpoint-overview.md).

@@ -10,30 +10,28 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: aefccb831fe35898962893a173c5bd1125877def
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743528"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996676"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un centro de notificaciones de Azure mediante una plantilla de Azure Resource Manager
 
 Azure Notification Hubs proporciona un motor de inserción fácil de usar y de escalabilidad horizontal que permite enviar notificaciones a cualquier plataforma (iOS, Android, Windows, Kindle, etc.) desde cualquier back-end (en la nube o local). Para más información sobre el servicio, consulte [¿Qué es Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-En este inicio rápido se usa una plantilla de Azure Resource Manager para crear un espacio de nombres de Azure Notification Hubs y un centro de notificaciones denominado "MyHub" en ese espacio de nombres.
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+En este inicio rápido se usa una plantilla de Azure Resource Manager para crear un espacio de nombres de Azure Notification Hubs y un centro de notificaciones denominado **MyHub** en ese espacio de nombres.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ninguno.
 
 ## <a name="create-a-notification-hubs-namespace-and-hub"></a>Creación de un espacio de nombres de Notification Hubs y un centro
-
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -48,7 +46,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 
 Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla toma un nombre de espacio de nombres de Notification Hubs como parámetro. Luego, la plantilla crea un espacio de nombres con ese nombre y un centro de notificaciones llamado **MyHub** en ese espacio de nombres.
 
-[![Implementación en Azure](./media/create-notification-hub-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 

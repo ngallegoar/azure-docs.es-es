@@ -9,22 +9,25 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9c90bc9527bffff55d7478150cc1f31827bacc46
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658845"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235277"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Características admitidas de Azure Synapse Link (versión preliminar) para Azure Cosmos DB
 
-En este artículo se describen las funcionalidades que se admiten actualmente en Azure Synapse Link para Azure Cosmos DB. 
+En este artículo se describen las funcionalidades que se admiten actualmente en Azure Synapse Link para Azure Cosmos DB.
 
 ## <a name="azure-synapse-support"></a>Compatibilidad con Azure Synapse
 
 Hay dos tipos de contenedores en Azure Cosmos DB:
 * Contenedor de HTAP: un contenedor con Synapse Link habilitado. Este contenedor tiene almacén de transacciones y uno analítico. 
 * Contenedor de OLTP: un contenedor que solo incluye el almacén de transacciones; Synapse Link no está habilitado. 
+
+> [!IMPORTANT]
+> Azure Synapse Link para Azure Cosmos DB es actualmente compatible con las áreas de trabajo que no tienen habilitada la red virtual administrada. 
 
 Puede conectarse a un contenedor de Azure Cosmos DB sin habilitar Synapse Link, en cuyo caso solo podrá leer o escribir contenido en el almacén transaccional. A continuación, se muestra una lista de las características admitidas actualmente en Synapse Link para Azure Cosmos DB. 
 

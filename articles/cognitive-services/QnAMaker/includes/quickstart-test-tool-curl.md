@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203983"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237712"
 ---
 En este artículo de inicio rápido basado en cURL se ofrece orientación sobre cómo obtener una respuesta de la base de conocimiento.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Versión más reciente de [**cURL**](https://curl.haxx.se/).
 * Debe disponer de lo siguiente:
@@ -77,9 +77,11 @@ Use la base de conocimiento del anterior inicio rápido para consultar una respu
     }
     ```
 
-    Si hay un conjunto de preguntas y respuestas que no cumple el término de búsqueda pero sí el filtro, no se devolverá. En su lugar, se devuelve la respuesta general `No good match found in KB.`.
+    Si hay un par de preguntas y respuestas que no cumple el término de búsqueda, pero sí el filtro, no se devolverá. En su lugar, se devuelve la respuesta general `No good match found in KB.`.
 
 ## <a name="use-debug-query-property"></a>Uso de la propiedad de consulta debug
+> [!NOTE]
+>No se recomienda usar la propiedad Debug con ninguna dependencia. Esta propiedad se ha agregado para ayudar al equipo del producto a solucionar problemas.
 
 La información de depuración le ayuda a comprender cómo se determinó la respuesta devuelta. Aunque es útil, no es necesaria. Para generar una respuesta con la información de depuración, agregue la propiedad `debug`:
 

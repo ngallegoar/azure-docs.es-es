@@ -15,6 +15,11 @@
       href: provision-vm.md
     - name: Creación de una instancia de Data Science Virtual Machine de Ubuntu
       href: dsvm-ubuntu-intro.md
+- name: Tutoriales
+  items:
+    - name: Creación de un DSVM con una plantilla de Resource Manager
+      displayName: Resource Manager
+      href: dsvm-tutorial-resource-manager.md
 - name: Conceptos
   items:
     - name: Marcos de aprendizaje profundo y de AI

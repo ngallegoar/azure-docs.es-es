@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: df26021a3718c17d72f0fdb25588487043918732
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 45c1f9b5425b7e826776dc0f52681c67846bfdc5
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084114"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218171"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Inicio rápido: creación de una aplicación de Table API con el SDK de .NET y Azure Cosmos DB 
 
@@ -26,7 +26,7 @@ ms.locfileid: "82084114"
 
 Esta guía de inicio rápido muestra cómo se usan .NET y [Table API](table-introduction.md) de Azure Cosmos DB para compilar una aplicación mediante la clonación de un ejemplo de GitHub. Esta guía de inicio rápido también muestra cómo crear una cuenta de Azure Cosmos DB y cómo usar el Explorador de datos para crear tablas y entidades en Azure Portal basado en web.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene Visual Studio 2019 instalado, puede descargar y usar la **versión gratuita** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
@@ -66,7 +66,8 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
-> ![SUGERENCIA] Puede encontrar un tutorial más detallado de código similar en el artículo del [ejemplo de Table API de Cosmos DB](table-storage-how-to-use-dotnet.md).
+> [!TIP]
+> Puede encontrar un tutorial más detallado de código similar en el artículo del [ejemplo de Table API de Cosmos DB](table-storage-how-to-use-dotnet.md).
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Abrir la aplicación de ejemplo en Visual Studio
 
@@ -75,6 +76,26 @@ Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena
    ![Abrir la solución](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
 2. Navegue hasta la carpeta donde clonó la aplicación de ejemplo y abra el archivo TableStorage.sln.
+
+## <a name="review-the-code"></a>Revisión del código
+
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. De lo contrario, puede ir directamente a la sección [Actualización de la cadena de conexión](#update-your-connection-string) de este mismo documento.
+
+* En el siguiente código se muestra cómo crear una tabla en Azure Storage:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
+
+* El código siguiente muestra cómo insertar datos en la tabla:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
+
+* El código siguiente muestra cómo consultar los datos de la tabla:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
+
+* El código siguiente muestra cómo eliminar los datos de la tabla:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 

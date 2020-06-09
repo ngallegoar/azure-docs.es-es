@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
-ms.openlocfilehash: 04469fa1bd0473710d9fa0bf0190c6459f1f8a07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418786"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249185"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 
@@ -33,7 +33,7 @@ A grandes rasgos, este tutorial incluye los pasos siguientes:
 > * Creación de una factoría de datos.
 > * Cree los servicios vinculados de Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) y Azure Storage.
 > * Cree los conjuntos de datos de Azure SQL Database y Azure Synapse Analytics (anteriormente SQL DW).
-> * Creación de una canalización para buscar las tablas que se deben copiar y otra canalización para realizar la operación de copia real. 
+> * Cree una canalización para buscar las tablas que se deben copiar y otra canalización para realizar la operación de copia real. 
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.
 
@@ -49,7 +49,7 @@ En este escenario, tenemos varias tablas en Azure SQL Database que queremos copi
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * **Cuenta de Azure Storage**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
 * **Azure SQL Database**. Esta base de datos contiene los datos de origen. 
 * **Azure Synapse Analytics (anteriormente SQL DW)** . Este almacén de datos contiene los datos que se copian de SQL Database. 
@@ -58,7 +58,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 **Preparación de la base de datos de Azure SQL de origen**:
 
-Siga el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para crear una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de Azure Synapse Analytics (anteriormente SQL DW).
+Siga el artículo [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para crear una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de Azure Synapse Analytics (anteriormente SQL DW).
 
 **Prepare el receptor de Azure Synapse Analytics (anteriormente SQL DW)** :
 
@@ -68,11 +68,12 @@ Siga el artículo [Creación de una base de datos de Azure SQL](../sql-database/
 
 ## <a name="azure-services-to-access-sql-server"></a>Servicios de Azure para acceder a SQL Server
 
-En el caso de SQL Database y Azure Synapse Analytics (anteriormente SQL DW), permita que los servicios de Azure accedan a SQL Server. Asegúrese de que la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** esté **activada** para Azure SQL Server. Esta configuración permite al servicio Data Factory leer los datos de Azure SQL Database y escribir datos en la instancia de Azure Synapse Analytics (anteriormente SQL DW). 
+En el caso de SQL Database y Azure Synapse Analytics (anteriormente SQL DW), permita que los servicios de Azure accedan a SQL Server. Asegúrese de que la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** esté **activada** para el servidor. Esta configuración permite al servicio Data Factory leer los datos de Azure SQL Database y escribir datos en la instancia de Azure Synapse Analytics (anteriormente SQL DW). 
 
-Para verificar y activar esta configuración, vaya a Azure SQL Server > Seguridad > Firewalls y redes virtuales, y establezca la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** en **Activada**.
+Para comprobar y activar esta configuración, vaya al servidor > Seguridad > Firewalls y redes virtuales, y establezca la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** en **Activada**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
+
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 1. Vaya a [Azure Portal](https://portal.azure.com). 
 1. A la izquierda del menú de Azure Portal, seleccione **Crear un recurso** > **Análisis** > **Data Factory**. 
@@ -114,7 +115,7 @@ En este paso, creará un servicio vinculado para vincular su base de datos de Az
 
     a. Escriba **AzureSqlDatabaseLinkedService** en **Name** (Nombre).
     
-    b. Seleccione el servidor de Azure SQL Server en **Server name** (Nombre del servidor).
+    b. Seleccione el servidor **nombre de servidor**
     
     c. Seleccione su base de datos de Azure SQL en **Database name** (Nombre de la base de datos). 
     
@@ -135,7 +136,7 @@ En este paso, creará un servicio vinculado para vincular su base de datos de Az
    
     a. Escriba **AzureSqlDWLinkedService** en **Name** (Nombre).
      
-    b. Seleccione el servidor de Azure SQL Server en **Server name** (Nombre del servidor).
+    b. Seleccione el servidor **nombre de servidor**
      
     c. Seleccione su base de datos de Azure SQL en **Database name** (Nombre de la base de datos). 
      
@@ -212,7 +213,8 @@ La canalización **IterateAndCopySQLTables** toma una lista de tablas como pará
 1. En el panel izquierdo, haga clic en el **signo + (más)** y en **Pipeline** (Canalización).
 
     ![Menú New pipeline (Nueva canalización)](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. En la pestaña **General**, especifique **IterateAndCopySQLTables** como nombre. 
+ 
+1. En el panel General, en **Propiedades**, especifique **IterateAndCopySQLTables** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 1. Cambie a la pestaña **Parameters** (Parámetros) y realice las siguientes acciones: 
 

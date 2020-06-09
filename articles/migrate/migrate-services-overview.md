@@ -4,12 +4,12 @@ description: Más información sobre el servicio de Azure Migrate
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: fe6386346282cf182397f6420c541d629ba0aab3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: c0fe4293b4e07152ff41ae946faf703aacc42d89
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768401"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193593"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -23,7 +23,7 @@ Azure Migrate proporciona las características siguientes:
 - **Rango de herramientas**: Rango de herramientas para la evaluación y migración Entre las herramientas se incluyen Azure Migrate: Server Assessment y Azure Migrate: Server Migration. Azure Migrate se integra con otros servicios de Azure y con otras herramientas y ofertas de proveedores de software independientes (ISV).
 - **Evaluación y migración** En el centro de Azure Migrate, puede evaluar y migrar:
     - **Servidores**: evalúe servidores locales y mígrelos a máquinas virtuales de Azure.
-    - **Bases de datos**: Evalúe bases de datos locales y mígrelas a la Azure SQL Database o a una instancia administrada de Azure SQL Database.
+    - **Bases de datos**: Evalúe bases de datos locales y mígrelas a Azure SQL Database o a una instancia administrada de SQL.
     - **Aplicaciones web** Evalúe aplicaciones web locales y mígrelas a Azure App Service mediante Azure App Service Migration Assistant.
     - **Escritorios virtuales**: Evalúe la infraestructura de escritorio virtual (VDI) local y mígrela a Windows Virtual Desktop en Azure.
     - **Data**: Migre grandes cantidades de datos a Azure de manera rápida y rentable gracias a los productos de Azure Data Box.
@@ -36,8 +36,8 @@ El centro de Azure Migrate incluye estas herramientas:
 --- | --- | ---
 **Azure Migrate: Server Assessment** | Evalúe servidores. | Detecte y evalúe máquinas virtuales de VMware locales, máquinas virtuales de Hyper-V y servidores físicos para preparar la migración a Azure.
 **Azure Migrate: Server Migration** | Migre servidores. | Migre máquinas virtuales de VMware locales, máquinas virtuales de Hyper-V, servidores físicos, otras máquinas virtualizadas y máquinas virtuales de nube pública a Azure.
-**Data Migration Assistant** | Evalúe las bases de datos de SQL Server locales para la migración a Azure SQL Database, una instancia administrada de Azure SQL Database o máquinas virtuales de Azure en las que se ejecuta SQL Server. | Data Migration Assistant ayuda a identificar posibles problemas que bloquean la migración. Identifica características no admitidas, nuevas características que puede aprovechar después de la migración y la ruta de acceso correcta para la migración de la base de datos. [Más información](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
-**Azure Database Migration Service** | Migre bases de datos locales a máquinas virtuales de Azure en las que se ejecutan SQL Server, Azure SQL Database o instancias administradas de Azure SQL Database. | [Más información](https://docs.microsoft.com/azure/dms/dms-overview) sobre Database Migration Service.
+**Data Migration Assistant** | Evalúe las bases de datos de SQL Server para la migración a Azure SQL Database, Instancia administrada de Azure SQL o máquinas virtuales de Azure que ejecutan SQL Server. | Data Migration Assistant ayuda a identificar posibles problemas que bloquean la migración. Identifica características no admitidas, nuevas características que puede aprovechar después de la migración y la ruta de acceso correcta para la migración de la base de datos. [Más información](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
+**Azure Database Migration Service** | Migre bases de datos locales a máquinas virtuales de Azure en las que se ejecutan SQL Server, Azure SQL Database o instancias administradas de SQL. | [Más información](https://docs.microsoft.com/azure/dms/dms-overview) sobre Database Migration Service.
 **Movere** | Evalúe servidores. | [Más información](#movere) acerca de Movere.
 **Migration Assistant para aplicaciones web** | Evalúe aplicaciones web locales y mígrelas a Azure. |  Use Azure App Service Migration Assistant para evaluar sitios web locales para la migración a Azure App Service.<br/><br/> Use Migration Assistant para migrar aplicaciones web de .NET y PHP a Azure. [Más información](https://appmigration.microsoft.com/) sobre Azure App Service Migration Assistant.
 **Azure Data Box** | Migre datos sin conexión. | Use los productos de Azure Data Box para trasladar grandes cantidades de datos sin conexión a Azure. [Más información](https://docs.microsoft.com/azure/databox/).

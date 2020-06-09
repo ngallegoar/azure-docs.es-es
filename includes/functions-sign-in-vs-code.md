@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: glenga
-ms.openlocfilehash: 960bbfc82e6cea0b868f93f784103b8ea1743e00
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3fcca11e4e27a8ad291cffeda68d9e32e02a0912
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76964026"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268855"
 ---
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Para poder publicar la aplicación, debe iniciar sesión en Azure. 
 
-1. Si aún no ha iniciado sesión, seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, elija **Iniciar sesión en Azure…** . En caso de no tener ninguna cuenta, seleccione **Crear una cuenta de Azure gratis**. 
+1. Si aún no ha iniciado sesión, seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, elija **Iniciar sesión en Azure…** . Si aún no dispone de una cuenta, puede **[crear una cuenta gratuita de Azure](https://azure.microsoft.com/free/)** . Lo alumnos pueden hacer clic aquí para **[crear una cuenta gratuita de Azure for Students](https://azure.microsoft.com/free/students/)**
 
     ![Respuesta de localhost de la función en el explorador](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 

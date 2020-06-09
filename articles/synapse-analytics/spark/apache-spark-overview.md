@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644666"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140980"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Qué es Apache Spark en Azure Synapse Analytics
 
@@ -39,9 +39,9 @@ Los grupos de Spark en Azure Synapse ofrecen un servicio de Spark totalmente adm
 | Facilidad de uso |Synapse Analytics incluye un cuaderno personalizado derivado de [Nteract](https://nteract.io/). Puede usar estos notebooks para el procesamiento y la visualización de datos interactivos.|
 | API de REST |Spark en Synapse Analytics incluye [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un servidor de trabajos de Spark basado en una API REST para enviar y supervisar trabajos de forma remota. |
 | Compatibilidad con Azure Data Lake Storage Generation 2| Los grupos de Spark en Azure Synapse pueden usar Azure Data Lake Storage Generation 2, así como Blob Storage. Para más información sobre Data Lake Storage, consulte [Introducción a Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
-| Integración con IDE de terceros | Azure Synapse proporciona un complemento IDE para [IntelliJ IDEA de Jetbrains](https://www.jetbrains.com/idea/), que es útil para crear y enviar aplicaciones a un grupo de Spark. |
+| Integración con IDE de terceros | Azure Synapse proporciona un complemento IDE para [IntelliJ IDEA de JetBrains](https://www.jetbrains.com/idea/), que es útil para crear y enviar aplicaciones a un grupo de Spark. |
 | Bibliotecas de Anaconda precargadas |Los grupos de Spark en Azure Synapse vienen con las bibliotecas de Anaconda preinstaladas. [Anaconda](https://docs.continuum.io/anaconda/) ofrece prácticamente 200 bibliotecas para el aprendizaje automático, el análisis de datos, la visualización, etc. |
-| Escalabilidad | Apache Spark en grupos de Azure Synapse puede tener habilitada la escala automática, de modo que los grupos se escalen y reduzcan verticalmente según sea necesario. Además, se pueden cerrar clústeres de Spark sin que se pierdan datos, ya que todos están almacenados en Azure Storage o Data Lake Storage. |
+| Escalabilidad | Apache Spark en los grupos de Azure Synapse puede tener habilitada la escalabilidad automática, de modo que los grupos se escalen agregando o quitando nodos según sea necesario. Además, se pueden cerrar clústeres de Spark sin que se pierdan datos, ya que todos están almacenados en Azure Storage o Data Lake Storage. |
 
 Los grupos de Spark en Azure Synapse incluyen los siguientes componentes que están disponibles en los grupos de forma predeterminada.
 

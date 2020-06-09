@@ -3,17 +3,17 @@ title: Optimización de la inversión en la nube con Azure Cost Management
 description: Este artículo le ayuda a obtener el máximo partido de las inversiones en la nube, reducir los costos y evaluar dónde se invierte su dinero.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f328f17b1d64bc9b8f0be35321aecaba0cb85fa6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791619"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142425"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
@@ -131,14 +131,39 @@ Para más información, consulte [Azure Migrate](https://docs.microsoft.com/azur
 
 Manténgase informado acerca de cómo evolucionan los costos de la organización con el tiempo. Use las técnicas siguientes para comprender y administrar los gastos correctamente.
 
-### <a name="organize-and-tag-your-resources"></a>Organización y etiquetado de los recursos
+### <a name="organize-resources-to-maximize-cost-insights-and-accountability"></a>Organización de los recursos para maximizar la información y responsabilidad de costos
 
-Organice los recursos teniendo en cuenta el costo. Cuando cree las suscripciones y los grupos de recursos, piense en los equipos que son responsables de los costos asociados. Asegúrese de que los informes generados tienen en cuenta la organización. Las suscripciones y los grupos de recursos proporcionan buenos depósitos para organizar y atribuir el gasto en toda la organización. Las etiquetas proporcionan una buena forma de atribuir el costo. Puede usar las etiquetas como un filtro. Y las puede usar para agrupar por ellas al analizar los datos e investigar los costos. Los clientes con contrato Enterprise también pueden crear departamentos y colocar las suscripciones en ellos. La organización basada en el costo de Azure ayuda a que las personas relevantes de la organización sean responsables de la reducción del gasto de su equipo.
+Una estructura organizativa bien planeada para las jerarquías de recursos y de facturación de Azure ayuda a proporcionar una buena comprensión y control sobre los costos a medida que se crea la infraestructura de la nube. Vea el vídeo [Configuración de jerarquías de entidades](https://www.youtube.com/watch?v=n3TLRaYJ1NY) para comprender mejor las herramientas organizativas que están disponibles y cómo aprovecharlas. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
-Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+A medida que evalúe y cree una jerarquía que satisfaga sus necesidades, hágase las siguientes preguntas.
+
+*¿Qué jerarquía de facturación tengo disponible y cuáles son los diferentes ámbitos que puedo usar?*
+
+Identifique la disposición de facturación de la organización mediante la determinación del tipo de oferta de Azure. Los ámbitos disponibles para cada disposición de facturación de Azure se documentan en [Descripción y uso de ámbitos](understand-work-scopes.md).
+
+*Si tengo varios equipos, ¿cómo debo organizar mis suscripciones y grupos de recursos?*
+
+La creación de una suscripción o un grupo de recursos para cada equipo es una práctica común. Pueden ayudar a diferenciar los costos y hacer que los equipos rindan cuentas. Sin embargo, los costos se enlazan a la suscripción o al grupo de recursos.
+
+Si ya tiene equipos con varias suscripciones, considere la posibilidad de agrupar las suscripciones en grupos de administración para analizar todos los costos juntos. Los grupos de administración, las suscripciones y los grupos de recursos forman parte de la jerarquía de RBAC de Azure. Úselos colectivamente para el control de acceso de sus equipos.
+
+Los recursos pueden abarcar varios ámbitos, especialmente cuando se comparten entre varios equipos o cargas de trabajo. Considere la posibilidad de identificar los recursos con etiquetas. Las etiquetas se describen con más detalle en la sección siguiente.
+
+*¿Tengo entornos de desarrollo y producción?*
+
+Considere la posibilidad de crear suscripciones de desarrollo y pruebas para los entornos de desarrollo con el fin de aprovechar los precios reducidos. Si las cargas de trabajo abarcan varios equipos o ámbitos de Azure, puede usar etiquetas para identificarlas.
+
+### <a name="tag-shared-resources"></a>Recursos compartidos de etiquetas
+
+Las etiquetas son una manera eficaz de comprender los costos que abarcan varios equipos y ámbitos de Azure. Por ejemplo, podría tener un recurso como un servidor de correo electrónico que usan muchos equipos. Puede colocar un recurso compartido, como el servidor de correo electrónico, en una suscripción dedicada a recursos compartidos o colocarlo en una suscripción existente. Si lo coloca en una suscripción existente, es posible que el propietario de la suscripción no quiera que su costo se acumule en su equipo cada mes. En este ejemplo, puede usar una etiqueta para identificar el recurso como compartido.
+
+Del mismo modo, también puede tener aplicaciones web o entornos, como pruebas o producción, que usan recursos en varias suscripciones que pertenecen a distintos equipos. Para comprender mejor el costo total de las cargas de trabajo, etiquete los recursos que usan. Cuando las etiquetas se aplican correctamente, puede aplicarlas como filtro en análisis de costos para comprender mejor las tendencias.
+
+Después de planear el etiquetado de recursos, puede configurar una directiva de Azure para aplicar el etiquetado en los recursos. Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
-
 
 ### <a name="use-cost-analysis"></a>Uso del análisis de costos
 
