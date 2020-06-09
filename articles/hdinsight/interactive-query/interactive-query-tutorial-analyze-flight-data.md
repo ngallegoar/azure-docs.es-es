@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313737"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021745"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight
 
@@ -28,7 +28,7 @@ En este tutorial se describen las tareas siguientes:
 > * Creación de una tabla en una base de datos de Azure SQL
 > * Uso de Sqoop para exportar datos a la base de datos de Azure SQL
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Interactive Query en HDInsight. Consulte el artículo [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Interactive Query** como **Tipo de clúster**.
 
@@ -205,7 +205,7 @@ Hay muchas maneras de conectarse a SQL Database y crear una tabla. En los siguie
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Cuando finalice la instalación, use el comando siguiente para conectarse al servidor de SQL Database.
+2. Cuando finalice la instalación, use el comando siguiente para conectarse a SQL Database.
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
@@ -268,7 +268,7 @@ En las secciones anteriores, copió los datos transformados en `/tutorials/fligh
     sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop se conecta a la base de datos que contiene la tabla `delays` y exporta los datos del directorio `/tutorials/flightdelays/output` a dicha tabla.
+    Sqoop se conecta a la base de datos que contiene la tabla `delays` y exporta los datos del directorio `/tutorials/flightdelays/output` a dicha`delays` tabla.
 
 3. Cuando finalice el comando sqoop, use la utilidad tsql para conectarse a la base de datos mediante el siguiente comando:
 
