@@ -6,16 +6,18 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 8ae5bf3790db82d8d96f872d6375e9d3b167bf6d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2b092d0e2c932e3d0c4b2d7880b1243513e45980
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654318"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418090"
 ---
-## <a name="prerequisites"></a>Prerrequisitos
+[Documentación de referencia](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08) | [Ejemplo](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/LanguageUnderstanding/csharp-predict-with-rest/Program.cs)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -43,74 +45,11 @@ Use C# (.NET Core) para consultar el [punto de conexión de predicción](https:/
 
 1. Abra `Program.cs` en el IDE o editor que prefiera. A continuación, sobrescriba `Program.cs` con el código siguiente:
 
-    ```csharp
-    using System;
-    using System.Net.Http;
-    using System.Web;
+    [!code-csharp[Code snippet](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/csharp-predict-with-rest/Program.cs)]
 
-    namespace predict_with_rest
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                // YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
-                var appId = "YOUR-APP-ID";
+1. Reemplace los valores a partir de `YOUR-` por sus propios valores.
 
-                // YOUR-PREDICTION-KEY: 32 character key.
-                var key = "YOUR-PREDICTION-KEY";
-
-                // YOUR-PREDICTION-ENDPOINT: Example is "https://westus.api.cognitive.microsoft.com/"
-                var endpoint = "YOUR-PREDICTION-ENDPOINT";
-
-                // An utterance to test the pizza app.
-                var utterance = "I want two large pepperoni pizzas on thin crust please";
-
-                MakeRequest(key, endpoint, appId, utterance);
-
-                Console.WriteLine("Press ENTER to exit...");
-                Console.ReadLine();
-            }
-
-            static async void MakeRequest(string key, string endpoint, string appId, string utterance)
-            {
-                var client = new HttpClient();
-                var queryString = HttpUtility.ParseQueryString(string.Empty);
-
-                // The request header contains your subscription key
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-                // The "q" parameter contains the utterance to send to LUIS
-                queryString["query"] = utterance;
-
-                // These optional request parameters are set to their default values
-                queryString["verbose"] = "true";
-                queryString["show-all-intents"] = "true";
-                queryString["staging"] = "false";
-                queryString["timezoneOffset"] = "0";
-
-                var endpointUri = String.Format("{0}luis/prediction/v3.0/apps/{1}/slots/production/predict?{2}", endpoint, appId, queryString);
-
-                // Remove these before updating the article.
-                Console.WriteLine("endpoint: " + endpoint);
-                Console.WriteLine("appId: " + appId);
-                Console.WriteLine("queryString: " + queryString);
-                Console.WriteLine("endpointUri: " + endpointUri);
-
-                var response = await client.GetAsync(endpointUri);
-
-                var strResponseContent = await response.Content.ReadAsStringAsync();
-
-                // Display the JSON result from LUIS.
-                Console.WriteLine(strResponseContent.ToString());
-            }
-        }
-    }
-    ```
-
-1. Reemplace los valores `YOUR-APP-ID`, `YOUR-KEY` y `YOUR-ENDPOINT` con su propia clave y punto de conexión de predicción.
-
-    |Information|Propósito|
+    |Información|Propósito|
     |--|--|
     |`YOUR-APP-ID`|El identificador de la aplicación. Se encuentra en el portal de LUIS, en la página Configuración de la aplicación de la aplicación.
     |`YOUR-PREDICTION-KEY`|La clave de predicción de 32 caracteres. Se encuentra en el portal de LUIS, en la página Recursos de Azure de la aplicación.
@@ -303,4 +242,4 @@ Cuando haya terminado con este inicio rápido, elimine la carpeta del proyecto d
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Adición de expresiones y entrenamiento](../get-started-get-model-rest-apis.md)
+> [Incorporación de expresiones y entrenamiento](../get-started-get-model-rest-apis.md)

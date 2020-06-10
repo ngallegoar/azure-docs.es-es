@@ -155,6 +155,8 @@
           displayname: VM
     - name: Administración y configuración
       items:
+        - name: Implementación a escala
+          href: platform/deploy-scale.md
         - name: Permisos de roles y seguridad
           href: platform/roles-permissions-security.md
         - name: Direcciones IP

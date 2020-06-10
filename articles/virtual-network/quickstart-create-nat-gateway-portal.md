@@ -8,18 +8,19 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 38cd4e9e7abdfe2d1548a8388a3f160cf3da1f1a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066384"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341242"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Inicio rápido: Creación de una puerta de enlace de NAT mediante Azure Portal
 
@@ -39,12 +40,12 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroupNAT |
-| **\<nombre-de-red-virtual>** | myVNet          |
-| **\<nombre-de-región>**          | Este de EE. UU. 2      |
-| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0\16          |
-| **\<nombre-de-subred>**          | mySubnet        |
-| **\<intervalo-de-direcciones-de-subred>** | 192.168.0.0\24          |
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Este de EE. UU. 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -97,7 +98,7 @@ En esta sección se detalla cómo crear y configurar los componentes siguientes 
     | Versión de la dirección IP | Seleccione **IPv4**.
     | SKU | Seleccione **Estándar**.
     | Nombre | Escriba **myPublicIP**. |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **myResourceGroupNAT**. |
     | Location | Seleccione **Este de EE. UU. 2**.|
 

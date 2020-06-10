@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a490550bf6652186c80268d4a99bff931897fcd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251892"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344193"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -54,7 +54,7 @@ La versión Estándar de Load Balancer solo admite direcciones IP públicas est�
 
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | Subscription               | Seleccione su suscripción.    |    
+    | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLBAZ* en el cuadro de texto.|
     | Nombre                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Oeste de Europa**.                                        |
@@ -75,12 +75,12 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroupLBAZ (seleccione el grupo de recursos existente) |
-| **\<nombre-de-red-virtual>** | myVNet          |
+| **\<resource-group-name>**  | myResourceGroupLBAZ (seleccione el grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | Oeste de Europa      |
-| **\<espacio-de-direcciones-IPv4>**   | 10.0.0.0\16          |
-| **\<nombre-de-subred>**          | myBackendSubnet        |
-| **\<intervalo-de-direcciones-de-subred>** | 10.0.0.0\24          |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -140,9 +140,6 @@ Cree máquinas virtuales en distintas zonas (zona 1, zona 2 y zona 3) de la regi
     - *myNetworkSecurityGroup*: como nombre del grupo de seguridad de red (firewall).
 5. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
 6. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
-  
-   ![Creación de una máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. Cree una segunda máquina virtual llamada *VM2* en la Zona 2 y una tercera máquina virtual en la Zona 3, con *myVnet* como la red virtual, *myBackendSubnet* como la subred y **myNetworkSecurityGroup* como el grupo de seguridad de red mediante los pasos del 1 al 6.
 
 ### <a name="install-iis-on-vms"></a>Instalación de IIS en las máquinas virtuales

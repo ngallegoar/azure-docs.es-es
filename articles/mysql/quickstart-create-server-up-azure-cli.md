@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067715"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608032"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Inicio rápido: Creación de una instancia de Azure Database for MySQL mediante un sencillo comando de la CLI de Azure: az mysql up (versión preliminar)
 
@@ -22,7 +22,7 @@ ms.locfileid: "80067715"
 
 Azure Database for MySQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de MySQL de alta disponibilidad en la nube. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En este inicio rápido se muestra cómo usar el comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) para crear un servidor Azure Database for MySQL mediante la CLI de Azure. Además de crear el servidor, el comando `az mysql up` crea una base de datos de ejemplo, un usuario raíz en la base de datos, abre el firewall para servicios de Azure y crea reglas de firewall predeterminadas para el equipo cliente. Esto ayuda a acelerar el proceso de desarrollo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -64,7 +64,7 @@ sku-name | GP_Gen5_2 | El nombre de la SKU. Sigue la convención {plan de tarifa
 backup-retention | 7 | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días.
 geo-redundant-backup | Disabled | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no.
 ubicación | westus2 | La ubicación de Azure para el servidor.
-ssl-enforcement | Disabled | Si SSL debe habilitarse o no en este servidor.
+ssl-enforcement | habilitado | Si SSL debe habilitarse o no en este servidor.
 storage-size | 5120 | La capacidad de almacenamiento del servidor (la unidad es megabytes).
 version | 5.7 | La versión principal de MySQL.
 admin-user | Generado por el sistema | El nombre del usuario del inicio de sesión del administrador.

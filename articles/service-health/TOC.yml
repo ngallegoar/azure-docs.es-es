@@ -30,8 +30,6 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Envío de alertas a OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Recuperación de eventos de mantenimiento con REST
-      href: service-health-rest.md
     - name: Configuración de alertas para eventos de mantenimiento del servicio
       href: resource-health-alert-arm-template-guide.md
 - name: Referencia

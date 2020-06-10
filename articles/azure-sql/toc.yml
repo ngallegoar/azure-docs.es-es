@@ -967,8 +967,6 @@
                   items:
                     - name: CLI de la máquina virtual de Azure SQL
                       href: virtual-machines/windows/availability-group-az-cli-configure.md
-                    - name: Plantilla de Azure Portal
-                      href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
                     - name: Plantillas de inicio rápido de Azure
                       href: virtual-machines/windows/availability-group-quickstart-template-configure.md
                     - name: Varias regiones

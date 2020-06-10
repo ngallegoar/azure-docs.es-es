@@ -9,12 +9,12 @@ ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 95a01db7d4d889df4695390bfd0d01510d83a817
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c9e69e221dc21baae96ab814cb9fb0b65ce98126
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648047"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449488"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>¿Qué es Azure Arc para servidores (versión preliminar)?
 
@@ -37,9 +37,10 @@ Azure Arc para servidores (versión preliminar) admite los siguientes escenarios
 
 En Azure Arc para servidores (versión preliminar), solo se admiten determinadas regiones:
 
+- EastUS
 - WestUS2
 - Oeste de Europa
-- WestAsia
+- SoutheastAsia
 
 En la mayoría de los casos, la ubicación que seleccione al crear el script de instalación debe ser la región de Azure más cercana geográficamente a la ubicación de la máquina. Los datos en reposo se almacenarán en la ubicación geográfica de Azure que contiene la región que especifique, lo que también puede afectar a su elección de región si tiene requisitos de residencia de datos. Aunque la región de Azure a la que está conectada la máquina experimente una interrupción, la máquina conectada no se verá afectada, aunque es posible que las operaciones de administración que usan Azure no se puedan completar. Para lograr resistencia en caso de una interrupción regional, si dispone de varias ubicaciones que proporcionan un servicio con redundancia geográfica, es mejor conectar las máquinas de cada ubicación a una región diferente de Azure.
 

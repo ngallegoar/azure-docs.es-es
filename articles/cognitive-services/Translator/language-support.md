@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6339b86166aff008bf17b5096d42629daf6e3401
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996081"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434288"
 ---
 # <a name="language-and-region-support-for-translator"></a>Compatibilidad de idiomas y regiones para Translator
 
@@ -74,10 +74,11 @@ Translator admite los siguientes idiomas para la traducción de texto a texto. L
 |Irlandés | `ga`| Neuronal
 |Italiano|    `it`    |    Neuronal|
 |Japonés|    `ja`    |    Neuronal|
-|Canarés|`kn`| Neuronal
+|Canarés|`kn`| Neuronal|
+|Kazajo |`kk`| Neuronal|
 |Kiswahili|    `sw`    |    Estadística|
-|Klingon|    `tlh`    |    Estadística|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Estadística|
+|Klingon|    `tlh-Latn`    |    Estadística|
+|Klingon (plqaD)|    `tlh-Piqd`    |    Estadística|
 |Coreano    |`ko`    |    Neuronal|
 |Letón|    `lv`    |    Neuronal|
 |Lituano|    `lt`    |    Neuronal|
@@ -130,20 +131,20 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Chino tradicional `Hant`|
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Latino `Latn` |
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Chino simplificado `Hans` |
-| Gujarati | `gu`  | Guyaratí `Gujr` | --> | Latino `Latn` |
+| Gujarati | `gu`  | Guyaratí `Gujr` | <--> | Latino `Latn` |
 | Hebreo | `he` | Hebreo `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Japonés | `ja` | Japonés `Jpan` | <--> | Latino `Latn` |
-| Canarés | `kn` | Canarés `Knda` | --> | Latino `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
-| Maratí | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
+| Canarés | `kn` | Canarés `Knda` | <--> | Latino `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
+| Maratí | `mr` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latino `Latn` |
 | Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
-| Tailandés | `th` | Tailandés `Thai` | --> | Latino `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latino `Latn` |
+| Tailandés | `th` | Tailandés `Thai` | <--> | Latino `Latn` |
 
 ## <a name="dictionary"></a>Diccionario
 
@@ -177,7 +178,7 @@ El diccionario admite los siguientes idiomas desde o hacia el inglés con los m�
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
 | Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
+| Klingon      | `tlh-Latn`          |
 | Coreano      | `ko`          |
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
