@@ -3,17 +3,17 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997135"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554552"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -152,7 +152,7 @@ Las vistas amortizadas y los costos reales de las instancias reservadas de los �
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Análisis de los costos en el análisis de costos
 
-Los asociados con acceso a los ámbitos de facturación en el inquilino del asociado pueden explorar y analizar los costos facturados del análisis de costos de los clientes y centrarse en un cliente o una factura específicos. En la vista de [análisis de costos](quick-acm-cost-analysis.md), también puede [guardar las vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) y exportar datos a archivos [CSV y PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Los asociados con acceso a los ámbitos de facturación en el inquilino del asociado pueden explorar y analizar los costos facturados del análisis de costos de los clientes y centrarse en un cliente o una factura específicos. En la vista de [análisis de costos](quick-acm-cost-analysis.md), también puede [guardar las vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) y exportar datos a archivos [CSV y PNG](quick-acm-cost-analysis.md#download-usage-data).
 
 Los usuarios de RBAC con acceso a la suscripción en el inquilino del cliente también pueden analizar los costos comerciales de las suscripciones en el inquilino del cliente, guardar vistas y exportar datos a archivos CSV y PNG.
 

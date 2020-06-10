@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2320f8a005531039a386af9192157c3091f3ac
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4146e6de2ef23f7e12ee6b59c40045f8a678dc13
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221270"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509192"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-anyone-home-crm"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Anyone Home CRM
 
@@ -88,7 +88,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.anyonehome.com/webroot/files/simplesamlphp/www/module.php/saml/sp/saml2-acs.php/<Anyone_Home_Provided_Unique_Value>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Home CRM](mailto:lightson@anyonehome.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Home CRM](mailto:support@anyonehome.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
@@ -126,11 +126,11 @@ En esta sección, va a permitir que B.Simon acceda a Anyone Home CRM mediante el
 
 ## <a name="configure-anyone-home-crm-sso"></a>Configuración del inicio de sesión único de Anyone Home CRM
 
-Para configurar el inicio de sesión único en **Anyone Home CRM**, debe enviar el valor de **Dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de Anyone Home CRM](mailto:lightson@anyonehome.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Anyone Home CRM**, debe enviar el valor de **Dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de Anyone Home CRM](mailto:support@anyonehome.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-anyone-home-crm-test-user"></a>Creación de un usuario de prueba de Anyone Home CRM
 
-En esta sección, creará un usuario llamado B.Simon en Anyone Home CRM. Trabaje con el  [equipo de soporte técnico de Anyone Home CRM](mailto:lightson@anyonehome.com) para agregar los usuarios a la plataforma de Anyone Home CRM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B.Simon en Anyone Home CRM. Trabaje con el  [equipo de soporte técnico de Anyone Home CRM](mailto:support@anyonehome.com) para agregar los usuarios a la plataforma de Anyone Home CRM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
