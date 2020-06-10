@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800803"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295633"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -58,6 +58,9 @@ También puede realizar un seguimiento del uso en un nivel más granular registr
 Los GUID deben estar registrados en el Centro de partners para permitir la atribución de uso de clientes.
 
 Después de agregar un GUID a la plantilla o en el agente de usuario, y registrarlo en el Centro de partners, se realizará un seguimiento de las futuras implementaciones.
+
+> [!NOTE]
+> Si va a publicar la oferta de [Aplicación de Azure](./partner-center-portal/create-new-azure-apps-offer.md) en Azure Marketplace a través del Centro de partners, cualquier GUID nuevo que se use dentro de la plantilla se registrará de forma automática en el perfil del Centro de partners al cargar la plantilla.  
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
 
@@ -238,7 +241,7 @@ Elija Tracked Templates (Plantillas en seguimiento) en la lista desplegable de P
 
 ## <a name="notify-your-customers"></a>Notificación a los clientes
 
-Los asociados deben informar a sus clientes de las implementaciones que usan atribución de uso del cliente. Microsoft notifica al asociado el uso de Azure que está asociado con estas implementaciones. Los ejemplos siguientes incluyen contenido que puede usar para notificar a los clientes estas implementaciones. En los ejemplos, reemplace \<PARTNER > por el nombre de su empresa. Los asociados deben asegurarse de que la notificación es compatible con sus directivas de privacidad y recopilación de datos, incluyendo las opciones que permiten excluir a los clientes del seguimiento.
+Los asociados deben informar a sus clientes de las implementaciones que usan atribución de uso del cliente. Microsoft notifica al asociado el uso de Azure que está asociado con estas implementaciones. Los ejemplos siguientes incluyen contenido que puede usar para notificar a los clientes estas implementaciones. En los ejemplos, reemplace \<PARTNER> por el nombre de la empresa. Los asociados deben asegurarse de que la notificación es compatible con sus directivas de privacidad y recopilación de datos, incluyendo las opciones que permiten excluir a los clientes del seguimiento.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificación de implementaciones de plantillas de Resource Manager
 
@@ -246,7 +249,7 @@ Al implementar esta plantilla, Microsoft puede identificar la instalación del s
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificación para las implementaciones de SDK o API
 
-Al implementar el software \<PARTNER>, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en https://www.microsoft.com/trustcenter, y se rigen por ellas.
+Al implementar el software de \<PARTNER>, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en https://www.microsoft.com/trustcenter, y se rigen por ellas.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

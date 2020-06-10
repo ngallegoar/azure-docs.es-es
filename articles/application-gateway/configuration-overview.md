@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856060"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996404"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -25,7 +25,7 @@ Esta imagen muestra una aplicación que tiene tres clientes de escucha. Los dos 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Red virtual de Azure y subred dedicada
 
@@ -224,9 +224,7 @@ Cuando se crea una regla, puede elegir entre [*básica* y *basada en ruta de acc
 
 #### <a name="order-of-processing-rules"></a>Orden de procesamiento de las reglas
 
-Para la SKU v1, la coincidencia de patrones de las solicitudes entrantes se procesa en el orden en que se enumeran las rutas en la asignación de rutas de acceso de la dirección URL de la regla basada en ruta de acceso. Si una solicitud coincide con el patrón en dos o más rutas de la asignación de rutas, se selecciona la primera ruta de la lista. Y la solicitud se reenvía al back-end que está asociado con esa ruta de acceso.
-
-En el caso de la SKU v2, una coincidencia exacta tiene mayor prioridad que el orden de las rutas en la asignación de rutas de acceso URL. Si una solicitud coincide con el patrón en dos o más rutas de acceso, la solicitud se reenvía al back-end que está asociado con la ruta de acceso que coincide exactamente con la solicitud. Si la ruta de acceso de la solicitud entrante no coincide exactamente con ninguna ruta de acceso de la asignación, la coincidencia de patrones de la solicitud se procesa en la lista de pedidos de asignación de rutas de acceso de la regla basada en ruta de acceso.
+Para las SKU v1 y v2, la coincidencia de patrones de las solicitudes entrantes se procesa en el orden en que se enumeran las rutas en la asignación de rutas de acceso de la dirección URL de la regla basada en ruta de acceso. Si una solicitud coincide con el patrón en dos o más rutas de la asignación de rutas, se selecciona la primera ruta de la lista. Y la solicitud se reenvía al back-end que está asociado con esa ruta de acceso.
 
 ### <a name="associated-listener"></a>Cliente de escucha asociado
 

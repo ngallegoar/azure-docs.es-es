@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f8e1be92d77dc928389dffb61da52f2db4c804d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655245"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142068"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configuración de un dominio personalizado en Azure Static Web Apps (versión preliminar)
 
 De forma predeterminada, Azure Static Web Apps proporciona un nombre de dominio generado automáticamente. En este artículo se muestra cómo asignar un nombre de dominio personalizado a una aplicación de Azure Static Web Apps.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un nombre de dominio adquirido
 - Acceso a las propiedades de configuración de DNS para el dominio

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 20a2066dc0228fe9c2fee09387d96bf6aafeb32f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0573456e6f7c5adc2b1efbce8dd12611fae788cd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79531981"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266277"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MariaDB proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
@@ -77,7 +77,7 @@ Las **notificaciones de mantenimiento planeado** le permiten recibir alertas de 
 Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Las notificaciones de mantenimiento planeado se encuentran actualmente en versión preliminar
+> Actualmente, las notificaciones de mantenimiento planeado están disponibles en versión preliminar para todas las regiones **menos** Centro-oeste de EE. UU.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

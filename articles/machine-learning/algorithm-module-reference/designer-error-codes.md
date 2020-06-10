@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833820"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167254"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Excepciones y códigos de error para el diseñador (versión preliminar)
 
@@ -1106,7 +1106,7 @@ Consulte los siguientes artículos para obtener ayuda con las consultas de Hive 
 
  Si la excepción del módulo le informa de un mensaje generado por SQL, tome medidas según el error notificado. Por ejemplo, los mensajes de error a veces incluyen instrucciones específicas sobre el posible error:
 + *La columna no existe o falta la base de datos*, que indica que tal vez escribió de forma incorrecta el nombre de una columna. Si está seguro de que nombre de columna es correcto, intente usar corchetes o comillas para delimitar el identificador de columna.
-+ *Error lógico de SQL cerca de una \<palabra clave de SQL\>* , que indica que tal vez hay un error de sintaxis antes de la palabra clave especificada.
++ *Error lógico de SQL cerca de \<SQL keyword\>* , lo que indica que es posible que haya un error de sintaxis antes de la palabra clave especificada.
 
   
 |Mensajes de excepción|
@@ -1500,7 +1500,7 @@ Resolución:
 
 
 ## <a name="error-0159"></a>Error 0159
- Se produce una excepción si el directorio del modelo de módulo pasado no es válido. 
+ Se produce una excepción si el directorio del modelo de módulo no es válido. 
 
 |Mensajes de excepción|
 |------------------------------------------------------------|

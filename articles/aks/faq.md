@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677791"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300933"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -75,11 +75,13 @@ Mientras trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede
 * Especificar otra suscripción para el grupo de recursos del nodo.
 * Cambiar el nombre del grupo de recursos del nodo una vez se haya creado el clúster.
 * Especificar los nombres de los recursos administrados del grupo de recursos del nodo.
-* Modificar o eliminar las etiquetas de los recursos administrados del grupo de recursos del nodo. (Puede ver la información adicional en la sección siguiente).
+* Modificar o eliminar las etiquetas creadas en Azure de los recursos administrados del grupo de recursos del nodo. (Puede ver la información adicional en la sección siguiente).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>¿Puedo modificar etiquetas y otras propiedades de los recursos de AKS en el grupo de recursos del nodo?
 
-Si modifica o elimina etiquetas creadas por Azure y otras propiedades de recursos en el grupo de recursos del nodo, es posible que obtenga resultados inesperados, como errores de escalado y actualización. AKS le permite crear y modificar las etiquetas personalizadas. Es posible que quiera crear o modificar etiquetas personalizadas, por ejemplo, para asignar un centro de costos o una unidad de negocio. Si modifica los recursos del grupo de recursos del nodo en el clúster de AKS, interrumpirá el objetivo de nivel de servicio (SLO). Para obtener más información, consulte [¿AKS ofrece un contrato de nivel de servicio?](#does-aks-offer-a-service-level-agreement)
+Si modifica o elimina etiquetas creadas por Azure y otras propiedades de recursos en el grupo de recursos del nodo, es posible que obtenga resultados inesperados, como errores de escalado y actualización. AKS permite crear y modificar las etiquetas personalizadas creadas por los usuarios finales. Es posible que quiera crear o modificar etiquetas personalizadas, por ejemplo, para asignar un centro de costos o una unidad de negocio. Esto se puede lograr mediante la creación de directivas de Azure con un ámbito en el grupo de recursos administrado.
+
+Pero la modificación de las **etiquetas creadas por Azure** en los recursos del grupo de recursos del nodo en el clúster de AKS es una acción no admitida que interrumpe el objetivo de nivel de servicio (SLO). Para obtener más información, consulte [¿AKS ofrece un contrato de nivel de servicio?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>¿Qué controladores de admisión de Kubernetes admite AKS? ¿Se pueden agregar o eliminar los controladores de admisión?
 

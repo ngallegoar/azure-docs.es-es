@@ -1,7 +1,7 @@
 ---
-title: 'Procedimientos: Agregar una corrección de un paso a un comando personalizado (versión preliminar) - Servicio de voz'
+title: 'Adición de una corrección en un paso a Comandos personalizados (versión preliminar): servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: En este artículo, se explica cómo implementar correcciones de un paso para un comando en Comandos personalizados.
+description: Obtenga información sobre cómo agregar una corrección en un paso para una aplicación de Comandos personalizados (versión preliminar).
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -10,63 +10,67 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
-ms.openlocfilehash: f43c28d314cb8a0211496664cd20d2c380e4d5b0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 05f63ba4e70f649df33905f1e92fb1fab866a86c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858278"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310434"
 ---
-# <a name="how-to-add-a-one-step-correction-to-a-custom-command-preview"></a>Instrucciones: Agregar una corrección de un paso a un comando personalizado (versión preliminar)
+# <a name="add-a-one-step-correction-to-a-custom-command-in-a-custom-commands-preview-application"></a>Adición de una corrección en un paso a un comando personalizado en una aplicación de Comandos personalizados (versión preliminar)
 
-En este artículo, aprenderá a agregar una confirmación en un paso a un comando.
+En este artículo, aprenderá a agregar una confirmación en un paso a un comando en una aplicación de Comandos personalizados (versión preliminar).
 
-La corrección en un paso se usa para actualizar un comando que se acaba de completar. Es decir, si acaba de configurar una alarma, puede cambiar de opinión y actualizar la hora establecida. A continuación se incluye un ejemplo de este caso.
+La corrección en un paso se usa para actualizar un comando que se acaba de completar. Al agregar una corrección en un paso a un comando de alarma, puede cambiar de opinión y actualizar la hora de la alarma. Por ejemplo:
 
 - Entrada: Establecer alarma para mañana a mediodía
 - Salida: Ok, alarm set for 2020-05-02 12:00:00 (De acuerdo, alarma establecida para el 05/02/2020 a las 12:00:00)
 - Entrada: No, mañana a las 13:00
 - Salida: Aceptar
 
-Un escenario real, que suele ir acompañado de la ejecución de una acción por parte del cliente como resultado de la aplicación de un comando. En este artículo se da por sentado que, como desarrollador, tiene un mecanismo para actualizar la alarma en la aplicación del back-end.
+> [!NOTE]
+> En un escenario real, el cliente ejecuta una acción como resultado de la finalización del comando. En este artículo se supone que tiene un mecanismo para actualizar la alarma en la aplicación de back-end.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Debe haber completado los pasos descritos en los siguientes artículos:
+Complete los pasos descritos en los artículos siguientes:
 > [!div class="checklist"]
 
-> * [Inicio rápido: Creación de un comando personalizado (versión preliminar)](./quickstart-custom-speech-commands-create-new.md)
-> * [Inicio rápido: Creación de un comando personalizado con parámetros (versión preliminar)](./quickstart-custom-speech-commands-create-parameters.md)
-> * [Cómo: Adición de una confirmación a un comando personalizado (versión preliminar)](./how-to-custom-speech-commands-confirmations.md)
+> * [Inicio rápido: Creación de una aplicación de Comandos personalizados (versión preliminar)](./quickstart-custom-speech-commands-create-new.md)
+> * [Inicio rápido: Creación de una aplicación de Comandos personalizados (versión preliminar) con parámetros](./quickstart-custom-speech-commands-create-parameters.md)
+> * [Cómo: agregar confirmaciones a un comando en una aplicación de Comandos personalizados (versión preliminar)](./how-to-custom-speech-commands-confirmations.md)
 
+## <a name="add-interaction-rules-for-one-step-correction"></a>Incorporación de reglas de interacción para la corrección en un paso
 
-## <a name="add-interaction-rules-for-one-step-correction"></a>Incorporación de reglas de interacción para la corrección en un paso 
+Para demostrar la corrección en un paso, amplíe el comando **SetAlarm** creado en el [Procedimiento para agregar una confirmación a un comando en Comandos personalizados (versión preliminar)](./how-to-custom-speech-commands-confirmations.md).
 
-Para demostrar la corrección en un paso, vamos a ampliar el comando **SetAlarm** creado en el [Procedimiento: Adición de una confirmación a un comando personalizado (versión preliminar)](./how-to-custom-speech-commands-confirmations.md).
-1. Agregue una regla de interacción para actualizar la alarma establecida previamente. 
+1. Agregue una regla de interacción para actualizar el comando **SetAlarm**.
 
-    Esta regla pedirá al usuario que confirme la fecha y la hora de la alarma y espera una confirmación (sí/no) para el siguiente turno.
+    Esta regla le pide al usuario que confirme la fecha y la hora de la alarma, y espera una confirmación (sí/no) para el turno siguiente.
 
    | Configuración               | Valor sugerido                                                  | Descripción                                        |
    | --------------------- | ---------------------------------------------------------------- | -------------------------------------------------- |
-   | Nombre de la regla             | Actualizar alarma anterior                                            | Nombre que describe el propósito de la regla.          |
-   | Condiciones            | Previous command needs to be updated & Required Parameter -> DateTime (Es necesario actualizar el comando anterior y se requiere el parámetro DateTime)                | Condiciones que determinan cuándo se puede ejecutar la regla.    |   
-   | Acciones               | Send speech response -> Simple editor -> Updating previous alarm to {DateTime} (Enviar respuesta de voz -> Editor sencillo -> Actualizando la alarma anterior a {DateTime})      | Acción que se realizará si las condiciones de la regla tienen el valor true |
-   | Estado posterior a la ejecución | Command completed (Comando completado)        | Estado del usuario después del turno                   |
+   | **Nombre de la regla**             | **Actualizar alarma anterior**                                            | Nombre que describe el propósito de la regla.          |
+   | **Condiciones**            | **Es necesario actualizar el comando anterior y se requiere el parámetro DateTime**                | Condiciones que determinan cuándo se puede ejecutar la regla.    |   
+   | **Acciones**               | **Enviar respuesta de voz -> Editor sencillo -> Actualizar la alarma anterior a {DateTime}**      | Acción que se realizará si las condiciones de la regla tienen el valor true |
+   | **Estado posterior a la ejecución** | **Comando completado**        | Estado del usuario después del turno                   |
 
-1. Mueva la regla que acaba de crear a la parte superior de las reglas de interacción (seleccione la regla en el panel y haga clic en la flecha arriba que aparece bajo el icono `...` en la parte superior del panel central).
+1. En el panel, seleccione la regla de interacción que acaba de crear. Seleccione el botón de puntos suspensivos ( **...** ) de la esquina superior izquierda del panel. Después, use la flecha **Subir** para desplazar la regla a la parte superior de la lista **Reglas de interacción**.
    > [!div class="mx-imgBorder"]
-   > ![Agregue una validación de intervalo](media/custom-speech-commands/one-step-correction-rules.png)
-    > .[!NOTE]
-    > En una aplicación real, en la sección Acciones de esta regla también enviará una actividad al cliente o llamará a un punto de conexión HTTP para actualizar la alarma en el sistema.
+   > ![Agregue una validación de intervalo](media/custom-speech-commands/one-step-correction-rules.png).
+
+    > [!NOTE]
+    > En una aplicación del mundo real, use la sección **Acciones** para devolver una actividad al cliente o llamar a un punto de conexión HTTP para actualizar la alarma en el sistema.
 
 ## <a name="try-it-out"></a>Prueba
 
-Seleccione `Train`, espere a que se complete el entrenamiento y elija `Test`.
+1. Seleccione **Entrenar**.
 
-- Entrada: Establecer alarma para mañana a mediodía
-- Salida: Are you sure you want to set an alarm for 2020-05-02 12:00:00 (¿Seguro que desea establecer una alarma para el 05/02/2020 a las 12:00:00?)
-- Entrada: Sí
-- Salida: Ok, alarm set for 2020-05-02 12:00:00 (De acuerdo, alarma establecida para el 05/02/2020 a las 12:00:00)
-- Entrada: No, tomorrow at 2pm (No, mañana a las 14:00)
-- Salida: Updating previous alarm to 2020-05-02 14:00:00 (Actualizando la alarma anterior al 05/02/2020 a las 14:00:00)
+1. Una vez que haya finalizado el entrenamiento, seleccione **Probar** y, después, pruebe estas interacciones:
+
+   - Entrada: Establecer alarma para mañana a mediodía
+   - Salida: Are you sure you want to set an alarm for 2020-05-02 12:00:00 (¿Seguro que desea establecer una alarma para el 05/02/2020 a las 12:00:00?)
+   - Entrada: Sí
+   - Salida: Ok, alarm set for 2020-05-02 12:00:00 (De acuerdo, alarma establecida para el 05/02/2020 a las 12:00:00)
+   - Entrada: No, tomorrow at 2pm (No, mañana a las 14:00)
+   - Salida: Updating previous alarm to 2020-05-02 14:00:00 (Actualizando la alarma anterior al 05/02/2020 a las 14:00:00)

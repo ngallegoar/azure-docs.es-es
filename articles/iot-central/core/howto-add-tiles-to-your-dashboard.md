@@ -1,102 +1,85 @@
 ---
-title: Adición de iconos al panel | Microsoft Docs
-description: Aprenda como generador a configurar el panel de la aplicación predeterminado de Azure IoT Central.
-author: mavoge
-ms.author: mavoge
-ms.date: 10/17/2019
+title: Adición de iconos al panel de Azure IoT Central | Microsoft Docs
+description: Como creador, aprenda a configurar el panel de la aplicación predeterminado de Azure IoT Central con iconos.
+author: Haley-Rowland
+ms.author: harowl
+ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 1110f76a792a7e3955d5fd32e01ac1566d467151
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659102"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022911"
 ---
 # <a name="configure-the-application-dashboard"></a>Configuración del panel de la aplicación
 
-El **panel** es la página que se carga cuando los usuarios que tienen acceso a la aplicación van a la dirección URL de la aplicación. Si ha creado una aplicación a partir de una de las **plantillas de aplicación**, la aplicación tendrá un panel predefinido para iniciar. Si se ha creado la aplicación a partir de una plantilla **Aplicación personalizada**, el panel mostrará algunas sugerencias sobre cómo empezar.
+El **panel** es la primera página que ve cuando se conecta a una aplicación de IoT Central. Si crea la aplicación a partir de una de las [plantillas de aplicación](./concepts-app-templates.md) específicas del sector, tiene un panel predefinido como punto de partida. Si crea la aplicación a partir de una [plantilla de aplicación](./concepts-app-templates.md) personalizada, en el panel se muestran algunas sugerencias para empezar.
 
-> [!NOTE]
+> [!TIP]
 > Los usuarios pueden [crear varios paneles](howto-create-personal-dashboards.md) además del panel de aplicación predeterminado. Estos paneles pueden ser personales solo para el usuario o se pueden compartir entre todos los usuarios de la aplicación.  
 
 ## <a name="add-tiles"></a>Agregar iconos
 
-En la captura de pantalla siguiente se muestra el panel en una aplicación creada a partir de la plantilla **Aplicación personalizada**. Para personalizar el panel predeterminado para la aplicación, seleccione **Editar** en la parte superior izquierda de la página.
+En la captura de pantalla siguiente se muestra el panel en una aplicación creada a partir de la plantilla **Aplicación personalizada**. Para personalizar el panel actual, seleccione **Editar**; para agregar un panel personal o compartido personalizado, seleccione **Nuevo**:
 
-> [!div class="mx-imgBorder"]
-> ![Panel para aplicaciones basadas en la plantilla "Contoso de ejemplo"](media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png)
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
 
-Si selecciona **Editar**, se abrirá el panel de la biblioteca de paneles. La biblioteca contiene iconos y paneles primitivos que puede usar para personalizar el panel.
+Después de seleccionar **Editar** o **Nuevo**, el panel se encuentra en modo de *edición*. Puede usar las herramientas del panel **Editar panel** para agregar, personalizar y quitar iconos del panel. Por ejemplo, para agregar un icono **Telemetría** a fin de mostrar la temperatura actual detectada por uno o más dispositivos:
 
-> [!div class="mx-imgBorder"]
-> ![Biblioteca de paneles](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
+1. En el panel **Editar panel**, seleccione un **grupo de dispositivos**.
+1. Seleccione uno o más dispositivos en la lista desplegable **Dispositivos** para mostrarlos en el icono. Ahora verá la telemetría, las propiedades y los comandos disponibles de los dispositivos.
+1. Seleccione **Temperatura** en la sección de telemetría y, después, seleccione **Agregar icono**. Ahora el icono se muestra en el panel, donde puede cambiar la visualización y el tamaño, y configurarlo:
 
-Por ejemplo, puede agregar un icono **Telemetría** para la temperatura actual del dispositivo. Para ello:
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adición de un icono de telemetría de temperatura al panel":::
 
-1. Seleccione una **Plantilla de dispositivo**.
-1. Seleccione el dispositivo que quiera ver en un icono del panel en **Dispositivos**. Verá una lista de las propiedades del dispositivo que se usan en el icono.
-1. Para crear el icono en el panel, haga clic en **Temperatura** y arrástrelo al área del panel. También puede hacer clic en la casilla situada junto a **Temperatura** y en **Agregar icono**. En la captura de pantalla siguiente se muestra cómo seleccionar una plantilla de dispositivo y una instancia de dispositivo y luego crear un icono Telemetría de temperatura en el panel.
-1. Seleccione **Guardar** en la parte superior izquierda para guardar el icono en el panel.
+Cuando haya terminado de agregar y personalizar los iconos en el panel, seleccione **Guardar**.
 
-> [!div class="mx-imgBorder"]
-> ![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](media/howto-add-tiles-to-your-dashboard/device-details.png)
+## <a name="customize-tiles"></a>Personalización de iconos
 
-Ahora, cuando un operador visualice el panel de la aplicación predeterminado, verá el nuevo icono con la **Temperatura** para el dispositivo. Cada icono tiene un grafo o un gráfico (entre otras opciones) preseleccionado que se mostrará al crear el icono. Sin embargo, los usuarios pueden optar por editar y cambiar esta visualización.  
+Para personalizar un icono en el panel, el panel debe estar en modo de edición. Las opciones de personalización disponibles dependen del [tipo de icono](#tile-types):
 
-> [!div class="mx-imgBorder"]
-> ![Pestaña "Panel" en la que se muestran la configuración y las propiedades del icono](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
+* El icono de regla de un icono permite cambiar la visualización. Las visualizaciones incluyen gráficos de líneas, últimos valores conocidos y mapas térmicos.
 
-## <a name="edit-tiles"></a>Edición de iconos
+* El icono cuadrado permite cambiar el tamaño del icono.
 
-Para editar un icono en el panel, haga clic primero en **Editar** en la parte superior izquierda de la página, que abrirá el modo de edición para el panel y todos sus iconos.  
-
-> [!div class="mx-imgBorder"]
-> ![Pantalla del panel con el modo de edición activado para un icono seleccionado](media/howto-add-tiles-to-your-dashboard/edit-mode.png)
-
-A continuación, haga clic en el icono de **engranaje** en la esquina superior derecha del icono que desea editar. Aquí puede editar aspectos del icono, incluido su título, su visualización, agregación, etc.
-
-> [!div class="mx-imgBorder"]
-> ![Lista desplegable para la configuración de la agregación de iconos](media/howto-add-tiles-to-your-dashboard/aggregation-settings.png)
-
-También puede cambiar la visualización del gráfico haciendo clic en el icono de **regla** en el icono.
-
-> [!div class="mx-imgBorder"]
-> ![Lista desplegable para la configuración de la visualización de iconos](media/howto-add-tiles-to-your-dashboard/visualization-settings.png)
+* El icono de engranaje permite configurar la visualización. Por ejemplo, para una visualización de gráfico de líneas puede elegir mostrar la leyenda y los ejes, y el intervalo de tiempo que se va a trazar.
 
 ## <a name="tile-types"></a>Tipos de iconos
 
-En la tabla siguiente se resume el uso de iconos en Azure IoT Central:
+En la tabla siguiente se describen los distintos tipos de icono que puede agregar a un panel:
 
-| Icono | Panel | Descripción
-| ----------- | ------- | ------- |
-| Contenido | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos admitidos de Markdown son iconos clicables que muestran texto para el encabezado y la descripción. También puede usar este icono como icono de vínculo para que los usuarios puedan navegar a una dirección URL relacionada con la aplicación.|
-| Imagen | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos de imagen muestran una imagen personalizada y se puede hacer clic en ellos. Use un icono de imagen para agregar gráficos a un panel y, opcionalmente, permitir a los usuarios navegar a una dirección URL que es relevante para la aplicación.|
-| Etiqueta | Paneles de aplicación |Los iconos de etiqueta muestran texto personalizado en un panel. Puede elegir el tamaño del texto. Use un icono de etiqueta para agregar información relevante al panel como, por ejemplo, descripciones, detalles de contacto o ayuda.|
-| Map | Paneles de aplicación y paneles de dispositivo |Los iconos de mapa muestran la ubicación de un dispositivo en un mapa. También puede mostrar hasta cien puntos del historial de ubicación de un dispositivo. Por ejemplo, puede mostrar una ruta muestreada en la que un dispositivo ha estado en la última semana.|
-| Gráfico de líneas | Paneles de aplicación y paneles de dispositivo |Los iconos de gráfico de líneas muestran un gráfico de medidas agregadas para un dispositivo durante un período de tiempo. Por ejemplo, puede mostrar un gráfico de líneas que muestre la temperatura y presión medias en un dispositivo durante la última hora.|
-| Gráfico de barras | Paneles de aplicación y paneles de dispositivo |Los iconos de gráfico de barras muestran un gráfico de mediciones agregadas para un dispositivo durante un período de tiempo. Por ejemplo, puede mostrar un gráfico de barras que muestre la temperatura y presión medias en un dispositivo durante la última hora.|
-| Gráfico circular | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos de gráfico circular muestran un gráfico de mediciones agregadas para un dispositivo durante un período de tiempo.|
-| Mapa térmico | Paneles de conjunto de dispositivos y paneles de aplicación |Los iconos del Mapa térmico muestran información sobre el dispositivo, representado como colores.|
-| Historial de eventos | Paneles de aplicación y paneles de dispositivo |Los iconos del Historial de eventos muestran los eventos ocurridos en un dispositivo durante un período de tiempo. Por ejemplo, puede usarlo para mostrar todos los cambios de temperatura que se han producido en un dispositivo durante la última hora.|
-| Historial de los estados | Paneles de aplicación y paneles de dispositivo |Los iconos del historial de estado muestran los valores de las medidas para un período de tiempo. Por ejemplo, puede usarlo para mostrar los valores de temperatura de un dispositivo durante la última hora.|
-| KPI | Paneles de aplicación y paneles de dispositivo | Los iconos de KPI muestran una telemetría o medida de evento agregadas para un período de tiempo. Por ejemplo, puede usarlo para mostrar la temperatura máxima alcanzada para un dispositivo durante la última hora.|
-| Último valor conocido | Paneles de aplicación y paneles de dispositivo |Los iconos de último valor conocido muestran el último valor de una telemetría o medida de estado. Por ejemplo, puede usar este icono para mostrar las medidas más recientes de temperatura, presión y humedad de un dispositivo. |
-| Propiedad | Paneles de aplicación y paneles de dispositivo | Los iconos de propiedades muestran el valor actual de las propiedades y las propiedades de la nube de un dispositivo. Por ejemplo, se puede usar este icono para mostrar las propiedades del dispositivo, como el fabricante o la versión de firmware de un dispositivo. |
+| Icono             | Descripción |
+| ---------------- | ----------- |
+| Markdown         | Los iconos de Markdown son iconos interactivos con un encabezado y texto de descripción a los que se les aplica formato mediante Markdown. La dirección URL puede ser un vínculo relativo a otra página de la aplicación, o bien un vínculo absoluto a un sitio externo.|
+| Imagen            | Los iconos de imagen muestran una imagen personalizada y se puede hacer clic en ellos. La dirección URL puede ser un vínculo relativo a otra página de la aplicación, o bien un vínculo absoluto a un sitio externo.|
+| Etiqueta            | Los iconos de etiqueta muestran texto personalizado en un panel. Puede elegir el tamaño del texto. Use un icono de etiqueta para agregar información relevante al panel como, por ejemplo, descripciones, detalles de contacto o ayuda.|
+| Count            | Los iconos de recuento muestran el número de dispositivos de un grupo de dispositivos.|
+| Map              | Los iconos de mapa muestran la ubicación de uno o varios dispositivos en un mapa. También puede mostrar hasta cien puntos del historial de ubicación de un dispositivo. Por ejemplo, puede mostrar una ruta muestreada de la ubicación del dispositivo durante la última semana.|
+| KPI              |  Los mosaicos de KPI muestran valores de telemetría agregados para uno o más dispositivos durante un período de tiempo. Por ejemplo, se pueden usar para mostrar la temperatura máxima y la presión alcanzadas para uno o varios dispositivos durante la última hora.|
+| Gráfico de líneas       | Los iconos de gráfico de líneas representan uno o varios valores de telemetría agregados para uno o más dispositivos durante un período de tiempo. Por ejemplo, puede mostrar un gráfico de líneas que trace la temperatura y presión medias de uno o varios dispositivos durante la última hora.|
+| Gráfico de barras        | Los iconos de gráfico de barras representan uno o varios valores de telemetría agregados para uno o más dispositivos durante un período de tiempo. Por ejemplo, puede mostrar un gráfico de barras que muestre la temperatura y presión medias de uno o varios dispositivos durante la última hora.|
+| Gráfico circular        | Los iconos de gráfico circular muestran uno o varios valores de telemetría agregados para uno o más dispositivos durante un período de tiempo.|
+| Mapa térmico         | Los iconos de mapa térmico muestran información sobre uno o varios dispositivos, representada en forma de colores.|
+| Último valor conocido | Los iconos de último valor conocido muestran los valores de telemetría más recientes de uno o más dispositivos. Por ejemplo, puede usar este icono para mostrar los valores más recientes de temperatura, presión y humedad de uno o varios dispositivos. |
+| Historial de eventos    | Los iconos del Historial de eventos muestran los eventos ocurridos en un dispositivo durante un período de tiempo. Por ejemplo, los puede usar para mostrar todos los eventos de apertura y cierre de válvulas de uno o más dispositivos durante la última hora.|
+| Propiedad         |  Los iconos de propiedades muestran el valor actual de las propiedades y las propiedades de la nube de uno o varios dispositivos. Por ejemplo, puede usar este icono para mostrar las propiedades del dispositivo, como el fabricante o la versión de firmware. |
+
+Actualmente, puede agregar hasta 10 dispositivos a los mosaicos que admiten varios dispositivos.
 
 ### <a name="customizing-visualizations"></a>Personalización de visualizaciones
 
-En el caso de los gráficos de líneas, gráficos de barras y gráficos circulares, se pueden personalizar los colores que se muestran por diferentes telemetrías en el gráfico. Para ello, seleccione el icono de paleta al lado de la telemetría que se quiere personalizar y elija un color.
+En el caso de los iconos que muestran valores agregados, seleccione el icono de engranaje situado junto al tipo de telemetría en el panel **Configurar gráfico** para elegir la agregación. Puede elegir entre el promedio, la suma, el valor máximo, el valor mínimo y el recuento.
 
-> [!div class="mx-imgBorder"]
-> ![Lista desplegable para la configuración de presentación de colores de telemetría](media/howto-add-tiles-to-your-dashboard/color-customization.png)
+En el caso de los gráficos de líneas, de barras y circulares, puede personalizar el color de los distintos valores de telemetría. Seleccione el icono de paleta situado junto a la telemetría que quiere personalizar:
 
-En el caso de las propiedades o telemetría que son de tipo cadena, se puede elegir cómo se quiere visualizar el texto. Por ejemplo, si el dispositivo envía una dirección URL como telemetría de cadena, se puede visualizar esa dirección URL como un vínculo en el que se puede hacer clic. Si la dirección URL hace referencia a una imagen, se puede representar la imagen en un último valor conocido o en el icono de propiedad. Se puede cambiar la forma en que se muestra la telemetría de cadena seleccionando el engranaje que hay junto al nombre de la telemetría. De esta manera, se puede mostrar el texto como texto, vínculo o imagen.
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Cambio del color de un valor de telemetría":::
 
-> [!div class="mx-imgBorder"]
-> ![Lista desplegable para la configuración de la visualización de la cadena](media/howto-add-tiles-to-your-dashboard/string-viz-customization.png)
+En el caso de los iconos que muestran propiedades de cadena o valores de telemetría, puede elegir cómo mostrar el texto. Por ejemplo, si el dispositivo almacena una dirección URL en una propiedad de cadena, puede mostrarla como un vínculo interactivo. Si la dirección URL hace referencia a una imagen, se puede representar la imagen en un último valor conocido o en el icono de propiedad. Para cambiar cómo se muestra una cadena, en la configuración del icono, seleccione el icono de engranaje situado junto a la propiedad o el tipo de telemetría:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Cambio de la representación de una cadena en un icono":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,26 +3,28 @@ title: Exportación de flujos desde Power Automate en Azure Logic Apps
 description: Migración de flujos desde Power Automate a Azure Logic Apps mediante su exportación como plantillas de Azure Resource Manager
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b30a2ae8d90a193e23229dc6743c7e92ebf83b52
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75428878"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298727"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
 
 Para ampliar y expandir las funcionalidades de un flujo, puede migrarlo desde [Power Automate](https://flow.microsoft.com) a [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Puede exportar el flujo en forma de plantilla de Azure Resource Manager para una aplicación lógica, implementar esa plantilla en un grupo de recursos de Azure y, después, abrir la aplicación en el Diseñador de aplicación lógica.
 
 > [!NOTE]
-> No todos los conectores de Power Automate están disponibles en Azure Logic Apps. Puede importar flujos que tengan [conectores equivalentes ](../connectors/apis-list.md) en Azure Logic Apps. Por ejemplo, el desencadenador Button, el conector Approvals y el conector Notification son específicos de Power Automate.
+> No todos los conectores de Power Automate están disponibles en Azure Logic Apps. Solo se pueden migrar flujos de Power Automate que tengan conectores equivalentes en Azure Logic Apps. Por ejemplo, el desencadenador Button, el conector Approvals y el conector Notification son específicos de Power Automate. En la actualidad, los flujos basados en OpenAPI de Power Automate no se admiten para la exportación e implementación como plantillas de aplicación lógica.
 >
-> Los flujos basados en OpenAPI exportados desde Power Automate no se admiten actualmente para la implementación como plantillas de aplicación lógica. 
+> * Para saber qué conectores de Power Automate carecen de equivalente en Logic Apps, vea [Conectores de Power Automate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+>
+> * Para saber qué conectores de Logic Apps carecen de equivalente en Power Automate, vea [Conectores de Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 

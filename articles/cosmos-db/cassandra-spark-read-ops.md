@@ -2,20 +2,20 @@
 title: Lectura de los datos de la tabla de Cassandra API con Spark
 titleSufix: Azure Cosmos DB
 description: En este artículo se describe cómo leer datos almacenados en tablas de Cassandra API en Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c01d9970de1ab610333c129505cef75dfcaa35b1
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60893415"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309735"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Lectura de datos de tablas de Cassandra API de Azure Cosmos DB con Spark
 
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Aplicación de filtros
 
-Actualmente no se admite la aplicación de predicado, los ejemplos siguientes reflejan el filtrado del lado cliente. 
+Puede insertar predicados en la base de datos para permitir consultas Spark mejor optimizadas. Un predicado es una condición de una consulta que devuelve true o false, y que normalmente se encuentra en la cláusula WHERE. Un predicado inserta filtros en los datos de la consulta de base de datos, lo que reduce el número de entradas recuperadas de la base de datos y mejora el rendimiento de las consultas. De forma predeterminada, la API Dataset de Spark insertará automáticamente cláusulas WHERE válidas en la base de datos. 
 
 ```scala
 val readBooksDF = spark
@@ -102,6 +102,10 @@ readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+La sección PushedFilters del plan físico incluye el filtro de inserción GreaterThan. 
+
+![particiones](./media/cassandra-spark-read-ops/pushdown-predicates.png)
 
 ## <a name="rdd-api"></a>RDD API
 
