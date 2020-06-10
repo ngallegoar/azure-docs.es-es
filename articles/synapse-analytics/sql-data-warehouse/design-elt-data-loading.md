@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fc5316e2d6509f3e4db9a6cba150efc42c8bc548
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660009"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266379"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estrategias de carga de datos para el grupo de SQL de Synapse
 
@@ -46,15 +46,13 @@ Los pasos básicos para implementar ELT son los siguientes:
 5. Transformar los datos.
 6. Insertar los datos en tablas de producción.
 
-Para un tutorial sobre la carga de PolyBase, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
-
-Para obtener más información, consulte [el blog de patrones de carga](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
+Para obtener un tutorial sobre la carga, vea [Carga de datos desde Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Extraer los datos de origen en archivos de texto
 
-La obtención de datos del sistema de origen depende de la ubicación del almacenamiento.  El objetivo es mover los datos a archivos CSV o de texto delimitados compatibles con PolyBase y con el comando COPY.
+La obtención de datos del sistema de origen depende de la ubicación del almacenamiento. El objetivo consiste en mover los datos a archivos de texto delimitados compatibles o CSV.
 
-### <a name="polybase-and-copy-external-file-formats"></a>Formatos de archivo externos de PolyBase y de COPY
+### <a name="supported-file-formats"></a>Formatos de archivos admitidos
 
 Con PolyBase y la instrucción COPY, puede cargar datos a archivos CSV o de texto delimitados con codificación UTF-8 y UTF-16. Además de los archivos CSV o de texto delimitados, carga datos desde formatos de archivos Hadoop, como ORC y Parquet. PolyBase y la instrucción COPY también pueden cargar datos desde archivos comprimidos Gzip y Snappy.
 
@@ -74,11 +72,11 @@ Herramientas y servicios que puede usar para mover datos a Azure Storage:
 
 Deberá preparar y limpiar los datos de la cuenta de almacenamiento antes de cargarlos. Puede preparar los datos mientras están en el origen y a medida que los exporta a archivos de texto o después de que estén en Azure Storage.  Si trabaja con los datos en la parte inicial el proceso, será más fácil manejarlos.  
 
-### <a name="define-external-tables"></a>Definir tablas externas
+### <a name="define-the-tables"></a>Definición de las tablas
 
-Si usa PolyBase, tiene que definir tablas externas en el grupo de SQL antes de realizar la carga. La instrucción COPY no necesita tablas externas. PolyBase emplea tablas externas para obtener acceso y definir los datos en Azure Storage.
+En primer lugar, se deben definir las tablas que se van a cargar en el grupo de SQL cuando se use la instrucción COPY.
 
-Una tabla externa es similar a una vista de base de datos. La tabla externa contiene el esquema de tabla y apunta a los datos que se almacenan fuera del grupo de SQL.
+Si usa PolyBase, tiene que definir tablas externas en el grupo de SQL antes de realizar la carga. PolyBase emplea tablas externas para obtener acceso y definir los datos en Azure Storage. Una tabla externa es similar a una vista de base de datos. La tabla externa contiene el esquema de tabla y apunta a los datos que se almacenan fuera del grupo de SQL.
 
 Si define tablas externas debe especificar el origen de datos, el formato de los archivos de texto y las definiciones de tabla. Los artículos de referencia de sintaxis de T-SQL que necesitará son los siguientes:
 
@@ -86,7 +84,7 @@ Si define tablas externas debe especificar el origen de datos, el formato de los
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-Al cargar Parquet, la asignación del tipo de datos con SQL es:
+Use la asignación siguiente de tipo de datos SQL al cargar archivos de Parquet:
 
 |                         Tipo de Parquet                         |   Tipo lógico de Parquet (anotación)   |  Tipo de datos de SQL   |
 | :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
@@ -126,7 +124,7 @@ Al cargar Parquet, la asignación del tipo de datos con SQL es:
 
 
 
-Para obtener un ejemplo de creación de objetos externos, consulte el paso [Crear tablas externas](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) en el tutorial de carga.
+Para obtener un ejemplo de creación de objetos externos, vea [Creación de tablas externas](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 
 ### <a name="format-text-files"></a>Formato de los archivos de texto
 
@@ -139,17 +137,16 @@ Para dar formato a los archivos de texto:
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Cargar los datos mediante PolyBase o la instrucción COPY
 
-Es una práctica recomendada para cargar datos en una tabla de almacenamiento provisional. Las tablas de almacenamiento provisional le permiten controlar los errores sin interferir con las tablas de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar el grupo de SQL para transformaciones de datos antes de insertar los datos en tablas de producción.
+Es una práctica recomendada para cargar datos en una tabla de almacenamiento provisional. Las tablas de almacenamiento provisional le permiten controlar los errores sin interferir con las tablas de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar la arquitectura de procesamiento paralelo del grupo de SQL para transformaciones de datos antes de insertar estos datos en tablas de producción.
 
-La tabla se debe crear previamente al realizar la carga en una tabla de almacenamiento provisional con COPY.
+### <a name="options-for-loading"></a>Opciones de carga
 
-### <a name="options-for-loading-with-polybase-and-copy-statement"></a>Opciones de carga con PolyBase y la instrucción COPY
+Para cargar datos, puede usar cualquiera de estas opciones de carga:
 
-Para cargar datos con PolyBase, puede usar cualquiera de estas opciones de carga:
-
-- [PolyBase con T-SQL](load-data-from-azure-blob-storage-using-polybase.md) funciona bien cuando los datos están en Azure Blob Storage o Azure Data Lake Store. Le proporciona el máximo control sobre el proceso de carga, pero también es necesario definir objetos de datos externos. Los otros métodos definen estos objetos en segundo plano mientras asigna tablas de origen a las tablas de destino.  Para coordinar la carga de T-SQL, puede utilizar Azure Data Factory, SSIS o Azure Functions.
-- [PolyBase con SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) funciona bien cuando los datos de origen están en SQL Server, ya sea de forma local o en la nube. SSIS define las asignaciones de la tabla de origen a la de destino y también organiza la carga. Si ya dispone de paquetes SSIS, puede modificar los paquetes con los que vaya a trabajar con el nuevo destino del almacenamiento de datos.
+- La [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) es la utilidad de carga recomendada, ya que permite cargar datos de forma fluida y flexible. La instrucción tiene muchas capacidades de carga adicionales que PolyBase no proporciona. 
+- [Polybase con T-SQL](load-data-from-azure-blob-storage-using-polybase.md) requiere que se definan los objetos de datos externos.
 - [PolyBase y la instrucción COPY con Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) es otra herramienta de orquestación.  Define una canalización y programa trabajos.
+- [Polybase con SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) funciona bien cuando los datos de origen están en SQL Server. SSIS define las asignaciones de la tabla de origen a la de destino y también organiza la carga. Si ya dispone de paquetes SSIS, puede modificar los paquetes con los que vaya a trabajar con el nuevo destino del almacenamiento de datos.
 - [PolyBase con Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) transfiere los datos de una tabla para una trama de datos de Databricks o escribe datos de una trama de datos de Databricks en una tabla con PolyBase.
 
 ### <a name="other-loading-options"></a>Otras opciones de carga

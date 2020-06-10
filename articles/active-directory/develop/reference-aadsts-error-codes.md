@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611337"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266600"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -173,7 +173,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS50187 | DeviceInformationNotProvided: el servicio no pudo realizar la autenticación de dispositivos. |
 | AADSTS50196 | LoopDetected: se ha detectado un bucle de cliente. Compruebe la lógica de la aplicación para asegurarse de que el almacenamiento en caché de tokens está implementado y de que las condiciones de error se controlan correctamente.  La aplicación ha realizado demasiadas veces la misma solicitud en un período demasiado corto, lo que indica que se encuentra en un estado defectuoso o que solicita tokens de forma abusiva. |
 | AADSTS50197 | ConflictingIdentities: no se encontró el usuario. Intente iniciar sesión de nuevo. |
-| AADSTS50199 | CmsiInterrupt: por razones de seguridad, se requiere la confirmación del usuario para esta solicitud.  Dado que se trata de un error "interaction_required", el cliente debe realizar la autenticación interactiva.  Esto se debe a que se ha usado una vista web del sistema para solicitar un token para una aplicación nativa. Se debe pedir al usuario que pregunte si realmente se trata de la aplicación en la que pretendía iniciar sesión.|
+| AADSTS50199 | CmsiInterrupt: por razones de seguridad, se requiere la confirmación del usuario para esta solicitud.  Dado que se trata de un error "interaction_required", el cliente debe realizar la autenticación interactiva.  Esto se debe a que se ha usado una vista web del sistema para solicitar un token para una aplicación nativa. Se debe pedir al usuario que pregunte si realmente se trata de la aplicación en la que pretendía iniciar sesión. Para evitar que esto aparezca, el URI de redirección debe formar parte de la siguiente lista segura: <br />http://<br />https://<br />msauth://(solo iOS)<br />msauthv2://(solo iOS)<br />chrome-extension:// (solo explorador Chrome de escritorio) |
 | AADSTS51000 | RequiredFeatureNotEnabled: la característica está deshabilitada. |
 | AADSTS51001 | DomainHintMustbePresent: la sugerencia de dominio debe estar presente con el identificador de seguridad local o UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory: la cuenta de usuario no existe en el directorio. |
@@ -314,7 +314,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS700022 | InvalidMultipleResourcesScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido porque contiene más de un recurso. |
 | AADSTS700023 | InvalidResourcelessScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido al solicitar un token de acceso. |
 | AADSTS7000215 | Se ha proporcionado un secreto de cliente no válido. Error del desarrollador: la aplicación está intentando iniciar sesión sin los parámetros de autenticación necesarios o correctos.|
-| AADSTS7000222| InvalidClientSecretExpiredKeysProvided: las claves secretas de cliente que se proporcionaron expiraron. Visite Azure portal para crear claves nuevas para la aplicación o considere el uso de credenciales de certificado para mayor seguridad: https://aka.ms/certCreds |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided: las claves secretas de cliente que se proporcionaron expiraron. Visite Azure Portal para crear claves para la aplicación o considere usar credenciales de certificado para mayor seguridad: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant: el código de autorización proporcionado está diseñado para usarlo con otro inquilino, por lo que se rechaza. El código de autorización de OAuth2 se debe canjear en el mismo inquilino para el cual se adquirió (/common o /{tenant-ID} según corresponda). |
 | AADSTS1000000 | UserNotBoundError: la API de Bind requiere que el usuario de Azure AD también se autentique con un IDP externo, que aún no se ha producido. |
 | AADSTS1000002 | BindCompleteInterruptError: el enlace se completó correctamente, pero debe informarse al usuario. |

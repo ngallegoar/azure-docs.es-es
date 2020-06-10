@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527391"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196105"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
@@ -366,8 +366,8 @@ Si el tamaño de los datos que quiere copiar es grande, puede ajustar la lógica
 
 Tenga cuidado con el número de conjuntos de datos y actividades de copia que necesitan Data Factory para conectarse al mismo almacén de datos al mismo tiempo. Muchos trabajos de copia simultáneos podrían limitar un almacén de datos y llevar a una degradación en el rendimiento, reintentos internos de trabajos de copia y, en ocasiones, errores de ejecución.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Escenario de ejemplo: Copia de una instancia local de SQL Server a Blob Storage
-**Escenario**: se crea una canalización para copiar datos de una instancia de SQL Server local a Blob Storage en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>Escenario de ejemplo: Copiar de una base de datos de SQL Server a Blob Storage
+**Escenario**: se crea una canalización para copiar datos de una base de datos de SQL Server a Blob Storage en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
 
 **Análisis y pruebas**: el rendimiento de la actividad de copia es inferior a 2 MBps, que es mucho más lento que la referencia de rendimiento.
 
@@ -385,7 +385,7 @@ Puede que uno o varios de los siguientes factores provoquen el cuello de botella
 
 * **Origen**: el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 * **Data Management Gateway**
-  * **LAN**: la puerta de enlace se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
+  * **LAN**: la puerta de enlace se encuentra lejos del equipo de SQL Server y tiene una conexión de ancho de banda bajo.
   * **Puerta de enlace**: la puerta de enlace ha alcanzado sus limitaciones de carga para llevar a cabo las siguientes operaciones:
     * **Serialización**: la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
     * **Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, a 2,8 MBps con Core i7).

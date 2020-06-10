@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a5fc216abc890c19ce3a2d75335431fe2a6799
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41761f8724f1913972298a50d2c35489ddd715b9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528649"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219046"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migración de la federación a la autenticación de paso a través en Azure Active Directory
 
@@ -25,6 +25,9 @@ En este artículo se describe cómo mover los dominios de la organización de Se
 
 > [!NOTE]
 > El cambio del método de autenticación necesita planeación, pruebas y un posible tiempo de inactividad. El [lanzamiento preconfigurado](how-to-connect-staged-rollout.md) proporciona una forma alternativa de probar y migrar gradualmente la autenticación de la federación a la nube mediante la autenticación de paso a través.
+> 
+> Si planea usar el lanzamiento preconfigurado, recuerde desactivar las características del lanzamiento por fases una vez que haya terminado la migración.  Para obtener más información, vea [Migración a la autenticación en la nube mediante un lanzamiento preconfigurado](how-to-connect-staged-rollout.md).
+
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Requisitos previos para la migración a la autenticación de paso a través
 

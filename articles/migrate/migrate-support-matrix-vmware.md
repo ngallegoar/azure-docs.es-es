@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga información sobre la compatibilidad de la evaluación de máquinas virtuales de VMware con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0ec7006ce240df8c6e07afffa886e78ca9bc2a4d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8e0b6f3babcc862e1a78effcdb1a61f430c01646
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849372"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267892"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -49,7 +49,7 @@ Además de detectar máquinas, Server Assessment puede detectar aplicaciones, ro
 
 **VMware** | **Detalles**
 --- | ---
-**Máquinas virtuales de VMware** | Se admite la evaluación en todos los sistemas operativos Windows y Linux.
+**Máquinas virtuales de VMware** | Todos los sistemas operativos se pueden evaluar para la migración. 
 **vCenter Server** | Las máquinas que quiera detectar y evaluar las debe administrar vCenter Server, versión 5.5, 6.0, 6.5 o 6.7.
 **Permisos (evaluación)** | Cuenta de solo lectura de vCenter Server.
 **Permisos (detección de aplicaciones)** | Cuenta de vCenter Server con acceso de solo lectura, así como privilegios habilitados para **Máquinas virtuales > Operaciones de invitado**.

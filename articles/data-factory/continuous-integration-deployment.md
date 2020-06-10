@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772869"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268036"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -570,27 +570,7 @@ No se olvide de agregar los scripts de Data Factory en la canalización de CI/CD
 
 Si no ha configurado Git, puede acceder a las plantillas vinculadas a través de **Export ARM Template** en la lista **Plantilla de ARM**.
 
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Exclusión de Azure-SSIS Integration Runtime de CI/CD
-
-Si la factoría de desarrollo tiene Azure-SSIS Integration Runtime, puede excluir todas las instancias de Azure-SSIS Integration Runtime del proceso de CI/CD en el escenario siguiente:
-
-- La infraestructura de Azure-SSIS IR es compleja y varía en cada entorno.  
-- Azure-SSIS IR está configurado manualmente para cada entorno con el mismo nombre. De lo contrario, se producirá un error en la publicación si hay actividades que dependan de Azure-SSIS IR.
-
-Para excluir Azure-SSIS Integration Runtime:
-
-1. Agregue un archivo publish_config.json a la carpeta raíz de la rama de colaboración, si no existe.
-1. Agregue la siguiente configuración a publish_config.json: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-Al publicar desde la rama de colaboración, las instancias de Azure-SSIS Integration Runtime se excluirán de la plantilla de Resource Manager generada.
-
-## <a name="hotfix-production-branch"></a>Rama de producción de revisión
+## <a name="hotfix-production-environment"></a>Entorno de producción de revisión
 
 Si implementa una factoría en producción y se da cuenta de que hay un error que se debe corregir de inmediato, pero no puede implementar la rama de colaboración actual, es posible que deba implementar una revisión. Este enfoque se conoce como ingeniería de corrección rápida o QFE.
 
@@ -631,7 +611,7 @@ Si usa la integración de Git con la factoría de datos y tiene una canalizació
 - Por diseño, Data Factory no permite la selección exclusiva de confirmaciones ni la publicación selectiva de recursos. Las publicaciones incluirán todos los cambios realizados en la factoría de datos.
 
     - Las entidades de Data Factory dependen unas de otras. Por ejemplo, los desencadenadores dependen de las canalizaciones y las canalizaciones dependen de los conjuntos de datos y otras canalizaciones. La publicación selectiva de un subconjunto de recursos podría provocar comportamientos y errores inesperados.
-    - En casos excepcionales, cuando necesite la publicación selectiva, considere la posibilidad de usar una revisión. Para más información, vea [Rama de producción de revisión](#hotfix-production-branch).
+    - En casos excepcionales, cuando necesite la publicación selectiva, considere la posibilidad de usar una revisión. Para más información, vea [Entorno de producción de revisión](#hotfix-production-environment).
 
 -   No es posible publicar desde ramas privadas.
 

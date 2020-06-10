@@ -4,12 +4,12 @@ description: Obtenga información sobre el almacenamiento en Azure Kubernetes Se
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596001"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171385"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -55,10 +55,12 @@ Un volumen PersistentVolume puede crearlo *de forma estática* un administrador 
 
 Para definir niveles de almacenamiento diferentes, como Premium y Estándar, puede crear una clase *StorageClass*. La clase StorageClass también define la directiva *reclaimPolicy*. Esta directiva reclaimPolicy controla el comportamiento del recurso de almacenamiento subyacente de Azure cuando se elimina el pod y el volumen persistente puede dejar de ser necesario. El recurso de almacenamiento subyacente se puede eliminar o conservar para su uso con un pod futuro.
 
-En AKS, se crean dos clases StorageClass iniciales:
+En AKS, se crean cuatro instancias de StorageClass iniciales:
 
-- *default*: usa el almacenamiento estándar de Azure para crear un disco administrado. La directiva de reclamación indica que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
+- *default*: usa el almacenamiento SSD estándar de Azure para crear un disco administrado. La directiva de reclamación indica que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
 - *managed-premium*: utiliza el almacenamiento Premium de Azure para crear un disco administrado. De nuevo, la directiva de reclamación indica que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
+- *azurefile*: usa almacenamiento Estándar de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación indica que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
+- *azurefile-premium*: usa almacenamiento Premium de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación indica que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
 
 Si no se especifica ninguna clase StorageClass para un volumen persistente, se usa el valor de StorageClass predeterminado. Tenga cuidado cuando solicite volúmenes persistentes y compruebe que usan el almacenamiento adecuado que necesita. Puede crear una clase StorageClass para satisfacer necesidades adicionales mediante `kubectl`. En el siguiente ejemplo se utilizan discos administrados Premium y se especifica que el disco de Azure Disks subyacente debe *conservarse* cuando se elimine el pod:
 

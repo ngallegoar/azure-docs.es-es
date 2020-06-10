@@ -3,18 +3,18 @@ title: Completar una recuperación ante desastres de VM
 description: Este artículo muestra cómo realizar una recuperación ante desastres de VM utilizando AVS
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 86f823444d4fff3edf8651f4d949c71d2c981ec7
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739844"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148164"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completar una recuperación ante desastres de VM mediante la solución de Azure VMWare
+# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Realización de una recuperación ante desastres de máquinas virtuales usando la solución de Azure VMware
 
-Este artículo contiene el proceso para realizar una recuperación ante desastres de VM con la solución Hybrid Cloud Extension (HCX) de VMWare y el uso de una nube privada de la solución de Azure VMWare como sitio de recuperación o de destino.
+Este artículo contiene el proceso para realizar una recuperación ante desastres de máquinas virtuales con la solución Hybrid Cloud Extension (HCX) de VMware y cómo usar una nube privada de la solución de Azure VMware como sitio de recuperación o de destino.
 
-VMWare HCX proporciona varias operaciones que proporcionan el control y la granularidad precisos en las directivas de replicación. Las operaciones disponibles son las siguientes:
+VMware HCX permite realizar varias operaciones que proporcionan el control y la granularidad precisos en las directivas de replicación. Las operaciones disponibles son las siguientes:
 
 - Invertir: Después de que se haya producido un desastre. Invertir ayuda a convertir el sitio B en el sitio de origen y el sitio A en el lugar donde reside la VM protegida.
 
@@ -144,7 +144,7 @@ La replicación se puede supervisar en la sección de detalles de cada VM.
 
 ## <a name="disaster-recovery-plan-automation"></a>Automatización de un plan de recuperación ante desastres
 
-Actualmente, VMWare HCX no tiene un mecanismo integrado para crear y automatizar un plan de recuperación ante desastres. Esta funcionalidad no existe en HCX. Sin embargo, proporciona un conjunto de API de REST, incluidas las API para la operación de recuperación ante desastres.
+Actualmente, VMware HCX no tiene un mecanismo integrado para crear y automatizar un plan de recuperación ante desastres. Esta funcionalidad no existe en HCX. Sin embargo, proporciona un conjunto de API de REST, incluidas las API para la operación de recuperación ante desastres.
 
 Se puede acceder a la especificación de API dentro de HCX Manager en la URL.
 
