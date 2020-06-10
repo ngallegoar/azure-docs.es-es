@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36d580b7659325d4bf5f13889f774ddaa2ab0702
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594254"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259276"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configuración del desarrollo local para Azure Static Web Apps (versión preliminar)
 
@@ -27,7 +27,7 @@ En este artículo se muestran los procedimientos recomendados para el desarrollo
 - Depuración y ejecución de la aplicación
 - Procedimientos recomendados para la estructura de archivos y carpetas de la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Extensión de Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code
@@ -64,7 +64,7 @@ La extensión Live Server para Visual Studio Code ofrece un servidor web de desa
 
 #### <a name="create-a-repository"></a>Creación de un repositorio
 
-1. Vaya a [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) y cree un proyecto de GitHub denominado **vanilla-api** con esta plantilla.
+1. Asegúrese de que ha iniciado sesión en GitHub, vaya a [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) y cree un proyecto de GitHub denominado **vanilla-api** con esta plantilla.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Ventana Nuevo repositorio de GitHub":::
 

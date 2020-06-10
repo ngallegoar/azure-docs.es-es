@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c72c192f3bd12169703b70cbee76599b15eb560
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294936"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247060"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -27,7 +27,7 @@ Aquí se muestran los trabajos de las siguientes soluciones de Azure Backup:
 
 - Copia de seguridad de máquina virtual de Azure
 - Copia de seguridad de archivos de Azure
-- Copia de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
+- Copia de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
 - Agente de Azure Backup (MAB)
 
 Los trabajos procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) NO se muestran.
@@ -59,7 +59,7 @@ El servicio define los siguientes escenarios como escenarios susceptibles de gen
 
 ### <a name="consolidated-alerts"></a>Alertas consolidadas
 
-En el caso de soluciones de copia de seguridad de la carga de trabajo de Azure, como SQL y SAP HANA, las copias de seguridad de registros se pueden generar con mucha frecuencia (hasta cada 15 minutos, según la directiva). Por lo tanto, también es posible que los errores de copia de seguridad de registros sean muy frecuentes (hasta cada 15 minutos). En este escenario, el usuario final puede verse abrumado si se genera una alerta para cada caso de error. Por lo tanto, se envía una alerta para el primer caso y, si los errores posteriores se deben a la misma causa principal, no se generan más alertas. La primera alerta se actualiza con el recuento de errores. Pero, si el usuario la desactiva, el siguiente caso desencadenará otra alerta y se tratará como la primera alerta de ese caso. Así es cómo Azure Backup realiza la consolidación de alertas para las copias de seguridad de SQL y SAP HANA.
+En el caso de soluciones de copia de seguridad de la carga de trabajo de Azure, como SQL y SAP HANA, las copias de seguridad de registros se pueden generar con mucha frecuencia (hasta cada 15 minutos, según la directiva). Por lo tanto, también es posible que los errores de copia de seguridad de registros sean muy frecuentes (hasta cada 15 minutos). En este escenario, el usuario final puede verse abrumado si se genera una alerta para cada caso de error. Así, se envía una alerta para el primer caso y, si los errores posteriores se deben a la misma causa principal, no se generan más alertas. La primera alerta se actualiza con el recuento de errores. Pero, si el usuario la desactiva, el siguiente caso desencadenará otra alerta y se tratará como la primera alerta de ese caso. Así es cómo Azure Backup realiza la consolidación de alertas para las copias de seguridad de SQL y SAP HANA.
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Excepciones cuando una alerta no se genera
 
@@ -78,7 +78,7 @@ Se pueden definir tres tipos alertas, según la gravedad:
 
 - **Crítico**: en principio, cualquier error en una copia de seguridad o una recuperación (sea programada o desencadenada por el usuario) daría lugar a la generación de una alerta, que se mostraría como una alerta crítica junto con operaciones de destrucción como eliminar la copia de seguridad.
 - **Advertencia**: si la operación de copia de seguridad se realiza correctamente, pero con algunas advertencias, estas se muestran como alertas de advertencia.
-- **Informativo**: a día de hoy, el servicio de Azure Backup aún no ha generado ninguna alerta informativa.
+- **Informativo**: actualmente, el servicio de Azure Backup aún no ha generado ninguna alerta informativa.
 
 ## <a name="notification-for-backup-alerts"></a>Notificación de alertas de copia de seguridad
 

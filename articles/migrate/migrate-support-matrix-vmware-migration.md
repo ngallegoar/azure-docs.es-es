@@ -3,12 +3,12 @@ title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: ed51361ca4d605487a5d273505df21780003bdbb
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743664"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140487"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -27,7 +27,7 @@ Revise [este artículo](server-migrate-overview.md) para averiguar qué método 
 ## <a name="migration-limitations"></a>Limitaciones de la migración
 
 - Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si quiere migrar más máquinas, replique en grupos de 10.
-- En el caso de la migración sin agente de VMware, puede ejecutar hasta 100 replicaciones simultáneamente.
+- En las migraciones sin agente de VMware se pueden ejecutar hasta 300 replicaciones a la vez.
 
 ## <a name="agentless-vmware-servers"></a>Servidores de VMware sin agente
 
@@ -60,7 +60,7 @@ Revise [este artículo](server-migrate-overview.md) para averiguar qué método 
 **NIC en equipo** | No compatible.
 **IPv6** | No compatible.
 **Disco de destino** | Las máquinas virtuales solo se pueden migrar a discos administrados (HDD Estándar, SSD Premium) en Azure.
-**Replicación simultánea** | Cien máquinas virtuales por vCenter Server. Si tiene más, mígrelas en lotes de 100.
+**Replicación simultánea** | 300 máquinas virtuales por vCenter Server. Si tiene más, mígrelas en lotes de 300.
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Dispositivo de Azure Migrate sin agente 

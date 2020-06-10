@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 66043ae4f569e4151be829ca361232accb2f0ebd
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681699"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219380"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Línea de referencia de seguridad de Azure para Azure Databricks
 
@@ -200,7 +200,7 @@ En el caso del registro de auditoría, Azure Databricks proporciona registros de
 
 Nota: Los registros de diagnóstico de Azure Databricks requieren el plan Azure Databricks Premium
 
-* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy))
+* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [Habilitación de la configuración de diagnóstico para Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -262,7 +262,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 Nota: Los registros de diagnóstico de Azure Databricks requieren el plan Azure Databricks Premium
 
-* [Envío de los registros de Azure Databricks al área de trabajo de Log Analytics](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery))
+* [Envío de los registros de Azure Databricks al área de trabajo de Log Analytics](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery)
 
 * [Configuración de las alertas en el área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
 
@@ -404,7 +404,7 @@ Nota: Los registros de diagnóstico de Azure Databricks requieren el plan Azure 
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Guía**: Azure AD proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado. También puede implementar las API de SCIM y los registros de diagnóstico de Azure Databricks para revisar el acceso de los usuarios. Además, puede usar las API de SCIM y los registros de diagnóstico de Azure Databricks para revisar el acceso de los usuarios.
+**Guía**: Azure AD proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado. También puede implementar las API de SCIM y los registros de diagnóstico de Azure Databricks para revisar el acceso de los usuarios.
 
 Asimismo, revise y administre periódicamente el acceso de los usuarios desde la consola de administración de Azure Databricks.
 
@@ -968,7 +968,7 @@ Examine previamente los archivos que se van a cargar en los nodos de clúster de
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Realización de copias de seguridad completas del sistema y copia de seguridad de las claves administradas por el cliente
 
-**Guía**: realice una copia de seguridad de las claves administradas por el cliente relacionadas con sus implementaciones de Azure Databricks dentro de Azure Key Vault. También puede usar la API REST y la CLI para crear una copia de seguridad diaria de las configuraciones de Databricks. También puede usar la API REST o la CLI para crear una copia de seguridad diaria de las configuraciones de Databricks.
+**Guía**: realice una copia de seguridad de las claves administradas por el cliente relacionadas con sus implementaciones de Azure Databricks dentro de Azure Key Vault. También puede usar la API REST y la CLI para crear una copia de seguridad diaria de las configuraciones de Databricks.
 
 * [Creación de una copia de seguridad de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

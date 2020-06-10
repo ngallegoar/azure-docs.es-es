@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 7a7c1af1193ba391550438229a22c4a8c116e6be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289182"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118553"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -49,13 +49,28 @@ Mediante estas instrucciones de instalación y una [configuración de ejemplo de
 
 La configuración que se puede descargar es solo un ejemplo; modifíquela como corresponda para adaptarla a sus necesidades.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="supported-linux-distributions"></a>Distribuciones de Linux compatibles
+
+La extensión Diagnostics de Linux admite las siguientes distribuciones y versiones. La lista de distribuciones y versiones es válida únicamente con las imágenes de proveedor de Linux aprobadas por Azure. Por lo general, las imágenes BYOL y BYOS de terceros (como los dispositivos) no suelen admitirse en la extensión Diagnostics de Linux.
+
+En todas las versiones secundarias también se admite una distribución que enumera solo versiones principales, como Debian 7. Si se especifica una versión secundaria específica, solo se admitirá esa versión en concreto; si "+" aparece anexado, se admitirán las versiones secundarias iguales o superiores que la versión especificada.
+
+Distribuciones y versiones admitidas:
+
+- Ubuntu 18.04, 16.04, 14.04
+- CentOS 7, 6.5+
+- Oracle Linux 7, 6.4+
+- OpenSUSE 13.1+
+- SUSE Linux Enterprise Server 12
+- Debian 9, 8, 7
+- RHEL 7, 6.7+
+
+### <a name="prerequisites"></a>Requisitos previos
 
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para actualizarla.
 * **Azure CLI**. [Instale el entorno de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
 * El comando wget, si aún no lo tiene: Ejecute `sudo apt-get install wget`.
 * Una suscripción a Azure existente con una cuenta de almacenamiento para almacenar los datos.
-* La lista de distribuciones de Linux compatibles se encuentra en https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>Instalación de ejemplo
 

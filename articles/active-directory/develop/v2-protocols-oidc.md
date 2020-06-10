@@ -9,22 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0e1284b94500ae6b6f1aa5eb632e94e03f3d3df3
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771594"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263285"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
-OpenID Connect (OIDC) es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que un usuario inicie sesión de forma segura en una aplicación web. Cuando se usa la implementación del punto de conexión de la plataforma de identidad de Microsoft de OpenID Connect, puede agregar acceso de inicio de sesión y API a las aplicaciones basadas en web. En este artículo se muestra cómo hacer esto de forma independiente del lenguaje y se describe cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto de Microsoft.
+OpenID Connect (OIDC) es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que un usuario inicie sesión de forma segura en una aplicación. Cuando se usa la implementación del punto de conexión de la plataforma de identidad de Microsoft de OpenID Connect, se puede agregar acceso de inicio de sesión y API a las aplicaciones. En este artículo se muestra cómo hacer esto de forma independiente del lenguaje y se describe cómo enviar y recibir mensajes HTTP sin usar ninguna [biblioteca de código abierto de Microsoft](reference-v2-libraries.md).
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de la plataforma de identidad de Microsoft también permite que las aplicaciones de terceros registradas con Azure AD emitan tokens de acceso para los recursos protegidos, como las API web. Para más información sobre cómo configurar una aplicación para emitir tokens de acceso, consulte [Registro de una aplicación en el punto de conexión de la plataforma de identidad de Microsoft](quickstart-register-app.md). Se recomienda usar OpenID Connect si compila una [aplicación web](v2-app-types.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. También presenta el [Punto de conexión de UserInfo](userinfo.md), una API que devuelve información sobre el usuario. 
+
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Inicio de sesión
 
@@ -34,14 +35,11 @@ El diagrama siguiente muestra los pasos de un flujo de inicio de sesión más b�
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Captura del documento de metadatos de OpenID Connect
 
-OpenID Connect describe un documento de metadatos que contiene la mayor parte de la información necesaria para que una aplicación realice el inicio de sesión. Esta información incluye las direcciones URL que se usan y la ubicación de las claves de firma pública del servicio. Para el punto de conexión de la plataforma de identidad de Microsoft, este es el documento de metadatos de OpenID Connect que debe usar:
+OpenID Connect describe un documento de metadatos [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) que contiene la mayor parte de la información necesaria para que una aplicación realice el inicio de sesión. Esta información incluye las direcciones URL que se usan y la ubicación de las claves de firma pública del servicio. Se puede encontrar este documento mediante el anexo de la ruta de acceso del documento de detección a la dirección URL de la autoridad:
 
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
-```
+Ruta de acceso del documento de detección: `/.well-known/openid-configuration`
 
-> [!TIP]
-> ¡Pruébelo! Haga clic en [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para ver la configuración de inquilinos `common`.
+Autoridad: `https://login.microsoftonline.com/{tenant}/v2.0`
 
 `{tenant}` puede tomar uno de estos cuatro valores:
 
@@ -52,18 +50,37 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 | `consumers` |Solo los usuarios con una cuenta de Microsoft personal pueden iniciar sesión en la aplicación. |
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` | Solo los usuarios de un inquilino de Azure AD específico (tanto si son miembros del directorio con una cuenta profesional o educativa, como si son invitados en el directorio con un cuenta de Microsoft personal) pueden iniciar sesión en la aplicación. Puede usarse el nombre de dominio descriptivo del inquilino de Azure AD o bien el identificador de GUID del inquilino. También puede usar el inquilino consumer `9188040d-6c67-4c5b-b112-36a304b66dad`, en lugar del inquilino `consumers`.  |
 
-Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido del fragmento de código se describe detalladamente en la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
+La autoridad difiere en las nubes nacionales: (por ejemplo, `https://login.microsoftonline.de` para la instancia de Azure AD de Alemania). Si no usa la nube pública, revise los [puntos de conexión de nube nacional](authentication-national-cloud.md#azure-ad-authentication-endpoints) para encontrar el adecuado. Asegúrese de que el inquilino y `/v2.0/` están presentes en la solicitud para que se pueda usar la versión 2.0 del punto de conexión.
+
+> [!TIP]
+> ¡Pruébelo! Haga clic en [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para ver la configuración `common`.
+
+### <a name="sample-request"></a>Solicitud de ejemplo
+
+Para llamar al punto de conexión de UserInfo de la autoridad común en la nube pública, use lo siguiente:
+
+```http
+GET /common/v2.0/.well-known/openid-configuration
+Host: login.microsoftonline.com
+```
+
+### <a name="sample-response"></a>Respuesta de muestra
+
+Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido se describe detalladamente en la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```json
 {
-  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
-  "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
+  "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize",
+  "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token",
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
     "private_key_jwt"
   ],
-  "jwks_uri": "https:\/\/login.microsoftonline.com\/{tenant}\/discovery\/v2.0\/keys",
-
+  "jwks_uri": "https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys",
+  "userinfo_endpoint": "https://graph.microsoft.com/oidc/userinfo",
+  "subject_types_supported": [
+      "pairwise"
+  ],
   ...
 
 }
@@ -98,10 +115,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 &nonce=678910
 ```
-
-> [!TIP]
-> Haga clic en el vínculo siguiente para ejecutar esta solicitud. Una vez que inicie sesión, el explorador se redirigirá a `https://localhost/myapp/`, con un token de identificador en la barra de direcciones. Tenga en cuenta que esta solicitud usa `response_mode=fragment` (solo con fines de demostración). Se recomienda que use `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parámetro | Condición | Descripción |
 | --- | --- | --- |
@@ -171,9 +184,11 @@ En la tabla siguiente se describen los códigos de error que puede devolver el p
 
 ## <a name="validate-the-id-token"></a>Validar el token de identificador
 
-Recibir un solo valor de id_token no es suficiente para autenticar al usuario; debe validar la firma de id_token y comprobar las notificaciones en el token según los requisitos de su aplicación. El punto de conexión de la plataforma de identidad de Microsoft usa los [JSON Web Token (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
+Recibir un solo valor de id_token no siempre es suficiente para autenticar al usuario; también es necesario validar la firma de id_token y comprobar las notificaciones en el token según los requisitos de su aplicación. Al igual que todas las plataformas OIDC, el punto de conexión de la plataforma de identidad de Microsoft usa los [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) y criptografía de clave pública para firmar los tokens de id. y comprobar que son válidos.
 
-Puede elegir validar el valor `id_token` en el código de cliente, pero lo habitual es enviarlo `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma de id_token, se le solicitará que compruebe algunas notificaciones. Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
+No todas las aplicaciones se benefician de comprobar el token de id.: las aplicaciones nativas y las aplicaciones de página única, por ejemplo, casi nunca se benefician de la validación del token de id.  Un usuario con acceso físico al dispositivo (o explorador) puede omitir la validación de muchas maneras: desde editar el tráfico web hasta el dispositivo para proporcionar claves y tokens falsos a fin de depurar simplemente la aplicación y omitir la lógica de validación.  Por otro lado, las API y las aplicaciones web que usan un token de id. para la autorización deben validar cuidadosamente el token de id., ya que están canalizando el acceso a los datos.
+
+Una vez haya validado la firma de id_token, se le solicitará que compruebe algunas notificaciones. Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
 
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 
@@ -183,25 +198,6 @@ Se recomienda que valide notificaciones adicionales según su escenario. Algunas
 
 Una vez haya validado completamente el valor id_token, puede iniciar una sesión con el usuario y utilizar las notificaciones de id_token para obtener información sobre el usuario en la aplicación. Esta información puede usarse para visualización, registros, autorizaciones, etc.
 
-## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
-
-Si desea cerrar la sesión del usuario en la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión del usuario. También debe redirigir al usuario al punto de conexión de la plataforma de identidad de Microsoft para cerrar la sesión. Si no lo hace, el usuario se vuelve a autenticar en su aplicación sin escribir sus credenciales de nuevo, porque tendrá una sesión válida de inicio de sesión único con el punto de conexión de la plataforma de identidad de Microsoft.
-
-Puede redirigir al usuario al objeto `end_session_endpoint` que aparece en el documento de metadatos OpenID Connect:
-
-```HTTP
-GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-```
-
-| Parámetro | Condición | Descripción |
-| ----------------------- | ------------------------------- | ------------ |
-| `post_logout_redirect_uri` | Recomendado | La dirección URL al que se redirige al usuario tras cerrar sesión correctamente. Si el parámetro no se incluye, se muestra al usuario un mensaje genérico que genera el punto de conexión de la plataforma de identidad de Microsoft. Esta dirección URL debe coincidir con uno de los URI de redirección registrados para su aplicación en el portal de registro de aplicaciones. |
-
-## <a name="single-sign-out"></a>Cierre de sesión único
-
-Cuando redirige al usuario a `end_session_endpoint`, el punto de conexión de la plataforma de Microsoft borra la sesión del usuario del explorador. Sin embargo, el usuario puede permanecer con la sesión iniciada en otras aplicaciones que usan cuentas de Microsoft para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, el punto de conexión de la plataforma de identidad de Microsoft envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que el usuario tiene una sesión iniciada. Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`. Si quiere admitir el inicio de sesión único en la aplicación, debe implementar este elemento `LogoutUrl` en el código de la aplicación. Para configurar `LogoutUrl`, hágalo en el portal de registro de aplicaciones.
-
 ## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: Obtención de tokens de acceso
 
 Muchas aplicaciones web no solo deben iniciar la sesión del usuario, sino también obtener acceso a un servicio web en nombre del usuario mediante OAuth. En este escenario se combina OpenID Connect para la autenticación de usuario, al tiempo que se obtiene, a la vez, un código de autorización que puede usar para obtener tokens de acceso si usa el flujo de código de autorización de OAuth.
@@ -210,31 +206,30 @@ El flujo completo de adquisición de tokens e inicio de sesión de OpenID Connec
 
 ![Protocolo OpenID Connect: Obtención de tokens](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
-## <a name="get-access-tokens"></a>Obtención de tokens de acceso
-Para obtener tokens de acceso, modifique la solicitud de inicio de sesión:
+## <a name="get-an-access-token-to-call-userinfo"></a>Obtención de un token de acceso para llamar a UserInfo
+
+Para adquirir un token para el punto de conexión de UserInfo de OIDC, modifique la solicitud de inicio de sesión:
 
 ```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
-&response_type=id_token%20code
+&response_type=id_token%20token                       // this will return both an id_token and an access token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
 &response_mode=form_post                              // 'form_post' or 'fragment'
-&scope=openid%20                                      // Include both 'openid' and scopes that your app needs
-offline_access%20
-https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
+&scope=openid+profile+email                           // `openid` is required.  `profile` and `email` provide additional information in the UserInfo endpoint the same way they do in an ID token. 
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
 ```
 
+También puede usar el [flujo de código de autorización](v2-oauth2-auth-code-flow.md), el [flujo de código de dispositivo](v2-oauth2-device-code.md) o un [token de actualización](v2-oauth2-auth-code-flow.md#refresh-the-access-token) en lugar de `response_type=token` a fin de obtener un token para la aplicación.
+
 > [!TIP]
-> Haga clic en el vínculo siguiente para ejecutar esta solicitud. Una vez que inicie sesión, el explorador se redirigirá a `https://localhost/myapp/`, con un token de identificador y un código en la barra de direcciones. Tenga en cuenta que esta solicitud usa `response_mode=fragment` solo con fines de demostración. Se recomienda que use `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Haga clic en el vínculo siguiente para ejecutar esta solicitud. Una vez que inicie sesión, el explorador se redirigirá a `https://localhost/myapp/`, con un token de id. y un token en la barra de direcciones. Tenga en cuenta que esta solicitud usa `response_mode=fragment` solo con fines de demostración: en el caso de una aplicación web, se recomienda usar `form_post` para obtener mayor seguridad siempre que sea posible. 
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid+profile+email&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-Con la inclusión de los ámbitos de permiso en la solicitud y el uso de `response_type=id_token code`, el punto de conexión de la plataforma de identidad de Microsoft garantiza que el usuario dio su consentimiento a los permisos indicados en el parámetro de consulta `scope`. Devuelve un código de autorización a la aplicación para intercambiarla por un token de acceso.
-
-### <a name="successful-response"></a>Respuesta correcta
+### <a name="successful-token-response"></a>Respuesta correcta del token
 
 Una respuesta correcta al usar `response_mode=form_post` tiene el siguiente aspecto:
 
@@ -242,14 +237,23 @@ Una respuesta correcta al usar `response_mode=form_post` tiene el siguiente aspe
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
-
-id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
+ access_token=eyJ0eXAiOiJKV1QiLCJub25jZSI6I....
+ &token_type=Bearer
+ &expires_in=3598
+ &scope=email+openid+profile
+ &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI....
+ &state=12345
 ```
+
+Los parámetros de respuesta significan lo mismo, independientemente del flujo usado para adquirirlos.
 
 | Parámetro | Descripción |
 | --- | --- |
+| `token` | El token que se va a usar para llamar al punto de conexión de UserInfo.|
+| `token_type` | Siempre "Portador" |
+| `expires_in`| Cuánto tiempo transcurre hasta que el token de acceso expira, en segundos. |
+| `scope` | Permisos concedidos en el token de acceso.  Tenga en cuenta que, dado que el punto de conexión UserInfo se hospeda en MS Graph, puede haber otros ámbitos de gráfico aquí (por ejemplo, user.read) si se concedieron previamente a la aplicación.  Esto se debe a que un token de un recurso determinado siempre incluye todos los permisos concedidos actualmente al cliente.  |
 | `id_token` | El token de identificador que la aplicación solicitó. Puede usar el token de identificador para comprobar la identidad del usuario y comenzar una sesión con el usuario. Encontrará más detalles sobre los tokens de identificador y su contenido en la [`id_tokens` referencia](id-tokens.md). |
-| `code` | El código de autorización que la aplicación solicitó. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Un código de autorización tiene una duración breve. Habitualmente, un código de autorización expira en alrededor de 10 minutos. |
 | `state` | Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
 
 ### <a name="error-response"></a>Respuesta de error
@@ -272,3 +276,32 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Para una descripción de los posibles códigos de error y las respuestas de cliente recomendadas, consulte [Códigos de error correspondientes a errores de puntos de conexión de autorización](#error-codes-for-authorization-endpoint-errors).
 
 Cuando tiene un código de autorización y un token de identificador, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre. Para iniciar la sesión del usuario, debe validar el token de identificador [exactamente como se describió](id-tokens.md#validating-an-id_token). Para obtener tokens de acceso, siga los pasos descritos en la [documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+
+### <a name="calling-the-userinfo-endpoint"></a>Llamada al punto de conexión de UserInfo
+
+Revise la [documentación de UserInfo](userinfo.md#calling-the-api) para ver cómo llamar al punto de conexión de UserInfo con este token.
+
+## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
+
+Si desea cerrar la sesión del usuario en la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión del usuario. También debe redirigir al usuario al punto de conexión de la plataforma de identidad de Microsoft para cerrar la sesión. Si no lo hace, el usuario se vuelve a autenticar en su aplicación sin escribir sus credenciales de nuevo, porque tendrá una sesión válida de inicio de sesión único con el punto de conexión de la plataforma de identidad de Microsoft.
+
+Puede redirigir al usuario al objeto `end_session_endpoint` que aparece en el documento de metadatos OpenID Connect:
+
+```HTTP
+GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
+post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+```
+
+| Parámetro | Condición | Descripción |
+| ----------------------- | ------------------------------- | ------------ |
+| `post_logout_redirect_uri` | Recomendado | La dirección URL al que se redirige al usuario tras cerrar sesión correctamente. Si el parámetro no se incluye, se muestra al usuario un mensaje genérico que genera el punto de conexión de la plataforma de identidad de Microsoft. Esta dirección URL debe coincidir con uno de los URI de redirección registrados para su aplicación en el portal de registro de aplicaciones. |
+
+## <a name="single-sign-out"></a>Cierre de sesión único
+
+Cuando redirige al usuario a `end_session_endpoint`, el punto de conexión de la plataforma de Microsoft borra la sesión del usuario del explorador. Sin embargo, el usuario puede permanecer con la sesión iniciada en otras aplicaciones que usan cuentas de Microsoft para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, el punto de conexión de la plataforma de identidad de Microsoft envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que el usuario tiene una sesión iniciada. Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`. Si quiere admitir el inicio de sesión único en la aplicación, debe implementar este elemento `LogoutUrl` en el código de la aplicación. Para configurar `LogoutUrl`, hágalo en el portal de registro de aplicaciones.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Revisar la [documentación de UserInfo](userinfo.md).
+* Obtener información sobre cómo [personalizar los valores de un token](active-directory-claims-mapping.md) con datos desde los sistemas locales. 
+* Obtener información sobre cómo [incluir notificaciones adicionales estándar en los tokens](active-directory-optional-claims.md).  

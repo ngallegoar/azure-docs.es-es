@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: f75b080ce31a5c954471d277aad354879c16c6b3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849661"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022204"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -86,7 +86,7 @@ Puede impedir por completo que las cargas de trabajo accedan a puntos de conexi�
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acceso a un recurso de vínculo privado mediante el flujo de trabajo de aprobación 
 Puede conectarse a un recurso de vínculo privado mediante los siguientes métodos de aprobación de la conexión:
-- Aprobación **automática** cuando posee el recurso de vínculo privado específico o tiene permisos sobre él. El permiso necesario se basa en el tipo de recurso de vínculo privado con el siguiente formato: Microsoft.\<Provider>/<resource_type>/privateEndpointConnectionApproval/action
+- Aprobación **automática** cuando posee el recurso de vínculo privado específico o tiene permisos sobre él. El permiso necesario se basa en el tipo de recurso de vínculo privado con el siguiente formato: Microsoft.\<Provider>/<tipo_recurso>/privateEndpointConnectionApproval/action
 - Solicitud **manual** si no tiene el permiso necesario y desea solicitar acceso. Se iniciará un flujo de trabajo de aprobación. El punto de conexión privado y la conexión de punto de conexión privado subsiguiente se crearán en un estado "Pendiente". El propietario del recurso de vínculo privado es responsable de aprobar la conexión. Una vez aprobada, el punto de conexión privado se habilita para enviar el tráfico normalmente, como se muestra en el siguiente diagrama de flujo de trabajo de aprobación.  
 
 ![aprobación de flujo de trabajo](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,9 +124,9 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de un punto de conexión privado para el servidor de SQL Database mediante el portal](create-private-endpoint-portal.md)
-- [Creación de un punto de conexión privado para el servidor de SQL Database mediante PowerShell](create-private-endpoint-powershell.md)
-- [Creación de un punto de conexión privado para el servidor de SQL Database mediante la CLI](create-private-endpoint-cli.md)
+- [Creación de un punto de conexión privado para SQL Database mediante Azure Portal](create-private-endpoint-portal.md)
+- [Creación de un punto de conexión privado para SQL Database mediante PowerShell](create-private-endpoint-powershell.md)
+- [Creación de un punto de conexión privado para SQL Database mediante la CLI](create-private-endpoint-cli.md)
 - [Creación de un punto de conexión privado para la cuenta de almacenamiento mediante el portal](create-private-endpoint-storage-portal.md)
 - [Creación de un punto de conexión privado para la cuenta de Azure Cosmos mediante el portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creación del propio servicio Private Link con Azure PowerShell](create-private-link-service-powershell.md)

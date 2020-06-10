@@ -3,21 +3,21 @@ title: Asociación de un ASN del mismo nivel a una suscripción de Azure mediant
 titleSuffix: Azure
 description: Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 5/18/2020
+ms.author: derekol
+ms.openlocfilehash: 9feefa8801892a668784ed7406f46dba2afd69da
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683961"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266957"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal
 
-Antes de enviar una solicitud de emparejamiento, primero debe asociar su ASN con una suscripción a Azure mediante los pasos siguientes.
+Como proveedor de servicios de Internet o proveedor de intercambio de Internet, antes de enviar una solicitud de emparejamiento debe asociar su ASN con una suscripción de Azure siguiendo estos pasos.
 
 Si lo prefiere, puede completar esta guía con [PowerShell](howto-subscription-association-powershell.md).
 
@@ -55,8 +55,7 @@ Para registrarse como proveedor de recursos de emparejamiento en su suscripción
     > ![Registro completado](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Crear un PeerAsn
-Como proveedor de servicios de Internet o proveedor de intercambio de Internet, puede crear un recurso de PeerAsn para asociar un número de sistema autónomo (ASN) con una suscripción a Azure. Puede asociar varios ASN a una suscripción al navegar a la [página Associate a Peer ASN](https://go.microsoft.com/fwlink/?linkid=2129592) (Asociar un ASN del mismo nivel) por cada ASN que necesite asociar.
-
+Como proveedor de servicios de Internet o proveedor de intercambio de Internet, puede crear un recurso de PeerAsn para asociar un número de sistema autónomo (ASN) con una suscripción a Azure en la [página Asociar un ASN del mismo nivel](https://go.microsoft.com/fwlink/?linkid=2129592). Puede asociar varios ASN a una suscripción al crear un **PeerAsn** para cada ASN que necesite asociar.
 
 1. En la página **Asociar un ASN del mismo nivel**, en la pestaña **Aspectos básicos**, rellene los campos como se muestra a continuación.
 

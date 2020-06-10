@@ -1,28 +1,32 @@
 ---
 title: Intervalos de direcciones IP privadas de SNAT de Azure Firewall
-description: Puede configurar intervalos de direcciones IP privadas para que el firewall no aplique la traducción de direcciones de red de origen (SNAT) al tráfico que se dirige a esas direcciones IP.
+description: Se pueden configurar los intervalos de direcciones IP para SNAT.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 06/01/2020
 ms.author: victorh
-ms.openlocfilehash: ed8cef00b7de67458c607373c724a3717f14a7cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28ec61c4aefeacb8014e0a5d48d0259cf7fcf7f3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064805"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267039"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalos de direcciones IP privadas de SNAT de Azure Firewall
 
-Azure Firewall no aplica SNAT con reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918). Las reglas de aplicación se aplican siempre mediante un [proxy transparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy), independientemente de la dirección IP de destino.
+Azure Firewall proporciona SNAT automática para todo el tráfico saliente a las IP públicas. De forma predeterminada, Azure Firewall no aplica SNAT con reglas de red cuando la dirección IP de destino es un intervalo de direcciones IP privadas, de acuerdo con la normativa [RFC 1918 de IANA](https://tools.ietf.org/html/rfc1918). Las reglas de aplicación se aplican siempre mediante un [proxy transparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy), independientemente de la dirección IP de destino.
+
+Esta lógica funciona bien cuando se enruta el tráfico directamente a Internet. Sin embargo, si ha se habilitado [tunelización forzada](forced-tunneling.md), al tráfico enlazado a Internet se le aplica SNAT a una de las direcciones IP privadas del firewall en AzureFirewallSubnet, ocultando el origen del firewall local.
 
 Si su organización usa un intervalo de direcciones IP públicas para las redes privadas, Azure Firewall aplicará SNAT al tráfico para una de las direcciones IP privadas de firewall en AzureFirewallSubnet. Sin embargo, puede configurar Azure Firewall de modo que **no** aplique SNAT al intervalo de direcciones IP públicas.
 
-## <a name="configure-snat-private-ip-address-ranges"></a>Configuración de intervalos de direcciones IP privadas de SNAT
+Para configurar Azure Firewall en "nunca aplicar SNAT" independientemente de la dirección IP de destino, use **0.0.0.0/0** como intervalo de direcciones IP privadas. Con esta configuración, Azure Firewall nunca puede enrutar el tráfico directamente a Internet. Para configurar el firewall en "siempre aplicar SNAT" independientemente de la dirección IP de destino, use **255.255.255.255/32** como intervalo de direcciones IP privadas.
 
-Puede usar Azure PowerShell para especificar un intervalo de direcciones IP al que el firewall no aplicará SNAT.
+## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Configuración de intervalos de direcciones IP privadas de SNAT: Azure PowerShell
+
+Puede usar Azure PowerShell a fin de especificar intervalos de direcciones IP privadas para el firewall.
 
 ### <a name="new-firewall"></a>Nuevo firewall
 
@@ -55,6 +59,20 @@ Puede agregar lo siguiente a la sección `additionalProperties`:
                 },
 ```
 
+## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Configuración de intervalos de direcciones IP privadas de SNAT: Azure Portal
+
+Puede usar Azure Portal a fin de especificar intervalos de direcciones IP privadas para el firewall.
+
+1. Seleccione el grupo de recursos y, después, el firewall.
+2. En la página **Información general**, **Intervalos IP privados**, seleccione el valor predeterminado **IANA RFC 1918**.
+
+   Se abre la página **Editar prefijos IP privados**:
+
+   :::image type="content" source="media/snat-private-range/private-ip.png" alt-text="Editar prefijos IP privados":::
+
+1. De forma predeterminada, **IANAPrivateRanges** está configurado.
+2. Edite los intervalos de direcciones IP privadas para su entorno y, después, seleccione **Guardar**.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el tutorial [Implementación y configuración de Azure Firewall](tutorial-firewall-deploy-portal.md).
+- Obtener más información sobre [Tunelización forzada de Azure Firewall](forced-tunneling.md).

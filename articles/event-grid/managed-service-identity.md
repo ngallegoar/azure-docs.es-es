@@ -7,30 +7,30 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 4d96f28b98cccada2ac5c77589acc6df1430bb02
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a13b9339c55d4d70c19ce737e81f34106dd3d6f6
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700658"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168004"
 ---
-# <a name="event-delivery-with-managed-identity"></a>Entrega de evento con identidad administrada
-En este artículo se describe cómo habilitar [Managed Service Identity](../active-directory/managed-identities-azure-resources/overview.md) para un tema o dominio de Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
+# <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
+En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) de un tema o dominio de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
 
 Estos son los pasos que se describen en detalle en este artículo:
-1. Cree un tema o un dominio con una identidad asignada por el sistema (o) actualice un tema o dominio existente para habilitar la identidad. 
-2. Agregue la identidad a un rol adecuado (por ejemplo: emisor de datos de Azure Service Bus) en el destino (ejemplo: una cola de Service Bus).
-3. Al crear suscripciones de eventos, habilite el uso de la identidad para enviar eventos al destino. 
+1. Cree un tema o un dominio con una identidad asignada por el sistema, o bien actualice un tema o dominio existente para habilitar la identidad. 
+1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus).
+1. Al crear suscripciones de eventos, habilite el uso de la identidad para enviar eventos al destino. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Creación de un tema o un dominio con una identidad
 En primer lugar, echemos un vistazo a cómo crear un tema o un dominio con una identidad administrada por el sistema.
 
-### <a name="using-azure-portal"></a>Uso de Azure Portal
-Puede habilitar la identidad asignada por el sistema para un tema o dominio mientras se crea en Azure Portal. La siguiente imagen muestra cómo habilitar la identidad administrada por el sistema para un tema. Básicamente, se selecciona la opción **Enable system assigned identity** (Habilitar identidad asignada por el sistema) en la página de **opciones avanzadas** del Asistente para crear temas. También verá esta opción en la página de **opciones avanzadas** del Asistente para crear dominios. 
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+Puede habilitar la identidad de un tema o dominio asignada por el sistema mientras la crea en Azure Portal. La siguiente imagen muestra cómo habilitar una identidad administrada por el sistema de un tema. Básicamente, se selecciona la opción **Enable system assigned identity** (Habilitar identidad asignada por el sistema) en la página de **opciones avanzadas** del Asistente para crear temas. También verá esta opción en la página de **opciones avanzadas** del Asistente para crear dominios. 
 
 ![Habilitación de la identidad al crear un tema](./media/managed-service-identity/create-topic-identity.png)
 
-### <a name="using-azure-cli"></a>Uso de la CLI de Azure
+### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 También puede usar la CLI de Azure para crear un tema o un dominio con una identidad asignada por el sistema. Use el comando `az eventgrid topic create` con el parámetro `--identity` establecido en `systemassigned`. Si no especifica un valor para este parámetro, se utiliza el valor predeterminado `noidentity`. 
 
 ```azurecli-interactive
@@ -40,19 +40,19 @@ az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCAT
 
 Del mismo modo, puede usar el comando `az eventgrid domain create` para crear un dominio con una identidad administrada por el sistema.
 
-## <a name="enable-identity-for-an-existing-topic-or-domain"></a>Habilitación de la identidad para un tema o dominio existente
-En la última sección, ha aprendido a habilitar la identidad administrada por el sistema durante la creación de un tema o un dominio. En esta sección, aprenderá a habilitar la identidad administrada por el sistema para un tema o dominio existente. 
+## <a name="enable-an-identity-for-an-existing-topic-or-domain"></a>Habilitación de una identidad de un tema o dominio existente
+En la última sección, ha aprendido a habilitar la identidad administrada por el sistema durante la creación de un tema o un dominio. En esta sección, aprenderá a habilitar una identidad administrada por el sistema de un tema o dominio existente. 
 
-### <a name="using-azure-portal"></a>Uso de Azure Portal
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Busque **temas de Event Grid** en la barra de búsqueda.
 3. Seleccione el **tema** para el que desea habilitar la identidad administrada. 
 4. Cambie a la pestaña **Identidad**. 
 5. Active el conmutador para habilitar la identidad. 
 
-    Puede usar pasos similares para habilitar la identidad de un dominio de Event Grid.
+Puede usar pasos similares para habilitar una identidad de un dominio de Event Grid.
 
-### <a name="using-azure-cli"></a>Uso de la CLI de Azure
+### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 Use el comando `az eventgrid topic update` con `--identity` establecido en `systemassigned` para habilitar la identidad asignada por el sistema para un tema existente. Si desea deshabilitar la identidad, especifique `noidentity` como valor. 
 
 ```azurecli-interactive
@@ -62,40 +62,40 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 El comando para actualizar un dominio existente es similar (`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-role-based-access-check-rbac-roles"></a>Destinos admitidos y roles de control de acceso basado en rol (RBAC)
-Después de habilitar la identidad para el tema o dominio de Event Grid, Azure crea automáticamente una identidad en el directorio de Azure Active Directory (Azure AD). Agregue esta identidad a los roles de RBAC adecuados para que el tema o el dominio pueda reenviar eventos a los destinos admitidos. Por ejemplo, agregue la identidad al rol **Emisor de datos de Azure Event Hubs** para un espacio de nombres de Event Hubs de modo que el tema de Event Grid pueda reenviar eventos a los centros de eventos en dicho espacio de nombres.  
+## <a name="supported-destinations-and-rbac-roles"></a>Destinos admitidos y roles RBAC
+Después de habilitar la identidad del tema o dominio de Event Grid, Azure crea automáticamente una identidad en Azure Active Directory. Agregue esta identidad a los roles de control de acceso basado en rol (RBAC) adecuados para que el tema o el dominio pueda reenviar eventos a los destinos admitidos. Por ejemplo, agregue la identidad al rol **Remitente de los datos de Azure Event Hubs** en un espacio de nombres de Azure Event Hubs de modo que el tema de Event Grid pueda reenviar eventos a los centros de eventos en dicho espacio de nombres. 
 
-Actualmente, Azure Event Grid admite temas o dominios configurados con la identidad administrada asignada por el sistema para reenviar eventos a los siguientes destinos. En esta tabla también se proporcionan los roles en los que debe estar la identidad para que el tema pueda reenviar los eventos.
+Actualmente, Azure Event Grid admite temas o dominios configurados con una identidad administrada asignada por el sistema para reenviar eventos a los siguientes destinos. En esta tabla también se proporcionan los roles en los que debe estar la identidad para que el tema pueda reenviar los eventos.
 
 | Destination | Rol de RBAC | 
 | ----------- | --------- | 
 | Colas y temas de Service Bus | [Emisor de datos de Azure Service Bus](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Centro de eventos | [Emisor de datos de Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
-| Blob Storage | [Colaborador de datos de blobs de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Queue Storage |[Emisor de mensajes de datos de la cola de Storage](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Azure Event Hubs | [Emisor de datos de Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
+| Azure Blob Storage | [Colaborador de datos de blobs de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
+| Azure Queue Storage |[Emisor de mensajes de datos de la cola de Storage](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
 
-## <a name="add-identity-to-rbac-roles-on-destinations"></a>Adición de identidad a roles de RBAC en los destinos
+## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Adición de una identidad a roles RBAC en los destinos
 En esta sección se describe cómo agregar la identidad del tema o dominio a un rol de RBAC. 
 
-### <a name="using-azure-portal"></a>Uso de Azure Portal
-Puede usar **Azure Portal** para asignar la identidad del tema o del dominio a un rol adecuado, de modo que el tema o el dominio puedan reenviar eventos al destino. 
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+Puede usar Azure Portal para asignar la identidad del tema o del dominio a un rol adecuado, de modo que el tema o el dominio puedan reenviar eventos al destino. 
 
-En el ejemplo siguiente se agrega una identidad administrada para un tema de Event Grid denominado **msitesttopic** al rol **Emisor de datos de Azure Event Hubs** para un **espacio de nombres** de Service Bus que contiene un recurso de cola o tema. Al agregar al rol en el nivel de espacio de nombres, el tema puede reenviar eventos a todas las entidades en el espacio de nombres. 
+En el siguiente ejemplo se agrega una identidad administrada de un tema de Event Grid denominado **msitesttopic** al rol **Remitente de los datos de Azure Event Hubs** de un espacio de nombres de Service Bus que contiene un recurso de cola o tema. Al agregar al rol en el nivel de espacio de nombres, el tema puede reenviar eventos a todas las entidades en el espacio de nombres. 
 
 1. Vaya al **espacio de nombres de Service Bus** en [Azure Portal](https://portal.azure.com). 
-2. Seleccione **Control de acceso** en el menú izquierdo. 
-3. Seleccione **Agregar** en la sección **Agregar una asignación de roles**. 
-4. En la página **Agregar una asignación de roles**, siga estos pasos:
+1. Seleccione **Control de acceso** en el panel izquierdo. 
+1. Seleccione **Agregar** en la sección **Agregar una asignación de roles**. 
+1. En la página **Agregar una asignación de roles**, siga estos pasos:
     1. Seleccione el rol. En este caso, es **Emisor de datos de Azure Event Hubs** 
-    2. Seleccione la **identidad** para su tema o dominio. 
-    3. Para guardar la configuración, seleccione **Guardar**.
+    1. Seleccione la **identidad** para su tema o dominio. 
+    1. Para guardar la configuración, seleccione **Guardar**.
 
 Los pasos son similares para agregar una identidad a otros roles que se mencionan en la tabla. 
 
-### <a name="using-azure-cli"></a>Uso de la CLI de Azure
-En el ejemplo de esta sección se muestra cómo usar la **CLI de Azure** para agregar una identidad a un rol de RBAC. Los comandos de ejemplo son para los temas de Event Grid. Los comandos de los dominios de Event Grid son similares. 
+### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
+En el ejemplo de esta sección se muestra cómo usar la CLI de Azure para agregar una identidad a un rol RBAC. Los comandos de ejemplo son para los temas de Event Grid. Los comandos de los dominios de Event Grid son similares. 
 
-#### <a name="get-principal-id-for-the-topics-system-identity"></a>Obtención del identificador de entidad de seguridad de la identidad del sistema del tema 
+#### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obtención del identificador de entidad de seguridad de la identidad del sistema del tema 
 En primer lugar, obtenga el identificador de entidad de seguridad de la identidad administrada por el sistema del tema y asigne la identidad a los roles adecuados.
 
 ```azurecli-interactive
@@ -103,7 +103,7 @@ topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o 
 ```
 
 #### <a name="create-a-role-assignment-for-event-hubs-at-various-scopes"></a>Creación de una asignación de roles para centros de eventos en varios ámbitos 
-En el siguiente ejemplo de la CLI se muestra cómo agregar la identidad de un tema al rol **Emisor de datos de Azure Event Hubs** en el nivel de espacio de nombres o en el nivel de centro de eventos. Si crea la asignación de roles en el espacio de nombres, el tema puede reenviar eventos a todos los centros de eventos de ese espacio de nombres. Si la crea en el nivel de centro de eventos, el tema solo puede reenviar eventos a ese centro de eventos específico. 
+En el siguiente ejemplo de la CLI se muestra cómo agregar la identidad de un tema al rol **Emisor de datos de Azure Event Hubs** en el nivel de espacio de nombres o en el nivel de centro de eventos. Si crea la asignación de roles en el nivel de espacio de nombres, el tema puede reenviar eventos a todos los centros de eventos de ese espacio de nombres. Si la crea en el nivel de centro de eventos, el tema solo puede reenviar eventos a ese centro de eventos específico. 
 
 
 ```azurecli-interactive
@@ -118,8 +118,8 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$names
 az role assignment create --role "$role" --assignee "$topic_pid" --scope "$eventhubresourceid" 
 ```
 
-#### <a name="create-a-role-assignment-for-service-bus-topic-at-various-scopes"></a>Creación de una asignación de roles para el tema de Service Bus en varios ámbitos 
-En el siguiente ejemplo de CLI se muestra cómo agregar la identidad de un tema al rol **Emisor de datos de Azure Event Hubs** en el nivel de espacio de nombres o en el nivel de tema de Service Bus. Si crea la asignación de roles en el espacio de nombres, el tema de Event Grid puede reenviar eventos a todas las entidades (colas o temas de Service Bus ) dentro de ese espacio de nombres. Si la crea en el nivel de cola o tema de Service Bus, el tema de Event Grid solo puede reenviar eventos a esa cola o tema de Service Bus específica. 
+#### <a name="create-a-role-assignment-for-a-service-bus-topic-at-various-scopes"></a>Creación de una asignación de roles de un tema de Service Bus en varios ámbitos 
+En el siguiente ejemplo de CLI se muestra cómo agregar la identidad de un tema al rol **Emisor de datos de Azure Event Hubs** en el nivel de espacio de nombres o en el nivel de tema de Service Bus. Si crea la asignación de roles en el nivel de espacio de nombres, el tema de Event Grid puede reenviar eventos a todas las entidades (colas o temas de Service Bus ) dentro de ese espacio de nombres. Si la crea en el nivel de cola o tema de Service Bus, el tema de Event Grid solo puede reenviar eventos a esa cola o tema de Service Bus específica. 
 
 ```azurecli-interactive
 role="Azure Service Bus Data Sender" 
@@ -133,20 +133,20 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$names
 az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbustopicresourceid" 
 ```
 
-## <a name="create-event-subscriptions-that-use-identity"></a>Creación de suscripciones de eventos que utilicen identidad
+## <a name="create-event-subscriptions-that-use-an-identity"></a>Creación de suscripciones de eventos que usan una identidad
 Una vez que tenga un tema o un dominio con una identidad administrada por el sistema y haya agregado la identidad al rol adecuado en el destino, estará listo para crear suscripciones que usen la identidad. 
 
-### <a name="using-azure-portal"></a>Uso de Azure Portal
-Al crear una suscripción de eventos, verá una opción para habilitar el uso de la identidad asignada por el sistema para un punto de conexión en la sección **DETALLES DE PUNTO DE CONEXIÓN**. 
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
+Al crear una suscripción de eventos, se muestra una opción para habilitar el uso de una identidad asignada por el sistema para un punto de conexión en la sección **DETALLES DE PUNTO DE CONEXIÓN**. 
 
-![Habilitación de la identidad al crear una suscripción de eventos para la cola de Service Bus](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
+![Habilitación de una identidad al crear una suscripción de eventos de una cola de Service Bus](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
-También puede habilitar el uso de la identidad asignada por el sistema para que se utilice en la cola de mensajes fallidos en la pestaña **Características adicionales**. 
+También puede habilitar el uso de una identidad asignada por el sistema para que se use en la cola de mensajes fallidos en la pestaña **Características adicionales**. 
 
 ![Habilitación de la identidad asignada por el sistema para la cola de mensajes fallidos](./media/managed-service-identity/enable-deadletter-identity.png)
 
-### <a name="using-azure-cli---service-bus-queue"></a>Uso de la CLI de Azure: cola de Service Bus 
-En esta sección, aprenderá a usar la **CLI de Azure** para habilitar el uso de la identidad asignada por el sistema para enviar eventos a una cola de Service Bus. La identidad debe ser miembro del rol **Emisor de datos de Azure Service Bus**. También debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** en la cuenta de almacenamiento que se usa para la cola de mensajes fallidos. 
+### <a name="use-the-azure-cli---service-bus-queue"></a>Uso de la CLI de Azure: cola de Service Bus 
+En esta sección, aprenderá a usar la CLI de Azure para habilitar el uso de una identidad asignada por el sistema para enviar eventos a una cola de Service Bus. La identidad debe ser miembro del rol **Emisor de datos de Azure Service Bus**. También debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** en la cuenta de almacenamiento que se usa para la cola de mensajes fallidos. 
 
 #### <a name="define-variables"></a>Definición de variables
 En primer lugar, especifique los valores de las siguientes variables que se usarán en el comando de la CLI. 
@@ -161,8 +161,8 @@ queueid=$(az servicebus queue show --namespace-name <SERVICE BUS NAMESPACE NAME>
 sb_esname = "<Specify a name for the event subscription>" 
 ```
 
-#### <a name="create-an-event-subscription-using-managed-identity-for-delivery"></a>creación de una suscripción de eventos mediante identidad administrada para la entrega 
-Este comando de ejemplo crea una suscripción de eventos para un tema de Event Grid con el tipo de punto de conexión establecido en **Cola de Service Bus**. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Creación de una suscripción de eventos usando una identidad administrada para la entrega 
+Este comando de ejemplo crea una suscripción de eventos de un tema de Event Grid con un tipo de punto de conexión establecido en **Cola de Service Bus**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -173,8 +173,8 @@ az eventgrid event-subscription create
     -n $sb_esname 
 ```
 
-#### <a name="create-an-event-subscription-using-managed-identity-for-delivery-and-dead-lettering"></a>creación de una suscripción de eventos mediante identidad administrada para la entrega y cola de mensajes fallidos
-Este comando de ejemplo crea una suscripción de eventos para un tema de Event Grid con el tipo de punto de conexión establecido en **Cola de Service Bus**. También especifica que la identidad administrada por el sistema se va a utilizar para la cola de mensajes fallidos. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery-and-dead-lettering"></a>Creación de una suscripción de eventos usando una identidad administrada para la entrega y cola de mensajes fallidos
+Este comando de ejemplo crea una suscripción de eventos de un tema de Event Grid con un tipo de punto de conexión establecido en **Cola de Service Bus**. También especifica que la identidad administrada por el sistema se va a usar para la cola de mensajes fallidos. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -190,8 +190,8 @@ az eventgrid event-subscription create
     -n $sb_esnameq 
 ```
 
-### <a name="azure-cli---event-hubs"></a>CLI de Azure: Event Hubs 
-En esta sección, aprenderá a usar la **CLI de Azure** para habilitar el uso de la identidad asignada por el sistema para enviar eventos a un centro de eventos. La identidad debe ser miembro del rol **Emisor de datos de Azure Event Hubs**. También debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** en la cuenta de almacenamiento que se usa para la cola de mensajes fallidos. 
+### <a name="use-the-azure-cli---event-hubs"></a>Uso de la CLI de Azure: Event Hubs 
+En esta sección, aprenderá a usar la CLI de Azure para habilitar el uso de una identidad asignada por el sistema para enviar eventos a un centro de eventos. La identidad debe ser miembro del rol **Emisor de datos de Azure Event Hubs**. También debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** en la cuenta de almacenamiento que se usa para la cola de mensajes fallidos. 
 
 #### <a name="define-variables"></a>Definición de variables
 ```azurecli-interactive
@@ -203,8 +203,8 @@ hubid=$(az eventhubs eventhub show --name <EVENT HUB NAME> --namespace-name <NAM
 eh_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery"></a>creación de una suscripción de eventos mediante identidad administrada para la entrega 
-Este comando de ejemplo crea una suscripción de eventos para un tema de Event Grid con el tipo de punto de conexión establecido en **Event Hubs**. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Creación de una suscripción de eventos usando una identidad administrada para la entrega 
+Este comando de ejemplo crea una suscripción de eventos de un tema de Event Grid con un tipo de punto de conexión establecido en **Event Hubs**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -215,8 +215,8 @@ az eventgrid event-subscription create
     -n $sbq_esname 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery--deadletter"></a>Creación de una suscripción de eventos mediante identidad administrada para la entrega + cola de mensajes fallidos 
-Este comando de ejemplo crea una suscripción de eventos para un tema de Event Grid con el tipo de punto de conexión establecido en **Event Hubs**. También especifica que la identidad administrada por el sistema se va a utilizar para la cola de mensajes fallidos. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Creación de una suscripción de eventos usando una identidad administrada para la entrega y cola de mensajes fallidos 
+Este comando de ejemplo crea una suscripción de eventos de un tema de Event Grid con un tipo de punto de conexión establecido en **Event Hubs**. También especifica que la identidad administrada por el sistema se va a usar para la cola de mensajes fallidos. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -232,8 +232,8 @@ az eventgrid event-subscription create
     -n $eh_esname 
 ```
 
-### <a name="azure-cli---azure-storage-queue"></a>CLI de Azure: cola de Azure Storage 
-En esta sección, aprenderá a usar la **CLI de Azure** para habilitar el uso de la identidad asignada por el sistema para enviar eventos a una cola de Azure Storage. La identidad debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** de la cuenta de almacenamiento.
+### <a name="use-the-azure-cli---azure-storage-queue"></a>Uso de la CLI de Azure: cola de Azure Storage 
+En esta sección, aprenderá a usar la CLI de Azure para habilitar el uso de una identidad asignada por el sistema para enviar eventos a una cola de Azure Storage. La identidad debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** de la cuenta de almacenamiento.
 
 #### <a name="define-variables"></a>Definición de variables  
 
@@ -251,7 +251,7 @@ queueid="$storageid/queueservices/default/queues/<QUEUE NAME>"
 sa_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery"></a>Creación de una suscripción de eventos mediante identidad administrada para la entrega 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Creación de una suscripción de eventos usando una identidad administrada para la entrega 
 
 ```azurecli-interactive
 az eventgrid event-subscription create 
@@ -262,7 +262,7 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery--deadletter"></a>Creación de una suscripción de eventos mediante identidad administrada para la entrega + cola de mensajes fallidos 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Creación de una suscripción de eventos usando una identidad administrada para la entrega y cola de mensajes fallidos 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)

@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff5d8ecaaeff67e1a97c4afd4ca8119f8ac7c1e1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 68143c4ac3851604996e1f7ba2adce48934e59c5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696947"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295395"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -41,7 +41,7 @@ Resumen de los dos escenarios principales no exclusivos con SAML:
 | Mi aplicación espera una aserción de SAML para completar una autenticación. | **Azure AD B2C actúa como proveedor de identidades (IdP)**<br />Azure AD B2C actúa como IdP de SAML para las aplicaciones. | Este artículo. |
 | Mis usuarios necesitan un inicio de sesión único con un proveedor de identidades compatible con SAML, como ADFS, Salesforce o Shibboleth.  | **Azure AD B2C actúa como proveedor de servicios (SP)**<br />Azure AD B2C actúa como proveedor de servicios al conectarse al proveedor de identidades de SAML. Es un proxy de federación entre la aplicación y el proveedor de identidades de SAML.  | <ul><li>[Configuración del inicio de sesión con IdP de SAML y ADFS mediante directivas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configuración del inicio de sesión con un proveedor de SAML Salesforce mediante directivas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Realice los pasos del artículo [Introducción a las directivas personalizadas en Azure AD B2C](custom-policy-get-started.md). Necesita la directiva personalizada *SocialAndLocalAccounts* del paquete de inicio de la directiva personalizada que se describe en el artículo.
 * Conocimientos básicos del protocolo SAML (Lenguaje de marcado de aserción de seguridad).
@@ -265,12 +265,12 @@ La directiva personalizada y el inquilino de Azure AD B2C ya están listos. A co
 
 ## <a name="4-setup-application-in-the-azure-ad-b2c-directory"></a>4. Configurar la aplicación en el directorio de Azure AD B2C
 
-### <a name="41-register-your-application-in-azure-active-directory"></a>4.1. Registrar la aplicación en Azure Active Directory
+### <a name="41-register-your-application-in-azure-ad-b2c"></a>4.1 Registrar la aplicación en Azure AD B2C
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
-1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
+1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. Escriba un **Nombre** para la aplicación. Por ejemplo, *SAMLApp1*.
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **URI de redirección**, seleccione **Web** y escriba `https://localhost`. Modificará este valor más adelante en el manifiesto del registro de aplicación.

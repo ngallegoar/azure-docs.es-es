@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 9fa10dd1b278b48eb714affb74af59140c8baa09
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744763"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259344"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permisos de Azure Sentinel
 
@@ -44,7 +44,7 @@ Además de los roles de RBAC dedicados de Azure Sentinel, hay roles de RBAC de A
 > Los roles de Log Analytics también conceden acceso de lectura a todos los recursos de Azure, pero solo asignarán permisos de escritura a recursos de Log Analytics.
 
 
-Por ejemplo, a un usuario al que se le han asignado los roles de **lector de Azure Sentinel** y **colaborador de Azure** (no **colaborador de Azure Sentinel**), podrá editar datos en Azure Sentinel, aunque solo tenga permisos de **lector de Sentinel**. Por tanto, si desea conceder permisos para un usuario solo en Azure Sentinel, elimine con cuidado los permisos anteriores de este usuario, asegurándose de que no interrumpe ningún rol de permiso necesario para otro recurso.
+Por ejemplo, a un usuario al que se le han asignado los roles de **Lector de Azure Sentinel** y **Colaborador de Azure** (no **Colaborador de Azure Sentinel**), podrá editar datos en Azure Sentinel, aunque solo tenga permisos de **Lector de Sentinel**. Por tanto, si desea conceder permisos para un usuario solo en Azure Sentinel, elimine con cuidado los permisos anteriores de este usuario, asegurándose de que no interrumpe ningún rol de permiso necesario para otro recurso.
 
 > [!NOTE]
 >- Azure Sentinel usa cuadernos de estrategias para una respuesta automatizada ante amenazas. Los cuadernos de estrategias emplean instancias de Azure Logic Apps y son recursos independientes de Azure. Es posible que desee asignar miembros específicos del equipo de operaciones de seguridad con la opción de usar Logic Apps para las operaciones de orquestación de seguridad, automatización y respuesta (SOAR). Puede usar el rol de [colaborador de Logic App](../role-based-access-control/built-in-roles.md#logic-app-contributor) o el de [operador de Logic App](../role-based-access-control/built-in-roles.md#logic-app-operator) para asignar permisos explícitos para el uso de cuadernos de estrategias.
@@ -61,7 +61,7 @@ En la siguiente tabla se muestran los roles y las acciones permitidas en Azure S
 | Lector de Azure Sentinel | -- | -- | -- | X |
 | Respondedor de Azure Sentinel|--|--| X | X |
 | Colaborador de Azure Sentinel | -- | X | X | X |
-| Colaborador de Azure Sentinel y colaborador de Logic Apps | X | X | X | X |
+| Colaborador de Azure Sentinel y Colaborador de Logic Apps | X | X | X | X |
 
 
 > [!NOTE]

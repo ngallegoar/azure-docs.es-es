@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1a9e38d2718643212848105e09c60d93f497a34a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847640"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193546"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicación de máquinas virtuales de Azure que se ejecutan en grupos con ubicación por proximidad en otra región
 
@@ -27,6 +27,9 @@ En un escenario típico, puede hacer que las máquinas virtuales que se ejecutan
 - El mejor esfuerzo consistirá en realizar la conmutación por error o recuperación de las máquinas virtuales en un grupo con ubicación por proximidad. Pero si la máquina virtual no se puede activar dentro de la ubicación de proximidad durante la conmutación por error o por recuperación, se seguirá produciendo la conmutación por error o por recuperación, y las máquinas virtuales se crearán fuera de un grupo con ubicación por proximidad.
 -  Si un conjunto de disponibilidad está anclado a un grupo con ubicación por proximidad y durante la conmutación por error o recuperación las máquinas virtuales del conjunto de disponibilidad tienen una restricción de asignación, se crearán fuera del grupo con ubicación por proximidad y del conjunto de disponibilidad.
 -  Para los discos administrados no se permite Site Recovery para grupos con ubicación por proximidad.
+
+> [!Note]
+> Azure Site Recovery no admite la conmutación por recuperación desde discos administrados para escenarios de Hyper-V a Azure. Por tanto, no se admite la conmutación por recuperación desde grupos con ubicación por proximidad de Azure a Hyper-V.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

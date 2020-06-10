@@ -8,18 +8,18 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 74828bfd3a110739afc211a530c11c74387b70ed
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 70c37b60d3b01c939b9b06d6b053b526e036904a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748784"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266515"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box Disk en Azure Portal
 
 En este artículo se describen las tareas de envío autoadministradas para pedir, recoger y entregar un dispositivo Azure Data Box Disk. Puede administrar Data Box Disk mediante Azure Portal.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 El envío autoadministrado está disponible como opción cuando [realiza un pedido de Azure Data Box Disk](data-box-disk-deploy-ordered.md). Solo está disponible en las siguientes regiones:
 
@@ -43,7 +43,7 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
 
    ![Envío autoadministrado](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Una vez se haya preparado el dispositivo, podrá programar una recogida. En el pedido de Azure Data Box Disk, vaya a **Información general** y seleccione **Programar recogida**.
+4. Cuando el dispositivo esté preparado y haya recibido una notificación por correo electrónico, podrá programar una recogida. En el pedido de Azure Data Box Disk, vaya a **Información general** y seleccione **Programar recogida**.
 
    ![Pedir un dispositivo Data Box para su recogida](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
@@ -57,11 +57,11 @@ Al realizar un pedido de Data Box Disk, puede elegir la opción de envío autoad
 
    Tome nota de este **código de autorización**.
 
-   Según los requisitos de seguridad, en el momento de programar la recogida y la entrega, es necesario presentar el nombre de la persona que se encargará de hacerlo.
+   Según los requisitos de seguridad, en el momento de programar la recogida es necesario presentar el nombre de la persona que se encargará de hacerlo.
 
    También debe proporcionar detalles de quién va a acudir al centro de datos a recoger el dispositivo. Usted o el punto de contacto deben llevar un identificador con una foto aprobado por el gobierno, que se validará en el centro de datos.
 
-   Además, la persona que recoge el dispositivo también debe tener el **código de autorización**. El código de autorización se valida en el centro de datos en el momento de la recogida.
+   Además, la persona que recoge el dispositivo también debe tener el **código de autorización**. El código de autorización es exclusivo de una recogida o una entrega y se valida en el centro de datos.
 
 7. El pedido cambia automáticamente al estado **Recogido** una vez que el dispositivo se ha recogido en el centro de datos.
 

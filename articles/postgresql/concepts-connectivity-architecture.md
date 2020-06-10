@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d23a59e97ee3fc935a0d0954bc70b547b727fddc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f140aa905916524eca66e764f08b699de26be650
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546598"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300705"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
 En este artículo se explica la arquitectura de la conectividad de Azure Database for PostgreSQL y cómo se dirige el tráfico a la instancia de base de datos de Azure Database for PostgreSQL desde los clientes de dentro y de fuera de Azure.
@@ -44,6 +44,7 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Este de EE. UU. | 40.121.158.30, 191.238.6.43  |
 | Este de EE. UU. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Centro de Francia | 40.79.137.0, 40.79.129.1  |
+| Sur de Francia | 40.79.177.0     |
 | Centro de Alemania | 51.4.144.100     |
 | Nordeste de Alemania | 51.5.144.179  |
 | India central | 104.211.96.159     |
@@ -61,7 +62,7 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Sudeste de Asia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Centro de Emiratos Árabes Unidos | 20.37.72.64  |
 | Norte de Emiratos Árabes Unidos | 65.52.248.0    |
-| Sur de Reino Unido 2 | 51.140.184.11   |
+| Sur de Reino Unido | 51.140.184.11   |
 | Oeste de Reino Unido | 51.141.8.11  |
 | Centro-Oeste de EE. UU. | 13.78.145.25     |
 | Oeste de Europa | 40.68.37.158, 191.237.232.75, 13.69.105.208  |

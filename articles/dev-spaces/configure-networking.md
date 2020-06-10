@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Se describen los requisitos de red para ejecutar Azure Dev Spaces en Azure Kubernetes Services.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, CNI, Kubenet, SDN, red
-ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262050"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300698"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configuración de red para Azure Dev Spaces en distintas topologías de red
 
@@ -33,9 +33,8 @@ Azure Dev Spaces necesita tráfico de entrada y salida para los FQDN siguientes:
 | cloudflare.docker.com      | HTTPS: 443 | Para extraer imágenes de Docker para Azure Dev Spaces |
 | gcr.io                     | HTTPS: 443 | Para extraer imágenes de Helm para Azure Dev Spaces |
 | storage.googleapis.com     | HTTPS: 443 | Para extraer imágenes de Helm para Azure Dev Spaces |
-| azds-*.azds.io             | HTTPS: 443 | Para comunicarse con los servicios de back-end para el controlador Azure Dev Spaces. El FQDN exacto puede encontrarse en *dataplaneFqdn* en `USERPROFILE\.azds\settings.json` |
 
-Actualice el firewall o la configuración de seguridad para permitir el tráfico de red hacia y desde todos los FQDN anteriores. Por ejemplo, si usa un firewall para proteger la red, se deben agregar los FQDN anteriores a la regla de aplicación del firewall para permitir el tráfico hacia y desde estos dominios.
+Actualice el firewall o la configuración de seguridad para permitir el tráfico de red hacia y desde todos los FQDN anteriores y los [servicios de infraestructura de Azure Dev Spaces][service-tags]. Por ejemplo, si usa un firewall para proteger la red, se deben agregar los FQDN anteriores a la regla de aplicación del firewall, y la etiqueta de servicio de Azure Dev Spaces también se deberá [agregar al firewall][firewall-service-tags]. Estas dos actualizaciones del firewall son obligatorias para permitir el tráfico hacia y desde estos dominios.
 
 ### <a name="ingress-only-network-traffic-requirements"></a>Requisitos de tráfico de red de solo entrada
 
@@ -47,7 +46,7 @@ AKS permite usar [directivas de red][aks-network-policies] para controlar el tr�
 
 ### <a name="ingress-and-egress-network-traffic-requirements"></a>Requisitos de tráfico de red de entrada y salida
 
-Azure Dev Spaces le permite comunicarse directamente con un pod en un espacio de desarrollo en el clúster para la depuración. Para que esta característica funcione, agregue una directiva de red que permita la comunicación de entrada y salida con las direcciones IP de la infraestructura de Azure Dev Spaces, que puede [variar por región][dev-spaces-ip-auth-range-regions].
+Azure Dev Spaces le permite comunicarse directamente con un pod en un espacio de desarrollo en el clúster para la depuración. Para que esta característica funcione, agregue una directiva de red que permita la comunicación de entrada y salida con las direcciones IP de la infraestructura de Azure Dev Spaces, que puede [variar por región][service-tags].
 
 ### <a name="ingress-only-network-traffic-requirements"></a>Requisitos de tráfico de red de solo entrada
 
@@ -59,7 +58,7 @@ De manera predeterminada, los clústeres de AKS se configuran para usar [Kubenet
 
 ## <a name="using-api-server-authorized-ip-ranges"></a>Uso de intervalos IP autorizados de servidor de API
 
-Los clústeres de AKS permiten configurar medidas de seguridad adicionales que limiten la dirección IP que puede interactuar con los clústeres, por ejemplo, el uso de redes virtuales personalizadas o la [protección del acceso al servidor de API mediante intervalos IP autorizados][aks-ip-auth-ranges]. Para utilizar Azure Dev Spaces cuando se usen estas medidas de seguridad adicionales al [crear][aks-ip-auth-range-create] el clúster, debe [permitir intervalos adicionales según la región][dev-spaces-ip-auth-range-regions]. También puede [actualizar][aks-ip-auth-range-update] un clúster existente para permitir esos intervalos adicionales. También debe permitir que la dirección IP de cualquier máquina de desarrollo que se conecte al clúster de AKS para la depuración se conecte al servidor de API.
+Los clústeres de AKS permiten configurar medidas de seguridad adicionales que limiten la dirección IP que puede interactuar con los clústeres, por ejemplo, el uso de redes virtuales personalizadas o la [protección del acceso al servidor de API mediante intervalos IP autorizados][aks-ip-auth-ranges]. Para utilizar Azure Dev Spaces cuando se usen estas medidas de seguridad adicionales al [crear][aks-ip-auth-range-create] el clúster, debe [permitir intervalos adicionales según la región][service-tags]. También puede [actualizar][aks-ip-auth-range-update] un clúster existente para permitir esos intervalos adicionales. También debe permitir que la dirección IP de cualquier máquina de desarrollo que se conecte al clúster de AKS para la depuración se conecte al servidor de API.
 
 ## <a name="using-aks-private-clusters"></a>Uso de clústeres privados de AKS
 
@@ -84,7 +83,7 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 ## <a name="client-requirements"></a>Requisitos del cliente
 
-Azure Dev Spaces usa herramientas del lado cliente, como la extensión de la CLI de Azure Dev Spaces, la extensión de Visual Studio Code y la extensión de Visual Studio, para comunicarse con el clúster de AKS para la depuración. Para usar las herramientas del lado cliente de Azure Dev Spaces, permita el tráfico desde las máquinas de desarrollo al dominio *azds-\*.azds.io*. Consulte *dataplaneFqdn* en `USERPROFILE\.azds\settings.json` para ver el FQDN exacto. Si usa [intervalo IP autorizados del servidor de API][auth-range-section], también debe permitir que la dirección IP de cualquier máquina de desarrollo que se conecte al clúster de AKS para la depuración se conecte al servidor de API.
+Azure Dev Spaces usa herramientas del lado cliente, como la extensión de la CLI de Azure Dev Spaces, la extensión de Visual Studio Code y la extensión de Visual Studio, para comunicarse con el clúster de AKS para la depuración. Para usar las herramientas del lado cliente de Azure Dev Spaces, permita el tráfico desde las máquinas de desarrollo a la [infraestructura de Azure Dev Spaces][dev-spaces-allow-infrastructure]. Si usa [intervalo IP autorizados del servidor de API][auth-range-section], también debe permitir que la dirección IP de cualquier máquina de desarrollo que se conecte al clúster de AKS para la depuración se conecte al servidor de API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -104,10 +103,12 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
 [azure-cli-install]: /cli/azure/install-azure-cli
-[dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-allow-infrastructure]: #virtual-network-or-subnet-configurations
 [dev-spaces-routing]: how-dev-spaces-works-routing.md
 [endpoint-options]: #using-different-endpoint-options
+[firewall-service-tags]: ../firewall/service-tags.md
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
+[service-tags]: ../virtual-network/service-tags-overview.md#available-service-tags
 [team-quickstart]: quickstart-team-development.md

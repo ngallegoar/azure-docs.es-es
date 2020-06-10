@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417902"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017671"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -70,7 +70,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad web | String | Sí
 type | Se debe establecer en **WebActivity**. | String | Sí
-method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST" y "PUT" | Sí
+method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST", "PUT" | Sí
 url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión. | Sí
 headers | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. `"headers":{ "Content-Type":"application/json"}`
 body | Representa la carga útil que se envía al punto de conexión.  | Cadena (o expresión con un valor resultType de cadena). <br/><br/>Vea el esquema de la carga de solicitud en la sección [Solicitar un esquema de carga](#request-payload-schema). | Necesario para los métodos POST o PUT.
@@ -99,7 +99,7 @@ A continuación, se muestran los tipos de autenticación admitidos en la activid
 
 Si la autenticación no es necesaria, no incluya la propiedad "authentication".
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 
 Especifique el nombre de usuario y la contraseña que se usarán con la autenticación básica.
 
@@ -161,7 +161,7 @@ Al usar el método POST o PUT, la propiedad body representa la carga que se env�
 ```
 
 ## <a name="example"></a>Ejemplo
-En este ejemplo, la actividad web de la canalización llama a un punto de conexión REST. Pasa un servicio vinculado de Azure SQL y un conjunto de datos de Azure SQL al punto de conexión. El punto de conexión REST usa la cadena de conexión de Azure SQL para conectarse al servidor de Azure SQL y devuelve el nombre de la instancia de SQL Server.
+En este ejemplo, la actividad web de la canalización llama a un punto de conexión REST. Pasa un servicio vinculado de Azure SQL y un conjunto de datos de Azure SQL al punto de conexión. El punto de conexión REST usa la cadena de conexión de Azure SQL para conectarse al servidor SQL lógico y devuelve el nombre de la instancia de SQL Server.
 
 ### <a name="pipeline-definition"></a>Definición de la canalización
 

@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57e4451f67a75e9101f21d449152d9c6f42aaf02
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028400"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216613"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory
 
@@ -25,10 +25,14 @@ En este artículo se describe cómo mover los dominios de la organización de Se
 
 > [!NOTE]
 > Cambiar el método de autenticación requiere planificación, pruebas y un posible tiempo de inactividad. El [lanzamiento preconfigurado](how-to-connect-staged-rollout.md) proporciona una forma alternativa de probar y migrar gradualmente la autenticación de la federación a la nube mediante la sincronización de hash de contraseña.
+>
+> Si planea usar el lanzamiento por fases, recuerde desactivar las características del lanzamiento por fases una vez que haya terminado la migración.  Para obtener más información, vea [Migración a la autenticación en la nube mediante un lanzamiento por fases](how-to-connect-staged-rollout.md)
+
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>Requisitos previos para migrar a la sincronización de hash de contraseña
 
 Se deben cumplir los siguientes requisitos previos para migrar del uso de AD FS al uso de la sincronización de hash de contraseña.
+
 
 ### <a name="update-azure-ad-connect"></a>Actualización de Azure AD Connect
 

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a realizar copias de seguridad de bas
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3fd94dc6332d96f875c164dfeadff3a8ab2cad4e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: faf5ffd65f9b3133c504413201d58aee988af71a
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715603"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248114"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a:
 >**La eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure** están ahora disponible en versión preliminar.<br>
 >Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne los siguientes criterios:
 
@@ -55,7 +55,7 @@ En la tabla siguiente se enumeran las distintas alternativas que se pueden usar 
 | Permite el acceso a los FQDN/IP del servicio | Sin costos adicionales.   <br><br>  Funciona con todos los firewalls y dispositivos de seguridad de red | Es posible que sea necesario acceder a un amplio conjunto de direcciones IP o FQDN   |
 | Usar un servidor proxy HTTP                 | Un único punto de acceso a Internet para las máquinas virtuales.                       | Costos adicionales de ejecutar una máquina virtual con el software de proxy.         |
 
-A continuación se comparten más detalles sobre el uso de estas opciones:
+A continuación se proporcionan más detalles sobre el uso de estas opciones:
 
 #### <a name="private-endpoints"></a>Puntos de conexión privados
 
@@ -63,7 +63,7 @@ Los puntos de conexión privados permiten conectar de forma segura desde los ser
 
 #### <a name="nsg-tags"></a>Etiquetas de NSG
 
-Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *AzureBackup* para permitir el acceso de salida a Azure Backup. Además de la etiqueta de Azure Backup, también necesita permitir la conectividad para la autenticación y la transferencia de datos mediante la creación de [reglas de NSG](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) similares para *Azure AD* y *Azure Storage*.  En los pasos siguientes se describe el proceso para crear una regla para la etiqueta de Azure Backup:
+Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *AzureBackup* para permitir el acceso de salida a Azure Backup. Además de la etiqueta de Azure Backup, también necesita permitir la conectividad para la autenticación y la transferencia de datos mediante la creación de [reglas de NSG](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) similares para *Azure AD* y *Azure Storage*.  En los pasos siguientes se describe el proceso para crear una regla para la etiqueta de Azure Backup:
 
 1. En **Todos los servicios**, vaya a **Grupos de seguridad de red** y seleccione el grupo de seguridad de red.
 
@@ -73,7 +73,7 @@ Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *Azur
 
 1. Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
 
-Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar.
+Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar.
 
 #### <a name="azure-firewall-tags"></a>Etiquetas de Azure Firewall
 
@@ -91,7 +91,7 @@ También puede usar los siguientes FQDN para permitir el acceso a los servicios 
 | -------------- | ------------------------------------------------------------ |
 | Azure Backup  | `*.backup.windowsazure.com`                             |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Permitir el acceso a los FQDN conforme a las secciones 56 y 59 según [este artículo](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Azure AD      | Permitir el acceso a los FQDN conforme a las secciones 56 y 59 según [este artículo](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Empleo de un servidor proxy HTTP para enrutar el tráfico
 

@@ -3,17 +3,19 @@ title: Historial de implementación
 description: Se describe cómo ver las operaciones de implementación de Azure Resource Manager con el portal, PowerShell, CLI de Azure y API de REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.date: 05/26/2020
+ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816291"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117846"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visualización del historial de implementación con Azure Resource Manager
 
-Azure Resource Manager permite ver el historial de implementación y examinar operaciones específicas de implementaciones anteriores. Puede ver los recursos que se han implementado y obtener información sobre los errores.
+Azure Resource Manager permite ver el historial de implementación. Se pueden examinar las operaciones específicas en implementaciones pasadas y ver qué recursos se han implementado. Este historial contiene información sobre los errores.
+
+El historial de implementaciones de un grupo de recursos está limitado a 800 implementaciones. A medida que se acerque el límite, las implementaciones se eliminarán automáticamente del historial. Para obtener más información, vea [Eliminaciones automáticas del historial de implementaciones](deployment-history-deletions.md).
 
 Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](common-deployment-errors.md).
 
@@ -117,7 +119,7 @@ Cada implementación puede incluir varias operaciones. Para ver más detalles ac
 
 1. En el Resumen de una implementación, seleccione **Detalles de la operación**.
 
-    ![Selección de operaciones de implementación](./media/deployment-history/get-operation-details.png)
+    ![Selección de los detalles de la operación](./media/deployment-history/get-operation-details.png)
 
 1. Verá los detalles de ese paso de la implementación. Cuando se produce un error, los detalles incluyen el mensaje de error.
 
@@ -210,6 +212,6 @@ La respuesta incluye un mensaje de error.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](common-deployment-errors.md).
-* Para obtener información sobre cómo usar los registros de actividad para supervisar otros tipos de acciones, vea [View activity logs to manage Azure resources](../management/view-activity-logs.md) (Ver registros de actividad para administrar recursos de Azure).
+* Para obtener información sobre cómo se administran las implementaciones en el historial, vea [Eliminaciones automáticas del historial de implementaciones](deployment-history-deletions.md).
 * Para validar la implementación antes de ejecutarla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](deploy-powershell.md).
 

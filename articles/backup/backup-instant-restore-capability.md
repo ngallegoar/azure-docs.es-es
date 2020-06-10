@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597661"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248284"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -48,7 +48,7 @@ De manera predeterminada, las instantáneas de recuperación se conservan durant
 * Es una actualización unidireccional; una vez actualizada a la restauración instantánea, no se puede volver atrás.
 
 >[!NOTE]
->Con esta actualización instantánea de la restauración, la duración de la retención de instantáneas de todos los clientes (**los nuevos y los ya existentes**) se establecerá en un valor predeterminado de dos días. Sin embargo, puede establecer la duración según sus necesidades en cualquier valor entre 1 y 5 días.
+>Con esta actualización instantánea de la restauración, la duración de la retención de instantáneas de todos los clientes (**los nuevos y los ya existentes**) se establecerá en un valor predeterminado de dos días. Pese a ello, puede establecer la duración según sus necesidades en cualquier valor entre 1 y 5 días.
 
 ## <a name="cost-impact"></a>Impacto sobre los costos
 
@@ -110,7 +110,7 @@ El nuevo modelo no permite eliminar el punto de restauración (nivel 2), a menos
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>¿Por qué continúa existiendo mi instantánea incluso una vez expirado el tiempo de retención establecido en la directiva de copia de seguridad?
 
-Si el punto de recuperación tiene instantáneas y que es el más reciente disponible, se conserva hasta el momento en que se realice la copia de seguridad siguiente correctamente. Esto atiende a lo estipulado en el diseño de la actual directiva de "recolección de elementos no utilizados" (GC), que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la VM. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.
+Si el punto de recuperación tiene instantáneas y que es el más reciente disponible, se conserva hasta el momento en que se realice la copia de seguridad siguiente correctamente. Esto atiende a lo estipulado en el diseño de la actual directiva de "recolección de elementos no utilizados" (GC), que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la máquina virtual. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>No necesito la característica de restauración instantánea. ¿Se puede deshabilitar?
 

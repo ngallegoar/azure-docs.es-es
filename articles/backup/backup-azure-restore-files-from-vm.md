@@ -3,12 +3,13 @@ title: Recuperación de archivos y carpetas desde una copia de seguridad de máq
 description: En este artículo, aprenderá a recuperar archivos y carpetas desde un punto de recuperación de la máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.custom: references_regions
+ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757983"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195750"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -228,7 +229,7 @@ Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a l
 
 - `download.microsoft.com`
 - Direcciones URL del servicio de recuperación (geo-nombre hace referencia a la región donde reside el almacén de Recovery Services)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para regiones geográficas públicas de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para todas las regiones públicas de Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para Azure US Gov)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para Azure Alemania)

@@ -4,12 +4,12 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226004"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248267"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -52,7 +52,7 @@ El valor predeterminado de DefaultBackupTasksThreshold es **20**.
  Aunque este método resulta útil si la aplicación está consumiendo muchos recursos, [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) de SQL Server es una forma más genérica de especificar límites en la cantidad de CPU, E/S física y memoria que las solicitudes entrantes de la aplicación pueden utilizar.
 
 > [!NOTE]
-> En la experiencia del usuario todavía puede programar varias copias de seguridad en un momento dado. Sin embargo, se procesarán en una ventana deslizante de, por ejemplo, 5, como se muestra en el ejemplo anterior.
+> En la experiencia del usuario todavía puede programar varias copias de seguridad en un momento dado, pero se procesarán en una ventana deslizante de, por ejemplo, 5, según el ejemplo anterior.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>¿Puedo ejecutar una copia de seguridad completa desde una réplica secundaria?
 
@@ -92,7 +92,7 @@ Si realiza una acción **Detener copia de seguridad con eliminación de datos**,
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Si se cambia el nombre de la base de datos después de haberla protegido, ¿cuál será su comportamiento?
 
-Una base de datos después de un cambio de nombre se trata como una nueva base de datos. Por lo tanto, el servicio trata esta situación como si no se encontrara la base de datos y producirá un error en las copias de seguridad.
+Una base de datos después de un cambio de nombre se trata como una nueva base de datos. Por tanto, el servicio tratará esta situación como si no se encontrara la base de datos y producirá un error en las copias de seguridad.
 
 Puede seleccionar la base de datos, que ahora tiene un nuevo nombre y configurar la protección para la misma. En caso de que la protección automática esté habilitada en la instancia, la base de datos con un nuevo nombre se detectará y protegerá automáticamente.
 
