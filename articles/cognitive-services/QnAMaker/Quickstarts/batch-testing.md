@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Prueba de una base de conocimientos con preguntas por lotes'
 description: Use la herramienta de realización de pruebas por lotes de QnA Maker para probar las bases de conocimientos del recurso de QnA Maker y ver las respuestas esperadas, las puntuaciones de confianza y los avisos de turno múltiple.
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873677"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337740"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Inicio rápido: Prueba de una base de conocimientos con preguntas por lotes y respuestas esperadas
 

@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1bff1e22df1583491bf8d249cdb8752e9a1e4f57
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300104"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485377"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service en Linux
 
@@ -44,7 +44,7 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configuración del complemento Maven
 
-El proceso de implementación en Azure App Service puede tomar automáticamente las credenciales de Azure de la CLI de Azure. Si no tiene la CLI de Azure instalada, el complemento Maven iniciará sesión con OAuth o el inicio de sesión del dispositivo. Consulte los detalles sobre la [autenticación con complementos de Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio) si fuera necesario.
+El proceso de implementación en Azure App Service puede tomar automáticamente las credenciales de Azure de la CLI de Azure. Si no tiene la CLI de Azure instalada, el complemento Maven iniciará sesión con OAuth o el inicio de sesión del dispositivo. Consulte los detalles sobre la [autenticación con complementos de Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) si fuera necesario.
 
 Para configurar la implementación, ejecute el comando maven en el símbolo del sistema y use las configuraciones presionando la tecla **ENTRAR** hasta que aparezca el mensaje **Confirmar (S/N)** , presione la tecla **'s'** y la configuración habrá terminado. 
 ```cmd

@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 06/02/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21289874792987e35fa1cc5731a63e3f55fedc35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4752fe65cf06b894413df2fda0decdfbb427afd5
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835774"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449386"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -61,7 +61,7 @@ Azure Private Link proporciona las ventajas siguientes:
 |Azure Service Bus | Todas las regiones públicas      |  Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | Todas las regiones públicas      |   Versión preliminar <br/> [Más información](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Todas las regiones públicas       |   Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |   Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Web Apps | Todas las regiones públicas      |   Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |   Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | IoT Hub | Todas las regiones públicas    |   Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |   Versión preliminar   <br/> [Más información](https://aka.ms/asrs/privatelink)   |
