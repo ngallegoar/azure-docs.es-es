@@ -8,23 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ff59819c3bfda6e19d14cbe2deaea43e1694375
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73888213"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345247"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Cómo usar el Panel para mejorar la aplicación
 
-Busque y corrija problemas con las intenciones de la aplicación entrenada cuando usa expresiones de ejemplo. El panel muestra información general de la aplicación, con los aspectos destacados de las intenciones que se deben corregir. 
+Busque y corrija problemas con las intenciones de la aplicación entrenada cuando usa expresiones de ejemplo. El panel muestra información general de la aplicación, con los aspectos destacados de las intenciones que se deben corregir.
 
 La revisión del análisis del panel es un proceso iterativo, que se repite a medida que cambia y mejora el modelo.
 
-Esta página no tendrá análisis pertinentes para las aplicaciones que no tengan expresiones de ejemplo en las intenciones, conocidas como aplicaciones de _solo patrón_. 
+Esta página no tendrá análisis pertinentes para las aplicaciones que no tengan expresiones de ejemplo en las intenciones, conocidas como aplicaciones de _solo patrón_.
 
 ## <a name="what-issues-can-be-fixed-from-dashboard"></a>¿Qué incidencias se pueden corregir desde el panel?
 
@@ -38,37 +38,37 @@ Los tres problemas que trata el panel son:
 
 Las predicciones correctas se representan con el color azul.
 
-El panel muestra estas incidencias, le indica qué intenciones se ven afectadas y sugiere lo que debe hacer para mejorar la aplicación. 
+El panel muestra estas incidencias, le indica qué intenciones se ven afectadas y sugiere lo que debe hacer para mejorar la aplicación.
 
-## <a name="before-app-is-trained"></a>Antes de entrenar la aplicación 
+## <a name="before-app-is-trained"></a>Antes de entrenar la aplicación
 
-Antes de entrenar la aplicación, el panel no contiene ninguna sugerencia para las correcciones. Entrene la aplicación para ver estas sugerencias.  
+Antes de entrenar la aplicación, el panel no contiene ninguna sugerencia para las correcciones. Entrene la aplicación para ver estas sugerencias.
 
 ## <a name="check-your-publishing-status"></a>Comprobación del estado de publicación
 
-La tarjeta **Estado de publicación** contiene información sobre la última publicación de la versión activa. 
+La tarjeta **Estado de publicación** contiene información sobre la última publicación de la versión activa.
 
-Compruebe que la versión activa es la versión que desea corregir. 
+Compruebe que la versión activa es la versión que desea corregir.
 
 ![El panel muestra los servicios externos de la aplicación, las regiones en las que se ha publicado y las visitas agregadas al punto de conexión.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-También muestra los servicios externos, las regiones en las que se ha publicado y las visitas agregadas al punto de conexión. 
+También muestra los servicios externos, las regiones en las que se ha publicado y las visitas agregadas al punto de conexión.
 
 ## <a name="review-training-evaluation"></a>Revisión de la evaluación del entrenamiento
 
-La tarjeta **Evaluación del entrenamiento** contiene el resumen agregado de la precisión general de la aplicación por área. La puntuación indica la calidad de la intención. 
+La tarjeta **Evaluación del entrenamiento** contiene el resumen agregado de la precisión general de la aplicación por área. La puntuación indica la calidad de la intención.
 
 ![La tarjeta Evaluación del entrenamiento contiene la primera área de información sobre la precisión general de la aplicación.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
-El gráfico indica las intenciones predichas correctamente y las áreas problemáticas con diferentes colores. A medida que mejora la aplicación con las sugerencias, esta puntuación aumenta. 
+El gráfico indica las intenciones predichas correctamente y las áreas problemáticas con diferentes colores. A medida que mejora la aplicación con las sugerencias, esta puntuación aumenta.
 
-Las correcciones sugeridas se dividen por tipo de problema y son las más importantes para la aplicación. Si prefiere revisar y corregir las incidencias por intención, use la tarjeta **[Intenciones con errores](#intents-with-errors)** en la parte inferior de la página. 
+Las correcciones sugeridas se dividen por tipo de problema y son las más importantes para la aplicación. Si prefiere revisar y corregir las incidencias por intención, use la tarjeta **[Intenciones con errores](#intents-with-errors)** en la parte inferior de la página.
 
 Cada área problemática tiene intenciones que deben corregirse. Cuando selecciona el nombre de la intención, se abre la página **Intención** con un filtro aplicado a las expresiones. Este filtro le permite centrarse en las expresiones que causan el problema.
 
 ### <a name="compare-changes-across-versions"></a>Comparación de cambios entre versiones
 
-Antes de realizar cambios en la aplicación, cree una nueva versión. En la nueva versión, realice los cambios sugeridos en las expresiones de ejemplo de la intención y luego vuelva a entrenar. En la tarjeta **Evaluación del entrenamiento** de la página del panel, use la opción **Mostrar cambios desde la versión entrenada** para comparar los cambios. 
+Antes de realizar cambios en la aplicación, cree una nueva versión. En la nueva versión, realice los cambios sugeridos en las expresiones de ejemplo de la intención y luego vuelva a entrenar. En la tarjeta **Evaluación del entrenamiento** de la página del panel, use la opción **Mostrar cambios desde la versión entrenada** para comparar los cambios.
 
 ![Comparación de cambios entre versiones](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
@@ -84,27 +84,27 @@ La adición de expresiones de ejemplo la debe realizar alguien que:
 
 ### <a name="patterns-and-phrase-lists"></a>Patrones y listas de frases
 
-La página de análisis no indica cuándo usar [patrones](luis-concept-patterns.md) o [listas de frases](luis-concept-feature.md). Si se agregan, puede ayudar con las predicciones incorrectas o poco claras, pero no ayuda con el desequilibrio de datos. 
+La página de análisis no indica cuándo usar [patrones](luis-concept-patterns.md) o [listas de frases](luis-concept-feature.md). Si se agregan, puede ayudar con las predicciones incorrectas o poco claras, pero no ayuda con el desequilibrio de datos.
 
 ### <a name="review-data-imbalance"></a>Revisión del desequilibrio de datos
 
 Comience con esta incidencia: puede ser la causa principal de las otras.
 
-La lista de intenciones con **desequilibrio de datos** muestra las intenciones que necesitan más expresiones para corregir el desequilibrio de datos. 
+La lista de intenciones con **desequilibrio de datos** muestra las intenciones que necesitan más expresiones para corregir el desequilibrio de datos.
 
 **Para corregir esta incidencia**:
 
-* Agregue más expresiones a la intención y vuelva a entrenar. 
+* Agregue más expresiones a la intención y vuelva a entrenar.
 
 No agregue expresiones a la intención None a menos que lo sugiera el panel.
 
 > [!Tip]
-> Utilice la tercera sección de la página, **Expresiones por intención** con el valor **Expresiones (número)** como una guía visual rápida de las intenciones que necesitan más expresiones.  
+> Utilice la tercera sección de la página, **Expresiones por intención** con el valor **Expresiones (número)** como una guía visual rápida de las intenciones que necesitan más expresiones.
     ![Uso de "Expresiones (número)" para buscar las intenciones con desequilibrio de datos.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>Revisión de predicciones incorrectas
 
-La lista de intenciones con **predicción incorrecta** muestra las intenciones que tienen expresiones, que se utilizan como ejemplos para una intención específica, pero que se predicen para diferentes intenciones. 
+La lista de intenciones con **predicción incorrecta** muestra las intenciones que tienen expresiones, que se utilizan como ejemplos para una intención específica, pero que se predicen para diferentes intenciones.
 
 **Para corregir esta incidencia**:
 
@@ -132,11 +132,11 @@ El gráfico siguiente muestra una aplicación mal equilibrada con muchas inciden
 
 ![El gráfico siguiente muestra una aplicación bien equilibrada con casi ninguna incidencia que corregir.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
-Mantenga el ratón sobre la barra de cada intención para obtener información sobre ella. 
+Mantenga el ratón sobre la barra de cada intención para obtener información sobre ella.
 
 ![El gráfico siguiente muestra una aplicación bien equilibrada con casi ninguna incidencia que corregir.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
-Use la característica **Ordenar por** para organizar las intenciones por tipo de incidencia para que pueda centrarse en las intenciones más problemáticas con esa incidencia. 
+Use la característica **Ordenar por** para organizar las intenciones por tipo de incidencia para que pueda centrarse en las intenciones más problemáticas con esa incidencia.
 
 ## <a name="intents-with-errors"></a>Intenciones con errores
 
@@ -144,13 +144,13 @@ Esta tarjeta permite revisar las incidencias de una intención específica. La v
 
 ![La tarjeta Intenciones con errores permite revisar las incidencias de una intención específica. De forma predeterminada, esta tarjeta se filtra por las intenciones más problemáticas, para que sepa dónde centrar sus esfuerzos.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
 
-El gráfico de anillos superior muestra las incidencias con la intención en los tres tipos de problemas. Si hay incidencias en los tres tipos de problemas, cada tipo tiene su propio gráfico a continuación, junto con las intenciones rivales. 
+El gráfico de anillos superior muestra las incidencias con la intención en los tres tipos de problemas. Si hay incidencias en los tres tipos de problemas, cada tipo tiene su propio gráfico a continuación, junto con las intenciones rivales.
 
 ### <a name="filter-intents-by-issue-and-percentage"></a>Filtrado de intenciones por incidencia y porcentaje
 
-Esta sección de la tarjeta permite buscar las expresiones de ejemplo que superan su umbral de error. Lo ideal es que quiera corregir las predicciones para que sean significativas. Ese porcentaje está orientado al negocio y el cliente. 
+Esta sección de la tarjeta permite buscar las expresiones de ejemplo que superan su umbral de error. Lo ideal es que quiera corregir las predicciones para que sean significativas. Ese porcentaje está orientado al negocio y el cliente.
 
-Determine los porcentajes del umbral que son adecuados para su negocio. 
+Determine los porcentajes del umbral que son adecuados para su negocio.
 
 El filtro le permite buscar las intenciones con una incidencia específica:
 
@@ -167,7 +167,7 @@ El filtro le permite buscar las intenciones con una incidencia específica:
 
 ### <a name="unclear-or-incorrect-prediction-threshold"></a>Umbral de predicciones incorrectas o poco claras
 
-Estos dos filtros permiten buscar expresiones de la intención seleccionada que superan el umbral. Puede considerar estos dos porcentajes como porcentajes de error. Si considera adecuada una tasa de error para las predicciones del 10 al 15 %, establezca el umbral del filtro en el 15 %, para buscar todas las expresiones por encima de este valor. 
+Estos dos filtros permiten buscar expresiones de la intención seleccionada que superan el umbral. Puede considerar estos dos porcentajes como porcentajes de error. Si considera adecuada una tasa de error para las predicciones del 10 al 15 %, establezca el umbral del filtro en el 15 %, para buscar todas las expresiones por encima de este valor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685067"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561040"
 ---
 # <a name="learn-text-moderation-concepts"></a>Información sobre los conceptos de moderación de texto
 
 Use los modelos de moderación de texto de Content Moderator para analizar el contenido de texto.
 
-Puede bloquear, aprobar o revisar el contenido en función de las directivas y los umbrales (consulte [Revisiones, flujos de trabajo y trabajos](./review-api.md) para aprender a configurar revisiones humanas). Use los modelos de moderación de texto para aumentar la moderación humana de los entornos donde asociados, empleados y consumidores generan contenido de texto. Puede tratarse de salas de chat, paneles de discusión, bots de chat, catálogos de comercio electrónico y documentos. 
+Puede bloquear, aprobar o revisar el contenido en función de las directivas y los umbrales (consulte [Revisiones, flujos de trabajo y trabajos](./review-api.md) para aprender a configurar revisiones humanas). Use los modelos de moderación de texto para aumentar la moderación humana de los entornos donde asociados, empleados y consumidores generan contenido de texto. Puede tratarse de salas de chat, paneles de discusión, bots de chat, catálogos de comercio electrónico y documentos.
 
 La respuesta del servicio incluye la siguiente información:
 

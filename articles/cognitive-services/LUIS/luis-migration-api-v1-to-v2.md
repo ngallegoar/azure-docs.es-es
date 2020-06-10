@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5880aac01e0611565afb825a61b682197baf5d6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68932690"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344754"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
-La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087). 
+La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="new-azure-regions"></a>Nuevas regiones de Azure
 LUIS tiene nuevas [regiones](https://aka.ms/LUIS-regions) que proporciona para las API de LUIS. LUIS proporciona otro portal para grupos de regiones. La aplicación se debe crear en la misma región que espera consultar. Las aplicaciones no migran las regiones de forma automática. Exporte la aplicación de una región y, luego, impórtela en otra para que esté disponible en una nueva región.
@@ -112,7 +112,7 @@ Las API de clave de punto de conexión de suscripción están en desuso y devuel
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-azure-subscription.md)** . No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación. 
+Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-azure-subscription.md)** . No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación.
 
 ## <a name="new-versioning-route"></a>Nueva ruta de control de versiones
 El modelo de v2 se encuentra ahora en una [versión](luis-how-to-manage-versions.md). Un nombre de versión tiene 10 caracteres en la ruta. La versión predeterminada es "0.1".
@@ -153,22 +153,22 @@ Los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md) proporci
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
 ## <a name="importing-1x-app-into-2x"></a>Importación de una aplicación de 1.x a 2.x
-El JSON de la aplicación 1.x exportada tiene algunas áreas que debe cambiar antes de importarla en [LUIS][LUIS]2.0. 
+El JSON de la aplicación 1.x exportada tiene algunas áreas que debe cambiar antes de importarla en [LUIS][LUIS]2.0.
 
-### <a name="prebuilt-entities"></a>Entidades precompiladas 
-Las [entidades creadas previamente](luis-prebuilt-entities.md) han cambiado. Asegúrese de que está usando las entidades creadas previamente de la v2. Esto incluye el uso de [datetimeV2](luis-reference-prebuilt-datetimev2.md), en lugar de datetime. 
+### <a name="prebuilt-entities"></a>Entidades precompiladas
+Las [entidades creadas previamente](luis-prebuilt-entities.md) han cambiado. Asegúrese de que está usando las entidades creadas previamente de la v2. Esto incluye el uso de [datetimeV2](luis-reference-prebuilt-datetimev2.md), en lugar de datetime.
 
 ### <a name="actions"></a>Acciones
-La propiedad actions ya no es válida. Debería estar vacía. 
+La propiedad actions ya no es válida. Debería estar vacía.
 
 ### <a name="labeled-utterances"></a>Expresiones con etiqueta
-En la v1, se permitía que las expresiones con etiqueta incluyeran espacios al principio o final de la palabra o frase. Se han quitado los espacios. 
+En la v1, se permitía que las expresiones con etiqueta incluyeran espacios al principio o final de la palabra o frase. Se han quitado los espacios.
 
 ## <a name="common-reasons-for-http-response-status-codes"></a>Motivos comunes de los códigos de estado de respuesta HTTP
 Vea [LUIS API response codes](luis-reference-response-codes.md) (Códigos de respuesta de la API de LUIS).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use la documentación de la v2 de la API para actualizar las llamadas de REST existentes a las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087) de LUIS. 
+Use la documentación de la v2 de la API para actualizar las llamadas de REST existentes a las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087) de LUIS.
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

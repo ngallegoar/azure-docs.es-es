@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218554"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561022"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
-Las llamadas a **Text Analytics API** son llamadas HTTP POST o GET, que se pueden formular en cualquier lenguaje. En este artículo, se usan REST y [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) para demostrar los conceptos clave.
+Las llamadas a **Text Analytics API** son llamadas HTTP POST o GET, que se pueden formular en cualquier lenguaje. En este artículo, se usan REST y [Postman](https://www.postman.com/downloads/) para demostrar los conceptos clave.
 
 Cada solicitud debe incluir la clave de acceso y un punto de conexión HTTP. El punto de conexión especifica la región seleccionada durante el registro, la dirección URL del servicio y un recurso que se usa en la solicitud: `sentiment`, `keyphrases`, `languages` y `entities`. 
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 913a2b26f67773d9fafbc0a8430d121fbabb97cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1aed6b1c03a2b83e3b4fd91f1106614adb5a701
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053455"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344397"
 ---
 # <a name="add-contributors-to-your-app"></a>Adición de colaboradores a su aplicación
 
-Un propietario de la aplicación puede agregar colaboradores a las aplicaciones. Estos colaboradores pueden modificar el modelo, entrenar y publicar la aplicación. 
+Un propietario de la aplicación puede agregar colaboradores a las aplicaciones. Estos colaboradores pueden modificar el modelo, entrenar y publicar la aplicación.
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -39,7 +39,7 @@ Ha migrado si su experiencia de creación de LUIS está asociada a un recurso de
 
     ![Adición del correo electrónico del usuario al rol de colaborador para Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
 
-    Cuando se encuentre el correo electrónico del usuario, seleccione la cuenta y **Guardar**. 
+    Cuando se encuentre el correo electrónico del usuario, seleccione la cuenta y **Guardar**.
 
     Si tiene problemas con esta asignación de roles, revise [Asignaciones de roles de Azure](../../role-based-access-control/role-assignments-portal.md) y [Solución de problemas del control de acceso de Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
@@ -60,7 +60,7 @@ Una aplicación tiene un único creador, el propietario, pero puede tener muchos
     ![Adición de la dirección de correo electrónico del colaborador](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 
-### <a name="users-with-multiple-emails"></a>Usuarios con varios correos electrónicos 
+### <a name="users-with-multiple-emails"></a>Usuarios con varios correos electrónicos
 
 Si agrega colaboradores a una aplicación de LUIS, especifica la dirección de correo electrónico exacta. Si bien Azure Active Directory (Azure AD) permite que un solo usuario tenga más de una cuenta de correo electrónico intercambiable, LUIS requiere que el usuario inicie sesión con la dirección de correo especificada al agregar el colaborador.
 
@@ -68,7 +68,7 @@ Si agrega colaboradores a una aplicación de LUIS, especifica la dirección de c
 
 ### <a name="azure-active-directory-resources"></a>Recursos de Azure Active Directory
 
-Si usa [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) en su organización, Language Understanding (LUIS) necesita permiso para obtener acceso a la información sobre sus usuarios cuando quieran usar LUIS. Los recursos que requiere LUIS son mínimos. 
+Si usa [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) en su organización, Language Understanding (LUIS) necesita permiso para obtener acceso a la información sobre sus usuarios cuando quieran usar LUIS. Los recursos que requiere LUIS son mínimos.
 
 Podrá ver la descripción detallada cuando intente registrarse con una cuenta que tenga consentimiento del administrador o no requiera consentimiento del administrador: Ejemplos de consentimiento del administrador serían los siguientes:
 
@@ -78,20 +78,20 @@ Podrá ver la descripción detallada cuando intente registrarse con una cuenta q
 
 ### <a name="azure-active-directory-tenant-user"></a>Usuario inquilino de Azure Active Directory
 
-LUIS usa el flujo de consentimiento de Azure Active Directory (Azure AD) estándar. 
+LUIS usa el flujo de consentimiento de Azure Active Directory (Azure AD) estándar.
 
-El administrador de inquilinos debe trabajar directamente con el usuario que requiera que se le conceda acceso para usar LUIS en Azure AD. 
+El administrador de inquilinos debe trabajar directamente con el usuario que requiera que se le conceda acceso para usar LUIS en Azure AD.
 
-* En primer lugar, el usuario inicia sesión en LUIS y ve el cuadro de diálogo emergente que necesita aprobación de administrador. El usuario se pone en contacto con el administrador de inquilinos antes de continuar. 
+* En primer lugar, el usuario inicia sesión en LUIS y ve el cuadro de diálogo emergente que necesita aprobación de administrador. El usuario se pone en contacto con el administrador de inquilinos antes de continuar.
 * En segundo lugar, el administrador de inquilinos inicia sesión en LUIS y ve un cuadro de diálogo emergente de flujo de consentimiento. Este es el cuadro de diálogo que debe usar el administrador para conceder permiso al usuario. Una vez que el administrador acepte el permiso, el usuario podrá continuar con LUIS. Si el administrador de inquilinos no inicia sesión en LUIS, el administrador puede obtener acceso a la opción de [consentimiento](https://account.activedirectory.windowsazure.com/r#/applications) de LUIS, que se muestra en la siguiente captura de pantalla. Tenga en cuenta que la lista tiene filtrados los elementos que incluyen el nombre `LUIS`.
 
 ![Permiso de Azure Active Directory por sitio web de aplicación](./media/luis-how-to-collaborate/tenant-permissions.png)
 
 Si el administrador de inquilinos desea solo que determinados usuarios puedan usar LUIS, hay un par de soluciones posibles:
 * dar el "consentimiento del administrador" (dar el consentimiento a todos los usuarios de Azure AD), pero, luego, establecer "Asignación de usuarios necesaria" en "Sí", en Propiedades de la aplicación de empresa y, por último, asignar o agregar solo los usuarios deseados a la aplicación. Con este método, el administrador aún está proporcionando "consentimiento del administrador" a la aplicación; sin embargo, es posible controlar los usuarios que pueden acceder a ella.
-* Una segunda solución consiste en usar la [API de administración de identidades y acceso de Azure AD en Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para dar consentimiento a cada usuario específico. 
+* Una segunda solución consiste en usar la [API de administración de identidades y acceso de Azure AD en Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para dar consentimiento a cada usuario específico.
 
-Más información sobre el consentimiento y los usuarios de Azure Active Directory: 
+Más información sobre el consentimiento y los usuarios de Azure Active Directory:
 * [Restricción de la aplicación](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a un conjunto de usuarios
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -99,4 +99,4 @@ Más información sobre el consentimiento y los usuarios de Azure Active Directo
 * Obtenga información sobre [cómo usar versiones](luis-how-to-manage-versions.md) para controlar el ciclo de vida de la aplicación.
 * Entienda los conceptos, incluidos el [recurso de creación](luis-concept-keys.md#authoring-key) y los [colaboradores](luis-concept-keys.md#contributions-from-other-authors) de ese recurso.
 * Obtenga información sobre [cómo crear](luis-how-to-azure-subscription.md) los recursos de creación y de tiempo de ejecución.
-* Migre al nuevo [recurso de creación](luis-migration-authoring.md). 
+* Migre al nuevo [recurso de creación](luis-migration-authoring.md).
