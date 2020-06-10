@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: db488e4a9ec9aa0f4f12c8de45f123dba1a93cdf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50b6244e5db6f812d1f9e3d23ea5fa88ea3bebea
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82112718"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456817"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 En este inicio rápido, utilizará un código de ejemplo para aprender cómo una aplicación web ASP.NET Core puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD). (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
@@ -156,7 +156,7 @@ La línea que contiene `.AddAzureAd` agrega la autenticación de la Plataforma d
 > Establecer `ValidateIssuer = false` es una simplificación para este inicio rápido. En las aplicaciones reales debe validar al emisor.
 > Consulte los ejemplos para entender cómo hacerlo.
 >
-> Tenga en cuenta también el método `Configure` que contiene dos métodos importantes: `app.UserCookiePolicy()` y `app.UseAuthentication()`.
+> Tenga en cuenta también el método `Configure` que contiene dos métodos importantes: `app.UseCookiePolicy()` y `app.UseAuthentication()`.
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

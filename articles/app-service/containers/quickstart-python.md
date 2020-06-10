@@ -3,13 +3,13 @@ title: 'Inicio rápido: Creación de una aplicación en Python para Linux'
 description: Para empezar a trabajar con aplicaciones de Linux en Azure App Service, debe implementar su primera aplicación de Python en un contenedor Linux en App Service.
 ms.topic: quickstart
 ms.date: 04/03/2020
-ms.custom: seo-python-october2019, cli-validate
-ms.openlocfilehash: 5b055c3ed93d5f093295b52c7a28a73e242bfe75
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: seo-python-october2019, cli-validate, tracking-python
+ms.openlocfilehash: 622709098d8b45f6c7badfddd3006dc730a6bf14
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690877"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561703"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
@@ -102,11 +102,6 @@ En la carpeta *python-docs-hello-world* que contiene el código de ejemplo, ejec
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
-> [!CAUTION]
-> Si utiliza la **versión 2.5.0 de la CLI de Azure** hay una regresión en `az webapp up` en la que se producirán errores en ciertos escenarios si no se incluye el parámetro `-l <location-name>`. El seguimiento del problema se[realiza aquí](https://github.com/Azure/azure-cli/issues/13257).  
-> 
->Puede comprobar qué versión de la CLI de Azure usa con el comando `az --version`.
->
 
 El argumento `--sku F1` crea la aplicación web en el plan de tarifa Gratuito. Puede omitir este argumento para usar en su lugar un nivel Premium, lo que supondrá un costo por hora.
 
