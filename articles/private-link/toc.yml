@@ -13,6 +13,7 @@
     - name: 'Creación de un punto de conexión privado: CLI de Azure'
       href: create-private-endpoint-cli.md
     - name: 'Creación de un punto de conexión privado: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: create-private-endpoint-template.md
     - name: 'Creación de un servicio Private Link: Azure Portal'
       href: create-private-link-service-portal.md
@@ -21,6 +22,7 @@
     - name: 'Creación de un servicio Private Link: CLI de Azure'
       href: create-private-link-service-cli.md
     - name: 'Creación de un servicio Private Link: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: create-private-link-service-template.md
 - name: Conceptos
   items:
