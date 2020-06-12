@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f79e257eb61cebe000ed9ab831a4da4a5748132
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299063"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267841"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
@@ -82,8 +82,8 @@ En el ejemplo anterior, los registros de recursos DNS de la cuenta de almacenami
 | Nombre                                                  | Tipo  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<Punto de conexión público del servicio Storage\>                   |
-| \<Punto de conexión público del servicio Storage\>                   | Un     | \<Dirección IP pública del servicio Storage\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| \<storage service public endpoint\>                   | Un     | \<storage service public IP address\>                 |
 
 Como ya se ha mencionado, puede denegar o controlar el acceso de los clientes de fuera de la red virtual a través del punto de conexión público mediante el firewall de Storage.
 
@@ -137,7 +137,7 @@ Esta restricción es el resultado de los cambios de DNS realizados cuando la cue
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reglas de grupo de seguridad de red para subredes con puntos de conexión privados
 
-Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../../virtual-network/security-overview.md) (NSG) ni rutas definidas por el usuario para puntos de conexión privados. Las reglas de NSG que se aplican a la subred que hospeda el punto de conexión privado se aplican al punto de conexión privado. Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.
+Actualmente, no se pueden configurar reglas de [grupo de seguridad de red](../../virtual-network/security-overview.md) (NSG) ni rutas definidas por el usuario para puntos de conexión privados. Las reglas de NSG que se aplican a la subred que hospeda el punto de conexión privado solo se aplican a puntos de conexión distintos del privado (por ejemplo, NICs). Una solución alternativa limitada para este problema es implementar las reglas de acceso para los puntos de conexión privados en las subredes de origen, aunque este enfoque puede requerir mayor sobrecarga de administración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

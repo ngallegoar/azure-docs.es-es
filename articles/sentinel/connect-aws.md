@@ -9,23 +9,26 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f4b5713aed6bae574c30f555ef7f63307138a96
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588661"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014985"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar Azure Sentinel con AWS CloudTrail
 
 Utilice el conector de AWS para transmitir todos los eventos de AWS CloudTrail a Azure Sentinel. Este proceso de conexión delega el acceso de Azure Sentinel en los registros de recursos de AWS, lo que crea una relación de confianza entre AWS CloudTrail y Azure Sentinel. Para ello, en AWS se crea un rol que concede a Azure Sentinel el permiso necesario para acceder a los registros de AWS.
 
-## <a name="prerequisites"></a>Prerequisites
+> [!NOTE]
+> AWS CloudTrail tiene [limitaciones integradas](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) en su LookupEvents API. No permite más de dos transacciones por segundo (TPS) por cuenta y ninguna consulta puede devolver más de 50 registros. En consecuencia, si un único inquilino genera constantemente más de 100 registros por segundo en una región, se producirán trabajos pendientes y retrasos en la ingesta de datos.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener permiso de escritura en el área de trabajo de Azure Sentinel.
 

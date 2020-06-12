@@ -3,12 +3,12 @@ title: Temas avanzados de actualización de aplicación
 description: En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414501"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263098"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
 
@@ -20,9 +20,9 @@ De manera similar, los tipos de servicio pueden quitarse de una aplicación como
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitar interrupciones de la conexión durante el tiempo de inactividad planeado del servicio sin estado
 
-En el caso de tiempos de inactividad planeados de instancias sin estado, como la actualización de aplicaciones o clústeres o la desactivación de nodos, las conexiones se pueden interrumpir debido a que el punto de conexión expuesto se quita después de que se desactiva. Como resultado, se realizan clausuras de conexión forzadas.
+En el caso de tiempos de inactividad planeados de instancias sin estado, como la actualización de aplicaciones o clústeres o la desactivación de nodos, las conexiones se pueden interrumpir si el punto de conexión expuesto se quita después de que la instancia se desactive. Como resultado, se realizan cierres de conexión efectivos.
 
-Para evitar esta situación, configure la característica *RequestDrain* (versión preliminar). Para ello, agregue un*intervalo de retraso de clausura de instancia* en la configuración del servicio para permitir las purgas mientras se reciben solicitudes de otros servicios dentro del clúster que usan el proxy inverso o la API de resolución con el modelo de notificación para actualizar los puntos de conexión. De esta forma se garantiza que el punto de conexión anunciado por la instancia sin estado se quita *antes* de que se inicie el retraso antes de cerrar la instancia. Este retraso permite que las solicitudes existentes se vacíen correctamente antes de que la instancia se desactive realmente. A los clientes se les notifica el cambio del punto de conexión mediante una función de devolución de llamada en el momento en que inicia el retraso, por lo que pueden volver a resolver el punto de conexión y evitar el envío de nuevas solicitudes a la instancia que se desactivará.
+Para evitarlo, configure la característica *RequestDrain* agregando una *duración de retraso de cierre de instancia* en la configuración del servicio para permitir que las solicitudes existentes dentro del clúster se purguen en los puntos de conexión expuestos. Esto se consigue cuando el punto de conexión anunciado por la instancia sin estado se quita *antes* de que se inicie el retraso y con anterioridad al cierre de la instancia. Este retraso permite que las solicitudes existentes se vacíen correctamente antes de que la instancia se desactive realmente. A los clientes se les notifica el cambio del punto de conexión mediante una función de devolución de llamada en el momento en que inicia el retraso, por lo que pueden volver a resolver el punto de conexión y evitar el envío de nuevas solicitudes a la instancia que se desactivará. Estas solicitudes podrían originarse en clientes que usan un [proxy inverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) o mediante API de resolución de puntos de conexión de servicio con el modelo de notificación ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) para actualizar los puntos de conexión.
 
 ### <a name="service-configuration"></a>Configuración del servicio
 
@@ -31,7 +31,7 @@ Hay varias maneras de configurar el retraso en el lado del servicio.
  * **Al crear un servicio**, especifique un valor de `-InstanceCloseDelayDuration`:
 
     ```powershell
-    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
  * **Al definir el servicio en la sección de valores predeterminados del manifiesto de la aplicación**, asigne la propiedad `InstanceCloseDelayDurationSeconds`:
@@ -46,6 +46,33 @@ Hay varias maneras de configurar el retraso en el lado del servicio.
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+ * **Al crear o actualizar un servicio existente mediante la plantilla de ARM**, especifique el valor de `InstanceCloseDelayDuration` (versión de API mínima admitida: 01-11-2019-versión preliminar):
+
+    ```ARM template to define InstanceCloseDelayDuration of 30seconds
+    {
+      "apiVersion": "2019-11-01-preview",
+      "type": "Microsoft.ServiceFabric/clusters/applications/services",
+      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
+      "location": "[variables('clusterLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applications/', parameters('applicationName'))]"
+      ],
+      "properties": {
+        "provisioningState": "Default",
+        "serviceKind": "Stateless",
+        "serviceTypeName": "[parameters('serviceTypeName')]",
+        "instanceCount": "-1",
+        "partitionDescription": {
+          "partitionScheme": "Singleton"
+        },
+        "serviceLoadMetrics": [],
+        "servicePlacementPolicies": [],
+        "defaultMoveCost": "",
+        "instanceCloseDelayDuration": "00:00:30.0"
+      }
+    }
     ```
 
 ### <a name="client-configuration"></a>Configuración de cliente
@@ -63,15 +90,17 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-La duración del retraso solo se aplica a la instancia de actualización invocada y no cambia las configuraciones del retraso de los servicios individuales. Por ejemplo, puede usarla para especificar un retraso de `0` con el fin de omitir los retrasos de actualización preconfigurados.
+La duración del retraso invalidado solo se aplica a la instancia de actualización invocada y no cambia las configuraciones del retraso de los servicios individuales. Por ejemplo, puede usarla para especificar un retraso de `0` con el fin de omitir los retrasos de actualización preconfigurados.
 
 > [!NOTE]
-> La configuración para purgar solicitudes no es compatible con las solicitudes de Azure Load Balancer. No se respeta la configuración si el servicio que realiza la llamada usa la resolución basada en reclamaciones.
+> * La configuración para purgar solicitudes no podrá impedir que Azure Load Balancer envíe nuevas solicitudes a los puntos de conexión que se están purgando.
+> * Un mecanismo de resolución basado en quejas no dará como resultado una purga estable de las solicitudes, ya que desencadena una resolución de servicio después de un error. Tal y como se ha descrito antes, esto debería mejorarse para suscribirse a las notificaciones de cambio de punto de conexión mediante [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * La configuración no se respeta cuando la actualización no tiene ningún impacto; es decir, cuando las réplicas no se desactivan durante la actualización.
 >
 >
 
 > [!NOTE]
-> Esta característica se puede configurar en los servicios actuales mediante el cmdlet Update-ServiceFabricService, como se mencionó anteriormente, cuando la versión del código del clúster es 7.1.XXX o superior.
+> Esta característica se puede configurar en los servicios actuales mediante el cmdlet Update-ServiceFabricService o la plantilla de ARM, como se mencionó anteriormente, cuando la versión del código del clúster es 7.1.XXX o superior.
 >
 >
 

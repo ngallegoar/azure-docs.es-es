@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5825466c099a8c57477f2d9d0420da74ccb2e96d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614261"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235902"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
@@ -35,6 +35,22 @@ Para usar la imagen de sesión múltiple de Windows 10 Enterprise, vaya a Azure
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Crear un inquilino de Windows Virtual Desktop
 
 En esta sección se tratan los posibles problemas al crear el inquilino de Windows Virtual Desktop.
+
+### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Error: AADSTS650052 La aplicación necesita acceso a un servicio.
+
+Ejemplo de error no procesado:
+
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+configuration of your service subscriptions.650052 Message The app needs access to a service
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
+**Causa:** Consentimiento no concedido Windows Virtual Desktop en la instancia de Azure Active Directory.
+
+**Solución:** [Siga esta guía](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) para conceder consentimiento.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: El usuario no está autorizado para consultar el servicio de administración
 
@@ -122,7 +138,7 @@ Siga estas instrucciones para solucionar problemas de implementaciones incorrect
 3. Una vez identificado el error, utilice el mensaje de error y los recursos de [Solucionar errores comunes de implementación de Azure con Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) para solucionar el problema.
 4. Elimine los recursos creados durante la implementación anterior y vuelva a intentar implementar la plantilla.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Error al realizar la implementación...\<hostname>/joindomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: La implementación no se pudo…\<hostname>/joindomain
 
 ![Captura de pantalla de error de implementación.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 

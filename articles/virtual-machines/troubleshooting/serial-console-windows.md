@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410116"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309788"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola serie de Azure para Windows
 
@@ -32,7 +32,7 @@ Para obtener documentación sobre la consola serie para Linux, consulte [Consola
 > La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
 
@@ -160,7 +160,7 @@ Si un usuario se conecta a la consola serie y otro usuario solicita correctament
 > Esto significa que no se cerrará la sesión de un usuario que se haya desconectado. La posibilidad de forzar el cierre de sesión con la desconexión (mediante SIGHUP u otro mecanismo similar) sigue en proceso de valoración. En Windows hay un tiempo de espera automático habilitado en SAC; en Linux puede configurar el valor de tiempo de espera del terminal.
 
 ## <a name="accessibility"></a>Accesibilidad
-La accesibilidad es un factor clave de la consola serie de Azure. Para ello, nos hemos asegurado de que la consola serie es accesible para quienes tienen dificultades auditivas y visuales, así como para las personas que no pueden utilizar un mouse.
+La accesibilidad es un factor clave de la consola serie de Azure. Por eso, nos hemos asegurado de que la consola serie sea accesible para aquellos con discapacidad visual o dificultad auditiva, así como para las personas que no pueden usar un mouse.
 
 ### <a name="keyboard-navigation"></a>Navegación con el teclado
 Use la tecla **Tabulador** del teclado para navegar por la interfaz de la consola serie en Azure Portal. La ubicación se resaltará en pantalla. Para salir del enfoque de la ventana de la consola serie, presione **Control**+**F6** en el teclado.
@@ -181,7 +181,7 @@ Interacción con el cargador de arranque | Acceda a BCD mediante la consola seri
 ## <a name="known-issues"></a>Problemas conocidos
 Somos conscientes de que hay algunos problemas con la consola serie y el sistema operativo de la máquina virtual. Esta es una lista de dichos problemas y los pasos que puede realizar para corregirlos en máquinas virtuales Windows. Estos problemas y mitigaciones se aplican tanto a las máquinas virtuales como a las instancias de conjunto de escalado de máquinas virtuales. Si no coinciden con el error que observa, consulte los errores comunes de servicio de la consola serie en [Errores comunes en la consola serie](./serial-console-errors.md).
 
-Problema                             |   Mitigación
+Incidencia                             |   Mitigación
 :---------------------------------|:--------------------------------------------|
 Al presionar **Entrar** después del banner de conexión no se muestra ninguna solicitud de inicio de sesión. | Para obtener más información, consulte [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) (Al presionar Entrar, no se realiza ninguna acción). Este error puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo protegido o una configuración de arranque que hace que Windows no pueda conectarse correctamente al puerto serie. Este error se producirá también si está ejecutando una máquina virtual de Windows 10, ya que únicamente las máquinas virtuales de Windows Server están configuradas para tener habilitada la opción EMS.
 Se muestra solamente información de mantenimiento cuando se conecta a una máquina virtual Windows| Este error se produce si no se ha habilitado la consola de administración especial para la imagen de Windows. Consulte [Habilitación de la consola serie en imágenes personalizadas o antiguas](#enable-the-serial-console-in-custom-or-older-images) para obtener instrucciones sobre cómo habilitar manualmente SAC en la máquina virtual Windows. Para más información, consulte [Señales de mantenimiento de Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).

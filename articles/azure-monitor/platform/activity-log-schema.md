@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25517b48ad7dcddffaaeb4ac2f86397d99e0be2c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472748"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017518"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El [registro de actividad de Azure](platform-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo, se describe el esquema de eventos de cada categoría. 
@@ -287,7 +287,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
 
 
 ## <a name="alert"></a>Alerta
-Esta categoría contiene el registro de todas las activaciones de alertas de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "el % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
+Esta categoría contiene el registro de todas las activaciones de alertas de Azure clásicas. Un ejemplo del tipo de evento que aparece en esta categoría es "el % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
 
 ### <a name="sample-event"></a>Evento de ejemplo
 
@@ -559,7 +559,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | eventDataId |Identificador único del evento de seguridad. |
 | eventName |Nombre descriptivo del evento de seguridad. |
 | category | Siempre "Seguridad" |
-| id |Identificador único del recurso del evento de seguridad. |
+| ID |Identificador único del recurso del evento de seguridad. |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” o “Informational” |
 | resourceGroupName |Nombre del grupo de recursos del recurso. |
 | resourceProviderName |Nombre del proveedor de recursos de Azure Security Center. Siempre "Microsoft.Security". |
@@ -639,7 +639,7 @@ Esta categoría contiene el registro de cualquier recomendación nueva que se ge
 | description |Descripción de texto estático del evento de recomendación |
 | eventDataId | Identificador único del evento de recomendación. |
 | category | Siempre "Recomendación" |
-| id |Identificador único del recurso del evento de recomendación. |
+| ID |Identificador único del recurso del evento de recomendación. |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” o “Informational” |
 | operationName |Nombre de la operación.  Siempre "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Nombre del grupo de recursos del recurso. |
@@ -754,7 +754,7 @@ Esta categoría contiene registros de todas las operaciones de acción de efecto
 | eventName | "BeginRequest" o "EndRequest". "BeginRequest" se usa para las evaluaciones auditIfNotExists y deployIfNotExists diferidas y cuando un efecto deployIfNotExists inicia una implementación de plantilla. Todas las demás operaciones devuelven "EndRequest". |
 | category | Declara que el evento de registro de actividad pertenece a "Azure Policy". |
 | eventTimestamp | Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
-| id | Identificador único del evento en el recurso específico. |
+| ID | Identificador único del evento en el recurso específico. |
 | level | Nivel del evento. Auditoría usa "Warning" y la denegación usa "Error". Un error auditIfNotExists o deployIfNotExists puede generar un mensaje "Warning" o "Error" según la gravedad. Todos los demás eventos de Azure Policy utilizan "Informational". |
 | operationId | GUID compartido entre los eventos correspondientes a una sola operación. |
 | operationName | Nombre de la operación que se correlaciona directamente con el efecto de Azure Policy. |

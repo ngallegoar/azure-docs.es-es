@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738825"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170467"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -245,7 +245,7 @@ En un grupo de acciones puede tener un número limitado de acciones de webhook.
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre el [comportamiento de las alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * [Comprender el esquema de webhook de alertas del registro de actividad](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Obtenga más información sobre [Conector de ITSM](../../azure-monitor/platform/itsmc-overview.md)
+* Obtenga más información sobre el [conector de ITSM](../../azure-monitor/platform/itsmc-overview.md).
 * Más información sobre la [limitación de velocidad](../../azure-monitor/platform/alerts-rate-limiting.md) en las alertas.
 * Consulte la [introducción a las alertas del registro de actividad](../../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

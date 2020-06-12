@@ -3,26 +3,27 @@ title: Matriz de compatibilidad de copia de seguridad de recursos compartidos de
 description: Proporciona un resumen de opciones y limitaciones de compatibilidad a la hora de realizar copias de seguridad de recursos compartidos de archivos de Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684630"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193865"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
 
 Puede usar el [servicio Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) para realizar copias de seguridad de recursos compartidos de archivos de Azure. En este artículo se resumen las opciones de compatibilidad a la hora de realizar copias de seguridad de recursos compartidos de archivos de Azure con Azure Backup.
 
-## <a name="supported-geos"></a>Zonas geográficas admitidas
+## <a name="supported-regions"></a>Regiones admitidas
 
-La copia de seguridad de recursos compartidos de archivos de Azure está disponible en las siguientes zonas geográficas:
+### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiones con disponibilidad general para las copias de seguridad de recursos compartidos de archivos de Azure
 
-**Regiones con disponibilidad general**:<br>
-Sudeste de Asia (ASE), Centro de Canadá (CNC), Centro-oeste de EE. UU. (WCUS), Centro-sur de EE. UU. (SCUS), Oeste de EE. UU. 2 (WUS 2), Sur de India (INS), Centro-norte de EE. UU. (NCUS), Este de Japón (JPE), Sur de Brasil (BRS), Sudeste Asiático (SEA), Oeste de Suiza (SZW), Centro de Emiratos Árabes Unidos (UAC), Este de Noruega (NWE), Oeste de la India (INW), Centro de Australia (ACL), Centro de Corea del Sur (KRC), Oeste de Japón (JPW), Norte de Sudáfrica (SAN), Sur de Reino Unido (UKS), Oeste de Reino Unido (UKW), Sur de Corea del Sur (KRS), Norte de Europa (NE), Norte de Alemania (GN), Oeste de Noruega (NWW), Oeste de Sudáfrica (SAW), Norte de Suiza (SZN), Centro-oeste de Alemania (GWC), Norte de Emiratos Árabes Unidos (UAN), Centro de Francia (FRC), Centro de la India (INC), Este de Canadá (CNE), Este de Asia (EA), Este de Australia (AE), Centro de EE. UU. (CUS), Oeste de EE. UU. (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), US DoD (centro) (UDC), US DoD (este) (UDE)
+La copia de seguridad de recursos compartidos de archivos de Azure está disponible en todas las regiones **salvo** las siguientes: Centro de Alemania (soberana), Nordeste de Alemania (soberana), Este de China, Este de China 2, Norte de China, Norte de China 2, US Gov Iowa
 
-**Regiones admitidas (como parte de la versión preliminar), pero todavía sin disponibilidad general**:<br>
-Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Oeste de Europa (WE)
+### <a name="supported-regions-for-accidental-delete-protection"></a>Regiones admitidas para la protección contra eliminación accidental
+
+Centro-Oeste de EE. UU.
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 

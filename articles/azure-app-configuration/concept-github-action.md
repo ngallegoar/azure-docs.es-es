@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648117"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197059"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronización del repositorio de GitHub con App Configuration
 
@@ -92,7 +92,7 @@ jobs:
 ```
 ## <a name="sync-multiple-files-in-one-action"></a>Sincronización de varios archivos en una acción 
 
-Si la configuración está en varios archivos, puede usar el patrón siguiente para desencadenar una sincronización cuando se modifica cualquiera de los archivos. Este patrón usa la biblioteca glob https://www.npmjs.com/package/glob. 
+Si la configuración está en varios archivos, puede usar el patrón siguiente para desencadenar una sincronización cuando se modifica cualquiera de los archivos. Este patrón usa la biblioteca glob https://www.npmjs.com/package/glob. Tenga en cuenta que si el nombre del archivo de configuración contiene una coma, puede usar una barra diagonal inversa como carácter de escape de la coma. 
 
 ```json
 on:

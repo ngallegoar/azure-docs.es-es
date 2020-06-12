@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70995114"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142153"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de costo de Azure NetApp Files 
 
@@ -50,6 +50,8 @@ En el diagrama siguiente se ilustran estos conceptos.
 ## <a name="overage-in-capacity-consumption"></a>Uso por encima del límite del consumo de capacidad  
 
 Cuando el total de capacidad usada de un grupo supera su capacidad aprovisionada, todavía se permiten las operaciones de escritura de datos.  Tras el período de gracia (una hora), si la capacidad usada del grupo todavía supera su capacidad aprovisionada, el tamaño del grupo aumentará de forma automática en incrementos de 1 TiB hasta que la capacidad aprovisionada sea mayor que la capacidad total usada.  Por ejemplo, en la ilustración anterior, si el Volumen 3 sigue creciendo y el consumo real alcanza 1,2 TiB, tras el período de gracia el tamaño del grupo se establecerá de forma automática en 5 TiB.  Como resultado, la capacidad aprovisionada del grupo (5 TiB) supera la capacidad usada (4,2 TiB).  
+
+Aunque el tamaño del grupo de capacidad aumenta automáticamente para satisfacer la demanda del volumen, no se reduce automáticamente cuando se reduce el tamaño del volumen. Si quiere reducir el tamaño del grupo de capacidad después de una disminución del volumen (por ejemplo, después de limpiar los datos de un volumen), debe reducirlo _manualmente_.
 
 ## <a name="manual-changes-of-the-pool-size"></a>Cambios manuales del tamaño del grupo  
 

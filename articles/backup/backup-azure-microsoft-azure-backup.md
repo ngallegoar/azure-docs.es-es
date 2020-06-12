@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735878"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247281"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -186,9 +186,9 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
 
     Se usarán los siguientes valores para la configuración de SSRS:
     * Cuenta de servicio: "Usar cuenta integrada" debe ser Servicio de red
-    * URL de servicio web: "Directorio virtual" debe ser ReportServer_\<nombreInstanciaSQL>
-    * Base de datos: DatabaseName debe ser ReportServer$\<nombreInstanciaSQL>
-    * URL del portal web: "Directorio virtual" debe ser Reports_\<nombreInstanciaSQL>
+    * URL de servicio web: "Directorio virtual" debe ser ReportServer_\<SQLInstanceName>
+    * Base de datos: DatabaseName debe ser ReportServer$\<SQLInstanceName>
+    * URL del portal web: "Virtual Directory" debe ser Reports_\<SQLInstanceName>
 
     [Obtenga más información](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) acerca de la configuración de SSRS.
 
@@ -311,7 +311,7 @@ Si tiene un firewall o un proxy que impiden el acceso a Azure, deberá permitir 
 Si usa el emparejamiento de Microsoft de ExpressRoute, seleccione los siguientes servicios o regiones:
 
 * Azure Active Directory (12076:5060)
-* Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
+* Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
 * Azure Storage (según la ubicación del almacén de Recovery Services)
 
 Para más información, consulte [Requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).

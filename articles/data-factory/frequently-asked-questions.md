@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81412955"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187290"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 
@@ -83,11 +83,11 @@ Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data F
 
 -    Compatibilidad con tres configuraciones o variantes más de Azure SQL Database para hospedar los paquetes o proyectos de la base de datos SSIS (SSISDB):
 -    SQL Database con puntos de conexión de servicio de red virtual
--    instancia administrada
+-    Instancia administrada de SQL
 -    Grupo elástico
 -    Compatibilidad con una red virtual de Azure Resource Manager en una red virtual clásica que caerá en desuso en el futuro, lo que le permite insertar o unir su entorno de ejecución de integración de Azure-SSIS a una red virtual que esté configurada para SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para más información, consulte también [Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Compatibilidad con la autenticación de Azure Active Directory (Azure AD) y la autenticación de SQL para conectarse a SSISDB, lo que le permite usar la autenticación de Azure AD con su identidad administrada de Data Factory para los recursos de Azure
--    Compatibilidad para usar su propia licencia de SQL Server local para conseguir ahorros sustanciales de costos con la opción Ventaja híbrida de Azure
+-    Compatibilidad para usar su propia licencia de SQL Server para conseguir ahorros sustanciales de costos con la opción Ventaja híbrida de Azure
 -    Compatibilidad con la edición Enterprise del entorno de ejecución de integración de Azure-SSIS que le permite usar características avanzadas o premium, una interfaz de configuración personalizada para instalar componentes o extensiones adicionales y un ecosistema de terceros. Para más información, consulte también [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/) (Enterprise Edition, instalación personalizada y extensibilidad de terceros para SSIS en ADF). 
 -    Una integración más profunda de SSIS en Data Factory que le permite invocar o desencadenar actividades de primera clase de ejecución de paquetes SSIS en canalizaciones de Data Factory y programarlas mediante SSMS. Para más información, consulte también [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/) (Modernización y ampliación de los flujos de trabajo ETL/ETL con actividades de SSIS en las canalizaciones de ADF)
 
@@ -126,7 +126,7 @@ Los servicios vinculados son muy similares a las cadenas de conexión que define
 
 Los servicios vinculados tienen dos fines en Data Factory:
 
-- Para representar un *almacén de datos* que incluye, entre otros, una instancia de SQL Server local, una instancia de base de datos de Oracle, un recurso compartido de archivos o una cuenta de Azure Blob Storage. Para obtener una lista de almacenes de datos compatibles, consulte [Actividad de copia en Azure Data Factory](copy-activity-overview.md).
+- Para representar un *almacén de datos* que incluye, entre otros, una instancia de SQL Server, una instancia de base de datos de Oracle, un recurso compartido de archivos o una cuenta de Azure Blob Storage. Para obtener una lista de almacenes de datos compatibles, consulte [Actividad de copia en Azure Data Factory](copy-activity-overview.md).
 - Para representar un *recurso de proceso* que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsight Hive se ejecuta en un clúster de Hadoop para HDInsight. Para ver una lista de actividades de transformación y de entornos de proceso admitidos, consulte el artículo [Transformar datos en Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Desencadenadores

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 04c02cb493941d101cf230b1ca3dab32aaa7a2fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195918"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234557"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Uso de Log Analytics para la característica de diagnóstico
 
@@ -118,6 +118,9 @@ Puede acceder a las áreas de trabajo de Log Analytics en Azure Portal o Azure M
 
 5. Ya está listo para consultar los diagnósticos. Todas las tablas de diagnóstico tienen un prefijo "WVD".
 
+>[!NOTE]
+>Para obtener información más detallada acerca de las tablas almacenadas en los registros de Azure Monitor, consulte la [referencia de datos de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/). Todas las tablas relacionadas con Windows Virtual Desktop tienen la etiqueta "WVD".
+
 ## <a name="cadence-for-sending-diagnostic-events"></a>Cadencia para enviar eventos de diagnóstico
 
 Los eventos de diagnóstico se envían a Log Analytics cuando se completan.
@@ -180,6 +183,7 @@ WVDFeeds
 Para buscar todas las conexiones de un solo usuario: 
 
 ```kusto
+WVDConnections
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 
@@ -238,10 +242,32 @@ WVDErrors
 | render barchart 
 ```
 
+Para determinar si un error ha afectado a todos los usuarios:
+
+```kusto
+WVDErrors 
+| where ServiceError =="false" 
+| summarize usercount = count(UserName) by CodeSymbolic 
+| sort by usercount desc
+| render barchart 
+```
+
+Para consultar las aplicaciones que los usuarios han abierto, ejecute esta consulta:
+
+```kusto
+WVDCheckpoints 
+| where TimeGenerated > ago(7d)
+| where Name == "LaunchExecutable"
+| extend App = parse_json(Parameters).filename
+| summarize Usage=count(UserName) by tostring(App)
+| sort by Usage desc
+| render columnchart
+```
 >[!NOTE]
->La tabla más importante para solucionar problemas es WVDErrors. Utilice esta consulta para conocer los problemas que se produzcan en las actividades de usuario, como las conexiones o las fuentes, cuando un usuario se suscribe a la lista de aplicaciones o escritorios. La tabla mostrará los errores de administración, así como los problemas de registro del host.
->
->Durante la versión preliminar pública, si necesita ayuda para resolver un problema, asegúrese de proporcionar el valor de CorrelationID del error en su solicitud de ayuda. Asegúrese también de que el valor de ServiceError siempre sea ServiceError = "false". El valor "false" significa que el problema se puede resolver realizando una tarea de administrador por su parte. Si ServiceError = "true", deberá notificar el problema a Microsoft.
+>- Cuando un usuario abre el escritorio completo, no se realiza un seguimiento de su uso de las aplicaciones en la sesión con puntos de control en la tabla WVDCheckpoints.
+>- La columna ResourcesAlias de la tabla WVDConnections muestra si algún usuario se ha conectado a un escritorio completo o a una aplicación publicada. La columna solo muestra la primera aplicación que se abre durante la conexión. Se realiza un seguimiento de todas las aplicaciones publicadas que el usuario abra en WVDCheckpoints.
+>- En la tabla WVDErrors se muestran los errores de administración, los problemas de registro del host y otros problemas que se producen mientras el usuario se suscribe a una lista de aplicaciones o equipos de escritorio.
+>- WVDErrors le ayuda a identificar los problemas que pueden resolver las tareas de administrador. El valor de ServiceError siempre indica "false" para esos tipos de problemas. Si ServiceError = "true", deberá notificar el problema a Microsoft. Asegúrese de especificar el valor de CorrelationID en los errores que escale.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

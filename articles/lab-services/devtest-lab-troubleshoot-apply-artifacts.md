@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da33f5a553b4a671d9d7b9b223f77b301b8440b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456977"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310281"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Solución de problemas al aplicar artefactos en una máquina virtual de Azure DevTest Labs
 Se puede producir un error en la aplicación de artefactos en una máquina virtual por varias razones. Este artículo le guía en algunos de los métodos para ayudar a identificar las posibles causas.
@@ -57,8 +57,9 @@ Puede solucionar los problemas de las máquinas virtuales creadas mediante DevTe
 
 ## <a name="symptoms-causes-and-potential-resolutions"></a>Síntomas, causas y posibles soluciones 
 
-### <a name="artifact-appears-to-hang"></a>Parece que el artefacto se bloquea   
-Parece que un artefacto se bloquea hasta que expira un período de tiempo de espera predefinido y el artefacto se marca como **Error**.
+### <a name="artifact-appears-to-stop-responding"></a>Parece que el artefacto deja de responder
+
+Parece que un artefacto deja de responder hasta que expira un período de tiempo de espera predefinido y el artefacto se marca como **Error**.
 
 Cuando parece que un artefacto deja de responder, lo primero es determinar dónde está bloqueado. Un artefacto puede estar bloqueado en cualquiera de los siguientes pasos durante la ejecución:
 
@@ -67,11 +68,11 @@ Cuando parece que un artefacto deja de responder, lo primero es determinar dónd
     - Busque errores en estas entradas. A veces, el error no estará etiquetado como corresponde y tendrá que investigar cada entrada.
     - Al investigar los detalles de cada entrada, asegúrese de revisar el contenido de la carga JSON. Es posible que vea un error en la parte inferior de ese documento.
 - **Al intentar ejecutar el artefacto**. Podría deberse a problemas de redes o de almacenamiento. Consulte la sección correspondiente más adelante en este artículo para más información. También puede ocurrir debido al modo en el que se crea el script. Por ejemplo:
-    - Un script de PowerShell tiene **parámetros obligatorios**, pero a uno no se le ha pasado un valor, ya sea porque se permite que el usuario lo deje en blanco o porque no tiene un valor predeterminado para la propiedad en el archivo de definición artifactfile.json. El script se bloqueará porque está esperando la entrada del usuario.
+    - Un script de PowerShell tiene **parámetros obligatorios**, pero a uno no se le ha pasado un valor, ya sea porque se permite que el usuario lo deje en blanco o porque no tiene un valor predeterminado para la propiedad en el archivo de definición artifactfile.json. El script dejará de responder porque está esperando la entrada del usuario.
     - Un script de PowerShell **requiere de entrada del usuario** como parte de la ejecución. Los scripts se deben escribir para que funcionen de forma silenciosa sin necesidad de intervención del usuario.
 - **El agente de máquina virtual tarda mucho en estar listo**. Cuando la máquina virtual se inicia por primera vez o cuando la extensión de script personalizado se instala por primera vez para atender la solicitud de aplicación de artefactos, es posible que la máquina virtual requiera actualizar el agente de máquina virtual o esperar a que se inicialice el agente de máquina virtual. Puede haber servicios de los que depende el agente de máquina virtual y que tardan mucho tiempo en inicializarse. En tales casos, consulte [Introducción al agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) para más información de solución de problemas.
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Para comprobar si parece que el artefacto deja de responder debido al script
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-script"></a>Para comprobar si parece que el artefacto deja de responder debido al script
 
 1. Inicie sesión en la máquina virtual en cuestión.
 2. Copie el script localmente en la máquina virtual o búsquelo en la máquina virtual en `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>`. Es la ubicación donde se descargan los scripts del artefacto.
@@ -83,7 +84,7 @@ Cuando parece que un artefacto deja de responder, lo primero es determinar dónd
 > 
 > Para obtener información sobre cómo escribir sus propios artefactos, consulte el documento [AUTHORING.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md).
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-vm-agent"></a>Para comprobar si parece que el artefacto deja de responder debido al agente de máquina virtual:
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-vm-agent"></a>Para comprobar si parece que el artefacto deja de responder debido al agente de máquina virtual:
 1. Inicie sesión en la máquina virtual en cuestión.
 2. Con el Explorador de archivos, vaya a **C:\WindowsAzure\logs**.
 3. Busque y abra el archivo **WaAppAgent.log**.
@@ -136,5 +137,4 @@ Hay otros posibles orígenes del error menos frecuentes. Asegúrese de evaluar c
 - **Token de acceso personal expirado para el repositorio privado**. Cuando expira, el artefacto no aparecerá en la lista y cualquier script que haga referencia a artefactos de un repositorio con un token de acceso privado expirado producirá un error en consecuencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si no se produjo ninguno de estos errores y sigue sin poder aplicar artefactos, puede abrir una incidencia de Soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
-
+Si no se produjo ninguno de estos errores y sigue sin poder aplicar artefactos, puede abrir una incidencia de Soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

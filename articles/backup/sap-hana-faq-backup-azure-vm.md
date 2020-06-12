@@ -3,12 +3,12 @@ title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA e
 description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 08e0eaf5f744ebb0ada07a944f627cc1ff1ac496
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701012"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248811"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -86,6 +86,10 @@ Asegúrese de que la opción **Forzar sobrescritura** está seleccionada durante
 ### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>¿Por qué veo el mensaje de error "Los sistemas de origen y destino para la restauración no son compatibles"?
 
 Consulte la Nota [1642148](https://launchpad.support.sap.com/#/notes/1642148) de SAP HANA para ver qué tipos de restauración se admiten actualmente.
+
+### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-a-rhel-hana-system-or-vice-versa"></a>¿Puedo usar una copia de seguridad de una base de datos que se ejecuta en SLES para la restauración a un sistema RHEL HANA o viceversa?
+
+Sí, puede usar las copias de seguridad de streaming desencadenadas en una base de datos de HANA que se ejecuta en SLES para restaurarla en un sistema RHEL HANA y viceversa. Es decir, la restauración entre sistemas operativos es posible mediante copias de seguridad de streaming. Sin embargo, tendrá que asegurarse de que el sistema HANA en el que desea realizar la restauración y el sistema HANA que usará para la restauración sean compatibles con la restauración de acuerdo con SAP. Consulte la nota [1642148](https://launchpad.support.sap.com/#/notes/1642148) de SAP HANA para ver qué tipos de restauración son compatibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

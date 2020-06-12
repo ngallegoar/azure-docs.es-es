@@ -7,26 +7,26 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: f63553ced8484b3ce328fb9537d5831ae1e27fe8
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402594"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191486"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en SQL Server o Azure SQL Database mediante Azure Logic Apps
 
-En este artículo se muestra cómo puede acceder a los datos de la base de datos SQL desde una aplicación lógica con el conector de SQL Server. De este modo, puede automatizar las tareas, los procesos o los flujos de trabajo que administran los datos y los recursos de SQL mediante la creación de aplicaciones lógicas. El conector de SQL Server funciona tanto para [SQL Server local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) como para [Azure SQL Database en la nube](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
+En este artículo se muestra cómo puede acceder a los datos de la base de datos SQL desde una aplicación lógica con el conector de SQL Server. De este modo, puede automatizar las tareas, los procesos o los flujos de trabajo que administran los datos y los recursos de SQL mediante la creación de aplicaciones lógicas. El conector de SQL Server funciona en [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation), así como [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) y la [instancia administrada de Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
 Puede crear aplicaciones lógicas que se ejecutan cuando las desencadenan eventos en la base de datos SQL o en otros sistemas,como Dynamics CRM Online. Las aplicaciones lógicas también pueden obtener, insertar o eliminar datos y, además, pueden ejecutar consultas SQL o procedimientos almacenados. Por ejemplo, puede compilar una aplicación lógica que comprueba automáticamente si hay registros nuevos en Dynamics CRM Online, agrega elementos a la base de datos SQL para cualquier registro nuevo y envía alertas de correo electrónicos sobre los elementos agregados.
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, así como sobre las limitaciones y los problemas conocidos, consulte la [página de referencia sobre el conector de SQL Server](https://docs.microsoft.com/connectors/sql/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
-* Una [base de datos SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) o una [base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md)
+* Una [base de datos SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) o una [base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md)
 
   Las tablas deben tener datos para que la aplicación lógica pueda devolver los resultados cuando se llame a las operaciones. Si crea una base de datos de Azure SQL, puede usar las bases de datos de ejemplo incluidas.
 

@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
 ms.custom: designer
-ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7dcd2015a669d9640f4163e6decc96689bb4ca7b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654926"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167067"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ El diseñador proporciona un lienzo visual para compilar, probar e implementar m
 + Conectar los módulos para crear un [borrador de canalización](#pipeline-draft).
 + Enviar una [ejecución de canalización](#pipeline-run) mediante los recursos de proceso del área de trabajo de Azure Machine Learning.
 + Convertir las **canalizaciones de entrenamiento** en **canalizaciones de inferencia**.
-+ [Publicar](#publish) las canalizaciones en un **punto de conexión de canalización** de REST para enviar nuevas ejecuciones de canalización con distintos parámetros y conjuntos de datos.
++ [Publicar](#publish) las canalizaciones en un **punto de conexión de canalización** de REST para enviar una nueva canalización que se ejecute con distintos parámetros y conjuntos de datos.
     + Publique una **canalización de entrenamiento** para reutilizar una sola canalización para el entrenamiento de varios modelos y, al mismo tiempo, cambiar los parámetros y conjuntos de datos.
     + Publique una **canalización de inferencia por lotes** para hacer predicciones sobre nuevos datos mediante un modelo entrenado previamente.
 + [Implementar](#deploy) una **canalización de inferencia en tiempo real** en un punto de conexión en tiempo real para realizar predicciones sobre nuevos datos en tiempo real.
@@ -73,11 +73,11 @@ Las ejecuciones de canalización se agrupan en [experimentos](concept-azure-mach
 
 ## <a name="datasets"></a>Conjuntos de datos
 
-Un conjuntos de datos de aprendizaje automático permite acceder a los datos y trabajar con ellos fácilmente. En el diseñador se incluyen varios conjuntos de valores de ejemplo para experimentar con ellos. Puede [registrar](how-to-create-register-datasets.md) más conjuntos de datos a medida que los necesite.
+Un conjuntos de datos de aprendizaje automático permite acceder a los datos y trabajar con ellos fácilmente. En el diseñador se incluyen muchos conjuntos de valores de ejemplo para experimentar con ellos. Puede [registrar](how-to-create-register-datasets.md) más conjuntos de datos a medida que los necesite.
 
 ## <a name="module"></a>módulo
 
-Un módulo es un algoritmo que puede aplicar sobre sus datos. El diseñador tiene una serie de módulos que van desde las funciones de entrada de datos hasta los procesos de entrenamiento, puntuación y validación.
+Un módulo es un algoritmo que puede aplicar sobre sus datos. El diseñador tiene varios módulos que van desde las funciones de entrada de datos hasta los procesos de entrenamiento, puntuación y validación.
 
 Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo, los parámetros del módulo se muestran en el panel Propiedades a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo. Puede establecer los recursos de proceso para módulos individuales del diseñador. 
 
@@ -138,4 +138,3 @@ Puede convertir los experimentos de interfaz visual y los servicios Web existent
 
 * Aprenda los aspectos básicos del análisis predictivo y del aprendizaje automático con el [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
 * Aprenda a modificar los [ejemplos existentes del diseñador](samples-designer.md) para adaptarlos a sus necesidades.
-

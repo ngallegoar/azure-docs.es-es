@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683323"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310392"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -115,7 +115,7 @@ Sí, si dispone de los módulos HSM SafeNet de Gemalto en el entorno local. Exis
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>P: ¿Qué sistemas operativos son compatibles con el software cliente de Dedicated HSM?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtual: VMware, hyperv, Xen, KVM
+* Virtual: VMware, Hyper-V, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>P: ¿Cómo se configura la aplicación cliente para crear una configuración de alta disponibilidad con varias particiones de varios HSM?
 

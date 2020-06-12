@@ -1,16 +1,16 @@
 ---
 title: Funcionamiento de Azure Dev Spaces
 services: azure-dev-spaces
-ms.date: 03/24/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 description: Describe los procesos que posibilitan el funcionamiento de Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 99b0b3309d115b450bfca94871b6defd885349fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234953"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307374"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Funcionamiento de Azure Dev Spaces
 
@@ -22,9 +22,9 @@ Azure Dev Spaces le ofrece varias formas de iterar y depurar rápidamente las ap
 
 Azure Dev Spaces reduce el trabajo de tener que desarrollar, probar e iterar la aplicación de Kubernetes en el contexto del clúster de AKS. Esta reducción permite a los desarrolladores centrarse en la lógica de negocios de sus aplicaciones en lugar de tener que configurar los servicios para que se ejecuten en Kubernetes.
 
-### <a name="connect-your-development-machine-to-aks"></a>Conexión de la máquina de desarrollo a AKS
+### <a name="local-process-with-kubernetes"></a>Proceso local con Kubernetes
 
-Con Azure Dev Spaces, puede conectar su equipo de desarrollo al clúster de AKS, lo que le permite ejecutar y depurar el código en el equipo de desarrollo como si se estuviera ejecutando en el clúster. Azure Dev Spaces redirige el tráfico entre el clúster de AKS conectado. Para ello, ejecuta un pod en el clúster que actúa como agente remoto para redirigir el tráfico entre la máquina de desarrollo y el clúster. Esta redirección del tráfico permite que el código del equipo de desarrollo y los servicios que se ejecutan en el clúster de AKS se comuniquen como si estuvieran en el mismo clúster de AKS. Para obtener más información sobre cómo conectar la máquina de desarrollo a AKS, consulte [Funcionamiento de la conexión del equipo de desarrollo al clúster de AKS][how-it-works-connect].
+Con Proceso local con Kubernetes, puede conectar el equipo de desarrollo al clúster de Kubernetes, lo que le permite ejecutar y depurar código en el equipo de desarrollo como si se estuviera ejecutando en el clúster. Azure Dev Spaces redirige el tráfico entre el clúster conectado al ejecutar un pod en el clúster que actúa como agente remoto para redirigir el tráfico entre el equipo de desarrollo y el clúster. Este redireccionamiento del tráfico permite que el código del equipo de desarrollo y los servicios que se ejecutan en el clúster se comuniquen como si estuvieran en el mismo clúster. Para obtener más información sobre cómo conectar el equipo de desarrollo a un clúster de Kubernetes, vea [Funcionamiento de Proceso local con Kubernetes][how-it-works-local-process-kubernetes].
 
 ### <a name="run-your-code-in-aks"></a>Ejecución del código en AKS
 
@@ -44,12 +44,12 @@ También puede usar las Acciones de GitHub con Azure Dev Spaces para probar los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a conectar la máquina de desarrollo local al clúster de AKS, consulte [Conexión de una máquina de desarrollo a un clúster de AKS][connect].
+Para empezar a conectar el equipo de desarrollo local al clúster de AKS, consulte [Conexión del equipo de desarrollo a un clúster de AKS][connect].
 
 Para empezar a usar Azure Dev Spaces para el desarrollo en equipo, consulte la guía de inicio rápido [Desarrollo en equipo en Azure Dev Spaces][quickstart-team].
 
-[connect]: how-to/connect.md
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[connect]: how-to/local-process-kubernetes-vs-code.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

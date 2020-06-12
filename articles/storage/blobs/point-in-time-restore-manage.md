@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cbfc5667fb35b8f807a3a806dda4647af10e9392
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fe98e04c37172dc6b91c86fab8200022ed860d4f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118217"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170110"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques (versión preliminar)
 
@@ -99,14 +99,19 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Realizar una operación de restauración
 
-Para iniciar una operación de restauración, llame al comando Restore-AzStorageBlobRange, especificando el punto de restauración como un valor UTC **DateTime**. Puede especificar uno o más rangos lexicográficos de blobs para restaurar u omitir el rango para restaurar todos los blobs en todos los contenedores de la cuenta de almacenamiento. La operación de restauración puede tardar varios minutos en completarse.
+Para iniciar una operación de restauración, llame al comando Restore-AzStorageBlobRange, especificando el punto de restauración como un valor UTC **DateTime**. Puede especificar intervalos lexicográficos de blobs para restaurar u omitir el rango para restaurar todos los blobs en todos los contenedores de la cuenta de almacenamiento. Se admiten hasta 10 intervalos lexicográficos por operación de restauración. La operación de restauración puede tardar varios minutos en completarse.
 
 Al especificar un rango de blobs para restaurar, tenga en cuenta las siguientes reglas:
 
 - El patrón de contenedor especificado para el rango de inicio y el rango de finalización debe incluir un mínimo de tres caracteres. La barra diagonal (/) que se usa para separar un nombre de contenedor de un nombre de blob no cuenta para este mínimo.
-- Solo se puede especificar un rango por cada operación de restauración.
+- Puede especificar hasta 10 intervalos por cada operación de restauración.
 - No se admite el uso de caracteres comodín. Se tratan como caracteres estándar.
 - Puede restaurar los blobs en los contenedores `$root` y `$web` si los especifica de forma explícita en un rango que se pasa a una operación de restauración. Los contenedores `$root` y `$web` se restauran solo si se especifican explícitamente. No se pueden restaurar otros contenedores del sistema.
+
+> [!IMPORTANT]
+> Cuando se realiza una operación de restauración, Azure Storage bloquea las operaciones de datos en los blobs del intervalo que se está restaurando mientras dure la operación. Las operaciones de lectura, escritura y eliminación se bloquean en la ubicación principal. Por este motivo, es posible que las operaciones como la enumeración de contenedores en Azure Portal no funcionen según lo esperado mientras se realiza la operación de restauración.
+>
+> Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurar todos los contenedores de la cuenta
 
@@ -147,7 +152,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-multiple-ranges-of-block-blobs"></a>Restauración de varios rangos de blobs en bloques
 
-Para restaurar varios rangos de blobs en bloques, especifique una matriz de rangos para el parámetro `-BlobRestoreRange`. En el ejemplo siguiente se restaura el contenido completo de *container1* y *container4*:
+Para restaurar varios rangos de blobs en bloques, especifique una matriz de rangos para el parámetro `-BlobRestoreRange`. Se admiten hasta 10 intervalos por operación de restauración. En el ejemplo siguiente se especifica dos intervalos para restaurar el contenido completo de *container1* y *container4*:
 
 ```powershell
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2

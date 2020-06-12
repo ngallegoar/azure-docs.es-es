@@ -3,12 +3,12 @@ title: Eliminación temporal de Azure Backup
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7831488482ef154ce00685e513b36ed235e335e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791398"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116413"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminación temporal de Azure Backup
 
@@ -16,7 +16,10 @@ Cada vez es mayor la preocupación que generan problemas de seguridad como malwa
 
 Una de estas características es la eliminación temporal. Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea ningún costo para el cliente.
 
-La [protección de eliminación temporal para máquinas virtuales de Azure](soft-delete-virtual-machines.md) y la [eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure](soft-delete-sql-saphana-in-azure-vm.md) están disponibles para todos los usuarios.
+La protección de eliminación temporal está disponible para estos servicios:
+
+- [Eliminación temporal de máquinas virtuales de Azure](soft-delete-virtual-machines.md)
+- [Eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure](soft-delete-sql-saphana-in-azure-vm.md)
 
 En este diagrama de flujo se explican los diferentes pasos y estados de un elemento de copia de seguridad cuando se habilita la eliminación temporal:
 

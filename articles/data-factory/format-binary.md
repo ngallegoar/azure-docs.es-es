@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 05/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 4560560b3677030a66e277e96eb552d39f5c82c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7fd5cb3c6c8a991a8b5ef9b6460e9dce35dd873
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416338"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298591"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binario en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +35,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | type             | La propiedad type del conjunto de datos debe establecerse en **binario**. | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
 | compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |
-| type | El códec de compresión usado para leer y escribir archivos binarios. <br>Los valores permitidos son **bzip2**, **gzip**, **deflate** y **ZipDeflate**. para usar al guardar el archivo.<br>Tenga en cuenta que cuando utilice la actividad de copia para descomprimir archivos ZipDeflate y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`. | No       |
+| type | El códec de compresión usado para leer y escribir archivos binarios. <br>Los valores permitidos son **bzip2**, **gzip**, **deflate** y **ZipDeflate**. para usar al guardar el archivo.<br>**Tenga en cuenta** que, al usar la actividad de copia para descomprimir archivos **ZipDeflate** y escribir en el almacén de datos receptor basado en archivos, los archivos se extraen de forma predeterminada en la carpeta: `<path specified in dataset>/<folder named as source zip file>/`. Use `preserveZipFileNameAsFolder` en el [origen de la actividad de copia](#binary-as-source) para controlar si se debe conservar el nombre del archivo ZIP como una estructura de carpetas.| No       |
 | level | La razón de compresión. Se aplica cuando se utiliza el conjunto de datos en el receptor de la actividad de copia.<br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal**: la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 A continuación se muestra un ejemplo de un conjunto de datos binarios en Azure Blob Storage:
@@ -77,7 +77,43 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **BinarySource**. | Sí      |
+| formatSettings | Un grupo de propiedades. Eche un vistazo a la tabla **Configuración de lectura de JSON** de abajo. | No       |
 | storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
+
+**Configuración de lectura binaria** compatible en `formatSettings`:
+
+| Propiedad      | Descripción                                                  | Obligatorio |
+| ------------- | ------------------------------------------------------------ | -------- |
+| type          | El tipo de formatSettings debe establecerse en **BinaryReadSettings**. | Sí      |
+| compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
+| preserveZipFileNameAsFolder<br>(*en `compressionProperties`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia. Cuando se establece en true (valor predeterminado), Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`; cuando se establece en false, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`.  | No |
+
+```json
+"activities": [
+    {
+        "name": "CopyFromBinary",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "BinarySource",
+                "storeSettings": {
+                    "type": "AzureBlobStorageReadSettings",
+                    "recursive": true
+                },
+                "formatSettings": {
+                    "type": "BinaryReadSettings",
+                    "compressionProperties": {
+                        "type": "ZipDeflateReadSettings",
+                        "preserveZipFileNameAsFolder": false
+                    }
+                }
+            },
+            ...
+        }
+        ...
+    }
+]
+```
 
 ### <a name="binary-as-sink"></a>Binario como receptor
 

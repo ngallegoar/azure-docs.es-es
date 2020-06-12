@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 63a4285725db4dcb41affa93261fbbc03d11598e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860603"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310757"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -238,6 +238,7 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 > [!NOTE]
 > Actualmente, el rol de lector global tiene algunas limitaciones:
 >
+>- [Centro de administración de OneDrive](https://admin.onedrive.com/): el centro de administración de OneDrive no admite el rol de lector global.
 >- [Centro de administración de M365](https://admin.microsoft.com/Adminportal/Home#/homepage): el lector global no puede leer las solicitudes de la Caja de seguridad del cliente. En el panel izquierdo del Centro de administración de M365 no aparecerá la pestaña **Solicitudes de la Caja de seguridad del cliente** bajo **Soporte**.
 >- [Centro de seguridad y cumplimiento de Office](https://sip.protection.office.com/homepage): el lector global no puede leer los registros de auditoría de SCC, realizar búsqueda de contenido ni consultar la puntuación de seguridad.
 >- [Centro de administración de Teams](https://admin.teams.microsoft.com): el lector global no puede leer **Ciclo de vida de Teams**, **Análisis e informes**, **Administración de dispositivos de teléfono IP** ni **Catálogo de aplicaciones**.
@@ -457,6 +458,9 @@ los usuarios con este rol tienen permisos globales en Microsoft SharePoint Onlin
 
 > [!NOTE]
 > En Microsoft Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de SharePoint". En [Azure Portal](https://portal.azure.com) es "Administrador de SharePoint".
+
+> [!NOTE]
+> Este rol también concede permisos de ámbito a Microsoft Graph API para Microsoft Intune, lo que facilita la administración y configuración de directivas relacionadas con los recursos de SharePoint y Onedrive.
 
 ### <a name="skype-for-business--lync-administrator"></a>[Administrador de Skype Empresarial o Lync](#lync-service-administrator-permissions)
 
@@ -1939,4 +1943,4 @@ Combinación de dispositivos de área de trabajo | Obsoleto | [Documentación de
 
 * Para más información acerca de cómo asignar un usuario como administrador de una suscripción de Azure, consulte [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 * Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para más información acerca de cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* Para obtener más información sobre la relación entre las suscripciones y un inquilino de Azure AD, consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

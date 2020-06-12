@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592719"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996217"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migración de Translator V2 a V3
 
@@ -32,8 +32,8 @@ El final de este documento contiene vínculos útiles para que pueda obtener má
 
 * Sin seguimiento: en V3 se aplica la función Sin seguimiento a todos los niveles de precios en Azure Portal. Esta característica significa que Microsoft no guardará ningún texto enviado a la API V3.
 * JSON: XML se reemplaza con JSON. Todos los datos enviados al servicio y recibidos desde el mismo están en formato JSON.
-* Varios idiomas de destino en una única solicitud: el método de traducción acepta varios idiomas de destino ("a") para la traducción en una única solicitud. Por ejemplo, una sola solicitud puede traducirse "desde" el inglés "al" alemán, español y japonés, o a cualquier otro grupo de idiomas.
-* Diccionario bilingüe: se ha agregado un método de diccionario bilingüe a la API. Este método incluye las opciones "búsqueda" y "ejemplos".
+* Varios idiomas de destino en una única solicitud: el método de traducción acepta varios idiomas de destino para la traducción en una única solicitud. Por ejemplo, una sola solicitud puede traducirse desde el inglés al alemán, español y japonés, o a cualquier otro grupo de idiomas.
+* Diccionario bilingüe: se ha agregado un método de diccionario bilingüe a la API. Este método incluye las opciones "búsquedas" y "ejemplos".
 * Transliterar: se ha agregado un método de transliteración a la API. Este método convertirá las palabras y oraciones de un script (por ejemplo, en árabe) en otro script (por ejemplo, en latín).
 * Idiomas: un nuevo método denominado "idiomas" ofrece información sobre el idioma en formato JSON, y se puede usar con los métodos "traducir", "diccionario" y "transliterar".
 * Novedades en Traducir: se han agregado nuevas capacidades al método "traducir" para admitir algunas de las características que se encontraban en la API V2 como métodos separados. Un ejemplo es TranslateArray.
@@ -116,10 +116,10 @@ Microsoft Translator V3 usa la traducción automática neuronal por defecto. Por
 
 La traducción neuronal con Text API V3 no admite el uso de categorías estándar (SMT, voz, tech, generalnn).
 
-| |Punto de conexión|    Compatible con el procesador GDPR|  Utiliza Translator Hub| Utiliza Traductor personalizado (versión preliminar)|
+| |Punto de conexión|    Compatible con el procesador GDPR|    Utiliza Translator Hub|    Utiliza Traductor personalizado (versión preliminar)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator versión 2|  api.microsofttranslator.com|    No  |Sí    |No|
-|Translator versión 3|  api.cognitive.microsofttranslator.com|  Sí|    No| Sí|
+|Translator versión 2|    api.microsofttranslator.com|    No    |Sí    |No|
+|Translator versión 3|    api.cognitive.microsofttranslator.com|    Sí|    No|    Sí|
 
 **Translator versión 3**
 * Está disponible con carácter general y es totalmente compatible.

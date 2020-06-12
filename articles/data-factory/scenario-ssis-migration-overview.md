@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 2b23ffec76de3fa644abe3b65876a60c65c05eb8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: eecf7ba1471e35e2d9ab26394c7295f324c4ca20
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686005"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116402"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migración de cargas de trabajo de SSIS locales a SSIS en ADF
 
@@ -24,7 +24,7 @@ ms.locfileid: "81686005"
 
 ## <a name="overview"></a>Información general
 
-Al migrar las cargas de trabajo de base de datos de SQL Server local a servicios de base de datos de Azure, es decir, Azure SQL Database o Instancia administrada de Azure SQL Database, las cargas de trabajo de ETL de SQL Server Integration Services (SSIS), como uno de los principales servicios de valor añadido, también se deben migrar.
+Al migrar las cargas de trabajo de base de datos de SQL Server local a servicios de base de datos de Azure, concretamente Azure SQL Database o Instancia administrada de Azure SQL, también se deben migrar las cargas de trabajo de ETL de SQL Server Integration Services (SSIS), como uno de los principales servicios de valor añadido.
 
 Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF) admite la ejecución de paquetes de SSIS. Una vez aprovisionado Azure-SSIS IR, puede usar herramientas familiares, como SQL Server Data Tools (SSDT)/ SQL Server Management Studio (SSMS) y utilidades de la línea de comandos, como dtinstall, dtutil o dtexec, para implementar y ejecutar los paquetes en Azure. Para más información, consulte [Migrar cargas de trabajo de SQL Server Integration Services a la nube mediante lift-and-shift](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
@@ -57,14 +57,14 @@ Obtenga [DMA](https://docs.microsoft.com/sql/dma/dma-overview) y [realice su eva
 
 En función de los [tipos de almacenamiento](#four-storage-types-for-ssis-packages) de los paquetes de SSIS de origen y el destino de la migración de las cargas de trabajo de base de datos, los pasos para migrar los **paquetes de SSIS** y los **trabajos del Agente SQL Server** que realizan la programación de las ejecuciones de paquetes de SSIS pueden variar. Hay dos escenarios:
 
-- [**Instancia administrada de Azure SQL Database** como destino de la carga de trabajo de base de datos](#azure-sql-database-managed-instance-as-database-workload-destination)
+- [**Instancia administrada de Azure SQL** como destino de la carga de trabajo de base de datos](#azure-sql-managed-instance-as-database-workload-destination)
 - [**Azure SQL Database** como destino de la carga de trabajo de base de datos](#azure-sql-database-as-database-workload-destination)
 
-### <a name="azure-sql-database-managed-instance-as-database-workload-destination"></a>**Instancia administrada de Azure SQL Database** como destino de la carga de trabajo de base de datos
+### <a name="azure-sql-managed-instance-as-database-workload-destination"></a>**Instancia administrada de Azure SQL** como destino de la carga de trabajo de base de datos
 
 | **Tipo de almacenamiento de los paquetes** |Procedimiento de migración por lotes de paquetes de SSIS|Procedimiento de migración por lotes de trabajos de SSIS|
 |-|-|-|
-|SSISDB|[Migración de **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migración de trabajos de SSIS al agente de Instancia administrada de Azure SQL Database](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-azure-sql-database-managed-instance-agent)|
+|SSISDB|[Migración de **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migración de trabajos de SSIS al agente de Instancia administrada de Azure SQL](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent)|
 |Sistema de archivos|Vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migración con [Asistente para migración de trabajos de SSIS en SSMS](how-to-migrate-ssis-job-ssms.md) <li>Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Expórtelos a sistemas de archivos, recursos compartidos de archivos o Azure Files mediante SSMS o dtutil. Para más información, consulte [Exportación de paquetes de SSIS](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Almacén de paquetes|Expórtelos a sistemas de archivos, recursos compartidos de archivos o Azure Files mediante SSMS o dtutil o vuelva a implementarlos en recursos compartidos de archivos o Azure Files mediante dtinstall, dtutil o copia manual o manténgalos en los sistemas de archivos para su acceso mediante red virtual o IR autohospedado. Para más información, consulte Utilidad dtutil. Para más información, consulte [Utilidad dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Conviértalos en canalizaciones, actividades o desencadenadores de ADF mediante scripts, SSMS o el portal de ADF. Para más información, consulte [Característica de programación de SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
@@ -83,7 +83,7 @@ En función de los [tipos de almacenamiento](#four-storage-types-for-ssis-packag
 - [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview)
 - [Migrar cargas de trabajo de SQL Server Integration Services a la nube mediante lift-and-shift](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017)
-- [Migración de paquetes de SQL Server Integration Services a una instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
+- [Migración de paquetes de SSIS a Instancia administrada de Azure SQL](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 - [Volver a implementar paquetes en Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 06/01/2020
 ms.author: danlep
-ms.openlocfilehash: 8106b1a77f11874b1b13f41bfc9e62ea800afc98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9e275cbdaf264df3d0a40f032693fd93553e520
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68361264"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317664"
 ---
 ### <a name="database-tier"></a>Nivel de base de datos
 
@@ -17,7 +17,7 @@ El nivel de base de datos contiene las instancias de base de datos para la aplic
 
 Si la opción es usar Oracle DB, la instancia de base de datos se puede implementar en Azure a través de las imágenes de Oracle DB disponibles en Azure Marketplace. Como alternativa, puede usar la interconexión entre Azure y OCI para implementar Oracle DB en un modelo de PaaS en OCI.
 
-Para Oracle RAC, puede implementar Oracle RAC en Azure CloudSimple en el modelo de IaaS o en OCI en el modelo de PaaS. Se recomienda usar un sistema de RAC de dos nodos. 
+Para Oracle RAC, puede usar OCI en el modelo de PaaS. Se recomienda usar un sistema de RAC de dos nodos. Aunque es posible implementar Oracle RAC en Azure CloudSimple en el modelo IaaS, Oracle no es una configuración admitida. Consulte [Programas de Oracle válidos para entornos de nube autorizados](http://www.oracle.com/us/corporate/pricing/authorized-cloud-environments-3493562.pdf).
 
 Por último, en el caso de los sistemas de Exadata, use la interconexión de OCI e implemente el sistema de Exadata en OCI. En el diagrama de arquitectura anterior se muestra un sistema de Exadata implementado en OCI en dos subredes.
 

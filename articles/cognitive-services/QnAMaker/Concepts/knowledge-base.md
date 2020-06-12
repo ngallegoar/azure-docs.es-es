@@ -1,18 +1,18 @@
 ---
 title: 'Importación de orígenes de datos: QnA Maker'
-description: Una base de conocimiento de QnA Maker consta de una serie de conjuntos de preguntas y respuestas, así como metadatos opcionales asociados a cada par de pregunta y respuesta.
+description: Una base de conocimiento de QnA Maker consta de un conjunto de pares de preguntas y respuestas, así como metadatos opcionales asociados a cada par de pregunta y respuesta.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804289"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993106"
 ---
 # <a name="importing-from-data-sources"></a>Importación de orígenes de datos
 
-Una base de conocimiento consta de conjuntos de preguntas y respuestas incorporados mediante archivos y direcciones URL públicos.
+Una base de conocimiento consta de pares de preguntas y respuestas incorporados mediante archivos y direcciones URL públicos.
 
 ## <a name="data-source-locations"></a>Ubicaciones de orígenes de datos
 
@@ -26,7 +26,7 @@ El conjunto de contenido de preguntas y respuestas de la charla se ofrece como u
 
 ## <a name="structured-data-format-through-import"></a>Formato de datos estructurado mediante importación
 
-Al importar una base de conocimiento, se reemplaza el contenido de la base de conocimiento existente. La importación requiere un archivo `.tsv` estructurado que contenga preguntas y una respuesta. Esta información ayuda a QnA Maker a agrupar los conjuntos pregunta-respuesta y a atribuirlos a un origen de datos particular.
+Al importar una base de conocimiento, se reemplaza el contenido de la base de conocimiento existente. La importación requiere un archivo `.tsv` estructurado que contenga preguntas y una respuesta. Esta información ayuda a QnA Maker a agrupar los pares pregunta-respuesta y a atribuirlos a un origen de datos particular.
 
 | Pregunta  | Respuesta  | Source| Metadatos (1 clave: 1 valor) |
 |-----------|---------|----|---------------------|
@@ -58,7 +58,7 @@ La propiedad **displayOrder** es numérica, y **displayText** es texto que no de
 
 Si no está seguro de cómo representar el par de QnA en el archivo `.tsv`:
 * Use este [ejemplo descargable de GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true).
-* O bien, cree el conjunto en el portal de QnA Maker, guárdelo y, luego, exporte la base de conocimiento para ver un ejemplo de cómo representar el conjunto.
+* O bien, cree el par en el portal de QnA Maker, guárdelo y, luego, exporte la base de conocimiento para ver un ejemplo de cómo representar dicho par.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

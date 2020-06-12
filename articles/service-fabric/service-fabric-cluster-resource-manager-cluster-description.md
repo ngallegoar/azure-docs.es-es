@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229408"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259480"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descripción de un clúster de Service Fabric con Cluster Resource Manager
 La característica Cluster Resource Manager de Azure Service Fabric proporciona varios mecanismos para describir un clúster:
@@ -83,9 +83,9 @@ En el siguiente diagrama se muestran tres dominios de actualización divididos e
 
 Tener un gran número de dominios de actualización tiene ventajas y desventajas. Disponer de más dominios de actualización implica que cada paso de la actualización sea más granular y afecte a un número menor de nodos o servicios. Como consecuencia, hay que mover menos servicios a la vez, lo que reduce la actividad en el sistema. Esto suele mejorar la confiabilidad general, ya que los problemas afectarán a una proporción menor del servicio durante la actualización. Si tiene más dominios de actualización, también necesitará menos búfer disponible en otros nodos para controlar el impacto de la actualización. 
 
-Por ejemplo, si dispone de cinco dominios de actualización, los nodos de cada uno de ellos controlarán aproximadamente el 20 % del tráfico. Si necesita desactivar ese dominio de actualización para realizar una actualización, esa carga normalmente debe ir a otro lado. Puesto que tiene cuatro dominios de actualización restantes, cada uno debe tener un espacio aproximado del 5 % del tráfico total. Disponer de más dominios de actualización implica que necesita menos búfer en los nodos en el clúster. 
+Por ejemplo, si dispone de cinco dominios de actualización, los nodos de cada uno de ellos controlarán aproximadamente el 20 % del tráfico. Si necesita desactivar ese dominio de actualización para realizar una actualización, esa carga normalmente debe ir a otro lado. Puesto que tiene cuatro dominios de actualización restantes, cada uno debe tener un espacio aproximado del 25 % del tráfico total. Disponer de más dominios de actualización implica que necesita menos búfer en los nodos en el clúster.
 
-Por ejemplo, considere si había 10 dominios de actualización en su lugar. En ese caso, cada dominio de actualización ocupa aproximadamente solo el 10 % del tráfico total. Cuando se realiza una actualización en el clúster, cada dominio solo tendría que tener espacio para aproximadamente un 1,1 % del tráfico total. Disponer de más dominios de actualización le permite normalmente ejecutar nodos con una utilización mayor, ya que necesita una capacidad de reserva menor. Lo mismo ocurre con los dominios de error.  
+Por ejemplo, considere si había 10 dominios de actualización en su lugar. En ese caso, cada dominio de actualización ocupa aproximadamente solo el 10 % del tráfico total. Cuando se realiza una actualización en el clúster, cada dominio solo tendría que tener espacio para aproximadamente un 11 % del tráfico total. Disponer de más dominios de actualización le permite normalmente ejecutar nodos con una utilización mayor, ya que necesita una capacidad de reserva menor. Lo mismo ocurre con los dominios de error.  
 
 El inconveniente de tener muchos dominios de actualización es que las actualizaciones suelen tardar más tiempo. Service Fabric espera un breve período después de que se complete un dominio de actualización y realiza comprobaciones antes de iniciar la actualización del siguiente. Estos retrasos permiten detectar problemas introducidos por la actualización antes de continuar con la actualización. El compromiso es aceptable, ya que impide que los cambios incorrectos afecten a una proporción excesiva del servicio a la vez.
 

@@ -4,16 +4,16 @@ description: Cree certificados de prueba, instálelos y adminístrelos en un dis
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/02/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c18c3d560adb3c3cae54bda808ee5842c260fd6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79541504"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308785"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Administración de certificados en un dispositivo IoT Edge
 
@@ -23,15 +23,15 @@ Todos los dispositivos IoT Edge usan certificados para crear conexiones seguras 
 
 La primera vez que instala IoT Edge y aprovisiona el dispositivo, el dispositivo se configura con certificados temporales para que pueda probar el servicio.
 Estos certificados temporales expiran en 90 días, o bien se puede reiniciar el equipo para restablecerlos.
-Una vez que esté listo para migrar los dispositivos a un escenario de producción, o si quiere crear un escenario de puerta de enlace, tendrá que proporcionar certificados propios.
+Una vez realizada la migración a un escenario de producción, o si quiere crear un dispositivo de puerta de enlace, tendrá que proporcionar certificados propios.
 En este artículo se muestran los pasos para instalar certificados en los dispositivos IoT Edge.
 
-Para obtener más información sobre los diferentes tipos de certificados y sus roles en un escenario de IoT Edge, vea [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
+Para más información sobre los diferentes tipos de certificados y sus roles, vea [Información sobre los certificados de Azure IoT Edge](iot-edge-certs.md).
 
 >[!NOTE]
 >El término "entidad de certificación raíz" que se usa en este artículo hace referencia al certificado público de la entidad de nivel superior de la cadena de certificados de la solución de IoT. No es necesario usar la raíz del certificado de una entidad de certificación sindicada o la raíz de la entidad de certificación de la organización. En muchos casos, se trata realmente de un certificado público intermedio de la entidad de certificación.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 * Un dispositivo IoT Edge que se ejecute en [Windows](how-to-install-iot-edge-windows.md) o [Linux](how-to-install-iot-edge-linux.md).
 * Tener un certificado de entidad de certificación (CA) raíz, ya sea autofirmado o comprado a través de una entidad de certificación comercial de confianza como Baltimore, Verisign, DigiCert o GlobalSign.
@@ -69,24 +69,24 @@ Por ejemplo, si ha usado los scripts de ejemplo para [Crear certificados de demo
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. Establezca las propiedades de **certificado** del archivo config.yaml en la ruta de acceso completa a los archivos de certificado y de clave del dispositivo IoT Edge. Elimine el carácter `#` antes de las propiedades de certificado para quitar la marca de comentario de las cuatro líneas. Asegúrese de que la línea **certificates:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios. Por ejemplo:
+1. Establezca las propiedades de **certificado** de config.yaml en la ruta de acceso del URI de archivo de los archivos de certificado y de clave del dispositivo IoT Edge. Elimine el carácter `#` antes de las propiedades de certificado para quitar la marca de comentario de las cuatro líneas. Asegúrese de que la línea **certificates:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios. Por ejemplo:
 
    * Windows:
 
       ```yaml
       certificates:
-        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
-        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
-        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///C:/<path>/<device CA cert>"
+        device_ca_pk: "file:///C:/<path>/<device CA key>"
+        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
       ```
 
    * Linux:
 
       ```yaml
       certificates:
-        device_ca_cert: "<path>/device-ca.cert.pem"
-        device_ca_pk: "<path>/device-ca.key.pem"
-        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///<path>/<device CA cert>"
+        device_ca_pk: "file:///<path>/<device CA key>"
+        trusted_ca_certs: "file:///<path>/<root CA cert>"
       ```
 
 1. En los dispositivos Linux, asegúrese de que el usuario **iotedge** tiene permisos de lectura para el directorio que contiene los certificados.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005506"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170280"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps
 
@@ -28,7 +28,7 @@ Para configurar un punto de conexión al que se puede llamar, puede usar cualqui
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -214,6 +214,9 @@ Si desea aceptar valores de parámetros a través de la dirección URL del punto
 
    * Segunda posición: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
+> [!NOTE]
+> Si quiere incluir la almohadilla o numeral ( **#** ) en el URI, use esta versión codificada en su lugar: `%25%23`.
+
 <a name="relative-path"></a>
 
 ### <a name="accept-values-through-a-relative-path"></a>Aceptar valores a través de una ruta de acceso relativa
@@ -257,6 +260,9 @@ Si desea aceptar valores de parámetros a través de la dirección URL del punto
    El explorador devuelve una respuesta con este texto: `Postal Code: 123456`
 
    ![Respuesta de la solicitud de envío a la URL de devolución de llamada](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+> [!NOTE]
+> Si quiere incluir la almohadilla o numeral ( **#** ) en el URI, use esta versión codificada en su lugar: `%25%23`.
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Llamada a la aplicación lógica a través de la dirección URL de un punto de conexión
 

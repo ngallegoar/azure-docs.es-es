@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/09/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 69eef6d8457b183f61bae98c0bc80feb0ff2e263
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635457"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216388"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +40,7 @@ El conector de Netezza admite la copia en paralelo desde el origen. Consulte la 
 
 Azure Data Factory proporciona un controlador integrado para permitir la conectividad. No es necesario instalar manualmente uno para usar este conector.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -64,8 +64,8 @@ Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<databa
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. El controlador admite conexiones SSL con autenticación unidireccional mediante la versión 3 de SSL. <br>Ejemplo: `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- **Solo sin protección** (**onlyUnSecured**): el controlador no usa TLS.<br/>- **Sin protección preferido (preferredUnSecured) (valor predeterminado)** : si el servidor proporciona una opción, el controlador no usa TLS. <br/>- **Con protección preferido (preferredSecured)** : si el servidor proporciona una opción, el controlador usa TLS. <br/>- **Solo con protección (onlySecured)** : el controlador no se conectará a menos que haya una conexión TLS disponible. | No |
-| CaCertFile | La ruta de acceso completa al certificado TLS/SSL que usa el servidor. Ejemplo: `CaCertFile=<cert path>;`| Sí, si se ha habilitado TLS |
+| SecurityLevel | Nivel de seguridad que usa el controlador para la conexión con el almacén de datos. El controlador admite conexiones SSL con autenticación unidireccional mediante la versión 3 de SSL. <br>Ejemplo: `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- **Solo sin protección** (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Sin protección preferido (preferredUnSecured) (valor predeterminado)** : si el servidor proporciona una opción, el controlador no usa SSL. <br/>- **Con protección preferido (preferredSecured)** : si el servidor proporciona una opción, el controlador usa SSL. <br/>- **Solo con protección (onlySecured)** : el controlador no se conectará a menos que haya una conexión SSL disponible. | No |
+| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Ejemplo: `CaCertFile=<cert path>;`| Sí, si se ha habilitado SSL |
 
 **Ejemplo**
 

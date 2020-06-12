@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de89b7f5a4b14bd4142ea3e9b9c8c0dceabd63dd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 4837b654e5b538dda6f55eae9b15ddf0c5604693
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779967"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299475"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -153,7 +153,7 @@ Adición de sitios de SharePoint Online al catálogo | Administrador global
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Asignación de la licencia | Administrador de usuarios | 
-Crear grupo | Administrador de usuarios | 
+Crear grupo | Administrador de grupos | Administrador de usuarios
 Crear, actualizar o eliminar revisión de acceso de un grupo o de una aplicación | Administrador de usuarios | 
 Administrar expiración de grupos | Administrador de usuarios | 
 Administración de la configuración de grupo | Administrador de grupos | Administrador de usuarios | 
@@ -164,6 +164,7 @@ Revocar licencia | Administrador de licencias | Administrador de usuarios
 Actualizar pertenencia a grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
 Actualizar propietarios de grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
 Actualizar propiedades de grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
+Eliminar grupo | Administrador de grupos | Administrador de usuarios
 
 ## <a name="identity-protection"></a>Protección de identidad
 
@@ -273,6 +274,8 @@ Leer toda la configuración | Rol de usuario predeterminado ([consulte la docume
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar métodos de autenticación | Administrador global | 
+Configuración de la protección con contraseña | Administrador de seguridad
+Configuración del bloqueo inteligente | Administrador de seguridad
 Leer toda la configuración | Lector global | 
 
 ## <a name="security---conditional-access"></a>Seguridad: acceso condicional

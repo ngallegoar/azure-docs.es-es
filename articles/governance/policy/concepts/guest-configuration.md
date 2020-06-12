@@ -3,16 +3,16 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684281"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259157"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
-Además de auditar y [corregir](../how-to/remediate-resources.md) los recursos de Azure, Azure Policy puede auditar la configuración en una máquina virtual. La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida la configuración como:
+Azure Policy puede auditar la configuración dentro de una máquina. La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida la configuración como:
 
 - La configuración del sistema operativo
 - Configuración de la aplicación o presencia
@@ -46,8 +46,8 @@ En la tabla siguiente se muestra una lista herramienta locales usada en cada sis
 
 |Sistema operativo|Herramienta de validación|Notas|
 |-|-|-|
-|Windows|[Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Si Ruby y Python no están en la máquina, la extensión de configuración de invitado las instala. |
+|Windows|[Configuración de estado deseado de PowerShell](/powershell/scripting/dsc/overview/overview) v2| Instalado de prueba en una carpeta que solo usa Azure Policy. No entrará en conflicto con DSC de Windows PowerShell. PowerShell Core no se agrega a la ruta de acceso del sistema.|
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Instala Chef InSpec versión 2.2.61 en la ubicación predeterminada y lo agrega a la ruta de acceso del sistema. También se instalan las dependencias del paquete InSpec, que incluyen Ruby y Python. |
 
 ### <a name="validation-frequency"></a>Frecuencia de validación
 
@@ -87,7 +87,7 @@ Las directivas **DeployIfNotExists** que agregan la extensión a las máquinas v
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definición de Guest Configuration
 
-Cada auditoría que ejecuta la configuración de invitado requiere dos definiciones de directiva, una definición **DeployIfNotExists** y otra **AuditIfNotExists**.
+Cada auditoría que ejecuta la configuración de invitado requiere dos definiciones de directiva, una definición **DeployIfNotExists** y otra **AuditIfNotExists**. Las definiciones de la directiva **DeployIfNotExists** administran las dependencias para realizar auditorías en cada máquina.
 
 La definición de directiva **DeployIfNotExists** valida y corrige los siguientes elementos:
 

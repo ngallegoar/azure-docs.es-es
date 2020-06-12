@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460739"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194456"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
 > [!NOTE]
@@ -25,7 +25,7 @@ ms.locfileid: "81460739"
 ## <a name="overview"></a>Información general
 Cuando utiliza Azure Data Factory para sus necesidades de integración de datos, es posible que tenga que reutilizar el mismo patrón en distintos entornos o implementar la misma tarea repetidamente dentro de la misma solución. Las plantillas le permiten implementar y administrar estos escenarios de una forma sencilla. Las plantillas de Azure Data Factory son ideales para los escenarios que implican la reutilización y la repetición.
 
-Imagine una situación en la que una organización tiene 10 plantas de fabricación distribuidas por todo el mundo. Los registros de cada planta se almacenan en una base de datos de SQL Server local independiente. La empresa desea crear un único almacén de datos en la nube para análisis ad hoc. También quiere tener la misma lógica pero diferentes configuraciones para los entornos de desarrollo, prueba y producción.
+Imagine una situación en la que una organización tiene 10 plantas de fabricación distribuidas por todo el mundo. Los registros de cada planta se almacenan en una base de datos de SQL Server independiente. La empresa desea crear un único almacén de datos en la nube para análisis ad hoc. También quiere tener la misma lógica pero diferentes configuraciones para los entornos de desarrollo, prueba y producción.
 
 En este caso, se deberá repetir una tarea dentro del mismo entorno pero con valores diferentes en 10 factorías de datos para cada planta de fabricación. En efecto, la **repetición** está presente. La creación de plantillas permite la abstracción de este flujo genérico (es decir, de las canalizaciones que tengan las mismas actividades en cada factoría de datos), pero usa un archivo de parámetros distinto para cada planta de fabricación.
 
@@ -37,8 +37,8 @@ Las [plantillas de Azure Resource Manager](../../azure-resource-manager/template
 ## <a name="tutorials"></a>Tutoriales
 Consulte los siguientes tutoriales para obtener instrucciones detalladas para crear entidades de Data Factory mediante plantillas de Resource Manager:
 
-* [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Tutorial: Creación de una canalización para copiar datos mediante el uso de plantillas de Azure Resource Manager)
-* [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Tutorial: Creación de una canalización para procesar datos mediante el uso de plantillas de Azure Resource Manager)
+* [Tutorial: Creación de una canalización para copiar datos mediante el uso de plantillas de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Tutorial: Creación de una canalización para procesar datos mediante el uso de plantillas de Azure Resource Manager](data-factory-build-your-first-pipeline.md)
 
 ## <a name="data-factory-templates-on-github"></a>Plantillas de Data Factory en GitHub
 Consulte las siguientes plantillas de inicio rápido de Azure en GitHub:
@@ -48,7 +48,7 @@ Consulte las siguientes plantillas de inicio rápido de Azure en GitHub:
 * [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) (Creación de una instancia de Data Factory para copiar datos desde Salesforce en Azure Blobs)
 * [Creación de una factoría de datos que encadena actividades: copiar datos desde un servidor FTP en blobs de Azure, invocar un script de Hive en un clúster de HDInsight a petición para transformar los datos y copiar el resultado en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
-No dude en compartir sus plantillas de Azure Data Factory en [Inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Consulte la [Guía de contribución](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) cuando desarrolle plantillas que se puedan compartir a través de este repositorio.
+No dude en compartir sus plantillas de Azure Data Factory en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Consulte la [Guía de contribución](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) cuando desarrolle plantillas que se puedan compartir a través de este repositorio.
 
 Las secciones siguientes proporcionan detalles acerca de cómo definir los recursos de Data Factory en una plantilla de Resource Manager.
 

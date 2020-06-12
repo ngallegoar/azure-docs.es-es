@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236416"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022017"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -49,7 +49,7 @@ Microsoft actualiza la lista de versiones compatibles de HDInsight con las corre
 Después del 15 de diciembre de 2017:
 
 - Ya no puede crear clústeres de la versión 3.3 (o versiones anteriores) de HDInsight basado en Linux mediante un servicio vinculado de HDInsight a petición en Data Factory versión 1. 
-- Si no se especifican las propiedades [**osType** y **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) en la definición de JSON para un servicio existente vinculado a HDInsight a petición de Data Factory versión 1, el valor predeterminado cambia de **Version=3.1, osType=Windows** a **Version=\<última versión predeterminada de HDI\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
+- Si no se especifican las propiedades [**osType** y **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) en la definición de JSON para un servicio existente vinculado a HDInsight a petición de Data Factory versión 1, el valor predeterminado cambia de **Version=3.1, osType=Windows** a **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
 
 Después del 31 de julio de 2018:
 
@@ -268,7 +268,7 @@ Puede crear un servicio vinculado de Batch para registrar un grupo de Batch de m
 
 Si es primera vez que usa el servicio de Batch:
 
-* Obtenga información sobre los [conceptos básicos de Azure Batch](../../batch/batch-technical-overview.md).
+* Obtenga información sobre los [conceptos básicos de Azure Batch](../../azure-sql/database/sql-database-paas-overview.md).
 * Obtenga información sobre el cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Use este cmdlet para crear una cuenta de Batch. O bien, puede crear la cuenta de Batch con [Azure Portal](../../batch/batch-account-create-portal.md). Para información detallada sobre cómo usar el cmdlet, consulte el artículo sobre el [use de PowerShell para administrar una cuenta de Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Obtenga información sobre el cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx). Use este cmdlet para crear un grupo de Batch.
 
@@ -289,7 +289,7 @@ Si es primera vez que usa el servicio de Batch:
 }
 ```
 
-En la propiedad **accountName**, anexe **.\<nombre de región\>** al nombre de la cuenta de Batch. Por ejemplo:
+Para la propiedad **accountName**, anexe **.\<region name\>** al nombre de la cuenta de Batch. Por ejemplo:
 
 ```json
 "accountName": "mybatchaccount.eastus"

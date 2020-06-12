@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 06/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607391"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296364"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
 
@@ -33,7 +33,7 @@ Las instrucciones de esta guía son específicas para los usuarios de Windows Vi
 >[!NOTE]
 >Si está buscando material de comparación sobre las diferentes opciones de almacenamiento del contenedor de perfiles de FSLogix en Azure, consulte [Opciones de almacenamiento para contenedores de perfiles de FSLogix](store-fslogix-profile.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de crear un contenedor de perfiles de FSLogix para un grupo host, debe hacer lo siguiente:
 
@@ -231,3 +231,5 @@ Esta sección está basada en [Creación de un contenedor de perfiles para un gr
 ## <a name="next-steps"></a>Pasos siguientes
 
 Puede usar contenedores de perfiles de FSLogix para configurar un recurso compartido de perfil de usuario. Para obtener información sobre cómo crear recursos compartidos de perfil de usuario con sus nuevos contenedores, consulte [Creación de un contenedor de perfiles para un grupo host mediante un recurso compartido de archivos](create-host-pools-user-profile.md).
+
+También puede crear un recurso compartido de archivos de Azure Files para almacenar el perfil de FSLogix. Para obtener más información, consulte [Creación de un recurso compartido de archivos de Azure Files con un controlador de dominio](create-file-share.md).

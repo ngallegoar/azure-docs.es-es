@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587347"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310604"
 ---
 # <a name="long-audio-api-preview"></a>Long Audio API (versión preliminar)
 
@@ -48,7 +48,7 @@ Cuando prepare el archivo de texto, asegúrese de lo siguiente:
   * En el caso de texto sin formato, cada párrafo se separa al presionar **Entrar**: consulte un [ejemplo de entrada de texto sin formato](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
   * En el caso de texto SSML, cada fragmento de SSML se considera un párrafo. Los fragmentos de SSML se deben separar con párrafos distintos: consulte un [ejemplo de entrada de texto SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 > [!NOTE]
-> En el caso del chino (continental), chino (Hong Kong), chino (Taiwán), japonés y coreano, una palabra se contará como dos caracteres. 
+> En el caso del chino (continental), chino (Hong Kong SAR), chino (Taiwán), japonés y coreano, una palabra se contará como dos caracteres. 
 
 ## <a name="submit-synthesis-requests"></a>Envío de solicitudes de síntesis
 

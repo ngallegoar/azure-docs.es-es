@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81640958"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148351"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -128,7 +128,7 @@ Estos parámetros eliminan la carpeta que usa Application Insights Profiler y de
 
 Profiler se ejecuta como un WebJob continuo en la aplicación web. Puede abrir el recurso de aplicación web en [Azure Portal](https://portal.azure.com). En el panel **WebJobs**, compruebe el estado de **ApplicationInsightsProfiler**. Si no se está ejecutando, abra **Registros** para obtener más información.
 
-## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Solución de problemas con Profiler y Azure Diagnostics
+## <a name="troubleshoot-vms-and-cloud-services"></a>Solución de problemas de servicios en la nube y máquinas virtuales
 
 >**Se ha corregido el error en el generador de perfiles que se incluye con WAD para Cloud Services.** La versión más reciente de WAD (1.12.2.0) para Cloud Services funciona con todas las versiones recientes del SDK de App Insights. Los hosts de Cloud Services actualizarán WAD automáticamente, pero no es algo inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
 
@@ -141,27 +141,45 @@ Para ver si Azure Diagnostics ha configurado Profiler correctamente, realice las
 
 Para comprobar la configuración que se usó para configurar Azure Diagnostics:
 
-1. Inicie sesión en la máquina virtual (VM) y abra el archivo de registro que se encuentra en esta ubicación. (La unidad podría ser c: o d: y la versión del complemento podría ser diferente).
-
-    ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
-    ```
-    or
+1. Inicie sesión en la máquina virtual (VM) y abra el archivo de registro que se encuentra en esta ubicación. La versión del complemento puede ser más reciente en la máquina.
+    
+    Para máquinas virtuales:
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
+    ```
+    
+    Para Cloud Services:
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
 
 1. En dicho archivo puede buscar la cadena **WadCfg** para saber qué valores se han pasado a la máquina virtual para configurar Azure Diagnostics. Puede comprobar si el valor de iKey que ha usado el receptor de Profiler es correcto.
 
-1. Compruebe la línea de comandos que se usa para iniciar Profiler. Los argumentos que se utilizan para iniciar Profiler están en el siguiente archivo. (La unidad podría ser c: o d:).
+1. Compruebe la línea de comandos que se usa para iniciar Profiler. Los argumentos que se utilizan para iniciar Profiler están en el siguiente archivo. (La unidad podría ser la c: o la d: y el directorio puede estar oculto).
 
+    Para máquinas virtuales:
+    ```
+    C:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+    
+    Para Cloud Services:
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
 
 1. Asegúrese de que el valor de iKey en la línea de comandos de Profiler es correcto. 
 
-1. Use la ruta de acceso que se encuentra en el archivo *config.json* anterior para consultar el archivo de registro de Profiler. Muestra la información de depuración que indica la configuración que usa Profiler. También muestra el estado y los mensajes de error de Profiler.  
+1. Use la ruta de acceso que se encuentra en el archivo *config.json* anterior para consultar el archivo de registro de Profiler, denominado **BootstrapN.log**. Muestra la información de depuración que indica la configuración que usa Profiler. También muestra el estado y los mensajes de error de Profiler.  
+
+    Para máquinas virtuales, el archivo suele estar aquí:
+    ```
+    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
+
+    Para Cloud Services:
+    ```
+    C:\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
 
     Si Profiler se está ejecutando mientras la aplicación recibe solicitudes, se mostrará el siguiente mensaje: *Activity detected from iKey* (Se ha detectado actividad en la clave de instrumentación). 
 

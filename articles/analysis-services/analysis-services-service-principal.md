@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871174"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168359"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 
@@ -48,7 +48,7 @@ El identificador de aplicación y la contraseña o el certificado de las entidad
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Uso del módulo Az.AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Uso del módulo Az.AnalysisServices
 
 Al usar una entidad de servicio para las operaciones de administración de recursos con el módulo [Az.AnalysisServices](/powershell/module/az.analysisservices), emplee el cmdlet `Connect-AzAccount`. 
 

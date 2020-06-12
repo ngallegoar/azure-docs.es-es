@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2dc8303b630eb01de5c3ad9e3504dfec5256bc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746899"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308887"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -316,7 +316,7 @@ Ejemplo: evalúa las bases de datos de SQL Server para determinar si está habil
 
 Este efecto es útil para probar situaciones o cuando la definición de directiva ha parametrizado el efecto. Esta flexibilidad permite deshabilitar una única asignación en lugar de deshabilitar todas las asignaciones de la directiva.
 
-Una alternativa al efecto Disabled es **enforcementMode, que se establece en la asignación de directiva.
+Una alternativa al efecto Disabled es **enforcementMode**, que se establece en la asignación de directiva.
 Cuando **enforcementMode**  es _Disabled_, los recursos se siguen evaluando. El registro, como los registros de actividad, y el efecto de la directiva no se producen. Para más información, consulte [Asignación de directivas: modo de cumplimiento](./assignment-structure.md#enforcement-mode).
 
 

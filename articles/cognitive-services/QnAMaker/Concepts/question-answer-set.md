@@ -1,29 +1,29 @@
 ---
 title: 'Diseño de una base de conocimiento: QnA Maker'
-description: Una base de conocimiento de QnA Maker consta de una serie de conjuntos de preguntas y respuestas, así como metadatos opcionales asociados a cada par de pregunta y respuesta.
+description: Una base de conocimiento de QnA Maker consta de un conjunto de pares de preguntas y respuestas, así como metadatos opcionales asociados a cada par de pregunta y respuesta.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756793"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993004"
 ---
-# <a name="question-and-answer-set-concepts"></a>Conceptos del conjunto de preguntas y respuestas
+# <a name="question-and-answer-pair-concepts"></a>Conceptos de pares de pregunta y respuesta
 
-Una base de conocimiento consta de conjuntos de preguntas y respuestas.  Cada conjunto contiene una respuesta, además de toda la información asociada a dicha _respuesta_. Una respuesta se parece un poco a una fila de base de datos o una instancia de estructura de datos.
+Una base de conocimiento consta de pares de pregunta y respuesta (PyR).  Cada par contiene una respuesta, además de toda la información asociada a dicha _respuesta_. Una respuesta se parece un poco a una fila de base de datos o una instancia de estructura de datos.
 
-## <a name="question-and-answer-sets"></a>Conjuntos de preguntas y respuestas
+## <a name="question-and-answer-pairs"></a>Pares de preguntas y respuestas
 
-Los valores de configuración **obligatorios** en un conjunto de preguntas y respuestas son:
+La configuración **obligatoria** en un par de pregunta y respuesta (PyR) son:
 
 * una **pregunta**: texto de una consulta de usuario que se usa para que el aprendizaje automático de QnA Maker lo alinee con el texto de las preguntas de usuarios formuladas de forma distinta, pero con la misma respuesta.
-* una **respuesta**: respuesta del conjunto que se devuelve cuando una consulta de usuario coincide con la pregunta asociada.
+* la **respuesta**: respuesta del par que se devuelve cuando una consulta de usuario coincide con la pregunta asociada.
 
-Cada conjunto se representa mediante un **id.**
+Cada par se representa mediante un **id.**
 
-La configuración **opcional** de un conjunto incluye:
+La configuración **opcional** de un par incluye:
 
 * **Formas alternativas de la pregunta**: esto ayuda a que QnA Maker devuelva la respuesta correcta para una variedad más amplia de estructuras de preguntas.
 * **Metadatos**: los metadatos son etiquetas asociadas a un par de QnA y se representan como pares de clave-valor. Las etiquetas de metadatos se usan para filtrar los pares de QnA y limitar el conjunto sobre el que se realiza la coincidencia de la consulta.

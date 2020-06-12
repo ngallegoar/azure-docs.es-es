@@ -1,7 +1,7 @@
 ---
 title: SQL Server local
 titleSuffix: ML Studio (classic) - Azure
-description: Use datos de una base de datos de SQL Server local para realizar análisis avanzados con Azure Machine Learning Studio (clásico).
+description: Use datos de una base de datos de SQL Server para realizar análisis avanzados con Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,20 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff0169d0606728898bc6157d05f2013607e48f0c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204189"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193809"
 ---
-# <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Análisis mediante Azure Machine Learning Studio (clásico) con una base de datos de SQL Server local
+# <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Análisis mediante Azure Machine Learning Studio (clásico) con una base de datos de SQL Server
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning Studio (clásico) admite la lectura de los datos de una base de datos de SQL Server, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Azure Machine Learning Studio (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server.
 
-Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning Studio (clásico) admite la lectura de los datos de una base de datos de SQL Server local, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Azure Machine Learning Studio (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server local.
-
-En este artículo se proporciona información general sobre cómo introducir datos de SQL Server locales en Azure Machine Learning Studio (clásico). Se da por supuesto que conoce conceptos de Studio (clásico), como áreas de trabajo, módulos, conjuntos de datos, experimentos, *etc.*
+En este artículo se proporciona información general sobre cómo introducir datos de SQL Server en Azure Machine Learning Studio (clásico). Se da por supuesto que conoce conceptos de Studio (clásico), como áreas de trabajo, módulos, conjuntos de datos, experimentos, *etc.*
 
 > [!NOTE]
 > Esta característica no está disponible para las áreas de trabajo gratuitas. Para más información acerca de los niveles y los precios de Machine Learning, consulte [Precios de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -35,7 +33,7 @@ En este artículo se proporciona información general sobre cómo introducir dat
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Instalación del entorno de ejecución de integración autohospedado de Data Factory
-Para acceder a una base de datos de SQL Server local en Azure Machine Learning Studio (clásico), debe descargar e instalar el entorno de ejecución de integración autohospedado de Data Factory, conocido antes como Data Management Gateway. Al configurar la conexión en Machine Learning Studio (clásico), tiene la oportunidad de descargar e instalar el entorno de ejecución de integración (IR) con el cuadro de diálogo **Descarga y registro de la puerta de enlace de datos** que se describe a continuación.
+Para acceder a una base de datos de SQL Server en Azure Machine Learning Studio (clásico), debe descargar e instalar el entorno de ejecución de integración autohospedado de Data Factory, conocido anteriormente como Data Management Gateway. Al configurar la conexión en Machine Learning Studio (clásico), tiene la oportunidad de descargar e instalar el entorno de ejecución de integración (IR) con el cuadro de diálogo **Descarga y registro de la puerta de enlace de datos** que se describe a continuación.
 
 
 También puede instalar el entorno con antelación descargando y ejecutando el paquete de instalación MSI desde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). El archivo MSI también puede usarse para actualizar una instancia del entorno existente a una versión más reciente, conservando toda la configuración.
@@ -66,8 +64,8 @@ Tenga en cuenta lo siguiente al configurar y usar el entorno de ejecución de in
 
 Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en el artículo [Entorno de ejecución de integración en Data Factory](../../data-factory/concepts-integration-runtime.md).
 
-## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server local en Azure Machine Learning
-En este tutorial, instalará una instancia de Azure Data Factory Integration Runtime en un área de trabajo de Azure Machine Learning, la configurará y después leerá datos de una base de datos de SQL Server local.
+## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server en Azure Machine Learning
+En este tutorial, instalará una instancia de Azure Data Factory Integration Runtime en un área de trabajo de Azure Machine Learning, la configurará y después leerá datos de una base de datos de SQL Server.
 
 > [!TIP]
 > Antes de comenzar, deshabilite el bloqueador de elementos emergentes del explorador para `studio.azureml.net`. Si usa el explorador Google Chrome, descargue e instale uno de los complementos disponibles en Google Chrome WebStore de entre las [extensiones de la aplicación ClickOnce](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
@@ -76,7 +74,7 @@ En este tutorial, instalará una instancia de Azure Data Factory Integration 
 > El entorno de ejecución de integración autohospedado de Azure Data Factory se conocía anteriormente como Data Management Gateway. El tutorial paso a paso seguirá para hacer referencia a ella como una puerta de enlace.  
 
 ### <a name="step-1-create-a-gateway"></a>Paso 1: Crear una puerta de enlace
-El primer paso consiste en crear y configurar la puerta de enlace para acceder a la base de datos SQL local.
+El primer paso consiste en crear y configurar la puerta de enlace para acceder a la base de datos SQL.
 
 1. Inicie sesión en [Azure Machine Learning Studio (clásico)](https://studio.azureml.net/Home/) y seleccione el área de trabajo en la que desee trabajar.
 2. Haga clic en la hoja **SETTINGS** (Configuración) de la izquierda y en la pestaña **DATA GATEWAYS** (Puertas de enlace de datos) de la parte superior.
@@ -123,7 +121,7 @@ Ya está listo para usar los datos locales.
 Puede crear y configurar varias puertas de enlace en Estudio (clásico) para cada área de trabajo. Por ejemplo, puede conectar una puerta de enlace a los orígenes de datos de prueba durante el desarrollo, y una puerta de enlace diferente para los orígenes de datos de producción. Azure Machine Learning Studio (clásico) ofrece la flexibilidad de configurar varias puertas de enlace en función del entorno corporativo. Actualmente no se puede compartir una puerta de enlace entre áreas de trabajo y solamente se puede instalar una única puerta de enlace en un equipo. Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Paso 2: Uso de la puerta de enlace para leer datos de un origen de datos local
-Después de configurar la puerta de enlace, puede agregar un módulo **Importar datos** a un experimento que introduce los datos de la base de datos de SQL Server local.
+Después de configurar la puerta de enlace, puede agregar un módulo **Importar datos** a un experimento que introduce los datos de la base de datos de SQL Server.
 
 1. En Machine Learning Studio (clásico), seleccione la pestaña **EXPERIMENTOS**, haga clic en la pestaña **+ NUEVO** de la esquina inferior izquierda y seleccione **Blank Experiment** (Experimento en blanco). También puede seleccionar uno de los varios experimentos de ejemplo disponibles.
 2. Busque y arrastre el módulo **Importar datos** al lienzo del experimento.
@@ -135,7 +133,7 @@ Después de configurar la puerta de enlace, puede agregar un módulo **Importar 
 
    ![Selección de la puerta de enlace de datos para el módulo de importación de datos](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
 6. Escriba el servidor SQL en **Database server name** (Nombre del servidor de base de datos) y un valor para **Database name** (Nombre de base de datos), junto con el texto para **Database query** (Consulta de base de datos) para la consulta de SQL Database que quiera ejecutar.
-7. Haga clic en **Enter values** (Escribir valores) de **User name and password** (Nombre de usuario y contraseña) y escriba sus credenciales de la base de datos. Puede usar la autenticación integrada de Windows o la autenticación de SQL Server según la configuración de SQL Server local.
+7. Haga clic en **Enter values** (Escribir valores) de **User name and password** (Nombre de usuario y contraseña) y escriba sus credenciales de la base de datos. Puede usar la autenticación integrada de Windows o la autenticación de SQL Server según la configuración de SQL Server.
 
    ![Especificación de las credenciales de la base de datos](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
@@ -146,4 +144,4 @@ Después de configurar la puerta de enlace, puede agregar un módulo **Importar 
 
 Una vez finalizado el experimento, puede visualizar los datos importados desde la base de datos si hace clic en el puerto de salida del módulo **Importar datos** y selecciona **Visualizar**.
 
-Una vez que haya terminado de desarrollar el experimento, puede implementar el modelo y ponerlo en operación. Mediante el servicio de ejecución por lotes, se leerán los datos de la base de datos de SQL Server local configurada en el módulo **Importar datos** y se usarán para la puntuación. Aunque puede usar el servicio de solicitud-respuesta para puntuar datos locales, Microsoft recomienda usar el [complemento de Excel](excel-add-in-for-web-services.md) en su lugar. Actualmente, no se admite la escritura en una base de datos de SQL Server local mediante **Exportar datos** , ni en experimentos ni en servicios web publicados.
+Una vez que haya terminado de desarrollar el experimento, puede implementar el modelo y ponerlo en operación. Mediante el servicio de ejecución por lotes, se leerán los datos de la base de datos de SQL Server configurada en el módulo **Importar datos** y se usarán para la puntuación. Aunque puede usar el servicio de solicitud-respuesta para puntuar datos locales, Microsoft recomienda usar el [complemento de Excel](excel-add-in-for-web-services.md) en su lugar. Actualmente, no se admite la escritura en una base de datos de SQL Server mediante **Exportar datos**, ni en experimentos ni en servicios web publicados.

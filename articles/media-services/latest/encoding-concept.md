@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366572"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220158"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificación de vídeo y audio con Media Services
 
@@ -98,7 +98,10 @@ Actualmente se admiten los valores preestablecidos siguientes:
 
 - **EncoderNamedPreset.AACGoodQualityAudio**: genera un solo archivo MP4 que contiene únicamente audio estéreo codificado a 192 kbps.
 - **EncoderNamedPreset.AdaptiveStreaming** (recomendado): Para más información, consulte [Generación automática de una escala de velocidad de bits](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncodingExperimental**: expone un valor preestablecido experimental para la codificación según el contenido. Dado cualquier contenido de entrada, el servicio intenta determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Los algoritmos subyacentes seguirán evolucionando con el tiempo. La salida contendrá archivos MP4 con el vídeo y audio intercalados. Para más información, consulte [Valor preestablecido experimental para la codificación según el contenido](content-aware-encoding.md).
+- **EncoderNamedPreset.ContentAwareEncoding**: expone un valor preestablecido para la codificación compatible con el contenido. Dado cualquier contenido de entrada, el servicio intenta determinar automáticamente el número óptimo de capas, la velocidad de bits adecuada y la configuración de resolución para la entrega a través del streaming adaptable. Los algoritmos subyacentes seguirán evolucionando con el tiempo. La salida contendrá archivos MP4 con el vídeo y audio intercalados. Para más información, vea [Codificación que tiene en cuenta el contenido](content-aware-encoding.md).
+
+  > [!NOTE]
+  > Asegúrese de usar **ContentAwareEncoding** en lugar de ContentAwareEncodingExperimental.
 - **EncoderNamedPreset.H264MultipleBitrate1080p**: genera un conjunto de ocho archivos MP4 alineados con GOP, que abarcan desde 6000 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 1080p y baja hasta 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p**: genera un conjunto de seis archivos MP4 alineados con GOP, que abarcan desde 3400 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 720p y baja hasta 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD**: genera un conjunto de cinco archivos MP4 alineados con GOP, que abarcan desde 1600 kbps hasta 400 kbps y audio AAC estéreo. La resolución comienza en 480p y baja hasta 360p.

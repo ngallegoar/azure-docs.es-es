@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: c69d28d2be6b04286bb04a2ede6eebc69400c777
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631960"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014900"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Uso de Azure Functions para administrar recursos de proceso en el grupo de SQL de Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Para poder usar la aplicación Azure Function con el grupo de SQL, debe crear un
 Para implementar la plantilla, necesitará la siguiente información:
 
 - Nombre del grupo de recursos donde se encuentra el grupo de SQL
-- Nombre del servidor lógico donde se encuentra la instancia del grupo de SQL
+- Nombre del servidor en que se encuentra la instancia del grupo de SQL
 - Nombre de la instancia del grupo de SQL
 - Id. del inquilino (identificación de directorio) de Azure Active Directory
 - Id. de suscripción
@@ -101,7 +101,7 @@ En este momento, hay solo dos funciones de escalado incluidas en la plantilla. C
 
    ![Crear una nueva función](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. En Idioma, seleccione *Javascript*, a continuación, seleccione *TimerTrigger*.
+2. En Lenguaje, seleccione *Javascript* y, a continuación, seleccione *TimerTrigger*.
 
    ![Crear una nueva función](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ En este momento, hay solo dos funciones de escalado incluidas en la plantilla. C
 
 5. Establecer la variable de operación para el comportamiento deseado como se indica a continuación:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"

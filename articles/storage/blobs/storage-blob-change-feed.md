@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bf22e10bc0a4b969c41d4a377ddba7fcadd9c147
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120426"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193391"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)
 
@@ -37,7 +37,7 @@ La compatibilidad con la fuente de cambios es adecuada para escenarios que proce
 
   - Crear canalizaciones de aplicaciones conectadas que reaccionen a eventos de cambio o programen ejecuciones basadas en objetos creados o modificados.
   
-La fuente de cambios es una característica necesaria para la [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md).
+La fuente de cambios es un requisito previo para [Replicación de objetos](object-replication-overview.md) y [Restauración a un momento dado para blobs en bloques](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > La fuente de cambios proporciona un modelo de registro duradero y ordenado de los cambios que se producen en un blob. Los cambios se escriben y pasan a estar disponibles en el registro de la fuente de cambios en cuestión de minutos después del cambio. Si es necesario que su aplicación reaccione a eventos mucho más rápido, considere la posibilidad de usar en su lugar los [eventos de Blob Storage](storage-blob-event-overview.md). Los [eventos de Blob Storage](storage-blob-event-overview.md) proporcionan eventos únicos en tiempo real que permiten a Azure Functions o a sus aplicaciones reaccionar rápidamente a los cambios que se producen en un blob. 

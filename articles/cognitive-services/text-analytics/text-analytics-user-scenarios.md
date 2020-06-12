@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218534"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141827"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Ejemplos de escenarios de usuario de Text Analytics API
 
@@ -39,7 +39,7 @@ Use la Extracción de frases clave y el reconocimiento de entidades para procesa
 
 ![Imagen que se describe cómo usar el reconocimiento de entidades y la Extracción de frases clave para clasificar los informes de incidentes y las tendencias](media/use-cases/support-incidents.svg)
 
-## <a name="monitor-your-products-social-media-feeds"></a>Supervisar las fuentes de sus productos en las redes sociales
+## <a name="monitor-your-products-social-media-feeds"></a>Supervisión de las fuentes de sus productos en las redes sociales
 
 Supervise los comentarios de los usuarios sobre productos en la página de Twitter o Facebook de su producto. Use los datos para analizar el sentimiento del cliente acerca del lanzamiento de nuevos productos, extraiga frases clave sobre características y solicitudes de características, o bien aborde las quejas de los clientes a medida que surgen. Consulte el ejemplo de la [plantilla de Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
@@ -50,6 +50,13 @@ Supervise los comentarios de los usuarios sobre productos en la página de Twitt
 Use el reconocimiento de entidades con nombre para identificar información personal y confidencial en los documentos. Use los datos para clasificar o redactar documentos para compartirlos de forma segura.
 
 ![Imagen en la que se describe cómo usar NER para detectar información personal, y clasificar y redactar documentos](media/use-cases/sensitive-docs.jpg)
+
+## <a name="perform-opinion-mining"></a>Realización de minería de opiniones
+
+Agrupe las opiniones relacionadas con aspectos concretos de un producto o servicio de encuestas, comentarios de los clientes o cualquier lugar en el que el texto represente una opinión sobre un aspecto. Úselo para ayudar a guiar los lanzamientos y mejoras del producto, los esfuerzos de marketing o resaltar el rendimiento del producto o servicio. 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="Opiniones de ejemplo sobre un hotel.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

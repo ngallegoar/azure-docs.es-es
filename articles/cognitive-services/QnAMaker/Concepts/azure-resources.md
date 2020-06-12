@@ -3,12 +3,12 @@ title: 'Recursos de Azure: QnA Maker'
 description: QnA Maker usa varios orígenes de Azure, cada uno con un propósito diferente. Entender cómo se usan individualmente le permite planear y seleccionar el plan de tarifa correcto o saber cuándo debe cambiar el plan de tarifa. Entender cómo se usan en combinación le permite encontrar y corregir los problemas cuando se producen.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873912"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236083"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos de Azure para QnA Maker
 
@@ -47,8 +47,8 @@ En la tabla siguiente se proporcionan algunas directrices de alto nivel.
 |                        | Administración de QnA Maker | App Service | Azure Cognitive Search | Limitaciones                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Experimentación        | SKU gratuita             | Nivel Gratis   | Nivel Gratis    | Publicar hasta 2 KB; tamaño de 50 MB  |
-| Entorno de Desarrollo/pruebas   | SKU Estándar         | Compartido      | Básica        | Publicaciones de hasta 14 KB; tamaño de 2 GB    |
-| Entorno de producción | SKU Estándar         | Básica       | Estándar     | Publicar hasta 49 KB; tamaño de 25 GB |
+| Entorno de Desarrollo/pruebas   | SKU Estándar         | Compartido      | Básico        | Publicaciones de hasta 14 KB; tamaño de 2 GB    |
+| Entorno de producción | SKU Estándar         | Básico       | Estándar     | Publicar hasta 49 KB; tamaño de 25 GB |
 
 ## <a name="recommended-settings"></a>Configuración recomendada
 
@@ -182,6 +182,14 @@ Use estas claves al realizar solicitudes al servicio mediante las API.
 Los términos de clave de creación y de clave de punto de conexión de consulta son términos corregidos. El término anterior era **clave de suscripción**. Si consulta otra documentación que haga referencia a las claves de suscripción, estas son equivalentes a las claves de creación y de punto de conexión de consulta (usadas en el entorno de ejecución).
 
 Debe saber cuál es la clave de acceso, la administración de la base de conocimiento o la consulta a la base de conocimiento para saber qué clave necesita buscar.
+
+## <a name="recommended-settings-for-network-isolation"></a>Configuración recomendada para el aislamiento de red
+
+* Proteja el recurso de Cognitive Services del acceso público con la [configuración de la red virtual](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Proteja App Service (QnA Runtime) del acceso público:
+    * Permita el tráfico solo desde direcciones IP de Cognitive Services. Ya están incluidas en la etiqueta de servicio "CognitiveServicesManagement". Esto es necesario para la creación de API (crear o actualizar KB) para invocar el servicio de aplicaciones y actualizar el servicio Azure Search en consecuencia.
+    * Asegúrese de que también permite otros puntos de entrada como el servicio de bot, el portal de QnA Maker (puede ser su red corporativa), etc., para el acceso de la API "GenerateAnswer" de predicción.
+    * Consulte [más información sobre las etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76772099"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234892"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Use el valor predeterminado de la codificación en función del contenido para encontrar el valor de velocidad de bits óptimo para una resolución dada
 
@@ -55,9 +55,10 @@ A continuación encontrará los resultados de otra categoría de contenido de or
 
 Puede crear transformaciones que usen este valor preestablecido como se indica a continuación. 
 
-> [!TIP]
-> Consulte la sección [Pasos siguientes](#next-steps) para ver otros tutoriales que usan salidas para la transformación. El recurso de la salida se puede entregar desde los puntos de conexión de streaming de Media Services en protocolos como MPEG-DASH y HLS (como se muestra en los tutoriales).
+Consulte la sección [Pasos siguientes](#next-steps) para ver otros tutoriales que usan salidas para la transformación. El recurso de la salida se puede entregar desde los puntos de conexión de streaming de Media Services en protocolos como MPEG-DASH y HLS (como se muestra en los tutoriales).
 
+> [!NOTE]
+> Asegúrese de usar el valor preestablecido **ContentAwareEncoding**, en lugar de ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -77,7 +78,7 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Los trabajos de codificación que usan el valor predeterminado `ContentAwareEncoding` se facturan en función de los minutos de salida. 
-
+  
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Tutorial: Carga, codificación y streaming de vídeos con Media Services v3](stream-files-tutorial-with-api.md)

@@ -3,17 +3,18 @@ author: garyericson
 ms.service: sql-database
 ms.subservice: machine-learning
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 05/27/2020
 ms.author: garye
-ms.openlocfilehash: 3e8bdafd8f024e7bd2ab0c9f894bb9d714094ab6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 235aa6b50ef413dacb461320e50dceac7cce460d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345762"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014203"
 ---
 > [!IMPORTANT]
 > Azure SQL Database Machine Learning Services se encuentra actualmente en versión preliminar. El registro de la versión preliminar está actualmente **cerrado**.
-> 
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> A partir del 30 de junio de 2020, se suspenderá el soporte técnico y la versión preliminar no se publicará para disponibilidad general. Los scripts de R que se usen después del 30 de junio de 2020 no funcionarán.
+>
+> Para seguir trabajando con el aprendizaje automático en Azure SQL, consulte [**Machine Learning Services en Instancia administrada de Azure SQL** (versión preliminar)](../articles/azure-sql/managed-instance/machine-learning-services-overview.md).

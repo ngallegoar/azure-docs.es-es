@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836114"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118005"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -157,8 +157,4 @@ Este es un ejemplo de su funcionamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre otras áreas de Azure Backup, consulte algunas de estas otras preguntas frecuentes sobre la copia de seguridad:
-
-- [Preguntas más frecuentes sobre el almacén de Recovery Services](backup-azure-backup-faq.md)
-- [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vm-backup-faq.md)
-- [Preguntas más frecuentes sobre Azure Backup Agent](backup-azure-file-folder-backup-faq.md)
+- [Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure](troubleshoot-azure-files.md)

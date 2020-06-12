@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742767"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264373"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedimientos recomendados del servicio Search de Azure Maps
 
-El [servicio Search](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps incluye API que ofrecen diversas funcionalidades. Por ejemplo, la API de búsqueda de direcciones puede buscar puntos de interés o información alrededor de una ubicación específica. 
+El [servicio Search](https://docs.microsoft.com/rest/api/maps/search) incluye API que ofrecen diversas funcionalidades para ayudar a que los desarrolladores busquen direcciones, lugares o listados de empresas por nombre y categoría, y otra información geográfica. Por ejemplo,[Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) permite a los usuarios buscar una dirección o un punto de interés (POI).
 
 En este artículo se explica cómo aplicar buenas prácticas cuando se llama a datos desde el servicio Search de Azure Maps. Aprenderá a:
 
-* Crear consultas que devuelvan coincidencias pertinentes.
-* Limitar los resultados de la búsqueda.
-* Obtener información sobre las diferencias entre los tipos de resultados.
-* Leer la estructura de la respuesta a la búsqueda de direcciones.
+* Crear consultas que devuelvan coincidencias relevantes
+* Limitar los resultados de la búsqueda
+* Distinguir entre los tipos de resultados
+* Leer la estructura de respuesta a la búsqueda de direcciones
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar llamadas a las API de servicio de Azure Maps, necesita una cuenta de Azure Maps y una clave. Para más información, consulte [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y [Obtención de una clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 > [!TIP]
-> Para consultar el servicio Search, use la [aplicación Postman](https://www.getpostman.com/apps) para generar llamadas REST. Puede usar cualquier entorno de desarrollo de API que prefiera.
+> Para consultar el servicio Search, use la [aplicación Postman](https://www.getpostman.com/apps) para generar llamadas API REST. Puede usar cualquier entorno de desarrollo de API que prefiera.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Procedimientos recomendados para las direcciones de geocodificación
 
@@ -61,7 +61,7 @@ Para sesgar geográficamente los resultados al área pertinente para el usuario,
 
 #### <a name="fuzzy-search-parameters"></a>Parámetros de búsqueda aproximada
 
-Se recomienda usar la [API de búsqueda aproximada](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) de Azure Maps cuando no conozca los datos de entrada de la consulta de búsqueda de un usuario. La API combina la búsqueda de puntos de interés y geocodificación en una *búsqueda de una sola línea* canónica: 
+Se recomienda usar la [API de búsqueda aproximada](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) de Azure Maps cuando no conozca los datos de entrada de la consulta de búsqueda de un usuario. Por ejemplo, la entrada del usuario podría ser una dirección o el tipo de punto de interés, por ejemplo, *centro comercial*. La API combina la búsqueda de puntos de interés y geocodificación en una *búsqueda de una sola línea* canónica: 
 
 * Los parámetros `minFuzzyLevel` y `maxFuzzyLevel` ayudan a devolver coincidencias relevantes aunque los parámetros de consulta no coincidan exactamente con la información que el usuario desea. Para obtener el máximo rendimiento y reducir los resultados inusuales, establezca las consultas de búsqueda en los valores predeterminados `minFuzzyLevel=1` y `maxFuzzyLevel=2`. 
 
@@ -85,7 +85,7 @@ Se recomienda usar la [API de búsqueda aproximada](https://docs.microsoft.com/r
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Geocodificación inversa y filtro por tipo de entidad geográfica
 
-Cuando se realiza una búsqueda de geocodificación inversa en la [API de búsqueda de dirección inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), el servicio puede devolver los polígonos de las áreas administrativas. Para restringir la búsqueda a unos tipos de entidad geográfica específicos, incluya el parámetro `entityType` en las solicitudes. 
+Cuando se realiza una búsqueda de geocodificación inversa en la [API de búsqueda de dirección inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), el servicio puede devolver los polígonos de las áreas administrativas. Por ejemplo, es posible que quiera obtener el área poligonal de una ciudad. Para restringir la búsqueda a unos tipos de entidad geográfica específicos, incluya el parámetro `entityType` en las solicitudes. 
 
 La respuesta resultante contiene el identificador de geografía y el tipo de entidad que se buscó. Si se proporciona más de una entidad, el punto de conexión devuelve la *entidad más pequeña disponible*. Puede usar el identificador de geometría devuelto para obtener la geometría de la geografía mediante el [servicio de búsqueda de polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 

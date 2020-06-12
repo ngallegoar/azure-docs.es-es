@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678914"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021320"
 ---
 # <a name="pbr-materials"></a>Materiales de PBR
 
@@ -26,20 +26,20 @@ Sin embargo, los materiales de PBR no son una solución universal. Hay materiale
 
 Estas propiedades son comunes para todos los materiales:
 
-* **albedoColor:** este color se multiplica con otros colores, como *albedoMap* o los *colores del vértice*. Si el elemento *transparency* está habilitado en un material, el canal alfa se usa para ajustar la opacidad. En este contexto, `1` significa totalmente opaco y `0` significa completamente transparente. El color predeterminado es el blanco.
+* **albedoColor:** este color se multiplica con otros colores, como *albedoMap* o los *colores del :::no-loc text="vertex ":::* . Si el elemento *transparency* está habilitado en un material, el canal alfa se usa para ajustar la opacidad. En este contexto, `1` significa totalmente opaco y `0`, completamente transparente. El color predeterminado es el blanco.
 
   > [!NOTE]
   > Cuando un material de PBR es totalmente transparente, como un fragmento de vidrio limpio, sigue reflejando el entorno. Los puntos brillantes como el sol siguen siendo visibles en la reflexión. Esto es diferente para los [materiales de color](color-materials.md).
 
-* **albedoMap:** [textura en 2D](../../concepts/textures.md) para los valores de albedo por píxel.
+* **albedoMap:** una [textura en 2D](../../concepts/textures.md) para valores albedo por píxel.
 
 * **alphaClipEnabled** y **alphaClipThreshold:** si *alphaClipEnabled* es true, no se dibujarán todos los píxeles en que el valor alfa de albedo sea inferior a *alphaClipThreshold*. El recorte alfa se puede usar incluso sin habilitar la transparencia y se representa mucho más rápidamente. Sin embargo, los materiales recortados alfa se siguen representando más lentamente que los materiales completamente opacos. De forma predeterminada, el recorte alfa está deshabilitado.
 
-* **textureCoordinateScale** y **textureCoordinateOffset:** La escala se multiplica en las coordenadas de textura UV y se le agrega el desplazamiento. Se puede usar para ajustar y desplazar las texturas. La escala predeterminada es (1, 1) y el desplazamiento es (0, 0).
+* **textureCoordinateScale** y **textureCoordinateOffset:** la escala se multiplica en las coordenadas de textura UV y se le agrega el desplazamiento. Se puede usar para ajustar y desplazar las texturas. La escala predeterminada es (1, 1) y el desplazamiento es (0, 0).
 
-* **useVertexColor:** Si la malla contiene colores de vértice y esta opción está habilitada, los colores de los vértices de las mallas se multiplican en *albedoColor* y *albedoMap*. De forma predeterminada, los colores de vértice están deshabilitados.
+* **useVertexColor:** si la malla contiene colores de :::no-loc text="vertex"::: y esta opción está habilitada, el color de los :::no-loc text="vertex"::: de las mallas se multiplica en *albedoColor* y *albedoMap*. De forma predeterminada *useVertexColor* está deshabilitado.
 
-* **isDoubleSided:** Si el valor de doble cara está establecido en true, los triángulos con este material se representan aunque la cámara apunte a sus caras posteriores. En el caso de la iluminación de materiales de PBR también se calcula correctamente para las caras posteriores. Esta opción está deshabilitada de manera predeterminada. Consulte también [Representación en una sola cara](single-sided-rendering.md).
+* **isDoubleSided:** Si el valor de doble cara está establecido en true, los triángulos con este material se representan aunque la cámara apunte a sus caras posteriores. En el caso de la iluminación de materiales de PBR también se calcula correctamente para las caras posteriores. Esta opción está deshabilitada de manera predeterminada. Consulte también [Representación :::no-loc text="Single-sided":::](single-sided-rendering.md).
 
 ## <a name="pbr-material-properties"></a>Propiedades de los materiales de PBR
 

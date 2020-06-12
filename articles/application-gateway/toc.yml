@@ -30,6 +30,10 @@
       href: tutorial-url-redirect-cli.md
     - name: Escalado automático y redundancia de zona
       href: tutorial-autoscale-ps.md
+    - name: Complemento Controlador de entrada para AKS (Greenfield)
+      href: tutorial-ingress-controller-add-on-new.md
+    - name: Complemento Controlador de entrada para AKS (Brownfield)
+      href: tutorial-ingress-controller-add-on-existing.md
 - name: Ejemplos
   items:
     - name: Azure PowerShell
@@ -102,7 +106,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuración del equilibrador de carga interno
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -136,10 +140,12 @@
               href: application-gateway-configure-ssl-policy-powershell.md
     - name: Entrada para AKS
       items:
-        - name: Configuración con una instancia existente de Application Gateway
+        - name: Entrada para AKS a través de Helm (Brownfield)
           href: ingress-controller-install-existing.md
-        - name: Configuración con una nueva instancia de Application Gateway
+        - name: Entrada para AKS a través de Helm (Greenfield)
           href: ingress-controller-install-new.md
+        - name: Deshabilitar y volver a habilitar el complemento Controlador de entrada de AKS
+          href: ingress-controller-disable-addon.md
         - name: Habilitar afinidad de cookies
           href: ingress-controller-cookie-affinity.md
         - name: Habilitar la compatibilidad con varios espacios de nombres
@@ -180,7 +186,7 @@
               href: redirect-external-site-cli.md
         - name: HTTP a HTTPS
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: redirect-http-to-https-portal.md
             - name: Azure PowerShell
               href: redirect-http-to-https-powershell.md
@@ -196,7 +202,7 @@
           href: tutorial-url-redirect-powershell.md
     - name: Reescritura de encabezados HTTP
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: rewrite-http-headers-portal.md
         - name: Azure PowerShell
           href: add-http-header-rewrite-rule-powershell.md

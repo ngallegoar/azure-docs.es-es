@@ -3,12 +3,12 @@ title: Introducción a Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe Azure Monitor para contenedores, que supervisa la solución de AKS Container Insights y el valor que entrega mediante la supervisión del estado de los clústeres de AKS y Container Instances en Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 3ff2c35ae9f5838447ce90e2a020649427920a43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5bd951f7dcb2def62893df48709f1e57bd340bb2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234472"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118073"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
 
@@ -48,7 +48,7 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión completa 
 
 Estas son las principales diferencias al supervisar un clúster de Windows Server en comparación con un clúster de Linux:
 
-- La métrica RSS de memoria no está disponible para los contenedores y nodos de Windows.
+- Windows no tiene una métrica RSS de memoria y, por tanto, no está disponible para los contenedores y el nodo de Windows. Espacio de trabajo está disponible. Obtenga más información sobre la [administración de memoria en Windows](https://docs.microsoft.com/windows/win32/memory/working-set).
 - La información sobre la capacidad de almacenamiento del disco no está disponible para los nodos de Windows.
 - Los registros de contenedor no están disponibles para los contenedores que se ejecutan en nodos de Windows.
 - La compatibilidad con la característica de datos activos está disponible, con la excepción de los registros de contenedores de Windows.

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 06/01/2020
 ms.author: victorh
-ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649602"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267705"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Tunelización forzada de Azure Firewall
 
@@ -28,9 +28,13 @@ Si tiene una ruta predeterminada anunciada mediante BGP para forzar el tráfico 
 
 En esta configuración, *AzureFirewallSubnet* puede incluir rutas a cualquier firewall local o NVA para procesar el tráfico antes de pasarlo a Internet. También puede publicar estas rutas mediante BGP en *AzureFirewallSubnet* si está habilitada la opción **Propagación de rutas de puerta de enlace de red virtual** en esta subred.
 
-Por ejemplo, puede crear una ruta predeterminada en *AzureFirewallSubnet* con su puerta de enlace de VPN como el próximo salto para llegar al dispositivo local. O bien, puede habilitar **Propagación de rutas de puerta de enlace de red virtual** para obtener las rutas adecuadas a la red local.
+Por ejemplo, puede crear una ruta predeterminada en *AzureFirewallSubnet* con la puerta de enlace de VPN como siguiente salto para llegar al dispositivo local. O bien, puede habilitar la **Propagación de rutas de puerta de enlace de red virtual** para obtener las rutas adecuadas a la red local.
 
 ![Propagación de rutas de puerta de enlace de red virtual](media/forced-tunneling/route-propagation.png)
+
+Si ha habilitado la tunelización forzada, al tráfico vinculado a Internet se le aplica SNAT para una de las direcciones IP privadas del firewall en AzureFirewallSubnet, ocultando el origen del firewall local.
+
+Si su organización usa un intervalo de direcciones IP públicas para las redes privadas, Azure Firewall aplicará SNAT al tráfico para una de las direcciones IP privadas de firewall en AzureFirewallSubnet. Sin embargo, puede configurar Azure Firewall de modo que **no** aplique SNAT al intervalo de direcciones IP públicas. Para más información, consulte [Aplicación de SNAT por parte de Azure Firewall a intervalos de direcciones IP privadas](snat-private-range.md).
 
 Después de configurar Azure Firewall para admitir la tunelización forzada, no se puede deshacer la configuración. Si quita el resto de configuraciones de IP del firewall, también se quitará la configuración de IP de administración y se desasignará el firewall. No se puede quitar la dirección IP pública asignada a la configuración de IP de administración, pero puede asignar una dirección IP pública diferente.
 

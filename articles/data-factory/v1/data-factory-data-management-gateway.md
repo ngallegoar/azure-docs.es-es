@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1340c205477b256e3d96ff7ccacb64e575725c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065402"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188306"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "80065402"
 
 Data Management Gateway es un agente de cliente que debe instalar en el entorno local para copiar datos entre almacenes de datos en la nube y locales. Los almacenes de datos locales compatibles con Data Factory se muestran en la sección de [orígenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
-Este artículo complementa al tutorial de [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) . El objetivo es crear una canalización que utilice la puerta de enlace para mover los datos de una base de datos de SQL Server local a un blob de Azure. En este artículo se proporciona información detallada sobre el uso de Data Management Gateway.
+Este artículo complementa al tutorial de [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) . El objetivo es crear una canalización que use la puerta de enlace para mover los datos de una base de datos de SQL Server a un blob de Azure. En este artículo se proporciona información detallada sobre el uso de Data Management Gateway.
 
 Puede escalar horizontalmente una puerta de enlace de administración de datos mediante la asociación de varias máquinas locales con la puerta de enlace. Puede escalar verticalmente aumentando el número de trabajos de movimiento de datos que pueden ejecutarse simultáneamente en un nodo. Esta característica también está disponible para una puerta de enlace lógica con un único nodo. Consulte el artículo [Escalado en Data Management Gateway en Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) para más información.
 
@@ -71,7 +71,7 @@ A continuación se encuentran el flujo de datos de alto nivel y el resumen de lo
 * Debe **usar la puerta de enlace** incluso cuando el almacén de datos esté en la nube, en una **VM de IaaS de Azure**.
 
 ## <a name="installation"></a>Instalación
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 * Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. En estos momentos, no se admite la instalación de Data Management Gateway en un controlador de dominio.
 * Es necesario .NET Framework 4.5.1 o posterior. Si está instalando la puerta de enlace en una máquina con Windows 7, instale .NET Framework 4.5 o posterior. Consulte [Requisitos de sistema de .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) para más información.
 * La **configuración** recomendada de la máquina de la puerta de enlace es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y disco de 80 GB.
@@ -161,10 +161,10 @@ Asegúrese de que las reglas del firewall estén habilitadas correctamente en el
 Por ejemplo, para copiar información desde **un almacén de datos local a un receptor de Azure SQL Database o un receptor de Azure SQL Data Warehouse**, debe realizar los siguientes pasos:
 
 * Permita la comunicación **TCP** saliente en el puerto **1433** para el Firewall de Windows y el corporativo.
-* Establezca la configuración de firewall del servidor SQL de Azure para agregar la dirección IP de la máquina de la puerta de enlace a la lista de IP permitidas.
+* Establezca la configuración de firewall del servidor SQL lógico para agregar la dirección IP de la máquina de la puerta de enlace a la lista de IP permitidas.
 
 > [!NOTE]
-> Si el firewall no permite el puerto de salida 1433, la puerta de enlace no podrá tener acceso directamente a Azure SQL. En este caso, puede usar la [copia de almacenamiento provisional](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) en SQL Azure Database y SQL Azure DW. En este escenario, requeriría solo HTTPS (puerto 443) para el movimiento de datos.
+> Si el firewall no permite el puerto de salida 1433, la puerta de enlace no podrá tener acceso directamente a Azure SQL. En este caso, puede usar la [copia de almacenamiento provisional](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) en SQL Database/instancia administrada de SQL/Azure SQL DW. En este escenario, requeriría solo HTTPS (puerto 443) para el movimiento de datos.
 >
 >
 
@@ -365,7 +365,7 @@ En la tabla siguiente se proporcionan las descripciones de las columnas de la li
 Propiedad de supervisión | Descripción
 :------------------ | :----------
 Nombre | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).
-Status | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status).
+Estado | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status).
 Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática).
 Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
 Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
@@ -378,7 +378,7 @@ En esta página, verá que algunos valores de configuración tienen más sentido
 ### <a name="gateway-status"></a>Estado de la puerta de enlace
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**:
 
-Status  | Comentarios/Escenarios
+Estado  | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
@@ -388,7 +388,7 @@ Inactivo | El nodo tiene una configuración diferente de la configuración de la
 
 La tabla siguiente proporciona los estados posibles de una **puerta de enlace lógica**. El estado de la puerta de enlace depende de los estados de los nodos de puerta de enlace.
 
-Status | Comentarios
+Estado | Comentarios
 :----- | :-------
 Debe registrarse | Aún no se ha registrado ningún nodo en esta puerta de enlace lógica
 En línea | Los nodos de la puerta de enlace están en línea
@@ -543,4 +543,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) . El objetivo es crear una canalización que utilice la puerta de enlace para mover los datos de una base de datos de SQL Server local a un blob de Azure.
+* Para más información, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) . El objetivo es crear una canalización que use la puerta de enlace para mover los datos de una base de datos de SQL Server a un blob de Azure.

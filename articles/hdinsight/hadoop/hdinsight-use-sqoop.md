@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 091ce1cc0b2540a02e62e1e85c5515f6aa62b93c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74951860"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018844"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a utilizar Apache Sqoop en HDInsight para importar y exportar datos entre un clúster de HDInsight y una instancia de Azure SQL Database.
+Aprenda a utilizar Apache Sqoop en HDInsight para importar y exportar datos entre un clúster de HDInsight y Azure SQL Database.
 
 A pesar de que Apache Hadoop es una opción natural para procesar datos no estructurados y datos semiestructurados, como registros y archivos, es posible que también sea necesario procesar datos estructurados almacenados en bases de datos relacionales.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) es una herramienta diseñada para transferir datos entre clústeres de Hadoop y bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Apache Hive y, a continuación, exportar los datos en un RDBMS. En este artículo, usará una base de datos de SQL Server como base de datos relacional.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) es una herramienta diseñada para transferir datos entre clústeres de Hadoop y bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Apache Hive y, a continuación, exportar los datos en un RDBMS. En este artículo, usará Azure SQL Database como base de datos relacional.
 
 > [!IMPORTANT]  
 > En este artículo se configura un entorno de prueba para realizar la transferencia de datos. A continuación, se elige un método de transferencia de datos para este entorno entre los métodos de la sección [Ejecución de trabajos de Sqoop](#run-sqoop-jobs), más adelante.
@@ -80,7 +80,7 @@ El clúster, la instancia de SQL Database y otros objetos se crean a través de 
 
     |Campo |Value |
     |---|---|
-    |Subscription |Seleccione la suscripción de Azure en la lista desplegable.|
+    |Suscripción |Seleccione la suscripción de Azure en la lista desplegable.|
     |Resource group |Seleccione el grupo de recursos en la lista desplegable o cree uno nuevo.|
     |Location |Seleccione una región en la lista desplegable.|
     |Cluster Name |Escriba el nombre del clúster de Hadoop. Utilice solo letras minúsculas.|
@@ -95,7 +95,7 @@ El clúster, la instancia de SQL Database y otros objetos se crean a través de 
     |Bacpac File Name (Nombre de archivo .bacpac) |Use el valor predeterminado a no ser que quiera usar su propio archivo .bacpac.|
     |Location |Use el valor predeterminado.|
 
-    El nombre de Azure SQL Server será `<ClusterName>dbserver`. El nombre de la base de datos será `<ClusterName>db`. El nombre predeterminado de la cuenta de almacenamiento será `e6qhezrh2pdqu`.
+    El nombre del [servidor lógico de SQL Server](../../azure-sql/database/logical-servers.md) será `<ClusterName>dbserver`. El nombre de la base de datos será `<ClusterName>db`. El nombre predeterminado de la cuenta de almacenamiento será `e6qhezrh2pdqu`.
 
 3. Seleccione **Acepto los términos y condiciones indicados anteriormente**.
 
@@ -113,7 +113,7 @@ HDInsight puede ejecutar trabajos de Sqoop mediante una variedad de métodos. Us
 
 ## <a name="limitations"></a>Limitaciones
 
-* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Azure SQL Database no es compatible actualmente con las inserciones masivas.
+* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o SQL Database no es compatible actualmente con las inserciones masivas.
 * Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realiza varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -121,5 +121,5 @@ HDInsight puede ejecutar trabajos de Sqoop mediante una variedad de métodos. Us
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Apache Hive con HDInsight](../hdinsight-use-hive.md)
-* [Carga de datos en HDInsight](../hdinsight-upload-data.md): busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
+* [Carga de datos en HDInsight](../hdinsight-upload-data.md): busque otros métodos para cargar datos en HDInsight o Azure Blob Storage.
 * [Usar Apache Sqoop para importar y exportar datos entre Apache Hadoop en HDInsight y SQL Database](./apache-hadoop-use-sqoop-mac-linux.md)

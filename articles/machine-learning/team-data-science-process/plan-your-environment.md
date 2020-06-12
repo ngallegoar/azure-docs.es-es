@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76710311"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267938"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 
@@ -75,7 +75,7 @@ Considere el uso de Azure Data Factory (ADF) cuando los datos deban migrarse con
 * un escenario híbrido que implique recursos locales y en la nube
 * un escenario donde los datos se transfieran, modifiquen o cambien por lógica de negocios mientras se migran
 
-Para más información, consulte [Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory](move-sql-azure-adf.md).
+Para más información, consulte [Movimiento de datos desde una base de datos de SQL Server hasta SQL Azure con Azure Data Factory](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>¿Qué cantidad de datos se va a mover a Azure?
 
@@ -103,7 +103,7 @@ Estas cuestiones son clave para planear los entornos de almacenamiento y procesa
 ### <a name="how-large-is-your-data"></a>¿Qué tamaño tienen los datos?
 
 * Pequeño: menos de 2 GB
-* Medio: más de 2 GB y menos de 10 GB
+* Media: más de 2 GB y menos de 10 GB
 * Grande: más de 10 GB
 
 Veamos por ejemplo Azure Machine Learning Studio (clásico):
@@ -145,12 +145,12 @@ Hay muchas opciones para lenguajes, entornos de desarrollo y herramientas. Sea c
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>¿Qué herramientas debe usar para analizar los datos?
 
-* [Microsoft Azure Powershell](/powershell/azure/overview): un lenguaje de script que se usa para administrar los recursos de Azure en un lenguaje de script.
+* [Microsoft Azure PowerShell](/powershell/azure/overview): un lenguaje de script que se usa para administrar los recursos de Azure en un lenguaje de script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Herramientas de Python para Visual Studio](https://aka.ms/ptvsdocs)
-* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Anaconda](https://www.anaconda.com/)
 * [Jupyter Notebooks](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 

@@ -5,14 +5,14 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117104"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418184"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Ejecución de una simulación de R en paralelo con Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Ejecución de una simulación de R paralela con Azure Batch 
 
 Ejecute las cargas de trabajo de R en paralelo a escala mediante [doAzureParallel](https://www.github.com/Azure/doAzureParallel), un paquete de R ligero que le permite usar Azure Batch directamente desde su sesión de R. El paquete doAzureParallel se basa en el conocido paquete de R [foreach](https://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel toma cada iteración del bucle foreach y la envía como una tarea de Azure Batch.
 
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo implementar un grupo de Batch y ejecutar un tr
 > * Crear un grupo de Batch como un back-end en paralelo para la sesión de R
 > * Ejecutar una simulación en paralelo sencilla en el grupo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Tener instalada una distribución de [R](https://www.r-project.org/), como [Microsoft R Open](https://mran.microsoft.com/open). Usar la versión 3.3.1 o posterior.
 
@@ -220,7 +220,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-La simulación distribuye las tareas a los nodos del grupo de Batch. Puede ver la actividad del grupo en el mapa térmico en Azure Portal. Vaya a **cuentas de Batch** > *myBatchAccount*. Haga clic en **Grupos** > *myPoolName*. 
+La simulación distribuye las tareas a los nodos del grupo de Batch. Puede ver la actividad en el mapa térmico del grupo, que encontrará en Azure Portal. Vaya a **cuentas de Batch** > *myBatchAccount*. Haga clic en **Grupos** > *myPoolName*. 
 
 ![Mapa térmico del grupo que ejecuta tareas de R en paralelo](media/tutorial-r-doazureparallel/pool.png)
 

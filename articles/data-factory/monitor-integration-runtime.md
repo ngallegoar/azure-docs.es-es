@@ -10,12 +10,12 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfb40375fe841dd363681aea3d2cf6355046cd51
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81398961"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113700"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 
@@ -52,10 +52,10 @@ En la siguiente tabla se proporcionan las descripciones de las propiedades que d
 | ResourceGroupName | Nombre del grupo de recursos al que pertenece la instancia de Data Factory.  |
 | Descripción | Descripción de la instancia de Integration Runtime.  |
 
-### <a name="status"></a>Status
+### <a name="status"></a>Estado
 En la tabla siguiente se proporcionan los estados posibles de una instancia de Azure Integration Runtime:
 
-| Status | Comentarios/Escenarios | 
+| Estado | Comentarios/Escenarios | 
 | ------ | ------------------ |
 | En línea | La instancia de Azure Integration Runtime está en línea y lista para su uso. | 
 | Sin conexión | La instancia de Azure Integration Runtime está desconectada por un error interno. |
@@ -73,7 +73,7 @@ En la tabla siguiente se proporcionan las descripciones de las propiedades de su
 | Propiedad | Descripción | 
 | -------- | ----------- | 
 | Nombre | Nombre de la instancia de Integration Runtime autohospedada y sus nodos asociados. Un nodo es una máquina Windows local con la instancia de Integration Runtime autohospedada instalada. |  
-| Status | Estado de la instancia general de Integration Runtime autohospedada y de los nodos. Ejemplo: En línea, Sin conexión, Limitado, etc. Para información acerca de estos estados, consulte la siguiente sección. | 
+| Estado | Estado de la instancia general de Integration Runtime autohospedada y de los nodos. Ejemplo: En línea, Sin conexión, Limitado, etc. Para información acerca de estos estados, consulte la siguiente sección. | 
 | Versión | Versión de la instancia de Integration Runtime autohospedada y de los nodos. La versión de la instancia de Integration Runtime autohospedada se determina en función de la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la instancia de Integration Runtime autohospedada, solo los nodos con el mismo número de versión que la instancia lógica de Integration Runtime autohospedada funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). | 
 | Memoria disponible | Memoria disponible en un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. | 
 | Uso de CPU | Uso de CPU de un nodo de una instancia de Integration Runtime autohospedada. Este valor es una instantánea casi en tiempo real. |
@@ -94,7 +94,7 @@ El valor predeterminado calculado se puede invalidar en Azure Portal. Seleccione
 ### <a name="status-per-node"></a>Estado (por nodo)
 En la tabla siguiente se proporcionan los estados posibles de los nodos de una instancia de Integration Runtime autohospedada:
 
-| Status | Descripción |
+| Estado | Descripción |
 | ------ | ------------------ | 
 | En línea | Nodo conectado al servicio Data Factory. |
 | Sin conexión | El nodo está sin conexión. |
@@ -107,7 +107,7 @@ Un nodo puede estar inactivo cuando no se puede conectar a otros nodos.
 ### <a name="status-overall-self-hosted-integration-runtime"></a>Estado (instancia general de Integration Runtime autohospedada)
 En la tabla siguiente se proporcionan los estados posibles de una instancia de Integration Runtime autohospedada. Este estado depende de los de todos los nodos que pertenecen a la instancia de Runtime. 
 
-| Status | Descripción |
+| Estado | Descripción |
 | ------ | ----------- | 
 | Need registration (Se necesita registro) | No hay nodos registrados para esta instancia de Integration Runtime autohospedada aún. |
 | En línea | Todos los nodos están en línea. |
@@ -170,13 +170,13 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
 | NodeSize | Tamaño de cada nodo de la instancia de Integration Runtime de SSIS de Azure. |
 | NodeCount | Número de nodos de la instancia de Integration Runtime de SSIS de Azure. |
 | MaxParallelExecutionsPerNode | Número de ejecuciones en paralelo por nodo en la instancia de Integration Runtime de SSIS de Azure. |
-| CatalogServerEndpoint | Punto de conexión del servidor de Azure SQL Database/de la instancia administrada existente al host SSISDB. |
-| CatalogAdminUserName | Nombre de usuario administrador del servidor de Azure SQL Database/de la instancia administrada. El servicio Data Factory utiliza esta información para preparar y administrar SSISDB en su nombre. |
-| CatalogAdminPassword | Contraseña del administrador del servidor de Azure SQL Database/de la instancia administrada. |
-| CatalogPricingTier | Plan de tarifa de SSISDB hospedado en el servidor de Azure SQL Database existente.  No es aplicable a la Instancia administrada de Azure SQL Database que hospeda SSISDB. |
+| CatalogServerEndpoint | Punto de conexión de la instancia existente de SQL Database o Instancia administrada de SQL para hospedar SSISDB. |
+| CatalogAdminUserName | Nombre de usuario administrador de la instancia existente de SQL Database o Instancia administrada de SQL. El servicio Data Factory utiliza esta información para preparar y administrar SSISDB en su nombre. |
+| CatalogAdminPassword | Contraseña de administrador de la instancia existente de SQL Database o Instancia administrada de SQL. |
+| CatalogPricingTier | El plan de tarifa para SSISDB hospedado por SQL Database.  No es aplicable a Instancia administrada de SQL que hospeda SSISDB. |
 | VNetId | Identificador del recurso de red virtual para que se una la instancia de Integration Runtime de SSIS de Azure. |
 | Subnet | Nombre de la subred para que se una la instancia de Integration Runtime de SSIS de Azure. |
-| id | Identificador del recurso de la instancia de Integration Runtime de SSIS de Azure. |
+| ID | Identificador del recurso de la instancia de Integration Runtime de SSIS de Azure. |
 | Tipo | Tipo (administrada/autohospedada) de instancia de Integration Runtime de SSIS de Azure. |
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se crearon las instancias de Data Factory y de Integration Runtime de SSIS de Azure. |
 | DataFactoryName | Nombre de la instancia de Azure Data Factory. |
@@ -186,7 +186,7 @@ Integration Runtime de SSIS de Azure es un clúster totalmente administrado de m
   
 ### <a name="status-per-node"></a>Estado (por nodo)
 
-| Status | Descripción |
+| Estado | Descripción |
 | ------ | ----------- | 
 | Iniciando | Este nodo se está preparando. |
 | Disponible | Este nodo está listo para la implementación y ejecución de paquetes SSIS. |
@@ -224,8 +224,8 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 Consulte los artículos siguientes para más información sobre Integration Runtime de SSIS de Azure:
 
 - [Integration Runtime de SSIS de Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). En este artículo se proporciona información conceptual acerca de Integration Runtime en general, lo que incluye Integration Runtime de SSIS de Azure. 
-- [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). En este artículo se proporcionan instrucciones paso a paso para crear una instancia de IR de SSIS de Azure y se usa una base de datos de Azure SQL para hospedar el catálogo de SSIS. 
-- [Cómo: Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). Este artículo amplía el tutorial y proporciona instrucciones acerca del uso de Instancia administrada de Azure SQL Database y cómo unir un entorno de ejecución de integración a una red virtual. 
+- [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). En este artículo se proporcionan instrucciones paso a paso para crear una instancia de Azure-SSIS IR y se usa SQL Database para hospedar el catálogo de SSIS. 
+- [Cómo: Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). En este artículo se amplía el tutorial y se proporcionan instrucciones sobre el uso de Instancia administrada de SQL y la unión de Integration Runtime a una red virtual. 
 - [Administración de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md). En este artículo se muestra cómo detener, iniciar o quitar una instancia de IR de SSIS de Azure. También se muestra cómo escalar horizontalmente IR de SSIS de Azure mediante la adición de más nodos a IR. 
 - [Unión de una instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md). En este artículo se proporciona información conceptual sobre cómo unir una instancia de Integration Runtime de SSIS de Azure a una red virtual de Azure. También se proporcionan los pasos para configurar la red virtual mediante Azure Portal para que se una la instancia de Integration Runtime de SSIS de Azure. 
 

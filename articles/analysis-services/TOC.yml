@@ -71,6 +71,8 @@
           href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
         - name: Incorporación de una entidad de servicio al rol de administrador del servidor
           href: analysis-services-addservprinc-admins.md
+        - name: Movimiento entre regiones
+          href: move-between-regions.md
     - name: Modelo
       items:
         - name: Modelado tabular

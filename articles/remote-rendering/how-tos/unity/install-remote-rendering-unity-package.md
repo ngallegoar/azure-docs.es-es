@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 86ffe47c009f9e0ae121ffc6ab57bff8fb73210f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 3375b28d94956d5c368db4bf3026bdf52ee2d58e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679198"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021150"
 ---
 # <a name="install-the-remote-rendering-package-for-unity"></a>Instalación del paquete de Remote Rendering para Unity
 
@@ -43,9 +43,9 @@ Encuentre instrucciones más completas en el [Tutorial: Configuración de un pro
 
 ## <a name="unity-render-pipelines"></a>Canalizaciones de representación de Unity
 
-Remote Rendering funciona con la **canalización de representación universal** y la **canalización de representación estándar**. Por motivos de rendimiento, se recomienda usar la canalización de representación universal.
+Remote Rendering funciona tanto con **:::no-loc text="Universal render pipeline":::** como con **:::no-loc text="Standard render pipeline":::** . Por motivos de rendimiento, se recomienda usar la canalización de representación universal.
 
-Para usar la **canalización de representación universal**, su paquete tiene que estar instalado en Unity. Esto puede hacerse en la interfaz de usuario de **Package Manager** de Unity (nombre del paquete **Universal RP**, versión 7.2.1 o más reciente) o con el archivo `Packages/manifest.json`, como se describe en el [tutorial de configuración del proyecto de Unity](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
+Para usar **:::no-loc text="Universal render pipeline":::** , su paquete tiene que estar instalado en Unity. Esto puede hacerse en la interfaz de usuario de **Package Manager** de Unity (nombre del paquete **Universal RP**, versión 7.2.1 o más reciente) o con el archivo `Packages/manifest.json`, como se describe en el [tutorial de configuración del proyecto de Unity](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

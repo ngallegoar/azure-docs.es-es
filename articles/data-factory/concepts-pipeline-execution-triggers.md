@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562209"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997016"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 
@@ -236,14 +236,14 @@ Para hacer que el desencadenador de programación dé inicio a una ejecución de
 En la tabla siguiente se muestra información general de los elementos del esquema más importantes relacionados con la periodicidad y la programación de un desencadenador:
 
 | Propiedad JSON | Descripción |
-|:--- |:--- |
+| --- | --- |
 | **startTime** | Valor de fecha y hora. Para las programaciones básicas, se aplica el valor de la propiedad **startTime** al primer caso. Para las programaciones complejas, el desencadenador no se inicia antes del valor de **startTime** especificado. |
 | **endTime** | Fecha y hora de finalización para el desencadenador. El desencadenador no se ejecuta después de la fecha y hora de finalización especificadas. El valor de la propiedad no puede estar en el pasado. <!-- This property is optional. --> |
 | **timeZone** | La zona horaria Actualmente, solo se admite la zona horaria UTC. |
 | **recurrence** | Objeto que especifica las reglas de periodicidad para el desencadenador. El objeto recurrence admite los elementos **frequency**, **interval**, **endTime**, **count** y **schedule**. Cuando se define un objeto recurrence, es necesario el elemento **frequency**. Los demás elementos del objeto recurrence son opcionales. |
 | **frequency** | Unidad de frecuencia a la que se repite el desencadenador. Los valores admitidos son "minute", "hour", "day", "week" y "month". |
 | **interval** | Entero positivo que indica el intervalo para el valor **frequency**. El valor **frequency** determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es “week”, el desencadenador se repite cada tres semanas. |
-| **schedule** | La programación de periodicidad para el desencadenador. Un desencadenador con valor de **frequency** especificado modifica su periodicidad según una programación periódica. La propiedad **schedule** contiene modificaciones de la periodicidad basadas en minutos, horas, días de la semana, días del mes y número de semana.
+| **schedule** | La programación de periodicidad para el desencadenador. Un desencadenador con valor de **frequency** especificado modifica su periodicidad según una programación periódica. La propiedad **schedule** contiene modificaciones de la periodicidad basadas en minutos, horas, días de la semana, días del mes y número de semana. |
 
 ### <a name="schedule-trigger-example"></a>Ejemplo de desencadenador de programación
 
@@ -282,7 +282,7 @@ En la tabla siguiente se muestra información general de los elementos del esque
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
 | Propiedad JSON | Tipo | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- | --- | --- |
 | **startTime** | string | Sí | None | Fechas y horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | No | 1 | 1 a 1000 | `"interval":10` |
@@ -293,7 +293,7 @@ En la tabla siguiente se muestra información general de los elementos del esque
 En la tabla siguiente se muestra cómo la propiedad **startTime** controla una ejecución de desencadenador:
 
 | Valor de startTime | Periodicidad sin programación | Periodicidad con programación |
-|:--- |:--- |:--- |
+| --- | --- | --- |
 | **La hora de inicio está en el pasado** | Calcula la primera hora de ejecución futura después de la hora de inicio y se ejecuta a esa hora.<br /><br />Realiza ejecuciones posteriores calculadas desde la última hora de ejecución.<br /><br />Consulte el ejemplo que sigue a esta tabla. | El desencadenador se inicia _no antes que_ la hora de inicio especificada. La primera repetición se basa en la programación que se calcula a partir de la hora de inicio.<br /><br />Realiza las sucesivas ejecuciones según la programación de periodicidad. |
 | **La hora de inicio está en el futuro o la hora actual** | Se ejecuta una vez a la hora de inicio especificada.<br /><br />Realiza ejecuciones posteriores calculadas desde la última hora de ejecución. | El desencadenador se inicia _no antes_ que la hora de inicio especificada. La primera aparición se basa en la programación que se calcula a partir de la hora de inicio.<br /><br />Realiza las sucesivas ejecuciones según la programación de periodicidad. |
 
@@ -315,20 +315,17 @@ Si se especifican varios elementos de **programación**, el orden de evaluación
 En la siguiente tabla se describen los elementos de **schedule** con detalle:
 
 | Elemento JSON | Descripción | Valores válidos |
-|:--- |:--- |:--- |
-| **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
-| **hours** | Horas del día en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
-| **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matriz de valores de día (el tamaño máximo de la matriz es 7)<br /><br />Los valores de día no distinguen mayúsculas de minúsculas.|
-| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Matriz de objetos de **monthlyOccurrence**: `{ "day": day, "occurrence": occurrence }`.<br />- El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.<br />- El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.|
-| **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Cualquier valor <= -1 y >= -31<br />- Cualquier valor >= 1 y <= 31<br />- Matriz de valores|
+| --- | --- | --- |
+| **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros |
+| **hours** | Horas del día en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros |
+| **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matriz de valores de día (el tamaño máximo de la matriz es 7)<br /><br />Los valores de día no distinguen mayúsculas de minúsculas. |
+| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Matriz de objetos de **monthlyOccurrence**: `{ "day": day, "occurrence": occurrence }`.<br />- El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.<br />- El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional. |
+| **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Cualquier valor <= -1 y >= -31<br />- Cualquier valor >= 1 y <= 31<br />- Matriz de valores |
 
 ## <a name="tumbling-window-trigger"></a>Desencadenador de ventana de saltos de tamaño constante
 Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen.
 
 Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador de ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
-
-> [!NOTE]
-> El desencadenador de la ventana de saltos *espera a que se ejecute la canalización desencadenada* para finalizar. Su estado de ejecución refleja el estado de la ejecución de la canalización desencadenada. Por ejemplo, si se cancela una ejecución de canalización desencadenada, la ejecución del desencadenador de la ventana de saltos correspondiente se marca como cancelada. Esto es diferente del comportamiento "desencadenar y olvidar" del desencadenador de programación, que se marca como correcto siempre que se inicie una ejecución de canalización.
 
 ## <a name="event-based-trigger"></a>Desencadenador basado en eventos
 
@@ -342,7 +339,7 @@ En esta sección se proporcionan ejemplos de programaciones de periodicidad. Se 
 Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **frequency** es correcto según la definición de la programación. Por ejemplo, no puede tener un valor de **frequency** de "day" y tener también una modificación de **monthDays** en el objeto **schedule**. Estos tipos de restricciones se describen en la tabla de la sección anterior.
 
 | Ejemplo | Descripción |
-|:--- |:--- |
+| --- | --- |
 | `{"hours":[5]}` | Se ejecuta a las 5:00 a. m. todos los días. |
 | `{"minutes":[15], "hours":[5]}` | Se ejecuta a las 5:15 a. m. todos los días. |
 | `{"minutes":[15], "hours":[5,17]}` | Se ejecuta a las 5:15 a. m. y 5:15 p. m. todos los días. |
@@ -373,15 +370,18 @@ Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **freque
 ## <a name="trigger-type-comparison"></a>Comparación de tipos de desencadenadores
 El desencadenador de ventana de saltos de tamaño constante y el de programación funcionan con latidos de tiempo. ¿En qué se diferencian?
 
+> [!NOTE]
+> El desencadenador de la ventana de saltos *espera a que se ejecute la canalización desencadenada* para finalizar. Su estado de ejecución refleja el estado de la ejecución de la canalización desencadenada. Por ejemplo, si se cancela una ejecución de canalización desencadenada, la ejecución del desencadenador de la ventana de saltos correspondiente se marca como cancelada. Esto es diferente del comportamiento "desencadenar y olvidar" del desencadenador de programación, que se marca como correcto siempre que se inicie una ejecución de canalización.
+
 En la siguiente tabla se muestra una comparación entre el desencadenador de ventana de saltos de tamaño constante y el desencadenador de programación:
 
-|  | Desencadenador de ventana de saltos de tamaño constante | Desencadenador de programación |
-|:--- |:--- |:--- |
+| Elemento | Desencadenador de ventana de saltos de tamaño constante | Desencadenador de programación |
+| --- | --- | --- |
 | **Escenarios de reposición** | Compatible. Las ejecuciones de canalización se pueden programar para ventanas en el pasado. | No compatible. Se pueden realizar las ejecuciones de canalización solo en períodos de tiempo del momento actual y en el futuro. |
 | **Confiabilidad** | 100 % confiabilidad. Las ejecuciones de canalización se pueden programar para todas las ventanas de una fecha de inicio especificada sin intervalos. | Menos confiable. |
 | **Funcionalidad de reintento** | Compatible. Las ejecuciones de canalización erróneas tienen una directiva de reintentos predeterminada de 0 u otra especificada por el usuario en la definición del desencadenador. Realiza un reintento automáticamente cuando se produce un error en la ejecución de la canalización debido a los límites de simultaneidad/servidor/limitación (es decir, códigos de estado 400: Error de usuario, 429: Demasiadas solicitudes y 500: Error interno del servidor). | No compatible. |
 | **Concurrency** | Compatible. Los usuarios pueden establecer explícitamente límites de simultaneidad para el desencadenador. Permite entre 1 y 50 ejecuciones simultáneas de canalizaciones desencadenadas. | No compatible. |
-| **Variables del sistema** | Admite el uso de las variables del sistema **WindowStart** y **WindowEnd**. Los usuarios pueden acceder a `triggerOutputs().windowStartTime` y `triggerOutputs().windowEndTime` como variables del sistema del desencadenador en la definición del desencadenador. Los valores se utilizan como la hora de inicio y la hora de finalización de la ventana, respectivamente. Por ejemplo, para un desencadenador de la ventana de saltos de tamaño constante que se ejecuta cada hora, para la ventana de 1:00 a. m. a 2:00 a. m., la definición es `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` y `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | No compatible. |
+| **Variables del sistema** | Junto con @trigger().scheduledTime y @trigger().startTime, también admite el uso de las variables del sistema **WindowStart** y **WindowEnd**. Los usuarios pueden acceder a `triggerOutputs().windowStartTime` y `triggerOutputs().windowEndTime` como variables del sistema del desencadenador en la definición del desencadenador. Los valores se utilizan como la hora de inicio y la hora de finalización de la ventana, respectivamente. Por ejemplo, para un desencadenador de la ventana de saltos de tamaño constante que se ejecuta cada hora, para la ventana de 1:00 a. m. a 2:00 a. m., la definición es `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` y `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Solo admite las variables predeterminadas @trigger().scheduledTime y @trigger().startTime. |
 | **Relación de canalización a desencadenador** | Admite las relaciones uno a uno. Solo se puede desencadenar una canalización. | Admite relaciones muchos a muchos. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes

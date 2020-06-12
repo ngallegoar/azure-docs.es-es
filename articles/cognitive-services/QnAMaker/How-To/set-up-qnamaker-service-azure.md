@@ -2,13 +2,13 @@
 title: 'Configuración de un servicio QnA Maker: QnA Maker'
 description: Antes de crear alguna base de conocimiento de QnA Maker, primero debe configurar un servicio QnA Maker en Azure. Cualquiera que tenga autorización para crear recursos en una suscripción puede configurar un servicio QnA Maker.
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402983"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235518"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -58,6 +58,7 @@ En este procedimiento se crean los recursos de Azure necesarios para administrar
    ![Recurso creado de un nuevo servicio QnA Maker](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     El recurso con el tipo _Cognitive Services_ tiene las claves de la _suscripción_.
+
 
 ## <a name="find-subscription-keys-in-the-azure-portal"></a>Búsqueda de claves de suscripción en Azure Portal
 
@@ -209,6 +210,34 @@ Para mantener cargada la aplicación del punto de conexión de predicción inclu
 1. Se le preguntará si desea reiniciar la aplicación para usar la nueva configuración. Seleccione **Continuar**.
 
 Aprenda más sobre cómo realizar la [configuración general](../../../app-service/configure-common.md#configure-general-settings) de App Service.
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configuración de App Service Environment para hospedar un servicio de aplicaciones de QnA Maker
+App Service Environment se puede usar para hospedar un servicio de aplicaciones de QnA Maker. Si App Service Environment es interno, debe seguir estos pasos:
+1. Cree un servicio de aplicaciones y un servicio de búsqueda de Azure.
+2. Exponga el servicio de aplicaciones en un DNS público e incluya en la lista blanca la etiqueta de servicio de QnA Maker: CognitiveServicesManagement o manténgala como accesible desde Internet.
+3. Cree una instancia de Cognitive Services de QnA Maker (Microsoft.CognitiveServices/accounts) mediante Azure Resource Manager, donde el punto de conexión de QnA Maker debe establecerse en App Service Environment. 
+
+## <a name="business-continuity-with-traffic-manager"></a>Continuidad del negocio con Traffic Manager
+
+El objetivo principal del plan de continuidad empresarial consiste en crear un punto de conexión de base de conocimiento resistente, que garantizaría que el bot o la aplicación que lo consume no tengan tiempos de inactividad.
+
+> [!div class="mx-imgBorder"]
+> ![Plan bcp de QnA Maker](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+La idea de alto nivel como se representa anteriormente es la siguiente:
+
+1. Configure dos [servicios QnA Maker](set-up-qnamaker-service-azure.md) paralelos en [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+1. [Realice una copia de seguridad](../../../app-service/manage-backup.md) del servicio de aplicaciones de QnA Maker principal y [restáurela](../../../app-service/web-sites-restore.md) en la configuración secundaria. De este modo, se asegurará de que ambas configuraciones funcionan con el mismo nombre de host y las mismas claves.
+
+1. Mantenga sincronizados los índices principal y secundario de Azure Search. Use el ejemplo de GitHub [aquí](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver cómo realizar una copia de seguridad de los índices de Azure y cómo restaurarlos.
+
+1. Realice una copia de seguridad de Application Insights con la [exportación continua](../../../application-insights/app-insights-export-telemetry.md).
+
+1. Una vez configuradas las pilas principal y secundaria, use [Traffic Manager](../../../traffic-manager/traffic-manager-overview.md) para configurar los dos puntos de conexión y establecer un método de enrutamiento.
+
+1. Debe crear un certificado de Seguridad de la capa de transporte (TLS), conocido anteriormente como Capa de sockets seguros (SSL), para el punto de conexión de Traffic Manager. [Enlace el certificado TLS/SSL](../../../app-service/configure-ssl-bindings.md) en los servicios de aplicaciones.
+
+1. Por último, use el punto de conexión de Traffic Manager del bot o de la aplicación.
 
 ## <a name="delete-azure-resources"></a>Eliminación de recursos de Azure
 
@@ -219,4 +248,4 @@ Si elimina cualquiera de los recursos de Azure usados para las bases de conocimi
 Más información sobre [App Service](../../../app-service/index.yml) y el [servicio Azure Search](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Crear y publicar una base de conocimiento](../Quickstarts/create-publish-knowledge-base.md)
+> [Aprenda a crear en colaboración](../how-to/collaborate-knowledge-base.md)

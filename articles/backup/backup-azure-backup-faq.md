@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196261"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247672"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -190,7 +190,7 @@ No. Las recuperaciones son gratuitas y no se cobran por el tráfico de salida.
 
 Cuando se aplica una nueva directiva, se sigue la programación y retención de la nueva directiva.
 
-- Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva.
+- Si se amplía la retención, los puntos de recuperación existentes se marcan para conservarlos de acuerdo con la nueva directiva.
 - Si se reduce la retención, se marcan para eliminarse y, posteriormente, se eliminan en el siguiente trabajo de limpieza.
 
 ## <a name="encryption"></a>Cifrado
@@ -208,7 +208,7 @@ Sí. Los datos de Azure están cifrados en reposo.
 
 Microsoft no descifra los datos de copia de seguridad en ningún momento.
 
-### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>¿Cuál es la longitud mínima de la clave de cifrado utilizada para cifrar los datos de copia de seguridad?
+### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>¿Cuál es la longitud mínima de la clave de cifrado usada para cifrar los datos de copia de seguridad?
 
 La clave de cifrado debe tener al menos 16 caracteres cuando se usa Azure Backup Agent. Para máquinas virtuales de Azure, no hay ningún límite de longitud para las claves usadas por Azure KeyVault.
 

@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ccdb2b24499c86a54909b2617abd7e9bf294a261
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681448"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220189"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Aprenda a ejecutar sus cuadernos de Jupyter Notebook directamente en el área de trabajo en Azure Machine Learning Studio. Aunque puede iniciar [Jupyter](https://jupyter.org/) o [JupyterLab](https://jupyterlab.readthedocs.io), también puede editar y ejecutar los cuadernos sin tener que salir del área de trabajo.
@@ -29,7 +29,7 @@ Vea cómo puede:
 * Cambiar el entorno del cuaderno.
 * Buscar los detalles de las instancias de proceso utilizadas para ejecutar los cuadernos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
@@ -62,7 +62,7 @@ El área de trabajo contiene una carpeta de **ejemplos** con cuadernos diseñado
 
 Para obtener un ejemplo, vea [Tutorial: Creación del primer experimento de Machine Learning](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Uso de los archivos de Git y versión mis archivos
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Uso de los archivos de Git y versión Mis archivos
 
 Puede acceder a todas las operaciones de Git mediante una ventana de terminal. Todos los archivos y carpetas de Git se almacenarán en el sistema de archivos del área de trabajo.
 

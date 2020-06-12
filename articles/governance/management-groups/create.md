@@ -3,12 +3,12 @@ title: 'Creación de grupos de administración para organizar los recursos: gobe
 description: Aprenda a crear grupos de administración de Azure para administrar varios recursos mediante el portal, Azure PowerShell y la CLI de Azure.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34815089367512c4aa54f148c118a669625d0ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0abecf02062dd4461274a9bc3722d46e6e7cc3d1
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381582"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220755"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
@@ -29,9 +29,7 @@ Puede crear el grupo de administración mediante el portal, una [plantilla de Re
 
 1. Seleccione **Todos los servicios** > **Administración y gobernanza**.
 
-1. Seleccione **Administración de costos + facturación**.
-
-1. En la página Costos + facturación - Grupos de administración, seleccione **Grupos de administración**.
+1. Seleccione **Grupos de administración**.
 
 1. Seleccione **+ Agregar grupo de administración**.
 

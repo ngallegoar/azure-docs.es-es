@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: a8b1c53a5c060f2124a36b69365bdd9b62896b56
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478153"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220954"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -23,14 +23,24 @@ La extensión de script personalizado descarga y ejecuta scripts en máquinas vi
 
 En este documento se detalla cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y se detallan también los pasos para solucionar problemas en los sistemas Windows.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!NOTE]  
 > No use la extensión de script personalizado para ejecutar Update-AzVM con la misma VM como su parámetro, ya tendrá que hacerlo ella misma.  
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La extensión de script personalizado para Windows se ejecuta en los sistemas operativos que la admiten. Para obtener más información, vea [Sistemas operativos compatibles con extensión de Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+La extensión de script personalizado para Windows se ejecutará en los sistemas operativos admitidos de la extensión.
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 R2
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows 10
+* Windows Server 2016
+* Windows Server 2016 Core
+* Windows Server 2019
+* Windows Server 2019 Core
 
 ### <a name="script-location"></a>Ubicación del script
 
@@ -280,7 +290,7 @@ Para implementar la extensión de script personalizado en un conjunto de escalad
 
 Para implementar la extensión de script personalizado en máquinas virtuales clásicas, puede usar Azure Portal o los cmdlets clásicos de Azure PowerShell.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Vaya al recurso de máquina virtual clásica. Seleccione **Extensiones** en **Configuración**.
 

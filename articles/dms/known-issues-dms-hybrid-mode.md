@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77649609"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196277"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problemas conocidos/limitaciones de migración con el uso del modo híbrido
 
@@ -93,10 +93,10 @@ Si ya no tiene acceso al equipo de trabajo, puede anular el registro del trabajo
 
 En las secciones siguientes se describen problemas específicos de cada escenario relacionados con el uso del modo híbrido de Azure Database Migration Service para realizar una migración en línea.
 
-### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Migraciones en línea a la instancia administrada de Azure SQL Database
+### <a name="online-migrations-to-azure-sql-managed-instance"></a>Migraciones en línea a Instancia administrada de Azure SQL
 
 **Uso elevado de la CPU**
 
-**Problema:** En el caso de las migraciones en línea a la instancia administrada de SQL Database, el equipo que ejecuta Hybrid Worker detectará un uso elevado de la CPU si hay demasiadas copias de seguridad o si las copias de seguridad son demasiado grandes.
+**Problema:** En el caso de las migraciones en línea a instancia administrada de SQL Database, el equipo que ejecuta Hybrid Worker detectará un uso elevado de la CPU si hay demasiadas copias de seguridad o si las copias de seguridad son demasiado grandes.
 
 **Mitigación**: Para mitigar este problema, use copias de seguridad comprimidas, divida la migración para que use varios recursos compartidos o escale verticalmente el equipo que ejecuta Hybrid Worker.

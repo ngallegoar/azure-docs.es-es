@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 795247cd0d6adfd27115b73c1d0de02e6810d670
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201138"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195712"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configuración de Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de SQL Database
 
@@ -29,11 +29,11 @@ Para más información acerca de la replicación geográfica y la conmutación p
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-ssis-ir-failover-with-a-sql-database-managed-instance"></a>Conmutación por error de Azure-SSIS IR con una instancia administrada de SQL Database
+## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>Conmutación por error de Azure-SSIS IR con una instancia administrada de SQL
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
-La instancia administrada de Azure SQL Database usa la *clave maestra de base de datos (DMK)* para ayudarle a proteger los datos, las credenciales y la información de conexión almacenada en la base de datos. Para habilitar el descifrado automático de DMK, se cifra una copia de la clave mediante la *clave maestra de servidor (SMK)* . 
+La instancia administrada de Azure SQL usa la *clave maestra de base de datos (DMK)* para ayudarle a proteger los datos, las credenciales y la información de conexión almacenada en la base de datos. Para habilitar el descifrado automático de DMK, se cifra una copia de la clave mediante la *clave maestra de servidor (SMK)* . 
 
 SMK no se replica en un grupo de conmutación por error. Debe agregar una contraseña en las instancias principal y secundaria del descifrado de DMK después de realizar la conmutación por error.
 
@@ -43,7 +43,7 @@ SMK no se replica en un grupo de conmutación por error. Debe agregar una contra
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Cree un grupo de conmutación por error en una instancia administrada de Azure SQL Database.
+2. Cree un grupo de conmutación por error en una instancia administrada de SQL.
 
 3. Ejecute **sp_control_dbmasterkey_password** en la instancia secundaria, con la nueva contraseña de cifrado.
 
@@ -87,27 +87,27 @@ Cuando se produzca la conmutación por error, siga estos pasos:
 2. Edite Azure-SSIS IR con la información de la nueva región, el punto de conexión y la red virtual de la instancia secundaria.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                -VNetId "new VNet" `
-                -Subnet "new subnet" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                    -VNetId "new VNet" `
+                    -Subnet "new subnet" `
+                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+        ```
 
-3. Inicie la instancia de Azure-SSIS IR.
+3. Restart the Azure-SSIS IR.
 
-### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-database-managed-instance"></a>Escenario 3: Azure-SSIS IR apunta al punto de conexión público de la instancia administrada de SQL Database
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-El escenario es adecuado si Azure-SSIS IR apunta al punto de conexión público de la instancia administrada de Azure SQL Database y no se une a la red virtual. La única diferencia con el escenario 2 es que no es necesario editar la información de la red virtual de Azure-SSIS IR después de la conmutación por error.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
-#### <a name="solution"></a>Solución
+#### Solution
 
-Cuando se produzca la conmutación por error, siga estos pasos:
+When failover occurs, take the following steps:
 
-1. Detenga la instancia de Azure-SSIS IR en la región primaria.
+1. Stop the Azure-SSIS IR in the primary region.
 
-2. Edite Azure-SSIS IR con la nueva información de región y punto de conexión de la instancia secundaria.
+2. Edit the Azure-SSIS IR with the new region and endpoint information for the secondary instance.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
@@ -131,7 +131,7 @@ Cuando se produzca la conmutación por error, siga estos pasos:
 
 1. Detenga la instancia de Azure-SSIS IR en la región primaria.
 
-2. Ejecute el procedimiento almacenado para actualizar los metadatos en SSISDB a fin de aceptar conexiones de **\<new_data_factory_name\>** y **\<new_integration_runtime_name\>** .
+2. Ejecute un procedimiento almacenado para actualizar los metadatos de SSISDB para que acepten conexiones de **\<new_data_factory_name\>** y **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
@@ -202,12 +202,12 @@ Cuando se produzca la conmutación por error, siga estos pasos:
 2. Edite Azure-SSIS IR con la información de la nueva región, el punto de conexión y la red virtual de la instancia secundaria.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                        -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                        -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                        -VNetId "new VNet" `
+                        -Subnet "new subnet" `
+                        -SetupScriptContainerSasUri "new custom setup SAS URI"
     ```
 
 3. Inicie la instancia de Azure-SSIS IR.
@@ -225,7 +225,7 @@ Cuando se produzca la conmutación por error, siga estos pasos:
 
 1. Detenga la instancia de Azure-SSIS IR en la región primaria.
 
-2. Ejecute el procedimiento almacenado para actualizar los metadatos en SSISDB a fin de aceptar conexiones de **\<new_data_factory_name\>** y **\<new_integration_runtime_name\>** .
+2. Ejecute un procedimiento almacenado para actualizar los metadatos de SSISDB para que acepten conexiones de **\<new_data_factory_name\>** y **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'

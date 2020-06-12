@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Describe los procesos que posibilitan el funcionamiento de Azure Dev Spaces y cómo funciona el enrutamiento.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: e9bc1875c053335da6a8e2603406bcdb34a6dd04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 126a534cec2ee4b07aa3a127fb3f47f9931f0031
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80241242"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307425"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Funcionamiento del enrutamiento con Azure Dev Spaces
 
@@ -64,12 +64,12 @@ Al usar *azureuser*, todas las solicitudes a *serviceA* se enrutarán a la versi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver algunos ejemplos de cómo Azure Dev Spaces usa el enrutamiento para proporcionar una iteración y un desarrollo rápidos, consulte [Funcionamiento de la conexión de la máquina de desarrollo con el espacio de desarrollo][how-it-works-connect], [Funcionamiento de la depuración remota del código con Azure Dev Spaces][how-it-works-remote-debugging] y [Acciones de GitHub y Azure Kubernetes Service][pr-flow].
+Para ver algunos ejemplos de cómo Azure Dev Spaces usa el enrutamiento para proporcionar una iteración y un desarrollo rápidos, consulte [Funcionamiento del proceso local con Kubernetes][how-it-works-local-process-kubernetes], [Funcionamiento de la depuración remota del código con Azure Dev Spaces][how-it-works-remote-debugging] y [Acciones de GitHub y Azure Kubernetes Service][pr-flow].
 
 Para empezar a usar el enrutamiento con Azure Dev Spaces para el desarrollo en equipo, consulte el inicio rápido [Desarrollo en equipo en Azure Dev Spaces][quickstart-team].
 
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [pr-flow]: how-to/github-actions.md
 [quickstart-team]: quickstart-team-development.md

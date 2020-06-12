@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 037edb8af6e04a2ff65977a92a66482c9f4f880f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8bff8cf1111675446c1c9fb2e5dde8b19e2ef5c1
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845105"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310893"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -196,8 +196,8 @@ Este recurso se usa como conexión de identidad intermedia entre su instancia de
 Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso de *Clúster*. El nivel de *capacidad de reserva* puede estar en el rango de 1000 a 2000 GB por día y se puede actualizar más adelante en etapas de 100. Si necesita un nivel de reserva de capacidad superior a 2000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. [Más información](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
 La propiedad *billingType* determina la atribución de facturación para el recurso de *Clúster*y sus datos:
-- *Clúster* (valor predeterminado): la facturación se atribuye a la suscripción que hospeda el recurso de *clúster*
-- *Áreas de trabajo*: la facturación se atribuye a las suscripciones que hospedan las áreas de trabajo de forma proporcional
+- *Clúster* (valor predeterminado): los costos de Reserva de capacidad para el clúster se atribuyen al recurso de *clúster*.
+- *Áreas de trabajo*: los costos de Reserva de capacidad para el clúster se atribuyen proporcionalmente a las áreas de trabajo del clúster. En este caso, se factura una parte del uso del recurso de *clúster* si el total de datos ingeridos del día está por debajo de la Reserva de capacidad. Vea [Clústeres dedicados de Log Analytics](manage-cost-storage.md#log-analytics-dedicated-clusters) para obtener más información sobre el modelo de precios del clúster. 
 
 > [!NOTE]
 > Después de crear el recurso de *clúster*, puede actualizarlo con *SKU*, *keyVaultProperties* o *billingType* mediante la solicitud de REST de PATCH.

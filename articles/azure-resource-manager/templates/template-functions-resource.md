@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/01/2020
+ms.openlocfilehash: a31aadb02ed3fff83ee6dc62a71aa32d0b716629
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780561"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259446"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -495,7 +495,7 @@ La función de referencia solo se puede utilizar en las propiedades de una defin
 
 No se puede utilizar la función reference para establecer el valor de la propiedad `count` en un bucle de copia. Puede usarla para establecer otras propiedades en el bucle. La referencia está bloqueada para la propiedad count, porque esa propiedad se debe determinar antes de que se resuelva la función reference.
 
-No se puede usar la función reference en las salidas de una [plantilla anidada](linked-templates.md#nested-template) para devolver un recurso que ha implementado en la plantilla anidada. En su lugar, use una [plantilla vinculada](linked-templates.md#linked-template).
+Para usar la función reference o cualquier función list* en la sección de salidas de una plantilla anidada, debe establecer ```expressionEvaluationOptions``` para usar la evaluación de [ámbito interno](linked-templates.md#expression-evaluation-scope-in-nested-templates) o una plantilla vinculada en lugar de una anidada.
 
 Si usa una función **reference** con un recurso que se implementa de forma condicional, se puede evaluar la función incluso si el recurso no está implementado.  Se genera un error si la función **reference** a un recurso que no existe. Use la función **if** para asegurarse de que la función se evalúa solo cuando se implementa el recurso. Consulte la función [if](template-functions-logical.md#if) para una plantilla de ejemplo que use if y reference con un recurso implementado de forma condicional.
 
@@ -537,10 +537,20 @@ Para simplificar la creación de cualquier identificador de recurso, use las fun
 
 [Las identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md) son [tipos de recursos de extensión](../management/extension-resource-types.md) que se crean implícitamente para algunos recursos. Dado que la identidad administrada no se define explícitamente en la plantilla, debe hacer referencia al recurso al que se aplica la identidad. Utilice `Full` para obtener todas las propiedades, incluida la identidad creada implícitamente.
 
-Por ejemplo, para obtener el identificador de inquilino de una identidad administrada que se aplica a un conjunto de escalado de máquinas virtuales, use:
+El patrón es:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+Por ejemplo, para obtener el identificador de la entidad de seguridad de una identidad administrada que se aplica a una máquina virtual, use:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+O bien, para obtener el identificador de inquilino de una identidad administrada que se aplica a un conjunto de escalado de máquinas virtuales, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Ejemplo de referencia

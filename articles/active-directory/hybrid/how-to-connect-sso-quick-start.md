@@ -16,14 +16,14 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef603141129be6a73e018fb3e3dcabf9c5d7961f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230156"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993497"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
+# <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implementación del inicio de sesión único de conexión directa
 
@@ -37,7 +37,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 * **Configuración del servidor de Azure AD Connect**: si usa la [autenticación de paso a través](how-to-connect-pta.md) como método de inicio de sesión, no es necesaria ninguna otra comprobación de requisitos previos. Si va a usar la [sincronización de hash de contraseña](how-to-connect-password-hash-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
    - Usa Azure AD Connect 1.1.644.0 o cualquier versión posterior. 
-   - Si el firewall o el proxy permiten la creación de listas blancas con DNS, cree una lista blanca para las conexiones a las direcciones URL **\*.msappproxy.net** en el puerto 443. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana. Este requisito solo es aplicable cuando se habilita la característica. No es necesario para los inicios de sesión de usuarios reales.
+   - Si el firewall o el proxy lo permiten, agregue las conexiones a la lista de permitidos para las direcciones URL **\*.msappproxy.net** en el puerto 443. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana. Este requisito solo es aplicable cuando se habilita la característica. No es necesario para los inicios de sesión de usuarios reales.
 
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para más información.
@@ -100,8 +100,9 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
-Puede implementar el inicio de sesión único de conexión directa gradualmente a los usuarios con las instrucciones que se proporcionan a continuación. Para empezar, agregue la siguiente dirección URL de Azure AD a la configuración de la zona de la intranet de todos los usuarios, o de los seleccionados, mediante la directiva de grupo de Active Directory:
+Puede implementar el inicio de sesión único de conexión directa gradualmente a los usuarios con las instrucciones que se proporcionan a continuación. Para empezar, agregue las siguientes direcciones URL de Azure AD a la configuración de la zona de la intranet de todos los usuarios o de los seleccionados mediante la directiva de grupo de Active Directory:
 
+- `https://aadg.windows.net.nsatc.net`
 - `https://autologon.microsoftazuread-sso.com`
 
 Además, tiene que habilitar a una configuración de directiva de zona de intranet denominada **Permitir actualizaciones en la barra de estado a través de script** mediante la directiva de grupo. 
@@ -191,7 +192,7 @@ Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateAllo
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge basado en Chromium (macOS y otras plataformas que no son de Windows)
 
-En Microsoft Edge basado en Chromium en Mac OS y otras plataformas que no son de Windows, vea la [lista de directivas de Microsoft Edge basado en Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obtener información sobre cómo agregar la dirección URL de Azure AD para la autenticación integrada a la lista de permitidos.
+En Microsoft Edge basado en Chromium en macOS y otras plataformas que no son de Windows, consulte la [lista de directivas de Microsoft Edge basado en Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obtener información sobre cómo agregar la dirección URL de Azure AD para la autenticación integrada a la lista de permitidos.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 
@@ -199,7 +200,7 @@ Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhit
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS y otras plataformas que no son Windows)
 
-En el caso de Google Chrome para Mac OS y otras plataformas distintas de Windows, consulte la [lista de directivas de proyecto de Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obtener información sobre cómo incluir en la lista blanca la dirección URL de Azure AD para la autenticación integrada.
+En el caso de Google Chrome para macOS y otras plataformas que no son de Windows, consulte la [lista de directivas del proyecto Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obtener información sobre cómo controlar la lista de permitidos para la dirección URL de Azure AD para la autenticación integrada.
 
 El uso de las extensiones de directiva de grupo de Active Directory de terceros para implementar la dirección URL de AD Azure de Firefox y Google Chrome para los usuarios de Mac está fuera del ámbito de este artículo.
 

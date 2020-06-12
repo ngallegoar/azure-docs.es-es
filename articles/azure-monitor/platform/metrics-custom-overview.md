@@ -5,14 +5,14 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837318"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299832"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -30,9 +30,9 @@ Las métricas personalizadas pueden enviarse a Azure Monitor a través de distin
 - Instale el [agente de InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) en su máquina virtual Linux de Azure y envíe las métricas mediante el complemento de salida de Azure Monitor.
 - Envíe las métricas personalizadas [directamente a la API REST de Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-## <a name="pricing-model-and-rentention"></a>Modelo de precios y retención
+## <a name="pricing-model-and-retention"></a>Modelo de precios y retención
 
-Consulte la [página de tarifas de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para más información sobre cuándo se habilitará la facturación para las consultas de métricas y las métricas personalizadas. Los detalles de precios específicos de todas las métricas, incluidas las métricas personalizadas y las consultas de métricas, están disponibles en esta página. En resumen, no hay ningún costo por ingerir métricas estándar (métricas de plataforma) al almacén de métricas de Azure Monitor, pero las métricas personalizadas tendrán un costo cuando sean de disponibilidad general. Las consultas de la API de métricas supondrán un costo.
+Consulte la [página de tarifas de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para más información sobre cuándo se habilitará la facturación para las consultas de métricas y las métricas personalizadas. Los detalles de precios específicos de todas las métricas, incluidas las métricas personalizadas y las consultas de métricas, están disponibles en esta página. En resumen, no hay ningún costo por ingerir métricas estándar (métricas de plataforma) en el almacén de métricas de Azure Monitor, pero las métricas personalizadas tendrán un costo cuando sean de disponibilidad general. Las consultas de la API de métricas supondrán un costo.
 
 Las métricas personalizadas se conservan durante el [mismo tiempo que las métricas de plataforma](data-platform-metrics.md#retention-of-metrics). 
 
@@ -78,7 +78,7 @@ Los espacios de nombres son una manera de clasificar o agrupar las métricas sim
 **Nombre** es el nombre de la métrica que se está notificando. Normalmente, el nombre es lo suficientemente descriptivo como para ayudar a identificar lo que se está midiendo. Un ejemplo es una métrica que mide el número de bytes de memoria utilizados en una máquina virtual determinada. Podría tener un nombre de métrica como **Bytes de memoria en uso**.
 
 ### <a name="dimension-keys"></a>Claves de dimensión
-Una dimensión es un par de valor o clave que ayuda a describir características adicionales sobre la métrica que se recopila. Mediante el uso de características adicionales, puede recopilar más información acerca de la métrica, lo que permite obtener conclusiones más detalladas. Por ejemplo, la métrica **Bytes de memoria en uso** podría tener una clave de dimensión denominada **Proceso** que capture el número de bytes de memoria que consume cada proceso en una máquina virtual. Con esta clave, puede filtrar la métrica para ver cuánta memoria usan procesos específicos o para identificar los cinco procesos principales por uso de memoria.
+Una dimensión es un par de valor o clave que ayuda a describir características adicionales sobre la métrica que se recopila. Mediante el uso de características adicionales, puede recopilar más información acerca de la métrica, lo que permite obtener conclusiones más detalladas. Por ejemplo, la métrica **Bytes de memoria en uso** podría tener una clave de dimensión denominada **Proceso** que capture el número de bytes de memoria que consume cada proceso en una máquina virtual. Con esta clave, puede filtrar la métrica para ver cuánta memoria usan los procesos específicos o para identificar los cinco procesos principales por uso de memoria.
 Las dimensiones son opcionales, no todas las métricas pueden tener dimensiones. Una métrica personalizada puede tener hasta 10 dimensiones.
 
 ### <a name="dimension-values"></a>Valores de dimensión
@@ -196,10 +196,11 @@ Durante la versión preliminar pública, la capacidad de publicar métricas pers
 |Centro de EE. UU.      | https:\//centralus.monitoring.azure.com |
 |Centro de Canadá | https:\//canadacentral.monitoring.azure.comc
 |Este de EE. UU.| https:\//eastus.monitoring.azure.com/ |
+|Este de EE. UU. 2 | https:\//eastus2.monitoring.azure.com/
 | **Europa** | |
 |Norte de Europa    | https:\//northeurope.monitoring.azure.com/ |
 |Oeste de Europa     | https:\//westeurope.monitoring.azure.com/ |
-|Sur de Reino Unido 2 | https:\//uksouth.monitoring.azure.com
+|Sur de Reino Unido | https:\//uksouth.monitoring.azure.com
 |Centro de Francia | https:\//francecentral.monitoring.azure.com |
 | **África** | |
 |Norte de Sudáfrica | https:\//southafricanorth.monitoring.azure.com

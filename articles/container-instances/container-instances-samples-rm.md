@@ -3,12 +3,12 @@ title: Ejemplos de plantillas de Azure Resource Manager
 description: Busque ejemplos de plantillas de Azure Resource Manager para implementar Azure Container Instances en distintas configuraciones.
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75981645"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299764"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
 
@@ -30,7 +30,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 | **Redes** ||
 | [Contenedor con UDP expuesto][net-udp] | Implementa un contenedor de Windows o Linux que expone un puerto UDP. |
 | [Contenedor de Linux con dirección IP pública][net-publicip] | Implementa un único contenedor de Linux accesible a través de una dirección IP pública. |
-| [Implementación de un contenedor de grupos con una red virtual (versión preliminar)][net-vnet] | Implementa una red virtual, subred, perfil de red y grupo de contenedores nuevos. |
+| [Implementación de un grupo de contenedores con una red virtual][net-vnet] | Implementa una red virtual, subred, perfil de red y grupo de contenedores nuevos. |
 | **Recursos de Azure** ||
 | [Creación de cuenta de Azure Storage y recurso compartido de archivos][az-files] | Usa la CLI de Azure en una instancia del contenedor para crear una cuenta de almacenamiento y un recurso compartido de Azure Files.
 

@@ -1,23 +1,23 @@
 ---
 title: 'Habilitación de la eliminación temporal: recursos compartidos de archivos de Azure'
-description: Obtenga información sobre cómo habilitar la eliminación temporal en recursos compartidos de archivos de Azure para la recuperación de datos y para evitar la eliminación accidental.
+description: Obtenga información sobre cómo habilitar la eliminación temporal (versión preliminar) en recursos compartidos de archivos de Azure para la recuperación de datos y para evitar la eliminación accidental.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 755ccd266b8a88471bf7dbc0d2deb790f35f3457
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 582a3603ad80ec1312429ed7cbd140d4310fadcb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883018"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196192"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitación de la eliminación temporal en recursos compartidos de archivos de Azure
 
-Azure Storage ofrece la posibilidad de eliminar temporalmente recursos compartidos de archivos, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan eliminado por error. Para más información sobre la eliminación temporal, consulte [Cómo evitar la eliminación accidental de recursos compartidos de archivos de Azure](storage-files-prevent-file-share-deletion.md).
+Azure Storage ofrece la posibilidad de eliminar temporalmente recursos compartidos de archivos (versión preliminar), con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan eliminado por error. Para más información sobre la eliminación temporal, consulte [Cómo evitar la eliminación accidental de recursos compartidos de archivos de Azure](storage-files-prevent-file-share-deletion.md).
 
 En las secciones siguientes se muestra cómo habilitar y usar la eliminación temporal para recursos compartidos de archivos de Azure en una cuenta de almacenamiento existente:
 
@@ -97,3 +97,7 @@ Puede usar el siguiente comando para deshabilitar la eliminación temporal en la
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener información sobre otra forma de protección y recuperación de datos, consulte nuestro artículo [Introducción a las instantáneas de recursos compartidos de Azure Files](storage-snapshots-files.md).

@@ -4,15 +4,15 @@ description: Solución de problemas de Azure Files en Windows
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 40b8616f40f2ce33332fc42ec68532e4ae0ecdb0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383900"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267824"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
@@ -348,6 +348,18 @@ El cmdlet realiza estas comprobaciones de forma secuencial y proporciona instruc
 6. CheckSidHasAadUser: compruebe que el usuario de AD que ha iniciado sesión está sincronizado con Azure AD
 
 Estamos trabajando activamente en la extensión de este cmdlet de diagnóstico para proporcionar una mejor guía de solución de problemas.
+
+## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>No se pueden configurar los permisos de nivel de directorio/archivo (ACL de Windows) con el Explorador de archivos de Windows.
+
+### <a name="symptom"></a>Síntoma
+
+Puede experimentar cualquiera de los síntomas que se describen a continuación al intentar configurar las ACL de Windows con el Explorador de archivos en un recurso compartido de archivos montado:
+- Después de hacer clic en Editar permiso en la pestaña Seguridad, el Asistente para permisos no se carga. 
+- Al intentar seleccionar un nuevo usuario o grupo, la ubicación del dominio no muestra el dominio de AD DS correcto. 
+
+### <a name="solution"></a>Solución
+
+Se recomienda usar la [herramienta icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) para configurar los permisos de nivel de directorio o archivo como solución alternativa. 
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5b4986c24a1db61527e6a9ff7be249f189d6248
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106583"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248556"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Preguntas más frecuentes: preguntas generales sobre Azure Security Center
 
@@ -59,7 +59,7 @@ Las directivas de seguridad habilitadas en Azure Security Center generan la supe
 
 
 ## <a name="who-can-modify-a-security-policy"></a>¿Quién puede modificar una directiva de seguridad?
-Para modificar una directiva de seguridad, debe ser administrador de seguridad o propietario/colaborador de esa suscripción.
+Para modificar una directiva de seguridad, debe ser **Administrador de seguridad** o **Propietario** de esa suscripción.
 
 Para obtener información sobre cómo configurar una directiva de seguridad, consulte [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](tutorial-security-policy.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686935"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307935"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilación e implementación del servicio de administración de certificados de OPC Vault
 
@@ -22,7 +22,7 @@ En este artículo se explica cómo implementar el servicio de administración de
 > [!NOTE]
 > Para más información, consulte el [repositorio de OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service) de GitHub.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="install-required-software"></a>Instalación del software necesario
 
@@ -76,7 +76,7 @@ Un script de PowerShell proporciona una manera sencilla de implementar la aplica
    > En caso de problemas, consulte la sección "Solución de problemas con errores de implementación" más adelante en el artículo.
 
 8. Abra su explorador favorito y abra la página de la aplicación: `https://myResourceGroup.azurewebsites.net`.
-8. Dé a la aplicación web y al microservicio OPC Vault unos minutos para prepararse después de la implementación. Es posible que la página web principal se bloquee en el primer uso, durante hasta un minuto, hasta que obtenga las primeras respuestas.
+8. Dé a la aplicación web y al microservicio OPC Vault unos minutos para prepararse después de la implementación. Es posible que la página web principal deje de responder en el primer uso, durante hasta un minuto, hasta que obtenga las primeras respuestas.
 11. Para echar un vistazo a la API de Swagger, abra `https://myResourceGroup-service.azurewebsites.net`.
 13. Para iniciar un servidor GDS local con dotnet, inicie `.\myResourceGroup-gds.cmd`. Con Docker, inicie `.\myResourceGroup-dockergds.cmd`.
 

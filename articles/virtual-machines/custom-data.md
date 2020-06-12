@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759129"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259123"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Datos personalizados y Cloud-Init en Azure Virtual Machines
 
@@ -84,7 +84,7 @@ Para solucionar problemas de ejecución de datos personalizados, revise la [docu
 
 ## <a name="faq"></a>Preguntas más frecuentes
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>¿Se pueden actualizar los datos personalizados una vez creada la máquina virtual?
-En el caso de las máquinas virtuales, los datos personalizados en el modelo de máquina virtual no se pueden actualizar, pero, en el caso de VMSS, puede actualizar los datos personalizados de VMSS a través de la API de REST (esto no es aplicable a los clientes de la CLI de AZ o PS). Al actualizar los datos personalizados en el modelo de VMSS:
+En el caso de VM únicas, los datos personalizados del modelo de VM no se pueden actualizar, pero, en el caso de VMSS, puede actualizar los datos personalizados de VMSS a través de la [API de REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update) (esto no es aplicable a los clientes de la CLI de AZ o PS). Al actualizar los datos personalizados en el modelo de VMSS:
 * Las instancias existentes en VMSS no obtendrán los datos personalizados actualizados, solo hasta que se restablezcan.
 * Las instancias existentes en VMSS actualizadas no obtendrán los datos personalizados actualizados.
 * Las nuevas instancias recibirán los nuevos datos personalizados.

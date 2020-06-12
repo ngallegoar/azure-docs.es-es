@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f50c7e8dcb33fd2ed95829286aaf815926d9fb3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e05256d26da2c061559bcc8e50e9ecce6d8425a0
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157652"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248216"
 ---
 # <a name="export-your-application"></a>Exportación de la aplicación
-
-
 
 En este artículo se describe cómo los administradores de soluciones pueden exportar una aplicación IoT Central para poder reutilizarla.
 
@@ -93,4 +91,4 @@ Para actualizar la plantilla de aplicación, cambie el nombre o la descripción 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar las plantillas de aplicaciones, le sugerimos el paso siguiente para aprender a [administrar IoT Central desde Azure Portal](howto-manage-iot-central-from-portal.md).
+Ahora que ha aprendido a usar las plantillas de aplicaciones, el siguiente paso recomendado es aprender a [supervisar el estado general de los dispositivos conectados a una aplicación de IoT Central](howto-monitor-application-health.md).

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f68bbb4e73758e44e775e1c0c23ad007ca60aa2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161943"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016940"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperación ante desastres regional para clústeres de Azure Databricks
 
@@ -31,7 +31,7 @@ Una de las ventajas de esta arquitectura es que los usuarios pueden conectar Azu
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Cómo crear una topología de recuperación ante desastres regionales
 
-Como se observa en la descripción de la arquitectura anterior, hay una serie de componentes utilizados para una canalización de macrodatos con Azure Databricks: Azure Storage, Azure Database y otros orígenes de datos. Azure Databricks es el *proceso* para la canalización de macrodatos. Es *efímero* por naturaleza, lo que significa que mientras los datos siguen estando disponibles en Azure Storage, el *proceso* (clúster de Azure Databricks) se puede finalizar para que no tenga que pagar por proceso cuando no lo necesita. El *proceso* (Azure Databricks) y los orígenes de almacenamiento tienen que estar en la misma región para que los trabajos no sufran una latencia elevada.  
+Como se observa en la descripción de la arquitectura anterior, hay varios componentes que se utilizan para una canalización de macrodatos con Azure Databricks:  Azure Storage, Azure Database y otros orígenes de datos. Azure Databricks es el *proceso* para la canalización de macrodatos. Es *efímero* por naturaleza, lo que significa que mientras los datos siguen estando disponibles en Azure Storage, el *proceso* (clúster de Azure Databricks) se puede finalizar para que no tenga que pagar por proceso cuando no lo necesita. El *proceso* (Azure Databricks) y los orígenes de almacenamiento tienen que estar en la misma región para que los trabajos no sufran una latencia elevada.  
 
 Para crear su propia topología de recuperación ante desastres regional, siga estos requisitos:
 
@@ -150,7 +150,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
    clusters_list = []
    ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
 
-   for cluster_info in clusters_info_list: 
+   for cluster_info in clusters_info_list:
       if cluster_info != '':
          clusters_list.append(cluster_info.split(None, 1)[0])
 
@@ -176,7 +176,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
       cluster_json_keys = cluster_req_json.keys()
 
       #Don't migrate Job clusters
-      if cluster_req_json['cluster_source'] == u'JOB' : 
+      if cluster_req_json['cluster_source'] == u'JOB' :
          print ("Skipping this cluster as it is a Job cluster : " + cluster_req_json['cluster_id'] )
          print ("---------------------------------------------------------")
          continue
@@ -188,10 +188,10 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
       # Create the cluster, and store the mapping from old to new cluster ids
 
       #Create a temp file to store the current cluster info as JSON
-      strCurrentClusterFile = "tmp_cluster_info.json" 
+      strCurrentClusterFile = "tmp_cluster_info.json"
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
       fClusterJSONtmp = open(strCurrentClusterFile,"w+")
@@ -207,7 +207,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
       print ("---------------------------------------------------------")
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
    print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
@@ -308,7 +308,7 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
 
 ## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperación ante desastres del ecosistema de Azure
 
-Si usa otros servicios de Azure, asegúrese de implementar los procedimientos recomendados de la recuperación ante desastres también para ellos. Por ejemplo, si elige usar una instancia de Hive Metastore externa, debe tener en cuenta la recuperación ante desastres de [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md) o [Azure Database for MySQL ](../mysql/concepts-business-continuity.md). Para obtener información general acerca de la recuperación ante desastres, consulte [Error y recuperación ante desastres para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Si usa otros servicios de Azure, asegúrese de implementar los procedimientos recomendados de la recuperación ante desastres también para ellos. Por ejemplo, si elige usar una instancia de Hive Metastore externa, debe tener en cuenta la recuperación ante desastres de [Azure SQL Database](../azure-sql/database/disaster-recovery-guidance.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md) o [Azure Database for MySQL ](../mysql/concepts-business-continuity.md). Para obtener información general acerca de la recuperación ante desastres, consulte [Error y recuperación ante desastres para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

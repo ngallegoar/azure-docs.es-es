@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ead0041e26b5dff5cfd81b6fa02b7efff6e6e9d1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f8a6e0b9f5cc63f79dcd57765f30c527382d51ca
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831201"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193347"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -279,7 +279,7 @@ La solución [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tr
 |    5000   |   18 |  P4   |
 |    10 000  |   36 |  P6   |
 
-[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) permite la escritura en paralelo (operación conocida como herencia de particiones), pero no está habilitada de forma predeterminada. Sin embargo, habilitar la herencia de particiones, además de una consulta totalmente paralela, puede no ser suficiente para lograr un mayor rendimiento. El rendimiento de la escritura SQL depende significativamente del esquema de tabla y la configuración de base de datos de Azure SQL. En el artículo sobre [rendimiento de salida SQL](./stream-analytics-sql-output-perf.md) encontrará más detalles sobre los parámetros que ayudan a disparar el rendimiento de escritura. Tal y como se indica en el artículo [Salida de Azure Stream Analytics a Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), esta solución no escala linealmente como una canalización totalmente paralela más allá de 8 particiones, y puede que deba volver a particionar antes de la salida SQL (vea [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Se necesitan SKU Premium para dar cabida a tasas de E/S elevadas, así como a la sobrecarga de copias de seguridad de registros que sucede cada pocos minutos.
+[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) permite la escritura en paralelo (operación conocida como herencia de particiones), pero no está habilitada de forma predeterminada. Sin embargo, habilitar la herencia de particiones, además de una consulta totalmente paralela, puede no ser suficiente para lograr un mayor rendimiento. El rendimiento de la escritura SQL depende significativamente del esquema de tabla y la configuración de base de datos. En el artículo sobre [rendimiento de salida SQL](./stream-analytics-sql-output-perf.md) encontrará más detalles sobre los parámetros que ayudan a disparar el rendimiento de escritura. Tal y como se indica en el artículo [Salida de Azure Stream Analytics a Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), esta solución no escala linealmente como una canalización totalmente paralela más allá de 8 particiones, y puede que deba volver a particionar antes de la salida SQL (vea [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Se necesitan SKU Premium para dar cabida a tasas de E/S elevadas, así como a la sobrecarga de copias de seguridad de registros que sucede cada pocos minutos.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Tasa de ingesta (eventos por segundo) | Unidades de streaming | Recursos de salida  |

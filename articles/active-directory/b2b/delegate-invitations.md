@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fa2b5f17af466d5ea2b6e3ba942fafc24cc94713
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591291"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204266"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
@@ -48,6 +48,9 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
    - **Los invitados pueden invitar**: Para permitir que los invitados puedan invitar a otros usuarios, establezca esta directiva en **Sí**.
    - **Habilitar el código de acceso de un solo uso de correo electrónico para invitados (versión preliminar)** : Para obtener más información sobre la característica de código de acceso de un solo uso, consulte [Email one-time passcode authentication (preview)](one-time-passcode.md) [Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)].
    - **Restricciones de colaboración**: Para obtener más información sobre cómo permitir o bloquear invitaciones en dominios concretos, consulte [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios B2B procedentes de determinadas organizaciones).
+   
+   > [!NOTE]
+   > Si **Los miembros pueden invitar** está establecido en **No** y **Los administradores y los usuarios del rol de invitador de personas pueden invitar** está establecido en **Sí**, los usuarios del rol **Invitador de usuarios invitados** todavía podrán invitar a usuarios invitados.
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Asignación del rol de invitador de usuarios invitados a un usuario
 
@@ -66,5 +69,4 @@ Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 - [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Incorporación de usuarios de colaboración B2B sin invitación](add-user-without-invite.md)
 - [Incorporación de usuarios de colaboración B2B a un rol](add-guest-to-role.md)
-
 

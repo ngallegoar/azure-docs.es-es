@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657249"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235561"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificación y diagnóstico de problemas
 
@@ -161,7 +161,7 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 
 |Código numérico|Código de error|Solución propuesta|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|El usuario no es miembro de Azure Active Directory. Siga las instrucciones del [Centro de administración de Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para agregarlas.|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|El usuario no es miembro de Active Directory. Siga las instrucciones del [Centro de administración de Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para agregarlas.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|El host de sesión no está unido correctamente a Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Las conexiones no se pudieron establecer porque el host de sesión no está disponible. Compruebe el estado del host de sesión.|
 |-2146233088|ConnectionFailedClientDisconnect|Si ve este error con frecuencia, asegúrese de que el equipo del usuario está conectado a la red.|
@@ -172,6 +172,7 @@ En la siguiente tabla se enumeran los errores comunes que los administradores pu
 |8|ConnectionBroken|La conexión entre el cliente y la puerta de enlace o servidor se ha interrumpido. No es necesario hacer nada a menos que esto ocurra de forma inesperada.|
 |14|UnexpectedNetworkDisconnect|La conexión a la red se ha interrumpido. Pida al usuario que vuelva a conectarse.|
 |24|ReverseConnectFailed|La máquina virtual host no tiene línea de visión directa a la puerta de enlace de Escritorio remoto. Asegúrese de que la dirección IP de la puerta de enlace se puede resolver.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|El usuario no es miembro de Active Directory. Siga las instrucciones del [Centro de administración de Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para agregarlas.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

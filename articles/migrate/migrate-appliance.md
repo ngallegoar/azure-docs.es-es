@@ -3,12 +3,12 @@ title: Dispositivo con Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5995242f84738eca1b2be680e3f744e36831d78f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758952"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235339"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -206,11 +206,77 @@ Operaciones de escritura de discos por segundo | virtualDisk.numberWriteAveraged
 Rendimiento de lectura de NIC (MB por segundo) | net.received.average | Cálculo del tamaño de VM
 Rendimiento de escrituras de adaptadores de red (MB por segundo) | net.transmitted.average  |Cálculo del tamaño de VM
 
+
+### <a name="installed-apps-metadata"></a>Metadatos de las aplicaciones instaladas
+
+La detección de aplicaciones recopila los datos del sistema operativo y las aplicaciones instaladas.
+
+#### <a name="windows-vm-apps-data"></a>Datos de aplicaciones de VM Windows
+
+Estos son los datos de aplicaciones instaladas que el dispositivo recopila de cada VM habilitada para la detección de aplicaciones. Estos datos se envían a Azure.
+
+**Data** | **Ubicación del registro** | **Clave**
+--- | --- | ---
+Nombre de la aplicación  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Versión  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Proveedor  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publicador
+
+#### <a name="windows-vm-features-data"></a>Datos de características de VM Windows
+
+Estos son los datos de características que el dispositivo recopila de cada VM habilitada para la detección de aplicaciones. Estos datos se envían a Azure.
+
+**Data**  | **Cmdlet de PowerShell** | **Propiedad**
+--- | --- | ---
+Nombre  | Get-WindowsFeature  | Nombre
+Tipo de característica | Get-WindowsFeature  | FeatureType
+Parent  | Get-WindowsFeature  | Parent
+
+#### <a name="windows-vm-sql-server-metadata"></a>Metadatos de SQL Server para la VM Windows
+
+Estos son los metadatos de SQL Server que el dispositivo recopila de las VM que ejecutan Microsoft SQL Server habilitadas para la detección de aplicaciones. Estos datos se envían a Azure.
+
+**Data**  | **Ubicación del registro**  | **Clave**
+--- | --- | ---
+Nombre  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Edición  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Edición 
+Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | SP
+Versión  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Versión 
+
+#### <a name="windows-vm-operating-system-data"></a>Datos del sistema operativo de VM Windows
+
+Estos son los datos del sistema operativo que el dispositivo recopila de cada VM habilitada para la detección de aplicaciones. Estos datos se envían a Azure.
+
+data  | Clase WMI  | Propiedad de clase WMI
+--- | --- | ---
+Nombre  | Win32_operatingsystem  | Caption
+Versión  | Win32_operatingsystem  | Versión
+Architecture  | Win32_operatingsystem  | OSArchitecture
+
+#### <a name="linux-vm-apps-data"></a>Datos de aplicaciones de VM Linux
+
+Estos son los datos de aplicaciones instaladas que el dispositivo recopila de cada VM habilitada para la detección de aplicaciones. En función del sistema operativo de la VM, se ejecutan uno o varios comandos. Estos datos se envían a Azure.
+
+data  | Get-Help
+--- | --- 
+Nombre | rpm, dpkg-query, snap
+Versión | rpm, dpkg-query, snap
+Proveedor | rpm, dpkg-query, snap
+
+#### <a name="linux-vm-operating-system-data"></a>Datos del sistema operativo de VM Linux
+
+Estos son los datos del sistema operativo que el dispositivo recopila de cada VM habilitada para la detección de aplicaciones. Estos datos se envían a Azure.
+
+**Data**  | **Comando** 
+--- | --- | ---
+Nombre <br/> version | Recopilado de uno o varios de los archivos siguientes:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Architecture | uname
+
+
 ### <a name="app-dependencies-metadata"></a>Metadatos de dependencias de la aplicación
 
 El análisis de dependencias sin agente recopila datos de conexión y de proceso.
 
-#### <a name="connection-data"></a>Datos de conexión
+#### <a name="windows-vm-app-dependencies-data"></a>Datos de dependencias de aplicaciones de VM Windows
 
 Estos son los datos de conexión que el dispositivo recopila de cada máquina virtual habilitada para el análisis de dependencias sin agente. Estos datos se envían a Azure.
 
@@ -224,7 +290,7 @@ Estado de conexión de TCP | netstat
 Identificador del proceso | netstat
 Número de conexiones activas | netstat
 
-#### <a name="process-data"></a>Datos de proceso
+
 Estos son los datos de proceso que el dispositivo recopila de cada máquina virtual habilitada para el análisis de dependencias sin agente. Estos datos se envían a Azure.
 
 **Data** | **Clase WMI** | **Propiedad de clase WMI**
@@ -233,7 +299,7 @@ Nombre del proceso | Win32_Process | ExecutablePath _s
 Argumentos de procesos | Win32_Process | CommandLine
 Nombre de la aplicación | Win32_Process | Parámetro VersionInfo.ProductName de la propiedad ExecutablePath
 
-#### <a name="linux-vm-data"></a>Datos de la máquina virtual Linux
+#### <a name="linux-vm-app-dependencies-data"></a>Datos de dependencias de aplicaciones de VM Linux
 
 Estos son los datos de conexión y de proceso que el dispositivo recopila de cada máquina virtual Linux habilitada para el análisis de dependencias sin agente. Estos datos se envían a Azure.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836420"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197038"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
@@ -77,7 +77,7 @@ Para resolver el problema:
     - Vaya a la hoja Discos de la máquina replicada afectada y copie el nombre del disco de réplica.
     - Vaya a este disco administrado de réplica.
     - Es posible que vea un mensaje emergente en la hoja Información general que indica que se ha generado una dirección URL de SAS. Haga clic en este mensaje emergente y cancele la exportación. Omita este paso si no aparece el mensaje emergente.
-    - En cuanto se revoque la dirección URL de SAS, vaya a la hoja Configuración del disco administrado y aumente el tamaño para que ASR admita la tasa de renovación observada en el disco de origen.
+    - En cuanto se revoque la dirección URL de SAS, vaya a la hoja Configuración del disco administrado y aumente el tamaño para que Azure Site Recovery admita la tasa de renovación observada en el disco de origen.
 - Si la renovación observada es temporal, espere unas horas a que la carga de datos pendientes se ponga al día y se creen puntos de recuperación.
 - Si el disco contiene datos no críticos como registros temporales, datos de prueba, etc., considere la posibilidad de mover estos datos a otro lugar o excluir completamente este disco de la replicación.
 - Si el problema persiste, use [Deployment Planner](site-recovery-deployment-planner.md#overview) de Site Recovery como ayuda para planear la replicación.
@@ -146,6 +146,8 @@ A continuación se enumeran algunos de los problemas más comunes
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Incidencia conocida en SQL Server 2016 y 2017
 **Solución:** Consulte el [artículo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) de KB
 
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Causa 4: La coherencia de aplicaciones no está habilitada en servidores Linux
+**Solución:** Azure Site Recovery para el sistema operativo Linux admite scripts personalizados de aplicaciones para la coherencia de aplicaciones. El agente de movilidad de Azure Site Recovery usará el script personalizado con opciones previas y posteriores para la coherencia de aplicaciones. [Aquí](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) se indican los pasos necesarios para habilitarlo.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Más causas debidas a problemas relacionados con VSS:
 
@@ -162,12 +164,12 @@ En el ejemplo anterior, **2147754994** es el código de error que indica el erro
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS Writer no está instalado - Error 2147221164
 
-*Solución:* Para generar la etiqueta de coherencia de la aplicación, Azure Site Recovery usa Microsoft Volume Shadow Copy Service (VSS). Instala un proveedor de VSS para su funcionamiento y para realizar instantáneas de la coherencia de las aplicaciones. Este proveedor de VSS se instala como un servicio. En caso de que el servicio del proveedor de VSS no esté instalado, la creación de instantáneas de coherencia de las aplicaciones generará el error 0x80040154 "Clase no registrada". </br>
+*Solución:* Para generar la etiqueta de coherencia de la aplicación, Azure Site Recovery usa Microsoft Volume Shadow Copy Service (VSS). Instala un proveedor de VSS para su funcionamiento y para realizar instantáneas de la coherencia de las aplicaciones. Este proveedor de VSS se instala como un servicio. En caso de que el servicio del proveedor de VSS no esté instalado, la creación de instantáneas de coherencia de las aplicaciones genera el id. de error 0x80040154 "Clase no registrada". </br>
 Consulte el [artículo para solucionar problemas con la instalación de VSS Writer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS Writer está deshabilitado - Error 2147943458
 
-**Solución:** Para generar la etiqueta de coherencia de la aplicación, Azure Site Recovery usa Microsoft Volume Shadow Copy Service (VSS). Instala un proveedor de VSS para su funcionamiento y para realizar instantáneas de la coherencia de las aplicaciones. Este proveedor de VSS se instala como un servicio. En caso de que el servicio del proveedor de VSS esté deshabilitado, la creación de instantáneas de coherencia de las aplicaciones generará el error: "El servicio especificado está deshabilitado y no se puede iniciar (0x80070422)". </br>
+**Solución:** Para generar la etiqueta de coherencia de la aplicación, Azure Site Recovery usa Microsoft Volume Shadow Copy Service (VSS). Instala un proveedor de VSS para su funcionamiento y para realizar instantáneas de la coherencia de las aplicaciones. Este proveedor de VSS se instala como un servicio. En caso de que el servicio del proveedor de VSS esté deshabilitado, la creación de instantáneas de coherencia de las aplicaciones generará el id. de error "El servicio especificado está deshabilitado y no se puede iniciar (0x80070422)". </br>
 
 - Si VSS está deshabilitado:
     - Compruebe que el tipo de inicio del servicio de proveedor de VSS está establecido en **Automático**.

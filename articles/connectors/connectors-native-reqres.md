@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 tags: connectors
-ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714974"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249168"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -39,7 +39,7 @@ El desencadenador de solicitud admite [Azure Active Directory Open Authenticatio
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
@@ -158,6 +158,14 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
       }
       ```
 
+1. Para comprobar que la llamada entrante tiene un cuerpo de solicitud que coincide con el esquema especificado, siga estos pasos:
+
+   1. En la barra de título del desencadenador de solicitud, seleccione el botón de puntos suspensivos ( **...** ).
+   
+   1. En la configuración del desencadenador, active **Validación de esquema** y seleccione **Listo**.
+   
+      Si el cuerpo de la solicitud de la llamada entrante no coincide con el esquema, el desencadenador devuelve un error `HTTP 400 Bad Request`.
+
 1. Para especificar propiedades adicionales, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera agregar.
 
    | Nombre de propiedad | Nombre de la propiedad JSON | Obligatorio | Descripción |
@@ -185,6 +193,9 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
    Este paso genera la URL que se usará para enviar la solicitud que desencadena la aplicación lógica. Para copiar esta URL, seleccione el icono de copia que se encuentra junto a la URL.
 
    ![URL que se usa para desencadenar la aplicación lógica](./media/connectors-native-reqres/generated-url.png)
+
+   > [!NOTE]
+   > Si quiere incluir el símbolo de hash o de almohadilla ( **#** ) en el URI al hacer una llamada al desencadenador de solicitud, use mejor esta versión codificada: `%25%23`
 
 1. Para desencadenar la aplicación lógica, envíe una solicitud HTTP POST a la URL generada.
 

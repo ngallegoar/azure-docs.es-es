@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a711fa522f6b105eb98d57d4f63afb90be255b3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230428"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995044"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -58,8 +58,8 @@ Dependiendo de lo que quiera revisar, creará la revisión de acceso en Revision
 | --- | --- | --- | --- |
 | Miembros del grupo de seguridad</br>Miembros del grupo de Office | Revisores especificados</br>Propietarios del grupo</br>Autorrevisión | Revisiones de acceso de Azure AD</br>Grupos de Azure AD | Panel de acceso |
 | Asignados a una aplicación conectada | Revisores especificados</br>Autorrevisión | Revisiones de acceso de Azure AD</br>Aplicaciones de empresa de Azure AD (en versión preliminar) | Panel de acceso |
-| Rol de Azure AD | Revisores especificados</br>Autorrevisión | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal de Azure |
-| Rol de recursos de Azure | Revisores especificados</br>Autorrevisión | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal de Azure |
+| Rol de Azure AD | Revisores especificados</br>Autorrevisión | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Rol de recursos de Azure | Revisores especificados</br>Autorrevisión | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 
 ## <a name="create-access-reviews"></a>Crear revisiones del acceso
@@ -78,6 +78,12 @@ Para crear una revisión de acceso, siga estos pasos:
 
    ![Página de inicio de revisiones de acceso](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### <a name="creating-access-review-on-a-group-that-can-be-assigned-to-azure-ad-role"></a>Creación de una revisión de acceso en un grupo que se puede asignar al rol de Azure AD
+Si está en la versión más reciente de las revisiones de acceso (se dirige a sus revisores a **Mi acceso** de forma predeterminada), solo el administrador global puede crear una revisión de acceso en grupos asignables del rol. Sin embargo, si está en una versión anterior de las revisiones de acceso (se dirige a sus revisores al **Panel de acceso** de forma predeterminada), tanto el administrador global como el administrador de usuarios pueden crear una revisión de acceso en grupos asignables del rol.  
+
+La nueva experiencia se implementará en todos los clientes el 1 de agosto de 2020, pero si desea actualizar antes, realice una solicitud en la página de las [revisiones de acceso de Azure AD sobre la experiencia del revisor actualizada en la suscripción a Mi acceso](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[Obtenga más información sobre la asignación de grupos a los roles de Azure AD](https://go.microsoft.com/fwlink/?linkid=2103037).
 
 ## <a name="learn-about-access-reviews"></a>Más información sobre las revisiones de acceso
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236520"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195978"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -77,11 +77,11 @@ Copiar actividad en Data Factory realiza una copia de los datos de un almacén d
 ### <a name="supported-file-formats"></a>Formatos de archivos admitidos
 Si desea usar la actividad de copia para **copiar los archivos tal cual** entre los dos almacenes de datos basados en archivos, puede omitir la [sección de formato](data-factory-create-datasets.md) en las definiciones de conjunto de datos de entrada y salida. Los datos se copian de forma eficaz sin procesos de serialización y deserialización.
 
-La actividad de copia también lee y escribe en archivos de formatos especificados: (**texto, JSON, Avro, ORC y Parquet**) y admite códecs de compresión (**GZip, Deflate, BZip2 y ZipDeflate**). Consulte [Formatos de archivo y de compresión admitidos](data-factory-supported-file-and-compression-formats.md) para más información.
+La actividad de copia también lee y escribe en archivos de formatos especificados: **texto, JSON, Avro, ORC y Parquet** y admite códecs de compresión **GZip, Deflate, BZip2 y ZipDeflate**. Consulte [Formatos de archivo y de compresión admitidos](data-factory-supported-file-and-compression-formats.md) para más información.
 
 Por ejemplo, puede realizar las siguientes actividades de copia:
 
-* Copiar datos en el SQL Server local y escribirlos en Azure Data Lake Store en formato ORC.
+* Copiar datos en una base de datos de SQL Server local y escribirlos en Azure Data Lake Store en formato ORC.
 * Copiar archivos en formato de texto (CSV) desde el sistema de archivos local y escribirlos en Blob de Azure en formato Avro.
 * Copiar archivos comprimidos del sistema de archivos local y, a continuación, descomprimirlos en Azure Data Lake Store.
 * Copiar datos en formato de texto comprimido GZip (CSV) desde Azure Blob Storage y escribirlos en Azure SQL Database.
@@ -107,8 +107,8 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | Brasil | Sur de Brasil | Sur de Brasil |
 | Europa | Norte de Europa | Norte de Europa |
 | &nbsp; | Oeste de Europa | Oeste de Europa |
-| Reino Unido | Oeste de Reino Unido | Sur de Reino Unido 2 |
-| &nbsp; | Sur de Reino Unido 2 | Sur de Reino Unido 2 |
+| Reino Unido | Oeste de Reino Unido | Sur de Reino Unido |
+| &nbsp; | Sur de Reino Unido | Sur de Reino Unido |
 | Asia Pacífico | Sudeste de Asia | Sudeste de Asia |
 | &nbsp; | Este de Asia | Sudeste de Asia |
 | Australia | Este de Australia | Este de Australia |

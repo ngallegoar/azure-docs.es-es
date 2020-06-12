@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758816"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022425"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigación de Z-fighting
 
-Cuando se superponen dos superficies, no queda claro cuál se debe representar encima de la otra. El resultado varía incluso en cada píxel, lo que resulta en artefactos dependientes de la vista. Por lo tanto, cuando la cámara o la malla se mueven, estos patrones parpadean bastante. Este artefacto se denomina *Z-fighting*. En el caso de las aplicaciones de AR y VR, el problema se intensifica porque los cascos de realidad virtual siempre se mueven de forma natural. Para evitar la incomodidad del visor, Azure Remote Rendering dispone de una funcionalidad de mitigación de Z-fighting.
+Cuando se superponen dos superficies, no queda claro cuál se debe representar encima de la otra. El resultado varía incluso en cada píxel, lo que resulta en artefactos dependientes de la vista de cámara. Por lo tanto, cuando la cámara o la malla se mueven, estos patrones parpadean bastante. Este artefacto se denomina *Z-fighting*. En el caso de las aplicaciones de AR y VR, el problema se intensifica porque los cascos de realidad virtual siempre se mueven de forma natural. Para evitar la incomodidad del visor, Azure Remote Rendering dispone de una funcionalidad de mitigación de Z-fighting.
 
 ## <a name="z-fighting-mitigation-modes"></a>Modos de mitigación de Z-fighting
 

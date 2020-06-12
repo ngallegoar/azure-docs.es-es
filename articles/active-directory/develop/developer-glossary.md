@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161731"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308633"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glosario para desarrolladores de la plataforma de identidad de Microsoft
 
@@ -202,7 +202,7 @@ Una instancia de un directorio de Azure AD se conoce como inquilino de Azure AD.
 * Autenticación de cuentas de usuario y aplicaciones registradas
 * Puntos de conexión de REST necesarios para admitir diversos protocolos, como OAuth2 y SAML, incluidos el [punto de conexión de autorización](#authorization-endpoint), el [punto de conexión de token](#token-endpoint) y el punto de conexión "común" utilizado por [aplicaciones multiinquilino](#multi-tenant-application).
 
-Los inquilinos de Azure AD se crean/asocian con suscripciones de Azure y Office 365 durante el inicio de sesión, lo que proporciona características de Administración de identidad y acceso para la suscripción. Los administradores de la suscripción de Azure también pueden crear inquilinos de Azure AD adicionales través de Azure Portal. Consulte [Obtención de un inquilino de Azure Active Directory][AAD-How-To-Tenant] para más información sobre las diversas maneras de acceder a un inquilino. Consulte [Asociación de las suscripciones de Azure con Azure Active Directory][AAD-How-Subscriptions-Assoc] para más información sobre la relación entre las suscripciones y un inquilino de Azure AD.
+Los inquilinos de Azure AD se crean/asocian con suscripciones de Azure y Office 365 durante el inicio de sesión, lo que proporciona características de Administración de identidad y acceso para la suscripción. Los administradores de la suscripción de Azure también pueden crear inquilinos de Azure AD adicionales través de Azure Portal. Consulte [Obtención de un inquilino de Azure Active Directory][AAD-How-To-Tenant] para más información sobre las diversas maneras de acceder a un inquilino. Consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory][AAD-How-Subscriptions-Assoc] para obtener más información sobre la relación entre las suscripciones y un inquilino de Azure AD.
 
 ## <a name="token-endpoint"></a>punto de conexión de token
 

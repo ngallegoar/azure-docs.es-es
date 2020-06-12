@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190150"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295429"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
 
@@ -119,9 +119,11 @@ En este flujo, la aplicación ejecuta [directivas](user-flow-overview.md) y reci
 
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la presencia de un usuario también necesitan un modo de acceder a los recursos protegidos, como las API web. Estas aplicaciones pueden autenticar y obtener tokens con la identidad de la aplicación (en lugar de una identidad delegada del usuario) mediante el flujo de credenciales de cliente de OAuth 2.0. El flujo de credenciales de cliente no es igual al flujo en nombre de y este no se debe usar para la autenticación de servidor a servidor.
 
-Si bien Azure AD B2C no admite actualmente el flujo de credenciales de cliente, puede configurar el flujo de credenciales de cliente mediante Azure AD. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.  El flujo de credenciales de cliente se admite con la funcionalidad de Azure AD que tiene el inquilino de Azure AD B2C.
+Aunque actualmente el flujo de concesión de credenciales de cliente de OAuth 2.0 no es compatible directamente con el servicio de autenticación de Azure AD B2C, puede configurar el flujo de credenciales de cliente mediante Azure AD y el punto de conexión de token o la plataforma de identidad de Microsoft para una aplicación en su inquilino de Azure AD B2C. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.
 
 Para configurar el flujo de credenciales de cliente, consulte [Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Una autenticación correcta genera la recepción de un token con formato para que Azure AD lo pueda usar tal como se describe en [Referencia de tokens de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+
+Para obtener instrucciones sobre cómo registrar una aplicación de administración, consulte [Administrar Azure AD B2C con Microsoft Graph](microsoft-graph-get-started.md).
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Cadenas de la API web (flujo en nombre de)
 

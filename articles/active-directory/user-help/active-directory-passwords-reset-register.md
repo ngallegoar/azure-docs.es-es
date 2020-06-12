@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 3deb59b04f3c0ba90e270bc064e3ece3c21229b3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739613"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266107"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registro de la información del método de verificación para restablecer la propia contraseña
 
@@ -26,7 +26,7 @@ Si alguna vez ha olvidado su contraseña en el trabajo o en el centro educativo,
 Para poder registrar sus datos y restablecer su contraseña es preciso que el administrador active esta característica. Si no ve la opción **He olvidado mi contraseña**, significa que el administrador no ha activado la característica para su organización. Si cree que no es correcto, solicite ayuda al departamento de soporte técnico.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan utilizar el registro para el autoservicio de restablecimiento de contraseña. Esto significa que podrá restablecer su propia contraseña profesional o educativa (por ejemplo, alain@contoso.com), sin necesidad de que le ayude el administrador. Si es un administrador que desea obtener información acerca de cómo activar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte [Implementar el autoservicio de restablecimiento de contraseña de Azure AD y otros artículos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artículo está destinado a los usuarios que intentan utilizar el registro para el autoservicio de restablecimiento de contraseña. Esto significa que podrá restablecer su contraseña profesional o educativa (por ejemplo, alain@contoso.com), sin necesidad de pedir ayuda al administrador. Si es un administrador que desea obtener información acerca de cómo activar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte [Implementar el autoservicio de restablecimiento de contraseña de Azure AD y otros artículos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Configuración del método de verificación de restablecimiento de contraseña
 

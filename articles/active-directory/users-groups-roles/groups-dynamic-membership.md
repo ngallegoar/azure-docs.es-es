@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bbdf4c57e1bf6e7f3f581b9a6186567e10743d52
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744687"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221171"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -384,7 +384,7 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  deviceManufacturer | Cualquier valor de cadena | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Cualquier valor de cadena | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, empresa, desconocido | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Perfil de inscripción de dispositivos de Apple, inscripción de dispositivos: identificadores de dispositivos corporativos (Android: quiosco) o nombre de perfil de Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Nombre de perfil de inscripción de dispositivo de Apple, nombre de perfil de inscripción de dispositivo dedicado de Android Enterprise o nombre de perfil de Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móviles)<br>PC (para equipos administrados por el agente de PC de Intune) | (device.managementType -eq "MDM")
  deviceId | un id. de dispositivo de Azure AD válido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857775"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169226"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -26,8 +26,6 @@ Azure Storage admite la conmutación por error de la cuenta en cuentas de almace
 La conmutación por error de la cuenta está disponible para los tipos de cuenta de uso general v1 y v2 y de Blob Storage con implementaciones de Azure Resource Manager. La conmutación por error de la cuenta se admite para todas las regiones públicas, pero no está disponible en las nubes soberanas o nacionales en este momento.
 
 En este artículo se describen los conceptos y el proceso que implica la conmutación por error de una cuenta y se analiza cómo preparar la cuenta de almacenamiento para la recuperación con el menor impacto en el cliente. Para aprender a iniciar la conmutación por error de una cuenta en Azure Portal o PowerShell, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta](storage-initiate-account-failover.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -104,6 +102,8 @@ La propiedad **Last Sync Time** indica la hora más reciente en que se garantiza
 
 Como procedimiento recomendado, diseñe la aplicación para que pueda usar la hora de la última sincronización para evaluar la pérdida de datos esperada. Por ejemplo, si registra todas las operaciones de escritura, puede comparar la hora de las últimas operaciones de escritura con la hora de la última sincronización para determinar las escrituras que no se sincronizaron en la región secundaria.
 
+Para obtener más información sobre cómo comprobar la propiedad **Hora de la última actualización**, consulte [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
+
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Precaución al conmutar por recuperación en la región primaria original
 
 Después de conmutar por error desde la región primaria a la secundaria, la cuenta de almacenamiento se configura con redundancia local en la nueva región primaria. Después, puede volver a configurar la cuenta para la redundancia geográfica. Cuando la cuenta se vuelve a configurar para usar la redundancia geográfica después de una conmutación por error, la nueva región primaria empieza de inmediato a copiar los datos en la nueva región secundaria, que antes de la conmutación por error original era la primaria. Sin embargo, puede pasar un tiempo antes de que los datos existentes en la región primaria se copien totalmente en la nueva región secundaria.
@@ -175,4 +175,5 @@ En casos extremos en los que se pierde una región debido a un desastre importan
 
 - [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md)
 - [Iniciación de la conmutación por error de una cuenta](storage-initiate-account-failover.md)
+- [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md)
 - [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md)

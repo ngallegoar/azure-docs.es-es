@@ -4,12 +4,12 @@ description: Copia de seguridad y restauración de bases de datos SQL en Azure V
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 9608b02869b1d41d901ec77a42cfaa6d882040e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21c8ea5ff50cc78b60ccb3b09c953b184757f3c9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131826"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84246992"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure con PowerShell
 
@@ -335,7 +335,7 @@ En el caso de la restauración de una base de datos SQL, se admiten los siguient
 * Restauración de la base de datos SQL como una base de datos nueva en la otra instancia SQL de otra máquina virtual SQL: AlternateWorkloadRestore
 * Restaurar la base de datos de SQL como archivos bak.: RestoreAsFiles
 
-Después de capturar el punto de recuperación correspondiente (distinto o registro a un momento dado), utilice el cmdlet [Get AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) de PS para capturar el objeto de configuración de recuperación según el plan de recuperación deseado.
+Después de capturar el punto de recuperación correspondiente (distinto o registro (punto en el tiempo)), use el cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) de PS para capturar el objeto de configuración de recuperación según el plan de recuperación deseado.
 
 #### <a name="original-workload-restore"></a>Restauración de carga de trabajo original
 

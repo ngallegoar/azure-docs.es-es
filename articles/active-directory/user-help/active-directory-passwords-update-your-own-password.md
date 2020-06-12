@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828413"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266124"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 
 Si alguna vez ha olvidado su contraseña en el trabajo o en el centro educativo, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y [restablecer su contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register), es preciso que el administrador active esta característica.
 
-Si conoce la contraseña pero desea cambiarla, consulte las secciones [Para cambiar la contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de este artículo.
+Si conoce la contraseña, pero desea cambiarla, consulte las secciones [Para cambiar la contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de este artículo.
 
 >[!Important]
 >Este artículo está destinado a los usuarios que quieren usar el restablecimiento de contraseñas de cuentas profesionales o educativas olvidadas o desconocidas. Si es un administrador que desea obtener información acerca de cómo activar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte [Implementar el autoservicio de restablecimiento de contraseña de Azure AD y otros artículos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
@@ -103,7 +103,7 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
      Si todavía no puede acceder a su cuenta, debe ponerse en contacto con el administrador de la organización para obtener más ayuda.
 
-Después de restablecer la contraseña, puede que reciba un correo electrónico de confirmación que procede de una cuenta como "Microsoft en nombre de \<*su_organización*>". Si recibe un correo electrónico similar pero no ha restablecido la contraseña recientemente, póngase en contacto de inmediato con el administrador de la organización.
+Después de restablecer la contraseña, puede que reciba un correo electrónico de confirmación que procede de una cuenta como "Microsoft en nombre de \<*your_organization*>". Si recibe un correo electrónico similar pero no ha restablecido la contraseña recientemente, póngase en contacto de inmediato con el administrador de la organización.
 
 ## <a name="how-to-change-your-password"></a>Cambio de la contraseña
 

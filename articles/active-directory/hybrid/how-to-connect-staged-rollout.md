@@ -6,20 +6,20 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 886a25fbf78f6071db55c02517621146b507f4ac
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644165"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221276"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
-Use una estrategia de lanzamiento preconfigurado para migrar de la autenticación federada a la autenticación en la nube. En este artículo se describe cómo realizar el cambio. Sin embargo, antes de comenzar el lanzamiento preconfigurado, debe tener en cuenta las consecuencias en caso de que se cumplan las condiciones siguientes:
+Si usa un enfoque de implementación por fases, puede evitar una migración total del dominio completo.  Esto le permite probar de forma selectiva grupos de usuarios con funcionalidades de autenticación en la nube, como Azure Multi-Factor Authentication (MFA), Acceso condicional, Identity Protection para credenciales filtradas, Identity Governance, etc.  En este artículo se describe cómo realizar el cambio. Sin embargo, antes de comenzar el lanzamiento preconfigurado, debe tener en cuenta las consecuencias en caso de que se cumplan las condiciones siguientes:
     
 -  Usa actualmente un servidor de Multi-Factor Authentication local. 
 -  Usa tarjetas inteligentes para la autenticación. 
@@ -33,13 +33,13 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 -   Tiene un inquilino de Azure Active Directory (Azure AD) con dominios federados.
 
 -   Ha decidido pasar a una de estas dos opciones:
-    - **Opción A** - *sincronización de hash de contraseña (sincronización)*  + *inicio de sesión único de conexión directa (SSO)*
-    - **Opción B** - *autenticación de paso a través* + *inicio de sesión único de conexión directa*
+    - **Opción A** - *sincronización de hash de contraseña (sincronización)*  + *inicio de sesión único de conexión directa (SSO)* .  Para obtener más información, consulte [¿Qué es la sincronización de hash de contraseñas?](whatis-phs.md) y [¿Qué es el inicio de sesión único de conexión directa?](how-to-connect-sso.md)
+    - **Opción B** - *autenticación de paso a través* + *inicio de sesión único de conexión directa*  Para más información, consulte [¿Qué es la autenticación de paso a través?](how-to-connect-pta.md)  
     
     Aunque el *inicio de sesión único de conexión directa* es opcional, se recomienda habilitarlo para lograr una experiencia de inicio de sesión silenciosa para los usuarios que usan máquinas unidas a un dominio desde dentro de la red corporativa.
 
@@ -76,12 +76,14 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
     - Los grupos dinámicos *no se admiten* en el lanzamiento preconfigurado.
     - Los objetos de contacto dentro del grupo impedirán que se agregue el grupo.
 
-- Sigue siendo necesario realizar el traslado final de la autenticación federada a la nube mediante Azure AD Connect o PowerShell. El lanzamiento preconfigurado no cambia de dominio federado a administrado.
+- Sigue siendo necesario realizar el traslado final de la autenticación federada a la nube mediante Azure AD Connect o PowerShell. El lanzamiento preconfigurado no cambia de dominio federado a administrado.  Para obtener más información sobre la migración total de dominios, consulte [Migración de la federación a la sincronización de hash de contraseña](plan-migrate-adfs-password-hash-sync.md) y [Migración de la federación a la autenticación de paso a través](plan-migrate-adfs-pass-through-authentication.md).
+
+
 
 - La primera vez que se agrega un grupo de seguridad para el lanzamiento preconfigurado, está limitado a 200 usuarios para evitar que se agote el tiempo de espera de la experiencia de usuario. Después de agregar el grupo, puede agregarle más usuarios directamente, según sea necesario.
 
 >[!NOTE]
-> Dado que los puntos de conexión de inquilinos no envían sugerencias de inicio de sesión, no se admiten para la implementación por fases.  Las aplicaciones SAML usan los puntos de conexión de inquilinos y tampoco son compatibles con el lanzamiento de ensayo.
+> Dado que los puntos de conexión de inquilinos no envían sugerencias de inicio de sesión, no se admiten para la implementación por fases. 
 
 ## <a name="get-started-with-staged-rollout"></a>Introducción al lanzamiento preconfigurado
 

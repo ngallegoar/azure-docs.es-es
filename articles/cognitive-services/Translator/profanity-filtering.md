@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 864f6a6d92306c40713f66b526c8a8df1683d3c4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7ebfe766e6362a3f62e70db8bf2dcae370aceee3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586803"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996166"
 ---
 # <a name="add-profanity-filtering-with-the-translator"></a>Agregar el filtrado de blasfemias con Traductor
 
@@ -23,7 +23,7 @@ Normalmente, el servicio de Translator conserva las blasfemias que están presen
 
 Si quiere evitar obtener blasfemias en la traducción (independientemente de su presencia en el texto de origen), use la opción de filtrado de blasfemias disponible en el método Translate(). Esta opción le permite elegir si quiere ver las palabras soeces eliminadas o marcadas con etiquetas adecuadas, o bien si no quiere realizar ninguna acción.
 
-El método Translate() toma el parámetro "options", que contiene el nuevo elemento "ProfanityAction". Los valores aceptados de ProfanityAction son "NoAction", "Marked" y "Deleted".
+El método Translate() toma el parámetro "options", que contiene el elemento nuevo "ProfanityAction". Los valores aceptados de ProfanityAction son "NoAction", "Marked" y "Deleted".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Valores aceptados de ProfanityAction y ejemplos
 |Valor de ProfanityAction | Acción | Ejemplo: Origen: japonés | Ejemplo: Destino: inglés|

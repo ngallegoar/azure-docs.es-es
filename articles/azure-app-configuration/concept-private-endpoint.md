@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: f18672b9e3a368a833fc8cba279d748dfe3c2a9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f39c9cf159f8ce5068cf10460ba6f195baa7806
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366775"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205065"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Uso de puntos de conexión privados en Azure App Configuration
 
@@ -47,17 +47,13 @@ Al crear un punto de conexión privado, debe especificar el almacén de App Conf
 Azure se basa en la resolución de DNS para enrutar las conexiones desde la red virtual al almacén de configuración a través de un vínculo privado. Puede buscar rápidamente cadenas de conexiones en Azure Portal seleccionando el almacén de App Configuration y, después, **Configuración** > **Claves de acceso**.  
 
 > [!IMPORTANT]
-> Use la misma cadena de conexión para conectarse al almacén de App Configuration con puntos de conexión privados que usaría con un punto de conexión público. No se conecte a la cuenta de almacenamiento mediante la dirección URL de su subdominio `privatelink`.
+> Use la misma cadena de conexión para conectarse al almacén de App Configuration con puntos de conexión privados que usaría con un punto de conexión público. No se conecte al almacén mediante la dirección URL de su subdominio `privatelink`.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
 
 Al crear un punto de conexión privado, el registro del recurso CNAME de DNS del almacén de configuración se actualiza a un alias de un subdominio con el prefijo `privatelink`. Azure también crea una [zona DNS privada](../dns/private-dns-overview.md), que se corresponde con el subdominio `privatelink`, con los registros de recursos A de DNS para los puntos de conexión privados.
 
-Cuando se resuelve la dirección URL del punto de conexión desde fuera de la red virtual, se resuelve en el punto de conexión público del almacén. Cuando se resuelve desde la red virtual que hospeda el punto de conexión privado, la dirección URL del punto de conexión se resuelve en el punto de conexión privado.
-
-Puede controlar el acceso de los clientes de fuera de la red virtual a través del punto de conexión público mediante el servicio Azure Firewall.
-
-Este enfoque permite el acceso al almacén **mediante la misma cadena de conexión** para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
+Cuando se resuelve la dirección URL del punto de conexión en la red virtual que hospeda el punto de conexión privado, lo hace en el punto de conexión privado del almacén. Cuando se resuelve desde fuera de la red virtual, lo hace en el punto de conexión público. Cuando se crea un punto de conexión privado, el punto de conexión público se deshabilita.
 
 Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el nombre de dominio completo (FQDN) del punto de conexión de servicio en la dirección IP del punto de conexión privado. Configure el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configure los registros A para `AppConfigInstanceA.privatelink.azconfig.io` con la dirección IP del punto de conexión privado.
 

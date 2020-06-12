@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d956a9c93280ac22c4707f22c0769853f0f36c83
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929339"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015155"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -38,7 +38,7 @@ De forma predeterminada, HDInsight crea una tienda de metadatos con cada tipo de
 
 * No puede compartir la metastore predeterminada con otros clústeres.
 
-* La tienda de metadatos predeterminada utiliza una base de datos Azure SQL DB básica, que tiene un límite de cinco DTU (unidad de transacción de base de datos).
+* El metastore predeterminado utiliza la instancia básica de Azure SQL Database, que tiene un límite de cinco DTU (unidades de procesamiento de base de datos).
 Este metastore predeterminado se utiliza normalmente para cargas de trabajo relativamente sencillas. Las cargas de trabajo que no requieren varios clústeres y no necesitan que los metadatos se conserven más allá del ciclo de vida del clúster.
 
 * En el caso de las cargas de trabajo de producción, se recomienda migrar a un metastore externo. Vea la siguiente sección para más información.
@@ -53,7 +53,7 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 
 * Una tienda de metadatos personalizada le permite adjuntar varios clústeres y tipos de clústeres a esa tienda de metadatos. Por ejemplo, una tienda de metadatos sencilla puede compartirse a través de clústeres de Interactive Query, Hive y Spark en HDInsight.
 
-* Se paga por el costo de una tienda de metadatos (Azure SQL DB) de acuerdo con el nivel de rendimiento que seleccione.
+* Se paga por el costo de un metastore (Azure SQL Database) de acuerdo con el nivel de rendimiento que seleccione.
 
 * Es posible escalar la tienda de metadatos según sea necesario.
 
@@ -63,9 +63,9 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Creación y configuración de Azure SQL Database para la metastore personalizada
 
-Debe crear o tener una instancia de Azure SQL Database antes de configurar un metastore de Hive personalizado para un clúster de HDInsight.  Para más información, consulte [Inicio rápido: Creación de una base de datos única en Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Debe crear o tener una instancia de Azure SQL Database antes de configurar un metastore de Hive personalizado para un clúster de HDInsight.  Para más información, consulte [Inicio rápido: Creación de una base de datos única en Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-Al crear el clúster, el servicio HDInsight necesita conectarse al metastore externo y comprobar las credenciales. Configure las reglas de firewall de Azure SQL Database para permitir que los recursos y servicios de Azure accedan al servidor. Habilite esta opción en Azure Portal; para ello, seleccione **Establecer el firewall del servidor**. A continuación, seleccione **No** en **Denegar acceso de red pública** y **Sí** en **Permitir que los servicios y recursos de Azure accedan a este servidor** para la base de datos o el servidor de Azure SQL Database. Para más información, consulte [Creación y administración de reglas de firewall de IP.](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Al crear el clúster, el servicio HDInsight necesita conectarse al metastore externo y comprobar las credenciales. Configure las reglas de firewall de Azure SQL Database para permitir que los recursos y servicios de Azure accedan al servidor. Habilite esta opción en Azure Portal; para ello, seleccione **Establecer el firewall del servidor**. A continuación, seleccione **No** en **Denegar acceso de red pública** y **Sí** en **Permitir que los servicios y recursos de Azure accedan a este servidor** para Azure SQL Database. Para más información, consulte [Creación y administración de reglas de firewall de IP.](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 No se admiten los puntos de conexión privados para almacenes SQL.
 
@@ -87,7 +87,7 @@ En cualquier momento, puede apuntar el clúster a una instancia de Azure SQL Dat
 
 * Si tiene previsto que varios clústeres de HDInsight tengan acceso a datos separados, use una base de datos independiente para la tienda de metadatos en cada clúster. Si comparte una tienda de metadatos entre varios clústeres de HDInsight, entonces los clústeres utilizan los mismos metadatos y los mismos archivos de datos de usuario subyacentes.
 
-* Realice una copia de la tienda de metadatos personalizada periódicamente. Azure SQL Database genera las copias de seguridad automáticamente, pero el período de tiempo de retención de dichas copias de seguridad varía. Para más información, consulte [más información sobre copias de seguridad automáticas de SQL Database](../sql-database/sql-database-automated-backups.md).
+* Realice una copia de la tienda de metadatos personalizada periódicamente. Azure SQL Database genera las copias de seguridad automáticamente, pero el período de tiempo de retención de dichas copias de seguridad varía. Para más información, consulte [más información sobre copias de seguridad automáticas de SQL Database](../azure-sql/database/automated-backups-overview.md).
 
 * Localice el metastore y el clúster de HDInsight en la misma región. Esta configuración proporcionará el máximo rendimiento y los cargos de salida de red más bajos.
 

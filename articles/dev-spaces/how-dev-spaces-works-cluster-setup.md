@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Describe cómo funciona la configuración de un clúster de Azure Kubernetes Service para Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 6b158ca7f425e8b7c492c27521dba588a508b534
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 60f6c466e7c016ccd07e37b2f0d1ce9989fb8f9f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873559"
+ms.locfileid: "83995894"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Cómo funciona la configuración de un clúster para Azure Dev Spaces
 
@@ -18,7 +18,7 @@ Azure Dev Spaces le ofrece varias formas de iterar y depurar rápidamente las ap
 
 ## <a name="prepare-your-aks-cluster"></a>Preparación del clúster de AKS
 
-Para preparar el clúster de AKS para Dev Spaces, debe comprobar que el clúster de AKS está en una región [compatible con Azure Dev Spaces][supported-regions] y que está ejecutando Kubernetes 1.10.3 o una versión posterior. Para habilitar Azure Dev Spaces en el clúster desde Azure Portal, vaya al clúster, haga clic en *Dev Spaces*, cambie *Usar Dev Spaces* a *Sí* y haga clic en *Guardar*. También puede habilitar Azure Dev Spaces desde la CLI de Azure ejecutando `az aks use-dev-spaces`.
+Para preparar el clúster de AKS para Dev Spaces, debe comprobar que el clúster de AKS está en una región [compatible con Azure Dev Spaces][supported-regions] y que está ejecutando Kubernetes 1.10.3 o una versión posterior. Puede habilitar Azure Dev Spaces desde la CLI de Azure ejecutando `az aks use-dev-spaces`.
 
 Para ver un ejemplo de cómo configurar un clúster de AKS para Dev Spaces, consulte la [guía de inicio rápido de desarrollo del equipo][quickstart-team].
 

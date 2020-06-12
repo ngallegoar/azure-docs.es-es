@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658644"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221008"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Solución de errores comunes de implementación de Azure con Azure Load Balancer
 
@@ -28,6 +28,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Las SKU de la IP pública y de Load Balancer deben coincidir. Asegúrese de que las SKU de la IP pública y de Azure Load Balancer coincidan. Se recomienda usar SKU estándar para cargas de trabajo de producción. Más información sobre las [diferencias en las SKU](./skus.md)  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Los conjuntos de escalado de máquinas virtuales usan Basic Load Balancer de forma predeterminada cuando no se especifica la SKU o se implementa sin direcciones IP públicas estándar. Vuelva a implementar el conjunto de escalado de máquinas virtuales con direcciones IP públicas estándar en las instancias individuales para asegurarse de que ha seleccionado Standard Load Balancer, o simplemente seleccione un equilibrador de carga estándar al implementar el conjunto de escalado de máquinas virtuales en Azure Portal. |
 |MaxAvailabilitySetsInLoadBalancerReached | El grupo de back-end de un equilibrador de carga puede contener como máximo 150 conjuntos de disponibilidad. Si no tiene conjuntos de disponibilidad definidos explícitamente para las máquinas virtuales en el grupo de back-end, cada máquina virtual individual entra en su propio conjunto de disponibilidad. Por lo tanto, la implementación de 150 máquinas virtuales independientes implicaría que tendría 150 conjuntos de disponibilidad, lo que alcanza el límite. Puede implementar un conjunto de disponibilidad y agregarle más máquinas virtuales como solución alternativa. |
+|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets | En el caso del equilibrador de carga de la SKU básica, la interfaz de red y el equilibrador de carga deben estar en el mismo conjunto de disponibilidad. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Un conjunto de escalado de máquinas virtuales solo puede hacer referencia a una regla en un tipo de equilibrador de carga determinado (interno, público) con el mismo puerto de back-end y protocolo. Actualice la regla para cambiar esta creación de regla duplicada. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Un conjunto de escalado de máquinas virtuales solo puede hacer referencia a una regla en un tipo de equilibrador de carga determinado (interno, público) con el mismo puerto de back-end y protocolo. Actualice los parámetros de la regla para cambiar esta creación de regla duplicada. |
 |AnotherInternalLoadBalancerExists| Solo puede tener un equilibrador de carga de tipo interno que haga referencia al mismo conjunto de interfaces de red o máquinas virtuales en el back-end del equilibrador de carga. Actualice la implementación para asegurarse de que está creando solo una instancia de Load Balancer del mismo tipo. |

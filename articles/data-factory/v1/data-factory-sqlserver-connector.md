@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231560"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195920"
 ---
-# <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Movimiento de los datos entre entornos locales de SQL Server o en IaaS (máquina virtual de Azure) mediante Azure Data Factory
+# <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Migración de datos hacia y desde SQL Server mediante Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-sqlserver-connector.md)
 > * [Versión 2 (versión actual)](../connector-sql-server.md)
@@ -27,7 +28,7 @@ ms.locfileid: "79231560"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Conector SQL Server en V2](../connector-sql-server.md).
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de una base de datos SQL Server local. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para migrar datos hacia y desde una base de datos de SQL Server. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -51,7 +52,7 @@ Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nu
 Aunque puede instalar la puerta de enlace en la misma máquina local o una instancia de máquina virtual en la nube, como SQL Server, para mejorar el rendimiento, se recomienda instalarlos en máquinas independientes. Tener la puerta de enlace y SQL Server en máquinas diferentes reduce la contención de recursos.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con actividad de copia que mueva los datos desde una base de datos de SQL Server local o hacia ella mediante el uso de diferentes herramientas o API.
+Se puede crear una canalización con una actividad de copia que mueva los datos hacia y desde una base de datos de SQL Server mediante diferentes herramientas o API.
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
@@ -64,20 +65,20 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar la tabla SQL en la base de datos SQL Server que contiene los datos de entrada. Además, se crea otro conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos copiados desde la base de datos de SQL Server. Para información sobre las propiedades del conjunto de datos que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades del conjunto de datos](#dataset-properties).
 4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo mencionado anteriormente, se usa SqlSource como origen y BlobSink como receptor para la actividad de copia. De igual forma, si va a copiar de Azure Blob Storage a una base de datos de SQL Server, usará BlobSource y SqlSink en la actividad de copia. Para información sobre las propiedades de actividad de copia que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para el almacén de datos.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para ver ejemplos con definiciones JSON de entidades de Data Factory que se usan para copiar datos a/desde una base de datos SQL Server local, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-from-and-to-sql-server) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para encontrar ejemplos con definiciones de JSON para entidades de Data Factory que se usan para copiar datos hacia y desde una base de datos de SQL Server, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-from-and-to-sql-server) de este artículo.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de SQL Server:
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
-Se crea un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos SQL Server local a una instancia de Data Factory. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SQL Server local.
+Se creará un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos SQL Server local a una factoría de datos. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio SQL Server vinculado.
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio SQL Server vinculado.
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type se debe establecer en: **OnPremisesSqlServer**. |Sí |
-| connectionString |Especifique la información de connectionString necesaria para conectarse a la Base de datos SQL Server local mediante autenticación de SQL o autenticación de Windows. |Sí |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos SQL Server local. |Sí |
+| connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. |Sí |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la base de datos de SQL Server. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\username**. |No |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |No |
 
@@ -105,7 +106,7 @@ Puede cifrar las credenciales con el cmdlet **New-AzDataFactoryEncryptValue** y 
 ```
 **JSON para usar autenticación de Windows**
 
-Data Management Gateway suplantará la cuenta de usuario especificada para conectarse a la base de datos de SQL Server local.
+Data Management Gateway suplantará la cuenta de usuario especificada para conectarse a la base de datos de SQL Server.
 
 ```json
 {
@@ -554,7 +555,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 3. En la misma ventana, haga doble clic en **TCP/IP** para abrir la ventana **TCP/IP Properties** (Propiedades de TCP/IP).
 4. Cambie a la pestaña **Direcciones IP** . Desplácese hacia abajo hasta la sección **IPAll** . Anote el valor de **Puerto TCP** (el valor predeterminado es **1433**).
 5. Cree una **regla del Firewall de Windows** en la máquina para permitir el tráfico entrante a través de este puerto.
-6. **Verifique la conexión**: use SQL Server Management Studio en una máquina diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: "\<machine\>.\<domain\>.corp.\<company\>.com,1433."
+6. **Verifique la conexión**: use SQL Server Management Studio en una máquina diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: \<machine\>\<domain\>.corp\<company\>.com,1433.
 
    > [!IMPORTANT]
    > 

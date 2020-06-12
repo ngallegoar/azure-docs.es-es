@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d1080abb35e556e97c34e77fdce4d553c169ee9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128376"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266872"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
 En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
@@ -25,7 +25,7 @@ Después de completar este tutorial, podrá responder a las siguientes preguntas
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 > [!TIP]
 > Aunque en este tutorial no se exige experiencia con plantillas de Azure Resource Manager o JSON, si quiere modificar las plantillas o las opciones de implementación a las que se hace referencia, entonces sí es necesario tener conocimientos sobre cada una de estas áreas.
 > 
@@ -36,8 +36,8 @@ Antes de seguir las instrucciones de este tutorial, asegúrese de contar con una
 ## <a name="step-1-download-the-template-files"></a><a id="CreateDB"></a>Paso 1: Descarga de los archivos de plantilla
 Para comenzar, vamos a descargar los archivos de plantilla que se necesitan en este tutorial.
 
-1. Descargue la plantilla [Create a DocumentDB account, Web Apps, and deploy a demo application sample](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) (Crear una cuenta de Azure Cosmos DB, Web Apps e implementar un ejemplo de aplicación demo) en una carpeta local (por ejemplo, C:\Azure Cosmos DBTemplates). Con esta plantilla se implementa una cuenta de Azure Cosmos DB, una aplicación web de App Service y una aplicación web.  También se configura automáticamente la aplicación web para conectar con la cuenta de Azure Cosmos DB.
-2. Descargue la plantilla [Create an Azure Cosmos DB account and Web Apps sample](https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json) (Crear una cuenta de Azure Cosmos DB y un ejemplo de Web Apps) en una carpeta local (por ejemplo, C:\Azure Cosmos DBTemplates). Con esta plantilla se implementa una cuenta de Azure Cosmos DB y una aplicación web de App Service y se modifica la configuración de la aplicación del sitio para exponer fácilmente información de conexión de Azure Cosmos DB. No se incluye ninguna aplicación web.  
+1. Descargue la plantilla **Create an Azure Cosmos DB account, Web Apps, and deploy a demo application sample** (Crear una cuenta de Azure Cosmos DB, Web Apps e implementar un ejemplo de aplicación demo) (`https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json`) en una carpeta local (por ejemplo, C:\Azure Cosmos DBTemplates). Con esta plantilla se implementa una cuenta de Azure Cosmos DB, una aplicación web de App Service y una aplicación web.  También se configura automáticamente la aplicación web para conectar con la cuenta de Azure Cosmos DB.
+2. Descargue la plantilla **Create an Azure Cosmos DB account and Web Apps sample** (Crear una cuenta de Azure Cosmos DB y un ejemplo de Web Apps) (`https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json`) en una carpeta local (por ejemplo, C:\Azure Cosmos DBTemplates). Con esta plantilla se implementa una cuenta de Azure Cosmos DB y una aplicación web de App Service y se modifica la configuración de la aplicación del sitio para exponer fácilmente información de conexión de Azure Cosmos DB. No se incluye ninguna aplicación web.  
 
 <a id="Build"></a>
 

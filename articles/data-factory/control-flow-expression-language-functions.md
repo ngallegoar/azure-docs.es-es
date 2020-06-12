@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9870b239ca0501e63df3d800b8e4847cb0f390ac
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860943"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266855"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 
@@ -532,26 +532,26 @@ Y devuelve el resultado con el formato "D" opcional: `"Tuesday, January 2, 2018"
 
 ### <a name="and"></a>y
 
-Comprueba si todas las expresiones son true.
-Devuelve true cuando todas las expresiones son verdaderas o devuelve false cuando al menos una expresión es falsa.
+Compruebe si ambas expresiones son true.
+Devuelve true si ambas expresiones son verdaderas, o bien devuelve false cuando al menos una expresión es falsa.
 
 ```
-and(<expression1>, <expression2>, ...)
+and(<expression1>, <expression2>)
 ```
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
+| <*expresión1*>, <*expresión2*> | Sí | Boolean | Expresiones que se van a comprobar |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | -----| ----------- |
-| true o false | Boolean | Devuelve true si todas las expresiones son verdaderas. Devuelve false cuando al menos una expresión es falsa. |
+| true o false | Boolean | Devuelve true cuando ambas expresiones son verdaderas. Devuelve false cuando al menos una expresión es falsa. |
 ||||
 
 *Ejemplo 1*
 
-Estos ejemplos comprueban si los valores booleanos especificados son todos verdaderos:
+Estos ejemplos comprueban si los dos valores booleanos especificados son verdaderos:
 
 ```
 and(true, true)
@@ -567,7 +567,7 @@ Y devuelve estos resultados:
 
 *Ejemplo 2*
 
-Estos ejemplos comprueban si las expresiones especificadas son todas verdaderas:
+Estos ejemplos comprueban si las dos expresiones especificadas son verdaderas:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -2389,20 +2389,20 @@ Asimismo, devuelven estos resultados:
 ### <a name="or"></a>or
 
 Comprueba si al menos una expresión es true.
-Devuelve true cuando al menos una expresión es verdadera o devuelve false cuanto todas son falsas.
+Devuelve true cuando al menos una expresión es verdadera, o bien devuelve false si las dos son falsas.
 
 ```
-or(<expression1>, <expression2>, ...)
+or(<expression1>, <expression2>)
 ```
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
+| <*expresión1*>, <*expresión2*> | Sí | Boolean | Expresiones que se van a comprobar |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| true o false | Boolean | Devuelve true cuando al menos una expresión es verdadera. Devuelve false si todas las expresiones son falsas. |
+| true o false | Boolean | Devuelve true cuando al menos una expresión es verdadera. Devuelve false si ambas expresiones son falsas. |
 ||||
 
 *Ejemplo 1*

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 6520d508a025aeeecf0c1890224a0691eae09f74
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b754c9e02567939569bf2ef59359dbb2614a6647
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774423"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219889"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparación de una máquina virtual Windows mediante los comandos de reparación de máquinas virtuales de Azure
 
@@ -72,20 +72,19 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](https:/
    az extension update -n vm-repair
    ```
 
-3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación en un nuevo grupo de recursos y conectará la copia del disco del sistema operativo.  La máquina virtual de reparación tendrá el mismo tamaño y región que la máquina virtual no funcional especificada.
+3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación en un nuevo grupo de recursos y conectará la copia del disco del sistema operativo.  La máquina virtual de reparación tendrá el mismo tamaño y región que la máquina virtual no funcional especificada. El grupo de recursos y el nombre de la máquina virtual usados en todos los pasos serán para la máquina virtual no funcional.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Ejecute `az vm repair run`. Este comando ejecutará el script de reparación especificado en el disco conectado a través de la máquina virtual de reparación.  Si la guía de solución de problemas que usa especifica un identificador de ejecución, úselo aquí; si no también puede usar `az vm repair list-scripts` para ver los scripts de reparación disponibles.
+4. Ejecute `az vm repair run`. Este comando ejecutará el script de reparación especificado en el disco conectado a través de la máquina virtual de reparación. Si la guía de solución de problemas que usa especifica un identificador de ejecución, úselo aquí; si no también puede usar `az vm repair list-scripts` para ver los scripts de reparación disponibles. El grupo de recursos y el nombre de la máquina virtual usados aquí son para la máquina virtual no funcional empleada en el paso 3.
 
    ```azurecli-interactive
-
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
 
-5. Ejecute `az vm repair restore`. Este comando cambiará el disco del sistema operativo que se reparó por el disco del sistema operativo original de la máquina virtual.
+5. Ejecute `az vm repair restore`. Este comando cambiará el disco del sistema operativo que se reparó por el disco del sistema operativo original de la máquina virtual. El grupo de recursos y el nombre de la máquina virtual usados aquí son para la máquina virtual no funcional empleada en el paso 3.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

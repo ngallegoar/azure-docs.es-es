@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2a2b4864232892f1940de5c8fe46fa23879c92f3
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641605"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112774"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Información detallada e informes del acceso condicional
 
 El libro Conditional Access insights and reporting (Información detallada e informes del acceso condicional) le permite comprender el impacto de las directivas de acceso condicional en su organización a lo largo del tiempo. Durante el inicio de sesión, se pueden aplicar una o varias directivas de acceso condicional, de modo que se conceda acceso si se cumplen determinados controles de concesión o se deniegue de lo contrario. Dado que se pueden evaluar varias directivas de acceso condicional durante cada inicio de sesión, el libro de información detallada e informes le permite examinar el impacto de una directiva individual o un subconjunto de todas las directivas.  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para habilitar el libro de información detallada e informes, el inquilino debe tener un área de trabajo de Log Analytics para conservar los datos de los registros de inicio de sesión. Los usuarios deben tener licencias de Azure AD Premium P1 o P2 para usar el acceso condicional.
 
@@ -98,6 +98,23 @@ Vea el desglose de usuarios e inicios de sesión para cada una de las condicione
 También puede investigar los inicios de sesión de un usuario específico si busca inicios de sesión en la parte inferior del panel. La consulta de la izquierda muestra los usuarios más frecuentes. Al seleccionar un usuario se filtrará la consulta a la derecha.  
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>¿Por qué se producen errores en las consultas debido a un error de permisos?
+
+Para tener acceso al libro, necesita los permisos de Azure AD adecuados, así como permisos del área de trabajo de Log Analytics. Para probar si tiene los permisos adecuados del área de trabajo, ejecute una consulta de Log Analytics de ejemplo:
+
+1. Inicie sesión en **Azure Portal**.
+1. Vaya a **Azure Active Directory** > **Registros**.
+1. Escriba `SigninLogs` en el cuadro consulta y seleccione **Ejecutar**.
+1. Si la consulta no devuelve ningún resultado, es posible que el área de trabajo no se haya configurado correctamente. 
+
+![Solución de problemas de consultas con errores](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Para obtener más información sobre cómo transmitir los registros de inicio de sesión de Azure AD a un área de trabajo de Log Analytics, consulte el artículo [Integración de registros de Azure AD con registros de Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>¿Por qué está vacío el parámetro de las directivas de acceso condicional?
+
+La lista de directivas se genera examinando las directivas evaluadas para el evento de inicio de sesión más reciente. Si no hay inicios de sesión recientes en el inquilino, es posible que tenga que esperar unos minutos para que el libro cargue la lista de directivas de acceso condicional. Esto puede ocurrir inmediatamente después de configurar Log Analytics o puede tardar más tiempo si un inquilino no tiene actividad reciente de inicio de sesión.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>¿Por qué el libro tarda tanto tiempo en cargarse?  
 

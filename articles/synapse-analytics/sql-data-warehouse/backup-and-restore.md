@@ -11,12 +11,12 @@ ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: ea9a9430f9abee6179bacd4f999b7eeca92a8129
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631209"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020853"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Copia de seguridad y restauración en el grupo de SQL de Azure Synapse
 
@@ -30,7 +30,7 @@ Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de dat
 
 ## <a name="automatic-restore-points"></a>Puntos de restauración automáticos
 
-Las instantáneas son una característica integrada del servicio que crea puntos de restauración. No es necesario habilitar esta funcionalidad. Sin embargo, el grupo de SQL debe estar en estado activo para la creación del punto de restauración. Si el grupo de SQL se pausa con frecuencia, es posible que no se creen puntos de restauración automáticos, por lo que debe asegurarse de crear un punto de restauración definido por el usuario antes de pausar el grupo de SQL. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática mientras el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
+Las instantáneas son una característica integrada que crea puntos de restauración. No es necesario habilitar esta funcionalidad. Sin embargo, el grupo de SQL debe estar en estado activo para la creación del punto de restauración. Si el grupo de SQL se pausa con frecuencia, es posible que no se creen puntos de restauración automáticos, por lo que debe asegurarse de crear un punto de restauración definido por el usuario antes de pausar el grupo de SQL. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática mientras el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
 
 Las instantáneas del almacenamiento de datos se toman a lo largo del día y crean puntos de restauración que están disponibles durante siete días. No se puede cambiar este período de retención. El grupo de SQL admite un objetivo de punto de recuperación (RPO) de ocho horas. Puede restaurar el almacenamiento de datos de la región primaria a partir de cualquiera de las instantáneas capturadas en los últimos siete días.
 
@@ -65,7 +65,7 @@ A continuación se indican los detalles sobre los períodos de retención de pun
 Cuando se quita un grupo de SQL, se crea una instantánea final que se guarda durante siete días. Puede restaurar el grupo de SQL al punto de restauración final creado durante la eliminación. Si el grupo de SQL se quita del estado en pausa, no se toma ninguna instantánea. En ese escenario, asegúrese de crear un punto de restauración definido por el usuario antes de quitar el grupo de SQL.
 
 > [!IMPORTANT]
-> Si elimina una instancia de servidor de SQL lógica, todas las bases de datos que pertenecen a la instancia también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
+> Si elimina el servidor que hospeda un grupo de SQL, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Copias de seguridad geográficas y recuperación ante desastres
 
@@ -96,7 +96,7 @@ Para restaurar un almacenamiento de datos eliminado o en pausa, puede [crear una
 
 ## <a name="cross-subscription-restore"></a>Restauración entre suscripciones
 
-Si necesita restaurar directamente entre suscripciones, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaure en otro servidor lógico y ["mueva"](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) el servidor entre suscripciones para realizar una restauración entre suscripciones.
+Si necesita restaurar directamente entre suscripciones, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Realice la restauración en otro servidor y ["mueva"](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) el servidor entre suscripciones para realizar una restauración entre suscripciones.
 
 ## <a name="geo-redundant-restore"></a>Restauración con redundancia geográfica
 
@@ -107,4 +107,4 @@ Puede [restaurar el grupo de SQL](sql-data-warehouse-restore-from-geo-backup.md#
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de la planificación ante desastres, consulte [Información general sobre la continuidad empresarial](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Para más información acerca de la planificación ante desastres, consulte [Información general sobre la continuidad empresarial](../../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

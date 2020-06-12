@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 91435c2c5ca825793988e002c1ab9f6caacf2b17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652554"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236314"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Uso de Azure Active Directory para la autenticación con PostgreSQL
 
@@ -54,21 +54,19 @@ Actualmente hemos probado a los siguientes clientes:
 
 Los pasos que se describen a continuación son los que debe seguir un usuario o una aplicación para autenticarse con Azure AD:
 
+### <a name="prerequisites"></a>Requisitos previos
+
+Puede seguir en Azure Cloud Shell, en una máquina virtual de Azure o en su equipo local. Asegúrese de que tiene instalado el [CLI de Azure](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Paso 1: Autenticación mediante Azure Active Directory
 
-Asegúrese de que tiene instalado el [CLI de Azure](/cli/azure/install-azure-cli).
+Empiece autenticándose en Azure AD por medio de la herramienta CLI de Azure. Este paso no es necesario en Azure Cloud Shell.
 
-Invoque la herramienta de CLI de Azure para autenticarse con Azure AD. Requiere que proporcione el identificador de usuario y la contraseña de Azure AD.
-
-```azurecli-interactive
+```
 az login
 ```
 
-Este comando iniciará una ventana del explorador en la página de autenticación de Azure AD.
-
-> [!NOTE]
-> También puede usar Azure Cloud Shell para realizar estos pasos.
-> Tenga en cuenta que al recuperar el token de acceso a Azure AD en el Azure Cloud Shell tendrá que llamar explícitamente a `az login` y volver a iniciar sesión (en la ventana independiente con un código). Después de ese inicio de sesión, el comando `get-access-token` funcionará según lo previsto.
+El comando iniciará una ventana del explorador en la página de autenticación de Azure AD. Requiere que proporcione el identificador de usuario y la contraseña de Azure AD.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Paso 2: Recuperar el token de acceso a Azure AD
 

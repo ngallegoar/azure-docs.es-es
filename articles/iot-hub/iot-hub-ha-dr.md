@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499098"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267637"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
@@ -60,7 +60,7 @@ Ambas opciones de conmutación por error ofrecen los siguientes objetivos de pun
 Una vez completada la operación de conmutación por error para la instancia de IoT Hub, se espera que todas las operaciones de las aplicaciones de dispositivo y back-end sigan funcionando sin necesidad de una intervención manual. Esto significa que los mensajes del dispositivo a la nube deben seguir funcionando y todo el registro del dispositivo está intacto. Los eventos emitidos mediante Event Grid pueden consumirse con las mismas suscripciones configuradas anteriormente, siempre y cuando esas suscripciones de Event Grid sigan estando disponibles.
 
 > [!CAUTION]
-> - El nombre y el punto de conexión compatibles con el centro de eventos del punto de conexión de eventos integrado de IoT Hub cambia después de la conmutación por error, y se quitan los grupos de consumidores configurados (se trata de un error que se corregirá antes de mayo de 2020). Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, se debe [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre y el punto de conexión compatibles con Event Hub directamente en la aplicación, tendrá que [volver a configurar el grupo de consumidores que estos usan capturando el nuevo punto de conexión compatible con Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones. Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión integrado, puede que tenga que realizar un **reinicio**.
+> - El nombre compatible con Event Hub y el punto de conexión de eventos integrados en IoT Hub cambian tras la conmutación por error. Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, se debe [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre y el punto de conexión compatibles con Event Hub directamente en la aplicación, tendrá que [capturar el nuevo punto de conexión compatible con Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones. Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión integrado, puede que tenga que realizar un **reinicio**.
 >
 > - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para la lista de archivos. 
 

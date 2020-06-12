@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868381"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263234"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -68,7 +68,9 @@ _Los permisos efectivos_ son los que la aplicación tendrá al realizar solicitu
 
 ## <a name="openid-connect-scopes"></a>Ámbitos de OpenID Connect
 
-La implementación de la Plataforma de identidad de Microsoft de OpenID Connect tiene unos cuantos ámbitos bien definidos que no se aplican a ningún recurso determinado: `openid`, `email`, `profile` y `offline_access`. Los ámbitos de OpenID Connect `address` y `phone` no son compatibles.
+La implementación de la Plataforma de identidad de Microsoft de OpenID Connect tiene unos cuantos ámbitos bien definidos que también se hospedan en Microsoft Graph: `openid`, `email`, `profile` y `offline_access`. Los ámbitos de OpenID Connect `address` y `phone` no son compatibles.
+
+La solicitud de los ámbitos de OIDC y un token proporciona un token para llamar al [punto de conexión de UserInfo](userinfo.md).
 
 ### <a name="openid"></a>openid
 

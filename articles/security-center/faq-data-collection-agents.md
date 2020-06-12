@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 022942778b714d5d66ce6eeb2c29351b11c66e40
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849049"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996251"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
@@ -65,6 +65,14 @@ La ubicación del área de trabajo predeterminada depende de la región de Azure
 - En el caso de las máquinas virtuales de Japón, la ubicación del área de trabajo es Japón
 - En el caso de las máquinas virtuales de China, la ubicación del área de trabajo es China
 - En el caso de las máquinas virtuales de Australia, la ubicación del área de trabajo es Australia
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>¿Qué datos recopila el agente de Log Analytics?
+
+Para obtener una lista completa de las aplicaciones y los servicios que supervisa el agente, consulte [¿Qué supervisa Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services)
+
+> [!IMPORTANT]
+> Tenga en cuenta que, para algunos servicios, como Azure Firewall, si ha habilitado el registro y ha elegido un recurso locuaz para registrar (por ejemplo, si configura el registro en *detallado*), puede que vea un impacto significativo en las necesidades de almacenamiento del área de trabajo de Log Analytics. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>¿Puedo eliminar las áreas de trabajo predeterminadas creadas por Security Center?
@@ -201,9 +209,17 @@ Para quitar manualmente el agente:
 
 ## <a name="how-do-i-disable-data-collection"></a>¿Cómo se puede deshabilitar la recolección de datos?
 
-El aprovisionamiento automático está desactivado de manera predeterminada. Puede deshabilitar en cualquier momento el aprovisionamiento automático de los recursos desactivando esta opción en la directiva de seguridad. El aprovisionamiento automático es muy recomendable para poder obtener alertas de seguridad y recomendaciones sobre las actualizaciones del sistema, vulnerabilidades del sistema operativo, y la protección de puntos de conexión.
+El aprovisionamiento automático es muy recomendable para poder obtener alertas de seguridad y recomendaciones sobre las actualizaciones del sistema, vulnerabilidades del sistema operativo, y la protección de puntos de conexión. De manera predeterminada, el aprovisionamiento automático está deshabilitado.
 
-Para deshabilitar la recopilación de datos, [inicie sesión en Azure Portal](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Seleccionar directiva**. Seleccione la suscripción en la que quiere deshabilitar el aprovisionamiento automático. Al seleccionar una suscripción, se abre **Directiva de seguridad: recopilación de datos**. En **Autoaprovisionamiento**, seleccione **Desactivar**.
+Si lo ha habilitado, pero ahora desea deshabilitarlo:
+
+1. En [Azure Portal](https://portal.azure.com), abra **Security Center** y seleccione **Directiva de seguridad**.
+
+1. Seleccione la suscripción en la que quiere deshabilitar el aprovisionamiento automático.
+
+    Se abre **Directiva de seguridad: Recopilación de datos**.
+
+1. En **Autoaprovisionamiento**, seleccione **Desactivar**.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>¿Cómo se puede habilitar la recolección de datos?
@@ -233,9 +249,6 @@ Para recopilar los datos, cada máquina virtual y servidor deben conectarse a In
 El agente utiliza una cantidad simbólica de recursos del sistema y apenas tiene impacto en el rendimiento. Para obtener más información sobre el impacto en el rendimiento, y el agente y la extensión, vea la [guía de planeación y las operaciones](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 
-## <a name="where-is-my-data-stored"></a>¿Dónde se almacenan los datos?
-
-Los datos que recopila este agente se almacenan en un área de trabajo de Log Analytics asociada con la suscripción o en una nueva área de trabajo. Para obtener más información, consulte [Seguridad de datos de Azure Security Center](security-center-data-security.md).
 
 
 <!--Image references-->

@@ -1,16 +1,16 @@
 ---
 title: Información general de Change Tracking e Inventario en Azure Automation
-description: En este artículo se describen la característica Change Tracking e Inventario, que ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
+description: En este artículo se describe la característica Change Tracking e Inventario, que ayuda a identificar los cambios en el software y el servicio de Microsoft que se producen en su entorno.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4f6ae1ad5b0f3904b84d47316c11aa1a67531a28
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7a1c5d5371663f3520e76060c9c2a8df0a18449c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835111"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117539"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -26,9 +26,7 @@ En este artículo se presenta la solución Change Tracking e Inventario de Azure
 > [!NOTE]
 > Para hacer el seguimiento de los cambios en las propiedades de Azure Resource Manager, consulte [Historial de cambios](../governance/resource-graph/how-to/get-resource-changes.md) de Azure Resource Graph.
 
-Change Tracking e Inventario obtiene sus datos de Azure Monitor. Las máquinas virtuales conectadas a las áreas de trabajo de Log Analytics usan agentes de Log Analytics para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows, y cualquier demonio de Linux de los servidores supervisados. Cuando los datos están disponibles, los agentes los envían a Azure Monitor para su procesamiento. Azure Monitor aplica la lógica a los datos recibidos, los registra y hace que estén disponibles. 
-
-La característica Change Tracking e Inventario habilita las áreas funcionales de Change Tracking e Inventario en Azure Automation. Dado que ambas áreas usan el mismo agente de Log Analytics, el proceso para agregar una máquina virtual es el mismo en cualquier área funcional. 
+Change Tracking e Inventario obtiene sus datos de Azure Monitor. Las máquinas virtuales conectadas a las áreas de trabajo de Log Analytics usan agentes de Log Analytics para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows, y demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, los agentes los envían a Azure Monitor para su procesamiento. Azure Monitor aplica la lógica a los datos recibidos, los registra y hace que estén disponibles. 
 
 > [!NOTE]
 > Para usar la característica Change Tracking e Inventario, debe buscar todas sus máquinas virtuales en la misma suscripción y región de la cuenta de Automation.
@@ -43,18 +41,18 @@ Actualmente, la solución Change Tracking e Inventario no admite los elementos s
 Otras limitaciones:
 
 * Los valores y la columna **Tamaño máximo de archivos** no se usan en la implementación actual.
-* Si recopila más de 2500 archivos en un ciclo de recopilación de 30 minutos, el rendimiento de Change Tracking e Inventario podría degradarse.
+* Si recopila más de 2500 archivos en un ciclo de recopilación de 30 minutos, el rendimiento de Change Tracking e Inventario podría degradarse.
 * Cuando el tráfico de red es elevado, los registros de cambios pueden tardar hasta seis horas en aparecer.
 * Si modifica la configuración mientras un equipo está apagado, el equipo podría publicar cambios que pertenecían a la configuración anterior.
 
 Actualmente, la solución Change Tracking e Inventario tiene los siguientes problemas:
 
-* Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
+* Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
 * Los demonios de Linux pueden mostrar un estado modificado aunque no se haya producido ningún cambio. Este problema se debe a la manera en que se capturan los datos de `SvcRunLevels` del registro [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) de Azure Monitor.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones del sistema operativo Windows que se admiten oficialmente son Windows Server 2008 SP1 o versiones posteriores y Windows 7 SP1 o versiones posteriores. También se admiten varios sistemas operativos Linux. Consulte [Introducción al agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Las versiones de sistema operativo oficiales son Windows Server 2008 SP1 o posterior y Windows 7 SP1 o posterior. La característica también se admite en varios sistemas operativos Linux. Para los sistemas operativos que admiten Log Analytics, consulte [Introducción al agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## <a name="network-requirements"></a>Requisitos de red
 
@@ -84,9 +82,20 @@ Puede hacer clic en un cambio o un evento para mostrar sus detalles. Los tipos d
 * Software
 * Servicios de Microsoft
 
-Puede agregar, modificar o quitar cada uno de los cambios. En el ejemplo siguiente, puede ver un cambio en el tipo de inicio de un servicio de Manual a Automático.
+Puede agregar, modificar o quitar cualquier cambio. En el ejemplo siguiente se muestra un cambio en el tipo de inicio de un servicio de Manual a Automático.
 
-![Detalles de Change Tracking](./media/change-tracking/change-tracking-details.png)
+![Detalles de Change Tracking e Inventario](./media/change-tracking/change-tracking-details.png)
+
+## <a name="fim-support-in-azure-security-center"></a>Compatibilidad de FIM en Azure Security Center
+
+Change Tracking e Inventario utiliza la característica [Supervisión de la integridad de los archivos (FIM) de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Mientras que FIM solo supervisa archivos y Registros, la solución Change Tracking e Inventario completa también incluye:
+
+- Cambios de software
+- Servicios de Microsoft
+- Demonios de Linux
+
+> [!NOTE]
+> La habilitación de la solución completa Change Tracking e Inventario puede provocar cargos adicionales. Consulte [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/). Es posible eliminar FIM de la [lista de soluciones de supervisión instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions) disponibles en Azure Portal. Consulte [Eliminación de una solución de supervisión](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
 
 ## <a name="tracking-of-file-changes"></a>Seguimiento de cambios en los archivos
 
@@ -94,24 +103,23 @@ Para realizar el seguimiento de los cambios en los archivos de Windows y Linux, 
 
 ## <a name="tracking-of-file-content-changes"></a>Seguimiento de cambios en el contenido de los archivos
 
-Change Tracking e Inventario le permite ver el contenido de un archivo de Windows o Linux antes y después de un cambio en el archivo. Para cada cambio en un archivo, Change Tracking e Inventario almacena el contenido del archivo en una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md). Cuando realiza el seguimiento del archivo, puede ver su contenido antes o después de un cambio. Puede ver el contenido en línea o en paralelo. 
+Change Tracking e Inventario le permite ver el contenido de un archivo de Windows o Linux. Para cada cambio en un archivo, Change Tracking e Inventario almacena el contenido del archivo en una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md). Cuando realiza el seguimiento de un archivo, puede ver su contenido antes o después de un cambio. El contenido del archivo se puede ver en línea o en paralelo. 
 
 ![Visualización de los cambios en un archivo](./media/change-tracking/view-file-changes.png)
 
 ## <a name="tracking-of-registry-keys"></a>Seguimiento de las claves del Registro
 
-Change Tracking e Inventario permite la supervisión de los cambios en las claves del Registro. La supervisión permite identificar los puntos de extensibilidad en los que se puede activar malware y código de terceros. En la tabla siguiente se enumeran las claves del Registro preconfiguradas (pero no habilitadas). Para realizar el seguimiento de estas claves, debe habilitar cada una de ellas.
+Change Tracking e Inventario permite la supervisión de los cambios en las claves del Registro de Windows. La supervisión permite identificar los puntos de extensibilidad en los que se puede activar malware y código de terceros. En la tabla siguiente se enumeran las claves del Registro preconfiguradas (pero no habilitadas). Para realizar el seguimiento de estas claves, debe habilitar cada una de ellas.
 
 > [!div class="mx-tdBreakAll"]
 > |Clave del Registro | Propósito |
 > | --- | --- |
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Supervisa las entradas de inicio automático comunes que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Supervisa los scripts que se ejecutan al arrancar.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Supervisa los scripts que se ejecutan al apagar el equipo.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Supervisa las claves que se cargan antes de que el usuario inicie sesión en la cuenta de Windows. La clave se usa para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Supervisa los cambios en la configuración de la aplicación.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Supervisa las entradas de inicio automático comunes que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Supervisa las entradas de inicio automático comunes que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Supervisa los controladores de los menús contextuales que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Supervisa los controladores de enlace de copia que se enlazan directamente con el Explorador de Windows y se suelen ejecutar en el proceso con **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Supervisa el registro del controlador de superposición de iconos.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Supervisa el registro del controlador de superposición de iconos para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Supervisa si hay nuevos complementos de objetos auxiliares de explorador para Internet Explorer. Se utiliza para acceder a Document Object Model (DOM) de la página actual y controlar la navegación.
@@ -120,25 +128,17 @@ Change Tracking e Inventario permite la supervisión de los cambios en las clave
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Supervisa si hay nuevas extensiones de Internet Explorer, como menús de la herramienta personalizada y botones de la barra de herramientas personalizada para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc. Es similar a la sección [drivers] del archivo **system.ini**.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc para aplicaciones de 32 bits que se ejecutan en equipos de 64 bits. Es similar a la sección [drivers] del archivo **system.ini**.
-> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Supervisa la lista de DDL del sistema conocidas o utilizadas habitualmente. Este sistema impide que las personas se aprovechen de permisos de directorio de aplicaciones débiles colocando versiones de troyanos en DLL del sistema.
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Supervisa la lista de DDL del sistema conocidas o utilizadas habitualmente. La supervisión impide que las personas se aprovechen de permisos de directorio de aplicaciones débiles colocando versiones de troyanos en archivos DLL del sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Supervisa la lista de paquetes que pueden recibir notificaciones de eventos de **winlogon.exe**, el modelo de compatibilidad de inicio de sesión interactivo para Windows.
-
-## <a name="support-for-file-integrity-monitoring-in-azure-security-center"></a>Soporte técnico para la supervisión de la integridad de los archivos en Azure Security Center
-
-Change Tracking e Inventario utiliza la característica [Supervisión de la integridad de los archivos (FIM) de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Mientras que FIM solo supervisa archivos y Registros, la solución Change Tracking e Inventario completa también incluye:
-
-- Cambios de software
-- Servicios de Microsoft
-- Demonios de Linux
 
 ## <a name="recursion-support"></a>Compatibilidad con la recursión
 
 Change Tracking e Inventory es compatible con la recursión, lo que permite especificar comodines para simplificar el seguimiento entre directorios. La recursión también proporciona variables de entorno que permiten realizar un seguimiento de los archivos en entornos con nombres de unidad varios o dinámicos. En la lista siguiente se incluye información común que debe conocer al configurar la recursión:
 
 * Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
-* Los caracteres comodín solo se pueden usar en el último segmento de una ruta de acceso, como **c:\folder\\file*** o **/etc/*.conf**.
+* Puede usar caracteres comodín solo en el último segmento de la ruta de acceso de un archivo, como **c:\carpeta\\archivo*** o **/etc/*.conf**.
 * Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta pero se producirá un error en dicha ruta durante la ejecución.
-* Al establecer la ruta de acceso, evite los nombres de ruta de acceso generales, ya que daría lugar a que se recorrieran demasiadas carpetas.
+* Al establecer la ruta de acceso, debe evitar los nombres de ruta de acceso generales, ya que daría lugar a que se recorrieran demasiadas carpetas.
 
 ## <a name="change-tracking-and-inventory-data-collection"></a>Recopilación de datos de Change Tracking e Inventory
 
@@ -165,11 +165,11 @@ En la siguiente tabla se muestran los límites de elementos sometidos a seguimie
 |Servicios|250|
 |Demonios|250|
 
-El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Puede usar esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).  
+El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
 
 ### <a name="microsoft-service-data"></a>Datos de servicio de Microsoft
 
-La frecuencia de recopilación predeterminada para los servicios de Microsoft es de 30 minutos. Puede configurar la frecuencia con un control deslizante en la pestaña **Servicios de Microsoft** bajo **Editar configuración**. 
+La frecuencia de recopilación predeterminada para los servicios de Microsoft es de 30 minutos. Puede configurar la frecuencia con un control deslizante en la pestaña **Servicios de Microsoft** bajo **Editar configuración**.
 
 ![Control deslizante de Servicios de Microsoft](./media/change-tracking/windowservices.png)
 
@@ -180,7 +180,7 @@ Para optimizar el rendimiento, el agente de Log Analytics solo realiza el seguim
 
 ## <a name="support-for-alerts-on-configuration-state"></a>Compatibilidad con alertas sobre el estado de configuración
 
-Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre los cambios en el estado de configuración de su entorno híbrido. Existen muchas acciones útiles disponibles para desencadenar en respuesta a las alertas, como las acciones en Azure Functions, runbooks de Automation, webhooks y similares. Las alertas sobre los cambios en el archivo **C:\windows\system32\drivers\etc\hosts** de una máquina es una buena aplicación de alertas para los datos de Change Tracking e Inventario. También hay muchos más escenarios para las alertas, incluidos los escenarios de consulta que se definen en la tabla siguiente. 
+Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre los cambios en el estado de configuración de su entorno híbrido. Existen muchas acciones útiles disponibles para desencadenar en respuesta a las alertas, como las acciones en Azure Functions, runbooks de Automation, webhooks y similares. Las alertas sobre los cambios en el archivo **c:\windows\system32\drivers\etc\hosts** de una máquina es una buena aplicación de alertas para los datos de Change Tracking e Inventario. También hay muchos más escenarios para las alertas, incluidos los escenarios de consulta que se definen en la tabla siguiente. 
 
 |Consultar  |Descripción  |
 |---------|---------|
@@ -195,10 +195,7 @@ Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información detallada sobre cómo trabajar con Change Tracking e Inventario, vea [Administración de Change Tracking e Inventario](change-tracking-file-contents.md).
-* Para habilitar la característica desde un runbook, vea [Habilitación de Change Tracking e Inventario desde un runbook](automation-enable-changes-from-runbook.md).
 * Para habilitar la característica desde una cuenta de Automation, vea [Habilitación de Change Tracking e Inventario desde una cuenta de Automation](automation-enable-changes-from-auto-acct.md).
-* Para habilitar la característica a través de Azure Portal, vea [Habilitación de Change Tracking e Inventario desde Azure Portal](automation-onboard-solutions-from-browse.md).
+* Para habilitar la característica a través de Azure Portal, consulte [Habilitación de Change Tracking e Inventario desde Azure Portal](automation-onboard-solutions-from-browse.md).
+* Para habilitar la característica desde un runbook, vea [Habilitación de Change Tracking e Inventario desde un runbook](automation-enable-changes-from-runbook.md).
 * Para habilitar la característica desde una máquina virtual de Azure, vea [Habilitación de Change Tracking e Inventario desde una máquina virtual de Azure](automation-enable-changes-from-vm.md).
-* Si necesita buscar en los registros almacenados en el área de trabajo de Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../log-analytics/log-analytics-log-searches.md).
-* Para solucionar problemas de la característica, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).

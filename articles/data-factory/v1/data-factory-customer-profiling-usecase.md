@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969288"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021898"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Generación de perfiles de clientes
 Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Para más información sobre Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics)(conjunto de aplicaciones de Cortana Intelligence). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Azure Data Factory puede resolver los problemas comunes de análisis.
@@ -38,7 +38,7 @@ Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una 
 3. En la hoja **Canales de muestras**, haga clic en el **Generación de perfiles de cliente** que quiere implementar.
 
     ![Hoja Canalizaciones de ejemplo](./media/data-factory-samples/SampleTile.png)
-4. Especifique las opciones de configuración para el ejemplo. Por ejemplo, el nombre de la cuenta de Azure Storage y la clave, el nombre del servidor de SQL Azure, la base de datos, el identificador de usuario y la contraseña.
+4. Especifique las opciones de configuración para el ejemplo. Por ejemplo, el nombre de la cuenta de Azure Storage y la clave, el nombre del servidor de SQL lógico, la base de datos, el identificador de usuario y la contraseña.
 
     ![Hoja de ejemplo](./media/data-factory-samples/SampleBlade.png)
 5. Cuando haya terminado de especificar las opciones de configuración, haga clic en **Crear** para crear o implementar las canalizaciones de ejemplo y los servicios o las tablas vinculados que usan las canalizaciones.

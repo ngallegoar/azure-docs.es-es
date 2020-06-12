@@ -3,12 +3,12 @@ title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747473"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259412"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -205,7 +205,7 @@ Al mover un grupo de administración o una suscripción para que sean un element
 Si va a realizar la acción de movimiento, necesitará lo siguiente: 
 
 - Permisos de escritura de grupos de administración y de escritura de la asignación de roles en la suscripción o en el grupo de administración secundarios.
-  - Ejemplo de rol integrado: **Propietario**
+  - Ejemplo del rol integrado **Propietario**
 - Acceso de escritura de grupos de administración en el grupo de administración primario de destino.
   - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
 - Acceso de escritura de grupos de administración en el grupo de administración primario existente.

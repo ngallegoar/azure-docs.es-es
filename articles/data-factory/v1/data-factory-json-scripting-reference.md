@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3492f917be8116d0eed0c7ec03ed8aa9ff506520
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: cc316636c3f708d4b3ef81a22f57dab9b140d2fa
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346593"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195955"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -337,7 +337,7 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 | Nombre de la directiva | Descripción | Aplicado a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida que los datos de un **blob de Azure** cumplen los requisitos de tamaño mínimo (en megabytes). |Blob de Azure |No |N/D |
-| minimumRows |Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |No |N/D |
+| minimumRows |Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |No |N/D |
 
 **Ejemplo**:
 
@@ -779,7 +779,7 @@ Si va a copiar datos a Azure Data Lake Store, establezca el **tipo de receptor**
 
 Para más información, consulte el artículo [Conector de Azure Data Lake Store](data-factory-azure-datalake-connector.md#copy-activity-properties).
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 ### <a name="linked-service"></a>Servicio vinculado
 Para definir un servicio vinculado de Azure Cosmos DB, establezca el **tipo** del servicio vinculado en **DocumentDb** y especifique las siguientes propiedades en la sección **typeProperties**:
@@ -929,7 +929,7 @@ Si va a copiar datos a Azure Cosmos DB, establezca el **tipo de receptor** de la
 
 Para más información, consulte el artículo [Conector de Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>Servicio vinculado
 Para definir un servicio vinculado de Azure SQL Database, establezca el **tipo** de servicio vinculado en **AzureSqlDatabase** y especifique las siguientes propiedades en la sección **typeProperties**:
@@ -2446,15 +2446,15 @@ Para más información, consulte el artículo [Conector de SAP HANA](data-factor
 ## <a name="sql-server"></a>SQL Server
 
 ### <a name="linked-service"></a>Servicio vinculado
-Se crea un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos SQL Server local a una instancia de Data Factory. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SQL Server local.
+Se creará un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos SQL Server local a una factoría de datos. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio SQL Server vinculado.
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio SQL Server vinculado.
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type se debe establecer en: **OnPremisesSqlServer**. |Sí |
-| connectionString |Especifique la información de connectionString necesaria para conectarse a la Base de datos SQL Server local mediante autenticación de SQL o autenticación de Windows. |Sí |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos SQL Server local. |Sí |
+| connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. |Sí |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la base de datos de SQL Server. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\username**. |No |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |No |
 
@@ -2481,7 +2481,7 @@ Puede cifrar las credenciales con el cmdlet **New-AzDataFactoryEncryptValue** y 
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Ejemplo: JSON para usar autenticación de Windows
 
-Si se especifican el nombre de usuario y la contraseña, la puerta de enlace los usará para suplantar la cuenta de usuario especificada para conectarse a la Base de datos SQL Server local. En caso contrario, la puerta de enlace se conectará directamente a SQL Server con el contexto de seguridad de puerta de enlace (su cuenta de inicio).
+Si se especifican el nombre de usuario y la contraseña, la puerta de enlace los usa para suplantar la cuenta de usuario especificada para conectarse a la base de datos de SQL Server. En caso contrario, la puerta de enlace se conectará directamente a SQL Server con el contexto de seguridad de puerta de enlace (su cuenta de inicio).
 
 ```json
 {
@@ -5001,15 +5001,15 @@ En el ejemplo siguiente se proporciona la definición de JSON de un servicio vin
 Cree un servicio vinculado de SQL Server y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Data Factory.
 
 ### <a name="linked-service"></a>Servicio vinculado
-Se crea un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos SQL Server local a una instancia de Data Factory. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SQL Server local.
+Se creará un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos SQL Server local a una factoría de datos. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio SQL Server vinculado.
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio SQL Server vinculado.
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type se debe establecer en: **OnPremisesSqlServer**. |Sí |
-| connectionString |Especifique la información de connectionString necesaria para conectarse a la Base de datos SQL Server local mediante autenticación de SQL o autenticación de Windows. |Sí |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos SQL Server local. |Sí |
+| connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. |Sí |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la base de datos de SQL Server. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\username**. |No |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |No |
 
@@ -5036,7 +5036,7 @@ Puede cifrar las credenciales con el cmdlet **New-AzDataFactoryEncryptValue** y 
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Ejemplo: JSON para usar autenticación de Windows
 
-Si se especifican el nombre de usuario y la contraseña, la puerta de enlace los usará para suplantar la cuenta de usuario especificada para conectarse a la Base de datos SQL Server local. En caso contrario, la puerta de enlace se conectará directamente a SQL Server con el contexto de seguridad de puerta de enlace (su cuenta de inicio).
+Si se especifican el nombre de usuario y la contraseña, la puerta de enlace los usa para suplantar la cuenta de usuario especificada para conectarse a la base de datos de SQL Server. En caso contrario, la puerta de enlace se conectará directamente a SQL Server con el contexto de seguridad de puerta de enlace (su cuenta de inicio).
 
 ```json
 {
@@ -5540,7 +5540,7 @@ Para más información, consulte [Actividad de U-SQL de Data Lake Analytics](dat
 Puede especificar las siguientes propiedades en una definición JSON de procedimiento almacenado. La propiedad type de la actividad debe ser: **SqlServerStoredProcedure**. Debe crear uno de los siguientes servicios vinculados y especificar el nombre de este como un valor para la propiedad **linkedServiceName**:
 
 - SQL Server
-- Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 
 Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en SqlServerStoredProcedure:

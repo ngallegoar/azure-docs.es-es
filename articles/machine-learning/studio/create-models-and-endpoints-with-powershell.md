@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 70fafa79c87d19d62ef936b286c82813d8e7fe17
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1dd17d3ac715c2b32f645602203aa2551c91b42a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208523"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195341"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Creación de varios puntos de conexión de servicio web a partir de un experimento con ML Studio (clásico) y PowerShell
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 El siguiente es un problema de aprendizaje automático habitual: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio (clásico) simplemente con un solo experimento.
 
@@ -52,7 +50,7 @@ Tenga en cuenta que se ha agregado el módulo **Web Service Output** (Resultados
 Cuando este experimento se implementa como un servicio web, el punto de conexión asociado a esa salida devuelve el modelo entrenado con el formato de un archivo .ilearner.
 
 Observe también que configura un parámetro de servicio web que define la dirección URL que el módulo **Importar datos** utiliza. Esto le permite utilizar el parámetro para especificar conjuntos de datos de entrenamiento individuales para entrenar el modelo para cada ubicación.
-Hay otras maneras de hacer esto. Puede utilizar una consulta SQL con un parámetro de servicio web para obtener datos de una base de datos de SQL Azure. O bien, puede usar el módulo **Web Service Input** (Entrada de servicio web) para pasar un conjunto de datos al servicio web.
+Hay otras maneras de hacer esto. Puede usar una consulta SQL con un parámetro de servicio web para obtener datos de una base de datos de Azure SQL Database. O bien, puede usar el módulo **Web Service Input** (Entrada de servicio web) para pasar un conjunto de datos al servicio web.
 
 ![Salidas del módulo de un módulo entrenado a un módulo de salida de servicio web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 

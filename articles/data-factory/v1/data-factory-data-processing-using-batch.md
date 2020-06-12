@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6fb590cbb57e8798bf65d0aa30585ae3db3691d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684407"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021541"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -38,8 +38,8 @@ Con el servicio Batch, se definen los recursos de procesos de Azure para ejecuta
 
  Si no está familiarizado con Batch, los siguientes artículos le ayudarán a comprender la arquitectura e implementación de la solución que se describe en este artículo:   
 
-* [Conceptos básicos de Batch](../../batch/batch-technical-overview.md)
-* [Información general de las características de Batch](../../batch/batch-api-basics.md)
+* [Conceptos básicos de Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Información general de las características de Batch](../../batch/batch-service-workflow-features.md)
 
 Si quiere, para obtener más información sobre Batch, vea la [documentación de Batch](https://docs.microsoft.com/azure/batch/).
 
@@ -86,7 +86,7 @@ La solución de ejemplo es sencilla a propósito. Se ha diseñado para mostrar c
 
 **Tiempo**: si está familiarizado con los aspectos básicos de Azure, Data Factory y Batch, y cumple los requisitos previos que se indican a continuación, esta solución tardará entre una y dos horas en completarse.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 #### <a name="azure-subscription"></a>Suscripción de Azure
 Si no tiene una suscripción a Azure, puede crear una cuenta de evaluación gratuita rápidamente. Para más información, vea cómo [obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -546,7 +546,7 @@ En el siguiente tutorial, se proporcionan más detalles.
 
    ![Página Data Factory](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>Paso 2: Creación de servicios vinculados
+#### <a name="step-2-create-linked-services"></a>Paso 2: Crear servicios vinculados
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos. En este paso, vinculará la cuenta de almacenamiento y la cuenta de Batch con su factoría de datos.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
@@ -578,7 +578,7 @@ En este paso, creará un servicio vinculado para su cuenta de Batch que se usar�
    d. Escriba el identificador URI de lote para la propiedad **batchUri** de JSON.
 
       > [!IMPORTANT]
-      > La dirección URL de la hoja de la **Cuenta de Batch** tiene el formato siguiente: \<NombreDeCuenta\>.\<región\>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesita quitar a88"accountname."** de la dirección URL. Un ejemplo es `"batchUri": "https://eastus.batch.azure.com"`.
+      > La dirección URL de la hoja **Cuenta de Batch** tiene el formato siguiente: \<accountname\>.\<region\>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesita quitar a88"accountname."** de la dirección URL. Un ejemplo es `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -793,9 +793,9 @@ En este paso, creará una canalización con la actividad personalizada que creó
 
    * Solo hay una actividad en la canalización y es del tipo **DotNetActivity**.
    * **AssemblyName** se establece en el nombre del archivo DLL **MyDotNetActivity.dll**.
-   * **EntryPoint** se establece **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente \<espacioDeNombres\>.\<nombreDeClase\> en el código.
+   * **EntryPoint** se establece **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente \<namespace\>.\<classname\> en el código.
    * **PackageLinkedService** está establecido en **StorageLinkedService**, que apunta a la instancia de Blob Storage que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de almacenamiento para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Storage. En este artículo se asume que usa la misma cuenta de almacenamiento.
-   * **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Presenta el formato \<contenedorDelZIP\>/\<nombreDelZIP.zip\>.
+   * **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato \<containerforthezip\>/\<nameofthezip.zip\>.
    * La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
    * La propiedad **linkedServiceName** de la actividad personalizada apunta a **AzureBatchLinkedService**, que indica a Data Factory que la actividad personalizada debe ejecutarse en Batch.
    * La configuración **concurrency** es importante. Si usa el valor predeterminado, que es 1, aunque tenga dos o más nodos de ejecución en el grupo de Batch, los segmentos se procesarán uno tras otro. Por lo tanto, no se aprovecha la ventaja de la funcionalidad de procesamiento paralelo de Batch. Si establece **concurrency** en un valor mayor, por ejemplo 2, significa que se pueden procesar dos segmentos (que se corresponden con dos tareas en Batch) al mismo tiempo. En este caso,se usan ambas máquinas virtuales en el grupo de Batch. Establezca la propiedad concurrency correctamente.
@@ -932,9 +932,9 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 
 1. Agregue las siguientes subcarpetas en `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 y 2015-11-16-09. Coloque los archivos de entrada en esas carpetas. Cambie la hora de finalización de la canalización de `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. En la vista **Diagrama**, haga doble clic en **InputDataset** y confirme que los segmentos de entrada están listos. Haga doble clic en **OuptutDataset** para ver el estado de los segmentos de salida. Si se encuentran en el estado **Listo**, compruebe si los archivos de salida se encuentran en la carpeta de salida.
 
-1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la configuración del valor **concurrency**, vea "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la **simultaneidad**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
-1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre la configuración del valor **Maximum tasks per VM** (Máximo de tareas por máquina virtual), vea "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre el **Máximo de tareas por máquina virtual**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
 1. Cree un grupo de Batch con la característica de **escalado automático**. El escalado automático de los nodos de ejecución de un grupo de Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación.
 
@@ -956,13 +956,13 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 
 1. En la solución de ejemplo, el método **Execute** invoca al método **Calculate** que procesa un segmento de datos de entrada para generar un segmento de datos de salida. Puede escribir su propio método para procesar los datos de entrada y reemplazar la llamada al método **Calculate** en el método **Execute** por una llamada a su método.
 
-### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de los datos
+### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de datos
 Después de procesar datos, puede consumirlos con herramientas en línea como Power BI. Estos vínculos lo ayudarán a comprender Power BI y aprender a usarlo en Azure:
 
 * [Exploración de un conjunto de datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Introducción a Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Información general básica de Azure y Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure y Power BI Información general básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referencias
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
@@ -972,8 +972,8 @@ Después de procesar datos, puede consumirlos con herramientas en línea como Po
   * [Uso de actividades personalizadas en una canalización de Data Factory](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Conceptos básicos de Batch](../../batch/batch-technical-overview.md)
-  * [Información general sobre las características de Batch](../../batch/batch-api-basics.md)
+  * [Conceptos básicos de Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Información general sobre las características de Batch](../../batch/batch-service-workflow-features.md)
   * [Creación y administración de una cuenta de Batch en Azure Portal](../../batch/batch-account-create-portal.md)
   * [Introducción a la biblioteca cliente de Batch para .NET](../../batch/quick-run-dotnet.md)
 

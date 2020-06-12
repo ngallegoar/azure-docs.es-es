@@ -3,14 +3,14 @@ title: Configuración de redes kubenet en Azure Kubernetes Service (AKS)
 description: Aprenda a configurar una red kubenet (básica) en Azure Kubernetes Service (AKS) para implementar un clúster de AKS en una red virtual existente y en una subred.
 services: container-service
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a393e87963eabf2e3cf41148233c0e350dc6e380
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120919"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309675"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtie
 
 En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la subred de una red virtual con un clúster de AKS. Para más información sobre las opciones y consideraciones de red, consulte el artículo sobre los [conceptos de red para Kubernetes y AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
 * No cree más de un clúster AKS en la misma subred.
@@ -139,7 +139,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Ahora, asigne la entidad de servicio para los permisos de *colaborador* del clúster de AKS en la red virtual mediante el comando [az role assignment create][az-role-assignment-create]. Especifique su propio *\<appId>* como se muestra en la salida del comando anterior para crear la entidad de servicio:
+Ahora, asigne la entidad de servicio para los permisos de *colaborador* del clúster de AKS en la red virtual mediante el comando [az role assignment create][az-role-assignment-create]. Proporcione su propio valor *\<appId>* como se muestra en la salida del comando anterior para crear la entidad de servicio:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -147,7 +147,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Creación de un clúster de AKS en la red virtual
 
-Ya ha creado una red virtual y una subred y también ha creado y asignado permisos para que una entidad de servicio utilice dichos recursos de red. Ahora cree un clúster de AKS en la red virtual y la subred con el comando [az aks create][az-aks-create]. Defina su propia entidad de servicio *\<appId>* y *\<password>* , como se muestra en la salida del comando anterior para crear la entidad de servicio.
+Ya ha creado una red virtual y una subred y también ha creado y asignado permisos para que una entidad de servicio utilice dichos recursos de red. Ahora cree un clúster de AKS en la red virtual y la subred con el comando [az aks create][az-aks-create]. Defina sus valores de *\<appId>* y *\<password>* de la entidad de servicio, como se muestra en la salida del comando anterior para crear la entidad de servicio.
 
 Los siguientes intervalos de direcciones IP también se definen como parte del proceso de creación del clúster:
 
@@ -195,7 +195,22 @@ az aks create \
     --client-secret <password>
 ```
 
-Al crear un clúster de AKS, también se crean un grupo de seguridad de red y una tabla de ruta. Estos recursos de red los administra el plano de control de AKS. El grupo de seguridad de red se asocia automáticamente con la tarjetas de interfaz de red virtuales de los nodos. La tabla de ruta se asocia automáticamente con la subred de la red virtual. Las tablas de ruta y las reglas del grupo de seguridad de red se actualizan automáticamente cuando se crean y se exponen los servicios.
+Al crear un clúster de AKS, también se crean automáticamente un grupo de seguridad de red y una tabla de rutas. Estos recursos de red los administra el plano de control de AKS. El grupo de seguridad de red se asocia automáticamente con la tarjetas de interfaz de red virtuales de los nodos. La tabla de ruta se asocia automáticamente con la subred de la red virtual. Las tablas de ruta y las reglas del grupo de seguridad de red se actualizan automáticamente cuando se crean y se exponen los servicios.
+
+## <a name="bring-your-own-subnet-and-route-table-with-kubenet"></a>Uso de su propia subred y tabla de rutas con Kubenet
+
+Con Kubenet, debe existir una tabla de rutas en las subredes del clúster. AKS admite la incorporación de su subred y tabla de rutas existentes.
+
+Si la subred personalizada no contiene ninguna tabla de rutas, AKS crea una automáticamente y le agrega reglas. Si la subred personalizada contiene una tabla de rutas al crear el clúster, AKS confirma la tabla de rutas existente durante las operaciones del clúster y actualiza las reglas según corresponde para las operaciones del proveedor de nube.
+
+Limitaciones:
+
+* Los permisos deben asignarse antes de la creación del clúster. Asegúrese de que usa una entidad de servicio con permisos de escritura en la subred y la tabla de rutas personalizadas.
+* Actualmente, las identidades administradas no son compatibles con las tablas de rutas personalizadas en Kubenet.
+* Una tabla de rutas personalizada debe estar asociada a la subred antes de que cree el clúster de AKS. Dicha tabla no se puede actualizar y todas las reglas de enrutamiento deben agregarse o quitarse de la tabla de rutas inicial antes de crear el clúster de AKS.
+* Todas las subredes de una red virtual de AKS deben estar asociadas a la misma tabla de rutas.
+* Cada clúster de AKS debe usar una sola tabla de rutas. No puede reutilizar una tabla de rutas con varios clústeres.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

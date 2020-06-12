@@ -5,22 +5,22 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1f4207a11f3ae3664023fccf6178b6db7cf253b9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679238"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021167"
 ---
 # <a name="create-client-side-performance-traces"></a>Creación de seguimientos del rendimiento en el cliente
 
 Hay muchas razones por las que el rendimiento de Azure Remote Rendering puede no ser tan bueno como se esperaba. Además del rendimiento de representación puro en el servidor en la nube, la calidad de la conexión de red tiene una influencia especialmente significativa en la experiencia. Para generar perfiles del rendimiento del servidor, consulte el capítulo [Consultas de rendimiento del lado servidor](../overview/features/performance-queries.md).
 
-Este capítulo se centra en cómo identificar los posibles cuellos de botella del cliente mediante *seguimientos del rendimiento*.
+Este capítulo se centra en cómo identificar los posibles cuellos de botella del cliente mediante *:::no-loc text="performance traces":::* .
 
 ## <a name="getting-started"></a>Introducción
 
-Si no está familiarizado con la funcionalidad de seguimiento del rendimiento de Windows, en esta sección se indicarán los términos y las aplicaciones fundamentales para comenzar.
+Si no está familiarizado con la funcionalidad :::no-loc text="performance tracing"::: de Windows, en esta sección se indicarán los términos y las aplicaciones fundamentales para comenzar.
 
 ### <a name="installation"></a>Instalación
 
@@ -51,7 +51,7 @@ Para identificar los problemas de rendimiento de ARR, es preferible realizar un 
 
 ### <a name="wpr-configuration"></a>Configuración de WPR
 
-1. Inicie el [Grabador de rendimiento de Windows](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) desde el *menú de inicio*.
+1. Inicie [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) desde el *menú Inicio*.
 1. Expanda **Más opciones**.
 1. Haga clic en **Agregar perfiles...** .
 1. Seleccione el archivo *AzureRemoteRenderingNetworkProfiling.wprp*. Puede encontrar este archivo en el SDK de ARR en *Tools/ETLProfiles*.
@@ -81,7 +81,7 @@ Para grabar un seguimiento en un HoloLens, inicie el dispositivo y escriba su di
 
 1. A la izquierda, vaya a *Performance > Performance Tracing* (Rendimiento > Seguimiento de rendimiento).
 1. Seleccione **Custom profiles** (Perfiles personalizados).
-1. Haga clic en **Browse...** (Examinar).
+1. Haga clic en **:::no-loc text="Browse...":::**
 1. Seleccione el archivo *AzureRemoteRenderingNetworkProfiling.wprp*. Puede encontrar este archivo en el SDK de ARR en *Tools/ETLProfiles*.
 1. Haga clic en **Start Trace** (iniciar seguimiento).
 1. Ahora HoloLens está registrando un seguimiento. Asegúrese de desencadenar los problemas de rendimiento que desee investigar. Luego, haga clic en **Stop Trace** (Detener seguimiento).

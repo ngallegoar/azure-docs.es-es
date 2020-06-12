@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79474d85d9b2349c79aeff0c33ffed9afad690fb
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230476"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169761"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -26,6 +26,8 @@ Este artículo:
 
 - Da por hecho que está familiarizado con la [introducción a la administración de identidades de dispositivos en Azure Active Directory](overview.md)
 - Proporciona información sobre la administración de identidades de dispositivos mediante el portal de Azure AD
+
+![La vista Todos los dispositivos en Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)
 
 ## <a name="manage-device-identities"></a>Administración de identidades de dispositivo
 
@@ -47,7 +49,7 @@ Para poder administrar las identidades de dispositivos en Azure Portal, los disp
 
 La página de configuración del dispositivo le permite configurar las opciones relacionadas con las identidades de dispositivo:
 
-![Administración de un dispositivo de Intune](./media/device-management-azure-portal/21.png)
+![La configuración de dispositivos en relación con Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Los usuarios pueden unir sus dispositivos a Azure AD**: esta opción le permite seleccionar qué usuarios podrán registrar sus dispositivos como dispositivos de unión a Azure AD. El valor predeterminado es **Todos**.
 
@@ -55,7 +57,7 @@ La página de configuración del dispositivo le permite configurar las opciones 
 > La opción **Los usuarios pueden inscribir dispositivos en Azure AD**  solo puede utilizarse en Unión a Azure AD en Windows 10.
 
 - **Administradores locales adicionales en dispositivos unidos a Azure AD**: puede seleccionar a qué usuarios se conceden derechos de administrador local en un dispositivo. Los usuarios agregados aquí se agregan al rol *Administradores de dispositivos* de Azure AD. De forma predeterminada, a los administradores globales de Azure AD y a los propietarios de dispositivos se les conceden derechos de administrador local. Esta opción es una capacidad de la edición Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS).
-- **Los usuarios pueden registrar sus dispositivos en Azure AD**: es necesario configurar esta opción para permitir que los dispositivos Windows 10 personal, iOS, Android y macOS se registren en Azure AD. Si selecciona **Ninguno**, los dispositivos no podrán registrarse con Azure AD. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Office 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
+- **Los usuarios pueden registrar sus dispositivos con Azure AD**: esta opción se debe configurar para que los dispositivos con Windows 10 personal, iOS, Android y macOS se puedan registrar en Azure AD. Si selecciona **Ninguno**, los dispositivos no podrán registrarse con Azure AD. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Office 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
 - **Requerir Multi-Factor Authentication para unir dispositivos**: puede decidir si se exige a los usuarios proporcionar un factor de autenticación adicional para unir su dispositivo a Azure AD. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para más información sobre los distintos servicios de Azure Multi-Factor Authentication, vea [Introducción a Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
@@ -82,13 +84,9 @@ Con ambas opciones, puede ir a una vista que:
 - Proporciona información general detallada de los dispositivos registrados y unidos.
 - Permite realizar tareas comunes de administración de dispositivos.
 
-![Todos los dispositivos](./media/device-management-azure-portal/51.png)
-
 >[!TIP]
 >
 >* Si ve un dispositivo "unido a Azure AD híbrido" con un estado "Pendiente" en la columna REGISTRADO, indica que el dispositivo se ha sincronizado desde Azure AD Connect y está esperando a completar el registro del cliente. Lea más información sobre cómo [planear la implementación de la unión a Azure AD híbrido](hybrid-azuread-join-plan.md). Puede encontrar más información en el artículo [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.md).
->
->   ![Dispositivos pendientes](./media/device-management-azure-portal/75.png)
 >
 >* Para algunos dispositivos iOS, los nombres de dispositivos que contienen apóstrofos podrían usar caracteres diferentes similares a los apóstrofos. Por tanto, buscar esos dispositivos resulta un poco complicado. Si no ve correctamente los resultados de la búsqueda, asegúrese de que la cadena de búsqueda contiene caracteres de apóstrofo que coincidan.
 
@@ -96,14 +94,14 @@ Con ambas opciones, puede ir a una vista que:
 
 Como administrador global o administrador de dispositivos en la nube, puede administrar los dispositivos registrados o unidos. Los administradores de servicios de Intune pueden:
 
-- Actualizar dispositivos:  las operaciones diarias, como habilitar o deshabilitar dispositivos, son un ejemplo de ello.
-- Eliminar dispositivos: cuando un dispositivo se retira y debe eliminarse en Azure AD.
+- Actualizar dispositivos: algunos ejemplos son las operaciones diarias, como habilitar o deshabilitar dispositivos.
+- Eliminar dispositivos: cuando un dispositivo se retira, se debe eliminar en Azure AD.
 
 En esta sección, se proporciona información sobre las tareas comunes de administración de identidades de dispositivos.
 
 ### <a name="manage-an-intune-device"></a>Administración de un dispositivo de Intune
 
-Si es administrador de Intune, puede administrar los dispositivos marcados como **Microsoft Intune**. Si el dispositivo no está inscrito con Microsoft Intune la opción "Administrar" estará atenuada.
+Si es administrador de Intune, puede administrar los dispositivos marcados como **Microsoft Intune**. Si el dispositivo no está inscrito con Microsoft Intune, la opción "Administrar" estará atenuada.
 
 ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/31.png)
 
@@ -170,6 +168,27 @@ Para ver o copiar las claves de BitLocker, debe ser el propietario del dispositi
 
 > [!NOTE]
 > Los dispositivos Windows 10 híbridos unidos a Azure AD no tienen un propietario. Por lo tanto, si está buscando un dispositivo por propietario y no lo encontró, busque por el identificador de dispositivo.
+
+### <a name="device-list-filtering-preview"></a>Filtrado de la lista de dispositivos (versión preliminar)
+
+Antes, solo se podía filtrar la lista de dispositivos por actividad y estado habilitado. Esta vista previa permite ahora filtrar la lista de dispositivos de acuerdo con los siguientes atributos en un dispositivo:
+
+- Estado habilitado
+- Estado de cumplimiento
+- Tipo de combinación (unido a Azure AD, unido a Azure AD híbrido, registrado en Azure AD)
+- Marca de tiempo de actividad
+- SO
+- Tipo de dispositivo (impresoras, máquinas virtuales seguras, dispositivos compartidos, dispositivos registrados)
+
+Para habilitar la funcionalidad de filtrado de versión preliminar en la vista **Todos los dispositivos**:
+
+![Habilitación de la funcionalidad de versión preliminar de filtrado](./media/device-management-azure-portal/device-filter-preview-enable.png)
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a **Azure Active Directory** > **Dispositivos**.
+1. Seleccione el banner que dice **Pruebe las mejoras de la nueva experiencia de filtrado de dispositivos. Haga clic para habilitar la versión preliminar.**
+
+Ahora podrá **agregar filtros** a la vista **Todos los dispositivos**.
 
 ## <a name="audit-logs"></a>Registros de auditoría
 

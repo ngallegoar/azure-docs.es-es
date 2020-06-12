@@ -3,12 +3,12 @@ title: Incorporación de herramientas de evaluación en Azure Migrate
 description: Obtenga información sobre como agregar herramientas de evaluación en Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901052"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195631"
 ---
 # <a name="add-assessment-tools"></a>Incorporación de herramientas de evaluación
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo agregar herramientas de valoración en [Azur
 2. Seleccione el escenario de valoración que quiere usar:
 
     - Para detectar y evaluar máquinas y cargas de trabajo para la migración a Azure, seleccione **Evaluar y migrar servidores**.
-    - Para evaluar máquinas SQL locales, seleccione **Evaluar y migrar bases de datos**.
+    - Para evaluar bases de datos de SQL Server locales, seleccione **Evaluar y migrar bases de datos**.
     - Para evaluar aplicaciones web locales, seleccione **Evaluar y migrar aplicaciones web**.
 
     ![Escenario de valoración](./media/how-to-assess/assess-scenario.png)

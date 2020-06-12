@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758986"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021337"
 ---
 # <a name="hierarchical-state-override"></a>Invalidación de estado jerárquico
 
@@ -27,23 +27,23 @@ Como ejemplo, considere el modelo de un automóvil y que quiere cambiar el vehí
 
 El conjunto fijo de estados que se pueden invalidar es:
 
-* **Hidden**: Las mallas respectivas del gráfico de escena se ocultan o se muestran.
-* **Color de tono**: un objeto representado se puede teñir con su intensidad y color de tono individual. En la imagen siguiente se muestra el tinte de color del borde de una rueda.
+* **`Hidden`** : Las mallas respectivas del gráfico de escena se ocultan o se muestran.
+* **`Tint color`** : un objeto representado se puede teñir con su intensidad y color de tono individual. En la imagen siguiente se muestra el tinte de color del borde de una rueda.
   
   ![Tono de color](./media/color-tint.png)
 
-* **Transparente**: la geometría se representa de modo semitransparente; por ejemplo, para mostrar las partes internas de un objeto. En la imagen siguiente se muestra el coche completo que se representa en el modo transparente, excepto la mordaza de freno roja:
+* **`See-through`** : la geometría se representa de modo semitransparente; por ejemplo, para mostrar las partes internas de un objeto. En la imagen siguiente se muestra el coche completo que se representa en el modo transparente, excepto la mordaza de freno roja:
 
   ![Transparente](./media/see-through.png)
 
   > [!IMPORTANT]
   > El efecto transparente solo funciona cuando se usa el [modo de representación](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
-* **Selección**: la geometría se representa con un [contorno de selección](outlines.md).
+* **`Selected`** : la geometría se representa con un [contorno de selección](outlines.md).
 
   ![Contorno de selección](./media/selection-outline.png)
 
-* **DisableCollision**: la geometría está exenta de [consultas espaciales](spatial-queries.md). La marca **Oculto** no desactiva las colisiones, por lo que estas dos marcas se suelen establecer juntas.
+* **`DisableCollision`** : la geometría está exenta de [consultas espaciales](spatial-queries.md). La marca **`Hidden`** no afecta a la marca del estado de las colisiones, por lo que estas dos marcas se suelen establecer juntas.
 
 ## <a name="hierarchical-overrides"></a>Invalidaciones jerárquicas
 
@@ -87,7 +87,7 @@ component->SetState(
 
 ### <a name="tint-color"></a>Color de tono
 
-La invalidación del color de tono es ligeramente especial, ya que hay tanto un estado activado/desactivado/heredado como una propiedad de color de tono. La parte alfa del color de tono define la intensidad del efecto de tono: Si se establece en 0,0, no hay ningún color de tono visible y, si se establece en 1,0, el objeto se representará con un color de tono puro. En el caso de los valores intermedios, el color final se combinará con el color del tono. El color del tono se puede cambiar en cada fotograma para lograr una animación de color.
+La invalidación de `tint color` es ligeramente especial, ya que hay tanto un estado activado/desactivado/heredado como una propiedad de color de tono. La parte alfa del color de tono define la intensidad del efecto de tono: Si se establece en 0,0, no hay ningún color de tono visible y, si se establece en 1,0, el objeto se representará con un color de tono puro. En el caso de los valores intermedios, el color final se combinará con el color del tono. El color del tono se puede cambiar en cada fotograma para lograr una animación de color.
 
 ## <a name="performance-considerations"></a>Consideraciones de rendimiento
 

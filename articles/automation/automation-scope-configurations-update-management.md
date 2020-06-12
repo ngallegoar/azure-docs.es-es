@@ -1,52 +1,44 @@
 ---
-title: Uso de configuraciones de ámbito para Update Management de Azure Automation
-description: En este artículo se explica cómo trabajar con configuraciones de ámbito cuando se usa Update Management.
+title: Limitación del ámbito de implementación de Update Management de Azure Automation
+description: En este artículo se indica cómo usar las configuraciones de ámbito para limitar el ámbito de implementación de Update Management.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832034"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117399"
 ---
-# <a name="work-with-scope-configurations-for-update-management"></a>Uso de configuraciones de ámbito para Update Management
+# <a name="limit-update-management-deployment-scope"></a>Limitación del ámbito de implementación de Update Management
 
-En este artículo se describe cómo puede trabajar con configuraciones de ámbito cuando se usa la característica [Update Management](automation-update-management.md) en máquinas virtuales. 
+En este artículo se describe cómo trabajar con configuraciones de ámbito cuando se utiliza la característica [Update Management](automation-update-management.md) para implementar actualizaciones y revisiones en las máquinas virtuales. Para más información, consulte [Soluciones de supervisión como destino en Azure Monitor (versión preliminar)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="about-scope-configurations"></a>Acerca de las configuraciones de ámbito
 
-Inicie sesión en Azure Portal en https://portal.azure.com.
+Una configuración de ámbito es un grupo de una o varias búsquedas (consultas) utilizadas para limitar el ámbito de Update Management a equipos concretos. La configuración de ámbito se usa dentro del área de trabajo de Log Analytics para seleccionar como destino los equipos que se van a habilitar. Cuando agrega un equipo para recibir actualizaciones de Update Management, el equipo también se agrega a una búsqueda guardada en el área de trabajo.
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Comprobación de la configuración de ámbito
+## <a name="set-the-scope-limit"></a>Definición del límite de ámbito
 
-Update Management usa una configuración de ámbito dentro del área de trabajo de Log Analytics para seleccionar como destino los equipos a fin de habilitar la característica. La configuración de ámbito es un grupo de una o más búsquedas guardadas que se usa para limitar el ámbito de la característica a equipos concretos. Para acceder a las configuraciones de ámbito:
+Para limitar el ámbito de implementación de Update Management:
 
-1. En la cuenta de Automation, en **Recursos relacionados**, seleccione **Área de trabajo**. 
+1. En la cuenta de Automation, seleccione **Área de trabajo vinculada**, en **Recursos relacionados**.
 
-2. Elija el área de trabajo en **Orígenes de datos del área de trabajo** y, después, seleccione **Configuraciones de ámbito**.
+2. Haga clic en **Ir a área de trabajo**.
 
-3. Si el área de trabajo seleccionada todavía no tiene la característica Update Management habilitada, crea la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates`. 
+3. Seleccione **Configuraciones de ámbito (versión preliminar)** en **Orígenes de datos del área de trabajo**.
 
-4. Si el área de trabajo seleccionada ya tiene la característica habilitada, no se vuelve a implementar y no se le agrega la configuración de ámbito. 
+4. Seleccione los puntos suspensivos a la derecha de la configuración del ámbito `MicrosoftDefaultScopeConfig-Updates` y haga clic en **Editar**. 
 
-5. Seleccione los puntos suspensivos de cualquiera de las configuraciones y, después, haga clic en **Editar**. 
+5. En el panel de edición, expanda **Seleccionar grupos de equipos**. En el panel Grupos de equipos se muestran las búsquedas guardadas que se usan para crear la configuración de ámbito. La búsqueda guardada que usa Update Management es la siguiente:
 
-6. En el panel de edición, seleccione **Seleccionar grupos de equipos**. En el panel Grupos de equipos se muestran las búsquedas guardadas que se usan para crear la configuración de ámbito.
+    |Nombre     |Category  |Alias  |
+    |---------|---------|---------|
+    |MicrosoftDefaultComputerGroup     | Actualizaciones        | Updates__MicrosoftDefaultComputerGroup         |
 
-## <a name="view-a-saved-search"></a>Visualización de una búsqueda guardada
-
-Cuando se agrega un equipo a Update Management, también se agrega a una búsqueda guardada en el área de trabajo. La búsqueda guardada es una consulta que contiene los equipos de destino.
-
-1. Vaya al área de trabajo de Log Analytics y seleccione **Búsquedas guardadas** en **General**. La búsqueda guardada que usa Update Management es la siguiente:
-
-|Nombre     |Category  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     | Actualizaciones        | Updates__MicrosoftDefaultComputerGroup         |
-
-2. Seleccione la búsqueda guardada para ver la consulta que se usa para rellenar el grupo. La siguiente imagen muestra la consulta y sus resultados:
+6. Seleccione la búsqueda guardada para ver y editar la consulta usada para rellenar el grupo. La siguiente imagen muestra la consulta y sus resultados:
 
     ![Búsquedas guardadas](media/automation-scope-configurations-update-management/logsearch.png)
 

@@ -1,27 +1,27 @@
 ---
-title: Movimiento de una dirección IP pública de Azure a otra región de Azure mediante Azure Portal
-description: Use una plantilla de Azure Resource Manager para mover una dirección IP pública de Azure de una región de Azure a otra mediante Azure Portal.
+title: Migración de la configuración de dirección IP pública de Azure a otra región de Azure en Azure Portal
+description: Use una plantilla para migrar una configuración de dirección IP pública de Azure de una región de Azure a otra mediante Azure Portal.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4fd5da3c910b10c81caccde307df0fd36e2fa78
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147824"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235412"
 ---
-# <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Movimiento de una dirección IP pública de Azure a otra región mediante Azure Portal
+# <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Migración de una configuración de dirección IP pública de Azure a otra región mediante Azure Portal
 
-Hay varios escenarios en los que puede que deba mover sus direcciones IP públicas de Azure actuales de una región a otra. Por ejemplo, quiere crear una dirección IP pública con la misma configuración y SKU para las pruebas. También quiere mover una dirección IP pública a otra región como parte del planeamiento de la recuperación ante desastres.
+Hay varios escenarios en los que puede ser conveniente migrar las configuraciones existentes de dirección IP pública de Azure de una región a otra. Por ejemplo, quiere crear una dirección IP pública con la misma configuración y SKU para las pruebas. También, puede que, como parte del planeamiento de la recuperación ante desastres, quiera migrar una configuración de dirección IP pública a otra región.
 
-Las direcciones IP públicas de Azure son específicas de la región y no se pueden migrar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de una dirección IP pública.  Después, puede preparar el recurso en otra región exportando la dirección IP pública a una plantilla y modificando los parámetros para que coincidan con la región de destino, y luego implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+**Las direcciones IP públicas de Azure son específicas de la región y no se pueden migrar de una región a otra.** Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de una dirección IP pública.  Después, puede preparar el recurso en otra región exportando la dirección IP pública a una plantilla y modificando los parámetros para que coincidan con la región de destino, y luego implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que la dirección IP pública de Azure se encuentra en la región de Azure desde la que va a moverla.
 

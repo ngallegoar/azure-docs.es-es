@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de recursos compartidos de archivos de Az
 description: Aprenda a hacer una copia de seguridad de los recursos compartidos de archivos de Azure en el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105750"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299237"
 ---
 # <a name="about-azure-file-share-backup"></a>Acerca de la copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -16,11 +16,12 @@ La copia de seguridad de recursos compartidos de archivos de Azure es una soluci
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Principales ventajas de la copia de seguridad de recursos compartidos de archivos de Azure
 
-* Cero infraestructura: no se necesita ninguna implementación para configurar la protección de los recursos compartidos de archivos.
-* Retención personalizada: Puede configurar copias de seguridad con retención diaria, semanal, mensual o anual según sus requisitos.
-* Funcionalidades de administración integradas: puede programar copias de seguridad y especificar el período de retención deseado sin la sobrecarga adicional de eliminación de datos.
-* Restauración instantánea: la copia de seguridad de recursos compartidos de archivos de Azure usa instantáneas de recursos compartidos de archivos, por lo que puede seleccionar justo los archivos que quiera restaurar al instante.
-* Alertas e informes: puede configurar alertas para los errores de copia de seguridad y restauración y usar la solución de generación de informes que se proporciona en Azure Backup para obtener información sobre las copias de seguridad en los recursos compartidos de archivos.
+* **Cero infraestructura**: no se necesita ninguna implementación para configurar la protección de los recursos compartidos de archivos.
+* **Retención personalizada**: Puede configurar copias de seguridad con retención diaria, semanal, mensual o anual según sus requisitos.
+* **Funcionalidades de administración integradas**: puede programar copias de seguridad y especificar el período de retención deseado sin la sobrecarga adicional de eliminación de datos.
+* **Restauración instantánea**: la copia de seguridad de recursos compartidos de archivos de Azure usa instantáneas de recursos compartidos de archivos, por lo que puede seleccionar justo los archivos que quiera restaurar al instante.
+* **Alertas e informes**: puede configurar alertas para los errores de copia de seguridad y restauración y usar la solución de generación de informes que se proporciona en Azure Backup para obtener información sobre las copias de seguridad en los recursos compartidos de archivos.
+* **Protección contra la eliminación accidental de recursos compartidos de archivos**: Azure Backup habilita la [característica de eliminación temporal](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) en el nivel de cuenta de almacenamiento con un período de retención de 14 días. Incluso si un actor malintencionado elimina el recurso compartido de archivos, su contenido y puntos de recuperación (instantáneas) se conservan durante un período de retención configurable, lo que permite recuperar correctamente y por completo el contenido de origen y las instantáneas sin pérdida de datos.
 
 ## <a name="architecture"></a>Architecture
 

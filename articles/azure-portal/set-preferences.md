@@ -9,12 +9,12 @@ ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3f51c356f4476782bb830b2702a8fe87c79235c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310686"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308071"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Configuración de las preferencias de Azure Portal
 
@@ -79,7 +79,7 @@ El tema que elija afectará a los colores de fondo y de fuente que aparecen en e
 
    ![Haga una captura de pantalla que muestre la configuración de Azure Portal con temas resaltados](./media/set-preferences/theme.png)
 
-En su lugar, puede elegir uno de los temas de contraste alto. La configuración de contraste alto facilita la lectura de los Azure Portal para los usuarios con deficiencias visuales y la invalidación de todas las demás selecciones de temas. Para más información, consulte [Activar el contraste alto o cambiar de tema](azure-portal-change-theme-high-contrast.md).
+En su lugar, puede elegir uno de los temas de contraste alto. La configuración de contraste alto facilita la lectura de Azure Portal para los usuarios con deficiencias visuales e invalida todas las demás selecciones de temas. Para más información, consulte [Activar el contraste alto o cambiar de tema](azure-portal-change-theme-high-contrast.md).
 
 ### <a name="enable-or-disable-pop-up-notifications"></a>Habilitar o deshabilitar las notificaciones emergentes
 

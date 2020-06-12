@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f1a4d9af8a1b1095527078dd790e80ef45a5ee9a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82710215"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996047"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)
 
@@ -70,7 +70,7 @@ Los límites siguientes se aplican a las etiquetas del Índice de blobs:
 - Las claves de etiqueta deben tener entre 1 y 128 caracteres.
 - Los valores de etiqueta deben tener entre 0 y 256 caracteres.
 - Las claves y los valores de etiqueta no distinguen entre mayúsculas y minúsculas.
-- Las claves y los valores de etiqueta solo admiten tipos de datos de cadena; todo número o carácter especial se guardará como cadena.
+- Las claves y los valores de etiqueta solo admiten tipos de datos de cadena; todo número, fecha, hora o carácter especial se guardará como cadena.
 - Las claves y los valores de etiqueta deben cumplir las siguientes reglas de nomenclatura:
   - Caracteres alfanuméricos: a-z, A-Z, 0-9
   - Caracteres especiales: espacio, más, menos, punto, dos puntos, igual, guion bajo, barra diagonal
@@ -106,6 +106,13 @@ En la tabla siguiente se muestran todos los operadores válidos para FindBlobsBy
 |     <=     |  Menor o igual que  | "Company" <= 'Contoso' |
 |    y     |  Y lógico  | "Rank" >= '010' AND "Rank" < '100' |
 | @container |  Ámbito de un contenedor específico   | @container = 'videofiles' AND "status" = 'done' |
+
+> [!NOTE]
+> Familiarícese con la ordenación lexicográfica al establecer y realizar consultas en etiquetas.
+> - Los números se ordenan antes que las letras. Los números se ordenan en función del primer dígito.
+> - Las mayúsculas se ordenan antes que las minúsculas.
+> - Los símbolos no son estándar. Algunos símbolos se ordenan antes que los valores numéricos. Otros símbolos se ordenan antes o después que las letras.
+>
 
 ## <a name="conditional-blob-operations-with-blob-index-tags"></a>Operaciones de blob condicionales con etiquetas del índice de blobs
 En las versiones de REST 2019-10-10 y posteriores, la mayoría de las [API de Blob service](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) ahora admiten un encabezado condicional, x-ms-if-tags, de modo que la operación solo se completará correctamente si se cumple la condición especificada del índice de blobs. Si la condición no se cumple, obtendrá `error 412: The condition specified using HTTP conditional header(s) is not met`.
@@ -246,9 +253,11 @@ Los precios del Índice de blobs se encuentran actualmente en versión prelimina
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilidad región y compatibilidad para cuentas de almacenamiento
 
-El Índice de blobs solo está disponible actualmente con cuentas de uso general V2 (GPv2). En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
+El Índice de blobs solo está disponible actualmente en cuentas De uso general v2 (GPv2) con un espacio de nombres jerárquico (SNP) deshabilitado. No se admiten las cuentas De uso general (GPv1), pero puede actualizar cualquier cuenta GPv1 a una cuenta GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
 El Índice de blobs, en versión preliminar pública, solo está disponible en las siguientes regiones seleccionadas:
+- Centro de Canadá
+- Este de Canadá
 - Centro de Francia
 - Sur de Francia
 
@@ -276,7 +285,7 @@ az provider register --namespace 'Microsoft.Storage'
 En esta sección se describen los problemas conocidos y las condiciones de la versión preliminar pública actual del Índice de blobs. Como sucede con la mayoría de las versiones preliminares, esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la disponibilidad general, ya que los comportamientos pueden cambiar.
 
 -   En el caso de la versión preliminar, primero debe registrar la suscripción para poder usar el Índice de blobs en la cuenta de almacenamiento en las regiones de versión preliminar.
--   Actualmente solo las cuentas GPv2 se admiten en la versión preliminar. Las cuentas de Blob, BlockBlobStorage y DataLake Gen2 compatibles habilitadas para HNS no se admiten actualmente con el Índice de blobs.
+-   Actualmente solo las cuentas GPv2 se admiten en la versión preliminar. Las cuentas de Blob, BlockBlobStorage y DataLake Gen2 compatibles habilitadas para HNS no se admiten actualmente con el Índice de blobs. No se admitirán las cuentas GPv1.
 -   La carga de blobs en páginas con etiquetas de índice actualmente no conserva las etiquetas. Debe establecer las etiquetas después de cargar un blob en páginas.
 -   Cuando el filtrado se limita a un único contenedor, @container solo se puede pasar si todas las etiquetas de índice de la expresión de filtro son comprobaciones de igualdad (clave=valor). 
 -   Al usar el operador de intervalo con la condición AND, solo puede especificar el mismo nombre de clave de etiqueta de índice (Age > ‘013’ AND Age < ‘100’).
@@ -290,6 +299,9 @@ En esta sección se describen los problemas conocidos y las condiciones de la ve
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>¿Puede el Índice de blobs ayudarme a filtrar y consultar el contenido dentro de mis blobs? 
 No, las etiquetas del Índice de blobs pueden ayudarle a encontrar los blobs que está buscando. Si tiene que buscar dentro de los blobs, use Aceleración de consultas o Azure Search.
+
+### <a name="are-there-any-special-considerations-regarding-blob-index-tag-values"></a>¿Existen consideraciones especiales con respecto a los valores de etiqueta del Índice de blobs?
+Las etiquetas del Índice de blobs solo admiten tipos de datos de cadena y las consultas devuelven resultados con ordenación lexicográfica. En el caso de los números, se recomienda rellenar el número con ceros a la izquierda. Para las fechas y horas, se recomienda almacenar como formato compatible con ISO 8601.
 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>¿Se relacionan las etiquetas del Índice de blobs y las etiquetas de Azure Resource Manager?
 No, las etiquetas de Azure Resource Manager ayudan a organizar los recursos del plano de control, como suscripciones, grupos de recursos y cuentas de almacenamiento. Las etiquetas del Índice de blobs permiten la administración y detección de objetos en recursos del plano de datos, como blobs dentro de una cuenta de almacenamiento.

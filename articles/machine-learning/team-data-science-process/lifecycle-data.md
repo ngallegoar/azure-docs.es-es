@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720510"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195065"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase de adquisición y comprensión de los datos del proceso de ciencia de datos en equipos
 
@@ -55,7 +55,7 @@ TDSP ofrece una utilidad automatizada denominada [IDEAR](https://github.com/Azur
 Una vez que esté satisfecho con la calidad de los datos limpios, el siguiente paso es comprender mejor los patrones que son inherentes a los datos. Este análisis de datos ayuda a elegir y desarrollar un modelo de predicción adecuado para el destino. Busque pruebas que describan la conexión de los datos con el destino. A continuación, determine si hay suficientes datos para avanzar con los siguientes pasos de modelado. Como hemos indicado, normalmente, se trata de un proceso iterativo. Es posible que deba buscar otros orígenes de datos con información más precisa o pertinente con el fin de alimentar el conjunto de datos inicialmente identificado en la fase anterior. 
 
 ### <a name="set-up-a-data-pipeline"></a>Configuración de una canalización de datos
-Además de la introducción y limpieza iniciales de los datos, suele ser preciso configurar un proceso para puntuar los datos nuevos o actualizarlos con regularidad durante el proceso de aprendizaje continuo. La puntuación puede completarse con una canalización de datos o un flujo de trabajo. El artículo [Traslado de datos desde un servidor SQL Server local a Azure SQL Database con Azure Data Factory](move-sql-azure-adf.md) proporciona un ejemplo de cómo configurar una canalización con [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Además de la introducción y limpieza iniciales de los datos, suele ser preciso configurar un proceso para puntuar los datos nuevos o actualizarlos con regularidad durante el proceso de aprendizaje continuo. La puntuación puede completarse con una canalización de datos o un flujo de trabajo. El artículo [Traslado de datos desde un servidor SQL Server a Azure SQL Database con Azure Data Factory](move-sql-azure-adf.md) proporciona un ejemplo de cómo configurar una canalización con [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 En esta fase, desarrolla una arquitectura de solución de la canalización de datos. Desarrolla la canalización en paralelo con la siguiente fase del proyecto de ciencia de datos. En función de las necesidades empresariales y de las limitaciones de los sistemas existentes en los que se integre esta solución, la canalización puede ser de una de las opciones siguientes: 
 

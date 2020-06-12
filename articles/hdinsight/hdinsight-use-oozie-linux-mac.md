@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 48b322f32bd6e8f2a2da0c5be8eb7b7987881f83
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 27cc1052a2f35382b2d6a93482b7af219a9a187a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204124"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015172"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 
@@ -29,7 +29,7 @@ Oozie también puede usarse para programar trabajos específicos de un sistema, 
 > [!NOTE]  
 > Otra opción para definir los flujos de trabajo con HDInsight es utilizar Azure Data Factory. Para más información acerca de Data Factory, consulte [Uso de Apache Pig y Apache Hive con Data Factory](../data-factory/transform-data.md). Para usar Oozie en clústeres con Enterprise Security Package, vea [Ejecución de Apache Oozie en clústeres HDInsight Hadoop con Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -232,7 +232,7 @@ Las definiciones de flujo de trabajo de Oozie se escriben en lenguaje de definic
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Edite el código siguiente para reemplazar `<serverName>` con el nombre del servidor de Azure SQL y `<sqlLogin>` con el inicio de sesión del servidor de Azure SQL.  Escriba el comando para conectarse a la base de datos SQL de requisito previo.  Escriba la contraseña en el símbolo del sistema.
+2. Edite el código siguiente para reemplazar `<serverName>` con el nombre del [servidor SQL lógico](../azure-sql/database/logical-servers.md) y `<sqlLogin>` con el inicio de sesión del servidor.  Escriba el comando para conectarse a la base de datos SQL de requisito previo.  Escriba la contraseña en el símbolo del sistema.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -449,7 +449,7 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 
     Si comprueba el estado después de este comando, estará en estado de ejecución y se devolverá información para las acciones realizadas dentro del trabajo.  Esta operación tardará algunos minutos en completarse.
 
-6. Edite el código siguiente para reemplazar `<serverName>` con el nombre del servidor de Azure SQL y `<sqlLogin>` con el inicio de sesión del servidor de Azure SQL.  *Cuando la tarea se complete* correctamente, puede comprobar que los datos se han generado y exportado a la tabla de base de datos SQL mediante el siguiente comando.  Escriba la contraseña en el símbolo del sistema.
+6. Edite el código siguiente para reemplazar `<serverName>` con el nombre del servidor y `<sqlLogin>` con el inicio de sesión del servidor.  *Cuando la tarea se complete* correctamente, puede comprobar que los datos se han generado y exportado a la tabla de base de datos SQL mediante el siguiente comando.  Escriba la contraseña en el símbolo del sistema.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest

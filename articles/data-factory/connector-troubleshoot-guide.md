@@ -9,12 +9,12 @@ ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7e818a80f9df97ce4e5f5b8f1ef9385d2e6b0ecc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827767"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022340"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solución de problemas de conectores en Azure Data Factory
 
@@ -49,7 +49,7 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 - **Mensaje**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 ### <a name="error-message-request-size-is-too-large"></a>Mensaje de error: Request size is too large (El tamaño de la solicitud es demasiado grande)
 
@@ -203,7 +203,7 @@ En este artículo se exploran métodos comunes de solución de problemas de cone
 
 - **Causa**: si el mensaje de error es "El cliente con la dirección IP '...' no tiene permiso para acceder al servidor" y está intentando conectarse a Azure SQL Database, normalmente se debe a un problema con el firewall de Azure SQL Database.
 
-- **Recomendación:**  En la configuración del firewall de Azure SQL Server, habilite la opción "Permitir que los servicios y recursos de Azure tengan acceso a este servidor". Documento de referencia: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Recomendación:**  En la configuración del firewall del servidor SQL lógico, habilite la opción "Permitir que los servicios y recursos de Azure tengan acceso a este servidor". Documento de referencia: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
 ### <a name="error-code--sqloperationfailed"></a>Código de error:  SqlOperationFailed

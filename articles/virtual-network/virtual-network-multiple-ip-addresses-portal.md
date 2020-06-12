@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 820e50d9fe60b76639bf74067129e65c7394ff4c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146608"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194204"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Asignación de varias direcciones IP a máquinas virtuales con Azure Portal
 
@@ -52,8 +52,8 @@ Puede agregar direcciones IP públicas y privadas a una interfaz de red de Azure
 
 Complete los pasos siguientes para agregar una nueva dirección IP privada:
 
-1. Complete los pasos de la sección [Pasos principales](#coreadd) de este artículo.
-2. Haga clic en **Agregar**. En el panel **Agregar configuración de IP** que aparece, cree una configuración de IP denominada *IPConfig 4* con *10.0.0.7* como dirección IP privada de tipo *Estática* y luego haga clic en **Aceptar**.
+1. Complete los pasos descritos en la sección [Pasos básicos](#coreadd) de este artículo y asegúrese de que se encuentre en la sección **Configuraciones de IP** de la interfaz de red de la máquina virtual.  Revise la subred que se muestra como predeterminada (por ejemplo, 10.0.0.0/24).
+2. Haga clic en **Agregar**. En el panel **Agregar configuración de IP** que aparece, cree una configuración de IP denominada *IPConfig-4* con una nueva dirección IP privada *estática*. Para ello, seleccione un nuevo número para el octeto final y haga clic en **Aceptar**.  (Para la subred 10.0.0.0/24, una dirección IP de ejemplo sería *10.0.0.7*).
 
     > [!NOTE]
     > Al agregar una dirección IP estática, debe especificar una dirección válida no utilizada en la subred a la que la está conectada la NIC. Si la dirección que seleccionó no está disponible, el portal muestra una X para la dirección IP y debe seleccionar otra.

@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de una granja de SharePoint en Azu
 description: Uso del Azure Backup Server para hacer copia de seguridad de los datos de SharePoint y restaurarlos. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e429eeb5319a12c3483510072fd82c69c8d8ab3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657273"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234788"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 
@@ -30,7 +30,7 @@ Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, h
 
 * Que MABS no proporcione copia de seguridad de bases de datos SQL Server de SharePoint hospedadas en recursos compartidos de servidor de archivos de escalabilidad horizontal (SOFS).
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos para usar Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) a fin de proteger las cargas de trabajo. Algunas de las tareas que son requisito previo incluyen: crear un almacén de copia de seguridad, descargar las credenciales de almacén, instalar el agente de copia de seguridad de Azure y registrar Azure Backup Server en el almacén.
 
@@ -68,10 +68,9 @@ Para realizar una copia de seguridad de una granja de SharePoint, configure la p
 
     * Escriba las credenciales de administrador de la granja de servidores. Esta cuenta debe ser miembro del grupo de administradores local en el servidor WFE. Si el administrador de la granja no es un administrador local, conceda los permisos siguientes en el servidor WFE:
 
-        * Conceda al grupo WSS\_Admin\_WPG control total sobre la carpeta MABS \(%Program Files%\\Data Protection Manager\\DPM\).
-            -A
+        * Conceda al grupo **WSS_Admin_WPG** control total sobre la carpeta de MABS (`%Program Files%\Data Protection Manager\DPM\`).
 
-        * Conceda al grupo WSS\_Admin\_WPG acceso de lectura a la clave del Registro de MABS \(HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager\).
+        * Conceda al grupo **WSS_Admin_WPG** acceso de lectura a la clave de Registro de MABS (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`).
 
         Después de ejecutar ConfigureSharePoint.exe, tendrá que volver a ejecutarlo cada vez que haya un cambio en las credenciales de administrador de la granja de SharePoint.
 

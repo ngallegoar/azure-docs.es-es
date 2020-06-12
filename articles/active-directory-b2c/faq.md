@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79231140"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297911"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -134,21 +134,20 @@ Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar e
 
 Siga estos pasos para eliminar el inquilino de Azure AD B2C.
 
-Puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
+Puede usar la nueva experiencia **Registros de aplicaciones** unificada o nuestra experiencia **Applications (Legacy)** (Aplicaciones [heredadas]) anterior. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
+#### <a name="app-registrations"></a>[Registros de aplicaciones](#tab/app-reg-ga/)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como *administrador de la suscripción*. Use la misma cuenta profesional o educativa o la misma cuenta de Microsoft que ha usado para registrarse en Azure.
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
-1. Elimine todos los **flujos de usuario (directivas)** del inquilino de Azure AD B2C.
-1. Elimine todas las **aplicaciones** que haya registrado en el inquilino de Azure AD B2C.
-1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+1. Elimine todos los **flujos de usuario (directivas)** del inquilino de Azure AD B2C.
+1. Seleccione **Registros de aplicaciones** y luego seleccione la pestaña **Todas las aplicaciones**.
+1. Elimine todas las aplicaciones que ha registrado.
+1. Elimine **b2c-extensions-app**.
 1. En **Administrar**, seleccione **Usuarios**.
-1. Seleccione cada usuario de uno en uno (excluya al *administrador de suscripciones* con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **SÍ** cuando se le pida confirmación.
-1. En **Administrar**, seleccione **Registros de aplicaciones** (o **Registros de aplicaciones (característica heredada)** ).
-1. Seleccione **Ver todas las aplicaciones**.
-1. Seleccione la aplicación denominada **b2c-extensions-app**, seleccione **Eliminar** y después **Sí** cuando se le pida.
+1. Seleccione cada usuario de uno en uno (excluya al *administrador de suscripciones* con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **Sí** cuando se le pida confirmación.
+1. Seleccione **Azure Active Directory** en el menú de la izquierda.
 1. En **Administrar**, seleccione **Configuración del usuario**.
 1. Si está presente, en **Conexiones de cuenta de LinkedIn**, seleccione **No** y, a continuación, seleccione **Guardar**.
 1. En **Administrar**, seleccione **Propiedades**.
@@ -157,18 +156,19 @@ Puede usar la experiencia **Aplicaciones** actual o la nueva experiencia **Regis
 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
 1. En la página **Información general**, seleccione **Eliminar directorio**. Siga las instrucciones que aparecen en pantalla para completar el proceso.
 
-#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
+#### <a name="applications-legacy"></a>[Applications (Legacy)](#tab/applications-legacy/) (Aplicaciones [heredadas])
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como *administrador de la suscripción*. Use la misma cuenta profesional o educativa o la misma cuenta de Microsoft que ha usado para registrarse en Azure.
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
-1. Elimine todos los **flujos de usuario (directivas)** del inquilino de Azure AD B2C.
-1. Seleccione **Registros de aplicaciones (versión preliminar)** y, a continuación, la pestaña **Todas las aplicaciones**.
-1. Elimine todas las aplicaciones que ha registrado.
-1. Elimine **b2c-extensions-app**.
-1. En **Administrar**, seleccione **Usuarios**.
-1. Seleccione cada usuario de uno en uno (excluya al *administrador de suscripciones* con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **Sí** cuando se le pida confirmación.
+1. Elimine todos los **flujos de usuario (directivas)** del inquilino de Azure AD B2C.
+1. Elimine todas las **Applications (Legacy)** (Aplicaciones [heredadas]) que haya registrado en el inquilino de Azure AD B2C.
 1. Seleccione **Azure Active Directory** en el menú de la izquierda.
+1. En **Administrar**, seleccione **Usuarios**.
+1. Seleccione cada usuario de uno en uno (excluya al *administrador de suscripciones* con el que inició sesión). Seleccione **Eliminar** en la parte inferior de la página y seleccione **SÍ** cuando se le pida confirmación.
+1. En **Administrar**, seleccione **Registros de aplicaciones**.
+1. Seleccione **Ver todas las aplicaciones**.
+1. Seleccione la aplicación denominada **b2c-extensions-app**, seleccione **Eliminar** y después **Sí** cuando se le pida.
 1. En **Administrar**, seleccione **Configuración del usuario**.
 1. Si está presente, en **Conexiones de cuenta de LinkedIn**, seleccione **No** y, a continuación, seleccione **Guardar**.
 1. En **Administrar**, seleccione **Propiedades**.

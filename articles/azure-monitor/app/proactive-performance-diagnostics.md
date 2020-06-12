@@ -4,18 +4,18 @@ description: Application Insights realiza un análisis inteligente de la telemet
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697165"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016855"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) analiza automáticamente el rendimiento de su aplicación web y puede advertirle de los posibles problemas. Podría estar leyendo este artículo porque ha recibido una de nuestras notificaciones de detección inteligente.
 
-Esta característica no requiere ninguna configuración especial, tan solo ajustar los parámetros de la aplicación para Application Insights (en [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md) o [Node.js](../../azure-monitor/app/nodejs.md), así como en el [código de la página web](../../azure-monitor/app/javascript.md)). Se activará cuando la aplicación genera suficientes datos de telemetría.
+Esta característica no requiere ninguna configuración especial, tan solo ajustar los parámetros de la aplicación para Application Insights para el [idioma admitido](../../azure-monitor/app/platforms.md). Se activará cuando la aplicación genera suficientes datos de telemetría.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>¿Cuándo recibiría una notificación de detección inteligente?
 

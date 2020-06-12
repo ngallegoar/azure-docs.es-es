@@ -1,7 +1,7 @@
 ---
 title: 'Metadatos con GenerateAnswer API: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: QnA Maker permite agregar metadatos, en forma de pares de clave-valor, a los conjuntos de preguntas y respuestas. Puede filtrar los resultados a las consultas de usuario y almacenar la información adicional que se puede usar en las conversaciones de seguimiento.
+description: QnA Maker permite agregar metadatos, en forma de pares de clave-valor, a los pares de preguntas y respuestas. Puede filtrar los resultados a las consultas de usuario y almacenar la información adicional que se puede usar en las conversaciones de seguimiento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 171efd0e5750555130588f783c4a858def11afec
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659553"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993514"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
 Para obtener la respuesta prevista a la pregunta de un usuario, use GenerateAnswer API. Al publicar una base de conocimiento, puede consultar información sobre cómo usar esta API en la página **Publicar**. También puede configurar la API para filtrar las respuestas según las etiquetas de metadatos y probar la base de conocimiento desde el punto de conexión con el parámetro de cadena de consulta de prueba.
 
-QnA Maker permite agregar metadatos, en forma de pares clave-valor, a los conjuntos de preguntas y respuestas. Luego puede usar esta información para filtrar los resultados de las consultas de usuario y para almacenar información adicional que se puede usar en las conversaciones de seguimiento. Para más información, consulte la [base de conocimiento](../Concepts/knowledge-base.md).
+QnA Maker permite agregar metadatos, en forma de pares clave-valor, a los pares de preguntas y respuestas. Luego puede usar esta información para filtrar los resultados de las consultas de usuario y para almacenar información adicional que se puede usar en las conversaciones de seguimiento. Para más información, consulte la [base de conocimiento](../Concepts/knowledge-base.md).
 
 <a name="qna-entity"></a>
 
@@ -37,7 +37,7 @@ Cada entidad QnA tiene un identificador único y persistente. Puede usar el iden
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obtención de predicciones de respuestas con GenerateAnswer API
 
-[GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) se usa en un bot o aplicación para consultar la base de conocimiento con una pregunta de usuario y obtener la mejor coincidencia de los conjuntos de preguntas y respuestas.
+[GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) se usa en un bot o aplicación para consultar la base de conocimiento con una pregunta de usuario y obtener la mejor coincidencia de los pares de preguntas y respuestas.
 
 <a name="generateanswer-endpoint"></a>
 
@@ -196,7 +196,7 @@ Puesto que los resultados solo son necesarios para el restaurante "Paradise", pu
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Uso de los resultados de las preguntas y respuestas para mantener el contexto de la conversación
 
-La respuesta a GenerateAnswer contiene la información de los metadatos correspondientes al conjunto de preguntas y respuestas que coinciden. Puede usar esta información en la aplicación cliente para almacenar el contexto de la conversación anterior para su uso en conversiones posteriores.
+La respuesta a GenerateAnswer contiene la información de los metadatos correspondientes al par de pregunta y respuesta coincidente. Puede usar esta información en la aplicación cliente para almacenar el contexto de la conversación anterior para su uso en conversiones posteriores.
 
 ```json
 {

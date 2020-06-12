@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de SQL Server en Azure como una ca
 description: Introducción a la copia de seguridad de bases de datos de SQL Server mediante el servicio Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183796"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195792"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 
@@ -43,7 +43,7 @@ Para proteger las bases de datos de SQL Server en Azure, debe crear primero una
 1. Seleccione **Servidores**.
 
     ![Selección del tipo de grupo de protección Servidores](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expanda la máquina de SQL Server en la que se encuentran las bases de datos de las que se van a realizar copias de seguridad. Verá los orígenes de datos de los que se puede hacer copias de seguridad desde ese servidor. Expanda **Todos los recursos compartidos de SQL** y, a continuación, seleccione las bases de datos de las que desea realizar una copia de seguridad. En este ejemplo, seleccionamos ReportServer$MSDPM2012 y ReportServer$MSDPM2012TempDB. Luego, seleccione **Siguiente**.
+1. Expanda la máquina virtual de SQL Server en la que se encuentran las bases de datos de las que se van a realizar copias de seguridad. Verá los orígenes de datos de los que se puede hacer copias de seguridad desde ese servidor. Expanda **Todos los recursos compartidos de SQL** y, a continuación, seleccione las bases de datos de las que desea realizar una copia de seguridad. En este ejemplo, seleccionamos ReportServer$MSDPM2012 y ReportServer$MSDPM2012TempDB. Luego, seleccione **Siguiente**.
 
     ![Selección de una base de datos de SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Asigne un nombre al grupo de protección y, a continuación, seleccione **Deseo protección en línea**.
@@ -72,7 +72,7 @@ Para proteger las bases de datos de SQL Server en Azure, debe crear primero una
 
     ![Elección de un método de creación de réplicas](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos de SQL Server). Los datos de copia de seguridad se mueven desde el servidor de producción (máquina de SQL Server) al servidor de DPM. Si esta copia de seguridad es grande, la transferencia de los datos por la red podría provocar la congestión del ancho de banda. Por esta razón, los administradores pueden optar por usar medios extraíbles para transferir la copia de seguridad inicial **manualmente**. O bien, pueden transferir los datos **Automáticamente a través de la red** a una hora especificada.
+    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos de SQL Server). Los datos de copia de seguridad se mueven desde el servidor de producción (equipo con SQL Server) al servidor de DPM. Si esta copia de seguridad es grande, la transferencia de los datos por la red podría provocar la congestión del ancho de banda. Por esta razón, los administradores pueden optar por usar medios extraíbles para transferir la copia de seguridad inicial **manualmente**. O bien, pueden transferir los datos **Automáticamente a través de la red** a una hora especificada.
 
     Una vez finalizada la copia de seguridad inicial, las copias de seguridad continuarán de forma incremental sobre la copia de seguridad inicial. Las copias de seguridad incrementales tienden a ser pequeñas y se transfieren fácilmente a través de la red.
 
@@ -80,7 +80,7 @@ Para proteger las bases de datos de SQL Server en Azure, debe crear primero una
 
     ![Elección de cuándo ejecutar una comprobación de coherencia](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    DPM puede ejecutar una comprobación de coherencia sobre la integridad del punto de copia de seguridad. Calcula la suma de comprobación del archivo de copia de seguridad en el servidor de producción (máquina de SQL Server en este ejemplo) y los datos de copia de seguridad para ese archivo en DPM. Si la comprobación encuentra un conflicto, se supone que el archivo de copia de seguridad de DPM está dañado. DPM corrige los datos de copia de seguridad mediante el envío de los bloques correspondientes a la suma de comprobación no coincidente. Como la comprobación de coherencia es una operación que requiere un rendimiento intensivo, los administradores tienen la opción de programarla o ejecutarla automáticamente.
+    DPM puede ejecutar una comprobación de coherencia sobre la integridad del punto de copia de seguridad. Calcula la suma de comprobación del archivo de copia de seguridad del servidor de producción (equipo con SQL Server en este ejemplo) y los datos de copia de seguridad de ese archivo en DPM. Si la comprobación encuentra un conflicto, se supone que el archivo de copia de seguridad de DPM está dañado. DPM corrige los datos de copia de seguridad mediante el envío de los bloques correspondientes a la suma de comprobación no coincidente. Como la comprobación de coherencia es una operación que requiere un rendimiento intensivo, los administradores tienen la opción de programarla o ejecutarla automáticamente.
 
 1. Seleccione los orígenes de datos que se van a proteger en Azure. Luego, seleccione **Siguiente**.
 

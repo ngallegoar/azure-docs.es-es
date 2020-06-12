@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: 5abc216e182d7becd9d6f42e0f566ee96d09c2a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475138"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995877"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Controladores personalizados de Azure Functions (versión preliminar)
 
@@ -20,9 +20,9 @@ Los controladores personalizados son servidores web ligeros que reciben eventos 
 
 Los controladores personalizados son más adecuados para las situaciones en las que desea:
 
-- Implementar una aplicación de Functions en un lenguaje que no sea uno de los lenguajes admitidos oficialmente
-- Implementar una aplicación de Functions en una versión o un tiempo de ejecución de lenguaje no compatible de forma predeterminada
-- Tener un control pormenorizado sobre el entorno de ejecución de la aplicación
+- Implementar una aplicación de funciones en un lenguaje que no se admite oficialmente.
+- Implementar una aplicación de funciones en una versión o un tiempo de ejecución de lenguaje no compatible de forma predeterminada.
+- Ofrecer un control pormenorizado sobre el entorno de ejecución de la aplicación de funciones.
 
 Con los controladores personalizados, todos los [desencadenadores y enlaces de entrada y salida](./functions-triggers-bindings.md) son compatibles mediante [conjuntos de extensiones](./functions-bindings-register.md).
 

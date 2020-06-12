@@ -2,13 +2,13 @@
 title: Evaluaciones en Server Assessment de Azure Migrate
 description: Obtenga información sobre las evaluaciones en Server Assessment de Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 2f76ea5f195be2914cdcdb4de9e93af38504d66e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 05/27/2020
+ms.openlocfilehash: bfae3f23dd16b0d1a09b49f56efbca88a7bea08f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769917"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171011"
 ---
 # <a name="assessments-in-azure-migrate-server-assessment"></a>Evaluaciones en Azure Migrate: Server Assessment
 
@@ -110,7 +110,7 @@ Propiedad | Detalles
 **Ubicación de destino** | La ubicación de Azure a la que quiere realizar la migración. Server Assessment admite actualmente estas regiones de Azure de destino:<br/><br/> Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de China, Norte de China, Este de Asia, Este de EE. UU., Este de EE. UU. 2, Сentro de Alemania, Nordeste de Alemania, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro-oeste de EE. UU., Oeste de Europa, Oeste de la India, Oeste de EE. UU. y Oeste de EE. UU. 2.
 **Disco de almacenamiento de destino (tamaño tal cual)** | Tipo de disco que se va a usar para el almacenamiento en Azure. <br/><br/> Especifica el disco de almacenamiento de destino como administrado Premium, administrado SSD estándar o administrado HDD estándar.
 **Disco de almacenamiento de destino (tamaño basado en el rendimiento)** | Especifica el tipo de disco de almacenamiento de destino como automático, administrado Premium, administrado HDD estándar o administrado SSD estándar.<br/><br/> **Automático**: la recomendación de disco se basa en los datos de rendimiento de los discos, es decir, el número de IOPS y el rendimiento.<br/><br/>**Premium o Standard**:  La evaluación recomienda una SKU de disco dentro del tipo de almacenamiento seleccionado.<br/><br/> Si quiere un contrato de nivel de servicio (SLA) de máquina virtual de una sola instancia del 99,9 %, considere el uso de discos administrados Premium. Este uso garantiza que todos los discos de la evaluación se recomienden como discos administrados Premium.<br/><br/> Azure Migrate solo admite discos administrados para la evaluación de la migración.
-**Azure Reserved Virtual Machine Instances** | Especifica las [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) para que se tengan en cuenta en los cálculos de los costos de la evaluación.<br/><br/> Azure Migrate admite actualmente Azure Reserved VM Instances solo en ofertas de pago por uso.
+**Azure Reserved VM Instances** | Especifica las [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) para que se tengan en cuenta en los cálculos de los costos de la evaluación.<br/><br/> Si se seleccionan las instancias reservadas, deje la configuración predeterminada en descuento (%) y en las propiedades de tiempo de actividad de la máquina virtual.<br/><br/> Azure Migrate admite actualmente Azure Reserved VM Instances solo en ofertas de pago por uso.
 **Criterio de tamaño** | Se usa para elegir el tamaño adecuado de la máquina virtual de Azure.<br/><br/> Use el tamaño tal cual o basado en el rendimiento.
 **Historial de rendimiento** | Se usa el ajuste de tamaño basado en el rendimiento. El historial de rendimiento especifica la duración que se usa cuando se evalúan los datos de rendimiento.
 **Uso de percentil** | Se usa el ajuste de tamaño basado en el rendimiento. El uso de percentil especifica el valor de percentil de la muestra de rendimiento que se usa para elegir el tamaño adecuado.
@@ -121,6 +121,8 @@ Propiedad | Detalles
 **Descuento (%)** | Cualquier descuento específico de la suscripción que recibe además de la oferta de Azure. La configuración predeterminada es 0 %.
 **Tiempo de actividad de VM** | La duración en días por mes y horas al día de las máquinas virtuales de Azure que no se ejecutarán continuamente. Los cálculos de los costos se basan en esa duración.<br/><br/> Los valores predeterminados son 31 días al mes y 24 horas al día.
 **Ventaja híbrida de Azure** | Especifique si dispone de Software Assurance y tiene derecho a la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Si la opción tiene el valor predeterminado "Sí", los precios de Azure para sistemas operativos que no son Windows se tienen en cuenta para las máquinas virtuales Windows.
+**Suscripción a Contrato Enterprise** | Especifica que se usa una suscripción a Contrato Enterprise (EA) para la estimación de costos. Tiene en cuenta el descuento aplicable a la suscripción. <br/><br/> Deje la configuración de instancias reservadas, el descuento (%) y las propiedades de tiempo de actividad de la máquina virtual con su configuración predeterminada.
+
 
 [Revise los procedimientos recomendados](best-practices-assessment.md) para crear una evaluación con Server Assessment.
 

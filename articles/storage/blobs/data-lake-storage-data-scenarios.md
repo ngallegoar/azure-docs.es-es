@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b0ebe6cb505fa2a145dd3cbb94398912f2933a4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77369718"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193509"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos
 
@@ -129,7 +129,7 @@ Utilice el conector de Power BI para crear representaciones visuales de los dat
 
 También puede descargar o mover datos de Azure Data Lake Storage Gen2 en escenarios como los siguientes:
 
-* Mover datos a otros repositorios para interactuar con las canalizaciones de procesamiento de datos existentes. Por ejemplo, puede mover los datos de Data Lake Storage Gen2 a Azure SQL Database o a SQL Server local.
+* Mover datos a otros repositorios para interactuar con las canalizaciones de procesamiento de datos existentes. Por ejemplo, puede mover los datos de Data Lake Storage Gen2 a Azure SQL Database o a una instancia de SQL Server.
 
 * Descargar datos en el equipo local para procesarlos en entornos IDE durante la creación de prototipos de aplicaciones.
 

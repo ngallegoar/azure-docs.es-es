@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78330726"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267110"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory
 
@@ -29,7 +29,7 @@ El script está diseñado para ser flexible. En primer lugar, buscará los recur
 
 ## <a name="set-up-powershell-environment"></a>Configuración del entorno de PowerShell
 
-1. Para empezar, abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Asegúrese de que Cloud Shell esté establecido en PowerShell en la lista desplegable de la parte superior izquierda o escribiendo `pwsh`.
+1. Para empezar, abra [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Asegúrese de que Cloud Shell está establecido en PowerShell en la lista desplegable de la parte superior izquierda o escriba `pwsh`.
 
 1. Copie y pegue el siguiente fragmento de código en el shell.
 
@@ -183,7 +183,7 @@ El script está diseñado para ser flexible. En primer lugar, buscará los recur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el [inicio rápido de Node.js](./quickstart-nodejs.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js
+* Consulte el [inicio rápido de Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js
 * Vea el [tutorial para Python](./tutorial-python.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
 * Vea el [tutorial para Swift](./tutorial-ios-picture-immersive-reader.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Swift.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](./reference.md)

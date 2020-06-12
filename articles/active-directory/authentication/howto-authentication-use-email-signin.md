@@ -10,24 +10,24 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: ed317039e683ef36054d5ace612e09ca75dfa11e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9a02a01bb55e63322964b52a5f4d6113b3280360
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837314"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220716"
 ---
-# <a name="sign-in-to-azure-using-email-as-an-alternate-login-id-preview"></a>Iniciar sesión en Azure mediante el correo electrónico como id. de inicio de sesión alternativo (versión preliminar)
+# <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sesión en Azure mediante el correo electrónico como id. de inicio de sesión alternativo (versión preliminar)
 
-Muchas organizaciones quieren permitir que los usuarios inicien sesión en Azure con las mismas credenciales que su entorno de directorio local. Con este enfoque, conocido como autenticación híbrida, los usuarios solo necesitan recordar un conjunto de credenciales.
+Muchas organizaciones desean que los usuarios puedan iniciar sesión en Azure Active Directory (Azure AD) con las mismas credenciales que su entorno de directorio local. Con este enfoque, conocido como autenticación híbrida, los usuarios solo necesitan recordar un conjunto de credenciales.
 
 Algunas organizaciones no han migrado a la autenticación híbrida por las siguientes razones:
 
-* De forma predeterminada, el nombre principal de usuario (UPN) de Azure Active Directory (Azure AD) se establece en el mismo UPN que el directorio local.
-* Al cambiar el Azure AD UPN, se crea una coincidencia incorrecta entre entornos locales y de Azure que podrían causar problemas con ciertas aplicaciones y servicios.
-* Debido a las razones empresariales o de cumplimiento, la organización no quiere usar el UPN local para iniciar sesión en Azure.
+* De forma predeterminada, el nombre principal de usuario (UPN) de Azure Active Directory (Azure AD) se establece en el mismo UPN que el directorio local.
+* Al cambiar el UPN de Azure AD, se produce una coincidencia incorrecta entre el entorno local y el entorno de Azure que podría dar problemas con ciertas aplicaciones y servicios.
+* Debido a motivos empresariales o de cumplimiento, la organización no desea usar el UPN local para iniciar sesión en Azure.
 
-Para ayudar con el traslado a la autenticación híbrida, ahora puede configurar Azure AD para permitir que los usuarios inicien sesión en Azure con un correo electrónico en el dominio comprobado como un id. de inicio de sesión alternativo. Por ejemplo, si *Contoso* cambia de nombre a *Fabrikam*, en lugar de seguir iniciando sesión con el UPN heredado `balas@contoso.com`, ahora se puede usar el correo electrónico como id. de inicio de sesión alternativo. Para acceder a una aplicación o a los servicios, los usuarios inician sesión en Azure con su correo electrónico asignado, como `balas@fabrikam.com`.
+Para facilitar la adopción de la autenticación híbrida, ahora puede configurar Azure AD para que los usuarios puedan iniciar sesión en Azure con un correo electrónico en su dominio verificado como un identificador de inicio de sesión alternativo. Por ejemplo, si *Contoso* cambia de nombre a *Fabrikam*, en lugar de seguir iniciando sesión con el UPN heredado `balas@contoso.com`, ahora se puede usar el correo electrónico como id. de inicio de sesión alternativo. Para acceder a una aplicación o a servicios, los usuarios inician sesión en Azure AD con su correo electrónico asignado, como `balas@fabrikam.com`.
 
 |     |
 | --- |
@@ -36,17 +36,15 @@ Para ayudar con el traslado a la autenticación híbrida, ahora puede configurar
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Información general de los métodos de inicio de sesión Azure AD
 
-Los nombres principales de usuario (UPN) son identificadores únicos para una cuenta de usuario en el directorio local y en Azure AD. Cada cuenta de usuario de un directorio está representada por un UPN, como `balas@contoso.com`. De forma predeterminada, cuando sincroniza un entorno local de Active Directory Domain Services (AD DS) con Azure AD, el UPN de Azure AD se establece para que coincida con el UPN local.
+Para iniciar sesión en Azure AD, los usuarios escriben un nombre que identifica de forma única su cuenta. Antes, solo podía usar el UPN de Azure AD como el nombre de inicio de sesión.
 
-En muchas organizaciones, es preciso establecer el UPN local y Azure AD UPN para que coincidan. Cuando los usuarios inician sesión en aplicaciones y servicios de Azure, usan su Azure AD UPN. Sin embargo, algunas organizaciones no pueden usar UPN similares para el inicio de sesión debido a las directivas empresariales o problemas de experiencia del usuario.
+En el caso de las organizaciones en las que el UPN local es el correo electrónico de inicio de sesión elegido por el usuario, este era un enfoque óptimo. Esas organizaciones configuraban el UPN de Azure AD con el mismo valor que el UPN local, y los usuarios tenían una experiencia de inicio de sesión coherente.
 
-Las organizaciones que no pueden usar UPN coincidentes en Azure AD tienen algunas opciones:
+Sin embargo, en algunas organizaciones el UPN local no se usaba como nombre de inicio de sesión. En los entornos locales, se configuraba AD DS local para facilitar el inicio de sesión con un identificador de inicio de sesión alternativo. Configurar el UPN de Azure AD con el mismo valor que el UPN local no era una alternativa, ya que Azure AD exigía que los usuarios iniciaran sesión con ese valor.
 
-* Un enfoque consiste en establecer el UPN de Azure AD en algo diferente en función de las necesidades empresariales, como `balas@fabrikam.com`.
-    * Sin embargo, no todas las aplicaciones y servicios son compatibles con el uso de un valor diferente para el UPN local y el UPN de Azure AD.
-* Un mejor enfoque consiste en asegurarse de que el Azure AD y los UPN locales están establecidos en el mismo valor, y configurar Azure AD para permitir que los usuarios inicien sesión en Azure con su correo electrónico como un identificador de inicio de sesión alternativo.
+La solución habitual a este problema era configurar el UPN de Azure AD con la dirección de correo electrónico con la que el usuario espera iniciar sesión. Este enfoque funciona, aunque genera distintos UPN entre AD local y Azure AD, y esta configuración no es compatible con todas las cargas de trabajo de Microsoft 365.
 
-Con el correo electrónico como identificador de inicio de sesión alternativo, los usuarios aún pueden iniciar sesión en Azure mediante su UPN, pero también pueden iniciar sesión con su correo electrónico. Para admitir esto, defina una dirección de correo electrónico en el atributo *ProxyAddresses* del usuario en el directorio local. Este atributo de *ProxyAddress* admite una o varias dirección de correo electrónico.
+Un enfoque diferente consiste en sincronizar los UPN de Azure AD y AD local con el mismo valor y, a continuación, configurar Azure AD para permitir que los usuarios inicien sesión con un correo electrónico verificado. Para ello, defina una o más direcciones de correo electrónico en el atributo *ProxyAddresses* del usuario en el directorio local. El atributo *ProxyAddresses* se sincroniza en Azure AD automáticamente mediante Azure AD Connect.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Sincronizar las direcciones de correo electrónico de inicio de sesión con Azure AD
 

@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e80ff74ad1dec25c815a9dd28a04133502b82085
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653018"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012915"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervisión del uso de recursos y la actividad de consultas en Azure Synapse Analytics
 
@@ -49,7 +49,7 @@ En Azure Portal para Synapse SQL hay disponibles las métricas siguientes. Estas
 Aspectos que se deben tener en cuenta al visualizar métricas y establecer alertas:
 
 - Las unidades de almacenamiento de datos son solo una **representación de alto nivel del uso** en el grupo de SQL y no se pretende que constituyan un indicador exclusivo de utilización. Para determinar si realizar un escalado o reducción vertical, tenga en cuenta todos los factores que podrían verse afectados por el indicador Unidad de almacenamiento de datos como, por ejemplo, la simultaneidad, la memoria, tempdb y la capacidad de la caché adaptable. Le recomendamos [ejecutar la carga de trabajo con valores diferentes de DWU](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) para averiguar cuál funciona mejor para satisfacer sus objetivos de negocio.
-- Las conexiones erróneas y correctas se indican para un almacenamiento de datos determinado, no para el servidor lógico.
+- Las conexiones erróneas y correctas se indican para un almacenamiento de datos determinado, no para el propio servidor.
 - El porcentaje de memoria refleja el uso incluso si el almacenamiento de datos se encuentra en estado de inactividad (no refleja el consumo de memoria de carga de trabajo activa). Use y realice un seguimiento de esta métrica junto con otras (tempdb, memoria caché de Gen2) para tomar una decisión holística sobre si el escalado para conseguir capacidad de la memoria caché adicional aumentará el rendimiento de la carga de trabajo para cumplir sus requisitos.
 
 ## <a name="query-activity"></a>Actividad de consultas

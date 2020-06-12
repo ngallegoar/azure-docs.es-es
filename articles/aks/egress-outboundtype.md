@@ -3,45 +3,27 @@ title: Personalización de rutas definidas por el usuario (UDR) en Azure Kuberne
 description: Obtenga información sobre cómo definir una ruta de salida personalizada en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/16/2020
-ms.openlocfilehash: babfd70a6a9732113531be13073af212a6820557
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/05/2020
+ms.openlocfilehash: d62f40fb835bfe6993ad31ddd20cfdea1d9135c2
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677890"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310876"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalización de la salida de un clúster con una ruta definida por el usuario (versión preliminar)
+# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalización de la salida de un clúster con una ruta definida por el usuario
 
-La salida de un clúster de AKS se puede personalizar para escenarios específicos. De forma predeterminada, AKS aprovisionará una SKU de Load Balancer Estándar, que se configurará y se usará para la salida. Sin embargo, es posible que la configuración predeterminada no cumpla los requisitos de todos los escenarios si no se permiten direcciones IP públicas o se requieren saltos adicionales para la salida.
+La salida de un clúster de AKS se puede personalizar para escenarios específicos. De forma predeterminada, AKS aprovisionará un equilibrador de carga de SKU estándar, que se configurará y se usará para la salida. Sin embargo, es posible que la configuración predeterminada no cumpla los requisitos de todos los escenarios si no se permiten direcciones IP públicas o se requieren saltos adicionales para la salida.
 
 En este artículo se explica cómo personalizar la ruta de salida de un clúster para admitir escenarios de red personalizados, como los que no permiten direcciones IP públicas y requieren que el clúster se encuentre detrás de un dispositivo virtual de red (NVA).
 
-> [!IMPORTANT]
-> Las características en vista previa de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan *tal cual* y *como están disponibles*, y están excluidas del Acuerdo de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente *en la medida de lo posible*. Por tanto, estas características no están diseñadas para su uso en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> * [Directivas de soporte técnico para AKS](support-policies.md)
-> * [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * CLI de Azure, versión 2.0.81 o posterior.
-* Extensión de la CLI de Azure (versión preliminar) 0.4.28 o superior
 * Versión de API `2020-01-01` o posterior
 
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalación de la extensión de la versión preliminar de AKS de la CLI de Azure más reciente
-Para establecer el tipo de salida de un clúster, necesita la versión 0.4.18 o posterior de la extensión de la CLI de Azure para AKS (versión preliminar). Instale la extensión de la CLI de Azure para AKS (versión preliminar) con el comando az extension add y, después, busque las actualizaciones disponibles con el comando az extension update:
-
-```azure-cli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="limitations"></a>Limitaciones
-* Durante la versión preliminar, `outboundType` solo se puede definir en el momento de crear el clúster y no se puede actualizar después.
-* Durante la versión preliminar, los clústeres de AKS `outboundType` deben usar Azure CNI. Kubernetes se puede configurar y su uso requiere asociaciones manuales de la tabla de rutas a la subred de AKS.
+* OutboundType solo se puede definir en el momento de crear el clúster y no se puede actualizar después.
 * La configuración de `outboundType` requiere clústeres de AKS con un valor de `vm-set-type` de `VirtualMachineScaleSets`, y un valor de `load-balancer-sku` de `Standard`.
 * Para configurar `outboundType` en un valor de `UDR`, se necesita una ruta definida por el usuario con conectividad de salida válida para el clúster.
 * Configurar `outboundType` en un valor de `UDR` implica que la IP de origen de la entrada enrutada al equilibrador de carga **no puede coincidir** con la dirección de destino de la salida del clúster.
@@ -52,6 +34,9 @@ Un clúster de AKS se puede personalizar con un valor de `outboundType` único d
 
 > [!IMPORTANT]
 > El tipo de salida afecta solo al tráfico de salida del clúster. Consulte cómo [configurar los controladores de entrada](ingress-basic.md) para más información.
+
+> [!NOTE]
+> Puede usar su propia [tabla de rutas][byo-route-table] con UDR y redes de kubenet.
 
 ### <a name="outbound-type-of-loadbalancer"></a>Tipo de salida de loadBalancer
 
@@ -173,7 +158,7 @@ az network vnet subnet create \
     --address-prefix 100.64.3.0/24
 ```
 
-## <a name="create-and-setup-an-azure-firewall-with-a-udr"></a>Creación y configuración de un firewall de Azure con una UDR
+## <a name="create-and-set-up-an-azure-firewall-with-a-udr"></a>Creación y configuración de un firewall de Azure con una UDR
 
 Deben configurarse las reglas de entrada y salida del firewall de Azure. El propósito principal del firewall es que las organizaciones puedan configurar reglas de tráfico de entrada y salida pormenorizadas hacia y desde el clúster de AKS.
 
@@ -198,7 +183,7 @@ az network firewall create -g $RG -n $FWNAME -l $LOC
 
 La dirección IP creada anteriormente puede asignarse ahora al front-end del firewall.
 > [!NOTE]
-> La configuración de la dirección IP pública al firewall de Azure puede tardar unos minutos.
+> La configuración de la dirección IP pública en el firewall de Azure puede tardar unos minutos.
 > 
 > Si se reciben errores repetidamente en el comando siguiente, elimine el firewall existente y la dirección IP pública, y aprovisione la dirección IP pública y el firewall de Azure en el portal al mismo tiempo.
 
@@ -217,7 +202,13 @@ FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAd
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
 ```
 
+> [!Note]
+> Si utiliza el acceso seguro al servidor de la API de AKS con [intervalos de direcciones IP autorizados](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), debe agregar la dirección IP pública del firewall en el intervalo de IP autorizado.
+
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Creación de una UDR con un salto al firewall de Azure
+
+> [!IMPORTANT]
+> El tipo de salida de UDR requiere que haya una ruta para 0.0.0.0/0 y un destino del próximo salto de NVA (aplicación virtual de red) en la tabla de rutas.
 
 Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si desea cambiar algún enrutamiento predeterminado de Azure, debe crear una tabla de rutas.
 
@@ -321,7 +312,7 @@ Por último, el clúster de AKS se puede implementar en la subred existente que 
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
 ```
 
-Definiremos el tipo de salida para que siga la UDR que existe en la subred. Esto permite a AKS omitir la configuración y el aprovisionamiento de IP para el equilibrador de carga, que ahora puede ser estrictamente interno.
+Defina el tipo de salida para que siga la UDR que existe en la subred. Esto permite a AKS omitir la configuración y el aprovisionamiento de IP para el equilibrador de carga, que ahora puede ser estrictamente interno.
 
 Se puede agregar la característica de [intervalos de IP autorizados del servidor de API](api-server-authorized-ip-ranges.md) de AKS para limitar el acceso del servidor de API solo al punto de conexión público del firewall. La característica de intervalos de IP autorizados se indica en el diagrama como el grupo de seguridad de red que se debe pasar para tener acceso al plano de control. Al habilitar la característica de intervalos de IP autorizados para limitar el acceso del servidor de API, las herramientas de desarrollo deben usar una JumpBox desde la red virtual del firewall, o bien debe agregar todos los puntos de conexión de desarrollador al intervalo de direcciones IP autorizado.
 
@@ -345,7 +336,7 @@ az aks create -g $RG -n $AKS_NAME -l $LOC \
 
 ### <a name="enable-developer-access-to-the-api-server"></a>Habilitación del acceso de desarrollador al servidor de API
 
-Debido a la configuración de intervalos de IP autorizados para el clúster, debe agregar las direcciones IP de las herramientas de desarrollador a la lista de intervalos de IP autorizados del clúster de AKS para poder acceder al servidor de API. Otra opción consiste en configurar una JumpBox con las herramientas necesarias en una subred independiente de la red virtual del firewall.
+Debido a la configuración de intervalos IP autorizados para el clúster, debe agregar las direcciones IP de las herramientas de desarrollador a la lista de intervalos IP autorizados del clúster de AKS para poder acceder al servidor de API. Otra opción consiste en configurar una JumpBox con las herramientas necesarias en una subred independiente de la red virtual del firewall.
 
 Agrege otra dirección IP a los intervalos autorizados con el siguiente comando:
 
@@ -364,7 +355,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
-### <a name="setup-the-internal-load-balancer"></a>Configuración del equilibrador de carga interno
+### <a name="set-up-the-internal-load-balancer"></a>Configuración del equilibrador de carga interno
 
 AKS ha implementado un equilibrador de carga con el clúster, que se puede configurar como [equilibrador de carga interno](internal-lb.md).
 
@@ -542,3 +533,4 @@ Consulte [cómo crear, modificar o eliminar una tabla de rutas](https://docs.mic
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet

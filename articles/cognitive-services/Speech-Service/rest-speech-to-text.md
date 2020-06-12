@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7664ce89c01c543544bc576c5eee3fd288d323d5
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659823"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248522"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -115,7 +115,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
 
 >[!NOTE]
->La característica de valoración de la pronunciación solo está disponible actualmente en las regiones `westus` y `eastasia`. Y actualmente esta característica solo está disponible en el idioma `en-US`.
+>La característica de valoración de la pronunciación solo está disponible actualmente en las regiones `westus`, `eastasia` y `centralindia`. Y actualmente esta característica solo está disponible en el idioma `en-US`.
 
 ## <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -198,7 +198,7 @@ Los resultados se proporcionan como JSON. El formato `simple` incluye los siguie
 
 El campo `RecognitionStatus` puede contener estos valores:
 
-| Status | Descripción |
+| Estado | Descripción |
 |--------|-------------|
 | `Success` | El reconocimiento es correcto y el campo `DisplayText` está presente. |
 | `NoMatch` | Se detectó voz en la secuencia de audio, pero no se encontraron coincidencias de palabras en el idioma de destino. Normalmente significa que el idioma de reconocimiento es un idioma distinto al que habla el usuario. |

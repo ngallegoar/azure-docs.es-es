@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 910a0d9b70a63fc93aebd47896db7c3493c846b2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a345b5a8a4d6a99b1b3928d61b22dfba0ba2735b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684036"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248845"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Todos los contenedores creados en una base de datos con rendimiento aprovisionad
 
 Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de toda la base de datos o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-Los contenedores de una base de datos de rendimiento compartido comparten el rendimiento (RU/s) asignado a dicha base de datos. Puede tener hasta cuatro contenedores con un mínimo de 400 RU/s en la base de datos. Con el rendimiento aprovisionado estándar (manual), cada nuevo contenedor después de los cuatro primeros requerirá un mínimo de 100 RU/s adicionales. Por ejemplo, si tiene una base de datos de rendimiento compartido con ocho contenedores, el mínimo de RU/s en la base de datos será de 800 RU/s. Con el rendimiento aprovisionado de escalabilidad automática, puede tener contenedores en una base de datos con un máximo de 4000 RU/s (escalado entre 400 y 4000 RU/s).
+Los contenedores de una base de datos de rendimiento compartido comparten el rendimiento (RU/s) asignado a dicha base de datos. Puede tener hasta cuatro contenedores con un mínimo de 400 RU/s en la base de datos. Con el rendimiento aprovisionado estándar (manual), cada nuevo contenedor después de los cuatro primeros requerirá un mínimo de 100 RU/s adicionales. Por ejemplo, si tiene una base de datos de rendimiento compartido con ocho contenedores, el mínimo de RU/s en la base de datos será de 800 RU/s. Con el rendimiento aprovisionado de escalabilidad automática, puede tener hasta 25 contenedores en una base de datos con 4000 RU/s como máximo de escalabilidad automática (escalas entre 400 y 4000 RU/s).
 
 > [!NOTE]
 > En febrero de 2020, se presentó un cambio que permite tener un máximo de 25 contenedores en una base de datos de rendimiento compartida, lo que permite el uso compartido del rendimiento entre los contenedores. Después de los primeros 25 contenedores, solo puede agregar más a la base de datos si están [aprovisionados con un rendimiento dedicado](#set-throughput-on-a-database-and-a-container), que es independiente del rendimiento compartido de la base de datos.<br>

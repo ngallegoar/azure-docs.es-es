@@ -1,27 +1,27 @@
 ---
-title: Traslado de una dirección IP pública de Azure a otra región de Azure mediante Azure PowerShell
-description: Use una plantilla de Azure Resource Manager para trasladar una dirección IP pública de Azure de una región de Azure a otra mediante Azure PowerShell.
+title: Migración de la configuración de dirección IP pública de Azure a otra región de Azure mediante Azure PowerShell
+description: Use una plantilla de Azure Resource Manager para migrar la configuración de dirección IP pública de Azure de una región de Azure a otra mediante Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 76924705ff801ce3be6a5c76f7ae276bdbf93def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6535c08a952bf24ad351f67aac793a73ef8cce56
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147878"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235381"
 ---
-# <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>Traslado de una dirección IP pública de Azure a otra región mediante Azure PowerShell
+# <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Migración de la configuración de dirección IP pública de Azure a otra región mediante Azure PowerShell
 
-Hay varios escenarios en los que puede que deba mover sus direcciones IP públicas de Azure actuales de una región a otra. Por ejemplo, quiere crear una dirección IP pública con la misma configuración y SKU para las pruebas. También quiere mover una dirección IP pública a otra región como parte del planeamiento de la recuperación ante desastres.
+Hay varios escenarios en los que puede ser conveniente migrar las configuraciones existentes de dirección IP pública de Azure de una región a otra. Por ejemplo, quiere crear una dirección IP pública con la misma configuración y SKU para las pruebas. También, puede que, como parte del planeamiento de la recuperación ante desastres, quiera migrar una configuración de dirección IP pública a otra región.
 
-Las direcciones IP públicas de Azure son específicas de la región y no se pueden migrar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de una dirección IP pública.  Después, puede preparar el recurso en otra región exportando la dirección IP pública a una plantilla y modificando los parámetros para que coincidan con la región de destino, y luego implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+**Las direcciones IP públicas de Azure son específicas de la región y no se pueden migrar de una región a otra.** Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de una dirección IP pública.  Después, puede preparar el recurso en otra región exportando la dirección IP pública a una plantilla y modificando los parámetros para que coincidan con la región de destino, y luego implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que la dirección IP pública de Azure se encuentra en la región de Azure desde la que va a moverla.
 
@@ -62,7 +62,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó desde el comando denominado **\<nombre-del-grupo-de-recursos>.json** y ábralo en el editor que prefiera:
+4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó con el comando denominado **\<resource-group-name>.json** y ábralo en el editor que prefiera:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -118,7 +118,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
     ```
 8. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
 
-    * **SKU**: puede cambiar la SKU de la dirección IP pública en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo **\<resource-group-name>.json**:
+    * **SKU**: puede cambiar la SKU de la dirección IP pública de la configuración de estándar a básica o viceversa modificando la propiedad **sku** > **name** en el archivo **\<resource-group-name>.json**:
 
          ```json
             "resources": [
@@ -163,14 +163,14 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
         Para más información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Guarde el archivo **\<nombre-del-grupo-de-recursos>.json**.
+9. Guarde el archivo **\<resource-group-name>.json**.
 
 10. Cree un grupo de recursos en la región de destino para la dirección IP pública de destino que se va a implementar mediante [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Implemente el archivo **\<nombre-del-grupo-de-recursos>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

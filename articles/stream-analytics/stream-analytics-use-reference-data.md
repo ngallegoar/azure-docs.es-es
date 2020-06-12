@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124081"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196435"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 
@@ -82,7 +82,7 @@ Azure Stream Analytics examina automáticamente los blobs de datos de referencia
 3. Los blobs de datos de referencia **no** se ordenan por la hora de "Última modificación" del blob sino únicamente por la fecha y la hora que se especifiquen en el nombre del blob mediante las sustituciones de {date} y {time}.
 3. Para evitar tener que enumerar un gran número de blobs, considere la posibilidad de eliminar los blobs muy antiguos para los que ya no se va a realizar el procesamiento. Tenga en cuenta que ASA puede tener que reprocesar una pequeña cantidad en algunos escenarios como un reinicio.
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 Su trabajo de Stream Analytics recupera los datos de referencia de Azure SQL Database, que se almacenan como instantánea en la memoria para su procesamiento. La instantánea de los datos de referencia también se almacena en un contenedor en una cuenta de almacenamiento que especifique en las opciones de configuración. El contenedor se crea automáticamente cuando se inicia el trabajo. Si el trabajo se detiene o entra en un estado de error, cuando se reinicia, se eliminan los contenedores creados automáticamente.  
 
@@ -96,13 +96,13 @@ Con la opción de consulta delta, Stream Analytics ejecuta la consulta de instan
 
 Para configurar los datos de referencia de SQL Database, tiene que crear primero una entrada **Datos de referencia**. En la siguiente tabla se explica cada propiedad que tendrá que proporcionar al crear la entrada de los datos de referencia, junto con su descripción. Para más información, consulte [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md) (Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics).
 
-Puede usar [Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como entrada de datos de referencia. Debe [configurar un punto de conexión público en Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) y, a continuación, configurar manualmente las siguientes opciones en Azure Stream Analytics. También es posible configurar manualmente los valores siguientes para una máquina virtual de Azure que ejecute SQL Server con una base de datos adjunta.
+Puede usar [Instancia administrada de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como entrada de datos de referencia. Debe [configurar un punto de conexión público en Instancia administrada de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) y, a continuación, configurar manualmente las siguientes opciones en Azure Stream Analytics. También es posible configurar manualmente los valores siguientes para una máquina virtual de Azure que ejecute SQL Server con una base de datos adjunta.
 
 |**Nombre de la propiedad**|**Descripción**  |
 |---------|---------|
 |Alias de entrada|Nombre descriptivo que se usará en la consulta de trabajo para hacer referencia a esta entrada.|
 |Subscription|Elija una suscripción|
-|Base de datos|La base de datos de Azure SQL que contiene los datos de referencia. Para Instancia administrada de Azure SQL Database, es necesario especificar el puerto 3342. Por ejemplo, *sampleserver.public.database.windows.net,3342*.|
+|Base de datos|La base de datos de Azure SQL que contiene los datos de referencia. Para Instancia administrada de SQL, es necesario especificar el puerto 3342. Por ejemplo, *sampleserver.public.database.windows.net,3342*.|
 |Nombre de usuario|El nombre de usuario asociado a su base de datos de Azure SQL.|
 |Contraseña|La contraseña asociada a su base de datos de Azure SQL.|
 |Actualizar periódicamente|Esta opción le permite elegir una frecuencia de actualización. Si elige "Activado", podrá especificar la frecuencia de actualización en DD:HH:MM.|

@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55f2167552e21973d304f98693be022683fdf661
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 609ad2539753a838f02c4a79be56444ca0fb07f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870929"
+ms.locfileid: "84014399"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Requisitos previos del aprovisionamiento en la nube de Azure AD Connect
 En este artículo se proporcionan instrucciones sobre cómo elegir y usar el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect como solución de identidad.
@@ -26,7 +26,7 @@ En este artículo se proporcionan instrucciones sobre cómo elegir y usar el apr
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisitos del agente de aprovisionamiento en la nube
 Se necesita lo siguiente para usar el aprovisionamiento en la nube de Azure AD Connect:
     
-- Una cuenta de administrador global para el inquilino de Azure AD que no sea un usuario invitado.
+- Una cuenta de administrador de identidades híbridas para su inquilino de Azure AD que no sea un usuario invitado.
 - Un servidor local para el agente de aprovisionamiento con Windows 2012 R2 o posterior.
 - Configuraciones de firewall locales.
 
@@ -37,7 +37,7 @@ En el resto del documento se proporcionan instrucciones paso a paso para estos r
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
-1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de cómo [agregar una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). La finalización de este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
+1. Cree una cuenta de administrador de identidades híbridas exclusiva para la nube en su inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Descubra cómo [agregar una cuenta de administrador de identidades híbridas exclusiva para la nube](../active-directory-users-create-azure-portal.md). La finalización de este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
 1. Agregue uno o varios [nombres de dominio personalizados](../active-directory-domains-add-azure-portal.md) al inquilino de Azure AD. Los usuarios pueden iniciar sesión con uno de estos nombres de dominio.
 
 ### <a name="in-your-directory-in-active-directory"></a>En su directorio de Azure Active Directory

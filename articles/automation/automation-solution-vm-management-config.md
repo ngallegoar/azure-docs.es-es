@@ -3,14 +3,14 @@ title: Configuración de la característica Start/Stop VMs during off-hours de A
 description: En este artículo se describe cómo configurar la característica Start/Stop VMs during off-hours para admitir diferentes casos de uso o escenarios.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127c924da44c7e596d93b21d89ff4591a90ba7cf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827682"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266723"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configuración de la solución Start/Stop VMs during off-hours
 
@@ -44,11 +44,15 @@ Puede habilitar que el destino de la acción sea una suscripción y un grupo de 
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>Destino de las acciones de inicio y detención por lista de máquinas virtuales
 
-1. Ejecute el runbook **ScheduledStartStop_Parent** con **ACTION** establecido en **start**, agregue una lista separada por comas de VM en el campo de parámetro **VMList** y establezca el parámetro **WHATIF** en True. Obtenga una vista previa de los cambios.
+1. Ejecute el runbook **ScheduledStartStop_Parent** con **ACTION** establecido en **start**.
 
-2. Configure la variable `External_ExcludeVMNames` con una lista separada por comas de VM (VM1, VM2, VM3).
+2. Agregue una lista separada por comas de máquinas virtuales (sin espacios) en el campo de parámetro **VMList**. Una lista de ejemplo es `vm1,vm2,vm3`.
 
-3. En este escenario no se respetan las variables `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupnames`. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](shared-resources/schedules.md).
+3. Establezca el campo de parámetro **WHATIF** en True.
+
+4. Configure la variable `External_ExcludeVMNames` con una lista separada por comas de máquinas virtuales (VM1, VM2, VM3), sin espacios entre los valores separados por comas.
+
+5. En este escenario no se respetan las variables `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupnames`. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](shared-resources/schedules.md).
 
     > [!NOTE]
     > El valor de **Target ResourceGroup Names** (Nombres de ResourceGroup de destino) se almacena como valor tanto para `External_Start_ResourceGroupNames` como para `External_Stop_ResourceGroupNames`. A fin de lograr un mayor detalle, puede modificar cada una de estas variables para distintos grupos de recursos de destino. Para la acción de inicio, use `External_Start_ResourceGroupNames`; y para la acción de detención, use `External_Stop_ResourceGroupNames`. Las máquinas virtuales se agregan automáticamente a las programaciones de inicio y detención.
@@ -71,13 +75,17 @@ En un entorno que incluya dos, o más, componentes de varias máquinas virtuales
 
 1. Agregue las etiquetas `sequencestart` y `sequencestop` con un valor entero positivo a las máquinas virtuales que pretende agregar al parámetro `VMList`.
 
-2. Ejecute el runbook **SequencedStartStop_Parent** con **ACTION** establecido en **start**, agregue una lista separada por comas de VM en el campo de parámetro **VMList** y establezca **WHATIF** en True. Obtenga una vista previa de los cambios.
+2. Ejecute el runbook **SequencedStartStop_Parent** con **ACTION** establecido en **start**.
 
-3. Configure la variable `External_ExcludeVMNames` con una lista separada por comas de VM (VM1, VM2, VM3).
+3. Agregue una lista separada por comas de máquinas virtuales (sin espacios) en el campo de parámetro **VMList**. Una lista de ejemplo es `vm1,vm2,vm3`.
 
-4. En este escenario no se respetan las variables `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupnames`. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](shared-resources/schedules.md).
+4. Establezca **WHATIF** en True. 
 
-5. Obtenga una vista previa de la acción y realice los cambios necesarios antes de implementarla en las máquinas virtuales de producción. Cuando esté listo, ejecute manualmente **monitoring-and-diagnostics/monitoring-action-groupsrunbook** con el parámetro establecido en **False**. Como alternativa, deje que las programaciones de Automation **Sequenced-StartVM** y **Sequenced-StopVM** se ejecuten automáticamente siguiendo la programación prescrita.
+5. Configure la variable `External_ExcludeVMNames` con una lista separada por comas de máquinas virtuales, sin espacios entre los valores separados por comas.
+
+6. En este escenario no se respetan las variables `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupnames`. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](shared-resources/schedules.md).
+
+7. Obtenga una vista previa de la acción y realice los cambios necesarios antes de implementarla en las máquinas virtuales de producción. Cuando esté listo, ejecute manualmente **monitoring-and-diagnostics/monitoring-action-groupsrunbook** con el parámetro establecido en **False**. Como alternativa, deje que las programaciones de Automation **Sequenced-StartVM** y **Sequenced-StopVM** se ejecuten automáticamente siguiendo la programación prescrita.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Escenario 3: Iniciar o detener automáticamente según el uso de CPU
 
@@ -120,7 +128,7 @@ Cuando se ejecuta el runbook **AutoStop_CreateAlert_Parent**, este comprueba que
 
 1. Cree una nueva [programación](shared-resources/schedules.md#create-a-schedule) y vincúlela al runbook **AutoStop_CreateAlert_Parent**. Para ello, agregue una lista separada por comas con los nombres de las máquinas virtuales al parámetro `VMList`.
 
-2. De manera opcional, si desea excluir algunas máquinas virtuales de la acción de detención automática, puede agregar una lista separada por comas de nombres de máquinas virtuales a la variable `External_ExcludeVMNames`.
+2. De manera opcional, si desea excluir algunas máquinas virtuales de la acción de detención automática, puede agregar una lista separada por comas de nombres de máquinas virtuales (sin espacios) a la variable `External_ExcludeVMNames`.
 
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 
@@ -151,13 +159,13 @@ La característica permite agregar máquinas virtuales como destino o para exclu
 
 Hay dos maneras de asegurarse de que se incluya una máquina virtual cuando se ejecute la característica:
 
-* Cada uno de los [runbooks](automation-solution-vm-management.md#runbooks) primarios de la característica tiene un parámetro `VMList`. Puede pasar una lista separada por comas de nombres de máquinas virtuales a este parámetro al programar el runbook primario adecuado para su situación, y estas máquinas virtuales se incluirán cuando se ejecute la característica.
+* Cada uno de los [runbooks](automation-solution-vm-management.md#runbooks) primarios de la característica tiene un parámetro `VMList`. Puede pasar una lista separada por comas de nombres de máquinas virtuales (sin espacios) a este parámetro al programar el runbook principal adecuado para su situación, y estas máquinas virtuales se incluirán cuando se ejecute la característica.
 
 * Para seleccionar varias VM, establezca `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupNames` en los nombres de los grupos de recursos que contienen las VM que desea iniciar o detener. También se pueden establecer las variables en un valor de `*` para que la característica se ejecute en todos los grupos de recursos de la suscripción.
 
 ### <a name="exclude-a-vm"></a>Excluir una VM
 
-Para excluir una máquina virtual de la característica Start/Stop VMs during off-hours, puede agregar su nombre a la variable `External_ExcludeVMNames`. Esta variable es una lista separada por comas de máquinas virtuales específicas que se excluirán de la característica. Esta lista se limita a 140 VM. Si agrega más de 140 máquinas virtuales a esta lista separada por comas, las establecidas para excluirse pueden iniciarse o detenerse accidentalmente.
+Para excluir una máquina virtual de la característica Start/Stop VMs during off-hours, puede agregar su nombre a la variable `External_ExcludeVMNames`. Esta variable es una lista separada por comas de máquinas virtuales específicas (sin espacios) que se excluirán de la característica. Esta lista se limita a 140 VM. Si agrega más de 140 máquinas virtuales a esta lista separada por comas, las establecidas para excluirse pueden iniciarse o detenerse accidentalmente.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificación de las programaciones de inicio y apagado
 

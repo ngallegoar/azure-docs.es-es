@@ -3,12 +3,12 @@ title: 'Versión preliminar: Descripción de Azure Policy para Kubernetes'
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local. Esta es una característica en vista previa.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9969bed9cb7c84faf9736bff2fb8337dc05d1bb0
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828634"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221156"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -35,6 +35,9 @@ Para habilitar y usar Azure Policy con el clúster de Kubernetes, realice las ac
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Kubernetes habilitado para Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [AKS Engine](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > Para resolver problemas de instalación comunes, consulte el tema de [solución de problemas del complemento Azure Policy](../troubleshoot/general.md#add-on-installation-errors).
 
 1. [Descripción del lenguaje de Azure Policy para Kubernetes](#policy-language)
 
@@ -118,7 +121,7 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
 Una vez que se han completado los pasos anteriores de requisitos previos, instale el complemento de Azure Policy en el clúster de AKS que quiera administrar.
 
-- Azure Portal
+- Azure portal
 
   1. Inicie el servicio AKS en Azure Portal haciendo clic en **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
 
@@ -453,7 +456,7 @@ Para obtener más información, vea [Depuración de Gatekeeper](https://github.c
 
 Para eliminar el complemento de Azure Policy del clúster de AKS, use Azure Portal o la CLI de Azure:
 
-- Azure Portal
+- Azure portal
 
   1. Inicie el servicio AKS en Azure Portal haciendo clic en **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757473"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022801"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de rendimiento del lado del servidor
 
@@ -18,7 +18,7 @@ Un buen rendimiento de la representación en el servidor es fundamental para una
 
 Lo que más afecta al rendimiento de la representación son los datos de entrada del modelo. Puede ajustar los datos de entrada tal como se describe en [Configuración de la conversión de modelos](../../how-tos/conversion/configure-model-conversion.md).
 
-También puede producirse un cuello de botella en el rendimiento de la aplicación del lado cliente. Para un análisis exhaustivo del rendimiento del lado cliente, se recomienda realizar un [seguimiento del rendimiento](../../how-tos/performance-tracing.md).
+También puede producirse un cuello de botella en el rendimiento de la aplicación del lado cliente. Para un análisis exhaustivo del rendimiento del lado cliente, se recomienda realizar un [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md).
 
 ## <a name="clientserver-timeline"></a>Escala de tiempo de cliente o servidor
 

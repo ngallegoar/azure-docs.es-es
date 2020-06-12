@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbf569e95c59e888b830876f0458b063bd3920da
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125764"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258817"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 
@@ -64,7 +64,7 @@ En el enrutamiento se usan filtros para distribuir los mensajes entre las suscri
 
 
 > [!NOTE]
-> Actualmente Azure Portal no permite especificar reglas de filtro para las suscripciones. Puede usar cualquiera de los SDK o las plantillas de Azure Resource Manager admitidos para definir las reglas de suscripción. 
+> Como Azure Portal ahora admite la funcionalidad de Service Bus Explorer, los filtros de suscripción se pueden crear o editar desde el portal. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los ejemplos siguientes: 

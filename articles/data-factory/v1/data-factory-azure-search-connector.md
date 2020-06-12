@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236420"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194913"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Cognitive Search mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -47,7 +47,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos al índice de búsqueda, consulte la sección [Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Cognitive Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos al índice de búsqueda, consulte la sección [Ejemplo JSON: Copia de datos de SQL Server a un índice de Azure Cognitive Search](#json-example-copy-data-from-sql-server-to-azure-cognitive-search-index) de este artículo.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de índices de búsqueda:
 
@@ -108,7 +108,7 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 | Matriz de cadenas | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Cognitive Search
+## <a name="json-example-copy-data-from-sql-server-to-azure-cognitive-search-index"></a>Ejemplo JSON: Copia de datos de SQL Server a un índice de Azure Cognitive Search
 
 El ejemplo siguiente muestra:
 
@@ -118,7 +118,7 @@ El ejemplo siguiente muestra:
 4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureSearchIndex](#dataset-properties).
 4. Una [canalización](data-factory-create-pipelines.md) con una actividad de copia que usa [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) y [AzureSearchIndexSink](#copy-activity-properties).
 
-En el ejemplo se copian datos de serie temporal de una base de datos de SQL Server local a un índice de búsqueda cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de ellos.
+En el ejemplo se copian datos de serie temporal de una base de datos de SQL Server a un índice de búsqueda cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de ellos.
 
 En primer lugar, configure la puerta de enlace de administración de datos en la máquina local. Las instrucciones se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md) .
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414138"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299798"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -40,6 +40,7 @@ Como referencia, actualmente las sugerencias de optimización del rendimiento pr
 | Específica del almacén de datos   | Carga de datos en **Azure Synpase Analytics (anteriormente SQL DW)** : se recomienda usar PolyBase o la instrucción COPY si no se usa. |
 | &nbsp;                | Copia de datos de o a **Azure SQL Database**: cuando la DTU tiene un uso elevado, se recomienda actualizar a un nivel superior. |
 | &nbsp;                | Copia de datos de o a **Azure Cosmos DB**: cuando la RU tiene un uso elevado, se recomienda actualizar a una RU mayor. |
+|                       | Copia de datos de **tabla de SAP**: al copiar una gran cantidad de datos, se recomienda aprovechar la opción de partición del conector SAP para permitir la carga paralela y aumentar el número máximo de particiones. |
 | &nbsp;                | Ingesta de datos de **Amazon Redshift**: se recomienda el uso de UNLOAD si no se usa. |
 | Limitación del almacén de datos | Si el almacén de datos limita un número de operaciones de lectura o escritura durante la copia, se recomienda realizar una comprobación y aumentar la tasa de solicitudes permitida para el almacén de datos o reducir la carga de trabajo simultánea. |
 | Entorno de ejecución de integración  | Si usa un **entorno de ejecución de integración (IR) autohospedado** y la actividad de copia espera mucho tiempo en la cola hasta que el IR tiene disponible un recurso para la ejecución, se recomienda escalar horizontal o verticalmente el entorno de ejecución de integración. |
@@ -181,7 +182,7 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 * Azure SQL Database: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de la unidad de transacción de base de datos (DTU).
 * Azure SQL Data Warehouse: su funcionalidad se mide en unidades de Data Warehouse (DWU). Consulte [Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Niveles de rendimiento en Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
+* SQL Server: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de archivos local: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx) (Ajuste del rendimiento para los servidores de archivos).
 
 ## <a name="next-steps"></a>Pasos siguientes

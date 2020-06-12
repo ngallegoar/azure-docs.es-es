@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 15623d622a40fa80889a8704e0b7f19d358a052c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678267"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295412"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Habilitación de los atributos personalizados en una directiva de perfil personalizada
 
@@ -24,7 +24,7 @@ En el artículo [Adición de notificaciones y personalización de la entrada del
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Siga los pasos que aparecen en el artículo [Azure Active Directory B2C: introducción a las directivas personalizadas](custom-policy-get-started.md).
 
@@ -49,7 +49,7 @@ En el contexto de este artículo, los términos *propiedad de extensión*, *atri
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
 1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
-1. Seleccione **Registros de aplicaciones (versión preliminar)** y, a continuación, **Todas las aplicaciones**.
+1. Seleccione **Registros de aplicaciones** y, después, **Todas las aplicaciones**.
 1. Seleccione la aplicación `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Copie los identificadores siguientes en el Portapapeles y guárdelos:
     * **Identificador de aplicación**. Ejemplo: `11111111-1111-1111-1111-111111111111`.

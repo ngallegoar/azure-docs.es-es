@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262900"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309839"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantizar de forma proactiva el acceso a GRUB y a SysRq podría ahorrarle mucho tiempo de inactividad.
 
@@ -76,7 +76,7 @@ Asegurarse de que se tiene acceso a la consola serie de Azure y a GRUB significa
 
 - Intercambio de disco, que se puede automatizar mediante:
 
-   - [Scripts de recuperación de Power Shell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [Scripts de recuperación de PowerShell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [Scripts de recuperación de Bash](https://github.com/sribs/azure-support-scripts)
 
 - Método heredado
@@ -98,7 +98,7 @@ En este artículo, revisaremos varias configuraciones de documentos y distribuci
 La clave SysRq está habilitada en algunas distribuciones de Linux más recientes de forma predeterminada, aunque en otras puede estar configurada para aceptar valores solo para determinadas funciones de SysRq.
 En distribuciones anteriores, podría deshabilitarse por completo.
 
-La característica SysRq es útil para reiniciar una máquina virtual bloqueada o que no responde directamente desde la consola serie de Azure, también es útil para obtener acceso al menú de GRUB, o bien para reiniciar una máquina virtual desde otra ventana del portal. De lo contrario, la sesión ssh podría anular la conexión de la consola actual, con lo que expirarían los tiempos de espera de GRUB que se usan para mostrar el menú de GRUB.
+La característica SysRq es útil para reiniciar una máquina virtual bloqueada o que no responde directamente desde la consola serie de Azure, también es útil para obtener acceso al menú de GRUB, o bien para reiniciar una máquina virtual desde otra ventana del portal. De lo contrario, la sesión ssh podría anular la conexión de la consola actual, con lo que caducarían los tiempos de expiración de GRUB que se usan para mostrar el menú de GRUB.
 La máquina virtual debe estar configurada para aceptar un valor de 1 para el parámetro kernel, que permite todas las funciones de SysRq, o un valor de 128, que permite el reinicio o apagado.
 
 
@@ -346,7 +346,7 @@ El menú de GRUB debe aparecer en pantalla durante el tiempo configurado timeout
 ## <a name="suse"></a>SuSE
 
 ## <a name="sles-12-sp1"></a>SLES 12 sp1
-Use el cargador de arranque yast según los [documentos](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles) oficiales.
+Use el cargador de arranque YaST según los [documentos](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles) oficiales.
 
 O bien, agregue o cambie a /etc/default/grub los siguientes parámetros:
 

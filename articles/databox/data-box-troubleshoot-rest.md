@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 7fe5afbc4984c430cbf393e4e2b44122bdd43983
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccb1a31761298d9dc4376684380702cf7cbd9a1f
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297124"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310077"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solución de problemas relacionados con el almacenamiento de blobs de Azure Data Box
 
@@ -35,8 +35,8 @@ En esta sección se detallan algunos de los problemas que surgen al utilizar AzC
 
 |Mensaje de error  |Acción recomendada |
 |---------|---------|
-|El comando de AzCopy se bloquea durante un minuto antes de mostrar este error: <br>No se ha podido enumerar el directorio https://… No se ha podido resolver el nombre remoto `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Compruebe que el nombre del punto de conexión `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se haya agregado al archivo de hosts en `C:\Windows\System32\drivers\etc\hosts`.|
-|El comando de AzCopy se bloquea durante un minuto antes de mostrar este error: <br>Error al analizar la ubicación de origen. Se ha cerrado la conexión subyacente: No se ha podido establecer la relación de confianza para el canal seguro SSL/TLS.|Importe el certificado TLS/SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate) (Descargar el certificado).|
+|El comando de AzCopy deja de responder durante un minuto antes de mostrar este error: <br>No se ha podido enumerar el directorio https://… No se ha podido resolver el nombre remoto `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Compruebe que el nombre del punto de conexión `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se haya agregado al archivo de hosts en `C:\Windows\System32\drivers\etc\hosts`.|
+|El comando de AzCopy deja de responder durante un minuto antes de mostrar este error: <br>Error al analizar la ubicación de origen. Se ha cerrado la conexión subyacente: No se ha podido establecer la relación de confianza para el canal seguro SSL/TLS.|Importe el certificado TLS/SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate) (Descargar el certificado).|
 
 
 ## <a name="errors-seen-in-azcopy-for-linux"></a>Errores observados en AzCopy para Linux
@@ -45,8 +45,8 @@ En esta sección se detallan algunos de los problemas que surgen al utilizar AzC
 
 |Mensaje de error  |Acción recomendada |
 |---------|---------|
-|El comando de AzCopy se bloquea durante 20 minutos antes de mostrar este error: <br>Error al analizar la ubicación de origen `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. No existe tal dispositivo o dirección|Compruebe que el nombre del punto de conexión `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se haya agregado al archivo de hosts en `/etc/hosts`.|
-|El comando de AzCopy se bloquea durante 20 minutos antes de mostrar este error: <br>Error al analizar la ubicación de origen… No se ha podido establecer la conexión SSL.|Importe el certificado TLS/SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate) (Descargar el certificado).|
+|El comando de AzCopy deja de responder durante 20 minutos antes de mostrar este error: <br>Error al analizar la ubicación de origen `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. No existe tal dispositivo o dirección|Compruebe que el nombre del punto de conexión `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se haya agregado al archivo de hosts en `/etc/hosts`.|
+|El comando de AzCopy deja de responder durante 20 minutos antes de mostrar este error: <br>Error al analizar la ubicación de origen… No se ha podido establecer la conexión SSL.|Importe el certificado TLS/SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate) (Descargar el certificado).|
 
 ## <a name="errors-seen-in-azure-storage-library-for-python"></a>Errores observados en la biblioteca de Azure Storage para Python
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 99204657b7604250826ff0a4a870ad92fdb4df32
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420839"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249151"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -32,7 +32,7 @@ Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante
 
 **Server** | **Requisitos** | **Detalles**
 --- | --- | ---
-Hyper-V en ejecución sin Virtual Machine Manager |  Windows Server 2019, Windows Server 2016 (incluida la instalación básica del servidor), Windows Server 2012 R2 con las actualizaciones más recientes | Si ya ha configurado Windows Server 2012 R2 o SCVMM 2012 R2 con Azure Site Recovery, y va a actualizar el sistema operativo, siga las instrucciones de la [documentación.](upgrade-2012R2-to-2016.md) 
+Hyper-V en ejecución sin Virtual Machine Manager |  Windows Server 2019, Windows Server 2016 (incluida la instalación básica del servidor), Windows Server 2012 R2 con las actualizaciones más recientes | Si ya ha configurado Windows Server 2012 R2 o SCVMM 2012 R2 con Azure Site Recovery, y va a actualizar el sistema operativo, siga las instrucciones de la [documentación.](upgrade-2012R2-to-2016.md) <br/><br/> Nota: La conmutación por recuperación no se admite en la versión principal de Windows Server 2019.
 Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si se usa Virtual Machine Manager, los hosts de Windows Server 2019 deben administrarse en Virtual Machine Manager 2019. De manera similar, los hosts de Windows Server 2016 se deben administrar en Virtual Machine Manager 2016.<br/><br/> Nota: No se admite la conmutación por recuperación a una ubicación alternativa para los hosts de Windows Server 2019.
 
 

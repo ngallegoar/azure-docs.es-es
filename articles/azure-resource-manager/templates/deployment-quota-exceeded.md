@@ -2,17 +2,20 @@
 title: Cuota de implementaciones superada
 description: En este artículo se describe cómo resolver el error de tener más de 800 implementaciones en el historial del grupo de recursos.
 ms.topic: troubleshooting
-ms.date: 10/04/2019
-ms.openlocfilehash: 919cd9a3482401cd47516e2677b0bf58387488b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/26/2020
+ms.openlocfilehash: 0fec8fa91ec79822115d83b15e8c8a839dc7fd69
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245096"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117801"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolución de error cuando el recuento de implementaciones es superior a 800
 
 Cada grupo de recursos está limitado a 800 implementaciones en su historial de implementaciones. En este artículo se describe el error que se recibe cuando se produce un error en una implementación porque se superarían las 800 implementaciones permitidas. Para resolver este error, elimine implementaciones del historial del grupo de recursos. La eliminación de una implementación del historial no afecta a ninguno de los recursos implementados.
+
+> [!NOTE]
+> A partir de junio del 2020, Azure Resource Manager elimina automáticamente las implementaciones del historial a medida que se acerca al límite. Es posible que siga viendo este error si ha decidido no participar en la eliminación automática. Para obtener más información, consulte [Eliminaciones automáticas del historial de implementaciones](deployment-history-deletions.md).
 
 ## <a name="symptom"></a>Síntoma
 

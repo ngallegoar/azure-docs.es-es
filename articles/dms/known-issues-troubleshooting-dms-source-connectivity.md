@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3eef7476a729c7b83290b9d8d86ba06524bed72b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4421ad4260ff8eada87cdebc031d09922860324f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297096"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196330"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Solución de errores de DMS al conectarse a las bases de datos de origen
 
@@ -30,7 +30,7 @@ Los problemas potenciales asociados con la conexión a una base de datos de SQL 
 | Error         | Detalles de las causas y soluciones de problemas |
 | ------------- | ------------- |
 | Falló la conexión SQL. Se ha producido un error relacionado con la red o específico de la instancia al establecer una conexión en SQL Server. No se encontró el servidor o no era accesible. Compruebe que el nombre de la instancia sea correcto y que SQL Server esté configurado para permitir conexiones remotas.<br> | Este error se produce si el servicio no puede localizar el servidor de origen. Para solucionar el problema, consulte el artículo [Error al conectarse a SQL Server de origen cuando se usa el puerto dinámico o instancia con nombre](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
-| **Error 53**: error en la conexión de SQL. (Además, para los códigos de error 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Este error se produce si el servicio no puede conectarse al servidor de origen. Para solucionar el problema, consulte los siguientes recursos y vuelva a intentarlo. <br><br>  [Guía de usuario interactiva para solucionar problemas de conectividad](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Requisitos previos para migrar SQL Server a Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Requisitos previos para migrar SQL Server a una instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **Error 53**: error en la conexión de SQL. (Además, para los códigos de error 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Este error se produce si el servicio no puede conectarse al servidor de origen. Para solucionar el problema, consulte los siguientes recursos y vuelva a intentarlo. <br><br>  [Guía de usuario interactiva para solucionar problemas de conectividad](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Requisitos previos para migrar SQL Server a Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Requisitos previos para migrar SQL Server a una instancia administrada de Azure SQL](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
 | **Error 18456**: error de inicio de sesión.<br> | Este error se produce si el servicio no puede conectarse a la base de datos de origen mediante las credenciales de T-SQL proporcionadas. Para solucionar el problema, compruebe las credenciales proporcionadas. También puede consultar [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) o los documentos de solución de problemas enumerados en la nota que se encuentra debajo de esta tabla, e intentarlo de nuevo. |
 | Se ha proporcionado un valor de AccountName con un formato incorrecto "{0}". El formato esperado para AccountName es DomainName\UserName<br> | Este error se produce si el usuario selecciona la autenticación de Windows pero proporciona el nombre de usuario en un formato que no es válido. Para solucionar el problema, proporcione un nombre de usuario en el formato correcto para realizar la autenticación de Windows o seleccione **Autenticación de SQL**. |
 

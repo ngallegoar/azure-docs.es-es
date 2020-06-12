@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 8818b06e84f6ffe05398087c4aaeba282adc8b2e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800043"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298217"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -53,7 +53,7 @@ Según la opción de transacción usada, los precios de las licencias de softwar
 - **Gratis**: sin cargo por las licencias de software.
 - **Traiga su propia licencia (BYOL)** : los cargos aplicables para las licencias de software se administran directamente entre el publicador y el cliente. Microsoft solo traspasa los honorarios de uso de la infraestructura de Azure. Esto solo se aplica a máquinas virtuales y aplicaciones de Azure.
 - **Pago por uso**: los precios de las licencia de software se presentan a una tarifa por hora, por núcleo (vCPU) según la infraestructura de Azure usada. Esto solo se aplica a máquinas virtuales y aplicaciones de Azure.
-- **Precios de suscripción**: las cuotas de licencia de software se presentan como cuotas periódicas mensuales o anuales que se facturan como una tarifa plana o por puesto. Esto solo se aplica a aplicaciones SaaS y aplicaciones de Azure: aplicaciones administradas.
+- **Precios de suscripción**: las cuotas de licencia de software se presentan como cuotas periódicas mensuales o anuales que se facturan como una tarifa plana o por puesto. Esto solo se aplica a aplicaciones SaaS (al mes o al año) y aplicaciones de Azure: aplicaciones administradas (al mes).
 - **Prueba de software gratuita**: ningún cargo por las licencias de software durante treinta o noventa días.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Gratis y precios de traiga su propia licencia (BYOL)

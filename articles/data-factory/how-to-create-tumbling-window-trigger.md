@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592093"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996693"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica cómo crear, iniciar y supervisar un desencadenador de ventana de saltos de tamaño constante. Para obtener información general sobre los desencadenadores y los tipos compatibles, vea [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
 
-Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen. Un desencadenador de ventana de saltos de tamaño constante tiene una relación uno a uno con una canalización y solo puede hacer referencia a una única canalización.
+Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen. Un desencadenador de ventana de saltos de tamaño constante tiene una relación uno a uno con una canalización y solo puede hacer referencia a una única canalización. El desencadenador de ventana de saltos de tamaño constante es una alternativa de mayor peso para el desencadenador de programación, que ofrece un conjunto de características para escenarios complejos ([dependencia en otros desencadenadores de ventana de saltos de tamaño constante](#tumbling-window-trigger-dependency), [nueva ejecución de un trabajo con errores](tumbling-window-trigger-dependency.md#monitor-dependencies) y [definición del reintento de canalizaciones por el usuario](#user-assigned-retries-of-pipelines)). Para comprender mejor la diferencia entre el desencadenador de programación y el desencadenador de ventana de saltos de tamaño constante, visite [aquí](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
 ## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
 
@@ -146,13 +146,19 @@ Puede usar las variables del sistema **WindowStart** y **WindowEnd** del desenca
 Para usar los valores de las variables del sistema **WindowStart** y **WindowEnd** en la definición de la canalización, use los parámetros "MyWindowStart" y "MyWindowEnd", según corresponda.
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Orden de ejecución de ventanas en un escenario de reposición
-Cuando hay varias ventanas abiertas para su ejecución (especialmente en un escenario de reposición), el orden de ejecución de las ventanas es determinante, del intervalo más antiguo al más nuevo. Actualmente, no se puede modificar este comportamiento.
+
+Si startTime del desencadenador se encuentra en el pasado, en función de esta fórmula, M=(CurrentTime- TriggerStartTime)/TriggerSliceSize, el desencadenador generará {M} ejecuciones de reposición (pasadas) en paralelo, respetando la simultaneidad del desencadenador, antes de ejecutar las ejecuciones futuras. El orden de ejecución de las ventanas es determinista, de los intervalos más antiguos a los más recientes. Actualmente, no se puede modificar este comportamiento.
 
 ### <a name="existing-triggerresource-elements"></a>Elementos TriggerResource existentes
-Los siguientes puntos se aplican a elementos **TriggerResource** existentes:
 
-* Si el valor del elemento **frequency** o el tamaño de la ventana del desencadenador cambia, *no* se restablece el estado de las ventanas que ya se han procesado. El desencadenador sigue activando las ventanas a partir de la última ventana que ejecutó con el uso del nuevo tamaño de ventana.
+Los siguientes puntos se aplican a la actualización de elementos **TriggerResource** existentes:
+
+* El valor para el elemento **frecuencia** (o el tamaño de la ventana) del desencadenador junto con el elemento **intervalo** no se puede cambiar una vez que se crea el desencadenador. Esto es necesario para el correcto funcionamiento de las nuevas ejecuciones de triggerRun y las evaluaciones de dependencias.
 * Si el valor del elemento **endTime** del desencadenador cambia (se agrega o se actualiza), *no* se restablece el estado de las ventanas que ya se han procesado. El desencadenador respeta el nuevo valor de **endTime**. Si el nuevo valor de **endTime** es anterior a las ventanas que ya se han ejecutado, el desencadenador se detiene. En caso contrario, el desencadenador se detiene cuando se encuentra el nuevo valor de **endTime**.
+
+### <a name="user-assigned-retries-of-pipelines"></a>Reintentos de canalizaciones asignados por el usuario
+
+En caso de errores de canalización, el desencadenador de ventana de saltos de tamaño constante puede volver a intentar la ejecución de la canalización referenciada automáticamente, utilizando los mismos parámetros de entrada, sin la intervención del usuario. Esto se puede especificar mediante la propiedad "retryPolicy" en la definición del desencadenador.
 
 ### <a name="tumbling-window-trigger-dependency"></a>Dependencia de un desencadenador de ventana de saltos de tamaño constante
 

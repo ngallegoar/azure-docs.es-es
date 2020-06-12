@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588656"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997005"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
-Traductor personalizado es una característica del servicio Traductor que permite a los usuarios personalizar la traducción automática neuronal avanzada de Microsoft Translator cuando se traduce texto con Traductor (solo en la versión 3).
+Traductor personalizado es una característica del servicio Traductor que permite a los usuarios personalizar la traducción automática neuronal avanzada de Microsoft Translator cuando se traduce texto con Traductor (solo la versión 3).
 
 Esta característica solamente puede utilizarse para personalizar la traducción de voz cuando se usa con el [servicio Voz de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
@@ -49,12 +49,12 @@ Puede encontrar más detalles acerca de los diferentes niveles de personalizaci�
 
 |   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
-|Estado de la característica de personalización   | Disponibilidad general  | Disponibilidad general |
-| Versión de Text API  | Solo v2   | Solo v3 |
-| Personalización de SMT | Sí   | No |
-| Personalización de NMT | No    | Sí |
-| Nueva personalización unificada de servicios de voz | No    | Sí |
-| [Sin seguimiento](https://www.aka.ms/notrace) | Sí  | Sí |
+|Estado de la característica de personalización    | Disponibilidad general    | Disponibilidad general |
+| Versión de Text API    | Solo v2    | Solo v3 |
+| Personalización de SMT    | Sí    | No |
+| Personalización de NMT    | No    | Sí |
+| Nueva personalización unificada de servicios de voz    | No    | Sí |
+| [Sin seguimiento](https://www.aka.ms/notrace) | Sí    | Sí |
 
 ## <a name="collaborative-translations-framework"></a>Marco de traducciones en colaboración
 

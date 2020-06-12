@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73762c431c84de01ce3561d586c5a12bfd26ac81
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233804"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310132"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
 Este artículo proporciona algunos ejemplos de tareas comunes de inicio que puede realizar en su servicio en la nube. Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo. 
@@ -483,7 +483,7 @@ El rol solo se iniciará si **errorlevel** de cada una de las tareas de inicio d
 La falta de `EXIT /B 0` al final de un archivo por lotes de inicio es una causa común de que un rol no se inicie.
 
 > [!NOTE]
-> He observado que los archivos por lotes anidados se bloquean a veces al usar el parámetro `/B`. Puede que desee asegurarse de que este problema de bloqueo no se produce si otro archivo por lotes llama a su archivo por lotes actual, como si usara el [contenedor del registro](#always-log-startup-activities). Puede omitir el parámetro `/B` en este caso.
+> He observado que los archivos por lotes anidados a veces dejan de responder al usar el parámetro `/B`. Puede que desee asegurarse de que este problema no se produce si otro archivo por lotes llama a su archivo por lotes actual, como si usara el [contenedor del registro](#always-log-startup-activities). Puede omitir el parámetro `/B` en este caso.
 > 
 > 
 
@@ -512,6 +512,3 @@ Obtener más información acerca de cómo funcionan las [tareas](cloud-services-
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-

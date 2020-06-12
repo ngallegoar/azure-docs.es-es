@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414688"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118098"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -74,10 +74,10 @@ Este error significa que el disco local está agotado en el nodo de SSIS Integra
 * Causa posible y acción recomendada:
   * Si la actividad de SSIS ejecuta el paquete desde el sistema de archivos (archivo de paquete o archivo de proyecto), este error se producirá si el proyecto, el paquete o el archivo de configuración no son accesibles con la credencial de acceso del paquete que proporcionó en la actividad de SSIS.
     * Si usa Azure File:
-      * La ruta de acceso del archivo comienza con \\\\\<nombre de la cuenta de almacenamiento\>.file.core.windows.net\\\<ruta de acceso del recurso compartido de archivos\>
+      * La ruta de acceso del archivo debe empezar por \\\\\<storage account name\>.file.core.windows.net\\\<file share path\>
       * El dominio debe ser "Azure".
-      * El nombre de usuario debe ser \<nombre de la cuenta de almacenamiento\>.
-      * La contraseña debe ser \<clave de acceso de almacenamiento\>.
+      * El nombre de usuario debe ser \<storage account name\>
+      * La contraseña debe ser \<storage access key\>
     * Si usa un archivo local, compruebe que la red virtual y la credencial y los permisos de acceso al paquete estén configurados correctamente para que Azure SSIS Integration Runtime pueda acceder al recurso compartido de archivos local.
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Mensaje de error: "El nombre de archivo "..." especificado en la conexión no era válido"
@@ -95,13 +95,13 @@ Este error se produce cuando la ejecución del paquete no encuentra un archivo e
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Mensaje de error: "La base de datos “SSISDB” ha alcanzado su cuota de tamaño"
 
-Una causa posible es que la base de datos SSISDB que se creó en la base de datos de Azure SQL, o una instancia administrada si está creando un entorno de ejecución de integración, ha alcanzado su cuota. Pruebe estas acciones:
-* Considere la posibilidad de aumentar el número de DTU de la base de datos. Para obtener más información, consulte [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) (Límites de recursos de SQL Database para un servidor de Azure SQL Database).
+Una causa posible es que la base de datos de SSISDB creada en Azure SQL Database o en Instancia administrada de SQL haya alcanzado su cuota. Pruebe estas acciones:
+* Considere la posibilidad de aumentar el número de DTU de la base de datos. Encontrará los detalles en [Límites de SQL Database para un servidor lógico](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 * Compruebe si el paquete generaría muchos registros. Si es así, puede configurar un trabajo elástico para limpiar estos registros. Para obtener más detalles, consulte [Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>Mensaje de error: "The request limit for the database is ... and has been reached" (El límite de solicitudes para la base de datos es ... y se alcanzó).
 
-Si se ejecutan muchos paquetes en paralelo en SSIS Integration Runtime, este error podría producirse porque SSISDB alcanzó su límite de solicitudes. Considere la posibilidad de aumentar el DTC de SSISDB para resolver este problema. Para obtener más información, consulte [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) (Límites de recursos de SQL Database para un servidor de Azure SQL Database).
+Si se ejecutan muchos paquetes en paralelo en SSIS Integration Runtime, este error podría producirse porque SSISDB alcanzó su límite de solicitudes. Considere la posibilidad de aumentar el DTC de SSISDB para resolver este problema. Encontrará los detalles en [Límites de SQL Database para un servidor lógico](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 
 ### <a name="error-message-ssis-operation-failed-with-unexpected-operation-status-"></a>Mensaje de error: "SSIS Operation failed with unexpected operation status: ..." (Error en la operación de SSIS con un estado de operación inesperado: ...).
 

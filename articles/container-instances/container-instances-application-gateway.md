@@ -3,12 +3,12 @@ title: Dirección IP estática del grupo de contenedores
 description: Creación de un grupo de contenedores en una red virtual y uso de una instancia de Azure Application Gateway para exponer una dirección IP de front-end estática en una aplicación web en contenedor
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481796"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299169"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposición de una dirección IP estática para un grupo de contenedores
 
@@ -17,7 +17,7 @@ En este artículo se muestra una manera de exponer una dirección IP pública es
 En este artículo se usa la CLI de Azure para crear los recursos para este escenario:
 
 * Una red virtual de Azure
-* Un grupo de contenedores implementado [en la red virtual (versión preliminar)](container-instances-vnet.md) que hospeda una aplicación web pequeña
+* Un grupo de contenedores implementado [en la red virtual](container-instances-vnet.md) que hospeda una aplicación web pequeña
 * Una instancia de Application Gateway con una dirección IP de front-end pública, un agente de escucha para hospedar un sitio web en la puerta de enlace y una ruta al grupo de contenedores de back-end
 
 Mientras Application Gateway se esté ejecutando y el grupo de contenedores exponga una dirección IP privada estable en la subred delegada de la red, se podrá acceder al grupo de contenedores en esta dirección IP pública.

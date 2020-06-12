@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2737da028d8fea1c31b728c8e9864ad421d08ec
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457933"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309628"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -42,7 +42,7 @@ Todos los usuarios tienen un único directorio *particular* para la autenticaci�
 
 Antes de poder asociar o agregar la suscripción, realice las siguientes tareas:
 
-- Revise la siguiente lista de cambios y cómo le pueden afectar:
+- Revise la siguiente lista de cambios que se producirán después de asociar o agregar su suscripción e infórmese sobre cómo podría verse afectado:
 
   - Los usuarios que tienen roles asignados mediante RBAC perderán el acceso.
   - El administrador y los coadministradores del servicio perderán el acceso.
@@ -71,13 +71,13 @@ Para asociar una suscripción existente al directorio de Azure AD, siga estos p
 
     ![Página de cambio de directorio que muestra el directorio al que se va a cambiar](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    Se cambia el directorio de la suscripción y se muestra un mensaje de confirmación.
+    Una vez que se cambie el directorio para la suscripción, se mostrará un mensaje de confirmación.
 
-    ![Mensaje de operación correcta sobre el cambio de directorio](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+  1. Seleccione **Cambiar directorios** en la página suscripción para ir al nuevo directorio. 
 
-Use **Cambiar directorio** para ir al nuevo directorio. Puede tardar varias horas hasta que todo se muestre correctamente. Si parece que tarda demasiado tiempo, compruebe el **filtro de suscripción global**. Asegúrese de que la suscripción que se ha trasladado no esté oculta. Es posible que tenga que cerrar la sesión de Azure Portal y volver a iniciarla para ver el directorio nuevo.
+      ![Página del conmutador de directorios con información de ejemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-![Página del conmutador de directorios con información de ejemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+      Puede tardar varias horas hasta que todo se muestre correctamente. Si parece que tarda demasiado tiempo, compruebe el **filtro de suscripción global**. Asegúrese de que la suscripción que se ha trasladado no esté oculta. Es posible que tenga que cerrar la sesión de Azure Portal y volver a iniciarla para ver el directorio nuevo.
 
 Cambiar el directorio de suscripción es una operación de nivel de servicio, por lo que no afecta a la propiedad de facturación de suscripción. El administrador de cuenta todavía puede cambiar al administrador de servicio desde el [centro de cuentas](https://account.azure.com/subscriptions). Para eliminar el directorio original, debe transferir la propiedad de facturación de suscripción a un nuevo administrador de cuenta. Para más información acerca de cómo transferir la propiedad de facturación, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../../cost-management-billing/manage/billing-subscription-transfer.md).
 

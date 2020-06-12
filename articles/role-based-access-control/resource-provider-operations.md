@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 679b5e60f65daac2006598c6bf12c9cdeec5541d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199562"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015920"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -4259,7 +4259,7 @@ Servicio de Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > |  | **locations** |  |
 > | Acción | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/action | Notifica a Microsoft.DocumentDB que se está eliminando una red virtual o una subred. |
 > |  | **locations/deleteVirtualNetworkOrSubnets/operationResults** |  |
-> | Acción | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/operationResults/read | Lee el estado de la operación asincrónica deleteVirtualNetworkOrSubnets  |
+> | Acción | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/operationResults/read | Lee el estado de la operación asincrónica deleteVirtualNetworkOrSubnets |
 > |  | **locations/operationsStatus** |  |
 > | Acción | Microsoft.DocumentDB/locations/operationsStatus/read | Lee el estado de una operación asincrónica. |
 > |  | **operationResults** |  |
@@ -9055,7 +9055,7 @@ Servicio de Azure: [Azure Managed Applications](../azure-resource-manager/manage
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-Servicio de Azure: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
+Servicio de Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Instancia administrada de Azure SQL](../azure-sql/managed-instance/index.yml) [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de acción | Operación | Descripción |
@@ -9333,7 +9333,7 @@ Servicio de Azure: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wa
 > | Acción | Microsoft.Sql/operations/read | Obtiene las operaciones de REST disponibles. |
 > |  | **servers** |  |
 > | Acción | Microsoft.Sql/servers/tdeCertificates/action | Crea o actualiza el certificado de TDE. |
-> | Acción | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Deshabilita la autenticación solo de Azure Active Directory en el servidor lógico. |
+> | Acción | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Deshabilita la autenticación solo de Azure Active Directory en un servidor de Azure SQL Database.|
 > | Acción | Microsoft.Sql/servers/read | Devuelve la lista de servidores u obtiene las propiedades de un servidor específico. |
 > | Acción | Microsoft.Sql/servers/write | Crea un servidor con los parámetros especificados o actualiza las propiedades o etiquetas del servidor especificado. |
 > | Acción | Microsoft.Sql/servers/delete | Elimina un servidor existente. |
@@ -9628,7 +9628,7 @@ Servicio de Azure: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wa
 > |  | **servers/importExportOperationResults** |  |
 > | Acción | Microsoft.Sql/servers/importExportOperationResults/read | Obtiene las operaciones de importación y exportación en curso. |
 > |  | **servers/inaccessibleDatabases** |  |
-> | Acción | Microsoft.Sql/servers/inaccessibleDatabases/read | Devuelve una lista de bases de datos inaccesibles en un servidor lógico. |
+> | Acción | Microsoft.Sql/servers/inaccessibleDatabases/read | Devuelve una lista de bases de datos inaccesibles en un servidor de Azure SQL Database. |
 > |  | **servers/interfaceEndpointProfiles** |  |
 > | Acción | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Crea un perfil de punto de conexión de interfaz con los parámetros especificados o actualiza las propiedades o etiquetas del punto de conexión de la interfaz especificado. |
 > | Acción | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Devuelve las propiedades del perfil de punto de conexión de la interfaz especificado. |
@@ -9699,7 +9699,7 @@ Servicio de Azure: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wa
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
-Servicio de Azure: [SQL Server en Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+Servicio de Azure: [SQL Server en Azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de acción | Operación | Descripción |

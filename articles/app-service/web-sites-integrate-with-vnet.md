@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 78b49b8b7e17f12d49825390a302e28a61e10d16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770836"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170790"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 
@@ -127,7 +127,7 @@ La única operación que puede realizar en la vista de aplicación de la instanc
 
 La interfaz de usuario de Integración con red virtual del plan de App Service muestra todas las integraciones de redes virtuales usadas por las aplicaciones de su plan de App Service. Para ver más detalles sobre cada red virtual, seleccione la red virtual que le interese. Hay dos acciones que puede realizar aquí en relación con la versión de Integración con red virtual que necesita una puerta de enlace:
 
-* **Sincronizar red**: la operación de sincronización de red solo se usa con la característica Integración con red virtual con requisito de puerta de enlace. Realizar una operación de sincronización de red garantiza que los certificados y la información de red estén sincronizados. Si agrega o cambia el DNS de la red virtual, debe ejecutar una operación de sincronización de la red. Esta operación reinicia todas las aplicaciones que usen esta red virtual.
+* **Sincronizar red**: la operación de sincronización de red solo se usa con la característica Integración con red virtual con requisito de puerta de enlace. Realizar una operación de sincronización de red garantiza que los certificados y la información de red estén sincronizados. Si agrega o cambia el DNS de la red virtual, debe ejecutar una operación de sincronización de la red. Esta operación reinicia todas las aplicaciones que usen esta red virtual. Esta operación no funcionará si usa una aplicación y una red virtual que pertenezcan a distintas suscripciones.
 * **Agregar rutas**: la adición de rutas impulsa el tráfico de salida a la red virtual.
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Enrutamiento de Integración con red virtual con requisito de puerta de enlace

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 38b6f797541ef07fa3fb5e1dc71029a4cbcf5d22
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b4333513d2ba210f6a472638732cc2781b8d5c0b
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546290"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300842"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitectura de la conectividad en Azure Database for MariaDB
 En este artículo se explica la arquitectura de la conectividad de Azure Database for MariaDB y cómo se dirige el tráfico a la instancia de Azure Database for MariaDB desde los clientes de dentro y de fuera de Azure.
@@ -46,6 +46,7 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Este de EE. UU. | 40.121.158.30, 191.238.6.43  |
 | Este de EE. UU. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Centro de Francia | 40.79.137.0, 40.79.129.1  |
+| Sur de Francia | 40.79.177.0     |
 | Centro de Alemania | 51.4.144.100     |
 | Nordeste de Alemania | 51.5.144.179  |
 | India central | 104.211.96.159     |

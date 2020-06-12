@@ -4,12 +4,12 @@ description: Proporciona un resumen de limitaciones y configuraciones de compati
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: ec267053a0bc675d05e6488665f77467da9370e0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c1ed127834b826488d02b39304dd943866171441
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746852"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193571"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de compatibilidad para Azure Migrate
 
@@ -40,7 +40,7 @@ Migración de servidores de Azure Migrate | N/D | Migrar [máquinas virtuales de
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y cargas de trabajo en la nube pública. | N/D
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Evaluar y migrar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y cargas de trabajo en la nube pública. |  Migrar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y cargas de trabajo en la nube pública.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Evaluar máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y cargas de trabajo en la nube pública.| N/D
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Evaluar bases de datos de SQL Server locales. | N/D
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Evaluar bases de datos de SQL Server. | N/D
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | N/D | Migrar SQL Server, Oracle, MySQL, PostgreSQL y MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Evaluar infraestructura de escritorio virtual (VDI) | N/D
 [Movere](https://www.movere.io/) | Evaluar máquinas virtuales de VMWare, máquinas virtuales de Hyper-V, máquinas virtuales de Xen, máquinas físicas, estaciones de trabajo (incluida VDI) y cargas de trabajo en la nube pública | N/D

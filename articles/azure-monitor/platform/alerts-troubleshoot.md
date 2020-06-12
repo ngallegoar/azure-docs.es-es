@@ -6,18 +6,25 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: beb47f961c6f24453bd49aa5807c9d801fc199a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132327"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300780"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solución de problemas en las alertas de Azure Monitor 
+# <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solución de problemas en las alertas de Azure Monitor
 
-En este artículo se describen los problemas comunes en las alertas de Azure Monitor.
+En este artículo se describen los problemas comunes en las alertas y notificaciones de Azure Monitor.
 
 Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. Para más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](alerts-overview.md).
+
+Si tiene un problema en el que a veces una alerta no se desencadena según lo esperado, consulte los artículos siguientes. Puede ver las alertas "desencadenadas" en Azure Portal.
+
+- [Solución de problemas con las alertas de métricas de Azure Monitor en Microsoft Azure](alerts-troubleshoot-metric.md)  
+- [Solución de problemas con las alertas de registro de Azure Monitor en Microsoft Azure](alerts-troubleshoot-metric.md)
+
+Si la alerta se desencadena según lo previsto en Azure Portal, pero no se generan las notificaciones adecuadas, use la información que se encuentra a lo largo de este artículo para solucionar ese problema.
 
 ## <a name="action-or-notification-on-my-alert-did-not-work-as-expected"></a>La acción o notificación de mi alerta no funcionó como se esperaba
 
@@ -25,11 +32,11 @@ Si puede ver una alerta desencadenada en Azure Portal, pero tiene un problema co
 
 ## <a name="did-not-receive-expected-email"></a>No se recibió el correo electrónico esperado
 
-Si puede ver una alerta desencadenada en Azure Portal, pero no recibió el correo electrónico que ha configurado para ello, siga estos pasos: 
+Si puede ver una alerta desencadenada en Azure Portal, pero no recibió el correo electrónico que ha configurado para ello, siga estos pasos:
 
-1. **¿Se suprimió el correo electrónico mediante una [regla de acción](alerts-action-rules.md)** ? 
+1. **¿Se suprimió el correo electrónico mediante una [regla de acción](alerts-action-rules.md)** ?
 
-    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](action-groups.md) suprimidos: 
+    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](action-groups.md) suprimidos:
 
     ![Historial de supresiones de reglas de acción de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -44,20 +51,20 @@ Si puede ver una alerta desencadenada en Azure Portal, pero no recibió el corre
       - azureemail-noreply@microsoft.com
       - alerts-noreply@mail.windowsazure.com
 
-    Es habitual que las listas de distribución de correo o las listas postales internas bloqueen correos electrónicos de direcciones de correo electrónico externas. Deberá incluir en la lista blanca las direcciones de correo electrónico anteriores.  
-    Para probarlo, agregue una dirección de correo electrónico del trabajo convencional (no una lista de distribución de correo) al grupo de acciones y compruebe si las alertas llegan a ese correo electrónico. 
+    Es habitual que las listas de distribución de correo o las listas postales internas bloqueen correos electrónicos de direcciones de correo electrónico externas. Debe permitir el correo de las direcciones de correo electrónico anteriores.  
+    Para probarlo, agregue una dirección de correo electrónico del trabajo convencional (no una lista de distribución de correo) al grupo de acciones y compruebe si las alertas llegan a ese correo electrónico.
 
-1. **¿El correo electrónico lo procesaron reglas de la bandeja de entrada o un filtro de correo no deseado?** 
+1. **¿El correo electrónico lo procesaron reglas de la bandeja de entrada o un filtro de correo no deseado?**
 
     Compruebe que no hay ninguna regla de bandeja de entrada que elimine esos mensajes de correo electrónico o los mueva a otra carpeta. Por ejemplo, las reglas de bandeja de entrada podrían detectar remitentes específicos o palabras concretas en el asunto.
 
     Compruebe también:
-    
-      - la configuración del correo no deseado de su cliente de correo electrónico (como Outlook o Gmail)
-      - los límites del remitente, la configuración del correo no deseado y la configuración de la cuarentena del servidor de correo electrónico (como Exchange, Office 365 o G-Suite)
-      - la configuración de la aplicación de seguridad de correo electrónico, si existe (como Barracuda o Cisco). 
 
-1. **¿Ha cancelado la suscripción al grupo de acciones accidentalmente?** 
+   - la configuración del correo no deseado de su cliente de correo electrónico (como Outlook o Gmail)
+      - los límites del remitente, la configuración del correo no deseado y la configuración de la cuarentena del servidor de correo electrónico (como Exchange, Office 365 o G-Suite)
+      - la configuración de la aplicación de seguridad de correo electrónico, si existe (como Barracuda o Cisco).
+
+1. **¿Ha cancelado la suscripción al grupo de acciones accidentalmente?**
 
     Los correos electrónicos de alerta proporcionan un vínculo para cancelar la suscripción al grupo de acciones. Para comprobar si ha cancelado la suscripción a este grupo de acciones accidentalmente, puede realizar una de estas acciones:
 
@@ -71,7 +78,7 @@ Si puede ver una alerta desencadenada en Azure Portal, pero no recibió el corre
 
     Para suscribirse de nuevo, use el vínculo del correo electrónico de confirmación de cancelación de suscripción que ha recibido, o bien quite la dirección de correo electrónico del grupo de acciones y luego vuelva a agregarla. 
  
-1. **¿Se le ha limitado la tasa debido a que muchos correos electrónicos van a una sola dirección de correo electrónico?** 
+1. **¿Se le ha limitado la tasa debido a que muchos correos electrónicos van a una sola dirección de correo electrónico?**
 
     El correo electrónico tiene una [tasa limitada](alerts-rate-limiting.md) de no más de cien mensajes de correo electrónico cada hora para cada dirección. Si supera este umbral, se quitan las notificaciones de correo electrónico adicionales.  Compruebe si ha recibido un mensaje que indica que la dirección de correo electrónico tiene limitado el número de correos temporalmente: 
  
@@ -83,7 +90,7 @@ Si puede ver una alerta desencadenada en Azure Portal, pero no recibió el corre
 
 Si puede ver una alerta desencadenada en el portal pero no recibió el SMS, la llamada de voz o la notificación de inserción que ha configurado para ello, siga estos pasos: 
 
-1. **¿Se suprimió la acción mediante una [regla de acción](alerts-action-rules.md)?** 
+1. **¿Se suprimió la acción mediante una [regla de acción](alerts-action-rules.md)?**
 
     Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](action-groups.md) suprimidos: 
 
@@ -93,14 +100,14 @@ Si puede ver una alerta desencadenada en el portal pero no recibió el SMS, la l
  
 1. **SMS/voz:  ¿es correcto su número de teléfono?**
 
-   Compruebe la acción de SMS por si hubiera errores tipográficos en el código de país o en el número de teléfono. 
+   Compruebe la acción de SMS por si hubiera errores tipográficos en el código de país o en el número de teléfono.
  
-1. **SMS/voz: ¿se le ha limitado la tasa?** 
+1. **SMS/voz: ¿se le ha limitado la tasa?**
 
-    Los SMS y las llamadas de voz tienen una tasa limitada de no más de una notificación cada cinco minutos por número de teléfono. Si supera este umbral, las notificaciones se quitarán. 
+    Los SMS y las llamadas de voz tienen una tasa limitada de no más de una notificación cada cinco minutos por número de teléfono. Si supera este umbral, las notificaciones se quitarán.
 
-      - Llamada de voz: compruebe el historial de llamadas y vea si tiene una llamada diferente de Azure en los cinco minutos anteriores. 
-      - SMS: compruebe en el historial de SMS si tiene un mensaje que indica que el número de teléfono tiene limitada la tasa. 
+      - Llamada de voz: compruebe el historial de llamadas y vea si tiene una llamada diferente de Azure en los cinco minutos anteriores.
+      - SMS: compruebe en el historial de SMS si tiene un mensaje que indica que el número de teléfono tiene limitada la tasa.
 
     Si desea recibir un gran volumen de notificaciones sin limitación de tasa, considere la posibilidad de usar una acción diferente, como el método webhook, la aplicación lógica, la función de Azure o los runbooks de automatización, ninguna de las cuales tiene una tasa limitada. 
  
@@ -110,29 +117,29 @@ Si puede ver una alerta desencadenada en el portal pero no recibió el SMS, la l
 
 1. **¿Ha bloqueado accidentalmente las notificaciones en el teléfono?**
 
-   La mayoría de los teléfonos móviles le permiten bloquear llamadas o SMS de números de teléfono o códigos cortos específicos, o bloquear las notificaciones de inserción de aplicaciones concretas (como Azure Mobile App). Para comprobar si ha bloqueado accidentalmente las notificaciones en el teléfono, busque en la documentación correspondiente al sistema operativo y modelo del teléfono, o bien pruebe con un teléfono y número de teléfono diferentes. 
+   La mayoría de los teléfonos móviles le permiten bloquear llamadas o SMS de números de teléfono o códigos cortos específicos, o bloquear las notificaciones de inserción de aplicaciones concretas (como Azure Mobile App). Para comprobar si ha bloqueado accidentalmente las notificaciones en el teléfono, busque en la documentación correspondiente al sistema operativo y modelo del teléfono, o bien pruebe con un teléfono y número de teléfono diferentes.
 
 ## <a name="expected-another-type-of-action-to-trigger-but-it-did-not"></a>Se esperaba otro tipo de acción para desencadenar, pero no tuvo lugar 
+   
+Si puede ver una alerta desencadenada en el portal, pero su acción configurada no se desencadenó, siga estos pasos:
 
-Si puede ver una alerta desencadenada en el portal, pero su acción configurada no se desencadenó, siga estos pasos: 
+1. **¿Se suprimió la acción mediante una regla de acción?**
 
-1. **¿Se suprimió la acción mediante una regla de acción?** 
-
-    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](action-groups.md) suprimidos: 
+    Compruébelo haciendo clic en la alerta desencadenada en el portal y examine la pestaña Historial en busca de los [grupos de acciones](action-groups.md) suprimidos:
 
     ![Historial de supresiones de reglas de acción de alerta](media/alerts-troubleshoot/history-action-rule.png)
  
-    Si no se realizó de manera intencionada, puede modificar, deshabilitar o eliminar la regla de acción. 
+    Si no se realizó de manera intencionada, puede modificar, deshabilitar o eliminar la regla de acción.
 
 1. **¿No se ha desencadenado un webhook?**
 
     1. **¿Se han bloqueado las direcciones IP de origen?**
     
-       Incluya en la lista blanca las [direcciones IP](action-groups.md#action-specific-information) desde las que se llama al webhook.
+       Agregue las [direcciones IP](action-groups.md#action-specific-information) desde las que se llama al webhook a su lista de permitidos.
 
     1. **¿Funciona correctamente el punto de conexión de webhook?**
 
-       Compruebe que la configuración del punto de conexión del webhook es correcta y que el punto de conexión funciona correctamente. Compruebe los registros de webhook o instrumente su código para que pueda investigar (por ejemplo, registre la carga útil de entrada). 
+       Compruebe que la configuración del punto de conexión del webhook es correcta y que el punto de conexión funciona correctamente. Compruebe los registros de webhook o instrumente su código para que pueda investigar (por ejemplo, registre la carga útil de entrada).
 
     1. **¿Está llamando a Slack o a Microsoft Teams?**  
     Cada uno de estos puntos de conexión espera un formato JSON específico. Siga [estas instrucciones](action-groups-logic-app.md) para configurar una acción de aplicación lógica en su lugar.
@@ -216,7 +223,7 @@ Si puede ver una alerta desencadenada en el portal, pero una regla de acción re
 
 ## <a name="how-to-find-the-alert-id-of-a-fired-alert"></a>Cómo buscar el identificador de alerta de una alerta desencadenada
 
-Al abrir un caso sobre una alerta desencadenada concreta (por ejemplo, si no recibió su notificación de correo electrónico), deberá proporcionar el identificador de la alerta. 
+Al abrir un caso sobre una alerta desencadenada concreta (por ejemplo, si no recibió su notificación por correo electrónico), deberá proporcionar el identificador de la alerta. 
 
 Para localizarlo, siga estos pasos:
 

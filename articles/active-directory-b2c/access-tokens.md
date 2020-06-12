@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a659d8929f845b1c58bd64f628b2d3f47a96674e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635445"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297537"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
@@ -26,10 +26,10 @@ Este artículo muestra cómo solicitar un token de acceso para una aplicación w
 > [!NOTE]
 > **Las cadenas de la API web (en nombre de) no son compatibles con Azure AD B2C.** - Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en clientes que tienen un back-end de API web, que a su vez llama a otro servicio. Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JWT de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Cree un flujo de usuario](tutorial-create-user-flows.md) para permitir a los usuarios registrarse e iniciar sesión en la aplicación.
-- Si aún no lo ha hecho, [agregue una aplicación de API web al inquilino de Azure Active Directory B2C](add-web-application.md).
+- Si aún no lo ha hecho, [agregue una aplicación de API web al inquilino de Azure Active Directory B2C](add-web-api-application.md).
 
 ## <a name="scopes"></a>Ámbitos
 

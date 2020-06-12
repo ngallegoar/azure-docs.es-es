@@ -4,16 +4,19 @@
   items:
     - name: ¿Qué es Azure Blueprint?
       displayName: 'templates, policy, definition, assignment, rbac'
-      href: overview.md
+      href: ./overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
     - name: 'Creación de un plano técnico: portal'
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-portal.md
-    - name: 'Creación de un plano técnico: PowerShell'
+      href: ./create-blueprint-portal.md
+    - name: 'Creación de un plano técnico: Azure PowerShell'
       displayName: 'publish, assign, track, unassign, delete'
-      href: create-blueprint-powershell.md
+      href: ./create-blueprint-powershell.md
+    - name: 'Creación de un plano técnico: CLI de Azure'
+      displayName: 'publish, assign, track, unassign, delete'
+      href: ./create-blueprint-azurecli.md
     - name: 'Creación de un plano técnico: API de REST'
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
@@ -268,6 +271,8 @@
   href: ./troubleshoot/general.md
 - name: Referencia
   items:
+    - name: Azure CLI
+      href: /cli/azure/ext/blueprint/blueprint
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'
     - name: SDK de Azure para .NET
@@ -285,7 +290,7 @@
     - name: 'GitHub: Ejemplos de Azure Blueprints'
       href: 'https://github.com/Azure/azure-blueprints'
     - name: Preguntas y respuestas de Microsoft para Azure Blueprints
-      href: /answers/topics/azure-blueprints.html.html
+      href: /answers/topics/azure-blueprints.html
     - name: Canal de YouTube de gobernanza
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: 'Azure Friday: Introducción a Azure Blueprints'

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780851"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022221"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Preguntas más frecuentes
 
@@ -43,6 +43,14 @@ Para más información, consulte [Planeamiento de la capacidad de los clústeres
 ### <a name="what-are-the-various-types-of-nodes-in-an-hdinsight-cluster"></a>¿Cuáles son los distintos tipos de nodos de un clúster de HDInsight?
 
 Consulte [Tipos de recursos en clústeres de HDInsight de Azure](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
+
+### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>¿Cuáles son los procedimientos recomendados para crear clústeres grandes de HDInsight?
+
+1. Se recomienda configurar los clústeres de HDInsight con una [base de datos de Ambari personalizada](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) para mejorar la escalabilidad del clúster.
+2. Use [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) para crear clústeres de HDInsight para aprovechar el mayor ancho de banda y otras características de rendimiento de Azure Data Lake Storage Gen2.
+3. Los nodos principales deben ser lo suficientemente grandes como para dar cabida a varios servicios maestros que se ejecuten en estos nodos.
+4. Algunas cargas de trabajo específicas, como Interactive Query, también necesitarán nodos de Zookeeper más grandes. Considere VM con un mínimo de 8 núcleos.
+5. En el caso de Hive y Spark, use un [metastore de Hive externo](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
 
 ## <a name="individual-components"></a>Componentes individuales
 
@@ -79,9 +87,9 @@ No, no es posible ejecutar Apache Kafka y Apache Spark en el mismo clúster de H
 
 ## <a name="metastore"></a>Tienda de metadatos
 
-### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>¿Cómo puedo migrar desde el metastore existente a Azure SQL Server? 
+### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-database"></a>¿Cómo puedo migrar desde el metastore existente a Azure SQL Database? 
 
-Para migrar de SQL Server a Azure SQL Server, consulte [Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database sin conexión mediante DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+Para migrar de SQL Server a Azure SQL Database, consulte [Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database sin conexión mediante DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>¿El metastore de Hive se elimina cuando se elimina el clúster?
 

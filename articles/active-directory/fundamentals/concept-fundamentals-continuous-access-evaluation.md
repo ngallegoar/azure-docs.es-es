@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112582"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148130"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -50,13 +50,13 @@ En el futuro esperamos agregar más eventos, como los cambios de estado de dispo
 Antes de la evaluación continua de acceso, los clientes siempre intentaban reproducir el token de acceso desde su memoria caché, siempre y cuando no haya expirado. Con CAE, presentamos un nuevo caso en el que un proveedor de recursos puede rechazar un token aunque no haya expirado. Para informar a los clientes de que omitan su memoria caché aunque los tokens almacenados en caché no hayan expirado, presentamos un mecanismo denominado **desafío de notificaciones**. CAE requiere una actualización de cliente para comprender el desafío de notificaciones. La versión más reciente de las siguientes aplicaciones es compatible con el desafío de notificaciones:
 
 - Outlook para Windows 
-- Outlook iOS 
-- Outlook Android 
-- Outlook Mac 
+- Outlook para iOS 
+- Outlook para Android 
+- Outlook para Mac 
 - Teams para Windows
-- Teams iOS 
-- Teams Android 
-- Teams Mac 
+- Teams para iOS 
+- Teams para Android 
+- Teams para Mac 
 
 ## <a name="token-lifetime"></a>Vigencia del token
 

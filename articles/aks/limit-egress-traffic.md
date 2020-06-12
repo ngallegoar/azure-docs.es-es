@@ -4,12 +4,12 @@ description: Obtenga información sobre qué puertos y direcciones son necesario
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 194e799daf107220c28404001d223e521dceeb3f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 724d270b5ea18dbbd30ff2587e8bea5ee126a9ec
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870900"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264416"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ Un clúster de AKS requiere los siguientes puertos de salida / reglas de red:
 * Puerto TCP *443*
 * TCP [IPAddrOfYourAPIServer]:443 es necesario si tiene una aplicación que deba comunicarse con el servidor de API.  Este cambio se puede establecer después de crear el clúster.
 * Puerto TCP *9000*, puerto TCP *22* y puerto UDP *1194* del pod de la parte delantera del túnel que va a comunicarse con el extremo del túnel del servidor de la API.
-    * Para obtener información más concreta, vea las direcciones * *.hcp.\<ubicación\>.azmk8s.io* y * *.tun.\<ubicación\>.azmk8s.io* en la tabla siguiente.
+    * Para obtener información más concreta, vea las direcciones *.hcp.\<location\>.azmk8s.io* y * *.tun.\<location\>.azmk8s.io* en la tabla siguiente.
 * Puerto UDP *123* para la sincronización de hora del protocolo de tiempo de red (NTP) (nodos de Linux).
 * También se requiere el puerto UDP *53* para DNS si tiene pods que acceden directamente al servidor de API.
 
@@ -67,8 +67,8 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 
 | FQDN                       | Port      | Uso      |
 |----------------------------|-----------|----------|
-| *.hcp.\<ubicación\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
-| *.tun.\<ubicación\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
+| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<location\>* con la región en la que está implementado el clúster de AKS. |
+| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<location\>* con la región en la que está implementado el clúster de AKS. |
 | *.cdn.mscr.io       | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por Azure Content Delivery Network (CDN). |
 | mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). Este registro contiene imágenes y gráficos de propios (por ejemplo, Moby, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster. |
 | *.data.mcr.microsoft.com             | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por la red de entrega de contenido (CDN) de Azure. |
@@ -82,8 +82,8 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 
 | FQDN                       | Port      | Uso      |
 |----------------------------|-----------|----------|
-| *.hcp.\<ubicación\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
-| *.tun.\<ubicación\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
+| *.hcp.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<location\>* con la región en la que está implementado el clúster de AKS. |
+| *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<location\>* con la región en la que está implementado el clúster de AKS. |
 | *.azk8s.cn        | HTTPS:443 | Esta dirección es necesaria para descargar las imágenes y los archivos binarios necesarios.|
 | mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). Este registro contiene imágenes y gráficos de propios (por ejemplo, Moby, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster. |
 | *.cdn.mscr.io       | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por Azure Content Delivery Network (CDN). |
@@ -97,8 +97,8 @@ Se requieren las siguientes reglas de aplicación / FQDN:
 
 | FQDN                       | Port      | Uso      |
 |----------------------------|-----------|----------|
-| *.hcp.\<ubicación\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
-| *.tun.\<ubicación\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<ubicación\>* con la región en la que se implemente su clúster de AKS. |
+| *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<location\>* con la región en la que está implementado el clúster de AKS. |
+| *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Esta dirección es necesaria para la comunicación bidireccional entre el nodo y el servidor de la API. Reemplace *\<location\>* con la región en la que está implementado el clúster de AKS. |
 | mcr.microsoft.com          | HTTPS:443 | Esta dirección es necesaria para acceder a las imágenes de Microsoft Container Registry (MCR). Este registro contiene imágenes y gráficos de propios (por ejemplo, Moby, etc.) necesarios para el funcionamiento del clúster durante la actualización y la escala del clúster. |
 |*.cdn.mscr.io              | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por Azure Content Delivery Network (CDN). |
 | *.data.mcr.microsoft.com             | HTTPS:443 | Esta dirección es necesaria para el almacenamiento de MCR respaldado por la red de entrega de contenido (CDN) de Azure. |
@@ -149,7 +149,8 @@ Los clústeres de AKS que tienen habilitado Azure Dev Spaces necesitan las regla
 | cloudflare.docker.com | HTTPS:443 | Esta dirección se usa para extraer Linux Alpine y otras imágenes de Azure Dev Spaces |
 | gcr.io | HTTPS:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
 | storage.googleapis.com | HTTPS:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
-| azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json |
+
+Actualice el firewall o la configuración de seguridad para permitir el tráfico de red hacia y desde todos los FQDN anteriores y los [servicios de infraestructura de Azure Dev Spaces][dev-spaces-service-tags].
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Direcciones y puertos necesarios para los clústeres de AKS que tienen habilitado Azure Policy (en versión preliminar pública)
 
@@ -191,3 +192,4 @@ En este artículo, ha aprendido qué puertos y direcciones hay que permitir si r
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations

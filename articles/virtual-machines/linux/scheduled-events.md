@@ -5,14 +5,14 @@ author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/22/2018
+ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 7c33f29ab00605f68d41358b79284bf49188fece
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c888a28607101cdf41fcd9b47cf25a2fc5da6337
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715875"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299526"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -52,7 +52,7 @@ Los eventos programados se entregan a:
 
 - Máquinas virtuales independientes.
 - Todas las máquinas virtuales en un servicio de nube.
-- Todas las máquinas virtuales de un conjunto de disponibilidad o zona de disponibilidad. 
+- Todas las máquinas virtuales de un conjunto de disponibilidad.
 - Todas las máquinas virtuales de un grupo de selección de ubicación de conjunto de escalado. 
 
 Por ello, revise el campo `Resources` del evento para identificar cuáles son las máquinas virtuales que se verán afectadas.
@@ -60,7 +60,7 @@ Por ello, revise el campo `Resources` del evento para identificar cuáles son la
 ### <a name="endpoint-discovery"></a>Detección de punto de conexión
 En el caso de las máquinas virtuales con red virtual habilitada, el servicio de metadatos está disponible desde una dirección IP no enrutable estática, `169.254.169.254`. El punto de conexión completo de la versión más reciente de Scheduled Events es: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 Si la máquina virtual no se crea dentro de una red virtual (la opción predeterminada para servicios en la nube y máquinas virtuales clásicas), se necesita lógica adicional para detectar la dirección IP que se va a usar. Para aprender a [detectar el punto de conexión de host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), consulte este ejemplo.
 
@@ -69,10 +69,12 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 
 | Versión | Tipo de versión | Regions | Notas de la versión | 
 | - | - | - | - | 
+| 2019-08-01 | Disponibilidad general | All | <li> Compatibilidad agregada con EventSource |
+| 2019-04-01 | Disponibilidad general | All | <li> Compatibilidad agregada con la descripción de eventos |
 | 2019-01-01 | Disponibilidad general | All | <li> Compatibilidad agregada con conjuntos de escalado de máquinas virtuales EventType "Terminate" |
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Vista previa | All | <li>Versión inicial |
+| 2017-03-01 | Versión preliminar | All | <li>Versión inicial |
 
 
 > [!NOTE] 
@@ -98,7 +100,7 @@ Puede consultar los eventos programados; para ello, simplemente haga la siguient
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
 Una respuesta contiene una matriz de eventos programados. Una matriz vacía significa que actualmente no hay eventos programados.
@@ -113,7 +115,9 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},       
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -128,6 +132,8 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 | Recursos| Es la lista de recursos a los que este evento afecta. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en dicho dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Ni `Completed` ni otro estado similar se han proporcionado antes. El evento ya no vuelve cuando finaliza el evento.
 | NotBefore| Hora a partir de la que puede iniciarse este evento. <br><br> Ejemplo: <br><ul><li> Lunes, 19 de septiembre de 2016, 18:29:47 GMT  |
+| Descripción | Descripción de este evento. <br><br> Ejemplo: <br><ul><li> El servidor host está en mantenimiento. |
+| EventSource | Iniciador del evento. <br><br> Ejemplo: <br><ul><li> `Platform`: Este evento lo inicia la plataforma. <li>`User`: Este evento lo inicia el usuario. |
 
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función de su tipo. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 
@@ -197,9 +203,14 @@ def handle_scheduled_events(data):
         eventtype = evt['EventType']
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ", "_")
+    description = evt['Description']
+    eventSource = evt['EventSource']
         if this_host in resources:
             print("+ Scheduled Event. This host " + this_host +
-                " is scheduled for " + eventtype + " not before " + notbefore)
+                " is scheduled for " + eventtype + 
+        " by " + eventSource + 
+        " with description " + description +
+        " not before " + notbefore)
             # Add logic for handling events here
 
 

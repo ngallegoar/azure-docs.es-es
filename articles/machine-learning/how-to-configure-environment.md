@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ab9a02efedb0e002ac13294429c06e39ea18019c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399006"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117459"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ En este artículo también se proporcionan sugerencias de uso adicionales para l
 
 * [Visual Studio Code](#vscode): Si usa Visual Studio Code, la [extensión de Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) incluye un amplio soporte de lenguaje para Python, así como características para que trabajar con Azure Machine Learning sea mucho más cómodo y productivo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor de cuadernos basado en la nube](#compute-instance), una instancia de [DSVM](#dsvm) o [Azure Databricks](#aml-databricks).
 
@@ -145,7 +145,7 @@ Cuando use un equipo local (que también podría ser una máquina virtual remota
     Ejecute el comando siguiente para crear el entorno.
 
     ```bash
-    conda create -n myenv python=3.6.5
+    conda create -n myenv python=3.7.7
     ```
 
     Después, active el entorno.
@@ -154,7 +154,7 @@ Cuando use un equipo local (que también podría ser una máquina virtual remota
     conda activate myenv
     ```
 
-    En este ejemplo se crea un entorno con Python 3.6.5, pero se puede elegir cualquier versión secundaria. La compatibilidad con el SDK no puede garantizarse con determinadas versiones principales (se recomienda la 3.5 y versiones posteriores). Además, se aconseja probar una versión principal o secundaria diferente en el entorno de Anaconda si se experimentan errores. La creación del entorno tardará unos minutos mientras se descargan los componentes y los paquetes.
+    En este ejemplo se crea un entorno con Python 3.7.7, pero se puede elegir cualquier versión secundaria. La compatibilidad con el SDK no puede garantizarse con determinadas versiones principales (se recomienda la 3.5 y versiones posteriores). Además, se aconseja probar una versión principal o secundaria diferente en el entorno de Anaconda si se experimentan errores. La creación del entorno tardará unos minutos mientras se descargan los componentes y los paquetes.
 
 1. Ejecute los comandos siguientes en el nuevo entorno para habilitar los kernels de IPython específicos del entorno. Así se garantizará el comportamiento esperado de importación de paquetes y kernel al trabajar con cuadernos de Jupyter Notebook en entornos de Anaconda:
 
@@ -365,7 +365,7 @@ Hay tres formas de crear el archivo de configuración:
 
 * **Descargue el archivo**: En [Azure Portal](https://ms.portal.azure.com), seleccione **Descargar config.json** desde la sección **Información general** del área de trabajo.
 
-     ![Portal de Azure](./media/how-to-configure-environment/configure.png)
+     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * **Cree el archivo mediante programación**: En el fragmento de código siguiente se muestra cómo conectarse a un área de trabajo proporcionando el id. de suscripción, el grupo de recursos y el nombre del área de trabajo. A continuación, se guarda la configuración del área de trabajo en el archivo:
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: fea444f2e864683d6350e1c08872ec574a36852c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/29/2020
+ms.openlocfilehash: d879429eef68d1bc2448150e2d8eece9cfa35da2
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646009"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204861"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -120,6 +120,9 @@ Para trabajar con colecciones, por lo general matrices, cadenas y, en ocasiones,
 ## <a name="logical-comparison-functions"></a>Funciones de comparación lógica
 
 Para trabajar con condiciones, comparar valores y resultados de expresiones, o evaluar varios tipos de lógica, puede usar estas funciones de comparación lógica. Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> Si usa funciones o condiciones lógicas para comparar valores, los valores NULL se convierten en valores de cadena vacía (`""`). El comportamiento de las condiciones es distinto cuando se compara con una cadena vacía, en lugar de con un valor NULL. Para más información, consulte la [función string()](#string). 
 
 | Función de comparación lógica | Tarea |
 | --------------------------- | ---- |
@@ -3820,13 +3823,17 @@ string(<value>)
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sí | Any | Valor que se va a convertir |
+| <*value*> | Sí | Any | Valor que se va a convertir. Si este valor es NULL o se evalúa como NULL, el valor se convierte en un valor de cadena vacía (`""`). <p><p>Por ejemplo, si asigna una variable de cadena a una propiedad que no existe, a la que puede acceder con el operador `?`, el valor NULL se convierte en una cadena vacía. Sin embargo, comparar un valor NULL no es lo mismo que comparar una cadena vacía. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*valor-de-cadena*> | String | Versión de cadena del valor especificado |
+| <*valor-de-cadena*> | String | Versión de cadena del valor especificado. Si el valor del parámetro *value* es NULL o se evalúa como NULL, este valor se devuelve como un valor de cadena vacía (`""`). |
 ||||
+
+
+
+
 
 *Ejemplo 1*
 

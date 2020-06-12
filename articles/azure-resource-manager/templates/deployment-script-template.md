@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: jgao
-ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: e3f3301ac78480c4d8ebbf909bafcefa025ff395
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708013"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168580"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
@@ -38,7 +38,7 @@ El recurso de script de implementación solo está disponible en las regiones do
 > [!IMPORTANT]
 > Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene las opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente la cuenta de almacenamiento, junto con la instancia del contenedor. Normalmente, el servicio de script elimina los dos recursos creados automáticamente cuando la ejecución del script de implementación llega a un estado terminal. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Una identidad administrada asignada por el usuario con el rol de colaborador en el grupo de recursos de destino**. Esta identidad se usa para ejecutar scripts de implementación. Para realizar operaciones fuera del grupo de recursos, debe conceder permisos adicionales. Por ejemplo, asigne la identidad al nivel de suscripción si desea crear un nuevo grupo de recursos.
 
@@ -60,7 +60,7 @@ El recurso de script de implementación solo está disponible en las regiones do
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -166,7 +166,7 @@ La plantilla siguiente tiene un recurso definido con el tipo `Microsoft.Resource
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Dado que los scripts de implementación en línea se incluyen entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples. El carácter de escape de PowerShell es **&#92;** . También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON. Consulte el valor predeterminado del nombre de parámetro.
+> Como los scripts de implementación insertados se escriben entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples o entre caracteres de escape como **&#92;** . También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON.
 
 El script toma un parámetro y genera el valor del parámetro. **DeploymentScriptOutputs** se usa para almacenar las salidas.  En la sección de salidas, la línea **value** muestra cómo acceder a los valores almacenados. `Write-Output` se utiliza con fines de depuración. Para obtener información sobre cómo acceder al archivo de salida, vea [Depuración de scripts de implementación](#debug-deployment-scripts).  Para ver las descripciones de las propiedades, consulte [Plantillas de ejemplo](#sample-templates).
 
@@ -306,7 +306,20 @@ Para ver el recurso deploymentScripts en el portal, seleccione **Mostrar tipos o
 
 Se necesita una cuenta de almacenamiento y una instancia de contenedor para la ejecución de scripts y la solución de problemas. Tiene las opciones para especificar una cuenta de almacenamiento existente; de lo contrario, el servicio de script crea automáticamente la cuenta de almacenamiento, junto con la instancia de contenedor. Requisitos para usar una cuenta de almacenamiento existente:
 
-- Los tipos de cuenta de almacenamiento admitidos son: uso general v2, uso general v1 y FileStorage. Solo FileStorage admite SKU Premium. Para obtener más información, consulte la sección [Tipos de cuentas de almacenamiento](../../storage/common/storage-account-overview.md).
+- Tipos de cuenta de almacenamiento admitidos:
+
+    | SKU             | Tipo admitido     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Storage, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Storage, StorageV2 |
+    | Standard_RAGRS  | Storage, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    Estas combinaciones admiten el recurso compartido de archivos.  Para más información, vea [Creación de un recurso compartido de archivos de Azure](../../storage/files/storage-how-to-create-file-share.md) e [Introducción a las cuentas de almacenamiento](../../storage/common/storage-account-overview.md).
 - Todavía no se admiten las reglas de Firewall de la cuenta de almacenamiento. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../../storage/common/storage-network-security.md).
 - La identidad administrada asignada por el usuario del script de implementación debe tener permisos para administrar la cuenta de almacenamiento, lo que incluye los recursos compartidos de archivos de lectura, creación y eliminación.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Powershell: Migración de SQL Server a SQL Database'
+title: 'PowerShell: Migración de SQL Server a SQL Database'
 titleSuffix: Azure Database Migration Service
-description: Aprenda a migrar de SQL Server local a Azure SQL Database mediante Azure PowerShell con Azure Database Migration Service.
+description: Obtenga información sobre cómo migrar una base de datos de SQL Server a Azure SQL Database mediante Azure PowerShell con Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 494ef67938df161915390d9adc74093bafa550f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650697"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192656"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migración de SQL Server local a Azure SQL Database mediante Azure PowerShell
+# <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migración de una base de datos de SQL Server a Azure SQL Database mediante Azure PowerShell
 
-En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 a una base de datos de Azure SQL mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server local a Azure SQL Database mediante el módulo `Az.DataMigration` en Microsoft Azure PowerShell.
+En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 a una base de datos de Azure SQL mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server a Azure SQL Database mediante el módulo `Az.DataMigration` en Microsoft Azure PowerShell.
 
 En este artículo aprenderá a:
 > [!div class="checklist"]
@@ -31,7 +31,7 @@ En este artículo aprenderá a:
 > * Crear un proyecto de migración en una instancia de Azure Database Migration Service.
 > * Ejecutar la migración.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar estos pasos, necesitará lo siguiente:
 
@@ -109,7 +109,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-En el ejemplo siguiente se muestra la creación de la información de conexión para el servidor de Azure SQL Database denominado MySQLAzureTarget mediante la autenticación de SQL:
+En el ejemplo siguiente se muestra la creación de la información de conexión para el servidor denominado SQLAzureTarget mediante la autenticación de SQL:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `

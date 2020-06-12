@@ -1,6 +1,6 @@
 ---
-title: Carga de datos en Azure SQL Data Warehouse
-description: Uso de Azure Data Factory para copiar datos en Azure SQL Data Warehouse
+title: Carga de datos en Azure Synapse Analytics
+description: Uso de Azure Data Factory para copiar datos en Azure Synapse Analytics
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,39 +10,39 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2020
-ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/29/2020
+ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461115"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194768"
 ---
-# <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory
+# <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carga de datos en Azure Synapse Analytics mediante Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) es una base de datos de escalado horizontal y basada en la nube capaz de procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Basado en la arquitectura de procesamiento paralelo masivo (MPP), está mejorado para controlar las cargas de trabajo empresariales. Ofrece elasticidad en la nube con la flexibilidad para escalar almacenamiento y proceso de forma independiente.
+[Azure Synapse Analytics (anteriormente SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) es una base de datos de escalado horizontal y basada en la nube capaz de procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Basada en la arquitectura de procesamiento paralelo masivo (MPP), está mejorada para controlar las cargas de trabajo empresariales. Ofrece elasticidad en la nube con la flexibilidad para escalar almacenamiento y proceso de forma independiente.
 
-La introducción a Azure SQL Data Warehouse es ahora más fácil que nunca si se usa Azure Data Factory. Azure Data Factory es un servicio de integración de datos en la nube totalmente administrado. Puede utilizar el servicio para rellenar un almacenamiento de SQL Data Warehouse con los datos del sistema actual y ahorrar tiempo al crear las soluciones de análisis.
+La introducción a Azure Synapse Analytics es ahora más fácil que nunca si se usa Azure Data Factory. Azure Data Factory es un servicio de integración de datos en la nube totalmente administrado. Puede usar el servicio para rellenar una instancia de Azure Synapse Analytics con los datos del sistema actual y ahorrar tiempo al crear las soluciones de análisis.
 
-Azure Data Factory ofrece los siguientes beneficios para cargar datos en Azure SQL Data Warehouse:
+Azure Data Factory ofrece los siguientes beneficios para cargar datos en Azure Synapse Analytics:
 
 * **Fácil de configurar**: con un asistente intuitivo en cinco pasos sin necesidad de scripting.
 * **Amplia compatibilidad para el almacenamiento de datos**: compatibilidad integrada para un amplio conjunto de almacenes de datos tanto locales como en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Seguro y compatible**: los datos se transfieren a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
-* **Rendimiento sin precedentes mediante PolyBase**: Polybase es la forma más eficaz de mover datos a Azure SQL Data Warehouse. Mediante la característica de blob de almacenamiento provisional, puede alcanzar velocidades de carga altas para todos los tipos de almacenes de datos, incluido Azure Blob Storage y Data Lake Store. (Polybase es compatible con Azure Blob Storage y Azure Data Lake Store de forma predeterminada). Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
+* **Rendimiento sin precedentes mediante PolyBase**: Polybase es la forma más eficaz de mover datos a Azure Synapse Analytics. Mediante la característica de blob de almacenamiento provisional, puede alcanzar velocidades de carga altas para todos los tipos de almacenes de datos, incluido Azure Blob Storage y Data Lake Store. (Polybase es compatible con Azure Blob Storage y Azure Data Lake Store de forma predeterminada). Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
 
-En este artículo se muestra cómo usar la herramienta para copiar datos de Data Factory a fin de _cargar datos de Azure SQL Database en Azure SQL Data Warehouse_. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
+En este artículo se muestra cómo usar la herramienta Copiar datos de Data Factory a fin de _cargar datos de Azure SQL Database en Azure Synapse Analytics_. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
 
 > [!NOTE]
-> Para más información, consulte [Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory](connector-azure-sql-data-warehouse.md).
+> Para más información, consulte [Copia de datos con Azure Synapse Analytics como origen o destino mediante Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Azure SQL Data Warehouse: Este almacén de datos contiene los datos que se copian de SQL Database. Si no tiene ninguna instancia de Azure SQL Data Warehouse, consulte las instrucciones de [Creación de una instancia de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: este tutorial copia los datos de una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. Puede crear una base de datos SQL si sigue las instrucciones que aparecen en [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
+* Azure Synapse Analytics: Este almacén de datos contiene los datos que se copian de SQL Database. Si no tiene una instancia de Azure Synapse Analytics, consulte las instrucciones de [Creación de una instancia de Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+* Azure SQL Database: este tutorial copia los datos de una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. Puede crear una base de datos SQL si sigue las instrucciones que aparecen en [Creación de una base de datos de Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
 * Cuenta de almacenamiento de Azure: Azure Storage se usa como blob de _almacenamiento provisional_ en la operación de copia masiva. Si no dispone de una cuenta de almacenamiento de Azure, consulte las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
@@ -51,7 +51,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 2. En la página **Nueva factoría de datos**, proporcione valores para los siguientes elementos:
 
-    * **Name**: Escriba *LoadSQLDWDemo* como nombre. El nombre de la factoría de datos debe ser *globalmente único. Si recibe el error "El nombre de la factoría de datos 'LoadSQLDWDemo' no está disponible", escriba otro nombre. Por ejemplo, podría utilizar el nombre _**suNombre**_ **ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    * **Name**: Escriba *LoadSQLDWDemo* como nombre. El nombre de la factoría de datos debe ser *globalmente único. Si recibe el error "El nombre de la factoría de datos 'LoadSQLDWDemo' no está disponible", escriba otro nombre. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
     * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
     * **Versión**: seleccione **V2**.
@@ -64,7 +64,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
    Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de integración de datos en una pestaña independiente.
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Carga de datos en Azure SQL Data Warehouse
+## <a name="load-data-into-azure-synapse-analytics"></a>Carga de datos en Azure Synapse Analytics
 
 1. En la página **Introducción**, seleccione el icono **Copiar datos** para iniciar la herramienta para copiar datos.
 
@@ -115,7 +115,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 1. En la página **Table mapping** (Asignación de tabla), revise el contenido y seleccione **Next** (Siguiente). Se muestra una asignación de tabla inteligente. Las tablas de origen se asignan a las tablas de destino en función de los nombres de tabla. Si la tabla de origen no existe en el destino, Azure Data Factory crea una con el mismo nombre de manera predeterminada. También se puede asignar una tabla de origen a una tabla de destino existente.
 
    > [!NOTE]
-   > La creación automática de la tabla para el receptor de SQL Data Warehouse se aplica cuando el origen es SQL Server o Azure SQL Database. Si copia datos desde otro almacén de datos de origen, debe crear previamente el esquema en el receptor de Azure SQL Data Warehouse antes de copiar los datos.
+   > La creación automática de la tabla para el receptor de Azure Synapse Analytics se aplica cuando el origen es SQL Server o Azure SQL Database. Si copia datos desde otro almacén de datos de origen, debe crear previamente el esquema en el receptor de Azure Synapse Analytics antes de copiar los datos.
 
    ![Página Table mapping (Asignación de tabla)](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
@@ -125,7 +125,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 1. En la página **Settings** (Configuración), siga estos pasos:
 
-    a. En la sección **Staging settings** (Configuración provisional), haga clic en **+ New** (+Nuevo) para crear un almacenamiento provisional. El almacenamiento se usa para almacenar provisionalmente los datos antes de cargarlos en SQL Data Warehouse mediante PolyBase. Una vez que se completa la copia, los datos provisionales en Azure Blob Storage se limpian automáticamente.
+    a. En la sección **Staging settings** (Configuración provisional), haga clic en **+ New** (+Nuevo) para crear un almacenamiento provisional. El almacenamiento se usa para almacenar provisionalmente los datos antes de cargarlos en Azure Synapse Analytics mediante PolyBase. Una vez que se completa la copia, los datos provisionales en Azure Blob Storage se limpian automáticamente.
 
     b. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione su cuenta de almacenamiento y seleccione **Crear** para implementar el servicio vinculado.
 
@@ -152,7 +152,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe en el artículo siguiente para información sobre la compatibilidad de Azure SQL Data Warehouse:
+Continúe al artículo siguiente para obtener información sobre la compatibilidad de Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
->[Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory](connector-azure-sql-data-warehouse.md)
+>[Conector de Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)

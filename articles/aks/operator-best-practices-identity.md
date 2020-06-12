@@ -5,12 +5,12 @@ description: Obtenga información sobre los procedimientos recomendados del oper
 services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e3569be769fcf70a65cbfee62a3b80a5abdc3b5
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668312"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020054"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
@@ -19,6 +19,7 @@ A medida que implementa y mantiene clústeres en Azure Kubernetes Service (AKS),
 Este artículo de procedimientos recomendados se centra en cómo un operador de clústeres puede administrar el acceso y la identidad de los clústeres de AKS. En este artículo aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Autenticar a los usuarios de clústeres de AKS con Azure Active Directory.
 > * Controlar el acceso a los recursos con el control de acceso basado en rol (RBAC).
 > * Usar una identidad administrada para autenticarse con otros servicios.
@@ -97,14 +98,14 @@ Las identidades administradas para los recursos de Azure (actualmente se impleme
 
 Cuando los pods solicitan acceso a un servicio de Azure, las reglas de red redirigen el tráfico al servidor de identidad de administración de nodos (NMI). El servidor de NMI identifica los pods que solicitan acceso a servicios de Azure en función de su dirección remota y consulta el controlador de identidades administradas (MIC). MIC comprueba si hay asignaciones de identidades de Azure en el clúster de AKS, y el servidor de NMI, a continuación, solicita un token de acceso de Azure Active Directory (AD) en función de la asignación de identidades del pod. Azure AD proporciona acceso al servidor de NMI, que se devuelve al pod. El pod puede usar este token de acceso para, después, solicitar acceso a los servicios de Azure.
 
-En el ejemplo siguiente, un desarrollador crea un pod que usa una identidad administrada para solicitar acceso a una instancia de Azure SQL Server:
+En el ejemplo siguiente, un desarrollador crea un pod que usa una identidad administrada para solicitar acceso a Azure SQL Database:
 
 ![Las identidades de pod permiten que un pod solicite acceso a otros servicios automáticamente.](media/operator-best-practices-identity/pod-identities.png)
 
 1. Primero, el operador de clústeres crea una cuenta de servicio que se puede usar para asignar identidades cuando los pods solicitan acceso a los servicios.
 1. El servidor de NMI y MIC se implementan para retransmitir las solicitudes de pod de tokens de acceso a Azure AD.
 1. Un desarrollador implementa un pod con una identidad administrada que solicita un token de acceso a través del servidor de NMI.
-1. El token se devuelve al pod y se utiliza para obtener acceso a una instancia de Azure SQL Server.
+1. El token se devuelve al pod y se utiliza para obtener acceso a Azure SQL Database.
 
 > [!NOTE]
 > Las identidades administradas del pod conforman un proyecto de código abierto y no es compatible con el soporte técnico de Azure.

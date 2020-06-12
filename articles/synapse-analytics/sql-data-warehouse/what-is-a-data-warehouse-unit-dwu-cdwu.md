@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c3c2bdd2dcd5fcef62c0a4691160c5457d19f196
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408065"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112612"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de almacenamiento de datos (DWU)
 
@@ -72,7 +72,7 @@ Cada nivel de rendimiento usa una unidad de medida ligeramente diferente para su
 
 Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
 
-Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una cuota de [unidad de transacción de base de datos (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) que permite un número específico de unidades de almacenamiento de datos. Para más información, consulte los [límites de capacidad de administración de cargas de trabajo](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una cuota de [unidad de transacción de base de datos (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) que permite un número específico de unidades de almacenamiento de datos. Para más información, consulte los [límites de capacidad de administración de cargas de trabajo](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## <a name="capacity-limits"></a>Límites de capacidad
 
@@ -88,7 +88,7 @@ Pasos para encontrar la mejor DWU para la carga de trabajo:
 2. Supervise el rendimiento de su aplicación a medida que prueba cargas de datos en el sistema, observando el número de DWU seleccionadas en comparación con el rendimiento que observe.
 3. Identifique los requisitos adicionales para períodos de máxima actividad periódicos. Puede que las cargas de trabajo que muestran picos y aumentos de actividad significativos se deban escalar con frecuencia.
 
-El grupo de SQL es un sistema de escalado horizontal que puede aprovisionar grandes cantidades de procesos y consultar cantidades considerables de datos.
+Un grupo de SQL es un sistema de escalado horizontal que puede aprovisionar grandes cantidades de procesos y consultar cantidades considerables de datos.
 
 Para ver sus verdaderas capacidades de escalado, especialmente en DWU más grandes, se recomienda escalar el conjunto de datos para asegurar que tiene suficientes datos como para alimentar las CPU. Para probar la escala, se recomienda usar al menos 1 TB.
 
@@ -107,7 +107,7 @@ Los roles integrados para los recursos de Azure, tales como Colaborador de base 
 Para ver la configuración actual de DWU:
 
 1. Abra el Explorador de objetos de SQL Server en Visual Studio.
-2. Conéctese a la base de datos maestra asociada al servidor de SQL Database lógico.
+2. Conéctese a la base de datos maestra asociada al servidor SQL lógico.
 3. Seleccione en la vista de administración dinámica sys.database_service_objectives. Este es un ejemplo:
 
 ```sql
@@ -121,7 +121,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>Cambiar unidades de almacenamiento de datos
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Para cambiar DWU:
 
@@ -149,7 +149,7 @@ Con T-SQL, puede ver la configuración actual de DWU, modificarla y comprobar el
 
 Para cambiar las DWU:
 
-1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
+1. Conéctese a la base de datos maestra asociada al servidor.
 2. Use la instrucción TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000c para la base de datos MySQLDW.
 
 ```Sql
@@ -185,7 +185,7 @@ No se puede comprobar el estado de la base de datos para las operaciones de esca
 
 Para comprobar el estado de los cambios de DWU:
 
-1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
+1. Conéctese a la base de datos maestra asociada al servidor.
 2. Envíe la consulta siguiente para comprobar el estado de la base de datos.
 
 ```sql

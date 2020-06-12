@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478310"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84246890"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -52,6 +52,8 @@ La máquina de origen se registra con el servidor de configuración al instalar 
     b. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services**.
     c. Abra el archivo Installation_Directory/Fx/uninstall.sh y convierta en comentario la sección completa que intenta detener el servicio Fx.
     d. [Desinstale](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) el agente de movilidad. Después de la desinstalación correcta, reinicie el sistema e intente volver a instalar el agente de movilidad.
+
+8. Asegúrese de que la autenticación multifactor no está habilitada en la cuenta de usuario. Azure Site Recovery no admite la autenticación multifactor para la cuenta de usuario a partir de ahora. Registre el servidor de configuración sin la cuenta de usuario habilitada para la autenticación multifactor.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Error de instalación: No se pudieron cargar las cuentas
 

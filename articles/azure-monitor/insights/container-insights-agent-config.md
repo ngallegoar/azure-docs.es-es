@@ -2,13 +2,13 @@
 title: Configuración de la recopilación de datos del agente de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede configurar el agente de Azure Monitor para contenedores para controlar la recopilación de registros de stdout y stderr y de las variables de entorno.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 28b93190298ae61732ff7d2e297899af4ba0e5f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/01/2020
+ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75933018"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299288"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configuración de la recopilación de datos del agente para Azure Monitor para contenedores
 
@@ -31,16 +31,17 @@ Se proporciona un archivo ConfigMap de plantilla que le permite editarlo fácilm
 
 A continuación figura la configuración que puede definir para controlar la recolección de datos.
 
-|Clave |Tipo de datos |Value |Descripción |
-|----|----------|------|------------|
-|`schema-version` |Cadena (distingue mayúsculas de minúsculas) |v1 |Se trata de la versión del esquema que el agente utiliza al analizar este ConfigMap. La versión de esquema que se admite actualmente es v1. No se admite la modificación de este valor y se rechazará cuando ConfigMap se evalúe.|
-|`config-version` |String | | Permite realizar un seguimiento de la versión de este archivo de configuración en el sistema o repositorio de control de código fuente. El número máximo de caracteres permitido es 10 y todos los demás caracteres se truncan. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true o false | Controla si está habilitada la recopilación de registros de contenedor de stdout. Cuando se establece en `true` y los espacios de nombres no se excluyen de la recopilación de registros de stdout (configuración `log_collection_settings.stdout.exclude_namespaces` más abajo), los registros de stdout se recopilarán a partir de todos los contenedores en todos los pods o nodos del clúster. Si no se especifica en ConfigMaps, el valor predeterminado es `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String | Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stdout. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true o false |Controla si está habilitada la recopilación de registros de contenedor de stderr. Cuando se establece en `true` y los espacios de nombres no se excluyen de la recopilación de registros de stdout (configuración `log_collection_settings.stderr.exclude_namespaces`), los registros de stderr se recopilarán a partir de todos los contenedores en todos los pods o nodos del clúster. Si no se especifica en ConfigMaps, el valor predeterminado es `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |String |Matriz separada por comas |Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stderr. Esta configuración es efectiva únicamente si `log_collection_settings.stdout.enabled` se establece en `true`. Si no se especifica en ConfigMap, el valor predeterminado es `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Esta configuración controla la colección de variables de entorno en todos los pods/nodos del clúster y el valor predeterminado es `enabled = true` cuando no se especifica en ConfigMaps. Si la colección de variables de entorno está habilitada globalmente, puede deshabilitarla para un contenedor específico al establecer la variable de entorno `AZMON_COLLECT_ENV` en **False** con un valor de Dockerfile o en el [archivo de configuración para el Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) en la sección **env:** . Si la colección de variables de entorno está deshabilitada globalmente, no puede habilitar la colección para un contenedor específico (es decir, la única invalidación que se puede aplicar en el nivel de contenedor es deshabilitar la colección si ya está habilitada globalmente). |
-| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean | true o false | Esta configuración controla el enriquecimiento de los registros de contenedor para rellenar los valores de propiedad de nombre e imagen de cada entrada de registro escrita en la tabla ContainerLog de todos los registros de contenedor del clúster. El valor predeterminado es `enabled = false` cuando no se especifica en ConfigMap. |
+| Clave | Tipo de datos | Value | Descripción |
+|--|--|--|--|
+| `schema-version` | Cadena (distingue mayúsculas de minúsculas) | v1 | Se trata de la versión del esquema que el agente usa<br> al analizar este ConfigMap.<br> La versión de esquema que se admite actualmente es v1.<br> No se admite la modificación de este valor y<br> se rechazará cuando ConfigMap se evalúe. |
+| `config-version` | String |  | Permite realizar un seguimiento de la versión de este archivo de configuración en el sistema o repositorio de control de código fuente.<br> El número máximo de caracteres permitido es 10 y todos los demás caracteres se truncan. |
+| `[log_collection_settings.stdout] enabled =` | Boolean | true o false | Controla si está habilitada la recopilación de registros de contenedor de stdout. Cuando se establece en `true` y los espacios de nombres no se excluyen de la recopilación de registros de stdout<br> (configuración `log_collection_settings.stdout.exclude_namespaces` más abajo), los registros de stdout se recopilarán a partir de todos los contenedores en todos los pods o nodos del clúster. Si no se especifica en ConfigMaps,<br> el valor predeterminado es `enabled = true`. |
+| `[log_collection_settings.stdout] exclude_namespaces =` | String | Matriz separada por comas | Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stdout. Esta configuración es efectiva únicamente<br> `log_collection_settings.stdout.enabled`<br> si se establece en `true`.<br> Si no se especifica en ConfigMap, el valor predeterminado es<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stderr] enabled =` | Boolean | true o false | Controla si está habilitada la recopilación de registros de contenedor de stderr.<br> Cuando se establece en `true` y los espacios de nombres no se excluyen de la recopilación de registros de stdout<br> (configuración `log_collection_settings.stderr.exclude_namespaces`), los registros de stderr se recopilarán a partir de todos los contenedores en todos los pods o nodos del clúster.<br> Si no se especifica en ConfigMaps, el valor predeterminado es<br> `enabled = true`. |
+| `[log_collection_settings.stderr] exclude_namespaces =` | String | Matriz separada por comas | Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stderr.<br> Esta configuración es efectiva únicamente<br> `log_collection_settings.stdout.enabled` se establece en `true`.<br> Si no se especifica en ConfigMap, el valor predeterminado es<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` | Boolean | true o false | Esta configuración controla la colección de variables de entorno<br> en todos los pods/nodos del clúster<br> y el valor predeterminado es `enabled = true` cuando no se especifica<br> en ConfigMaps.<br> Si la colección de variables de entorno está habilitada globalmente, puede deshabilitarla para un contenedor específico<br> al establecer la variable de entorno<br> `AZMON_COLLECT_ENV` en **False** con un valor de Dockerfile o en el [archivo de configuración para el Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) en la sección **env:** .<br> Si la colección de variables de entorno está deshabilitada globalmente, no puede habilitar la colección para un contenedor específico (es decir, la única invalidación que se puede aplicar en el nivel de contenedor es deshabilitar la colección si ya está habilitada globalmente). |
+| `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true o false | Esta configuración controla el enriquecimiento de los registros de contenedor para rellenar los valores de propiedad de nombre e imagen<br> de cada entrada de registro escrita en la tabla ContainerLog de todos los registros de contenedor del clúster.<br> El valor predeterminado es `enabled = false` cuando no se especifica en ConfigMap. |
+| `[log_collection_settings.collect_all_kube_events]` | Boolean | true o false | Esta configuración permite la recopilación de eventos de Kube de todos los tipos.<br> De forma predeterminada, no se recopilan los eventos de Kube con el tipo *Normal*. Cuando esta opción se establece en `true`, ya no se filtran los eventos con el tipo *Normal* y se recopilan todos los eventos.<br> De manera predeterminada, se establece en `false`. |
 
 ConfigMaps es una lista global y solo puede haber una instancia de ConfigMap aplicada al agente. No puede tener otra instancia de ConfigMaps que anule las colecciones.
 
@@ -71,7 +72,7 @@ El cambio de configuración puede tardar unos minutos en finalizar antes de que 
 
 ## <a name="verify-configuration"></a>Comprobación de la configuración
 
-Para comprobar que la configuración se ha aplicado correctamente en un clúster que no es de Red Hat OpenShift en Azure, use el comando siguiente para revisar los registros de un pod de agente: `kubectl logs omsagent-fdf58 -n=kube-system`. Si hay errores de configuración de los pods de osmagent, la salida mostrará errores similares a los siguientes:
+Para comprobar que la configuración se ha aplicado correctamente en un clúster que no es de Red Hat OpenShift en Azure, use el comando siguiente para revisar los registros de un pod de agente: `kubectl logs omsagent-fdf58 -n kube-system`. Si hay errores de configuración de los pods de osmagent, la salida mostrará errores similares a los siguientes:
 
 ``` 
 ***************Start Config Processing******************** 

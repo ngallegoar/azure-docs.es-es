@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: efbd8dfa34f5d954e302b421dfcea6c46d9469ca
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75922662"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022835"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
 
@@ -51,11 +51,11 @@ Esta canalización requiere una base de datos de Azure SQL y un clúster de Hado
 
 ### <a name="provision-azure-sql-database"></a>Aprovisionamiento de Azure SQL Database
 
-1. Cree una base de datos de Azure SQL Database. Consulte [Creación Azure SQL Database en Azure Portal](../sql-database/sql-database-single-database-get-started.md).
+1. Cree una base de datos de Azure SQL Database. Consulte [Creación Azure SQL Database en Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
-1. Para asegurarse de que el clúster de HDInsight puede acceder a la instancia de Azure SQL Database conectada, configure las reglas de firewall de Azure SQL Database para permitir que los servicios y recursos de Azure accedan al servidor. Para habilitar esta opción en Azure Portal, haga clic en **Establecer el firewall del servidor** y, luego, haga clic en **Activado** en **Permitir que los servicios y recursos de Azure accedan a este servidor** para el servidor o la base de datos de Azure SQL Database. Para más información, consulte [Creación y administración de reglas de firewall de IP](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. Para asegurarse de que el clúster de HDInsight puede acceder a la instancia de Azure SQL Database conectada, configure las reglas de firewall de Azure SQL Database para permitir que los servicios y recursos de Azure accedan al servidor. Para habilitar esta opción en Azure Portal, haga clic en **Establecer el firewall del servidor** y, luego, seleccione **Activado** en **Permitir que los servicios y recursos de Azure accedan a este servidor** para Azure SQL Database. Para más información, consulte [Creación y administración de reglas de firewall de IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-1. Use el [Editor de consultas](../sql-database/sql-database-single-database-get-started.md#query-the-database) para ejecutar las siguientes instrucciones SQL para crear la tabla `dailyflights` que almacenará los datos resumidos de cada ejecución de la canalización.
+1. Use el [Editor de consultas](../azure-sql/database/single-database-create-quickstart.md#query-the-database) para ejecutar las siguientes instrucciones SQL para crear la tabla `dailyflights` que almacenará los datos resumidos de cada ejecución de la canalización.
 
     ```sql
     CREATE TABLE dailyflights
@@ -499,7 +499,7 @@ Puede usar un coordinador para programar que este flujo de trabajo se ejecute di
 
 Como puede ver, la mayor parte del coordinador consiste simplemente en el paso de información de configuración a la instancia del flujo de trabajo. Sin embargo, hay algunos elementos importantes que destacar.
 
-* Punto 1: Los atributos `start` y `end` del elemento `coordinator-app` controlan el intervalo de tiempo en el que se ejecuta el coordinador.
+* Punto 1: los atributos `start` y `end` del elemento `coordinator-app` controlan el intervalo de tiempo en el que se ejecuta el coordinador.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -520,7 +520,7 @@ Como puede ver, la mayor parte del coordinador consiste simplemente en el paso d
 
     El elemento `done-flag` vacío indica que cuando Oozie comprueba la presencia de datos de entrada en el momento prefijado, Oozie determina si los datos están disponibles por la presencia de un directorio o archivo. En este caso es la presencia de un archivo csv. Si hay un archivo csv, Oozie da por supuesto que los datos están listos e inicia una instancia del flujo de trabajo para procesar el archivo. Si no hay ningún archivo csv, Oozie supone que los datos todavía no están preparados y esa ejecución del flujo de trabajo entra en estado de espera.
 
-* Punto 3: El elemento `data-in` especifica la marca de tiempo que se usará como hora nominal al reemplazar los valores de `uri-template` para el conjunto de datos asociado.
+* Punto 3: el elemento `data-in` especifica la marca de tiempo que se usará como hora nominal al reemplazar los valores de `uri-template` para el conjunto de datos asociado.
 
     ```xml
     <data-in name="event_input1" dataset="ds_input1">

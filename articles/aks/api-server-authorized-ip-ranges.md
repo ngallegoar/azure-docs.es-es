@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 570d842409fc019d24446e091f83402f4c288d7c
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 45f82d5a6531b2a9584140d6ff309a799656926a
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81640052"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299577"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Para más información sobre el servidor de API y otros componentes del clúster
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Creación de un clúster de AKS con la opción de intervalos IP autorizados por el servidor de API habilitada
 
-Los intervalos de direcciones IP autorizadas por el servidor de API solo funcionan para los clústeres nuevos de AKS. Cree un clúster con el comando [az aks create][az-aks-create] y especifique el parámetro *--api-server-authorized-ip-ranges* para proporcionar una lista de intervalos IP autorizados. Estos intervalos IP suelen ser intervalos de direcciones que usan las redes locales o IP públicas. Al especificar un intervalo de CIDR, comience por la primera dirección IP del intervalo. Por ejemplo, *137.117.106.90/29* es un intervalo válido, pero asegúrese de especificar la primera dirección IP del intervalo, por ejemplo, *137.117.106.88/29*.
+Los intervalos IP autorizados del servidor de API solo funcionan para los nuevos clústeres de AKS y no se admiten en los clústeres de AKS privados. Cree un clúster con el comando [az aks create][az-aks-create] y especifique el parámetro *--api-server-authorized-ip-ranges* para proporcionar una lista de intervalos IP autorizados. Estos intervalos IP suelen ser intervalos de direcciones que usan las redes locales o IP públicas. Al especificar un intervalo de CIDR, comience por la primera dirección IP del intervalo. Por ejemplo, *137.117.106.90/29* es un intervalo válido, pero asegúrese de especificar la primera dirección IP del intervalo, por ejemplo, *137.117.106.88/29*.
 
 > [!IMPORTANT]
 > De forma predeterminada, el clúster usa el [equilibrador de carga de SKU estándar][standard-sku-lb], que se puede usar para configurar la puerta de enlace de salida. Cuando se habilitan intervalos IP autorizados por el servidor de API durante la creación del clúster, además de los intervalos especificados también se permite de forma predeterminada la dirección IP pública del clúster. Si especifica *""* o ningún valor para *--api-server-authorized-ip-ranges*, se deshabilitarán los intervalos IP autorizados por el servidor de API. Tenga en cuenta que si usa PowerShell, debe usar *--api-server-authorized-ip-ranges=""* (con el signo igual) para evitar problemas de análisis.
@@ -133,7 +133,7 @@ Para más información, consulte [Conceptos de seguridad de las aplicaciones y l
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-ranges]: ../dev-spaces/configure-networking.md#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

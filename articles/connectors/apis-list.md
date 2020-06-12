@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: f2a2ee7a2806a753ffd159c91ed782634e74c704
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ede385670dec6629cc3e75a9d09c0ceb14362bdc
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838689"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119383"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
@@ -106,7 +106,7 @@ Logic Apps proporciona acciones integradas para ejecutar código propio en el fl
 
 |   |   |   |   |
 |---|---|---|---|
-| [![Icono de API][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Llame a funciones de Azure que ejecuten fragmentos de código personalizados (C# o Node.js) desde las aplicaciones lógicas. | [![Icono de API][inline-code-icon]<br>**Código en línea**][azure-functions-doc] | Agregue y ejecute fragmentos de código JavaScript de las aplicaciones lógicas. |
+| [![Icono de API][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Llame a funciones de Azure que ejecuten fragmentos de código personalizados (C# o Node.js) desde las aplicaciones lógicas. | [![Icono de API][inline-code-icon]<br>**Código en línea**][inline-code-doc] | Agregue y ejecute fragmentos de código JavaScript de las aplicaciones lógicas. |
 |||||
 
 ### <a name="control-workflow"></a>Controlar el flujo de trabajo
@@ -388,6 +388,7 @@ Para llamar a las API que ejecutan código personalizado o que no están disponi
 [http-response-doc]: ./connectors-native-reqres.md "Responder a solicitudes HTTP desde las aplicaciones lógicas"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Llamar a puntos de conexión REST desde las aplicaciones lógicas"
 [http-webhook-doc]: ./connectors-native-webhook.md "Esperar eventos específicos de los puntos de conexión HTTP o HTTPS"
+[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Agregar y ejecutar fragmentos de código JavaScript de las aplicaciones lógicas"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrar aplicaciones lógicas con flujos de trabajo anidados"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Seleccionar y filtrar matrices con la acción Consulta"
 [schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Ejecutar aplicaciones lógicas en función de una programación"

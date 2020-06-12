@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7622b6b5855850a0150f43863fa117828e23d4bd
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 912dab16cd854ae940b7bbdfe88a8da7adf1c5e0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698874"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197195"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Uso de la puerta de enlace para orígenes de datos en una red virtual de Azure (VNet)
 
@@ -22,7 +22,7 @@ En este artículo se describe la propiedad **AlwaysUseGateway** del servidor de 
 
 Si el acceso a sus orígenes de datos se realiza a través de una red virtual, el servidor de Azure Analysis Services debe conectarse, en su propio entorno, a esos orígenes de datos como si estuvieran en el entorno local. Puede configurar la propiedad de servidor **AlwaysUseGateway** para especificar el servidor y acceder a todos los datos de orígenes de datos mediante una [puerta de enlace local](analysis-services-gateway.md). 
 
-Los orígenes de datos de Instancia administrada de Azure SQL Database se ejecutan dentro de la red virtual de Azure con una dirección IP privada. Si el punto de conexión público está habilitado en la instancia, no se requiere una puerta de enlace. Si el punto de conexión público no está habilitado, se requiere una puerta de enlace de datos local y la propiedad AlwaysUseGateway debe establecerse en true.
+Los orígenes de datos de Instancia administrada de Azure SQL se ejecutan dentro de la red virtual de Azure con una dirección IP privada. Si el punto de conexión público está habilitado en la instancia, no se requiere una puerta de enlace. Si el punto de conexión público no está habilitado, se requiere una puerta de enlace de datos local y la propiedad AlwaysUseGateway debe establecerse en true.
 
 > [!NOTE]
 > Esta propiedad es efectiva únicamente cuando se instala y configura una [puerta de enlace de datos local](analysis-services-gateway.md). La puerta de enlace puede estar en la red virtual.

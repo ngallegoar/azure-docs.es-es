@@ -7,17 +7,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6961b7bd94c9b3fe70365055851c488efa2cbeca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480018"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248743"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Conector de Azure Monitor Logs para Logic Apps y Flow
 [Azure Logic Apps](/azure/logic-apps/) y [Power Automate](https://ms.flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. El conector de Azure Monitor Logs le permite crear flujos de trabajo destinados a recuperar datos de un área de trabajo de Log Analytics o de una aplicación Application Insights en Azure Monitor. En este artículo se describen las acciones que se incluyen con el conector y se proporciona un tutorial para crear un flujo de trabajo con estos datos.
 
 Por ejemplo, puede crear una aplicación lógica para usar los datos de registro de Azure Monitor incluidos en una notificación de correo electrónico de Office 365, crear un error en Azure DevOps o publicar un mensaje de Slack.  Puede desencadenar un flujo de trabajo mediante una programación simple o a partir de alguna acción de un servicio conectado, como cuando se recibe un correo electrónico o un tweet. 
+
+## <a name="connector-limits"></a>Límites de conector
+El conector de registros de Azure Monitor tiene estos límites:
+* Tamaño máximo de datos: 16 MB
+* Tamaño máximo de respuesta de consultas de 100 MB
+* Número máximo de registros: 500.000
+* Tiempo de espera máximo de consulta de 110 segundos.
+
+En función del tamaño de los datos y de la consulta que use, el conector puede alcanzar sus límites y producir un error. Puede solucionar estos casos al ajustar la periodicidad del desencadenador para que se ejecute con más frecuencia y consulte menos datos. Puede usar consultas que agreguen los datos para devolver menos registros y columnas.
 
 ## <a name="actions"></a>Acciones
 En la tabla siguiente se describen las acciones incluidas con el conector de Azure Monitor Logs. Ambos le permiten ejecutar una consulta de registro en un área de trabajo de Log Analytics o una aplicación de Application Insights. La diferencia radica en la forma en que se devuelven los datos.

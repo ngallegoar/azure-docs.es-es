@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886932"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014543"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Cree directivas del Firewall de aplicaciones web para Application Gateway
 
@@ -39,7 +39,7 @@ En primer lugar, cree una directiva básica de WAF con un conjunto de reglas pre
    |Configuración  |Value  |
    |---------|---------|
    |Directiva de     |WAF regional (Application Gateway)|
-   |Subscription     |Seleccione el nombre de la suscripción|
+   |Suscripción     |Seleccione el nombre de la suscripción|
    |Resource group     |Seleccionar el grupo de recursos|
    |Nombre de la directiva     |Escriba un nombre único para la directiva WAF.|
 3. En la pestaña de **Asociación**, especifique una de las siguientes opciones y, después, seleccione **Agregar**:
@@ -97,9 +97,20 @@ Si solo tiene una Política WAF de Reglas personalizadas, entonces es posible qu
 
 Las modificaciones en la regla personalizada solo se deshabilitan la Directiva WAF. Para editar cualquier configuración de WAF, como deshabilitar reglas, agregar exclusiones, etc., debe migrar a un nuevo recurso de directiva de Firewall de nivel superior.
 
-Para ello, cree una *directiva de Firewall de aplicación Web* y asócielo a sus Application Gateway(s) y agente(s) de escucha que desee. Esta nueva Directiva **debe** ser exactamente la misma que la configuración actual de WAF, lo que significa que cada regla personalizada, exclusión, regla deshabilitada, etc. debe copiarse en la nueva directiva que está creando. Una vez que tenga una Directiva asociada a su Application Gateway, podrá seguir realizando cambios en las reglas y la configuración de WAF. También puede hacer esto en Azure PowerShell. Para más información, consulte [Asociar una directiva de WAF a una Application Gateway existente](associate-waf-policy-existing-gateway.md).
+Para ello, cree una *directiva de Firewall de aplicación Web* y asócielo a sus Application Gateway(s) y agente(s) de escucha que desee. Esta nueva directiva debe ser exactamente la misma que la configuración actual de WAF, lo que significa que cada regla personalizada, exclusión, regla deshabilitada, etc., debe copiarse en la nueva directiva que está creando. Una vez que tenga una Directiva asociada a su Application Gateway, podrá seguir realizando cambios en las reglas y la configuración de WAF. También puede hacer esto en Azure PowerShell. Para más información, consulte [Asociar una directiva de WAF a una Application Gateway existente](associate-waf-policy-existing-gateway.md).
 
 Opcionalmente, puede usar un script de migración para migrar a una directiva de WAF. Para obtener más información, consulte [Migración de directivas de firewall de aplicaciones web mediante Azure PowerShell](migrate-policy.md).
+
+## <a name="force-mode"></a>Modo de forzado
+
+Si no desea copiar todo en una directiva que sea exactamente igual a la configuración actual, puede establecer WAF en el modo de "forzado". Ejecute el siguiente código de Azure PowerShell y WAF estará en modo de forzado. Después, puede asociar cualquier directiva de WAF a su WAF, aunque no tenga exactamente la misma configuración que su configuración. 
+
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -Name <your Application Gateway name> -ResourceGroupName <your Resource Group name>
+$appgw.ForceFirewallPolicyAssociation = $true
+```
+
+A continuación, siga con los pasos para asociar una directiva de WAF a su puerta de enlace de aplicaciones. Para obtener más información, consulte [Asociar una directiva de WAF de Application Gateway existente](associate-waf-policy-existing-gateway.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,19 +3,19 @@ title: Actualización de un clúster de Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo actualizar un clúster de Azure Kubernetes Service (AKS) para obtener las últimas características y actualizaciones de seguridad.
 services: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 7e9a47b7bda4cdb0ff6f1983bc884f7441a26d9b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: 761df8abc60671341fcdd74e7c66111cfeb105ad
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207979"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259242"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
 Como parte del ciclo de vida de un clúster de AKS, a menudo es preciso actualizar Kubernetes a su versión más reciente. Es importante que aplique las versiones de seguridad de Kubernetes más recientes o que realice la actualización necesaria para disfrutar de las últimas características. En este artículo se muestra cómo actualizar los componentes principales o un único grupo de nodos predeterminado en un clúster de AKS.
 
-Para los clústeres de AKS que usan varios grupos de nodos, vea [Actualización de un grupo de nodos de AKS][nodepool-upgrade].
+Para los clústeres de AKS que usan varios grupos de nodos o nodos de Windows Server (ambos actualmente en versión preliminar en AKS), consulte [Actualización de un grupo de nodos en AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -23,7 +23,6 @@ Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cua
 
 > [!WARNING]
 > Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización. Consulte el [aumento de cuotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para más información.
-> Si está ejecutando su propia implementación del escalador automático del clúster, deshabilítela (puede escalarla a cero réplicas) durante la actualización, ya que existe la posibilidad de que interfiera con el proceso de actualización. El escalador administrado lo controla automáticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS
 
@@ -48,6 +47,58 @@ default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 Si no hay ninguna actualización disponible, obtendrá:
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
+
+## <a name="customize-node-surge-upgrade-preview"></a>Personalización de la actualización de sobrecargas de nodo (versión preliminar)
+
+> [!Important]
+> Los sobrecargas de nodo requieren la cuota de suscripción para el recuento máximo de sobrecargas solicitado para cada operación de actualización. Por ejemplo, un clúster con 5 grupos de nodos, cada uno con un recuento de 4 nodos, tiene un total de 20 nodos. Si cada grupo de nodos tiene un valor de sobrecarga máxima del 50 %, se requiere un proceso adicional y una cuota de IP de 10 nodos (2 nodos x 5 grupos) para completar la actualización.
+
+De forma predeterminada, AKS configura las actualizaciones para la sobrecarga con un nodo adicional. Un valor predeterminado de uno para la configuración de sobrecarga máxima permite a AKS minimizar la interrupción de la carga de trabajo mediante la creación de un nodo adicional antes de acordonar o purgar las aplicaciones existentes para reemplazar un nodo de una versión anterior. El valor de sobrecarga máxima se puede personalizar por grupo de nodos para permitir un equilibrio entre la velocidad de actualización y la interrupción de la actualización. Al aumentar el valor de sobrecarga máxima, el proceso de actualización se completa más rápido, pero si se establece un valor alto para la sobrecarga máxima, pueden producirse interrupciones durante el proceso de actualización. 
+
+Por ejemplo, un valor de sobrecarga máxima del 100 % proporciona el proceso de actualización más rápido posible (se duplica el número de nodos), pero también hace que todos los nodos del grupo de nodos se purguen simultáneamente. Es posible que desee usar un valor más alto, como este, para los entornos de prueba. En el caso de los grupos de nodos de producción, se recomienda un valor de sobrecarga máxima del 33 %.
+
+AKS acepta valores enteros y un valor de porcentaje para la sobrecarga máxima. Un entero como "5" indica cinco nodos adicionales para la sobrecarga. Un valor de "50 %" indica un valor de sobrecarga de la mitad del número de nodos actual del grupo. Los valores de porcentaje de sobrecarga máxima pueden ser de 1 % como mínimo y 100 % como máximo. Un valor de porcentaje se redondea al número de nodos más próximo. Si el valor de sobrecarga máxima es inferior al número de nodos actual en el momento de la actualización, el número de nodos actual se usa para el valor de sobrecarga máxima.
+
+Durante una actualización, el valor de sobrecarga máxima puede ser 1 como mínimo y un valor igual al número de nodos del grupo de nodos como máximo. Puede establecer valores mayores, pero el número máximo de nodos que se usan para la sobrecarga máxima no será mayor que el número de nodos del grupo en el momento de la actualización.
+
+### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Configuración de la característica de vista previa para la personalización de la actualización de la sobrecarga de nodos
+
+```azurecli-interactive
+# register the preview feature
+az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
+```
+
+Tardará varios minutos en registrarse. Use el siguiente comando para comprobar que la característica está registrada:
+
+```azurecli-interactive
+# Verify the feature is registered:
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
+```
+
+Durante la versión preliminar, necesita la extensión *aks-preview* de la CLI para usar la sobrecarga máxima. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+> [!Important]
+> La configuración de sobrecarga máxima en un grupo de nodos es permanente.  Las actualizaciones posteriores de Kubernetes o las actualizaciones de la versión de nodo usarán esta configuración. Puede cambiar el valor de sobrecarga máxima para los grupos de nodos en cualquier momento. En el caso de los grupos de nodos de producción, se recomienda un valor de sobrecarga máxima del 33 %.
+
+Use los siguientes comandos para establecer los valores de sobrecarga máxima para los grupos de nodos nuevos o existentes.
+
+```azurecli-interactive
+# Set max surge for a new node pool
+az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33%
+```
+
+```azurecli-interactive
+# Update max surge for an existing node pool 
+az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Actualización de un clúster de AKS
@@ -96,3 +147,5 @@ En este artículo se ha mostrado cómo actualizar un clúster de AKS existente. 
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

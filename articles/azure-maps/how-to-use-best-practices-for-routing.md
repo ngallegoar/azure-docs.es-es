@@ -1,6 +1,6 @@
 ---
 title: Procedimientos recomendados para el servicio Route de Azure Maps | Microsoft Azure Maps
-description: Conozca cómo obtener rutas de forma eficaz mediante el servicio Route de Microsoft Azure Maps.
+description: Conozca cómo enrutar vehículos mediante el servicio Route de Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335413"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266702"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedimientos recomendados para el servicio Route de Azure Maps
 
@@ -29,7 +29,7 @@ Las API Route Directions y Route Matrix del [servicio Route](https://docs.micros
 * Optimizar rutas alternativas mediante puntos complementarios; por ejemplo, ofrecer rutas alternativas que pasen por una estación de recarga de vehículos eléctricos
 * Usar el [servicio Route](https://docs.microsoft.com/rest/api/maps/route) con el SDK web de Azure Maps
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar llamadas a las API de Azure Maps, necesita una cuenta y una clave de Azure Maps. Para más información, consulte [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y [Obtención de una clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). La clave principal también se conoce como clave de suscripción principal o clave de suscripción.
 
@@ -56,7 +56,7 @@ Considere la posibilidad de llamar a la API Matrix Routing si el escenario es pa
 
 Esta es una comparación para mostrar algunas de las funcionalidades de las API Route Directions y Matrix:
 
-| API de Azure Maps | Número máximo de consultas en la solicitud | Áreas que evitar | Rutas para camiones y vehículos eléctricos | Puntos de referencia y optimización del viajante | Puntos complementarios |
+| API de Azure Maps | Número máximo de consultas en la solicitud | Áreas que evitar | Rutas para camiones y vehículos eléctricos | Optimización de puntos de referencia y viajante | Puntos complementarios |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Get Route Directions | 1 | | X | X | |
 | Post Route Directions | 1 | X | X | X | X |

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426406"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020615"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceptos de punto de control y reproducción en trabajos de Azure Stream Analytics
 En este artículo se describen los conceptos de punto de control y reproducción internos en Azure Stream Analytics y el impacto que tienen en la recuperación de trabajos. Cada vez que se ejecuta un trabajo de Stream Analytics, la información de estado se mantiene internamente. La información de estado se guarda en un punto de control de manera periódica. En algunos escenarios, la información de punto de control se usa para la recuperación del trabajo si se produce algún error o actualización del trabajo. En otros casos, no se puede usar el punto de control para la recuperación y es necesaria la reproducción.
@@ -58,7 +58,7 @@ Para calcular la duración del retraso debido a una actualización de servicio, 
 
 3. Mida el tiempo que transcurre entre la hora de inicio y cuando se genera la primera salida. El tiempo es una aproximación del retraso en que podría incurrir en trabajo durante una actualización de servicio.
 
-4. Si el retraso es demasiado, intente particionar el trabajo y aumentar la cantidad de unidades de streaming, para que la carga se distribuya en varios nodos. De manera alternativa, considere la posibilidad de disminuir los tamaños de intervalo en la consulta y realice una agregación adicional u otro procesamiento con estado en la salida que genera el trabajo de Stream Analytics en el receptor de nivel inferior (por ejemplo, con Azure SQL Database).
+4. Si el retraso es demasiado, intente particionar el trabajo y aumentar la cantidad de unidades de streaming, para que la carga se distribuya en varios nodos. También puede considerar la posibilidad de reducir los tamaños de ventana de la consulta y realizar una agregación adicional u otro procesamiento con estado en la salida que genera el trabajo de Stream Analytics en el receptor de bajada (por ejemplo, con Azure SQL Database).
 
 En caso de que surja un problema con la estabilidad del servicio durante la actualización de trabajos críticos, considere la posibilidad de ejecutar trabajos duplicados en regiones de Azure emparejadas. Para más información, consulte [Garantía de la confiabilidad del trabajo de Stream Analytics durante las actualizaciones del servicio](stream-analytics-job-reliability.md).
 

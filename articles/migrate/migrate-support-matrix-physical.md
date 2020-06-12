@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de servidores físicos en Azure Migrat
 description: Obtenga información sobre la compatibilidad para la evaluación de servidores físicos con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 31fd676a339a6c82cec84e0f355ac875f68a653c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2a6149da95501b106a57466ad923c0480f52e065
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983676"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267912"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de compatibilidad para la evaluación de servidores físicos 
 
@@ -35,7 +35,7 @@ Para evaluar los servidores físicos, cree un proyecto de Azure Migrate y, a con
 | :-------------------       | :------------------- |
 | **Implementación de servidor físico**       | El servidor físico puede ser independiente o implementarse en un clúster. |
 | **Permisos**           | **Windows:** debe ser administrador de dominio o administrador local en todos los servidores de Windows que quiera detectar. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento. <br/><br/> **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar. |
-| **Sistema operativo** | Todos los sistemas operativos de servidor de [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) compatibles con Azure, excepto Windows Server 2003 y SUSE Linux.<br/><br/> Sistemas operativos cliente de Windows 10 y Windows 8. |
+| **Sistema operativo** | Todos los sistemas operativos se pueden evaluar para la migración. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos del dispositivo de Azure Migrate

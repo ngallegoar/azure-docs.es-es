@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 367ca77b0f3a142d8aa36143052993d1ed96f052
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891498"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996506"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitación de la recuperación ante desastres de zona a zona para máquinas virtuales de Azure
 
@@ -117,6 +117,9 @@ El equipo de Site Recovery y el equipo de administración de la capacidad de Azu
 
 **4. ¿Qué sistemas operativos se admiten?**
 La recuperación ante desastres de zona a zona admite los mismos sistemas operativos que la recuperación ante desastres de Azure a Azure. Consulte la matriz de compatibilidad [aquí](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+
+**5. ¿Pueden los grupos de recursos de origen y de destino ser los mismos?**
+No, debe conmutar por error a otro grupo de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

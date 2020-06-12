@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b62f30f428a0aaf5a564e2f2d2ad8d753dff7767
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78184368"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298944"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
@@ -36,9 +36,11 @@ Existen dos modos de comunicación que puede usar al trabajar con Microsoft Grap
 
 * **Interactivo**: adecuado para las tareas que se ejecutan una sola vez, se usa una cuenta de administrador en el inquilino de B2C para realizar las tareas de administración. Este modo requiere que un administrador inicie sesión con sus credenciales antes de llamar a Microsoft Graph API.
 
-* **Automatizado**: para tareas programadas o ejecutadas continuamente, este método usa una cuenta de servicio que se configura con los permisos necesarios para realizar tareas de administración. Crea la "cuenta de servicio" en Azure AD B2C registrando una aplicación que las aplicaciones y los scripts usan para la autenticación mediante su *identificador de aplicación (cliente)* y la concesión de credenciales de cliente de OAuth 2.0. En este caso, la aplicación actúa como tal para llamar a Microsoft Graph API, no al usuario administrador como en el método interactivo descrito anteriormente.
+* **Automatizado**: para tareas programadas o ejecutadas continuamente, este método usa una cuenta de servicio que se configura con los permisos necesarios para realizar tareas de administración. La "cuenta de servicio" se crea en Azure AD B2C registrando una aplicación que las aplicaciones y los scripts usan para la autenticación mediante su *identificador de aplicación (cliente)* y la concesión de **credenciales de cliente de OAuth 2.0**. En este caso, la aplicación actúa como tal para llamar a Microsoft Graph API, no al usuario administrador como en el método interactivo descrito anteriormente.
 
 Puede habilitar el escenario de interacción **Automatizado** mediante la creación de un registro de aplicación que se muestra en las secciones siguientes.
+
+Aunque actualmente el flujo de concesión de credenciales de cliente de OAuth 2.0 no es compatible directamente con el servicio de autenticación de Azure AD B2C, puede configurar el flujo de credenciales de cliente mediante Azure AD y el punto de conexión de token o la plataforma de identidad de Microsoft para una aplicación en su inquilino de Azure AD B2C. Un inquilino de Azure AD B2C comparte algunas funcionalidades con los inquilinos empresariales de Azure AD.
 
 ## <a name="register-management-application"></a>Registro de una aplicación de administración
 
@@ -73,9 +75,10 @@ Si la aplicación o el script debe eliminar usuarios o actualizar sus contraseñ
 1. Seleccione **Agregar**. Los permisos pueden tardar unos minutos en propagarse por completo.
 
 ## <a name="next-steps"></a>Pasos siguientes
+Ahora que ha registrado su aplicación de administración y le ha concedido los permisos necesarios, las aplicaciones y los servicios (por ejemplo, Azure Pipelines) pueden usar sus credenciales y permisos para interactuar con Microsoft Graph API. 
 
-Ahora que ha registrado su aplicación de administración y le ha concedido los permisos necesarios, las aplicaciones y los servicios (por ejemplo, Azure Pipelines) pueden usar sus credenciales y permisos para interactuar con Microsoft Graph API.
-
+* [Obtención de un token de acceso de Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Uso del token de acceso para llamar a Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
 * [Operaciones de B2C compatibles con Microsoft Graph](microsoft-graph-operations.md)
 * [Administrar cuentas de usuario de Azure AD B2C con Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Obtención de registros de auditoría con la API de generación de informes de Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)

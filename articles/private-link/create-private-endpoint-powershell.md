@@ -7,17 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 83207c70b147e4f0d416f47a6b12f9826f49f2db
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583759"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267790"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. 
 
-En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una instancia de Azure Virtual Network, un servidor de SQL Database con un punto de conexión privado de Azure mediante Azure PowerShell. Después, puede acceder de forma segura al servidor de SQL Database desde la máquina virtual.
+En este inicio rápido, aprenderá a crear una VM en una instancia de Azure Virtual Network, un servidor de SQL Server lógico con un punto de conexión privado de Azure mediante Azure PowerShell. Después, puede acceder de forma segura a SQL Database desde la VM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -98,9 +98,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## <a name="create-a-sql-database-server"></a>Creación de un servidor de SQL Database 
+## <a name="create-a-logical-sql-server"></a>Creación de un servidor de SQL Server lógico 
 
-Cree un servidor de SQL Database con el comando New-AzSqlServer. Recuerde que el nombre del servidor de SQL Database debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes por su propio valor único:
+Cree un servidor lógico de SQL Server con el comando New-AzSqlServer. Recuerde que el nombre de la instancia del servidor debe ser único en Azure, así que reemplace el valor del marcador de posición entre corchetes por su propio valor único:
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -120,7 +120,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
 
-Punto de conexión privado para el servidor de SQL Database en la red virtual con [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
+Punto de conexión privado para el servidor de la red virtual con [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
 ```azurepowershell
 
@@ -142,7 +142,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
 ``` 
 
 ## <a name="configure-the-private-dns-zone"></a>Configuración de la zona DNS privada 
-Cree una zona DNS privada para el dominio del servidor de SQL Database y cree un vínculo de asociación con la red virtual: 
+Cree una zona de DNS privado para el dominio de SQL Database, cree un vínculo de asociación con la red virtual y un grupo de zona DNS para asociar el punto de conexión privado con la zona DNS privada.
 
 ```azurepowershell
 
@@ -153,19 +153,11 @@ $link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup"
   -ZoneName "privatelink.database.windows.net"`
   -Name "mylink" `
   -VirtualNetworkId $virtualNetwork.Id  
- 
-$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
- 
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
-foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
-Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
-$recordName = $fqdn.split('.',2)[0] 
-$dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  `
--ResourceGroupName "myResourceGroup" -Ttl 600 `
--PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
-} 
-} 
+
+$config = New-AzPrivateDnsZoneConfig -Name "privatelink.database.windows.net" -PrivateDnsZoneId $zone.ResourceId
+
+$privateDnsZoneGroup = New-AzPrivateDnsZoneGroup -ResourceGroupName "myResourceGroup" `
+ -PrivateEndpointName "myPrivateEndpoint" -name "MyZoneGroup" -PrivateDnsZoneConfig $config
 ``` 
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
@@ -195,7 +187,7 @@ mstsc /v:<publicIpAddress>
 3. Seleccione **Aceptar**. 
 4. Puede que reciba una advertencia de certificado. Si la recibe, seleccione **Sí** o **Continuar**. 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
+## <a name="access-sql-database-privately-from-the-vm"></a>Acceso a SQL Database de forma privada desde la VM
 
 1. En el Escritorio remoto de myVm, abra PowerShell.
 2. Escriba `nslookup myserver.database.windows.net`. No olvide reemplazar `myserver` por el nombre de su instancia de SQL Server.
@@ -211,7 +203,7 @@ mstsc /v:<publicIpAddress>
     Aliases:   myserver.database.windows.net
     ```
     
-3. Instale SQL Server Management Studio.
+3. Instale [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 4. En **Conectar con el servidor**, escriba o seleccione esta información:
 
     | Configuración | Value |
@@ -228,7 +220,7 @@ mstsc /v:<publicIpAddress>
 8. Cierre la conexión de Escritorio remoto a *myVM*. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
-Cuando haya terminado con el punto de conexión privado, el servidor de SQL Database y la máquina virtual, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que tiene:
+Cuando haya terminado con el punto de conexión privado, SQL Database y la VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que tiene:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

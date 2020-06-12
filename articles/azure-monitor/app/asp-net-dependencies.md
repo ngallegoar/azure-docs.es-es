@@ -3,12 +3,12 @@ title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
 description: Supervise las llamadas de dependencia de su aplicación web o local de Microsoft Azure con Application Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 759e465a21b421c22a62245536827546acc2d79e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980854"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204759"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -28,7 +28,7 @@ Los SDK de Application Insights para .NET y .NET Core se incluyen con `Dependenc
 |[Azure Storage (blobs, tablas, colas)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Llamadas realizadas con el cliente de Azure Storage. |
 |[SDK de cliente de EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Versión 1.1.0 y posteriores. |
 |[SDK de cliente de Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versión 3.0.0 y posteriores. |
-|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
+|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
 
 Si falta una dependencia o está usando un SDK diferente, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Si la dependencia no se recopila automáticamente, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
@@ -90,7 +90,10 @@ Para las páginas web, el SDK de JavaScript de Application Insights recopila aut
 
 Para las llamadas SQL, el nombre del servidor y la base de datos siempre se recopilan y almacenan como el nombre de la `DependencyTelemetry` recopilada. Hay un campo adicional denominado "data", que puede contener el texto completo de la consulta SQL.
 
-Para las aplicaciones de ASP.NET Core, no se requiere ningún paso adicional para obtener la consulta SQL completa.
+En el caso de aplicaciones ASP.NET Core, ahora es necesario participar en la recopilación de texto SQL mediante:
+```csharp
+services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
+```
 
 En el caso de las aplicaciones de ASP.NET, se recopila una consulta SQL completa con la ayuda de la instrumentación de código de bytes, que requiere el motor de instrumentación o puede realizarse mediante el paquete NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient), en lugar de la biblioteca System.Data.SqlClient. Se requieren pasos adicionales específicos para cada plataforma, tal como se describe a continuación.
 

@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 58cf3358a9e908070ce9003d05dd0b576b1d2d3f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 011ef67e5dbbf5b391e8bdaad20a42688022a0a9
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426976"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296772"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importación de claves protegidas con HSM en Key Vault
 
@@ -33,11 +33,14 @@ La transferencia de claves protegidas con HSM a Key Vault se admite a través de
 
 |Nombre del proveedor|Tipo de proveedor|Modelos de HSM compatibles|Método de transferencia de clave HSM compatible|
 |---|---|---|---|
-|nCipher|Fabricante|<ul><li>Familia nShield de HSM</li></ul>|[Use el método BYOK heredado](hsm-protected-keys-legacy.md)|
-|Thales|Fabricante|<ul><li>Familia SafeNet Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|Fortanix|HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricante,<br/>HSM como servicio|<ul><li>Familia nShield de HSM</li><li>nShield como servicio</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (con atestación segura para la importación de claves y la validación de HSM)<br/>**Método 2:** [Usar el nuevo método BYOK](hsm-protected-keys-byok.md) |
+|Thales|Fabricante|<ul><li>Familia SafeNet Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|Fortanix|Fabricante,<br/>HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|Marvell|Fabricante|Todos los HSM de LiquidSecurity con<ul><li>versión de firmware 2.0.4 o posterior</li><li>versión de firmware 3.2 o posterior</li></ul>|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
+|Cryptomathic|ISV (sistema de administración de claves empresariales)|Varias marcas y modelos de HSM, como<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Consulte el [sitio de Cryptomathic para obtener más información](https://www.cryptomathic.com/azurebyok).|[Usar el nuevo método BYOK](hsm-protected-keys-byok.md)|
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga [Procedimientos recomendados de Key Vault](../general/best-practices.md) para garantizar la seguridad, la durabilidad y la supervisión de las claves.
+* Siga [Procedimientos recomendados de Key Vault](../general/best-practices.md) para garantizar la seguridad, la durabilidad y la supervisión de las claves.
+* Consulte la [especificación de BYOK](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) para obtener una descripción completa del nuevo método BYOK.
