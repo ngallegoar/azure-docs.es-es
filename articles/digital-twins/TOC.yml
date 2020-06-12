@@ -58,6 +58,8 @@
       href: how-to-create-azure-function.md
     - name: Ingesta de telemetría desde IoT Hub
       href: how-to-ingest-iot-hub-data.md
+    - name: Integración con Azure Maps
+      href: how-to-integrate-maps.md
 - name: Referencia
   items:
     - name: API REST de Digital Twins
@@ -70,7 +72,7 @@
       href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
     - name: Especificación DTMI
       href: 'https://github.com/Azure/digital-twin-model-identifier'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/iot
     - name: Extensión de la CLI de Azure IoT
       href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
