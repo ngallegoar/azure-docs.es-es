@@ -169,7 +169,7 @@
         - name: Oferta de aplicación de Azure
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Prerrequisitos
+            - name: Requisitos previos
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Creación de una oferta de aplicación de Azure
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -214,7 +214,7 @@
         - name: Oferta de Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Prerrequisitos
+            - name: Requisitos previos
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Creación de una oferta de Customer Engagement
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -236,7 +236,7 @@
         - name: Oferta de Dynamics 365 for Operations
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Prerrequisitos
+            - name: Requisitos previos
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Publicación
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -262,7 +262,7 @@
       items:
         - name: Información general
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Prerrequisitos
+        - name: Requisitos previos
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Consideraciones
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
@@ -344,7 +344,7 @@
                       href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Servicios de consultoría
           items:
-            - name: Prerrequisitos
+            - name: Requisitos previos
               href: ./partner-center-portal/consulting-service-prerequisites.md
             - name: Creación de una oferta de servicios de consultoría
               href: ./partner-center-portal/create-consulting-service-offer.md
@@ -378,8 +378,6 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Creación de una oferta SaaS
               href: ./partner-center-portal/create-new-saas-offer.md
-            - name: Facturación según uso de SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
             - name: API de suministro de SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -391,6 +389,8 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: Preguntas más frecuentes sobre las API de suministro de SaaS
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+            - name: Facturación según uso de SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
         - name: Introducción a la administración de clientes potenciales
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:

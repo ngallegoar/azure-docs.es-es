@@ -15,7 +15,7 @@
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
@@ -213,8 +213,12 @@
           href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:
-        - name: Guía de solución de problemas
+        - name: Solución de problemas de conectividad
           href: troubleshooting-guide.md
+        - name: Solución de problemas de autenticación y autorización
+          href: troubleshoot-authentication-authorization.md
+        - name: Guía de solución de problemas de Kafka para Event Hubs
+          href: apache-kafka-troubleshooting-guide.md
         - name: Excepciones .NET
           href: event-hubs-messaging-exceptions.md
         - name: Excepciones de Resource Manager
