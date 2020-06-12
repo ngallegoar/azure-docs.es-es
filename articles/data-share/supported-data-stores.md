@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 624bb45de3e2ff184326949611d437f71f3e2def
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7b4de3b1d2998a1b6083283c3f397fc77fe9670
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501807"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167594"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
@@ -28,7 +28,7 @@ La siguiente tabla detalla los orígenes de datos admitidos en Azure Data Share.
 | Azure Blob Storage |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |Vista previa pública | |
+| Azure SQL Database |Vista previa pública | |
 | Azure Synapse Analytics (anteriormente Azure SQL DW) |Vista previa pública | |
 | Explorador de datos de Azure | |Vista previa pública |
 
@@ -38,12 +38,12 @@ Azure Data Share ofrece a los consumidores de datos flexibilidad a la hora de de
 
 La siguiente tabla detalla las diferentes combinaciones y opciones que tienen los consumidores de datos cuando aceptan y configuran sus datos compartidos. Para más información sobre cómo configurar asignaciones de conjuntos de datos, consulte [cómo configurar asignaciones de conjuntos de datos](how-to-configure-mapping.md).
 
-|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics 
+|  | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage | ✓ || ✓|
 | Azure Data Lake Storage Gen1 | ✓ | | ✓|
 | Azure Data Lake Storage Gen2 | ✓ | | ✓|
-| Azure SQL Database | ✓ | | ✓| ✓| ✓|
+| Azure SQL Database | ✓ | | ✓| ✓| ✓|
 | Azure Synapse Analytics (anteriormente Azure SQL DW) | ✓ | | ✓| ✓| ✓|
 
 ## <a name="share-from-a-storage-account"></a>Uso compartido desde una cuenta de almacenamiento

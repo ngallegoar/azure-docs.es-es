@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dc40668ec7008042b5f1600214184cbf8bba4701
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683083"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119083"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -35,14 +35,15 @@ Los científicos de datos, analistas y desarrolladores de todos los sectores pue
 
 ### <a name="classification"></a>clasificación
 
-La clasificación es una tarea común del aprendizaje automático. La clasificación es un tipo de aprendizaje supervisado en el que los modelos aprenden mediante datos de entrenamiento y aplican lo que han aprendido a nuevos datos. Azure Machine Learning ofrece caracterizaciones específicas para estas tareas, como los caracterizadores de texto de red neuronal profunda para la clasificación. Más información sobre las [opciones de caracterización](how-to-use-automated-ml-for-ml-models.md#featurization). 
+La clasificación es una tarea común del aprendizaje automático. La clasificación es un tipo de aprendizaje supervisado en el que los modelos aprenden mediante datos de entrenamiento y aplican lo que han aprendido a nuevos datos. Azure Machine Learning ofrece caracterizaciones específicas para estas tareas, como los caracterizadores de texto de red neuronal profunda para la clasificación. Más información sobre las [opciones de caracterización](how-to-configure-auto-features.md#featurization). 
 
 El objetivo principal de los modelos de clasificación es predecir en qué categorías se incluirán los nuevos datos en función de lo aprendido de los datos de entrenamiento. Algunos ejemplos comunes de clasificación son la detección de fraudes, el reconocimiento de escritura a mano y la detección de objetos.  Puede encontrar más información y ver un ejemplo en el artículo sobre la [clasificación con aprendizaje automático automatizado](tutorial-train-models-with-aml.md).
 
 Consulte ejemplos de clasificación y aprendizaje automático automatizado en estos cuadernos de Python: [Detección de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Predicción de Marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) y [Clasificación de datos de grupo de noticias](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
 ### <a name="regression"></a>Regresión
-De forma similar a la clasificación, las tareas de regresión también son una tarea de aprendizaje supervisada común. Azure Machine Learning ofrece [caracterizaciones específicamente para estas tareas](how-to-use-automated-ml-for-ml-models.md#featurization).
+
+De forma similar a la clasificación, las tareas de regresión también son una tarea de aprendizaje supervisada común. Azure Machine Learning ofrece [caracterizaciones específicamente para estas tareas](how-to-configure-auto-features.md#featurization).
 
 A diferencia de la clasificación, donde los valores de salida pronosticados son categóricos, los modelos de regresión predicen valores de salida numéricos basados en predicciones independientes. En la regresión, el objetivo es ayudar a establecer la relación entre esas variables de predicción independientes mediante la estimación de cómo una variable afecta a las otras. Por ejemplo, el precio de un automóvil según características como, el kilometraje de gas, la clasificación de seguridad, etc. Puede encontrar más información y ver un ejemplo en el artículo sobre la [regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md).
 
@@ -99,18 +100,19 @@ Aunque se automatiza la creación del modelo, también puede [conocer las caract
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
-<a name="preprocess"></a>
 
-## <a name="preprocessing"></a>Preprocessing (Preprocesamiento)
+## <a name="feature-engineering"></a>Ingeniería de características
 
-En todos los experimentos de aprendizaje automático automatizado, los datos se preprocesan mediante los métodos predeterminados y, opcionalmente, a través de opciones avanzadas de preprocesamiento.
+La ingeniería de características es el proceso de usar el conocimiento de dominio de los datos para crear características que ayuden a mejorar los algoritmos de ML. En Azure Machine Learning, se aplican técnicas de escalado y normalización para facilitar la ingeniería de características. En conjunto, estas técnicas y la ingeniería de características se conocen como caracterización.
+
+En el caso de los experimentos de aprendizaje automático automatizado, la caracterización se aplica automáticamente, pero también se puede personalizar en función de los datos. [Más información sobre qué caracterización se incluye](how-to-configure-auto-features.md#featurization).  
 
 > [!NOTE]
-> Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se utiliza el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
+> Los pasos de la caracterización del aprendizaje automático automatizado (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se usa el modelo para realizar predicciones, se aplican automáticamente a los datos de entrada los mismos pasos de caracterización que se aplican durante el entrenamiento.
 
-### <a name="automatic-preprocessing-standard"></a>Preprocesamiento automático (estándar)
+### <a name="automatic-featurization-standard"></a>Caracterización automática (estándar)
 
-En todos los experimentos de aprendizaje automático automatizado, los datos se escalan y se normalizan automáticamente para ayudar a que los algoritmos funcionen bien.  Durante el entrenamiento del modelo, se aplicará una de las siguientes técnicas de escalado o normalización para todos los modelos. Obtenga información sobre cómo autoML ayuda a [prevenir el sobreajuste y los datos desequilibrados](concept-manage-ml-pitfalls.md) en los modelos.
+En todos los experimentos de aprendizaje automático automatizado, los datos se escalan y se normalizan automáticamente para ayudar a que los algoritmos funcionen bien. Durante el entrenamiento del modelo, se aplicará una de las siguientes técnicas de escalado o normalización para todos los modelos. Obtenga información sobre cómo AutoML ayuda a [prevenir el sobreajuste y los datos desequilibrados](concept-manage-ml-pitfalls.md) en los modelos.
 
 |Escalado&nbsp;&y&nbsp;normalización| Descripción |
 | ------------- | ------------- |
@@ -122,15 +124,15 @@ En todos los experimentos de aprendizaje automático automatizado, los datos se 
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Este convertidor realiza la reducción de dimensionalidad lineal por medio de la descomposición en valores singulares truncados (SVD). Al contrario que PCA, este programa de estimación no centra los datos antes de calcular la descomposición en valores singulares, lo que significa que puede trabajar con matrices scipy.sparse de forma eficaz. |
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Cada muestra (es decir, cada fila de la matriz de datos) con al menos un componente distinto de cero vuelve a escalarse independientemente de las demás muestras, de modo que su norma vectorial (l1 o l2) sea igual a uno. |
 
-### <a name="advanced-preprocessing--featurization"></a>Caracterización y preprocesamiento avanzados
+### <a name="customize-featurization"></a>Personalización de la caracterización
 
-También están disponibles operaciones de preprocesamiento o caracterización avanzadas adicionales, como los límites de protección de datos, la codificación y las transformaciones. [Más información sobre qué caracterización se incluye](how-to-use-automated-ml-for-ml-models.md#featurization). Para habilitar esta configuración, realice lo siguiente:
+También hay disponibles técnicas de ingeniería de características adicionales, como la codificación y las transformaciones. 
 
-+ Azure Machine Learning Studio: Habilite **Automatic featurization** (Características automáticas) en la sección **View additional configuration** (Ver configuración adicional) siguiendo [estos pasos](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+Para habilitar esta configuración, realice lo siguiente:
 
-+ SDK de Python: Especifique `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para la [clase `AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
++ Azure Machine Learning Studio: Habilite **Automatic featurization** (Características automáticas) en la sección **View additional configuration** (Ver configuración adicional) siguiendo [estos pasos](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-
++ SDK de Python: Especifique `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` en el objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). Obtenga más información sobre cómo [habilitar la caracterización](how-to-configure-auto-features.md). 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a> Modelos de conjunto
 
@@ -268,12 +270,12 @@ El entorno de ejecución de ONNX también es compatible con C#, por lo que puede
 Vea ejemplos y aprenda cómo generar modelos mediante aprendizaje automático automatizado:
 
 + Configure el experimento de entrenamiento automático:
-  + En Azure Machine Learning Studio, [use estos pasos](how-to-use-automated-ml-for-ml-models.md).
+  + En Azure Machine Learning Studio, [siga estos pasos](how-to-use-automated-ml-for-ml-models.md).
   + Con el SDK de Python, [siga estos pasos](how-to-configure-auto-train.md).
 
 + Aprenda a usar un [destino de proceso remoto](how-to-auto-train-remote.md).
 
-+ Lea el [Tutorial: entrenamiento automático de un modelo de regresión con Azure Machine Learning](tutorial-auto-train-models.md). 
++ Lea el [Tutorial: Entrenamiento automático de un modelo de regresión con Azure Machine Learning](tutorial-auto-train-models.md). 
 
 + Obtenga información sobre cómo realizar entrenamientos automáticos con datos de series temporales [con estos pasos](how-to-auto-train-forecast.md).
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41b7dc2b7ddcf5d8bd15043d117a25771a278f95
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393697"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204878"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -59,9 +59,9 @@ El nivel de acceso esporádico tiene menores costos de almacenamiento y mayores 
 
 ## <a name="archive-access-tier"></a>Nivel de acceso de archivo
 
-El nivel de acceso de archivo tiene el menor costo de almacenamiento. Pero tiene mayores costos de recuperación de datos en comparación con los niveles de acceso frecuente y esporádico. Los datos en el nivel de archivo pueden tardar varias horas en recuperarse. Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana.
+El nivel de acceso de archivo tiene el menor costo de almacenamiento. Pero tiene mayores costos de recuperación de datos en comparación con los niveles de acceso frecuente y esporádico. Los datos deben permanecer en el nivel de archivo durante al menos 180 días o estar sujetos a un cargo por eliminación temprana. Los datos en el nivel de archivo pueden tardar varias horas en recuperarse en función de la prioridad de la rehidratación. En el caso de objetos pequeños, una rehidratación de alta prioridad puede recuperar el objeto del archivo en menos de 1 hora. Consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md) para obtener más información.
 
-Mientras un blob está en almacenamiento de archivo, los datos del blob están sin conexión y no se pueden leer, sobrescribir ni modificar. Para leer o descargar un blob en un archivo, primero debe rehidratarlo en un nivel en línea. No puede tomar instantáneas de un blob en almacenamiento de archivo. Sin embargo, los metadatos de blob quedan en línea y se mantienen disponibles, lo que permite enumerar el blob y sus propiedades. Para los blobs en el nivel de archivo, las únicas operaciones válidas son GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob y DeleteBlob. Consulte [Rehidratación de los datos de blob desde el nivel de archivo](storage-blob-rehydration.md) para obtener más información.
+Mientras un blob está en almacenamiento de archivo, los datos del blob están sin conexión y no se pueden leer, sobrescribir ni modificar. Para leer o descargar un blob en un archivo, primero debe rehidratarlo en un nivel en línea. No puede tomar instantáneas de un blob en almacenamiento de archivo. Sin embargo, los metadatos de blob permanecen en línea y se mantienen disponibles, lo que permite enumerar el blob, sus propiedades, los metadatos y las etiquetas de índice de blob. No se permite establecer ni modificar los metadatos de blobs mientras se está en el archivo; sin embargo, puede establecer y modificar las etiquetas de índice de blob. En el caso de los blobs en el nivel de archivo, las únicas operaciones válidas son GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier, CopyBlob y DeleteBlob.
 
 Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluyen:
 
@@ -119,7 +119,7 @@ En la siguiente tabla se muestra una comparación del almacenamiento de blobs en
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Disponibilidad**                          | 99,9 %                     | 99,9 %        | 99%                 | Sin conexión           |
 | **Disponibilidad** <br> **(lecturas de RA-GRS)**  | N/D                       | 99,99%       | 99,9 %               | Sin conexión           |
-| **Cargos de uso**                         | Mayores costos de almacenamiento, menores costos de acceso y transacciones | Mayores costos de almacenamiento, menores costos de acceso y transacciones | Menores costos de almacenamiento, mayores costos de acceso y transacciones | Menores costos de almacenamiento, mayores costos de acceso y transacciones |
+| **Cargos de uso**                         | Costos de almacenamiento más elevados y costos de acceso y transacción más bajos | Mayores costos de almacenamiento, menores costos de acceso y transacciones | Menores costos de almacenamiento, mayores costos de acceso y transacciones | Menores costos de almacenamiento, mayores costos de acceso y transacciones |
 | **Tamaño mínimo de objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Duración mínima del almacenamiento**              | N/D                       | N/D          | 30 días<sup>1</sup> | 180 días
 | **Latency** <br> **(Tiempo hasta el primer byte)** | Milisegundos de un solo dígito | milisegundos | milisegundos        | horas<sup>2</sup> |
@@ -252,7 +252,7 @@ Los blobs del nivel de acceso esporádico tienen un nivel de servicio (SLA) de d
 
 **¿Las operaciones entre los niveles de acceso frecuente, esporádico y de archivo son las mismas?**
 
-Todas las operaciones entre los niveles de acceso frecuente y esporádico son coherentes al 100 %. Todas las operaciones de archivo válidas, como GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier y DeleteBlob, son coherentes con el 100 % de la capacidad de acceso frecuente y esporádico. Los datos de blob no se pueden leer ni modificar en el nivel de archivo hasta que se rehidratan; solo se admiten operaciones de lectura de metadatos de blobs en el archivo.
+Todas las operaciones entre los niveles de acceso frecuente y esporádico son coherentes al 100 %. Todas las operaciones de archivo válidas, como GetBlobProperties, GetBlobMetadata, SetBlobTags, GetBlobTags, FindBlobsByTags, ListBlobs, SetBlobTier y DeleteBlob, son 100 % coherentes con la capacidad de acceso frecuente y esporádico. Los datos de blob no se pueden leer ni modificar en el nivel de archivo hasta que se rehidratan; solo se admiten operaciones de lectura de metadatos de blobs en el archivo. Sin embargo, las etiquetas de índice de blob se pueden leer, establecer o modificar mientras están archivadas.
 
 **Al rehidratar un blob desde el nivel de acceso de archivo al frecuente o esporádico, ¿cómo se sabe cuándo la rehidratación está completa?**
 

@@ -1,5 +1,5 @@
 ---
-title: Utilización de autoML para crear modelos y realizar la implementación
+title: Uso de AutoML para crear e implementar modelos
 titleSuffix: Azure Machine Learning
 description: Cree, revise e implemente modelos de aprendizaje automático automatizado con Azure Machine Learning.
 services: machine-learning
@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: nibaccam
-author: tsikiksr
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/10/2020
-ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 20d98f8eb4971d2aba1ecfbf8abeaba261cde8c4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653840"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115908"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Para obtener un ejemplo completo, pruebe el [tutorial para crear un modelo de cl
 
 Si prefiere una experiencia basada en código de Python, [configure sus experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md) con el SDK de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -120,14 +120,16 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     Configuraciones adicionales|Descripción
     ------|------
     Métrica principal| Métrica principal usada para puntuar el modelo. [Más información sobre las métricas del modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Características automáticas| Seleccione esta opción para habilitar o deshabilitar el preprocesamiento que el aprendizaje automático automatizado realiza. El preprocesamiento incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. No se admite para el tipo de tarea de predicción de series temporales. [Más información sobre el preprocesamiento](#featurization). 
+    Características automáticas| Seleccione esta opción para habilitar o deshabilitar la caracterización que el aprendizaje automático automatizado realiza. La caracterización automática incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. No se admite para el tipo de tarea de predicción de series temporales. [Obtenga más información sobre la caracterización](how-to-configure-auto-features.md#featurization). 
     Explicación del mejor modelo | Seleccione esta opción para habilitar o deshabilitar la visualización de la explicación del mejor modelo recomendado.
     Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento.
     Criterios de exclusión| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
     Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-auto-train.md).
     Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas.
 
-1. (Opcional) Ver el apartado sobre la configuración de características: si decide habilitar **Características automáticas** en el formulario **Additional configuration settings** (Opciones de configuración adicionales), en este formulario se especifican las columnas en las que se van a definir dichas características y se selecciona el valor estadístico que se va a usar para las imputaciones de valores que faltan.
+1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización**, se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 
+
+    ![Formulario del tipo de tarea de Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -155,58 +157,19 @@ Variance| Medida de la diferencia de los datos de esta columna con respecto a su
 Asimetría| Medida de la diferencia entre los datos de esta columna y la distribución normal.
 Curtosis| La medida de la cantidad de datos en cola de esta columna se compara con una distribución normal.
 
-<a name="featurization"></a>
+## <a name="customize-featurization"></a>Personalización de la caracterización
 
-## <a name="advanced-featurization-options"></a>Opciones avanzadas de caracterización
+En el formulario **Caracterización**, puede habilitar o deshabilitar la caracterización automática y personalizar la configuración de caracterización automática para su experimento. Para abrir este formulario, consulte el paso 10 de la sección [Creación y ejecución de un experimento](#create-and-run-experiment). 
 
-El aprendizaje automático automatizado ofrece límites de protección de datos y preprocesamiento automáticamente, para ayudarle a identificar y administrar posibles problemas con los datos, como [el sobreajuste y los datos desequilibrados](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
+En la tabla siguiente se resumen las personalizaciones disponibles actualmente a través de Studio. 
 
-### <a name="preprocessing"></a>Preprocessing (Preprocesamiento)
+Columna| Personalización
+---|---
+Se incluye | Especifica las columnas que se van a incluir para el entrenamiento.
+Tipo de característica| Cambia el tipo de valor de la columna seleccionada.
+Imputar con| Selecciona el valor con los cuales imputar los valores que faltan en los datos.
 
-> [!NOTE]
-> Si tiene previsto exportar los modelos creados por ML a un [modelo de ONNX](concept-onnx.md), solo se admiten las opciones de caracterización indicadas con * en el formato ONNX. Más información sobre la [conversión de modelos a ONNX](concept-automated-ml.md#use-with-onnx). 
-
-|Pasos de&nbsp;preprocesamiento| Descripción |
-| ------------- | ------------- |
-|Eliminación de las características de cardinalidad alta o sin variación* |Quítelas de los conjuntos de entrenamiento y validación, incluidas las características en las faltan todos los valores, que tienen el mismo valor en todas las filas o que tienen una cardinalidad muy alta (por ejemplo, hashes, identificadores o GUID).|
-|Atribución de valores que faltan* |Para las características numéricas, se atribuyen con el promedio de los valores de la columna.<br/><br/>Para las características de categorías, se atribuyen con el valor más frecuente.|
-|Generación de características adicionales* |Para las características de fecha y hora: año, mes, día, día de la semana, día del año, trimestre, semana del año, hora, minuto, segundo.<br/><br/>Para las características de texto: Frecuencia de término basada en unigramas, bigramas y trigramas.|
-|Transformación y codificación*|Las características numéricas con pocos valores únicos se transforman en características de categorías.<br/><br/>La codificación "one-hot" se realiza para características de categorías de cardinalidad baja; para una cardinalidad alta, se lleva a cabo la codificación "one-hot-hash".|
-|Inserciones de palabras|Caracterizador de texto que convierte los vectores de tokens de texto en vectores de oración mediante un modelo previamente entrenado. El vector de inserción de cada palabra en un documento se agrega para producir un vector de característica de documento.|
-|Codificaciones de destino|Para características de categorías, se asigna a cada categoría con el valor de destino promedio para los problemas de regresión, y a la probabilidad de clase para cada clase para problemas de clasificación. La ponderación basada en la frecuencia y la validación cruzada de k iteraciones se aplican para reducir el ajuste excesivo de la asignación y el ruido causado por categorías de datos dispersos.|
-|Codificación de destino de texto|Para la entrada de texto, se usa un modelo lineal apilado con bolsa de palabras para generar la probabilidad de cada clase.|
-|Peso de la evidencia (WoE)|Calcula WoE como una medida de la correlación de las columnas de categorías para la columna de destino. Se calcula como el registro de la relación de las probabilidades dentro de la clase frente a las probabilidades fuera de la clase. Este paso genera una columna de característica numérica por clase y quita la necesidad de atribuir de forma explícita los valores que faltan y el tratamiento de valores atípicos.|
-|Distancia del clúster|Entrena un modelo de agrupamiento k-medias en todas las columnas numéricas.  Genera k nuevas características, una nueva característica numérica por grupo, que contiene la distancia de cada muestra hasta el centroide de cada grupo.|
-
-### <a name="data-guardrails"></a>Límites de protección de datos
-
-Los límites de protección de datos se aplican cuando se habilitan las características automáticas o la validación se establece en modo automático. Los límites de protección de datos le ayudan a identificar posibles problemas con los datos (por ejemplo, valores faltantes o desequilibrio de clases) y a realizar acciones correctivas para mejorar los resultados. 
-
-Los usuarios pueden revisar los límites de protección de datos en Studio desde la pestaña **Límites de protección de datos** de una ejecución de ML automatizada o al establecer ```show_output=True``` cuando se envía un experimento con el SDK de Python. 
-
-#### <a name="data-guardrail-states"></a>Estados de límites de protección de datos
-
-Los límites de protección de datos mostrarán uno de los tres estados siguientes: **Superado**, **Listo** o **Con alertas**.
-
-State| Descripción
-----|----
-Superado| No se detectó ningún problema con los datos y no se requiere ninguna acción del usuario. 
-¡Listo!| Los cambios se han aplicado a los datos. Se recomienda a los usuarios que revisen las acciones correctivas que realizó ML automatizado para asegurarse de que los cambios se alineen con los resultados esperados. 
-Con alertas| Se detectó un problema con los datos que no se pudo resolver. Se recomienda a los usuarios que revisen y solucionen el problema. 
-
->[!NOTE]
-> En las versiones anteriores de los experimentos de ML se mostraba un cuarto estado: **Corregido**. Los experimentos más recientes no mostrarán este estado, y todos los límites de protección que mostraban el estado **Corregido** ahora mostrarán **Listo**.   
-
-En la tabla siguiente se describen los límites de protección de datos admitidos actualmente, así como los estados asociados que pueden producirse al enviar el experimento.
-
-Límite de protección|Status|Condición&nbsp;para&nbsp;el desencadenador
----|---|---
-Imputación de valores de características que faltan |**Superado** <br><br><br> **Listo**| No se ha detectado que falten valores de característica en los datos de entrenamiento. Obtenga más información sobre la [imputación de valores que faltan](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Se detectaron valores de característica faltantes en los datos de entrenamiento y se imputaron.
-Control de características de cardinalidad alta |**Superado** <br><br><br> **Listo**| Se han analizado las entradas y no se han detectado características de cardinalidad alta. Obtenga más información sobre la [detección de características de cardinalidad alta](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Se detectaron características de alta cardinalidad en las entradas y se controlaron.
-Control de división de validación |**Listo**| *La configuración de validación se estableció en "auto" y los datos de entrenamiento contenían **menos** de 20 000 filas.* <br> Todas las iteraciones del modelo entrenado se han validado mediante validación cruzada. Más información sobre la [validación de datos.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *La configuración de validación se estableció en "auto" y los datos de entrenamiento contenían **más** de 20 000 filas.* <br> Los datos de entrada se han dividido en un conjunto de datos de entrenamiento y un conjunto de datos de validación para comprobar el modelo.
-Detección de equilibrio de clases |**Superado** <br><br><br><br> **Con alertas** | Se analizaron las entradas y todas las clases están equilibradas en los datos de entrenamiento. Se considera que un conjunto de datos está equilibrado si todas las clases tienen una representación adecuada en el conjunto de datos según el número y proporción de las muestras. <br><br><br> Se han detectado clases desequilibradas en las entradas. Para corregir el sesgo del modelo, corrija el problema de equilibrio. Más información sobre [datos desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
-Detección de problemas de memoria |**Superado** <br><br><br><br> **Listo** |<br> Se han analizado los valores seleccionados {horizonte, retardo y período acumulado} sin que se hayan detectado problemas potenciales de memoria insuficiente. Más información sobre las [configuraciones de previsión](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de series temporales. <br><br><br>Los valores seleccionados {horizonte, retardo y período acumulado} se analizaron y pueden provocar que el experimento se quede sin memoria. Se desactivó la configuración de período acumulado o retardo.
-Detección de frecuencias |**Superado** <br><br><br><br> **Listo** |<br> Se analizó la serie temporal y todos los puntos de datos están coordinados con la frecuencia detectada. <br> <br> Se analizó la serie temporal y se detectaron puntos de datos que no están coordinados con la frecuencia detectada. Estos puntos de datos se quitaron del conjunto de datos. Obtenga más información sobre la [preparación de datos para las previsiones de serie temporal](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+![Formulario del tipo de tarea de Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Ejecución del experimento y visualización de los resultados
 
@@ -255,6 +218,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
     El menú *Avanzado* ofrece características de implementación predeterminadas como la [recopilación de datos](how-to-enable-app-insights.md) y la configuración del uso de recursos. Si desea reemplazar estos valores predeterminados, hágalo en este menú.
 
 1. Seleccione **Implementar**. La implementación puede tardar unos 20 minutos en completarse.
+    Una vez iniciada la implementación, aparece la pestaña **Detalles del modelo**. Consulte el progreso de la implementación en la sección **Estado de implementación** del panel **Propiedades**. 
 
 Ya tiene un servicio web operativo para generar predicciones. Puede probar las predicciones consultando el servicio de [soporte técnico de Azure Machine Learning de Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

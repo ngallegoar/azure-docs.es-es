@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2f23f4045f0326ffea14ddeb4d588261872188f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743701"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205133"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Introducción a la característica Start/Stop VMs during off-hours
 
@@ -32,7 +32,7 @@ Las siguientes son limitaciones de la característica actual:
 - Administra máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation.
 - Está disponible en Azure y Azure Government para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de Azure Government no admiten la funcionalidad de correo electrónico en este momento.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los runbooks de la característica Start/Stop VMs during off hours funcionan con una [cuenta de ejecución de Azure](automation-create-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 
@@ -79,11 +79,11 @@ Puede habilitar la característica Start/Stop VMs during off-hours en las máqui
 
 | Permiso |Ámbito|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Subscription|
-| Microsoft.Authorization/permissions/read |Subscription|
-| Microsoft.Authorization/roleAssignments/read | Subscription |
-| Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
+| Microsoft.Authorization/Operations/read | Suscripción|
+| Microsoft.Authorization/permissions/read |Suscripción|
+| Microsoft.Authorization/roleAssignments/read | Suscripción |
+| Microsoft.Authorization/roleAssignments/write | Suscripción |
+| Microsoft.Authorization/roleAssignments/delete | Suscripción || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |
@@ -104,7 +104,7 @@ Todos los runbooks primarios incluyen el parámetro `WhatIf`. Cuando se establec
 |Runbook | Parámetros | Descripción|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Se llama desde el runbook primario. Este runbook crea alertas según el recurso para el escenario de AutoStop.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadero o falso  | Crea o actualiza las reglas de alerta de Azure en las máquinas virtuales de los grupos de recursos o la suscripción de destino. <br> `VMList` es una lista de máquinas virtuales separadas por comas. Por ejemplo, `vm1, vm2, vm3`.<br> `WhatIf` habilita la validación de la lógica de runbook sin ejecutarse.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadero o falso  | Crea o actualiza las reglas de alerta de Azure en las máquinas virtuales de los grupos de recursos o la suscripción de destino. <br> `VMList` es una lista separada por comas de VM (sin espacios en blanco), como, por ejemplo, `vm1,vm2,vm3`.<br> `WhatIf` habilita la validación de la lógica de runbook sin ejecutarse.|
 |AutoStop_Disable | None | Deshabilita la programación predeterminada y las alertas de Auto-Stop.|
 |AutoStop_VM_Child | WebHookData | Se llama desde el runbook primario. Las reglas de alertas llaman a este runbook para detener una máquina virtual clásica.|
 |AutoStop_VM_Child_ARM | WebHookData |Se llama desde el runbook primario. Las reglas de alertas llaman a este runbook para detener una máquina virtual.  |
@@ -112,7 +112,7 @@ Todos los runbooks primarios incluyen el parámetro `WhatIf`. Cuando se establec
 |ScheduledStartStop_Child | VMName <br> Acción: Iniciar o detener <br> ResourceGroupName | Se llama desde el runbook primario. Ejecuta una acción de inicio o detención para la detención programada.|
 |ScheduledStartStop_Child_Classic | VMName<br> Acción: Iniciar o detener<br> ResourceGroupName | Se llama desde el runbook primario. Ejecuta una acción de inicio o detención para la detención programada de máquinas virtuales clásicas. |
 |ScheduledStartStop_Parent | Acción: Iniciar o detener <br>VMList <br> WhatIf: Verdadero o falso | Inicia o detiene todas las máquinas virtuales de la suscripción. Edite las variables `External_Start_ResourceGroupNames` y `External_Stop_ResourceGroupNames` para que solo se ejecuten en estos grupos de recursos de destino. También puede excluir máquinas virtuales específicas si actualiza la variable `External_ExcludeVMNames`.|
-|SequencedStartStop_Parent | Acción: Iniciar o detener <br> WhatIf: Verdadero o falso<br>VMList| Cree etiquetas denominadas **sequencestart** y **sequencestop** en todas las máquinas virtuales en las que quiera secuenciar la actividad de inicio y detención. Estos nombres de etiqueta distinguen entre mayúsculas y minúsculas. El valor de la etiqueta debe ser un entero positivo (1, 2, 3) que se corresponda con el orden en que se desee que se realice el inicio o la detención. <br>**Nota**: Las máquinas virtuales deben estar dentro de grupos de recursos definidos en las variables `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` y `External_ExcludeVMNames`. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
+|SequencedStartStop_Parent | Acción: Iniciar o detener <br> WhatIf: Verdadero o falso<br>VMList| Cree etiquetas denominadas **sequencestart** y **sequencestop** en todas las máquinas virtuales en las que quiera secuenciar la actividad de inicio y detención. Estos nombres de etiqueta distinguen entre mayúsculas y minúsculas. El valor de la etiqueta debe ser una lista de enteros positivos, como `1,2,3`, que se corresponda con el orden deseado para el inicio o la detención. <br>**Nota**: Las máquinas virtuales deben estar dentro de grupos de recursos definidos en las variables `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` y `External_ExcludeVMNames`. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
 
 ### <a name="variables"></a>variables
 
@@ -170,7 +170,7 @@ Para usar la característica con máquinas virtuales clásicas, necesita una cue
 Si tiene más de 20 máquinas virtuales por cada servicio en la nube, estas son algunas recomendaciones:
 
 * Cree varias programaciones con el runbook primario **ScheduledStartStop_Parent** y especifique 20 máquinas virtuales por programación. 
-* En las propiedades de la programación, use el parámetro `VMList` para especificar los nombres de las máquinas virtuales como una lista separada por comas. 
+* En las propiedades de la programación, use el parámetro `VMList` para especificar los nombres de las VM como una lista separada por comas (sin espacios en blanco). 
 
 De lo contrario, si el trabajo de Automation con esta característica se ejecuta durante más de tres horas, se descarga temporalmente o se detiene debido al límite de [distribución equilibrada](automation-runbook-execution.md#fair-share).
 

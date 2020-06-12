@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de recursos compartidos de a
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3d04a60b8bab5ba764818eab341ac08836b0dfd1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562090"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116728"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -276,6 +276,45 @@ Código de error: BMSUserErrorObjectLocked
 Mensaje de error: Hay otra operación en curso en el elemento seleccionado.
 
 Espere a que la otra operación en curso termine y vuelva a intentarlo en otro momento.
+
+Del archivo: troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>Errores comunes relacionados con la eliminación temporal
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState: este punto de restauración no está disponible porque la instantánea asociada al punto está en un recurso compartido de archivos que está en estado de eliminación temporal
+
+Código de error: UserErrorRestoreAFSInSoftDeleteState
+
+Mensaje de error: Este punto de restauración no está disponible porque la instantánea asociada al punto está en un recurso compartido de archivos que está en estado de eliminación temporal.
+
+No puede realizar una operación de restauración cuando el recurso compartido de archivos se encuentra en estado de eliminación temporal. Restaure el recurso compartido de archivos desde el portal de Files o use el [script Undelete](scripts/backup-powershell-script-undelete-file-share.md) y luego intente realizar la restauración.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>UserErrorRestoreAFSInDeleteState: los puntos de restauración mostrados no están disponibles porque el recurso compartido de archivos asociado que contiene las instantáneas del punto de restauración se ha eliminado permanentemente
+
+Código de error: UserErrorRestoreAFSInDeleteState
+
+Mensaje de error: Los puntos de restauración mostrados no están disponibles porque el recurso compartido de archivos asociado que contiene las instantáneas del punto de restauración se ha eliminado permanentemente.
+
+Compruebe si se ha eliminado el recurso compartido de archivos del que se ha realizado una copia de seguridad. Si se encontraba en un estado de eliminación temporal, compruebe si el período de retención de eliminación temporal es superior y no se ha recuperado. En cualquiera de estos casos, perderá todas las instantáneas de forma permanente y no podrá recuperar los datos.
+
+>[!NOTE]
+> Se recomienda no eliminar el recurso compartido de archivos del que se ha realizado una copia de seguridad, o bien, si se encuentra en estado de eliminación temporal, recuperarlo antes de que finalice el período de retención de eliminación temporal, con el fin de evitar que se pierdan todos los puntos de restauración.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState: no se pudo realizar la copia de seguridad porque el recurso compartido de archivos de Azure está en estado de eliminación temporal
+
+Código de error: UserErrorBackupAFSInSoftDeleteState
+
+Mensaje de error: No se pudo realizar la copia de seguridad porque el recurso compartido de archivos de Azure está en estado de eliminación temporal.
+
+Recupere el recurso compartido de archivos desde el **portal de Files** o mediante el [script Undelete](scripts/backup-powershell-script-undelete-file-share.md) para continuar con la copia de seguridad e impedir la eliminación permanente de los datos.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>UserErrorBackupAFSInDeleteState: no se pudo realizar la copia de seguridad porque el recurso compartido de archivos asociado de Azure se eliminó permanentemente
+
+Código de error: UserErrorBackupAFSInDeleteState
+
+Mensaje de error: No se pudo realizar la copia de seguridad porque el recurso compartido de archivos asociado de Azure se eliminó permanentemente
+
+Compruebe si se ha eliminado permanentemente el recurso compartido de archivos del que se ha realizado una copia de seguridad. En caso afirmativo, detenga la copia de seguridad de este recurso compartido de archivos para evitar errores repetidos de copia de seguridad. Para obtener información sobre cómo detener la protección, vea [Detención de la protección en un recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

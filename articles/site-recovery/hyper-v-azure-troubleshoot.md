@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961481"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195275"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -116,8 +116,9 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
         - Esta tasa de modificación de datos aumentará o permanecer en un nivel alto, dependiendo de cómo de estén de ocupadas la máquina virtual o sus aplicaciones.
         - El promedio de modificación de datos del disco de origen es 2 MB/s de almacenamiento estándar para Site Recovery. [Más información](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Además, puede [comprobar los objetivos de escalabilidad de Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
-8. Ejecute [Deployment Planner](hyper-v-deployment-planner-run.md).
-9. Revise las recomendaciones para [red](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) y [almacenamiento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
+8. Asegúrese de que, si usa un servidor basado en Linux, tiene habilitada en él la coherencia de la aplicación. [Más información](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication)
+9. Ejecute [Deployment Planner](hyper-v-deployment-planner-run.md).
+10. Revise las recomendaciones para [red](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) y [almacenamiento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Fallo de VSS en el host de Hyper-V
@@ -129,7 +130,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 2. Para generar instantáneas VSS para la máquina virtual, compruebe que los servicios de integración de Hyper-V están instalados en la máquina virtual y que está habilitado el servicio de integración de copia de seguridad (VSS).
     - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar**.
-    - Esto se puede comprobar desde una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **Get-VMIntegrationService -VMName\<VMName>-Name VSS**. También puede obtener esta información si inicia sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Para comprobarlo, inicie una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **Get-VMIntegrationService -VMName\<VMName>-nombre VSS**. Otra manera de obtener esta información es iniciar sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Asegúrese de que los servicios de integración de VSS/copia de seguridad en la máquina virtual se están ejecutando y se encuentran en buen estado. Si no es así, reinicie estos servicios y el servicio de solicitante de instantáneas de volumen de Hyper-V en el servidor host de Hyper-V.
 
 ### <a name="common-errors"></a>Errores comunes

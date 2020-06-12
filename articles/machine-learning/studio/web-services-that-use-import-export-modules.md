@@ -11,25 +11,23 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 3275a372e496b79da2c9f31258f557389c5b1ee1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: aa8500e0e301de5f015d074646bf4da82e4de0a1
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209373"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192555"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Azure Machine Learning Studio (clásico) que usan módulos de importación y exportación de datos
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 Cuando se crea un experimento predictivo, normalmente se agregan una entrada y una salida de servicio web. Al implementar el experimento, los consumidores pueden enviar y recibir datos desde el servicio web a través de las entradas y salidas. En algunas aplicaciones, los datos del consumidor pueden estar disponibles desde una fuente de datos o ya residir en un origen de datos externo, como el Almacenamiento de blobs de Azure. En estos casos, no se requiere que lean y escriban datos mediante entradas y salidas del servicio web. En su lugar, pueden utilizar el servicio de ejecución por lotes (BES) para leer los datos del origen de datos mediante un módulo de importación de datos y escribir los resultados de puntuación en una ubicación de datos diferente mediante un módulo de exportación de datos.
 
-Los módulos de importación y exportación de datos pueden realizar operaciones de lectura y escritura en diversas ubicaciones de datos, como una dirección URL web a través de HTTP, una consulta de Hive, una base de datos de Azure SQL, Azure Table Storage, Azure Blob Storage, un proveedor de fuentes de distribución de datos o una base de datos SQL local.
+Los módulos de importación y exportación de datos pueden realizar operaciones de lectura y escritura en diversas ubicaciones de datos, como una dirección URL web a través de HTTP, una consulta de Hive, una base de datos de Azure SQL, almacenamiento de tablas de Azure, Azure Blob Storage, un proveedor de fuentes de distribución de datos o una base de datos de SQL Server.
 
-En este tema se usa la muestra "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Muestra 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos) y presupone que el conjunto de datos ya se ha cargado en una tabla de SQL de Azure denominada censusdata.
+En este tema se utiliza el "Ejemplo 5: entrenamiento, prueba y evaluación para la clasificación binaria: conjunto de datos sobre adultos" y se da por supuesto que el conjunto de datos se ha cargado en una tabla de Azure SQL denominada censusdata.
 
 ## <a name="create-the-training-experiment"></a>Creación del experimento de entrenamiento
-Al abrir la muestra "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Muestra 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos), se usa el conjunto de datos de clasificación binaria de ingresos en el censo adultos de ejemplo. Asimismo, el experimento en el lienzo tendrá una apariencia similar a la siguiente imagen:
+Al abrir el "Ejemplo 5: entrenamiento, prueba y evaluación para la clasificación binaria: conjunto de datos sobre adultos" se usa el conjunto de datos de clasificación binaria de ingresos en el censo de adultos. Asimismo, el experimento en el lienzo tendrá una apariencia similar a la siguiente imagen:
 
 ![Configuración inicial del experimento.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -101,7 +99,7 @@ Para realizar la implementación como un servicio web clásico y crear una aplic
 2. Cuando la ejecución haya terminado, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar servicio web [clásico]).
 3. En el panel del servicio web, busque la clave de API. Copie y guárdela para usarla más adelante.
 4. En la tabla **Default Endpoint** (Punto de conexión predeterminado), haga clic en el vínculo **Ejecución de lotes** para abrir la página de Ayuda de API.
-5. Cree una nueva aplicación de consola de C# en Visual Studio: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
+5. En Visual Studio, cree una aplicación de consola en C#: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
 6. En la página de Ayuda de API, busque la sección **Sample Code** (Ejemplo de código) en la parte inferior de la página.
 7. Copie y pegue el ejemplo de código de C# en el archivo Program.cs y quite todas las referencias al Almacenamiento de blobs.
 8. Actualice el valor de la variable *apiKey* con la clave de API guardada anteriormente.
@@ -130,7 +128,7 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
 3. En la página Deploy Experiment (Implementar experimento), escriba un nombre para el servicio web, seleccione un plan de precios y haga clic en **Implementar**.
 4. En la página **Inicio rápido**, haga clic en **Consume** (Consumir).
 5. En la sección **Sample Code** (Ejemplo de código), haga clic en **Batch**.
-6. Cree una nueva aplicación de consola de C# en Visual Studio: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
+6. En Visual Studio, cree una aplicación de consola en C#: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
 7. Copie y pegue el ejemplo de código de C# en el archivo Program.cs.
 8. Actualice el valor de la variable *apiKey* con la **clave principal** ubicada en la sección **Basic consumption info** (Información básica de consumo).
 9. Busque la declaración *scoreRequest* y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Import Data* (Importar datos) y *Export Data* (Exportar datos). En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.

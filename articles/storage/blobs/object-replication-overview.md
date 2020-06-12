@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: efb873f8e66c3ab71b5b7345d776629fbe603af3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800761"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193414"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicación de objetos para blobs en bloques (versión preliminar)
 
@@ -54,7 +54,7 @@ Al crear una regla de replicación, de forma predeterminada solo se copian los b
 
 También puede especificar uno o varios filtros como parte de una regla de replicación para filtrar los blobs en bloques por prefijo. Cuando se especifica un prefijo, solo los blobs que coinciden con ese prefijo en el contenedor de origen se copiarán en el contenedor de destino.
 
-Los contenedores de origen y de destino deben existir antes de poder especificarlos en una regla. Después de crear la directiva de replicación, el contenedor de destino pasa a ser de solo lectura. Cualquier intento de escribir en el contenedor de destino producirá un error con el código de error 409 (Conflicto). Sin embargo, puede llamar a la operación [Establecer nivel del blob](/rest/api/storageservices/set-blob-tier) en un blob en el contenedor de destino para moverla a otro nivel de acceso. Por ejemplo, puede trasladar los blobs del contenedor de destino al nivel de archivo para ahorrar costos.
+Los contenedores de origen y de destino deben existir antes de poder especificarlos en una regla. Después de crear la directiva de replicación, el contenedor de destino pasa a ser de solo lectura. Cualquier intento de escribir en el contenedor de destino producirá un error con el código de error 409 (Conflicto). Sin embargo, puede llamar a la operación [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier) en un blob en el contenedor de destino para moverla al nivel de archivo. Para más información sobre el nivel de archivo, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
@@ -73,7 +73,9 @@ Durante la versión preliminar, no hay costos adicionales asociados con la repli
 
 ### <a name="prerequisites-for-object-replication"></a>Requisitos previos de la replicación de objetos
 
-La replicación de objetos requiere que estén habilitadas las siguientes características de Azure Storage:
+La replicación de objetos requiere que estén habilitadas las siguientes características de Azure Storage: 
+- [Fuente de cambios](storage-blob-change-feed.md)
+- [Control de versiones](versioning-overview.md)
 
 Antes de configurar la replicación de objetos, habilite los requisitos previos. La fuente de cambios debe estar habilitada en la cuenta de origen y el control de versiones de blob debe estar habilitadas tanto en la cuenta de origen como en la de destino. Para obtener más información sobre cómo habilitar estas características, consulte estos artículos:
 
@@ -157,3 +159,5 @@ Para formular preguntas sobre la versión preliminar de la replicación de objet
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de la replicación de objetos (versión preliminar)](object-replication-configure.md)
+- [Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)](storage-blob-change-feed.md)
+- [Habilitar y administrar las versiones de blob](versioning-enable.md)

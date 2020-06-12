@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 401317f6b47c97a76ef2ded603063821a420933a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731709"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192539"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -308,7 +308,7 @@ El [cifrado de datos transparente (TDE)](../../virtual-machines/windows/sqlclass
 
 El servicio Azure Key Vault (AKV) está diseñado para mejorar la seguridad y la administración de estas claves en una ubicación segura y con gran disponibilidad. El Conector de SQL Server permite que SQL Server use estas claves desde Azure Key Vault.
 
-Si ejecuta SQL Server con máquinas locales, hay una serie de pasos que puede seguir para acceder a Azure Key Vault desde la máquina de SQL Server local. Pero para SQL Server en las máquinas virtuales de Azure, puede ahorrar tiempo si usa la característica Integración de Azure Key Vault. Con algunos cmdlets de Azure PowerShell para habilitar esta característica, puede automatizar la configuración necesaria para que una máquina virtual de SQL tenga acceso a su Almacén de claves.
+Si ejecuta SQL Server con máquinas locales, hay una serie de pasos que puede seguir para acceder a Azure Key Vault desde la instancia de SQL Server local. Pero para SQL Server en las máquinas virtuales de Azure, puede ahorrar tiempo si usa la característica Integración de Azure Key Vault. Con algunos cmdlets de Azure PowerShell para habilitar esta característica, puede automatizar la configuración necesaria para que una máquina virtual de SQL tenga acceso a su Almacén de claves.
 
 ### <a name="vm-disk-encryption"></a>Cifrado de discos de máquinas virtuales
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) es una nueva funcionalidad que permite cifrar los discos de las máquinas virtuales de IaaS Windows y Linux. Usa la característica BitLocker estándar del sector de Windows y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con Azure Key Vault para ayudarle a controlar y administrar los secretos y las claves de cifrado de discos en su suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.

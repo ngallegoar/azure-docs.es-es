@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70139135"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195883"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso: recomendaciones de productos
 Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Azure Data Factory y otros servicios del componente Cortana Intelligence.
@@ -41,7 +41,7 @@ Por último, los distribuidores necesitan medir la eficacia de su enfoque median
 ## <a name="solution-overview"></a>Información general de la solución
 Este caso práctico de ejemplo fue resuelto e implementado por usuarios reales de Azure Data Factory y otros servicios del componente Cortana Intelligence, como [HDInsight](https://azure.microsoft.com/services/hdinsight/) y [Power BI](https://powerbi.microsoft.com/).
 
-El distribuidor en línea usa un almacén de blobs de Azure, un servidor de SQL Sefver local, la Base de datos SQL de Azure y un data mart relacional como opciones de almacenamiento de datos a lo largo del flujo de trabajo.  El almacén de blobs contiene información del cliente, los datos de comportamiento de cliente y los datos de información de los productos. Los datos de información de los productos incluyen información de la marca de producto y un catálogo de los producto almacenado localmente en un almacenamiento de datos SQL. 
+El distribuidor en línea usa un almacén de blobs de Azure, un servidor local de SQL Server, Azure SQL Database y un data mart relacional como opciones de almacenamiento de datos a lo largo del flujo de trabajo.  El almacén de blobs contiene información del cliente, los datos de comportamiento de cliente y los datos de información de los productos. Los datos de información de los productos incluyen información de la marca de producto y un catálogo de los producto almacenado localmente en un almacenamiento de datos SQL. 
 
 Todos los datos se combinan e introducen en un sistema de recomendación de productos para ofrecer recomendaciones personalizadas según los intereses y las acciones del cliente, mientras el usuario examina los productos en el catálogo del sitio web del distribuidor. Los clientes también ven productos que puedan estar relacionados con el producto que miran de acuerdo con los patrones de uso general del sitio web que no están relacionados con ningún otro usuario.
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76261626"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142000"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -29,7 +29,7 @@ Puede usar desencadenadores que obtengan respuestas de Service Bus y hagan que l
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -152,11 +152,21 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
+<a name="sequential-convoy"></a>
+
+## <a name="send-correlated-messages-in-order"></a>Envío de mensajes correlacionados en orden
+
+Cuando necesite enviar mensajes relacionados en un orden específico, puede usar el patrón [*convoy secuencial*](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
+
+Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por orden correlacionada mediante sesiones de Service Bus**, que implementa el patrón de convoy secuencial. Para más información, vea [Enviar mensajes relacionados en orden](../logic-apps/send-related-messages-sequential-convoy.md).
+
+<a name="connector-reference"></a>
+
 ## <a name="connector-reference"></a>Referencia de conectores
 
 El conector de Service Bus puede guardar hasta 1500 sesiones únicas a la vez de un bus de servicio en la memoria caché del conector. Si el número de sesiones supera este límite, las sesiones antiguas se quitan de la caché. Para más información, consulte [Sesiones de mensajes](../service-bus-messaging/message-sessions.md).
 
-Para obtener otra información técnica sobre los desencadenadores, las acciones y los límites, que se detallan en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/servicebus/) del conector. Para más información sobre la mensajería de Azure Service Bus, consulte [Qué es Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
+Para conocer otros detalles técnicos sobre los desencadenadores, las acciones y los límites, que se detallan en la descripción de Swagger del conector, vea la [página de referencia del conector](/connectors/servicebus/). Para más información sobre la mensajería de Azure Service Bus, consulte [Qué es Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

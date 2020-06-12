@@ -4,16 +4,16 @@ description: Conexión privada a una aplicación web mediante un punto de conexi
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34ea9961c257f398ebed3baaf4ed2ee5b6f3547e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80287822"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298710"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Conexión privada a una aplicación web mediante el punto de conexión privado de Azure (versión preliminar)
 
@@ -23,7 +23,7 @@ En este inicio rápido, aprenderá a implementar una aplicación web con un punt
 Para obtener más información, consulte [Uso de puntos de conexión privados para una aplicación web de Azure][privatenedpointwebapp].
 
 > [!Note]
->La versión preliminar está disponible en las regiones del Este de EE. UU. y Oeste de EE. UU. 2 para todas las aplicaciones web PremiumV2 de Windows y Linux. 
+>La versión preliminar está disponible en las regiones públicas para las funciones PremiumV2 de Windows y Linux Web Apps y Elastic Premium. 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

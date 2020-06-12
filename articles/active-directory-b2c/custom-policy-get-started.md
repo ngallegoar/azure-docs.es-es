@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32ec55a2ed6e0158a05f81067dc834fdc1e6e765
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bcc1affb953a737c12ca5bdb70ba7eadee20cd97
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738258"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295531"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "83738258"
 
 Las [directivas personalizadas](custom-policy-overview.md) son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory B2C (Azure AD B2C). En este artículo se crea una directiva personalizada que admite el registro o el inicio de sesión de la cuenta local mediante una dirección de correo electrónico y una contraseña. También debe preparar el entorno para agregar proveedores de identidades.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
@@ -74,22 +74,9 @@ Solo tiene que registrar estas dos aplicaciones en el inquilino de Azure AD B2
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar la aplicación IdentityExperienceFramework
 
-Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Registros de aplicaciones (heredada)** o la nueva experiencia **Registros de aplicaciones (versión preliminar)** unificada. [Más información acerca de la nueva experiencia](https://aka.ms/b2cappregintro).
+Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la experiencia **Registros de aplicaciones**.
 
-#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. En Azure Portal, busque y seleccione **Azure Active Directory**.
-1. En el menú de información general de **Azure Active Directory**, en **Administrar**, seleccione **Registros de aplicaciones (característica heredada)** .
-1. Seleccione **Nuevo registro de aplicaciones**.
-1. En **Nombre**, escriba `IdentityExperienceFramework`.
-1. En **Tipo de aplicación**, elija **Aplicación web o API**.
-1. En **URL de inicio de sesión**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el nombre de dominio del inquilino de Azure AD B2C. Todas las direcciones URL ahora deberían estar utilizando [b2clogin.com](b2clogin.md).
-1. Seleccione **Crear**. Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
-
-#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
-
-1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
+1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. En **Nombre**, escriba `IdentityExperienceFramework`.
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **URI de redirección**, seleccione **Web** y, a continuación, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el nombre de dominio del inquilino de Azure AD B2C.
@@ -111,21 +98,7 @@ A continuación, exponga la API agregando un ámbito:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrar la aplicación ProxyIdentityExperienceFramework
 
-#### <a name="applications"></a>[Aplicaciones](#tab/applications/)
-
-1. En **Registros de aplicaciones (característica heredada)** , seleccione **Nuevo registro de aplicaciones**.
-1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
-1. En **Tipo de aplicación**, elija **Nativa**.
-1. En **URI de redirección**, escriba `myapp://auth`.
-1. Seleccione **Crear**. Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
-1. Seleccione **Configuración**, **Permisos necesarios** y, después, **Agregar**.
-1. Elija **Seleccionar una API**, busque y seleccione **IdentityExperienceFramework** y, después, haga clic en **Seleccionar**.
-1. Active la casilla situada junto a **Access IdentityExperienceFramework** (Acceder a IdentityExperienceFramework), haga clic en **Seleccionar** y luego en **Listo**.
-1. Seleccione **Conceder permisos** y, después, seleccione **Sí** para confirmar.
-
-#### <a name="app-registrations-preview"></a>[Registros de aplicaciones (versión preliminar)](#tab/app-reg-preview/)
-
-1. Seleccione **Registros de aplicaciones (versión preliminar)** y luego **Nuevo registro**.
+1. Seleccione **Registros de aplicaciones** y luego **Nuevo registro**.
 1. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
 1. En **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 1. En **URI de redirección**, use la lista desplegable para seleccionar **Cliente público o nativo (móvil y escritorio)** .
@@ -137,7 +110,6 @@ A continuación, exponga la API agregando un ámbito:
 A continuación, especifique que la aplicación se debe tratar como un cliente público:
 
 1. En **Administrar**, seleccione **Autenticación**.
-1. Seleccione **Probar la nueva experiencia** (si se muestra).
 1. En **Configuración avanzada**, habilite **Trate la aplicación como cliente público** (seleccione **Sí**). Asegúrese de que **"allowPublicClient": true** esté establecido en el manifiesto de aplicación. 
 1. Seleccione **Guardar**.
 
@@ -151,7 +123,7 @@ Ahora, conceda permisos al ámbito de la API que expuso anteriormente en el regi
 1. Seleccione **Conceder consentimiento de administrador para (el nombre de inquilino)** .
 1. Seleccione la cuenta de administrador que tiene actualmente la sesión iniciada o inicie sesión con una cuenta en el inquilino de Azure AD B2C que tenga asignado al menos el rol *Administrador de aplicaciones en la nube*.
 1. Seleccione **Aceptar**.
-1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." en **Estado** para ambos ámbitos. Los permisos pueden tardar unos minutos en propagarse.
+1. Seleccione **Actualizar** y luego compruebe que "Concedido para..." aparece en **Estado** para los ámbitos offline_access, openid y user_impersonation. Los permisos pueden tardar unos minutos en propagarse.
 
 * * *
 

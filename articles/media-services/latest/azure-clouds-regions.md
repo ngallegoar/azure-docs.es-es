@@ -3,20 +3,21 @@ title: Nubes y regiones en las que Azure Media Services v3 está disponible
 description: En este artículo se trata sobre las nubes y regiones de Azure donde Azure Media Services v3 está disponible.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
+ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382977"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196239"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nubes y regiones donde existe Azure Media Services v3
 
@@ -32,6 +33,19 @@ Azure Media Services v3 está disponible a través del manifiesto de Azure Resou
 | [StandardEncoderPreset](encoding-concept.md) | Disponible | Disponible | Disponible | Disponible |
 | [LiveEvents](live-streaming-overview.md) | Disponible | Disponible | Disponible | Disponible |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponible | Disponible | Disponible | Disponible |
+
+## <a name="feature-availability-in-preview"></a>Disponibilidad de características en versión preliminar
+
+[LiveTranscription](live-transcription.md) está disponible en las siguientes regiones:
+
+- Sudeste de Asia
+- Oeste de Europa
+- Norte de Europa
+- Este de EE. UU.
+- Centro de EE. UU.
+- Centro-sur de EE. UU.
+- Oeste de EE. UU. 2
+- Sur de Brasil
 
 ## <a name="regionsgeographieslocations"></a>Regiones, zonas geográficas y ubicaciones
 

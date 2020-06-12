@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11166d5578b90fe6ec936389bcd173c4c26b4852
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235876"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171249"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -23,7 +23,7 @@ Explorador de Microsoft Azure Storage es una aplicación independiente que fac
 
 ![Explorador de Microsoft Azure Storage][0]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -33,7 +33,7 @@ El Explorador de Storage es compatible con las siguientes versiones de Windows:
 * Windows 8
 * Windows 7
 
-En todas las versiones de Windows, el Explorador de Storage requiere .NET Framework 4.6.2 o posterior.
+En todas las versiones de Windows, el Explorador de Storage requiere como mínimo .NET Framework 4.7.2.
 
 # <a name="macos"></a>[macOS](#tab/macos)
 

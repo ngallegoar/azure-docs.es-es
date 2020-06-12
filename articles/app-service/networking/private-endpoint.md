@@ -4,23 +4,24 @@ description: Conexión privada a una aplicación web mediante el punto de conexi
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4c48a2fad927812cc45543243b48a2df81acf73b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846960"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295446"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)
 
 > [!Note]
 > Con la actualización de versión preliminar, publicamos la característica de protección de filtración de datos.
-> La versión preliminar está disponible en las regiones del este y oeste 2 de EE. UU. para todas las funciones PremiumV2 de Windows y Linux Web Apps y Elastic Premium. 
+>
+> La versión preliminar está disponible en todas las regiones públicas para las funciones Premium V2 de Windows, Linux Web Apps y las funciones de Elastic Premium. 
 
 Puede usar el punto de conexión privado para la aplicación web de Azure a fin de permitir que los clientes ubicados en la red privada accedan de forma segura a la aplicación a través de un vínculo privado. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre un cliente en la red privada y la aplicación web atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
 

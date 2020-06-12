@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064995"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194482"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
@@ -49,8 +49,8 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 -   Puede agregar entradas DNS a la lista blanca de Service Bus en vez de incluir todas las direcciones IP de Azure en la lista blanca del firewall (en caso necesario). Más detalles aquí.
 -   Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob en bloques, y viceversa (el límite anterior era 195 GB).
 -   Solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
--   Solucionado: índice fuera de rango al copiar de Document DB a una instancia de SQL Server local con la característica de idempotencia.
--   Solucionado: el script de limpieza SQL no funciona en la instancia de SQL Server local desde el Asistente para copia.
+-   Solucionado: problema de índice fuera de rango al copiar de Document DB a SQL Server con la característica de idempotencia.
+-   Solucionado: el script de limpieza SQL no funciona con SQL Server desde el Asistente para copia.
 -   Solucionado: el nombre de columna con espacio al final no funciona en la actividad de copia.
 
 ## <a name="28662833"></a>2.8.66283.3
@@ -111,7 +111,7 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 *  El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows).
 *  Admite el uso de Azure Cosmos DB como origen o destino para almacenes de datos locales
 *  Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida.
-*  Le permite conectarse a la instancia local de SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.  
+*  Le permite conectarse a SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
@@ -126,7 +126,7 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
     *  Controles reorganizados y simplificados.
 
     *  Puede copiar datos desde un almacenamiento mediante la [herramienta de copia sin código](data-factory-copy-data-wizard-tutorial.md). Para obtener más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) .
-*  Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Azure Machine Learning.
+*  Puede usar Data Management Gateway para transferir los datos directamente desde una base de datos de SQL Server hasta Azure Machine Learning.
 
 *  Mejoras en el rendimiento
 

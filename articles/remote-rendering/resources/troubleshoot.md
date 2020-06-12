@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844578"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018827"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -29,7 +29,7 @@ Asegúrese de que los firewalls (en el dispositivo, dentro de los enrutadores, e
 * **8266 (TCP + UDP)** : necesario para la transferencia de datos
 * **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)** : necesario para [ArrInspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Error "Desconectado: VideoFormatNotAvailable"
+## <a name="error-disconnected-videoformatnotavailable"></a>Error "`Disconnected: VideoFormatNotAvailable`"
 
 Compruebe que la GPU admita la descodificación de vídeo de hardware. Consulte [Equipo de desarrollo](../overview/system-requirements.md#development-pc).
 
@@ -37,7 +37,7 @@ Si está trabajando en un equipo portátil con dos GPU, es posible que la GPU qu
 
 ## <a name="h265-codec-not-available"></a>Códec H265 no disponible
 
-Hay dos razones por las que el servidor puede rechazar la conexión debido a un error de **códec no disponible**.
+Hay dos razones por las que el servidor puede rechazar la conexión con un error `codec not available`.
 
 **El códec H265 no está instalado:**
 
@@ -107,7 +107,7 @@ Si estos dos pasos no ayudan, debe averiguar si el cliente recibe fotogramas de 
 
 Consulte las [limitaciones específicas del tamaño de la máquina virtual ](../reference/limits.md#overall-number-of-polygons).
 
-**El modelo no está dentro del tronco de la vista:**
+**El modelo no está dentro del tronco de la cámara:**
 
 En muchos casos, el modelo se muestra correctamente pero se encuentra fuera del tronco de la cámara. Un motivo habitual es que el modelo se ha exportado con una dinamización muy descentrada y el plano de recorte lejano de la cámara lo ha recortado. Ayuda a consultar el cuadro de límite del modelo mediante programación y a visualizar el cuadro con Unity como un cuadro de línea o imprimir sus valores en el registro de depuración.
 
@@ -142,7 +142,7 @@ Puede haber dos problemas con este cuadro de límite que den lugar a una geometr
 
 **La canalización de representación de Unity no incluye los enlaces de representación:**
 
-Azure Remote Rendering se enlaza a la canalización de representación de Unity para realizar la composición de fotogramas con el vídeo y para volver a proyectarla. Para comprobar que los enlaces existen, abra el menú *Ventana > Análisis > Frame Debugger*. Habilite esta opción y asegúrese de que existen dos entradas de `HolographicRemotingCallbackPass` en la canalización:
+Azure Remote Rendering se enlaza a la canalización de representación de Unity para realizar la composición de fotogramas con el vídeo y para volver a proyectarla. Para comprobar que estos enlaces existen, abra el menú *:::no-loc text="Window > Analysis > Frame debugger":::* . Habilite esta opción y asegúrese de que existen dos entradas de `HolographicRemotingCallbackPass` en la canalización:
 
 ![Unity Frame Debugger](./media/troubleshoot-unity-pipeline.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe7d6d4e70bc55a6a91d3c1a1b910db4b5469fe6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77066003"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197070"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Uso de Apache Ambari en Azure HDInsight
 
@@ -56,7 +56,7 @@ Es la secuencia de inicio del servicio en el momento del arranque:
 
 ## <a name="ambari-database"></a>Base de datos de Ambari
 
-HDInsight crea la base de datos SQL Azure en segundo plano para que funcione como la base de datos del servidor de Ambari. El [nivel de servicio es S0](../sql-database/sql-database-elastic-pool-scale.md) de forma predeterminada.
+HDInsight crea la base de datos en SQL Database en segundo plano para que funcione como la base de datos del servidor de Ambari. El [nivel de servicio es S0](../azure-sql/database/elastic-pool-scale.md) de forma predeterminada.
 
 En el caso de clústeres con un número de nodos de trabajo mayor que 16 al crear el clúster, S2 es el nivel de servicio de base de datos.
 
@@ -71,7 +71,7 @@ No modifique nunca manualmente ningún archivo de configuración en ningún nodo
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Administración de clústeres de HDInsight mediante la API REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener más soporte técnico:
 
 * Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
 

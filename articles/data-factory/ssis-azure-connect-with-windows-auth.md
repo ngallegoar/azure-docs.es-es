@@ -10,12 +10,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 6f2983b375e3eeb73a0372e123d4d2763b3c65ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 5dd8e483751010a6090e0ec415c40d381e978fd9
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629395"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118802"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Acceso a los almacenes de datos y los recursos compartidos de archivos con la autenticación de Windows desde paquetes SSIS en Azure
 
@@ -34,7 +34,7 @@ Puede usar la autenticación de Windows para acceder a almacenes de datos, como 
 > [!WARNING]
 > Si no usa ninguno de los métodos anteriores para acceder a almacenes de datos con autenticación de Windows, los paquetes que dependen de la autenticación de Windows no pueden acceder a ellos y se produce un error en tiempo de ejecución. 
 
-En el resto de este artículo se describe cómo configurar el catálogo de SSIS (SSISDB) hospedado en un servidor o una instancia administrada de Azure SQL Database para ejecutar paquetes en Azure-SSIS IR que usan la autenticación de Windows para acceder a los almacenes de datos. 
+En el resto de este artículo se describe cómo configurar el catálogo de SSIS (SSISDB) hospedado en SQL Database o una instancia administrada de SQL para ejecutar paquetes en Azure-SSIS IR que usan la autenticación de Windows para acceder a los almacenes de datos. 
 
 ## <a name="you-can-only-use-one-set-of-credentials"></a>Solo se puede usar un conjunto de credenciales
 
@@ -44,7 +44,7 @@ Al usar la autenticación de Windows en un paquete SSIS, solo puede usar un conj
 
 Para proporcionar credenciales de dominio que permitan que los paquetes usen la autenticación de Windows para acceder a los almacenes de datos en el entorno local, realice estos pasos:
 
-1. Con SQL Server Management Studio (SSMS) u otra herramienta, conéctese al servidor o a la instancia administrada de Azure SQL Database que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SQL Server Management Studio (SSMS) u otra herramienta, conéctese a SQL Database o a la instancia administrada de SQL que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB como base de datos actual, abra una ventana de consulta.
 
@@ -60,7 +60,7 @@ Para proporcionar credenciales de dominio que permitan que los paquetes usen la 
 
 Para ver las credenciales de dominio activas, haga lo siguiente:
 
-1. Con SSMS u otra herramienta, conéctese al servidor o a la instancia administrada de Azure SQL Database que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS u otra herramienta, conéctese a SQL Database o a la instancia administrada de SQL que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB como base de datos actual, abra una ventana de consulta.
 
@@ -75,7 +75,7 @@ Para ver las credenciales de dominio activas, haga lo siguiente:
 ### <a name="clear-domain-credentials"></a>Borrar las credenciales de dominio
 Para borrar y eliminar las credenciales que proporcionó tal como se describe en este artículo, haga lo siguiente:
 
-1. Con SSMS u otra herramienta, conéctese al servidor o a la instancia administrada de Azure SQL Database que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS u otra herramienta, conéctese a SQL Database o a la instancia administrada de SQL que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB como base de datos actual, abra una ventana de consulta.
 
@@ -99,7 +99,7 @@ Para comprobar que puede conectarse a una instancia local de SQL Server, haga lo
 
 3. En SSMS, compruebe que puede conectarse a SQL Server en el entorno local.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para acceder a una instancia local de SQL Server desde paquetes que se ejecutan en Azure, lleve a cabo los pasos siguientes:
 
@@ -126,7 +126,7 @@ Para comprobar que puede conectarse a un recurso compartido de archivos local, h
 
 3. Compruebe que se devuelve la lista de directorios del recurso compartido de archivos local.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para acceder a un recurso compartido de archivos en el entorno local desde paquetes que se ejecutan en Azure, realice lo siguiente:
 
@@ -140,7 +140,7 @@ Para acceder a un recurso compartido de archivos en el entorno local desde paque
 
 Para acceder a un recurso compartido de archivos en una máquina virtual de Azure desde paquetes que se ejecutan en Azure, realice lo siguiente:
 
-1. Con SSMS u otra herramienta, conéctese al servidor o a la instancia administrada de Azure SQL Database que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS u otra herramienta, conéctese a SQL Database o a la instancia administrada de SQL que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB como base de datos actual, abra una ventana de consulta.
 
@@ -156,7 +156,7 @@ Para obtener más información acerca de Azure Files, consulte [Azure Files](htt
 
 Para acceder a un recurso compartido de archivos en Azure Files desde paquetes que se ejecutan en Azure, realice lo siguiente:
 
-1. Con SSMS u otra herramienta, conéctese al servidor o a la instancia administrada de Azure SQL Database que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Con SSMS u otra herramienta, conéctese a SQL Database o a la instancia administrada de SQL que hospedan SSISDB. Para más información, consulte [Conectarse a SSISDB en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Con SSISDB como base de datos actual, abra una ventana de consulta.
 

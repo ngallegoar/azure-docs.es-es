@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/02/2020
+ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890866"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298608"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flujo de datos (DFS)
 
@@ -192,6 +192,16 @@ Este código actuará como la función ```string_agg()``` de T-SQL y agregará v
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
 Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Recuento del número de actualizaciones, upserts, inserciones y eliminaciones
+Cuando se usa una transformación Alter Row, es posible que quiera contar el número de actualizaciones, upserts, inserciones y eliminaciones que resultan de las directivas Alter Row. Agregue una transformación agregada después de Alter Row y pegue este script de Data Flow en la definición de agregado para esos recuentos:
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+        inserts = countIf(isInsert(), 1),
+        upserts = countIf(isUpsert(), 1),
+        deletes = countIf(isDelete(),1)) ~> RowCount
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

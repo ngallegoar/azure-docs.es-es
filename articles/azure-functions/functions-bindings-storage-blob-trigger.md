@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: c594f269d32bc87b2389c430343f6480e97bc5f6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084964"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142255"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
 El desencadenador de Blob Storage inicia una función cuando se detecta un blob nuevo o actualizado. El contenido del blob se proporciona a modo de [entrada para la función](./functions-bindings-storage-blob-input.md).
 
-El desencadenador de Azure Blob Storage necesita una cuenta de almacenamiento de uso general. Para usar una cuenta solo para blobs, o si la aplicación tiene necesidades especializadas, revise las alternativas al uso de este desencadenador.
+El desencadenador de Azure Blob Storage necesita una cuenta de almacenamiento de uso general. También se admiten las cuentas de almacenamiento v2 con [espacios de nombres jerárquicos](../storage/blobs/data-lake-storage-namespace.md). Para usar una cuenta solo para blobs, o si la aplicación tiene necesidades especializadas, revise las alternativas al uso de este desencadenador.
 
 Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](./functions-bindings-storage-blob.md).
 

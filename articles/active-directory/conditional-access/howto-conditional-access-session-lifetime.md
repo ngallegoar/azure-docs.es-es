@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc75b300704ef7f8218134c9d384b0718fca1e97
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230796"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220695"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -49,7 +49,11 @@ La configuración de la frecuencia de inicio de sesión funciona con aplicacione
 - SharePoint y OneDrive
 - Cliente web de Teams
 - Dynamics CRM Online
-- Portal de Azure
+- Azure portal
+
+### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frecuencia de inicio de sesión de usuario y autenticación multifactor
+
+Anteriormente, la frecuencia de inicio de sesión se aplicaba solo a la autenticación del primer factor en los dispositivos unidos a Azure AD, unidos a Azure AD híbrido y registrados en Azure AD. No había ninguna manera fácil de que nuestros clientes reforzaran la autenticación multifactor (MFA) en esos dispositivos. Teniendo en cuenta los comentarios de los clientes, ahora la frecuencia de inicio de sesión se aplica también a la autenticación multifactor.
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frecuencia de inicio de sesión de usuario e identidades de dispositivos
 

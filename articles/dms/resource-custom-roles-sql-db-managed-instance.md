@@ -1,7 +1,7 @@
 ---
 title: 'Roles personalizados: migraciones de SQL Server en línea a instancias administradas de SQL'
 titleSuffix: Azure Database Migration Service
-description: Aprenda a usar roles personalizados para las migraciones en línea de una instancia administrada de SQL Server a Azure SQL Database.
+description: Obtenga información sobre cómo usar roles personalizados para las migraciones en línea de SQL Server a una instancia administrada de Azure SQL.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d9f222818726fa81dd28fe70042cbfc51162e27
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254938"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187451"
 ---
-# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Roles personalizados para migraciones en línea de una instancia administrada desde SQL Server a SQL Database
+# <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Roles personalizados para migraciones en línea de SQL Server a una instancia administrada de Azure SQL
 
 Azure Database Migration Service usa un id. de aplicación para interactuar con los servicios de Azure. El id. de aplicación requiere el rol de colaborador en el nivel de suscripción (que muchos departamentos de seguridad corporativos no permitirán) o la creación de roles personalizados que concedan los permisos específicos que el servicio Azure Database Migrations requiere. Dado que hay un límite de 2000 roles personalizados en Azure Active Directory, es aconsejable combinar todos los permisos que requiere específicamente el id. de aplicación en uno o dos roles personalizados y, a continuación, conceder al id. de aplicación el rol personalizado en objetos o grupos de recursos específicos (frente al nivel de suscripción). Si el número de roles personalizados no es un problema, puede dividir los roles personalizados por tipo de recurso para crear tres roles personalizados en total, como se describe a continuación.
 
@@ -30,7 +30,7 @@ La sección AssignableScopes de la cadena JSON de definición de roles permite c
 Actualmente se recomienda crear un mínimo de dos roles personalizados para el id. de aplicación, uno en el nivel de recurso y el otro en el nivel de suscripción.
 
 > [!NOTE]
-> Es posible que finalmente se quite el último requisito de rol personalizado cuando se implemente nuevo código de instancia administrada de SQL Database en Azure.
+> Es posible que con el tiempo se quite el último requisito de rol personalizado cuando se implemente nuevo código de instancia administrada de SQL en Azure.
 
 **Rol personalizado para el id. de aplicación**. Este rol es necesario para la migración de Azure Database Migration Service en el nivel de *recurso* o *grupo de recursos* (para más información sobre el id. de aplicación, consulte el artículo [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
 
@@ -87,14 +87,14 @@ Para más información, consulte el artículo [Roles personalizados en los recur
 
 Después de crear estos roles personalizados, debe agregar las asignaciones de roles a los usuarios y los id. de aplicación a los recursos o grupos de recursos adecuados:
 
-* El rol "DMS Role - App ID" se debe conceder al id. de aplicación que se usará para las migraciones, y también en la cuenta de almacenamiento, la instancia de Azure Database Migration Service y los niveles de recurso de instancia administrada de SQL Database.
+* Se debe conceder el rol "DMS Role - App ID" al id. de aplicación que se usará para las migraciones, y también en la cuenta de almacenamiento, la instancia de Azure Database Migration Service y los niveles de recurso de instancia administrada de SQL.
 * El rol "DMS Role - App ID - Sub" debe concederse al id. de aplicación en el nivel de suscripción (se producirá un error si se concede en el recurso o grupo de recursos). Este requisito es temporal hasta que se implemente una actualización de código.
 
 ## <a name="expanded-number-of-roles"></a>Número expandido de roles
 
 Si el número de roles personalizados en Azure Active Directory no es un problema, se recomienda crear un total de tres roles. Seguirá necesitando el rol "DMS Role - App ID – Sub", pero el rol "DMS Role - App ID" anterior se divide por tipo de recurso en dos roles diferentes.
 
-**Rol personalizado para el id. de aplicación de la instancia administrada de SQL Database**
+**Rol personalizado para el id. de aplicación de la instancia administrada de SQL**
 
 ```json
 {

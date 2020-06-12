@@ -1,14 +1,14 @@
 ---
 title: Administración de recursos delegados de Azure
 description: Los servicios administrados permiten a los proveedores de servicios vender ofertas de administración de recursos a los clientes de Azure Marketplace.
-ms.date: 04/01/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548416"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219072"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 
@@ -40,7 +40,7 @@ En un nivel alto, este es el funcionamiento de la administración de recursos de
 3. Una vez incorporado el cliente, los usuarios autorizados pueden iniciar sesión en el inquilino del proveedor de servicios y realizar tareas de administración en el ámbito del cliente determinado, en función del acceso que haya definido.
 
 > [!NOTE]
-> No se admite la delegación de una suscripción entre dos inquilinos que se encuentren en nubes independientes.
+> Puede administrar recursos delegados que estén ubicados en diferentes [regiones](../../availability-zones/az-overview.md#regions). Sin embargo, no se admite la delegación de suscripciones entre una [nube nacional](../../active-directory/develop/authentication-national-cloud.md) y la nube pública de Azure o entre dos nubes nacionales independientes.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Soporte técnico para la administración de recursos delegados de Azure
 

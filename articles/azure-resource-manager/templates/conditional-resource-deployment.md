@@ -2,17 +2,20 @@
 title: Implementación condicional con plantillas
 description: En este artículo se describe cómo realizar la implementación condicional de un recurso en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/01/2020
+ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153427"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259327"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implementación condicional en las plantillas de ARM
 
 A veces, tiene que implementar un recurso en una plantilla de Azure Resource Manager (ARM). Use el elemento `condition` para especificar si se implementó el recurso. El valor de este elemento se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso.
+
+> [!NOTE]
+> La implementación condicional no se aplica en cascada a los [recursos secundarios](child-resource-name-type.md). Si desea implementar condicionalmente un recurso y sus recursos secundarios, debe aplicar la misma condición a cada tipo de recurso.
 
 ## <a name="new-or-existing-resource"></a>Recurso nuevo o existente
 
@@ -81,7 +84,7 @@ Use la función [if](template-functions-logical.md#if) para asegurarse de que la
 
 Puede establecer un [recurso como dependiente](define-resource-dependency.md) en un recurso condicional exactamente como lo haría con cualquier otro recurso. Cuando un recurso condicional no está implementado, Azure Resource Manager lo quita automáticamente de las dependencias necesarias.
 
-## <a name="condition-with-complete-mode"></a>Condición con el modo completo
+## <a name="complete-mode"></a>Modo completo
 
 Si implementa una plantilla con [modo completo](deployment-modes.md) y no se implementa un recurso porque la condición se evalúa como false, el resultado depende de la versión de API REST que use para implementar la plantilla. Si usa una versión anterior a 2019-05-10, el recurso **no se elimina**. Con 2019-05-10 o posterior, el recurso **se elimina**. Las versiones más recientes de Azure PowerShell y la CLI de Azure eliminan el recurso cuando la condición es falsa.
 

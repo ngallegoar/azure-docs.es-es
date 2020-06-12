@@ -3,12 +3,12 @@ title: Copia de seguridad de cargas de trabajo de SQL Server en Azure Stack
 description: En este artículo, aprenda a configurar Microsoft Azure Backup Server (MABS) para proteger las bases de datos SQL Server en Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172306"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192978"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Copia de seguridad de SQL Server en Azure Stack
 
@@ -65,7 +65,7 @@ La administración de la copia de seguridad de bases de datos de SQL Server en A
 
     ![Método de replicación inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos SQL Server) desde el servidor de producción (máquina SQL Server) a Azure Backup Server. Estos datos pueden ser grandes y la transferencia de los datos a través de la red podría superar el ancho de banda. Por este motivo, puede optar por transferir la copia de seguridad inicial: **Manualmente** (mediante un soporte físico extraíble) para evitar la congestión del ancho de banda, o **Automáticamente a través de la red** (en un momento determinado).
+    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos SQL Server) desde el servidor de producción (equipo con SQL Server) a Azure Backup Server. Estos datos pueden ser grandes y la transferencia de los datos a través de la red podría superar el ancho de banda. Por este motivo, puede optar por transferir la copia de seguridad inicial: **Manualmente** (mediante un soporte físico extraíble) para evitar la congestión del ancho de banda, o **Automáticamente a través de la red** (en un momento determinado).
 
     Una vez completada la copia de seguridad inicial, el resto de las copias de seguridad son copias de seguridad incrementales sobre la copia de seguridad inicial. Las copias de seguridad incrementales tienden a ser pequeñas y se transfieren fácilmente a través de la red.
 
@@ -73,7 +73,7 @@ La administración de la copia de seguridad de bases de datos de SQL Server en A
 
     ![Comprobación de coherencia](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server puede realizar una comprobación de coherencia de la integridad del punto de copia de seguridad. Azure Backup Server calcula la suma de comprobación del archivo de copia de seguridad en el servidor de producción (máquina de SQL Server en este escenario) y los datos de copia de seguridad para ese archivo. Si surge un conflicto, se da por sentado que el archivo con copia de seguridad en Azure Backup Server está dañado. Azure Backup Server rectifica los datos de copia de seguridad mediante el envío de los bloques correspondientes a la suma de comprobación no coincidente. Como las comprobaciones de coherencia requieren un alto rendimiento, puede programarla o ejecutarla de manera automática.
+    Azure Backup Server puede realizar una comprobación de coherencia de la integridad del punto de copia de seguridad. Azure Backup Server calcula la suma de comprobación del archivo de copia de seguridad en el servidor de producción (equipo con SQL Server en este escenario) y los datos de copia de seguridad para ese archivo. Si surge un conflicto, se da por sentado que el archivo con copia de seguridad en Azure Backup Server está dañado. Azure Backup Server rectifica los datos de copia de seguridad mediante el envío de los bloques correspondientes a la suma de comprobación no coincidente. Como las comprobaciones de coherencia requieren un alto rendimiento, puede programarla o ejecutarla de manera automática.
 
 10. Para especificar la protección en línea de los orígenes de datos, seleccione las bases de datos que se van proteger en Azure y haga clic en **Siguiente**.
 

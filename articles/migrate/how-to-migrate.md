@@ -3,12 +3,12 @@ title: Incorporación de herramientas de migración en Azure Migrate
 description: Aprenda a agregar herramientas de migración en Azure Migrate.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901464"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195819"
 ---
 # <a name="add-migration-tools"></a>Incorporación de herramientas de migración
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo agregar herramientas de migración en [Azure
 2. Seleccione el escenario de migración que quiere usar:
 
     - Para migrar máquinas y cargas de trabajo a Azure, seleccione **Evaluar y migrar servidores**.
-    - Para migrar máquinas SQL locales, seleccione **Evaluar y migrar bases de datos**.
+    - Para migrar bases de datos de SQL Server locales, seleccione **Evaluar y migrar bases de datos**.
     - Para migrar aplicaciones web locales, seleccione **Evaluar y migrar aplicaciones web**.
     - Para migrar grandes cantidades de datos locales a Azure en el modo sin conexión, seleccione **Solicitar una instancia de Data Box**.
 

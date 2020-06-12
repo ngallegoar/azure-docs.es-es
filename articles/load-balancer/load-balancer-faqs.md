@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 94a2398879007e7ecd6d2f1920157eb4627f33cb
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005150"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014934"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -32,6 +32,9 @@ Consulte la [lista de plantillas de inicio rápido de Azure Load Balancer](htt
 
 ## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>¿En qué se diferencian las reglas NAT de entrada de las reglas de equilibrio de carga?
 Las reglas NAT se usan para especificar un recurso de back-end al que enrutar el tráfico. Por ejemplo, la configuración de un puerto de equilibrador de carga específico para enviar el tráfico RDP a una máquina virtual específica. Las reglas de equilibrio de carga se usan para especificar un grupo de recursos de back-end para enrutar el tráfico y equilibrar la carga en cada instancia. Por ejemplo, una regla de equilibrador de carga puede enrutar los paquetes TCP en el puerto 80 del equilibrador de carga en un grupo de servidores web.
+
+## <a name="what-is-ip-1686312916"></a>¿Qué es la IP 168.63.129.16?
+La dirección IP virtual para el host etiquetada como equilibrador de carga de la infraestructura de Azure en la que se originan los sondeos del estado de Azure. Al configurar las instancias de back-end, deben permitir que el tráfico procedente de esta dirección IP responda correctamente a los sondeos de estado. Esta regla no interactúa con el acceso al front-end de Load Balancer. Si no usa Azure Load Balancer, puede anular esta regla. [Aquí](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) encontrará más información sobre las etiquetas de servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si su pregunta no aparece en la lista anterior, envíe sus comentarios sobre esta página junto con su pregunta. Esto creará un problema de GitHub para que el equipo del producto se asegure de que las preguntas de todos nuestros valiosos clientes se respondan.

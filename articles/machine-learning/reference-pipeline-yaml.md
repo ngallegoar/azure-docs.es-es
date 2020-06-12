@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: cee6de8fda45c429d0c74a3ecdc966b49e092567
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0bf5a722c611f4d1c5446eb739fdd95b7edbc934
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208506"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170535"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definición de canalizaciones de aprendizaje automático en YAML
 
@@ -26,6 +26,7 @@ En la tabla siguiente se muestra lo que se admite y no se admite actualmente al 
 | Tipo de paso | Se admite? |
 | ----- | :-----: |
 | PythonScriptStep | Sí |
+| ParallelRunStep | Sí |
 | AdlaStep | Sí |
 | AzureBatchStep | Sí |
 | DatabricksStep | Sí |
@@ -111,6 +112,7 @@ Los pasos definen un entorno computacional, junto con los archivos que se ejecut
 | `DatabricsStep` | Agrega un bloc de notas de Databricks, un script de Python o un archivo JAR. Corresponde a la clase [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py). |
 | `DataTransferStep` | Transfiere datos entre opciones de almacenamiento. Corresponde a la clase [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). |
 | `PythonScriptStep` | Ejecuta un script de Python. Corresponde a la clase [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). |
+| `ParallelRunStep` | Ejecuta un script de Python para procesar grandes cantidades de datos de forma asincrónica y en paralelo. Corresponde a la clase [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py). |
 
 ### <a name="adla-step"></a>Paso de ADLA
 
@@ -358,6 +360,58 @@ pipeline:
             outputs:
                 OutputData:
                     destination: Output4
+                    datastore: workspaceblobstore
+                    bind_mode: mount
+```
+
+### <a name="parallel-run-step"></a>Paso de ejecución en paralelo
+
+| Clave de YAML | Descripción |
+| ----- | ----- |
+| `inputs` | Las entradas pueden ser [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py) o [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Las salidas pueden ser [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) o [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
+| `script_name` | El nombre del script de Python (relativo a `source_directory`). |
+| `source_directory` | Directorio que contiene el script, el entorno de Conda, etc. |
+| `parallel_run_config` | La ruta de acceso a un archivo `parallel_run_config.yml`. Este archivo es una representación YAML de la clase [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py). |
+| `allow_reuse` | Determina si el paso debe volver a usar los resultados anteriores cuando se ejecute de nuevo con la misma configuración. |
+
+El ejemplo siguiente contiene un paso de ejecución en paralelo:
+
+```yaml
+pipeline:
+    description: SamplePipelineFromYaml
+    default_compute: cpu-cluster
+    data_references:
+        MyMinistInput:
+            dataset_name: mnist_sample_data
+    parameters:
+        PipelineParamTimeout:
+            type: int
+            default: 600
+    steps:        
+        Step1:
+            parallel_run_config: "yaml/parallel_run_config.yml"
+            type: "ParallelRunStep"
+            name: "parallel-run-step-1"
+            allow_reuse: True
+            arguments:
+            - "--progress_update_timeout"
+            - parameter:timeout_parameter
+            - "--side_input"
+            - side_input:SideInputData
+            parameters:
+                timeout_parameter:
+                    source: PipelineParamTimeout
+            inputs:
+                InputData:
+                    source: MyMinistInput
+            side_inputs:
+                SideInputData:
+                    source: Output4
+                    bind_mode: mount
+            outputs:
+                OutputDataStep2:
+                    destination: Output5
                     datastore: workspaceblobstore
                     bind_mode: mount
 ```

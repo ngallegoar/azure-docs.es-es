@@ -6,184 +6,53 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/06/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 60cd6b8ba2cbfca497ae1b92113b12e85a34bf26
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 32e80c50ff6f543679852cbd7e5ce9bda92d01e1
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778163"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140956"
 ---
-## <a name="general-entity-types"></a>Tipos de entidades generales:
-
-### <a name="person"></a>Person
-
-Reconocimiento de nombres de persona en el texto.
-
-Lenguajes:
-* Versión preliminar pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` y `Turkish`
-
-| Nombre del subtipo | Descripción                                                      | Disponible a partir de la versión del modelo |
-|--------------|------------------------------------------------------------------|---------------------------------------|
-| N/D          | Nombres de persona reconocidos, como `Bill Gates` o `Marie Curie` | `2019-10-01`                          | 
-
-### <a name="persontype"></a>PersonType
-Tipo de trabajo o rol mantenido por una persona.
-
-Lenguajes:
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                                                                                | Disponible a partir de la versión del modelo |
-|--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Tipos de trabajo, por ejemplo `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
-
-### <a name="location"></a>Location
-
-Puntos de referencia naturales y humanos, estructuras, características geográficas y entidades geopolíticas.
-
-Lenguajes:
-
-* Versión preliminar pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` y `Turkish`
-
-| Nombre del subtipo              | Descripción                                                                              | Disponible a partir de la versión del modelo |
-|---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D                       | Organizaciones, como `Atlantic Ocean`, `library`, `Eiffel Tower` o `Statue of Liberty`  | `2019-10-01`                           |
-| Entidad geopolítica (GPE): solo inglés| Ciudades, países o regiones, estados como, por ejemplo, `Seattle`, `Pennsylvania`, `South Africa` y `Tokyo` | `2020-02-01`                           |
-
-### <a name="organization"></a>Organización  
-
-Organizaciones, corporaciones, agencias y otros grupos de personas reconocidos. Por ejemplo: empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas. Las nacionalidades y las religiones no se incluyen en este tipo de entidad. 
-
-Lenguajes: 
-
-* Versión preliminar pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` y `Turkish`
-
-| Nombre del subtipo | Descripción                                                                                             | Disponible a partir de la versión del modelo |
-|--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Organizaciones, como `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration`,`VOA` | `2019-10-01`                           |
-
-### <a name="event"></a>Evento  
-
-Eventos históricos, sociales y naturales.  
-
-Lenguajes: 
-
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                                                            | Disponible a partir de la versión del modelo |
-|--------------|------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Eventos como `wedding`, `hurricane`, `car accident`, `solar eclipse`, `American Revolution` | `2020-02-01`                           |
-
-### <a name="product"></a>Producto  
-
-Objetos físicos de varias categorías.  
-
-Lenguajes: 
-
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                                                                        | Disponible a partir de la versión del modelo |
-|--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Por ejemplo, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
-| Procesamiento    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
-
-### <a name="skill"></a>Habilidad  
-
-Una entidad que describe una funcionalidad o experiencia.  
-
-Lenguajes: 
-
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                                                                 | Disponible a partir de la versión del modelo |
-|--------------|-----------------------------------------------------------------------------|----------------------------------------|
-| N/D          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
-
-### <a name="phone-number"></a>Número de teléfono
-
-Números de teléfono (solo números de teléfono de EE. UU.). 
-
-Lenguajes:
-
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                                    | Disponible a partir de la versión del modelo |
-|--------------|------------------------------------------------|----------------------------------------|
-| N/D          | Números de teléfono de EE. UU., como `(312) 555-0176`. | `2019-10-01`                           |
-
-### <a name="email"></a>Email
-
-Dirección de correo electrónico. 
-
-Lenguajes:
-
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                                      | Disponible a partir de la versión del modelo |
-|--------------|--------------------------------------------------|----------------------------------------|
-| N/D          | Dirección de correo electrónico, por ejemplo `support@contoso.com` | `2019-10-01`                           |
-
-### <a name="url"></a>URL
-
-Direcciones URL de Internet.
-
-Lenguajes:
-
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                                          | Disponible a partir de la versión del modelo |
-|--------------|------------------------------------------------------|----------------------------------------|
-| N/D          | Direcciones URL a sitios web, como `https://www.bing.com`. | `2019-10-01`                           |
-
-### <a name="ip-address"></a>Dirección IP
-
-Dirección de protocolo de Internet
-
-Lenguajes:
-
-* Versión preliminar pública: `English`
-
-| Nombre del subtipo | Descripción                              | Disponible a partir de la versión del modelo |
-|--------------|------------------------------------------|----------------------------------------|
-| N/D          | Dirección de red, como `10.0.0.101` | `2019-10-01`                           |
-
-###  <a name="datetime"></a>DateTime
-
-Entidades de fecha y hora. 
-
-* Disponible a partir de la versión del modelo `2019-10-01`
-
-Lenguajes:
-
-* Versión preliminar pública: `Chinese-Simplified`, `English`, `French`, `German` y `Spanish`
-
-| Nombre del subtipo    | Ejemplos                     |
-|-------------|------------------------------|
-| N/D         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
-| Date  | `May 2nd, 2017`, `05/02/2017`       |
-| Time     | `8:15`, `6AM`              |
-| DateRange    | `August 2nd to August 5th`         |
-| TimeRange   | `4-6PM`, `10:00AM to Noon`          |
-| Duration | `2.5 minutes`, `one and a half hours`         |
-| Set | `every Saturday`         |
-
-###  <a name="quantity"></a>Cantidad
-
-Números y cantidades numéricas. 
-
-* Disponible a partir de la versión del modelo `2019-10-01`.
-
-Lenguajes:
-
-* Versión preliminar pública: `Chinese-Simplified`, `English`, `French`, `German` y `Spanish`
-
-| Nombre del subtipo    | Ejemplos                     |
-|-------------|------------------------------|
-| Number         | `6`, `six`                   |
-| Porcentaje  | `50%`, `fifty percent`       |
-| Ordinal     | `2nd`, `second`              |
-| Age         | `90 day old`, `30 years old` |
-| Moneda    | `$10.99`, `&euro;30.00`           |
-| Dimensión   | `10 miles`, `40 cm`          |
-| Temperatura | `32 degrees`, `10°C`         |
+Se devuelven las siguientes categorías de entidad al enviar solicitudes al punto de conexión `/entities/recognition/general`.
+
+| Category   | Subcategoría | Descripción                          | Versión de modelo inicial                                                    | Notas |
+|------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
+| Person     | N/D         | Nombres de personas.  | `2019-10-01`  | También lo devuelve NER v2.1 |
+| PersonType | N/D         | Tipos de trabajo o roles mantenido por una persona. | `2020-02-01` | |
+|Location    | N/D         | Puntos de referencia naturales y humanos, estructuras, características geográficas y entidades geopolíticas.     |  `2019-10-01` | También lo devuelve NER v2.1 |
+|Location     | Entidad geopolítica (GPE)        | Ciudades, países o regiones, estados.      | `2020-02-01` | |
+|Location     | Estructural                       | Estructuras hechas por el hombre. | `2020-04-01` | |
+|Location     | Geográfica       | Características geográficas y naturales, como ríos, océanos y desiertos. |  `2020-04-01` | |
+|Organización  | N/D | Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas.  | `2019-10-01` | Las nacionalidades y las religiones no se incluyen en este tipo de entidad. También lo devuelve NER v2.1 |
+|Organización | Medicina | Empresas y grupos médicos. | `2020-04-01` |  |
+|Organización | Bolsa de valores | Grupos de bolsa de valores. | `2020-04-01` | |
+| Organización | Deportes | Organizaciones relacionadas con los deportes. | `2020-04-01` |  |
+| Evento  | N/D | Eventos históricos, sociales y naturales. | `2020-02-01` |  |
+| Evento  | Cultural | Eventos culturales y días festivos. | `2020-04-01` | |
+| Evento  | Natural | Eventos de origen natural. | `2020-04-01` |  |
+| Evento  | Deportes | Eventos deportivos.  | `2020-04-01` | |
+| Producto | N/D | Objetos físicos de varias categorías. | `2020-02-01` | |
+| Producto | Productos informáticos | Productos informáticos. |  `2020-02-01 ` | |
+| Habilidad | N/D | Capacidad, aptitud o experiencia. | `2020-02-01` |  |
+| Dirección | N/D | Dirección de correo postal completa.  | `2020-04-01` |  |
+| PhoneNumber | N/D | Números de teléfono (solo números de teléfono de EE. UU y la UE). | `2019-10-01` | También lo devuelve NER v2.1 |
+| Email | N/D | Direcciones de correo. | `2019-10-01` | También lo devuelve NER v2.1 |
+| URL | N/D | Direcciones URL de sitios web. | `2019-10-01` | También lo devuelve NER v2.1  |
+| IP | N/D | Direcciones IP de red. | `2019-10-01` | También lo devuelve NER v2.1 |
+| DateTime | N/D | Fechas y horas del día. | `2019-10-01` | También lo devuelve NER v2.1 | 
+| DateTime | Date | Fechas calendario. | `2019-10-01` | También lo devuelve NER v2.1 |
+| DateTime | Time | Horas del día | `2019-10-01` | También lo devuelve NER v2.1 |
+| DateTime | DateRange | Intervalos de fechas. | `2019-10-01` | También lo devuelve NER v2.1 |
+| DateTime | TimeRange | Intervalos de horas. | `2019-10-01` | También lo devuelve NER v2.1 |
+| DateTime | Duration | Duraciones. | `2019-10-01` | También lo devuelve NER v2.1 |
+| DateTime | Set | Establecer varias veces repetidas. |  `2019-10-01` | También lo devuelve NER v2.1 |
+| Cantidad | N/D | Números y cantidades numéricas. | `2019-10-01` | También lo devuelve NER v2.1  |
+| Cantidad | Number | Números. | `2019-10-01` | También lo devuelve NER v2.1 |
+| Cantidad | Porcentaje | Porcentajes.| `2019-10-01` | También lo devuelve NER v2.1 |
+| Cantidad | Ordinal | Números ordinales. | `2019-10-01` | También lo devuelve NER v2.1 |
+| Cantidad | Age | Edades. | `2019-10-01` |  También lo devuelve NER v2.1 |
+| Cantidad | Moneda | Monedas. | `2019-10-01` | También lo devuelve NER v2.1 |
+| Cantidad | Dimensión | Dimensiones y medidas. | `2019-10-01` | También lo devuelve NER v2.1 |
+| Cantidad | Temperatura | Temperaturas. | `2019-10-01` | También lo devuelve NER v2.1 |

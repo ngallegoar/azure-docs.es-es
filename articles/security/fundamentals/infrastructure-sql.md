@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942954"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021864"
 ---
 # <a name="azure-sql-database-security-features"></a>Características de seguridad de Azure SQL Database    
 Azure SQL Database ofrece un servicio de base de datos relacional en Azure. Para proteger los datos de los clientes y proporcionar características sólidas de seguridad que los clientes esperan de un servicio de base de datos relacional, SQL Database tiene sus propios conjuntos de funcionalidades de seguridad. Estas funcionalidades se basan en los controles que se heredan de Azure.
@@ -31,13 +31,13 @@ Azure SQL Database ofrece un servicio de base de datos relacional en Azure. Para
 Azure SQL Database solo admite el protocolo de flujo TDS, que requiere que la base de datos sea accesible solo a través del puerto predeterminado de TCP/1433.
 
 ### <a name="azure-sql-database-firewall"></a>Firewall de Azure SQL Database
-Para ayudar a proteger los datos de los clientes, Azure SQL Database incluye una funcionalidad de firewall que, de forma predeterminada, impide todo acceso al servidor de SQL Database, como se muestra a continuación.
+Para ayudar a proteger los datos de los clientes, Azure SQL Database incluye una funcionalidad de firewall que, de forma predeterminada, impide todo acceso a SQL Database, como se muestra a continuación.
 
 ![Firewall de Azure SQL Database](./media/infrastructure-sql/sql-database-firewall.png)
 
 El firewall de puerta de enlace puede limitar las direcciones, lo que permite que los clientes tengan control pormenorizado sobre intervalos específicos de direcciones IP aceptables. El firewall otorga acceso según la dirección IP de origen de cada solicitud.
 
-Los clientes pueden configurar el firewall desde un portal de administración o mediante programación con la API REST de Azure SQL Database Management. El firewall de puerta de enlace de Azure SQL Database impide, de forma predeterminada, que todos los clientes accedan a las instancias de Azure SQL Database a través de TDS. Los clientes deben configurar el acceso mediante listas de control de acceso (ACL) para permitir conexiones de Azure SQL Database por protocolos, números de puertos y direcciones de Internet de origen y destino.
+Los clientes pueden configurar el firewall desde un portal de administración o mediante programación con la API REST de Azure SQL Database Management. El firewall de puerta de enlace de Azure SQL Database impide, de forma predeterminada, todo acceso de los clientes a Azure SQL Database. Los clientes deben configurar el acceso mediante listas de control de acceso (ACL) para permitir conexiones de Azure SQL Database por protocolos, números de puertos y direcciones de Internet de origen y destino.
 
 ### <a name="dosguard"></a>DoSGuard
 Los ataques por denegación de servicio (DoS) se reducen mediante un servicio de puerta de enlace de SQL Database denominado DoSGuard. DoSGuard realiza un seguimiento activo de inicios de sesión erróneos desde direcciones IP. Si hay varios inicios de sesión erróneos desde una dirección IP específica dentro de un período, se bloquea la dirección IP y no podrá acceder a ningún recurso en el servicio durante un período definido previamente.

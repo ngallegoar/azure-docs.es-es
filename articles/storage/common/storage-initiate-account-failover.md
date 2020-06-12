@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d07195e28c964a540eafdfba94a958e6c9f6981
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 905554d1763bdd3c5990a43c5c8d98f336e1c442
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871342"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171215"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicio de una conmutación por error de la cuenta de almacenamiento
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo iniciar una conmutación por error de la cuen
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para poder realizar una conmutación por error de su cuenta de almacenamiento, asegúrese de que la cuenta de almacenamiento está configurada para la replicación geográfica. La cuenta de almacenamiento puede usar cualquiera de las siguientes opciones de redundancia:
 
@@ -48,8 +48,8 @@ Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga es
 
     ![Captura de pantalla que muestra el estado de la replicación geográfica y de la conmutación por error](media/storage-initiate-account-failover/portal-failover-prepare.png)
 
-3. Compruebe que la cuenta de almacenamiento está configurada para el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Si no es así, seleccione **Configuración** en **Configuración** para actualizar su cuenta a fin de que tenga redundancia geográfica. 
-4. La propiedad **Hora de la última sincronización** indica a qué distancia está la región secundaria de la primaria. El valor de **Hora de la última sincronización** proporciona una estimación del alcance de la pérdida de datos que experimentará una vez finalizada la conmutación por error.
+3. Compruebe que la cuenta de almacenamiento está configurada para el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Si no es así, seleccione **Configuración** en **Configuración** para actualizar su cuenta a fin de que tenga redundancia geográfica.
+4. La propiedad **Hora de la última sincronización** indica a qué distancia está la región secundaria de la primaria. El valor de **Hora de la última sincronización** proporciona una estimación del alcance de la pérdida de datos que experimentará una vez finalizada la conmutación por error. Para más información sobre cómo comprobar la propiedad **Hora de la última actualización**, consulte [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
 5. Seleccione **Preparar la conmutación por error**.
 6. Revise el cuadro de diálogo de confirmación. Cuando esté listo, escriba **Sí** para confirmar e iniciar la conmutación por error.
 
@@ -105,7 +105,7 @@ az storage account failover \ --name accountName
 
 Cuando se inicia una conmutación por error de la cuenta de almacenamiento, se actualizan los registros DNS del punto de conexión secundario para que pase a ser el punto de conexión principal. Asegúrese de comprender el posible efecto para la cuenta de almacenamiento antes de iniciar una conmutación por error.
 
-Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización** mediante el cmdlet `Get-AzStorageAccount` de PowerShell e incluya el parámetro `-IncludeGeoReplicationStats`. A continuación, compruebe la propiedad `GeoReplicationStats` de su cuenta.
+Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización**. Para más información sobre cómo comprobar la propiedad **Hora de la última actualización**, consulte [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md).
 
 Después de la conmutación por error, el tipo de cuenta de almacenamiento se convierte automáticamente en almacenamiento con redundancia local (LRS) en la nueva región primaria. Puede volver a habilitar el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para la cuenta. Tenga en cuenta que la conversión de LRS a GRS o a RA-GRS supone un costo adicional. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -114,5 +114,6 @@ Después de volver a habilitar GRS para la cuenta de almacenamiento, Microsoft c
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](storage-disaster-recovery-guidance.md)
+- [Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento](last-sync-time-get.md)
 - [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md)
 - [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md)

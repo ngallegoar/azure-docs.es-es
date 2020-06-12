@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2020
+ms.date: 05/28/2020
 ms.author: shvija
-ms.openlocfilehash: e7f17c589b043a055bd541a0850d9efc8e1d96be
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4851a3edad9726230a8fc0dd3085caa172c8d5f3
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628868"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147875"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrio de carga de particiones entre varias instancias de una aplicación
 Para escalar la aplicación de procesamiento de eventos, puede ejecutar varias instancias de la aplicación y equilibrar la carga entre ellas. En las versiones anteriores, [EventProcessorHost](event-hubs-event-processor-host.md) permitía equilibrar la carga entre varias instancias del programa y eventos de punto de comprobación en la recepción. En las versiones más recientes (5.0 y posteriores), **EventProcessorClient** (.NET y Java) o **EventHubConsumerClient** (Python y JavaScript) le permiten hacer lo mismo. El modelo de desarrollo se simplifica mediante el uso de eventos. Para suscribirse a los eventos que le interesen, registre un controlador de eventos.
@@ -44,7 +44,7 @@ Al diseñar el consumidor en un entorno distribuido, el escenario debe controlar
 
 ## <a name="event-processor-or-consumer-client"></a>Cliente de consumidor o procesador de eventos
 
-No es necesario que cree su propia solución para cumplir estos requisitos. Los SDK de Azure Event Hubs proporcionan esta funcionalidad. En los SDK para .NET o Java, se usa un cliente de procesador de eventos (EventProcessorClient) y en los SDK para Java Script y Python, se usa EventHubConsumerClient. En la versión anterior del SDK, era el host del procesador de eventos (EventProcessorHost) el que admitía estas características.
+No es necesario que cree su propia solución para cumplir estos requisitos. Los SDK de Azure Event Hubs proporcionan esta funcionalidad. En los SDK para .NET o Java, se usa un cliente de procesador de eventos (EventProcessorClient) y en los SDK para JavaScript y Python, se usa EventHubConsumerClient. En la versión anterior del SDK, era el host del procesador de eventos (EventProcessorHost) el que admitía estas características.
 
 En la mayoría de los escenarios de producción, se recomienda usar el cliente del procesador de eventos para leer y procesar eventos. El cliente del procesador está diseñado para proporcionar una experiencia sólida para procesar eventos en todas las particiones de un centro de eventos de un modo eficaz y tolerante a errores, a la vez que permite comprobar el progreso. Los clientes del procesador de eventos también pueden trabajar de forma cooperativa en el contexto de un grupo de consumidores para un centro de eventos determinado. Los clientes administrarán de forma automática la distribución y el equilibrio del trabajo a medida que las instancias estén disponibles o no para el grupo.
 
@@ -54,7 +54,7 @@ Por lo general, una instancia de procesador de eventos posee y procesa los event
 
 Cada procesador de eventos recibe un identificador único y notifica la propiedad de las particiones mediante la adición o actualización de una entrada en un almacén de puntos de control. Todas las instancias del procesador de eventos se comunican con este almacén periódicamente para actualizar su propio estado de procesamiento, así como para obtener información sobre otras instancias activas. Después, estos datos se usan para equilibrar la carga entre los procesadores activos. Para escalar verticalmente, se pueden unir instancias nuevas al grupo de procesamiento. Cuando las instancias se quedan fuera de servicio, ya sea debido a errores o a una reducción vertical, la propiedad de la partición se transfiere correctamente a otros procesadores activos.
 
-Los registros de propiedad de la partición en el almacén de puntos de control realizan un seguimiento del espacio de nombres de Event Hubs, nombre del centro de eventos, grupo de consumidores, identificador de procesador de eventos (también conocido como propietario), identificador de partición y hora de la última modificación.
+Los registros de propiedad de la partición en el almacén de puntos de control realizan un seguimiento del espacio de nombres de Event Hubs, nombre del centro de eventos, grupo de consumidores, identificador de procesador de eventos (también conocido como propietario), id. de partición y hora de la última modificación.
 
 
 
@@ -92,7 +92,7 @@ Cuando se realiza el punto de control para marcar un evento como procesado, se a
 
 ## <a name="thread-safety-and-processor-instances"></a>Seguridad para subprocesos e instancias de procesador
 
-De forma predeterminada, el procesador de eventos o el consumidor es seguro para subprocesos y se comporta de forma sincrónica. Cuando llegan eventos para una partición, se llama a la función que los procesa. Los siguientes mensajes y llamadas a esta función se ponen en cola en segundo plano mientras el suministro de mensajes continúa ejecutándose en segundo plano en otros subprocesos. Esta seguridad para subprocesos elimina la necesidad de colecciones seguras para subprocesos y aumenta considerablemente el rendimiento.
+De forma predeterminada, se llama de forma secuencial a la función que procesa los eventos para una partición determinada. Los siguientes eventos y llamadas a esta función desde la misma partición se ponen en cola en segundo plano mientras el suministro de eventos continúa ejecutándose en segundo plano en otros subprocesos. Tenga en cuenta que los eventos de diferentes particiones se pueden procesar simultáneamente y cualquier estado compartido al que se tenga acceso desde varias particiones se debe sincronizar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte las siguientes guías de inicio rápido:

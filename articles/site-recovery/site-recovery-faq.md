@@ -4,12 +4,12 @@ description: En este artículo se analizan las preguntas generales más frecuent
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 270fa8de3346063d047b38132438f8097d87689d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2e6cbac9896fc2bc6b3d4d95a28a25d8177bd7a5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744119"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193556"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
@@ -195,7 +195,37 @@ Sí. Puede obtener más información acerca de la limitación de ancho de banda 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
 * [Capacity planning for replicating Hyper-V VMs without VMM (Planeamiento de la capacidad para replicar máquinas virtuales VMware y servidores físicos)](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>¿Se puede habilitar la replicación con coherencia de aplicaciones en los servidores de Linux? 
+Sí. Azure Site Recovery para el sistema operativo Linux admite scripts personalizados de aplicaciones para la coherencia de aplicaciones. El agente de movilidad de Azure Site Recovery usará el script personalizado con opciones previas y posteriores durante la coherencia de aplicaciones. A continuación se muestran los pasos necesarios para habilitarlo.
 
+1. Inicie sesión como usuario raíz en la máquina.
+2. Cambie el directorio a la ubicación de instalación del agente de movilidad de Azure Site Recovery. El valor predeterminado es "/usr/local/ASR".<br>
+    `# cd /usr/local/ASR`
+3. Cambie el directorio a "VX/scripts" en la ubicación de instalación.<br>
+    `# cd VX/scripts`
+4. Cree un script de Shell de Bash denominado "customscript.sh" con permisos de ejecución para el usuario raíz.<br>
+    a. El script debe ser compatible con las opciones de línea de comandos "--pre" y "--post" (tenga en cuenta los guiones dobles).<br>
+    b. Cuando se llama al script con la opción "pre", se debe inmovilizar la entrada/salida de la aplicación y, cuando se llama con la opción "post", se debe reanudar la entrada/salida de la aplicación.<br>
+    c. Plantilla de ejemplo<br>
+
+    `# cat customscript.sh`<br>
+
+```
+    #!/bin/bash
+
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 [--pre | --post]"
+        exit 1
+    elif [ "$1" == "--pre" ]; then
+        echo "Freezing app IO"
+        exit 0
+    elif [ "$1" == "--post" ]; then
+        echo "Thawed app IO"
+        exit 0
+    fi
+```
+
+5. Agregue los comandos para inmovilizar y liberar la entrada/salida en los pasos "pre" y "post" de las aplicaciones que requieren coherencia de la aplicación. Puede optar por agregar otro script que los especifique y llamarlo desde "customscript.sh" con las opciones "pre" y "post".
 
 ## <a name="failover"></a>Conmutación por error
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso?

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26816a545cb83e0a3d996a8056b96154830e58b6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739148"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195511"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -21,7 +21,7 @@ Azure Functions admite el modelo de diseño de software de inserción de depende
 
 - La compatibilidad con la inserción de dependencias comienza con Azure Functions 2.x.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para poder usar la inserción de dependencias, debe instalar los siguientes paquetes NuGet:
 
@@ -251,7 +251,7 @@ public class HttpTrigger
 Consulte [Patrón de opciones en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) para más detalles sobre cómo trabajar con opciones.
 
 > [!WARNING]
-> Evite intentar leer valores de archivos como *local.settings.json* o *appsettings.{environment}.json* en el plan de consumo. Los valores leídos de estos archivos relacionados con las conexiones de desencadenador no están disponibles a medida que la aplicación se escala porque la infraestructura de hospedaje no tiene acceso a la información de configuración.
+> Evite intentar leer valores de archivos como *local.settings.json* o *appsettings.{environment}.json* en el plan de consumo. Los valores leídos de estos archivos relacionados con las conexiones de desencadenador no están disponibles a medida que la aplicación se escala porque la infraestructura de hospedaje no tiene acceso a la información de configuración a medida que el controlador de escala crea instancias nuevas de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a521ff690f59b6beafd1113b177b43193dc7447e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743988"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204946"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Habilitación de Update Management desde una cuenta de Automation
 
@@ -19,7 +19,7 @@ En este artículo se describe cómo puede usar su cuenta de Automation para habi
 > [!NOTE]
 > Al habilitar Update Management, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](automation-offering-get-started.md) para administrar máquinas.
@@ -36,10 +36,6 @@ Inicie sesión en Azure en https://portal.azure.com.
 2. Para habilitar Update Management, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. La instalación tarda hasta 15 minutos en completarse.
 
     ![Habilitación de la Administración de actualizaciones](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
-
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Comprobación de la configuración de ámbito
-
-Update Management usa una configuración de ámbito dentro del área de trabajo para seleccionar como destino los equipos a fin de habilitar la característica. La configuración de ámbito es un grupo de una o varias búsquedas guardadas que se usa para limitar el ámbito de la característica a equipos concretos. Para más información, vea [Uso de configuraciones de ámbito para Update Management](automation-scope-configurations-update-management.md).
 
 ## <a name="enable-azure-vms"></a>Habilitar máquinas virtuales de Azure
 
@@ -73,16 +69,13 @@ Las máquinas instaladas manualmente o las máquinas que ya envían notificacion
 
 5. Para habilitar la característica en todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina las búsquedas guardadas y las configuraciones de ámbito del área de trabajo y abre la característica para todas las máquinas de Azure y que no son de Azure que envían notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente el botón **Administrar máquinas**, ya que no queda ninguna configuración de ámbito.
 
-6. Si es necesario, puede agregar de nuevo las configuraciones de ámbito si vuelve a agregar las búsquedas guardadas iniciales. Para más información, vea [Uso de configuraciones de ámbito para Update Management](automation-scope-configurations-update-management.md).
+6. Si es necesario, puede agregar de nuevo las configuraciones de ámbito si vuelve a agregar las búsquedas guardadas iniciales. Para obtener más información, consulte el tema sobre la [limitación del ámbito de implementación de Update Management](automation-scope-configurations-update-management.md).
 
 7. Para habilitar la característica para una o varias máquinas, seleccione **Habilitar en las máquinas seleccionadas** y haga clic en **Agregar** junto a cada máquina para habilitar la característica. Esta tarea agrega los nombres de máquina seleccionados a la consulta de la búsqueda guardada de grupos de equipos para la característica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para usar Update Management para máquinas virtuales, vea [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
-* Para ver las configuraciones de ámbito, consulte [Uso de configuraciones de ámbito para Update Management](automation-scope-configurations-update-management.md).
-* Si ya no necesita el área de trabajo de Log Analytics, vea las instrucciones en [Desvinculación de un área de trabajo de una cuenta de Automation para Update Management](automation-unlink-workspace-update-management.md).
-* Para eliminar máquinas virtuales de Update Management, vea [Eliminación de una máquina virtual desde Update Management](automation-remove-vms-from-update-management.md).
-* Para solucionar los errores de Update Management generales, vea [Solución de problemas de Update Management](troubleshoot/update-management.md).
-* Para solucionar problemas con el agente de Windows Update, vea [Solución de problemas del agente de actualización de Windows](troubleshoot/update-agent-issues.md).
-* Para solucionar problemas con el agente de actualización de Linux, vea [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).
+* Para usar Update Management para máquinas virtuales, consulte [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
+* Para solucionar los errores de Update Management generales, consulte [Solución de problemas de Update Management](troubleshoot/update-management.md).
+* Para solucionar problemas con el agente de Windows Update, consulte [Solución de problemas del agente de actualización de Windows](troubleshoot/update-agent-issues.md).
+* Para solucionar problemas con el agente de actualización de Linux, consulte [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).

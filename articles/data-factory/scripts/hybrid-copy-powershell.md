@@ -1,6 +1,6 @@
 ---
 title: Copia de los datos de un entorno local a Azure con PowerShell
-description: El script de PowerShell copia datos de la base de datos SQL Server local en otra instancia de Azure Blob Storage.
+description: El script de PowerShell copia datos de una base de datos de SQL Server local en otra instancia de Azure Blob Storage.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,29 +10,29 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 10555defc4888af66bb88d19190b6543aa8ae0c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75974705"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194627"
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Use PowerShell para crear una canalización de factoría de datos para copiar datos de local a Azure
+# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Use PowerShell para crear una canalización de factoría de datos para copiar datos de SQL Server a Azure
 
-Este script de PowerShell de ejemplo crea una canalización en Azure Data Factory que copia los datos de una base de datos SQL Server local a una instancia de Azure Blob Storage.
+Este script de PowerShell de ejemplo crea una canalización en Azure Data Factory que copia los datos de una base de datos de SQL Server a una instancia de Azure Blob Storage.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
-- **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este ejemplo.
+- **SQL Server**. Use una base de datos de SQL Server como almacén de datos de **origen** en este ejemplo.
 - **Cuenta de Azure Storage**. Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este ejemplo. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) para ver los pasos para su creación.
 - **Integration Runtime autohospedado**. Descargue el archivo MSI desde el [centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) y ejecútelo para instalar un Integration Runtime autohospedado en la máquina.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Creación de una base de datos de ejemplo en SQL Server
-1. En la base de datos de SQL Server local, cree una tabla con el nombre **emp** usando el siguiente script SQL:
+1. En la base de datos de SQL Server, cree una tabla llamada **emp** usando el siguiente script SQL:
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -57,7 +57,7 @@ Este script de PowerShell de ejemplo crea una canalización en Azure Data Factor
 > [!IMPORTANT]
 > Este script crea archivos JSON que definen entidades de Data Factory (servicio vinculado, conjunto de datos y canalización) en la carpeta c:\ del disco duro.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from on-premises SQL Server -> Azure Blob Storage")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from SQL Server -> Azure Blob Storage")]
 
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación

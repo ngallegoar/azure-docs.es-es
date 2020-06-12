@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 66682e953e4e262604d1b0c07720ebaab5995364
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5dcbd3748215575edb37525e7350bedfb980650c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195210"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193365"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauración a un momento dado para blobs en bloques (versión preliminar)
 
@@ -26,15 +26,13 @@ Para obtener información sobre cómo habilitar la restauración a un momento da
 
 Para habilitar la restauración a un momento dado, cree una directiva de administración para la cuenta de almacenamiento y especifique un período de retención. Durante el período de retención, puede restaurar los blobs en bloques desde el estado actual a un estado de un momento dado anterior.
 
-Para iniciar una restauración a un momento dado, llame a la operación [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) y especifique un punto de restauración en una hora UTC. Puede especificar un rango lexicográfico de nombres de contenedor y blob para restaurar u omitir el rango para restaurar todos los contenedores de la cuenta de almacenamiento. La operación **Restore Blob Ranges** devuelve un id. de restauración que identifica de forma única la operación.
+Para iniciar una restauración a un momento dado, llame a la operación [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) y especifique un punto de restauración en una hora UTC. Puede especificar rangos lexicográficos de nombres de contenedor y blob para restaurar u omitir el rango para restaurar todos los contenedores de la cuenta de almacenamiento. Se admiten hasta 10 rangos lexicográficos por operación de restauración.
 
 Igualmente, Azure Storage analiza todos los cambios que se han realizado en los blobs especificados entre el punto de restauración solicitado,la hora UTC especificada y el momento presente. La operación de restauración es atómica, por lo que o todos los cambios de la restauración se realizan correctamente, o se produce un error. Si hay blobs que no se pueden restaurar, se produce un error en la operación y se reanudan las operaciones de lectura y escritura en los contenedores afectados.
 
-Cuando se solicita una operación de restauración, Azure Storage bloquea las operaciones de datos en los blobs del rango que se está restaurando mientras dure la operación. Las operaciones de lectura, escritura y eliminación se bloquean en la ubicación principal. Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
-
 Recuerde que solo se puede ejecutar una operación de restauración en una cuenta de almacenamiento a la vez. Una operación de restauración no se puede cancelar una vez está en curso, pero se puede realizar una segunda operación de restauración para deshacer la primera operación.
 
-Para comprobar el estado de una restauración a un momento dado, llame a la operación **Get Restore Status** con el id. de restauración que se devolvió de la operación **Restore Blob Ranges**.
+La operación **Restore Blob Ranges** devuelve un id. de restauración que identifica de forma única la operación. Para comprobar el estado de una restauración a un momento dado, llame a la operación **Get Restore Status** con el id. de restauración que se devolvió de la operación **Restore Blob Ranges**.
 
 Tenga en cuenta las siguientes limitaciones en las operaciones de restauración:
 
@@ -42,6 +40,11 @@ Tenga en cuenta las siguientes limitaciones en las operaciones de restauración:
 - No se puede restaurar un blob con una concesión activa. Si un blob con una concesión activa se incluye en el rango de blobs que se van a restaurar, la operación de restauración producirá un error de forma atómica.
 - Las instantáneas no se crean ni se eliminan como parte de una operación de restauración. Solo el blob base se restaura a su estado anterior.
 - Si un blob se ha desplazado entre los niveles de acceso frecuente y esporádico en el período comprendido entre el momento actual y el punto de restauración, el blob se restaura a su nivel anterior. Sin embargo, no se restaurará un blob que se haya llevado al nivel de archivo.
+
+> [!IMPORTANT]
+> Cuando se realiza una operación de restauración, Azure Storage bloquea las operaciones de datos en los blobs de los rangos que se están restaurando mientras dure la operación. Las operaciones de lectura, escritura y eliminación se bloquean en la ubicación principal. Por este motivo, es posible que las operaciones como la enumeración de contenedores en Azure Portal no funcionen según lo esperado mientras se realiza la operación de restauración.
+>
+> Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
 
 > [!CAUTION]
 > La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento mediante una llamada a la operación [Delete Container](/rest/api/storageservices/delete-container) durante la vista previa de la restauración a un momento dado, ese contenedor no se puede restaurar con una operación de restauración. Durante la versión preliminar, en lugar de eliminar un contenedor, elimine los blobs individuales si quiere restaurarlos.
@@ -90,8 +93,9 @@ La versión preliminar tiene las limitaciones siguientes:
 
 ### <a name="register-for-the-preview"></a>Registro para obtener la versión preliminar
 
-Para registrarse y obtener la versión preliminar, ejecute estos comandos de Azure PowerShell.
+Para registrarse y obtener la versión preliminar, ejecute estos comandos:
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
 # Register for the point-in-time restore preview
 Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
@@ -100,24 +104,47 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
 # Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
+Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+```azurecli
+az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
+az feature register --namespace Microsoft.Storage --name Changefeed
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
 
 ### <a name="check-registration-status"></a>Comprobación del estado de registro
 
 Ejecute los siguientes comandos para comprobar el estado del registro:
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName RestoreBlobRanges
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
+    
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName Versioning
 ```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
+```
+
+---
+
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 

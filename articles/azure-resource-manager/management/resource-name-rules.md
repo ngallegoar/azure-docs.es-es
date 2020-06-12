@@ -3,12 +3,12 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758901"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170586"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -81,9 +81,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | locks | ámbito de asignación | 1-90 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis.<br><br>No puede terminar con un punto. |
-> | policyassignments | ámbito de asignación | 1-128 nombre para mostrar<br><br>1-260 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
-> | policydefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-260 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
-> | policySetDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-260 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio.  |
+> | policyAssignments | ámbito de asignación | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
+> | policyDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio. |
+> | policySetDefinitions | ámbito de definición | 1-128 nombre para mostrar<br><br>1-64 nombre de recurso<br><br>1-24 nombre del recurso en el ámbito del grupo de administración | El nombre para mostrar puede contener cualquier carácter.<br><br>El nombre de recurso no puede incluir `%` ni puede terminar con un punto o un espacio.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 

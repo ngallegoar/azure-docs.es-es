@@ -462,6 +462,8 @@
       items:
         - name: ¿Qué es Speaker Recognition?
           href: speaker-recognition-overview.md
+        - name: Conceptos básicos de Speaker Recognition
+          href: speaker-recognition-basics.md
     - name: Referencia
       items:
         - name: API de REST

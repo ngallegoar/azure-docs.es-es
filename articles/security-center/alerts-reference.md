@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: ed44d6ad5c7594552e14aea0a16d3d23c99806fb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f5ae8b2b2b2be578b76f4b54866dd1b7ed3e92d8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745078"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267467"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -398,8 +398,7 @@ Las intenciones de la cadena de eliminación admitidas de Security Center se bas
 
 |Intención|Descripción|
 |------|-------|
-|**PreAttack**|PreAttack podría ser un intento de tener acceso a un recurso determinado, con independencia de que se trate de un intento malintencionado, o bien un error al intentar obtener acceso a un sistema de destino para recopilar información antes de la explotación. Este paso se detecta normalmente como un intento, que se origina desde fuera de la red, para examinar el sistema de destino e identificar un punto de entrada. </br>Puede leer más información sobre la fase PreAttack en la [página de MITRE](https://attack.mitre.org/matrices/pre/).|
-|**InitialAccess**|InitialAccess es la fase en la que un atacante se encarga de poner en marcha el recurso atacado. Esta fase es importante para los hosts de proceso y recursos, como las cuentas de usuario, los certificados, etc. Los actores de amenazas suelen ser capaces de controlar el recurso después de esta fase.|
+|**PreAttack**|PreAttack podría ser un intento de tener acceso a un recurso determinado, con independencia de que se trate de un intento malintencionado, o bien un error al intentar obtener acceso a un sistema de destino para recopilar información antes de la explotación. Este paso se detecta normalmente como un intento, que se origina desde fuera de la red, para examinar el sistema de destino e identificar un punto de entrada. </br>Puede leer más información sobre la fase PreAttack en la [página de MITRE](https://attack.mitre.org/matrices/pre/).||**InitialAccess**|InitialAccess es la fase en la que un atacante se encarga de poner en marcha el recurso atacado. Esta fase es importante para los hosts de proceso y recursos, como las cuentas de usuario, los certificados, etc. Los actores de amenazas suelen ser capaces de controlar el recurso después de esta fase.|
 |**Persistencia**|La persistencia es cualquier cambio en el acceso, la acción o la configuración de un sistema que proporcione a un actor de amenaza una presencia persistente en ese sistema. Los actores de amenazas suelen necesitar mantener el acceso a los sistemas a través de interrupciones, como reinicios del sistema, pérdida de credenciales u otros errores que requieran que se reinicie una herramienta de acceso remoto o que proporcionen una puerta trasera alternativa para recuperar el acceso.|
 |**PrivilegeEscalation**|La elevación de privilegios es el resultado de una serie de acciones que permiten a un adversario obtener un mayor nivel de permisos en un sistema o red. Ciertas herramientas o acciones requieren un mayor nivel de privilegios para trabajar y es probable que necesiten muchos puntos a lo largo de una operación. Las cuentas de usuario con permisos para acceder a sistemas específicos o realizar funciones específicas necesarias para que los adversarios alcancen su objetivo también se pueden considerar como una elevación de privilegios.|
 |**DefenseEvasion**|La evasión defensiva consiste en una serie de técnicas que un adversario puede usar para evadir la detección o evitar otras defensas. A veces, estas acciones son las mismas que las técnicas (o variaciones de) de otras categorías que tienen la ventaja adicional de revertir una defensa o mitigación determinada.|

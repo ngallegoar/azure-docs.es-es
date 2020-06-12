@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.custom: has-adal-ref
-ms.openlocfilehash: a293bd33d3a25f26e5374184da42db335041284d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 040ad734cdf3b2d382baa55006fbda02fdcf457d
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610146"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169515"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -34,7 +34,7 @@ En este artículo se incluyen los recursos que necesita para planificar, operar 
 
 En la siguiente sección se proporciona una amplia visión de los elementos de planeamiento que le prepararán para una experiencia de implementación eficaz.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 Debe cumplir los siguientes requisitos previos antes de iniciar la implementación. Puede ver más información sobre cómo configurar su entorno, incluidos estos requisitos previos, en este [tutorial](application-proxy-add-on-premises-application.md).
 
@@ -254,7 +254,7 @@ Lea [Inicio de sesión único en aplicaciones de Azure Active Directory](what-
 
 ###  <a name="working-with-other-types-of-applications"></a>Trabajar con otros tipos de aplicaciones
 
-Azure AD Application Proxy también puede admitir aplicaciones que se han desarrollado para usar nuestra biblioteca de autenticación de Azure AD ([ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) o biblioteca de autenticación de Microsoft ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Admite aplicaciones cliente nativas, ya que consume los tokens emitidos recibidos en la información de encabezado de la solicitud del cliente para realizar la autenticación previa en nombre de los usuarios.
+Azure AD Application Proxy también puede admitir aplicaciones que se han desarrollado para usar nuestra biblioteca de autenticación de Microsoft ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Admite aplicaciones cliente nativas, ya que consume los tokens emitidos recibidos en la información de encabezado de la solicitud del cliente para realizar la autenticación previa en nombre de los usuarios.
 
 Lea [Publicar aplicaciones cliente nativas y móviles](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) y [Aplicaciones basadas en notificaciones](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) para obtener información sobre las configuraciones disponibles de Application Proxy.
 

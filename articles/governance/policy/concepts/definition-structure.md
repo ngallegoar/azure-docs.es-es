@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 04/03/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4c1c10dfbf384815c34af8436acdbb45cb8e242
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746980"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205031"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -17,14 +17,15 @@ Más información sobre las [condiciones](#conditions).
 
 La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. Si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
-El esquema de definición de Directiva se encuentra aquí: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+El esquema de definición de Directiva se encuentra aquí: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
-- mode
-- parámetros
 - nombre para mostrar
 - description
+- mode
+- metadata
+- parámetros
 - regla de directiva
   - evaluación lógica
   - efecto
@@ -34,7 +35,13 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
 ```json
 {
     "properties": {
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "mode": "all",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Locations"
+        },
         "parameters": {
             "allowedLocations": {
                 "type": "array",
@@ -46,8 +53,6 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
                 "defaultValue": [ "westus2" ]
             }
         },
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "policyRule": {
             "if": {
                 "not": {
@@ -63,7 +68,22 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
 }
 ```
 
-Todos los ejemplos de Azure Policy se encuentran en [Ejemplos de Azure Policy](../samples/index.md).
+Los patrones y elementos integrados de Azure Policy se encuentran en [Ejemplos de Azure Policy](../samples/index.md).
+
+## <a name="display-name-and-description"></a>Nombre para mostrar y descripción
+
+Use los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso. **displayName** tiene una longitud máxima de _128_ caracteres y **description** tiene una longitud máxima de _512_ caracteres.
+
+> [!NOTE]
+> Durante la creación o actualización de una definición de directiva, las propiedades **id**, **type** y **name** se definen mediante propiedades externas al JSON y no son necesarias en el archivo JSON. Al capturar la definición de directiva mediante el SDK, se devuelven las propiedades **id**, **type** y **name** como parte del JSON, pero cada una de ellas es información de solo lectura relacionada con la definición de directiva.
+
+## <a name="type"></a>Tipo
+
+Aunque no se puede establecer la propiedad **type**, hay tres valores que devuelve el SDK y que son visibles en el portal:
+
+- `Builtin`: Microsoft proporciona y mantiene estas definiciones de directiva.
+- `Custom`: todas las definiciones de directiva creadas por los clientes tienen este valor.
+- `Static`: indica una definición de directiva [Cumplimiento normativo](./regulatory-compliance.md) con **Propiedad** de Microsoft. Los resultados de cumplimiento de estas definiciones de directiva son los resultados de las auditorías de terceros en la infraestructura de Microsoft. En Azure Portal, este valor se muestra a veces como **Administrado por Microsoft**. Para más información, consulte [Responsabilidad compartida en la nube](../../../security/fundamentals/shared-responsibility.md).
 
 ## <a name="mode"></a>Mode
 
@@ -82,7 +102,7 @@ Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Toda
 
 `indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos** y las **suscripciones**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos o suscripción deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups` o `Microsoft.Resources/subscriptions`. Para obtener un ejemplo, consulte [Patrón: Etiquetas: ejemplo n.º 1](../samples/pattern-tags.md). Para obtener una lista de los recursos que admiten etiquetas, consulte [Compatibilidad con etiquetas de los recursos de Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos del proveedor de recursos (versión preliminar)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modos del proveedor de recursos (versión preliminar)
 
 Actualmente se admiten los siguientes modos del proveedor de recursos durante la versión preliminar:
 
@@ -92,6 +112,20 @@ Actualmente se admiten los siguientes modos del proveedor de recursos durante la
 
 > [!NOTE]
 > Los modos del proveedor de recursos solo admiten definiciones de directivas integradas y no admiten iniciativas durante la versión preliminar.
+
+## <a name="metadata"></a>Metadatos
+
+La propiedad `metadata` opcional almacena información acerca de la definición de la directiva. Los clientes pueden definir las propiedades y los valores útiles para su organización en `metadata`. Sin embargo, hay algunas propiedades _comunes_ que se utilizan en Azure Policy y los elementos integrados.
+
+### <a name="common-metadata-properties"></a>Propiedades de metadatos comunes
+
+- `version` (cadena): realiza el seguimiento de los detalles sobre la versión del contenido de una definición de directiva.
+- `category` (cadena): determina en qué categoría de Azure Portal se muestra la definición de directiva.
+- `preview` (booleano): marca true o false si la definición de directiva es _versión preliminar_.
+- `deprecated` (booleano): marca true o false si la definición de directiva está marcada como _en desuso_.
+
+> [!NOTE]
+> El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_, están anexados a la propiedad `version` o están en otra propiedad como **booleano**. Para obtener más información sobre la forma en que Azure Policy versiona los elementos integrados, consulte [Control de versiones integradas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Parámetros
 
@@ -105,17 +139,11 @@ Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusi
 
 Un parámetro tiene las siguientes propiedades que se usan en la definición de directiva:
 
-- **name**: El nombre del parámetro. Lo utiliza la función de la implementación `parameters` dentro de la regla de directiva. Para más información, consulte [Uso de un valor de parámetro](#using-a-parameter-value).
+- `name`: El nombre del parámetro. Lo utiliza la función de la implementación `parameters` dentro de la regla de directiva. Para más información, consulte [Uso de un valor de parámetro](#using-a-parameter-value).
 - `type`: Determina si el parámetro es **string**, **array**, **object**, **boolean**, **integer**, **float** o **datetime**.
 - `metadata`: Define las subpropiedades que usa principalmente Azure Portal para mostrar información intuitiva:
   - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
-  - `version`: (opcional) realiza el seguimiento de los detalles sobre la versión del contenido de una definición de directiva.
-
-    > [!NOTE]
-    > El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_, están anexados a la propiedad `version` o están en otra propiedad como **booleano**.
-
-  - `category`: (opcional) determina en qué categoría de Azure Portal se muestra la definición de directiva.
   - `strongType`: (Opcional) Se usa al asignar la definición de directiva mediante el portal. Proporciona una lista que tiene en cuenta el contexto. Para más información, consulte [strongType](#strongtype).
   - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure Portal cree asignaciones de roles durante la asignación de directivas. Esta propiedad es útil en caso de que desee asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de roles de la directiva (o por cada definición de roles de todas las directivas de la iniciativa). El valor del parámetro debe ser un recurso o un ámbito válidos.
 - `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor.
@@ -180,13 +208,6 @@ Si la ubicación de la definición es:
 
 - Una **suscripción**: solo se puede asignar la directiva a los recursos dentro de esa suscripción.
 - Un **grupo de administración**: solo se puede asignar la directiva a los recursos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga esas suscripciones.
-
-## <a name="display-name-and-description"></a>Nombre para mostrar y descripción
-
-Use los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso. **displayName** tiene una longitud máxima de _128_ caracteres y **description** tiene una longitud máxima de _512_ caracteres.
-
-> [!NOTE]
-> Durante la creación o actualización de una definición de directiva, las propiedades **id**, **type** y **name** se definen mediante propiedades externas al JSON y no son necesarias en el archivo JSON. Al capturar la definición de directiva mediante el SDK, se devuelven las propiedades **id**, **type** y **name** como parte del JSON, pero cada una de ellas es información de solo lectura relacionada con la definición de directiva.
 
 ## <a name="policy-rule"></a>Regla de directiva
 
@@ -284,11 +305,11 @@ Se admiten los siguientes campos:
 - `tags`
 - `tags['<tagName>']`
   - Esta sintaxis con corchetes admite nombres de etiquetas que tienen signos de puntuación como guion, punto o espacio.
-  - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
+  - Donde **\<tagName\>** es el nombre de la etiqueta de la que se va a validar la condición.
   - Ejemplos: `tags['Acct.CostCenter']` donde **Acct.CostCenter** es el nombre de la etiqueta.
 - `tags['''<tagName>''']`
   - Esta sintaxis con corchetes admite nombres de etiquetas con apóstrofos mediante secuencias de escape con dobles apóstrofos.
-  - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
+  - Donde **'\<tagName\>'** es el nombre de la etiqueta de la que se va a validar la condición.
   - Ejemplo: `tags['''My.Apostrophe.Tag''']` donde **'My.Apostrophe.Tag'** es el nombre de la etiqueta.
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
@@ -432,7 +453,7 @@ Las siguientes propiedades se utilizan con **count**:
 - **count.field** (requerido): Contiene la ruta de acceso a la matriz y debe ser un alias de matriz. Si falta la matriz, la expresión se evalúa como _false_ sin considerar la expresión de condición.
 - **count.where** (opcional): Expresión de condición para evaluar individualmente cada miembro de la matriz del [alias \[\*\]](#understanding-the--alias) de **count.field**. Si no se proporciona esta propiedad, todos los miembros de la matriz con la ruta de acceso "field" se evalúan como _true_. En esta propiedad se puede usar cualquier [condición](../concepts/definition-structure.md#conditions).
   Los [operadores lógicos](#logical-operators) pueden usarse dentro de esta propiedad para crear requisitos de evaluación complejos.
-- **\<condition\>** (requerido): El valor se compara con el número de elementos que cumplieron la expresión de condición **count.where**. Se debe usar una condición [numérica](../concepts/definition-structure.md#conditions).
+- **\<condition\>** (obligatorio): El valor se compara con el número de elementos que cumplieron la expresión de condición **count.where**. Se debe usar una condición [numérica](../concepts/definition-structure.md#conditions).
 
 #### <a name="count-examples"></a>Ejemplos de recuento
 
@@ -713,88 +734,9 @@ Esta regla de ejemplo busca las coincidencias de **ipRules\[\*\].value** con **1
 
 Para más información, consulte [Evaluación del alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-## <a name="initiatives"></a>Iniciativas
-
-Las iniciativas le permiten agrupan varias definiciones de directivas relacionadas para simplificar las asignaciones y la administración, porque se trabaja con un grupo como un elemento único. Por ejemplo, puede agrupar las definiciones de directivas de etiquetado relacionadas en una sola iniciativa. En lugar de asignar individualmente cada directiva, la aplica.
-
-> [!NOTE]
-> Una vez que se asigna una iniciativa, no se pueden modificar los parámetros de nivel de iniciativa. Por eso, se recomienda establecer un **defaultValue** al definir el parámetro.
-
-En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos etiquetas: `costCenter` y `productName`. Usa dos directivas integradas para aplicar el valor de etiqueta predeterminado.
-
-```json
-{
-    "properties": {
-        "displayName": "Billing Tags Policy",
-        "policyType": "Custom",
-        "description": "Specify cost Center tag and product name tag",
-        "parameters": {
-            "costCenterValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for Cost Center tag"
-                },
-                "defaultValue": "DefaultCostCenter"
-            },
-            "productNameValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for product Name tag"
-                },
-                "defaultValue": "DefaultProduct"
-            }
-        },
-        "policyDefinitions": [{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Consulte la [estructura de definición de la iniciativa](./initiative-definition-structure.md).
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Vea la [Descripción de los efectos de directivas](effects.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).

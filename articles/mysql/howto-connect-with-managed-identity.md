@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: fd11fd32c4c6901302d1f7960ad38ad426e6a3a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 156d960571f4d5f28f64823ecbe8f0465739bb23
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663273"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141728"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conexión con identidad administrada a Azure Database for MySQL
 
@@ -23,7 +23,10 @@ En este artículo se muestra cómo usar una identidad asignada por el usuario en
 > * Obtener un token de acceso mediante la identidad de la VM y usarlo para consultar un servidor de Azure Database for MySQL.
 > * Implementar la recuperación del token en una aplicación de ejemplo de C#.
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!IMPORTANT]
+> La conexión con Identidad administrada solo está disponible para MySQL 5.7 y versiones más recientes.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](../../articles/active-directory/managed-identities-azure-resources/overview.md). Si no tiene una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar la creación de recursos necesarios y la administración de roles, la cuenta debe tener permisos de "Propietario" en el ámbito adecuado (su suscripción o grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../../articles/role-based-access-control/role-assignments-portal.md).

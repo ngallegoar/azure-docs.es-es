@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: a8f9b66bf9a301888f2371fb1c58a4845c2232b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536163"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193672"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos
 
@@ -108,7 +108,7 @@ Puede buscar en los ejemplos siguientes.
 ## <a name="download-data-from-data-lake-storage-gen1"></a>Descarga de datos de Data Lake Storage Gen1
 También puede descargar o mover datos de Azure Data Lake Storage Gen1 en escenarios como los siguientes:
 
-* Mover datos a otros repositorios para interactuar con las canalizaciones de procesamiento de datos existentes. Por ejemplo, puede mover los datos de Data Lake Storage Gen1 a Azure SQL Database o a SQL Server local.
+* Mover datos a otros repositorios para interactuar con las canalizaciones de procesamiento de datos existentes. Por ejemplo, puede mover los datos de Data Lake Storage Gen1 a Azure SQL Database o a SQL Server.
 * Descargar datos en el equipo local para procesarlos en entornos IDE durante la creación de prototipos de aplicaciones.
 
 ![Salida de datos desde Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/egress-data.png "Salida de datos desde Data Lake Storage Gen1")

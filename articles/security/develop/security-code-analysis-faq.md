@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a888d95a97e30e7d663b528e8d9941aec1f51e9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460229"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015852"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ¿Tiene alguna pregunta? Consulte estas Preguntas más frecuentes para más información.
@@ -123,7 +123,7 @@ Como se muestra en el ejemplo siguiente, se necesita la clave hash del secreto u
 
 La expresión de archivo puede ser un nombre de archivo. También puede ser la parte del nombre base de una ruta de acceso completa o un nombre de archivo. No se admiten caracteres comodín.
 
-En los ejemplos siguientes se muestra cómo eliminar el archivo \<InputPath > \src\JS\lib\angular.js
+En los ejemplos siguientes se muestra cómo eliminar el archivo \<InputPath>\src\JS\lib\angular.js
 
 Ejemplos de reglas de eliminación válidas:
 
@@ -155,7 +155,7 @@ Ejemplos de reglas de eliminación válidas:
 Los recursos siguientes lo ayudarán a administrar de manera segura los secretos y a acceder a información confidencial desde dentro de sus aplicaciones:
 
  - [Azure Key Vault](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Managed Service Identity (MSI) de Azure AD](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Uso de identidades administradas para App Service y Azure Functions](../../app-service/overview-managed-identity.md)
@@ -173,7 +173,7 @@ Un buscador de contenido se define de la siguiente manera:
 - **Name**: el nombre descriptivo del buscador que se usará en el archivo de salida de Credential Scanner. Se recomienda usar la convención de nomenclatura en mayúsculas y minúsculas para los nombres de los buscadores.
 - **RuleId**: el identificador opaco estable del buscador:
     - A un buscador predeterminado de Credential Scanner se asigna le asigna un valor **RuleId** como CSCAN0010, CSCAN0020 o CSCAN0030. El último dígito se reserva para la combinación o la división posible de grupos de buscadores a través de expresiones regulares (regex).
-    - El valor **RuleId** de un buscador personalizado debe tener su propio espacio de nombres. Algunos ejemplos son CSCAN-\<Namespace\>0010, CSCAN-\<Namespace\>0020 y CSCAN-\<Namespace\>0030.
+    - El valor **RuleId** de un buscador personalizado debe tener su propio espacio de nombres. Entre los ejemplos se incluyen CSCAN-\<Namespace\>0010, CSCAN-\<Namespace\>0020 y CSCAN-\<Namespace\>0030.
     - Un nombre completo de buscador es la combinación de un valor **RuleId** y un nombre de buscador. Algunos ejemplos son CSCAN0010.KeyStoreFiles y CSCAN0020.Base64EncodedCertificate.
 - **ResourceMatchPattern**: regex de las extensiones de archivo que se deben comprobar respecto del buscador.
 - **ContentSearchPatterns**: matriz de cadenas que contienen las instrucciones de expresión regular que deben coincidir. Si no se han definido patrones de búsqueda, se devolverán todos los archivos que coincidan con el valor **ResourceMatchPattern**.

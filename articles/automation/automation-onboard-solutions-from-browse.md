@@ -5,14 +5,14 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743983"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204929"
 ---
-# <a name="enable-update-management-from-azure-portal"></a>Habilitación de Update Management desde Azure Portal
+# <a name="enable-update-management-from-the-azure-portal"></a>Habilitación de Update Management desde Azure Portal
 
 En este artículo se describe cómo se puede habilitar la característica [Update Management](automation-update-management.md) en máquinas virtuales examinando Azure Portal. Para habilitar máquinas virtuales de Azure a escala, debe habilitar una máquina virtual existente con Update Management. 
 
@@ -21,7 +21,7 @@ El número de grupos de recursos que puede usar para administrar las máquinas v
 > [!NOTE]
 > Al habilitar Update Management, solo se admiten determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](automation-offering-get-started.md) para administrar máquinas.
@@ -62,10 +62,7 @@ Inicie sesión en Azure en https://portal.azure.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para usar Update Management en máquinas virtuales, consulte [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
-* Para ver las configuraciones de ámbito, consulte [Uso de configuraciones de ámbito para Update Management](automation-scope-configurations-update-management.md).
-* Si ya no necesita el área de trabajo de Log Analytics, consulte las instrucciones de [Desvinculación de un área de trabajo de una cuenta de Automation para Update Management](automation-unlink-workspace-update-management.md).
-* Para eliminar máquinas virtuales de Update Management, consulte [Eliminación de una máquina virtual desde Update Management](automation-remove-vms-from-update-management.md).
-* Para solucionar errores generales de Update Management, consulte [Solución de problemas de Update Management](troubleshoot/update-management.md).
-* Para solucionar problemas con el agente de Windows Update, consulte [Solución de problemas del agente de Windows Update](troubleshoot/update-agent-issues.md).
-* Para solucionar problemas con el agente de actualización de Linux, consulte [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).
+* Para usar Update Management para máquinas virtuales, consulte [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
+* Para solucionar los errores de Update Management generales, consulte [Solución de problemas de Update Management](troubleshoot/update-management.md).
+* Para solucionar problemas con el agente de Windows Update, consulte [Solución de problemas del agente de actualización de Windows](troubleshoot/update-agent-issues.md).
+* Para solucionar problemas relativos al agente de actualización de Linux, vea [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).

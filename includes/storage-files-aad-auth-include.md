@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 167d50e5c7f3049f46fd8540630e47044240809f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d470160a9b54af8751371aa4ca58202646c8fab8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536595"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263378"
 ---
-[Azure Files](../articles/storage/files/storage-files-introduction.md) admite la autenticación basada en identidades a través del Bloque de mensajes del servidor (SMB) mediante [Active Directory Domain Services (AD DS) local](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (versión preliminar) y [Azure Active Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md). En este artículo se describe la forma en que los recursos compartido de archivos de Azure pueden usar los servicios de dominio, ya sea de forma local o en Azure, para admitir el acceso basado en identidad a los recursos compartidos de archivos de Azure a través de SMB. La habilitación del acceso basado en identidad de los recursos compartidos de archivos de Azure permite reemplazar los servidores de archivos existentes por recursos compartidos de archivos de Azure sin reemplazar el servicio de directorio existente, con lo que se mantiene el acceso sin problemas de los usuarios a los recursos compartidos. 
+[Azure Files](../articles/storage/files/storage-files-introduction.md) admite la autenticación basada en identidades a través del Bloque de mensajes del servidor (SMB) mediante [Active Directory Domain Services (AD DS) local](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) y [Azure Active Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md). En este artículo se describe la forma en que los recursos compartido de archivos de Azure pueden usar los servicios de dominio, ya sea de forma local o en Azure, para admitir el acceso basado en identidad a los recursos compartidos de archivos de Azure a través de SMB. La habilitación del acceso basado en identidad de los recursos compartidos de archivos de Azure permite reemplazar los servidores de archivos existentes por recursos compartidos de archivos de Azure sin reemplazar el servicio de directorio existente, con lo que se mantiene el acceso sin problemas de los usuarios a los recursos compartidos. 
 
 Azure Files aplica la autorización en el acceso del usuario tanto al recurso compartido como a los niveles de directorio o archivo. La asignación de permisos de nivel de recurso compartido se puede realizar en usuarios o grupos administrados de Azure Active Directory (Azure AD) mediante el modelo de [control de acceso basado en rol (RBAC)](../articles/role-based-access-control/overview.md). Con RBAC, las credenciales que se usan para el acceso a archivos deben estar disponibles o sincronizadas con Azure AD. Puede asignar roles de RBAC integrados como el lector de recursos compartidos de SMB de datos de archivos de almacenamiento a usuarios o grupos en Azure AD para conceder acceso de lectura a un recurso compartido de archivos de Azure.
 

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b80d20084f45dd2212cdc03f9c7417a67833d887
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583115"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116614"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -49,7 +49,7 @@ El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conect
 
 Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Mantenimiento 
+## <a name="maintenance"></a>Mantenimiento
 
 Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Se pueden agregar o quitar de forma dinámica. Cada vez que llega una solicitud nueva, esta se enruta a uno de los conectores que estén disponibles en ese momento. Si un conector no está disponible temporalmente, no responde a este tráfico.
 
@@ -175,9 +175,9 @@ y contadores de rendimiento de Windows.
 
 ![Adición de contadores al conector con el Monitor de rendimiento](./media/application-proxy-connectors/performance-monitor.png)
 
-Los conectores tienen registros de administración y sesión. Los registros de administración incluyen eventos importantes y sus errores. Los registros de sesión incluyen todas las transacciones y sus detalles de procesamiento.
+Los conectores tienen registros de **administración** y **sesión**. Los registros de **administración** incluyen eventos importantes y sus errores. Los registros de **sesión** incluyen todas las transacciones y sus detalles de procesamiento.
 
-Para poder verlos, vaya al Visor de eventos, abra el menú **Ver** y active **Mostrar registros analíticos y de depuración**. A continuación, habilítelos para que puedan comenzar a recopilar eventos. Estos registros no aparecen en el Proxy de aplicación web en Windows Server 2012 R2, ya que los conectores se basan en una versión más reciente.
+Para ver los registros, abra **Visor de eventos** y vaya a **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector**. Para que el registro de **sesión** sea visible, en el menú **Ver**, seleccione **Mostrar registros analíticos y de depuración**. El registro de **sesión** se usa normalmente para solucionar problemas y está deshabilitado de forma predeterminada. Habilítelo para comenzar la recopilación de eventos y deshabilítelo cuando ya no se necesite.
 
 Puede examinar el estado del servicio en la ventana Servicios. El conector consta de dos servicios de Windows: el conector real y el actualizador. Ambos deben ejecutarse todo el tiempo.
 

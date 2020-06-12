@@ -5,30 +5,67 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/27/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b6d08dd2073de80ac0f7fd08f510d9cda80545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143235"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194062"
 ---
-# <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Directivas y restricciones de autoservicio de restablecimiento de contraseña en Azure Active Directory
+# <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Restricciones de cuenta y directivas de contraseñas en Azure Active Directory
 
-En este artículo se describen las directivas de contraseña y los requisitos de complejidad asociados a las cuentas de usuario del inquilino de Azure Active Directory (Azure AD).
+En Azure Active Directory (Azure AD), hay una directiva de contraseñas que define la configuración, como la complejidad de la contraseña, la longitud o la edad. También hay una directiva que define los caracteres y longitudes de nombres de usuario aceptables.
+
+Cuando se usa el autoservicio de restablecimiento de contraseña (SSPR) para cambiar o restablecer una contraseña en Azure AD, se comprueba la directiva de contraseñas. Si la contraseña no cumple los requisitos de la directiva, se le pedirá al usuario que vuelva a intentarlo. Los administradores de Azure tienen algunas restricciones en el uso de SSPR que son diferentes de las restricciones para cuentas de usuario normales.
+
+En este artículo se describe la configuración de directiva de contraseñas y los requisitos de complejidad asociados a las cuentas de usuario en el inquilino de Azure AD. También se describe cómo puede usar PowerShell para comprobar o establecer la configuración de expiración de contraseña.
+
+## <a name="username-policies"></a><a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Directivas de nombre de usuario
+
+Cada cuenta que inicia sesión en Azure AD debe tener un valor de atributo de nombre principal de usuario (UPN) único asociado a esa cuenta. En entornos híbridos con un entorno local de Active Directory Domain Services (AD DS) sincronizado con Azure AD mediante Azure AD Connect, el UPN de Azure AD está establecido en el UPN local de forma predeterminada.
+
+En la siguiente tabla, se describen las directivas de nombre de usuario que se aplican tanto a las cuentas de AD DS locales que están sincronizadas con Azure AD como a las cuentas de usuario que solo están en la nube creadas directamente en Azure AD:
+
+| Propiedad | Requisitos de UserPrincipalName |
+| --- | --- |
+| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
+| Caracteres no permitidos |<ul> <li>Cualquier carácter "\@\" que no separa el nombre de usuario del dominio.</li> <li>No puede contener un carácter de punto "." inmediatamente antes del símbolo "\@\".</li></ul> |
+| Restricciones de longitud |<ul> <li>La longitud total no debe superar los 113 caracteres.</li><li>Puede haber hasta 64 caracteres antes del símbolo "\@\"</li><li>Puede haber hasta 48 caracteres después del símbolo "\@\"</li></ul> |
+
+## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Directivas de contraseña de Azure AD
+
+Una directiva de contraseñas se aplica a todas las cuentas de usuario que se crean y administran directamente en Azure AD. Esta directiva de contraseña no se puede modificar, aunque puede [configurar contraseñas prohibidas personalizadas para la protección de contraseñas de Azure AD](tutorial-configure-custom-password-protection.md).
+
+La directiva de contraseñas no se aplica a las cuentas de usuario que se sincronizan desde un entorno de AD DS local mediante Azure AD Connect.
+
+Se definen las siguientes opciones de directiva de contraseñas:
+
+| Propiedad | Requisitos |
+| --- | --- |
+| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ;</li> <li>espacio en blanco</li></ul> |
+| Caracteres no permitidos | Caracteres Unicode. |
+| Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 256 caracteres.</li><li>requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
+| Duración de la expiración de la contraseña (vigencia máxima de la contraseña) |<ul><li>Valor predeterminado: **90** días.</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`del módulo Active Directory para Windows PowerShell.</li></ul> |
+| Notificación de expiración de contraseña (cuándo se notifica a los usuarios la expiración de la contraseña) |<ul><li>Valor predeterminado: **14** días (antes de que expire la contraseña).</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
+| Expiración de las contraseñas (permitir que las contraseñas no expiren nunca) |<ul><li>Valor predeterminado: **falso** (indica que las contraseñas tienen una fecha de expiración).</li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet `Set-MsolUser`.</li></ul> |
+| Historial de cambios de contraseña | La última contraseña *no* puede usarse de nuevo cuando el usuario cambia una contraseña. |
+| Historial de restablecimientos de contraseña | La última contraseña *puede* usarse de nuevo cuando el usuario restablece una contraseña olvidada. |
+| Bloqueo de cuenta | Después de 10 intentos de inicio de sesión incorrectos con una contraseña incorrecta, el usuario se bloquea durante un minuto. Más intentos de inicio de sesión incorrectos bloquean el usuario durante mayor cantidad de tiempo. El [bloqueo inteligente](howto-password-smart-lockout.md) realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que aumente el contador de bloqueo con la misma contraseña. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee. |
 
 ## <a name="administrator-reset-policy-differences"></a>Diferencias entre directivas de restablecimiento de administrador
 
-**Microsoft aplica una directiva segura de restablecimiento de contraseña de *dos puertas* predeterminada para cualquier rol de administrador de Azure**. Esta directiva puede ser diferente de la que se ha definido para los usuarios y no se puede cambiar. Siempre debe probar la funcionalidad de restablecimiento de contraseña como usuario sin los roles de administrador de Azure asignados.
+Microsoft aplica una directiva segura de restablecimiento de contraseña de *dos puertas* predeterminada para cualquier rol de administrador de Azure. Esta directiva puede ser diferente de la que se ha definido para los usuarios y no se puede cambiar. Siempre debe probar la funcionalidad de restablecimiento de contraseña como usuario sin los roles de administrador de Azure asignados.
 
-Con una directiva de dos puertas, los **administradores no tienen posibilidad de usar preguntas de seguridad**.
+Con una directiva de dos puertas, los administradores no tienen posibilidad de usar preguntas de seguridad.
 
-Una directiva de dos puertas requiere dos elementos de datos de autenticación, como una *dirección de correo electrónico*, una *aplicación de autenticador* o un *número de teléfono*. Se aplica una directiva de dos puertas en las siguientes circunstancias:
+Una directiva de dos puertas requiere dos elementos de los datos de autenticación, como una dirección de correo electrónico, una aplicación de autenticador o un número de teléfono. Se aplica una directiva de dos puertas en las siguientes circunstancias:
 
 * Todos los roles de administrador siguientes se ven afectados:
   * Administrador del departamento de soporte técnico
@@ -65,95 +102,73 @@ Las directivas de una puerta necesitan información de autenticación, como una 
 * No se ha configurado un dominio personalizado para el inquilino de Azure AD, así que se usa el predeterminado, * *.onmicrosoft.com*. No es conveniente utilizar el dominio * *.onmicrosoft.com* predeterminado para producción y
 * Azure AD Connect no sincroniza identidades
 
-## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Directivas de UserPrincipalName que se aplican a todas las cuentas de usuario
+## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>Directivas de expiración de contraseñas
 
-Cada cuenta de usuario que necesita iniciar sesión en Azure AD debe tener un valor de atributo de nombre principal de usuario (UPN) único asociado a esa cuenta. En la siguiente tabla, se describen las directivas que se aplican tanto a las cuentas de usuario de Active Directory Domain Services locales que están sincronizadas con la nube como a las cuentas de usuario que solo están en la nube:
+Un *administrador global* o un *administrador de usuarios* puede usar el módulo [Microsoft Azure AD para Windows PowerShell](/powershell/module/Azuread/?view=azureadps-2.0) al configurar las contraseñas de usuario para que no expiren.
 
-| Propiedad | Requisitos de UserPrincipalName |
-| --- | --- |
-| Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
-| Caracteres no permitidos |<ul> <li>Cualquier carácter "\@\" que no separa el nombre de usuario del dominio.</li> <li>No puede contener un carácter de punto "." inmediatamente antes del símbolo "\@\".</li></ul> |
-| Restricciones de longitud |<ul> <li>La longitud total no debe superar los 113 caracteres.</li><li>Puede haber hasta 64 caracteres antes del símbolo "\@\"</li><li>Puede haber hasta 48 caracteres después del símbolo "\@\"</li></ul> |
-
-## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Directivas de contraseña que solo se aplican a cuentas de usuario en la nube
-
-En la tabla siguiente se describe la configuración de directivas de contraseña aplicadas a cuentas de usuario creadas y administradas en Azure AD:
-
-| Propiedad | Requisitos |
-| --- | --- |
-| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ;</li> <li>espacio en blanco</li></ul> |
-| Caracteres no permitidos | Caracteres Unicode. |
-| Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 256 caracteres.</li><li>requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
-| Duración de la expiración de la contraseña (vigencia máxima de la contraseña) |<ul><li>Valor predeterminado: **90** días.</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`del módulo Active Directory para Windows PowerShell.</li></ul> |
-| Notificación de expiración de contraseña (cuándo se notifica a los usuarios la expiración de la contraseña) |<ul><li>Valor predeterminado: **14** días (antes de que expire la contraseña).</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
-| Expiración de las contraseñas (permitir que las contraseñas no expiren nunca) |<ul><li>Valor predeterminado: **falso** (indica que las contraseñas tienen una fecha de expiración).</li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet `Set-MsolUser`.</li></ul> |
-| Historial de cambios de contraseña | La última contraseña *no* puede usarse de nuevo cuando el usuario cambia una contraseña. |
-| Historial de restablecimientos de contraseña | La última contraseña *puede* usarse de nuevo cuando el usuario restablece una contraseña olvidada. |
-| Bloqueo de cuenta | Después de 10 intentos de inicio de sesión incorrectos con una contraseña incorrecta, el usuario se bloquea durante un minuto. Más intentos de inicio de sesión incorrectos bloquean el usuario durante mayor cantidad de tiempo. El [bloqueo inteligente](howto-password-smart-lockout.md) realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que aumente el contador de bloqueo con la misma contraseña. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee. |
-
-## <a name="set-password-expiration-policies-in-azure-ad"></a>Establecer directivas de expiración de contraseñas en Azure AD
-
-Un *administrador global* o un *administrador de usuarios* de un servicio en la nube de Microsoft puede usar el módulo *Microsoft Azure Active Directory para Windows PowerShell* al configurar las contraseñas de usuario de modo que no expiren. También puede usar cmdlets de Windows PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca.
+También puede usar cmdlets de PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca.
 
 Esta guía se aplica a otros proveedores (como Intune y Office 365) que también dependen de Azure AD para los servicios de identidad y directorio. La expiración de contraseñas es la única parte de la directiva que se puede cambiar.
 
 > [!NOTE]
-> Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para obtener más información sobre la sincronización de directorios, vea el artículo sobre cómo [conectar AD con Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+> Solo las contraseñas de cuentas de usuario que no se sincronizan a través de Azure AD Connect pueden configurarse para que no expiren. Para obtener más información sobre la sincronización de directorios, vea el artículo sobre cómo [conectar AD con Azure AD](../hybrid/whatis-hybrid-identity.md).
 
-## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Establecer o comprobar directivas de contraseña mediante PowerShell
+### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Establecer o comprobar directivas de contraseña mediante PowerShell
 
-Para empezar, [descargue e instale el módulo de Azure AD PowerShell ](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0) y [conéctelo al inquilino de Azure AD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples). Una vez instalado el módulo, siga estos pasos para configurar cada campo.
+Para empezar, [descargue e instale el módulo de Azure AD PowerShell ](/powershell/module/Azuread/?view=azureadps-2.0) y [conéctelo al inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples).
+
+Una vez instalado el módulo, use los pasos a continuación para completar cada tarea según sea necesario.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
 
-1. Conéctese a Windows PowerShell con sus credenciales de administrador usuarios o de administrador de la compañía.
-1. Ejecute uno de los siguientes comandos:
+1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
-   * Para ver si la contraseña de un único usuario está establecida para que no expire nunca, ejecute el cmdlet siguiente con el UPN (por ejemplo, *aprilr\@contoso.onmicrosoft.com*) o el identificador del usuario que quiere comprobar:
+   * Para ver si la contraseña de un solo usuario está configurada para no expirar nunca, ejecute el siguiente cmdlet. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*:
 
-   ```powershell
-   Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
-   ```
+       ```powershell
+       Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+       ```
 
    * Para ver la configuración **La contraseña nunca expira** de todos los usuarios, ejecute el siguiente cmdlet:
 
-   ```powershell
-   Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+       ```
 
 ### <a name="set-a-password-to-expire"></a>Configuración de una contraseña para que caduque
 
-1. Conéctese a Windows PowerShell con sus credenciales de administrador usuarios o de administrador de la compañía.
-1. Ejecute uno de los siguientes comandos:
+1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
-   * Para establecer la contraseña de un usuario para que expire, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario:
+   * Para establecer la contraseña de un usuario para que expire, ejecute el cmdlet siguiente. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*.
 
-   ```powershell
-   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
-   ```
+       ```powershell
+       Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
+       ```
 
    * Para establecer las contraseñas de todos los usuarios de la organización de modo que expiren, use el siguiente cmdlet:
 
-   ```powershell
-   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
+       ```
 
 ### <a name="set-a-password-to-never-expire"></a>Configure una contraseña para que no caduque nunca
 
-1. Conéctese a Windows PowerShell con sus credenciales de administrador usuarios o de administrador de la compañía.
-1. Ejecute uno de los siguientes comandos:
+1. Abra un símbolo del sistema de PowerShell y [conéctese con su inquilino de Azure AD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) mediante una cuenta de *administrador global* o *administrador de usuarios*.
+1. Ejecute uno de los siguientes comandos para un usuario individual o para todos los usuarios:
 
-   * Para establecer la contraseña de un usuario para que no expire nunca, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario:
+   * Para establecer la contraseña de un usuario para que no expire nunca, ejecute el cmdlet siguiente. Reemplace `<user ID>` por el id. del usuario que quiere comprobar, como *driley\@contoso.onmicrosoft.com*.
 
-   ```powershell
-   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
-   ```
+       ```powershell
+       Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
+       ```
 
    * Para configurar las contraseñas de todos los usuarios de una organización para que nunca expiren, ejecute el siguiente cmdlet:
 
-   ```powershell
-   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
-   ```
+       ```powershell
+       Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
+       ```
 
    > [!WARNING]
    > La antigüedad de las contraseñas establecidas en `-PasswordPolicies DisablePasswordExpiration` sigue basándose en el atributo `pwdLastSet`. En función del `pwdLastSet` atributo, si cambia la expiración a `-PasswordPolicies None`, todas las contraseñas que tengan una `pwdLastSet` cuya antigüedad sea superior a 90 días requieren que el usuario las cambie la próxima vez que se inicie sesión. Este cambio puede afectar a gran cantidad de usuarios.

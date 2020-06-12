@@ -7,13 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: ab2165cb6b48e58a7adca7093f7ff82d10495066
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739488"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196477"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -45,7 +45,7 @@ Con la SKU v2, el modelo de precios está orientado al consumo y ya no está aso
 - **Precio fijo**: precio por hora (o por fracción de hora) para aprovisionar una instancia de Gateway Standard_v2 o WAF_v2. Tenga en cuenta que 0 instancias mínimas adicionales todavía garantizan una alta disponibilidad del servicio que siempre se incluye con el precio fijo.
 - **Precio por unidad de capacidad**: se trata del costo basado en el consumo que se suma al costo fijo. La unidad de capacidad se cobra también por hora o fracciones de hora de proceso. Hay tres dimensiones para la unidad de capacidad: unidad de proceso, conexiones persistentes y rendimiento. La unidad de proceso es una medida de la capacidad de procesador consumida. Los factores que afectan a la unidad de proceso son las conexiones TLS/seg, los cálculos de reescritura de direcciones URL y el procesamiento de reglas de WAF. La conexión persistente es una medida de las conexiones TCP establecidas para la puerta de enlace de aplicaciones en un intervalo de facturación determinado. El rendimiento es el promedio de megabits/seg procesados por el sistema en un intervalo de facturación determinado.  La facturación se realiza en un nivel de unidad de capacidad para cualquier elemento que esté por encima del número de instancias reservadas.
 
-Cada unidad de capacidad se compone a lo sumo de: 1 unidad de proceso, o 2500 conexiones persistentes, o rendimiento de 2,22 Mbps.
+Cada unidad de capacidad se compone a lo sumo de: 1 unidad de proceso, 2500 conexiones persistentes y rendimiento de 2,22 Mbps.
 
 Orientación para la unidad de proceso:
 

@@ -5,29 +5,29 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759105"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022767"
 ---
-# <a name="single-sided-rendering"></a>Representación en una sola cara
+# <a name="no-loc-textsingle-sided-rendering"></a>Representación :::no-loc text="Single-sided":::
 
 La mayoría de los representadores usan la [selección de la cara posterior](https://en.wikipedia.org/wiki/Back-face_culling) para mejorar el rendimiento. Sin embargo, cuando se cortan las mallas abiertas con [planos de corte](cut-planes.md), los usuarios suelen ver la cara posterior de los triángulos. Si esos triángulos se seleccionan, el resultado no parecerá convincente.
 
 La manera de evitar este problema de forma confiable es representar triángulos de *dos caras*. Como no usar la selección de la cara posterior tiene implicaciones en el rendimiento, de forma predeterminada, Azure Remote Rendering solo cambia a la renderización de dos caras para las mallas que forman intersección con un plano de corte.
 
-El valor de *representación en una sola cara* permite personalizar este comportamiento.
+El valor de *representación :::no-loc text="single-sided":::* permite personalizar este comportamiento.
 
 > [!CAUTION]
-> La configuración de representación en una sola cara es una característica experimental. Puede volver a quitarse en el futuro. No cambie la configuración predeterminada, a menos que resuelva realmente un problema crítico en la aplicación.
+> La configuración de representación :::no-loc text="single-sided"::: es una característica experimental. Puede volver a quitarse en el futuro. No cambie la configuración predeterminada, a menos que resuelva realmente un problema crítico en la aplicación.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-La configuración de representación en una sola cara solo tiene efecto para las mallas que se han [convertido](../../how-tos/conversion/configure-model-conversion.md) con la opción `opaqueMaterialDefaultSidedness` establecida en `SingleSided`. De forma predeterminada, el valor de esta opción es `DoubleSided`.
+La configuración de representación :::no-loc text="single-sided"::: solo tiene efecto para las mallas que se han [convertido](../../how-tos/conversion/configure-model-conversion.md) con la opción `opaqueMaterialDefaultSidedness` establecida en `SingleSided`. De forma predeterminada, el valor de esta opción es `DoubleSided`.
 
-## <a name="single-sided-rendering-setting"></a>Configuración de representación en una sola cara
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>Configuración de representación :::no-loc text="Single-sided":::
 
 Hay tres modos diferentes:
 
@@ -35,9 +35,9 @@ Hay tres modos diferentes:
 
 **DynamicDoubleSiding:** en este modo, cuando un plano de corte forma una intersección con una malla, se cambia automáticamente a la representación en dos caras. Este modo es el predeterminado.
 
-**AlwaysDoubleSided:** obliga a que todas las geometrías de una sola cara se representen siempre. Este modo se expone principalmente para que pueda comparar fácilmente el impacto en el rendimiento entre la representación en una sola cara y en dos.
+**AlwaysDoubleSided:** obliga a que todas las geometrías de una sola cara se representen siempre. Este modo se expone principalmente para que pueda comparar fácilmente el impacto en el rendimiento entre la representación :::no-loc text="single-sided"::: y :::no-loc text="double-sided":::.
 
-Para cambiar la configuración de representación en una sola cara, siga estos pasos:
+Para cambiar la configuración de representación :::no-loc text="single-sided":::, siga estos pasos:
 
 ```cs
 void ChangeSingleSidedRendering(AzureSession session)

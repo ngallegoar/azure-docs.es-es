@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa49de51f42b26c653b15e79c865e3f5647c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f9f4db0119b10a2df3a1007f9e5fa710e31f0e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931641"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113715"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -40,7 +40,7 @@ Las actividades de transformación en una [canalización](data-factory-create-pi
 
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure:
 
-- Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 - Base de datos de SQL Server. Si se usa SQL Server, se debe instalar la puerta de enlace de administración de datos en el mismo equipo que hospeda la base de datos o en un equipo independiente que tenga acceso a la base de datos. La puerta de enlace de administración de datos es un componente que conecta orígenes de datos locales o en la máquina virtual de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener detalles.
 
@@ -114,7 +114,7 @@ Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL
    ![Nuevo almacén de datos](media/data-factory-stored-proc-activity/new-data-store.png)
 3. Realice los siguientes cambios en el script JSON:
 
-   1. Reemplace `<servername>` por el nombre del servidor de Azure SQL Database.
+   1. Reemplace `<servername>` por el nombre del servidor.
    2. Reemplace `<databasename>` por la base de datos en la que creó la tabla y el procedimiento almacenado.
    3. Reemplace `<username@servername>` por la cuenta de usuario que tiene acceso a la base de datos.
    4. Reemplace `<password>` por la contraseña de la cuenta de usuario.

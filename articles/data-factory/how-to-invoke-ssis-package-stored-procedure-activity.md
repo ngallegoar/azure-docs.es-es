@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9309f431a820b800e652d7fa8afcea8f03a46062
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605936"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114522"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 
@@ -26,10 +26,10 @@ ms.locfileid: "81605936"
 
 En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="azure-sql-database"></a>Azure SQL Database 
-El tutorial de este artículo usa una base de datos de Azure SQL que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.
+### <a name="azure-sql-database"></a>Azure SQL Database 
+En el tutorial de este artículo se usa Azure SQL Database para hospedar el catálogo de SSIS. También puede usar Instancia administrada de Azure SQL.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
 Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](tutorial-create-azure-ssis-runtime-portal.md).
@@ -134,7 +134,7 @@ En esta sección, desencadena una ejecución de canalización y luego la supervi
 
     ![Ejecuciones de actividad](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. Puede ejecutar la **consulta** siguiente en la base de datos SSISDB en el servidor de Azure SQL para comprobar la ejecución del paquete. 
+4. Puede ejecutar la **consulta** siguiente en la base de datos de SSISDB en SQL Database para comprobar la ejecución del paquete. 
 
     ```sql
     select * from catalog.executions
@@ -353,7 +353,7 @@ En el paso anterior, invocó la canalización a petición. También puede crear 
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    Puede ejecutar la consulta siguiente en la base de datos SSISDB en el servidor de Azure SQL para comprobar la ejecución del paquete. 
+    Puede ejecutar la consulta siguiente en la base de datos de SSISDB en SQL Database para comprobar la ejecución del paquete. 
 
     ```sql
     select * from catalog.executions

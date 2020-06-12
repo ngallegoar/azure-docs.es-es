@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188593"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204742"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -215,8 +215,8 @@ Para más información, vea [Creación y administración de directivas para apli
 **Procedimiento recomendado**: Identifique los roles responsables de supervisar las infracciones de directivas y garantizar que la acción correctora adecuada se realiza de forma rápida.   
 **Detalles**: El rol asignado debe supervisar el cumplimiento normativo a través de [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) o la [línea de comandos](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Procedimiento recomendado**: Azure Policy es una representación técnica de las directivas escritas de una organización. Todas las directivas de Azure se asignan a las directivas de la organización para reducir la confusión y aumentar la coherencia.   
-**Detalles**: Para asignar documentos en la documentación de una organización o en la propia definición de Azure Policy, agregue una referencia a la directiva de la organización en la [definición de Azure Policy](../../governance/policy/concepts/definition-structure.md#display-name-and-description) o en la [iniciativa de Azure Policy](../../governance/policy/concepts/definition-structure.md#initiatives).
+**Procedimiento recomendado**: Azure Policy es una representación técnica de las directivas escritas de una organización. Para reducir la confusión y aumentar la coherencia, asigne todas las definiciones de Azure Policy a las directivas de la organización.   
+**Detalles**: Para asignar documentos en la documentación de una organización o en la propia definición de Azure Policy, agregue una referencia a la directiva de la organización en la descripción de la [definición de la directiva](../../governance/policy/concepts/definition-structure.md#display-name-and-description) o de la [definición de la iniciativa](../../governance/policy/concepts/initiative-definition-structure.md#metadata).
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Supervisión de los informes de riesgo de Azure AD
 La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Descubrir las identidades en peligro no es tarea fácil. Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado [detección de riesgos](../../active-directory/reports-monitoring/concept-risk-events.md). Las detecciones de riesgo se registran en los informes de seguridad de Azure AD. Para más información, vea el [informe de seguridad de usuarios en riesgo](../../active-directory/reports-monitoring/concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión en riesgo](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

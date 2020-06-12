@@ -3,12 +3,12 @@ title: Recuperación de datos de una instancia de Azure Backup Server
 description: Recupere los datos que protegió en un almacén de Recovery Services desde cualquier Azure Backup Server registrado en dicho almacén.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 2a89697899fc244848854978de4b25e79ef6f184
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74173498"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249083"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperación de datos de Azure Backup Server
 
@@ -83,7 +83,7 @@ Para recuperar datos de una instancia de Azure Backup Server:
 | 1. |Este servidor no está registrado en el almacén especificado por las credenciales del almacén. |**Causa:** Este error aparece cuando el archivo de credenciales del almacén seleccionado no pertenece al almacén de Recovery Services asociado al Azure Backup Server en el que se intenta la recuperación. <br> **Resolución:** Descargue el archivo de credenciales del almacén de Recovery Services en el que está registrado el Azure Backup Server. |
 | 2. |Los datos recuperables no están disponibles o el servidor seleccionado no es un servidor DPM. |**Causa:** No hay ninguna otra instancia de Azure Backup Server registrada en el almacén de Recovery Services, los servidores aún no han cargado los metadatos o el servidor seleccionado no es una instancia de Azure Backup Server (que utilice un servidor o cliente de Windows). <br> **Resolución:** Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, asegúrese de que está instalado el agente de Azure Backup más reciente. <br>Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, espere un día después de la instalación para iniciar el proceso de recuperación. Por la noche se cargarán en la nube los metadatos de todas las copias de seguridad protegidas. Los datos estarán disponibles para la recuperación. |
 | 3. |Ningún otro servidor DPM está registrado en este almacén. |**Causa:** No hay ningún otro Azure Backup Server registrado en el almacén desde el que se intenta realizar la recuperación.<br>**Resolución:** Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, asegúrese de que está instalado el agente de Azure Backup más reciente.<br>Si hay otras instancias de Azure Backup Server registradas en el almacén de Recovery Services, espere un día después de la instalación para iniciar el proceso de recuperación. El trabajo nocturno carga los metadatos de todas las copias de seguridad protegidas en la nube. Los datos estarán disponibles para la recuperación. |
-| 4. |La frase de contraseña de cifrado especificada no coincide con la asociada al siguiente servidor: **\<nombre del servidor>** |**Causa:** La frase de contraseña de cifrado que se usa en el proceso de cifrado de los datos del Azure Backup Server que se recuperan no coincide con la proporcionada. El agente no puede descifrar los datos. Por lo tanto, se produce un error en la recuperación.<br>**Resolución:** Especifique la misma frase de contraseña de cifrado asociada al Azure Backup Server cuyos datos se recuperan. |
+| 4. |La frase de contraseña de cifrado especificada no coincide con la frase de contraseña asociada al siguiente servidor: **\<server name>** |**Causa:** La frase de contraseña de cifrado que se usa en el proceso de cifrado de los datos del Azure Backup Server que se recuperan no coincide con la proporcionada. El agente no puede descifrar los datos y se produce un error en la recuperación.<br>**Resolución:** Especifique la misma frase de contraseña de cifrado asociada al Azure Backup Server cuyos datos se recuperan. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

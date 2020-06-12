@@ -1,5 +1,5 @@
 ---
-title: Guía de solución de problemas de implementación
+title: Solución de problemas de implementación de Docker
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con Azure Kubernetes Service y Azure Container Instances mediante Azure Machine Learning.
 services: machine-learning
@@ -10,21 +10,33 @@ author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: contperfq4
+ms.openlocfilehash: f65b263bb90356a4d739ebc963458cc7e992863c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873379"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307952"
 ---
-# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solución de problemas con la implementación de Azure Machine Learning, Azure Kubernetes Service y Azure Container Instances
+# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Solución de problemas con la implementación de Docker de modelos con Azure Kubernetes Service y Azure Container Instances 
 
-Obtenga información sobre cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con Azure Container Instances (ACI) y Azure Kubernetes Service (AKS) mediante Azure Machine Learning.
+Obtenga información sobre cómo abordar y solucionar los errores comunes de implementación de Docker con Azure Container Instances (ACI) y Azure Kubernetes Service (AKS) mediante Azure Machine Learning.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* Para depurar localmente, debe tener una instalación de Docker en funcionamiento en el sistema local.
+
+    Para comprobar la instalación de Docker, use el comando `docker run hello-world` desde un símbolo del sistema o terminal. Para obtener información sobre la instalación de Docker o la solución de problemas de Docker, consulte la [Documentación de Docker](https://docs.docker.com/).
+
+## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Pasos para la implementación de Docker de modelos de Machine Learning
 
 Al implementar un modelo en Azure Machine Learning, el sistema realiza una serie de tareas.
 
-El enfoque recomendado y más actualizado para la implementación de modelo se realiza a través de la API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) mediante un objeto [Entorno](how-to-use-environments.md) como parámetro de entrada. En este caso, nuestro servicio creará una imagen de Docker base automáticamente durante la fase de implementación y montará los modelos necesarios en una llamada. Las tareas de implementación básicas son:
+El enfoque recomendado para la implementación de modelos se realiza a través de la API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) mediante un objeto de [entorno](how-to-use-environments.md) como parámetro de entrada. En este caso, el servicio crea una imagen base de Docker durante la fase de implementación y monta los modelos necesarios en una llamada. Las tareas de implementación básicas son:
 
 1. Registrar el modelo en el registro de modelos del área de trabajo.
 
@@ -35,16 +47,6 @@ El enfoque recomendado y más actualizado para la implementación de modelo se r
 3. Implemente el modelo en el servicio de instancia de contenedor de Azure (ACI) o Azure Kubernetes Service (AKS).
 
 Más información sobre este proceso en la introducción a la [administración de modelos](concept-model-management-and-deployment.md).
-
-## <a name="prerequisites"></a>Prerrequisitos
-
-* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
-* El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Para depurar localmente, debe tener una instalación de Docker en funcionamiento en el sistema local.
-
-    Para comprobar la instalación de Docker, use el comando `docker run hello-world` desde un símbolo del sistema o terminal. Para obtener información sobre la instalación de Docker o la solución de problemas de Docker, consulte la [Documentación de Docker](https://docs.docker.com/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -124,7 +126,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Tenga en cuenta que si va a definir su propio YAML de especificación de Conda, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web.
+Si va a definir su propio YAML de especificación de Conda, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web.
 
 En este punto, se puede trabajar con el servicio de forma habitual. Por ejemplo, en el código siguiente se muestra cómo enviar datos al servicio:
 
@@ -182,9 +184,9 @@ print(ws.webservices['mysvc'].get_logs())
 ```
 ## <a name="container-cannot-be-scheduled"></a>No se puede programar el contenedor
 
-Al implementar un servicio en un destino de proceso de Azure Kubernetes Service, Azure Machine Learning intentará programar el servicio con la cantidad de recursos solicitada. Si pasados 5 minutos no hay ningún nodo disponible en el clúster con la cantidad adecuada de recursos disponible, se producirá un error en la implementación con el mensaje `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. Para solucionar este error, se pueden agregar más nodos, cambiar la SKU de los nodos o cambiar los requisitos de recursos de su servicio. 
+Al implementar un servicio en un destino de proceso de Azure Kubernetes Service, Azure Machine Learning intentará programar el servicio con la cantidad de recursos solicitada. Si pasados 5 minutos no hay ningún nodo disponible en el clúster con la cantidad adecuada de recursos disponibles, se producirá un error en la implementación con el mensaje `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. Para solucionar este error, se pueden agregar más nodos, cambiar la SKU de los nodos o cambiar los requisitos de recursos de su servicio. 
 
-El mensaje de error suele indicar el recurso del cual se necesita más: por ejemplo, si se ve un mensaje de error que indica `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`, significa que el servicio requiere GPU y que hay 3 nodos en el clúster que no tienen GPU disponibles. Esto se podría solucionar con la incorporación de más nodos si se usa una SKU de GPU, el cambio a una SKU habilitada para GPU si no se estaba usando o el cambio del entorno para que no se necesite GPU.  
+El mensaje de error suele indicar el recurso del cual se necesita más. Por ejemplo, si ve un mensaje de error que indica `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`, significa que el servicio requiere GPU y que hay tres nodos en el clúster que no tienen GPU disponibles. Esto se podría solucionar con la incorporación de más nodos si se usa una SKU de GPU, el cambio a una SKU habilitada para GPU si no se estaba usando o el cambio del entorno para que no se necesite GPU.  
 
 ## <a name="service-launch-fails"></a>Error en el inicio del servicio
 

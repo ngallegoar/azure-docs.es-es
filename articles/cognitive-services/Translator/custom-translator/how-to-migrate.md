@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587011"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992914"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
@@ -92,7 +92,7 @@ Para migrar un área de trabajo:
 
 ## <a name="migration-history"></a>Historial de migraciones
 
-Si solicita la migración del área de trabajo o de los proyectos de Microsoft Translator Hub, puede ver el historial de migraciones en la página Configuración de Custom Translator.
+Si solicita la migración del área de trabajo o de los proyectos de Hub, puede ver el historial de migraciones en la página Configuración de Traductor personalizado.
 
 Para ver el historial de migraciones realice estos pasos:
 
@@ -132,11 +132,11 @@ En la siguiente tabla se comparan las características de Microsoft Translator H
 
 |   | Hub | Custom Translator |
 |:-----|:----:|:----:|
-|Estado de la característica de personalización   | Disponibilidad general  | Disponibilidad general |
-| Versión de Text API  | V2    | V3  |
-| Personalización de SMT | Sí   | No |
-| Personalización de NMT | No    | Sí |
-| Nueva personalización unificada de servicios de voz | No    | Sí |
+|Estado de la característica de personalización    | Disponibilidad general    | Disponibilidad general |
+| Versión de Text API    | V2     | V3  |
+| Personalización de SMT    | Sí    | No |
+| Personalización de NMT    | No    | Sí |
+| Nueva personalización unificada de servicios de voz    | No    | Sí |
 | Sin seguimiento | Sí | Sí |
 
 ## <a name="new-languages"></a>Nuevos idiomas

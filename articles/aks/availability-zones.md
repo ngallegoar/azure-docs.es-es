@@ -2,15 +2,15 @@
 title: Uso de las zonas de disponibilidad en Azure Kubernetes Service (AKS)
 description: Aprenda a crear un clúster que distribuya nodos a través de las zonas de disponibilidad en Azure Kubernetes Service (AKS)
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725103"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195559"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creación de un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -48,7 +48,7 @@ Las siguientes limitaciones se aplican cuando crea un clúster de AKS mediante z
 
 ### <a name="azure-disks-limitations"></a>Limitaciones de los discos de Azure
 
-Los volúmenes que usan discos administrados de Azure actualmente no son recursos con redundancia de zona. Los volúmenes no se pueden conectar entre zonas y deben estar ubicados en la misma zona que un nodo determinado que hospede al pod de destino.
+Los volúmenes que usan discos administrados de Azure actualmente no son recursos con redundancia de zona. Los volúmenes no se pueden conectar entre zonas y deben estar ubicados en la misma zona que el nodo concreto que hospeda al pod de destino.
 
 Si debe ejecutar cargas de trabajo con estado, use valores taint y toleration de grupo de nodos en las especificaciones de pods para agrupar la programación de pods en la misma zona que los discos. Asimismo, puede usar el almacenamiento basado en la red, como Azure Files, que se puede conectar a los pods según se programan entre zonas.
 

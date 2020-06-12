@@ -3,12 +3,12 @@ title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e4d63355b793f69ccc2ed7aaa44bfb60a3a8440e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747086"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204844"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -148,6 +148,9 @@ El porcentaje de cumplimiento se determina al dividir los recursos **Conforme** 
 El _total de recursos_ se define como la suma de los recursos **Conforme**, **No compatible** y **En conflicto**. La cifra de cumplimiento general es la suma de los distintos recursos que son **Conforme** dividida por la suma de todos los recursos distintos. En la imagen siguiente, hay 20 recursos diferentes que son aplicables y solo uno es **No compatible**. Por tanto, el cumplimiento general de los recursos es del 95 % (19 de 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Ejemplo de cumplimiento de directivas de la página de cumplimiento" border="false":::
+
+> [!NOTE]
+> Cumplimiento normativo de Azure Policy es una característica en versión preliminar. Las propiedades de cumplimiento del SDK y las páginas del portal son diferentes para las iniciativas habilitadas. Para obtener más información, consulte [Cumplimiento normativo](../concepts/regulatory-compliance.md).
 
 ## <a name="portal"></a>Portal
 

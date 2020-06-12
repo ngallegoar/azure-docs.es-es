@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 385814677a868c0e631bd13bad3308609b174ed3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d8bca97cfaa3aff3cb3ca5a5eb9019f96576626e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800093"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309023"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura de Azure CDN según Metro 
 > [!div class="op_single_selector"]
@@ -44,10 +44,9 @@ En este artículo se enumeran instancias de Metro que contienen ubicaciones de p
 | África | Ciudad del Cabo, Sudáfrica<br />Johannesburgo (Sudáfrica)<br />Lagos, Nigeria<br />Nairobi, Kenia | Johannesburgo (Sudáfrica) | Sudáfrica |
 | Oriente Medio | Dubái, Emiratos Árabes Unidos<br />Tel Aviv, Israel<br />Estambul, Turquía | Muscat, Omán<br />Fujirah, Emiratos Árabes Unidos | Qatar<br />Emiratos Árabes Unidos |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai (Bombay), India<br />Nueva Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai (Bombay), India<br />Nueva Delhi, India<br /> | India |
-| Asia | RAE de Hong Kong<br />Osaka, Japón<br />Tokio, Japón<br />Kuala Lumpur, Malasia<br />Yakarta, Indonesia<br />Manila, Filipinas<br />Singapur<br />Busán, Corea del Sur<br />Seúl, Corea del Sur<br />Taipei, Taiwán<br />Bangkok, Tailandia<br />Saigon, Vietnam | RAE de Hong Kong<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán<br />Taipei, Taiwán | RAE de Hong Kong<br />Indonesia<br />Israel<br />Japón<br />RAE de Macao<br />Malasia<br />Filipinas<br />Singapur<br />Corea del Sur<br />Taiwán<br />Tailandia<br />Turquía<br />Vietnam |
+| Asia | RAE de Hong Kong<br />Osaka, Japón<br />Tokio, Japón<br />Kuala Lumpur, Malasia<br />Yakarta, Indonesia<br />Manila, Filipinas<br />Singapur<br />Busán, Corea del Sur<br />Seúl, Corea del Sur<br />Taipei, Taiwán<br />Bangkok, Tailandia<br />Ciudad de Ho Chi Minh, Vietnam | RAE de Hong Kong<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán<br />Taipei, Taiwán | RAE de Hong Kong<br />Indonesia<br />Israel<br />Japón<br />RAE de Macao<br />Malasia<br />Filipinas<br />Singapur<br />Corea del Sur<br />Taiwán<br />Tailandia<br />Turquía<br />Vietnam |
 | Australia y Nueva Zelanda | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sídney, Australia<br />Auckland, Nueva Zelanda | Melbourne, Australia<br />Sídney, Australia<br />Auckland, Nueva Zelanda | Australia<br />Nueva Zelanda |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener las últimas direcciones IP para la creación de direcciones IP permitidas, consulte la [API de nodos perimetrales de Azure CDN](https://docs.microsoft.com/rest/api/cdn/edgenodes).
-

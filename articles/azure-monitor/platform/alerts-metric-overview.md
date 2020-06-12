@@ -4,12 +4,12 @@ description: Obtenga información general acerca de lo que puede hacer con las a
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855044"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248828"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -34,7 +34,7 @@ Supongamos que ha creado una regla de alerta de métrica de umbral estático sim
 
 Desde el momento en que se crea la regla de alerta, el proceso de supervisión se ejecuta cada minuto y examina los valores métricos de los últimos 5 minutos; además, comprueba si el promedio de esos valores es superior a 70. Si se cumple la condición, es decir, si el porcentaje medio de la CPU supera el valor de 70 durante los últimos 5 minutos, la regla de alerta desencadena una notificación activada. Si configuró un correo electrónico o una acción de webhook en el grupo de acciones asociado a la regla de alerta, recibirá una notificación activada en ambos recursos.
 
-Si utiliza varias condiciones en una regla, la regla une las condiciones.  Es decir, la alerta se desencadena cuando todas las condiciones de la alerta se evalúan como true y se resuelve cuando una de las condiciones deja de ser true. Un ejemplo de este tipo de alerta sería: "CPU superior al 90 %" y "longitud de cola de más de 300 elementos". 
+Si utiliza varias condiciones en una regla, la regla une las condiciones. Es decir, una alerta se desencadena cuando todas las condiciones de regla la alerta se evalúan como true y se resuelve cuando una de las condiciones deja de ser true. Un ejemplo de este tipo de regla de alerta sería supervisar una máquina virtual de Azure y generar una alerta si el porcentaje de CPU supera el 90 % y la longitud de la cola es de más de 300 elementos.
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regla de alerta con el tipo de condición dinámica
 

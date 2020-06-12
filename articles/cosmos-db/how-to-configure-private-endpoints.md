@@ -4,14 +4,14 @@ description: Aprenda a configurar Azure Private Link para acceder a una cuenta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 05/27/2020
 ms.author: thweiss
-ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697887"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116674"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configuración de Azure Private Link para una cuenta de Azure Cosmos
 
@@ -38,7 +38,7 @@ Siga los pasos que se indican a continuación para crear un punto de conexión p
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione un grupo de recursos.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba cualquier nombre para su punto de conexión privado. Si el nombre ya existe, cree uno único. |
@@ -50,9 +50,9 @@ Siga los pasos que se indican a continuación para crear un punto de conexión p
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**. <br/><br/> A continuación, puede elegir uno de sus recursos para configurar Private Link. O bien, puede conectarse al recurso de otro usuario mediante un alias o identificador del recurso que haya compartido con usted.|
-    | Subscription| Seleccione su suscripción. |
+    | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.AzureCosmosDB/databaseAccounts**. |
-    | Resource |Seleccione la cuenta de Azure Cosmos. |
+    | Recurso |Seleccione la cuenta de Azure Cosmos. |
     |Recurso secundario de destino |Seleccione el tipo de API de Azure Cosmos DB que desea asignar. Este valor predeterminado es solo una opción para las API de SQL, MongoDB y Cassandra. En el caso de las API de Gremlin y Table, también puede elegir **Sql**, ya que estas API son interoperables con la API de SQL. |
     |||
 
@@ -618,9 +618,11 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 
 * Si no configura ninguna regla de firewall, todo el tráfico podrá tener acceso a una cuenta de Azure Cosmos de forma predeterminada.
 
-* Si configura el tráfico público o un punto de conexión de servicio y crea puntos de conexión privados, los distintos tipos de tráfico entrante estarán autorizados por el tipo de regla de firewall correspondiente.
+* Si configura el tráfico público o un punto de conexión de servicio y crea puntos de conexión privados, los distintos tipos de tráfico entrante estarán autorizados por el tipo de regla de firewall correspondiente. Si un punto de conexión privado se configura en una subred donde también se configura el punto de conexión de servicio:
+  * el tráfico a la cuenta de base de datos asignado por el punto de conexión privado se enruta a través del punto de conexión privado.
+  * el tráfico a otras cuentas de base de datos de la subred se enruta a través del punto de conexión de servicio.
 
-* Si no configura ningún tráfico público ni punto de conexión de servicio y crea puntos de conexión privados, la cuenta de Azure Cosmos solo es accesible a través de los puntos de conexión privados. Si no configura ningún tráfico público ni punto de conexión de servicio, después de que se rechacen o eliminen todos los puntos de conexión privados aprobados, la cuenta estará abierta a toda la red.
+* Si no configura ningún tráfico público ni punto de conexión de servicio y crea puntos de conexión privados, la cuenta de Azure Cosmos solo es accesible a través de los puntos de conexión privados. Si no configura tráfico público ni un punto de conexión de servicio, después de que se rechacen o eliminen todos los puntos de conexión privados aprobados, la cuenta estará abierta a toda la red a menos que PublicNetworkAccess se establezca en Deshabilitado (consulte la sección a continuación).
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Bloqueo del acceso a la red pública durante la creación de la cuenta
 
