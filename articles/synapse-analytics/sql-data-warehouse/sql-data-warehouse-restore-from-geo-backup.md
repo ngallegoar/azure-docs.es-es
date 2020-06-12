@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99a6373c314530741bbff67a4573005ff2523d6d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745081"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020224"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Restauración geográfica del grupo de SQL
 
@@ -26,7 +26,7 @@ En este artículo, aprenderá a restaurar el grupo de SQL desde una copia de seg
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Compruebe la capacidad DTU**. Cada grupo de SQL está hospedado en un servidor SQL (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor SQL Server tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Compruebe la capacidad DTU**. Cada grupo de SQL está hospedado en un [servidor SQL lógico](../../azure-sql/database/logical-servers.md) (por ejemplo, myserver.database.windows.net) que tiene una cuota de DTU predeterminada. Compruebe que el servidor SQL Server tiene suficiente cuota de DTU restante para la base de datos en proceso de restauración. Para más información sobre cómo calcular la unidad DTU necesaria o solicitar más DTU, consulte cómo [solicitar un cambio en la cuota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Uso de PowerShell para restaurar desde una región geográfica de Azure
 
@@ -49,7 +49,7 @@ Para realizar una restauración a partir de una copia de seguridad de replicaci�
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different logical server.
+$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different server.
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -81,7 +81,7 @@ Siga los pasos que se describen a continuación para restaurar un grupo de SQL d
 
    ![Nuevo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Haga clic en **Bases de datos** y, después, **Azure Synapse Analytics (anteriormente SQL DW)**.
+3. Haga clic en **Bases de datos** y, después, **Azure Synapse Analytics (anteriormente SQL DW)** .
 
    ![Nuevo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 

@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679138"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022187"
 ---
 # <a name="late-stage-reprojection"></a>Reproyección de fase tardía
 
@@ -24,7 +24,7 @@ Ambos modos de LSR mejoran la estabilidad del holograma, aunque tienen limitacio
 
 ## <a name="choose-lsr-mode-in-unity"></a>Elección del modo de LSR en Unity
 
-En el editor de Unity, vaya a *Archivo > Build Settings* (Archivo > Configuración de compilación). Seleccione *Player Settings* (Configuración del reproductor) en la parte inferior izquierda y, a continuación, active la opción *Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality* (Reproductor > Configuración de XR > SDK de Virtual Reality > Mixed Reality de Windows) si la opción **Enable Depth Buffer Sharing** (Habilitar el uso compartido del búfer de profundidad) está activada:
+En el Editor de Unity, vaya a *:::no-loc text="File > Build Settings":::* . Seleccione *:::no-loc text="Player Settings":::* en la parte inferior izquierda y, a continuación, compruebe en *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* si la opción **:::no-loc text="Enable Depth Buffer Sharing":::** está activada:
 
 ![Marca del uso compartido del búfer de profundidad habilitado](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -54,4 +54,4 @@ Los puntos de enfoque calculados en dos marcos sucesivos pueden ser bastante dif
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Consultas de rendimiento del lado servidor](performance-queries.md)
+* [Consultas de rendimiento en el lado servidor](performance-queries.md)

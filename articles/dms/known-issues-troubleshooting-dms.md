@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f108c8b9d86a527764d2c7b8dddc6fb239b00d2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77649114"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196263"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas y errores comunes de Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Al crear nuevas actividades en un proyecto de Azure Database Migration Service, 
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Se han seleccionado para la migración más bases de datos que el número máximo
 
-El siguiente error se produce al crear una actividad para un proyecto de migración de base de datos hacia una instancia administrada de Azure SQL Database o Azure SQL Database:
+El siguiente error se produce al crear una actividad para un proyecto de migración de base de datos a Azure SQL Database o Instancia administrada de Azure SQL:
 
 * **Error**: "Error de validación de la configuración de migración", "errorDetail":"Se han seleccionado para la migración más del número máximo de '4' objetos de 'Bases de datos'."
 
@@ -72,13 +72,13 @@ Recibe el siguiente error al iniciar la instancia de Azure Database Migration Se
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Error al restaurar la base de datos mientras se migraba la instancia administrada de SQL a Azure SQL DB
 
-Al realizar una migración en línea desde SQL Server a una instancia administrada de Azure SQL Database, la transición no se completa y devuelve el siguiente error:
+Al realizar una migración en línea desde SQL Server a Instancia administrada de Azure SQL, la transición no se completa y devuelve el siguiente error:
 
 * **Error**: Error de operación de restauración para el identificador de operación "operationId". Código 'AuthorizationFailed', mensaje 'El cliente 'clientId' con el identificador de objeto 'objectId' no tiene autorización para realizar la acción 'Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/read' en el ámbito '/Subscriptions / subscriptionId'.'.
 
 | Causa         | Solución    |
 | ------------- | ------------- |
-| Este error indica que la entidad de seguridad de la aplicación que se está usando para la migración en línea de SQL Server a una instancia administrada de Azure SQL Database no tiene permiso de colaboración en la suscripción. Ciertas llamadas API con instancias administradas requieren actualmente este permiso en la suscripción para la operación de restauración. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use el `Get-AzureADServicePrincipal` cmdlet de PowerShell con el `-ObjectId` disponible en el mensaje de error para mostrar el nombre del identificador de aplicación que se está usando.<br><br> Valide los permisos para esta aplicación y asegúrese de que tiene el [rol Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) en el nivel de suscripción. <br><br> El equipo de ingeniería de Azure Database Migration Service está trabajando para restringir el acceso necesario del rol de contribución actual en la suscripción. Si tiene un requisito empresarial que no permite el uso del rol de contribución, póngase en contacto con el soporte técnico de Azure para obtener ayuda adicional. |
+| Este error indica que la entidad de seguridad de la aplicación que se está usando para la migración en línea de SQL Server a Instancia administrada de SQL no tiene permiso de colaboración en la suscripción. Ciertas llamadas API con instancias administradas requieren actualmente este permiso en la suscripción para la operación de restauración. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use el `Get-AzureADServicePrincipal` cmdlet de PowerShell con el `-ObjectId` disponible en el mensaje de error para mostrar el nombre del identificador de aplicación que se está usando.<br><br> Valide los permisos para esta aplicación y asegúrese de que tiene el [rol Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) en el nivel de suscripción. <br><br> El equipo de ingeniería de Azure Database Migration Service está trabajando para restringir el acceso necesario del rol de contribución actual en la suscripción. Si tiene un requisito empresarial que no permite el uso del rol de contribución, póngase en contacto con el soporte técnico de Azure para obtener ayuda adicional. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Error al eliminar la NIC asociada con Azure Database Migration Service
 

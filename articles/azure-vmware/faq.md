@@ -4,12 +4,12 @@ description: En este artículo se ofrecen respuestas a algunas de las preguntas 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873313"
+ms.locfileid: "84112697"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Preguntas frecuentes sobre la solución de VMware en Azure (AVS) en versión preliminar
 
@@ -67,34 +67,7 @@ No hay ningún cambio en la solución Azure VMware Solution by CloudSimple exist
 
 Sí, Azure VMware Solution admite la migración mediante herramientas conocidas de VMware, como HCX. En el caso de los clientes interesados en migrar a la nueva solución, colabore con el equipo de cuentas de Microsoft para explorar las opciones y la compatibilidad disponible.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a> **¿Cómo se solicita un aumento de la cuota de host para una instancia existente de Azure VMware Solution?**
 
-Puede solicitar un aumento de cuota mediante el [envío de una solicitud de soporte técnico](..\azure-portal\supportability\how-to-create-azure-support-request.md). El equipo de administración de cuotas evalúa la solicitud y la aprueba en un plazo de tres días laborables.  
-
-> [!IMPORTANT]
-> Antes de poder solicitar un aumento de la cuota, asegúrese de [registrar el proveedor de recursos **Microsoft.AVS**](tutorial-create-private-cloud.md) en Azure Portal.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> Para ver otras formas de registrar el proveedor de recursos, consulte [Tipos y proveedores de recursos de Azure](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
-
-1. En Azure Portal, en **Ayuda y soporte técnico**, cree una **solicitud de soporte técnico** y proporcione la siguiente información para el vale:
-   - **Tipo de problema**: Requisitos previos técnicos
-   - **Subscription** (Suscripción): Su Id. de suscripción
-   - **Servicio:**  Azure VMware Solution 
-   - **Resumen:** Aumento de la cuota
-   - **Tipo de problema**: problemas de administración de la capacidad.
-   - **Subtipo de problema:** solicitud de cliente de capacidad o cuota de host adicional.
-
-1. En la descripción de la incidencia de soporte técnico, en la pestaña Detalles, proporcione la siguiente información:
-   - Número de nodos adicionales   
-   - SKU de los nodos
-   - Region
-
-   > [!NOTE] 
-   > De forma predeterminada, se concederá un mínimo de cuatro nodos.
-
-1. Haga clic en **Revisar + crear** para enviar la solicitud.
 
 ## <a name="compute-network-and-storage"></a>Proceso, red y almacenamiento
 
@@ -164,7 +137,7 @@ No, no es necesario usar NSX en el entorno local.
 
 **¿Cuál es el cronograma de actualización del software de VMware en una nube privada?**
 
-Las actualizaciones del conjunto de productos de software en la nube privada se realizan para mantener el software dentro de una de las versiones más recientes del conjunto de productos de software de VMware. Las versiones de software de la nube privada pueden ser diferentes de las versiones más recientes de los componentes de software individuales (ESXi, NSX-T, vCenter, vSAN).
+Las actualizaciones del conjunto de productos de software de la nube privada se realizan para mantener el software dentro de una de las versiones más recientes del conjunto de productos de software de VMware. Las versiones de software de la nube privada pueden ser diferentes de las versiones más recientes de los componentes de software individuales (ESXi, NSX-T, vCenter, vSAN).
 
 **¿Con qué frecuencia se actualizará la pila de software de nube privada?**
 
@@ -233,6 +206,35 @@ Microsoft se encarga del soporte técnico de AVS. Tenga en cuenta que, según nu
 **¿Qué cuentas necesito para crear una nube privada de AVS?**
 
 Necesitará una cuenta de Azure en una suscripción a Azure.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a> **¿Cómo se solicita un aumento de la cuota de host para Azure VMware Solution?**
+
+Puede solicitar un aumento de cuota mediante el [envío de una solicitud de soporte técnico](..\azure-portal\supportability\how-to-create-azure-support-request.md). El equipo de administración de cuotas evalúa la solicitud y la aprueba en un plazo de tres días laborables.  
+
+> [!IMPORTANT]
+> Antes de poder solicitar un aumento de la cuota, asegúrese de registrar el proveedor de recursos **Microsoft.AVS** en Azure Portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Para ver otras formas de registrar el proveedor de recursos, consulte [Tipos y proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. En Azure Portal, en **Ayuda y soporte técnico**, cree una **solicitud de soporte técnico** y proporcione la siguiente información para el vale:
+   - **Tipo de problema**: Requisitos previos técnicos
+   - **Subscription** (Suscripción): Su Id. de suscripción
+   - **Servicio:**  Azure VMware Solution 
+   - **Resumen:** Aumento de la cuota
+   - **Tipo de problema**: problemas de administración de la capacidad.
+   - **Subtipo de problema:** solicitud de cliente de capacidad o cuota de host adicional.
+
+1. En la descripción de la incidencia de soporte técnico, en la pestaña Detalles, proporcione la siguiente información:
+   - Número de nodos adicionales   
+   - SKU de los nodos
+   - Region
+
+   > [!NOTE] 
+   > De forma predeterminada, se concederá un mínimo de cuatro nodos.
+
+1. Haga clic en **Revisar + crear** para enviar la solicitud.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 8d4e9a1e255884b9250879ab486d7a4e2849473a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2a9b149bd76ed276f3210f27ea0f60bbc7b7662
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192100"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190885"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 
@@ -47,7 +47,7 @@ En la pestaña **Básico**, especifique la siguiente información:
 
 |Propiedad |Descripción |
 |---|---|
-|Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+|Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
 |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
 |Nombre del clúster|Escriba un nombre único global.|
 |Region|En la lista desplegable, seleccione una región donde crear el clúster.|
@@ -62,6 +62,9 @@ En la pestaña **Básico**, especifique la siguiente información:
 Seleccione **Siguiente: Almacenamiento>>** para avanzar a la pestaña siguiente.
 
 ## <a name="storage"></a>Storage
+
+> [!WARNING] 
+> A partir del 15 de junio de 2020 los clientes no podrán crear una nueva entidad de servicio mediante HDInsight. Consulte [Creación de una entidad de servicio y certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) mediante Azure Active Directory.
 
 ![Almacenamiento en creación de clústeres de HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creación de un clúster en Azure Portal: almacenamiento")
 

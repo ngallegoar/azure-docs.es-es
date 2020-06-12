@@ -3,26 +3,19 @@ title: Introducción a las versiones de tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422494"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996727"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
-Las versiones principales del entorno de ejecución de Azure Functions se relacionan con la versión de .NET en la que se basa ese entorno. En la tabla siguiente se indica la versión actual del entorno de ejecución, el nivel de versión y la versión de .NET relacionada. 
+Actualmente, Azure Functions admite tres versiones del host en tiempo de ejecución: 1.x, 2.x y 3.x. Las tres versiones se admiten en escenarios de producción.  
 
-| Versión en tiempo de ejecución | Nivel de versión<sup>1</sup> | Versión de .NET | 
-| --------------- | ------------- | ------------ |
-| 3.x | GA | .NET Core 3.1 | 
-| 2.x | GA | .NET Core 2.2 |
-| 1.x | GA<sup>2</sup> | .NET Framework 4.7.2<sup>3</sup> |
-
-<sup>1</sup> Las versiones de disponibilidad general se admiten en escenarios de producción.   
-<sup>2</sup> La versión 1.x está en modo de mantenimiento. Las mejoras solo se proporcionan en versiones posteriores.   
-<sup>3</sup> Solo admite el desarrollo en Azure Portal o localmente en equipos Windows.
+> [!IMPORTANT]
+> La versión 1.x se encuentra en modo de mantenimiento, y solo admite el desarrollo en Azure Portal o localmente en equipos Windows. Las mejoras solo se proporcionan en versiones posteriores. 
 
 En este artículo se detallan algunas de las diferencias entre las distintas versiones, cómo se puede crear cada versión y cómo se cambian las versiones.
 
@@ -30,7 +23,7 @@ En este artículo se detallan algunas de las diferencias entre las distintas ver
 
 A partir de la versión 2.x, el entorno de ejecución usa un modelo de extensibilidad de lenguaje y todas las funciones de una aplicación de funciones deben compartir el mismo lenguaje. El lenguaje de las funciones de una aplicación de funciones se elige cuando se crea la aplicación y se mantiene en el valor [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime). 
 
-Los lenguajes experimentales de la versión 1.x de Azure Functions no pueden utilizar el nuevo modelo, así que no se admiten en la versión 2.x. En la siguiente tabla se indican los lenguajes de programación que se admiten actualmente en cada versión del entorno de ejecución.
+En la siguiente tabla se indican los lenguajes de programación que se admiten actualmente en cada versión del entorno de ejecución.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 

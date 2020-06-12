@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2f9f0e164f7ab0a6b146aad3a2809bf85e5aa4be
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81409868"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020666"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interacción con componentes y objetos de juegos de Unity
 
@@ -88,7 +88,7 @@ Los ejemplos de código anteriores usaban la ruta de acceso de carga del modelo 
 
 La creación de un objeto de juego Unity agrega implícitamente un componente `RemoteEntitySyncObject` al objeto de juego. Este componente se utiliza para sincronizar la transformación de entidad en el servidor. De forma predeterminada `RemoteEntitySyncObject` requiere que el usuario llame explícitamente a `SyncToRemote()` para sincronizar el estado de Unity local con el servidor. Al habilitar `SyncEveryFrame`, el objeto se sincronizará automáticamente.
 
-Los objetos con un `RemoteEntitySyncObject` pueden tener instancias de sus elementos secundarios remotos y mostrarse en el editor de Unity mediante el botón **Show Children** (Mostrar elementos secundarios).
+Los objetos con un `RemoteEntitySyncObject` pueden tener instancias de sus elementos secundarios remotos y mostrarse en el editor de Unity mediante el botón **:::no-loc text="Show children":::** .
 
 ![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 

@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: c2e1dbba61399ee3a4435f4f287b47f4bfd6f872
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: f00df1bc204e4d271f1c903ec50759cba3c56774
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774445"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235885"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
@@ -70,48 +70,32 @@ En los pasos siguientes, desarrollará un modelo para predecir si una carrera de
 
 Dado que los datos sin procesar están en formato de Parquet, puede usar el contexto de Spark para extraer el archivo a la memoria como dataframe directamente. Aunque el código siguiente usa las opciones predeterminadas, es posible forzar la asignación de tipos de datos y otros atributos de esquema, de ser necesario.
 
-1. Ejecute las líneas siguientes para crear un dataframe de Spark pegando el código en una nueva celda. La primera sección asigna información de acceso de Azure Storage a las variables. La segunda sección permite que Spark lea desde el almacenamiento de blobs de forma remota. La última línea de código lee Parquet, pero no se carga ningún dato en este momento.
+1. Ejecute las líneas siguientes para crear un dataframe de Spark pegando el código en una nueva celda. Se recuperan los datos a través de Open Datasets API. La extracción de todos estos datos genera aproximadamente 1500 millones de filas. En función del tamaño del grupo de Spark (versión preliminar), los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede filtrar estos datos hasta algo más pequeño. El uso de start_date y end_date aplica un filtro que devuelve un mes de datos.
 
     ```python
-    # Azure storage access info
-    blob_account_name = "azureopendatastorage"
-    blob_container_name = "nyctlc"
-    blob_relative_path = "yellow"
-    blob_sas_token = r""
+    from azureml.opendatasets import NycTlcYellow
 
-    # Allow SPARK to read from Blob remotely
-    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-    spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
-
-    # SPARK read parquet, note that it won't load any data yet by now
-    df = spark.read.parquet(wasbs_path)
+    end_date = parser.parse('2018-06-06')
+    start_date = parser.parse('2018-05-01')
+    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+    filtered_df = nyc_tlc.to_spark_dataframe()
     ```
 
-2. La extracción de todos estos datos genera aproximadamente 1500 millones de filas. En función del tamaño del grupo de Spark (versión preliminar), los datos sin procesar pueden ser demasiado grandes o tardar demasiado para poder trabajar con ellos. Puede filtrar estos datos hasta algo más pequeño. Si es necesario, agregue las líneas siguientes para filtrar los datos hasta aproximadamente 2 millones de filas para obtener una experiencia más dinámica. Use estos parámetros para extraer una semana de datos.
-
-    ```python
-    # Create an ingestion filter
-    start_date = '2018-05-01 00:00:00'
-    end_date = '2018-05-08 00:00:00'
-
-    filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
-    ```
-
-3. El inconveniente del filtrado sencillo es que, desde una perspectiva estadística, puede introducir sesgos en los datos. Otro enfoque consiste en usar el muestreo integrado en Spark. El código siguiente reduce el conjunto de filas hasta aproximadamente 2000 filas, si se aplica después del código anterior. Este paso de muestreo puede usarse en lugar del filtro simple o junto con el filtro simple.
+2. El inconveniente del filtrado sencillo es que, desde una perspectiva estadística, puede introducir sesgos en los datos. Otro enfoque consiste en usar el muestreo integrado en Spark. El código siguiente reduce el conjunto de filas hasta aproximadamente 2000 filas, si se aplica después del código anterior. Este paso de muestreo puede usarse en lugar del filtro simple o junto con el filtro simple.
 
     ```python
     # To make development easier, faster and less expensive down sample for now
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. Ahora es posible examinar los datos para ver qué se ha leído. Normalmente, es mejor revisar los datos con un subconjunto en lugar del conjunto completo, en función del tamaño del conjunto de datos. El código siguiente ofrece dos maneras de ver los datos: la primera es básica y la segunda proporciona una experiencia de cuadrícula mucho más rica, así como la capacidad de visualizar los datos gráficamente.
+3. Ahora es posible examinar los datos para ver qué se ha leído. Normalmente, es mejor revisar los datos con un subconjunto en lugar del conjunto completo, en función del tamaño del conjunto de datos. El código siguiente ofrece dos maneras de ver los datos: la primera es básica y la segunda proporciona una experiencia de cuadrícula mucho más rica, así como la capacidad de visualizar los datos gráficamente.
 
     ```python
-    sampled_taxi_df.show(5)
-    display(sampled_taxi_df.show(5))
+    #sampled_taxi_df.show(5)
+    display(sampled_taxi_df)
     ```
 
-5. En función del tamaño del conjunto de datos generado y de la necesidad de experimentar o ejecutar el cuaderno varias veces, puede ser aconsejable almacenar en caché el conjunto de trabajo localmente en el área de trabajo. Hay tres maneras de realizar el almacenamiento en caché explícito:
+4. En función del tamaño del conjunto de datos generado y de la necesidad de experimentar o ejecutar el cuaderno varias veces, puede ser aconsejable almacenar en caché el conjunto de trabajo localmente en el área de trabajo. Hay tres maneras de realizar el almacenamiento en caché explícito:
 
    - Guardar el dataframe localmente como archivo
    - Use el dataframe como vista o tabla temporal

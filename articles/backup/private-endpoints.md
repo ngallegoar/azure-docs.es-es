@@ -3,12 +3,12 @@ title: Puntos de conexión privados
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 2696f3fdbc4e9061afee266ae36ae8d3507026fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007621"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231431"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -110,7 +110,7 @@ Si desea crear una zona DNS privada independiente en Azure, puede hacer lo mismo
 
 Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para ver los códigos de región.
 
-Para las convenciones de nomenclatura de direcciones URL en zonas geográficas nacionales:
+Para las convenciones de nomenclatura de direcciones URL en regiones nacionales:
 
 - [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Alemania](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
