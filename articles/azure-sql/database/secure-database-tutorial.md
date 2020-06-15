@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267900"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323933"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>Tutorial: Protección de una base de datos de Azure SQL Database
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Protección de una base de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este tutorial, aprenderá a:
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 >
 > - Crear reglas de firewall de nivel de servidor y de base de datos.
-> - Configurar un administrador de Azure Active Directory (Azure AD).
+> - Configurar un administrador de Azure Active Directory (Azure AD).
 > - Administrar el acceso de usuario con la autenticación de SQL, la autenticación de Azure AD y cadenas de conexión seguras.
 > - Habilitar características de seguridad, como la seguridad avanzada para los datos, la auditoría, el enmascaramiento de datos y el cifrado.
 
@@ -42,7 +42,7 @@ Azure SQL Database protege los datos, al permitirle:
 Para más información, consulte los artículos [Información general sobre las funcionalidades de seguridad de Azure SQL Database](/azure/sql-database/sql-database-security-index) y [Funcionalidades](security-overview.md).
 
 > [!TIP]
-> El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita sobre cómo [proteger la instancia de Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita sobre cómo [proteger la base de datos de Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -94,7 +94,7 @@ Ahora puede conectarse a cualquier base de datos del servidor con la dirección 
 
 Las reglas de firewall de nivel de base de datos solo se aplican a bases de datos individuales. La base de datos conservará estas reglas durante una conmutación por error del servidor. Las reglas de firewall de nivel de base de datos solo pueden configurarse mediante instrucciones de Transact-SQL (T-SQL) y únicamente después de haber configurado una regla de firewall de nivel de servidor.
 
-Para configurar una regla de firewall de nivel de base de datos:
+Para configurar una regla de firewall en el nivel de base de datos:
 
 1. Conéctese a la base de datos, por ejemplo, mediante [SQL Server Management Studio](connect-query-ssms.md).
 
@@ -119,7 +119,7 @@ Asegúrese de que está usando el dominio administrado de Azure Active Directory
 
 Para establecer el administrador de Azure AD:
 
-1. En Azure Portal, en la página **SQL Server**, seleccione **Administrador de Active Directory**. A continuación, seleccione **Establecer administrador**.
+1. En Azure Portal, en la página **SQL Server**, seleccione **Administrador de Active Directory**. A continuación, seleccione **Establecer administrador**.
 
     ![seleccione active directory](./media/secure-database-tutorial/admin-settings.png)  
 

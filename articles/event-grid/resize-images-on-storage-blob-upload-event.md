@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 92962c376e2b800a327f44c4cad5cd9fdd4cab8d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652727"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560515"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -44,7 +44,7 @@ En este tutorial, aprenderá a:
 > * Implementar código sin servidor con Azure Functions
 > * Crear una suscripción de eventos de Blob Storage en Event Grid
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -75,14 +75,19 @@ Azure Functions necesita una cuenta de almacenamiento general. Además de la cue
     ```azurecli-interactive
     resourceGroupName="myResourceGroup"
     ```
-2. Establezca una variable para el nombre de la nueva cuenta de almacenamiento que requiere Azure Functions.
+2. Establezca una variable que contenga la ubicación de los recursos que se van a crear. 
+
+    ```azurecli-interactive
+    location="eastus"
+    ```    
+3. Establezca una variable para el nombre de la nueva cuenta de almacenamiento que requiere Azure Functions.
     ```azurecli-interactive
     functionstorage="<name of the storage account to be used by the function>"
     ```
-3. Cree la cuenta de almacenamiento para la función de Azure.
+4. Cree la cuenta de almacenamiento para la función de Azure.
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location southeastasia \
+    az storage account create --name $functionstorage --location $location \
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -101,7 +106,7 @@ En el siguiente comando, proporcione su propio nombre de aplicación de función
 
     ```azurecli-interactive
     az functionapp create --name $functionapp --storage-account $functionstorage \
-      --resource-group $resourceGroupName --consumption-plan-location southeastasia \
+      --resource-group $resourceGroupName --consumption-plan-location $location \
       --functions-version 2
     ```
 
@@ -114,7 +119,6 @@ La función necesita credenciales para la cuenta de Blob Storage, que se agregan
 # <a name="net-v12-sdk"></a>[\.SDK de .NET, versión 12](#tab/dotnet)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -126,8 +130,6 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
-
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -211,6 +213,7 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
     | **Suscripción** | Su suscripción de Azure | De forma predeterminada, se selecciona la suscripción de Azure actual. |
     | **Grupos de recursos** | myResourceGroup | Seleccione **Usar existente** y elija el grupo de recursos que se ha venido usando en este tutorial. |
     | **Recurso** | La cuenta de Blob Storage | Elija la cuenta de Blob Storage que ha creado. |
+    | **Nombre del tema del sistema** | imagestoragesystopic | Especifique un nombre para el tema del sistema. Para obtener información acerca de los temas del sistema, consulte [Introducción a los temas del sistema](system-topics.md). |    
     | **Tipos de evento** | Blob creado | Desactive todos los tipos que no sean **Blob creado**. Solo los tipos de evento de `Microsoft.Storage.BlobCreated` se pasan a la función. |
     | **Tipo de punto de conexión** | generado automáticamente | Definido previamente como instancia de **Azure Functions**. |
     | **Punto de conexión** | generado automáticamente | El nombre de la función. En este caso, es **Thumbnail**. |

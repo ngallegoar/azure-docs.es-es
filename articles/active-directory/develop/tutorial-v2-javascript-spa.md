@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181569"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338931"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 
@@ -50,19 +50,32 @@ Esta guía utiliza la siguiente biblioteca:
 >
 > Para configurar el ejemplo de código antes de ejecutarlo, vaya al [paso de configuración](#register-your-application).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Para ejecutar este tutorial, necesita un servidor web local, como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o la integración de IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
 * Las instrucciones de esta guía se basan en un servidor web integrado en Node.js. Se recomienda usar [Visual Studio Code](https://code.visualstudio.com/download) como entorno de desarrollo integrado (IDE).
 
+* Un explorador web moderno. En este ejemplo de JavaScript se usan [convenciones ES6](http://www.ecma-international.org/ecma-262/6.0/) y, por lo tanto, **no** es compatible con **Internet Explorer**.
+
 ## <a name="create-your-project"></a>Creación del proyecto
 
 Asegúrese de que tiene instalado [Node.js](https://nodejs.org/en/download/) y, a continuación, cree una carpeta para hospedar la aplicación. Allí, se implementará un servidor web [Express](https://expressjs.com/) sencillo para servir el archivo `index.html`.
 
-1. En primer lugar, mediante el terminal integrado de Visual Studio Code, busque la carpeta del proyecto y, a continuación, instale Express con NPM.
+1. Mediante un terminal (como el terminal integrado de Visual Studio Code), busque la carpeta del proyecto y, a continuación, escriba:
 
-1. A continuación, cree un archivo .js llamado `server.js` y agregue el código siguiente:
+   ```console
+   npm init
+   ```
+
+2. Después, instale las dependencias necesarias:
+
+   ```console
+   npm install express --save
+   npm install morgan --save
+   ```
+
+1. Ahora, cree un archivo .js llamado `index.js` y agregue el código siguiente:
 
    ```JavaScript
    const express = require('express');
@@ -269,7 +282,7 @@ Antes de continuar con la autenticación, registre la aplicación en **Azure Act
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Configuración de una dirección URL de redireccionamiento para Node.js
 >
-> Para Node.js, puede establecer el puerto del servidor web en el archivo *server.js*. En este tutorial se usa el puerto 3000, pero puede usar cualquier otro disponible.
+> Para Node.js, puede establecer el puerto del servidor web en el archivo *index.js*. En este tutorial se usa el puerto 3000, pero puede usar cualquier otro disponible.
 >
 > Para configurar una dirección URL de redireccionamiento en la información de registro de aplicación, vuelva al panel **Registro de aplicación** y realice una de las acciones siguientes:
 >
@@ -308,9 +321,9 @@ Cree un nuevo archivo .js llamado `authConfig.js`, que contendrá los parámetro
 ```
 
  Donde:
- - *\<Enter_the_Application_Id_here>* es el **identificador de aplicación (cliente)** de la aplicación que ha registrado.
- - *\<Enter_the_Cloud_Instance_Id_Here >* es la instancia de la nube de Azure. En el caso de la nube de Azure principal o global, simplemente escriba *https://login.microsoftonline.com* . Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
- - *\<Enter_the_Tenant_info_here >* está establecido en una de las opciones siguientes:
+ - *\<Enter_the_Application_Id_Here>* es el **identificador de aplicación (cliente)** de la aplicación que registró.
+ - *\<Enter_the_Cloud_Instance_Id_Here>* es la instancia de la nube de Azure. En el caso de la nube de Azure principal o global, simplemente escriba *https://login.microsoftonline.com* . Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - *\<Enter_the_Tenant_info_here>* se establece en una de las opciones siguientes:
    - Si la aplicación admite *solo las cuentas de este directorio organizativo*, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, *contoso.microsoft.com*).
    - Si la aplicación admite *cuentas en cualquier directorio organizativo*, reemplace este valor por **organizaciones**.
    - Si la aplicación admite *cuentas en cualquier directorio organizativo y cuentas Microsoft personales*, reemplace este valor por **común**. Para restringir la compatibilidad a *Personal Microsoft accounts only* (Solo cuentas Microsoft personales), reemplace este valor por **consumidores**.
@@ -433,7 +446,7 @@ El método `acquireTokenSilent` controla la renovación y las adquisiciones de t
    ```
 
    Donde:
-   - *\<Enter_the_Graph_Endpoint_Here >* es la instancia de MS Graph API. En el caso del punto de conexión global de MS Graph API, basta con reemplazar esta cadena por `https://graph.microsoft.com`. En el caso de las implementaciones de nube nacional, consulte la [Documentación de Graph API](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* es la instancia de Microsoft Graph API. En el caso del punto de conexión global de MS Graph API, basta con reemplazar esta cadena por `https://graph.microsoft.com`. En el caso de las implementaciones de nube nacional, consulte la [Documentación de Graph API](https://docs.microsoft.com/graph/deployments).
 
 1. A continuación, cree un archivo .js llamado `graph.js`, que realizará una llamada REST a Microsoft Graph API y agregue el código siguiente:
 
@@ -496,7 +509,5 @@ Microsoft Graph API requiere el ámbito *user.read* para leer el perfil del usua
 
 > [!NOTE]
 > Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
-
-Si una API de back-end no requiere un ámbito (no se recomienda), puede usar *clientId* como ámbito en las llamadas de adquisición de tokens.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

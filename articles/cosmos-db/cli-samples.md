@@ -5,18 +5,18 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: defeacc3f0bc4cd9d77e538f8ceac5ca09a4068a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71272369"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509430"
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db-sql-core-api"></a>Ejemplos de la CLI de Azure para SQL (Core) API para Azure Cosmos DB
+# <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Ejemplos de la CLI de Azure para la API de Azure Cosmos DB Core (SQL)
 
-En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Azure para SQL (Core) API para Azure Cosmos DB. Hay páginas de referencia para todos los comandos de CLI de Azure Cosmos DB disponibles en la [referencia de la CLI de Azure](/cli/azure/cosmosdb). Para obtener ejemplos de la CLI de Azure para API de Azure Cosmos DB, consulte [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md) y [Table API](cli-samples-table.md). Encontrará más ejemplos de scripts de la CLI de Azure Cosmos DB en el [repositorio de la CLI de Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Azure para la API de Azure Cosmos DB Core (SQL). Hay páginas de referencia para todos los comandos de CLI de Azure Cosmos DB disponibles en la [referencia de la CLI de Azure](/cli/azure/cosmosdb). Para obtener ejemplos de la CLI de Azure para API de Azure Cosmos DB, consulte [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md) y [Table API](cli-samples-table.md). Encontrará más ejemplos de scripts de la CLI de Azure Cosmos DB en el [repositorio de la CLI de Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
 | |  |
 |---|---|
@@ -27,4 +27,5 @@ En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Az
 | [Protección con firewall de IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta de Cosmos con firewall de IP configurado.|
 | [Proteger una cuenta nueva con puntos de conexión de servicio](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una cuenta de Cosmos y la protege con puntos de conexión de servicio.|
 | [Proteger una cuenta existente con puntos de conexión de servicio](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Actualiza una cuenta de Cosmos para protegerla con puntos de conexión de servicio cuando la subred se configura finalmente.|
+| [Bloquear recursos contra la eliminación](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Bloquee los recursos para impedir que se eliminen.|
 |||

@@ -3,12 +3,12 @@ title: Evaluación de servidores físicos para la migración a Azure con Azure M
 description: Describe cómo evaluar los servidores físicos en el entorno local para la migración a Azure con Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535441"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331804"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Evaluación de los servidores físicos con Azure Migrate:Server Assessment
 
@@ -30,7 +30,7 @@ Este tutorial es el segundo de una serie que muestra cómo evaluar y migrar serv
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Complete](tutorial-prepare-physical.md) el primer tutorial de esta serie. Si no lo hace, las instrucciones de este tutorial no funcionarán.
 - Esto es lo que debería haber hecho en el primer tutorial:
@@ -102,20 +102,18 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
     - Ejemplo de uso para la nube gubernamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Compruebe los valores hash:
- 
-    - Para la nube pública (para la versión más reciente del dispositivo):
+3.  Compruebe las versiones más recientes del dispositivo y los valores hash:
+    - Para la nube pública:
 
-        **Algoritmo** | **Valor del código hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **Escenario** | **Descargar*** | **Valor del código hash**
+        --- | --- | ---
+        Físico (63,1 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - Para Azure Government (para la versión más reciente del dispositivo):
+    - Para Azure Government:
 
-        **Algoritmo** | **Valor del código hash**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **Escenario** | **Descargar*** | **Valor del código hash**
+        --- | --- | ---
+        Físico (63,1 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
 

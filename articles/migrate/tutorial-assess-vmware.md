@@ -2,14 +2,14 @@
 title: Evaluación de las máquinas virtuales de VMware con Azure Migrate Server Assessment
 description: Se describe cómo evaluar máquinas virtuales de VMware locales para su migración a Azure mediante Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535373"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331889"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Evaluación de máquinas virtuales de VMware con Server Assessment
 
@@ -29,7 +29,7 @@ Este tutorial es el segundo de una serie que muestra cómo evaluar máquinas vir
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Realice el primer tutorial](tutorial-prepare-vmware.md) de esta serie. Si no lo hace, las instrucciones de este tutorial no funcionarán.
 - Esto es lo que debería haber hecho en el primer tutorial:
@@ -85,18 +85,26 @@ Una vez creada la aplicación, compruebe que se puede conectar a Azure Migrate:S
 Compruebe que el archivo OVA es seguro antes de implementarlo:
 
 1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
-1. Ejecute el siguiente comando para generar el código hash del archivo OVA:
+2. Ejecute el siguiente comando para generar el código hash del archivo OVA:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-En el caso de la versión 2.19.07.30, el código hash generado debe coincidir con estos valores:
+3. Compruebe las versiones más recientes del dispositivo y los valores hash:
 
-**Algoritmo** | **Valor del código hash**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - Para la nube pública de Azure:
+    
+        **Algoritmo** | **Descargar** | **SHA256**
+        --- | --- | ---
+        VMware (10,9 GB) | [La versión más reciente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - En el caso de Azure Government:
+    
+        **Algoritmo** | **Descargar** | **SHA256**
+        --- | --- | ---
+        VMware (63,1 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
 
@@ -116,7 +124,7 @@ Importe el archivo descargado y cree una máquina virtual:
 
 ## <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la máquina virtual del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
+Asegúrese de que la VM del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="configure-the-appliance"></a>Configuración del dispositivo
 

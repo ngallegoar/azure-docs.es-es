@@ -8,17 +8,18 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: b3e10b3abbe5c9815e51ce67786882dbd294df3f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b1ca26a63c910861d333f707d13946c5e046f599
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202248"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341010"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante la CLI de Azure y prueba del servicio NAT
 
@@ -390,13 +391,13 @@ Ahora está listo para probar el servicio NAT.
 
 Mientras ha iniciado sesión en la máquina virtual de origen, puede usar **cURL** y **Hey** para generar solicitudes a la dirección IP de destino.
 
-Use cURL para recuperar el archivo de 100 Kbytes.  Reemplace **\<ip-address-destination>** en el ejemplo siguiente por la dirección IP de destino que ha copiado anteriormente.  El parámetro **--output** indica que se descartará el archivo recuperado.
+Use cURL para recuperar el archivo de 100 Kbytes.  Reemplace **\<ip-address-destination>** en el ejemplo siguiente por la dirección IP de destino que copió anteriormente.  El parámetro **--output** indica que se descartará el archivo recuperado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-También puede generar una serie de solicitudes mediante **Hey**. De nuevo, reemplace **\<ip-address-destination>** por la dirección IP de destino que ha copiado anteriormente.
+También puede generar una serie de solicitudes mediante **Hey**. Una vez más, reemplace **\<ip-address-destination>** por la dirección IP de destino que copió anteriormente.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas 
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248250"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417300"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -31,7 +31,7 @@ Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 
 * Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el siguiente procedimiento [Configuración de la conectividad de red](#set-up-network-connectivity).
 * Debe existir una clave en **hdbuserstore** que cumpla los siguientes criterios:
-  * Debe estar presente en el elemento **hdbuserstore** predeterminado.
+  * Debe estar presente en el elemento **hdbuserstore** predeterminado. El valor predeterminado es la cuenta `<sid>adm` en la que SAP HANA está instalado.
   * En el caso de MDC, la clave debe apuntar al puerto SQL de **NAMESERVER**. En el caso de SDC, debe apuntar al puerto SQL de **INDEXSERVER**.
   * Debe tener credenciales para agregar y eliminar usuarios.
 * Ejecute el script de configuración de la copia de seguridad de SAP HANA (script de registro previo) en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://aka.ms/scriptforpermsonhana) prepara el sistema HANA para la copia de seguridad. Consulte la sección [Qué hace el script de registro previo](#what-the-pre-registration-script-does) para comprender mejor el script de registro previo.
@@ -100,7 +100,7 @@ Usar un servidor proxy HTTP | Se permite un control detallado en el proxy sobre 
 
 La ejecución del script de registro previo realiza las funciones siguientes:
 
-* Instala o actualiza los paquetes necesarios que necesita el agente de Azure Backup en la distribución.
+* Según la distribución de Linux, el script instala o actualiza los paquetes necesarios que necesita el agente de Azure Backup.
 * Realiza comprobaciones de conectividad de red saliente con los servidores de Azure Backup y servicios dependientes, como Azure Active Directory y Azure Storage.
 * Inicia sesión en el sistema HANA con la clave de usuario que se enumera como parte de los [requisitos previos](#prerequisites). Esta clave se usa para crear un usuario de copia de seguridad (AZUREWLBACKUPHANAUSER) en el sistema HANA y se puede eliminar después de que el script de registro previo se ejecute correctamente.
 * A AZUREWLBACKUPHANAUSER se le asignan estos roles y permisos necesarios:

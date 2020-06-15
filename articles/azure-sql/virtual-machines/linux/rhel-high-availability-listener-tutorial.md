@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la escucha de grupo de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure: Linux Virtual Machines | Microsoft Docs'
+title: 'Configuración de una escucha de grupo de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure: Linux Virtual Machines | Microsoft Docs'
 description: Información acerca de la configuración de una escucha de grupo de disponibilidad en SQL Server en máquinas virtuales RHEL en Azure
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,14 +8,14 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: edd9b83de0feff3b9ef12c67cdca19501eaa63a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025070"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343774"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de la escucha de grupo de disponibilidad para SQL Server en máquinas virtuales con Red Hat Enterprise Linux en Azure
+# <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de una escucha de grupo de disponibilidad para SQL Server en máquinas virtuales con Red Hat Enterprise Linux en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
@@ -37,7 +37,7 @@ En este tutorial se explican los pasos para crear un escucha de grupo de disponi
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Que se haya completado [**Tutorial: Configuración de grupos de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure**](rhel-high-availability-stonith-tutorial.md)
+Que se haya completado [Tutorial: Configuración de grupos de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure](rhel-high-availability-stonith-tutorial.md)
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Creación del equilibrador de carga en Azure Portal
 
@@ -115,9 +115,9 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
 
 Azure crea el sondeo y, a continuación, lo usa para comprobar qué instancia de SQL Server tiene el agente de escucha del grupo de disponibilidad.
 
-### <a name="set-the-load-balancing-rules"></a>Configuración de las reglas de equilibrio de carga
+### <a name="set-the-load-balancing-rules"></a>Establecimiento de las reglas de equilibrio de carga
 
-Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enruta el tráfico a las instancias de SQL Server. En este equilibrador de carga, habilite Direct Server Return, ya que solo una de las tres instancias de SQL Server puede ser el propietario del recurso de la escucha de grupo de disponibilidad simultáneamente.
+Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enruta el tráfico a las instancias de SQL Server. En este equilibrador de carga, habilite Direct Server Return, ya que solo una de las tres instancias de SQL Server puede ser el propietario del recurso de la escucha de grupo de disponibilidad simultáneamente.
 
 1. En la hoja **Configuración** del equilibrador de carga, haga clic en **Reglas de equilibrio de carga**. 
 
@@ -220,7 +220,7 @@ En este punto, el grupo de recursos dispone de un equilibrador de carga que se c
 
 ## <a name="test-the-listener-and-a-failover"></a>Prueba de la escucha y de una conmutación por error
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Prueba del inicio de sesión en SQL Server mediante la escucha de grupo de disponibilidad
+### <a name="test-logging-in-to-sql-server-using-the-availability-group-listener"></a>Prueba del inicio de sesión en SQL Server mediante la escucha de grupo de disponibilidad
 
 1. Use SQLCMD para iniciar sesión en el nodo principal de SQL Server mediante el nombre de la escucha de grupo de disponibilidad:
 
@@ -238,7 +238,7 @@ En este punto, el grupo de recursos dispone de un equilibrador de carga que se c
 
     El resultado debería mostrar el nodo principal actual. Este debe ser `VM1` si nunca ha probado una conmutación por error.
 
-    Salga de la sesión de SQL escribiendo el comando `exit`.
+    Salga de la sesión de SQL Server escribiendo el comando `exit`.
 
 ### <a name="test-a-failover"></a>Prueba de una conmutación por error
 
@@ -280,7 +280,7 @@ En este punto, el grupo de recursos dispone de un equilibrador de carga que se c
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. Compruebe el servidor con el que está conectado. Ejecute el comando siguiente en SQLCMD:
 
@@ -295,4 +295,4 @@ En este punto, el grupo de recursos dispone de un equilibrador de carga que se c
 Para más información sobre los equilibradores de carga de Azure consulte:
 
 > [!div class="nextstepaction"]
-> [Configuración de un equilibrador de carga para un grupo de disponibilidad en máquinas virtuales con SQL Server de Azure](../windows/availability-group-load-balancer-portal-configure.md)
+> [Configuración de un equilibrador de carga para un grupo de disponibilidad de SQL Server en máquinas virtuales de Azure](../windows/availability-group-load-balancer-portal-configure.md)

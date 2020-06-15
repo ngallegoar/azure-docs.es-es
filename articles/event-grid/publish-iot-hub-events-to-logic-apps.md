@@ -5,14 +5,14 @@ services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 11/21/2019
+ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722565"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457072"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps
 
@@ -20,7 +20,7 @@ Azure Event Grid permite reaccionar a los eventos en IoT Hub mediante el desenca
 
 En este artículo se ofrece orientación mediante una configuración de ejemplo que usa IoT Hub y Event Grid. Al final, tendrá una aplicación en Azure Logic Apps configurada para enviar una notificación por correo electrónico cada vez que se agregue un dispositivo a la instancia de IoT Hub. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure activa. Si no tiene una suscripción, puede crear [una cuenta gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -175,19 +175,26 @@ En esta sección, va a configurar IoT Hube para publicar eventos cuando se produ
 
 4. Cree la suscripción de eventos con los siguientes valores: 
 
-   * **Detalles de suscripciones de eventos**: Proporcione un nombre descriptivo y seleccione **Esquema de Event Grid**.
+    1. En la sección **DETALLES DE SUSCRIPCIONES DE EVENTOS**, realice estas tareas:
+        1. Especifique un **nombre** para la suscripción de eventos. 
+        2. Seleccione **Esquema de Event Grid** en **Esquema de eventos**. 
+   2. En la sección **DETALLES DEL TEMA**, realice las siguientes tareas:
+       1. Confirme que en **Tipo de tema** está seleccionado **IoT Hub**. 
+       2. Confirme que el nombre del centro de IoT se establece como valor del campo **Recurso de origen**. 
+       3. Escriba el nombre del **tema del sistema** que se creará. Para obtener información acerca de los temas del sistema, consulte [Introducción a los temas del sistema](system-topics.md).
+   3. En la sección **TIPOS DE EVENTO**, realice las siguientes tareas: 
+        1. En **Filtro para tipos de evento**, desactive todas las opciones excepto **Dispositivo creado**.
 
-   * **Tipos de eventos**: En **Filtro para tipos de evento**, desactive todas las opciones excepto **Dispositivo creado**.
+           ![Tipos de eventos de suscripción](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   4. En la sección **DETALLES DE PUNTO DE CONEXIÓN**, realice las siguientes tareas: 
+       1. En **Tipo de punto de conexión**, seleccione **Webhook**.
+       2. Haga clic en **Seleccionar punto de conexión** y pegue la dirección URL que copió de la aplicación lógica y confirme la selección.
 
-       ![Tipos de eventos de suscripción](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+         ![seleccionar dirección URL de punto de conexión](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   * **Detalles del punto de conexión**: En Tipo de punto de conexión, seleccione **Webhook**, haga clic en *Seleccionar punto de conexión* y pegue la dirección URL que copió de la aplicación lógica y confirme la selección.
+         Una vez realizadas las acciones anteriores, el panel debe tener un aspecto similar al del ejemplo siguiente: 
 
-     ![seleccionar dirección URL de punto de conexión](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
-
-   Una vez realizadas las acciones anteriores, el panel debe tener un aspecto similar al del ejemplo siguiente: 
-
-    ![Formulario de ejemplo de suscripción de eventos](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+        ![Formulario de ejemplo de suscripción de eventos](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 5. Puede guardar la suscripción de eventos aquí y recibir notificaciones en todos los dispositivos creados en su instancia de IoT Hub. En este tutorial, sin embargo, se van a usar los campos opcionales para filtrar por dispositivos específicos. Seleccione **Filtros** en la parte superior del panel.
 

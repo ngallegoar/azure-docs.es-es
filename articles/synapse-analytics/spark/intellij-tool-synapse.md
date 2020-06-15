@@ -8,14 +8,14 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644857"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608764"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Tutorial: Uso de Azure Toolkit for IntelliJ para crear aplicaciones Apache Spark para grupos de Spark (versión preliminar)
+# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Tutorial: Creación de aplicaciones Apache Spark con IntelliJ mediante Synapse Analytics (vista previa de áreas de trabajo)
 
 Este tutorial demuestra cómo usar el complemento de Azure Toolkit for IntelliJ para desarrollar aplicaciones Apache Spark escritas en [Scala](https://www.scala-lang.org/) y enviarlas a continuación a un grupo de Spark (versión preliminar) directamente desde el entorno de desarrollo integrado (IDE) de IntelliJ. Puede usar el complemento de varias maneras:
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > - Desarrollar aplicaciones de Apache Spark
 > - Envío de una aplicación a grupos de Spark
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [IntelliJ IDEA Community Version](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Complemento de Azure Toolkit 3.27.0-2019.2: instalación desde el [Repositorio de complementos de IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

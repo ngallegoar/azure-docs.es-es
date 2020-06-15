@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9061cbbae0b30881fffe1762208216cb8009594a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791585"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636400"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Creación de imágenes de máquina virtual Windows con Azure PowerShell
 
@@ -140,9 +140,9 @@ La imagen puede tardar un rato en replicarse en todas las regiones de destino.
 
 ## <a name="create-a-vm"></a>Crear una VM 
 
-Cuando tenga una imagen especializada, puede crear una o varias máquinas virtuales. Mediante el uso del cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Para usar la imagen, emplee "Set-AzVMSourceImage` and set the `-Id" como identificador de la definición de imagen ($galleryImage.Id en este caso) para que siempre se utilice la versión más reciente de la imagen. 
+Cuando tenga una imagen especializada, puede crear una o varias máquinas virtuales. Mediante el uso del cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Para usar la imagen, emplee `Set-AzVMSourceImage` y establezca el `-Id` en el identificador de la definición de imagen ($galleryImage.Id en este caso) para utilizar siempre la versión más reciente de la imagen. 
 
-Reemplace los nombres de recursos según sea necesario en este ejemplo. 
+Reemplace los nombres de los recursos según sea necesario en este ejemplo. 
 
 ```azurepowershell-interactive
 # Create some variables for the new VM.

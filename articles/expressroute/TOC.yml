@@ -30,7 +30,7 @@
           href: expressroute-locations-providers.md
         - name: Ubicaciones por proveedor
           href: expressroute-locations.md
-    - name: Prerrequisitos
+    - name: Requisitos previos
       href: expressroute-prerequisites.md
     - name: Workflows
       href: expressroute-workflows.md
@@ -84,7 +84,7 @@
   items:
     - name: Creación y modificación de un circuito
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: expressroute-howto-circuit-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-circuit-arm.md
@@ -95,7 +95,7 @@
           href: expressroute-howto-circuit-resource-manager-template.md
     - name: Creación y modificación de la configuración de emparejamiento
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: expressroute-howto-routing-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-routing-arm.md
@@ -103,7 +103,7 @@
           href: howto-routing-cli.md
     - name: Vinculación de una red virtual a un circuito ExpressRoute
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: expressroute-howto-linkvnet-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-linkvnet-arm.md
@@ -123,7 +123,7 @@
           href: expressroute-howto-set-global-reach-cli.md
     - name: Configuración de una puerta de enlace de red virtual para ExpressRoute
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: expressroute-howto-add-gateway-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-add-gateway-resource-manager.md
@@ -131,6 +131,8 @@
       href: expressroute-howto-coexist-resource-manager.md
     - name: Configuración de ExpressRoute Direct
       items:
+        - name: Azure portal
+          href: how-to-expressroute-direct-portal.md
         - name: Azure PowerShell
           href: expressroute-howto-erdirect.md
         - name: Azure CLI
@@ -139,7 +141,7 @@
       href: expressroute-howto-macsec.md
     - name: Configuración de filtros de ruta para el emparejamiento de Microsoft
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: how-to-routefilter-portal.md
         - name: Azure PowerShell
           href: how-to-routefilter-powershell.md
