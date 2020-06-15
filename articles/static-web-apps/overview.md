@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: d416044599535e8acd363d09099e8667bba59a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599070"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488926"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>¿Qué es la versión preliminar de Azure Static Web Apps?
 
@@ -30,7 +30,7 @@ Con Static Web Apps, los recursos estáticos se separan de un servidor web tradi
 
 ## <a name="key-features"></a>Principales características
 
-- **Hospedaje web gratuito** para contenido estático como HTML, CSS, JavaScript e imágenes.
+- **Hospedaje web** para contenido estático como HTML, CSS, JavaScript e imágenes.
 - Compatibilidad con la **API integrada** proporcionada por Azure Functions.
 - **Integración propia de GitHub** , en la que los cambios en el repositorio desencadenan compilaciones e implementaciones.
 - Contenido estático **distribuido globalmente**, lo que permite que el contenido esté más cerca de los usuarios.

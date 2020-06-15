@@ -6,14 +6,14 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 02/27/2020
+ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605461"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324050"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
 
@@ -23,7 +23,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Una suscripción a Azure o una cuenta de evaluación gratuita de Azure Cosmos DB
 
@@ -35,9 +35,9 @@ Una suscripción a Azure o una cuenta de evaluación gratuita de Azure Cosmos DB
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 En la plantilla se definen tres recursos de Azure:
 
@@ -53,7 +53,7 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea una cuenta, una base de datos y un contenedor de Azure Cosmos.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Seleccione o escriba los siguientes valores.
 
@@ -68,6 +68,9 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
     * **Ubicación**: escriba una ubicación donde desea crear la cuenta de Azure Cosmos. La cuenta de Azure Cosmos puede estar en la misma ubicación que el grupo de recursos.
     * **Región primaria**: la región de la réplica principal de la cuenta de Azure Cosmos.
     * **Región secundaria**: la región de la réplica secundaria de la cuenta de Azure Cosmos.
+    * **Nivel de coherencia predeterminado**: nivel de coherencia predeterminado de la cuenta de Azure Cosmos.
+    * **Prefijo de obsolescencia máxima**: número máximo de solicitudes obsoletas. Necesario para BoundedStaleness.
+    * **Intervalo máximo en segundos**: tiempo máximo de retardo. Necesario para BoundedStaleness.
     * **Nombre de base de datos**: el nombre de la base de datos de Azure Cosmos.
     * **Nombre del contenedor**: el nombre del contenedor de Azure Cosmos.
     * **Rendimiento**:  el rendimiento del contenedor, el valor de rendimiento mínimo es 400 RU/s.
@@ -106,7 +109,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si tiene pensado seguir trabajando en otros tutoriales, considere la posibilidad de dejar estos recursos activos.
-Cuando ya no lo necesite, elimine el grupo de recursos; de este modo, se eliminarán también la cuenta y los recursos relacionados de Azure Cosmos. Para eliminar el grupo de recursos mediante Azure PowerShell o la CLI de Azure:
+Cuando ya no lo necesite, elimine el grupo de recursos; de este modo, se eliminarán también la cuenta y los recursos relacionados de Azure Cosmos. Para eliminar el grupo de recursos mediante la CLI de Azure o Azure PowerShell:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 

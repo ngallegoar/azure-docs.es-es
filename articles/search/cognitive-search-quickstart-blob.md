@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un conjunto de aptitudes en Azure Portal'
+title: Creación de un conjunto de aptitudes en Azure Portal
 titleSuffix: Azure Cognitive Search
 description: En este inicio rápido del portal, aprenda a usar el Asistente para importar datos para agregar aptitudes cognitivas a una canalización de indexación en Azure Cognitive Search. Las aptitudes incluyen el reconocimiento óptico de caracteres (OCR) y el procesamiento de lenguaje natural.
 manager: nitinme
@@ -7,35 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/20/2019
-ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 06/07/2020
+ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77472424"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488960"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes cognitivas de Azure Cognitive Search en Azure Portal
 
-Un conjunto de aptitudes es una característica de inteligencia artificial que extrae la información y la estructura de grandes archivos de texto no diferenciados o de imágenes, y permite que se puedan indexar y realizar búsquedas con consultas de búsqueda de texto completo en Azure Cognitive Search. 
+Un conjunto de aptitudes es una característica basada en inteligencia artificial que extrae la información y la estructura de grandes archivos de imagen o texto no diferenciados, y que permite realizar búsquedas en el contenido, así como indexarlo, en Azure Cognitive Search. 
 
-En este inicio rápido, combinará servicios y datos en la nube de Azure para crear el conjunto de aptitudes. Una vez que todo esté en su lugar, ejecutará el **Asistente para la importación de datos** en el portal para extraerlo todo junto. El resultado final es un índice en el que se pueden realizar búsquedas y que se ha rellenado con los datos creados con el procesamiento de inteligencia artificial que puede consultar en el portal ([Explorador de búsqueda](search-explorer.md)).
+En este inicio rápido, combinará servicios y datos en la nube de Azure para crear el conjunto de aptitudes. Una vez que todo esté en su lugar, ejecutará el Asistente para la **importación de datos** en Azure Portal para extraerlo todo junto. El resultado final es un índice en el que se pueden realizar búsquedas y que se ha rellenado con los datos creados con el procesamiento de inteligencia artificial que puede consultar en el portal ([Explorador de búsqueda](search-explorer.md)).
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="create-services-and-load-data"></a>Creación de servicios y carga de datos
+Antes de empezar, debe disponer de lo siguiente:
 
-Este inicio rápido utiliza Azure Cognitive Search, [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/) y [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. 
++ Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
-Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano para proporcionar el procesamiento gratuito de hasta 20 transacciones. Para un conjunto de datos tan pequeño, puede omitir la creación o la asociación de un recurso de Cognitive Services.
++ Un servicio de Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
+
++ Una cuenta de Azure Storage con [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/).
+
+> [!NOTE]
+> En esta guía de inicio rápido también se usa [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano del procesamiento gratuito de hasta 20 transacciones. Esto significa que puede completar este ejercicio sin tener que crear un recurso de Cognitive Services adicional.
+
+## <a name="set-up-your-data"></a>Configuración de los datos
+
+En los pasos siguientes, configure un contenedor de blobs en Azure Storage para almacenar archivos de contenido heterogéneo.
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. Descomprima los archivos.
 
 1. [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [busque una cuenta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   Elija la misma región de Azure Cognitive Search para evitar cargos de ancho de banda. 
-   
-   Elija el tipo de cuenta StorageV2 (de uso general V2) si desea probar la característica almacén de conocimiento más adelante, en otro tutorial. De lo contrario, elija cualquier tipo.
+   + Elija la misma región de Azure Cognitive Search para evitar cargos de ancho de banda. 
+
+   + Elija el tipo de cuenta StorageV2 (de uso general V2) si desea probar la característica almacén de conocimiento más adelante, en otro tutorial. De lo contrario, elija cualquier tipo.
 
 1. Abra las páginas de Blob service y cree un contenedor. Puede usar el nivel de acceso público predeterminado. 
 
@@ -43,15 +52,15 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en
 
    ![Archivos de origen en Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [Cree un servicio de Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Puede usar un servicio gratuito para este inicio rápido.
-
 Ahora ya está preparado para continuar con el Asistente para la importación de datos.
 
 ## <a name="run-the-import-data-wizard"></a>Ejecutar el Asistente para la importación de datos
 
-En la página de información general del servicio de búsqueda, haga clic en **Importar datos** en la barra de comandos para configurar el enriquecimiento cognitivo en cuatro pasos.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de Azure.
 
-  ![Comando de importación de datos](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+1. [Busque su servicio de búsquedas](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) y, en la página de información general, haga clic en **Importar datos** en la barra de comandos para configurar el enriquecimiento cognitivo en cuatro pasos.
+
+   ![Comando de importación de datos](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1---create-a-data-source"></a>Paso 1: Creación de un origen de datos
 
@@ -119,7 +128,7 @@ La indexación cognitiva de aptitudes tarda más en completarse que la indexaci�
 
   ![Notificación de Azure Cognitive Search](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
-Las advertencias son normales dada la amplia gama de tipos de contenido. Algunos tipos de contenido no son válidos para determinadas aptitudes y en los niveles inferiores son comunes para encontrar los [límites del indexador](search-limits-quotas-capacity.md#indexer-limits). Por ejemplo, las notificaciones de truncamiento de 32 000 caracteres son un límite del indexador en el nivel Gratis. Si ha ejecutado esta demostración en un nivel superior, desaparecerán muchas advertencias de truncamiento.
+Las advertencias son normales dada la amplia gama de tipos de contenido. Algunos tipos de contenido no son válidos para determinadas aptitudes y en los niveles inferiores es habitual encontrar [límites del indexador](search-limits-quotas-capacity.md#indexer-limits). Por ejemplo, las notificaciones de truncamiento de 32 000 caracteres son un límite del indexador en el nivel Gratis. Si ha ejecutado esta demostración en un nivel superior, desaparecerán muchas advertencias de truncamiento.
 
 Para comprobar las advertencias o los errores, haga clic en el estado de advertencia en la lista de indexadores para abrir la página Historial de ejecución.
 

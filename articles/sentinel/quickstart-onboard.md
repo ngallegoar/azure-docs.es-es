@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184340"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488127"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Inicio rápido: Incorporación de Azure Sentinel
 
@@ -57,6 +57,9 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
    > - Las áreas de trabajo predeterminadas creadas por Azure Security Center no aparecerán en la lista; no puede instalar Azure Sentinel en ellas.
    > - Azure Sentinel se puede ejecutar en áreas de trabajo de cualquier [región con disponibilidad general de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), excepto en las regiones de China y Alemania (soberana). Los datos generados por Azure Sentinel (como incidentes, marcadores y reglas de alertas, que pueden contener algunos datos de clientes procedentes de estas áreas de trabajo) se guardan en Europa (para las áreas de trabajo ubicadas en Europa), en Australia (para las áreas de trabajo ubicadas en Australia) o en la región Este de EE. UU. (para todas las áreas de trabajo ubicadas en cualquier otra región).
 
+   >[!IMPORTANT]
+   > - Una vez que se ha habilitado Azure Sentinel en un área de trabajo, no se admite el movimiento de esa área de trabajo a otros grupos de recursos o suscripciones. Si necesita mover el área de trabajo, póngase en contacto con soporte técnico para obtener instrucciones.
+
 1. Seleccione **Agregar Azure Sentinel**.
   
 
@@ -65,7 +68,7 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
 Azure Sentinel crea la conexión a aplicaciones y servicios al conectar con el servicio y reenviar los eventos y registros a Azure Sentinel. Para equipos y máquinas virtuales, puede instalar el agente de Azure Sentinel que recopila los registros y los reenvía a Azure Sentinel. Para los firewalls y servidores proxy, Azure Sentinel usa un servidor Linux Syslog. El agente está instalado en él y, desde él, recopila los archivos de registro y los reenvía a Azure Sentinel. 
  
 1. Haga clic en **Conectores de datos**.
-2. Hay un icono para cada origen de datos al que puede conectarse.<br>
+1. Hay un icono para cada origen de datos al que puede conectarse.<br>
 Por ejemplo, haga clic en **Azure Active Directory**. Si se conecta a este origen de datos, transmitirá todos los registros de Azure AD a Azure Sentinel. Puede seleccionar qué tipo de registros quiere obtener: de inicio de sesión o de auditoría. <br>
 En la parte inferior, Azure Sentinel proporciona recomendaciones sobre qué libros debería instalar para cada conector, para que pueda obtener información interesante de los datos. <br> Siga las instrucciones de instalación o [consulte la guía de conexión relevante](connect-data-sources.md) para obtener más información. Para obtener información acerca de los conectores de datos, vea [Conexión de servicios de Microsoft](connect-data-sources.md).
 

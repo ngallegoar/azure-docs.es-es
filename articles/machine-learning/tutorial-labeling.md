@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196539"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628385"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado (versión preliminar) para la clasificación de imágenes con varias clases 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +109,12 @@ Ahora que tiene acceso a los datos que desea que se etiqueten, cree el proyecto 
     1. Seleccione el círculo situado junto al nombre del conjunto de datos en la lista, por ejemplo **images-for-tutorial**.
 
 1. Seleccione **Siguiente** para continuar con la creación del proyecto.
+
+### <a name="incremental-refresh"></a>Actualización incremental
+
+Si planea agregar nuevas imágenes al conjunto de datos, la actualización incremental las encontrará y las agregará a su proyecto.  Si se habilita esta característica, el proyecto buscará periódicamente nuevas imágenes.  No va a agregar nuevas imágenes al almacén de datos en este tutorial, por lo que debe dejar esta característica desactivada.
+
+Seleccione **Next** (Siguiente) para continuar.
 
 ### <a name="label-classes"></a>Clases de etiquetas
 

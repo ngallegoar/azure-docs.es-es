@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655527"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555144"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparación de Active Directory Domain Services autoadministrado, Azure Active Directory y Azure Active Directory Domain Services administrado
 
@@ -31,21 +31,25 @@ Aunque las tres soluciones de identidad basadas en Active Directory comparten u
     * Para más información sobre Azure AD, consulte [¿Qué es Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** : proporciona servicios de dominio administrados con un subconjunto de características de AD DS tradicionales totalmente compatibles como, por ejemplo, unión a un dominio, directiva de grupo, LDAP y autenticación Kerberos o NTLM.
     * Azure AD DS se integra con Azure AD, que se puede sincronizar con un entorno de AD DS local. Esta capacidad amplía los casos de uso de identidad central a las aplicaciones web tradicionales que se ejecutan en Azure como parte de una estrategia de migración mediante lift-and-shift.
+    * Para más información sobre la sincronización con Azure AD y local, consulte [Procedimiento para sincronizar objetos y credenciales en un dominio administrado][synchronization].
 
 En este artículo de introducción se compara cómo estas soluciones de identidad pueden actuar juntas o usarse de forma independiente, en función de las necesidades de su organización.
 
-Para empezar, [cree un dominio administrado de Azure AD DS con Azure Portal][tutorial-create].
+> [!div class="nextstepaction"]
+> [Para empezar, crear un dominio administrado de Azure AD DS con Azure Portal][tutorial-create]
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS y AD DS autoadministrado
 
 Si tiene aplicaciones y servicios que necesitan acceder a mecanismos de autenticación tradicionales como Kerberos o NTLM, hay dos maneras de contar con Active Directory Domain Services en la nube:
 
-* Un dominio *administrado* que se crea mediante Azure Active Directory Domain Services (Azure AD DS). Microsoft crea y administra los recursos necesarios.
+* Un *dominio administrado* que se crea mediante Azure Active Directory Domain Services (Azure AD DS). Microsoft crea y administra los recursos necesarios.
 * Un dominio *autoadministrado* que tiene que crear y configurar mediante recursos tradicionales como, por ejemplo, máquinas virtuales (VM), el sistema operativo invitado Windows Server y Active Directory Domain Services (AD DS). Después se encarga de seguir administrando estos recursos.
 
 Con Azure AD DS, Microsoft implementa y mantiene los componentes de servicios básicos como una experiencia de dominio *administrado*. Usted no tiene que implementar, administrar, aplicar revisiones ni proteger la infraestructura de AD DS para componentes como las máquinas virtuales, el sistema operativo Windows Server o los controladores de dominio (DC).
 
-Azure AD DS proporciona un subconjunto más pequeño de características para el entorno de AD DS autoadministrado tradicional, lo que reduce parte de la complejidad del diseño y la administración. Por ejemplo, no hay bosques, dominios, sitios ni vínculos de replicación de AD que diseñar y mantener. En el caso de las aplicaciones y los servicios que se ejecutan en la nube y necesitan acceso a mecanismos de autenticación tradicionales como Kerberos o NTLM, Azure AD DS proporciona una experiencia de dominio administrado con la mínima cantidad posible de sobrecarga administrativa.
+Azure AD DS proporciona un subconjunto más pequeño de características para el entorno de AD DS autoadministrado tradicional, lo que reduce parte de la complejidad del diseño y la administración. Por ejemplo, no hay bosques, dominios, sitios ni vínculos de replicación de AD que diseñar y mantener. Todavía puede [crear confianzas de bosque entre Azure AD DS y los entornos locales (actualmente en versión preliminar)][create-forest-trust].
+
+En el caso de las aplicaciones y los servicios que se ejecutan en la nube y necesitan acceso a mecanismos de autenticación tradicionales como Kerberos o NTLM, Azure AD DS proporciona una experiencia de dominio administrado con la mínima cantidad posible de sobrecarga administrativa. Para más información, consulte [Conceptos de administración para cuentas de usuario, contraseñas y administración en Azure AD DS][administration-concepts].
 
 Al implementar y ejecutar un entorno de AD DS autoadministrado, tiene que mantener todos los componentes de infraestructura y directorio asociados. Con un entorno de AD DS autoadministrado existe una sobrecarga de mantenimiento adicional, pero después podrá realizar tareas adicionales, como extender el esquema o crear confianzas de bosques.
 
@@ -115,6 +119,8 @@ Con los dispositivos unidos a Azure AD DS, las aplicaciones pueden usar los pr
 
 Para empezar a usar Azure AD DS, [cree un dominio administrado de Azure AD DS con Azure Portal][tutorial-create].
 
+También puede obtener más información acerca de los [conceptos de administración de cuentas de usuario, contraseñas y administración en Azure AD DS][administration-concepts] y el [proceso de sincronización de objetos y credenciales en un dominio administrado][synchronization].
+
 <!-- INTERNAL LINKS -->
 [manage-dns]: manage-dns.md
 [deploy-kcd]: deploy-kcd.md
@@ -124,3 +130,6 @@ Para empezar a usar Azure AD DS, [cree un dominio administrado de Azure AD D
 [tutorial-create]: tutorial-create-instance.md
 [whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
 [overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+[create-forest-trust]: tutorial-create-forest-trust.md
+[administration-concepts]: administration-concepts.md
+[synchronization]: synchronization.md

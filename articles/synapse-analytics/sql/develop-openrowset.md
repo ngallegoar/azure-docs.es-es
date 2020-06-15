@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702032"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560868"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Uso de OPENROWSET con SQL a petición (versión preliminar)
 
@@ -114,12 +114,12 @@ El elemento unstructured_data_path que establece una ruta de acceso a los datos 
 
 | Origen de datos externo       | Prefijo | Ruta de acceso a la cuenta de almacenamiento                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<cuentaDeAlmacenamiento>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | \<cuentaDeAlmacenamiento>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | \<cuentaDeAlmacenamiento>.dfs.core.windows.net              |
+| Azure Blob Storage         | https  | \<storage_account>blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
 ||||
 
-"\<rutaDeAlmacenamiento>"
+"\<storage_path>"
 
  Especifica una ruta de acceso en el almacenamiento que apunta a la carpeta o archivo que desea leer. Si la ruta de acceso apunta a un contenedor o a una carpeta, se leerán todos los archivos de ese contenedor o carpeta. No se incluirán los archivos de las subcarpetas. 
 
@@ -130,7 +130,7 @@ A continuación se muestra un ejemplo en el que se leen todos los archivos *csv*
 Si especifica que el elemento unstructured_data_path sea una carpeta, una consulta de SQL a petición recuperará los archivos de esa carpeta. 
 
 > [!NOTE]
-> A diferencia de Hadoop y PolyBase, SQL a petición no devuelve subcarpetas. También a diferencia de Hadoop y Polybase, SQL a petición devuelve los archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
+> A diferencia de Hadoop y PolyBase, SQL a petición no devuelve subcarpetas. También a diferencia de Hadoop y PolyBase, SQL a petición devuelve los archivos cuyo nombre comienza por un carácter de subrayado (_) o un punto (.).
 
 En el ejemplo siguiente, si unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/`, una consulta de SQL a petición devolverá las filas de mydata.txt y _hidden.txt. No devolverá mydata2.txt y mydata3.txt porque se encuentran en una subcarpeta.
 

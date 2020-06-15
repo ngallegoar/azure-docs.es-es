@@ -1,6 +1,6 @@
 ---
 title: Referencia de contenido del inicio rápido de una base de datos única
-description: Busque una referencia de contenido de todos los inicios rápidos que le ayude a empezar a trabajar rápidamente con bases de datos únicas en Azure SQL Database
+description: Busque una referencia de contenido de todos los inicios rápidos que le ayude a empezar a trabajar rápidamente con bases de datos únicas en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: c4a699a6b531feee98f9c6f83ba19cfef9d27620
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3265b1f8234e1f2a2f19fb488d5c311e501c770e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052908"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338301"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introducción a las bases de datos únicas en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Una base de datos única](../index.yml) es una base de datos como servicio PaaS que está totalmente administrada (DbaaS) y que resulta el motor de almacenamiento ideal para las aplicaciones modernas creadas en la nube. En esta sección, aprenderá a crear y configurar rápidamente una base de datos única en Azure SQL Database.
+[Una base de datos única](../index.yml) es una base de datos de plataforma como servicio (PaaS) que está totalmente administrada (DbaaS) y que resulta el motor de almacenamiento ideal para las aplicaciones modernas creadas en la nube. En esta sección, aprenderá a crear y configurar rápidamente una base de datos única en Azure SQL Database.
 
 ## <a name="quickstart-overview"></a>Introducción al artículo de inicio rápido
 
@@ -48,8 +48,8 @@ Estos inicios rápidos le permiten crear o importar rápidamente la base de dato
 El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita sobre Azure SQL Database.
 
 - [Aprovisionamiento de una base de datos en SQL Database para almacenar datos de aplicación](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Desarrollo y configuración de una aplicación de ASP.NET que consulta una instancia de Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Protección de las bases de datos de Azure SQL](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Desarrollo y configuración de una aplicación de ASP.NET que consulta una base de datos en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Protección de la base de datos en Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -58,4 +58,4 @@ El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita s
 - Para conocer procedimientos más avanzados, consulte [Cómo usar una base de datos única en Azure SQL Database](how-to-content-reference-guide.md).
 - Buscar más scripts de ejemplo escritos en [PowerShell](powershell-script-content-guide.md) y la [CLI de Azure](az-cli-script-samples-content-guide.md).
 - Conozca más información sobre la [API de administración](single-database-manage.md) que puede usar para configurar las bases de datos.
-- [Identificación de la SKU correcta de Azure SQL Database o de Instancia administrada de SQL para una base de datos local](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identificación de la SKU correcta de Azure SQL Database o de Instancia administrada de Azure SQL para una base de datos local](/sql/dma/dma-sku-recommend-sql-db/).

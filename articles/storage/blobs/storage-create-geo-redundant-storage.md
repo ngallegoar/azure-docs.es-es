@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ms.subservice: blobs
-ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: f7c3ebb1a68d671f63e3239794266c8c24f5906a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856134"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553197"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
@@ -35,7 +35,7 @@ En la primera parte de la serie, se aprende a:
 > * Establecimiento de la cadena de conexión
 > * Ejecución de la aplicación de consola
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -117,7 +117,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Esta cadena de conexión se puede almacenar en una variable de entorno de la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
 
-En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> por la cadena de conexión real para ejecutar uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa.
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Ejecute uno de los siguientes comandos en función del sistema operativo y reemplace \<yourconnectionstring\> por la cadena de conexión real. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa.
 
 ### <a name="linux"></a>Linux
 

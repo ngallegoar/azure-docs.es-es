@@ -8,25 +8,30 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 0f5f890b4f32961e00fb30316a1dc7c88ef93a45
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8a29f95e7b987af2b408ec24bc390a7fd162263
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654836"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554863"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>¿Qué es Azure Active Directory Domain Services?
 
-Azure Active Directory Domain Services (Azure AD DS) proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directiva de grupo, protocolo ligero de acceso a directorios (LDAP) y autenticación Kerberos/NTLM, que son totalmente compatibles con Windows Server Active Directory. Puede usar estos servicios de dominio sin necesidad de implementar o administrar los controladores de dominio de la nube, ni de aplicarles revisiones. Azure AD DS se integra con el inquilino de Azure AD existente, lo que posibilita que los usuarios inicien sesión con sus credenciales existentes. También puede usar los grupos y las cuentas de usuario existentes para proteger el acceso a los recursos, lo que ofrece una mejor migración mediante lift-and-shift de los recursos en el entorno local a Azure.
+Azure Active Directory Domain Services (Azure AD DS) proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directivas de grupo, protocolo ligero de acceso a directorios (LDAP) y autenticación Kerberos o NTLM. Puede usar estos servicios de dominio sin necesidad de implementar o administrar los controladores de dominio de la nube, ni de aplicarles revisiones.
 
-Para empezar, [cree un dominio administrado de Azure AD DS con Azure Portal][tutorial-create].
+Azure AD DS se integra con el inquilino de Azure AD existente. Esta integración permite a los usuarios iniciar sesión en el servicio y las aplicaciones conectadas al dominio administrado con sus credenciales existentes. También puede usar grupos y cuentas de usuario existentes para proteger el acceso a los recursos. Estas características proporcionan una migración mediante lift-and-shift más fluida de los recursos locales a Azure.
 
-Azure AD DS replica la información de identidad desde Azure AD, por lo que funciona con los inquilinos de Azure AD que solo están en la nube o se sincronizan con un entorno de Active Directory Domain Services (AD DS) local. El mismo conjunto de características de Azure AD DS existen para ambos entornos.
+> [!div class="nextstepaction"]
+> [Para empezar, crear un dominio administrado de Azure AD DS con Azure Portal][tutorial-create]
 
-* Si tiene un entorno de AD DS local, puede sincronizar la información de las cuentas de usuario para proporcionar una identidad coherente para los usuarios.
+Azure AD DS replica la información de identidad desde Azure AD, por lo que funciona con los inquilinos de Azure AD que solo están en la nube o se sincronizan con un entorno de Active Directory Domain Services (AD DS) local. El mismo conjunto de características de Azure AD DS existe para ambos entornos.
+
+* Si tiene un entorno de AD DS local, puede sincronizar la información de las cuentas de usuario para proporcionar una identidad coherente para los usuarios. Para más información, consulte [Procedimiento para sincronizar objetos y credenciales en un dominio administrado][synchronization].
 * En el caso de los entornos solo en la nube, no se necesita un entorno de AD DS local tradicional para usar los servicios de identidad centralizados de Azure AD DS.
+
+Para obtener información sobre cómo se administraun dominio administrado, consulte [Conceptos de administración para cuentas de usuario, contraseñas y administración en Azure AD DS][administration-concepts].
 
 El vídeo siguiente proporciona información general sobre el modo en que Azure AD DS se integra con las aplicaciones y las cargas de trabajo para proporcionar servicios de identidad en la nube:
 
@@ -51,29 +56,8 @@ Con estos métodos, las conexiones VPN con el directorio en el entorno local hac
 
 Azure AD DS ofrece alternativas a la necesidad de volver a crear las conexiones VPN en un entorno de AD DS local o ejecutar y administrar máquinas virtuales en Azure para proporcionar servicios de identidad. Como servicio administrado, Azure AD DS reduce la complejidad de crear una solución de identidad integrada para entornos tanto híbridos como solo en la nube.
 
-## <a name="azure-ad-ds-features-and-benefits"></a>Características y ventajas de Azure AD DS
-
-Para proporcionar servicios de identidad a aplicaciones y máquinas virtuales en la nube, Azure AD DS es totalmente compatible con un entorno de AD DS tradicional para las operaciones como la unión a un dominio, LDAP seguro (LDAPS), directiva de grupo, administración de DNS y la compatibilidad con la lectura y el enlace LDAP. La compatibilidad con la escritura LDAP está disponible para los objetos creados en el dominio administrado con Azure AD DS, pero no los recursos sincronizados desde Azure AD.
-
-Para más información sobre las opciones de identidad, [compare Azure AD DS con Azure AD, Active Directory Domain Services en máquinas virtuales de Azure y Active Directory Domain Services en entornos locales][compare].
-
-Las siguientes características de Azure AD DS simplifican las operaciones de implementación y administración:
-
-* **Experiencia de implementación simplificada:** Azure AD DS está habilitado para el inquilino de Azure AD con un solo asistente en la Azure Portal.
-* **Integración con Azure AD:** Estas cuentas de usuario, las pertenencias a grupos y las credenciales están disponibles automáticamente dentro del inquilino de Azure AD. Los nuevos usuarios, grupos o cambios de atributos que se producen en el inquilino o en el directorio en el entorno local de Azure AD se sincronizan automáticamente con Azure AD DS.
-    * Las cuentas de los directorios externos vinculados a su instancia de Azure AD no están disponibles en Azure AD DS. Las credenciales no están disponibles para esos directorios externos, por lo que no se pueden sincronizar en un dominio administrado de Azure AD DS.
-* **Utilizar las credenciales y contraseñas corporativas:** Las contraseñas para usuarios de Azure AD DS son las mismas que en el inquilino de Azure AD. Los usuarios pueden utilizar sus credenciales corporativas para las máquinas de unión al dominio, iniciar sesión de forma interactiva o a través de escritorio remoto y autenticarse en el dominio administrado de Azure AD DS.
-* **Autenticación Kerberos y NTLM:** con compatibilidad para la autenticación Kerberos y NTLM, puede implementar las aplicaciones que dependen de la autenticación integrada de Windows.
-* **Alta disponibilidad:** Azure AD DS incluye varios controladores de dominio, que proporcionan alta disponibilidad para el dominio administrado. Esta alta disponibilidad garantiza el tiempo de actividad del servicio y la resistencia a los errores.
-    * En las regiones que admiten [Azure Availability Zones][availability-zones], estos controladores de dominio también se distribuyen entre zonas para obtener resistencia adicional.
-
-Entre algunos de los aspectos clave de un dominio administrado de Azure AD DS se incluyen los siguientes:
-
-* El dominio administrado de Azure AD DS es un dominio independiente. No es una extensión de un dominio local.
-    * Si es necesario, puede crear relaciones de confianza de bosque de salida unidireccionales de Azure AD DS a un entorno de AD DS local. Para más información, consulte [Conceptos y características del bosque de recursos en Azure AD DS][ forest-trusts].
-* El equipo de TI no necesita administrar ni supervisar controladores de dominio de este dominio administrado de Azure AD DS, ni tampoco aplicarles revisiones.
-
-En entornos híbridos que se ejecutan AD DS de forma local, no es necesario administrar la replicación de AD en el dominio administrado de Azure AD DS. Las cuentas de usuario, las pertenencias a grupos y las credenciales del directorio local se sincronizan con Azure AD mediante [Azure AD Connect][azure-ad-connect]. Estas cuentas de usuario, las pertenencias a grupos y las credenciales están disponibles automáticamente dentro del dominio administrado de Azure AD DS.
+> [!div class="nextstepaction"]
+> [Comparar Azure AD DS con Azure AD y AD DS autoadministrado en VM de Azure o locales][compare]
 
 ## <a name="how-does-azure-ad-ds-work"></a>¿Cómo funciona Azure AD DS?
 
@@ -120,6 +104,31 @@ Ahora veamos un ejemplo de Contoso, una organización solo en la nube que usa Az
 * El equipo de TI de Litware Contoso habilita Azure AD DS para su inquilino de Azure AD en esta red virtual o en una emparejada.
 * Las aplicaciones y las máquinas virtuales implementadas en la red virtual pueden usar características de Azure AD DS como, por ejemplo, la unión a un dominio, la lectura LDAP, el enlace LDAP, la autenticación NTLM y Kerberos, y directiva de grupo.
 
+## <a name="azure-ad-ds-features-and-benefits"></a>Características y ventajas de Azure AD DS
+
+Para proporcionar servicios de identidad a aplicaciones y máquinas virtuales en la nube, Azure AD DS es totalmente compatible con un entorno de AD DS tradicional para las operaciones como la unión a un dominio, LDAP seguro (LDAPS), directiva de grupo, administración de DNS y la compatibilidad con la lectura y el enlace LDAP. La compatibilidad con la escritura LDAP está disponible para los objetos creados en el dominio administrado con Azure AD DS, pero no los recursos sincronizados desde Azure AD.
+
+Para más información sobre las opciones de identidad, [compare Azure AD DS con Azure AD, Active Directory Domain Services en máquinas virtuales de Azure y Active Directory Domain Services en entornos locales][compare].
+
+Las siguientes características de Azure AD DS simplifican las operaciones de implementación y administración:
+
+* **Experiencia de implementación simplificada:** Azure AD DS está habilitado para el inquilino de Azure AD con un solo asistente en la Azure Portal.
+* **Integración con Azure AD:** Estas cuentas de usuario, las pertenencias a grupos y las credenciales están disponibles automáticamente dentro del inquilino de Azure AD. Los nuevos usuarios, grupos o cambios de atributos que se producen en el inquilino o en el directorio en el entorno local de Azure AD se sincronizan automáticamente con Azure AD DS.
+    * Las cuentas de los directorios externos vinculados a su instancia de Azure AD no están disponibles en Azure AD DS. Las credenciales no están disponibles para esos directorios externos, por lo que no se pueden sincronizar en un dominio administrado de Azure AD DS.
+* **Utilizar las credenciales y contraseñas corporativas:** Las contraseñas para usuarios de Azure AD DS son las mismas que en el inquilino de Azure AD. Los usuarios pueden utilizar sus credenciales corporativas para las máquinas de unión al dominio, iniciar sesión de forma interactiva o a través de escritorio remoto y autenticarse en el dominio administrado de Azure AD DS.
+* **Autenticación Kerberos y NTLM:** con compatibilidad para la autenticación Kerberos y NTLM, puede implementar las aplicaciones que dependen de la autenticación integrada de Windows.
+* **Alta disponibilidad:** Azure AD DS incluye varios controladores de dominio, que proporcionan alta disponibilidad para el dominio administrado. Esta alta disponibilidad garantiza el tiempo de actividad del servicio y la resistencia a los errores.
+    * En las regiones que admiten [Azure Availability Zones][availability-zones], estos controladores de dominio también se distribuyen entre zonas para obtener resistencia adicional.
+
+Entre algunos de los aspectos clave de un dominio administrado de Azure AD DS se incluyen los siguientes:
+
+* El dominio administrado de Azure AD DS es un dominio independiente. No es una extensión de un dominio local.
+    * Si es necesario, puede crear relaciones de confianza de bosque de salida unidireccionales de Azure AD DS a un entorno de AD DS local. Para más información, consulte [Conceptos y características del bosque de recursos en Azure AD DS][ forest-trusts].
+* El equipo de TI no necesita administrar ni supervisar controladores de dominio de este dominio administrado de Azure AD DS, ni tampoco aplicarles revisiones.
+
+En entornos híbridos que se ejecutan AD DS de forma local, no es necesario administrar la replicación de AD en el dominio administrado de Azure AD DS. Las cuentas de usuario, las pertenencias a grupos y las credenciales del directorio local se sincronizan con Azure AD mediante [Azure AD Connect][azure-ad-connect]. Estas cuentas de usuario, las pertenencias a grupos y las credenciales están disponibles automáticamente dentro del dominio administrado de Azure AD DS.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de las comparaciones de Azure AD DS con otras soluciones de identidad y cómo funciona la sincronización, consulte los siguientes artículos:
@@ -137,3 +146,5 @@ Para empezar, [cree un dominio administrado de Azure AD DS con Azure Portal][
 [password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
 [availability-zones]: ../availability-zones/az-overview.md
 [forest-trusts]: concepts-resource-forest.md
+[administration-concepts]: administration-concepts.md
+[synchronization]: synchronization.md

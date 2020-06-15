@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 05/19/2020
-ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118892"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433702"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda con aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,7 +33,7 @@ En este tutorial, aprenderá las siguientes tareas:
 > * Exploración de los resultados del experimento.
 > * Implementación del mejor modelo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo de Azure Machine Learning Enterprise Edition. Si aún no tiene una, [cree un área de trabajo Enterprise Edition](how-to-manage-workspace.md). 
     * El aprendizaje automático automatizado en Azure Machine Learning Studio solo está disponible para las áreas de trabajo Enterprise Edition. 
@@ -124,7 +124,7 @@ Una vez cargados y configurados los datos, configure el destino de proceso remot
 
     1. Seleccione **Next** (Siguiente).
 
-## <a name="select-task-type-and-settings"></a>Selección del tipo de tarea y la configuración
+## <a name="select-forecast-settings"></a>Seleccionar la configuración de la previsión
 
 Complete la configuración del experimento de ML automatizado especificando el tipo de tarea de aprendizaje automático y los valores de configuración.
 

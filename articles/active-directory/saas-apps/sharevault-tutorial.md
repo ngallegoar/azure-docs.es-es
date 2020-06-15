@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9013fe7b05467400afc300bd08c92eedc95ed0e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d7b8fc62744b8e0f4f088522bdef5fb484aa7a8d
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662194"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465463"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharevault"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ShareVault
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar ShareVault con Azure Active Directory (
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -102,7 +102,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | ------------- | --------- |
     | sv.svid |  < `svid number` > |
     | sv.firstname | user.givenname |
-    | user.lastname | user.surname |
+    | sv.lastname | user.surname |
     | sv.email | user.userprincipalname |
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.

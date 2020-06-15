@@ -9,20 +9,20 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3317410408754519bcd8b52e78dee4a81b3ab070
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656031"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609495"
 ---
-# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>Inicio rápido: vinculación de un área de trabajo de Power BI a un área de trabajo de Synapse Analytics (versión preliminar)
+# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Inicio rápido: Vinculación de un área de trabajo de Power BI a un área de trabajo de Synapse
 
 En este inicio rápido, aprenderá a conectar un área de trabajo de Power BI a un área de trabajo de Synapse Analytics para crear informes de Power BI y conjuntos de valores de Synapse Studio (versión preliminar).
 
 Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Creación de un área de trabajo de Azure Synapse y una cuenta de almacenamiento asociada](quickstart-create-workspace.md).
 - [Un área de trabajo de Power BI Professional o Premium](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).

@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6dee5d6e1bb2802114d7bba14a57b91dbab09e19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37cc50a31f2f31c0cb7fc49102328f2072c6570a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053249"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324596"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Inicio rápido: Crear y entrenar un modelo predictivo en R con Machine Learning Services (versión preliminar) de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,7 +53,7 @@ Los requisitos de un modelo lineal son sencillos:
 
 En los siguientes pasos, configurará los datos de entrenamiento, creará un modelo de regresión, lo entrenará mediante esos datos de entrenamiento y, a continuación, guardará el modelo en una tabla SQL.
 
-1. Abra **SQL Server Management Studio** y conéctese a la base de datos SQL.
+1. Abra **SQL Server Management Studio** y conéctese a la base de datos.
 
    Si necesita ayuda para conectarse, consulte [Inicio rápido: Uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella](connect-query-ssms.md).
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c726b0d11759d30730046e635c701cf23d130dfc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187282"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561561"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Inicio rápido: Tutorial de Event Hubs Capture: Python (azure-eventhub, versión 1)
 
@@ -38,7 +38,7 @@ En este tutorial realizará lo siguiente:
 > * Enviar datos al centro de eventos con un script de Python.
 > * Leer y procesar los archivos de Capture de Event Hubs con otro script de Python.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Python 3.4 o posterior, con `pip` instalado y actualizado.
   
@@ -80,7 +80,7 @@ Este script le envía 200 eventos a un centro de eventos. Los eventos son lectur
 
 1. Abra el editor de Python que prefiera, como [Visual Studio Code][Visual Studio Code].
 2. Cree un nuevo archivo denominado *sender.py*. 
-3. Pegue el código siguiente en *sender.py*. Sustituya sus propios valores por los de \<namespace>, \<AccessKeyName>, \<primary key value> y \<eventhub> de Event Hubs.
+3. Pegue el código siguiente en *sender.py*. Sustituya sus propios valores por los valores \<namespace>, \<AccessKeyName>, \<primary key value> y \<eventhub> de Event Hubs.
    
    ```python
    import uuid
@@ -108,7 +108,7 @@ Este script le envía 200 eventos a un centro de eventos. Los eventos son lectur
 Este script lee los archivos capturados y crea un archivo para cada dispositivo a fin de escribir los datos solo para dicho dispositivo.
 
 1. En el editor de Python, cree un nuevo archivo denominado *capturereader.py*. 
-2. Pegue el código siguiente en *capturereader.py*. Sustituya los valores guardados por su \<storageaccount>, \<storage account access key> y \<storagecontainer>.
+2. Pegue el código siguiente en *capturereader.py*. Sustituya los valores guardados por sus valores \<storageaccount>, \<storage account access key> y \<storagecontainer>.
    
    ```python
    import os

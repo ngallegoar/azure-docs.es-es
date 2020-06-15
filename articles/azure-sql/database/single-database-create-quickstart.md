@@ -1,6 +1,6 @@
 ---
 title: Crear una base de datos única
-description: Creación de una base de datos única de Azure SQL Database mediante Azure Portal, PowerShell o la CLI de Azure. Consulte la base de datos con el editor de consultas en Azure Portal.
+description: Cree una base de datos única en Azure SQL Database con Azure Portal, PowerShell o la CLI de Azure. Consulte la base de datos con el editor de consultas en Azure Portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,23 +11,22 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 8b4e057fe41bdf76612888e9d4715d7cdee0ce29
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1ae3159365e63159b8ed62c09bc20441ba65d8aa
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053216"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343853"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Inicio rápido: Creación de una base de datos única de Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En este inicio rápido, se usa Azure Portal, un script de PowerShell o un script de la CLI de Azure para crear una base de datos única de Azure SQL Database. A continuación, realizará una consulta de la base de datos mediante el **editor de consultas** en Azure Portal.
+En este inicio rápido, usará Azure Portal, un script de PowerShell o un script de la CLI de Azure para crear una base de datos única en Azure SQL Database. A continuación, realizará una consulta de la base de datos mediante el **editor de consultas** en Azure Portal.
 
 Una [base de datos única](single-database-overview.md) es la opción más rápida y sencilla para Azure SQL Database. Puede administrar una base de datos única dentro de un [servidor](logical-servers.md), que se encuentre dentro de un [grupo de recursos de Azure](../../active-directory-b2c/overview.md) en una región de Azure especificada. En este inicio rápido, se crea un grupo de recursos y un servidor para la nueva base de datos.
 
 Se puede crear una base de datos única en el nivel de proceso *aprovisionado* o *sin servidor*. Una base de datos aprovisionada tiene asignada previamente una cantidad fija de recursos de proceso, que incluyen memoria y CPU, y utiliza uno o dos [modelos de compra](purchasing-models.md). En este inicio rápido se crea una base de datos aprovisionada mediante el modelo de compra [basado en núcleo virtual](service-tiers-vcore.md), pero también puede elegir un modelo [basado en DTU](service-tiers-dtu.md).
 
-El nivel de proceso sin servidor solo está disponible en los modelos de compra basados en núcleo virtual, y tiene una gama de recursos de proceso, como memoria y CPU, que se escalan automáticamente. Para crear una base de datos única en el nivel de proceso sin servidor, consulte [Creación de una base de datos sin servidor](serverless-tier-overview.md#create-new-database-in-serverless-compute-tier).
+El nivel de proceso sin servidor solo está disponible en los modelos de compra basados en núcleo virtual, y tiene una gama de recursos de proceso, como memoria y CPU, que se escalan automáticamente. Para crear una base de datos única en el nivel de proceso sin servidor, consulte [Creación de una base de datos sin servidor](serverless-tier-overview.md#create-a-new-database-in-the-serverless-compute-tier).
 
 ## <a name="prerequisite"></a>Requisito previo
 
@@ -68,7 +67,7 @@ Mantenga el grupo de recursos, el servidor y la base de datos única para los pa
 
 Cuando haya terminado de usar estos recursos, puede eliminar el grupo de recursos que creó, lo que también eliminará el servidor y la base de datos única que se encuentran del grupo.
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="the-azure-portal"></a>[Portal de Azure](#tab/azure-portal)
 
 Para eliminar **myResourceGroup** y todos sus recursos con Azure Portal:
 
@@ -76,7 +75,7 @@ Para eliminar **myResourceGroup** y todos sus recursos con Azure Portal:
 1. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 1. En **Escriba el nombre del grupo de recursos** escriba *myResourceGroup* y luego seleccione **Eliminar**.
 
-### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+### <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Para eliminar el grupo de recursos y todos sus respectivos recursos, ejecute el siguiente comando de la CLI de Azure con el nombre del grupo de recursos:
 
@@ -98,5 +97,7 @@ Remove-AzResourceGroup -Name <your resource group>
 
 [Conéctese y consulte](connect-query-content-reference-guide.md) la base de datos con diferentes herramientas e idiomas:
 > [!div class="nextstepaction"]
-> [Conexión y consulta mediante SQL Server Management Studio](connect-query-ssms.md)
-> [Conexión y consulta mediante Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+> [Conexión y consulta con SQL Server Management Studio](connect-query-ssms.md)
+>
+> [Conexión y consulta de datos con Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+ 

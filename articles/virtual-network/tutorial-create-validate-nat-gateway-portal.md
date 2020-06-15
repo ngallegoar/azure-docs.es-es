@@ -8,18 +8,19 @@ author: asudbring
 manager: KumundD
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084750"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417844"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure Portal y prueba del servicio NAT
 
@@ -43,11 +44,11 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroupNAT |
-| **\<nombre-de-red-virtual>** | myVNetsource          |
-| **\<nombre-de-región>**          | Este de EE. UU. 2      |
-| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0/16          |
-| **\<nombre-de-subred>**          | mySubnetsource        |
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetsource          |
+| **\<region-name>**          | Este de EE. UU. 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0/16          |
+| **\<subnet-name>**          | mySubnetsource        |
 | **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -105,7 +106,7 @@ En esta sección se detalla cómo crear y configurar los componentes siguientes 
     | Versión de la dirección IP | Seleccione **IPv4**.
     | SKU | Seleccione **Estándar**.
     | Nombre | Escriba **myPublicIPsource**. |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **myResourceGroupNAT**. |
     | Location | Seleccione **Este de EE. UU. 2**.|
 
@@ -166,12 +167,12 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<nombre-de-grupo-recursos>**  | myResourceGroupNAT |
-| **\<nombre-de-red-virtual>** | myVNetdestination          |
-| **\<nombre-de-región>**          | Este de EE. UU. 2      |
-| **\<espacio-de-direcciones-IPv4>**   | 192.168.0.0/16          |
-| **\<nombre-de-subred>**          | mySubnetdestination        |
-| **\<subnet-address-range>** | 192.168.0.0/24          |
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetdestination          |
+| **\<region-name>**          | Este de EE. UU. 2      |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnetdestination        |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -286,13 +287,13 @@ Ahora está listo para probar el servicio NAT.
 
 Mientras ha iniciado sesión en la máquina virtual de origen, puede usar **cURL** y **Hey** para generar solicitudes a la dirección IP de destino.
 
-Use cURL para recuperar el archivo de 100 Kbytes.  Reemplace **\<ip-address-destination>** en el ejemplo siguiente por la dirección IP de destino que ha copiado anteriormente.  El parámetro **--output** indica que se descartará el archivo recuperado.
+Use cURL para recuperar el archivo de 100 Kbytes.  Reemplace **\<ip-address-destination>** en el ejemplo siguiente por la dirección IP de destino que copió anteriormente.  El parámetro **--output** indica que se descartará el archivo recuperado.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-También puede generar una serie de solicitudes mediante **Hey**. De nuevo, reemplace **\<ip-address-destination>** por la dirección IP de destino que ha copiado anteriormente.
+También puede generar una serie de solicitudes mediante **Hey**. Una vez más, reemplace **\<ip-address-destination>** por la dirección IP de destino que copió anteriormente.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

@@ -7,19 +7,19 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: seo-python-october2019
-ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: seo-python-october2019, tracking-python
+ms.openlocfilehash: 513e3bc2e8625f8ce255f479301b2ed5115708bb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76906445"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561338"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Python v2.1
 
 En este inicio rápido, se aprende a administrar blobs mediante Python. Los blobs son objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, medios de transmisión y datos de archivo. Cargará, descargará y enumerará los blobs, y creará y eliminará los contenedores.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
@@ -94,8 +94,8 @@ El programa de ejemplo crea un archivo de prueba en la carpeta *Documentos*, car
 
 1. Antes de continuar, vaya a la carpeta *Documentos* y compruebe los dos archivos.
 
-    * *QuickStart_\<identificador-universalmente-único\>*
-    * *QuickStart_\<identificador-universalmente-único\>_DOWNLOADED*
+    * *QuickStart_\<universally-unique-identifier\>*
+    * *QuickStart_\<universally-unique-identifier\>_DOWNLOADED*
 
 1. Puede abrirlos y ver que son idénticos.
 

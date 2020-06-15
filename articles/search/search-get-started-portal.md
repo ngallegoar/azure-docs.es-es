@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/07/2020
+ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369449"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488773"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 > [!div class="op_single_selector"]
@@ -25,15 +25,17 @@ ms.locfileid: "80369449"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Use el Asistente para **importar datos** del portal y las herramientas del **Explorador de búsqueda** para ponerse al día rápidamente con los conceptos y escribir consultas interesantes en un índice en cuestión de minutos.
+El asistente para la **importación de datos** es una herramienta de Azure Portal que le guía en la creación de un índice de búsqueda para que pueda escribir consultas interesantes en cuestión de minutos. 
 
-Si las herramientas son demasiado restrictivas, puede plantearse la posibilidad de utilizar una [introducción basada en código a la programación de Azure Cognitive Search en .NET](search-howto-dotnet-sdk.md) o utilizar [Postman para realizar llamadas a la API REST](search-get-started-postman.md). 
+El asistente también tiene páginas de enriquecimiento de inteligencia artificial para que pueda extraer el texto y la estructura de archivos de imagen y texto no estructurado. El procesamiento de contenido con inteligencia artificial incluye reconocimiento óptico de caracteres (OCR), extracción de entidades y frases clave, y análisis de imágenes.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="prerequisites"></a>Prerrequisitos
+Antes de empezar, debe disponer de lo siguiente:
 
-[Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
++ Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
+
++ Un servicio de Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
 ### <a name="check-for-space"></a>Búsqueda de espacio
 
@@ -51,15 +53,17 @@ En este tutorial, se usa un conjunto de datos de ejemplo integrado que se puede 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Paso 1: Inicio del Asistente para la importación de datos y creación de un origen de datos
 
-1. En el panel del servicio Azure Cognitive Search, haga clic en **Import data** (Importar datos) en la barra de comandos para crear y rellenar un índice de búsqueda.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de Azure.
+
+1. [Busque su servicio de búsqueda](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) y, en la página de información general, haga clic en **Importar datos** en la barra de comandos para crear y rellenar un índice de búsqueda.
 
    ![Comando de importación de datos](media/search-get-started-portal/import-data-cmd.png)
 
-2. En el asistente, haga clic en **Conectar a los datos** > **Ejemplos** > **hotels-sample**. Este origen de datos está integrado. Si creó su propio origen de datos, deberá especificar un nombre, el tipo y la información de conexión. Una vez creado, se convierte en un "origen de datos existente" que se puede reutilizar en otras operaciones de importación.
+1. En el asistente, haga clic en **Conectar a los datos** > **Ejemplos** > **hotels-sample**. Este origen de datos está integrado. Si creó su propio origen de datos, deberá especificar un nombre, el tipo y la información de conexión. Una vez creado, se convierte en un "origen de datos existente" que se puede reutilizar en otras operaciones de importación.
 
    ![Selección del conjunto de datos de ejemplo](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Continúe en la siguiente página.
+1. Continúe en la siguiente página.
 
 ### <a name="step-2---skip-the-enrich-content-page"></a>Paso 2: omitir la página "Enriquecer contenido"
 

@@ -54,6 +54,10 @@
       href: /azure/event-hubs/authenticate-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Container Instances
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+- name: Conceptos
+  items:
+    - name: Identidades administradas y máquinas virtuales de Azure
+      href: how-managed-identities-work-vm.md
 - name: Guías paso a paso
   items:
     - name: Configuración de identidades administradas en las máquinas virtuales

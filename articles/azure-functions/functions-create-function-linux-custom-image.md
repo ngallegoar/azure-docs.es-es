@@ -3,14 +3,14 @@ title: Creación de funciones de Azure en Linux mediante una imagen personalizad
 description: Aprenda a crear funciones de Azure que se ejecutan en una imagen de Linux personalizada.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: dbd42668a0a1821e0ab7a6edc8ad05c79bfebe7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123580"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560914"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 

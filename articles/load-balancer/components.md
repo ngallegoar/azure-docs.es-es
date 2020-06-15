@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 84857315e4b6b4375ed5b78520b4c6ff0d66751a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684987"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448689"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
@@ -39,6 +39,8 @@ La naturaleza de la dirección IP determina el **tipo** de equilibrador de carga
 
 ![Ejemplo de equilibrador de carga con niveles](./media/load-balancer-overview/load-balancer.png)
 
+Load Balancer puede tener varias direcciones IP de front-end. Obtenga más información acerca del uso de [varios front-end](load-balancer-multivip-overview.md).
+
 ## <a name="backend-pool"></a>Grupo back-end
 
 El grupo de máquinas virtuales o instancias de un conjunto de escalado de máquinas virtuales que van a atender la solicitud entrante. Para escalar de forma rentable, con el fin de satisfacer grandes volúmenes de instrucciones para el procesamiento de tráfico entrante, generalmente se recomienda agregar más instancias al grupo de back-end.
@@ -57,7 +59,7 @@ Puede definir el umbral incorrecto de los sondeos de estado. Si un sondeo no res
 - Se produce el tiempo de espera de inactividad.
 - La máquina virtual se apaga.
 
-Load Balancer proporciona diferentes tipos de sondeo de estado para los puntos de conexión: TCP, HTTP y HTTPS.
+Load Balancer proporciona diferentes tipos de sondeo de estado para los puntos de conexión: TCP, HTTP y HTTPS. [Obtenga más información sobre los sondeos de estado de Load Balancer](load-balancer-custom-probe-overview.md).
 
 La versión Básico de Load Balancer no admite sondeos HTTPS. Además, cierra todas las conexiones TCP (incluidas las conexiones establecidas).
 
@@ -67,15 +69,32 @@ Las reglas de Load Balancer se usan para definir cómo se distribuye el tráfico
 
 Por ejemplo, si desea que el tráfico del puerto 80 (u otro puerto) de la IP de front-end se enrute al puerto 80 de todas las instancias de back-end, usaría una regla de equilibrio de carga para lograrlo.
 
+### <a name="high-availability-ports"></a>Puertos de alta disponibilidad
+
+Regla de Load Balancer configurada con "protocol - all and port - 0". Permite proporcionar una única regla para equilibrar la carga de todos los flujos TCP y UDP que llegan a todos los puertos de una instancia interna de Standard Load Balancer. La decisión de equilibrio de carga se toma por cada flujo. Esta acción se basa en la siguiente conexión de tupla de cinco elementos: 
+1. dirección IP de origen
+2. puerto de origen
+3. dirección IP de destino
+4. puerto de destino
+5. protocol
+
+Las reglas de equilibrio de carga de puertos de alta disponibilidad le ayudan a la hora de usar escenarios críticos como aquellos con alta disponibilidad y escalabilidad para dispositivos virtuales de red (NVA) que estén en redes virtuales. La característica también ayuda cuando hay que equilibrar la carga de un gran número de puertos.
+
+Puede obtener más información sobre los puertos [HA](load-balancer-ha-ports-overview.md).
+
 ## <a name="inbound-nat-rules"></a>Reglas NAT de entrada
 
 Las reglas NAT de entrada reenvían el tráfico entrante enviado a una combinación de puerto y dirección IP de front-end a una máquina virtual o instancia **concretas** del grupo de back-end. El reenvío de puertos se realiza mediante la misma distribución basada en hash que el equilibrio de carga.
 
 Por ejemplo, so desea que las sesiones de Secure Shell (SSH) o del Protocolo de escritorio remoto (RDP) separan las instancias de máquina virtual en un grupo de back-end. Se pueden asignar varios puntos de conexión internos a puertos de la misma dirección IP de front-end. Las direcciones IP de front-end se pueden usar para administrar de forma remota máquinas virtuales sin un jumpbox adicional.
 
+Las reglas NAT de entrada en el contexto de Virtual Machine Scale Sets (VMSS) son grupos de NAT de entrada. Obtenga más información sobre los [componentes de Load Balancer y VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+
 ## <a name="outbound-rules"></a>Reglas de salida
 
 Una regla de salida configura una traducción de direcciones de red (NAT) de salida para todas las máquinas virtuales o instancias identificadas por el grupo de back-end. Esto permite que las instancias del back-end se comuniquen (saliente) con Internet u otros puntos de conexión.
+
+Obtenga más información sobre las [conexiones y reglas de salida](load-balancer-outbound-connections.md).
 
 Load Balancer Básico no admite reglas de salida.
 
@@ -89,9 +108,6 @@ Load Balancer Básico no admite reglas de salida.
 - Más información acerca de los [diagnósticos de Load Balancer Estándar](load-balancer-standard-diagnostics.md).
 - Obtenga información sobre el [restablecimiento de TCP en estado inactivo](load-balancer-tcp-reset.md).
 - Más información acerca de [Standard Load Balancer con reglas de equilibrio de carga para puertos HA](load-balancer-ha-ports-overview.md).
-- Aprenda a usar [Load Balancer con varias configuraciones de IP de front-end](load-balancer-multivip-overview.md).
 - Más información sobre los [grupos de seguridad de red](../virtual-network/security-overview.md).
-- Información sobre los [tipos de sondeo](load-balancer-custom-probe-overview.md#types).
 - Más información sobre los [límites de Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
 - Información sobre el uso del [reenvío de puertos](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
-- Más información sobre las [reglas de salida de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).

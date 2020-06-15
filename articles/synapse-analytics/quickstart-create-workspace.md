@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un área de trabajo'
-description: Cree un área de trabajo de Azure Synapse Analytics siguiendo los pasos de esta guía.
+title: 'Inicio rápido: Creación de un área de trabajo de Synapse'
+description: Cree un área de trabajo de Synapse siguiendo los pasos de esta guía.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6f72e2ee3b83b693d889e9c43fe42a4677f1666d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112862"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609478"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse Analytics (versión preliminar)
 
@@ -22,7 +22,7 @@ En este inicio rápido se describe cómo crear un área de trabajo de Azure Syna
 
 Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Cuenta de almacenamiento de Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json):
 

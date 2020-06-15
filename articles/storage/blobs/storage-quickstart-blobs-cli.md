@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/23/2020
+ms.date: 06/04/2020
 ms.author: tamram
-ms.openlocfilehash: 333d9f12ff817a5264183666cd1b858075a93077
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 471a8018a608da818f5961973f23123874c63427
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176692"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434454"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure
 
@@ -22,7 +22,7 @@ La CLI de Azure es la forma de usar la línea de comandos de Azure para administ
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -77,9 +77,13 @@ az storage account create \
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs en contenedores de una forma similar a la que organiza los archivos en carpetas en el equipo.
+Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs en contenedores de una forma similar a la que organiza los archivos en carpetas en el equipo. Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container). 
 
-Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container). No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
+En el ejemplo siguiente se usa la cuenta de Azure AD para autorizar la operación de creación del contenedor. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles RBAC, consulte [Uso de la CLI de Azure para asignar un rol de RBAC para el acceso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+
+También puede usar la clave de la cuenta de almacenamiento para autorizar a la operación de creación del contenedor. Para obtener más información sobre la autorización de operaciones de datos con la CLI de Azure, consulte [Autorización del acceso a los datos de blobs o colas con la CLI de Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+
+No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
 ```azurecli
 az storage container create \

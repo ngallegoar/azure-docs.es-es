@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171572"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629627"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -40,7 +40,6 @@ En este artículo, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-
 * Los datos que quiere etiquetar, ya sea en archivos locales o en el almacenamiento de blobs de Azure.
 * Conjunto de etiquetas que quiere aplicar.
 * Instrucciones para el etiquetado.
@@ -67,6 +66,8 @@ Seleccione **Siguiente** cuando esté listo para continuar.
 
 Si ya ha creado un conjunto de datos que contiene los datos, selecciónelo en la lista desplegable **Seleccione un conjunto de datos existente**. O bien, seleccione **Crear un conjunto de datos** para usar un almacén de información de Azure existente o cargar archivos locales.
 
+> [!NOTE]
+> Un proyecto no puede contener más de 500 000 imágenes.  Si el conjunto de datos las tiene, solo se cargarán las primeras 500 000.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Creación de un conjunto de datos a partir de un almacén de datos de Azure
 
@@ -85,8 +86,6 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 1. Seleccione **Next** (Siguiente).
 1. Confirme los detalles. Seleccione **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
 
-> [!NOTE]
-> Los datos que elija se cargarán en el proyecto.  Una vez creado el proyecto, los datos que se agreguen al almacén de datos no aparecerán en el proyecto.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Creación de un conjunto de datos a partir de los datos cargados
 
@@ -102,6 +101,19 @@ Para cargar los datos directamente:
 1. Confirme los detalles. Seleccione **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
 
 Los datos se cargan en el almacén de blobs predeterminado ("workspaceblobstore") del área de trabajo de Machine Learning.
+
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a>Configuración de la actualización incremental
+
+Si planea agregar nuevas imágenes al conjunto de datos, utilice la actualización incremental para agregar estas imágenes al proyecto.   Cuando la opción de **actualización incremental**  está habilitada, se comprueba periódicamente si hay nuevas imágenes el conjunto de datos que puedan agregarse a un proyecto en función de la tasa de finalización de la etiqueta.   La comprobación de los nuevos datos se detiene cuando el proyecto alcanza el número máximo de 500 000 imágenes.
+
+Para agregar más imágenes al proyecto, use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargarlas en la carpeta adecuada del almacenamiento de blobs. 
+
+Active la casilla **Habilitar la actualización incremental** cuando desee que el proyecto supervise continuamente los nuevos datos en el almacén de datos.
+
+Anule la selección de esta casilla si no desea que las imágenes nuevas que aparecen en el almacén de datos se agreguen a su proyecto.
+
+Puede encontrar la marca de tiempo de la última actualización en la sección **Actualización incremental** de la pestaña **Detalles** del proyecto.
+
 
 ## <a name="specify-label-classes"></a>Especificación de clases de etiquetas
 

@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 1084e8687cc709b5e31a9ef2c903638dd3d8f62c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020003"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434184"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -20,6 +20,7 @@ Después de comprar una reserva de Azure, es posible que deba aplicar la reserva
 
 Si ha adquirido Azure Reserved Virtual Machine Instances, puede cambiar la configuración de optimización de la reserva. Puede aplicar el descuento de reserva a las máquinas virtuales de la misma serie o puede reservar la capacidad del centro de datos para un tamaño específico de máquina virtual. Además, debe intentar optimizar las reservas para que se usen totalmente.
 
+*El permiso necesario para administrar una reserva es independiente del permiso de suscripción.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ El ámbito solo se aplica a suscripciones individuales con tarifas de pago por u
 
 Para delegar la administración de una reserva, agregue usuarios a roles en el pedido de reserva o en la reserva. De forma predeterminada, la persona que crea el pedido de reserva y el administrador de cuenta tienen el rol de propietario en el pedido de reserva y en la reserva.
 
-Puede administrar el acceso a los pedidos de reserva y a las reservas de forma independiente de las suscripciones que obtienen el descuento de reserva. El hecho de que a un usuario se le concedan permisos para administrar un pedido de reserva o la reserva misma, no implica que también se le otorguen derechos para administrar la suscripción. Igualmente, si a un usuario se le conceden permisos para administrar una suscripción dentro del ámbito de la reserva, no significa que se le otorguen derechos para administrar el pedido de reserva o la reserva.
+Puede administrar el acceso a los pedidos de reserva y a las reservas *de forma independiente de las suscripciones* que obtienen el descuento de reserva. El hecho de que a un usuario se le concedan permisos para administrar un pedido de reserva o la reserva misma, no implica que también se le otorguen derechos para administrar la suscripción. Igualmente, si a un usuario se le conceden permisos para administrar una suscripción dentro del ámbito de la reserva, no significa que se le otorguen derechos para administrar el pedido de reserva o la reserva.
 
 Para llevar a cabo un intercambio o un reembolso, el usuario tiene que tener acceso al pedido de reserva. Al conceder permisos, es mejor concederlos para el pedido de reserva y no para la reserva.
-
 
 Para delegar la administración de acceso en una reserva:
 

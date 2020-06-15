@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6645b50a6cd2d2145f9510ca2e2de0ee702fc3ad
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9b78b696b42431c744c30c91a730fdc7ec8c1032
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053073"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324613"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Inicio rápido: Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ En este ejemplo, se usa el procedimiento almacenado [sp_execute_external_script]
 
 Para ejecutar un script de R, necesita pasarlo como un argumento al procedimiento almacenado del sistema, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-En los pasos siguientes, deberá ejecutar este script de R de ejemplo en la base de datos SQL:
+En los pasos siguientes, deberá ejecutar este script de R de ejemplo en la base de datos:
 
 ```r
 a <- 1
@@ -51,7 +51,7 @@ d <- a*b
 print(c(c, d))
 ```
 
-1. Abra **SQL Server Management Studio** y conéctese a la base de datos SQL.
+1. Abra **SQL Server Management Studio** y conéctese a la base de datos.
 
    Si necesita ayuda para conectarse, consulte [Inicio rápido: Uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella](connect-query-ssms.md).
 
@@ -70,7 +70,7 @@ print(c(c, d))
     '
     ```
 
-   Si recibe algún error, es posible que la versión preliminar pública de Machine Learning Services (con R) no esté habilitada para la base de datos SQL. Consulte los [requisitos previos](#prerequisites) anteriores.
+   Si recibe algún error, es posible que la versión preliminar pública de Machine Learning Services (con R) no esté habilitada para la base de datos. Consulte los [requisitos previos](#prerequisites) anteriores.
 
    > [!NOTE]
    > Si es un administrador, puede ejecutar código externo automáticamente. Puede conceder permiso a otros usuarios mediante el comando:
@@ -196,7 +196,7 @@ Por ahora, usaremos las variables de entrada y salida predeterminadas de [sp_exe
 
 ## <a name="check-r-version"></a>Comprobación de la versión de R
 
-Si quiere ver qué versión de R está instalada en la base de datos SQL, ejecute el siguiente script.
+Si quiere ver qué versión de R está instalada en la base de datos, ejecute el siguiente script.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -229,7 +229,7 @@ nickname       Someone to Lean On
 
 ## <a name="list-r-packages"></a>Lista de paquetes de R
 
-Microsoft proporciona una serie de paquetes de R preinstalados con Machine Learning Services en la base de datos SQL.
+Microsoft proporciona una serie de paquetes de R preinstalados con Machine Learning Services en la base de datos.
 
 Para ver una lista de los paquetes de R instalados (además de la versión, las dependencias, la licencia y la información de la ruta de la biblioteca), ejecute el script siguiente.
 

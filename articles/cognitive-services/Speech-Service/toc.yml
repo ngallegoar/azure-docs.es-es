@@ -12,6 +12,8 @@
       href: language-support.md
     - name: Regiones admitidas
       href: regions.md
+    - name: Novedades de la documentación
+      href: whats-new.md
 - name: Voz a texto
   items:
     - name: Documentación de voz a texto

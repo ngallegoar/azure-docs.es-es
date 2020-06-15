@@ -7,12 +7,13 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.custom: tracking-python
+ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758185"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607217"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutorial: Creación y conexión de un aplicación cliente a una aplicación de Azure IoT Central (Python)
 
@@ -33,7 +34,7 @@ En este tutorial, aprenderá a:
 > * Usar una vista para administrar las propiedades del dispositivo.
 > * Llamar a comandos sincrónicos y asincrónicos para controlar el dispositivo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo:
 
@@ -307,8 +308,9 @@ Puede ver cómo responde el dispositivo a los comandos y las actualizaciones de 
 
 Como desarrollador de dispositivos, ahora que ha aprendido los aspectos básicos de cómo crear un dispositivo mediante Node.js, se recomiendan los siguientes pasos:
 
-- Aprenda a conectar un dispositivo real a IoT Central en el artículo de procedimientos [Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central](./howto-connect-devkit.md).
-- Lea [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.
+* Aprenda a conectar un dispositivo real a IoT Central en el artículo de procedimientos [Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central](./howto-connect-devkit.md).
+* Para más información sobre el rol de las plantillas de dispositivo cuando se está implementando el código del dispositivo, consulte [¿Qué son las plantillas de dispositivo?](./concepts-device-templates.md).
+* Lea [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.
 
 Si prefiere continuar con el conjunto de tutoriales de IoT Central y obtener más información sobre la creación de una solución de IoT Central, consulte:
 

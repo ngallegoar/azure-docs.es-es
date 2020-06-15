@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d29420d14a716e5a45e42dd681faa01f518f713a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665797"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417028"
 ---
 # <a name="iot-central-device-development-overview"></a>Introducción al desarrollo de dispositivos IoT Central
 
@@ -85,7 +85,9 @@ Use uno de los [SDK de dispositivo Azure IoT](#languages-and-sdks) para implemen
 - Sincronizar los valores de propiedad entre el dispositivo e IoT Central. La plantilla de dispositivo especifica los nombres de propiedad y los tipos de datos de modo que IoT Central pueda mostrar la información.
 - Implementar controladores de comandos para los comandos especificados en la plantilla de dispositivo. La plantilla de dispositivo especifica los nombres de comandos y los parámetros que el dispositivo debe usar.
 
-Para más información, consulte [Creación y conexión de una aplicación cliente de Node.js](./tutorial-connect-device-nodejs.md) o [Creación y conexión de una aplicación cliente de Python](./tutorial-connect-device-python.md).
+Para obtener más información sobre el rol de las plantillas de dispositivo, consulte [¿Qué son las plantillas de dispositivo?](./concepts-device-templates.md)
+
+Para obtener el código de ejemplo, consulte [Creación y conexión de una aplicación cliente de Node.js](./tutorial-connect-device-nodejs.md) o [Creación y conexión de una aplicación cliente de Python](./tutorial-connect-device-python.md).
 
 ### <a name="languages-and-sdks"></a>Lenguajes y SDK
 

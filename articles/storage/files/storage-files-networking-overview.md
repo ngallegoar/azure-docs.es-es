@@ -7,20 +7,20 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296534"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464817"
 ---
 # <a name="azure-files-networking-considerations"></a>Consideraciones de redes para Azure Files 
 Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
 
 - Acceda de forma directa al recurso compartido a través de los protocolos SMB o FileREST. Este patrón de acceso se emplea principalmente cuando se quieren eliminar tantos servidores locales como sea posible.
-- Cree una memoria caché del recurso compartido de archivos de Azure en un servidor local con Azure File Sync y acceda a los datos del recurso compartido de archivos desde el servidor local con el protocolo que elija (SMB, NFS, FTPS, etc.) para su caso de uso. Este patrón de acceso es útil porque combina lo mejor de la escala en la nube y el rendimiento local junto con los servicios conectables sin servidor, como Azure Backup.
+- Cree una memoria caché del recurso compartido de archivos de Azure en un servidor local (o en una VM de Azure) con Azure File Sync y acceda a los datos del recurso compartido de archivos desde el servidor local con el protocolo que elija (SMB, NFS, FTPS, etc.) para su caso de uso. Este patrón de acceso es útil porque combina lo mejor de la escala en la nube y el rendimiento local junto con los servicios conectables sin servidor, como Azure Backup.
 
-Este artículo se centra en cómo configurar las funciones de red cuando el caso de uso necesita acceder al recurso compartido de archivos de Azure directamente, en lugar de usar Azure File Sync. Para obtener más información acerca de las consideraciones de red para una implementación de Azure File Sync, consulte [Configuración de los ajustes de proxy y firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+Este artículo se centra en cómo configurar las funciones de red cuando el caso de uso necesita acceder al recurso compartido de archivos de Azure directamente, en lugar de usar Azure File Sync. Para obtener más información acerca de las consideraciones de red para una implementación de Azure File Sync, consulte [Consideraciones de redes para Azure File Sync](storage-sync-files-networking-overview.md).
 
 La configuración de red de los recursos compartidos de archivos de Azure se realiza en la cuenta de Azure Storage. Una cuenta de almacenamiento es una construcción de administración que representa un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Las cuentas de almacenamiento exponen varias configuraciones que le ayudan a proteger el acceso de red a los recursos compartidos de archivos: puntos de conexión de red, configuración de firewall de la cuenta de almacenamiento y cifrado en tránsito. 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739505"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323032"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator para Android en la nube pública en China
 
@@ -44,7 +44,7 @@ Si un usuario había conseguido configurar el inicio de sesión por teléfono o 
 
 ## <a name="multi-factor-authentication-workaround"></a>Solución alternativa a la autenticación multifactor.
 
-En lugar de usar notificaciones push para la autenticación multifactor, los usuarios pueden configurar su MFA para recibir códigos de verificación en su dispositivo, que pueden usar para comprobar su identidad. Estos códigos de verificación son válidos durante 30 segundos y, para usarlos, los administradores deben permitir que su inquilino realice la comprobación mediante códigos de verificación de contraseña de un solo uso y duración definida (TOTP).
+En lugar de usar notificaciones push para la autenticación multifactor, los usuarios pueden [configurar la aplicación Authenticator para recibir códigos de verificación](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) en su dispositivo, que pueden usar para MFA a fin de verificar su identidad. Estos códigos de verificación son válidos durante 30 segundos y, para usarlos, los administradores deben permitir que su inquilino realice la comprobación mediante códigos de verificación de contraseña de un solo uso y duración definida (TOTP).
 
 ## <a name="availability"></a>Disponibilidad
 

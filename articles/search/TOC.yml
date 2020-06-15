@@ -222,12 +222,12 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: 'Ejemplo: Azure Form Recognizer'
               href: cognitive-search-custom-skill-form.md
+            - name: 'Ejemplo: Azure Machine Learning'
+              href: cognitive-search-tutorial-aml-custom-skill.md
             - name: 'Ejemplo: contenedores'
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Sugerencias de diseño
           href: cognitive-search-concept-troubleshooting.md
-        - name: Vínculos de documentación
-          href: cognitive-search-resources-documentation.md
         - name: Knowledge Store
           items:
             - name: Creación mediante REST y Postman
@@ -464,6 +464,8 @@
               href: cognitive-search-skill-text-translation.md
         - name: Aptitudes personalizadas
           items:
+            - name: Azure Machine Learning (AML)
+              href: cognitive-search-aml-skill.md
             - name: API web personalizada
               href: cognitive-search-custom-skill-web-api.md
         - name: Aptitudes en desuso
@@ -481,6 +483,8 @@
       href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Cumplimiento y certificaciones
       href: 'https://aka.ms/azurecompliance'
+    - name: Vínculos de documentación (minería de conocimiento)
+      href: cognitive-search-resources-documentation.md
     - name: Sitios de demostración
       items:
         - name: Demostración de archivos financieros

@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266838"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610158"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integración de Key Vault con Azure Private Link
 
@@ -225,13 +225,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitaciones y consideraciones de diseño
 
+> [!NOTE]
+> El número de almacenes de claves con puntos de conexión privados habilitados por suscripción es un límite ajustable. El límite que se muestra a continuación es el límite predeterminado. Si desea solicitar un aumento del límite para su servicio, envíe un correo electrónico a akv-privatelink@microsoft.com. Estas solicitudes se aprobarán caso por caso.
+
 **Precios**: Para más información sobre los precios, consulte [Precios de Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitaciones**:  El punto de conexión privado para Azure Key Vault solo está disponible en regiones públicas de Azure.
 
 **Número máximo de puntos de conexión privados por almacén de claves**: 64.
 
-**Número máximo de almacenes de claves con puntos de conexión privados por suscripción**: 64.
+**Número máximo de almacenes de claves con puntos de conexión privados por suscripción**: 400.
 
 Para más información, consulte [Servicio Azure Private Link: Limitaciones](../../private-link/private-link-service-overview.md#limitations)
 

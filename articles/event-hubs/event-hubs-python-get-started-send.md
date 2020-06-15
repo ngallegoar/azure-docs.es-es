@@ -9,12 +9,13 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: tracking-python
+ms.openlocfilehash: 96c95efdc8f2154e0586fec59d1af66496acb101
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77162606"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558961"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Inicio rápido: Envío y recepción de eventos con Azure Event Hubs mediante Python (azure-eventhub versión 1)
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante el paquete de Python **azure-eventhub, versión 1**. 
@@ -23,7 +24,7 @@ En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro
 > En este inicio rápido se usa el antiguo paquete azure-eventhub, versión 1. Para ver un inicio rápido que use la **versión 5** más reciente del paquete, consulte [Envío y recepción de eventos mediante la versión 5 de azure-eventhub](get-started-python-send-v2.md). Para que la aplicación pase de usar el paquete antiguo a uno nuevo, consulte la [guía para migrar de la versión 1 a la versión 5 de azure-eventhub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Si es la primera vez que usa Azure Event Hubs, consulte la [información general de Event Hubs](event-hubs-about.md) antes de continuar con este inicio rápido. 
 
 Para completar este tutorial de inicio rápido, debe cumplir los siguientes requisitos previos:
@@ -47,7 +48,7 @@ Para crear una aplicación de Python que envíe eventos a un centro de eventos:
 
 1. Abra el editor de Python que prefiera, como [Visual Studio Code](https://code.visualstudio.com/).
 2. Cree un nuevo archivo denominado *send.py*. Este script envía 100 eventos a un centro de eventos.
-3. Pegue el código siguiente en *send.py*, reemplazando los valores \<namespace>, \<eventhub>, \<AccessKeyName> y \<valor de clave principal> de Event Hubs por sus valores: 
+3. Pegue el código siguiente en *send.py*, y reemplace los valores de \<namespace>, \<eventhub>, \<AccessKeyName> y \<primary key value> de Event Hubs por sus valores: 
    
    ```python
    import sys
@@ -110,7 +111,7 @@ Felicidades. Ha enviado mensajes a un centro de eventos.
 Para crear una aplicación de Python que reciba eventos de un centro de eventos:
 
 1. En el editor de Python, cree un archivo llamado *recv.py*.
-2. Pegue el código siguiente en *recv.py*, reemplazando los valores \<namespace>, \<eventhub>, \<AccessKeyName> y \<valor de clave principal> de Event Hubs por sus valores: 
+2. Pegue el código siguiente en *recv.py*, y reemplace los valores de \<namespace>, \<eventhub>, \<AccessKeyName> y \<primary key value> de Event Hubs por sus valores: 
    
    ```python
    import os

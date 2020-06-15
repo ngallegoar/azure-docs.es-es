@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7c8a35b2699035b3ce4f96a94ca970da2cf343c4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564433"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608441"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Tutorial: Conexión, configuración y activación de Azure Stack Edge 
 
@@ -25,17 +25,18 @@ El proceso de instalación y activación puede tardar unos 20 minutos en complet
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * A conectarse a un dispositivo físico
 > * Configuración y activación del dispositivo físico
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de configurar e instalar el dispositivo de Azure Stack Edge, compruebe lo siguiente:
 
 * Ha instalado el dispositivo físico como se detalla en [Instalación de Azure Stack Edge](azure-stack-edge-deploy-install.md).
 * Tiene la clave de activación del servicio Azure Stack Edge que creó para administrar el dispositivo de Azure Stack Edge. Para más información, vaya a [Preparación de la implementación de Azure Stack Edge](azure-stack-edge-deploy-prep.md).
 
-## <a name="connect-to-the-local-web-ui-setup"></a>Conexión a la configuración de la interfaz de usuario web local 
+## <a name="connect-to-the-local-web-ui-setup"></a>Conexión a la configuración de la interfaz de usuario web local
 
 1. Configure el adaptador Ethernet en el equipo para conectarse al dispositivo de Azure Stack Edge con la dirección IP estática 192.168.100.5 y la subred 255.255.255.0.
 
@@ -43,11 +44,10 @@ Antes de configurar e instalar el dispositivo de Azure Stack Edge, compruebe lo 
 
     ![Placa posterior de un dispositivo cableado](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
-
 3. Abra una ventana del explorador y acceda a la interfaz de usuario web local del dispositivo en `https://192.168.100.10`.  
-    Esta acción puede tardar unos minutos en completarse después de que haya activado el dispositivo. 
+    Esta acción puede tardar unos minutos en completarse después de que haya activado el dispositivo.
 
-    Ve un error o advertencia que indica que hay un problema con el certificado de seguridad del sitio web. 
+    Ve un error o advertencia que indica que hay un problema con el certificado de seguridad del sitio web.
    
     ![Mensaje de error del certificado de seguridad del sitio web](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
@@ -96,12 +96,12 @@ En el panel se muestran los distintos valores necesarios para configurar y regis
    
    a. En el cuadro **URL de proxy web** , escriba la dirección URL en este formato: `http://host-IP address or FQDN:Port number`. No se admiten direcciones URL HTTPS.
 
-   b. En **Autenticación**, seleccione **No** o **NTLM**.
+   b. En **Autenticación**, seleccione **No** o **NTLM**. Si habilita el proceso y usa un módulo IoT Edge en el dispositivo de Azure Stack Edge, se recomienda establecer la autenticación del proxy web en **Ninguna**. No se admite **NTML**.
 
    c. Si usa autenticación, especifique el nombre de usuario y la contraseña.
 
    d. Para validar y aplicar la configuración del proxy web configurados, seleccione **Aplicar configuración**.
-   
+
    > [!NOTE]
    > No se admiten los archivos de configuración automática del proxy (PAC). Los archivos de PAC definen el número de exploradores web y otros agentes de usuario que pueden elegir automáticamente el servidor proxy (método de acceso) adecuado para obtener una dirección URL determinada.
    > Los servidores proxy que intentan interceptar y leer todo el tráfico (y luego vuelven a firmar todo con su propia certificación) no son compatibles, ya que el certificado del proxy no es de confianza.

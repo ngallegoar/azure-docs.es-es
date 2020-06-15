@@ -2,14 +2,14 @@
 title: Evaluación de máquinas virtuales de Hyper-V para la migración a Azure con Azure Migrate | Microsoft Docs
 description: Se describe cómo evaluar máquinas virtuales de Hyper-V locales para su migración a Azure mediante Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535458"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331770"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Evaluación de las máquinas virtuales de Hyper-V con Azure Migrate Server Assessment
 
@@ -31,7 +31,7 @@ Este tutorial es el segundo de una serie que muestra cómo evaluar máquinas vir
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Complete](tutorial-prepare-hyper-v.md) el primer tutorial de esta serie. Si no lo hace, las instrucciones de este tutorial no funcionarán.
 - Esto es lo que debería haber hecho en el primer tutorial:
@@ -96,12 +96,20 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  El código hash generado debe coincidir con esta configuración para la versión 2.19.07.30 del dispositivo.
+3.  Compruebe las versiones más recientes del dispositivo y los valores hash:
 
-  **Algoritmo** | **Valor del código hash**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - Para la nube pública de Azure:
+
+        **Escenario** | **Descargar** | **SHA256**
+        --- | --- | ---
+        Hyper-V (8,93 MB) | [La versión más reciente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - Para Azure Government:
+
+        **Escenario*** | **Descargar** | **SHA256**
+        --- | --- | ---
+        Hyper-V (63,1 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
 
@@ -129,7 +137,7 @@ Importe el archivo descargado y cree la VM.
 
 ## <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la máquina virtual del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
+Asegúrese de que la VM del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="configure-the-appliance"></a>Configuración del dispositivo
 

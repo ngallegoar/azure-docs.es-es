@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 06/04/2020
+ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310366"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456542"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un miembro de Azure Blockchain Service mediante una plantilla de Azure Resource Manager
 
@@ -61,6 +61,12 @@ Recursos de Azure definidos en la plantilla:
 1. Seleccione **Comprar** para implementar la plantilla.
 
   Azure Portal se usa aquí para implementar la plantilla. También puede usar Azure PowerShell, la CLI de Azure o la API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../../azure-resource-manager/templates/deploy-powershell.md).
+
+## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
+
+Puede usar Azure Portal para ver los detalles del miembro de Azure Blockchain Service implementado. En el portal, vaya al grupo de recursos que contiene el miembro de Azure Blockchain Service. Seleccione el miembro de cadena de bloques que creó.
+
+![Detalles de generales de los miembros de Azure Blockchain implementados en Azure Portal](./media/create-member-template/deployed-member.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

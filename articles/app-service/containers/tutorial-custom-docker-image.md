@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: d9c7b9b296aaf287d185cd3e7544e40d9cdef2f5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085866"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561106"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Compilación de una imagen personalizada para ejecutarla en App Service a partir de un registro privado
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -139,7 +139,7 @@ El resultado revela dos contraseñas junto con el nombre de usuario.
 }
 </pre>
 
-En la ventana del terminal local, inicie sesión en Azure Container Registry mediante el comando `docker login`, como se muestra en el siguiente ejemplo. Reemplace *\<azure-container-registry-name>* y *\<registry-username>* por los valores de su registro. Cuando se le solicite, escriba una de las contraseñas del paso anterior.
+En la ventana del terminal local, inicie sesión en Azure Container Registry mediante el comando `docker login`, como se muestra en el siguiente ejemplo. Reemplace *\<azure-container-registry-name>* y *\<registry-username>* con los valores del registro. Cuando se le solicite, escriba una de las contraseñas del paso anterior.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
@@ -180,7 +180,7 @@ Debería obtener la siguiente salida.
 
 ### <a name="create-web-app"></a>Crear una aplicación web
 
-En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Reemplace _\<app-name>_ por un nombre de aplicación único y _\<azure-container-registry-name>_ , por el nombre de su registro.
+En Cloud Shell, cree una [aplicación web](app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Reemplace _\<app-name>_ por un nombre de aplicación único y _\<azure-container-registry-name>_ por el nombre del registro.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0

@@ -3,16 +3,16 @@ title: 'Inicio rápido: Adición de preguntas y respuestas en el portal de QnA M
 description: Este inicio rápido le indica cómo agregar pares de preguntas y respuestas con metadatos para que los usuarios puedan encontrar la respuesta correcta a su pregunta.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266583"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331396"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Inicio rápido: Adición de preguntas y respuestas con el portal de QnA Maker
 
-Una vez creada una base de conocimiento, agregue pares de preguntas y respuestas (QnA) con metadatos para filtrar la respuesta. Las preguntas de la tabla siguiente son acerca de los límites de servicio de Azure, pero cada una tiene que ver con un servicio de Azure diferente.
+Una vez creada una base de conocimiento, agregue pares de preguntas y respuestas (QnA) con metadatos para filtrar la respuesta. Las preguntas de la tabla siguiente son acerca de los límites de servicio de Azure, pero cada una tiene que ver con un servicio de Azure Search diferente.
 
 <a name="qna-table"></a>
 

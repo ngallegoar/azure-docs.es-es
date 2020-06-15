@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8c1627b0a9ae37f7d784c49613eb14b0c851b9b1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310524"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457055"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Inicio rápido: Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con Azure Portal
 
@@ -92,12 +92,9 @@ Suscríbase a un tema que indique a Event Grid los eventos cuyo seguimiento dese
    ![Selección de webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. En la página **Crear suscripción de eventos**, realice los siguientes pasos: 
     1. Escriba un **nombre** para la suscripción a eventos.
-    2. Escriba un **nombre** para el **tema del sistema**. 
+    2. Escriba un **nombre** para el **tema del sistema**. Para obtener información acerca de los temas del sistema, consulte [Introducción a los temas del sistema](system-topics.md).
 
        ![Especificación de los nombres de la suscripción a eventos y el tema del sistema](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Anteriormente, cuando creó una suscripción para un evento generado por orígenes de Azure, el servicio Event Grid creó automáticamente un tema del sistema con un nombre generado de forma aleatoria. Ahora, puede especificar un nombre para el tema del sistema en este cuadro de texto. Este recurso de tema del sistema se puede usar para detectar métricas y registros de diagnóstico.
     2. En **Webhook**, seleccione **Tipo de punto de conexión**. 
 
        ![Seleccionar el tipo de punto de conexión webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

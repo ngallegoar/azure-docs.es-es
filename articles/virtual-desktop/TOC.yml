@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Windows Virtual Desktop?
       href: overview.md
+    - name: Novedades
+      href: whats-new.md
     - name: "Documentación de la versión Fall\_2019"
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriales
@@ -82,6 +84,8 @@
       href: teams-on-wvd.md
     - name: Configuración de Azure Multi-Factor Authentication
       href: set-up-mfa.md
+    - name: Configuración de actualizaciones automáticas
+      href: configure-automatic-updates.md
     - name: Instalación de paquetes de idioma
       href: language-packs.md
 - name: Conceptos

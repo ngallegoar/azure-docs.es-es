@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 00f93086fec62c08c5241d868fc5104a1197cff3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248335"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605415"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Introducción a Azure Synapse Analytics
 
@@ -164,7 +164,7 @@ Los datos están disponibles en una tabla en `SQLDB1`. Ahora se cargan en una ba
 
 1. Vaya al centro **Data** (Datos), haga clic con el botón derecho en **Databases** (Bases de datos) y seleccione **Refresh** (Actualizar).
 1. Debería ver estas bases de datos:
-    - SQLDB (grupo de SQL)
+    - SQLDB1 (grupo de SQL)
     - nyctaxi (Spark)
       
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Análisis de los datos de los taxis de Nueva York mediante Spark y cuadernos
@@ -190,10 +190,10 @@ Los datos están disponibles en una tabla en `SQLDB1`. Ahora se cargan en una ba
       WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
-    """) 
-    display(df)
-    df.write.saveAsTable("nyctaxi.passengercountstats")
-    ```
+   """) 
+   display(df)
+   df.write.saveAsTable("nyctaxi.passengercountstats")
+   ```
 
 1. En los resultados de la celda, seleccione **Chart** (Gráfico) para ver los datos visualizados.
  
@@ -262,7 +262,7 @@ Hasta ahora, hemos explicado escenarios en los que los datos residían en las ba
 * El nombre de la cuenta de almacenamiento: `contosolake`
 * El nombre del contenedor en la cuenta de almacenamiento: `users`
 
-### <a name="creating-csv-and-parquet-files-in-your-storage-account"></a>Creación de archivos .csv y Parquet en una cuenta de almacenamiento
+### <a name="creating-csv-and-parquet-files-in-your-storage-account"></a>Creación de archivos CSV y Parquet en la cuenta de almacenamiento
 
 Ejecute el siguiente código en un cuaderno. Crea un archivo .csv y un archivo Parquet en la cuenta de almacenamiento
 
@@ -282,7 +282,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Seleccione **users (Primary)"** [usuarios (Principal)].
 1. Debería ver una carpeta denominada `NYCTaxi`. Dentro de ella debería ver dos carpetas `PassengerCountStats.csv` y `PassengerCountStats.parquet`.
 1. Vaya a la carpeta `PassengerCountStats.parquet`.
-1. Haga clic con el botón derecho en el archivo Parquet de dentro y seleccione **new notebook** (cuaderno nuevo), y se creará un cuaderno con una celda similar a esta:
+1. Haga clic con el botón derecho en el archivo `.parquet` de dentro y seleccione **Nuevo cuaderno**. Se creará un cuaderno con una celda similar a esta:
 
     ```py
     %%pyspark
