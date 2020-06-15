@@ -10,9 +10,9 @@
     - name: Creación de Cloud Foundry en Azure
       href: /azure/cloudfoundry/create-cloud-foundry-on-azure
     - name: Implementación de aplicaciones de Cloud Foundry en Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
     - name: Cloud Foundry on Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+      href: /azure/cloudfoundry/cloudfoundry-get-started
     - name: Implementación del inyector de OMS en Cloud Foundry
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
     - name: Integración de Cloud Foundry con Azure

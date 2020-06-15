@@ -235,7 +235,7 @@
         - name: Carga de datos
           items:
             - name: Información general
-              href: sql/data-loading-overview.md
+              href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Procedimientos recomendados
               href: sql/data-loading-best-practices.md
             - name: Compresión de almacén de columnas
