@@ -198,8 +198,6 @@
       href: security-center-features-retirement-july2019.md
     - name: Valoración y recomendaciones sobre la protección de puntos de conexión
       href: security-center-endpoint-protection.md
-    - name: Puntuación segura (heredado)
-      href: security-center-secure-score.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

@@ -70,7 +70,7 @@ Seleccione *Room.json* para abrirlo en la ventana de edición y cámbielo de la 
 
 Cuando haya terminado, el modelo actualizado se parecerá a este:
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación "contiene"" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Room.json editado con el número de versión actualizado, las propiedades HumidityLevel y RoomName, y la relación contiene" border="false":::
 
 Asegúrese de guardar el archivo antes de continuar.
 
