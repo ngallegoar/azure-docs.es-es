@@ -10,16 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725557"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628049"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
-Al probar la precisión del reconocimiento de voz de Microsoft o entrenar sus modelos personalizados, necesitará datos de texto y de audio. En esta página, veremos los tipos de datos, cómo se usan y administran.
+Al probar la precisión del reconocimiento de voz de Microsoft o entrenar sus modelos personalizados, necesitará datos de texto y de audio. En esta página, tratamos los tipos de datos que necesita un modelo de voz personalizado.
+
+## <a name="data-diversity"></a>Diversidad de datos
+
+El texto y el audio usados para probar y entrenar un modelo personalizado deben incluir ejemplos de un conjunto diverso de oradores y escenarios que es preciso que el modelo reconozca.
+Tenga en cuenta estos factores al recopilar datos para las pruebas y el entrenamiento de modelos personalizados:
+
+* Los datos de texto y de audio de voz deben cubrir los tipos de instrucciones verbales que los usuarios realizarán al interactuar con el modelo. Por ejemplo, un modelo que eleva y reduce la temperatura necesita entrenamiento en las instrucciones que las personas pueden dar para solicitar tales cambios.
+* Los datos deben incluir todas las variantes de la voz que el modelo tendrá que reconocer. Muchos factores pueden variar la voz, entre los que se incluyen los acentos, los dialectos, la combinación de idiomas, la edad, el género, el tono de voz, el nivel de estrés y la hora del día.
+* Debe incluir ejemplos de diferentes entornos (en interior, en exteriores, con ruido de carretera) en los que se utilizará el modelo.
+* El audio se debe recoger mediante dispositivos de hardware que utilizará el sistema de producción. Si el modelo necesita identificar la voz grabada en dispositivos de grabación de calidad variable, los datos de audio que proporcione para entrenar el modelo también deben representar los distintos escenarios.
+* Puede agregar más datos al modelo más adelante, pero procure que el conjunto de datos sea diverso y representativo de las necesidades del proyecto.
+* La inclusión de datos que *no* estén dentro de las necesidades de reconocimiento del modelo personalizado puede perjudicar la calidad general del reconocimiento, por lo que se recomienda no incluir datos que el modelo no necesite transcribir.
+
+Un modelo entrenado en un subconjunto de escenarios solo puede funcionar correctamente en esos escenarios. Por consiguiente, es conveniente que elija minuciosamente los datos que representan el ámbito completo de los escenarios que necesita que el modelo personalizado reconozca.
+
+> [!TIP]
+> Comience con pequeños conjuntos de datos de ejemplo que coincidan con el idioma y la acústica con los que se encontrará el modelo.
+> Por ejemplo, grabe un pequeño pero representativo ejemplo de audio en el mismo hardware y en el mismo entorno acústico que el modelo encontrará en escenarios de producción.
+> Los pequeños conjuntos de datos representativos pueden sacar a la luz problemas antes de que haya invertido en la recopilación de un conjunto de datos mucho mayor para el entrenamiento.
 
 ## <a name="data-types"></a>Tipos de datos
 

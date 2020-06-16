@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76717316"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629013"
 ---
 # <a name="create-a-custom-voice"></a>Creación de una voz personalizada
 
@@ -62,7 +62,7 @@ Puede volver a grabar cualquier expresión que tenga una puntuación baja debido
 
 Una vez que el conjunto de datos se haya validado, podrá usarlo para compilar su modelo de voz personalizado.
 
-1.  Vaya a **Text-to-Speech > Custom Voice > Training** (Texto a voz > Voz personalizada > Entrenamiento).
+1.  Vaya a **Texto a voz > Voz personalizada > [nombre del proyecto] > Aprendizaje**.
 
 2.  Haga clic en **Train model** (Entrenar modelo).
 
@@ -106,7 +106,7 @@ Si usa la funcionalidad de entrenamiento de voz neuronal, puede optar por entren
 
 Una vez que la fuente de voz se haya creado correctamente, podrá probarla antes de implementarla para su uso.
 
-1.  Vaya a **Text-to-Speech > Custom Voice > Testing** (Texto a voz > Voz personalizada > Prueba).
+1.  Vaya a **Texto a voz > Voz personalizada > [nombre del proyecto] > Pruebas**.
 
 2.  Haga clic en **Add test** (Agregar prueba).
 

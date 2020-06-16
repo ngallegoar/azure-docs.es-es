@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: d959f4948d6b848f3b399c1310add06991d72012
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74806327"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636133"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 
@@ -97,7 +97,7 @@ Una solución típica utiliza estos servicios:
 - La solución [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) se utiliza para crear un identificador URI de firmas de acceso compartido (SAS) para cada grabación, y desencadenar la petición HTTP POST para iniciar una transcripción. Además, Azure Functions se utiliza para crear solicitudes de recuperación y eliminación de transcripciones mediante la API Batch Transcription.
 
 Internamente estamos utilizando las tecnologías anteriores para admitir las llamadas de los clientes de Microsoft en modo por lotes.
-![Arquitectura por lotes](media/scenarios/call-center-batch-pipeline.png)
+:::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Tecnologías utilizadas para admitir llamadas de clientes de Microsoft en el modo por lotes.":::
 
 ## <a name="real-time-transcription-for-call-center-data"></a>Transcripción en tiempo real para los datos del centro de llamadas
 

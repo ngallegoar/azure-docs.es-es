@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: aa71057d3819acb335153ee5b4b65960320405be
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 3cb4dd16592f3af962b32fe3005d2ad4b241d831
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997291"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457021"
 ---
 # <a name="samples-and-faqs"></a>Ejemplos y preguntas más frecuentes
 
@@ -31,7 +31,7 @@ El ejemplo del asistente de voz de UWP es un asistente de voz en Windows que sir
 La documentación que se proporciona con la aplicación de ejemplo le guía a través de la ruta de acceso del código de activación por voz y administración del agente, desde los requisitos previos de inicio hasta la limpieza adecuada.
 
 > [!div class="nextstepaction"]
-> [Visitar el repositorio de GitHub para el ejemplo de UWP](https://aka.ms/MVA/sample)
+> [Visita al repositorio de GitHub para el ejemplo de UWP](https://aka.ms/MVA/sample)
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
