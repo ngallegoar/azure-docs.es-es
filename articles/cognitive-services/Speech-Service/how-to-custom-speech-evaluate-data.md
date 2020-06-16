@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74806103"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629058"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de Habla personalizada
 
@@ -52,7 +52,7 @@ Si quiere probar la calidad del modelo de línea de base de texto a voz de Micro
 Para evaluar los modelos en paralelo:
 
 1. Inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
-2. Vaya a **Speech-to-text &gt; Custom Speech &gt; Testing** (Conversión de voz a texto &gt; Habla personalizada &gt; Pruebas).
+2. Vaya a **Speech-to-text > Custom Speech > [nombre del proyecto] > Pruebas**.
 3. Haga clic en **Add test** (Agregar prueba).
 4. Seleccione **Evaluate accuracy** (Evaluar precisión). Proporcione a la prueba un nombre y una descripción, y seleccione el conjunto de datos de transcripción con la etiqueta audio + humano.
 5. Puede seleccionar hasta dos modelos para probar.
