@@ -1,3 +1,5 @@
+- name: Tamaños de VM
+  href: vm-sizes.md
 - name: Asignación de materiales para formatos de modelos
   href: material-mapping.md
 - name: Regions

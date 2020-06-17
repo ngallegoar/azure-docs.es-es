@@ -493,6 +493,8 @@
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Uso de CLI de Azure
               href: image-builder.md
+            - name: Uso de Azure PowerShell
+              href: image-builder-powershell.md
             - name: Compilación para galerías de imágenes
               href: image-builder-gallery.md
             - name: Actualización de una imagen existente
