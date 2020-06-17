@@ -18,7 +18,7 @@
   items:
     - name: Creación de un host de Bastion
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: bastion-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
@@ -33,7 +33,7 @@
     - name: Conexión de un conjunto de escalado de máquinas virtuales
       href: bastion-connect-vm-scale-set.md
     - name: "Conexión a máquinas virtuales de DevTest\_Labs"
-      href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
+      href: ../devtest-labs/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
     - name: Uso con una sesión de máquina virtual
       items:
         - name: Copiar y pegar
