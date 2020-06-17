@@ -52,7 +52,7 @@
           href: luis-tutorial-pattern.md
     - name: Uso con bot
       items:
-        - name: 'Con C#'
+        - name: Con C#
           href: luis-csharp-tutorial-bf-v4.md
           displayName: 'bot framework, framework, sdk, abs'
         - name: Con Node.js
@@ -125,6 +125,14 @@
         - name: Estrategias de diseño
           href: luis-concept-enterprise.md
           displayName: import
+    - name: Aplicación de prácticas de DevOps con LUIS
+      items:
+        - name: Control de código fuente y estrategias de ramificación para LUIS
+          href: luis-concept-devops-sourcecontrol.md
+        - name: Pruebas de DevOps
+          href: luis-concept-devops-testing.md
+        - name: Flujos de trabajo de CI/CD
+          href: luis-concept-devops-automation.md
 - name: Guías paso a paso
   items:
     - name: Inicio de una nueva aplicación
@@ -238,11 +246,13 @@
         - name: Limitaciones de los contenedores
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Uso de DevOps
+      href: luis-how-to-devops-with-github.md
     - name: Servicios relacionados
       items:
         - name: Azure Bot Service
           href: 'https://dev.botframework.com/'
-        - name: 'SDK del generador de bots 4.x para C#'
+        - name: SDK del generador de bots 4.x para C#
           href: 'https://github.com/Microsoft/botbuilder-dotnet'
         - name: QnA Maker
           href: 'https://qnamaker.ai/'
@@ -284,7 +294,7 @@
               href: luis-reference-response-codes.md
         - name: SDK
           items:
-            - name: 'C#'
+            - name: C#
               items:
                 - name: 'NuGet: creación'
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
@@ -333,7 +343,7 @@
     - name: Regions
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
-    - name: límites
+    - name: Límites
       href: luis-limits.md
     - name: Configuración de la aplicación y de la versión
       href: luis-reference-application-settings.md

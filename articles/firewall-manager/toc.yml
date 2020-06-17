@@ -24,7 +24,7 @@
       href: secured-virtual-hub.md
     - name: Proceso de implementación general
       href: deployment-overview.md
-    - name: Asociados de seguridad de confianza
+    - name: Proveedores de seguridad asociados
       href: trusted-security-partners.md
     - name: Lógica de procesamiento de reglas
       href: rule-processing.md
@@ -32,7 +32,7 @@
       href: vhubs-and-vnets.md
 - name: Guías paso a paso
   items:
-    - name: Implementación de asociados de seguridad de confianza
+    - name: Implementación de proveedores de seguridad asociados
       href: deploy-trusted-security-partner.md
     - name: 'Directiva de migración a firewall: PowerShell'
       href: migrate-to-policy.md
