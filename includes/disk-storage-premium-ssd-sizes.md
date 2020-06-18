@@ -21,6 +21,6 @@ ms.locfileid: "84424768"
 | IOPS aprovisionadas por disco | 120 | 120 | 120 | 120 | 240 | 500 | 1100 | 2,300 | 5\.000 | 7500 | 7500 | 16 000 | 18 000 | 20.000 |
 | Capacidad de proceso aprovisionada por disco | 25 MB/s | 25 MB/s | 25 MB/s | 25 MB/s | 50 MB/s | 100 MB/s | 125 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s| 500 MB/s | 750 MB/s | 900 MB/s |
 | Máximo de IOPS de ráfaga por disco | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 | 3500 |
-| Capacidad de proceso máximo de ráfaga por disco** | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s |
+| Capacidad de proceso máximo de ráfaga por disco | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s | 170 MB/s |
 | Duración máxima de ráfaga | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  |
 | Apto para reserva | No  | No  | No  | No  | No  | No  | No  | No  | Sí, hasta un año | Sí, hasta un año | Sí, hasta un año | Sí, hasta un año | Sí, hasta un año | Sí, hasta un año |

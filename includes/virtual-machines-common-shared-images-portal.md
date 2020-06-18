@@ -65,7 +65,7 @@ Los pasos para crear una versión de la imagen son ligeramente diferentes, en fu
 
 1. En la página de la definición de imagen, seleccione **Agregar versión** en la parte superior de la página.
 1. En **Región**, seleccione la región donde se almacena la imagen administrada. Las versiones de imagen deben crearse en la misma región que la imagen administrada a partir de la que se crean.
-1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*.* secundaria*.*revisión* con números enteros. 
+1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*. *secundaria*. *revisión* con números enteros. 
 1. En **Imagen de origen**, seleccione la imagen administrada de origen en la lista desplegable.
 1. En **Excluir de las últimas**, deje el valor predeterminado de *No*.
 1. En **End of life date** (Fecha del final de la duración), seleccione una fecha del calendario que sea un par de meses en el futuro.
@@ -80,7 +80,7 @@ La imagen puede tardar un rato en replicarse en todas las regiones de destino.
 
 1. En la página de la definición de imagen, seleccione **Agregar versión** en la parte superior de la página.
 1. En **Región**, seleccione la región en la que se almacenará la instantánea. Las versiones de imagen deben crearse en la misma región que el origen a partir del que se crean.
-1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*.* secundaria*.*revisión* con números enteros. 
+1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*. *secundaria*. *revisión* con números enteros. 
 1. En **Instantánea del disco del sistema operativo**, seleccione la instantánea de la VM de origen en la lista desplegable. Si la VM de origen tenía un disco de datos que quiere incluir, seleccione el número de **LUN**correcto de la lista desplegable y luego seleccione la instantánea del disco de datos en **Instantánea del disco de datos**. 
 1. En **Excluir de las últimas**, deje el valor predeterminado de *No*.
 1. En **End of life date** (Fecha del final de la duración), seleccione una fecha del calendario que sea un par de meses en el futuro.
