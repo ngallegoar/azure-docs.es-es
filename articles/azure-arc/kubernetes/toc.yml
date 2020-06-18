@@ -4,6 +4,10 @@
   items:
     - name: Acerca de Kubernetes habilitado para Azure Arc
       href: overview.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      href: ./policy-samples.md
 - name: Guías paso a paso
   items:
     - name: Operaciones del clúster

@@ -6,6 +6,8 @@
       href: overview.md
     - name: Ediciones y características admitidas
       href: features.md
+    - name: Notas de la versión
+      href: release-notes.md
 - name: Guías de inicio rápido
   expanded: true
   items:

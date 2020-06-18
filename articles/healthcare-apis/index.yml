@@ -1,48 +1,53 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentación de la versión preliminar de Azure API for FHIR
+### YamlMime:Landing
+title: Documentación de Azure API for FHIR
+summary: Azure API for FHIR es una API administrada, basada en estándares y compatible para datos clínicos que habilita soluciones para el análisis accionable y el aprendizaje automático.
 metadata:
-  title: Documentación de la versión preliminar de Azure API for FHIR
-  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
+  title: 'Documentación de Azure API for FHIR: tutoriales, guías de procedimientos'
+  description: Azure API for FHIR es una API administrada, basada en estándares y compatible para datos clínicos que habilita soluciones para el análisis accionable y el aprendizaje automático.
   services: healthcare-apis
-  author: hansenms
-  manager: dougseven
-  ms.author: mihansen
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: landing-page
-  ms.date: 02/07/2019
-abstract:
-  description: 'La versión preliminar de Azure API for FHIR® es una API totalmente administrada, basada en normas estándar y compatible para datos clínicos que le permite crear nuevos sistemas de involucración de análisis, aprendizaje automático e inteligencia aplicable con los datos clínicos.'
-sections:
-  - title: null
-    items:
-      - type: paragraph
-        text: FHIR&reg; es la marca registrada de HL7 y se usa con su permiso.
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: Más información sobre cómo Azure API for FHIR (versión preliminar) puede impulsar la interoperabilidad en Salud con Azure con solo seleccionar un vínculo de flecha <img src="media/index/link.jpg" height="15" width="15"></img>.
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/portal.svg
-            title: Portal de Azure
-          - image:
-              src: media/index/powershell.svg
-            title: Azure PowerShell
-          - image:
-              src: media/index/cli.svg
-            title: CLI de Azure
-        rows:
-          - title: Implementación de Azure API for FHIR
-            values:
-              - href: fhir-paas-portal-quickstart.md
-              - href: fhir-paas-powershell-quickstart.md
-              - href: fhir-paas-cli-quickstart.md
-          - title: Implementación del servidor FHIR de código abierto
-            values:
-              - href: fhir-oss-portal-quickstart.md
-              - href: fhir-oss-powershell-quickstart.md
-              - href: fhir-oss-cli-quickstart.md
+  ms.collection: collection
+  author: hansenms
+  ms.author: mihansen
+  ms.date: 11/06/2019
+  ms.openlocfilehash: f4572a38073a929d00bcccce94d9e73634b92633
+  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 01/24/2020
+  ms.locfileid: "84819762"
+landingContent:
+- title: Primeros pasos con Azure API for FHIR
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure API for FHIR?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Implementación de Azure API for FHIR
+      url: fhir-paas-portal-quickstart.md
+- title: Tutoriales de configuración
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementación de una aplicación de JavaScript para leer datos del servicio FHIR
+      url: tutorial-web-app-fhir-server.md
+    - text: Acceso a la API de FHIR con Postman
+      url: access-fhir-postman-tutorial.md
+    - text: Integración inteligente con aplicaciones de terceros e historias clínicas
+      url: use-smart-on-fhir-proxy.md
+- title: Registro de aplicaciones para la autenticación de AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Registro de una aplicación de recursos
+      url: register-resource-azure-ad-client-app.md
+    - text: Registro de una aplicación cliente confidencial
+      url: register-confidential-azure-ad-client-app.md
+    - text: Registro de una aplicación cliente pública
+      url: register-public-azure-ad-client-app.md
+    - text: Registro de una aplicación cliente de servicio
+      url: register-service-azure-ad-client-app.md

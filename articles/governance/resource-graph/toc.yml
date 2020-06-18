@@ -10,19 +10,22 @@
   items:
     - name: 'Ejecución de la primera consulta: Azure Portal'
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: 'Ejecución de la primera consulta: CLI de Azure'
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: 'Ejecución de la primera consulta: PowerShell'
+      href: ./first-query-azurecli.md
+    - name: 'Ejecución de la primera consulta: Azure PowerShell'
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: "Ejecución de la primera consulta:\_Go"
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
     - name: 'Ejecución de la primera consulta: Python'
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
     - name: 'Implementación de una consulta compartida: plantilla de Resource Manager'
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Tutoriales
   items:
     - name: Creación de una consulta en Azure Portal y uso compartido de la misma
@@ -44,7 +47,7 @@
     - name: Exploración de recursos de Azure con el gráfico de recursos
       displayName: 'vms, public ip'
       href: ./concepts/explore-resources.md
-    - name: Uso de grandes conjuntos de datos
+    - name: Trabajo con grandes conjuntos de datos
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
     - name: Guía para solicitudes limitadas

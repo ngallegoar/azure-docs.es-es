@@ -41,9 +41,9 @@
           items:
             - name: Autenticación y autorización
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Consulta de datos mediante C#'
+            - name: Consulta de datos mediante C#
               href: time-series-insights-query-data-csharp.md
-            - name: 'Administración de datos de referencia en C#'
+            - name: Administración de datos de referencia en C#
               href: time-series-insights-manage-reference-data-csharp.md
             - name: Uso compartido de una vista personalizada
               href: time-series-insights-parameterized-urls.md
@@ -65,7 +65,7 @@
           items:
             - name: Autenticación y autorización
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Consulta de datos mediante C#'
+            - name: Consulta de datos mediante C#
               href: time-series-insights-update-query-data-csharp.md
             - name: "Integración con Power\_BI"
               href: concepts-power-bi.md
@@ -111,6 +111,12 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Conexión a Power BI
           href: how-to-connect-power-bi.md
+- name: Últimos cambios
+  items:
+    - name: Azure Time Series Insights Preview
+      items:
+        - name: Adición de para el tipo de datos Long
+          href: time-series-insights-long-data-type.md
 - name: Referencia
   items:
     - name: Time Series Insights

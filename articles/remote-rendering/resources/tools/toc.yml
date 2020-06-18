@@ -1,2 +1,4 @@
 - name: Herramienta de inspección ArrInspector
   href: arr-inspector.md
+- name: Herramienta de recursos Azure Remote Rendering
+  href: ../../samples/azure-remote-rendering-asset-tool.md
