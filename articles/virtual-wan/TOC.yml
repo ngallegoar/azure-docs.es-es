@@ -44,14 +44,10 @@
           href: path-selection-multiple-links.md
 - name: Guías paso a paso
   items:
-    - name: Conexión de una puerta de enlace de red virtual a Virtual WAN
-      href: connect-virtual-network-gateway-vwan.md
     - name: Configuración del emparejamiento de VNET global
       href: global-peering-vnet.md
     - name: Actualización de SKU de Virtual WAN
       href: upgrade-virtual-wan.md
-    - name: Configuración de una directiva de IPsec personalizada
-      href: virtual-wan-custom-ipsec-portal.md
     - name: ExpressRoute
       items:
         - name: Creación de una conexión de ExpressRoute
@@ -62,6 +58,10 @@
       items:
         - name: Creación de una conexión de sitio a sitio
           href: virtual-wan-site-to-site-portal.md
+        - name: Conexión de una puerta de enlace de red virtual a Virtual WAN
+          href: connect-virtual-network-gateway-vwan.md
+        - name: Configuración de una directiva de IPsec personalizada
+          href: virtual-wan-custom-ipsec-portal.md
     - name: VPN de usuario (de punto a sitio)
       items:
         - name: Creación de una conexión VPN de usuario
@@ -109,7 +109,7 @@
 - name: Referencia
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#networking'
+      href: /powershell/module/az.network#networking
     - name: REST
       href: /rest/api/azure
     - name: Azure CLI

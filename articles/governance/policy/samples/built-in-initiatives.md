@@ -1,21 +1,25 @@
 ---
 title: Lista de iniciativas de directiva integradas
 description: Se enumeran las iniciativas de directiva integradas para Azure Policy. Las categorías incluyen Cumplimiento de normativas, Configuración de invitados, etc.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b3b0826e2121e7d609bd4091a162fa1820c1be53
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 41e19426daeaee799f9ad008c820a689fe552ec4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233970"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709177"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definiciones de iniciativa integradas de Azure Policy
 
 Esta página es un índice de las definiciones de iniciativa integradas de Azure Policy.
 
 El nombre de cada iniciativa integrada contiene un vínculo al origen de la definición de iniciativa en el [Repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy). Los directivas integradas se agrupan por la propiedad **category** (categoría) de los **metadatos**. Para ir a una **categoría** específica, use el menú del lado derecho de la página. Como alternativa, puede usar <kbd>Ctrl</kbd>-<kbd>F</kbd> para utilizar la característica de búsqueda del explorador.
+
+## <a name="cosmos-db"></a>Cosmos DB
+
+[!INCLUDE [azure-policy-samples-policysets-cosmos-db](../../../../includes/policy/samples/bycat/policysets-cosmos-db.md)]
 
 ## <a name="guest-configuration"></a>Configuración de invitado
 
