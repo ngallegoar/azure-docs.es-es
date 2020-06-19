@@ -2,21 +2,21 @@
 title: Azure AD acceso híbrido seguro | Microsoft Docs
 description: En este artículo se describen las soluciones de asociados para integrar las aplicaciones locales, de nube pública o de nube privada heredadas con Azure AD. Proteja sus aplicaciones heredadas conectando controladores de entrega de aplicaciones o redes a Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: overview
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/18/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e97b95e290ef74ffd98a3396ffe4705270132b2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 295891afbb0136e0b05bcd49f4045e0e8bcff6e5
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75433761"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763047"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con redes y controladores de entrega de aplicaciones
 

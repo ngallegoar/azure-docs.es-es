@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.author: victorh
-ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79366281"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792171"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>¿Qué es Azure Firewall Manager (versión preliminar)?
 
@@ -24,14 +24,14 @@ Firewall Manager puede proporcionar administración de seguridad para dos tipos 
 
 - **Centro virtual protegido**
 
-   Un [centro de conectividad de Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) es un recurso administrado por Microsoft que permite crear fácilmente arquitecturas en estrella tipo hub-and-spoke. Cuando las directivas de seguridad y enrutamiento están asociadas a ese concentrador, se denomina *[centro virtual protegido](secured-virtual-hub.md)* . 
-- **Red virtual de centro de conectividad**
+   Un [centro de Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) es un recurso administrado por Microsoft que permite crear fácilmente arquitecturas de tipo hub-and-spoke (centro y radio). Cuando las directivas de seguridad y enrutamiento están asociadas a ese concentrador, se denomina *[centro virtual protegido](secured-virtual-hub.md)* . 
+- **Red virtual de centro**
 
    Se trata de una red virtual estándar de Azure que crea y administra uno mismo. Cuando las directivas de seguridad están asociadas con este tipo de centro, se conoce como *red virtual de centro*. En este momento, solo se admite la directiva de Azure Firewall. Puede emparejar las redes virtuales de radio que contienen los servidores y servicios de carga de trabajo. También puede administrar los firewalls de redes virtuales independientes que no están emparejadas con ningún radio.
 
 Para ver una comparación detallada entre los tipos de arquitectura de *centro virtual protegido* y *red virtual de centro de conectividad*, consulte [¿Cuáles son las opciones de arquitectura de Azure Firewall Manager?](vhubs-and-vnets.md)
 
-![firewall-manager](media/overview/firewallmanagerv5.png)
+![firewall-manager](media/overview/trusted-security-partners.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Características de Azure Firewall Manager (versión preliminar)
 
@@ -78,7 +78,7 @@ Las directivas de Azure Firewall se pueden usar en diferentes regiones. Por ejem
 
 Azure Firewall Manager (versión preliminar) presenta los siguientes problemas conocidos:
 
-|Problema  |Descripción  |Mitigación  |
+|Incidencia  |Descripción  |Mitigación  |
 |---------|---------|---------|
 |Limitaciones del filtrado de terceros.|El filtrado de tráfico V2I con proveedores de terceros no es compatible con Azure Firewall B2V y V2V.|Investigando|
 |Actualmente no se admite la división del tráfico.|Actualmente no se admite la división del tráfico de PaaS público de Azure y de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando.

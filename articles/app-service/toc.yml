@@ -112,8 +112,14 @@
       items:
         - name: Configuración de valores habituales
           href: configure-common.md
+        - name: Configuración de ASP.NET
+          href: configure-language-dotnet-framework.md
+        - name: Configuración de ASP.NET Core
+          href: configure-language-dotnetcore.md
+        - name: Configuración de Node.js
+          href: configure-language-nodejs.md
         - name: Configurar PHP
-          href: web-sites-php-configure.md
+          href: configure-language-php.md
         - name: Configuración de Java
           href: configure-language-java.md
         - name: Conexión a recursos locales
@@ -216,12 +222,14 @@
           href: app-service-web-app-cloning.md
         - name: Restauración de una instancia de App Service eliminada
           href: app-service-undelete.md
+        - name: Restauración desde una región inactiva
+          href: manage-disaster-recovery.md
     - name: Movimiento de una aplicación
       items:
         - name: Movimiento entre regiones
           href: manage-move-across-regions.md
         - name: Movimiento de suscripciones
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources'
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
     - name: Ejecución de tareas en segundo plano
       items:
         - name: Creación de WebJobs
@@ -237,7 +245,7 @@
     - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
-      href: '/powershell/module/az.websites/#app_service'
+      href: /powershell/module/az.websites/#app_service
     - name: API DE REST
       href: /rest/api/appservice/
     - name: Plantilla de Resource Manager
@@ -253,7 +261,7 @@
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Información de cuota
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Guías de Migration Assistant

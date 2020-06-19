@@ -188,6 +188,8 @@
       items:
         - name: Habilitación de la escritura diferida
           href: how-to-connect-device-writeback.md
+        - name: Habilitación de la escritura diferida de grupos
+          href: how-to-connect-group-writeback.md
         - name: Opciones de dispositivos
           href: how-to-connect-device-options.md
         - name: Características adicionales de Azure AD Connect
