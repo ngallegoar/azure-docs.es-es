@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/08/2020
+ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022068"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660968"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database con la herramienta Copy Data
 
@@ -156,11 +156,13 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
     ![Página de asignación de columnas](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. En la página **Settings** (Configuración), seleccione **Next** (Siguiente).
-1. En la página **Summary** (Resumen), revise la configuración y seleccione **Next** (Siguiente).
-1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización (tarea).
- 
-    ![Supervisión de la canalización](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. En la página **Summary** (Resumen), revise la configuración y seleccione **Next** (Siguiente).
+
+1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización (tarea).
+
+    ![Supervisión de la canalización](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. En la página Pipeline runs (Ejecuciones de canalización), seleccione **Refresh** (Actualizar) para actualizar la lista. Haga clic en el vínculo en **PIPELINE NAME** (NOMBRE DE CANALIZACIÓN) para ver los detalles de la ejecución de actividad o volver a ejecutar la canalización. 
     ![Ejecución de la canalización](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -168,9 +170,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
     ![Supervisión de las ejecuciones de actividad](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. Compruebe que los datos se insertan en la tabla **dbo.emp** de SQL Database.
-
 
 1. Seleccione la pestaña **Author** (Crear) de la izquierda para cambiar al modo de edición. Con el editor puede actualizar los servicios vinculados, los conjuntos de datos y las canalizaciones creados mediante la herramienta. Para más información sobre la edición de estas entidades en la interfaz de usuario de Data Factory, consulte [la versión de Azure Portal de este tutorial](tutorial-copy-data-portal.md).
 

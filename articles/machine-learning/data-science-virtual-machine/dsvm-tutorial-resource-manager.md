@@ -10,14 +10,14 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: e89f3d85156081106f4e1dbb55ee6c895e7e7a2d
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 7e3e45d96839be06deec238deccdc9873492d68f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636757"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660247"
 ---
-# <a name="tutorial-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Tutorial: Creación de una instancia de Data Science Virtual Machine de Ubuntu mediante una plantilla de Resource Manager
+# <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Inicio rápido: Creación de una instancia de Data Science Virtual Machine de Ubuntu mediante una plantilla de Resource Manager
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este inicio rápido se muestra cómo crear una instancia de Data Science Virtual Machine de Ubuntu 18.04 mediante una plantilla de Azure Resource Manager. Las instancias de Data Science Virtual Machine son máquinas virtuales basadas en la nube precargadas con un conjunto de herramientas y marcos de ciencia de datos y aprendizaje automático. Cuando se implementan en recursos de proceso con tecnología GPU, todas las herramientas y bibliotecas se configuran para usar este tipo de procesador. 

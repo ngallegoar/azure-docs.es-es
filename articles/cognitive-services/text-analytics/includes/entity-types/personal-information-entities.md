@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 637c2bb1bc37d26dcdf1a169b2f5d20766d0a27f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637607"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84902775"
 ---
 > [!NOTE]
 > Para detectar `PHI`, use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
@@ -40,7 +40,7 @@ Se devuelven las siguientes categorías de entidad al enviar solicitudes al punt
 | DateTime | Date | Fechas calendario. | `2019-10-01` | También se devuelve con `domain=phi`. |
 | Cantidad | N/D | Números y cantidades numéricas. | `2019-10-01` |  |
 | Cantidad | Age | Edades. | `2019-10-01` | | |
-| Clasificación Internacional de enfermedades (ICD-10-CM) | N/D | Entidades relacionadas con la Clasificación Internacional de Enfermedades, novena revisión.   | `2020-04-01` | |
+| Clasificación internacional de enfermedades (ICD-9-CM) | N/D | Entidades relacionadas con la Clasificación Internacional de Enfermedades, novena revisión.   | `2020-04-01` | |
 | Clasificación Internacional de enfermedades (ICD-10-CM) | N/D | Entidades relacionadas con la Clasificación Internacional de Enfermedades, décima revisión.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Información de Azure

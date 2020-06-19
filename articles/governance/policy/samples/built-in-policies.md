@@ -1,21 +1,25 @@
 ---
 title: Lista de definiciones de directiva integradas
 description: Se enumeran las definiciones de directiva integradas para Azure Policy. Las categorías incluyen Etiquetas, Cumplimiento de normativas, Key Vault, Kubernetes, Configuración de invitados, etc.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b95029a5422a427e071cb2d3e4481b846ff9a295
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0ab717e4246112152b9a497c51d2a630bc48dfd1
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233509"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709627"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definiciones de directiva integradas de Azure Policy
 
 Esta página es un índice de las definiciones de directiva integradas de Azure Policy.
 
 El nombre de cada uno de los vínculos integrados a la definición de directiva en Azure Portal. Use el vínculo de la columna **Origen** para ver el origen en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy). Los directivas integradas se agrupan por la propiedad **category** (categoría) de los **metadatos**. Para ir a una **categoría** específica, use el menú del lado derecho de la página. Como alternativa, puede usar <kbd>Ctrl</kbd>-<kbd>F</kbd> para utilizar la característica de búsqueda del explorador.
+
+## <a name="api-management"></a>API Management
+
+[!INCLUDE [azure-policy-samples-policies-api-management](../../../../includes/policy/samples/bycat/policies-api-management.md)]
 
 ## <a name="app-configuration"></a>Configuración de la aplicación
 
@@ -44,6 +48,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 ## <a name="cache"></a>Cache
 
 [!INCLUDE [azure-policy-samples-policies-cache](../../../../includes/policy/samples/bycat/policies-cache.md)]
+
+## <a name="cognitive-services"></a>Cognitive Services
+
+[!INCLUDE [azure-policy-samples-policies-cognitive-services](../../../../includes/policy/samples/bycat/policies-cognitive-services.md)]
 
 ## <a name="compute"></a>Proceso
 
@@ -132,6 +140,10 @@ El nombre de cada uno de los vínculos integrados a la definición de directiva 
 ## <a name="service-fabric"></a>Service Fabric
 
 [!INCLUDE [azure-policy-samples-policies-service-fabric](../../../../includes/policy/samples/bycat/policies-service-fabric.md)]
+
+## <a name="signalr"></a>SignalR
+
+[!INCLUDE [azure-policy-samples-policies-signalr](../../../../includes/policy/samples/bycat/policies-signalr.md)]
 
 ## <a name="sql"></a>SQL
 

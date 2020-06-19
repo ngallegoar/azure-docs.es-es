@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: b65213bd87f6b82391733a135e096077127765d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344023"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669909"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
 
@@ -133,9 +133,9 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 1. Haga clic en el botón **Siguiente: Compilar >** para editar la configuración de compilación.
 
-1. Establezca _Ubicación de la aplicación_ en **pública**.
+1. Establezca _Ubicación de la aplicación_ en **/**
 
-1. Deje _Ubicación del artefacto de la aplicación_ en blanco.
+1. Establezca _Ubicación del artefacto de la aplicación_ en **public**.
 
    No es necesario un valor para _Ubicación de la API_, ya que por el momento no está implementando una API.
 

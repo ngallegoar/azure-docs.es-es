@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79218878"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710565"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Compatibilidad de idiomas y regiones para Bing News Search API
 
@@ -137,7 +137,7 @@ Los códigos de país o región siguientes se pueden especificar en el parámetr
 |Alemania|DE|  
 |RAE de Hong Kong|HK|  
 |India|IN|  
-|Indonesia|id|  
+|Indonesia|ID|  
 |Italia|IT|  
 |Japón|JP|  
 |Corea|KR|  

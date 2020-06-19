@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 8a69e0bfe172d2cc7a291ee51ffa73ae7b484731
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 30a4e375bc05d939358b54b279228e1696b17e66
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613299"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729343"
 ---
 # <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>¿En qué se diferencia la nueva versión de Azure Digital Twins de la anterior (2018)?
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 La primera versión preliminar pública de Azure Digital Twins se publicó en octubre de 2018. Aunque ahora los conceptos básicos de la versión anterior ya se han pasado al nuevo servicio en la versión preliminar pública, buena parte de las interfaces y los detalles de implementación han cambiado para que el servicio sea más flexible y accesible. Estos cambios están motivados por los comentarios de los clientes.
 
