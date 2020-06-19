@@ -9,8 +9,6 @@
       href: cognitive-services-and-machine-learning.md
     - name: Subdominios personalizados para Cognitive Services
       href: cognitive-services-custom-subdomains.md
-    - name: Proceso de validación de Cognitive Services
-      href: cognitive-services-gating-process.md
     - name: Compatibilidad con idiomas
       href: language-support.md
 - name: Guías de inicio rápido
@@ -21,6 +19,13 @@
       href: cognitive-services-apis-create-account-cli.md
     - name: Registro de diagnóstico
       href: diagnostic-logging.md
+    - name: Plantilla ARM
+      displayName: Resource Manager
+      href: resource-manager-template.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      href: ./policy-samples.md
 - name: Seguridad
   items:
     - name: Seguridad de Cognitive Services

@@ -2,19 +2,19 @@
 title: 'Inicio rápido: Uso del SDK para crear y administrar la base de conocimiento: QnA Maker'
 description: En este inicio rápido se muestra cómo crear y administrar la base de conocimiento mediante el SDK de cliente.
 ms.topic: quickstart
-ms.date: 04/27/2020
+ms.date: 06/11/2020
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 97d0ddd571f089cea2c656f6277e45d0d5eddb3d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f80e791435d4bf9093b07842430e678b93843311
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608628"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765152"
 ---
-# <a name="quickstart-create-and-manage-knowledge-base"></a>Inicio rápido: Creación y administración de una base de conocimiento
+# <a name="quickstart-qna-maker-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de QnA Maker para .NET
 
-Introducción a la biblioteca cliente de QnA Maker. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.  QnA Maker le permite alimentar un servicio de preguntas y respuestas con su contenido semiestructurado, como documentos de preguntas frecuentes, direcciones URL y manuales de productos.
+Introducción a la biblioteca cliente de QnA Maker para .NET Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
@@ -28,6 +28,13 @@ Introducción a la biblioteca cliente de QnA Maker. Siga estos pasos para instal
 [!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
 ::: zone-end
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [CLI de Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
@@ -36,3 +43,4 @@ Introducción a la biblioteca cliente de QnA Maker. Siga estos pasos para instal
 * [¿Qué es QnA Maker API?](../Overview/overview.md)
 * [Editar una base de conocimiento](../how-to/edit-knowledge-base.md)
 * [Obtención de análisis de uso](../how-to/get-analytics-knowledge-base.md)
+
