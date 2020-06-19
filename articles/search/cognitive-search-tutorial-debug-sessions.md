@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b84f98bd383c2b90c3291527b336d798e9b9cae9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662238"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886748"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnóstico, reparación y confirmación de cambios en el conjunto de aptitudes
 
@@ -173,12 +173,12 @@ Una vez finalizada la ejecución de la sesión de depuración, haga clic en la p
 ## <a name="fix-missing-skill-output-values"></a>Corrección de valores de salida de aptitud que faltan
 
 > [!div class="mx-imgBorder"]
-> ![Errores y advertencias](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![Errores y advertencias](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 Faltan valores de salida de una aptitud. Para identificar la aptitud que tiene el error, vaya a la estructura de datos enriquecidos, busque el nombre del valor y observe su origen. En el caso de valores de organizaciones y ubicaciones que faltan, son salidas de la aptitud #1. Al abrir el evaluador de expresiones </> para cada ruta de acceso, se mostrarán las expresiones enumeradas como "/document/content/organizations" y "/document/content/locations" respectivamente.
 
 > [!div class="mx-imgBorder"]
-> ![Entidad de organizaciones del evaluador de expresiones](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![Entidad de organizaciones del evaluador de expresiones](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 La salida de estas entidades está vacía y no debería ser así. ¿Cuáles son las entradas que producen este resultado?
 
@@ -187,7 +187,7 @@ La salida de estas entidades está vacía y no debería ser así. ¿Cuáles son 
 1. Abra el evaluador de expresiones **</>** para la entrada "text".
 
 > [!div class="mx-imgBorder"]
-> ![Entrada de aptitud de texto](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![Entrada de aptitud de texto](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 El resultado mostrado para esta entrada no parece una entrada de texto. Parece una imagen que está rodeada por líneas nuevas. La falta de texto indica que no se puede identificar ninguna entidad. Al examinar la jerarquía del conjunto de aptitudes, se muestra que la aptitud #6 (OCR) procesa primero el contenido que, a continuación, se pasa a la aptitud #5 (Combinar). 
 
@@ -195,7 +195,7 @@ El resultado mostrado para esta entrada no parece una entrada de texto. Parece u
 1. Seleccione la pestaña **Ejecuciones** en el panel de detalles de la aptitud de la derecha y abra el evaluador de expresiones **</>** para las salidas "mergedText".
 
 > [!div class="mx-imgBorder"]
-> ![Salida de la aptitud de combinación](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![Salida de la aptitud de combinación](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 Aquí el texto se empareja con la imagen. Al examinar la expresión "/document/merged_content", se puede ver el error en las rutas de acceso de las entidades "organizations" y "locations" de la aptitud #1. En lugar de usar "/document/content", debe usar "/document/merged_content" para las entradas de "text".
 
@@ -216,7 +216,7 @@ Una vez finalizada la ejecución del indexador, los errores siguen estando ahí.
 1. Abra el evaluador de expresiones **</>** para la entidad "organizations".
 
 > [!div class="mx-imgBorder"]
-> ![Salida para la entidad "organizations"](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![Salida para la entidad "organizations"](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 Al evaluar el resultado de la expresión, se obtiene el resultado correcto. La aptitud trabaja para identificar el valor correcto de la entidad "organizations". Sin embargo, la asignación de salida en la ruta de acceso de la entidad sigue produciendo un error. Al comparar la ruta de acceso de salida de la aptitud con la ruta de acceso de salida del error, la aptitud es el objeto primario en una relación jerárquica de las salidas, organizaciones y ubicaciones en el nodo /document/content. Sin embargo, la asignación de campos de salida espera los resultados en el nodo /document/merged_content. En el paso anterior, la entrada cambió de "/document/content" a "/document/merged_content". El contexto de la configuración de aptitudes debe cambiarse para asegurarse de que la salida se genera con el contexto correcto.
 
@@ -228,7 +228,7 @@ Al evaluar el resultado de la expresión, se obtiene el resultado correcto. La a
 1. Haga clic en **Ejecutar** en el menú de la ventana de sesiones. Esto iniciará otra ejecución del conjunto de aptitudes con el documento.
 
 > [!div class="mx-imgBorder"]
-> ![Corrección de contexto en la configuración de aptitudes](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![Corrección de contexto en la configuración de aptitudes](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 Todos los errores se han resuelto.
 
