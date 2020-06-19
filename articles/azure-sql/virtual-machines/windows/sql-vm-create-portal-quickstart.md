@@ -4,7 +4,6 @@ description: Este tutorial muestra cómo crear una máquina virtual Windows con 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.topic: quickstart
@@ -13,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f775f93313a1a9a62d66a1a27a8d0f84de2c44aa
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fb10e85b07037805d59dcba91ff20a4bc2a6574e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052809"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667648"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de SQL Server 2017 en una máquina virtual Windows en Azure Portal
 
@@ -60,7 +59,7 @@ En la pestaña **Básico**, especifique la siguiente información:
 
 1. En la sección **Detalles de proyecto**, seleccione su suscripción de Azure y, a continuación, seleccione **Crear nuevo** para crear un nuevo grupo de recursos. Escriba _SQLVM-RG_ para el nombre.
 
-   ![Subscription](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
+   ![Suscripción](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
 
 1. En **Detalles de instancia**:
     1. Escriba _SQLVM_ para el **Nombre de la máquina virtual**. 

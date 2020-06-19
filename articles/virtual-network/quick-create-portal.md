@@ -12,17 +12,17 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79214793"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707419"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Inicio rápido: Creación de una red virtual mediante el Portal de Azure
 
 En esta guía de inicio rápido aprenderá a crear una red virtual mediante Azure Portal. Va a implementar dos máquinas virtuales. Después, debe comunicarse de forma segura entre las máquinas virtuales y conectarse a las máquinas virtuales desde Internet. Una red virtual es el bloque de creación básico de una red privada en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera segura entre sí y con Internet.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -38,7 +38,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
     | Configuración | Value |
     | ------- | ----- |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Nombre | Escriba *myVirtualNetwork*. |
     | Location | Seleccione **Este de EE. UU**.|
@@ -66,7 +66,7 @@ Cree dos máquinas virtuales en la red virtual:
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Ha creado este grupo de recursos en la sección anterior. |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba *myVm1*. |
