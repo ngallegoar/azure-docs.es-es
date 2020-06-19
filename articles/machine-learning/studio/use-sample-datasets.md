@@ -5,17 +5,17 @@ description: Descripciones de los conjuntos de datos que se usan en los modelos 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 9bdf1cd8832d311a71276fa18d407a5b4dd98d24
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 0ecce4db01217bc182687818af365dff334e7d10
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115501"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705906"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Uso de los conjuntos de datos de ejemplo en Azure Machine Learning Studio (clásico)
 
