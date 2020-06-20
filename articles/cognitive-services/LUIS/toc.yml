@@ -30,9 +30,9 @@
     - name: Uso de API REST
       items:
         - name: Obtener intención
-          href: luis-get-started-get-intent-from-rest.md
+          href: luis-get-started-rest-get-intent.md
         - name: Cambiar modelo
-          href: get-started-get-model-rest-apis.md
+          href: luis-get-started-rest-get-model.md
 - name: Tutoriales
   items:
     - name: Compilación de una aplicación que se puede descomponer
@@ -226,6 +226,12 @@
           href: luis-migration-api-v3.md
         - name: Migrar a las API V2
           href: luis-migration-api-v1-to-v2.md
+    - name: Uso de API REST
+      items:
+        - name: Obtener intención
+          href: luis-get-started-get-intent-from-rest.md
+        - name: Cambiar modelo
+          href: get-started-get-model-rest-apis.md
     - name: Uso de contenedores
       items:
         - name: Instalación y ejecución de contenedores
