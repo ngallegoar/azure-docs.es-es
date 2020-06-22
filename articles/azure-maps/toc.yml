@@ -91,6 +91,17 @@
           href: how-to-manage-account-keys.md
         - name: Administración de la autenticación
           href: how-to-manage-authentication.md
+          items:
+            - name: Protección de aplicaciones demonio
+              href: how-to-secure-daemon-app.md
+            - name: Protección de una aplicación de página única de inicio de sesión interactiva
+              href: how-to-secure-spa-users.md
+            - name: Protección de una aplicación web segura
+              href: how-to-secure-webapp-users.md
+            - name: Protección de una aplicación de página única de inicio de sesión no interactiva
+              href: how-to-secure-spa-app.md
+            - name: Protección de una aplicación restringida de entrada
+              href: how-to-secure-device-code.md
         - name: Administración del plan de tarifa
           href: how-to-manage-pricing-tier.md
         - name: Administración de Creator
@@ -318,9 +329,9 @@
     - name: SDK de IoT de Azure
       items:
         - name: SDK de servicio de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDK de dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Condiciones de uso de Azure Maps
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Precios de Azure Maps

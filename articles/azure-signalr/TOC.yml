@@ -25,10 +25,6 @@
   items:
     - name: Compilación de una aplicación en tiempo real sin servidor con autenticación
       href: signalr-tutorial-authenticate-azure-functions.md
-    - name: Supervisión
-      items:
-        - name: Uso de registros de diagnóstico para SignalR Service
-          href: signalr-tutorial-diagnostic-logs.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -51,6 +47,8 @@
           href: signalr-concept-serverless-development-config.md
         - name: Referencia sobre enlaces de SignalR Service para Azure Functions
           href: ../azure-functions/functions-bindings-signalr-service.md
+        - name: Configuración ascendente
+          href: concept-upstream.md
     - name: Alta disponibilidad
       items:
         - name: Resistencia y recuperación ante desastres
@@ -81,12 +79,20 @@
           href: howto-private-endpoints.md
         - name: Administración del control de acceso a la red
           href: howto-network-access-control.md
+        - name: Uso de identidad administrada
+          href: howto-use-managed-identity.md
     - name: Integrate
       items:
         - name: Enlaces de Azure Functions
           href: signalr-concept-azure-functions.md
         - name: Integración con Event Grid
           href: signalr-howto-event-grid-integration.md
+    - name: Supervisión
+      items:
+        - name: Uso de registros de diagnóstico para SignalR Service
+          href: signalr-howto-diagnostic-logs.md
+        - name: Auditoría de cumplimiento mediante Azure Policy
+          href: signalr-howto-azure-policy.md
 - name: Referencias
   items:
     - name: Azure CLI

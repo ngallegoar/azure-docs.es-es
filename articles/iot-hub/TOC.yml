@@ -423,14 +423,24 @@
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (servicio)
       href: /dotnet/api/microsoft.azure.devices
+    - name: .NET (administración)
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/iot/management'
     - name: Java (dispositivo)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (servicio)
       href: /java/api/com.microsoft.azure.sdk.iot.service
     - name: Node. js (dispositivo)
       href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
-    - name: Node.js (Servicio)
+    - name: Node.js (servicio)
       href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
+    - name: Node.js (administración)
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/iothub/management'
+    - name: Python (dispositivo)
+      href: 'https://docs.microsoft.com/python/api/azure-iot-device'
+    - name: Python (servicio)
+      href: 'https://docs.microsoft.com/python/api/azure-iot-hub'
+    - name: Python (administración)
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-iothub'
     - name: SDK para dispositivos C
       href: 'https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/'
     - name: REST (dispositivo)

@@ -27,11 +27,11 @@
               href: tutorial-c-module.md
             - name: Módulos de C para dispositivos Windows
               href: tutorial-c-module-windows.md
-        - name: 'C#'
+        - name: C#
           items:
-            - name: 'Módulos de C# para dispositivos Linux'
+            - name: Módulos de C# para dispositivos Linux
               href: tutorial-csharp-module.md
-            - name: 'Módulos de C# para dispositivos Windows'
+            - name: Módulos de C# para dispositivos Windows
               href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
@@ -199,6 +199,12 @@
           href: how-to-store-data-blob.md
         - name: Implementación de módulos de Blob Storage
           href: how-to-deploy-blob.md
+    - name: Azure SQL Edge en IoT Edge
+      items:
+        - name: Descripción de Azure SQL en el perímetro
+          href: ../azure-sql-edge/overview.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+        - name: Implementación de módulos de Azure SQL Edge
+          href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Administración con herramientas de DevOps
       items:
         - name: Azure DevOps Projects
@@ -238,12 +244,12 @@
     - name: SDK de IoT de Azure
       items:
         - name: SDK de servicio de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDK de dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Ejemplos de Azure IoT
       items:
-        - name: 'C# (.NET)'
+        - name: C# (.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'

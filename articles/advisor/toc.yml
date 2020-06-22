@@ -1,6 +1,6 @@
 - name: Documentación de Azure Advisor
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: ¿Qué es Azure Advisor?
       href: advisor-overview.md
@@ -10,7 +10,7 @@
       href: advisor-get-started.md
 - name: Guías paso a paso
   items:
-    - name: Mejora de la disponibilidad de las aplicaciones de Azure
+    - name: Mejora de la confiabilidad de las aplicaciones de Azure
       href: advisor-high-availability-recommendations.md
     - name: Protección de los recursos
       href: advisor-security-recommendations.md
