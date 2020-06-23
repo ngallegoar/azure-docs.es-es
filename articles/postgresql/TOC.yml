@@ -193,6 +193,8 @@
           items:
             - name: Opciones de configuración
               href: concepts-hyperscale-configuration-options.md
+            - name: Pago por adelantado de capacidad reservada
+              href: concepts-hyperscale-reserved-pricing.md
 - name: Guías paso a paso
   items:
     - name: Servidor único

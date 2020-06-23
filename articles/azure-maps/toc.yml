@@ -240,6 +240,8 @@
       items:
         - name: Requisitos de paquetes de dibujos
           href: drawing-requirements.md
+        - name: StylesObject de mapas dinámicos
+          href: schema-stateset-stylesobject.md
         - name: Modelo de consumo del vehículo
           href: consumption-model.md
         - name: Extensión del formato GeoJSON

@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/03/2020
 ms.author: aahi
-ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142170"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465599"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Idiomas admitidos en Text Analytics API v3 
 
 > [!IMPORTANT]
-> La versión 3. x de Text Analytics API no está disponible actualmente en las siguientes regiones: Centro de la India, Fairfax, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica, Norte de China 2, Este de China.
+> La versión 3. x de Text Analytics API no está disponible actualmente en las siguientes regiones: Centro de la India, Norte de Emiratos Árabes Unidos, Norte de China 2, Este de China.
 
 
 #### <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment-analysis)
 
-| Idioma              | Código de lenguaje | Compatibilidad con la versión v2 | Compatibilidad con la versión v3 | A partir de la versión del modelo v3: |              Notas |
+| Idioma              | Código de lenguaje | Compatibilidad con la versión 2 | Compatibilidad con la versión v3 | A partir de la versión del modelo v3: |              Notas |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Chino simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | También se acepta `zh` |
 | Chino (tradicional)   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
