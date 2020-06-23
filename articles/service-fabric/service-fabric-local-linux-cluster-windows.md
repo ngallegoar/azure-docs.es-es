@@ -16,7 +16,7 @@ ms.locfileid: "82193333"
 
 Este documento describe cómo configurar una instancia local de Service Fabric para Linux en máquinas de desarrollo Windows. La configuración de un clúster Linux local es útil para probar rápidamente las aplicaciones que se destinan a clústeres Linux, pero se desarrollan en un equipo Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 Los clústeres de Service Fabric basados en Linux no se ejecutan de forma nativa en Windows. Para ejecutar un clúster local de Service Fabric, se proporciona una imagen preconfigurada de contenedor de Docker. Antes de comenzar, necesita:
 
 * Al menos 4 GB de RAM

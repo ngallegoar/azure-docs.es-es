@@ -2,18 +2,18 @@
 title: Límites y cuotas del servicio
 description: Obtenga información sobre las restricciones, los límites y las cuotas de Azure Batch predeterminados y cómo solicitar un aumento de la cuota.
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229848"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417283"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
-Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Batch. Muchos de ellos son cuotas predeterminadas que Azure aplica en el nivel de cuenta o suscripción. En este artículo se describen esos valores predeterminados y cómo solicitar un aumento de la cuota.
+Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Batch. Muchos de ellos son cuotas predeterminadas que Azure aplica en el nivel de cuenta o suscripción.
 
 Tenga en cuenta estas cuotas al diseñar y escalar verticalmente sus cargas de trabajo de Batch. Por ejemplo, si su grupo no alcanza el número objetivo de nodos de proceso especificado, es posible que se haya alcanzado el límite de cuota de núcleos de la cuenta de Batch.
 
@@ -31,11 +31,13 @@ Tenga en cuenta también que las cuotas no son valores garantizados. Las cuotas 
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Cuotas de núcleos en el modo de suscripción de usuario
 
-Si creó una cuenta de Batch con el modo de asignación de grupo establecido en **suscripción de usuario**, las cuotas se aplican de manera diferente. En este modo, las máquinas virtuales de Batch y otros recursos se crean directamente en la suscripción cuando se crea un grupo. Las cuotas de núcleos de Azure Batch no se aplican a las cuentas creadas en este modo. En su lugar, se aplican las cuotas en la suscripción para núcleos de proceso regionales y otros recursos. Aprenda más sobre estas cuotas en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Si ha creado una [cuenta de Batch](accounts.md) con el modo de asignación de grupo establecido en **suscripción de usuario**, las cuotas se aplican de manera diferente. En este modo, las máquinas virtuales de Batch y otros recursos se crean directamente en la suscripción cuando se crea un grupo. Las cuotas de núcleos de Azure Batch no se aplican a las cuentas creadas en este modo. En su lugar, se aplican las cuotas en la suscripción para núcleos de proceso regionales y otros recursos.
+
+Para más información sobre estas cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="pool-size-limits"></a>Límites de tamaño de grupo
 
-El servicio Batch establece los límites de tamaño del grupo. A diferencia de [las cuotas de recursos](#resource-quotas), estos valores no se pueden cambiar. Solo los grupos con la comunicación entre nodos e imágenes personalizadas tienen restricciones diferentes de la cuota estándar.
+El servicio Batch establece los límites de tamaño del grupo. A diferencia de las [cuotas de recursos](#resource-quotas), estos valores no se pueden cambiar. Solo los grupos con la comunicación entre nodos e imágenes personalizadas tienen restricciones diferentes de la cuota estándar.
 
 | **Recurso** | **Límite máximo** |
 | --- | --- |
@@ -65,59 +67,57 @@ El servicio Batch establece límites adicionales. A diferencia de [las cuotas de
 
 ## <a name="view-batch-quotas"></a>Visualización de las cuotas de Batch
 
-Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
+Para ver las cuotas de la cuenta de Batch en [Azure Portal](https://portal.azure.com):
 
-1. Seleccione **Cuentas de Batch** en el portal y, luego, seleccione la cuenta de Batch que le interesan.
+1. Seleccione **Cuentas de Batch** y, después, seleccione la cuenta de Batch que le interesa.
 1. Seleccione **Cuotas** en el menú de la cuenta de Batch.
-1. Visualización de las cuotas aplicadas actualmente a la cuenta de Batch
+1. Vea las cuotas aplicadas actualmente a la cuenta de Batch.
 
     ![Cuotas de la cuenta de Batch][account_quotas]
 
 ## <a name="increase-a-quota"></a>Aumento de la cuota
 
-Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o la suscripción con [Azure Portal][portal]. El tipo de aumento de cuota depende del modo de asignación de grupo de su cuenta de Batch. Para solicitar un aumento de cuota, debe incluir la serie de VM para la que quiere aumentar la cuota. Cuando se aplica el aumento de cuota, se aplica a todas las series de VM.
-
-### <a name="increase-cores-quota-in-batch"></a>Aumentar la cuota de núcleos de Batch 
+Puede solicitar un aumento de la cuota para la cuenta de Batch o la suscripción mediante [Azure Portal](https://portal.azure.com). El tipo de aumento de cuota depende del modo de asignación de grupo de su cuenta de Batch. Para solicitar un aumento de cuota, debe incluir la serie de VM para la que quiere aumentar la cuota. Cuando se aplica el aumento de cuota, se aplica a todas las series de VM.
 
 1. Seleccione el icono **Ayuda y soporte técnico** en el panel del portal o el signo de interrogación ( **?** ) en la esquina superior derecha del portal.
 1. Seleccione **Nueva solicitud de soporte técnico** > **Básico**.
 1. En **Aspectos básicos**:
    
-    a. **Tipo de incidencia** > **Límites de servicio y suscripción (cuotas)**
+    1. **Tipo de incidencia** > **Límites de servicio y suscripción (cuotas)**
    
-    b. Seleccione su suscripción.
+    1. Seleccione su suscripción.
    
-    c. **Tipo de cuota** > **Batch**
+    1. **Tipo de cuota** > **Batch**
       
-    Seleccione **Next** (Siguiente).
+       Seleccione **Next** (Siguiente).
     
 1. En **Details** (Detalles):
       
-    a. En **Proporcionar detalles**, especifique la ubicación, el tipo de cuota y la cuenta de Batch.
+    1. En **Proporcionar detalles**, especifique la ubicación, el tipo de cuota y la cuenta de Batch.
     
-    ![Aumento de la cuota de Batch][quota_increase]
+       ![Aumento de la cuota de Batch][quota_increase]
 
-    Entre los tipos de cuota, se incluyen los siguientes:
+       Entre los tipos de cuota, se incluyen los siguientes:
 
-    * **Por cuenta de Batch**  
-        Valores específicos de una única cuenta de Batch, incluidos los núcleos dedicados y de baja prioridad, así como el número de trabajos y grupos.
+       * **Por cuenta de Batch**  
+         Valores específicos de una única cuenta de Batch, incluidos los núcleos dedicados y de baja prioridad, así como el número de trabajos y grupos.
         
-    * **Por región**  
-        Valores que se aplican a todas las cuentas de Batch de una región. Incluye el número de cuentas de Batch por región y suscripción.
+       * **Por región**  
+         Valores que se aplican a todas las cuentas de Batch de una región. Incluye el número de cuentas de Batch por región y suscripción.
 
-    La cuota de prioridad baja es un valor único en todas las series de VM. Si necesita SKU restringidas, debe seleccionar **Núcleos de baja prioridad** e incluir las familias de VM que se solicitarán.
+       La cuota de prioridad baja es un valor único en todas las series de VM. Si necesita SKU restringidas, debe seleccionar **Núcleos de baja prioridad** e incluir las familias de VM que se solicitarán.
 
-    b. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
+    1. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio](https://aka.ms/supportseverity).
 
-    Seleccione **Next** (Siguiente).
+       Seleccione **Next** (Siguiente).
 
 1. En **Información de contacto**:
    
-    a. Seleccione un valor en **Método de contacto preferido**.
+    1. Seleccione un valor en **Método de contacto preferido**.
    
-    b. Compruebe y especifique los detalles de contacto necesarios.
+    1. Compruebe y especifique los detalles de contacto necesarios.
    
-    Seleccione **Crear** para enviar la solicitud de soporte técnico.
+       Seleccione **Crear** para enviar la solicitud de soporte técnico.
 
 Una vez que haya enviado la solicitud de soporte técnico, el servicio de soporte técnico de Azure se comunicará con usted. Las solicitudes de cuota se pueden completar en unos pocos minutos o en hasta dos días laborables.
 
@@ -125,21 +125,17 @@ Una vez que haya enviado la solicitud de soporte técnico, el servicio de soport
 
 Los grupos de Batch en la configuración de máquina virtual implementada en una red virtual de Azure asignan automáticamente recursos de red de Azure adicionales. Se necesitan los siguientes recursos por cada 50 nodos de grupo en una red virtual:
 
-* Un [grupo de seguridad de red](../virtual-network/security-overview.md#network-security-groups)
-* Una [dirección IP pública](../virtual-network/public-ip-addresses.md)
-* Un [equilibrador de carga](../load-balancer/load-balancer-overview.md)
+- Un [grupo de seguridad de red](../virtual-network/security-overview.md#network-security-groups)
+- Una [dirección IP pública](../virtual-network/public-ip-addresses.md)
+- Un [equilibrador de carga](../load-balancer/load-balancer-overview.md)
 
 Estos recursos se asignan en la suscripción que contiene la red virtual proporcionada al crear el grupo de Batch. Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si tiene previsto realizar grandes implementaciones de grupos en una red virtual, compruebe las cuotas de suscripción para estos recursos. Si es necesario, solicite un aumento en Azure Portal seleccionando **Ayuda y soporte técnico**.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Creación de una cuenta de Azure Batch con Azure Portal](batch-account-create-portal.md)
 * Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 * Conozca los [límites, las cuotas y las restricciones de suscripción y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
-
-[portal]: https://portal.azure.com
-[portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
 [quota_increase]: ./media/batch-quota-limit/quota-increase.png
