@@ -44,6 +44,10 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Continuidad empresarial y recuperación ante desastres
       href: business-continuity-disaster-recovery-guidance.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Desarrollar
