@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 948c30c641b68f7966831a3324c1bfab5dbd3b03
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: efabb5402a40b9084452366c2b8cc5ff5167feae
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610742"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206250"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API de REST con Python
 
@@ -44,7 +44,7 @@ En primer lugar, necesitará un conjunto de datos de entrenamiento de un contene
 > [!NOTE]
 > Puede usar la característica de datos etiquetados para etiquetar manualmente algunos o todos los datos de entrenamiento de antemano. Se trata de un proceso más complejo, pero el resultado es un modelo mejor entrenado. Consulte la sección [Entrenamiento con etiquetas](../overview.md#train-with-labels) de la introducción para más información.
 
-Para entrenar un modelo de Form Recognizer con los documentos del contenedor de blobs de Azure, llame a la API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** mediante la ejecución del siguiente código de Python. Antes de ejecutar el código, realice estos cambios:
+Para entrenar un modelo de Form Recognizer con los documentos del contenedor de blobs de Azure, llame a la API **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync)** mediante la ejecución del siguiente código de Python. Antes de ejecutar el código, realice estos cambios:
 
 1. Reemplace `<SAS URL>` por la dirección URL de la firma de acceso compartido (SAS) del contenedor de almacenamiento de blobs de Azure. Para recuperar la dirección URL de SAS, abra el Explorador de Microsoft Azure Storage, haga clic con el botón derecho en el contenedor y seleccione **Get shared access signature** (Obtener firma de acceso compartido). Asegúrese de que los permisos de **lectura** y **enumeración** están marcados y haga clic en **Create** (Crear). A continuación, copie el valor en la sección **URL**. Debe tener el formato `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Reemplace `<subscription key>` con la clave de suscripción que copió en el paso anterior.
@@ -59,7 +59,7 @@ Para entrenar un modelo de Form Recognizer con los documentos del contenedor de 
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.0/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False
@@ -461,4 +461,4 @@ Cuando se complete el proceso, recibirá una respuesta `200 (Success)` con conte
 En este inicio rápido, ha utilizado la API de REST de Form Recognizer con Python para entrenar un modelo y ejecutarlo en un escenario de ejemplo. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
 
 > [!div class="nextstepaction"]
-> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [Documentación de referencia de API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)

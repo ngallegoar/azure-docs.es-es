@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634940"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079384"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Inicio rápido: Creación de un índice de búsqueda en .NET
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "84634940"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Cree una aplicación de consola de .NET Core en C# que cree, cargue y consulte un índice de Azure Cognitive Search mediante Visual Studio y el [SDK de .NET de Azure Cognitive Search](https://aka.ms/search-sdk). 
+Cree una aplicación de consola de .NET Core en C# que cree, cargue y consulte un índice de Azure Cognitive Search mediante Visual Studio y el [SDK de .NET de Azure Cognitive Search](https://docs.microsoft.com/dotnet/api/overview/azure/search). 
 
 En este artículo se explica cómo crear la aplicación paso a paso. También puede [descargar y ejecutar la aplicación completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) si quiere pasar al código.
 
@@ -64,7 +64,7 @@ Para comenzar, abra Visual Studio y cree un nuevo proyecto de Aplicación de con
 
 ### <a name="install-nuget-packages"></a>Instalación de paquetes NuGet
 
-El [SDK de .NET de Azure Cognitive Search](https://aka.ms/search-sdk) consta de varias bibliotecas cliente que se distribuyen como paquetes de NuGet.
+El [SDK de .NET de Azure Cognitive Search](https://docs.microsoft.com/dotnet/api/overview/azure/search) consta de varias bibliotecas cliente que se distribuyen como paquetes de NuGet.
 
 Para este proyecto, utilice la versión 9 del `Microsoft.Azure.Search`paquete NuGet y la versión más reciente del `Microsoft.Extensions.Configuration.Json` paquete NuGet.
 

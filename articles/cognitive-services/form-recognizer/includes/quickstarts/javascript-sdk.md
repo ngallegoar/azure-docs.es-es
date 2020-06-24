@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c24f82d48a1452cdb272abca178a9ba924aacc20
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fa3f57a0a3e71eb44de50a6e7a5eaaebe48fced0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997504"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242080"
 ---
-[Documentación de referencia](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Paquete (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Documentación de referencia](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Paquete (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -101,9 +101,9 @@ const apiKey = process.env["FORM_RECOGNIZER_KEY"] || "<api key>";
 Luego, autentique un objeto de cliente mediante las variables de suscripción que ha definido. Usará un objeto **AzureKeyCredential**, de modo que, si es necesario, pueda actualizar la clave de API sin crear otros objetos de cliente. También creará un objeto de cliente de entrenamiento.
 
 ```javascript
-const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
+const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
-const trainingClient = client.getFormTrainingClient();
+const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
 ### <a name="call-client-specific-functions"></a>Llamada a funciones específicas del cliente
@@ -116,7 +116,7 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 * Use el método anterior para obtener también la dirección URL de una imagen de recibo, o utilice la dirección URL de la imagen de ejemplo proporcionada.
 
 > [!NOTE]
-> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview).
+> Los fragmentos de código de esta guía usan formularios remotos con acceso mediante direcciones URL. En cambio, si quiere procesar documentos de formulario locales, consulte los métodos relacionados en la [documentación de referencia](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
 
 
 ```javascript
@@ -182,44 +182,37 @@ async function AnalyzeReceipt( client, receiptUri)
     const response = poller.getResult();
 
 
-    const usReceipt = response.receipts[0];
+    const receipt = receipts[0];
     console.log("First receipt:");
-    console.log(`Receipt type: ${usReceipt.receiptType}`);
-    console.log(
-        `Merchant Name: ${usReceipt.merchantName.value} (confidence: ${usReceipt.merchantName.confidence})`
-    );
-    console.log(
-        `Transaction Date: ${usReceipt.transactionDate.value} (confidence: ${usReceipt.transactionDate.confidence})`
-    );
-    console.log("Receipt items:");
-    console.log(`  name\tprice\tquantity\ttotalPrice`);
+    // For supported fields recognized by the service, please refer to https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult.
+    const receiptTypeField = receipt.recognizedForm.fields["ReceiptType"];
+    if (receiptTypeField.valueType === "string") {
+        console.log(`  Receipt Type: '${receiptTypeField.value || "<missing>"}', with confidence of ${receiptTypeField.confidence}`);
+    }
+    const merchantNameField = receipt.recognizedForm.fields["MerchantName"];
+    if (merchantNameField.valueType === "string") {
+        console.log(`  Merchant Name: '${merchantNameField.value || "<missing>"}', with confidence of ${merchantNameField.confidence}`);
+    }
+    const transactionDate = receipt.recognizedForm.fields["TransactionDate"];
+    if (transactionDate.valueType === "date") {
+        console.log(`  Transaction Date: '${transactionDate.value || "<missing>"}', with confidence of ${transactionDate.confidence}`);
+    }
 ```
 
 El siguiente bloque de código recorre en iteración los elementos detectados en el recibo e imprime los detalles en la consola.
 
-```csharp
-    for (const item of usReceipt.items) {
-        const name = `${optionalToString(item.name.value)} (confidence: ${optionalToString(
-            item.name.confidence
-        )})`;
-        const price = `${optionalToString(item.price.value)} (confidence: ${optionalToString(
-            item.price.confidence
-        )})`;
-        const quantity = `${optionalToString(item.quantity.value)} (confidence: ${optionalToString(
-            item.quantity.confidence
-        )})`;
-        const totalPrice = `${optionalToString(item.totalPrice.value)} (confidence: ${optionalToString(
-            item.totalPrice.confidence
-        )})`;
-        console.log(`  ${name}\t${price}\t${quantity}\t${totalPrice}`);
-    }
-```
-
-Esta función hace uso de la función auxiliar `optionalToString`. Defina esta función en la raíz del script:
-
 ```javascript
-function optionalToString(value) {
-  return `${value || "<missing>"}`;
+    const itemsField = receipt.recognizedForm.fields["Items"];
+    if (itemsField.valueType === "array") {
+        for (const itemField of itemsField.value || []) {
+            if (itemField.valueType === "object") {
+                const itemNameField = itemField.value["Name"];
+                if (itemNameField.valueType === "string") {
+                    console.log(`    Item Name: '${itemNameField.value || "<missing>"}', with confidence of ${itemNameField.confidence}`);
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -254,15 +247,15 @@ async function TrainModel(trainingClient, trainingDataUrl)
     
     console.log(`Model ID: ${response.modelId}`);
     console.log(`Status: ${response.status}`);
-    console.log(`Created on: ${response.createdOn}`);
-    console.log(`Last modified: ${response.lastModified}`);
+    console.log(`Created on: ${response.requestedOn}`);
+    console.log(`Last modified: ${response.completedOn}`);
 ```
 
 El objeto devuelto **CustomFormModel** contiene información sobre los tipos de formulario que el modelo puede reconocer y los campos que puede extraer de cada tipo de formulario. El siguiente bloque de código imprime esta información en la consola.
 
 ```javascript
-    if (response.models) {
-        for (const submodel of response.models) {
+    if (response.submodels) {
+        for (const submodel of response.submodels) {
             // since the training data is unlabeled, we are unable to return the accuracy of this model
             console.log("We have recognized the following fields");
             for (const key in submodel.fields) {
@@ -300,18 +293,18 @@ async function TrainModelWithLabelsAsync(
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analizar formularios con un modelo personalizado
 
-En esta sección, se muestra cómo extraer información de clave-valor y otro contenido de los tipos de formulario personalizados, con los modelos que ha entrenado con sus propios formularios.
+En esta sección se muestra cómo extraer información de clave-valor y otro contenido de los tipos de formulario personalizados, con los modelos que ha entrenado con sus propios formularios.
 
 > [!IMPORTANT]
 > Para implementar este escenario, debe haber entrenado ya un modelo para que pueda pasar su identificador al método siguiente. Consulte la sección [Entrenamiento de un modelo](#train-a-model-without-labels).
 
-Usará el método **beginRecognizeFormsFromUrl**. El valor devuelto es una colección de objetos **RecognizedForm**, uno para cada página del documento enviado.
+Usará el método **beginRecognizeCustomFormsFromUrl**. El valor devuelto es una colección de objetos **RecognizedForm**, uno para cada página del documento enviado.
 
 ```javascript
 // Analyze PDF form document at an accessible URL
 async function AnalyzePdfForm(client, modelId, formUrl)
 {    
-    const poller = await client.beginRecognizeFormsFromUrl(modelId, formUrl, {
+    const poller = await client.beginRecognizeCustomFormsFromUrl(modelId, formUrl, {
         onProgress: (state) => {
             console.log(`status: ${state.status}`);
         }
@@ -351,7 +344,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
     // First, we see how many custom models we have, and what our limit is
     const accountProperties = await trainingClient.getAccountProperties();
     console.log(
-        `Our account has ${accountProperties.count} custom models, and we can have at most ${accountProperties.limit} custom models`
+        `Our account has ${accountProperties.customModelCount} custom models, and we can have at most ${accountProperties.customModelLimit} custom models`
     );
 ```
 
@@ -361,7 +354,7 @@ El siguiente bloque de código enumera los modelos actuales de la cuenta e impri
 
 ```javascript
     // Next, we get a paged async iterator of all of our custom models
-    const result = trainingClient.listModels();
+    const result = trainingClient.listCustomModels();
 
     // We could print out information about first ten models
     // and save the first model id for later use

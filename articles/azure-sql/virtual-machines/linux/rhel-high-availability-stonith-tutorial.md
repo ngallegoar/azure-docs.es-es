@@ -7,20 +7,18 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 02/27/2020
-ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/18/2020
+ms.openlocfilehash: 56af098050315e1b2cb0bdde531cc38452db4738
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343802"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079375"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de grupos de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
-> El tutorial que se presenta está en **versión preliminar pública**. 
->
 > En este tutorial, vamos a usar SQL Server 2017 con RHEL 7.6, pero es posible usar SQL Server 2019 en RHEL 7 o RHEL 8 para configurar una alta disponibilidad. Los comandos para configurar los recursos del grupo de disponibilidad han cambiado en RHEL 8 y le interesará consultar el artículo [Crear un recurso de grupo de disponibilidad](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) y los recursos de RHEL 8 para más información sobre los comandos correctos.
 
 En este tutorial, aprenderá a:
