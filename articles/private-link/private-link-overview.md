@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/02/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ec64facd554ca32ddc1357d9b92b08f1d844e377
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 5e46f9dabe2b6f38a08b8e14bae845e0fee22457
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673418"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081016"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -43,6 +43,7 @@ Azure Private Link proporciona las ventajas siguientes:
 |Servicios admitidos  |Regiones disponibles | Estado  |
 |:-------------------|:-----------------|:--------|
 |Servicios de Private Link detrás de Azure Load Balancer estándar | Todas las regiones públicas  | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Azure Automation  | Todas las regiones públicas | Versión preliminar | |
 | Azure Storage        |  Todas las regiones públicas       | Disponibilidad general <br/> [Más información](/azure/storage/common/storage-private-endpoints)  |
 | Azure Data Lake Storage Gen2        |  Todas las regiones públicas      | Disponibilidad general <br/> [Más información](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | Todas las regiones públicas      |   Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
