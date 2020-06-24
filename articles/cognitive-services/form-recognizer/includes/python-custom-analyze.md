@@ -5,16 +5,16 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3c6059e131eadf1144fd189c47691b2352176745
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 426158945e609b2bb46dd9fbbbbe378f25cd93f1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75446439"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206252"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Análisis de los formularios para obtener los pares clave-valor y las tablas
 
-A continuación, utilizará el modelo recién entrenado para analizar un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** mediante la ejecución del siguiente código en un nuevo script de Python. Antes de ejecutar el script, realice estos cambios:
+A continuación, utilizará el modelo recién entrenado para analizar un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)** mediante la ejecución del siguiente código en un nuevo script de Python. Antes de ejecutar el script, realice estos cambios:
 
 1. Reemplace `<file path>` por la ruta de acceso de archivo del formulario (por ejemplo, C:\temp\file.pdf). Esta también puede ser una dirección URL a un archivo remoto. En este inicio rápido puede usar los archivos de la carpeta **Prueba** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Reemplace `<model_id>` por el identificador de modelo que recibió en la sección anterior.
@@ -32,7 +32,7 @@ A continuación, utilizará el modelo recién entrenado para analizar un documen
     endpoint = r"<endpoint>"
     apim_key = "<subsription key>"
     model_id = "<model_id>"
-    post_url = endpoint + "/formrecognizer/v2.0-preview/custom/models/%s/analyze" % model_id
+    post_url = endpoint + "/formrecognizer/v2.0/custom/models/%s/analyze" % model_id
     source = r"<file path>"
     params = {
         "includeTextDetails": True
