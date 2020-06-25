@@ -814,7 +814,7 @@
             - name: Accesibilidad al Explorador de Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Página de preguntas y respuestas de Microsoft
-          href: 'https://docs.microsoft.com/answers/products/topics/azure-blob-storage.html'
+          href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
         - name: Azure Storage en Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: Precios
