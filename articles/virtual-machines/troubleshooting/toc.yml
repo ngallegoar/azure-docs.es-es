@@ -91,6 +91,8 @@
           href: troubleshoot-reboot-loop.md
         - name: Bloqueo en Windows Update
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Reinicio inesperado o error
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
         - name: El inicio de la máquina virtual está detenido
           href: troubleshoot-vm-boot-configure-update.md
         - name: La máquina virtual no puede arrancar debido a Administración de arranque de Windows

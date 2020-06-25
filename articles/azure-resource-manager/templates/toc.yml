@@ -14,6 +14,10 @@
       items:
         - name: IA + Machine Learning
           items:
+            - name: Cognitive Search
+              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Cognitive Services
+              href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Máquina virtual de ciencia de datos
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -40,6 +44,8 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Synapse Analytics
+              href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Blockchain
           items:
             - name: Blockchain
@@ -130,8 +136,6 @@
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Web
           items:
-            - name: Cognitive Search
-              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutoriales
@@ -293,6 +297,14 @@
           href: export-template-portal.md
         - name: Detección de recursos
           href: view-resources.md
+    - name: Validar plantillas
+      items:
+        - name: Implementación de tipo "y si"
+          href: template-deploy-what-if.md
+        - name: Kit de herramientas de prueba
+          href: test-toolkit.md
+        - name: Casos de prueba
+          href: test-cases.md
     - name: Implementación de plantillas
       items:
         - name: 'Implementación: Portal'
@@ -309,8 +321,6 @@
           href: deploy-rest.md
         - name: Implementación desde GitHub
           href: deploy-to-azure-button.md
-        - name: Implementación de tipo "y si"
-          href: template-deploy-what-if.md
         - name: Nueva implementación si se produce un error
           displayName: rollback
           href: rollback-on-error.md

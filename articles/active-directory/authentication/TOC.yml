@@ -36,6 +36,8 @@
       items:
         - name: Funcionamiento de Multi-Factor Authentication
           href: concept-mfa-howitworks.md
+        - name: Mensajes y duración de la sesión
+          href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
         - name: Residencia de datos
           href: concept-mfa-data-residency.md
         - name: Licencias

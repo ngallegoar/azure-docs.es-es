@@ -1,0 +1,103 @@
+- name: "Documentación de Azure Kinect\_DK"
+  href: index.yml
+- name: Información general
+  items:
+    - name: "Acerca de Azure Kinect\_DK"
+      href: about-azure-kinect-dk.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: "Configuración de Azure Kinect\_DK"
+      href: set-up-azure-kinect-dk.md
+    - name: Grabación de transmisiones de sensores en un archivo
+      href: record-sensor-streams-file.md
+    - name: Compilación de la primera aplicación
+      href: build-first-app.md
+    - name: Configuración del SDK de seguimiento del cuerpo
+      href: body-sdk-setup.md
+    - name: Creación de la primera aplicación de seguimiento de personas
+      href: build-first-body-app.md
+- name: Conceptos
+  items:
+    - name: Cámara de profundidad
+      href: depth-camera.md
+    - name: Sistemas de coordenadas
+      href: coordinate-systems.md
+    - name: Uniones de seguimiento de personas
+      href: body-joints.md
+    - name: Mapa de índice de seguimiento de personas
+      href: body-index-map.md
+- name: Guías paso a paso
+  items:
+    - name: Uso del SDK del sensor
+      items:
+        - name: SDK del sensor de Azure Kinect
+          href: about-sensor-sdk.md
+        - name: Búsqueda y apertura del dispositivo
+          href: find-then-open-device.md
+        - name: Recuperación de imágenes
+          href: retrieve-images.md
+        - name: Recuperación de muestras del IMU
+          href: retrieve-imu-samples.md
+        - name: Acceso al micrófono
+          href: access-mics.md
+        - name: Uso de transformaciones de imágenes
+          href: use-image-transformation.md
+        - name: Uso de funciones de calibración
+          href: use-calibration-functions.md
+        - name: Captura de sincronización del dispositivo
+          href: capture-device-synchronization.md
+        - name: Grabación y reproducción
+          href: record-playback-api.md
+    - name: Uso del SDK de seguimiento de personas
+      items:
+        - name: Obtención del resultados del seguimiento de personas
+          href: get-body-tracking-results.md
+        - name: Acceso a los datos en el marco del cuerpo
+          href: access-data-body-frame.md
+    - name: "Adición de la biblioteca de Azure Kinect a un proyecto de\_VS"
+      href: add-library-to-project.md
+    - name: Actualización del firmware de Azure Kinect
+      href: update-device-firmware.md
+    - name: Uso de la grabadora con unidades sincronizadas externas
+      href: record-external-synchronized-units.md
+- name: Herramientas
+  items:
+    - name: Visor de Azure Kinect
+      href: azure-kinect-viewer.md
+    - name: Grabadora de Azure Kinect
+      href: azure-kinect-recorder.md
+    - name: Herramienta de firmware de Azure Kinect
+      href: azure-kinect-firmware-tool.md
+- name: Recursos
+  items:
+    - name: Descarga del SDK del sensor
+      href: sensor-sdk-download.md
+    - name: Descarga del SDK de seguimiento de personas
+      href: body-sdk-download.md
+    - name: Requisitos del sistema
+      href: system-requirements.md
+    - name: Especificación del hardware
+      href: hardware-specification.md
+    - name: Sincronización de varios dispositivos
+      href: multi-camera-sync.md
+    - name: Comparación con Kinect para Windows
+      href: windows-comparison.md
+    - name: "Restablecimiento de Azure Kinect\_DK"
+      href: reset-azure-kinect-dk.md
+    - name: Soporte de Azure Kinect
+      href: support.md
+    - name: Solución de problemas de Azure Kinect
+      href: troubleshooting.md
+    - name: 'Garantías, planes de servicio extendidos y términos y condiciones'
+      href: 'https://support.microsoft.com/help/4493926/warranties-extended-service-plans-and-terms-conditions-for-your-device'
+    - name: Información de seguridad
+      href: 'https://support.microsoft.com/help/4023454/safety-information'
+- name: Referencias
+  items:
+    - name: API de sensor
+      href: 'https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html'
+    - name: API de seguimiento de personas
+      href: 'https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html'
+    - name: Grabación del formato de archivo
+      href: record-file-format.md

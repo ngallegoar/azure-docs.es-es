@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de las plantillas de Resource Manager
-summary: Las plantillas de Azure Resource Manager son archivos JSON (notación de objetos JavaScript) que define tanto la infraestructura como la configuración de un proyecto.
+summary: Las plantillas de Azure Resource Manager son archivos JSON (notación de objetos JavaScript) que definen tanto la infraestructura como la configuración de un proyecto.
 metadata:
   title: Documentación de las plantillas de Resource Manager
   description: Aprenda a desarrollar plantillas de Azure Resource Manager y a usarlas para implementar recursos de Azure
@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/09/2020
-  ms.openlocfilehash: f05b14039f5b83b4f214d7fa479a3ab809e859c6
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: d6c1708543623423c939d03f0510e1abc72cf637
+  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78943226"
+  ms.lasthandoff: 06/23/2020
+  ms.locfileid: "85209205"
 landingContent:
 - title: Acerca de las plantillas de Resource Manager
   linkLists:
@@ -97,7 +97,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Subscription
+    - text: Suscripción
       url: deploy-to-subscription.md
     - text: Grupo de administración
       url: deploy-to-management-group.md

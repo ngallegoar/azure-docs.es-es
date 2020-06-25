@@ -37,6 +37,8 @@
       href: ../../api-management/security-baseline.md
     - name: Base de referencia de seguridad de Application Gateway
       href: ../../application-gateway/security-baseline.md
+    - name: Línea de base de seguridad de Automation
+      href: ../../automation/security-baseline.md
     - name: Base de referencia de seguridad de Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Base de referencia de seguridad de Backup
@@ -51,24 +53,32 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Base de referencia de seguridad de Caja de seguridad del cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Línea de base de seguridad de Databox
+      href: ../../databox/security-baseline.md
     - name: Base de referencia de seguridad de Data Explorer
       href: /azure/data-explorer/security-baseline
     - name: Base de referencia de seguridad de Data Factory
-      href: /azure/data-factory/security-baseline
+      href: ../../data-factory/security-baseline.md
     - name: Base de referencia de la seguridad de Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Base de referencia de seguridad de Event Hubs
       href: ../../event-hubs/security-baseline.md
+    - name: Línea de base de seguridad de ExpressRoute
+      href: ../../expressroute/security-baseline.md
     - name: Base de referencia de la seguridad de Functions
       href: ../../azure-functions/security-baseline.md
     - name: Base de referencia de seguridad de HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Base de referencia de seguridad de Key Vault
       href: ../../key-vault/security-baseline.md
+    - name: Línea de base de seguridad de Logic Apps
+      href: ../../logic-apps/security-baseline.md
     - name: Base de referencia de seguridad de MariaDB
       href: ../../mariadb/security-baseline.md
     - name: Base de referencia de seguridad de MySQL
       href: ../../mysql/security-baseline.md
+    - name: Línea base de seguridad de Network Watcher
+      href: ../../network-watcher/security-baseline.md
     - name: Base de referencia de seguridad de PostgreSQL
       href: ../../postgresql/security-baseline.md
     - name: Base de referencia de seguridad de SQL Database

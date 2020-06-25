@@ -19,6 +19,9 @@
     - name: 'Creación de una función de Durable: JavaScript'
       displayName: 'get started, chaining'
       href: quickstart-js-vscode.md
+    - name: 'Creación de una función de Durable: Python'
+      displayName: 'get started, chaining'
+      href: quickstart-python-vscode.md
 - name: Tutoriales
   items:
     - name: Diagrama de encadenamiento de funciones
@@ -76,7 +79,7 @@
 - name: Referencia
   items:
     - name: Configuración de host.json
-      href: 'durable-functions-bindings.md#host-json'
+      href: durable-functions-bindings.md#host-json
     - name: Enlaces
       href: durable-functions-bindings.md
     - name: API DE HTTP

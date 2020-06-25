@@ -35,6 +35,8 @@
 - name: Guías paso a paso
   expanded: false
   items:
+    - Name: "Planificación de la implementación de dispositivos de Azure\_AD"
+      href: plan-device-deployment.md
     - name: Planeación de la implementación de la unión a Azure AD
       href: azureadjoin-plan.md
     - name: Asignación de administradores locales en dispositivos unidos a Azure AD
