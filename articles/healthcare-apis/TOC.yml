@@ -37,6 +37,11 @@
       href: access-fhir-postman-tutorial.md
     - name: Uso de SMART en el proxy de FHIR
       href: use-smart-on-fhir-proxy.md
+- name: Ejemplos
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Guías paso a paso
   expanded: false
   items:
