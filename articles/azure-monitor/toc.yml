@@ -615,6 +615,8 @@
               href: app/remove-application-insights.md
         - name: Supervisión sin código
           items:
+            - name: Información general
+              href: app/codeless-overview.md
             - name: Máquina virtual y conjunto de escalado de Azure
               href: app/azure-vm-vmss-apps.md
             - name: Azure App Service
